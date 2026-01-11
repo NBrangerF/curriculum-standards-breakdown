@@ -1,16 +1,18 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { GRADE_BANDS } from '../data/dataLoader'
+import { GRADE_BANDS, SUBJECT_COLORS } from '../data/dataLoader'
 import TSBadge from './TSBadge'
 import FavoriteButton from './FavoriteButton'
 import './StandardCard.css'
 
 /**
- * StandardCard - Refined visual hierarchy
+ * StandardCard - Refined visual hierarchy with hover-reveal actions
  * 
- * Header: Subdomain (primary) + Grade band chip + Favorite + Menu + Expand
- * Body: Standard statement text (visual focus)
- * Footer: ID + Copy button (appears on hover/focus, or via menu on mobile)
+ * Features:
+ * - 4px left accent line (color from subject_slug)
+ * - Primary action (⭐) always visible
+ * - Secondary actions (grade badge, expand) reveal on hover/focus
+ * - Mobile: primary + menu always visible, others hidden
  */
 function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
     const [isExpanded, setIsExpanded] = useState(false)
@@ -24,6 +26,7 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
         domain,
         subdomain,
         grade_band,
+        subject_slug,
         context,
         practice,
         teaching_tip,
@@ -34,6 +37,9 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
 
     const gradeBandInfo = GRADE_BANDS[grade_band] || {}
     const hasDetails = context || practice || teaching_tip || assessment_evidence_type
+
+    // Get accent color from subject
+    const accentColor = SUBJECT_COLORS[subject_slug] || 'var(--color-primary)'
 
     // Use either highlightKeyword or highlightTerm
     const searchTerm = highlightKeyword || highlightTerm
@@ -95,7 +101,10 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
     const primaryLabel = subdomain || domain || ''
 
     return (
-        <div className={`standard-card group ${isExpanded ? 'expanded' : ''}`}>
+        <div
+            className={`standard-card ${isExpanded ? 'expanded' : ''}`}
+            style={{ '--card-accent': accentColor }}
+        >
             {/* Copy Toast */}
             {copyToast && (
                 <div className="copy-toast">已复制 ID</div>
@@ -115,9 +124,9 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                 </div>
 
                 <div className="standard-card-actions">
-                    {/* Grade band chip with distinct color */}
+                    {/* Grade band chip - secondary (hover reveal) */}
                     <span
-                        className="grade-band-chip"
+                        className="grade-band-chip action-secondary"
                         style={{
                             '--band-color': gradeBandInfo.color,
                             '--band-bg': gradeBandInfo.bgColor
@@ -126,10 +135,12 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                         {gradeBandInfo.label || grade_band}
                     </span>
 
-                    {/* Favorite */}
-                    <FavoriteButton code={code} size="small" />
+                    {/* Favorite - primary (always visible) */}
+                    <div className="action-primary">
+                        <FavoriteButton code={code} size="small" />
+                    </div>
 
-                    {/* More menu (mobile) */}
+                    {/* More menu - always visible */}
                     <div className="menu-container" ref={menuRef}>
                         <button
                             className="menu-btn"
@@ -156,10 +167,10 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                         )}
                     </div>
 
-                    {/* Expand button */}
+                    {/* Expand button - secondary (hover reveal) */}
                     {hasDetails && (
                         <button
-                            className="expand-btn"
+                            className="expand-btn action-secondary"
                             aria-label={isExpanded ? '收起' : '展开'}
                             onClick={() => setIsExpanded(!isExpanded)}
                         >
@@ -197,7 +208,7 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                 <button
                     className="copy-btn"
                     onClick={handleCopyCode}
-                    aria-label="Copy standard ID"
+                    aria-label="复制标准 ID"
                     title="复制 ID"
                 >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

@@ -450,14 +450,25 @@
     border-radius: var(--radius-xl);
     text-decoration: none;
     border: 1px solid var(--color-gray-200);
-    border-left: 4px solid var(--skill-color, var(--color-primary));
     transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 2px top accent line */
+.skill-preview-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--skill-color, var(--color-primary));
 }
 
 .skill-preview-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
-    border-left-width: 6px;
 }
 
 .skill-card-header {

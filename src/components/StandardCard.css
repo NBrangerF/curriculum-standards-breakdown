@@ -1,5 +1,6 @@
 /* ============================================
    Standard Card Component - Refined Visual Hierarchy
+   Upgraded: Hover-reveal actions + 4px left accent line
    ============================================ */
 
 .standard-card {
@@ -9,6 +10,20 @@
     border: 1px solid var(--color-gray-200);
     overflow: hidden;
     transition: all var(--transition-fast);
+    /* Accent color injection via CSS variable */
+    --card-accent: var(--color-primary);
+}
+
+/* 4px Left Accent Line */
+.standard-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--card-accent);
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
 
 .standard-card:hover {
@@ -60,6 +75,8 @@
     justify-content: space-between;
     gap: var(--space-3);
     padding: var(--space-3) var(--space-4);
+    padding-left: calc(var(--space-4) + 4px);
+    /* Account for left accent */
     border-bottom: 1px solid var(--color-gray-100);
 }
 
@@ -91,14 +108,43 @@
     text-overflow: ellipsis;
 }
 
-/* Actions (Grade band + Favorite + Menu + Expand) */
+/* ============================================
+   Actions - Hover Reveal System
+   ============================================ */
+
 .standard-card-actions {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
+    gap: var(--space-1);
     flex-shrink: 0;
 }
 
+/* Primary action: always visible (Favorite star) */
+.action-primary {
+    display: contents;
+}
+
+/* Secondary actions: hover/focus reveal */
+.action-secondary {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 150ms ease;
+}
+
+/* Reveal on card hover or focus-within */
+.standard-card:hover .action-secondary,
+.standard-card:focus-within .action-secondary {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Focus visible override - always show when focused */
+.action-secondary:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Grade band chip */
 .grade-band-chip {
     font-size: var(--font-size-xs);
     font-weight: 600;
@@ -107,6 +153,35 @@
     color: var(--band-color, var(--color-primary));
     border-radius: var(--radius-md);
     white-space: nowrap;
+}
+
+/* ============================================
+   Action Buttons - Unified Styling
+   ============================================ */
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    color: var(--text-tertiary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.action-btn:hover {
+    background: var(--color-gray-100);
+    color: var(--text-primary);
+}
+
+.action-btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    opacity: 1;
 }
 
 /* Menu */
@@ -118,8 +193,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     border: none;
     background: transparent;
     color: var(--text-tertiary);
@@ -130,8 +205,13 @@
 }
 
 .menu-btn:hover {
-    background: var(--bg-tertiary);
+    background: var(--color-gray-100);
     color: var(--text-primary);
+}
+
+.menu-btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
 
 .menu-dropdown {
@@ -178,7 +258,7 @@
 }
 
 .menu-item:hover {
-    background: var(--bg-tertiary);
+    background: var(--color-gray-100);
 }
 
 .menu-icon {
@@ -190,10 +270,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     border-radius: var(--radius-full);
-    background: var(--bg-tertiary);
+    background: var(--color-gray-100);
     border: none;
     color: var(--text-tertiary);
     transition: all var(--transition-fast);
@@ -204,6 +284,11 @@
 .expand-btn:hover {
     background: var(--color-gray-200);
     color: var(--text-primary);
+}
+
+.expand-btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
 
 .expand-icon {
@@ -221,6 +306,8 @@
 
 .standard-card-body {
     padding: var(--space-3) var(--space-4);
+    padding-left: calc(var(--space-4) + 4px);
+    /* Account for left accent */
 }
 
 .standard-text-link {
@@ -255,6 +342,8 @@
     flex-wrap: wrap;
     gap: var(--space-1);
     padding: 0 var(--space-4) var(--space-3);
+    padding-left: calc(var(--space-4) + 4px);
+    /* Account for left accent */
 }
 
 .ts-badge-link {
@@ -274,6 +363,8 @@
     align-items: center;
     justify-content: space-between;
     padding: var(--space-2) var(--space-4);
+    padding-left: calc(var(--space-4) + 4px);
+    /* Account for left accent */
     border-top: 1px solid var(--color-gray-100);
     background: var(--bg-secondary);
 
@@ -305,8 +396,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     border: none;
     background: transparent;
     color: var(--text-tertiary);
@@ -331,6 +422,8 @@
 
 .standard-card-details {
     padding: 0 var(--space-4) var(--space-4);
+    padding-left: calc(var(--space-4) + 4px);
+    /* Account for left accent */
     border-top: 1px solid var(--color-gray-100);
     background: var(--bg-secondary);
 }
@@ -374,14 +467,28 @@
 @media (max-width: 768px) {
     .standard-card-header {
         padding: var(--space-2) var(--space-3);
+        padding-left: calc(var(--space-3) + 4px);
     }
 
     .standard-card-body {
         padding: var(--space-2) var(--space-3);
+        padding-left: calc(var(--space-3) + 4px);
     }
 
     .standard-ts-row {
         padding: 0 var(--space-3) var(--space-2);
+        padding-left: calc(var(--space-3) + 4px);
+    }
+
+    /* Mobile: show primary action and menu, hide others */
+    .action-secondary:not(.mobile-show) {
+        display: none;
+    }
+
+    /* Keep menu always visible on mobile */
+    .menu-container {
+        opacity: 1 !important;
+        pointer-events: auto !important;
     }
 
     /* Mobile: Footer always hidden, use menu for copy */
@@ -395,5 +502,13 @@
 
     .standard-text {
         font-size: var(--font-size-sm);
+    }
+
+    /* Smaller action buttons on mobile */
+    .action-btn,
+    .menu-btn,
+    .expand-btn {
+        width: 28px;
+        height: 28px;
     }
 }
