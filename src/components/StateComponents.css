@@ -1,0 +1,126 @@
+/* State Components Styles */
+
+.state-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-12);
+    text-align: center;
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+}
+
+.state-icon {
+    font-size: 4rem;
+    margin-bottom: var(--space-4);
+    line-height: 1;
+}
+
+.state-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.state-message {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-5);
+    max-width: 400px;
+}
+
+/* Loading State */
+.loading-state {
+    min-height: 200px;
+}
+
+.loading-state.small {
+    min-height: 100px;
+    padding: var(--space-6);
+}
+
+.loading-spinner {
+    margin-bottom: var(--space-4);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--color-gray-200);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-state.small .spinner {
+    width: 24px;
+    height: 24px;
+    border-width: 2px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Error State */
+.error-state {
+    background: var(--bg-primary);
+    border: 1px solid var(--color-error);
+}
+
+.error-state .state-icon {
+    color: var(--color-error);
+}
+
+/* Empty State */
+.empty-state {
+    background: var(--bg-secondary);
+}
+
+/* Result Stats */
+.result-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-4);
+}
+
+.stats-count {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.stats-count strong {
+    font-size: var(--font-size-2xl);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.stats-breakdown {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.breakdown-chip {
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--font-size-xs);
+    background: var(--bg-primary);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-full);
+    color: var(--text-secondary);
+}
+
+/* Copy Link Button */
+.copy-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}

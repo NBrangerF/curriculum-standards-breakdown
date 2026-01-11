@@ -1,0 +1,202 @@
+{
+    "generated_at": "2026-01-08",
+    "version": "1.0",
+    "terms": [
+        {
+            "term": "标准 (Standard)",
+            "term_en": "Standard",
+            "category": "核心概念",
+            "definition": "对学生在某一学段应达成的学习要求的具体描述，是教学设计与评价的依据。每条标准通常包含知识、技能与情境要求。",
+            "examples": [
+                "能在入学适应期参与自我介绍与校园参观活动，能说出至少3处校园主要场所及其用途..."
+            ],
+            "related_terms": [
+                "domain",
+                "grade_band"
+            ]
+        },
+        {
+            "term": "领域 (Domain)",
+            "term_en": "Domain",
+            "category": "结构概念",
+            "definition": "学科内容的一级分类维度。不同学科有不同的领域划分方式，如数学分为"数与代数""图形与几何"等，语文分为"阅读与鉴赏""表达与交流"等。",
+            "examples": [
+                "数与代数",
+                "图形与几何",
+                "阅读与鉴赏",
+                "健康教育"
+            ],
+            "related_terms": [
+                "subdomain",
+                "standard"
+            ]
+        },
+        {
+            "term": "子领域 (Subdomain)",
+            "term_en": "Subdomain",
+            "category": "结构概念",
+            "definition": "领域下更细分的内容分类，用于进一步组织和定位标准。并非所有学科都有子领域划分。",
+            "examples": [],
+            "related_terms": [
+                "domain"
+            ]
+        },
+        {
+            "term": "学段 (Grade Band)",
+            "term_en": "Grade Band",
+            "category": "结构概念",
+            "definition": "义务教育阶段的年级分组。本系统采用三个学段：H1（第一学段，1-2年级）、H2（第二学段，3-6年级）、H3（第三学段，7-9年级）。",
+            "examples": [
+                "H1 = 1-2年级",
+                "H2 = 3-6年级",
+                "H3 = 7-9年级"
+            ],
+            "related_terms": [
+                "grade_range"
+            ]
+        },
+        {
+            "term": "情境说明 (Context)",
+            "term_en": "Context",
+            "category": "教学字段",
+            "definition": "描述该标准适用的教学场景或学习情境，帮助教师理解何时、何处落实该标准。",
+            "examples": [
+                "入学适应周/新生入校活动",
+                "班级常规建设与日常行为养成"
+            ],
+            "related_terms": [
+                "practice",
+                "teaching_tip"
+            ]
+        },
+        {
+            "term": "实践建议 (Practice)",
+            "term_en": "Practice",
+            "category": "教学字段",
+            "definition": "针对该标准的可落地教学活动示例，提供具体的任务或项目建议，支持教师设计学习体验。",
+            "examples": [
+                "完成一次"校园寻宝"（图书角/医务室/操场等）并在班级地图贴上标记"
+            ],
+            "related_terms": [
+                "context",
+                "teaching_tip"
+            ]
+        },
+        {
+            "term": "教学提示 (Teaching Tip)",
+            "term_en": "Teaching Tip",
+            "category": "教学字段",
+            "definition": "教师操作要点与注意事项，包含教学策略、常见误区、支架设计等专业建议。",
+            "examples": [
+                "用"校园导览+同伴结对"降低陌生感；用图标规则卡做即时提醒"
+            ],
+            "related_terms": [
+                "practice",
+                "context"
+            ]
+        },
+        {
+            "term": "评价证据 (Assessment Evidence)",
+            "term_en": "Assessment Evidence",
+            "category": "教学字段",
+            "definition": "可用于评估学生是否达成标准的证据类型，如作品、表现、观察记录等，支持教学评一体化设计。",
+            "examples": [
+                "教师观察清单（参与度/守规则/表达）+学生口头描述+作品（名片/地图标记）"
+            ],
+            "related_terms": [
+                "standard",
+                "practice"
+            ]
+        },
+        {
+            "term": "可迁移技能 (Transferable Skills)",
+            "term_en": "Transferable Skills",
+            "category": "能力概念",
+            "definition": "学生能跨学科、跨情境迁移运用的能力与素养，支持把所学知识与方法用于新问题与真实生活。本系统包含7个技能领域（TS1-TS7），共26个子技能。",
+            "examples": [
+                "TS1 批判性思维与问题解决",
+                "TS4 协作与共同体行动",
+                "TS5 沟通与表达"
+            ],
+            "related_terms": [
+                "ts_primary",
+                "ts_secondary"
+            ]
+        },
+        {
+            "term": "主标签 (Primary Tag)",
+            "term_en": "Primary Tag",
+            "category": "标注概念",
+            "definition": "标准的主要可迁移技能标签，表示该标准主要培养或练习的技能。每条标准建议至少有1个主标签。",
+            "examples": [
+                "ts_primary: [\"TS3\"]",
+                "ts_primary: [\"TS1.2\"]"
+            ],
+            "related_terms": [
+                "ts_secondary",
+                "transferable_skills"
+            ]
+        },
+        {
+            "term": "次标签 (Secondary Tag)",
+            "term_en": "Secondary Tag",
+            "category": "标注概念",
+            "definition": "标准的次要可迁移技能标签，表示该标准附带培养的技能。可以为空，最多建议3个。",
+            "examples": [
+                "ts_secondary: [\"TS4\", \"TS5\"]"
+            ],
+            "related_terms": [
+                "ts_primary",
+                "transferable_skills"
+            ]
+        },
+        {
+            "term": "Look-fors（表现证据）",
+            "term_en": "Look-fors",
+            "category": "能力概念",
+            "definition": "用于识别学生是否具备某项可迁移技能的可观察行为指标，帮助教师在日常教学中觉察学生的技能发展水平。",
+            "examples": [
+                "能区分事实/观点/假设，主动追问"证据是什么、来自哪里""
+            ],
+            "related_terms": [
+                "teacher_moves",
+                "transferable_skills"
+            ]
+        },
+        {
+            "term": "Teacher Moves（教师策略）",
+            "term_en": "Teacher Moves",
+            "category": "能力概念",
+            "definition": "教师可采用的教学行动与策略，用于有意识地培养学生的可迁移技能。",
+            "examples": [
+                "用高质量提问驱动推理：为什么？依据是什么？还有别的解释吗？"
+            ],
+            "related_terms": [
+                "look_fors",
+                "transferable_skills"
+            ]
+        }
+    ],
+    "categories": [
+        {
+            "id": "核心概念",
+            "description": "课程标准体系的核心术语"
+        },
+        {
+            "id": "结构概念",
+            "description": "用于组织和分类标准的维度"
+        },
+        {
+            "id": "教学字段",
+            "description": "标准中支持教学设计的字段"
+        },
+        {
+            "id": "能力概念",
+            "description": "与可迁移技能相关的术语"
+        },
+        {
+            "id": "标注概念",
+            "description": "技能标注相关的术语"
+        }
+    ]
+}

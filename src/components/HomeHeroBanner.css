@@ -1,0 +1,173 @@
+/* ============================================
+   HomeHeroBanner - Landing Page Hero
+   TS-style visuals + Left-aligned content
+   ============================================ */
+
+.home-hero-banner {
+    position: relative;
+    min-height: 420px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Content area - LEFT ALIGNED */
+.home-hero-banner .hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 680px;
+    padding: var(--space-12) 0;
+    text-align: left;
+}
+
+/* Version tag (H2) */
+.hero-version-tag {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--space-4);
+}
+
+/* Main headline (H1) */
+.hero-headline {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: var(--space-5);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+/* Accent color on key word (optional) */
+.hero-headline .accent {
+    color: var(--theme-color, #0891b2);
+}
+
+/* Body text */
+.hero-body {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.75);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-3);
+    max-width: 560px;
+}
+
+/* Micro hint */
+.hero-hint {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: var(--space-6);
+}
+
+/* Action buttons */
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    min-height: 44px;
+}
+
+/* Primary button */
+.hero-btn-primary {
+    background: var(--theme-color, #0891b2);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 14px rgba(8, 145, 178, 0.3);
+}
+
+.hero-btn-primary:hover {
+    background: color-mix(in srgb, var(--theme-color, #0891b2) 85%, white);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(8, 145, 178, 0.4);
+}
+
+.hero-btn-primary:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Secondary button */
+.hero-btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.hero-btn-secondary:focus-visible {
+    outline: 2px solid var(--theme-color, #0891b2);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .hero-headline {
+        font-size: var(--font-size-4xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .home-hero-banner {
+        min-height: 360px;
+    }
+
+    .home-hero-banner .hero-content {
+        padding: var(--space-8) 0;
+    }
+
+    .hero-headline {
+        font-size: var(--font-size-3xl);
+    }
+
+    .hero-body {
+        font-size: var(--font-size-base);
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+
+    .hero-btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-headline {
+        font-size: var(--font-size-2xl);
+    }
+
+    .hero-version-tag {
+        font-size: var(--font-size-xs);
+    }
+}

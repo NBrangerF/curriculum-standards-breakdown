@@ -1,0 +1,124 @@
+/* ============================================
+   TSBadge - Unified Transferable Skill Badge
+   ============================================ */
+
+.ts-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    cursor: default;
+}
+
+/* Sizes */
+.ts-badge-sm {
+    padding: 3px 6px;
+}
+
+.ts-badge-md {
+    padding: 5px 10px;
+}
+
+.ts-badge-lg {
+    padding: 8px 14px;
+}
+
+/* Variants */
+.ts-badge-soft {
+    background: color-mix(in srgb, var(--ts-color) 15%, transparent);
+    color: var(--ts-color);
+}
+
+.ts-badge-solid {
+    background: var(--ts-color);
+    color: white;
+}
+
+.ts-badge-outline {
+    background: transparent;
+    border: 1.5px solid var(--ts-color);
+    color: var(--ts-color);
+}
+
+/* Hover effects */
+.ts-badge:hover {
+    transform: scale(1.05);
+}
+
+.ts-badge-soft:hover {
+    background: color-mix(in srgb, var(--ts-color) 25%, transparent);
+}
+
+.ts-badge-outline:hover {
+    background: color-mix(in srgb, var(--ts-color) 10%, transparent);
+}
+
+/* Icon */
+.ts-badge-icon {
+    flex-shrink: 0;
+}
+
+/* Label */
+.ts-badge-label {
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.ts-badge-sm .ts-badge-label {
+    font-size: 10px;
+}
+
+.ts-badge-md .ts-badge-label {
+    font-size: var(--font-size-xs);
+}
+
+.ts-badge-lg .ts-badge-label {
+    font-size: var(--font-size-sm);
+}
+
+/* Fallback text (when no icon) */
+.ts-badge-text {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    font-family: monospace;
+}
+
+/* ============================================
+   TSBadgeGroup
+   ============================================ */
+
+.ts-badge-group {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    flex-wrap: wrap;
+}
+
+.ts-badge-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 500;
+    background: var(--bg-tertiary);
+    color: var(--text-tertiary);
+    border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+    .ts-badge-md {
+        padding: 4px 8px;
+    }
+
+    .ts-badge-md .ts-badge-icon {
+        width: 20px;
+        height: 20px;
+    }
+}

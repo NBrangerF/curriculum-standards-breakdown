@@ -1,0 +1,194 @@
+/* Collections Hero */
+.collections-hero {
+    background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-gray-800) 100%);
+    padding: var(--space-10) 0;
+}
+
+.collections-hero h1 {
+    font-size: var(--font-size-3xl);
+    color: var(--text-inverse);
+    margin-bottom: var(--space-2);
+}
+
+.collections-hero p {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-400);
+}
+
+/* Actions */
+.collections-actions {
+    background: var(--bg-primary);
+    padding: var(--space-6) 0;
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.actions-row {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.import-btn {
+    cursor: pointer;
+}
+
+/* Collections Grid */
+.collections-grid-section {
+    background: var(--bg-secondary);
+    padding: var(--space-10) 0;
+    min-height: 50vh;
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-5);
+}
+
+.collection-card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-gray-200);
+    overflow: hidden;
+    position: relative;
+    transition: all var(--transition-fast);
+}
+
+.collection-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.collection-card-link {
+    display: block;
+    padding: var(--space-6);
+    text-decoration: none;
+    color: inherit;
+}
+
+.collection-icon {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-3);
+}
+
+.collection-card h3 {
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.collection-card .col-desc {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-4);
+    line-height: var(--line-height-relaxed);
+}
+
+.col-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+}
+
+.col-count {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.delete-btn {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    padding: var(--space-2);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.collection-card:hover .delete-btn {
+    opacity: 1;
+}
+
+.delete-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Empty State */
+.collections-grid-section .empty-state {
+    text-align: center;
+    padding: var(--space-12);
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-4);
+}
+
+/* Modal */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: var(--space-4);
+}
+
+.modal {
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    width: 100%;
+    max-width: 480px;
+    box-shadow: var(--shadow-xl);
+}
+
+.modal h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-6);
+}
+
+.form-group {
+    margin-bottom: var(--space-5);
+}
+
+.form-group label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    margin-bottom: var(--space-2);
+    color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+}

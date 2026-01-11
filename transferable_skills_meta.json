@@ -1,0 +1,1005 @@
+{
+  "meta": {
+    "generated_at": "2026-01-08T02:28:10Z",
+    "version": "v1",
+    "language": "zh-CN",
+    "ts_definition_cn": "可迁移技能（Transferable Skills）是学生能跨学科、跨情境迁移运用的能力与素养，支持把所学知识与方法用于新问题与真实生活。",
+    "why_it_matters_cn": "可迁移技能决定了学生能否在不确定与复杂情境中持续学习、与他人协作、作出判断并采取行动；它让“学科知识”从会做题走向能解决真实问题，并支撑跨学科项目与综合评价。",
+    "relationship_to_standards_cn": "在本系统中，每条学科标准既是“学什么”的要求，也提供“如何学、用什么能力学”的场景。我们为标准标注可迁移技能标签（主标签/次标签），用于教师从技能出发反查可落实的标准与任务。",
+    "taxonomy_overview_cn": "本技能库采用 7 个可迁移技能领域（TS1–TS7），并在每个领域下细分若干子技能（共 26 项），用于更精确地标注标准与教学设计。",
+    "reverse_lookup_howto_cn": "在 TS 页面选择某个技能（或子技能）后，系统将筛出所有被标注为该技能“主标签/次标签”的学科标准；你可以再叠加筛选学科、学段、Domain 等，快速定位“最能练到这个技能”的标准条目，并据此设计任务与评价证据。",
+    "tagging_convention": {
+      "primary_tag_field": "ts_primary_code",
+      "secondary_tag_field": "ts_secondary_codes",
+      "granularity": "cap_code + subskill_code",
+      "notes": "标准至少建议 1 个主标签；如需要，可补充 1–3 个次标签。"
+    }
+  },
+  "competencies": [
+    {
+      "code": "TS1",
+      "name_cn": "批判性思维与问题解决",
+      "name_en": "Critical Thinking & Problem Solving",
+      "tagline_cn": "用证据与推理理解问题，做出判断并迭代解决方案。",
+      "definition_cn": "批判性思维与问题解决指在真实情境中提出问题、搜集与甄别信息、分析与建模、进行推理与论证，并据此做出判断与决策；在解决方案实施后能反思效果、识别偏差并持续迭代。它强调“证据—推理—决策—改进”的闭环，而不是只求一个答案。",
+      "look_fors": [
+        "能区分事实/观点/假设，主动追问“证据是什么、来自哪里”。",
+        "能把复杂任务拆成子问题，画出结构图/表格/模型帮助思考。",
+        "能用理由支持结论，并能回应质疑或指出论证漏洞。",
+        "遇到失败会复盘原因，调整策略再尝试，而不是停在“我不会”。",
+        "能把已学方法迁移到新问题（换情境仍能用同一思路）。"
+      ],
+      "teacher_moves": [
+        "用高质量提问驱动推理：为什么？依据是什么？还有别的解释吗？",
+        "提供“证据与推理”句式框架（例如：我的结论是…因为…证据是…因此…）。",
+        "把过程显性化：示范建模/拆解/检验假设的思考过程（think-aloud）。",
+        "设计有真实约束的任务（数据、材料、时间、规则），让学生比较多种方案并说明取舍。",
+        "用形成性评价反馈“过程质量”（证据质量、推理清晰度、迭代改进），而非只评结果对错。"
+      ],
+      "progression_notes": "1–2年级以观察与描述、简单分类和因果解释为主；3–4年级开始学会用证据支持观点并进行初步比较；5–6年级能做更系统的分析与建模（表格/图示/简单变量关系），并能提出改进；7–9年级强调多来源证据评估、反驳与论证、在不确定中做权衡决策与迭代优化。",
+      "china_core_literacy_mapping": [
+        {
+          "subject_cn": "语文",
+          "core_literacy_item_cn": "思维能力",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "数学",
+          "core_literacy_item_cn": "会用数学的眼光观察现实世界",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "数学",
+          "core_literacy_item_cn": "会用数学的思维思考现实世界",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "科学",
+          "core_literacy_item_cn": "科学观念",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "科学",
+          "core_literacy_item_cn": "科学思维",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "科学",
+          "core_literacy_item_cn": "探究实践",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "英语",
+          "core_literacy_item_cn": "思维品质",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "道德与法治",
+          "core_literacy_item_cn": "法治观念",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "信息科技",
+          "core_literacy_item_cn": "计算思维",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "艺术",
+          "core_literacy_item_cn": "创意实践",
+          "role": "secondary"
+        }
+      ],
+      "subskills": [
+        {
+          "code": "TS1.1",
+          "name_cn": "信息甄别与证据判断",
+          "name_en": "Information Evaluation & Evidence",
+          "tagline_cn": "辨别信息可靠性，用证据支撑判断。",
+          "definition_cn": "能区分事实/观点/假设，评估信息来源与证据质量，避免以偏概全与错误归因。",
+          "look_fors": [
+            "能说出信息来源并判断是否可信",
+            "能区分事实/观点/推测",
+            "能用证据支持或修正结论"
+          ],
+          "teacher_moves": [
+            "教“来源三问”：谁说的？依据是什么？是否有其他来源印证？",
+            "提供对比材料让学生练习甄别",
+            "要求在作品中标注证据与出处"
+          ],
+          "progression_notes": "从“能找到信息”发展到“能评估信息质量与偏差”，再到“能综合多源证据做权衡”。"
+        },
+        {
+          "code": "TS1.2",
+          "name_cn": "结构化分析与建模",
+          "name_en": "Structured Analysis & Modeling",
+          "tagline_cn": "用结构与模型帮助理解复杂问题。",
+          "definition_cn": "把复杂问题拆解为要素与关系，用框架/模型表达并持续修正。",
+          "look_fors": [
+            "会用表格/图示整理信息",
+            "能拆分变量与关系",
+            "能用模型解释或预测"
+          ],
+          "teacher_moves": [
+            "示范把文字题转为图表/关系图",
+            "提供建模模板（变量-关系-假设）",
+            "让学生比较不同模型的优缺点"
+          ],
+          "progression_notes": "从简单分类与流程图，进阶到变量关系与图表建模，再到用模型检验与修正解释。"
+        },
+        {
+          "code": "TS1.3",
+          "name_cn": "推理、论证与判断",
+          "name_en": "Reasoning, Argumentation & Judgment",
+          "tagline_cn": "用推理与论证形成可检验的判断。",
+          "definition_cn": "在不确定条件下作出有依据的判断，能解释、辩护并接受反证。",
+          "look_fors": [
+            "能给出理由链条而非结论",
+            "能回应反例/质疑",
+            "能指出论证漏洞或偏差"
+          ],
+          "teacher_moves": [
+            "用论证框架（主张-理由-证据-反驳）",
+            "设置辩论/同伴质询环节",
+            "用评分量规评价论证质量"
+          ],
+          "progression_notes": "从“说理由”到“用证据论证并回应反驳”，再到“在不确定中做合理判断”。"
+        },
+        {
+          "code": "TS1.4",
+          "name_cn": "策略性问题解决与迭代",
+          "name_en": "Strategic Problem Solving & Iteration",
+          "tagline_cn": "制定策略、试错迭代，持续优化解决方案。",
+          "definition_cn": "生成备选方案，评估约束与影响，实施—反馈—改进。",
+          "look_fors": [
+            "能先计划再行动",
+            "能记录试验结果并调整策略",
+            "能总结可迁移的方法"
+          ],
+          "teacher_moves": [
+            "把任务拆成迭代循环（尝试-反馈-改进）",
+            "要求记录失败原因与改进点",
+            "引导学生迁移同一策略到新题型"
+          ],
+          "progression_notes": "从跟随步骤解决问题，进阶到自主选择策略并复盘，再到复杂情境下多轮优化。"
+        }
+      ]
+    },
+    {
+      "code": "TS2",
+      "name_cn": "创新、创造与实践性解决方案",
+      "name_en": "Innovation, Creativity & Initiative",
+      "tagline_cn": "把想法变成可用的方案，在约束中创造价值。",
+      "definition_cn": "创新、创造与实践性解决方案指在需求或问题情境中产生多样想法，运用设计思维进行构想—原型—测试—改进，并把创意落实为可执行的方案或产品；在资源、时间、规则等约束下仍能找到更优路径，体现主动性、责任感与持续改进。",
+      "look_fors": [
+        "能提出多种想法并解释差异，而不是只给一个“标准答案”。",
+        "能快速做原型/草图/流程并用反馈迭代改进。",
+        "能把问题转化为用户需求/成功标准（做出来“给谁用、解决什么”）。",
+        "面对约束（材料有限、规则限制）能调整方案而不放弃。",
+        "能把行动计划说清楚：步骤、分工、时间点与风险应对。"
+      ],
+      "teacher_moves": [
+        "用“需求—成功标准—方案—证据”结构组织项目任务，避免只做展示。",
+        "提供快速原型工具（草图、纸模、流程图、最小可行作品），鼓励早做早测。",
+        "让学生做同伴/用户测试：收集反馈→排序→改进，并记录迭代理由。",
+        "明确约束条件（预算、材料、时间、规则），训练在限制中创新。",
+        "评价强调“创造性+可行性+影响”，并要求说明取舍依据。"
+      ],
+      "progression_notes": "低年级以想象与表达、简单制作为主；中年级开始以需求为导向做小项目并学习用反馈改进；高年级与初中强调系统设计、证据驱动迭代、在约束中优化与形成可落地的行动计划。",
+      "china_core_literacy_mapping": [
+        {
+          "subject_cn": "语文",
+          "core_literacy_item_cn": "思维能力",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "语文",
+          "core_literacy_item_cn": "审美创造",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "数学",
+          "core_literacy_item_cn": "会用数学的思维思考现实世界",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "科学",
+          "core_literacy_item_cn": "科学思维",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "科学",
+          "core_literacy_item_cn": "探究实践",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "英语",
+          "core_literacy_item_cn": "思维品质",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "体育与健康",
+          "core_literacy_item_cn": "运动能力",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "信息科技",
+          "core_literacy_item_cn": "数字化学习与创新",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "艺术",
+          "core_literacy_item_cn": "审美感知",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "艺术",
+          "core_literacy_item_cn": "艺术表现",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "艺术",
+          "core_literacy_item_cn": "创意实践",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "劳动",
+          "core_literacy_item_cn": "劳动能力",
+          "role": "primary"
+        }
+      ],
+      "subskills": [
+        {
+          "code": "TS2.1",
+          "name_cn": "发散生成与创意表达",
+          "name_en": "Ideation & Creative Expression",
+          "tagline_cn": "发散生成多样想法，并用作品表达。",
+          "definition_cn": "能生成多种想法，选择并表达独特观点/作品形式。",
+          "look_fors": [
+            "能提出多种创意",
+            "能用草图/文字快速表达",
+            "能解释创意与目标的关系"
+          ],
+          "teacher_moves": [
+            "设置无评判头脑风暴时间",
+            "用创意提示卡（替代/组合/夸张/反转）",
+            "让学生用快速草图表达再分享"
+          ],
+          "progression_notes": "从“敢想敢说”到“与目标对齐的创意”，再到“在约束下仍能提出多方案”。"
+        },
+        {
+          "code": "TS2.2",
+          "name_cn": "设计思维与原型迭代",
+          "name_en": "Design Thinking & Prototyping",
+          "tagline_cn": "用设计思维做原型测试并迭代。",
+          "definition_cn": "围绕用户/情境需求进行设计，快速原型、测试与迭代。",
+          "look_fors": [
+            "能明确用户需求与成功标准",
+            "能做原型并收集反馈",
+            "能基于反馈修改并说明理由"
+          ],
+          "teacher_moves": [
+            "引导写出用户画像与成功标准",
+            "安排同伴/用户测试与反馈表",
+            "要求记录迭代日志（改了什么、为什么）"
+          ],
+          "progression_notes": "从简单制作，进阶到原型测试，再到证据驱动的多轮迭代与优化。"
+        },
+        {
+          "code": "TS2.3",
+          "name_cn": "把想法变成行动",
+          "name_en": "Initiative & Execution",
+          "tagline_cn": "把想法变成行动，推动落地与影响。",
+          "definition_cn": "能主动发起任务/项目，协调资源并推动完成。",
+          "look_fors": [
+            "能列行动步骤与时间点",
+            "能推动分工与资源协调",
+            "能评估影响并做调整"
+          ],
+          "teacher_moves": [
+            "用项目管理板（待办/进行/完成）",
+            "设置里程碑检查点",
+            "引导做影响评估：谁受益？证据是什么？"
+          ],
+          "progression_notes": "从完成指定任务，进阶到自主推进小项目，再到面向真实受众的落地与改进。"
+        },
+        {
+          "code": "TS2.4",
+          "name_cn": "在约束中创新",
+          "name_en": "Constraint-based Innovation",
+          "tagline_cn": "在资源与规则限制下找到更优解。",
+          "definition_cn": "在材料、时间、规则等约束下仍能提出改进与创新方案。",
+          "look_fors": [
+            "能识别关键约束",
+            "能在约束下做取舍",
+            "能提出优化方案并验证"
+          ],
+          "teacher_moves": [
+            "明确给出约束（预算/材料/规则）",
+            "让学生比较多方案并说明取舍",
+            "要求用测试数据/用户反馈验证优化"
+          ],
+          "progression_notes": "从接受约束，进阶到在约束中调整方案，再到能主动优化与论证可行性。"
+        }
+      ]
+    },
+    {
+      "code": "TS3",
+      "name_cn": "学习者能动性与自我导向学习",
+      "name_en": "Agency & Self-Directed Learning",
+      "tagline_cn": "设定目标、自我监控与反思，成为能持续进步的学习者。",
+      "definition_cn": "学习者能动性与自我导向学习指学生能为学习设定目标并规划路径，在学习过程中进行自我监控与策略调整，能坚持与自我激励，在选择中对结果负责，并通过反思形成更有效的学习方法与习惯。",
+      "look_fors": [
+        "能说清学习目标与成功标准，并能拆解为可执行的小步骤。",
+        "能使用清单/时间表管理进度，按时完成并自查质量。",
+        "遇到困难会尝试替代策略（换方法、寻求资源/同伴支持）。",
+        "能根据反馈修改作品，并能总结“我下次要怎么做得更好”。",
+        "能在任务选择中解释取舍，并为选择承担责任。"
+      ],
+      "teacher_moves": [
+        "把成功标准可视化（rubric/示例/对照表），并引导学生用它自评与互评。",
+        "定期做短反思：今天我学到了什么？卡点在哪里？下一步我怎么做？",
+        "提供策略工具箱（记笔记、复习间隔、提问模板、时间分块），并要求学生选择并说明理由。",
+        "采用“渐进放手”：先示范与共建计划，再逐步让学生自主规划与复盘。",
+        "用反馈促进成长型心态：强调可改进点与下一步行动，而不是贴标签。"
+      ],
+      "progression_notes": "低年级在教师支持下建立基本学习常规与简单目标；中年级能进行短周期计划与自评，逐步形成策略意识；高年级与初中强调长期任务管理、元认知反思与在多任务压力下的自我调节与责任担当。",
+      "china_core_literacy_mapping": [
+        {
+          "subject_cn": "语文",
+          "core_literacy_item_cn": "语言运用",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "科学",
+          "core_literacy_item_cn": "态度与责任",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "英语",
+          "core_literacy_item_cn": "语言能力",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "英语",
+          "core_literacy_item_cn": "学习能力",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "体育与健康",
+          "core_literacy_item_cn": "运动能力",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "体育与健康",
+          "core_literacy_item_cn": "健康行为",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "道德与法治",
+          "core_literacy_item_cn": "道德修养",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "道德与法治",
+          "core_literacy_item_cn": "健全人格",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "信息科技",
+          "core_literacy_item_cn": "信息意识",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "劳动",
+          "core_literacy_item_cn": "劳动观念",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "劳动",
+          "core_literacy_item_cn": "劳动习惯和品质",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "劳动",
+          "core_literacy_item_cn": "劳动精神",
+          "role": "primary"
+        }
+      ],
+      "subskills": [
+        {
+          "code": "TS3.1",
+          "name_cn": "目标设定与计划管理",
+          "name_en": "Goal Setting & Planning",
+          "tagline_cn": "设定目标并规划路径，管理时间与资源。",
+          "definition_cn": "设定清晰目标，拆解计划并管理时间与任务。",
+          "look_fors": [
+            "能写出目标与标准",
+            "能拆解任务并排期",
+            "能按计划推进并调整"
+          ],
+          "teacher_moves": [
+            "教SMART目标与拆解示范",
+            "提供时间表/清单模板",
+            "用短周期检查促进自我管理"
+          ],
+          "progression_notes": "从教师给计划，到共同制定计划，再到学生自主规划与管理长期任务。"
+        },
+        {
+          "code": "TS3.2",
+          "name_cn": "元认知监控与反思",
+          "name_en": "Metacognition & Reflection",
+          "tagline_cn": "用元认知监控学习过程并反思改进。",
+          "definition_cn": "监控自己的理解与表现，能复盘策略有效性并调整。",
+          "look_fors": [
+            "能说出自己哪里懂/哪里不懂",
+            "能选择学习策略并解释",
+            "能根据反馈调整方法"
+          ],
+          "teacher_moves": [
+            "使用“出门条”反思：我学到了…我还困惑…",
+            "提供策略菜单并要求选择",
+            "让学生用对照样例进行自评"
+          ],
+          "progression_notes": "从描述学习体验到监控策略效果，再到形成个人有效的学习方法论。"
+        },
+        {
+          "code": "TS3.3",
+          "name_cn": "坚持性与韧性",
+          "name_en": "Perseverance & Resilience",
+          "tagline_cn": "在困难与不确定中坚持，调节情绪并寻求支持。",
+          "definition_cn": "在困难与不确定中持续投入，能调节情绪并寻求支持。",
+          "look_fors": [
+            "遇到挫折不轻易放弃",
+            "能用情绪调节策略",
+            "会主动求助并继续尝试"
+          ],
+          "teacher_moves": [
+            "分层任务与“可成功的挑战”",
+            "教求助与资源使用（同伴/工具/老师）",
+            "用过程性表扬与复盘支持坚持"
+          ],
+          "progression_notes": "从短时坚持到长期投入，再到能在压力下自我调节并保持学习韧性。"
+        },
+        {
+          "code": "TS3.4",
+          "name_cn": "选择与自我负责",
+          "name_en": "Choice-Making & Ownership",
+          "tagline_cn": "在选择中做决定，对结果负责并能解释取舍。",
+          "definition_cn": "在可选路径中做决定，对结果负责并解释取舍。",
+          "look_fors": [
+            "能在选项间做选择",
+            "能说明取舍依据",
+            "能承担后果并复盘"
+          ],
+          "teacher_moves": [
+            "提供有意义的选择（题目/形式/路径）",
+            "要求写“选择理由与风险”",
+            "用反思讨论把责任与成长连接起来"
+          ],
+          "progression_notes": "从在提示下选择到自主权衡，再到能在复杂情境中做负责任的决定。"
+        }
+      ]
+    },
+    {
+      "code": "TS4",
+      "name_cn": "协作与共同体行动",
+      "name_en": "Collaboration & Teamwork",
+      "tagline_cn": "与他人高质量协作，共担责任并实现共同产出。",
+      "definition_cn": "协作与共同体行动指学生能在团队中明确共同目标与分工，倾听与回应不同观点，提供建设性反馈并处理冲突；同时理解并遵守集体规范，对共同成果质量与过程负责，能够在不同角色与情境中有效合作。",
+      "look_fors": [
+        "能基于目标分工协作，按约定交付自己的部分并支持他人。",
+        "在讨论中能倾听与复述他人观点，提出建设性建议而非否定。",
+        "发生分歧时能提出证据与折中方案，推动达成共识。",
+        "能遵守团队规则（时间、材料、话语权），维护共同产出质量。",
+        "能在不同角色间切换（组织者/记录者/协调者/执行者）。"
+      ],
+      "teacher_moves": [
+        "把协作任务结构化：明确目标、角色、时间点、产出标准与责任追踪。",
+        "教“协作语言”：我同意/我补充/我担心/我建议…并用句式卡片支撑。",
+        "设置团队复盘：过程哪里好？哪里卡？下次如何改进协作机制？",
+        "用同伴互评与共同评分机制（个人贡献+团队成果）促进责任共担。",
+        "为冲突提供协议流程：先澄清需求→列方案→用标准选择→确认行动。"
+      ],
+      "progression_notes": "低年级以轮流、共享与简单合作为主；中年级能在结构化支持下完成小组任务并学会反馈；高年级与初中强调复杂项目协作、冲突解决、责任追踪与在多元团队中的角色适配。",
+      "china_core_literacy_mapping": [
+        {
+          "subject_cn": "体育与健康",
+          "core_literacy_item_cn": "体育品德",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "道德与法治",
+          "core_literacy_item_cn": "政治认同",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "劳动",
+          "core_literacy_item_cn": "劳动习惯和品质",
+          "role": "secondary"
+        }
+      ],
+      "subskills": [
+        {
+          "code": "TS4.1",
+          "name_cn": "协作分工与共同产出",
+          "name_en": "Coordination & Shared Output",
+          "tagline_cn": "基于目标分工协作，形成高质量共同产出。",
+          "definition_cn": "能基于目标分工协作，形成共同产出并保证质量。",
+          "look_fors": [
+            "能明确分工与接口",
+            "能按时交付并整合",
+            "能共同校对质量标准"
+          ],
+          "teacher_moves": [
+            "角色卡+任务清单+里程碑",
+            "设置整合与质检环节",
+            "评价同时覆盖个人与团队成果"
+          ],
+          "progression_notes": "从简单合作到项目分工，再到能自组织协作并保障共同质量。"
+        },
+        {
+          "code": "TS4.2",
+          "name_cn": "倾听、反馈与冲突解决",
+          "name_en": "Listening, Feedback & Conflict Resolution",
+          "tagline_cn": "倾听不同观点，给反馈并处理冲突达成共识。",
+          "definition_cn": "能倾听不同观点，提供建设性反馈，并处理冲突达成共识。",
+          "look_fors": [
+            "能复述他人观点",
+            "能给建设性反馈",
+            "能用规则化流程解决分歧"
+          ],
+          "teacher_moves": [
+            "教反馈句式：我看到…我建议…因为…",
+            "用“先倾听再回应”规则",
+            "提供冲突解决流程与主持人角色"
+          ],
+          "progression_notes": "从礼貌倾听到能反馈改进，再到能在冲突中协商并达成共识。"
+        },
+        {
+          "code": "TS4.3",
+          "name_cn": "共同责任与集体规范",
+          "name_en": "Shared Responsibility & Norms",
+          "tagline_cn": "理解并遵守团队规范，共担目标与质量责任。",
+          "definition_cn": "理解并遵守团队规范，对共同目标与质量负责。",
+          "look_fors": [
+            "能遵守时间与流程规则",
+            "能提醒并维护团队规范",
+            "愿意为共同质量补位"
+          ],
+          "teacher_moves": [
+            "与学生共建团队规范并可视化",
+            "设置共同责任指标（质量/时间/参与）",
+            "团队复盘：规范是否有效、如何改进"
+          ],
+          "progression_notes": "从遵守规则到理解规则意义，再到能共同制定与改进规范。"
+        }
+      ]
+    },
+    {
+      "code": "TS5",
+      "name_cn": "沟通与表达",
+      "name_en": "Communication",
+      "tagline_cn": "面向受众清晰表达，善用对话与多模态呈现。",
+      "definition_cn": "沟通与表达指学生能在不同情境下清晰组织信息、准确表达观点，能在对话中提出主张并回应质疑，进行合乎规则的说服与公共表达；同时能运用图表、符号、媒体等多模态方式，并理解基本礼仪与跨文化差异。",
+      "look_fors": [
+        "表达有结构：开门见山—理由—证据—总结，逻辑清楚。",
+        "能根据受众调整语言与形式（口头/书面/图表/视频等）。",
+        "能在讨论中提出观点并回应追问，引用材料或数据支持。",
+        "能用图表/示意/符号辅助说明，并解释读图/读表含义。",
+        "能保持尊重与礼貌，注意倾听与轮次。"
+      ],
+      "teacher_moves": [
+        "提供结构化表达框架（PEEL、金字塔、三段式等）与示例对照。",
+        "安排可重复练习的口头表达任务（1分钟陈述、同伴提问、二次改写）。",
+        "教“证据引用”与“反问回应”技能：如何引用文本/数据、如何回应质疑。",
+        "让学生把同一内容做多模态转换（文字→图表→口头→短视频），训练适配能力。",
+        "评价覆盖内容准确度、结构清晰度、受众适配与表达礼仪。"
+      ],
+      "progression_notes": "低年级以清楚表达与倾听为主；中年级强化结构化表达与基本说服；高年级与初中强调公共表达、论证回应、多模态呈现与跨文化沟通意识。",
+      "china_core_literacy_mapping": [
+        {
+          "subject_cn": "语文",
+          "core_literacy_item_cn": "文化自信",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "语文",
+          "core_literacy_item_cn": "语言运用",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "语文",
+          "core_literacy_item_cn": "审美创造",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "数学",
+          "core_literacy_item_cn": "会用数学的语言表达现实世界",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "英语",
+          "core_literacy_item_cn": "语言能力",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "英语",
+          "core_literacy_item_cn": "文化意识",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "艺术",
+          "core_literacy_item_cn": "审美感知",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "艺术",
+          "core_literacy_item_cn": "艺术表现",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "艺术",
+          "core_literacy_item_cn": "文化理解",
+          "role": "secondary"
+        }
+      ],
+      "subskills": [
+        {
+          "code": "TS5.1",
+          "name_cn": "清晰表达与结构化呈现",
+          "name_en": "Clear Expression & Structured Presentation",
+          "tagline_cn": "把信息组织成清晰结构，表达准确有逻辑。",
+          "definition_cn": "能把信息组织成清晰结构，适配受众，表达准确有逻辑。",
+          "look_fors": [
+            "能按结构呈现观点",
+            "能用关键术语准确表达",
+            "能用例子/证据支撑说明"
+          ],
+          "teacher_moves": [
+            "提供结构模板与范例对照",
+            "训练“先结论后理由”的表达",
+            "用量规反馈结构与逻辑"
+          ],
+          "progression_notes": "从清楚表达到结构化呈现，再到复杂主题的论证表达。"
+        },
+        {
+          "code": "TS5.2",
+          "name_cn": "说服、对话与公众沟通",
+          "name_en": "Persuasion, Dialogue & Public Communication",
+          "tagline_cn": "在对话中提出主张、回应质疑，进行说服与公共表达。",
+          "definition_cn": "能在对话中提出主张、回应质疑，进行合乎规则的说服与公共表达。",
+          "look_fors": [
+            "能提出主张并说明理由",
+            "能回应追问或反驳",
+            "能在公共场合自信表达并守规则"
+          ],
+          "teacher_moves": [
+            "组织辩论/模拟听证/圆桌讨论",
+            "教回应技巧：澄清-承认-反证-回到主张",
+            "用提问训练推动深度对话"
+          ],
+          "progression_notes": "从简单讨论到有证据说服，再到公共议题中的规则化表达与回应。"
+        },
+        {
+          "code": "TS5.3",
+          "name_cn": "多模态与跨文化沟通",
+          "name_en": "Multimodal & Intercultural Communication",
+          "tagline_cn": "用图表与媒体等多模态表达，理解跨文化差异与礼仪。",
+          "definition_cn": "能用图表、媒体、符号等多模态表达，并理解跨文化差异与沟通礼仪。",
+          "look_fors": [
+            "能用图表/符号辅助说明",
+            "能选择合适媒介呈现",
+            "能尊重差异并注意沟通礼仪"
+          ],
+          "teacher_moves": [
+            "安排多模态转换任务",
+            "教读图/制图与媒体表达规范",
+            "讨论跨文化沟通案例与礼仪"
+          ],
+          "progression_notes": "从图文表达到多模态整合，再到跨文化受众适配与礼仪意识。"
+        }
+      ]
+    },
+    {
+      "code": "TS6",
+      "name_cn": "数字、信息与媒体素养",
+      "name_en": "Digital, Information & Media Literacy",
+      "tagline_cn": "用信息、数据与技术解决问题，并负责任地参与数字世界。",
+      "definition_cn": "数字、信息与媒体素养指学生能提出检索问题并有效搜集信息，规范引用并避免抄袭；能收集、表示与解释数据做基础分析；能用计算思维把问题抽象成步骤并借助工具实现；同时理解媒体意图与偏见，遵守隐私、安全与伦理要求，负责任地使用技术。",
+      "look_fors": [
+        "会提检索问题并用关键词/筛选找到高相关信息，记录来源。",
+        "能对信息进行整理与引用（注明出处、区分改写与引用）。",
+        "能用表格/图表表达数据并做基本比较、解释与结论。",
+        "能把任务分解成步骤，用工具/编程/公式实现自动化或提升效率。",
+        "能识别媒体偏见与风险，注意隐私与安全规则。"
+      ],
+      "teacher_moves": [
+        "把检索与引用当作“学科方法”教学：关键词、评估来源、引用格式、改写练习。",
+        "在任务中嵌入数据环节：收集—清洗—可视化—解释，让数据为结论服务。",
+        "用计算思维模板（输入/过程/输出、流程图、伪代码）指导学生分解问题。",
+        "设置媒体素养讨论：意图、立场、证据、算法推荐与信息茧房。",
+        "明确数字安全与伦理规范（隐私、版权、AI使用边界）并用情境案例练习。"
+      ],
+      "progression_notes": "低年级从基础操作与安全规则起步；中年级强化信息检索、引用与基础数据表达；高年级与初中强调数据解释、自动化意识、媒体偏见辨析与复杂数字伦理情境下的判断。",
+      "china_core_literacy_mapping": [
+        {
+          "subject_cn": "数学",
+          "core_literacy_item_cn": "会用数学的眼光观察现实世界",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "数学",
+          "core_literacy_item_cn": "会用数学的语言表达现实世界",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "科学",
+          "core_literacy_item_cn": "科学观念",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "英语",
+          "core_literacy_item_cn": "学习能力",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "信息科技",
+          "core_literacy_item_cn": "信息意识",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "信息科技",
+          "core_literacy_item_cn": "计算思维",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "信息科技",
+          "core_literacy_item_cn": "信息社会责任",
+          "role": "secondary"
+        }
+      ],
+      "subskills": [
+        {
+          "code": "TS6.1",
+          "name_cn": "信息检索与引用规范",
+          "name_en": "Information Search & Citation",
+          "tagline_cn": "提出检索问题并规范引用，避免抄袭。",
+          "definition_cn": "能提出检索问题，使用合适关键词与工具，规范引用并避免抄袭。",
+          "look_fors": [
+            "能用关键词与筛选检索",
+            "能记录来源并引用",
+            "能区分引用/改写/原创"
+          ],
+          "teacher_moves": [
+            "教检索策略与来源评估",
+            "提供引用与改写练习",
+            "要求提交参考文献/链接清单"
+          ],
+          "progression_notes": "从会搜到会选，再到能规范引用并综合多源信息。"
+        },
+        {
+          "code": "TS6.2",
+          "name_cn": "数据素养与基础分析",
+          "name_en": "Data Literacy & Basic Analysis",
+          "tagline_cn": "收集、整理、表示与解释数据，做基础分析。",
+          "definition_cn": "能收集、整理、表示与解释数据，做基本比较与结论。",
+          "look_fors": [
+            "能收集并整理数据",
+            "能用表格/图表呈现",
+            "能做比较并得出结论"
+          ],
+          "teacher_moves": [
+            "嵌入数据任务：采集-清洗-可视化",
+            "教常见图表选择与解读",
+            "让结论必须回到数据证据"
+          ],
+          "progression_notes": "从读图表到做图表，再到能解释趋势与不确定性。"
+        },
+        {
+          "code": "TS6.3",
+          "name_cn": "计算思维与自动化意识",
+          "name_en": "Computational Thinking & Automation",
+          "tagline_cn": "把问题抽象成步骤/规则，用算法或工具实现自动化。",
+          "definition_cn": "把问题抽象成步骤/规则，利用算法、编程或工具实现自动化。",
+          "look_fors": [
+            "能把任务分解成步骤",
+            "能写流程图/伪代码",
+            "能用工具/编程实现并调试"
+          ],
+          "teacher_moves": [
+            "用输入-过程-输出框架建模",
+            "安排小型自动化任务（公式/脚本/积木编程）",
+            "教调试：定位错误—假设—验证"
+          ],
+          "progression_notes": "从按步骤执行到能抽象与设计步骤，再到能实现与调试自动化方案。"
+        },
+        {
+          "code": "TS6.4",
+          "name_cn": "媒体理解与责任使用",
+          "name_en": "Media Understanding & Responsible Use",
+          "tagline_cn": "理解媒体意图与偏见，遵守隐私/安全/伦理，负责任使用技术。",
+          "definition_cn": "理解媒体内容的意图与偏见，遵守隐私/安全/伦理，负责任地使用技术。",
+          "look_fors": [
+            "能识别广告/立场/偏见",
+            "能保护隐私与账号安全",
+            "能遵守版权与伦理规范"
+          ],
+          "teacher_moves": [
+            "做媒体拆解：作者是谁？目的是什么？证据在哪？",
+            "讲隐私与安全案例（钓鱼、泄露）",
+            "建立课堂技术使用公约与AI使用边界"
+          ],
+          "progression_notes": "从安全规则到媒体辨析，再到在复杂数字情境下做伦理判断。"
+        }
+      ]
+    },
+    {
+      "code": "TS7",
+      "name_cn": "全球公民、可持续与伦理责任",
+      "name_en": "Global Citizenship, Sustainability & Ethical Responsibility",
+      "tagline_cn": "理解规则与多样性，做出伦理与可持续的公共选择。",
+      "definition_cn": "全球公民、可持续与伦理责任指学生理解规则与法治在公共生活中的意义，能参与公共事务并做合规选择；能在价值冲突中进行伦理判断并解释取舍；理解人与环境、资源与社会系统的关系，做出可持续选择并推动改进；尊重多样性，具备跨文化理解与包容合作能力。",
+      "look_fors": [
+        "能在公共情境中遵守规则并说明“为什么要这样做”。",
+        "面对两难情境能列出不同价值与利害相关者，并解释取舍。",
+        "能把个人行为与环境/社会影响联系起来，提出可持续改进建议。",
+        "尊重差异与多样性，能避免刻板印象并用包容语言沟通。",
+        "愿意参与班级/学校/社区公共事务（讨论、倡议、服务）。"
+      ],
+      "teacher_moves": [
+        "用真实公共议题做任务：规则如何制定？谁受益？谁受影响？证据是什么？",
+        "引导伦理推理：价值—后果—权利—责任四视角分析，形成可解释的判断。",
+        "把可持续发展融入项目：资源使用审计、改进方案设计与行动跟进。",
+        "在课堂建立包容规范：尊重发言、用证据讨论、关注边缘声音。",
+        "设计参与式学习：模拟听证/协商、校园治理项目、社区服务与反思。"
+      ],
+      "progression_notes": "低年级从规则意识与友善相处开始；中年级理解公共规则与公平、开展简单服务行动；高年级与初中强调伦理权衡、系统视角的可持续决策、跨文化理解与更真实的公共参与。",
+      "china_core_literacy_mapping": [
+        {
+          "subject_cn": "语文",
+          "core_literacy_item_cn": "文化自信",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "科学",
+          "core_literacy_item_cn": "态度与责任",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "英语",
+          "core_literacy_item_cn": "文化意识",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "体育与健康",
+          "core_literacy_item_cn": "健康行为",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "体育与健康",
+          "core_literacy_item_cn": "体育品德",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "道德与法治",
+          "core_literacy_item_cn": "政治认同",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "道德与法治",
+          "core_literacy_item_cn": "道德修养",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "道德与法治",
+          "core_literacy_item_cn": "法治观念",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "道德与法治",
+          "core_literacy_item_cn": "健全人格",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "道德与法治",
+          "core_literacy_item_cn": "责任意识",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "信息科技",
+          "core_literacy_item_cn": "信息社会责任",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "艺术",
+          "core_literacy_item_cn": "文化理解",
+          "role": "primary"
+        },
+        {
+          "subject_cn": "劳动",
+          "core_literacy_item_cn": "劳动观念",
+          "role": "secondary"
+        },
+        {
+          "subject_cn": "劳动",
+          "core_literacy_item_cn": "劳动精神",
+          "role": "secondary"
+        }
+      ],
+      "subskills": [
+        {
+          "code": "TS7.1",
+          "name_cn": "规则、法治与公共参与",
+          "name_en": "Rule of Law & Civic Participation",
+          "tagline_cn": "理解规则与法律意义，做合规选择并参与公共事务。",
+          "definition_cn": "理解规则与法律的意义，在公共情境中做合规选择并参与公共事务。",
+          "look_fors": [
+            "能遵守并解释规则",
+            "愿意参与讨论与公共行动",
+            "能用程序与证据表达诉求"
+          ],
+          "teacher_moves": [
+            "用班级公约/模拟法庭/听证",
+            "教公共参与流程（提出议题-收集证据-表达方案）",
+            "引导区分权利与责任"
+          ],
+          "progression_notes": "从规则意识到公共参与，再到能以证据与程序参与治理。"
+        },
+        {
+          "code": "TS7.2",
+          "name_cn": "伦理判断与价值权衡",
+          "name_en": "Ethical Reasoning & Value Trade-offs",
+          "tagline_cn": "在价值冲突中做伦理判断，解释取舍并尊重差异。",
+          "definition_cn": "在价值冲突中进行伦理判断，解释取舍并尊重差异。",
+          "look_fors": [
+            "能识别价值冲突",
+            "能列出利害相关者与后果",
+            "能解释取舍并尊重不同立场"
+          ],
+          "teacher_moves": [
+            "用伦理四视角（后果/权利/责任/关怀）讨论",
+            "设置两难案例辩论",
+            "用写作要求学生说明取舍理由"
+          ],
+          "progression_notes": "从判断对错到能解释理由，再到能在复杂情境中做可辩护的权衡。"
+        },
+        {
+          "code": "TS7.3",
+          "name_cn": "可持续发展与系统性责任",
+          "name_en": "Sustainability & Systems Responsibility",
+          "tagline_cn": "理解人与环境/资源/社会系统关系，做可持续选择并推动改进。",
+          "definition_cn": "理解人与环境、资源与社会系统的关系，做出可持续选择并推动改进。",
+          "look_fors": [
+            "能连接个人行为与系统影响",
+            "能提出节约与改进方案",
+            "能评估方案效果并迭代"
+          ],
+          "teacher_moves": [
+            "做资源审计与改进项目（垃圾分类、能耗）",
+            "引导系统图（原因-结果-反馈）",
+            "让学生用数据跟踪改进成效"
+          ],
+          "progression_notes": "从环保习惯到系统理解，再到能用证据推动可持续改进。"
+        },
+        {
+          "code": "TS7.4",
+          "name_cn": "多样性、包容与全球视野",
+          "name_en": "Diversity, Inclusion & Global Perspective",
+          "tagline_cn": "尊重多样性，具备跨文化理解与包容合作能力。",
+          "definition_cn": "理解并尊重多样性，具备跨文化理解与包容合作能力。",
+          "look_fors": [
+            "能避免刻板印象",
+            "能用包容语言沟通",
+            "能在多元团队中合作"
+          ],
+          "teacher_moves": [
+            "用多元文本/案例扩展视角",
+            "建立包容沟通规范与纠偏机制",
+            "设计跨文化交流或角色扮演任务"
+          ],
+          "progression_notes": "从尊重差异到理解差异成因，再到能在多元场景中进行包容协作。"
+        }
+      ]
+    }
+  ]
+}

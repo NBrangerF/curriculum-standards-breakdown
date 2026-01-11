@@ -1,0 +1,63 @@
+.grade-band-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: var(--space-2);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+}
+
+.grade-band-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--font-size-sm);
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    color: var(--text-secondary);
+}
+
+.grade-band-tab:hover {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.grade-band-tab.active {
+    background: var(--bg-primary);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.grade-band-tab.all {
+    flex-direction: row;
+}
+
+.grade-band-label {
+    font-weight: 600;
+}
+
+.grade-band-range {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+}
+
+.grade-band-tab.active .grade-band-range {
+    color: var(--color-primary-light);
+}
+
+@media (max-width: 640px) {
+    .grade-band-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    .grade-band-tab {
+        flex-shrink: 0;
+        padding: var(--space-2) var(--space-4);
+    }
+}

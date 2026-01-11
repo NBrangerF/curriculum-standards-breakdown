@@ -1,0 +1,193 @@
+/* ============================================
+   TSHeroBanner - Configurable Hero Banner for TS Skills
+   ============================================ */
+
+.ts-hero-banner {
+    position: relative;
+    min-height: 300px;
+    background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-gray-800) 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Noise texture overlay (shared with SubjectHeroBanner) */
+.ts-hero-banner .hero-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+/* Right side decorative shape - more dynamic/fluid */
+.ts-shape {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ts-blob {
+    position: absolute;
+    top: -30%;
+    right: -15%;
+    width: 130%;
+    height: 160%;
+}
+
+.ts-icon {
+    position: absolute;
+    top: 50%;
+    right: 12%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 200px;
+    opacity: 0.05;
+    stroke-width: 1;
+}
+
+/* Content area */
+.ts-hero-banner .hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 680px;
+    padding: var(--space-8) 0;
+}
+
+/* Back link */
+.ts-hero-banner .hero-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    margin-bottom: var(--space-4);
+    transition: color var(--transition-fast);
+}
+
+.ts-hero-banner .hero-back-link:hover {
+    color: var(--text-inverse);
+}
+
+/* TS Badge */
+.ts-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    background: var(--theme-color, var(--color-primary));
+    color: white;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-4);
+}
+
+/* Title CN (H1) - Most prominent */
+.ts-title-cn {
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    color: var(--text-inverse);
+    margin-bottom: var(--space-2);
+    line-height: 1.2;
+}
+
+/* Title EN (H2) - Subdued */
+.hero-title-en {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--color-gray-400);
+    margin-bottom: var(--space-6);
+    font-style: italic;
+}
+
+/* Definition with accent line */
+.ts-definition {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    max-width: 560px;
+}
+
+.definition-accent {
+    width: 3px;
+    min-height: 40px;
+    background: var(--theme-color, var(--color-primary));
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+}
+
+.definition-text {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-300);
+    line-height: var(--line-height-relaxed);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .ts-icon {
+        width: 160px;
+        height: 160px;
+        right: 8%;
+    }
+}
+
+@media (max-width: 768px) {
+    .ts-hero-banner {
+        min-height: 260px;
+    }
+
+    .ts-shape {
+        opacity: 0.5;
+    }
+
+    .ts-icon {
+        width: 120px;
+        height: 120px;
+        right: 5%;
+        opacity: 0.04;
+    }
+
+    .ts-hero-banner .hero-content {
+        padding: var(--space-6) 0;
+    }
+
+    .ts-title-cn {
+        font-size: var(--font-size-3xl);
+    }
+
+    .hero-title-en {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--space-4);
+    }
+
+    .definition-text {
+        font-size: var(--font-size-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .ts-shape {
+        display: none;
+    }
+
+    .ts-title-cn {
+        font-size: var(--font-size-2xl);
+    }
+
+    .ts-badge {
+        padding: var(--space-1) var(--space-2);
+        font-size: var(--font-size-xs);
+    }
+
+    .ts-definition {
+        gap: var(--space-3);
+    }
+}

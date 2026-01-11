@@ -1,0 +1,96 @@
+/* ============================================
+   HeroBackground - Shared Background Layer
+   ============================================ */
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Noise texture overlay */
+.hero-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+/* Light grid pattern overlay */
+.hero-background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+}
+
+/* Right side shape container */
+.hero-shape-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-blob {
+    position: absolute;
+    top: -30%;
+    right: -15%;
+    width: 140%;
+    height: 160%;
+}
+
+.hero-icon-overlay {
+    position: absolute;
+    top: 50%;
+    right: 12%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 200px;
+    opacity: 0.05;
+    stroke-width: 1;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .hero-icon-overlay {
+        width: 160px;
+        height: 160px;
+        right: 8%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-shape-container {
+        opacity: 0.6;
+    }
+
+    .hero-icon-overlay {
+        width: 120px;
+        height: 120px;
+        right: 5%;
+        opacity: 0.04;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-shape-container {
+        opacity: 0.4;
+    }
+
+    .hero-icon-overlay {
+        display: none;
+    }
+}

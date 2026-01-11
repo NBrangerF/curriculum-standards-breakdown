@@ -1,0 +1,139 @@
+/* ============================================
+   SubjectHeroBanner - TS-style Visual Quality
+   with Left-Aligned Content Layout
+   ============================================ */
+
+.subject-hero-banner {
+    position: relative;
+    min-height: 300px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Content area - LEFT ALIGNED */
+.subject-hero-banner .hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 680px;
+    padding: var(--space-10) 0;
+    text-align: left;
+}
+
+/* Back link */
+.subject-hero-banner .hero-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    margin-bottom: var(--space-4);
+    transition: color var(--transition-fast);
+}
+
+.subject-hero-banner .hero-back-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Title (H1) - Most prominent */
+.subject-hero-banner .hero-title {
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+    color: white;
+    margin-bottom: var(--space-4);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+/* Subtitle (Body) */
+.subject-hero-banner .hero-subtitle {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-6);
+    max-width: 560px;
+}
+
+/* Stats row - Glass cards */
+.subject-hero-banner .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.stat-glass-card {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(8px);
+}
+
+.stat-glass-card .stat-value {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--theme-color, #3b82f6);
+}
+
+.stat-glass-card .stat-label {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .subject-hero-banner .hero-title {
+        font-size: var(--font-size-4xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .subject-hero-banner {
+        min-height: 260px;
+    }
+
+    .subject-hero-banner .hero-content {
+        padding: var(--space-8) 0;
+    }
+
+    .subject-hero-banner .hero-title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .subject-hero-banner .hero-subtitle {
+        font-size: var(--font-size-base);
+    }
+
+    .subject-hero-banner .hero-stats {
+        flex-wrap: wrap;
+        gap: var(--space-3);
+    }
+
+    .stat-glass-card {
+        padding: var(--space-2) var(--space-3);
+    }
+
+    .stat-glass-card .stat-value {
+        font-size: var(--font-size-xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .subject-hero-banner .hero-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .subject-hero-banner .hero-stats {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+}

@@ -1,0 +1,399 @@
+/* ============================================
+   Standard Card Component - Refined Visual Hierarchy
+   ============================================ */
+
+.standard-card {
+    position: relative;
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-gray-200);
+    overflow: hidden;
+    transition: all var(--transition-fast);
+}
+
+.standard-card:hover {
+    border-color: var(--color-gray-300);
+    box-shadow: var(--shadow-sm);
+}
+
+.standard-card.expanded {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   Copy Toast
+   ============================================ */
+
+.copy-toast {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-gray-800);
+    color: white;
+    font-size: var(--font-size-xs);
+    border-radius: var(--radius-md);
+    z-index: 10;
+    animation: toastIn 0.2s ease-out;
+}
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Header Row
+   ============================================ */
+
+.standard-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--color-gray-100);
+}
+
+/* Labels (Subdomain + Domain) */
+.standard-card-labels {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    flex: 1;
+    min-width: 0;
+}
+
+.subdomain-label {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-2);
+    background: var(--color-gray-100);
+    color: var(--text-primary);
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+}
+
+.domain-label {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Actions (Grade band + Favorite + Menu + Expand) */
+.standard-card-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-shrink: 0;
+}
+
+.grade-band-chip {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-2);
+    background: var(--band-bg, var(--color-primary-light, rgba(59, 130, 246, 0.1)));
+    color: var(--band-color, var(--color-primary));
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+}
+
+/* Menu */
+.menu-container {
+    position: relative;
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    color: var(--text-tertiary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: var(--font-size-lg);
+    transition: all var(--transition-fast);
+}
+
+.menu-btn:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.menu-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: var(--space-1);
+    min-width: 140px;
+    background: var(--bg-primary);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    z-index: 50;
+    overflow: hidden;
+    animation: dropdownIn 0.15s ease-out;
+}
+
+@keyframes dropdownIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    border: none;
+    background: transparent;
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+    text-align: left;
+}
+
+.menu-item:hover {
+    background: var(--bg-tertiary);
+}
+
+.menu-icon {
+    font-size: var(--font-size-sm);
+}
+
+/* Expand button */
+.expand-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-full);
+    background: var(--bg-tertiary);
+    border: none;
+    color: var(--text-tertiary);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.expand-btn:hover {
+    background: var(--color-gray-200);
+    color: var(--text-primary);
+}
+
+.expand-icon {
+    font-size: 10px;
+    transition: transform var(--transition-fast);
+}
+
+.expand-icon.up {
+    transform: rotate(180deg);
+}
+
+/* ============================================
+   Body - Standard Statement (Visual Focus)
+   ============================================ */
+
+.standard-card-body {
+    padding: var(--space-3) var(--space-4);
+}
+
+.standard-text-link {
+    text-decoration: none;
+    display: block;
+}
+
+.standard-text {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.standard-text-link:hover .standard-text {
+    color: var(--color-primary);
+}
+
+.keyword-highlight {
+    background: var(--color-warning);
+    color: var(--color-gray-900);
+    padding: 0 var(--space-1);
+    border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   TS Badges Row
+   ============================================ */
+
+.standard-ts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    padding: 0 var(--space-4) var(--space-3);
+}
+
+.ts-badge-link {
+    text-decoration: none;
+}
+
+.ts-badge-link:hover .ts-badge {
+    transform: scale(1.1);
+}
+
+/* ============================================
+   Footer Meta - ID + Copy (Hover Reveal)
+   ============================================ */
+
+.standard-card-footer-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-4);
+    border-top: 1px solid var(--color-gray-100);
+    background: var(--bg-secondary);
+
+    /* Desktop: hidden by default, reveal on hover/focus */
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    transition: all var(--transition-fast);
+}
+
+/* Reveal on card hover or focus-within */
+.standard-card:hover .standard-card-footer-meta,
+.standard-card:focus-within .standard-card-footer-meta {
+    opacity: 1;
+    max-height: 40px;
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-2);
+}
+
+.standard-id {
+    font-size: var(--font-size-xs);
+    font-family: monospace;
+    color: var(--text-tertiary);
+}
+
+.copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    color: var(--text-tertiary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.copy-btn:hover {
+    background: var(--bg-primary);
+    color: var(--color-primary);
+}
+
+.copy-btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   Expanded Details
+   ============================================ */
+
+.standard-card-details {
+    padding: 0 var(--space-4) var(--space-4);
+    border-top: 1px solid var(--color-gray-100);
+    background: var(--bg-secondary);
+}
+
+.detail-section {
+    padding-top: var(--space-4);
+}
+
+.detail-section:first-child {
+    padding-top: var(--space-4);
+}
+
+.detail-label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.detail-text {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+}
+
+.detail-actions {
+    padding-top: var(--space-4);
+    display: flex;
+    gap: var(--space-3);
+}
+
+.btn-sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-xs);
+}
+
+/* ============================================
+   Mobile Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+    .standard-card-header {
+        padding: var(--space-2) var(--space-3);
+    }
+
+    .standard-card-body {
+        padding: var(--space-2) var(--space-3);
+    }
+
+    .standard-ts-row {
+        padding: 0 var(--space-3) var(--space-2);
+    }
+
+    /* Mobile: Footer always hidden, use menu for copy */
+    .standard-card-footer-meta {
+        display: none !important;
+    }
+
+    .domain-label {
+        display: none;
+    }
+
+    .standard-text {
+        font-size: var(--font-size-sm);
+    }
+}

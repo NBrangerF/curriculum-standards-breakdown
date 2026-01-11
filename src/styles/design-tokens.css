@@ -1,0 +1,280 @@
+/**
+ * Design Tokens - Ocean Soft Theme
+ * Orca brand visual system
+ * 
+ * Usage: Import in index.css, reference via var(--token-name)
+ */
+
+:root {
+    /* ================================================
+     COLORS
+     ================================================ */
+
+    /* Primary - Orca Blue */
+    --color-primary: #0891B2;
+    --color-primary-light: #22D3EE;
+    --color-primary-dark: #0E7490;
+    --color-primary-hover: #0E7490;
+    --color-primary-active: #155E75;
+
+    /* Secondary - Ocean Cyan */
+    --color-secondary: #06B6D4;
+    --color-secondary-light: #67E8F9;
+    --color-secondary-dark: #0891B2;
+
+    /* Accent - Coral Orange */
+    --color-accent: #F97316;
+    --color-accent-light: #FDBA74;
+    --color-accent-dark: #EA580C;
+
+    /* Semantic Colors */
+    --color-success: #10B981;
+    --color-success-light: #D1FAE5;
+    --color-success-dark: #059669;
+
+    --color-warning: #F59E0B;
+    --color-warning-light: #FEF3C7;
+    --color-warning-dark: #D97706;
+
+    --color-error: #EF4444;
+    --color-error-light: #FEE2E2;
+    --color-error-dark: #DC2626;
+
+    --color-info: #3B82F6;
+    --color-info-light: #DBEAFE;
+    --color-info-dark: #2563EB;
+
+    /* Backgrounds */
+    --bg-primary: #F8FAFC;
+    --bg-secondary: #F1F5F9;
+    --bg-surface: #FFFFFF;
+    --bg-elevated: #FFFFFF;
+    --bg-inverse: #0F172A;
+
+    /* Text */
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-tertiary: #94A3B8;
+    --text-disabled: #CBD5E1;
+    --text-inverse: #F8FAFC;
+    --text-link: var(--color-primary);
+    --text-link-hover: var(--color-primary-dark);
+
+    /* Borders */
+    --border-default: #E2E8F0;
+    --border-strong: #CBD5E1;
+    --border-focus: var(--color-primary);
+
+    /* ================================================
+     TYPOGRAPHY
+     ================================================ */
+
+    /* Font Families */
+    --font-display: 'Outfit', system-ui, sans-serif;
+    --font-body: 'Noto Sans SC', 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+    /* Font Sizes (Major Third Scale 1.25) */
+    --font-size-xs: 0.75rem;
+    /* 12px */
+    --font-size-sm: 0.875rem;
+    /* 14px */
+    --font-size-base: 1rem;
+    /* 16px */
+    --font-size-lg: 1.125rem;
+    /* 18px */
+    --font-size-xl: 1.25rem;
+    /* 20px */
+    --font-size-2xl: 1.5rem;
+    /* 24px */
+    --font-size-3xl: 1.875rem;
+    /* 30px */
+    --font-size-4xl: 2.25rem;
+    /* 36px */
+    --font-size-5xl: 3rem;
+    /* 48px */
+
+    /* Font Weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Line Heights */
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+
+    /* Letter Spacing */
+    --letter-spacing-tight: -0.025em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.025em;
+
+    /* ================================================
+     SPACING (8px Base Grid)
+     ================================================ */
+
+    --space-0: 0;
+    --space-1: 0.25rem;
+    /* 4px */
+    --space-2: 0.5rem;
+    /* 8px */
+    --space-3: 0.75rem;
+    /* 12px */
+    --space-4: 1rem;
+    /* 16px */
+    --space-5: 1.25rem;
+    /* 20px */
+    --space-6: 1.5rem;
+    /* 24px */
+    --space-8: 2rem;
+    /* 32px */
+    --space-10: 2.5rem;
+    /* 40px */
+    --space-12: 3rem;
+    /* 48px */
+    --space-16: 4rem;
+    /* 64px */
+    --space-20: 5rem;
+    /* 80px */
+    --space-24: 6rem;
+    /* 96px */
+
+    /* ================================================
+     BORDER RADIUS
+     ================================================ */
+
+    --radius-none: 0;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
+
+    /* ================================================
+     SHADOWS (Soft UI Style)
+     ================================================ */
+
+    --shadow-none: none;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+    /* Colored shadows for depth */
+    --shadow-primary: 0 4px 14px -3px rgba(8, 145, 178, 0.3);
+    --shadow-accent: 0 4px 14px -3px rgba(249, 115, 22, 0.3);
+
+    /* ================================================
+     MOTION / ANIMATION
+     ================================================ */
+
+    --duration-instant: 0ms;
+    --duration-fast: 150ms;
+    --duration-normal: 200ms;
+    --duration-slow: 300ms;
+    --duration-slower: 500ms;
+
+    --easing-default: cubic-bezier(0.4, 0, 0.2, 1);
+    --easing-in: cubic-bezier(0.4, 0, 1, 1);
+    --easing-out: cubic-bezier(0, 0, 0.2, 1);
+    --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Transition presets */
+    --transition-fast: var(--duration-fast) var(--easing-default);
+    --transition-normal: var(--duration-normal) var(--easing-default);
+    --transition-slow: var(--duration-slow) var(--easing-default);
+
+    /* ================================================
+     Z-INDEX SCALE
+     ================================================ */
+
+    --z-below: -1;
+    --z-default: 0;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-modal: 300;
+    --z-toast: 400;
+    --z-tooltip: 500;
+
+    /* ================================================
+     COMPONENT-SPECIFIC TOKENS
+     ================================================ */
+
+    /* Default density (compact) */
+    --card-padding: var(--space-4);
+    --card-gap: var(--space-3);
+    --button-padding-x: var(--space-4);
+    --button-padding-y: var(--space-2);
+    --input-padding-x: var(--space-3);
+    --input-padding-y: var(--space-2);
+    --list-gap: var(--space-3);
+    --section-gap: var(--space-8);
+
+    /* ================================================
+     ORCA BRAND SPECIFIC
+     ================================================ */
+
+    /* Bubble pattern opacity */
+    --bubble-opacity: 0.04;
+
+    /* Wave colors */
+    --wave-color-1: var(--color-primary);
+    --wave-color-2: var(--color-secondary);
+
+    /* Fin accent */
+    --fin-color: var(--color-primary-dark);
+}
+
+/* ================================================
+   DENSITY VARIANTS
+   ================================================ */
+
+/* Compact (default) - already in :root */
+
+/* Comfortable - more spacious */
+[data-density="comfortable"] {
+    --card-padding: var(--space-6);
+    --card-gap: var(--space-4);
+    --button-padding-x: var(--space-5);
+    --button-padding-y: var(--space-3);
+    --input-padding-x: var(--space-4);
+    --input-padding-y: var(--space-3);
+    --list-gap: var(--space-4);
+    --section-gap: var(--space-10);
+
+    --font-size-base: 1.0625rem;
+    /* 17px */
+    --font-size-lg: 1.1875rem;
+    /* 19px */
+}
+
+/* ================================================
+   REDUCED MOTION
+   ================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --duration-fast: 0ms;
+        --duration-normal: 0ms;
+        --duration-slow: 0ms;
+        --duration-slower: 0ms;
+    }
+}
+
+/* ================================================
+   DARK MODE (Future)
+   ================================================ */
+
+/* Placeholder for future dark mode support
+[data-theme="dark"] {
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --bg-surface: #1E293B;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --border-default: #334155;
+}
+*/

@@ -1,0 +1,170 @@
+/* ============================================
+   Footer - Comprehensive Site Footer
+   ============================================ */
+
+.site-footer {
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    color: var(--color-gray-300);
+}
+
+/* ============================================
+   Upper Section - Content Columns
+   ============================================ */
+
+.footer-upper {
+    padding: var(--space-10) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+/* Brand Column */
+.footer-brand {
+    gap: var(--space-4);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.footer-logo-icon {
+    font-size: 1.5rem;
+}
+
+.footer-logo-text {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: white;
+}
+
+.footer-tagline {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-400);
+    line-height: var(--line-height-relaxed);
+    max-width: 240px;
+}
+
+/* Column Headings */
+.footer-heading {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: white;
+    margin-bottom: var(--space-1);
+}
+
+/* Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.footer-links a {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-400);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* Text Content */
+.footer-text {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-400);
+    line-height: var(--line-height-relaxed);
+}
+
+.footer-disclaimer {
+    color: var(--color-gray-500);
+    font-size: 11px;
+}
+
+/* ============================================
+   Lower Section - Copyright Bar
+   ============================================ */
+
+.footer-lower {
+    padding: var(--space-4) 0;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+.footer-copyright {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-500);
+}
+
+.footer-legal {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-500);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-8) var(--space-6);
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-upper {
+        padding: var(--space-8) 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .footer-brand {
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-tagline {
+        max-width: none;
+        text-align: center;
+    }
+
+    .footer-column {
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
