@@ -293,8 +293,8 @@ export function getDomainsForSubject(subjectSlug) {
 
 export const GRADE_BANDS = {
     H1: { label: '第一学段', range: '1-2年级', order: 1, color: 'var(--band-h1)', bgColor: 'var(--band-h1-bg)' },
-    H2: { label: '第二学段', range: '3-6年级', order: 2, color: 'var(--band-h2)', bgColor: 'var(--band-h2-bg)' },
-    H3: { label: '第三学段', range: '7-9年级', order: 3, color: 'var(--band-h3)', bgColor: 'var(--band-h3-bg)' }
+    H2: { label: '第二学段', range: '3-4年级', order: 2, color: 'var(--band-h2)', bgColor: 'var(--band-h2-bg)' },
+    H3: { label: '第三学段', range: '5-6年级', order: 3, color: 'var(--band-h3)', bgColor: 'var(--band-h3-bg)' }
 }
 
 export const SUBJECT_COLORS = {
