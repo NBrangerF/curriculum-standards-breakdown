@@ -26,9 +26,9 @@ function Header() {
             <div className="container header-container">
                 {/* Brand */}
                 <Link to="/" className="header-logo">
-                    <span className="logo-icon">🐋</span>
+                    <span className="logo-icon">🧭</span>
                     <span className="logo-text">
-                        <span className="logo-title">虎鲸课程标准</span>
+                        <span className="logo-title">课标罗盘</span>
                         <span className="logo-subtitle">义务教育 2022</span>
                     </span>
                 </Link>

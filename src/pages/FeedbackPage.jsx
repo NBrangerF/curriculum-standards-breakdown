@@ -133,7 +133,7 @@ function FeedbackPage() {
                 },
                 body: JSON.stringify({
                     access_key: accessKey,
-                    subject: `[虎鲸课程标准] [${typeLabel}] ${formData.title}`,
+                    subject: `[课标罗盘] [${typeLabel}] ${formData.title}`,
                     from_name: formData.contactEmail || '匿名用户',
                     // Form fields
                     type: typeLabel,

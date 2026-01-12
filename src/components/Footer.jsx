@@ -42,8 +42,8 @@ function Footer() {
                     {/* Column 1: Brand & Description */}
                     <div className="footer-column footer-brand">
                         <div className="footer-logo">
-                            <span className="footer-logo-icon">🐋</span>
-                            <span className="footer-logo-text">虎鲸课程标准</span>
+                            <span className="footer-logo-icon">🧭</span>
+                            <span className="footer-logo-text">课标罗盘</span>
                         </div>
                         <p className="footer-tagline">
                             义务教育课程标准（2022年版）结构化浏览与对比工具
@@ -87,7 +87,7 @@ function Footer() {
             <div className="footer-lower">
                 <div className="container footer-bottom">
                     <span className="footer-copyright">
-                        © {currentYear} 虎鲸课程标准
+                        © {currentYear} 课标罗盘
                     </span>
                     <span className="footer-legal">
                         数据仅供教学研究参考 · 以官方发布为准
