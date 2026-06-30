@@ -37,7 +37,8 @@ Builds curated 7-9 staging data from scripts/grade7_9/curated/*_h3_raw.json:
 2. map_ts
 3. build_by_subject
 4. generate_manifest
-5. validate_schema --staging-root`)
+5. validate_schema --staging-root
+6. audit_grade_split`)
 }
 
 function run(command, args) {
@@ -101,6 +102,7 @@ function main() {
   run(process.execPath, ['scripts/grade7_9/build_by_subject.js', '--input-dir', mappedDir, '--out-dir', bySubjectDir])
   run(process.execPath, ['scripts/grade7_9/generate_manifest.js', '--by-subject-dir', bySubjectDir, '--out-dir', args.outDir])
   run(process.execPath, ['scripts/grade7_9/validate_schema.js', '--staging-root', args.outDir, '--existing-data-root', args.existingDataRoot])
+  run(process.execPath, ['scripts/grade7_9/audit_grade_split.js', '--curated-dir', args.curatedDir, '--staging-root', args.outDir])
 
   const manifest = JSON.parse(readFileSync(join(args.outDir, 'manifest.json'), 'utf8'))
   const total = (manifest.subjects || []).reduce((sum, subject) => sum + subject.record_count, 0)

@@ -88,6 +88,7 @@ H3: { label: '第三学段', range: '5-6年级', ... }
 
 ```bash
 npm run grade7_9:build-curated
+npm run grade7_9:audit-grade-split -- --out generated/grade7_9_grade_split_audit.json
 npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curated
 npm run grade7_9:validate -- --staging-root generated/grade7_9_all_curated --existing-data-root public/data
 npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated

@@ -75,6 +75,7 @@ scripts/grade7_9/
   build_curated_staging.js
   audit_release_readiness.js
   audit_structure_coverage.js
+  audit_grade_split.js
   plan_public_integration.js
   validate_schema.js
   generate_manifest.js
@@ -155,6 +156,7 @@ raw 抽取会保留页码引用：
 - 是否是可教学、可评价、可观察的原子标准。
 - 是否需要拆成更小条目。
 - 是否需要进一步分配到七/八/九年级。
+- `target_grades` 是否能被明确确认；无法确认时不能进入正式主数据。
 
 ### Phase 3：转换统一 schema
 
@@ -220,6 +222,14 @@ node scripts/grade7_9/validate_schema.js \
 - `ts_secondary` 最多两个。
 - TS code 必须来自 TS1-TS7。
 
+年级拆分还必须通过：
+
+```bash
+npm run grade7_9:audit-grade-split -- --out generated/grade7_9_grade_split_audit.json
+```
+
+该审计会比较 `scripts/grade7_9/curated/*_h3_raw.json` 中的 `target_grades` 与 staging `by_subject` 中实际生成的 `七年级`、`八年级`、`九年级` record 数量。当前完整 curated staging 为 400 条 raw items 展开成 1081 条年级记录。
+
 ### Phase 7：生成 manifest 和 indexes
 
 ```bash
@@ -259,7 +269,7 @@ node scripts/grade7_9/validate_schema.js \
 npm run grade7_9:build-curated
 ```
 
-默认输出到 `generated/grade7_9_all_curated/`，并自动完成 normalize、map-ts、by_subject、manifest/indexes 和 `--staging-root` 整包校验。
+默认输出到 `generated/grade7_9_all_curated/`，并自动完成 normalize、map-ts、by_subject、manifest/indexes、`--staging-root` 整包校验和年级拆分审计。
 
 重建前可以先运行课标原文结构覆盖审计：
 
@@ -304,6 +314,7 @@ npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curat
 - 每条标准字段与现有 schema 兼容。
 - 每条标准都有真实 code 和 TS primary。
 - 课程目标、课程内容、学业质量、教学建议、评价建议结构覆盖审计通过。
+- `target_grades` 到七/八/九年级 records 的拆分审计通过。
 - staging 校验通过。
 - 网站数据层兼容检查通过，包括学科页、对比页、搜索页、技能详情页、标准详情页所需字段和索引。
 - `grade7_9:plan-integration` 已确认真实接入影响面和无 code 冲突。

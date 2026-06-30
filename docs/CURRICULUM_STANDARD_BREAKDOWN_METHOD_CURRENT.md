@@ -11,6 +11,7 @@
 - `docs/RESOURCE_ARCHITECTURE.md`
 - `docs/JUNIOR_SECONDARY_EXPANSION_WORKFLOW.md`
 - `docs/JUNIOR_SECONDARY_SOURCE_AUDIT.md`
+- `docs/JUNIOR_SECONDARY_GRADE_SPLIT_AUDIT.md`
 - `docs/*_GRADE7_9_STAGING.md`
 - `src/data/schema.js`
 - `public/data/manifest.json`
@@ -167,9 +168,10 @@ flowchart TD
   G --> H["normalize_schema: 统一字段、拆分年级、生成 code"]
   H --> I["map_ts: 规则化标注 TS1-TS7"]
   I --> J["build_by_subject: 按学科输出 JSON"]
-  J --> K["validate_schema: 字段、code、TS、学段口径校验"]
-  K --> L["generate_manifest: 生成 manifest 和 indexes"]
-  L --> M["check_staging_ui_compat: 验证网站数据层可消费"]
+  J --> K["generate_manifest: 生成 manifest 和 indexes"]
+  K --> L["validate_schema: 字段、code、TS、学段口径校验"]
+  L --> M["audit_grade_split: 核对 target_grades 与七八九年级展开数"]
+  M --> N["check_staging_ui_compat: 验证网站数据层可消费"]
 ```
 
 ## 6. `raw_items` 的整理方式
@@ -229,7 +231,10 @@ scripts/grade7_9/curated/{subject_slug}_h3_raw.json
 2. 如果官方文本写 7-9 共同要求，且确实跨三年适用，`raw_items` 使用 `target_grades: [7, 8, 9]`。
 3. `normalize_schema.js` 会把一条共同要求展开成七年级、八年级、九年级三条 records。
 4. 展开后的 records 可以共享同一核心要求，但 code 必须独立。
-5. 如果无法确认年级归属，保留在 staging，不进入正式主数据。
+5. `audit_grade_split.js` 会核对 raw `target_grades` 与最终 `by_subject` 年级记录数是否一致。
+6. 如果无法确认年级归属，保留在 staging，不进入正式主数据。
+
+当前 curated staging 的年级展开事实是：400 条 raw items 按 `target_grades` 展开为 1081 条 records，其中语文 156、数学 114、英语 132、道德与法治 126、科学 201、信息科技 66、艺术 97、体育与健康 123、劳动 66。
 
 特别注意：正式数据中 `H3` 已被小学高段或艺术 6-7 年级使用。在 H3 口径冲突解决前，7-9 staging 不能覆盖 `public/data/by_subject/`。
 

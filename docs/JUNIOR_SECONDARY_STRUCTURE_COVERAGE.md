@@ -72,6 +72,7 @@ npm run grade7_9:audit-structure -- --out generated/grade7_9_structure_coverage.
 ```bash
 npm run grade7_9:audit-structure
 npm run grade7_9:build-curated
+npm run grade7_9:audit-grade-split
 npm run grade7_9:validate -- --staging-root generated/grade7_9_all_curated --existing-data-root public/data
 npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 ```
