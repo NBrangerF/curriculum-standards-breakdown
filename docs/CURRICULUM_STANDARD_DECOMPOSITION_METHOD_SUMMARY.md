@@ -191,6 +191,7 @@ scripts/grade7_9/
 | `normalize_schema.js` | 把 raw_items 转成统一标准记录，生成 code，并拆成年级记录。 |
 | `map_ts.js` | 按关键词和规则映射 TS1-TS7。 |
 | `build_by_subject.js` | 输出 staging by_subject JSON。 |
+| `build_curated_staging.js` | 从 curated raw 一键重建 normalized、mapped、by_subject、manifest/indexes，并运行整包校验。 |
 | `validate_schema.js` | 校验字段、年级、TS、code、manifest/indexes 一致性和 H3 口径风险。 |
 | `generate_manifest.js` | 生成 staging manifest 和 indexes。 |
 

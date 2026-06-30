@@ -365,6 +365,10 @@ docs/ARTS_GRADE7_9_STAGING.md
 
 9 科合并 staging 验证：
 
+```bash
+npm run grade7_9:build-curated
+```
+
 ```text
 generated/grade7_9_all_curated/
 ```

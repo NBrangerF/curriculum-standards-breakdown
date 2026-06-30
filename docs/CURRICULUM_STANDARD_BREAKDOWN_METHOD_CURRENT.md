@@ -290,6 +290,14 @@ scripts/grade7_9/map_ts.js
 
 ## 10. 7-9 staging 脚本管线
 
+9 科 curated raw 草案可用一条命令重建完整 staging：
+
+```bash
+npm run grade7_9:build-curated
+```
+
+该命令默认输出到 `generated/grade7_9_all_curated/`，并自动完成 normalize、map-ts、by_subject、manifest/indexes 和 `--staging-root` 整包校验。
+
 以单学科为例，当前校验链路是：
 
 ```bash

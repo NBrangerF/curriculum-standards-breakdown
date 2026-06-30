@@ -72,6 +72,7 @@ scripts/grade7_9/
   normalize_schema.js
   map_ts.js
   build_by_subject.js
+  build_curated_staging.js
   validate_schema.js
   generate_manifest.js
   config.js
@@ -247,6 +248,14 @@ node scripts/grade7_9/validate_schema.js \
 - `indexes/code_to_subject.json` 是否覆盖全部 code 且学科映射正确。
 - `indexes/skill_to_subjects.json` 是否与 `ts_primary` / `ts_secondary` 实际分布一致。
 - `indexes/subject_stats.json` 是否与 `by_subject` 实际统计一致。
+
+已人工整理的 `scripts/grade7_9/curated/*_h3_raw.json` 可用一条命令重建完整 staging：
+
+```bash
+npm run grade7_9:build-curated
+```
+
+默认输出到 `generated/grade7_9_all_curated/`，并自动完成 normalize、map-ts、by_subject、manifest/indexes 和 `--staging-root` 整包校验。
 
 ## 7. 完成定义
 
