@@ -211,3 +211,20 @@ scripts/grade7_9/review_ranges.json
 4. 对 7-9 合写要求进行年级拆分，写入现有 `grade` 字段。
 5. 运行 schema 归一、TS 映射、by_subject 构建和校验。
 6. 在 H3 口径冲突解决前，只输出到 `generated/grade7_9/` staging，不覆盖 `public/data/by_subject/`。
+
+## 11. 首批结构化进展
+
+劳动学科已完成第四学段首批 curated raw items：
+
+```text
+scripts/grade7_9/curated/labor_h3_raw.json
+docs/LABOR_GRADE7_9_STAGING.md
+```
+
+验证结果：
+
+- 22 条 curated raw items。
+- normalize 后生成 66 条 standards。
+- 七年级、八年级、九年级各 22 条。
+- `validate_schema.js` 通过，无 errors。
+- 仍保留 H3 口径冲突 warning，因此未写入正式 `public/data`。
