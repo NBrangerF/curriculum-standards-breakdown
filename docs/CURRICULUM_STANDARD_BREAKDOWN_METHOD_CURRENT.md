@@ -338,6 +338,14 @@ npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 
 该步骤会检查学科页的 H3 筛选和领域分组、对比页的选择模式、搜索页的学段和 TS 筛选、技能详情页的 TS 反查、标准详情页的 code-to-subject 查找和详情字段。
 
+正式接入前还必须运行 release readiness：
+
+```bash
+npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
+```
+
+该步骤区分 `staging_ready` 和 `direct_public_integration_ready`。当前 7-9 staging 已 ready，但直接写入正式 `public/data` 仍被 H3 口径冲突阻塞。
+
 校验通过时应满足：
 
 - `valid: true`
@@ -348,6 +356,7 @@ npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 - 每条标准有且仅有一个 `ts_primary`
 - manifest、`code_to_subject`、`skill_to_subjects`、`subject_stats` 与 `by_subject` 实际数据一致
 - 网站数据层兼容检查通过，能支撑学科页、搜索页、对比页、技能详情页和标准详情页
+- release readiness strict gate 通过，证明可正式写入 `public/data/by_subject`
 
 当前出现的 H3 warning 是预期风险提示，不代表 staging 失败；它提醒我们正式数据已有 H3 口径冲突。
 

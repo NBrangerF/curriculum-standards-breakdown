@@ -73,6 +73,7 @@ scripts/grade7_9/
   map_ts.js
   build_by_subject.js
   build_curated_staging.js
+  audit_release_readiness.js
   validate_schema.js
   generate_manifest.js
   check_staging_ui_compat.js
@@ -266,6 +267,14 @@ npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 
 该检查会复用前端 `schema.js`、`dataLoader.js` 和 `compareLogic.js`，验证 staging 数据是否能支撑 `SubjectPage`、`CompareView`、`SearchResultsPage`、`SkillDetailPage`、`StandardDetailPage` 的学段筛选、领域分组、TS 反查和 code 详情查找。
 
+正式写入 `public/data/by_subject/` 前，还必须运行 release readiness 审计：
+
+```bash
+npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
+```
+
+该命令会同时检查 staging 完整性和正式接入阻塞项。当前已知 blocker 是正式数据已经使用 `H3=5-6` 或艺术 `H3=6-7`，而 7-9 staging 需要 `H3=7-9`。详见 `docs/JUNIOR_SECONDARY_RELEASE_READINESS.md`。
+
 ## 7. 完成定义
 
 真正完成初中段扩展，需要满足：
@@ -278,5 +287,6 @@ npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 - 每条标准都有真实 code 和 TS primary。
 - staging 校验通过。
 - 网站数据层兼容检查通过，包括学科页、对比页、搜索页、技能详情页、标准详情页所需字段和索引。
+- `grade7_9:audit-release -- --strict` 通过。
 - 与正式数据合并前，H3 口径冲突被解决。
 - 合并后 `SubjectPage`、`CompareView`、`SkillDetailPage`、`StandardDetailPage` 不崩。

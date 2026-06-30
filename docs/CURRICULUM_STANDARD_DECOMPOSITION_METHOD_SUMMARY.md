@@ -193,6 +193,7 @@ scripts/grade7_9/
 | `map_ts.js` | 按关键词和规则映射 TS1-TS7。 |
 | `build_by_subject.js` | 输出 staging by_subject JSON。 |
 | `build_curated_staging.js` | 从 curated raw 一键重建 normalized、mapped、by_subject、manifest/indexes，并运行整包校验。 |
+| `audit_release_readiness.js` | 审计 staging 是否完整，以及是否可以安全写入正式 `public/data`。 |
 | `validate_schema.js` | 校验字段、年级、TS、code、manifest/indexes 一致性和 H3 口径风险。 |
 | `generate_manifest.js` | 生成 staging manifest 和 indexes。 |
 | `check_staging_ui_compat.js` | 复用前端数据层，检查 staging 是否支撑学科页、对比页、搜索页、技能详情页和标准详情页。 |
@@ -361,6 +362,14 @@ npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 ```
 
 它验证当前网站数据层是否能完成 H3 筛选、领域分组、TS 筛选、TS 反查和标准详情查找。
+
+正式接入前还要运行：
+
+```bash
+npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
+```
+
+当前审计结论是 `staging_ready: true`，但 `direct_public_integration_ready: false`，因为正式 `public/data` 已有 H3 非 7-9 数据。
 
 校验通过的结果应类似：
 
