@@ -161,9 +161,17 @@ node scripts/grade7_9/audit_grade_band_policy.js \
   --staging-root generated/grade7_9_release_candidate \
   --data-only \
   --strict
+npm run grade7_9:check-release-candidate
 ```
 
-当前这两个候选数据层 gate 均通过。注意：`--data-only` 只用于生成目录的数据层验证；真正发布仍必须更新前端 `GRADE_BANDS` 并运行完整 strict gate。
+当前候选数据层和候选 runtime 兼容 gate 均通过。候选 runtime 检查覆盖 SubjectPage、CompareView、SearchResultsPage、SkillDetailPage 和 StandardDetailPage 的主要数据路径。
+
+当前仍保留两个 warning：
+
+- `SC-D1-SC-012` 是既有非 H3 记录，`assessment_evidence_type` 为空。
+- 前端 `GRADE_BANDS.H3.range` 仍是 `5-6年级`，正式发布前必须改为 `7-9年级`。
+
+注意：`--data-only` 只用于生成目录的数据层验证；真正发布仍必须更新前端 `GRADE_BANDS` 并运行完整 strict gate。
 
 ## 8. 推荐下一步
 
@@ -177,6 +185,7 @@ node scripts/grade7_9/audit_grade_band_policy.js \
 ```bash
 npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
+npm run grade7_9:check-release-candidate
 npm run build:indexes
 npm run validate:indexes
 npm run build

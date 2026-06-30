@@ -28,6 +28,7 @@
         "grade7_9:audit-grade-band-policy": "node scripts/grade7_9/audit_grade_band_policy.js",
         "grade7_9:plan-integration": "node scripts/grade7_9/plan_public_integration.js",
         "grade7_9:check-ui": "node scripts/grade7_9/check_staging_ui_compat.js",
+        "grade7_9:check-release-candidate": "node scripts/grade7_9/check_release_candidate_ui_compat.js",
         "grade7_9:validate": "node scripts/grade7_9/validate_schema.js",
         "grade7_9:manifest": "node scripts/grade7_9/generate_manifest.js",
         "prebuild": "npm run build:indexes",
