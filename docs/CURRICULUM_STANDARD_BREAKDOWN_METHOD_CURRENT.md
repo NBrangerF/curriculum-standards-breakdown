@@ -315,6 +315,10 @@ node scripts/grade7_9/validate_schema.js \
 node scripts/grade7_9/generate_manifest.js \
   --by-subject-dir generated/grade7_9_{subject}_curated/by_subject \
   --out-dir generated/grade7_9_{subject}_curated
+
+node scripts/grade7_9/validate_schema.js \
+  --staging-root generated/grade7_9_{subject}_curated \
+  --existing-data-root public/data
 ```
 
 校验通过时应满足：
@@ -325,6 +329,7 @@ node scripts/grade7_9/generate_manifest.js \
 - `grade` 已拆为七年级、八年级、九年级
 - 每条标准有唯一 code
 - 每条标准有且仅有一个 `ts_primary`
+- manifest、`code_to_subject`、`skill_to_subjects`、`subject_stats` 与 `by_subject` 实际数据一致
 
 当前出现的 H3 warning 是预期风险提示，不代表 staging 失败；它提醒我们正式数据已有 H3 口径冲突。
 

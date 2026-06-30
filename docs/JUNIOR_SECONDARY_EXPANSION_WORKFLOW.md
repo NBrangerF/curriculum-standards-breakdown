@@ -232,6 +232,22 @@ generated/grade7_9/indexes/skill_to_subjects.json
 generated/grade7_9/indexes/subject_stats.json
 ```
 
+生成 manifest 和 indexes 后，再运行整包交叉校验：
+
+```bash
+node scripts/grade7_9/validate_schema.js \
+  --staging-root generated/grade7_9 \
+  --existing-data-root public/data
+```
+
+该步骤会在 record 级 schema 校验之外，继续校验：
+
+- `manifest.subjects[].record_count` 是否等于 `by_subject` 实际条数。
+- `manifest.subjects[].domains`、`grade_bands`、`grades` 是否来自 `by_subject`。
+- `indexes/code_to_subject.json` 是否覆盖全部 code 且学科映射正确。
+- `indexes/skill_to_subjects.json` 是否与 `ts_primary` / `ts_secondary` 实际分布一致。
+- `indexes/subject_stats.json` 是否与 `by_subject` 实际统计一致。
+
 ## 7. 完成定义
 
 真正完成初中段扩展，需要满足：
