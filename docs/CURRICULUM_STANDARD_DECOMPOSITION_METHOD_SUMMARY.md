@@ -375,6 +375,7 @@ node scripts/grade7_9/generate_manifest.js \
 | 数学 | `scripts/grade7_9/curated/math_h3_raw.json` | 114 | `docs/MATH_GRADE7_9_STAGING.md` |
 | 英语 | `scripts/grade7_9/curated/english_h3_raw.json` | 132 | `docs/ENGLISH_GRADE7_9_STAGING.md` |
 | 体育与健康 | `scripts/grade7_9/curated/pe_h3_raw.json` | 123 | `docs/PE_GRADE7_9_STAGING.md` |
+| 科学 | `scripts/grade7_9/curated/science_h3_raw.json` | 201 | `docs/SCIENCE_GRADE7_9_STAGING.md` |
 
 这些都是首批结构化草案，不是正式入库数据。
 
