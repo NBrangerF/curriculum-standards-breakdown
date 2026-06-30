@@ -379,5 +379,6 @@ generated/grade7_9_all_curated/
 - 合计 1081 条 standards。
 - 七、八、九年级已写入现有 `grade` 字段。
 - `validate_schema.js --staging-root generated/grade7_9_all_curated` 通过，无 errors。
+- `check_staging_ui_compat.js --staging-root generated/grade7_9_all_curated` 通过，无 errors。
 - manifest、code_to_subject、skill_to_subjects、subject_stats 已与 by_subject 实际数据交叉校验一致。
 - 仍保留 H3 口径冲突 warning，因此未写入正式 `public/data`。

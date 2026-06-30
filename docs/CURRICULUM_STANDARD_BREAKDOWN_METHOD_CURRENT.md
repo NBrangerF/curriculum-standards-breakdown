@@ -169,6 +169,7 @@ flowchart TD
   I --> J["build_by_subject: 按学科输出 JSON"]
   J --> K["validate_schema: 字段、code、TS、学段口径校验"]
   K --> L["generate_manifest: 生成 manifest 和 indexes"]
+  L --> M["check_staging_ui_compat: 验证网站数据层可消费"]
 ```
 
 ## 6. `raw_items` 的整理方式
@@ -329,6 +330,14 @@ node scripts/grade7_9/validate_schema.js \
   --existing-data-root public/data
 ```
 
+完整 9 科 staging 还要验证它能被现有网站页面的数据层消费：
+
+```bash
+npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
+```
+
+该步骤会检查学科页的 H3 筛选和领域分组、对比页的选择模式、搜索页的学段和 TS 筛选、技能详情页的 TS 反查、标准详情页的 code-to-subject 查找和详情字段。
+
 校验通过时应满足：
 
 - `valid: true`
@@ -338,6 +347,7 @@ node scripts/grade7_9/validate_schema.js \
 - 每条标准有唯一 code
 - 每条标准有且仅有一个 `ts_primary`
 - manifest、`code_to_subject`、`skill_to_subjects`、`subject_stats` 与 `by_subject` 实际数据一致
+- 网站数据层兼容检查通过，能支撑学科页、搜索页、对比页、技能详情页和标准详情页
 
 当前出现的 H3 warning 是预期风险提示，不代表 staging 失败；它提醒我们正式数据已有 H3 口径冲突。
 

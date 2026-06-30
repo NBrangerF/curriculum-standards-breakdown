@@ -19,7 +19,9 @@ const INDEXES_DIR = join(DATA_DIR, 'indexes')
 console.log('📊 Building indexes...\n')
 
 // Read all subject files
-const subjectFiles = readdirSync(BY_SUBJECT_DIR).filter(f => f.endsWith('.json'))
+const subjectFiles = readdirSync(BY_SUBJECT_DIR)
+    .filter(f => f.endsWith('.json'))
+    .sort((a, b) => a.localeCompare(b))
 console.log(`Found ${subjectFiles.length} subject files`)
 
 // Initialize indexes
@@ -91,9 +93,23 @@ for (const file of subjectFiles) {
     }
 }
 
+function stable(value) {
+    if (Array.isArray(value)) return value.map(stable)
+    if (!value || typeof value !== 'object') return value
+    return Object.fromEntries(
+        Object.keys(value)
+            .sort((a, b) => a.localeCompare(b))
+            .map(key => [key, stable(value[key])])
+    )
+}
+
+function writeJson(path, value) {
+    writeFileSync(path, `${JSON.stringify(stable(value), null, 2)}\n`)
+}
+
 // Convert Sets to Arrays for skill_to_subjects
 const skillToSubjectsArray = {}
-for (const [skill, subjects] of Object.entries(skillToSubjects)) {
+for (const [skill, subjects] of Object.entries(skillToSubjects).sort(([a], [b]) => a.localeCompare(b))) {
     skillToSubjectsArray[skill] = Array.from(subjects).sort()
 }
 
@@ -102,17 +118,17 @@ console.log('\n📝 Writing index files...')
 
 // 1. code_to_subject.json
 const codeToSubjectPath = join(INDEXES_DIR, 'code_to_subject.json')
-writeFileSync(codeToSubjectPath, JSON.stringify(codeToSubject, null, 2))
+writeJson(codeToSubjectPath, codeToSubject)
 console.log(`  ✅ code_to_subject.json (${Object.keys(codeToSubject).length} codes)`)
 
 // 2. skill_to_subjects.json
 const skillToSubjectsPath = join(INDEXES_DIR, 'skill_to_subjects.json')
-writeFileSync(skillToSubjectsPath, JSON.stringify(skillToSubjectsArray, null, 2))
+writeJson(skillToSubjectsPath, skillToSubjectsArray)
 console.log(`  ✅ skill_to_subjects.json (${Object.keys(skillToSubjectsArray).length} skills)`)
 
 // 3. subject_stats.json
 const subjectStatsPath = join(INDEXES_DIR, 'subject_stats.json')
-writeFileSync(subjectStatsPath, JSON.stringify(subjectStats, null, 2))
+writeJson(subjectStatsPath, subjectStats)
 console.log(`  ✅ subject_stats.json (${Object.keys(subjectStats).length} subjects)`)
 
 // Summary

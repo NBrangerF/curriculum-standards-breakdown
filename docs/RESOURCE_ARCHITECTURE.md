@@ -68,8 +68,9 @@ npm run build:indexes
 | `public/data/skills_meta.json` | 7 个可迁移技能领域及其子技能、定义、表现证据和教师策略。 |
 | `public/data/glossary.json` | 术语表资源，供 `/glossary` 页面读取。当前 JSON 存在语法问题，见第 10 节。 |
 | `public/data/by_subject/*.json` | 按学科拆分的课程标准主数据。 |
+| `public/data/indexes/code_to_subject.json` | 标准 code 到 `subject_slug` 的反查索引，由 `scripts/build-indexes.js` 从主数据派生。 |
 | `public/data/indexes/skill_to_subjects.json` | 技能到相关学科的轻量索引。 |
-| `public/data/indexes/subject_stats.json` | 学科统计索引。当前和主数据存在不一致，见第 10 节。 |
+| `public/data/indexes/subject_stats.json` | 学科统计索引，由 `public/data/by_subject` 派生。 |
 
 ### 3.3 导出与源副本资源
 
@@ -182,6 +183,7 @@ public/data/
 │   ├── pe.json
 │   └── science.json
 └── indexes/
+    ├── code_to_subject.json
     ├── skill_to_subjects.json
     └── subject_stats.json
 ```
@@ -553,24 +555,27 @@ const STORAGE_KEY = 'curriculum-collections'
 
 建议：以 `by_subject` 主数据重新生成 manifest，或确认是否科学文件混入了不该上线的 12 条。
 
-### 11.2 `subject_stats.json` 与主数据数量不一致
+### 11.2 `subject_stats.json` 已由主数据重新生成
 
-`public/data/indexes/subject_stats.json` 当前合计仍为 840，但各学科统计与主数据差异明显。例如：
+截至 2026-06-30，`public/data/indexes/subject_stats.json` 已通过 `scripts/build-indexes.js` 从 `public/data/by_subject` 重新生成，合计 852 条，与主数据实际数量一致。
 
-| 学科 | `subject_stats` | 主数据实际 |
-| --- | ---: | ---: |
-| 数学 | 52 | 47 |
-| 英语 | 96 | 104 |
-| 科学 | 197 | 148 |
-| 信息科技 | 54 | 50 |
-| 道德与法治 | 85 | 95 |
-| 艺术 | 120 | 136 |
-| 劳动 | 102 | 115 |
-| 体育 | 65 | 88 |
+当前正式主数据按学科统计如下：
 
-建议：运行或修复 `scripts/build-indexes.js` 后重新提交派生索引。
+| 学科 | 主数据实际 |
+| --- | ---: |
+| 艺术 | 136 |
+| 语文 | 69 |
+| 英语 | 104 |
+| 信息科技 | 50 |
+| 劳动 | 115 |
+| 数学 | 47 |
+| 道德与法治 | 95 |
+| 体育 | 88 |
+| 科学 | 148 |
 
-### 11.3 `build-indexes.js` 会生成当前未提交的文件
+建议：每次修改 `public/data/by_subject` 后重新运行 `npm run build:indexes`，并一起提交派生索引。
+
+### 11.3 `code_to_subject.json` 已纳入正式派生索引
 
 脚本会写出：
 
@@ -578,9 +583,7 @@ const STORAGE_KEY = 'curriculum-collections'
 - `public/data/indexes/skill_to_subjects.json`
 - `public/data/indexes/subject_stats.json`
 
-但当前 Git 同步版本中没有 `public/data/indexes/code_to_subject.json`。如果执行 `npm run build`，由于 `prebuild` 会调用该脚本，工作区可能新增该文件。
-
-建议：决定是否将 `code_to_subject.json` 纳入正式资源；如果纳入，需要同步修改 `dataLoader.js` 优先使用该索引。
+`public/data/indexes/code_to_subject.json` 已纳入正式资源，避免 `npm run build` 后出现未提交生成物。当前 `dataLoader.js` 仍主要通过 code 前缀和已加载缓存查找详情；后续可以进一步改为优先读取该索引，减少 fallback 全量扫描。
 
 ### 11.4 `glossary.json` 当前不是合法 JSON
 
@@ -656,9 +659,9 @@ npm run build
 
 1. 修复 `glossary.json` 的 JSON 语法问题。
 2. 统一学段口径：README、glossary、`GRADE_BANDS`、数据字段保持一致。
-3. 重新生成或修复 `manifest.json` 和 `subject_stats.json`，确保统计来自同一主数据。
-4. 明确 `code_to_subject.json` 是否是正式索引；如果是，纳入 Git 并在 `loadStandardByCode` 中使用。
-5. 修复 `SearchResultsPage.jsx` 的技能筛选字段，统一使用 `ts_primary` / `ts_secondary`。
+3. 重新生成或修复 `manifest.json`，确保统计来自 `by_subject` 主数据。
+4. 让 `loadStandardByCode` 优先使用已纳入的 `code_to_subject.json`，减少 fallback 全量扫描。
+5. 持续保持搜索页、技能页和索引脚本统一使用 `ts_primary` / `ts_secondary`。
 6. 给数据校验增加脚本，例如检查 JSON 合法性、字段完整性、code 唯一性、manifest 统计一致性。
 
 ## 14. 一句话架构图

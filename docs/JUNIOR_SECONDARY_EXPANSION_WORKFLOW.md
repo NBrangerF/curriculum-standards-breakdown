@@ -75,6 +75,7 @@ scripts/grade7_9/
   build_curated_staging.js
   validate_schema.js
   generate_manifest.js
+  check_staging_ui_compat.js
   config.js
   source_manifest.json
   fixtures/sample_chinese_raw.json
@@ -257,6 +258,14 @@ npm run grade7_9:build-curated
 
 默认输出到 `generated/grade7_9_all_curated/`，并自动完成 normalize、map-ts、by_subject、manifest/indexes 和 `--staging-root` 整包校验。
 
+重建后还应运行网站数据层兼容检查：
+
+```bash
+npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
+```
+
+该检查会复用前端 `schema.js`、`dataLoader.js` 和 `compareLogic.js`，验证 staging 数据是否能支撑 `SubjectPage`、`CompareView`、`SearchResultsPage`、`SkillDetailPage`、`StandardDetailPage` 的学段筛选、领域分组、TS 反查和 code 详情查找。
+
 ## 7. 完成定义
 
 真正完成初中段扩展，需要满足：
@@ -268,5 +277,6 @@ npm run grade7_9:build-curated
 - 每条标准字段与现有 schema 兼容。
 - 每条标准都有真实 code 和 TS primary。
 - staging 校验通过。
+- 网站数据层兼容检查通过，包括学科页、对比页、搜索页、技能详情页、标准详情页所需字段和索引。
 - 与正式数据合并前，H3 口径冲突被解决。
 - 合并后 `SubjectPage`、`CompareView`、`SkillDetailPage`、`StandardDetailPage` 不崩。

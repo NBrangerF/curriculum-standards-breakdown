@@ -6,6 +6,7 @@ import {
     loadSkillsMeta,
     getSubjectsFromManifest,
     getSkillsMeta,
+    filterStandards,
     GRADE_BANDS
 } from '../data/dataLoader'
 import { QUERY_PARAMS, buildShareableURL } from '../data/query'
@@ -129,22 +130,10 @@ function SearchResultsPage() {
     // Filter standards by APPLIED filters (with guards)
     const filteredStandards = useMemo(() => {
         const safeApplied = ensureSafeFilters(appliedFilters)
-        let result = allStandards || []
-
-        // Filter by grade bands
-        if (safeApplied.gradeBands.length > 0) {
-            result = result.filter(s => safeApplied.gradeBands.includes(s?.grade_band))
-        }
-
-        // Filter by skills
-        if (safeApplied.skills.length > 0) {
-            result = result.filter(s => {
-                const stdSkills = s?.transferable_skills?.map(t => t.code) || []
-                return safeApplied.skills.some(code => stdSkills.includes(code))
-            })
-        }
-
-        return result
+        return filterStandards(allStandards || [], {
+            gradeBands: safeApplied.gradeBands,
+            skills: safeApplied.skills
+        })
     }, [allStandards, appliedFilters])
 
     // ============================================

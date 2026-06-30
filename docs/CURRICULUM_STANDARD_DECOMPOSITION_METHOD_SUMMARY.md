@@ -168,6 +168,7 @@ flowchart TD
   J --> K["build_by_subject: 按学科输出"]
   K --> L["validate_schema: 字段和口径校验"]
   L --> M["generate_manifest: manifest 和 indexes"]
+  M --> N["check_staging_ui_compat: 网站数据层兼容检查"]
 ```
 
 ## 6. 7-9 年级 staging 管线
@@ -194,6 +195,7 @@ scripts/grade7_9/
 | `build_curated_staging.js` | 从 curated raw 一键重建 normalized、mapped、by_subject、manifest/indexes，并运行整包校验。 |
 | `validate_schema.js` | 校验字段、年级、TS、code、manifest/indexes 一致性和 H3 口径风险。 |
 | `generate_manifest.js` | 生成 staging manifest 和 indexes。 |
+| `check_staging_ui_compat.js` | 复用前端数据层，检查 staging 是否支撑学科页、对比页、搜索页、技能详情页和标准详情页。 |
 
 ## 7. raw_items 的整理方式
 
@@ -351,6 +353,14 @@ node scripts/grade7_9/validate_schema.js \
   --staging-root generated/grade7_9_math_curated \
   --existing-data-root public/data
 ```
+
+9 科完整 staging 重建后，再运行：
+
+```bash
+npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
+```
+
+它验证当前网站数据层是否能完成 H3 筛选、领域分组、TS 筛选、TS 反查和标准详情查找。
 
 校验通过的结果应类似：
 
