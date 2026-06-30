@@ -47,7 +47,8 @@ export const SUBJECTS = {
       '数与代数': 'ALG',
       '图形与几何': 'GEO',
       '统计与概率': 'STA',
-      '综合与实践': 'PRJ'
+      '综合与实践': 'PRJ',
+      '学业质量': 'QUAL'
     }
   },
   english: {
