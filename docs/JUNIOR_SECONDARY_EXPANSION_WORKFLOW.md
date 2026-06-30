@@ -67,6 +67,7 @@ scripts/grade7_9/
   audit_ocr_outputs.js
   extract_ocr_all.js
   locate_junior_markers.js
+  build_review_packs.js
   extract_subject.js
   normalize_schema.js
   map_ts.js
@@ -120,6 +121,18 @@ PDF 直接输入也支持，但只适用于存在文本层的 PDF。当前官方
 ```bash
 npm run grade7_9:locate-junior -- --out generated/grade7_9/junior_markers.json
 ```
+
+为人工复核生成每科集中页包：
+
+```bash
+npm run grade7_9:review-packs -- --out-dir generated/grade7_9/review_packs
+```
+
+raw 抽取会保留页码引用：
+
+- `sections[].source_pages`
+- `sections[].candidate_item_refs[].source_pages`
+- `sections[].candidate_item_refs[].text`
 
 ### Phase 2：人工复核 raw_items
 

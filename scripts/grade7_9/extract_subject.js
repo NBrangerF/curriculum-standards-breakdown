@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { execFileSync, spawnSync } from 'node:child_process'
-import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { basename, extname, join, resolve } from 'node:path'
+import { basename, dirname, extname, join, resolve } from 'node:path'
 import { getSubjectConfig } from './config.js'
 
 const SECTION_TITLES = [
@@ -144,13 +144,24 @@ function pdfExtractionResult(text, tool) {
   return { text, extractionStatus: 'ok', extractionTool: tool, extractionWarnings: [] }
 }
 
-function normalizeLines(text) {
-  return text
+function normalizeLineEntries(text) {
+  let currentPage = null
+  const entries = []
+  text
     .replace(/\r\n/g, '\n')
     .replace(/\u00a0/g, ' ')
     .split('\n')
     .map(line => line.trim())
-    .filter(Boolean)
+    .forEach(line => {
+      if (!line) return
+      const pageMatch = line.match(/^\[\[PAGE\s+(\d+)\]\]$/)
+      if (pageMatch) {
+        currentPage = Number(pageMatch[1])
+        return
+      }
+      entries.push({ text: line, page: currentPage })
+    })
+  return entries
 }
 
 function isSectionTitle(line) {
@@ -159,45 +170,57 @@ function isSectionTitle(line) {
 }
 
 function splitSections(text) {
-  const lines = normalizeLines(text)
+  const entries = normalizeLineEntries(text)
   const sections = []
-  let current = { title: '未归类', lines: [] }
-  for (const line of lines) {
-    const title = isSectionTitle(line)
-    if (title && current.lines.length) {
+  let current = { title: '未归类', entries: [] }
+  for (const entry of entries) {
+    const title = isSectionTitle(entry.text)
+    if (title && current.entries.length) {
       sections.push(current)
-      current = { title, lines: [line] }
-    } else if (title && current.title === '未归类' && current.lines.length === 0) {
-      current = { title, lines: [line] }
+      current = { title, entries: [entry] }
+    } else if (title && current.title === '未归类' && current.entries.length === 0) {
+      current = { title, entries: [entry] }
     } else {
-      current.lines.push(line)
+      current.entries.push(entry)
     }
   }
-  if (current.lines.length) sections.push(current)
-  return sections.map(section => ({
-    title: section.title,
-    text: section.lines.join('\n'),
-    candidate_items: extractCandidateItems(section.title, section.lines)
-  }))
+  if (current.entries.length) sections.push(current)
+  return sections.map(section => {
+    const candidateRefs = extractCandidateItemRefs(section.title, section.entries)
+    return {
+      title: section.title,
+      text: section.entries.map(entry => entry.text).join('\n'),
+      source_pages: uniquePages(section.entries),
+      candidate_items: candidateRefs.map(item => item.text),
+      candidate_item_refs: candidateRefs
+    }
+  })
 }
 
-function extractCandidateItems(title, lines) {
+function uniquePages(entries) {
+  return Array.from(new Set(entries.map(entry => entry.page).filter(page => Number.isInteger(page)))).sort((a, b) => a - b)
+}
+
+function extractCandidateItemRefs(title, entries) {
   if (!['课程目标', '课程内容', '学业质量', '课程实施', '教学建议', '评价建议'].includes(title)) return []
   const items = []
   let buffer = []
   const bullet = /^([（(]?\d+[）).、]|[一二三四五六七八九十]+[、.．]|[-•·])\s*/
-  for (const line of lines) {
-    if (bullet.test(line) && buffer.length) {
-      items.push(buffer.join(''))
-      buffer = [line.replace(bullet, '')]
+  for (const entry of entries) {
+    if (bullet.test(entry.text) && buffer.length) {
+      items.push(buffer)
+      buffer = [{ text: entry.text.replace(bullet, ''), page: entry.page }]
     } else {
-      buffer.push(line.replace(bullet, ''))
+      buffer.push({ text: entry.text.replace(bullet, ''), page: entry.page })
     }
   }
-  if (buffer.length) items.push(buffer.join(''))
+  if (buffer.length) items.push(buffer)
   return items
-    .map(item => item.trim())
-    .filter(item => item.length >= 12)
+    .map(itemEntries => ({
+      text: itemEntries.map(entry => entry.text).join('').trim(),
+      source_pages: uniquePages(itemEntries)
+    }))
+    .filter(item => item.text.length >= 12)
 }
 
 function main() {
@@ -228,6 +251,7 @@ function main() {
     ],
     sections: splitSections(text)
   }
+  if (!existsSync(dirname(args.out))) mkdirSync(dirname(args.out), { recursive: true })
   writeFileSync(args.out, `${JSON.stringify(output, null, 2)}\n`)
   console.log(`Wrote ${args.out}`)
 }

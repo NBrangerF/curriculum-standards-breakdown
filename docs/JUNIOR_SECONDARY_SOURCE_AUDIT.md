@@ -80,6 +80,7 @@ npm run grade7_9:download
 npm run grade7_9:ocr
 npm run grade7_9:audit-ocr
 npm run grade7_9:locate-junior
+npm run grade7_9:review-packs
 npm run grade7_9:audit-pdf
 npm run grade7_9:extract-all
 npm run grade7_9:extract-ocr-all
@@ -101,6 +102,7 @@ npm run grade7_9:manifest
 - `npm run grade7_9:audit-ocr -- --out generated/grade7_9/ocr_audit.json` 已确认 9 科 OCR 输出完整。
 - `npm run grade7_9:extract-ocr-all` 已从 OCR 文本生成 9 科 raw 章节 JSON。
 - `npm run grade7_9:locate-junior -- --out generated/grade7_9/junior_markers.json` 已生成初中段标记索引。
+- `npm run grade7_9:review-packs -- --out-dir generated/grade7_9/review_packs` 已生成 9 科人工复核包。
 
 OCR 输出示例：
 
@@ -145,13 +147,19 @@ generated/grade7_9/raw_ocr/{subject_slug}.raw.json
 | 英语 | 126 | 682 |
 | 信息科技 | 78 | 327 |
 | 劳动 | 74 | 136 |
-| 数学 | 119 | 466 |
+| 数学 | 119 | 464 |
 | 道德与法治 | 90 | 307 |
 | 体育与健康 | 151 | 616 |
 | 科学 | 133 | 728 |
-| 合计 | 994 | 4,234 |
+| 合计 | 994 | 4,232 |
 
-这些 raw candidates 是待复核候选，不是正式标准条目；目录、页眉、说明性文本仍需人工过滤。
+这些 raw candidates 是待复核候选，不是正式标准条目；目录、页眉、说明性文本仍需人工过滤。当前 raw JSON 已保留页码引用：
+
+```text
+sections[].source_pages
+sections[].candidate_item_refs[].source_pages
+sections[].candidate_item_refs[].text
+```
 
 ## 8. 初中段标记定位结果
 
@@ -164,7 +172,30 @@ generated/grade7_9/raw_ocr/{subject_slug}.raw.json
 - 体育与健康常使用 `水平四` 表示初中相关目标层级。
 - 科学大量内容以 `7~9` 标记出现在核心概念/学习内容表中，后续需要按内容域人工复核。
 
-## 9. 后续进入正式拆解前必须完成
+## 9. 人工复核包
+
+`npm run grade7_9:review-packs` 已生成 9 科 Markdown/JSON 复核包：
+
+```text
+generated/grade7_9/review_packs/{subject_slug}.junior_review.md
+generated/grade7_9/review_packs/{subject_slug}.junior_review.json
+```
+
+复核包统计：
+
+| 学科 | marker matches | pages in pack |
+| --- | ---: | ---: |
+| 艺术 | 73 | 41 |
+| 语文 | 28 | 15 |
+| 英语 | 65 | 33 |
+| 信息科技 | 32 | 14 |
+| 劳动 | 20 | 12 |
+| 数学 | 27 | 15 |
+| 道德与法治 | 28 | 15 |
+| 体育与健康 | 33 | 32 |
+| 科学 | 147 | 91 |
+
+## 10. 后续进入正式拆解前必须完成
 
 1. 人工复核已生成的 9 科 OCR 文本，修正识别误差，确保章节、条目、页码和学科结构无误。
 2. 如果官方来源或 PDF 版本发生变化，重新执行 OCR 或提供同源、可核验的文本/Markdown。
