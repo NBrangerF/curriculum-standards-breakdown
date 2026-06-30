@@ -187,10 +187,11 @@ generated/grade7_9/review_packs/{subject_slug}.junior_review.json
 scripts/grade7_9/review_ranges.json
 ```
 
-当前已为劳动和信息科技配置连续页范围：
+当前已为劳动、信息科技、道德与法治配置连续页范围：
 
 - 劳动：第四学段课程目标 17-18 页、第四学段课程内容 35-44 页、项目开发与年级示例 45-46 页、课程评价建议 62-64 页。
 - 信息科技：第四学段课程目标 15-18 页、第四学段课程内容 41-53 页、学段特征与信息社会责任 67-69 页、跨学科主题案例 70-73 页。
+- 道德与法治：第四学段课程目标 17-23 页、第四学段课程内容 41-49 页、第四学段学业质量 53 页、教学与评价建议 54-64 页、核心素养学段表现 71-73 页。
 
 复核包统计：
 
@@ -244,5 +245,20 @@ docs/IT_GRADE7_9_STAGING.md
 - 22 条 curated raw items。
 - normalize 后生成 66 条 standards。
 - 七年级、八年级、九年级各 22 条。
+- `validate_schema.js` 通过，无 errors。
+- 仍保留 H3 口径冲突 warning，因此未写入正式 `public/data`。
+
+道德与法治学科已完成第四学段首批 curated raw items：
+
+```text
+scripts/grade7_9/curated/morality_law_h3_raw.json
+docs/MORALITY_LAW_GRADE7_9_STAGING.md
+```
+
+验证结果：
+
+- 42 条 curated raw items。
+- normalize 后生成 126 条 standards。
+- 七年级、八年级、九年级各 42 条。
 - `validate_schema.js` 通过，无 errors。
 - 仍保留 H3 口径冲突 warning，因此未写入正式 `public/data`。
