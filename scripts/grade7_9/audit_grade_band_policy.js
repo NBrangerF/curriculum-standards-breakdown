@@ -12,6 +12,7 @@ const TARGET_POLICY = {
   H2: '3-4',
   H3: GRADE_RANGE
 }
+const SAMPLE_LIMIT = 5
 
 function parseArgs(argv) {
   const args = {
@@ -65,6 +66,20 @@ function countInto(target, key, increment = 1) {
   target[key] = (target[key] || 0) + increment
 }
 
+function pushSample(target, key, record, subjectSlug) {
+  target[key] ||= []
+  if (target[key].length >= SAMPLE_LIMIT) return
+  target[key].push({
+    code: record.code || '',
+    subject_slug: subjectSlug,
+    grade_band: record.grade_band || '',
+    grade_range: record.grade_range || '',
+    grade: record.grade || '',
+    domain: record.domain || '',
+    standard_preview: String(record.standard || '').slice(0, 80)
+  })
+}
+
 function isExpectedRange(record) {
   return TARGET_POLICY[record.grade_band] === record.grade_range
 }
@@ -77,6 +92,7 @@ function auditSubjectRows(payload, subjectSlug) {
   const records = payload.standards || []
   const grade_ranges = {}
   const conflicts = {}
+  const incompatible_samples = {}
   let incompatible_records = 0
 
   for (const record of records) {
@@ -85,6 +101,7 @@ function auditSubjectRows(payload, subjectSlug) {
     if (!isExpectedRange(record)) {
       incompatible_records += 1
       countInto(conflicts, key)
+      pushSample(incompatible_samples, key, record, subjectSlug)
     }
   }
 
@@ -94,7 +111,8 @@ function auditSubjectRows(payload, subjectSlug) {
     records: records.length,
     grade_ranges,
     incompatible_records,
-    incompatible_ranges: conflicts
+    incompatible_ranges: conflicts,
+    incompatible_samples
   }
 }
 
@@ -107,6 +125,7 @@ function auditDataRoot(root, errors) {
 
   const subjects = {}
   const incompatibleRanges = {}
+  const incompatibleDetails = {}
   let totalRecords = 0
   let totalIncompatible = 0
 
@@ -119,6 +138,14 @@ function auditDataRoot(root, errors) {
     totalIncompatible += summary.incompatible_records
     for (const [range, count] of Object.entries(summary.incompatible_ranges)) {
       countInto(incompatibleRanges, range, count)
+      incompatibleDetails[range] ||= { records: 0, subjects: {}, samples: [] }
+      incompatibleDetails[range].records += count
+      incompatibleDetails[range].subjects[subjectSlug] = count
+      for (const sample of summary.incompatible_samples[range] || []) {
+        if (incompatibleDetails[range].samples.length < SAMPLE_LIMIT) {
+          incompatibleDetails[range].samples.push(sample)
+        }
+      }
     }
   }
 
@@ -129,7 +156,62 @@ function auditDataRoot(root, errors) {
       records: totalRecords,
       incompatible_records: totalIncompatible,
       incompatible_ranges: incompatibleRanges
+    },
+    incompatible_range_details: Object.fromEntries(
+      Object.entries(incompatibleDetails).sort(([a], [b]) => a.localeCompare(b))
+    )
+  }
+}
+
+function buildPolicyDecisionMatrix(gapRanges) {
+  const rows = [
+    {
+      option: 'preserve_current_public_data',
+      description: 'Keep existing 5-6, 6-7, and 3-5 public records unchanged and do not append 7-9 staging.',
+      satisfies_target_policy: false,
+      preserves_existing_public_records: true,
+      release_gate_effect: 'strict gates remain blocked'
+    },
+    {
+      option: 'remove_or_archive_out_of_policy_ranges',
+      description: 'Move ranges with no slot in H1=1-2, H2=3-4, H3=7-9 out of the public by_subject runtime dataset before appending 7-9.',
+      satisfies_target_policy: true,
+      preserves_existing_public_records: false,
+      release_gate_effect: 'strict gates can pass after frontend GRADE_BANDS is updated'
+    },
+    {
+      option: 'introduce_new_grade_band_for_5_6',
+      description: 'Add another grade-band code for upper-primary data, then append 7-9 as H3.',
+      satisfies_target_policy: false,
+      preserves_existing_public_records: true,
+      release_gate_effect: 'requires explicit schema/policy change before this script can treat it as valid'
+    },
+    {
+      option: 'split_primary_and_junior_datasets',
+      description: 'Keep primary-stage public data separate from junior-stage runtime data, with H3 meaning 7-9 in the junior dataset.',
+      satisfies_target_policy: 'depends_on_dataset_contract',
+      preserves_existing_public_records: true,
+      release_gate_effect: 'requires a new runtime data contract and frontend dataset selector'
     }
+  ]
+
+  return {
+    gap_ranges_requiring_decision: gapRanges,
+    allowed_target_ranges: TARGET_POLICY,
+    options: rows
+  }
+}
+
+function publicPolicyFacts(publicAudit, gapRanges) {
+  return {
+    incompatible_records: publicAudit.totals.incompatible_records,
+    incompatible_ranges: publicAudit.totals.incompatible_ranges,
+    gap_ranges_requiring_policy_decision: gapRanges,
+    incompatible_range_details: Object.fromEntries(
+      Object.entries(publicAudit.incompatible_range_details || {})
+        .filter(([range]) => Object.prototype.hasOwnProperty.call(gapRanges, range))
+        .sort(([a], [b]) => a.localeCompare(b))
+    )
   }
 }
 
@@ -210,9 +292,11 @@ function main() {
     public_data_root: args.publicDataRoot,
     staging_root: args.stagingRoot,
     public_data: publicAudit,
+    public_policy_facts: publicPolicyFacts(publicAudit, gapRanges),
     staging: stagingAudit,
     frontend: frontendAudit,
     policy_gap_ranges: gapRanges,
+    policy_decision_matrix: buildPolicyDecisionMatrix(gapRanges),
     blockers,
     errors,
     warnings,

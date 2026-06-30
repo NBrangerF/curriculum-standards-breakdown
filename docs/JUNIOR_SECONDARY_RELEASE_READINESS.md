@@ -1,20 +1,23 @@
 # 初中段 7-9 正式接入准备度
 
-更新时间：2026-06-30
+更新时间：2026-07-01
 
 本文记录 `generated/grade7_9_all_curated/` 距离正式写入 `public/data/by_subject/` 的当前状态。
 
 接入影响面 dry-run 见 `docs/JUNIOR_SECONDARY_PUBLIC_INTEGRATION_PLAN.md`。
+学段口径政策审计见 `docs/JUNIOR_SECONDARY_GRADE_BAND_POLICY.md`。
 
 ## 1. 审计命令
 
 ```bash
+npm run grade7_9:audit-grade-band-policy -- --out generated/grade7_9_grade_band_policy.json
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated
 ```
 
 如需要把它作为发布 gate 使用：
 
 ```bash
+npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
 ```
 
@@ -43,6 +46,7 @@ npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated 
 - 7-9 staging 数据本身已经通过结构、索引、年级拆分和 TS 映射审计。
 - 目前不能直接写入正式 `public/data/by_subject/`。
 - 阻塞原因不是 7-9 staging 缺数据，而是正式数据和前端仍在使用 `H3=5-6` 或艺术 `H3=6-7`。
+- 按目标政策 `H1=1-2, H2=3-4, H3=7-9` 统计，当前正式 public 数据还有 354 条不兼容记录。
 
 ## 3. 已通过的检查
 
@@ -77,6 +81,8 @@ H3: { label: '第三学段', range: '5-6年级', ... }
 
 因此如果现在直接把 7-9 staging 写入正式数据，会让同一个 `grade_band: "H3"` 同时表示 5-6、6-7、7-9，筛选、对比和详情展示都会产生混义。
 
+按完整目标政策审计，除了上述 H3 冲突，还存在艺术 `H2:3-5` 46 条没有目标学段槽位。完整明细见 `docs/JUNIOR_SECONDARY_GRADE_BAND_POLICY.md`。
+
 ## 5. 下一步
 
 正式接入前必须先决定并执行统一学段口径：
@@ -92,6 +98,7 @@ npm run grade7_9:audit-grade-split -- --out generated/grade7_9_grade_split_audit
 npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curated
 npm run grade7_9:validate -- --staging-root generated/grade7_9_all_curated --existing-data-root public/data
 npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
+npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
 npm run build:indexes
 npm run validate:indexes

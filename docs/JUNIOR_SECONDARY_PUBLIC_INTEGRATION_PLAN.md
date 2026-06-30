@@ -1,8 +1,10 @@
 # 初中段 7-9 正式数据接入计划
 
-更新时间：2026-06-30
+更新时间：2026-07-01
 
 本文记录将 `generated/grade7_9_all_curated/` 接入正式 `public/data/by_subject/` 的 dry-run 结果。它不是正式合并结果，而是合并前的影响面清单。
+
+学段口径政策审计见 `docs/JUNIOR_SECONDARY_GRADE_BAND_POLICY.md`。
 
 ## 1. Dry-run 命令
 
@@ -39,6 +41,8 @@ npm run grade7_9:plan-integration -- \
 - 但正式数据已有 308 条 `H3` 非 7-9 记录。
 - 9 个学科追加后都会出现同一个 `grade_band: "H3"` 对应多个 `grade_range`。
 - 因此不能按 append-as-is 方式直接写入正式 `public/data/by_subject/`。
+
+如果按目标政策 `H1=1-2, H2=3-4, H3=7-9` 审计，正式 public 数据当前共有 354 条不兼容记录，其中包括艺术 `H2:3-5` 46 条、8 科 `H3:5-6` 260 条、艺术 `H3:6-7` 48 条。
 
 ## 3. 学科影响面
 
@@ -91,6 +95,7 @@ npm run grade7_9:build-curated
 npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curated
 npm run grade7_9:validate -- --staging-root generated/grade7_9_all_curated --existing-data-root public/data
 npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
+npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
 npm run build
 ```
