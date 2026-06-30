@@ -18,8 +18,8 @@
 | `docs/JUNIOR_SECONDARY_SOURCE_AUDIT.md` | 官方来源和 OCR 证据审计。 |
 | `docs/JUNIOR_SECONDARY_STRUCTURE_COVERAGE.md` | 课程目标、课程内容、学业质量、教学建议、评价建议覆盖审计。 |
 | `docs/JUNIOR_SECONDARY_GRADE_SPLIT_AUDIT.md` | 7-9 年级拆分审计。 |
-| `docs/JUNIOR_SECONDARY_PUBLIC_INTEGRATION_PLAN.md` | 7-9 staging 接入正式数据的 dry-run 计划。 |
-| `docs/JUNIOR_SECONDARY_RELEASE_READINESS.md` | 7-9 staging 正式接入准备度。 |
+| `docs/JUNIOR_SECONDARY_PUBLIC_INTEGRATION_PLAN.md` | 7-9 staging 接入正式数据的记录和维护命令。 |
+| `docs/JUNIOR_SECONDARY_RELEASE_READINESS.md` | 7-9 正式接入后的准备度和 gate 状态。 |
 | `docs/*_GRADE7_9_STAGING.md` | 各学科 7-9 staging 说明。 |
 | `src/data/schema.js` | 前端运行时标准记录规范化。 |
 | `src/data/dataLoader.js` | 前端数据加载、缓存、筛选、学段展示口径。 |
@@ -42,13 +42,13 @@
 public/data/by_subject/{subject_slug}.json
 ```
 
-7-9 年级目前仍是 staging 数据，默认输出到：
+7-9 年级的整理过程仍先输出到 staging：
 
 ```text
 generated/grade7_9_all_curated/
 ```
 
-在 H3 学段口径统一前，不直接写入正式 `public/data/by_subject/`。
+当前正式 runtime 已采用目标口径 `H1=1-2, H2=3-4, H3=7-9`，并已将 7-9 数据写入 `public/data/by_subject/`。
 
 ## 3. 拆解目标
 
@@ -415,7 +415,7 @@ public/data/
 └── indexes/
 ```
 
-7-9 扩展临时产物：
+7-9 扩展中间产物：
 
 ```text
 generated/grade7_9*/
@@ -424,31 +424,30 @@ generated/grade7_9*/
 当前原则：
 
 - `public/data/by_subject` 是网站当前主数据。
-- `generated/grade7_9*` 是 7-9 扩展 staging，不是正式发布入口。
+- `generated/grade7_9*` 是 7-9 扩展 staging 或 release candidate，不是正式发布入口。
 - `scripts/grade7_9/curated/*_h3_raw.json` 是可提交的人工结构化草案。
 - `raw/grade7_9/sources` 和 `generated` 是本地工作产物，不提交。
-- 只有 H3 口径冲突解决后，才可以把 7-9 staging 合并到正式主数据。
+- 正式 runtime 已采用 `H1=1-2, H2=3-4, H3=7-9`，7-9 数据已合并到正式主数据。
 
-## 14. 当前学段口径风险
+## 14. 当前学段口径
 
-7-9 staging 使用：
+当前正式 runtime 使用：
 
 ```text
+H1 = 1-2
+H2 = 3-4
 H3 = 7-9
 ```
 
-但正式 `public/data/by_subject` 中已有 H3 非 7-9 数据：
+前端 `src/data/dataLoader.js` 中的 `GRADE_BANDS.H3.range` 已更新为 `7-9年级`。
 
-- `H3:5-6`
-- `H3:6-7`
+写入目标口径 runtime 时，原正式 public 数据中不符合该口径的 354 条记录没有进入当前 `public/data/by_subject`：
 
-此外，正式 public 数据中还存在目标口径无法直接容纳的范围：
+- `H2:3-5`：46 条。
+- `H3:5-6`：260 条。
+- `H3:6-7`：48 条。
 
-- `H2:3-5`
-- `H3:5-6`
-- `H3:6-7`
-
-前端 `src/data/dataLoader.js` 中的 `GRADE_BANDS.H3.range` 当前仍是 `5-6年级`。因此，如果现在直接把 7-9 staging 追加到正式数据，会让同一个 `grade_band: "H3"` 同时表示 5-6、6-7、7-9，筛选、对比和详情展示都会产生混义。
+这些旧记录没有被改写成 7-9；当前做法是保留符合目标口径的旧记录，再追加 7-9 staging records，并重新派生 manifest 和 indexes。
 
 用于审计该风险的命令是：
 
@@ -462,7 +461,7 @@ npm run grade7_9:audit-grade-band-policy -- --out generated/grade7_9_grade_band_
 npm run grade7_9:audit-grade-band-policy -- --strict
 ```
 
-当前结论是：7-9 staging 本身符合 `H3=7-9`，但正式 public 数据和前端学段展示口径尚未统一，所以不能直接公开接入。
+当前结论是：正式 public 数据和前端学段展示口径已经统一，`audit-grade-band-policy --strict` 可通过。
 
 ## 15. 发布前必须通过的校验
 
@@ -475,6 +474,8 @@ npm run grade7_9:audit-grade-split -- --out generated/grade7_9_grade_split_audit
 npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curated
 npm run grade7_9:validate -- --staging-root generated/grade7_9_all_curated --existing-data-root public/data
 npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
+npm run grade7_9:build-release-candidate
+npm run grade7_9:check-release-candidate
 npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
 npm run build:indexes
@@ -482,7 +483,11 @@ npm run validate:indexes
 npm run build
 ```
 
-注意：在 H3 口径冲突解决前，`audit-grade-band-policy --strict` 和 `audit-release --strict` 预期会失败。这不是 staging 数据失败，而是发布 gate 正确阻止混义数据进入正式目录。
+如果候选集确认无误，再执行真实写入：
+
+```bash
+npm run grade7_9:apply-release-candidate -- --write --confirm-target-policy
+```
 
 ## 16. 当前 7-9 staging 进度
 
@@ -500,7 +505,7 @@ npm run build
 | 科学 | `scripts/grade7_9/curated/science_h3_raw.json` | 67 | 201 | `docs/SCIENCE_GRADE7_9_STAGING.md` |
 | 艺术 | `scripts/grade7_9/curated/arts_h3_raw.json` | 62 | 97 | `docs/ARTS_GRADE7_9_STAGING.md` |
 
-这些是首批结构化草案，`review_status` 仍为 `staging_first_pass_needs_human_review`，不是正式入库数据。
+这些 curated raw 仍保留 `review_status: "staging_first_pass_needs_human_review"`，表示文本粒度和 OCR 复核仍可继续精修；但它们已经通过 release candidate 流程生成并接入当前正式 runtime 数据。
 
 ## 17. 人工拆解检查表
 
@@ -530,15 +535,14 @@ npm run build
 2. 自动 raw extraction 只能生成候选，不能直接作为正式标准。
 3. `standard` 是结构化后的核心学习要求，不应混入泛化教学建议。
 4. TS 自动映射是第一轮标签，不代表最终人工审核结论。
-5. 7-9 的 `H3=7-9` 与正式数据中已有 H3 使用存在冲突。
-6. 在合并策略确认前，不能覆盖 `public/data/by_subject/*.json`。
+5. 旧 public 中 `H2:3-5`、`H3:5-6`、`H3:6-7` 记录没有进入当前 `H1=1-2, H2=3-4, H3=7-9` runtime。
+6. 后续如果要恢复这些旧范围，必须先设计新的 grade_band 或数据集契约，不能直接混入当前 H3。
 7. 对外引用“课程标准原文”时，应优先引用 `standard`、`source_pages` 和官方来源，而不是教学建议字段。
 
 ## 19. 推荐下一步
 
-1. 先决策 H3 口径：正式数据中的 H3 是否改为只表示 7-9。
-2. 处理现有 `H2:3-5`、`H3:5-6`、`H3:6-7` 数据的迁移或展示策略。
-3. 更新 `src/data/dataLoader.js`、glossary、manifest 和派生 indexes。
-4. 重新运行 `audit-grade-band-policy --strict` 和 `audit-release --strict`。
-5. strict gates 全部通过后，再把 7-9 staging 写入正式 `public/data/by_subject/`。
-6. 合并后运行 `npm run build:indexes`、`npm run validate:indexes`、`npm run build`，并检查学科页、搜索页、对比页、技能页和详情页。
+1. 继续人工复核 7-9 curated raw 的 OCR 误差、标准粒度和 TS 映射。
+2. 修复既有非 H3 记录 `SC-D1-SC-012` 的 `assessment_evidence_type` 空值。
+3. 如需恢复旧 `H2:3-5`、`H3:5-6`、`H3:6-7` 数据，先设计新的 runtime 数据契约。
+4. 每次修改正式数据后运行 `npm run validate:indexes`、`npm run grade7_9:audit-grade-band-policy -- --strict`、`npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict`、`npm run build`。
+5. 检查学科页、搜索页、对比页、技能页和详情页是否能正常消费 7-9 数据。

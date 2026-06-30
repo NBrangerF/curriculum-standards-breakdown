@@ -33,7 +33,7 @@
 public/data/by_subject/{subject_slug}.json
 ```
 
-初中 7-9 年级目前仍是 staging 数据，不直接覆盖正式 `public/data/by_subject/`。
+初中 7-9 年级仍先通过 staging 和 release candidate 管线生成；当前正式 runtime 已采用 `H1=1-2, H2=3-4, H3=7-9` 口径，并已写入 `public/data/by_subject/`。
 
 ## 2. 最小拆解单位
 
@@ -236,7 +236,7 @@ scripts/grade7_9/curated/{subject_slug}_h3_raw.json
 
 当前 curated staging 的年级展开事实是：400 条 raw items 按 `target_grades` 展开为 1081 条 records，其中语文 156、数学 114、英语 132、道德与法治 126、科学 201、信息科技 66、艺术 97、体育与健康 123、劳动 66。
 
-特别注意：正式数据中 `H3` 已被小学高段或艺术 6-7 年级使用。在 H3 口径冲突解决前，7-9 staging 不能覆盖 `public/data/by_subject/`。
+当前正式 runtime 已统一为 `H3=7-9`。旧 public 中没有目标槽位的 `H2:3-5`、`H3:5-6`、`H3:6-7` 记录未进入当前 `public/data/by_subject`。
 
 ## 8. code 生成方法
 
@@ -351,21 +351,21 @@ npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 
 该步骤会检查学科页的 H3 筛选和领域分组、对比页的选择模式、搜索页的学段和 TS 筛选、技能详情页的 TS 反查、标准详情页的 code-to-subject 查找和详情字段。
 
-正式接入前还必须运行 release readiness：
+正式接入或维护 release candidate 时必须运行 release readiness：
 
 ```bash
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
 ```
 
-该步骤区分 `staging_ready` 和 `direct_public_integration_ready`。当前 7-9 staging 已 ready，但直接写入正式 `public/data` 仍被 H3 口径冲突阻塞。
+该步骤区分 `staging_ready` 和 `direct_public_integration_ready`。当前 strict gate 已通过，表示 staging 和正式 `public/data` 的 H3 口径一致。
 
-正式写入前还应先 dry-run 合并影响面：
+如需查看 append-as-is 的风险，仍可运行 dry-run 合并影响面：
 
 ```bash
 npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curated
 ```
 
-当前结果显示追加 7-9 staging 无 duplicate code，但会让 9 个学科的 H3 混合 5-6/6-7 与 7-9，因此不能直接 append-as-is。
+历史 dry-run 显示 append-as-is 会混合旧 `H3:5-6`、`H3:6-7` 与 `H3:7-9`，因此当前正式写入采用 release candidate 的 target-policy-only 策略，而不是直接 append。
 
 校验通过时应满足：
 
@@ -379,10 +379,10 @@ npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curat
 - manifest、`code_to_subject`、`skill_to_subjects`、`subject_stats` 与 `by_subject` 实际数据一致
 - 正式 public 数据可通过 `npm run validate:indexes` 证明 manifest 和 indexes 均由 `by_subject` 派生
 - 网站数据层兼容检查通过，能支撑学科页、搜索页、对比页、技能详情页和标准详情页
-- public integration dry-run 显示无 duplicate code，并列出正式接入影响面
-- release readiness strict gate 通过，证明可正式写入 `public/data/by_subject`
+- release candidate 检查通过，并列出正式接入影响面
+- release readiness strict gate 通过，证明 `public/data/by_subject` 当前可作为 runtime 主数据
 
-当前出现的 H3 warning 是预期风险提示，不代表 staging 失败；它提醒我们正式数据已有 H3 口径冲突。
+当前 release candidate 兼容检查仍提示既有非 H3 记录 `SC-D1-SC-012` 的 `assessment_evidence_type` 为空；这不是 7-9 接入 blocker。
 
 ## 11. 当前 staging 进度
 
@@ -425,10 +425,10 @@ generated/grade7_9*/
 当前原则：
 
 - `public/data/by_subject` 是网站当前主数据。
-- `generated/grade7_9*` 是初中扩展 staging，不是正式发布入口。
+- `generated/grade7_9*` 是初中扩展 staging 或 release candidate，不是正式发布入口。
 - `scripts/grade7_9/curated/*_h3_raw.json` 是可提交的人工结构化草案。
 - `raw/grade7_9/sources` 和 `generated` 是本地工作产物，不提交。
-- 只有 H3 口径冲突解决后，才可以把 7-9 staging 合并到正式主数据。
+- 正式 runtime 已采用 `H1=1-2, H2=3-4, H3=7-9`，7-9 数据已合并到正式主数据。
 
 ## 13. 人工拆解检查表
 
@@ -456,14 +456,14 @@ generated/grade7_9*/
 1. OCR 结果不是最终标准原文，必须人工复核。
 2. 自动 raw extraction 只能生成候选，不能直接作为正式标准。
 3. TS 自动映射是第一轮标签，不代表最终人工审核结论。
-4. 初中 7-9 的 `H3=7-9` 与现有正式数据中的 H3 使用存在冲突。
-5. 在合并策略确认前，不能覆盖 `public/data/by_subject/*.json`。
+4. 旧 public 中 `H2:3-5`、`H3:5-6`、`H3:6-7` 记录未进入当前目标口径 runtime。
+5. 如果后续要恢复旧范围，必须先设计新的 grade_band 或数据集契约，不能直接混入当前 H3。
 6. 教学建议字段可以辅助使用，但对外引用“课程标准原文”时应优先引用 `standard` 和来源页码。
 
 ## 15. 推荐后续动作
 
-1. 继续补齐尚未完成的学科 staging 草案。
-2. 对已完成学科逐条复核 `source_pages`、`standard`、`domain`、`subdomain` 和 TS 标注。
-3. 决策 H3 口径：正式数据中的 H3 是继续表示小学高段/艺术 6-7，还是迁移到 7-9。
-4. H3 口径确认后，再合并 staging 到 `public/data/by_subject` 并重建 manifest/indexes。
-5. 合并后运行前端页面验证，重点检查学科页、详情页、技能页、搜索和对比视图。
+1. 继续对 9 科 7-9 curated raw 逐条复核 `source_pages`、`standard`、`domain`、`subdomain` 和 TS 标注。
+2. 修复既有非 H3 记录 `SC-D1-SC-012` 的 `assessment_evidence_type` 空值。
+3. 后续如调整正式数据，先重建 release candidate，再用 `--write --confirm-target-policy` 写入。
+4. 每次合并后运行 `npm run validate:indexes`、`npm run grade7_9:audit-grade-band-policy -- --strict`、`npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict`、`npm run build`。
+5. 运行前端页面验证，重点检查学科页、详情页、技能页、搜索和对比视图。

@@ -2,111 +2,100 @@
 
 更新时间：2026-07-01
 
-本文记录 `generated/grade7_9_all_curated/` 距离正式写入 `public/data/by_subject/` 的当前状态。
+本文记录 `generated/grade7_9_all_curated/` 写入正式 `public/data/by_subject/` 后的当前状态。
 
-接入影响面 dry-run 见 `docs/JUNIOR_SECONDARY_PUBLIC_INTEGRATION_PLAN.md`。
 学段口径政策审计见 `docs/JUNIOR_SECONDARY_GRADE_BAND_POLICY.md`。
+接入影响面和写入方式见 `docs/JUNIOR_SECONDARY_PUBLIC_INTEGRATION_PLAN.md`。
 
-## 1. 审计命令
+## 1. 当前结论
 
-```bash
-npm run grade7_9:audit-grade-band-policy -- --out generated/grade7_9_grade_band_policy.json
-npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated
-```
-
-如需要把它作为发布 gate 使用：
-
-```bash
-npm run grade7_9:audit-grade-band-policy -- --strict
-npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
-```
-
-非 strict 模式会报告 blocker 但不让命令失败；strict 模式会在仍存在发布 blocker 时退出非零。
-
-## 2. 当前结论
-
-当前审计结果：
+7-9 年级数据已经按目标口径接入正式 runtime 数据：
 
 ```json
 {
-  "ready": false,
+  "ready": true,
   "staging_ready": true,
-  "direct_public_integration_ready": false,
-  "counts": {
-    "staging_subjects": 9,
-    "staging_standards": 1081,
-    "expected_subjects": 9,
-    "public_h3_conflict_subjects": 9
-  }
+  "direct_public_integration_ready": true,
+  "public_records": 1579,
+  "staging_7_9_records": 1081,
+  "public_h3_conflict_subjects": 0
 }
 ```
 
-含义：
+当前正式口径是：
 
-- 7-9 staging 数据本身已经通过结构、索引、年级拆分和 TS 映射审计。
-- 目前不能直接写入正式 `public/data/by_subject/`。
-- 阻塞原因不是 7-9 staging 缺数据，而是正式数据和前端仍在使用 `H3=5-6` 或艺术 `H3=6-7`。
-- 按目标政策 `H1=1-2, H2=3-4, H3=7-9` 统计，当前正式 public 数据还有 354 条不兼容记录。
+| grade_band | grade_range |
+| --- | --- |
+| H1 | 1-2 |
+| H2 | 3-4 |
+| H3 | 7-9 |
 
-## 3. 已通过的检查
+`src/data/dataLoader.js` 中 `GRADE_BANDS.H3.range` 已同步为 `7-9年级`。
 
-- staging 使用现有标准字段，不新增必需 schema。
-- staging 全部使用 `grade_band: "H3"` 和 `grade_range: "7-9"`。
-- 每科都拆为“七年级、八年级、九年级”独立 records。
-- staging manifest、`code_to_subject`、`skill_to_subjects`、`subject_stats` 均从 `by_subject` 派生并一致。
-- curated raw 文件保留 `source_pages` 和 `target_grades`。
-- TS 映射使用 TS1-TS7，每条标准有且仅有一个 primary TS。
+## 2. 正式数据规模
 
-## 4. 当前阻塞项
+`public/data/by_subject/*.json` 当前合计 1579 条，分学科如下：
 
-正式 `public/data/by_subject/` 已有 `H3` 非 7-9 数据：
+| 学科 | 条目数 | H3/7-9 条数 | H3 年级拆分 |
+| --- | ---: | ---: | --- |
+| 艺术 | 139 | 97 | 七年级 27，八年级 35，九年级 35 |
+| 语文 | 197 | 156 | 七年级 52，八年级 52，九年级 52 |
+| 英语 | 189 | 132 | 七年级 44，八年级 44，九年级 44 |
+| 信息科技 | 101 | 66 | 七年级 22，八年级 22，九年级 22 |
+| 劳动 | 134 | 66 | 七年级 22，八年级 22，九年级 22 |
+| 数学 | 139 | 114 | 七年级 38，八年级 38，九年级 38 |
+| 道德与法治 | 193 | 126 | 七年级 42，八年级 42，九年级 42 |
+| 体育 | 182 | 123 | 七年级 41，八年级 41，九年级 41 |
+| 科学 | 305 | 201 | 七年级 67，八年级 67，九年级 67 |
 
-| 学科 | 当前正式 H3 grade_range | 条数 |
-| --- | --- | ---: |
-| 艺术 | 6-7 | 48 |
-| 语文 | 5-6 | 28 |
-| 英语 | 5-6 | 47 |
-| 信息科技 | 5-6 | 15 |
-| 劳动 | 5-6 | 47 |
-| 数学 | 5-6 | 22 |
-| 道德与法治 | 5-6 | 28 |
-| 体育 | 5-6 | 29 |
-| 科学 | 5-6 | 44 |
+## 3. 处理过的口径冲突
 
-前端 `src/data/dataLoader.js` 中：
+按目标政策接入时，原正式 public 数据中没有目标槽位的 354 条记录未保留在 runtime `public/data/by_subject` 中：
 
-```js
-H3: { label: '第三学段', range: '5-6年级', ... }
-```
+| 原范围 | 条数 | 说明 |
+| --- | ---: | --- |
+| H2:3-5 | 46 | 艺术旧范围 |
+| H3:5-6 | 260 | 8 科旧小学高段范围 |
+| H3:6-7 | 48 | 艺术旧范围 |
 
-因此如果现在直接把 7-9 staging 写入正式数据，会让同一个 `grade_band: "H3"` 同时表示 5-6、6-7、7-9，筛选、对比和详情展示都会产生混义。
+这些记录没有被改写成 7-9 数据；本次采用的是目标口径 runtime 数据集：保留原 public 中符合 `H1=1-2`、`H2=3-4` 的记录，再追加 7-9 staging 记录，并重新生成 manifest 和 indexes。
 
-按完整目标政策审计，除了上述 H3 冲突，还存在艺术 `H2:3-5` 46 条没有目标学段槽位。完整明细见 `docs/JUNIOR_SECONDARY_GRADE_BAND_POLICY.md`。
+## 4. 已通过的检查
 
-## 5. 下一步
-
-正式接入前必须先决定并执行统一学段口径：
-
-1. 明确 `H3` 在正式数据中是否改为只表示 7-9。
-2. 处理现有 5-6 和艺术 6-7 数据的学段编码或展示策略。
-3. 更新 `GRADE_BANDS`、README、glossary、manifest 和派生 indexes。
-4. 重新运行：
+已运行并通过：
 
 ```bash
 npm run grade7_9:build-release-candidate
-node scripts/validate-data-indexes.js --data-root generated/grade7_9_release_candidate
-node scripts/grade7_9/audit_grade_band_policy.js --public-data-root generated/grade7_9_release_candidate --staging-root generated/grade7_9_release_candidate --data-only --strict
 npm run grade7_9:check-release-candidate
-npm run grade7_9:apply-release-candidate
-npm run grade7_9:build-curated
-npm run grade7_9:audit-grade-split -- --out generated/grade7_9_grade_split_audit.json
-npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curated
-npm run grade7_9:validate -- --staging-root generated/grade7_9_all_curated --existing-data-root public/data
-npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
+npm run grade7_9:apply-release-candidate -- --write --confirm-target-policy
+npm run validate:indexes
 npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
-npm run build:indexes
-npm run validate:indexes
+git diff --check
+npm run build
 ```
 
-只有 strict release audit 通过后，才能把 7-9 staging 写入正式 `public/data/by_subject/`。
+检查结果要点：
+
+- `validate:indexes` 返回 `valid: true`。
+- `audit-grade-band-policy --strict` 返回 `policy_ready: true`，无 blockers、errors、warnings。
+- `audit-release --strict` 返回 `ready: true`、`direct_public_integration_ready: true`。
+- `npm run build` 通过，并在 prebuild 中重新生成 1579 条标准对应的 manifest 和索引。
+- 候选 runtime 兼容检查覆盖 SubjectPage、CompareView、SearchResultsPage、SkillDetailPage、StandardDetailPage 的主要数据路径。
+
+当前仍有一个非阻塞 warning：既有非 H3 记录 `SC-D1-SC-012` 的 `assessment_evidence_type` 为空。它不影响 7-9 接入，但后续数据质量整理时可以补齐。
+
+## 5. 后续维护 gate
+
+每次修改 7-9 curated raw、release candidate 脚本或正式 `public/data/by_subject` 后，建议运行：
+
+```bash
+npm run grade7_9:build-release-candidate
+npm run grade7_9:check-release-candidate
+npm run validate:indexes
+npm run grade7_9:audit-grade-band-policy -- --strict
+npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
+npm run build
+```
+
+正式数据的唯一 runtime 主入口仍是 `public/data/by_subject/*.json`；`generated/grade7_9*` 目录是可重建的工作产物，不作为网站发布入口。
