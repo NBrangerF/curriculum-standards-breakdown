@@ -4,6 +4,8 @@
 
 本文记录 `generated/grade7_9_all_curated/` 距离正式写入 `public/data/by_subject/` 的当前状态。
 
+接入影响面 dry-run 见 `docs/JUNIOR_SECONDARY_PUBLIC_INTEGRATION_PLAN.md`。
+
 ## 1. 审计命令
 
 ```bash
@@ -86,6 +88,7 @@ H3: { label: '第三学段', range: '5-6年级', ... }
 
 ```bash
 npm run grade7_9:build-curated
+npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curated
 npm run grade7_9:validate -- --staging-root generated/grade7_9_all_curated --existing-data-root public/data
 npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict

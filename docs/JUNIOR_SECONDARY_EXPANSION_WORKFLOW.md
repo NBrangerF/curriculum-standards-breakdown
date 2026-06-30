@@ -74,6 +74,7 @@ scripts/grade7_9/
   build_by_subject.js
   build_curated_staging.js
   audit_release_readiness.js
+  plan_public_integration.js
   validate_schema.js
   generate_manifest.js
   check_staging_ui_compat.js
@@ -275,6 +276,14 @@ npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated 
 
 该命令会同时检查 staging 完整性和正式接入阻塞项。当前已知 blocker 是正式数据已经使用 `H3=5-6` 或艺术 `H3=6-7`，而 7-9 staging 需要 `H3=7-9`。详见 `docs/JUNIOR_SECONDARY_RELEASE_READINESS.md`。
 
+也可以先运行 dry-run 合并计划：
+
+```bash
+npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curated
+```
+
+当前 dry-run 显示：追加 7-9 staging 后总量会从 852 条变为 1933 条，且无 duplicate code；但 9 个学科都会出现 H3 混合 5-6/6-7 与 7-9 的问题。详见 `docs/JUNIOR_SECONDARY_PUBLIC_INTEGRATION_PLAN.md`。
+
 ## 7. 完成定义
 
 真正完成初中段扩展，需要满足：
@@ -287,6 +296,7 @@ npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated 
 - 每条标准都有真实 code 和 TS primary。
 - staging 校验通过。
 - 网站数据层兼容检查通过，包括学科页、对比页、搜索页、技能详情页、标准详情页所需字段和索引。
+- `grade7_9:plan-integration` 已确认真实接入影响面和无 code 冲突。
 - `grade7_9:audit-release -- --strict` 通过。
 - 与正式数据合并前，H3 口径冲突被解决。
 - 合并后 `SubjectPage`、`CompareView`、`SkillDetailPage`、`StandardDetailPage` 不崩。

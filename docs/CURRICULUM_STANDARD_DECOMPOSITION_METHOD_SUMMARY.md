@@ -194,6 +194,7 @@ scripts/grade7_9/
 | `build_by_subject.js` | 输出 staging by_subject JSON。 |
 | `build_curated_staging.js` | 从 curated raw 一键重建 normalized、mapped、by_subject、manifest/indexes，并运行整包校验。 |
 | `audit_release_readiness.js` | 审计 staging 是否完整，以及是否可以安全写入正式 `public/data`。 |
+| `plan_public_integration.js` | dry-run 计算 7-9 staging 追加到正式 public 数据的影响面和冲突。 |
 | `validate_schema.js` | 校验字段、年级、TS、code、manifest/indexes 一致性和 H3 口径风险。 |
 | `generate_manifest.js` | 生成 staging manifest 和 indexes。 |
 | `check_staging_ui_compat.js` | 复用前端数据层，检查 staging 是否支撑学科页、对比页、搜索页、技能详情页和标准详情页。 |
@@ -366,6 +367,7 @@ npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 正式接入前还要运行：
 
 ```bash
+npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curated
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
 ```
 
