@@ -128,6 +128,14 @@ npm run grade7_9:locate-junior -- --out generated/grade7_9/junior_markers.json
 npm run grade7_9:review-packs -- --out-dir generated/grade7_9/review_packs
 ```
 
+若某学科的初中段正文跨越连续页，可使用人工配置页码范围：
+
+```bash
+npm run grade7_9:review-packs -- \
+  --ranges-file scripts/grade7_9/review_ranges.json \
+  --out-dir generated/grade7_9/review_packs
+```
+
 raw 抽取会保留页码引用：
 
 - `sections[].source_pages`

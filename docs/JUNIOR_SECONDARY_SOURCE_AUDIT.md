@@ -181,6 +181,14 @@ generated/grade7_9/review_packs/{subject_slug}.junior_review.md
 generated/grade7_9/review_packs/{subject_slug}.junior_review.json
 ```
 
+连续页范围配置：
+
+```text
+scripts/grade7_9/review_ranges.json
+```
+
+当前已为劳动配置连续页范围：第四学段课程目标 17-18 页、第四学段课程内容 35-44 页、项目开发与年级示例 45-46 页、课程评价建议 62-64 页。
+
 复核包统计：
 
 | 学科 | marker matches | pages in pack |
