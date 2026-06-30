@@ -34,7 +34,10 @@ export const SUBJECTS = {
       '语言文字积累与梳理': 'LI',
       '文学阅读与创意表达': 'READ',
       '实用性阅读与交流': 'COMM',
-      '思辨性阅读与表达': 'THINK'
+      '思辨性阅读与表达': 'THINK',
+      '整本书阅读': 'BOOK',
+      '跨学科学习': 'XDISC',
+      '学业质量': 'QUAL'
     }
   },
   math: {
