@@ -136,12 +136,16 @@ export const SUBJECTS = {
     subject: '体育',
     prefix: 'PE',
     domains: {
+      '课程目标': 'GOAL',
+      '运动能力': 'MOVE',
       '健康教育': 'HE',
       '体育品德': 'MO',
       '运动技能': 'SK',
       '体能': 'FIT',
       '基本运动技能': 'BMS',
-      '专项运动技能': 'SMS'
+      '专项运动技能': 'SMS',
+      '跨学科主题学习': 'XDISC',
+      '学业质量': 'QUAL'
     }
   },
   labor: {
