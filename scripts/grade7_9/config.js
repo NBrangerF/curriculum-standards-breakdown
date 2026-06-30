@@ -140,12 +140,17 @@ export const SUBJECTS = {
     subject: '艺术',
     prefix: 'AR',
     domains: {
+      '课程目标': 'GOAL',
       '审美感知': 'AA',
       '艺术表现': 'AE',
       '创意实践': 'CP',
       '文化理解': 'CU',
       '音乐': 'MU',
-      '美术': 'VA'
+      '美术': 'VA',
+      '舞蹈': 'DA',
+      '戏剧（含戏曲）': 'DR',
+      '影视（含数字媒体艺术）': 'FM',
+      '学业质量': 'QUAL'
     }
   },
   pe: {

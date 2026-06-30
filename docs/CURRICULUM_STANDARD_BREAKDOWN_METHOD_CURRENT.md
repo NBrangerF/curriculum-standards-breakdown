@@ -110,7 +110,7 @@ raw/grade7_9/sources/
 | 道德与法治 | 道德教育、法治教育、国情教育、生命安全与健康教育 |
 | 劳动 | 日常生活劳动、生产劳动、服务性劳动、公益劳动与志愿服务 |
 | 体育与健康 | 运动能力、健康教育、体育品德、体能、专项运动技能 |
-| 艺术 | 音乐、美术、审美感知、艺术表现、创意实践、文化理解 |
+| 艺术 | 音乐、美术、舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）、课程目标、学业质量 |
 
 ### 3.5 可校验
 
@@ -342,6 +342,7 @@ node scripts/grade7_9/generate_manifest.js \
 | 英语 | `scripts/grade7_9/curated/english_h3_raw.json` | 54 | 132 | `docs/ENGLISH_GRADE7_9_STAGING.md` |
 | 体育与健康 | `scripts/grade7_9/curated/pe_h3_raw.json` | 41 | 123 | `docs/PE_GRADE7_9_STAGING.md` |
 | 科学 | `scripts/grade7_9/curated/science_h3_raw.json` | 67 | 201 | `docs/SCIENCE_GRADE7_9_STAGING.md` |
+| 艺术 | `scripts/grade7_9/curated/arts_h3_raw.json` | 62 | 97 | `docs/ARTS_GRADE7_9_STAGING.md` |
 
 这些都是首批结构化草案，`review_status` 仍是 `staging_first_pass_needs_human_review`，不是正式入库数据。
 

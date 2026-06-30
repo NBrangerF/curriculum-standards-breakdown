@@ -187,8 +187,9 @@ generated/grade7_9/review_packs/{subject_slug}.junior_review.json
 scripts/grade7_9/review_ranges.json
 ```
 
-当前已为劳动、信息科技、道德与法治、语文、数学、英语、体育与健康、科学配置连续页范围：
+当前已为劳动、信息科技、道德与法治、语文、数学、英语、体育与健康、科学、艺术配置连续页范围：
 
+- 艺术：课程目标与分段设计 10-21 页、音乐第三与第四学段 22-54 页、美术第三与第四学段 55-80 页、舞蹈 7 年级与第四学段 81-88 页、戏剧 7 年级与第四学段 89-97 页、影视 7 年级与第四学段 98-106 页、艺术学业质量 107-117 页。
 - 劳动：第四学段课程目标 17-18 页、第四学段课程内容 35-44 页、项目开发与年级示例 45-46 页、课程评价建议 62-64 页。
 - 信息科技：第四学段课程目标 15-18 页、第四学段课程内容 41-53 页、学段特征与信息社会责任 67-69 页、跨学科主题案例 70-73 页。
 - 道德与法治：第四学段课程目标 17-23 页、第四学段课程内容 41-49 页、第四学段学业质量 53 页、教学与评价建议 54-64 页、核心素养学段表现 71-73 页。
@@ -343,5 +344,35 @@ docs/SCIENCE_GRADE7_9_STAGING.md
 - normalize 后生成 201 条 standards。
 - 七年级、八年级、九年级各 67 条。
 - 13 个学科核心概念已按“核心概念 / 学习内容”粒度拆解。
+- `validate_schema.js` 通过，无 errors。
+- 仍保留 H3 口径冲突 warning，因此未写入正式 `public/data`。
+
+艺术学科已完成 7-9 年级首批 curated raw items：
+
+```text
+scripts/grade7_9/curated/arts_h3_raw.json
+docs/ARTS_GRADE7_9_STAGING.md
+```
+
+验证结果：
+
+- 62 条 curated raw items。
+- normalize 后生成 97 条 standards。
+- 七年级 27 条，八年级 35 条，九年级 35 条。
+- 七年级音乐、美术来自第三学段 6-7 年级中 7 年级要求；七年级舞蹈、戏剧、影视来自官方“有条件开设”选项任务；八/九年级来自第四学段 8-9 年级共同要求。
+- `validate_schema.js` 通过，无 errors。
+- 仍保留 H3 口径冲突 warning，因此未写入正式 `public/data`。
+
+9 科合并 staging 验证：
+
+```text
+generated/grade7_9_all_curated/
+```
+
+验证结果：
+
+- 9 个目标学科均已生成首批 staging by_subject 数据。
+- 合计 1081 条 standards。
+- 七、八、九年级已写入现有 `grade` 字段。
 - `validate_schema.js` 通过，无 errors。
 - 仍保留 H3 口径冲突 warning，因此未写入正式 `public/data`。
