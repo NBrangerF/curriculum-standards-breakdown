@@ -95,6 +95,7 @@ npm run grade7_9:build-release-candidate
 node scripts/validate-data-indexes.js --data-root generated/grade7_9_release_candidate
 node scripts/grade7_9/audit_grade_band_policy.js --public-data-root generated/grade7_9_release_candidate --staging-root generated/grade7_9_release_candidate --data-only --strict
 npm run grade7_9:check-release-candidate
+npm run grade7_9:apply-release-candidate
 npm run grade7_9:build-curated
 npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curated
 npm run grade7_9:validate -- --staging-root generated/grade7_9_all_curated --existing-data-root public/data
@@ -108,3 +109,4 @@ npm run build
 
 候选生成器只写 `generated/grade7_9_release_candidate/`，用于验证目标口径下的数据层形态；它不会修改正式 `public/data`。
 候选 UI/runtime 检查会复用前端数据层工具，验证候选数据可支撑学科页、搜索页、对比页、技能页和标准详情页的主要路径。
+`grade7_9:apply-release-candidate` 默认也是 dry-run；真正写入必须使用 `-- --write --confirm-target-policy`。

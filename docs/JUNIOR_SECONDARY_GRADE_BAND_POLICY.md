@@ -173,6 +173,20 @@ npm run grade7_9:check-release-candidate
 
 注意：`--data-only` 只用于生成目录的数据层验证；真正发布仍必须更新前端 `GRADE_BANDS` 并运行完整 strict gate。
 
+候选数据进入正式 `public/data` 前，可以先运行 dry-run：
+
+```bash
+npm run grade7_9:apply-release-candidate
+```
+
+该命令默认不会写任何正式文件，只列出将要更新的 `public/data/by_subject`、manifest、indexes 和 `src/data/dataLoader.js`。真正写入必须显式确认：
+
+```bash
+npm run grade7_9:apply-release-candidate -- --write --confirm-target-policy
+```
+
+只有在目标口径和 354 条 out-of-policy 记录去向被确认后，才应运行写入命令。
+
 ## 8. 推荐下一步
 
 1. 明确是否接受目标口径 `H1=1-2, H2=3-4, H3=7-9` 作为正式 runtime 数据口径。
@@ -186,6 +200,7 @@ npm run grade7_9:check-release-candidate
 npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
 npm run grade7_9:check-release-candidate
+npm run grade7_9:apply-release-candidate
 npm run build:indexes
 npm run validate:indexes
 npm run build

@@ -97,6 +97,7 @@ npm run grade7_9:build-release-candidate
 node scripts/validate-data-indexes.js --data-root generated/grade7_9_release_candidate
 node scripts/grade7_9/audit_grade_band_policy.js --public-data-root generated/grade7_9_release_candidate --staging-root generated/grade7_9_release_candidate --data-only --strict
 npm run grade7_9:check-release-candidate
+npm run grade7_9:apply-release-candidate
 npm run grade7_9:build-curated
 npm run grade7_9:audit-grade-split -- --out generated/grade7_9_grade_split_audit.json
 npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curated
