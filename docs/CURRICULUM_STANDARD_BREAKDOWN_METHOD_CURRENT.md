@@ -377,6 +377,7 @@ npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curat
 - 每条标准有唯一 code
 - 每条标准有且仅有一个 `ts_primary`
 - manifest、`code_to_subject`、`skill_to_subjects`、`subject_stats` 与 `by_subject` 实际数据一致
+- 正式 public 数据可通过 `npm run validate:indexes` 证明 manifest 和 indexes 均由 `by_subject` 派生
 - 网站数据层兼容检查通过，能支撑学科页、搜索页、对比页、技能详情页和标准详情页
 - public integration dry-run 显示无 duplicate code，并列出正式接入影响面
 - release readiness strict gate 通过，证明可正式写入 `public/data/by_subject`

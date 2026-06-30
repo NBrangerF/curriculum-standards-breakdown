@@ -1,5 +1,4 @@
 {
-  "generated_at": "2026-01-08T04:04:35",
   "columns": [
     "art_discipline",
     "assessment_evidence_type",
@@ -10,6 +9,7 @@
     "grade",
     "grade_band",
     "grade_range",
+    "id",
     "materials_tools",
     "next_code",
     "practice",
@@ -18,6 +18,8 @@
     "safety_notes",
     "standard",
     "subdomain",
+    "subject",
+    "subject_slug",
     "teaching_tip",
     "ts_confidence",
     "ts_primary",
@@ -25,185 +27,204 @@
     "ts_secondary",
     "ts_tag_source"
   ],
+  "generated_at": "2026-01-08T04:04:35",
   "subjects": [
     {
-      "subject": "道德与法治",
-      "subject_slug": "morality_law",
-      "record_count": 95,
-      "file": "by_subject/morality_law.json",
       "domains": {
-        "道德教育": 24,
-        "中华优秀传统文化与革命传统教育": 23,
-        "生命安全与健康教育": 15,
-        "法治教育": 15,
-        "入学教育": 9,
-        "国情教育": 9
+        "创意实践": 25,
+        "审美感知": 25,
+        "文化理解": 20,
+        "艺术表现": 66
       },
+      "file": "by_subject/arts.json",
       "grade_bands": {
-        "H1": 36,
-        "H2": 31,
-        "H3": 28
-      }
-    },
-    {
-      "subject": "科学",
-      "subject_slug": "science",
+        "H1": 42,
+        "H2": 46,
+        "H3": 48
+      },
+      "grades": {
+        "第一学段（1-2年级）": 42,
+        "第三学段（6-7年级）": 48,
+        "第二学段（3-5年级）": 46
+      },
       "record_count": 136,
-      "file": "by_subject/science.json",
-      "domains": {
-        "科学观念": 94,
-        "探究实践": 21,
-        "科学思维": 14,
-        "态度责任": 7
-      },
-      "grade_bands": {
-        "H1": 65,
-        "H3": 38,
-        "H2": 33
-      }
+      "subject": "艺术",
+      "subject_slug": "arts"
     },
     {
-      "subject": "劳动",
-      "subject_slug": "labor",
-      "record_count": 115,
-      "file": "by_subject/labor.json",
       "domains": {
+        "梳理与探究": 8,
+        "表达与交流": 21,
+        "识字与写字": 18,
+        "阅读与鉴赏": 22
+      },
+      "file": "by_subject/chinese.json",
+      "grade_bands": {
+        "H1": 15,
+        "H2": 26,
+        "H3": 28
+      },
+      "grades": {
+        "H1:1-2": 15,
+        "H2:3-4": 26,
+        "H3:5-6": 28
+      },
+      "record_count": 69,
+      "subject": "语文",
+      "subject_slug": "chinese"
+    },
+    {
+      "domains": {
+        "学习能力": 18,
+        "思维品质": 16,
+        "文化意识": 28,
+        "语言能力": 42
+      },
+      "file": "by_subject/english.json",
+      "grade_bands": {
+        "H2": 57,
+        "H3": 47
+      },
+      "grades": {
+        "第三学段（5-6年级）": 47,
+        "第二学段（3-4年级）": 57
+      },
+      "record_count": 104,
+      "subject": "英语",
+      "subject_slug": "english"
+    },
+    {
+      "domains": {
+        "信息意识": 7,
+        "信息社会责任": 16,
+        "数字化学习与创新": 12,
+        "计算思维": 15
+      },
+      "file": "by_subject/it.json",
+      "grade_bands": {
+        "H1": 16,
+        "H2": 19,
+        "H3": 15
+      },
+      "grades": {
+        "第一学段（1-2年级）": 16,
+        "第三学段（5-6年级）": 15,
+        "第二学段（3-4年级）": 19
+      },
+      "record_count": 50,
+      "subject": "信息科技",
+      "subject_slug": "it"
+    },
+    {
+      "domains": {
+        "公益劳动与志愿服务": 4,
         "日常生活劳动": 53,
-        "生产劳动": 48,
         "服务性劳动": 10,
-        "公益劳动与志愿服务": 4
+        "生产劳动": 48
       },
+      "file": "by_subject/labor.json",
       "grade_bands": {
-        "H3": 47,
+        "H1": 25,
         "H2": 43,
-        "H1": 25
-      }
+        "H3": 47
+      },
+      "grades": {
+        "第一学段（1-2年级）": 25,
+        "第三学段（5-6年级）": 47,
+        "第二学段（3-4年级）": 43
+      },
+      "record_count": 115,
+      "subject": "劳动",
+      "subject_slug": "labor"
     },
     {
-      "subject": "数学",
-      "subject_slug": "math",
-      "record_count": 47,
-      "file": "by_subject/math.json",
       "domains": {
         "图形与几何": 22,
         "数与代数": 18,
         "统计与概率": 7
       },
+      "file": "by_subject/math.json",
       "grade_bands": {
-        "H3": 22,
+        "H1": 7,
         "H2": 18,
-        "H1": 7
-      }
+        "H3": 22
+      },
+      "grades": {
+        "第一学段（1-2 年级）": 7,
+        "第三学段（5-6 年级）": 22,
+        "第二学段（3-4 年级）": 18
+      },
+      "record_count": 47,
+      "subject": "数学",
+      "subject_slug": "math"
     },
     {
-      "subject": "体育",
-      "subject_slug": "pe",
-      "record_count": 88,
-      "file": "by_subject/pe.json",
       "domains": {
-        "健康教育": 47,
-        "体育品德": 23,
-        "运动技能": 13,
-        "体能": 5
+        "中华优秀传统文化与革命传统教育": 23,
+        "入学教育": 9,
+        "国情教育": 9,
+        "法治教育": 15,
+        "生命安全与健康教育": 15,
+        "道德教育": 24
       },
+      "file": "by_subject/morality_law.json",
+      "grade_bands": {
+        "H1": 36,
+        "H2": 31,
+        "H3": 28
+      },
+      "grades": {
+        "第一学段（1-2年级）": 36,
+        "第三学段（5-6年级）": 28,
+        "第二学段（3-4年级）": 31
+      },
+      "record_count": 95,
+      "subject": "道德与法治",
+      "subject_slug": "morality_law"
+    },
+    {
+      "domains": {
+        "体育品德": 23,
+        "体能": 5,
+        "健康教育": 47,
+        "运动技能": 13
+      },
+      "file": "by_subject/pe.json",
       "grade_bands": {
         "H1": 30,
         "H2": 29,
         "H3": 29
-      }
+      },
+      "grades": {
+        "水平一（1-2年级）": 30,
+        "水平三（5-6年级）": 29,
+        "水平二（3-4年级）": 29
+      },
+      "record_count": 88,
+      "subject": "体育",
+      "subject_slug": "pe"
     },
     {
-      "subject": "信息科技",
-      "subject_slug": "it",
-      "record_count": 50,
-      "file": "by_subject/it.json",
       "domains": {
-        "在线学习与生活": 8,
-        "数据与编码": 7,
-        "信息交流与分享": 6,
-        "信息隐私与安全": 6,
-        "过程与控制": 6,
-        "身边的算法": 5,
-        "跨学科主题：数字设备体验": 4,
-        "跨学科主题：数据编码探秘": 4,
-        "跨学科主题：小型系统模拟": 4
+        "态度责任": 20,
+        "探究实践": 37,
+        "科学思维": 20,
+        "科学观念": 71
       },
+      "file": "by_subject/science.json",
       "grade_bands": {
-        "H2": 19,
-        "H1": 16,
-        "H3": 15
-      }
-    },
-    {
-      "subject": "艺术",
-      "subject_slug": "arts",
-      "record_count": 136,
-      "file": "by_subject/arts.json",
-      "domains": {
-        "学习任务1：听赏与评述": 11,
-        "学习任务2：表达自己的感受": 10,
-        "学习任务2：独唱与合作演唱": 10,
-        "学习任务6：探索生活中的音乐": 9,
-        "学习任务3：独奏与合作演奏": 9,
-        "学习任务4：编创与展示": 8,
-        "学习任务5：小型歌舞剧表演": 7,
-        "学习任务1：感受中外美术的魅力": 6,
-        "学习任务1：趣味唱游": 6,
-        "学习任务4：体验传统工艺": 6,
-        "学习任务5：参与造型游戏活动": 5,
-        "学习任务2：表达自己的想法": 5,
-        "学习任务2：传递我们的创意": 5,
-        "学习任务1：欣赏身边的美": 4,
-        "学习任务3：装点我们的生活": 4,
-        "学习任务1：领略世界美术的多样性": 4,
-        "学习任务3：营造环境": 4,
-        "学习任务5：创编校园微电影": 4,
-        "学习任务3：改进生活用品": 3,
-        "学习任务2：聆听音乐": 3,
-        "学习任务3：情境表演": 3,
-        "学习任务4：学做传统工艺品": 3,
-        "学习任务4：传承传统工艺": 3,
-        "学习任务4：发现身边的音乐": 2,
-        "学习任务5：融入跨学科学习": 2
+        "H1": 65,
+        "H2": 39,
+        "H3": 44
       },
-      "grade_bands": {
-        "H3": 48,
-        "H2": 46,
-        "H1": 42
-      }
-    },
-    {
-      "subject": "英语",
-      "subject_slug": "english",
-      "record_count": 104,
-      "file": "by_subject/english.json",
-      "domains": {
-        "语言能力": 42,
-        "文化意识": 28,
-        "学习能力": 18,
-        "思维品质": 16
+      "grades": {
+        "第一学段（1-2年级）": 65,
+        "第三学段（5-6年级）": 44,
+        "第二学段（3-4年级）": 39
       },
-      "grade_bands": {
-        "H2": 57,
-        "H3": 47
-      }
-    },
-    {
-      "subject": "语文",
-      "subject_slug": "chinese",
-      "record_count": 69,
-      "file": "by_subject/chinese.json",
-      "domains": {
-        "阅读与鉴赏": 22,
-        "表达与交流": 21,
-        "识字与写字": 18,
-        "梳理与探究": 8
-      },
-      "grade_bands": {
-        "H3": 28,
-        "H2": 26,
-        "H1": 15
-      }
+      "record_count": 148,
+      "subject": "科学",
+      "subject_slug": "science"
     }
   ]
 }

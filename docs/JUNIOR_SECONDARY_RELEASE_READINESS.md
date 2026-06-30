@@ -93,6 +93,8 @@ npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curat
 npm run grade7_9:validate -- --staging-root generated/grade7_9_all_curated --existing-data-root public/data
 npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
+npm run build:indexes
+npm run validate:indexes
 ```
 
 只有 strict release audit 通过后，才能把 7-9 staging 写入正式 `public/data/by_subject/`。

@@ -39,9 +39,10 @@ npm run dev
 npm run build
 npm run preview
 npm run build:indexes
+npm run validate:indexes
 ```
 
-`npm run build` 会先执行 `prebuild`，也就是 `npm run build:indexes`。该脚本会根据 `public/data/by_subject` 重新生成索引文件。
+`npm run build` 会先执行 `prebuild`，也就是 `npm run build:indexes`。该脚本会根据 `public/data/by_subject` 重新生成 `manifest.json` 和派生索引文件。`npm run validate:indexes` 会校验 manifest、`code_to_subject`、`skill_to_subjects`、`subject_stats` 是否与 `by_subject` 主数据一致。
 
 ## 3. 顶层资源清单
 
@@ -350,12 +351,17 @@ public/data/
       "H2": 26,
       "H3": 28
     },
+    "grades": {
+      "H1:1-2": 15,
+      "H2:3-4": 26,
+      "H3:5-6": 28
+    },
     "skill_coverage": {}
   }
 }
 ```
 
-当前该索引与主数据存在不一致，详见第 10 节。
+该索引由 `scripts/build-indexes.js` 从主数据派生；`grades` 统计优先使用记录的 `grade` 字段，旧记录缺少 `grade` 时使用 `grade_band:grade_range` 兜底。这用于支持 7-9 年级拆分后按七、八、九年级核对和展示。
 
 ## 7. 当前主数据规模
 
@@ -374,7 +380,7 @@ public/data/
 | `science` | 科学 | 148 |
 | **合计** |  | **852** |
 
-注意：这与 `manifest.json` 和 `subject_stats.json` 的部分统计不同，说明派生数据需要重新校准。
+注意：当前 `manifest.json` 与 `subject_stats.json` 已由主数据重新生成，并可通过 `npm run validate:indexes` 校验。
 
 ## 8. 数据加载流程
 
@@ -539,25 +545,25 @@ const STORAGE_KEY = 'curriculum-collections'
 
 这部分是当前仓库真实状态，不是设计目标。
 
-### 11.1 `manifest.json` 与主数据数量不一致
+### 11.1 `manifest.json` 已由主数据重新生成
 
-`manifest.json` 显示：
-
-- 学科数：9
-- 总条目数：840
-- 科学：136
-
-但 `public/data/by_subject/*.json` 实际合计：
+截至 2026-06-30，`public/data/manifest.json` 已通过 `scripts/build-indexes.js` 从 `public/data/by_subject` 重新生成。当前 manifest 显示：
 
 - 学科数：9
 - 总条目数：852
 - 科学：148
 
-建议：以 `by_subject` 主数据重新生成 manifest，或确认是否科学文件混入了不该上线的 12 条。
+这与 `public/data/by_subject/*.json` 当前实际合计一致：
+
+- 学科数：9
+- 总条目数：852
+- 科学：148
+
+`manifest.subjects[].record_count`、`domains`、`grade_bands`、`grades` 均由主数据派生。
 
 ### 11.2 `subject_stats.json` 已由主数据重新生成
 
-截至 2026-06-30，`public/data/indexes/subject_stats.json` 已通过 `scripts/build-indexes.js` 从 `public/data/by_subject` 重新生成，合计 852 条，与主数据实际数量一致。
+截至 2026-06-30，`public/data/indexes/subject_stats.json` 已通过 `scripts/build-indexes.js` 从 `public/data/by_subject` 重新生成，合计 852 条，与主数据实际数量一致，并包含 `grade_bands` 与具体 `grades` 两层统计。
 
 当前正式主数据按学科统计如下：
 
@@ -573,7 +579,7 @@ const STORAGE_KEY = 'curriculum-collections'
 | 体育 | 88 |
 | 科学 | 148 |
 
-建议：每次修改 `public/data/by_subject` 后重新运行 `npm run build:indexes`，并一起提交派生索引。
+建议：每次修改 `public/data/by_subject` 后重新运行 `npm run build:indexes` 和 `npm run validate:indexes`，并一起提交 manifest 与派生索引。
 
 ### 11.3 `code_to_subject.json` 已纳入正式派生索引
 
@@ -642,14 +648,13 @@ s?.transferable_skills?.map(t => t.code)
 
 ```bash
 npm run build:indexes
+npm run validate:indexes
 npm run build
 ```
 
 然后检查：
 
-- `manifest.json` 的总数是否等于 `by_subject` 实际总数。
-- `subject_stats.json` 的总数是否等于 `by_subject` 实际总数。
-- `skill_to_subjects.json` 是否覆盖所有 `TS1` 到 `TS7`。
+- `validate:indexes` 是否通过。
 - `glossary.json`、`skills_meta.json`、`subjects_meta.json` 是否能被 `jq` 或 `JSON.parse` 正常解析。
 - 随机打开一个学科页、一个技能页、一个标准详情页、一个清单打印页。
 

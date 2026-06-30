@@ -1,12 +1,12 @@
 /**
- * Build Indexes Script
- * Generates index files for efficient data lookup
+ * Build Data Indexes Script
+ * Generates manifest and index files from public/data/by_subject.
  * 
  * Run: node scripts/build-indexes.js
  * Or:  npm run build:indexes
  */
 
-import { readFileSync, writeFileSync, readdirSync } from 'fs'
+import { existsSync, readFileSync, writeFileSync, readdirSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -15,8 +15,9 @@ const ROOT = join(__dirname, '..')
 const DATA_DIR = join(ROOT, 'public', 'data')
 const BY_SUBJECT_DIR = join(DATA_DIR, 'by_subject')
 const INDEXES_DIR = join(DATA_DIR, 'indexes')
+const MANIFEST_PATH = join(DATA_DIR, 'manifest.json')
 
-console.log('📊 Building indexes...\n')
+console.log('📊 Building manifest and indexes...\n')
 
 // Read all subject files
 const subjectFiles = readdirSync(BY_SUBJECT_DIR)
@@ -28,6 +29,25 @@ console.log(`Found ${subjectFiles.length} subject files`)
 const codeToSubject = {}
 const skillToSubjects = {}
 const subjectStats = {}
+const manifestSubjects = []
+const existingManifest = existsSync(MANIFEST_PATH)
+    ? JSON.parse(readFileSync(MANIFEST_PATH, 'utf-8'))
+    : {}
+const columnSet = new Set(existingManifest.columns || [])
+
+function gradeKey(std) {
+    const grade = String(std.grade || '').trim()
+    if (grade) return grade
+    const gradeBand = String(std.grade_band || '').trim()
+    const gradeRange = String(std.grade_range || '').trim()
+    if (gradeBand && gradeRange) return `${gradeBand}:${gradeRange}`
+    return gradeBand || gradeRange
+}
+
+function countInto(target, value) {
+    if (!value) return
+    target[value] = (target[value] || 0) + 1
+}
 
 // Process each subject
 for (const file of subjectFiles) {
@@ -41,14 +61,18 @@ for (const file of subjectFiles) {
     // Initialize stats for this subject
     const stats = {
         total: standards.length,
-        domains: new Set(),
+        domains: {},
         grade_bands: {},
+        grades: {},
         skill_coverage: {}
     }
 
     // Process each standard
     for (const std of standards) {
         const code = std.code
+        for (const key of Object.keys(std)) {
+            columnSet.add(key)
+        }
         if (!code) continue
 
         // Build code_to_subject index
@@ -74,21 +98,31 @@ for (const file of subjectFiles) {
         }
 
         // Track domains
-        if (std.domain) {
-            stats.domains.add(std.domain)
-        }
+        countInto(stats.domains, std.domain)
 
         // Track grade bands
-        if (std.grade_band) {
-            stats.grade_bands[std.grade_band] = (stats.grade_bands[std.grade_band] || 0) + 1
-        }
+        countInto(stats.grade_bands, std.grade_band)
+
+        // Track concrete grade labels so 7-9 records can remain split after public integration.
+        countInto(stats.grades, gradeKey(std))
     }
 
-    // Convert Set to count for domains
+    manifestSubjects.push({
+        subject: data.subject,
+        subject_slug: subjectSlug,
+        record_count: standards.length,
+        file: `by_subject/${file}`,
+        domains: stats.domains,
+        grade_bands: stats.grade_bands,
+        grades: stats.grades
+    })
+
+    // Persist compact derived stats for this subject.
     subjectStats[subjectSlug] = {
         total: stats.total,
-        domains: stats.domains.size,
+        domains: Object.keys(stats.domains).length,
         grade_bands: stats.grade_bands,
+        grades: stats.grades,
         skill_coverage: stats.skill_coverage
     }
 }
@@ -113,8 +147,21 @@ for (const [skill, subjects] of Object.entries(skillToSubjects).sort(([a], [b]) 
     skillToSubjectsArray[skill] = Array.from(subjects).sort()
 }
 
-// Write index files
-console.log('\n📝 Writing index files...')
+// Write manifest and index files
+console.log('\n📝 Writing manifest and index files...')
+
+const manifest = {
+    generated_at: existingManifest.generated_at || new Date().toISOString(),
+    columns: [...columnSet].sort((a, b) => a.localeCompare(b)),
+    subjects: manifestSubjects
+}
+
+if ('data_scope' in existingManifest) {
+    manifest.data_scope = existingManifest.data_scope
+}
+
+writeJson(MANIFEST_PATH, manifest)
+console.log(`  ✅ manifest.json (${manifestSubjects.length} subjects)`)
 
 // 1. code_to_subject.json
 const codeToSubjectPath = join(INDEXES_DIR, 'code_to_subject.json')
@@ -134,15 +181,18 @@ console.log(`  ✅ subject_stats.json (${Object.keys(subjectStats).length} subje
 // Summary
 console.log('\n📊 Index Summary:')
 console.log(`  - Total standards indexed: ${Object.keys(codeToSubject).length}`)
+console.log(`  - Manifest subjects: ${manifestSubjects.length}`)
 console.log(`  - Skills with subject mappings: ${Object.keys(skillToSubjectsArray).length}`)
 console.log(`  - Subjects with stats: ${Object.keys(subjectStats).length}`)
 
 // File sizes
+const manifestSize = readFileSync(MANIFEST_PATH).length
 const codeToSubjectSize = readFileSync(codeToSubjectPath).length
 const skillToSubjectsSize = readFileSync(skillToSubjectsPath).length
 const subjectStatsSize = readFileSync(subjectStatsPath).length
 
 console.log('\n📦 File sizes:')
+console.log(`  - manifest.json: ${(manifestSize / 1024).toFixed(1)} KB`)
 console.log(`  - code_to_subject.json: ${(codeToSubjectSize / 1024).toFixed(1)} KB`)
 console.log(`  - skill_to_subjects.json: ${(skillToSubjectsSize / 1024).toFixed(1)} KB`)
 console.log(`  - subject_stats.json: ${(subjectStatsSize / 1024).toFixed(1)} KB`)
