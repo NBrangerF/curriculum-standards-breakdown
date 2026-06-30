@@ -110,7 +110,62 @@ npm run grade7_9:audit-grade-band-policy -- --strict
 
 这些做法都会造成课标数据与年级含义不一致。
 
-## 7. 推荐下一步
+## 7. 生成候选 runtime 数据集
+
+为验证“如果采用目标口径，数据层是否可以成立”，仓库提供了一个只写 `generated/` 的候选生成器：
+
+```bash
+npm run grade7_9:build-release-candidate
+```
+
+默认输出：
+
+```text
+generated/grade7_9_release_candidate/
+├── by_subject/
+├── indexes/
+├── archived_out_of_policy/
+├── manifest.json
+├── subjects_meta.json
+├── skills_meta.json
+├── glossary.json
+└── release_candidate_summary.json
+```
+
+该命令不会写入正式 `public/data`。它采用 `target-policy-only` 候选策略：
+
+- 保留正式 public 中已符合目标口径的记录。
+- 追加 7-9 staging records。
+- 将 `H2:3-5`、`H3:5-6`、`H3:6-7` 记录移入候选目录的 `archived_out_of_policy/`。
+- 重新派生 candidate manifest 和 indexes。
+
+当前候选结果：
+
+```json
+{
+  "public_records": 852,
+  "preserved_public_records": 498,
+  "staging_7_9_records": 1081,
+  "archived_out_of_policy_records": 354,
+  "candidate_records": 1579,
+  "candidate_subjects": 9
+}
+```
+
+候选数据校验命令：
+
+```bash
+node scripts/validate-data-indexes.js --data-root generated/grade7_9_release_candidate
+node scripts/grade7_9/audit_grade_band_policy.js \
+  --public-data-root generated/grade7_9_release_candidate \
+  --staging-root generated/grade7_9_release_candidate \
+  --data-only \
+  --strict
+```
+
+当前这两个候选数据层 gate 均通过。注意：`--data-only` 只用于生成目录的数据层验证；真正发布仍必须更新前端 `GRADE_BANDS` 并运行完整 strict gate。
+
+## 8. 推荐下一步
 
 1. 明确是否接受目标口径 `H1=1-2, H2=3-4, H3=7-9` 作为正式 runtime 数据口径。
 2. 决定 `H2:3-5`、`H3:5-6`、`H3:6-7` 这 354 条现有 public 记录的去向。

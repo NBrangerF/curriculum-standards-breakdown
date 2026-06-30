@@ -18,6 +18,7 @@ function parseArgs(argv) {
   const args = {
     publicDataRoot: DEFAULT_PUBLIC_DATA_ROOT,
     stagingRoot: DEFAULT_STAGING_ROOT,
+    dataOnly: false,
     strict: false
   }
   for (let i = 0; i < argv.length; i += 1) {
@@ -25,6 +26,7 @@ function parseArgs(argv) {
     if (item === '--public-data-root') args.publicDataRoot = argv[++i]
     else if (item === '--staging-root') args.stagingRoot = argv[++i]
     else if (item === '--out') args.out = argv[++i]
+    else if (item === '--data-only') args.dataOnly = true
     else if (item === '--strict') args.strict = true
     else if (item === '--help') args.help = true
   }
@@ -33,10 +35,11 @@ function parseArgs(argv) {
 
 function usage() {
   console.log(`Usage:
-node scripts/grade7_9/audit_grade_band_policy.js [--public-data-root public/data] [--staging-root generated/grade7_9_all_curated] [--out generated/grade7_9_grade_band_policy.json] [--strict]
+node scripts/grade7_9/audit_grade_band_policy.js [--public-data-root public/data] [--staging-root generated/grade7_9_all_curated] [--out generated/grade7_9_grade_band_policy.json] [--data-only] [--strict]
 
 Audits whether public data, 7-9 staging, and frontend GRADE_BANDS match the target policy H1=1-2, H2=3-4, H3=7-9.
-Without --strict, policy blockers are reported but do not fail the command.`)
+Without --strict, policy blockers are reported but do not fail the command.
+Use --data-only for generated candidate data roots when frontend GRADE_BANDS is intentionally checked separately.`)
 }
 
 function readJson(path) {
@@ -269,7 +272,7 @@ function main() {
   const blockers = []
   const publicAudit = auditDataRoot(args.publicDataRoot, errors)
   const stagingAudit = auditStaging(args.stagingRoot, errors)
-  const frontendAudit = auditFrontendGradeBands()
+  const frontendAudit = args.dataOnly ? { skipped: true, reason: '--data-only' } : auditFrontendGradeBands()
   const gapRanges = policyGapRanges(publicAudit)
 
   if (publicAudit.totals.incompatible_records) {
@@ -281,7 +284,7 @@ function main() {
   if (stagingAudit.totals.incompatible_records || stagingAudit.missing_subjects.length) {
     blockers.push('7-9 staging does not fully match target policy or is missing expected subjects.')
   }
-  if (Object.keys(frontendAudit.mismatches).length) {
+  if (!args.dataOnly && Object.keys(frontendAudit.mismatches).length) {
     blockers.push('Frontend GRADE_BANDS does not match target grade-band policy.')
   }
 
@@ -289,6 +292,7 @@ function main() {
     valid: errors.length === 0,
     policy_ready: errors.length === 0 && blockers.length === 0,
     target_policy: TARGET_POLICY,
+    audit_scope: args.dataOnly ? 'data_only' : 'data_and_frontend',
     public_data_root: args.publicDataRoot,
     staging_root: args.stagingRoot,
     public_data: publicAudit,

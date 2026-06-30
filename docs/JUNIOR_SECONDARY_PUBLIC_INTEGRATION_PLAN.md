@@ -91,6 +91,9 @@ npm run grade7_9:plan-integration -- \
 完成口径迁移后，按顺序运行：
 
 ```bash
+npm run grade7_9:build-release-candidate
+node scripts/validate-data-indexes.js --data-root generated/grade7_9_release_candidate
+node scripts/grade7_9/audit_grade_band_policy.js --public-data-root generated/grade7_9_release_candidate --staging-root generated/grade7_9_release_candidate --data-only --strict
 npm run grade7_9:build-curated
 npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curated
 npm run grade7_9:validate -- --staging-root generated/grade7_9_all_curated --existing-data-root public/data
@@ -101,3 +104,5 @@ npm run build
 ```
 
 全部通过后，才可以执行真实 `public/data/by_subject` 写入。
+
+候选生成器只写 `generated/grade7_9_release_candidate/`，用于验证目标口径下的数据层形态；它不会修改正式 `public/data`。
