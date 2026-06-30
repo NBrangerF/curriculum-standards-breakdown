@@ -60,7 +60,12 @@ export const SUBJECTS = {
       '思维品质': 'THINK',
       '学习能力': 'LEARN',
       '主题': 'THEME',
-      '语篇': 'DISC'
+      '语篇': 'DISC',
+      '语言知识': 'KNOW',
+      '文化知识': 'CULKN',
+      '语言技能': 'SKILL',
+      '学习策略': 'STRAT',
+      '学业质量': 'QUAL'
     }
   },
   science: {

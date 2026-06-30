@@ -373,6 +373,7 @@ node scripts/grade7_9/generate_manifest.js \
 | 道德与法治 | `scripts/grade7_9/curated/morality_law_h3_raw.json` | 126 | `docs/MORALITY_LAW_GRADE7_9_STAGING.md` |
 | 语文 | `scripts/grade7_9/curated/chinese_h3_raw.json` | 156 | `docs/CHINESE_GRADE7_9_STAGING.md` |
 | 数学 | `scripts/grade7_9/curated/math_h3_raw.json` | 114 | `docs/MATH_GRADE7_9_STAGING.md` |
+| 英语 | `scripts/grade7_9/curated/english_h3_raw.json` | 132 | `docs/ENGLISH_GRADE7_9_STAGING.md` |
 
 这些都是首批结构化草案，不是正式入库数据。
 
