@@ -426,7 +426,13 @@ CN-H3-READ-003  九年级
 
 本仓库已经记录了教育部官方 2022 版 PDF 链接，并可下载到 `raw/grade7_9/sources/`。但本机审计发现这些 PDF 当前没有可用文本层，自动抽取只能生成 `requires_ocr` 状态，不能直接产出真实标准条目。
 
-因此，7-9 年级正式拆解前必须先完成 OCR 或提供可核验文本，再进入原子化拆解、schema 归一和 TS 映射。
+因此，7-9 年级正式拆解前必须先完成 OCR 或提供可核验文本，再进入原子化拆解、schema 归一和 TS 映射。当前仓库提供了 macOS Apple Vision OCR 命令：
+
+```bash
+npm run grade7_9:ocr -- --subjects chinese --out-dir generated/grade7_9/ocr_text
+```
+
+OCR 文本只能作为待复核来源，不能绕过人工校对直接发布为正式标准数据。
 
 ## 10. 推荐的拆解检查表
 

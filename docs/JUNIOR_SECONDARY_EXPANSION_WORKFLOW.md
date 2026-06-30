@@ -62,6 +62,8 @@ scripts/grade7_9/source_manifest.json
 
 ```text
 scripts/grade7_9/
+  ocr_pdf_vision.js
+  vision_ocr.swift
   extract_subject.js
   normalize_schema.js
   map_ts.js
@@ -77,14 +79,35 @@ scripts/grade7_9/
 
 ### Phase 1：抽取原始文本
 
+官方 PDF 当前没有可用文本层，先用 macOS Apple Vision OCR 生成可复核文本：
+
+```bash
+npm run grade7_9:ocr -- --subjects chinese --out-dir generated/grade7_9/ocr_text
+```
+
+小范围验证可限制页数：
+
+```bash
+npm run grade7_9:ocr -- --subjects chinese --max-pages 5 --out-dir generated/grade7_9/ocr_probe_text
+```
+
+OCR 输出：
+
+```text
+generated/grade7_9/ocr_text/chinese.ocr.txt
+generated/grade7_9/ocr_text/chinese.ocr.json
+```
+
+然后从 OCR 文本进入章节切分：
+
 ```bash
 node scripts/grade7_9/extract_subject.js \
   --subject chinese \
-  --input raw/grade7_9/chinese.txt \
+  --input generated/grade7_9/ocr_text/chinese.ocr.txt \
   --out generated/grade7_9/raw/chinese.raw.json
 ```
 
-PDF 也支持，但依赖本机 `pdftotext`。如果没有，先把 PDF 转为 `.txt` 或 `.md`。
+PDF 直接输入也支持，但只适用于存在文本层的 PDF。当前官方 PDF 是扫描/图片型文件，必须先 OCR；OCR 结果需要人工复核后再作为正式拆解依据。
 
 ### Phase 2：人工复核 raw_items
 

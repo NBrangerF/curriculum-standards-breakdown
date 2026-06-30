@@ -13,7 +13,8 @@
 - 9 个目标学科 PDF 已下载到本地忽略目录 `raw/grade7_9/sources/`。
 - 当前 PDF 均为扫描/图片型文件，`pypdf` 能读取页数，但提取正文字符数为 0。
 - 本机没有可用的 `tesseract` OCR 命令。
-- 因此目前不能从 PDF 直接生成真实课标条目；必须先完成 OCR 或提供可核验文本。
+- 已新增 macOS Apple Vision OCR 脚本，并用语文前 3 页验证可生成可复核文本。
+- 因此目前不能从 PDF 直接生成真实课标条目；必须先完成 OCR 和人工复核，或提供同源可核验文本。
 - `generated/grade7_9/raw/*.raw.json` 只记录 `requires_ocr` 状态，不是正式课标数据。
 
 ## 2. 官方来源
@@ -76,6 +77,7 @@ npm run grade7_9:audit-pdf -- --out generated/grade7_9/pdf_text_audit.json
 
 ```bash
 npm run grade7_9:download
+npm run grade7_9:ocr
 npm run grade7_9:audit-pdf
 npm run grade7_9:extract-all
 npm run grade7_9:extract
@@ -91,11 +93,19 @@ npm run grade7_9:manifest
 - `node --check scripts/grade7_9/*.js` 通过。
 - `npm run grade7_9:extract-all` 能为 9 个学科生成 raw JSON。
 - 生成的 raw JSON 均标记为 `extraction_status: "requires_ocr"`。
+- `npm run grade7_9:ocr -- --subjects chinese --max-pages 3 --out-dir generated/grade7_9/ocr_probe_text` 能生成语文前 3 页 OCR 文本，共 1129 个字符。
+
+OCR 输出示例：
+
+```text
+generated/grade7_9/ocr_text/{subject_slug}.ocr.txt
+generated/grade7_9/ocr_text/{subject_slug}.ocr.json
+```
 
 ## 6. 后续进入正式拆解前必须完成
 
 1. 对 9 个官方 PDF 执行 OCR，或提供同源、可核验的文本/Markdown。
-2. 人工复核 OCR 文本，确保章节、条目、页码和学科结构无误。
+2. 人工复核 OCR 文本，修正识别误差，确保章节、条目、页码和学科结构无误。
 3. 按现有拆解方法抽取原子学习目标。
 4. 对 7-9 合写要求进行年级拆分，写入现有 `grade` 字段。
 5. 运行 schema 归一、TS 映射、by_subject 构建和校验。
