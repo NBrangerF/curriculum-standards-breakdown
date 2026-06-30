@@ -64,6 +64,9 @@ scripts/grade7_9/source_manifest.json
 scripts/grade7_9/
   ocr_pdf_vision.js
   vision_ocr.swift
+  audit_ocr_outputs.js
+  extract_ocr_all.js
+  locate_junior_markers.js
   extract_subject.js
   normalize_schema.js
   map_ts.js
@@ -98,16 +101,25 @@ generated/grade7_9/ocr_text/chinese.ocr.txt
 generated/grade7_9/ocr_text/chinese.ocr.json
 ```
 
+OCR 完成后先审计：
+
+```bash
+npm run grade7_9:audit-ocr -- --out generated/grade7_9/ocr_audit.json
+```
+
 然后从 OCR 文本进入章节切分：
 
 ```bash
-node scripts/grade7_9/extract_subject.js \
-  --subject chinese \
-  --input generated/grade7_9/ocr_text/chinese.ocr.txt \
-  --out generated/grade7_9/raw/chinese.raw.json
+npm run grade7_9:extract-ocr-all
 ```
 
 PDF 直接输入也支持，但只适用于存在文本层的 PDF。当前官方 PDF 是扫描/图片型文件，必须先 OCR；OCR 结果需要人工复核后再作为正式拆解依据。
+
+为定位 7-9 年级相关页和特殊学段标记，可运行：
+
+```bash
+npm run grade7_9:locate-junior -- --out generated/grade7_9/junior_markers.json
+```
 
 ### Phase 2：人工复核 raw_items
 
@@ -206,6 +218,7 @@ generated/grade7_9/indexes/subject_stats.json
 - 9 个目标学科都有 7–9 年级标准。
 - 每条标准均来自官方 2022 版课标文件。
 - 每条标准拆到单独七年级、八年级、九年级。
+- 艺术学科需特殊处理：官方课标是一至七年级以音乐、美术为主线，八至九年级分项；七年级来自第三学段 6-7 年级相关要求，八/九年级来自第四学段 8-9 年级相关要求。
 - 每条标准字段与现有 schema 兼容。
 - 每条标准都有真实 code 和 TS primary。
 - staging 校验通过。

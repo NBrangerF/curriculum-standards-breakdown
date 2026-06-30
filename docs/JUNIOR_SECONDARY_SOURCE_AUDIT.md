@@ -78,8 +78,11 @@ npm run grade7_9:audit-pdf -- --out generated/grade7_9/pdf_text_audit.json
 ```bash
 npm run grade7_9:download
 npm run grade7_9:ocr
+npm run grade7_9:audit-ocr
+npm run grade7_9:locate-junior
 npm run grade7_9:audit-pdf
 npm run grade7_9:extract-all
+npm run grade7_9:extract-ocr-all
 npm run grade7_9:extract
 npm run grade7_9:normalize
 npm run grade7_9:map-ts
@@ -94,6 +97,10 @@ npm run grade7_9:manifest
 - `npm run grade7_9:extract-all` 能为 9 个学科生成 raw JSON。
 - 生成的 raw JSON 均标记为 `extraction_status: "requires_ocr"`。
 - `npm run grade7_9:ocr -- --subjects chinese --max-pages 3 --out-dir generated/grade7_9/ocr_probe_text` 能生成语文前 3 页 OCR 文本，共 1129 个字符。
+- `npm run grade7_9:ocr -- --out-dir generated/grade7_9/ocr_text --batch-size 12` 已完成 9 科全量 OCR。
+- `npm run grade7_9:audit-ocr -- --out generated/grade7_9/ocr_audit.json` 已确认 9 科 OCR 输出完整。
+- `npm run grade7_9:extract-ocr-all` 已从 OCR 文本生成 9 科 raw 章节 JSON。
+- `npm run grade7_9:locate-junior -- --out generated/grade7_9/junior_markers.json` 已生成初中段标记索引。
 
 OCR 输出示例：
 
@@ -102,10 +109,65 @@ generated/grade7_9/ocr_text/{subject_slug}.ocr.txt
 generated/grade7_9/ocr_text/{subject_slug}.ocr.json
 ```
 
-## 6. 后续进入正式拆解前必须完成
+## 6. 全量 OCR 审计结果
 
-1. 对 9 个官方 PDF 执行 OCR，或提供同源、可核验的文本/Markdown。
-2. 人工复核 OCR 文本，修正识别误差，确保章节、条目、页码和学科结构无误。
+全量 OCR 日期：2026-06-30
+
+| 学科 | 页数 | OCR 字符数 | 错误页 | 低文本页 |
+| --- | ---: | ---: | ---: | --- |
+| 艺术 | 131 | 76,551 | 0 | 0 |
+| 语文 | 109 | 63,636 | 0 | 1 |
+| 英语 | 201 | 124,449 | 0 | 0 |
+| 信息科技 | 74 | 43,894 | 0 | 0 |
+| 劳动 | 68 | 40,407 | 0 | 1 |
+| 数学 | 189 | 113,153 | 0 | 0 |
+| 道德与法治 | 73 | 45,216 | 0 | 0 |
+| 体育与健康 | 148 | 97,910 | 0 | 0 |
+| 科学 | 193 | 122,242 | 0 | 0 |
+| 合计 | 1,186 | 727,458 | 0 | 2 |
+
+低文本页需要人工确认；目前没有 OCR worker 报错页。
+
+## 7. OCR raw 抽取结果
+
+`npm run grade7_9:extract-ocr-all` 基于 OCR 文本生成了 staging raw JSON：
+
+```text
+generated/grade7_9/raw_ocr/{subject_slug}.raw.json
+```
+
+抽取统计：
+
+| 学科 | sections | candidate_items |
+| --- | ---: | ---: |
+| 艺术 | 143 | 737 |
+| 语文 | 80 | 235 |
+| 英语 | 126 | 682 |
+| 信息科技 | 78 | 327 |
+| 劳动 | 74 | 136 |
+| 数学 | 119 | 466 |
+| 道德与法治 | 90 | 307 |
+| 体育与健康 | 151 | 616 |
+| 科学 | 133 | 728 |
+| 合计 | 994 | 4,234 |
+
+这些 raw candidates 是待复核候选，不是正式标准条目；目录、页眉、说明性文本仍需人工过滤。
+
+## 8. 初中段标记定位结果
+
+`npm run grade7_9:locate-junior` 已定位 453 个初中段相关标记。命中模式包括：`第四学段`、`7~9`、`7～9`、`七年级`、`八年级`、`九年级`、`水平四`、`三级`、`6~7`、`8~9`。
+
+特殊注意：
+
+- 艺术官方课标不是单一 7-9 学段，而是一至七年级以音乐、美术为主线，八至九年级分项；七年级需要从 6-7 年级相关要求中拆出，八/九年级从 8-9 年级相关要求中拆出。
+- 英语常使用 `三级` 表示 7-9 年级目标层级。
+- 体育与健康常使用 `水平四` 表示初中相关目标层级。
+- 科学大量内容以 `7~9` 标记出现在核心概念/学习内容表中，后续需要按内容域人工复核。
+
+## 9. 后续进入正式拆解前必须完成
+
+1. 人工复核已生成的 9 科 OCR 文本，修正识别误差，确保章节、条目、页码和学科结构无误。
+2. 如果官方来源或 PDF 版本发生变化，重新执行 OCR 或提供同源、可核验的文本/Markdown。
 3. 按现有拆解方法抽取原子学习目标。
 4. 对 7-9 合写要求进行年级拆分，写入现有 `grade` 字段。
 5. 运行 schema 归一、TS 映射、by_subject 构建和校验。

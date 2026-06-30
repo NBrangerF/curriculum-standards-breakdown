@@ -15,6 +15,7 @@ function parseArgs(argv) {
     sourcesDir: 'raw/grade7_9/sources',
     outDir: 'generated/grade7_9/ocr_text',
     dpi: 200,
+    batchSize: 12,
     languages: 'zh-Hans,en-US',
     subjects: [],
     input: '',
@@ -36,6 +37,7 @@ function parseArgs(argv) {
     else if (item === '--to-page') args.toPage = Number(argv[++i])
     else if (item === '--max-pages') args.maxPages = Number(argv[++i])
     else if (item === '--dpi') args.dpi = Number(argv[++i])
+    else if (item === '--batch-size') args.batchSize = Number(argv[++i])
     else if (item === '--languages') args.languages = argv[++i]
     else if (item === '--keep-images') args.keepImages = true
     else if (item === '--help') args.help = true
@@ -51,6 +53,7 @@ npm run grade7_9:ocr -- --input raw/grade7_9/sources/chinese.pdf --out generated
 Notes:
 - macOS only: uses Apple Vision through Swift.
 - Outputs a .ocr.txt file for extraction and a sibling .ocr.json page audit.
+- Renders and recognizes pages in batches; tune with --batch-size.
 - Keep outputs in generated/ until manual review is complete.`)
 }
 
@@ -89,20 +92,51 @@ function renderPage(pdfFile, page, tempDir, dpi) {
   return image
 }
 
-function runWorker(worker, image, languages) {
-  const result = spawnSync(worker, ['--languages', languages, image], {
+function runWorkerBatch(worker, images, languages) {
+  const result = spawnSync(worker, ['--languages', languages, ...images], {
     encoding: 'utf8',
-    maxBuffer: 1024 * 1024 * 8
+    maxBuffer: 1024 * 1024 * 64
   })
   if (result.status !== 0) {
-    throw new Error(`Vision OCR failed for ${image}: ${result.stderr || result.stdout}`)
+    throw new Error(`Vision OCR failed: ${result.stderr || result.stdout}`)
   }
-  const line = result.stdout.trim().split('\n').filter(Boolean).at(-1)
-  if (!line) return { file: image, text: '', error: 'empty OCR output' }
-  return JSON.parse(line)
+  const rows = result.stdout.trim().split('\n').filter(Boolean).map(line => JSON.parse(line))
+  const byFile = new Map(rows.map(row => [row.file, row]))
+  return images.map(image => byFile.get(image) || { file: image, text: '', error: 'empty OCR output' })
 }
 
-function ocrPdf({ subjectSlug, subject, input, out, dpi, languages, fromPage, toPage, maxPages, keepImages }) {
+function writeOcrOutputs({ out, input, subjectSlug, subject, languages, totalPages, first, last, pages, partial }) {
+  const header = [
+    `source_file: ${input}`,
+    subjectSlug ? `subject_slug: ${subjectSlug}` : null,
+    subject ? `subject: ${subject}` : null,
+    `ocr_tool: apple_vision`,
+    `ocr_languages: ${languages}`,
+    `page_range: ${first}-${last} of ${totalPages}`,
+    ''
+  ].filter(Boolean).join('\n')
+  const body = pages
+    .map(row => [`[[PAGE ${String(row.page).padStart(3, '0')}]]`, row.text].join('\n'))
+    .join('\n\n')
+  const textPath = partial ? `${out}.partial` : out
+  const jsonPath = partial ? `${out.replace(/\.txt$/i, '.json')}.partial` : out.replace(/\.txt$/i, '.json')
+  writeFileSync(textPath, `${header}\n${body}\n`)
+  writeFileSync(jsonPath, `${JSON.stringify({
+    source_file: input,
+    subject_slug: subjectSlug || '',
+    subject: subject || '',
+    ocr_tool: 'apple_vision',
+    ocr_languages: languages.split(','),
+    generated_at: new Date().toISOString(),
+    total_pages: totalPages,
+    page_range: [first, last],
+    text_file: out,
+    complete: !partial && pages.length === last - first + 1,
+    pages
+  }, null, 2)}\n`)
+}
+
+function ocrPdf({ subjectSlug, subject, input, out, dpi, batchSize, languages, fromPage, toPage, maxPages, keepImages }) {
   if (!existsSync(input)) throw new Error(`Input PDF not found: ${input}`)
   if (!existsSync(dirname(out))) mkdirSync(dirname(out), { recursive: true })
   const worker = compileWorker()
@@ -117,47 +151,36 @@ function ocrPdf({ subjectSlug, subject, input, out, dpi, languages, fromPage, to
 
   const pages = []
   try {
-    for (let page = first; page <= last; page += 1) {
-      const image = renderPage(input, page, tempDir, dpi)
-      const row = runWorker(worker, image, languages)
-      pages.push({
-        page,
-        text: row.text || '',
-        chars: (row.text || '').trim().length,
-        error: row.error || null
+    for (let batchStart = first; batchStart <= last; batchStart += batchSize) {
+      const batchEnd = Math.min(last, batchStart + batchSize - 1)
+      const rendered = []
+      for (let page = batchStart; page <= batchEnd; page += 1) {
+        const image = renderPage(input, page, tempDir, dpi)
+        rendered.push({ page, image })
+      }
+      const rows = runWorkerBatch(worker, rendered.map(row => row.image), languages)
+      rows.forEach((row, index) => {
+        pages.push({
+          page: rendered[index].page,
+          text: row.text || '',
+          chars: (row.text || '').trim().length,
+          error: row.error || null
+        })
       })
-      console.log(`${subjectSlug || basename(input)} page ${page}/${last}: ${pages.at(-1).chars} chars`)
-      if (!keepImages) unlinkSync(image)
+      const batchChars = rows.reduce((sum, row) => sum + (row.text || '').trim().length, 0)
+      console.log(`${subjectSlug || basename(input)} pages ${batchStart}-${batchEnd}/${last}: ${batchChars} chars`)
+      writeOcrOutputs({ out, input, subjectSlug, subject, languages, totalPages, first, last, pages, partial: true })
+      if (!keepImages) rendered.forEach(row => unlinkSync(row.image))
     }
   } finally {
     if (!keepImages) rmSync(tempDir, { recursive: true, force: true })
   }
 
-  const header = [
-    `source_file: ${input}`,
-    subjectSlug ? `subject_slug: ${subjectSlug}` : null,
-    subject ? `subject: ${subject}` : null,
-    `ocr_tool: apple_vision`,
-    `ocr_languages: ${languages}`,
-    `page_range: ${first}-${last} of ${totalPages}`,
-    ''
-  ].filter(Boolean).join('\n')
-  const body = pages
-    .map(row => [`[[PAGE ${String(row.page).padStart(3, '0')}]]`, row.text].join('\n'))
-    .join('\n\n')
-  writeFileSync(out, `${header}\n${body}\n`)
-  writeFileSync(out.replace(/\.txt$/i, '.json'), `${JSON.stringify({
-    source_file: input,
-    subject_slug: subjectSlug || '',
-    subject: subject || '',
-    ocr_tool: 'apple_vision',
-    ocr_languages: languages.split(','),
-    generated_at: new Date().toISOString(),
-    total_pages: totalPages,
-    page_range: [first, last],
-    text_file: out,
-    pages
-  }, null, 2)}\n`)
+  writeOcrOutputs({ out, input, subjectSlug, subject, languages, totalPages, first, last, pages, partial: false })
+  const partialText = `${out}.partial`
+  const partialJson = `${out.replace(/\.txt$/i, '.json')}.partial`
+  if (existsSync(partialText)) unlinkSync(partialText)
+  if (existsSync(partialJson)) unlinkSync(partialJson)
   return { out, pages: pages.length, chars: pages.reduce((sum, row) => sum + row.chars, 0) }
 }
 
@@ -177,11 +200,12 @@ function main() {
   }
   const rows = []
   if (args.input) {
-    rows.push(ocrPdf({
-      input: args.input,
-      out: args.out || join(args.outDir, `${basename(args.input, '.pdf')}.ocr.txt`),
-      dpi: args.dpi,
-      languages: args.languages,
+      rows.push(ocrPdf({
+        input: args.input,
+        out: args.out || join(args.outDir, `${basename(args.input, '.pdf')}.ocr.txt`),
+        dpi: args.dpi,
+        batchSize: args.batchSize,
+        languages: args.languages,
       fromPage: args.fromPage,
       toPage: args.toPage,
       maxPages: args.maxPages,
@@ -200,6 +224,7 @@ function main() {
         input,
         out,
         dpi: args.dpi,
+        batchSize: args.batchSize,
         languages: args.languages,
         fromPage: args.fromPage,
         toPage: args.toPage,
