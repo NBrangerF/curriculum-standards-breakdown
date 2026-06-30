@@ -194,6 +194,7 @@ scripts/grade7_9/
 | `build_by_subject.js` | 输出 staging by_subject JSON。 |
 | `build_curated_staging.js` | 从 curated raw 一键重建 normalized、mapped、by_subject、manifest/indexes，并运行整包校验。 |
 | `audit_release_readiness.js` | 审计 staging 是否完整，以及是否可以安全写入正式 `public/data`。 |
+| `audit_structure_coverage.js` | 审计课程目标、课程内容、学业质量、教学建议、评价建议的来源和字段承载覆盖。 |
 | `plan_public_integration.js` | dry-run 计算 7-9 staging 追加到正式 public 数据的影响面和冲突。 |
 | `validate_schema.js` | 校验字段、年级、TS、code、manifest/indexes 一致性和 H3 口径风险。 |
 | `generate_manifest.js` | 生成 staging manifest 和 indexes。 |
@@ -359,10 +360,11 @@ node scripts/grade7_9/validate_schema.js \
 9 科完整 staging 重建后，再运行：
 
 ```bash
+npm run grade7_9:audit-structure -- --out generated/grade7_9_structure_coverage.json
 npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 ```
 
-它验证当前网站数据层是否能完成 H3 筛选、领域分组、TS 筛选、TS 反查和标准详情查找。
+其中 `audit-structure` 验证课程目标、课程内容、学业质量、教学建议、评价建议的来源与字段承载；`check-ui` 验证当前网站数据层是否能完成 H3 筛选、领域分组、TS 筛选、TS 反查和标准详情查找。
 
 正式接入前还要运行：
 

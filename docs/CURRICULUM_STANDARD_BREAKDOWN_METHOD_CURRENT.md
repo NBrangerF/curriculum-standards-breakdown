@@ -299,6 +299,14 @@ npm run grade7_9:build-curated
 
 该命令默认输出到 `generated/grade7_9_all_curated/`，并自动完成 normalize、map-ts、by_subject、manifest/indexes 和 `--staging-root` 整包校验。
 
+在重建 staging 前，先检查原文结构覆盖：
+
+```bash
+npm run grade7_9:audit-structure -- --out generated/grade7_9_structure_coverage.json
+```
+
+当前结果为 `valid: true`，说明 9 科 curated raw 在课程目标、课程内容、学业质量、教学建议、评价建议上都有来源或字段承载证据。详见 `docs/JUNIOR_SECONDARY_STRUCTURE_COVERAGE.md`。
+
 以单学科为例，当前校验链路是：
 
 ```bash
@@ -360,6 +368,7 @@ npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curat
 - `errors: []`
 - 所有 records 都是 `grade_band: "H3"`、`grade_range: "7-9"`
 - `grade` 已拆为七年级、八年级、九年级
+- 课程目标、课程内容、学业质量、教学建议、评价建议结构覆盖审计通过
 - 每条标准有唯一 code
 - 每条标准有且仅有一个 `ts_primary`
 - manifest、`code_to_subject`、`skill_to_subjects`、`subject_stats` 与 `by_subject` 实际数据一致

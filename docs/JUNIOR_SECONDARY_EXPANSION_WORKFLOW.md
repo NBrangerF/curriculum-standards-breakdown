@@ -74,6 +74,7 @@ scripts/grade7_9/
   build_by_subject.js
   build_curated_staging.js
   audit_release_readiness.js
+  audit_structure_coverage.js
   plan_public_integration.js
   validate_schema.js
   generate_manifest.js
@@ -260,6 +261,14 @@ npm run grade7_9:build-curated
 
 默认输出到 `generated/grade7_9_all_curated/`，并自动完成 normalize、map-ts、by_subject、manifest/indexes 和 `--staging-root` 整包校验。
 
+重建前可以先运行课标原文结构覆盖审计：
+
+```bash
+npm run grade7_9:audit-structure -- --out generated/grade7_9_structure_coverage.json
+```
+
+该检查确认 curated raw 是否覆盖课程目标、课程内容、学业质量、教学建议、评价建议，并确认教学建议与评价建议是否已落到 `teaching_tip` 和 `assessment_evidence_type`。详见 `docs/JUNIOR_SECONDARY_STRUCTURE_COVERAGE.md`。
+
 重建后还应运行网站数据层兼容检查：
 
 ```bash
@@ -294,6 +303,7 @@ npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curat
 - 艺术学科需特殊处理：官方课标是一至七年级以音乐、美术为主线，八至九年级分项；七年级来自第三学段 6-7 年级相关要求，八/九年级来自第四学段 8-9 年级相关要求。
 - 每条标准字段与现有 schema 兼容。
 - 每条标准都有真实 code 和 TS primary。
+- 课程目标、课程内容、学业质量、教学建议、评价建议结构覆盖审计通过。
 - staging 校验通过。
 - 网站数据层兼容检查通过，包括学科页、对比页、搜索页、技能详情页、标准详情页所需字段和索引。
 - `grade7_9:plan-integration` 已确认真实接入影响面和无 code 冲突。
