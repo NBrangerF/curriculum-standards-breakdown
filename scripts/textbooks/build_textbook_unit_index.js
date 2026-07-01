@@ -1,0 +1,444 @@
+#!/usr/bin/env node
+import { execFileSync, spawnSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { basename, dirname, join } from 'node:path'
+
+const DEFAULT_TEXTBOOK_INDEX = 'generated/textbook_evidence/china_textbook_index.json'
+const DEFAULT_REPO_DIR = 'generated/external/ChinaTextbook'
+const DEFAULT_REF = 'HEAD'
+const DEFAULT_CACHE_DIR = 'generated/textbook_evidence/pdf_cache'
+const DEFAULT_OUT = 'generated/textbook_evidence/textbook_unit_index.json'
+const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/textbook_unit_index_summary.md'
+const DEFAULT_MAX_FILES = 24
+const DEFAULT_MAX_PAGES = 18
+
+function parseArgs(argv) {
+  const args = {
+    textbookIndex: DEFAULT_TEXTBOOK_INDEX,
+    repoDir: DEFAULT_REPO_DIR,
+    ref: DEFAULT_REF,
+    cacheDir: DEFAULT_CACHE_DIR,
+    out: DEFAULT_OUT,
+    summaryOut: DEFAULT_SUMMARY_OUT,
+    subjects: [],
+    grades: [],
+    maxFiles: DEFAULT_MAX_FILES,
+    maxPages: DEFAULT_MAX_PAGES,
+    all: false,
+    materialize: false,
+    force: false
+  }
+  for (let i = 0; i < argv.length; i += 1) {
+    const item = argv[i]
+    if (item === '--textbook-index') args.textbookIndex = argv[++i]
+    else if (item === '--repo-dir') args.repoDir = argv[++i]
+    else if (item === '--ref') args.ref = argv[++i]
+    else if (item === '--cache-dir') args.cacheDir = argv[++i]
+    else if (item === '--out') args.out = argv[++i]
+    else if (item === '--summary-out') args.summaryOut = argv[++i]
+    else if (item === '--subjects') args.subjects = splitArg(argv[++i])
+    else if (item === '--grades') args.grades = splitArg(argv[++i])
+    else if (item === '--max-files') args.maxFiles = Number(argv[++i]) || args.maxFiles
+    else if (item === '--max-pages') args.maxPages = Number(argv[++i]) || args.maxPages
+    else if (item === '--all') args.all = true
+    else if (item === '--materialize') args.materialize = true
+    else if (item === '--force') args.force = true
+    else if (item === '--help') args.help = true
+  }
+  return args
+}
+
+function usage() {
+  console.log(`Usage:
+node scripts/textbooks/build_textbook_unit_index.js \\
+  --subjects math,science \\
+  --max-files 8 \\
+  --materialize
+
+Builds a first-pass textbook unit/chapter candidate index from the
+ChinaTextbook evidence index. Without --materialize it only emits file-level
+volume seeds. With --materialize it lazily extracts selected PDF blobs from the
+local Git clone into generated/textbook_evidence/pdf_cache and attempts to parse
+table-of-contents / chapter lines from the first pages.
+
+This script never writes to public/data.`)
+}
+
+function splitArg(value) {
+  return String(value || '')
+    .split(',')
+    .map(item => item.trim())
+    .filter(Boolean)
+}
+
+function readJson(path) {
+  return JSON.parse(readFileSync(path, 'utf8'))
+}
+
+function writeJson(path, value) {
+  mkdirSync(dirname(path), { recursive: true })
+  writeFileSync(path, `${JSON.stringify(stable(value), null, 2)}\n`)
+}
+
+function stable(value) {
+  if (Array.isArray(value)) return value.map(stable)
+  if (!value || typeof value !== 'object') return value
+  return Object.fromEntries(Object.keys(value).sort((a, b) => a.localeCompare(b)).map(key => [key, stable(value[key])]))
+}
+
+function hashText(value, length = 12) {
+  return createHash('sha1').update(String(value || '')).digest('hex').slice(0, length)
+}
+
+function git(repoDir, args, options = {}) {
+  return execFileSync('git', ['-C', repoDir, '-c', 'core.quotePath=false', ...args], {
+    maxBuffer: 1024 * 1024 * 256,
+    ...options
+  })
+}
+
+function pythonCandidates() {
+  return [
+    process.env.PYTHON,
+    process.env.CODEX_PYTHON,
+    '/Users/shawn.fsc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3',
+    'python3'
+  ].filter(Boolean)
+}
+
+function selectedSubjectMappings(record, subjects) {
+  const mappings = record.standard_subject_mappings || []
+  if (!subjects.length) return mappings
+  const allowed = new Set(subjects)
+  return mappings.filter(mapping => allowed.has(mapping.subject_slug))
+}
+
+function gradeAllowed(record, grades) {
+  if (!grades.length) return true
+  const values = new Set(grades.map(String))
+  return values.has(String(record.grade)) || values.has(String(record.grade_label))
+}
+
+function selectRecords(index, args) {
+  return (index.records || [])
+    .map(record => ({
+      ...record,
+      selected_standard_subject_mappings: selectedSubjectMappings(record, args.subjects)
+    }))
+    .filter(record => record.selected_standard_subject_mappings.length)
+    .filter(record => gradeAllowed(record, args.grades))
+    .filter(record => record.extension === 'pdf' && !record.is_fragment)
+    .sort((a, b) => {
+      const subject = a.selected_standard_subject_mappings[0].subject_slug.localeCompare(b.selected_standard_subject_mappings[0].subject_slug)
+      if (subject !== 0) return subject
+      const grade = (a.grade || 0) - (b.grade || 0)
+      if (grade !== 0) return grade
+      const textbook = String(a.textbook_subject || '').localeCompare(String(b.textbook_subject || ''))
+      if (textbook !== 0) return textbook
+      const edition = String(a.edition || '').localeCompare(String(b.edition || ''))
+      if (edition !== 0) return edition
+      return String(a.file_name || '').localeCompare(String(b.file_name || ''))
+    })
+    .slice(0, args.all ? undefined : Math.max(0, args.maxFiles))
+}
+
+function cachePathFor(record, cacheDir) {
+  return join(cacheDir, `${record.evidence_id}.pdf`)
+}
+
+function materializePdf(record, args) {
+  const out = cachePathFor(record, args.cacheDir)
+  if (existsSync(out) && !args.force) {
+    return { status: 'cached', path: out }
+  }
+  mkdirSync(dirname(out), { recursive: true })
+  try {
+    const buffer = git(args.repoDir, ['show', `${args.ref}:${record.repository_path}`])
+    writeFileSync(out, buffer)
+    return { status: 'materialized', path: out, bytes: buffer.length }
+  } catch (error) {
+    return { status: 'materialize_failed', path: out, error: error.message }
+  }
+}
+
+function extractPdfText(pdfPath, maxPages) {
+  const script = String.raw`
+import json, sys
+path = sys.argv[1]
+max_pages = int(sys.argv[2])
+result = {"pages_read": 0, "total_pages": 0, "chars": 0, "text": "", "error": None, "tool": "pypdf"}
+try:
+    from pypdf import PdfReader
+    reader = PdfReader(path)
+    result["total_pages"] = len(reader.pages)
+    texts = []
+    for index, page in enumerate(reader.pages[:max_pages]):
+        text = page.extract_text() or ""
+        texts.append(f"[[PDF_PAGE:{index + 1}]]\n{text}")
+    result["pages_read"] = min(max_pages, len(reader.pages))
+    result["text"] = "\n".join(texts)
+    result["chars"] = len(result["text"].strip())
+except Exception as exc:
+    result["error"] = str(exc)
+print(json.dumps(result, ensure_ascii=False))
+`
+  for (const python of pythonCandidates()) {
+    const result = spawnSync(python, ['-c', script, pdfPath, String(maxPages)], {
+      encoding: 'utf8',
+      maxBuffer: 1024 * 1024 * 64
+    })
+    if (result.status === 0 && result.stdout.trim()) return JSON.parse(result.stdout)
+  }
+  return { pages_read: 0, total_pages: 0, chars: 0, text: '', error: 'no usable python/pypdf runtime', tool: 'none' }
+}
+
+function stripPdfExtension(name) {
+  return String(name || '')
+    .replace(/\.pdf$/i, '')
+    .replace(/^义务教育教科书[·:：]?/, '')
+    .trim()
+}
+
+function normalizeLine(line) {
+  return String(line || '')
+    .replace(/\s+/g, ' ')
+    .replace(/[•●]/g, '')
+    .replace(/[\.．·…]{2,}\s*\d+\s*$/u, '')
+    .replace(/\s+\d+\s*$/u, '')
+    .trim()
+}
+
+function candidateFromLine(line, pdfPage) {
+  const normalized = normalizeLine(line)
+  if (!normalized || normalized.length < 3 || normalized.length > 80) return null
+  if (/^(目录|目 录|contents|CONTENTS)$/i.test(normalized)) return null
+  if (/^(前言|编者的话|后记|附录|封面|版权|出版说明)$/u.test(normalized)) return null
+
+  const strong = normalized.match(/^(第\s*[一二三四五六七八九十百\d]+\s*[章节单元课])\s*[：:、.\s-]*(.+)$/u)
+  if (strong) {
+    return {
+      candidate_type: 'toc_unit_or_chapter',
+      extraction_method: 'pdf_text_toc_line',
+      unit_title: `${strong[1].replace(/\s+/g, '')} ${strong[2].trim()}`,
+      matched_line: normalized,
+      pdf_page_hint: pdfPage,
+      confidence: 0.72
+    }
+  }
+
+  const numbered = normalized.match(/^([一二三四五六七八九十]+|\d+)[、.．]\s*(.{2,60})$/u)
+  if (numbered) {
+    return {
+      candidate_type: 'toc_unit_or_chapter',
+      extraction_method: 'pdf_text_numbered_line',
+      unit_title: numbered[2].trim(),
+      matched_line: normalized,
+      pdf_page_hint: pdfPage,
+      confidence: 0.58
+    }
+  }
+
+  return null
+}
+
+function extractTocCandidates(text) {
+  const out = []
+  let pdfPage = null
+  for (const rawLine of String(text || '').split(/\r?\n/)) {
+    const pageMatch = rawLine.match(/^\[\[PDF_PAGE:(\d+)]]$/)
+    if (pageMatch) {
+      pdfPage = Number(pageMatch[1])
+      continue
+    }
+    const candidate = candidateFromLine(rawLine, pdfPage)
+    if (candidate) out.push(candidate)
+  }
+  const seen = new Set()
+  return out.filter(candidate => {
+    const key = candidate.unit_title
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
+function volumeSeed(record) {
+  return {
+    candidate_type: 'volume_seed',
+    extraction_method: 'textbook_file_name',
+    unit_title: stripPdfExtension(record.file_name),
+    matched_line: record.file_name,
+    pdf_page_hint: null,
+    confidence: 0.2
+  }
+}
+
+function buildUnitCandidate(record, candidate, mapping) {
+  const seed = [
+    record.evidence_id,
+    mapping.subject_slug,
+    candidate.candidate_type,
+    candidate.unit_title,
+    candidate.pdf_page_hint
+  ].join('|')
+  return {
+    unit_evidence_id: `ctu_${hashText(seed, 14)}`,
+    textbook_evidence_id: record.evidence_id,
+    subject_slug: mapping.subject_slug,
+    evidence_role: mapping.evidence_role,
+    stage: record.stage,
+    textbook_subject: record.textbook_subject,
+    edition: record.edition,
+    grade: record.grade,
+    grade_label: record.grade_label,
+    volume: record.volume,
+    file_name: record.file_name,
+    repository_path: record.repository_path,
+    evidence_url: record.evidence_url,
+    ...candidate,
+    evidence_granularity: candidate.candidate_type === 'toc_unit_or_chapter'
+      ? 'textbook_unit_or_chapter_candidate'
+      : 'textbook_file_grade_level',
+    requires_review: true
+  }
+}
+
+function countInto(target, key, amount = 1) {
+  const normalized = key || 'missing'
+  target[normalized] = (target[normalized] || 0) + amount
+}
+
+function summarize(records, unitCandidates) {
+  const bySubject = {}
+  const byCandidateType = {}
+  const byExtractionStatus = {}
+  const byTextStatus = {}
+  for (const record of records) {
+    for (const mapping of record.selected_standard_subject_mappings) countInto(bySubject, mapping.subject_slug)
+    countInto(byExtractionStatus, record.extraction_status)
+    countInto(byTextStatus, record.text_status)
+  }
+  for (const candidate of unitCandidates) countInto(byCandidateType, candidate.candidate_type)
+  return {
+    textbook_files: records.length,
+    unit_candidates: unitCandidates.length,
+    real_unit_or_chapter_candidates: unitCandidates.filter(item => item.candidate_type === 'toc_unit_or_chapter').length,
+    volume_seed_candidates: unitCandidates.filter(item => item.candidate_type === 'volume_seed').length,
+    by_subject: Object.fromEntries(Object.entries(bySubject).sort(([a], [b]) => a.localeCompare(b))),
+    by_candidate_type: Object.fromEntries(Object.entries(byCandidateType).sort(([a], [b]) => a.localeCompare(b))),
+    by_extraction_status: Object.fromEntries(Object.entries(byExtractionStatus).sort(([a], [b]) => a.localeCompare(b))),
+    by_text_status: Object.fromEntries(Object.entries(byTextStatus).sort(([a], [b]) => a.localeCompare(b)))
+  }
+}
+
+function markdownSummary(payload) {
+  const rows = Object.entries(payload.summary.by_subject)
+    .map(([subject, count]) => `| ${subject} | ${count} |`)
+    .join('\n')
+  return `# Textbook Unit Candidate Index
+
+生成时间：${payload.generated_at}
+
+来源：${payload.source_repo}
+
+commit：\`${payload.source_commit}\`
+
+## 摘要
+
+| 指标 | 数量 |
+| --- | ---: |
+| 教材文件 | ${payload.summary.textbook_files} |
+| 候选证据 | ${payload.summary.unit_candidates} |
+| 目录/章节候选 | ${payload.summary.real_unit_or_chapter_candidates} |
+| 文件名卷册 seed | ${payload.summary.volume_seed_candidates} |
+
+## 学科覆盖
+
+| subject_slug | 教材文件 |
+| --- | ---: |
+${rows}
+
+说明：\`toc_unit_or_chapter\` 才能作为后续标准-教材单元匹配的候选；\`volume_seed\` 只是文件/册次级占位，不能证明单元级对应关系。
+`
+}
+
+function main() {
+  const args = parseArgs(process.argv.slice(2))
+  if (args.help) {
+    usage()
+    process.exit(0)
+  }
+  if (!existsSync(args.textbookIndex)) throw new Error(`Missing textbook index: ${args.textbookIndex}`)
+  if (args.materialize && !existsSync(args.repoDir)) throw new Error(`Missing ChinaTextbook repo: ${args.repoDir}`)
+
+  const index = readJson(args.textbookIndex)
+  const records = selectRecords(index, args)
+  const textbookFiles = []
+  const unitCandidates = []
+
+  for (const record of records) {
+    const file = {
+      ...record,
+      cache_path: cachePathFor(record, args.cacheDir),
+      extraction_status: args.materialize ? 'pending' : 'not_materialized',
+      text_status: args.materialize ? 'pending' : 'not_read',
+      toc_candidate_count: 0
+    }
+    let candidates = []
+
+    if (args.materialize) {
+      const materialized = materializePdf(record, args)
+      file.extraction_status = materialized.status
+      file.cache_path = materialized.path
+      file.materialize_error = materialized.error || ''
+      if (materialized.status === 'materialized' || materialized.status === 'cached') {
+        const extracted = extractPdfText(materialized.path, args.maxPages)
+        file.text_status = extracted.error ? 'text_extract_failed' : extracted.chars > 0 ? 'text_extracted' : 'empty_text'
+        file.text_error = extracted.error || ''
+        file.pages_read = extracted.pages_read
+        file.total_pages = extracted.total_pages
+        file.text_chars = extracted.chars
+        candidates = extracted.error ? [] : extractTocCandidates(extracted.text)
+      }
+    }
+
+    if (!candidates.length) candidates = [volumeSeed(record)]
+    file.toc_candidate_count = candidates.filter(candidate => candidate.candidate_type === 'toc_unit_or_chapter').length
+    for (const mapping of record.selected_standard_subject_mappings) {
+      for (const candidate of candidates) unitCandidates.push(buildUnitCandidate(record, candidate, mapping))
+    }
+    textbookFiles.push(file)
+  }
+
+  const payload = {
+    source_repo: index.source_repo || 'https://github.com/TapXWorld/ChinaTextbook',
+    source_commit: index.source_commit || null,
+    generated_at: new Date().toISOString(),
+    textbook_index: args.textbookIndex,
+    extraction: {
+      materialize: args.materialize,
+      all: args.all,
+      max_files: args.all ? null : args.maxFiles,
+      max_pages: args.maxPages,
+      subjects: args.subjects,
+      grades: args.grades
+    },
+    summary: summarize(textbookFiles, unitCandidates),
+    textbook_files: textbookFiles,
+    unit_candidates: unitCandidates
+  }
+
+  writeJson(args.out, payload)
+  if (args.summaryOut) {
+    mkdirSync(dirname(args.summaryOut), { recursive: true })
+    writeFileSync(args.summaryOut, markdownSummary(payload))
+  }
+  console.log(JSON.stringify({
+    wrote: args.out,
+    summary_out: args.summaryOut || null,
+    ...payload.summary
+  }, null, 2))
+}
+
+main()

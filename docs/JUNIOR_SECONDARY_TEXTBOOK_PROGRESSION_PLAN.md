@@ -231,6 +231,42 @@ npm run grade7_9:audit-textbook-progression
 - 建立教材学科到本站学科的映射。
 - 输出当前哪些学科有直接证据，哪些只有邻近证据，哪些没有覆盖。
 
+### Phase 1.5：教材单元/章节候选入口
+
+已新增命令：
+
+```bash
+npm run textbooks:unit-index
+npm run textbooks:audit-unit-index -- --strict
+```
+
+新增文档：
+
+```text
+docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
+```
+
+该阶段目标是把 `china_textbook_index.json` 中的教材文件证据转成后续可匹配的任务入口：
+
+- 默认模式不下载 PDF，只生成 `volume_seed`，粒度为 `textbook_file_grade_level`。
+- `volume_seed` 只能说明某年级某册教材文件存在，不能证明某条 standard 对应具体单元。
+- 可选 `--materialize` 会尝试读取 PDF 前若干页并解析目录行，生成 `toc_unit_or_chapter`。
+- 当前本地样本的 PDF 物化曾因 GitHub 懒加载 blob 超时中断，所以 `--materialize` 暂不纳入默认 gate。
+- 未来只有 `toc_unit_or_chapter` 加上标准匹配 rationale，才能写入正式 H4G 记录的 `textbook_unit_evidence_ids`。
+
+当前数学全量无物化验证结果：
+
+```json
+{
+  "textbook_files": 51,
+  "unit_candidates": 51,
+  "real_unit_or_chapter_candidates": 0,
+  "volume_seed_candidates": 51
+}
+```
+
+审计通过但保留 warning：当前还没有真实单元/章节候选。
+
 ### Phase 2：curated raw 升级
 
 把 `scripts/grade7_9/curated/*_h3_raw.json` 升级为带证据的结构。
@@ -450,6 +486,8 @@ git clone --filter=blob:none --no-checkout \
   generated/external/ChinaTextbook
 
 npm run textbooks:index-china
+npm run textbooks:unit-index
+npm run textbooks:audit-unit-index -- --strict
 npm run grade7_9:audit-textbook-progression
 npm run grade7_9:build-grade-level-candidate
 npm run grade7_9:audit-grade-level-candidate -- --strict

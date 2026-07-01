@@ -1,7 +1,7 @@
 # 课标罗盘资源与架构文档
 
 更新时间：2026-07-01
-对应状态：当前工作树，H4G distinctiveness 修复后
+对应状态：当前工作树，H4G distinctiveness 修复与教材单元证据入口落地后
 项目路径：`/Users/shawn.fsc/Downloads/curriculum breakdown/curriculum-standards-breakdown`
 
 ## 1. 项目概览
@@ -95,6 +95,9 @@ npm run validate:indexes
 | `vercel.json` | Vercel 部署路由配置。 |
 | `index.html` | Vite HTML 入口。 |
 | `scripts/build-indexes.js` | 根据主数据生成派生索引。 |
+| `scripts/textbooks/index_china_textbook.js` | 从 ChinaTextbook Git tree 生成初中教材文件证据索引，不下载 PDF blob。 |
+| `scripts/textbooks/build_textbook_unit_index.js` | 从教材文件索引生成单元/章节候选证据入口；默认只生成文件级 `volume_seed`。 |
+| `scripts/textbooks/audit_textbook_unit_index.js` | 校验教材单元候选索引，区分文件级 seed 与真实目录/章节候选。 |
 | `dist` | 已构建产物目录，不是源码的主要维护入口。 |
 
 ## 4. 当前页面架构
@@ -280,6 +283,35 @@ public/data/
 
 当前 `public/data` 中 323 个完整 H4G 三元组核心文本完全相同，但 `unlabeled_identical_triplets` 为 0；这些记录已标为共享源标准和待年级化细分。详见 `docs/H4G_DISTINCTIVENESS_REMEDIATION.md`。
 
+### 6.2.2 教材证据工作产物
+
+教材证据相关产物位于 `generated/textbook_evidence/`，属于可重建工作产物，不提交到 git，也不是网站 runtime 的静态数据入口。
+
+| 路径 | 作用 |
+| --- | --- |
+| `generated/textbook_evidence/china_textbook_index.json` | ChinaTextbook 初中教材文件索引，记录教材路径、版本、年级、册次和 `textbook_evidence_id`。 |
+| `generated/textbook_evidence/china_textbook_index_summary.md` | 教材文件覆盖摘要。 |
+| `generated/textbook_evidence/junior_textbook_progression_audit.json` | 初中教材进阶覆盖审计。 |
+| `generated/textbook_evidence/textbook_unit_index.json` | 单元/章节候选证据索引；当前默认包含 `volume_seed`。 |
+| `generated/textbook_evidence/textbook_unit_index_summary.md` | 单元候选索引摘要。 |
+| `generated/textbook_evidence/textbook_unit_index_audit.json` | 单元候选索引审计结果。 |
+| `generated/textbook_evidence/pdf_cache/` | 可选 PDF 物化缓存；不提交。 |
+
+相关命令：
+
+```bash
+npm run textbooks:index-china
+npm run textbooks:unit-index
+npm run textbooks:audit-unit-index -- --strict
+```
+
+重要边界：
+
+- `textbook_evidence_ids` 当前是教材文件级证据，可支持年级适配判断。
+- `textbook_unit_evidence_ids` 只有在未来获得 `toc_unit_or_chapter` 并完成标准匹配后才能填写。
+- `volume_seed` 不能证明标准已完成单元级分化；它只是后续 OCR/目录提取的任务入口。
+- `--materialize` 会尝试读取 PDF blob，可能受网络和外部仓库大小影响，暂不作为默认 gate。
+
 ### 6.3 学科元数据
 
 `public/data/subjects_meta.json` 的结构：
@@ -381,7 +413,9 @@ public/data/
       "H1": 15,
       "H2": 26,
       "H3": 28,
-      "H4": 156
+      "H4G7": 52,
+      "H4G8": 52,
+      "H4G9": 52
     },
     "grades": {
       "七年级": 52,

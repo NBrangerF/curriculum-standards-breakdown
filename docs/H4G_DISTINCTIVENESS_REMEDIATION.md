@@ -158,6 +158,37 @@ npm run grade7_9:audit-h4g-distinctiveness -- --strict
 5. 基于单元证据补充真实的 `grade_specific_focus` 和 `progression_delta`。
 6. 当三年级核心解释真正不同后，再把对应记录从 `same_source_shared` 升级为 `grade_specific_variant`。
 
+已落地的下一阶段入口：
+
+```bash
+npm run textbooks:unit-index
+npm run textbooks:audit-unit-index -- --strict
+```
+
+新增脚本：
+
+```text
+scripts/textbooks/build_textbook_unit_index.js
+scripts/textbooks/audit_textbook_unit_index.js
+docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
+```
+
+当前管线默认不下载 PDF，只从 `china_textbook_index.json` 生成 `volume_seed`。`volume_seed` 只代表“某年级某册教材文件存在”，不能作为标准-单元匹配证据。只有后续通过可选 `--materialize` 或稳定 OCR 缓存得到的 `toc_unit_or_chapter`，才可以进入 H4G 年级分化匹配。
+
+当前已验证的无物化样例：
+
+```json
+{
+  "subject": "math",
+  "textbook_files": 51,
+  "unit_candidates": 51,
+  "real_unit_or_chapter_candidates": 0,
+  "volume_seed_candidates": 51
+}
+```
+
+这进一步确认当前 H4G standards 还不能声称已经真实分化；它们只是有了可重复的下一阶段证据任务入口。
+
 优先级建议：
 
 1. 数学、科学：概念链和教材单元最清楚，最适合先做。
