@@ -71,6 +71,38 @@ npm run textbooks:audit-unit-index -- --strict
 npm run textbooks:audit-unit-index -- --strict --require-real-units
 ```
 
+生成标准-单元候选匹配：
+
+```bash
+npm run textbooks:match-units
+```
+
+常用参数：
+
+```bash
+npm run textbooks:match-units -- --subjects math,science
+npm run textbooks:match-units -- --subjects math --unit-index /tmp/textbook_unit_index_math.json
+```
+
+输出：
+
+```text
+generated/textbook_evidence/textbook_unit_standard_matches.json
+generated/textbook_evidence/textbook_unit_standard_matches_summary.md
+```
+
+匹配审计：
+
+```bash
+npm run textbooks:audit-unit-matches -- --strict
+```
+
+当未来已经要求存在真实匹配时，使用：
+
+```bash
+npm run textbooks:audit-unit-matches -- --strict --require-matches --require-eligible
+```
+
 ## 4. 输出结构
 
 `textbook_unit_index.json` 有两个核心数组：
@@ -95,6 +127,22 @@ npm run textbooks:audit-unit-index -- --strict --require-real-units
 | `confidence` | 候选提取置信度。 |
 | `requires_review` | 当前一律为 true，不能跳过人工/规则复核。 |
 
+`textbook_unit_standard_matches.json` 的关键字段：
+
+| 字段 | 说明 |
+| --- | --- |
+| `match_id` | 稳定匹配 ID。 |
+| `standard_code` | 被匹配的 H4G standard code，必须来自 `public/data` 或 candidate data root。 |
+| `unit_evidence_id` | 来源单元/章节候选 ID。 |
+| `candidate_type` | 当前可作为匹配证据的类型必须是 `toc_unit_or_chapter`。 |
+| `score` | 0 到 1 的关键词匹配分数。 |
+| `confidence_band` | `high`、`medium`、`low` 或 `below_threshold`。 |
+| `matched_keywords` | 标准字段与单元标题之间的关键词交集。 |
+| `matched_fields` | 关键词命中的标准字段和短摘录。 |
+| `rationale` | 可读匹配理由。 |
+| `eligible_for_h4g_differentiation` | 是否达到后续 H4G 分化候选证据门槛。 |
+| `requires_review` | 当前一律为 true。 |
+
 ## 5. 候选类型边界
 
 当前有两种候选类型：
@@ -105,6 +153,8 @@ npm run textbooks:audit-unit-index -- --strict --require-real-units
 | `toc_unit_or_chapter` | `textbook_unit_or_chapter_candidate` | 可进入后续标准-教材匹配打分。 | 仍不能直接当作课标原文；需要匹配 rationale 和人工/规则复核。 |
 
 默认不加 `--materialize` 时，只产生 `volume_seed`。这是稳定、可重复、不会下载 PDF 的模式。
+
+标准-单元匹配脚本默认只读取 `toc_unit_or_chapter`。如果使用 `--include-volume-seeds`，输出只可用于诊断；审计脚本会阻止 `volume_seed` 被当作正式匹配证据。
 
 ## 6. 可选 PDF 物化模式
 
@@ -130,9 +180,13 @@ npm run textbooks:unit-index -- --subjects math --max-files 2 --max-pages 18 --m
 ```bash
 node --check scripts/textbooks/build_textbook_unit_index.js
 node --check scripts/textbooks/audit_textbook_unit_index.js
+node --check scripts/textbooks/match_standards_to_textbook_units.js
+node --check scripts/textbooks/audit_textbook_standard_matches.js
 npm run textbooks:unit-index -- --subjects math --max-files 3 --out /tmp/textbook_unit_index_math3.json --summary-out /tmp/textbook_unit_index_math3.md
 npm run textbooks:unit-index -- --subjects math --all --out /tmp/textbook_unit_index_math_all.json --summary-out /tmp/textbook_unit_index_math_all.md
 node scripts/textbooks/audit_textbook_unit_index.js --unit-index /tmp/textbook_unit_index_math_all.json --out /tmp/textbook_unit_index_math_all_audit.json --strict
+npm run textbooks:match-units -- --subjects math --out /tmp/textbook_unit_standard_matches_math.json --summary-out /tmp/textbook_unit_standard_matches_math.md
+node scripts/textbooks/audit_textbook_standard_matches.js --matches /tmp/textbook_unit_standard_matches_math.json --out /tmp/textbook_unit_standard_matches_math_audit.json --strict
 ```
 
 数学全量无物化结果：
@@ -151,15 +205,31 @@ node scripts/textbooks/audit_textbook_unit_index.js --unit-index /tmp/textbook_u
 
 审计通过但保留 warning：当前索引还没有 `toc_unit_or_chapter`，只有文件/册次级 seed。
 
+当前真实数据下的数学标准-单元匹配结果：
+
+```json
+{
+  "standards_evaluated": 114,
+  "unit_candidates_considered": 0,
+  "real_unit_or_chapter_candidates": 0,
+  "matches": 0,
+  "eligible_matches": 0,
+  "unmatched_standards": 114
+}
+```
+
+这说明匹配 gate 目前能正确阻止文件级 seed 被误用为单元证据。临时 `toc_unit_or_chapter` 样本也已验证过非空路径：候选存在时会输出 `score`、`matched_fields`、`matched_keywords` 和 `rationale`，并由 `audit-unit-matches` 严格校验。
+
 ## 8. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从 `same_source_shared` 向 `grade_specific_variant` 升级：
 
 1. 至少有一个同学科、同年级的 `toc_unit_or_chapter` 候选。
 2. 标准核心字段与候选单元/章节建立可解释匹配。
-3. 记录写入 `textbook_unit_evidence_ids`、匹配关键词、匹配分数和 rationale。
-4. `grade_specific_focus` 与 `progression_delta` 基于证据生成，不直接改写课标原文。
-5. `grade7_9:audit-h4g-distinctiveness -- --strict` 仍然通过。
+3. 匹配通过 `textbooks:audit-unit-matches -- --strict --require-matches --require-eligible`。
+4. 记录写入 `textbook_unit_evidence_ids`、匹配关键词、匹配分数和 rationale。
+5. `grade_specific_focus` 与 `progression_delta` 基于证据生成，不直接改写课标原文。
+6. `grade7_9:audit-h4g-distinctiveness -- --strict` 仍然通过。
 
 换句话说，`volume_seed` 是任务入口；`toc_unit_or_chapter` 才是后续年级分化的候选证据。
 
@@ -170,5 +240,5 @@ H4G 记录只有满足以下条件，才可以从 `same_source_shared` 向 `grad
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
 2. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
 3. 改进目录解析，补充页码范围、关键词和册次位置。
-4. 新增标准-单元匹配脚本，输出候选匹配分数和 rationale。
-5. 只把通过复核的匹配写回 H4G candidate，再进入正式 public 写入 gate。
+4. 扩展标准-单元匹配脚本，加入页码范围、版本一致性和跨版本一致性证据。
+5. 设计通过复核的匹配写回 H4G candidate 的流程，再进入正式 public 写入 gate。

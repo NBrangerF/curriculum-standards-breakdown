@@ -1,0 +1,500 @@
+#!/usr/bin/env node
+import { createHash } from 'node:crypto'
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { basename, dirname, join } from 'node:path'
+
+const DEFAULT_DATA_ROOT = 'public/data'
+const DEFAULT_UNIT_INDEX = 'generated/textbook_evidence/textbook_unit_index.json'
+const DEFAULT_OUT = 'generated/textbook_evidence/textbook_unit_standard_matches.json'
+const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/textbook_unit_standard_matches_summary.md'
+const DEFAULT_MIN_SCORE = 0.3
+const DEFAULT_ELIGIBLE_SCORE = 0.55
+const DEFAULT_MAX_MATCHES = 5
+const TARGET_GRADE_BANDS = new Set(['H4G7', 'H4G8', 'H4G9'])
+const STANDARD_FIELDS = [
+  'domain',
+  'subdomain',
+  'standard',
+  'context',
+  'practice',
+  'teaching_tip',
+  'assessment_evidence_type'
+]
+const STOP_TOKENS = new Set([
+  '义务', '教育', '教科', '教科书', '教材', '课程', '标准', '年级',
+  '上册', '下册', '全一册', '学生', '学习', '活动', '能够', '通过',
+  '理解', '认识', '了解', '掌握', '运用', '形成', '发展', '进行',
+  '数学', '七年级', '八年级', '九年级'
+])
+const WEAK_EDGE_CHARS = new Set(['与', '的', '和', '中', '及', '或', '并', '在', '为', '对', '到', '从'])
+const FIELD_WEIGHTS = {
+  domain: 1.4,
+  subdomain: 1.8,
+  standard: 2.2,
+  context: 1.0,
+  practice: 1.1,
+  teaching_tip: 0.8,
+  assessment_evidence_type: 0.7
+}
+
+function parseArgs(argv) {
+  const args = {
+    dataRoot: DEFAULT_DATA_ROOT,
+    unitIndex: DEFAULT_UNIT_INDEX,
+    out: DEFAULT_OUT,
+    summaryOut: DEFAULT_SUMMARY_OUT,
+    subjects: [],
+    gradeBands: [],
+    minScore: DEFAULT_MIN_SCORE,
+    eligibleScore: DEFAULT_ELIGIBLE_SCORE,
+    maxMatches: DEFAULT_MAX_MATCHES,
+    includeVolumeSeeds: false
+  }
+  for (let i = 0; i < argv.length; i += 1) {
+    const item = argv[i]
+    if (item === '--data-root') args.dataRoot = argv[++i]
+    else if (item === '--unit-index') args.unitIndex = argv[++i]
+    else if (item === '--out') args.out = argv[++i]
+    else if (item === '--summary-out') args.summaryOut = argv[++i]
+    else if (item === '--subjects') args.subjects = splitArg(argv[++i])
+    else if (item === '--grade-bands') args.gradeBands = splitArg(argv[++i])
+    else if (item === '--min-score') args.minScore = Number(argv[++i]) || args.minScore
+    else if (item === '--eligible-score') args.eligibleScore = Number(argv[++i]) || args.eligibleScore
+    else if (item === '--max-matches') args.maxMatches = Number(argv[++i]) || args.maxMatches
+    else if (item === '--include-volume-seeds') args.includeVolumeSeeds = true
+    else if (item === '--help') args.help = true
+  }
+  return args
+}
+
+function usage() {
+  console.log(`Usage:
+node scripts/textbooks/match_standards_to_textbook_units.js \\
+  --subjects math,science \\
+  --unit-index generated/textbook_evidence/textbook_unit_index.json
+
+Builds explainable candidate matches from H4G standards to textbook
+toc_unit_or_chapter candidates. File-level volume_seed records are ignored by
+default because they are not unit-level evidence.`)
+}
+
+function splitArg(value) {
+  return String(value || '')
+    .split(',')
+    .map(item => item.trim())
+    .filter(Boolean)
+}
+
+function readJson(path) {
+  return JSON.parse(readFileSync(path, 'utf8'))
+}
+
+function stable(value) {
+  if (Array.isArray(value)) return value.map(stable)
+  if (!value || typeof value !== 'object') return value
+  return Object.fromEntries(Object.keys(value).sort((a, b) => a.localeCompare(b)).map(key => [key, stable(value[key])]))
+}
+
+function writeJson(path, value) {
+  mkdirSync(dirname(path), { recursive: true })
+  writeFileSync(path, `${JSON.stringify(stable(value), null, 2)}\n`)
+}
+
+function hashText(value, length = 12) {
+  return createHash('sha1').update(String(value || '')).digest('hex').slice(0, length)
+}
+
+function subjectFiles(dataRoot) {
+  const dir = join(dataRoot, 'by_subject')
+  if (!existsSync(dir)) return []
+  return readdirSync(dir)
+    .filter(file => file.endsWith('.json'))
+    .sort((a, b) => a.localeCompare(b))
+    .map(file => join(dir, file))
+}
+
+function countInto(target, key, amount = 1) {
+  const normalized = key || 'missing'
+  target[normalized] = (target[normalized] || 0) + amount
+}
+
+function gradeBandForUnit(unit) {
+  const grade = Number(unit.grade)
+  if (grade >= 7 && grade <= 9) return `H4G${grade}`
+  const label = String(unit.grade_label || '')
+  if (label.includes('七')) return 'H4G7'
+  if (label.includes('八')) return 'H4G8'
+  if (label.includes('九')) return 'H4G9'
+  return ''
+}
+
+function normalizeText(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[，。！？；：、“”‘’（）《》【】]/g, ' ')
+    .replace(/[^\p{Letter}\p{Number}]+/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function hasHan(value) {
+  return /\p{Script=Han}/u.test(value)
+}
+
+function grams(text, min, max) {
+  const compact = String(text || '').replace(/\s+/g, '')
+  const out = []
+  for (let size = min; size <= max; size += 1) {
+    for (let index = 0; index <= compact.length - size; index += 1) {
+      out.push(compact.slice(index, index + size))
+    }
+  }
+  return out
+}
+
+function keepToken(token) {
+  if (!token || token.length < 2) return false
+  if (STOP_TOKENS.has(token)) return false
+  if (WEAK_EDGE_CHARS.has(token[0]) || WEAK_EDGE_CHARS.has(token[token.length - 1])) return false
+  return true
+}
+
+function tokenize(value) {
+  const normalized = normalizeText(value)
+  const tokens = new Set()
+  for (const part of normalized.split(/\s+/).filter(Boolean)) {
+    if (/^\d+$/.test(part)) continue
+    if (keepToken(part)) tokens.add(part)
+    if (hasHan(part)) {
+      for (const gram of grams(part, 2, 4)) {
+        if (keepToken(gram)) tokens.add(gram)
+      }
+    }
+  }
+  return tokens
+}
+
+function weightedStandardTokens(standard) {
+  const weights = new Map()
+  const fieldTokens = {}
+  for (const field of STANDARD_FIELDS) {
+    const tokens = tokenize(standard[field])
+    fieldTokens[field] = tokens
+    for (const token of tokens) {
+      weights.set(token, (weights.get(token) || 0) + (FIELD_WEIGHTS[field] || 1))
+    }
+  }
+  return { weights, fieldTokens }
+}
+
+function unitTokens(unit) {
+  return tokenize([
+    unit.unit_title,
+    unit.matched_line,
+    unit.textbook_subject,
+    unit.volume
+  ].filter(Boolean).join(' '))
+}
+
+function confidenceBand(score) {
+  if (score >= 0.8) return 'high'
+  if (score >= 0.55) return 'medium'
+  if (score >= 0.3) return 'low'
+  return 'below_threshold'
+}
+
+function excerpt(value, length = 80) {
+  return normalizeText(value).slice(0, length)
+}
+
+function scoreMatch(standard, unit) {
+  const { weights, fieldTokens } = weightedStandardTokens(standard)
+  const titleTokens = unitTokens(unit)
+  if (!titleTokens.size || !weights.size) {
+    return {
+      score: 0,
+      matched_keywords: [],
+      matched_fields: [],
+      rationale: 'No comparable tokens between standard fields and unit title.'
+    }
+  }
+
+  let matchedWeight = 0
+  let totalUnitWeight = 0
+  const matched = []
+  const matchedFields = []
+
+  for (const token of titleTokens) {
+    const tokenWeight = Math.max(1, Math.min(4, token.length / 2))
+    totalUnitWeight += tokenWeight
+    if (!weights.has(token)) continue
+    matchedWeight += tokenWeight * Math.min(2.5, weights.get(token))
+    matched.push(token)
+    for (const [field, tokens] of Object.entries(fieldTokens)) {
+      if (tokens.has(token)) {
+        matchedFields.push({
+          field,
+          keyword: token,
+          field_excerpt: excerpt(standard[field])
+        })
+      }
+    }
+  }
+
+  const domain = normalizeText(standard.domain)
+  const subdomain = normalizeText(standard.subdomain)
+  const unitTitle = normalizeText(unit.unit_title)
+  let boost = 0
+  if (domain && unitTitle.includes(domain)) boost += 0.12
+  if (subdomain && unitTitle.includes(subdomain)) boost += 0.18
+
+  const base = totalUnitWeight ? matchedWeight / (totalUnitWeight * 2.5) : 0
+  const score = Number(Math.max(0, Math.min(1, base + boost)).toFixed(4))
+  const uniqueKeywords = [...new Set(matched)].sort((a, b) => a.localeCompare(b))
+  const rationale = uniqueKeywords.length
+    ? `Matched ${uniqueKeywords.length} keyword(s) between unit title and standard fields: ${uniqueKeywords.slice(0, 8).join(', ')}.`
+    : 'No shared keywords above the token threshold.'
+
+  return {
+    score,
+    matched_keywords: uniqueKeywords.slice(0, 40),
+    matched_fields: dedupeMatchedFields(matchedFields).slice(0, 30),
+    rationale
+  }
+}
+
+function dedupeMatchedFields(rows) {
+  const seen = new Set()
+  const out = []
+  for (const row of rows) {
+    const key = `${row.field}:${row.keyword}`
+    if (seen.has(key)) continue
+    seen.add(key)
+    out.push(row)
+  }
+  return out.sort((a, b) => {
+    const field = a.field.localeCompare(b.field)
+    if (field !== 0) return field
+    return a.keyword.localeCompare(b.keyword)
+  })
+}
+
+function loadStandards(args) {
+  const allowedSubjects = new Set(args.subjects)
+  const allowedBands = new Set(args.gradeBands.length ? args.gradeBands : [...TARGET_GRADE_BANDS])
+  const out = []
+  for (const file of subjectFiles(args.dataRoot)) {
+    const subjectSlug = basename(file, '.json')
+    if (allowedSubjects.size && !allowedSubjects.has(subjectSlug)) continue
+    const payload = readJson(file)
+    for (const standard of payload.standards || []) {
+      if (!TARGET_GRADE_BANDS.has(standard.grade_band)) continue
+      if (!allowedBands.has(standard.grade_band)) continue
+      out.push(standard)
+    }
+  }
+  return out
+}
+
+function loadUnits(args, warnings) {
+  if (!existsSync(args.unitIndex)) {
+    warnings.push(`Missing unit index: ${args.unitIndex}`)
+    return { payload: null, units: [] }
+  }
+  const payload = readJson(args.unitIndex)
+  const allowedSubjects = new Set(args.subjects)
+  const allowedBands = new Set(args.gradeBands.length ? args.gradeBands : [...TARGET_GRADE_BANDS])
+  const units = (payload.unit_candidates || [])
+    .map(unit => ({ ...unit, grade_band: gradeBandForUnit(unit) }))
+    .filter(unit => !allowedSubjects.size || allowedSubjects.has(unit.subject_slug))
+    .filter(unit => !allowedBands.size || allowedBands.has(unit.grade_band))
+    .filter(unit => args.includeVolumeSeeds || unit.candidate_type === 'toc_unit_or_chapter')
+  const realUnits = units.filter(unit => unit.candidate_type === 'toc_unit_or_chapter')
+  if (!realUnits.length) {
+    warnings.push('No toc_unit_or_chapter candidates are available; standard-unit matching cannot produce H4G differentiation evidence yet.')
+  }
+  if (args.includeVolumeSeeds) {
+    warnings.push('includeVolumeSeeds is enabled; volume_seed matches are diagnostic only and are never eligible for H4G differentiation.')
+  }
+  return { payload, units }
+}
+
+function groupUnits(units) {
+  const bySubjectGrade = {}
+  for (const unit of units) {
+    const key = `${unit.subject_slug}:${unit.grade_band}`
+    bySubjectGrade[key] ||= []
+    bySubjectGrade[key].push(unit)
+  }
+  return bySubjectGrade
+}
+
+function buildMatches(standards, unitsBySubjectGrade, args) {
+  const matches = []
+  const unmatchedStandards = []
+  for (const standard of standards) {
+    const key = `${standard.subject_slug}:${standard.grade_band}`
+    const candidates = unitsBySubjectGrade[key] || []
+    const scored = []
+    for (const unit of candidates) {
+      const scoredMatch = scoreMatch(standard, unit)
+      if (scoredMatch.score < args.minScore) continue
+      const eligible = unit.candidate_type === 'toc_unit_or_chapter' && scoredMatch.score >= args.eligibleScore
+      scored.push({
+        match_id: `ctm_${hashText(`${standard.code}|${unit.unit_evidence_id}`, 14)}`,
+        standard_code: standard.code,
+        standard_id: standard.id || standard.code,
+        progression_group_id: standard.progression_group_id || '',
+        subject_slug: standard.subject_slug,
+        grade_band: standard.grade_band,
+        grade_level: standard.grade_level || Number(String(standard.grade_band).replace('H4G', '')),
+        unit_evidence_id: unit.unit_evidence_id,
+        textbook_evidence_id: unit.textbook_evidence_id,
+        candidate_type: unit.candidate_type,
+        evidence_granularity: unit.evidence_granularity,
+        unit_title: unit.unit_title,
+        textbook_subject: unit.textbook_subject,
+        edition: unit.edition,
+        volume: unit.volume,
+        repository_path: unit.repository_path,
+        evidence_url: unit.evidence_url,
+        score: scoredMatch.score,
+        confidence_band: confidenceBand(scoredMatch.score),
+        match_type: 'textbook_unit_candidate_keyword',
+        matched_keywords: scoredMatch.matched_keywords,
+        matched_fields: scoredMatch.matched_fields,
+        rationale: scoredMatch.rationale,
+        eligible_for_h4g_differentiation: eligible,
+        requires_review: true
+      })
+    }
+    scored.sort((a, b) => {
+      const score = b.score - a.score
+      if (score !== 0) return score
+      return a.unit_evidence_id.localeCompare(b.unit_evidence_id)
+    })
+    const top = scored.slice(0, args.maxMatches)
+    matches.push(...top)
+    if (!top.length) {
+      unmatchedStandards.push({
+        standard_code: standard.code,
+        subject_slug: standard.subject_slug,
+        grade_band: standard.grade_band,
+        progression_group_id: standard.progression_group_id || '',
+        reason: candidates.length ? 'no candidate reached min_score' : 'no unit candidates for subject and grade'
+      })
+    }
+  }
+  return { matches, unmatchedStandards }
+}
+
+function summarize(standards, units, matches, unmatchedStandards, warnings) {
+  const bySubject = {}
+  const byUnitType = {}
+  const byConfidence = {}
+  for (const standard of standards) countInto(bySubject, standard.subject_slug)
+  for (const unit of units) countInto(byUnitType, unit.candidate_type)
+  for (const match of matches) countInto(byConfidence, match.confidence_band)
+  return {
+    standards_evaluated: standards.length,
+    unit_candidates_considered: units.length,
+    real_unit_or_chapter_candidates: units.filter(unit => unit.candidate_type === 'toc_unit_or_chapter').length,
+    volume_seed_candidates_considered: units.filter(unit => unit.candidate_type === 'volume_seed').length,
+    matches: matches.length,
+    standards_with_matches: new Set(matches.map(match => match.standard_code)).size,
+    eligible_matches: matches.filter(match => match.eligible_for_h4g_differentiation).length,
+    unmatched_standards: unmatchedStandards.length,
+    warnings: warnings.length,
+    by_subject: Object.fromEntries(Object.entries(bySubject).sort(([a], [b]) => a.localeCompare(b))),
+    by_unit_candidate_type: Object.fromEntries(Object.entries(byUnitType).sort(([a], [b]) => a.localeCompare(b))),
+    by_confidence_band: Object.fromEntries(Object.entries(byConfidence).sort(([a], [b]) => a.localeCompare(b)))
+  }
+}
+
+function markdownSummary(payload) {
+  const subjectRows = Object.entries(payload.summary.by_subject)
+    .map(([subject, count]) => `| ${subject} | ${count} |`)
+    .join('\n')
+  const warnings = payload.warnings.length
+    ? payload.warnings.map(item => `- ${item}`).join('\n')
+    : '- 无'
+  return `# Textbook Unit Standard Match Summary
+
+生成时间：${payload.generated_at}
+
+数据根目录：\`${payload.data_root}\`
+
+单元索引：\`${payload.unit_index}\`
+
+## 摘要
+
+| 指标 | 数量 |
+| --- | ---: |
+| H4G standards evaluated | ${payload.summary.standards_evaluated} |
+| unit candidates considered | ${payload.summary.unit_candidates_considered} |
+| toc_unit_or_chapter candidates | ${payload.summary.real_unit_or_chapter_candidates} |
+| matches | ${payload.summary.matches} |
+| eligible matches | ${payload.summary.eligible_matches} |
+| unmatched standards | ${payload.summary.unmatched_standards} |
+
+## 学科范围
+
+| subject_slug | standards |
+| --- | ---: |
+${subjectRows}
+
+## Warnings
+
+${warnings}
+
+说明：只有 \`candidate_type: "toc_unit_or_chapter"\` 且达到 eligible score 的匹配，才可能作为 H4G 年级分化候选证据。文件级 \`volume_seed\` 不可用于升级 \`standard_variant_type\`。
+`
+}
+
+function main() {
+  const args = parseArgs(process.argv.slice(2))
+  if (args.help) {
+    usage()
+    process.exit(0)
+  }
+
+  const warnings = []
+  if (!existsSync(join(args.dataRoot, 'by_subject'))) {
+    throw new Error(`Missing data root by_subject directory: ${args.dataRoot}`)
+  }
+  const standards = loadStandards(args)
+  const { payload: unitPayload, units } = loadUnits(args, warnings)
+  const unitsBySubjectGrade = groupUnits(units)
+  const { matches, unmatchedStandards } = buildMatches(standards, unitsBySubjectGrade, args)
+  const summary = summarize(standards, units, matches, unmatchedStandards, warnings)
+  const output = {
+    generated_at: new Date().toISOString(),
+    data_root: args.dataRoot,
+    unit_index: args.unitIndex,
+    source_commit: unitPayload?.source_commit || null,
+    match_policy: {
+      min_score: args.minScore,
+      eligible_score: args.eligibleScore,
+      max_matches_per_standard: args.maxMatches,
+      include_volume_seeds: args.includeVolumeSeeds,
+      eligible_candidate_type: 'toc_unit_or_chapter'
+    },
+    summary,
+    warnings,
+    matches,
+    unmatched_standards: unmatchedStandards
+  }
+
+  writeJson(args.out, output)
+  if (args.summaryOut) {
+    mkdirSync(dirname(args.summaryOut), { recursive: true })
+    writeFileSync(args.summaryOut, markdownSummary(output))
+  }
+  console.log(JSON.stringify({
+    wrote: args.out,
+    summary_out: args.summaryOut || null,
+    ...summary
+  }, null, 2))
+}
+
+main()

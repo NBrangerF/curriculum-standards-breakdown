@@ -98,6 +98,8 @@ npm run validate:indexes
 | `scripts/textbooks/index_china_textbook.js` | 从 ChinaTextbook Git tree 生成初中教材文件证据索引，不下载 PDF blob。 |
 | `scripts/textbooks/build_textbook_unit_index.js` | 从教材文件索引生成单元/章节候选证据入口；默认只生成文件级 `volume_seed`。 |
 | `scripts/textbooks/audit_textbook_unit_index.js` | 校验教材单元候选索引，区分文件级 seed 与真实目录/章节候选。 |
+| `scripts/textbooks/match_standards_to_textbook_units.js` | 将 H4G standards 与真实 `toc_unit_or_chapter` 候选做可解释匹配。 |
+| `scripts/textbooks/audit_textbook_standard_matches.js` | 校验标准-单元匹配，禁止把 `volume_seed` 当作正式分化证据。 |
 | `dist` | 已构建产物目录，不是源码的主要维护入口。 |
 
 ## 4. 当前页面架构
@@ -295,6 +297,9 @@ public/data/
 | `generated/textbook_evidence/textbook_unit_index.json` | 单元/章节候选证据索引；当前默认包含 `volume_seed`。 |
 | `generated/textbook_evidence/textbook_unit_index_summary.md` | 单元候选索引摘要。 |
 | `generated/textbook_evidence/textbook_unit_index_audit.json` | 单元候选索引审计结果。 |
+| `generated/textbook_evidence/textbook_unit_standard_matches.json` | H4G standard 到教材单元/章节候选的可解释匹配结果。 |
+| `generated/textbook_evidence/textbook_unit_standard_matches_summary.md` | 标准-单元匹配摘要。 |
+| `generated/textbook_evidence/textbook_unit_standard_matches_audit.json` | 标准-单元匹配审计结果。 |
 | `generated/textbook_evidence/pdf_cache/` | 可选 PDF 物化缓存；不提交。 |
 
 相关命令：
@@ -303,6 +308,8 @@ public/data/
 npm run textbooks:index-china
 npm run textbooks:unit-index
 npm run textbooks:audit-unit-index -- --strict
+npm run textbooks:match-units
+npm run textbooks:audit-unit-matches -- --strict
 ```
 
 重要边界：
@@ -310,6 +317,7 @@ npm run textbooks:audit-unit-index -- --strict
 - `textbook_evidence_ids` 当前是教材文件级证据，可支持年级适配判断。
 - `textbook_unit_evidence_ids` 只有在未来获得 `toc_unit_or_chapter` 并完成标准匹配后才能填写。
 - `volume_seed` 不能证明标准已完成单元级分化；它只是后续 OCR/目录提取的任务入口。
+- `eligible_for_h4g_differentiation` 必须来自真实 `toc_unit_or_chapter`，并且仍需人工或规则复核。
 - `--materialize` 会尝试读取 PDF blob，可能受网络和外部仓库大小影响，暂不作为默认 gate。
 
 ### 6.3 学科元数据

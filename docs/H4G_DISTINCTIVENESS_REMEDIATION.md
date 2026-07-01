@@ -163,6 +163,8 @@ npm run grade7_9:audit-h4g-distinctiveness -- --strict
 ```bash
 npm run textbooks:unit-index
 npm run textbooks:audit-unit-index -- --strict
+npm run textbooks:match-units
+npm run textbooks:audit-unit-matches -- --strict
 ```
 
 新增脚本：
@@ -170,6 +172,8 @@ npm run textbooks:audit-unit-index -- --strict
 ```text
 scripts/textbooks/build_textbook_unit_index.js
 scripts/textbooks/audit_textbook_unit_index.js
+scripts/textbooks/match_standards_to_textbook_units.js
+scripts/textbooks/audit_textbook_standard_matches.js
 docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 ```
 
@@ -188,6 +192,22 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 ```
 
 这进一步确认当前 H4G standards 还不能声称已经真实分化；它们只是有了可重复的下一阶段证据任务入口。
+
+标准-单元匹配入口当前也已落地。真实数据下，数学匹配结果为 114 条 H4G standards 被评估、0 个 `toc_unit_or_chapter` 候选、0 个 matches、114 条 unmatched。该结果说明质量门正在正确阻止文件级 seed 被误用为年级分化证据。
+
+后续一旦有真实 `toc_unit_or_chapter`，匹配输出必须包含：
+
+- `score`
+- `matched_fields`
+- `matched_keywords`
+- `rationale`
+- `eligible_for_h4g_differentiation`
+
+且必须通过：
+
+```bash
+npm run textbooks:audit-unit-matches -- --strict --require-matches --require-eligible
+```
 
 优先级建议：
 

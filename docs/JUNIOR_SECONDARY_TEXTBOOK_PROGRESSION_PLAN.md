@@ -238,6 +238,8 @@ npm run grade7_9:audit-textbook-progression
 ```bash
 npm run textbooks:unit-index
 npm run textbooks:audit-unit-index -- --strict
+npm run textbooks:match-units
+npm run textbooks:audit-unit-matches -- --strict
 ```
 
 新增文档：
@@ -253,6 +255,8 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 - 可选 `--materialize` 会尝试读取 PDF 前若干页并解析目录行，生成 `toc_unit_or_chapter`。
 - 当前本地样本的 PDF 物化曾因 GitHub 懒加载 blob 超时中断，所以 `--materialize` 暂不纳入默认 gate。
 - 未来只有 `toc_unit_or_chapter` 加上标准匹配 rationale，才能写入正式 H4G 记录的 `textbook_unit_evidence_ids`。
+- `textbooks:match-units` 默认只匹配 `toc_unit_or_chapter`，并输出 `score`、`matched_fields`、`matched_keywords` 和 `rationale`。
+- `textbooks:audit-unit-matches` 会阻止 `volume_seed` 被当作正式匹配证据。
 
 当前数学全量无物化验证结果：
 
@@ -266,6 +270,20 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 ```
 
 审计通过但保留 warning：当前还没有真实单元/章节候选。
+
+当前真实数据下，数学匹配 gate 的结果是：
+
+```json
+{
+  "standards_evaluated": 114,
+  "real_unit_or_chapter_candidates": 0,
+  "matches": 0,
+  "eligible_matches": 0,
+  "unmatched_standards": 114
+}
+```
+
+这不是失败，而是正确反映当前证据粒度仍不足。后续要先产生真实 `toc_unit_or_chapter`，再要求 `--require-matches --require-eligible`。
 
 ### Phase 2：curated raw 升级
 
@@ -488,6 +506,8 @@ git clone --filter=blob:none --no-checkout \
 npm run textbooks:index-china
 npm run textbooks:unit-index
 npm run textbooks:audit-unit-index -- --strict
+npm run textbooks:match-units
+npm run textbooks:audit-unit-matches -- --strict
 npm run grade7_9:audit-textbook-progression
 npm run grade7_9:build-grade-level-candidate
 npm run grade7_9:audit-grade-level-candidate -- --strict
