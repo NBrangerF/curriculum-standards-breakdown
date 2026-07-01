@@ -5,6 +5,11 @@
     flex-direction: column;
 }
 
+.compare-view-bands {
+    overflow-x: auto;
+    padding-bottom: var(--space-2);
+}
+
 /* Condition Bar */
 .compare-condition-bar {
     display: flex;
@@ -63,6 +68,11 @@
     grid-template-columns: repeat(4, 1fr);
 }
 
+.compare-columns.columns-5,
+.compare-columns.columns-6 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
 /* ============================================
    MULTI-GRADE BAND MODE (Aligned Rows)
    ============================================ */
@@ -94,6 +104,18 @@
 
 .compare-header.columns-4 {
     grid-template-columns: repeat(4, 1fr);
+}
+
+.compare-header.columns-5,
+.compare-domain-content.columns-5 {
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+    min-width: 980px;
+}
+
+.compare-header.columns-6,
+.compare-domain-content.columns-6 {
+    grid-template-columns: repeat(6, minmax(180px, 1fr));
+    min-width: 1160px;
 }
 
 .compare-column-header {
@@ -233,8 +255,11 @@
    ============================================ */
 
 @media (max-width: 1200px) {
+
     .compare-columns.columns-3,
-    .compare-columns.columns-4 {
+    .compare-columns.columns-4,
+    .compare-columns.columns-5,
+    .compare-columns.columns-6 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -243,9 +268,14 @@
 
     .compare-header.columns-3,
     .compare-header.columns-4,
+    .compare-header.columns-5,
+    .compare-header.columns-6,
     .compare-domain-content.columns-3,
-    .compare-domain-content.columns-4 {
+    .compare-domain-content.columns-4,
+    .compare-domain-content.columns-5,
+    .compare-domain-content.columns-6 {
         grid-template-columns: repeat(2, 1fr);
+        min-width: 0;
     }
 }
 

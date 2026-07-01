@@ -7,28 +7,45 @@
     "discipline",
     "domain",
     "grade",
+    "grade_assignment_confidence",
+    "grade_assignment_rationale",
+    "grade_assignment_type",
     "grade_band",
+    "grade_level",
     "grade_range",
     "id",
+    "legacy_code",
     "materials_tools",
     "next_code",
     "practice",
     "previous_code",
+    "progression_basis",
+    "progression_confidence",
+    "progression_group_id",
+    "progression_next_grade_band",
+    "progression_previous_grade_band",
+    "progression_role",
     "project",
+    "review_status",
     "safety_notes",
+    "source_grade_band",
+    "source_grade_range",
+    "stage_band",
     "standard",
     "subdomain",
     "subject",
     "subject_slug",
     "teaching_tip",
+    "textbook_evidence",
+    "textbook_evidence_ids",
     "ts_confidence",
     "ts_primary",
     "ts_rationale",
     "ts_secondary",
     "ts_tag_source"
   ],
-  "data_scope": "grade7_9_release_candidate_restore_h3_add_h4",
-  "generated_at": "2026-07-01T02:48:56.957Z",
+  "data_scope": "grade7_9_grade_level_candidate_h4g7_h4g8_h4g9",
+  "generated_at": "2026-07-01T04:51:44.574Z",
   "subjects": [
     {
       "domains": {
@@ -49,7 +66,9 @@
         "H1": 42,
         "H2": 46,
         "H3": 48,
-        "H4": 97
+        "H4G7": 27,
+        "H4G8": 35,
+        "H4G9": 35
       },
       "grades": {
         "七年级": 27,
@@ -82,7 +101,9 @@
         "H1": 15,
         "H2": 26,
         "H3": 28,
-        "H4": 156
+        "H4G7": 52,
+        "H4G8": 52,
+        "H4G9": 52
       },
       "grades": {
         "H1:1-2": 15,
@@ -114,7 +135,9 @@
       "grade_bands": {
         "H2": 57,
         "H3": 47,
-        "H4": 132
+        "H4G7": 44,
+        "H4G8": 44,
+        "H4G9": 44
       },
       "grades": {
         "七年级": 44,
@@ -145,7 +168,9 @@
         "H1": 16,
         "H2": 19,
         "H3": 15,
-        "H4": 66
+        "H4G7": 22,
+        "H4G8": 22,
+        "H4G9": 22
       },
       "grades": {
         "七年级": 22,
@@ -174,7 +199,9 @@
         "H1": 25,
         "H2": 43,
         "H3": 47,
-        "H4": 66
+        "H4G7": 22,
+        "H4G8": 22,
+        "H4G9": 22
       },
       "grades": {
         "七年级": 22,
@@ -201,7 +228,9 @@
         "H1": 7,
         "H2": 18,
         "H3": 22,
-        "H4": 114
+        "H4G7": 38,
+        "H4G8": 38,
+        "H4G9": 38
       },
       "grades": {
         "七年级": 38,
@@ -232,7 +261,9 @@
         "H1": 36,
         "H2": 31,
         "H3": 28,
-        "H4": 126
+        "H4G7": 42,
+        "H4G8": 42,
+        "H4G9": 42
       },
       "grades": {
         "七年级": 42,
@@ -263,7 +294,9 @@
         "H1": 30,
         "H2": 29,
         "H3": 29,
-        "H4": 123
+        "H4G7": 41,
+        "H4G8": 41,
+        "H4G9": 41
       },
       "grades": {
         "七年级": 41,
@@ -304,7 +337,9 @@
         "H1": 65,
         "H2": 39,
         "H3": 44,
-        "H4": 201
+        "H4G7": 67,
+        "H4G8": 67,
+        "H4G9": 67
       },
       "grades": {
         "七年级": 67,
@@ -318,5 +353,13 @@
       "subject": "科学",
       "subject_slug": "science"
     }
-  ]
+  ],
+  "target_policy": {
+    "H1": "1-2",
+    "H2": "3-4",
+    "H3": "5-6",
+    "H4G7": "7",
+    "H4G8": "8",
+    "H4G9": "9"
+  }
 }

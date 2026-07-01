@@ -31,12 +31,21 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
         practice,
         teaching_tip,
         assessment_evidence_type,
+        grade_assignment_type,
+        grade_assignment_confidence,
+        grade_assignment_rationale,
+        textbook_evidence_ids,
+        review_status,
         ts_primary,
         ts_secondary
     } = standard
 
     const gradeBandInfo = GRADE_BANDS[grade_band] || {}
-    const hasDetails = context || practice || teaching_tip || assessment_evidence_type
+    const evidenceIds = Array.isArray(textbook_evidence_ids) ? textbook_evidence_ids : []
+    const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || review_status === 'auto_judged_low_confidence'
+    const hasGradeAssignmentConfidence = grade_assignment_confidence !== null && grade_assignment_confidence !== undefined
+    const hasGradeAssignmentDetails = grade_assignment_rationale || hasGradeAssignmentConfidence || evidenceIds.length > 0
+    const hasDetails = context || practice || teaching_tip || assessment_evidence_type || hasGradeAssignmentDetails
 
     // Get accent color from subject
     const accentColor = SUBJECT_COLORS[subject_slug] || 'var(--color-primary)'
@@ -120,6 +129,9 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                     {/* Show domain as secondary if subdomain exists */}
                     {subdomain && domain && (
                         <span className="domain-label">{domain}</span>
+                    )}
+                    {isLowConfidence && (
+                        <span className="review-status-chip">低置信度</span>
                     )}
                 </div>
 
@@ -246,6 +258,26 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                         <div className="detail-section">
                             <h4 className="detail-label">📊 评价证据</h4>
                             <p className="detail-text">{assessment_evidence_type}</p>
+                        </div>
+                    )}
+
+                    {hasGradeAssignmentDetails && (
+                        <div className="detail-section grade-assignment-section">
+                            <h4 className="detail-label">年级归属依据（非课标原文）</h4>
+                            {grade_assignment_rationale && (
+                                <p className="detail-text">{grade_assignment_rationale}</p>
+                            )}
+                            <div className="grade-assignment-meta">
+                                {grade_assignment_type && (
+                                    <span>{grade_assignment_type}</span>
+                                )}
+                                {hasGradeAssignmentConfidence && (
+                                    <span>置信度 {Math.round(Number(grade_assignment_confidence) * 100)}%</span>
+                                )}
+                                {evidenceIds.length > 0 && (
+                                    <span>教材证据 {evidenceIds.length} 条</span>
+                                )}
+                            </div>
                         </div>
                     )}
 

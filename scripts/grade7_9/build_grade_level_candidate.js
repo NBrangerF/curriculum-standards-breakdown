@@ -103,6 +103,8 @@ function isJuniorRecord(record) {
 
 function codeForGradeLevel(record, gradeBand) {
   const code = String(record.code || '')
+  if (code.includes(`-${gradeBand}-`)) return code
+  if (/-H4G[789]-/.test(code)) return code.replace(/-H4G[789]-/, `-${gradeBand}-`)
   if (code.includes('-H4-')) return code.replace('-H4-', `-${gradeBand}-`)
   return `${code || 'STD'}-${gradeBand}`
 }
@@ -192,9 +194,9 @@ function transformJuniorRecord(record, evidenceBySubjectGrade, maxEvidence) {
 
   const out = {
     ...record,
-    legacy_code: record.code,
-    source_grade_band: record.grade_band,
-    source_grade_range: record.grade_range,
+    legacy_code: record.legacy_code || record.code,
+    source_grade_band: record.source_grade_band || record.grade_band,
+    source_grade_range: record.source_grade_range || record.grade_range,
     id: codeForGradeLevel(record, meta.grade_band),
     code: codeForGradeLevel(record, meta.grade_band),
     stage_band: 'H4',

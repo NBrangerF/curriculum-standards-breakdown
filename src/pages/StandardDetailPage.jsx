@@ -78,6 +78,13 @@ function StandardDetailPage() {
         practice,
         teaching_tip,
         assessment_evidence_type,
+        grade_assignment_type,
+        grade_assignment_confidence,
+        grade_assignment_rationale,
+        textbook_evidence_ids,
+        progression_basis,
+        progression_role,
+        review_status,
         ts_primary,
         ts_secondary,
         ts_rationale,
@@ -90,6 +97,10 @@ function StandardDetailPage() {
     const gradeBandInfo = GRADE_BANDS[grade_band] || {}
     const subjectInfo = subjects.find(s => s.subject_slug === subject_slug)
     const shareURL = `${window.location.origin}/standards/${code}`
+    const evidenceIds = Array.isArray(textbook_evidence_ids) ? textbook_evidence_ids : []
+    const hasGradeAssignmentConfidence = grade_assignment_confidence !== null && grade_assignment_confidence !== undefined
+    const hasGradeAssignmentDetails = grade_assignment_rationale || hasGradeAssignmentConfidence || evidenceIds.length > 0 || progression_basis || progression_role
+    const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || review_status === 'auto_judged_low_confidence'
 
     // Parse navigation codes (may be multiple, separated by \n)
     const prevCodes = previous_code ? previous_code.split('\n').filter(Boolean) : []
@@ -124,6 +135,9 @@ function StandardDetailPage() {
                             <span className="grade-band-badge">
                                 {gradeBandInfo.label} ({grade_range})
                             </span>
+                            {isLowConfidence && (
+                                <span className="low-confidence-badge">低置信度</span>
+                            )}
                         </div>
                         <h1 className="standard-title">{standardText}</h1>
                         <div className="header-actions">
@@ -258,6 +272,31 @@ function StandardDetailPage() {
                     </div>
                 </div>
             </section>
+
+            {hasGradeAssignmentDetails && (
+                <section className="grade-assignment-detail-section">
+                    <div className="container">
+                        <div className="grade-assignment-detail">
+                            <div>
+                                <h2>年级归属依据</h2>
+                                <p className="grade-assignment-note">以下内容用于说明 H4G 年级拆分，不属于课程标准原文。</p>
+                            </div>
+                            {grade_assignment_rationale && (
+                                <p className="grade-assignment-rationale">{grade_assignment_rationale}</p>
+                            )}
+                            <div className="grade-assignment-facts">
+                                {grade_assignment_type && <span>{grade_assignment_type}</span>}
+                                {hasGradeAssignmentConfidence && (
+                                    <span>置信度 {Math.round(Number(grade_assignment_confidence) * 100)}%</span>
+                                )}
+                                {progression_basis && <span>{progression_basis}</span>}
+                                {progression_role && <span>{progression_role}</span>}
+                                {evidenceIds.length > 0 && <span>教材证据 {evidenceIds.length} 条</span>}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {/* P1: Resources Placeholder */}
             <section className="resources-section">

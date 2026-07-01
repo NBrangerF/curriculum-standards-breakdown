@@ -59,7 +59,7 @@ function SubjectPage() {
 
     // Get available grade bands for this subject
     const availableBands = useMemo(() => {
-        if (!manifestSubject?.grade_bands) return ['H1', 'H2', 'H3', 'H4']
+        if (!manifestSubject?.grade_bands) return ['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9']
         return Object.keys(manifestSubject.grade_bands).sort((a, b) =>
             (GRADE_BANDS[a]?.order || 0) - (GRADE_BANDS[b]?.order || 0)
         )

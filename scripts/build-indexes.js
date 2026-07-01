@@ -160,6 +160,12 @@ if ('data_scope' in existingManifest) {
     manifest.data_scope = existingManifest.data_scope
 }
 
+for (const key of ['target_policy', 'source_repo', 'source_commit', 'textbook_source_commit']) {
+    if (key in existingManifest) {
+        manifest[key] = existingManifest[key]
+    }
+}
+
 writeJson(MANIFEST_PATH, manifest)
 console.log(`  ✅ manifest.json (${manifestSubjects.length} subjects)`)
 

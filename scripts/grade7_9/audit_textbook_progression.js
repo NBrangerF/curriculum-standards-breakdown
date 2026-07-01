@@ -92,6 +92,8 @@ function readPublicJuniorData(dataRoot) {
     })
     const gradeBands = {}
     const grades = zeroGradeCounts()
+    const gradeAssignmentTypes = {}
+    const reviewStatuses = {}
     const missingEvidenceFields = {
       grade_assignment_type: 0,
       grade_assignment_confidence: 0,
@@ -102,6 +104,8 @@ function readPublicJuniorData(dataRoot) {
     for (const record of records) {
       inc(gradeBands, record.grade_band)
       if (record.grade in grades) grades[record.grade] += 1
+      inc(gradeAssignmentTypes, record.grade_assignment_type)
+      inc(reviewStatuses, record.review_status)
       for (const field of Object.keys(missingEvidenceFields)) {
         const value = record[field]
         if (Array.isArray(value) ? value.length === 0 : !value) missingEvidenceFields[field] += 1
@@ -115,6 +119,8 @@ function readPublicJuniorData(dataRoot) {
       grades,
       uses_unsplit_h4: Boolean(gradeBands.H4),
       uses_target_grade_bands: TARGET_GRADE_BANDS.some(band => gradeBands[band]),
+      grade_assignment_types: gradeAssignmentTypes,
+      review_statuses: reviewStatuses,
       missing_evidence_fields: missingEvidenceFields
     }
   }
@@ -195,8 +201,14 @@ function classifySubject(subjectSlug, textbookCoverage, publicStats, curatedStat
   const blockers = []
   const warnings = []
 
-  if (!coverage || !allGradesCovered(coverage.total)) {
+  const missingCoverage = !coverage || !allGradesCovered(coverage.total)
+  const publicJuniorRecords = publicSubject?.junior_records || 0
+  const lowConfidenceRecords = publicSubject?.grade_assignment_types?.auto_judged_low_confidence || 0
+
+  if (missingCoverage && (!publicJuniorRecords || lowConfidenceRecords !== publicJuniorRecords)) {
     blockers.push('missing textbook coverage for at least one junior grade')
+  } else if (missingCoverage) {
+    warnings.push('no mapped textbook coverage; public records are explicitly marked auto_judged_low_confidence')
   }
   if (coverage && !allGradesCovered(coverage.direct) && !allGradesCovered(coverage.discipline)) {
     warnings.push('coverage is partial or adjacent; use autonomous judgment with low confidence where needed')

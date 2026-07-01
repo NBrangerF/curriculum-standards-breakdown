@@ -95,6 +95,15 @@
     color: rgba(255, 255, 255, 0.6);
 }
 
+.low-confidence-badge {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    padding: var(--space-1) var(--space-2);
+    background: var(--color-warning);
+    color: var(--color-gray-900);
+    border-radius: var(--radius-md);
+}
+
 .standard-title {
     font-size: var(--font-size-2xl);
     color: var(--text-inverse);
@@ -259,6 +268,52 @@
     color: var(--text-secondary);
     line-height: var(--line-height-relaxed);
     white-space: pre-wrap;
+}
+
+/* Grade Assignment Evidence */
+.grade-assignment-detail-section {
+    background: var(--bg-primary);
+    padding: 0 0 var(--space-8);
+}
+
+.grade-assignment-detail {
+    padding: var(--space-5);
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--color-warning);
+    border-radius: var(--radius-lg);
+}
+
+.grade-assignment-detail h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-2);
+}
+
+.grade-assignment-note,
+.grade-assignment-rationale {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+}
+
+.grade-assignment-rationale {
+    margin-top: var(--space-4);
+}
+
+.grade-assignment-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+}
+
+.grade-assignment-facts span {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--bg-primary);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-md);
+    padding: var(--space-1) var(--space-2);
 }
 
 /* P1: Resources Section */

@@ -7,7 +7,7 @@ import {
     getSubjectsFromManifest,
     getSkillsMeta,
     filterStandards,
-    GRADE_BANDS
+    getSelectableGradeBands
 } from '../data/dataLoader'
 import { QUERY_PARAMS, buildShareableURL } from '../data/query'
 import {
@@ -279,7 +279,7 @@ function SearchResultsPage() {
 
     const safeApplied = ensureSafeFilters(appliedFilters)
     const shareableURL = buildShareableURL(appliedFilters, '/search')
-    const gradeBandsList = Object.entries(GRADE_BANDS)
+    const gradeBandsList = getSelectableGradeBands()
 
     // ============================================
     // RENDER GUARDS
@@ -379,7 +379,7 @@ function SearchResultsPage() {
                                     <p className="filter-hint">
                                         {(draftFilters.subjects || []).length > 1
                                             ? '多学科时只能选1个学段'
-                                            : '选择 1-3 个学段'}
+                                            : '选择 1-6 个学段/年级'}
                                     </p>
                                     <div className="filter-options filter-options-secondary">
                                         {gradeBandsList.map(([key, info]) => (

@@ -8,7 +8,7 @@ import {
     getSkillsMeta,
     SUBJECT_COLORS,
     SKILL_COLORS,
-    GRADE_BANDS
+    getSelectableGradeBands
 } from '../data/dataLoader'
 import {
     serializeFiltersToURL,
@@ -163,7 +163,7 @@ function HomePage() {
         )
     }
 
-    const gradeBands = Object.entries(GRADE_BANDS)
+    const gradeBands = getSelectableGradeBands()
 
     return (
         <div className="home-page">
@@ -185,7 +185,7 @@ function HomePage() {
                 <div className="container">
                     <div className="section-header">
                         <h2>📊 对比筛选</h2>
-                        <p>选择学科和学段进行对比，支持 1-3 学科对比同一学段，或同一学科跨 1-3 学段对比</p>
+                        <p>选择学科和学段/年级进行对比，支持 1-3 学科对比同一单元，或同一学科跨 1-6 个学段/年级对比</p>
                     </div>
                     <div className="filter-card card">
                         <div className="card-body">
@@ -217,7 +217,7 @@ function HomePage() {
                                 <p className="filter-hint">
                                     {filters.subjects.length > 1
                                         ? '多学科对比时只能选择1个学段'
-                                        : '选择 1-3 个学段进行对比'}
+                                        : '选择 1-6 个学段/年级进行对比'}
                                 </p>
                                 <div className="filter-options filter-options-secondary">
                                     {gradeBands.map(([key, info]) => (

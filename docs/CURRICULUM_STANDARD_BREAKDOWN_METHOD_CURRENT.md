@@ -33,7 +33,7 @@
 public/data/by_subject/{subject_slug}.json
 ```
 
-初中 7-9 年级仍先通过 staging 和 release candidate 管线生成；当前正式 runtime 已采用 `H1=1-2, H2=3-4, H3=5-6, H4=7-9` 口径，并已将 7-9 作为 H4 写入 `public/data/by_subject/`。
+初中 7-9 年级仍先通过 staging 管线生成；当前正式 runtime 已采用 `H1=1-2, H2=3-4, H3=5-6, H4G7=7, H4G8=8, H4G9=9` 口径，并已将 7-9 拆成七、八、九年级独立记录写入 `public/data/by_subject/`。
 
 ## 2. 最小拆解单位
 
@@ -236,7 +236,7 @@ scripts/grade7_9/curated/{subject_slug}_h3_raw.json
 
 当前 curated staging 的年级展开事实是：400 条 raw items 按 `target_grades` 展开为 1081 条 records，其中语文 156、数学 114、英语 132、道德与法治 126、科学 201、信息科技 66、艺术 97、体育与健康 123、劳动 66。
 
-当前正式 runtime 已恢复为 `H3=5-6`，并新增 `H4=7-9`。旧 public 中 H1/H2/H3 记录已恢复并保留；7-9 records 不再占用 H3。
+当前正式 runtime 已恢复为 `H3=5-6`，并新增 `H4G7/H4G8/H4G9`。旧 public 中 H1/H2/H3 记录已恢复并保留；7-9 records 不再占用 H3，也不再作为单一 H4 暴露。
 
 ## 8. code 生成方法
 
@@ -428,7 +428,7 @@ generated/grade7_9*/
 - `generated/grade7_9*` 是初中扩展 staging 或 release candidate，不是正式发布入口。
 - `scripts/grade7_9/curated/*_h3_raw.json` 是可提交的人工结构化草案。
 - `raw/grade7_9/sources` 和 `generated` 是本地工作产物，不提交。
-- 正式 runtime 已采用 `H1=1-2, H2=3-4, H3=5-6, H4=7-9`，7-9 数据已作为 H4 合并到正式主数据。
+- 正式 runtime 已采用 `H1=1-2, H2=3-4, H3=5-6, H4G7=7, H4G8=8, H4G9=9`，7-9 数据已按年级粒度合并到正式主数据。
 
 ## 13. 人工拆解检查表
 
@@ -456,7 +456,7 @@ generated/grade7_9*/
 1. OCR 结果不是最终标准原文，必须人工复核。
 2. 自动 raw extraction 只能生成候选，不能直接作为正式标准。
 3. TS 自动映射是第一轮标签，不代表最终人工审核结论。
-4. 旧 public 中 H1/H2/H3 记录已恢复并保留；7-9 不再占用 H3，而是使用 H4。
+4. 旧 public 中 H1/H2/H3 记录已恢复并保留；7-9 不再占用 H3，而是使用 H4G7/H4G8/H4G9。
 5. 如果后续要调整艺术 `H2:3-5`、`H3:6-7` 这类来源范围，必须先设计清晰的数据契约，不能直接硬改年级含义。
 6. 教学建议字段可以辅助使用，但对外引用“课程标准原文”时应优先引用 `standard` 和来源页码。
 
@@ -464,6 +464,6 @@ generated/grade7_9*/
 
 1. 继续对 9 科 7-9 curated raw 逐条复核 `source_pages`、`standard`、`domain`、`subdomain` 和 TS 标注。
 2. 修复既有非 H4 记录 `SC-D1-SC-012` 的 `assessment_evidence_type` 空值。
-3. 后续如调整正式数据，先重建 release candidate，再用 `--write --confirm-target-policy` 写入。
-4. 每次合并后运行 `npm run validate:indexes`、`npm run grade7_9:audit-grade-band-policy -- --strict`、`npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict`、`npm run build`。
+3. 后续如调整正式数据，先重建 H4G candidate，再用 `--write --confirm-h4g-policy` 写入。
+4. 每次合并后运行 `npm run validate:indexes`、`npm run grade7_9:audit-grade-band-policy -- --strict`、`npm run grade7_9:audit-textbook-progression -- --strict`、`npm run build`。
 5. 运行前端页面验证，重点检查学科页、详情页、技能页、搜索和对比视图。

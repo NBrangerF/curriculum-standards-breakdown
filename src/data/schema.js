@@ -26,6 +26,10 @@ export function normalizeStandard(raw) {
         grade_band: raw.grade_band || '',
         grade_range: raw.grade_range || '',
         grade: raw.grade || '',
+        grade_level: raw.grade_level ?? null,
+        stage_band: raw.stage_band || '',
+        source_grade_band: raw.source_grade_band || '',
+        source_grade_range: raw.source_grade_range || '',
 
         // Content
         standard: raw.standard || '',
@@ -37,6 +41,21 @@ export function normalizeStandard(raw) {
         // Navigation
         previous_code: raw.previous_code || '',
         next_code: raw.next_code || '',
+        legacy_code: raw.legacy_code || '',
+
+        // Junior secondary grade-level assignment evidence
+        grade_assignment_type: raw.grade_assignment_type || '',
+        grade_assignment_confidence: raw.grade_assignment_confidence ?? null,
+        grade_assignment_rationale: raw.grade_assignment_rationale || '',
+        textbook_evidence_ids: ensureArray(raw.textbook_evidence_ids),
+        textbook_evidence: ensureArray(raw.textbook_evidence),
+        progression_group_id: raw.progression_group_id || '',
+        progression_role: raw.progression_role || '',
+        progression_basis: raw.progression_basis || '',
+        progression_confidence: raw.progression_confidence ?? null,
+        progression_previous_grade_band: raw.progression_previous_grade_band || '',
+        progression_next_grade_band: raw.progression_next_grade_band || '',
+        review_status: raw.review_status || '',
 
         // Transferable skills - ALWAYS arrays
         ts_primary: ensureArray(raw.ts_primary),
@@ -170,12 +189,19 @@ export const FIELD_DEFINITIONS = {
     code: '标准的唯一编码，格式如 ML-H1-ENR-001',
     domain: '领域/模块，如"数与代数"、"阅读与鉴赏"',
     subdomain: '子领域，更细分的分类',
-    grade_band: '学段代码：H1=1-2年级, H2=3-4年级, H3=5-6年级, H4=7-9年级',
+    grade_band: '学段/年级代码：H1=1-2年级, H2=3-4年级, H3=5-6年级, H4G7=7年级, H4G8=8年级, H4G9=9年级',
+    stage_band: '大阶段代码；初中七/八/九年级拆分记录仍保留 stage_band=H4',
+    grade_level: '具体年级数字；初中拆分记录为 7、8、9',
     standard: '标准的核心描述文本',
     context: '情境说明，描述该标准适用的教学场景',
     practice: '实践建议，可落地的教学活动示例',
     teaching_tip: '教学提示，教师操作要点',
     assessment_evidence_type: '评价证据类型，如何评估学生达成',
+    grade_assignment_type: '初中拆分的年级归属类型，如 textbook_supported 或 auto_judged_low_confidence',
+    grade_assignment_rationale: '初中拆分到具体年级的依据说明；不等同于课程标准原文',
+    textbook_evidence_ids: '支持初中年级归属判断的教材证据 ID 列表',
+    progression_group_id: '同一标准在七/八/九年级进阶关系中的分组 ID',
+    progression_basis: '进阶关系依据，如 textbook_sequence 或 autonomous judgment',
     ts_primary: '主要可迁移技能标签，该标准主要培养的技能',
     ts_secondary: '次要可迁移技能标签，该标准附带培养的技能'
 }

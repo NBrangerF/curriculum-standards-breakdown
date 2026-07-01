@@ -3,16 +3,18 @@
  * 
  * Enforces mutual exclusion rules for compare mode:
  * - A: 1-3 subjects + exactly 1 grade band
- * - B: exactly 1 subject + 1-4 grade bands
+ * - B: exactly 1 subject + 1-6 grade bands / grade-level bands
  * 
  * Never allow multiple subjects AND multiple grade bands simultaneously.
  */
+
+import { GRADE_BAND_ORDER } from './dataLoader.js'
 
 /**
  * Maximum allowed selections
  */
 export const MAX_SUBJECTS = 3
-export const MAX_GRADE_BANDS = 4
+export const MAX_GRADE_BANDS = 6
 
 /**
  * Default selections for compare mode
@@ -41,7 +43,7 @@ export function isValidCompareSelection(subjects, gradeBands) {
         return true
     }
 
-    // B: exactly 1 subject + 1-4 grade bands
+    // B: exactly 1 subject + 1-6 grade bands / grade-level bands
     if (subjectCount === 1 && bandCount >= 1 && bandCount <= MAX_GRADE_BANDS) {
         return true
     }
@@ -76,7 +78,7 @@ export function getValidationMessage(subjects, gradeBands) {
     }
 
     if (bandCount > MAX_GRADE_BANDS) {
-        return `最多选择${MAX_GRADE_BANDS}个学段`
+        return `最多选择${MAX_GRADE_BANDS}个学段/年级`
     }
 
     // Should not reach here if isValidCompareSelection catches all cases
@@ -129,7 +131,7 @@ export function addSubject(current, slug) {
 /**
  * Attempt to add a grade band, enforcing constraints
  * @param {Object} current - Current state { subjects, gradeBands }
- * @param {string} band - Grade band to add (H1, H2, H3, H4)
+ * @param {string} band - Grade band to add (H1, H2, H3, H4G7, H4G8, H4G9)
  * @returns {Object} { subjects, gradeBands, message }
  */
 export function addGradeBand(current, band) {
@@ -153,7 +155,7 @@ export function addGradeBand(current, band) {
     // Check if exceeds max
     if (newBands.length > MAX_GRADE_BANDS) {
         newBands = newBands.slice(-MAX_GRADE_BANDS)
-        message = `最多选择${MAX_GRADE_BANDS}个学段`
+        message = `最多选择${MAX_GRADE_BANDS}个学段/年级`
     }
 
     // If we now have multiple bands, enforce single subject
@@ -206,12 +208,7 @@ export function toggleSkill(skills = [], code) {
 }
 
 /**
- * Fixed grade band order for display
- */
-export const GRADE_BAND_ORDER = { H1: 1, H2: 2, H3: 3, H4: 4 }
-
-/**
- * Sort grade bands by fixed order (H1 → H2 → H3 → H4)
+ * Sort grade bands by fixed order (H1 → H2 → H3 → H4G7 → H4G8 → H4G9)
  * @param {string[]} bands - Grade bands to sort
  * @returns {string[]} Sorted grade bands
  */
@@ -251,7 +248,7 @@ export function normalizeCompareSelection(draft, lastChanged = null) {
 
     if (gradeBands.length > MAX_GRADE_BANDS) {
         gradeBands = gradeBands.slice(-MAX_GRADE_BANDS)
-        message = `最多选择${MAX_GRADE_BANDS}个学段`
+        message = `最多选择${MAX_GRADE_BANDS}个学段/年级`
         changed = true
     }
 

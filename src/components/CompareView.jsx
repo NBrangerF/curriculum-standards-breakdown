@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import StandardCard from './StandardCard'
 import SubjectColumn from './SubjectColumn'
 import { GRADE_BANDS, SUBJECT_COLORS, groupByDomain } from '../data/dataLoader'
-import { getCompareMode } from '../data/compareLogic'
+import { getCompareMode, sortGradeBands } from '../data/compareLogic'
 import './CompareView.css'
 
 /**
@@ -15,7 +15,7 @@ import './CompareView.css'
  *    - Each column scrolls independently
  *    - No cross-column domain alignment
  * 
- * 2. Multi-grade band (1 subject, 1-4 grade bands):
+ * 2. Multi-grade band (1 subject, 1-6 grade bands / grade-level bands):
  *    - Aligned domain rows across columns
  *    - Shared accordion state
  */
@@ -96,14 +96,9 @@ function CompareView({
     // MULTI-GRADE BAND MODE (Aligned Rows)
     // ============================================
 
-    // Fixed grade band order: H1 → H2 → H3 → H4
-    const GRADE_BAND_ORDER = { H1: 1, H2: 2, H3: 3, H4: 4 }
-
     // Sort bands by fixed order
     const sortedBands = useMemo(() => {
-        return [...selectedBands].sort((a, b) =>
-            (GRADE_BAND_ORDER[a] || 99) - (GRADE_BAND_ORDER[b] || 99)
-        )
+        return sortGradeBands(selectedBands)
     }, [selectedBands])
 
     // Group data by grade band (columns) - using sorted bands

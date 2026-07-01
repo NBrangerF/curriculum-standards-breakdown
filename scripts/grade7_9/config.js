@@ -2,6 +2,19 @@ export const GRADE_BAND = 'H4'
 export const GRADE_RANGE = '7-9'
 export const JUNIOR_GRADES = [7, 8, 9]
 
+export const JUNIOR_GRADE_LEVEL_BANDS = {
+  H4G7: '7',
+  H4G8: '8',
+  H4G9: '9'
+}
+
+export const RUNTIME_GRADE_POLICY = {
+  H1: '1-2',
+  H2: '3-4',
+  H3: '5-6',
+  ...JUNIOR_GRADE_LEVEL_BANDS
+}
+
 export const DISPLAY_GRADE_POLICY = {
   H1: '1-2',
   H2: '3-4',
@@ -13,7 +26,10 @@ export const ALLOWED_GRADE_RANGES = {
   H1: ['1-2'],
   H2: ['3-4', '3-5'],
   H3: ['5-6', '6-7'],
-  H4: [GRADE_RANGE]
+  H4: [GRADE_RANGE],
+  H4G7: ['7'],
+  H4G8: ['8'],
+  H4G9: ['9']
 }
 
 export const REQUIRED_STANDARD_FIELDS = [

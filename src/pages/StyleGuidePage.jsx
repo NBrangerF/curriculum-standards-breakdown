@@ -305,7 +305,19 @@ function StyleGuidePage() {
                                             className={`chip ${selectedChip === 'chip-4' ? 'selected' : ''}`}
                                             onClick={() => setSelectedChip('chip-4')}
                                         >
-                                            H4 (7-9年级)
+                                            H4G7 (7年级)
+                                        </span>
+                                        <span
+                                            className={`chip ${selectedChip === 'chip-5' ? 'selected' : ''}`}
+                                            onClick={() => setSelectedChip('chip-5')}
+                                        >
+                                            H4G8 (8年级)
+                                        </span>
+                                        <span
+                                            className={`chip ${selectedChip === 'chip-6' ? 'selected' : ''}`}
+                                            onClick={() => setSelectedChip('chip-6')}
+                                        >
+                                            H4G9 (9年级)
                                         </span>
                                     </div>
                                 </div>
@@ -337,7 +349,7 @@ function StyleGuidePage() {
                                 <div className="component-group full-width">
                                     <h4>Grade Band Tabs</h4>
                                     <div className="tabs-demo">
-                                        {['H1', 'H2', 'H3', 'H4'].map(tab => (
+                                        {['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9'].map(tab => (
                                             <button
                                                 key={tab}
                                                 className={`tab-btn ${activeTab === tab ? 'active' : ''}`}
@@ -346,7 +358,9 @@ function StyleGuidePage() {
                                                 {tab === 'H1' && '1-2年级'}
                                                 {tab === 'H2' && '3-4年级'}
                                                 {tab === 'H3' && '5-6年级'}
-                                                {tab === 'H4' && '7-9年级'}
+                                                {tab === 'H4G7' && '7年级'}
+                                                {tab === 'H4G8' && '8年级'}
+                                                {tab === 'H4G9' && '9年级'}
                                             </button>
                                         ))}
                                     </div>

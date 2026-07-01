@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
-import { ALLOWED_GRADE_RANGES, DISPLAY_GRADE_POLICY, GRADE_RANGE, SUBJECTS } from './config.js'
+import { ALLOWED_GRADE_RANGES, GRADE_RANGE, RUNTIME_GRADE_POLICY, SUBJECTS } from './config.js'
 import { GRADE_BANDS } from '../../src/data/dataLoader.js'
 
 const DEFAULT_PUBLIC_DATA_ROOT = 'public/data'
 const DEFAULT_STAGING_ROOT = 'generated/grade7_9_all_curated'
 
-const TARGET_POLICY = DISPLAY_GRADE_POLICY
+const TARGET_POLICY = RUNTIME_GRADE_POLICY
 const ALLOWED_POLICY = ALLOWED_GRADE_RANGES
 const SAMPLE_LIMIT = 5
 
@@ -34,7 +34,9 @@ function usage() {
   console.log(`Usage:
 node scripts/grade7_9/audit_grade_band_policy.js [--public-data-root public/data] [--staging-root generated/grade7_9_all_curated] [--out generated/grade7_9_grade_band_policy.json] [--data-only] [--strict]
 
-Audits whether public data, 7-9 staging, and frontend GRADE_BANDS match H1=1-2, H2=3-4, H3=5-6, H4=7-9.
+Audits whether public data and frontend GRADE_BANDS match the runtime policy:
+H1=1-2, H2=3-4, H3=5-6, H4G7=7, H4G8=8, H4G9=9.
+Legacy H4=7-9 staging remains allowed only as an intermediate source.
 Without --strict, policy blockers are reported but do not fail the command.
 Use --data-only for generated candidate data roots when frontend GRADE_BANDS is intentionally checked separately.`)
 }
@@ -94,10 +96,14 @@ function auditSubjectRows(payload, subjectSlug) {
   const conflicts = {}
   const incompatible_samples = {}
   let incompatible_records = 0
+  let legacy_unsplit_junior_records = 0
 
   for (const record of records) {
     const key = gradeRangeKey(record)
     countInto(grade_ranges, key)
+    if (record.grade_band === 'H4' && record.grade_range === GRADE_RANGE) {
+      legacy_unsplit_junior_records += 1
+    }
     if (!isExpectedRange(record)) {
       incompatible_records += 1
       countInto(conflicts, key)
@@ -111,6 +117,7 @@ function auditSubjectRows(payload, subjectSlug) {
     records: records.length,
     grade_ranges,
     incompatible_records,
+    legacy_unsplit_junior_records,
     incompatible_ranges: conflicts,
     incompatible_samples
   }
@@ -128,6 +135,7 @@ function auditDataRoot(root, errors) {
   const incompatibleDetails = {}
   let totalRecords = 0
   let totalIncompatible = 0
+  let totalLegacyUnsplitJunior = 0
 
   for (const file of subjectFiles(bySubjectDir)) {
     const subjectSlug = basename(file, '.json')
@@ -136,6 +144,7 @@ function auditDataRoot(root, errors) {
     subjects[subjectSlug] = summary
     totalRecords += summary.records
     totalIncompatible += summary.incompatible_records
+    totalLegacyUnsplitJunior += summary.legacy_unsplit_junior_records
     for (const [range, count] of Object.entries(summary.incompatible_ranges)) {
       countInto(incompatibleRanges, range, count)
       incompatibleDetails[range] ||= { records: 0, subjects: {}, samples: [] }
@@ -155,6 +164,7 @@ function auditDataRoot(root, errors) {
       subjects: Object.keys(subjects).length,
       records: totalRecords,
       incompatible_records: totalIncompatible,
+      legacy_unsplit_junior_records: totalLegacyUnsplitJunior,
       incompatible_ranges: incompatibleRanges
     },
     incompatible_range_details: Object.fromEntries(
@@ -166,18 +176,18 @@ function auditDataRoot(root, errors) {
 function buildPolicyDecisionMatrix(gapRanges) {
   const rows = [
     {
-      option: 'preserve_current_public_data',
-      description: 'Keep existing H1/H2/H3 public records unchanged and append 7-9 as H4.',
+      option: 'publish_h4g_runtime',
+      description: 'Keep existing H1/H2/H3 public records unchanged and publish junior records as H4G7/H4G8/H4G9.',
       satisfies_target_policy: true,
       preserves_existing_public_records: true,
-      release_gate_effect: 'strict gates pass when H4 staging and frontend label are present'
+      release_gate_effect: 'strict gates pass when public data has no unsplit H4 records and frontend exposes H4G7/H4G8/H4G9'
     },
     {
-      option: 'replace_h3_with_7_9',
-      description: 'Move 7-9 into H3 and remove old 5-6 records.',
+      option: 'keep_unsplit_h4',
+      description: 'Keep junior records as one H4=7-9 runtime bucket.',
       satisfies_target_policy: false,
-      preserves_existing_public_records: false,
-      release_gate_effect: 'reject; loses original H3=5-6 meaning'
+      preserves_existing_public_records: true,
+      release_gate_effect: 'reject; too coarse for the required 7/8/9 progression model'
     },
     {
       option: 'split_primary_and_junior_datasets',
@@ -206,6 +216,7 @@ function buildPolicyDecisionMatrix(gapRanges) {
 function publicPolicyFacts(publicAudit, gapRanges) {
   return {
     incompatible_records: publicAudit.totals.incompatible_records,
+    legacy_unsplit_junior_records: publicAudit.totals.legacy_unsplit_junior_records,
     incompatible_ranges: publicAudit.totals.incompatible_ranges,
     gap_ranges_requiring_policy_decision: gapRanges,
     incompatible_range_details: Object.fromEntries(
@@ -274,7 +285,10 @@ function main() {
   const gapRanges = policyGapRanges(publicAudit)
 
   if (publicAudit.totals.incompatible_records) {
-    blockers.push(`${publicAudit.totals.incompatible_records} public records do not match grade-band policy H1=1-2, H2=3-4, H3=5-6, H4=7-9.`)
+    blockers.push(`${publicAudit.totals.incompatible_records} public records do not match the allowed grade-band ranges.`)
+  }
+  if (publicAudit.totals.legacy_unsplit_junior_records) {
+    blockers.push(`${publicAudit.totals.legacy_unsplit_junior_records} public records still use unsplit H4=${GRADE_RANGE}; runtime must use H4G7/H4G8/H4G9.`)
   }
   if (Object.keys(gapRanges).length) {
     blockers.push(`Current public data contains grade ranges with no slot in the target policy: ${Object.keys(gapRanges).join(', ')}.`)
@@ -305,11 +319,11 @@ function main() {
     next_actions: blockers.length
       ? [
           'Do not append 7-9 staging into public/data while these blockers remain.',
-          'Keep original H3=5-6 records in public/data and represent 7-9 as H4.',
+          'Keep original H3=5-6 records in public/data and represent junior runtime records as H4G7/H4G8/H4G9.',
           'After policy migration, update src/data/dataLoader.js GRADE_BANDS and rerun strict audits.'
         ]
       : [
-          'Run grade7_9:audit-release -- --strict before public integration.',
+          'Run grade7_9:audit-grade-level-candidate -- --strict before public integration.',
           'Run build:indexes, validate:indexes, and build after writing public data.'
         ]
   }

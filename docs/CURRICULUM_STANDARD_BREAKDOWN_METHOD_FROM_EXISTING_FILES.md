@@ -48,7 +48,7 @@ public/data/by_subject/{subject_slug}.json
 generated/grade7_9_all_curated/
 ```
 
-当前正式 runtime 已采用目标口径 `H1=1-2, H2=3-4, H3=5-6, H4=7-9`，并已将 7-9 数据以 H4 写入 `public/data/by_subject/`。
+当前正式 runtime 已采用目标口径 `H1=1-2, H2=3-4, H3=5-6, H4G7=7, H4G8=8, H4G9=9`。7-9 staging 仍以 `H4=7-9` 作为中间层语义，但写入 `public/data/by_subject/` 时已经拆为七、八、九年级独立记录。
 
 ## 3. 拆解目标
 
@@ -157,9 +157,14 @@ raw/grade7_9/sources/
 | `code` | 标准唯一编码，用于 URL、收藏、详情页和反查。 |
 | `subject` | 中文学科名。 |
 | `subject_slug` | 学科 slug，也是 `by_subject` 文件名。 |
-| `grade_band` | 学段代码，如 H1、H2、H3、H4。 |
-| `grade_range` | 年级范围，如 `1-2`、`7-9`。 |
+| `grade_band` | 学段/年级代码，如 H1、H2、H3、H4G7、H4G8、H4G9。 |
+| `grade_range` | 年级范围，如 `1-2`、`7`、`8`、`9`。 |
 | `grade` | 人类可读年级或学段。 |
+| `stage_band` | 初中拆分记录的大阶段标记，当前为 `H4`。 |
+| `grade_level` | 初中拆分记录的具体年级数字，当前为 7、8、9。 |
+| `grade_assignment_type` | 年级归属依据类型，如 `textbook_supported` 或 `auto_judged_low_confidence`。 |
+| `textbook_evidence_ids` | 支持年级归属判断的教材证据 ID。 |
+| `progression_group_id` | 同一标准在七/八/九年级进阶关系中的分组 ID。 |
 | `domain` | 一级领域、核心素养维度、内容模块或任务群。 |
 | `subdomain` | 子领域、内容线索、项目主题或细分学习任务。 |
 | `project` | 项目、任务群或主题，可为空。 |
@@ -427,7 +432,7 @@ generated/grade7_9*/
 - `generated/grade7_9*` 是 7-9 扩展 staging 或 release candidate，不是正式发布入口。
 - `scripts/grade7_9/curated/*_h3_raw.json` 是可提交的人工结构化草案。
 - `raw/grade7_9/sources` 和 `generated` 是本地工作产物，不提交。
-- 正式 runtime 已采用 `H1=1-2, H2=3-4, H3=5-6, H4=7-9`，7-9 数据已作为 H4 合并到正式主数据。
+- 正式 runtime 已采用 `H1=1-2, H2=3-4, H3=5-6, H4G7=7, H4G8=8, H4G9=9`，7-9 数据已按年级粒度合并到正式主数据。
 
 ## 14. 当前学段口径
 
@@ -437,14 +442,16 @@ generated/grade7_9*/
 H1 = 1-2
 H2 = 3-4
 H3 = 5-6
-H4 = 7-9
+H4G7 = 7
+H4G8 = 8
+H4G9 = 9
 ```
 
-前端 `src/data/dataLoader.js` 中的 `GRADE_BANDS.H3.range` 已恢复为 `5-6年级`，并新增 `GRADE_BANDS.H4.range = "7-9年级"`。
+前端 `src/data/dataLoader.js` 中的 `GRADE_BANDS.H3.range` 保持为 `5-6年级`，并新增 `GRADE_BANDS.H4G7/H4G8/H4G9`。`GRADE_BANDS.H4` 仅作为 legacy stage label 保留，不参与正式筛选。
 
-写入当前 runtime 时，原正式 public 数据中的 H1/H2/H3 记录已恢复并保留，共 852 条；7-9 staging records 作为 H4 追加，共 1081 条。艺术旧数据中的 `H2:3-5`、`H3:6-7` 作为来源年级范围保留，不硬改。
+写入当前 runtime 时，原正式 public 数据中的 H1/H2/H3 记录已恢复并保留，共 852 条；7-9 staging records 已拆为 H4G7/H4G8/H4G9，共 1081 条。艺术旧数据中的 `H2:3-5`、`H3:6-7` 作为来源年级范围保留，不硬改。
 
-当前正式主数据合计 1933 条，其中 H4/7-9 为 1081 条。
+当前正式主数据合计 1933 条，其中 H4G7 为 355 条、H4G8 为 363 条、H4G9 为 363 条。
 
 用于审计该风险的命令是：
 
@@ -524,7 +531,7 @@ npm run grade7_9:apply-release-candidate -- --write --confirm-target-policy
 - [ ] `ts_secondary` 是否不超过两个。
 - [ ] `ts_rationale` 是否解释了标注理由。
 - [ ] staging pipeline 是否完整跑通并通过 validate。
-- [ ] H3=5-6、H4=7-9 口径是否已经通过 policy gate。
+- [ ] H3=5-6、H4G7/H4G8/H4G9 口径是否已经通过 policy gate。
 
 ## 18. 当前方法边界
 

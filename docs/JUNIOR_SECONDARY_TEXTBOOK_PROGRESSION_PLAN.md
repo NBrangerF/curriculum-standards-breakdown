@@ -2,7 +2,7 @@
 
 更新时间：2026-07-01
 
-本文定义把当前 `H4=7-9` 初中段继续拆成七年级、八年级、九年级的工作方案。目标不是把同一条 7-9 共同要求机械复制成三个标签，而是为每条标准建立可追溯的年级归属和进阶关系证据。
+本文定义把原先 `H4=7-9` 初中段继续拆成七年级、八年级、九年级的工作方案。目标不是把同一条 7-9 共同要求机械复制成三个标签，而是为每条标准建立可追溯的年级归属和进阶关系证据。
 
 本方案使用项目内 `zhenzheng-keyong-kebiao-skill` 的质量原则：
 
@@ -258,15 +258,17 @@ scripts/grade7_9/curated/*_junior_raw.json
 
 只有当 Phase 4 gate 通过后，才允许用新的 H4G7/H4G8/H4G9 release candidate 替换当前 H4 记录。
 
+当前状态：Phase 5 已于 2026-07-01 完成，正式 `public/data` 已替换为 H4G7/H4G8/H4G9 runtime 数据。旧 `H4=7-9` 仅保留为 staging/legacy stage 语义。
+
 ## 7. 当前已知风险
 
-- 当前 public 数据仍使用 `H4=7-9`，尚未达到最终目标。
-- 当前 curated raw 多数仍是 `target_grades: [7, 8, 9]`，缺少真实年级证据。
-- 教材仓库没有直接覆盖信息科技和劳动。
+- 当前 public 数据已经使用 `H4G7/H4G8/H4G9`，不再使用未拆分 H4。
+- 当前 curated raw 多数仍是 `target_grades: [7, 8, 9]`，正式 runtime 通过教材序列或低置信度自动判断补足年级归属依据。
+- 教材仓库没有直接覆盖信息科技和劳动；这两科正式记录已显式标为 `auto_judged_low_confidence`。
 - 科学学科需要处理综合科学与物理、化学、生物学、地理之间的证据边界。
 - 教材仓库里存在 `_merge_folder` 分片文件，索引时应默认排除，避免重复计数。
 
-## 8. 首轮审计结论
+## 8. 首轮审计结论（历史记录）
 
 已运行：
 
@@ -286,7 +288,7 @@ npm run grade7_9:audit-textbook-progression
 }
 ```
 
-当前不能直接发布 H4G7/H4G8/H4G9，原因是：
+当时不能直接发布 H4G7/H4G8/H4G9，原因是：
 
 - 9 个学科的正式初中 records 仍使用未拆分的 `grade_band: "H4"`。
 - 9 个学科的正式初中 records 都还没有 `grade_assignment_type`、`grade_assignment_confidence`、`progression_group_id`、`progression_basis`、`textbook_evidence_ids`。
@@ -307,7 +309,7 @@ npm run grade7_9:audit-textbook-progression
 | it | 0 | 0 | 0 | 无直接覆盖 |
 | labor | 0 | 0 | 0 | 无直接覆盖 |
 
-## 9. H4G 候选集
+## 9. H4G 候选集与正式写入
 
 已新增 H4G 候选生成和审计命令：
 
@@ -323,7 +325,7 @@ node scripts/validate-data-indexes.js --data-root generated/grade7_9_grade_level
 generated/grade7_9_grade_level_candidate/
 ```
 
-该候选集不写入正式 `public/data`，只用于审核和下一步前端/数据契约改造。
+该候选集默认不写入正式 `public/data`，只用于审核。正式写入必须使用 `grade7_9:apply-grade-level-candidate -- --write --confirm-h4g-policy`。
 
 当前候选集结果：
 
@@ -392,6 +394,22 @@ generated/grade7_9_grade_level_candidate/
 
 当前低置信度自动判断全部来自信息科技和劳动，因为 ChinaTextbook 初中目录没有这两科直接教材覆盖。
 
+正式写入后 public 数据分布为：
+
+```json
+{
+  "total": 1933,
+  "grade_bands": {
+    "H1": 236,
+    "H2": 308,
+    "H3": 308,
+    "H4G7": 355,
+    "H4G8": 363,
+    "H4G9": 363
+  }
+}
+```
+
 ## 10. 当前推荐命令
 
 ```bash
@@ -403,6 +421,11 @@ npm run textbooks:index-china
 npm run grade7_9:audit-textbook-progression
 npm run grade7_9:build-grade-level-candidate
 npm run grade7_9:audit-grade-level-candidate -- --strict
+npm run grade7_9:apply-grade-level-candidate -- --write --confirm-h4g-policy
+npm run build:indexes
+npm run validate:indexes
+npm run grade7_9:audit-grade-band-policy -- --strict
+npm run grade7_9:audit-textbook-progression -- --strict
 ```
 
-生成的 audit 用来决定每个学科进入 Phase 2 时的优先级。
+生成的 audit 用来决定每个学科后续人工复核优先级；正式写入 gate 则保证 public runtime 不再出现未拆分 H4。

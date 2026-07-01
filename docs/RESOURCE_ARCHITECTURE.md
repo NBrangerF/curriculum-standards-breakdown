@@ -611,16 +611,20 @@ const STORAGE_KEY = 'curriculum-collections'
 - `H1`：1-2 年级
 - `H2`：3-4 年级
 - `H3`：5-6 年级
-- `H4`：7-9 年级
+- `H4G7`：7 年级
+- `H4G8`：8 年级
+- `H4G9`：9 年级
 
 当前正式数据、manifest、indexes 和前端展示都采用：
 
 - `H1`：1-2 年级
 - `H2`：3-4 年级
 - `H3`：5-6 年级
-- `H4`：7-9 年级
+- `H4G7`：7 年级
+- `H4G8`：8 年级
+- `H4G9`：9 年级
 
-按该口径，旧 public 中的 H1/H2/H3 记录已经恢复并保留；7-9 年级记录使用 H4。艺术旧数据中的 `H2:3-5`、`H3:6-7` 作为来源年级范围保留，不被硬改。
+按该口径，旧 public 中的 H1/H2/H3 记录已经恢复并保留；7-9 年级记录使用 H4G7/H4G8/H4G9。`H4` 只作为 legacy stage label 保留为 `selectable: false`，不再作为正式筛选项。艺术旧数据中的 `H2:3-5`、`H3:6-7` 作为来源年级范围保留，不被硬改。
 
 建议：后续如果要调整学段定义，应先设计新的 grade_band 或数据集契约，再同步 README、glossary、`GRADE_BANDS`、数据字段和页面展示。
 
@@ -666,7 +670,7 @@ npm run build
 优先级从高到低：
 
 1. 修复 `glossary.json` 的 JSON 语法问题。
-2. 继续保持学段口径一致：README、glossary、`GRADE_BANDS`、数据字段都应维持 `H1=1-2, H2=3-4, H3=5-6, H4=7-9`。
+2. 继续保持学段口径一致：README、glossary、`GRADE_BANDS`、数据字段都应维持 `H1=1-2, H2=3-4, H3=5-6, H4G7=7, H4G8=8, H4G9=9`。
 3. 每次修改主数据后重新生成 `manifest.json`，确保统计来自 `by_subject` 主数据。
 4. 让 `loadStandardByCode` 优先使用已纳入的 `code_to_subject.json`，减少 fallback 全量扫描。
 5. 持续保持搜索页、技能页和索引脚本统一使用 `ts_primary` / `ts_secondary`。

@@ -1,7 +1,7 @@
 import { GRADE_BANDS } from '../data/dataLoader'
 import './GradeBandTabs.css'
 
-function GradeBandTabs({ selected = [], onChange, availableBands = ['H1', 'H2', 'H3'], multiSelect = true }) {
+function GradeBandTabs({ selected = [], onChange, availableBands = ['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9'], multiSelect = true }) {
     const handleToggle = (band) => {
         if (multiSelect) {
             if (selected.includes(band)) {
@@ -29,7 +29,7 @@ function GradeBandTabs({ selected = [], onChange, availableBands = ['H1', 'H2', 
                     className={`grade-band-tab all ${selected.length === 0 || selected.length === availableBands.length ? 'active' : ''}`}
                     onClick={handleSelectAll}
                 >
-                    全部学段
+                    全部学段/年级
                 </button>
             )}
             {availableBands.map(band => {

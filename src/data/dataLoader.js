@@ -295,7 +295,20 @@ export const GRADE_BANDS = {
     H1: { label: '第一学段', range: '1-2年级', order: 1, color: 'var(--band-h1)', bgColor: 'var(--band-h1-bg)' },
     H2: { label: '第二学段', range: '3-4年级', order: 2, color: 'var(--band-h2)', bgColor: 'var(--band-h2-bg)' },
     H3: { label: '第三学段', range: '5-6年级', order: 3, color: 'var(--band-h3)', bgColor: 'var(--band-h3-bg)' },
-    H4: { label: '第四学段', range: '7-9年级', order: 4, color: 'var(--band-h4)', bgColor: 'var(--band-h4-bg)' }
+    H4G7: { label: '第四学段·七年级', range: '7年级', order: 4, color: 'var(--band-h4g7)', bgColor: 'var(--band-h4g7-bg)', stageBand: 'H4', gradeLevel: 7 },
+    H4G8: { label: '第四学段·八年级', range: '8年级', order: 5, color: 'var(--band-h4g8)', bgColor: 'var(--band-h4g8-bg)', stageBand: 'H4', gradeLevel: 8 },
+    H4G9: { label: '第四学段·九年级', range: '9年级', order: 6, color: 'var(--band-h4g9)', bgColor: 'var(--band-h4g9-bg)', stageBand: 'H4', gradeLevel: 9 },
+    H4: { label: '第四学段', range: '7-9年级', order: 99, color: 'var(--band-h4)', bgColor: 'var(--band-h4-bg)', selectable: false, stageOnly: true }
+}
+
+export const GRADE_BAND_ORDER = Object.fromEntries(
+    Object.entries(GRADE_BANDS).map(([key, value]) => [key, value.order || 99])
+)
+
+export function getSelectableGradeBands() {
+    return Object.entries(GRADE_BANDS)
+        .filter(([, info]) => info.selectable !== false)
+        .sort(([, a], [, b]) => (a.order || 99) - (b.order || 99))
 }
 
 export const SUBJECT_COLORS = {

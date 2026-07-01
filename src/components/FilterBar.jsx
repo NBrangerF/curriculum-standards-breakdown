@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import {
     getSubjectsFromManifest,
-    GRADE_BANDS,
+    getSelectableGradeBands,
     getSkillsMeta
 } from '../data/dataLoader'
 import { QUERY_PARAMS } from '../data/query'
@@ -44,7 +44,7 @@ function FilterBar({
 
     const subjects = getSubjectsFromManifest()
     const skills = getSkillsMeta()
-    const gradeBands = Object.entries(GRADE_BANDS)
+    const gradeBands = getSelectableGradeBands()
 
     const [keyword, setKeyword] = useState(filters.keyword || '')
     const [toast, setToast] = useState(null)
@@ -186,7 +186,7 @@ function FilterBar({
                     <p className="filter-hint">
                         {filters.subjects?.length > 1
                             ? '多学科时只能选1个学段'
-                            : '选择 1-3 个学段'}
+                            : '选择 1-6 个学段/年级'}
                     </p>
                     <div className="filter-options filter-options-secondary">
                         {gradeBands.map(([key, info]) => (
