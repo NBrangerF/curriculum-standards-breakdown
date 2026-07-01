@@ -339,7 +339,41 @@ npm run textbooks:h4g-unit-candidates -- --matches /tmp/textbook_unit_standard_m
 
 该候选包仍不写 `public/data`，只把可复核的 `textbook_unit_evidence_ids`、单元标题、match score、matched fields、subdomain anchor 和建议更新字段组织出来。
 
-## 8. 与 H4G 分化的关系
+## 8. 应用到候选数据根
+
+候选包可以先应用到独立数据根，用于验证索引、审计和 UI 兼容性；默认仍不写 `public/data`：
+
+```bash
+npm run textbooks:apply-h4g-unit-candidates -- --candidate /tmp/h4g_unit_evidence_candidate_math_ocr2.json --out-data-root /tmp/h4g_unit_evidence_data_candidate_math --strict
+node scripts/build-indexes.js --data-root /tmp/h4g_unit_evidence_data_candidate_math
+node scripts/validate-data-indexes.js --data-root /tmp/h4g_unit_evidence_data_candidate_math
+npm run grade7_9:audit-h4g-distinctiveness -- --data-root /tmp/h4g_unit_evidence_data_candidate_math --out /tmp/h4g_distinctiveness_candidate_math.json --strict
+npm run grade7_9:audit-grade-band-policy -- --public-data-root /tmp/h4g_unit_evidence_data_candidate_math --staging-root generated/grade7_9_all_curated --data-only --out /tmp/h4g_grade_band_policy_candidate_math.json --strict
+```
+
+当前数学 OCR 样本 apply 结果：
+
+```json
+{
+  "applied_records": 15,
+  "missing_records": 0,
+  "skipped_records": 0,
+  "unit_evidence_objects_added": 32,
+  "official_standard_text_changed": false,
+  "writes_public_data": false,
+  "by_grade_band": {
+    "H4G7": 7,
+    "H4G8": 3,
+    "H4G9": 5
+  }
+}
+```
+
+候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 和 `audit-grade-band-policy --data-only --strict` 均通过。H4G distinctiveness 审计在候选根中识别到 15 条 `unit_level_evidence_records`；数学学科内为 15 条 `textbook_unit_level`、99 条 `textbook_file_grade_level`。对这 15 条记录与正式 `public/data` 的官方字段进行独立比对，`domain`、`subdomain`、`standard`、`context`、`practice`、`teaching_tip`、`assessment_evidence_type` 的变化数为 0。
+
+写入策略仍然是：候选根可用于复核和展示验证；正式 `public/data` 写入必须另走人工复核/发布 gate。
+
+## 9. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。
 
@@ -353,7 +387,7 @@ H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 
 
 换句话说，`volume_seed` 是任务入口；`toc_unit_or_chapter` 才是后续年级分化的候选证据。
 
-## 9. 下一步
+## 10. 下一步
 
 建议顺序：
 

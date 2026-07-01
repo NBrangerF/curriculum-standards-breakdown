@@ -261,6 +261,7 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 - `textbooks:match-units` 的 eligible 门槛要求真实 `toc_unit_or_chapter`、分数达标，并命中标准 `subdomain` 锚点。
 - `textbooks:audit-unit-matches` 会阻止 `volume_seed` 或无 `subdomain` 锚点的匹配被当作正式分化证据。
 - `textbooks:h4g-unit-candidates` 将 eligible matches 组织成写回前候选包，但不修改 `public/data`。
+- `textbooks:apply-h4g-unit-candidates` 将候选包应用到独立候选数据根，用于重建索引和严格审计；默认仍不写 `public/data`。
 
 当前数学全量无物化验证结果：
 
@@ -403,6 +404,17 @@ generated/grade7_9_grade_level_candidate/
 ```
 
 该候选集默认不写入正式 `public/data`，只用于审核。正式写入必须使用 `grade7_9:apply-grade-level-candidate -- --write --confirm-h4g-policy`。
+
+教材单元级候选证据另有候选数据根 apply 流程：
+
+```bash
+npm run textbooks:apply-h4g-unit-candidates -- --candidate /tmp/h4g_unit_evidence_candidate_math_ocr2.json --out-data-root /tmp/h4g_unit_evidence_data_candidate_math --strict
+node scripts/build-indexes.js --data-root /tmp/h4g_unit_evidence_data_candidate_math
+node scripts/validate-data-indexes.js --data-root /tmp/h4g_unit_evidence_data_candidate_math
+npm run grade7_9:audit-h4g-distinctiveness -- --data-root /tmp/h4g_unit_evidence_data_candidate_math --strict
+```
+
+当前数学样本验证结果：15 条 H4G records 获得 `textbook_unit_level` 候选证据，新增 32 个单元证据对象；正式课标字段变化数为 0，候选根严格索引校验和 H4G distinctiveness 审计均通过。
 
 当前候选集结果：
 

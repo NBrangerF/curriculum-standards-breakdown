@@ -90,20 +90,26 @@ function isJuniorTarget(record) {
 }
 
 function hasUnitLevelEvidence(record) {
-  const evidence = Array.isArray(record.textbook_evidence) ? record.textbook_evidence : []
+  const evidence = [
+    ...(Array.isArray(record.textbook_unit_evidence) ? record.textbook_unit_evidence : []),
+    ...(Array.isArray(record.textbook_evidence) ? record.textbook_evidence : [])
+  ]
+  const hasUnitEvidenceIds = Array.isArray(record.textbook_unit_evidence_ids) && record.textbook_unit_evidence_ids.length > 0
   return evidence.some(item => (
+    item.unit_evidence_id ||
     item.unit_title ||
     item.chapter_title ||
     item.section_title ||
     item.page_range ||
     item.page_start ||
     item.matched_keywords?.length
-  ))
+  )) || (record.evidence_granularity === 'textbook_unit_level' && hasUnitEvidenceIds)
 }
 
 function evidenceGranularity(record) {
+  if (hasUnitLevelEvidence(record)) return 'textbook_unit_level'
   if (!Array.isArray(record.textbook_evidence_ids) || record.textbook_evidence_ids.length === 0) return 'none'
-  return hasUnitLevelEvidence(record) ? 'textbook_unit_level' : 'textbook_file_grade_level'
+  return 'textbook_file_grade_level'
 }
 
 function isSharedLabeled(record) {

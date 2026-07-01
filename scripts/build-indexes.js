@@ -6,18 +6,47 @@
  * Or:  npm run build:indexes
  */
 
-import { existsSync, readFileSync, writeFileSync, readdirSync } from 'fs'
-import { join, dirname } from 'path'
+import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync } from 'fs'
+import { join, dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
-const DATA_DIR = join(ROOT, 'public', 'data')
+const DEFAULT_DATA_ROOT = 'public/data'
+
+function parseArgs(argv) {
+    const args = {
+        dataRoot: DEFAULT_DATA_ROOT
+    }
+    for (let i = 0; i < argv.length; i += 1) {
+        const item = argv[i]
+        if (item === '--data-root') args.dataRoot = argv[++i]
+        else if (item === '--help') args.help = true
+    }
+    return args
+}
+
+function usage() {
+    console.log(`Usage:
+node scripts/build-indexes.js [--data-root public/data]
+
+Builds manifest.json and indexes from <data-root>/by_subject.
+Defaults to public/data; generated candidate roots can pass --data-root.`)
+}
+
+const args = parseArgs(process.argv.slice(2))
+if (args.help) {
+    usage()
+    process.exit(0)
+}
+
+const DATA_DIR = resolve(ROOT, args.dataRoot)
 const BY_SUBJECT_DIR = join(DATA_DIR, 'by_subject')
 const INDEXES_DIR = join(DATA_DIR, 'indexes')
 const MANIFEST_PATH = join(DATA_DIR, 'manifest.json')
 
 console.log('📊 Building manifest and indexes...\n')
+console.log(`Data root: ${DATA_DIR}`)
 
 // Read all subject files
 const subjectFiles = readdirSync(BY_SUBJECT_DIR)
@@ -149,6 +178,7 @@ for (const [skill, subjects] of Object.entries(skillToSubjects).sort(([a], [b]) 
 
 // Write manifest and index files
 console.log('\n📝 Writing manifest and index files...')
+mkdirSync(INDEXES_DIR, { recursive: true })
 
 const manifest = {
     generated_at: existingManifest.generated_at || new Date().toISOString(),
