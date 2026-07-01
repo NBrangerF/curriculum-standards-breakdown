@@ -293,7 +293,7 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 }
 ```
 
-七年级下册、八年级下册、九年级下册当前通过 OCR fallback 补足了目录候选。该结果说明候选证据链已经覆盖同版本六册数学教材，但仍不是正式 public 写入；进入写回前还需要跨版本一致性、页码范围和人工/规则复核。
+七年级下册、八年级下册、九年级下册当前通过 OCR fallback 补足了目录候选。该结果说明候选证据链已经覆盖同版本六册数学教材，但仍不是正式 public 写入；进入写回前还需要通过 consistency audit 检查跨版本一致性、progression group 年级覆盖、页码状态和人工/规则复核状态。
 
 ### Phase 2：curated raw 升级
 
