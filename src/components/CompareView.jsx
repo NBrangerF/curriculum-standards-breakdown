@@ -15,7 +15,7 @@ import './CompareView.css'
  *    - Each column scrolls independently
  *    - No cross-column domain alignment
  * 
- * 2. Multi-grade band (1 subject, 1-3 grade bands):
+ * 2. Multi-grade band (1 subject, 1-4 grade bands):
  *    - Aligned domain rows across columns
  *    - Shared accordion state
  */
@@ -96,8 +96,8 @@ function CompareView({
     // MULTI-GRADE BAND MODE (Aligned Rows)
     // ============================================
 
-    // Fixed grade band order: H1 (left) → H2 (center) → H3 (right)
-    const GRADE_BAND_ORDER = { H1: 1, H2: 2, H3: 3 }
+    // Fixed grade band order: H1 → H2 → H3 → H4
+    const GRADE_BAND_ORDER = { H1: 1, H2: 2, H3: 3, H4: 4 }
 
     // Sort bands by fixed order
     const sortedBands = useMemo(() => {

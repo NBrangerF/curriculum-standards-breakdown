@@ -33,7 +33,7 @@
 public/data/by_subject/{subject_slug}.json
 ```
 
-初中 7-9 年级仍先通过 staging 和 release candidate 管线生成；当前正式 runtime 已采用 `H1=1-2, H2=3-4, H3=7-9` 口径，并已写入 `public/data/by_subject/`。
+初中 7-9 年级仍先通过 staging 和 release candidate 管线生成；当前正式 runtime 已采用 `H1=1-2, H2=3-4, H3=5-6, H4=7-9` 口径，并已将 7-9 作为 H4 写入 `public/data/by_subject/`。
 
 ## 2. 最小拆解单位
 
@@ -136,7 +136,7 @@ raw/grade7_9/sources/
 | `code` | 标准唯一编码，用于 URL、收藏、详情页和反查。 |
 | `subject` | 中文学科名。 |
 | `subject_slug` | 学科 slug，也是 `by_subject` 文件名。 |
-| `grade_band` | 学段代码，如 H1、H2、H3。 |
+| `grade_band` | 学段代码，如 H1、H2、H3、H4。 |
 | `grade_range` | 年级范围，如 `1-2`、`7-9`。 |
 | `grade` | 人类可读年级或学段。 |
 | `domain` | 一级领域、核心素养维度、内容模块或任务群。 |
@@ -219,7 +219,7 @@ scripts/grade7_9/curated/{subject_slug}_h3_raw.json
 
 ```json
 {
-  "grade_band": "H3",
+  "grade_band": "H4",
   "grade_range": "7-9",
   "grade": "七年级"
 }
@@ -236,7 +236,7 @@ scripts/grade7_9/curated/{subject_slug}_h3_raw.json
 
 当前 curated staging 的年级展开事实是：400 条 raw items 按 `target_grades` 展开为 1081 条 records，其中语文 156、数学 114、英语 132、道德与法治 126、科学 201、信息科技 66、艺术 97、体育与健康 123、劳动 66。
 
-当前正式 runtime 已统一为 `H3=7-9`。旧 public 中没有目标槽位的 `H2:3-5`、`H3:5-6`、`H3:6-7` 记录未进入当前 `public/data/by_subject`。
+当前正式 runtime 已恢复为 `H3=5-6`，并新增 `H4=7-9`。旧 public 中 H1/H2/H3 记录已恢复并保留；7-9 records 不再占用 H3。
 
 ## 8. code 生成方法
 
@@ -245,17 +245,17 @@ scripts/grade7_9/curated/{subject_slug}_h3_raw.json
 基本结构：
 
 ```text
-{学科前缀}-H3-{领域缩写}-{三位序号}
+{学科前缀}-H4-{领域缩写}-{三位序号}
 ```
 
 示例：
 
 ```text
-CN-H3-READ-001
-MA-H3-ALG-001
-ENG-H3-LANG-001
-SC-H3-MAT-001
-LA-H3-DL-001
+CN-H4-READ-001
+MA-H4-ALG-001
+ENG-H4-LANG-001
+SC-H4-MAT-001
+LA-H4-DL-001
 ```
 
 学科前缀和领域缩写来自：
@@ -357,7 +357,7 @@ npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
 ```
 
-该步骤区分 `staging_ready` 和 `direct_public_integration_ready`。当前 strict gate 已通过，表示 staging 和正式 `public/data` 的 H3 口径一致。
+该步骤区分 `staging_ready` 和 `direct_public_integration_ready`。当前 strict gate 已通过，表示 staging 使用 H4，且正式 `public/data` 中 H3/H4 口径一致。
 
 如需查看 append-as-is 的风险，仍可运行 dry-run 合并影响面：
 
@@ -365,13 +365,13 @@ npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated 
 npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curated
 ```
 
-历史 dry-run 显示 append-as-is 会混合旧 `H3:5-6`、`H3:6-7` 与 `H3:7-9`，因此当前正式写入采用 release candidate 的 target-policy-only 策略，而不是直接 append。
+历史 dry-run 显示 append-as-is 会混合旧 `H3:5-6`、`H3:6-7` 与 `H3:7-9`，因此当前正式写入采用“保留 H3、追加 H4”的 release candidate 策略，而不是直接 append。
 
 校验通过时应满足：
 
 - `valid: true`
 - `errors: []`
-- 所有 records 都是 `grade_band: "H3"`、`grade_range: "7-9"`
+- 所有 7-9 records 都是 `grade_band: "H4"`、`grade_range: "7-9"`
 - `grade` 已拆为七年级、八年级、九年级
 - 课程目标、课程内容、学业质量、教学建议、评价建议结构覆盖审计通过
 - 每条标准有唯一 code
@@ -382,7 +382,7 @@ npm run grade7_9:plan-integration -- --staging-root generated/grade7_9_all_curat
 - release candidate 检查通过，并列出正式接入影响面
 - release readiness strict gate 通过，证明 `public/data/by_subject` 当前可作为 runtime 主数据
 
-当前 release candidate 兼容检查仍提示既有非 H3 记录 `SC-D1-SC-012` 的 `assessment_evidence_type` 为空；这不是 7-9 接入 blocker。
+当前 release candidate 兼容检查仍提示既有非 H4 记录 `SC-D1-SC-012` 的 `assessment_evidence_type` 为空；这不是 7-9 接入 blocker。
 
 ## 11. 当前 staging 进度
 
@@ -428,7 +428,7 @@ generated/grade7_9*/
 - `generated/grade7_9*` 是初中扩展 staging 或 release candidate，不是正式发布入口。
 - `scripts/grade7_9/curated/*_h3_raw.json` 是可提交的人工结构化草案。
 - `raw/grade7_9/sources` 和 `generated` 是本地工作产物，不提交。
-- 正式 runtime 已采用 `H1=1-2, H2=3-4, H3=7-9`，7-9 数据已合并到正式主数据。
+- 正式 runtime 已采用 `H1=1-2, H2=3-4, H3=5-6, H4=7-9`，7-9 数据已作为 H4 合并到正式主数据。
 
 ## 13. 人工拆解检查表
 
@@ -456,14 +456,14 @@ generated/grade7_9*/
 1. OCR 结果不是最终标准原文，必须人工复核。
 2. 自动 raw extraction 只能生成候选，不能直接作为正式标准。
 3. TS 自动映射是第一轮标签，不代表最终人工审核结论。
-4. 旧 public 中 `H2:3-5`、`H3:5-6`、`H3:6-7` 记录未进入当前目标口径 runtime。
-5. 如果后续要恢复旧范围，必须先设计新的 grade_band 或数据集契约，不能直接混入当前 H3。
+4. 旧 public 中 H1/H2/H3 记录已恢复并保留；7-9 不再占用 H3，而是使用 H4。
+5. 如果后续要调整艺术 `H2:3-5`、`H3:6-7` 这类来源范围，必须先设计清晰的数据契约，不能直接硬改年级含义。
 6. 教学建议字段可以辅助使用，但对外引用“课程标准原文”时应优先引用 `standard` 和来源页码。
 
 ## 15. 推荐后续动作
 
 1. 继续对 9 科 7-9 curated raw 逐条复核 `source_pages`、`standard`、`domain`、`subdomain` 和 TS 标注。
-2. 修复既有非 H3 记录 `SC-D1-SC-012` 的 `assessment_evidence_type` 空值。
+2. 修复既有非 H4 记录 `SC-D1-SC-012` 的 `assessment_evidence_type` 空值。
 3. 后续如调整正式数据，先重建 release candidate，再用 `--write --confirm-target-policy` 写入。
 4. 每次合并后运行 `npm run validate:indexes`、`npm run grade7_9:audit-grade-band-policy -- --strict`、`npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict`、`npm run build`。
 5. 运行前端页面验证，重点检查学科页、详情页、技能页、搜索和对比视图。

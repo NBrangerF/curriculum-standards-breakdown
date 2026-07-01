@@ -117,8 +117,8 @@ function buildPlan(args) {
   const subjects = {}
   let publicTotal = 0
   let stagingTotal = 0
-  let publicH3ConflictTotal = 0
-  let postAppendH3MixedSubjectCount = 0
+  let publicJuniorConflictTotal = 0
+  let postAppendJuniorMixedSubjectCount = 0
 
   for (const subjectSlug of expectedSubjects) {
     const publicPayload = publicSubjects.get(subjectSlug)
@@ -126,13 +126,13 @@ function buildPlan(args) {
     const publicRows = publicPayload?.standards || []
     const stagingRows = stagingPayload?.standards || []
     const appendedRows = [...publicRows, ...stagingRows]
-    const publicH3Conflicts = publicRows.filter(row => row.grade_band === GRADE_BAND && row.grade_range !== GRADE_RANGE)
-    const postAppendH3Ranges = [...new Set(appendedRows.filter(row => row.grade_band === GRADE_BAND).map(row => row.grade_range || 'missing'))].sort()
+    const publicJuniorConflicts = publicRows.filter(row => row.grade_band === GRADE_BAND && row.grade_range !== GRADE_RANGE)
+    const postAppendJuniorRanges = [...new Set(appendedRows.filter(row => row.grade_band === GRADE_BAND).map(row => row.grade_range || 'missing'))].sort()
 
     publicTotal += publicRows.length
     stagingTotal += stagingRows.length
-    publicH3ConflictTotal += publicH3Conflicts.length
-    if (postAppendH3Ranges.length > 1) postAppendH3MixedSubjectCount += 1
+    publicJuniorConflictTotal += publicJuniorConflicts.length
+    if (postAppendJuniorRanges.length > 1) postAppendJuniorMixedSubjectCount += 1
 
     subjects[subjectSlug] = {
       public_records: publicRows.length,
@@ -141,14 +141,14 @@ function buildPlan(args) {
       public_grade_ranges: gradeRangeSummary(publicRows),
       staging_grade_ranges: gradeRangeSummary(stagingRows),
       post_append_grade_ranges: gradeRangeSummary(appendedRows),
-      public_h3_non_7_9_records: publicH3Conflicts.length,
-      public_h3_non_7_9_ranges: countBy(publicH3Conflicts, row => row.grade_range),
-      post_append_h3_ranges: postAppendH3Ranges,
-      post_append_h3_is_mixed: postAppendH3Ranges.length > 1
+      public_junior_band_non_7_9_records: publicJuniorConflicts.length,
+      public_junior_band_non_7_9_ranges: countBy(publicJuniorConflicts, row => row.grade_range),
+      post_append_junior_band_ranges: postAppendJuniorRanges,
+      post_append_junior_band_is_mixed: postAppendJuniorRanges.length > 1
     }
   }
 
-  const appendAsIsReady = duplicateCodes.length === 0 && publicH3ConflictTotal === 0 && String(GRADE_BANDS.H3?.range || '').includes(GRADE_RANGE)
+  const appendAsIsReady = duplicateCodes.length === 0 && publicJuniorConflictTotal === 0 && String(GRADE_BANDS[GRADE_BAND]?.range || '').includes(GRADE_RANGE)
   const filesToUpdate = [
     ...expectedSubjects.map(subjectSlug => `public/data/by_subject/${subjectSlug}.json`),
     'public/data/manifest.json',
@@ -168,7 +168,8 @@ function buildPlan(args) {
     objective_policy: {
       target_junior_grade_band: GRADE_BAND,
       target_junior_grade_range: GRADE_RANGE,
-      current_frontend_h3_range: GRADE_BANDS.H3?.range || ''
+      current_frontend_h3_range: GRADE_BANDS.H3?.range || '',
+      current_frontend_junior_range: GRADE_BANDS[GRADE_BAND]?.range || ''
     },
     append_as_is: {
       ready: appendAsIsReady,
@@ -176,17 +177,19 @@ function buildPlan(args) {
       staging_records_to_append: stagingTotal,
       projected_total: publicTotal + stagingTotal,
       duplicate_code_count: duplicateCodes.length,
-      public_h3_non_7_9_records: publicH3ConflictTotal,
-      post_append_h3_mixed_subjects: postAppendH3MixedSubjectCount,
+      public_junior_band_non_7_9_records: publicJuniorConflictTotal,
+      post_append_junior_band_mixed_subjects: postAppendJuniorMixedSubjectCount,
       would_preserve_existing_public_records: true,
-      would_mix_h3_meanings: publicH3ConflictTotal > 0
+      would_mix_junior_band_meanings: publicJuniorConflictTotal > 0,
+      note: `Appending as-is is only safe before H4 has already been written. If public/data already contains H4 records, use grade7_9:build-release-candidate to replace H4 instead of duplicating it.`
     },
     duplicate_codes: duplicateCodes,
     subjects,
     required_policy_decisions: [
-      'Decide how existing public H3 records for 5-6 and arts 6-7 should be represented before H3 is used for 7-9.',
-      'Decide whether to remap existing upper-primary records, introduce a new grade-band code, or split datasets by education stage.',
-      'Update frontend GRADE_BANDS so visible labels match the selected policy.',
+      'Keep original H3 records for 5-6 and arts 6-7 in public/data.',
+      'Represent 7-9 with H4 instead of H3.',
+      'Use release candidate replacement when public/data already contains H4 records.',
+      'Update frontend GRADE_BANDS so visible labels match H1/H2/H3/H4.',
       'Regenerate manifest and indexes after the policy migration and before release.'
     ],
     files_to_update_for_real_integration: filesToUpdate,

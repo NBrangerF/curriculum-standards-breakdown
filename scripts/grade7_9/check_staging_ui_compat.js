@@ -4,6 +4,7 @@ import { basename, join } from 'node:path'
 import { normalizeManifestSubject, normalizeStandards } from '../../src/data/schema.js'
 import { filterStandards, GRADE_BANDS, groupByDomain } from '../../src/data/dataLoader.js'
 import { getCompareMode, isValidCompareSelection } from '../../src/data/compareLogic.js'
+import { GRADE_BAND, GRADE_RANGE } from './config.js'
 
 const DEFAULT_STAGING_ROOT = 'generated/grade7_9_all_curated'
 const DEFAULT_SKILLS_META = 'public/data/skills_meta.json'
@@ -96,10 +97,10 @@ function validateSubject(manifestSubject, stagingRoot, codeToSubject, errors) {
 
   const payload = readJson(subjectFile)
   const standards = normalizeStandards(payload.standards || [])
-  const h3Standards = filterStandards(standards, { gradeBands: ['H3'] })
-  const byDomain = groupByDomain(h3Standards)
-  const domains = countBy(h3Standards, row => row.domain)
-  const grades = countBy(h3Standards, row => row.grade)
+  const juniorStandards = filterStandards(standards, { gradeBands: [GRADE_BAND] })
+  const byDomain = groupByDomain(juniorStandards)
+  const domains = countBy(juniorStandards, row => row.domain)
+  const grades = countBy(juniorStandards, row => row.grade)
 
   if (basename(subject.file || '') !== `${subject.subject_slug}.json`) {
     errors.push(`${subject.subject_slug} manifest file should point to its by_subject JSON`)
@@ -110,11 +111,11 @@ function validateSubject(manifestSubject, stagingRoot, codeToSubject, errors) {
   if (standards.length !== subject.record_count) {
     errors.push(`${subject.subject_slug} record_count mismatch: manifest ${subject.record_count}, file ${standards.length}`)
   }
-  if (h3Standards.length !== standards.length) {
-    errors.push(`${subject.subject_slug} has non-H3 records in 7-9 staging`)
+  if (juniorStandards.length !== standards.length) {
+    errors.push(`${subject.subject_slug} has non-${GRADE_BAND} records in 7-9 staging`)
   }
-  if (!subject.grade_bands?.H3) {
-    errors.push(`${subject.subject_slug} manifest grade_bands missing H3`)
+  if (!subject.grade_bands?.[GRADE_BAND]) {
+    errors.push(`${subject.subject_slug} manifest grade_bands missing ${GRADE_BAND}`)
   }
   for (const grade of EXPECTED_GRADES) {
     if (!grades[grade]) errors.push(`${subject.subject_slug} missing grade split: ${grade}`)
@@ -159,7 +160,7 @@ function checkSkillCoverage(allStandards, skillToSubjects, skillsMeta, errors) {
   const metaSkillCodes = new Set((skillsMeta.competencies || []).map(skill => skill.code))
   for (const skill of EXPECTED_MAIN_SKILLS) {
     if (!metaSkillCodes.has(skill)) errors.push(`skills_meta missing competency ${skill}`)
-    const matching = filterStandards(allStandards, { gradeBands: ['H3'], skills: [skill] })
+    const matching = filterStandards(allStandards, { gradeBands: [GRADE_BAND], skills: [skill] })
     const actualSubjects = [...new Set(matching.map(row => row.subject_slug))].sort()
     const indexedSubjects = [...(skillToSubjects[skill] || [])].sort()
     if (!matching.length) errors.push(`SkillDetail/Search TS filter has no staged results for ${skill}`)
@@ -180,37 +181,37 @@ function checkSkillCoverage(allStandards, skillToSubjects, skillsMeta, errors) {
 function checkCompareAndSearch(subjectChecks, allStandards, errors) {
   const slugs = subjectChecks.map(subject => subject.subject_slug)
   const sampleSubjects = slugs.slice(0, Math.min(3, slugs.length))
-  const multiSubjectValid = isValidCompareSelection(sampleSubjects, ['H3'])
-  const multiSubjectMode = getCompareMode(sampleSubjects, ['H3'])
-  const singleSubjectValid = isValidCompareSelection([slugs[0]], ['H3'])
-  const singleSubjectMode = getCompareMode([slugs[0]], ['H3'])
+  const multiSubjectValid = isValidCompareSelection(sampleSubjects, [GRADE_BAND])
+  const multiSubjectMode = getCompareMode(sampleSubjects, [GRADE_BAND])
+  const singleSubjectValid = isValidCompareSelection([slugs[0]], [GRADE_BAND])
+  const singleSubjectMode = getCompareMode([slugs[0]], [GRADE_BAND])
 
   if (!multiSubjectValid || multiSubjectMode !== 'subjects') {
-    errors.push(`CompareView multi-subject mode invalid for ${sampleSubjects.join(',')} + H3`)
+    errors.push(`CompareView multi-subject mode invalid for ${sampleSubjects.join(',')} + ${GRADE_BAND}`)
   }
   if (!singleSubjectValid || singleSubjectMode !== 'gradeBands') {
-    errors.push(`CompareView single-subject mode invalid for ${slugs[0]} + H3`)
+    errors.push(`CompareView single-subject mode invalid for ${slugs[0]} + ${GRADE_BAND}`)
   }
 
   const searchSample = filterStandards(allStandards, {
     subjects: sampleSubjects,
-    gradeBands: ['H3'],
+    gradeBands: [GRADE_BAND],
     skills: ['TS1']
   })
   if (!searchSample.length) {
-    errors.push('SearchResultsPage combined subject + H3 + TS1 filter would be empty')
+    errors.push(`SearchResultsPage combined subject + ${GRADE_BAND} + TS1 filter would be empty`)
   }
 
   return {
     multi_subject: {
       subjects: sampleSubjects,
-      grade_bands: ['H3'],
+      grade_bands: [GRADE_BAND],
       valid: multiSubjectValid,
       mode: multiSubjectMode
     },
     single_subject: {
       subjects: [slugs[0]],
-      grade_bands: ['H3'],
+      grade_bands: [GRADE_BAND],
       valid: singleSubjectValid,
       mode: singleSubjectMode
     },
@@ -277,8 +278,12 @@ function main() {
   }
 
   const gradeBandH3 = GRADE_BANDS.H3 || {}
-  if (!String(gradeBandH3.range || '').includes('7-9')) {
-    warnings.push(`Frontend GRADE_BANDS.H3.range is "${gradeBandH3.range || ''}", while staging uses grade_range "7-9". Resolve grade-band policy before writing to public/data.`)
+  const gradeBandJunior = GRADE_BANDS[GRADE_BAND] || {}
+  if (!String(gradeBandH3.range || '').includes('5-6')) {
+    warnings.push(`Frontend GRADE_BANDS.H3.range is "${gradeBandH3.range || ''}", while H3 should remain "5-6".`)
+  }
+  if (!String(gradeBandJunior.range || '').includes(GRADE_RANGE)) {
+    warnings.push(`Frontend GRADE_BANDS.${GRADE_BAND}.range is "${gradeBandJunior.range || ''}", while staging uses grade_range "${GRADE_RANGE}". Resolve grade-band policy before writing to public/data.`)
   }
 
   const skillChecks = checkSkillCoverage(allStandards, skillToSubjects, skillsMeta, errors)
@@ -298,7 +303,8 @@ function main() {
       'StandardDetailPage code lookup and detail fields'
     ],
     grade_band_labels: {
-      H3: gradeBandH3
+      H3: gradeBandH3,
+      [GRADE_BAND]: gradeBandJunior
     },
     subject_checks: subjectChecks.map(({ standards, ...summary }) => summary),
     skill_checks: skillChecks,

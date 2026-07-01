@@ -1,16 +1,12 @@
 #!/usr/bin/env node
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
-import { GRADE_RANGE, SUBJECTS } from './config.js'
+import { DISPLAY_GRADE_POLICY, GRADE_BAND, GRADE_RANGE, SUBJECTS } from './config.js'
 
 const DEFAULT_PUBLIC_DATA_ROOT = 'public/data'
 const DEFAULT_STAGING_ROOT = 'generated/grade7_9_all_curated'
 const DEFAULT_OUT_DIR = 'generated/grade7_9_release_candidate'
-const TARGET_POLICY = {
-  H1: '1-2',
-  H2: '3-4',
-  H3: GRADE_RANGE
-}
+const TARGET_POLICY = DISPLAY_GRADE_POLICY
 
 function parseArgs(argv) {
   const args = {
@@ -34,8 +30,8 @@ function usage() {
   console.log(`Usage:
 node scripts/grade7_9/build_release_candidate.js [--public-data-root public/data] [--staging-root generated/grade7_9_all_curated] [--out-dir generated/grade7_9_release_candidate]
 
-Builds a generated release-candidate data root using the target policy H1=1-2, H2=3-4, H3=7-9.
-This script never writes to public/data. Public records outside the target policy are archived under the candidate output.`)
+Builds a generated release-candidate data root using H1=1-2, H2=3-4, H3=5-6, H4=7-9.
+This script never writes to public/data. Existing ${GRADE_BAND} records are replaced by freshly generated 7-9 staging records.`)
 }
 
 function readJson(path) {
@@ -79,8 +75,8 @@ function gradeKey(record) {
   return gradeBand || gradeRange || 'missing'
 }
 
-function isTargetPolicyRecord(record) {
-  return TARGET_POLICY[record.grade_band] === record.grade_range
+function isExistingJuniorRecord(record) {
+  return record.grade_band === GRADE_BAND || (record.grade_band === 'H3' && record.grade_range === GRADE_RANGE)
 }
 
 function countBy(rows, getKey) {
@@ -93,7 +89,7 @@ function buildSubjectPayload(subjectSlug, subjectName, rows) {
   const columns = [...new Set(rows.flatMap(row => Object.keys(row)))].sort((a, b) => a.localeCompare(b))
   return {
     generated_at: new Date().toISOString(),
-    data_scope: 'grade7_9_release_candidate_target_policy',
+    data_scope: 'grade7_9_release_candidate_restore_h3_add_h4',
     target_policy: TARGET_POLICY,
     subject: subjectName,
     subject_slug: subjectSlug,
@@ -166,7 +162,7 @@ function buildDerivedIndexes(candidateRoot) {
 
   writeJson(join(candidateRoot, 'manifest.json'), {
     generated_at: new Date().toISOString(),
-    data_scope: 'grade7_9_release_candidate_target_policy',
+    data_scope: 'grade7_9_release_candidate_restore_h3_add_h4',
     target_policy: TARGET_POLICY,
     columns: [...columns].sort((a, b) => a.localeCompare(b)),
     subjects
@@ -208,7 +204,7 @@ function main() {
 
   if (args.clean) rmSync(args.outDir, { recursive: true, force: true })
   mkdirSync(join(args.outDir, 'by_subject'), { recursive: true })
-  mkdirSync(join(args.outDir, 'archived_out_of_policy'), { recursive: true })
+  mkdirSync(join(args.outDir, 'replaced_existing_junior_band'), { recursive: true })
   mkdirSync(join(args.outDir, 'indexes'), { recursive: true })
 
   const copiedMeta = {}
@@ -220,7 +216,7 @@ function main() {
   const summarySubjects = {}
   let publicRecords = 0
   let preservedPublicRecords = 0
-  let archivedPublicRecords = 0
+  let replacedExistingJuniorRecords = 0
   let stagingRecords = 0
 
   for (const subjectSlug of Object.keys(SUBJECTS).sort((a, b) => a.localeCompare(b))) {
@@ -233,13 +229,13 @@ function main() {
     const stagingPayload = readJson(stagingFile)
     const publicRows = publicPayload.standards || []
     const stagingRows = stagingPayload.standards || []
-    const preservedRows = publicRows.filter(isTargetPolicyRecord)
-    const archivedRows = publicRows.filter(row => !isTargetPolicyRecord(row))
+    const preservedRows = publicRows.filter(row => !isExistingJuniorRecord(row))
+    const replacedRows = publicRows.filter(isExistingJuniorRecord)
     const mergedRows = [...preservedRows, ...stagingRows]
 
     publicRecords += publicRows.length
     preservedPublicRecords += preservedRows.length
-    archivedPublicRecords += archivedRows.length
+    replacedExistingJuniorRecords += replacedRows.length
     stagingRecords += stagingRows.length
     rowsBySubject.set(subjectSlug, mergedRows)
 
@@ -248,25 +244,25 @@ function main() {
       join(args.outDir, 'by_subject', `${subjectSlug}.json`),
       buildSubjectPayload(subjectSlug, subjectName, mergedRows)
     )
-    writeJson(join(args.outDir, 'archived_out_of_policy', `${subjectSlug}.json`), {
+    writeJson(join(args.outDir, 'replaced_existing_junior_band', `${subjectSlug}.json`), {
       generated_at: new Date().toISOString(),
-      data_scope: 'grade7_9_release_candidate_archived_out_of_policy',
+      data_scope: 'grade7_9_release_candidate_replaced_existing_junior_band',
       target_policy: TARGET_POLICY,
       subject: subjectName,
       subject_slug: subjectSlug,
-      record_count: archivedRows.length,
-      grade_ranges: countBy(archivedRows, row => `${row.grade_band || 'missing'}:${row.grade_range || 'missing'}`),
-      standards: archivedRows
+      record_count: replacedRows.length,
+      grade_ranges: countBy(replacedRows, row => `${row.grade_band || 'missing'}:${row.grade_range || 'missing'}`),
+      standards: replacedRows
     })
 
     summarySubjects[subjectSlug] = {
       public_records: publicRows.length,
       preserved_public_records: preservedRows.length,
-      archived_out_of_policy_records: archivedRows.length,
+      replaced_existing_junior_records: replacedRows.length,
       staging_7_9_records: stagingRows.length,
       candidate_records: mergedRows.length,
       candidate_grade_ranges: countBy(mergedRows, row => `${row.grade_band || 'missing'}:${row.grade_range || 'missing'}`),
-      archived_grade_ranges: countBy(archivedRows, row => `${row.grade_band || 'missing'}:${row.grade_range || 'missing'}`)
+      replaced_grade_ranges: countBy(replacedRows, row => `${row.grade_band || 'missing'}:${row.grade_range || 'missing'}`)
     }
   }
 
@@ -276,7 +272,7 @@ function main() {
     valid: duplicateCodes.length === 0,
     generated_at: new Date().toISOString(),
     mode: 'generated_release_candidate_no_public_writes',
-    data_scope: 'grade7_9_release_candidate_target_policy',
+    data_scope: 'grade7_9_release_candidate_restore_h3_add_h4',
     target_policy: TARGET_POLICY,
     public_data_root: args.publicDataRoot,
     staging_root: args.stagingRoot,
@@ -285,7 +281,7 @@ function main() {
     totals: {
       public_records: publicRecords,
       preserved_public_records: preservedPublicRecords,
-      archived_out_of_policy_records: archivedPublicRecords,
+      replaced_existing_junior_records: replacedExistingJuniorRecords,
       staging_7_9_records: stagingRecords,
       candidate_records: derived.total,
       candidate_subjects: derived.subjects

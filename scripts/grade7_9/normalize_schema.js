@@ -111,7 +111,7 @@ function main() {
   for (const item of collectRawItems(raw)) {
     const domainCode = slugifyDomain(item.domain || item.source_section || 'GEN', subjectSlug)
     for (const grade of gradesForItem(item)) {
-      const key = `${config.prefix}-H3-${domainCode}`
+      const key = `${config.prefix}-${GRADE_BAND}-${domainCode}`
       const next = (counters.get(key) || 0) + 1
       counters.set(key, next)
       const code = `${key}-${String(next).padStart(3, '0')}`

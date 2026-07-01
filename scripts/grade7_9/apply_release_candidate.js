@@ -12,8 +12,9 @@ import { basename, dirname, join } from 'node:path'
 const DEFAULT_CANDIDATE_ROOT = 'generated/grade7_9_release_candidate'
 const DEFAULT_PUBLIC_DATA_ROOT = 'public/data'
 const DEFAULT_FRONTEND_FILE = 'src/data/dataLoader.js'
-const EXPECTED_SCOPE = 'grade7_9_release_candidate_target_policy'
-const TARGET_H3_RANGE_LABEL = '7-9年级'
+const EXPECTED_SCOPE = 'grade7_9_release_candidate_restore_h3_add_h4'
+const TARGET_H3_RANGE_LABEL = '5-6年级'
+const TARGET_H4_LINE = "    H4: { label: '第四学段', range: '7-9年级', order: 4, color: 'var(--band-h4)', bgColor: 'var(--band-h4-bg)' }"
 
 function parseArgs(argv) {
   const args = {
@@ -42,7 +43,7 @@ function usage() {
 node scripts/grade7_9/apply_release_candidate.js [--candidate-root generated/grade7_9_release_candidate] [--public-data-root public/data]
 node scripts/grade7_9/apply_release_candidate.js --write --confirm-target-policy
 
-Dry-runs or applies the generated target-policy release candidate into public/data.
+Dry-runs or applies the generated release candidate into public/data.
 Default mode is dry-run and never writes public/data.
 Write mode requires --write --confirm-target-policy.`)
 }
@@ -71,12 +72,23 @@ function detectH3Range(frontendFile) {
 
 function updateFrontendGradeBand(frontendFile) {
   const source = readFileSync(frontendFile, 'utf8')
-  const next = source.replace(
+  let next = source.replace(
     /(H3:\s*\{[^}]*range:\s*)'[^']*'/m,
     `$1'${TARGET_H3_RANGE_LABEL}'`
   )
+  if (!/H4:\s*\{/.test(next)) {
+    next = next.replace(
+      /(H3:\s*\{[^}]*\})(,?)/m,
+      `$1,\n${TARGET_H4_LINE}`
+    )
+  } else {
+    next = next.replace(
+      /(H4:\s*\{[^}]*range:\s*)'[^']*'/m,
+      "$1'7-9年级'"
+    )
+  }
   if (next === source) {
-    throw new Error(`Could not update H3 range in ${frontendFile}`)
+    throw new Error(`Could not update grade bands in ${frontendFile}`)
   }
   writeFileSync(frontendFile, next)
 }

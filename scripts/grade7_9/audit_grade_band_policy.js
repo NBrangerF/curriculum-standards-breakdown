@@ -1,17 +1,14 @@
 #!/usr/bin/env node
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
-import { GRADE_RANGE, SUBJECTS } from './config.js'
+import { ALLOWED_GRADE_RANGES, DISPLAY_GRADE_POLICY, GRADE_RANGE, SUBJECTS } from './config.js'
 import { GRADE_BANDS } from '../../src/data/dataLoader.js'
 
 const DEFAULT_PUBLIC_DATA_ROOT = 'public/data'
 const DEFAULT_STAGING_ROOT = 'generated/grade7_9_all_curated'
 
-const TARGET_POLICY = {
-  H1: '1-2',
-  H2: '3-4',
-  H3: GRADE_RANGE
-}
+const TARGET_POLICY = DISPLAY_GRADE_POLICY
+const ALLOWED_POLICY = ALLOWED_GRADE_RANGES
 const SAMPLE_LIMIT = 5
 
 function parseArgs(argv) {
@@ -37,7 +34,7 @@ function usage() {
   console.log(`Usage:
 node scripts/grade7_9/audit_grade_band_policy.js [--public-data-root public/data] [--staging-root generated/grade7_9_all_curated] [--out generated/grade7_9_grade_band_policy.json] [--data-only] [--strict]
 
-Audits whether public data, 7-9 staging, and frontend GRADE_BANDS match the target policy H1=1-2, H2=3-4, H3=7-9.
+Audits whether public data, 7-9 staging, and frontend GRADE_BANDS match H1=1-2, H2=3-4, H3=5-6, H4=7-9.
 Without --strict, policy blockers are reported but do not fail the command.
 Use --data-only for generated candidate data roots when frontend GRADE_BANDS is intentionally checked separately.`)
 }
@@ -84,7 +81,7 @@ function pushSample(target, key, record, subjectSlug) {
 }
 
 function isExpectedRange(record) {
-  return TARGET_POLICY[record.grade_band] === record.grade_range
+  return (ALLOWED_POLICY[record.grade_band] || []).includes(record.grade_range)
 }
 
 function gradeRangeKey(record) {
@@ -170,37 +167,38 @@ function buildPolicyDecisionMatrix(gapRanges) {
   const rows = [
     {
       option: 'preserve_current_public_data',
-      description: 'Keep existing 5-6, 6-7, and 3-5 public records unchanged and do not append 7-9 staging.',
-      satisfies_target_policy: false,
-      preserves_existing_public_records: true,
-      release_gate_effect: 'strict gates remain blocked'
-    },
-    {
-      option: 'remove_or_archive_out_of_policy_ranges',
-      description: 'Move ranges with no slot in H1=1-2, H2=3-4, H3=7-9 out of the public by_subject runtime dataset before appending 7-9.',
+      description: 'Keep existing H1/H2/H3 public records unchanged and append 7-9 as H4.',
       satisfies_target_policy: true,
-      preserves_existing_public_records: false,
-      release_gate_effect: 'strict gates can pass after frontend GRADE_BANDS is updated'
+      preserves_existing_public_records: true,
+      release_gate_effect: 'strict gates pass when H4 staging and frontend label are present'
     },
     {
-      option: 'introduce_new_grade_band_for_5_6',
-      description: 'Add another grade-band code for upper-primary data, then append 7-9 as H3.',
+      option: 'replace_h3_with_7_9',
+      description: 'Move 7-9 into H3 and remove old 5-6 records.',
       satisfies_target_policy: false,
-      preserves_existing_public_records: true,
-      release_gate_effect: 'requires explicit schema/policy change before this script can treat it as valid'
+      preserves_existing_public_records: false,
+      release_gate_effect: 'reject; loses original H3=5-6 meaning'
     },
     {
       option: 'split_primary_and_junior_datasets',
-      description: 'Keep primary-stage public data separate from junior-stage runtime data, with H3 meaning 7-9 in the junior dataset.',
+      description: 'Keep primary-stage and junior-stage runtime data separate.',
       satisfies_target_policy: 'depends_on_dataset_contract',
       preserves_existing_public_records: true,
-      release_gate_effect: 'requires a new runtime data contract and frontend dataset selector'
+      release_gate_effect: 'requires a new runtime data contract and dataset selector'
+    },
+    {
+      option: 'invent_or_relabel_old_ranges',
+      description: 'Force old 3-5 or 6-7 records into exact 3-4 or 5-6 ranges.',
+      satisfies_target_policy: false,
+      preserves_existing_public_records: true,
+      release_gate_effect: 'reject; would misrepresent source grade ranges'
     }
   ]
 
   return {
     gap_ranges_requiring_decision: gapRanges,
-    allowed_target_ranges: TARGET_POLICY,
+    display_target_ranges: TARGET_POLICY,
+    allowed_data_ranges: ALLOWED_POLICY,
     options: rows
   }
 }
@@ -252,7 +250,7 @@ function auditFrontendGradeBands() {
 }
 
 function policyGapRanges(publicAudit) {
-  const allowed = new Set(Object.entries(TARGET_POLICY).map(([band, range]) => `${band}:${range}`))
+  const allowed = new Set(Object.entries(ALLOWED_POLICY).flatMap(([band, ranges]) => ranges.map(range => `${band}:${range}`)))
   return Object.fromEntries(
     Object.entries(publicAudit.totals.incompatible_ranges)
       .filter(([range]) => !allowed.has(range))
@@ -276,7 +274,7 @@ function main() {
   const gapRanges = policyGapRanges(publicAudit)
 
   if (publicAudit.totals.incompatible_records) {
-    blockers.push(`${publicAudit.totals.incompatible_records} public records do not match target grade-band policy H1=1-2, H2=3-4, H3=7-9.`)
+    blockers.push(`${publicAudit.totals.incompatible_records} public records do not match grade-band policy H1=1-2, H2=3-4, H3=5-6, H4=7-9.`)
   }
   if (Object.keys(gapRanges).length) {
     blockers.push(`Current public data contains grade ranges with no slot in the target policy: ${Object.keys(gapRanges).join(', ')}.`)
@@ -307,7 +305,7 @@ function main() {
     next_actions: blockers.length
       ? [
           'Do not append 7-9 staging into public/data while these blockers remain.',
-          'Decide how existing 5-6, 6-7, and 3-5 public records should be represented under the target policy.',
+          'Keep original H3=5-6 records in public/data and represent 7-9 as H4.',
           'After policy migration, update src/data/dataLoader.js GRADE_BANDS and rerun strict audits.'
         ]
       : [

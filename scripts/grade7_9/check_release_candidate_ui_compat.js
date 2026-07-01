@@ -4,15 +4,12 @@ import { basename, join } from 'node:path'
 import { normalizeManifestSubject, normalizeStandards } from '../../src/data/schema.js'
 import { filterStandards, GRADE_BANDS, groupByDomain } from '../../src/data/dataLoader.js'
 import { getCompareMode, isValidCompareSelection } from '../../src/data/compareLogic.js'
-import { GRADE_RANGE, SUBJECTS, VALID_TS } from './config.js'
+import { ALLOWED_GRADE_RANGES, DISPLAY_GRADE_POLICY, GRADE_BAND, GRADE_RANGE, SUBJECTS, VALID_TS } from './config.js'
 
 const DEFAULT_CANDIDATE_ROOT = 'generated/grade7_9_release_candidate'
 const DEFAULT_SKILLS_META = 'public/data/skills_meta.json'
-const TARGET_POLICY = {
-  H1: '1-2',
-  H2: '3-4',
-  H3: GRADE_RANGE
-}
+const TARGET_POLICY = DISPLAY_GRADE_POLICY
+const ALLOWED_POLICY = ALLOWED_GRADE_RANGES
 const JUNIOR_GRADES = ['七年级', '八年级', '九年级']
 const CORE_DETAIL_FIELDS = [
   'id',
@@ -24,7 +21,7 @@ const CORE_DETAIL_FIELDS = [
   'grade_range',
   'standard'
 ]
-const H3_REQUIRED_DETAIL_FIELDS = [
+const JUNIOR_REQUIRED_DETAIL_FIELDS = [
   ...CORE_DETAIL_FIELDS,
   'context',
   'practice',
@@ -90,7 +87,7 @@ function hasSkill(standard, skillCode) {
 }
 
 function isTargetPolicyRecord(record) {
-  return TARGET_POLICY[record.grade_band] === record.grade_range
+  return (ALLOWED_POLICY[record.grade_band] || []).includes(record.grade_range)
 }
 
 function loadRequiredFiles(args, errors) {
@@ -128,8 +125,8 @@ function validateSubject(manifestSubject, args, codeToSubject, subjectStats, err
   const standards = normalizeStandards(payload.standards || [])
   const domains = countBy(standards, row => row.domain)
   const gradeBands = countBy(standards, row => row.grade_band)
-  const h3Standards = filterStandards(standards, { gradeBands: ['H3'] })
-  const h3Grades = countBy(h3Standards, row => row.grade)
+  const juniorStandards = filterStandards(standards, { gradeBands: [GRADE_BAND] })
+  const juniorGrades = countBy(juniorStandards, row => row.grade)
   const byDomain = groupByDomain(standards)
 
   if (basename(subject.file || '') !== `${subject.subject_slug}.json`) {
@@ -144,11 +141,11 @@ function validateSubject(manifestSubject, args, codeToSubject, subjectStats, err
   if (standards.some(row => !isTargetPolicyRecord(row))) {
     errors.push(`${subject.subject_slug} has records outside target grade-band policy`)
   }
-  if (!h3Standards.length) {
-    errors.push(`${subject.subject_slug} has no H3 7-9 standards in release candidate`)
+  if (!juniorStandards.length) {
+    errors.push(`${subject.subject_slug} has no ${GRADE_BAND} ${GRADE_RANGE} standards in release candidate`)
   }
   for (const grade of JUNIOR_GRADES) {
-    if (!h3Grades[grade]) errors.push(`${subject.subject_slug} missing H3 grade split: ${grade}`)
+    if (!juniorGrades[grade]) errors.push(`${subject.subject_slug} missing ${GRADE_BAND} grade split: ${grade}`)
   }
   if (!Object.keys(byDomain).length) {
     errors.push(`${subject.subject_slug} SubjectPage domain grouping would be empty`)
@@ -170,25 +167,25 @@ function validateSubject(manifestSubject, args, codeToSubject, subjectStats, err
     for (const field of CORE_DETAIL_FIELDS) {
       if (!standard[field]) errors.push(`${standard.code} missing detail display field: ${field}`)
     }
-    if (standard.grade_band === 'H3') {
-      for (const field of H3_REQUIRED_DETAIL_FIELDS) {
-        if (!standard[field]) errors.push(`${standard.code} missing H3 detail display field: ${field}`)
+    if (standard.grade_band === GRADE_BAND) {
+      for (const field of JUNIOR_REQUIRED_DETAIL_FIELDS) {
+        if (!standard[field]) errors.push(`${standard.code} missing ${GRADE_BAND} detail display field: ${field}`)
       }
       if (!Array.isArray(standard.ts_primary) || standard.ts_primary.length !== 1) {
-        errors.push(`${standard.code} H3 record must have exactly one ts_primary`)
+        errors.push(`${standard.code} ${GRADE_BAND} record must have exactly one ts_primary`)
       }
       if (!Array.isArray(standard.ts_secondary)) {
-        errors.push(`${standard.code} H3 record ts_secondary must be an array`)
+        errors.push(`${standard.code} ${GRADE_BAND} record ts_secondary must be an array`)
       }
       if (standard.ts_secondary?.length > 2) {
-        errors.push(`${standard.code} H3 record has more than two secondary TS codes`)
+        errors.push(`${standard.code} ${GRADE_BAND} record has more than two secondary TS codes`)
       }
       for (const ts of [...(standard.ts_primary || []), ...(standard.ts_secondary || [])]) {
         if (!VALID_TS.has(ts)) errors.push(`${standard.code} invalid TS code: ${ts}`)
       }
     } else {
-      for (const field of H3_REQUIRED_DETAIL_FIELDS) {
-        if (!standard[field]) warnings.push(`${standard.code} non-H3 record has empty detail field: ${field}`)
+      for (const field of JUNIOR_REQUIRED_DETAIL_FIELDS) {
+        if (!standard[field]) warnings.push(`${standard.code} non-${GRADE_BAND} record has empty detail field: ${field}`)
       }
     }
     if (codeToSubject[standard.code] !== subject.subject_slug) {
@@ -201,7 +198,7 @@ function validateSubject(manifestSubject, args, codeToSubject, subjectStats, err
     subject_slug: subject.subject_slug,
     record_count: standards.length,
     grade_bands: sortObjectKeys(gradeBands),
-    h3_grades: sortObjectKeys(h3Grades),
+    junior_grades: sortObjectKeys(juniorGrades),
     domains: Object.keys(byDomain).length,
     standards
   }
@@ -212,19 +209,19 @@ function checkSkillCoverage(allStandards, skillToSubjects, skillsMeta, errors) {
   const metaSkillCodes = new Set((skillsMeta.competencies || []).map(skill => skill.code))
   for (const skill of [...VALID_TS].sort()) {
     if (!metaSkillCodes.has(skill)) errors.push(`skills_meta missing competency ${skill}`)
-    const matching = filterStandards(allStandards, { gradeBands: ['H3'], skills: [skill] })
+    const matching = filterStandards(allStandards, { gradeBands: [GRADE_BAND], skills: [skill] })
     const actualSubjects = new Set(matching.map(row => row.subject_slug))
     const indexedSubjects = new Set(skillToSubjects[skill] || [])
-    if (!matching.length) errors.push(`SkillDetail/Search TS filter has no H3 candidate results for ${skill}`)
+    if (!matching.length) errors.push(`SkillDetail/Search TS filter has no ${GRADE_BAND} candidate results for ${skill}`)
     if (![...actualSubjects].every(subject => indexedSubjects.has(subject))) {
-      errors.push(`${skill} skill_to_subjects index is missing H3 candidate subjects`)
+      errors.push(`${skill} skill_to_subjects index is missing ${GRADE_BAND} candidate subjects`)
     }
     if (matching.some(row => !hasSkill(row, skill))) {
       errors.push(`${skill} filter returned a standard without that TS code`)
     }
     skillChecks[skill] = {
-      h3_standards: matching.length,
-      h3_subjects: [...actualSubjects].sort(),
+      junior_standards: matching.length,
+      junior_subjects: [...actualSubjects].sort(),
       index_subjects: [...indexedSubjects].sort()
     }
   }
@@ -234,26 +231,26 @@ function checkSkillCoverage(allStandards, skillToSubjects, skillsMeta, errors) {
 function checkCompareAndSearch(subjectChecks, allStandards, errors) {
   const slugs = subjectChecks.map(subject => subject.subject_slug)
   const sampleSubjects = slugs.slice(0, Math.min(3, slugs.length))
-  const multiSubjectValid = isValidCompareSelection(sampleSubjects, ['H3'])
-  const multiSubjectMode = getCompareMode(sampleSubjects, ['H3'])
-  const candidateBands = ['H1', 'H2', 'H3']
+  const multiSubjectValid = isValidCompareSelection(sampleSubjects, [GRADE_BAND])
+  const multiSubjectMode = getCompareMode(sampleSubjects, [GRADE_BAND])
+  const candidateBands = Object.keys(TARGET_POLICY)
   const singleSubjectValid = isValidCompareSelection([slugs[0]], candidateBands)
   const singleSubjectMode = getCompareMode([slugs[0]], candidateBands)
 
   if (!multiSubjectValid || multiSubjectMode !== 'subjects') {
-    errors.push(`CompareView multi-subject mode invalid for ${sampleSubjects.join(',')} + H3`)
+    errors.push(`CompareView multi-subject mode invalid for ${sampleSubjects.join(',')} + ${GRADE_BAND}`)
   }
   if (!singleSubjectValid || singleSubjectMode !== 'gradeBands') {
     errors.push(`CompareView single-subject mode invalid for ${slugs[0]} + ${candidateBands.join(',')}`)
   }
 
-  const h3SearchSample = filterStandards(allStandards, {
+  const juniorSearchSample = filterStandards(allStandards, {
     subjects: sampleSubjects,
-    gradeBands: ['H3'],
+    gradeBands: [GRADE_BAND],
     skills: ['TS1']
   })
-  if (!h3SearchSample.length) {
-    errors.push('SearchResultsPage combined subject + H3 + TS1 filter would be empty')
+  if (!juniorSearchSample.length) {
+    errors.push(`SearchResultsPage combined subject + ${GRADE_BAND} + TS1 filter would be empty`)
   }
 
   const allBandSearchSample = filterStandards(allStandards, {
@@ -265,9 +262,9 @@ function checkCompareAndSearch(subjectChecks, allStandards, errors) {
   }
 
   return {
-    multi_subject_h3: {
+    multi_subject_junior_band: {
       subjects: sampleSubjects,
-      grade_bands: ['H3'],
+      grade_bands: [GRADE_BAND],
       valid: multiSubjectValid,
       mode: multiSubjectMode
     },
@@ -277,7 +274,7 @@ function checkCompareAndSearch(subjectChecks, allStandards, errors) {
       valid: singleSubjectValid,
       mode: singleSubjectMode
     },
-    h3_ts1_search_results: h3SearchSample.length,
+    junior_ts1_search_results: juniorSearchSample.length,
     all_band_subject_results: allBandSearchSample.length
   }
 }
@@ -285,9 +282,9 @@ function checkCompareAndSearch(subjectChecks, allStandards, errors) {
 function checkDetailSamples(subjectChecks, samplePerSubject, errors) {
   const samples = []
   for (const subject of subjectChecks) {
-    const h3Sample = subject.standards.filter(row => row.grade_band === 'H3').slice(0, Math.max(1, samplePerSubject))
-    const earlierSample = subject.standards.filter(row => row.grade_band !== 'H3').slice(0, Math.max(1, samplePerSubject))
-    for (const standard of [...h3Sample, ...earlierSample]) {
+    const juniorSample = subject.standards.filter(row => row.grade_band === GRADE_BAND).slice(0, Math.max(1, samplePerSubject))
+    const earlierSample = subject.standards.filter(row => row.grade_band !== GRADE_BAND).slice(0, Math.max(1, samplePerSubject))
+    for (const standard of [...juniorSample, ...earlierSample]) {
       const gradeBandInfo = GRADE_BANDS[standard.grade_band] || {}
       if (!gradeBandInfo.label) errors.push(`${standard.code} has no GRADE_BANDS label for ${standard.grade_band}`)
       samples.push({
@@ -342,8 +339,12 @@ function main() {
   }
 
   const gradeBandH3 = GRADE_BANDS.H3 || {}
-  if (!String(gradeBandH3.range || '').includes('7-9')) {
-    warnings.push(`Frontend GRADE_BANDS.H3.range is "${gradeBandH3.range || ''}", while candidate uses H3 grade_range "7-9". Update GRADE_BANDS before public release.`)
+  const gradeBandJunior = GRADE_BANDS[GRADE_BAND] || {}
+  if (!String(gradeBandH3.range || '').includes('5-6')) {
+    warnings.push(`Frontend GRADE_BANDS.H3.range is "${gradeBandH3.range || ''}", while H3 should remain "5-6".`)
+  }
+  if (!String(gradeBandJunior.range || '').includes(GRADE_RANGE)) {
+    warnings.push(`Frontend GRADE_BANDS.${GRADE_BAND}.range is "${gradeBandJunior.range || ''}", while candidate uses ${GRADE_BAND} grade_range "${GRADE_RANGE}". Update GRADE_BANDS before public release.`)
   }
 
   const skillChecks = checkSkillCoverage(allStandards, loaded.skillToSubjects, loaded.skillsMeta, errors)
@@ -367,7 +368,8 @@ function main() {
     grade_band_labels: {
       H1: GRADE_BANDS.H1,
       H2: GRADE_BANDS.H2,
-      H3: gradeBandH3
+      H3: gradeBandH3,
+      [GRADE_BAND]: gradeBandJunior
     },
     subject_checks: subjectChecks.map(({ standards, ...summary }) => summary),
     skill_checks: skillChecks,

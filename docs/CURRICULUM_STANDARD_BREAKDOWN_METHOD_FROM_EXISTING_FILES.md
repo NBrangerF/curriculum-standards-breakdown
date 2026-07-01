@@ -48,7 +48,7 @@ public/data/by_subject/{subject_slug}.json
 generated/grade7_9_all_curated/
 ```
 
-当前正式 runtime 已采用目标口径 `H1=1-2, H2=3-4, H3=7-9`，并已将 7-9 数据写入 `public/data/by_subject/`。
+当前正式 runtime 已采用目标口径 `H1=1-2, H2=3-4, H3=5-6, H4=7-9`，并已将 7-9 数据以 H4 写入 `public/data/by_subject/`。
 
 ## 3. 拆解目标
 
@@ -157,7 +157,7 @@ raw/grade7_9/sources/
 | `code` | 标准唯一编码，用于 URL、收藏、详情页和反查。 |
 | `subject` | 中文学科名。 |
 | `subject_slug` | 学科 slug，也是 `by_subject` 文件名。 |
-| `grade_band` | 学段代码，如 H1、H2、H3。 |
+| `grade_band` | 学段代码，如 H1、H2、H3、H4。 |
 | `grade_range` | 年级范围，如 `1-2`、`7-9`。 |
 | `grade` | 人类可读年级或学段。 |
 | `domain` | 一级领域、核心素养维度、内容模块或任务群。 |
@@ -246,7 +246,7 @@ scripts/grade7_9/curated/{subject_slug}_h3_raw.json
 
 ```json
 {
-  "grade_band": "H3",
+  "grade_band": "H4",
   "grade_range": "7-9",
   "grade": "七年级"
 }
@@ -275,17 +275,17 @@ scripts/grade7_9/curated/{subject_slug}_h3_raw.json
 基本结构：
 
 ```text
-{学科前缀}-H3-{领域缩写}-{三位序号}
+{学科前缀}-H4-{领域缩写}-{三位序号}
 ```
 
 示例：
 
 ```text
-CN-H3-READ-001
-MA-H3-ALG-001
-ENG-H3-LANG-001
-SC-H3-MAT-001
-LA-H3-DL-001
+CN-H4-READ-001
+MA-H4-ALG-001
+ENG-H4-LANG-001
+SC-H4-MAT-001
+LA-H4-DL-001
 ```
 
 学科前缀和领域缩写来自：
@@ -427,7 +427,7 @@ generated/grade7_9*/
 - `generated/grade7_9*` 是 7-9 扩展 staging 或 release candidate，不是正式发布入口。
 - `scripts/grade7_9/curated/*_h3_raw.json` 是可提交的人工结构化草案。
 - `raw/grade7_9/sources` 和 `generated` 是本地工作产物，不提交。
-- 正式 runtime 已采用 `H1=1-2, H2=3-4, H3=7-9`，7-9 数据已合并到正式主数据。
+- 正式 runtime 已采用 `H1=1-2, H2=3-4, H3=5-6, H4=7-9`，7-9 数据已作为 H4 合并到正式主数据。
 
 ## 14. 当前学段口径
 
@@ -436,18 +436,15 @@ generated/grade7_9*/
 ```text
 H1 = 1-2
 H2 = 3-4
-H3 = 7-9
+H3 = 5-6
+H4 = 7-9
 ```
 
-前端 `src/data/dataLoader.js` 中的 `GRADE_BANDS.H3.range` 已更新为 `7-9年级`。
+前端 `src/data/dataLoader.js` 中的 `GRADE_BANDS.H3.range` 已恢复为 `5-6年级`，并新增 `GRADE_BANDS.H4.range = "7-9年级"`。
 
-写入目标口径 runtime 时，原正式 public 数据中不符合该口径的 354 条记录没有进入当前 `public/data/by_subject`：
+写入当前 runtime 时，原正式 public 数据中的 H1/H2/H3 记录已恢复并保留，共 852 条；7-9 staging records 作为 H4 追加，共 1081 条。艺术旧数据中的 `H2:3-5`、`H3:6-7` 作为来源年级范围保留，不硬改。
 
-- `H2:3-5`：46 条。
-- `H3:5-6`：260 条。
-- `H3:6-7`：48 条。
-
-这些旧记录没有被改写成 7-9；当前做法是保留符合目标口径的旧记录，再追加 7-9 staging records，并重新派生 manifest 和 indexes。
+当前正式主数据合计 1933 条，其中 H4/7-9 为 1081 条。
 
 用于审计该风险的命令是：
 
@@ -527,7 +524,7 @@ npm run grade7_9:apply-release-candidate -- --write --confirm-target-policy
 - [ ] `ts_secondary` 是否不超过两个。
 - [ ] `ts_rationale` 是否解释了标注理由。
 - [ ] staging pipeline 是否完整跑通并通过 validate。
-- [ ] H3 口径是否已经通过 policy gate。
+- [ ] H3=5-6、H4=7-9 口径是否已经通过 policy gate。
 
 ## 18. 当前方法边界
 
@@ -535,14 +532,14 @@ npm run grade7_9:apply-release-candidate -- --write --confirm-target-policy
 2. 自动 raw extraction 只能生成候选，不能直接作为正式标准。
 3. `standard` 是结构化后的核心学习要求，不应混入泛化教学建议。
 4. TS 自动映射是第一轮标签，不代表最终人工审核结论。
-5. 旧 public 中 `H2:3-5`、`H3:5-6`、`H3:6-7` 记录没有进入当前 `H1=1-2, H2=3-4, H3=7-9` runtime。
-6. 后续如果要恢复这些旧范围，必须先设计新的 grade_band 或数据集契约，不能直接混入当前 H3。
+5. 旧 public 中 H1/H2/H3 记录已恢复并保留；7-9 不再占用 H3，而是使用 H4。
+6. 后续如果要调整艺术 `H2:3-5`、`H3:6-7` 这类来源范围，必须先设计清晰的数据契约，不能直接硬改年级含义。
 7. 对外引用“课程标准原文”时，应优先引用 `standard`、`source_pages` 和官方来源，而不是教学建议字段。
 
 ## 19. 推荐下一步
 
 1. 继续人工复核 7-9 curated raw 的 OCR 误差、标准粒度和 TS 映射。
-2. 修复既有非 H3 记录 `SC-D1-SC-012` 的 `assessment_evidence_type` 空值。
-3. 如需恢复旧 `H2:3-5`、`H3:5-6`、`H3:6-7` 数据，先设计新的 runtime 数据契约。
+2. 修复既有非 H4 记录 `SC-D1-SC-012` 的 `assessment_evidence_type` 空值。
+3. 如需调整旧 `H2:3-5`、`H3:6-7` 数据，先设计新的 runtime 数据契约。
 4. 每次修改正式数据后运行 `npm run validate:indexes`、`npm run grade7_9:audit-grade-band-policy -- --strict`、`npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict`、`npm run build`。
 5. 检查学科页、搜索页、对比页、技能页和详情页是否能正常消费 7-9 数据。

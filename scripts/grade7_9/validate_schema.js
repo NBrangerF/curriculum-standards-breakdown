@@ -196,13 +196,13 @@ function validateExistingConflict(existingRoot, warnings) {
   for (const file of subjectFiles(bySubject)) {
     const payload = readJson(file)
     for (const record of payload.standards || []) {
-      if (record.grade_band === 'H3' && record.grade_range !== GRADE_RANGE) {
+      if (record.grade_band === GRADE_BAND && record.grade_range !== GRADE_RANGE) {
         conflicts.push(`${record.subject_slug}:${record.grade_range}`)
       }
     }
   }
   if (conflicts.length) {
-    warnings.push(`Existing data already uses H3 with non-7-9 grade_range (${[...new Set(conflicts)].join(', ')}). Do not overwrite public/data/by_subject until grade-band policy is resolved.`)
+    warnings.push(`Existing data already uses ${GRADE_BAND} with non-${GRADE_RANGE} grade_range (${[...new Set(conflicts)].join(', ')}). Do not overwrite public/data/by_subject until grade-band policy is resolved.`)
   }
 }
 

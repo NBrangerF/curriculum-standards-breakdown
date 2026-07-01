@@ -2,30 +2,26 @@
 
 更新时间：2026-07-01
 
-本文记录将 `generated/grade7_9_all_curated/` 接入正式 `public/data/by_subject/` 的实际方式、影响面和后续维护命令。
+本文记录将 `generated/grade7_9_all_curated/` 接入正式 `public/data/by_subject/` 的当前方式。核心修复是：恢复原有 `H3=5-6`，并将 7-9 年级统一放入 `H4=7-9`。
 
-学段口径政策审计见 `docs/JUNIOR_SECONDARY_GRADE_BAND_POLICY.md`。
-发布准备度见 `docs/JUNIOR_SECONDARY_RELEASE_READINESS.md`。
+## 1. 当前接入策略
 
-## 1. 接入策略
-
-本次采用目标口径 runtime 数据集：
+当前 runtime 口径：
 
 | grade_band | grade_range |
 | --- | --- |
 | H1 | 1-2 |
 | H2 | 3-4 |
-| H3 | 7-9 |
-
-策略不是 append-as-is。原因是旧 public 数据中存在 `H2:3-5`、`H3:5-6`、`H3:6-7`，如果直接追加 7-9，会让同一个 `grade_band` 表示多个年级范围。
+| H3 | 5-6 |
+| H4 | 7-9 |
 
 实际策略：
 
-- 保留旧 public 中符合目标口径的记录：498 条。
-- 追加 7-9 staging records：1081 条。
-- 不把旧的 354 条 out-of-policy 记录保留在 runtime `public/data/by_subject`。
+- 恢复并保留原 public 中的 H1/H2/H3 记录：852 条。
+- 将 7-9 staging records 作为 H4 追加：1081 条。
+- 不再让 7-9 占用 H3。
 - 重新生成 `public/data/manifest.json` 和 `public/data/indexes/*.json`。
-- 将 `src/data/dataLoader.js` 中 `GRADE_BANDS.H3.range` 更新为 `7-9年级`。
+- 将 `src/data/dataLoader.js` 中 H3 恢复为 `5-6年级`，新增 H4 `7-9年级`。
 
 ## 2. 写入命令
 
@@ -45,52 +41,40 @@ npm run grade7_9:apply-release-candidate -- --write --confirm-target-policy
 
 ## 3. 写入影响面
 
-实际写入更新了：
+实际写入更新：
 
 - `public/data/manifest.json`
-- `public/data/by_subject/arts.json`
-- `public/data/by_subject/chinese.json`
-- `public/data/by_subject/english.json`
-- `public/data/by_subject/it.json`
-- `public/data/by_subject/labor.json`
-- `public/data/by_subject/math.json`
-- `public/data/by_subject/morality_law.json`
-- `public/data/by_subject/pe.json`
-- `public/data/by_subject/science.json`
+- `public/data/by_subject/*.json`
 - `public/data/indexes/code_to_subject.json`
 - `public/data/indexes/skill_to_subjects.json`
 - `public/data/indexes/subject_stats.json`
 - `src/data/dataLoader.js`
 
-写入结果：
+当前写入结果：
 
 ```json
 {
-  "public_records_before": 852,
-  "preserved_public_records": 498,
+  "public_records_restored": 852,
   "staging_7_9_records": 1081,
-  "archived_out_of_policy_records": 354,
-  "candidate_records": 1579,
+  "candidate_records": 1933,
   "candidate_subjects": 9
 }
 ```
 
-说明：`archived_out_of_policy_records` 是候选生成阶段统计的旧口径记录数；这些旧记录没有被改写为新年级，也没有进入当前 runtime 主数据。
-
 ## 4. 当前正式数据规模
 
-| 学科 | 当前正式条数 | H1 | H2 | H3/7-9 |
-| --- | ---: | ---: | ---: | ---: |
-| 艺术 | 139 | 42 | 0 | 97 |
-| 语文 | 197 | 15 | 26 | 156 |
-| 英语 | 189 | 0 | 57 | 132 |
-| 信息科技 | 101 | 16 | 19 | 66 |
-| 劳动 | 134 | 25 | 43 | 66 |
-| 数学 | 139 | 7 | 18 | 114 |
-| 道德与法治 | 193 | 36 | 31 | 126 |
-| 体育 | 182 | 30 | 29 | 123 |
-| 科学 | 305 | 65 | 39 | 201 |
-| **合计** | **1579** | **236** | **262** | **1081** |
+| 学科 | 当前正式条数 | H1 | H2 | H3 | H4/7-9 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 艺术 | 233 | 42 | 46 | 48 | 97 |
+| 语文 | 225 | 15 | 26 | 28 | 156 |
+| 英语 | 236 | 0 | 57 | 47 | 132 |
+| 信息科技 | 116 | 16 | 19 | 15 | 66 |
+| 劳动 | 181 | 25 | 43 | 47 | 66 |
+| 数学 | 161 | 7 | 18 | 22 | 114 |
+| 道德与法治 | 221 | 36 | 31 | 28 | 126 |
+| 体育 | 211 | 30 | 29 | 29 | 123 |
+| 科学 | 349 | 65 | 39 | 44 | 201 |
+| **合计** | **1933** | **236** | **308** | **308** | **1081** |
 
 ## 5. 已通过的 gate
 
@@ -100,8 +84,6 @@ npm run grade7_9:apply-release-candidate -- --write --confirm-target-policy
 npm run validate:indexes
 npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
-git diff --check
-npm run build
 ```
 
 结果：
@@ -109,7 +91,6 @@ npm run build
 - 索引一致，`validate:indexes` 返回 `valid: true`。
 - 学段政策一致，`audit-grade-band-policy --strict` 返回 `policy_ready: true`。
 - 发布审计一致，`audit-release --strict` 返回 `ready: true`。
-- 前端生产构建通过。
 
 ## 6. 后续维护方式
 
@@ -117,7 +98,7 @@ npm run build
 
 ```bash
 npm run grade7_9:build-curated
-npm run grade7_9:audit-grade-split -- --out generated/grade7_9_grade_split_audit.json
+npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 npm run grade7_9:build-release-candidate
 npm run grade7_9:check-release-candidate
 npm run grade7_9:apply-release-candidate
@@ -134,4 +115,4 @@ npm run validate:indexes
 npm run build
 ```
 
-不得绕过 release candidate 直接手工拼接 `public/data/by_subject/*.json`，否则容易造成 manifest、indexes、前端学段口径或 TS 反查不一致。
+不得绕过 release candidate 直接手工拼接 `public/data/by_subject/*.json`。

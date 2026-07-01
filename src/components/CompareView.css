@@ -59,6 +59,10 @@
     grid-template-columns: repeat(3, 1fr);
 }
 
+.compare-columns.columns-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
 /* ============================================
    MULTI-GRADE BAND MODE (Aligned Rows)
    ============================================ */
@@ -86,6 +90,10 @@
 
 .compare-header.columns-3 {
     grid-template-columns: repeat(3, 1fr);
+}
+
+.compare-header.columns-4 {
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .compare-column-header {
@@ -167,6 +175,10 @@
     grid-template-columns: repeat(3, 1fr);
 }
 
+.compare-domain-content.columns-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -221,7 +233,8 @@
    ============================================ */
 
 @media (max-width: 1200px) {
-    .compare-columns.columns-3 {
+    .compare-columns.columns-3,
+    .compare-columns.columns-4 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -229,7 +242,9 @@
 @media (max-width: 1024px) {
 
     .compare-header.columns-3,
-    .compare-domain-content.columns-3 {
+    .compare-header.columns-4,
+    .compare-domain-content.columns-3,
+    .compare-domain-content.columns-4 {
         grid-template-columns: repeat(2, 1fr);
     }
 }

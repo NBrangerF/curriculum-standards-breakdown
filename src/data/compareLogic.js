@@ -3,7 +3,7 @@
  * 
  * Enforces mutual exclusion rules for compare mode:
  * - A: 1-3 subjects + exactly 1 grade band
- * - B: exactly 1 subject + 1-3 grade bands
+ * - B: exactly 1 subject + 1-4 grade bands
  * 
  * Never allow multiple subjects AND multiple grade bands simultaneously.
  */
@@ -12,7 +12,7 @@
  * Maximum allowed selections
  */
 export const MAX_SUBJECTS = 3
-export const MAX_GRADE_BANDS = 3
+export const MAX_GRADE_BANDS = 4
 
 /**
  * Default selections for compare mode
@@ -41,7 +41,7 @@ export function isValidCompareSelection(subjects, gradeBands) {
         return true
     }
 
-    // B: exactly 1 subject + 1-3 grade bands
+    // B: exactly 1 subject + 1-4 grade bands
     if (subjectCount === 1 && bandCount >= 1 && bandCount <= MAX_GRADE_BANDS) {
         return true
     }
@@ -129,7 +129,7 @@ export function addSubject(current, slug) {
 /**
  * Attempt to add a grade band, enforcing constraints
  * @param {Object} current - Current state { subjects, gradeBands }
- * @param {string} band - Grade band to add (H1, H2, H3)
+ * @param {string} band - Grade band to add (H1, H2, H3, H4)
  * @returns {Object} { subjects, gradeBands, message }
  */
 export function addGradeBand(current, band) {
@@ -208,10 +208,10 @@ export function toggleSkill(skills = [], code) {
 /**
  * Fixed grade band order for display
  */
-export const GRADE_BAND_ORDER = { H1: 1, H2: 2, H3: 3 }
+export const GRADE_BAND_ORDER = { H1: 1, H2: 2, H3: 3, H4: 4 }
 
 /**
- * Sort grade bands by fixed order (H1 → H2 → H3)
+ * Sort grade bands by fixed order (H1 → H2 → H3 → H4)
  * @param {string[]} bands - Grade bands to sort
  * @returns {string[]} Sorted grade bands
  */

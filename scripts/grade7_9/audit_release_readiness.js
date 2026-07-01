@@ -160,8 +160,8 @@ function collectStaging(args, errors, warnings) {
       if (!row.code) errors.push(`${subjectSlug} has record without code`)
       if (row.code && seenCodes.has(row.code)) errors.push(`Duplicate staging code: ${row.code}`)
       if (row.code) seenCodes.add(row.code)
-      if (row.code && !row.code.startsWith(`${SUBJECTS[subjectSlug]?.prefix}-H3-`)) {
-        errors.push(`${row.code} does not use expected ${subjectSlug} H3 code prefix`)
+      if (row.code && !row.code.startsWith(`${SUBJECTS[subjectSlug]?.prefix}-${GRADE_BAND}-`)) {
+        errors.push(`${row.code} does not use expected ${subjectSlug} ${GRADE_BAND} code prefix`)
       }
       if (row.subject_slug !== subjectSlug) errors.push(`${row.code} subject_slug mismatch: ${row.subject_slug} != ${subjectSlug}`)
       if (row.grade_band !== GRADE_BAND) errors.push(`${row.code} grade_band must be ${GRADE_BAND}`)
@@ -286,12 +286,17 @@ function auditPublicIntegration(args, blockers, warnings) {
   }
 
   if (Object.keys(conflicts).length) {
-    blockers.push('public/data already contains H3 records whose grade_range is not 7-9; direct write would mix incompatible grade-band meanings.')
+    blockers.push(`public/data already contains ${GRADE_BAND} records whose grade_range is not ${GRADE_RANGE}; direct write would mix incompatible grade-band meanings.`)
+  }
+
+  const juniorRange = GRADE_BANDS[GRADE_BAND]?.range || ''
+  if (!String(juniorRange).includes(GRADE_RANGE)) {
+    blockers.push(`src/data/dataLoader.js GRADE_BANDS.${GRADE_BAND}.range is "${juniorRange}", not "${GRADE_RANGE}".`)
   }
 
   const h3Range = GRADE_BANDS.H3?.range || ''
-  if (!String(h3Range).includes(GRADE_RANGE)) {
-    blockers.push(`src/data/dataLoader.js GRADE_BANDS.H3.range is "${h3Range}", not "${GRADE_RANGE}".`)
+  if (!String(h3Range).includes('5-6')) {
+    blockers.push(`src/data/dataLoader.js GRADE_BANDS.H3.range is "${h3Range}", not "5-6".`)
   }
 
   if (GRADE_BANDS.H2?.range && !String(GRADE_BANDS.H2.range).includes('3-4')) {
@@ -320,7 +325,7 @@ function main() {
 
   const completedChecks = [
     'staging schema uses the existing standard fields',
-    'staging grade_band is H3 and grade_range is 7-9',
+    `staging grade_band is ${GRADE_BAND} and grade_range is ${GRADE_RANGE}`,
     'staging records split into 七年级, 八年级, 九年级',
     'staging indexes are derived from by_subject records',
     'curated raw files retain source_pages and target_grades',
@@ -330,7 +335,7 @@ function main() {
   const nextActions = []
   if (blockers.length) {
     nextActions.push('Resolve grade-band policy before writing staging data into public/data/by_subject.')
-    nextActions.push('Update GRADE_BANDS and formal public data so H3 has one meaning across UI and records.')
+    nextActions.push(`Update GRADE_BANDS and formal public data so H3 remains 5-6 and ${GRADE_BAND} represents ${GRADE_RANGE}.`)
   }
   if (errors.length) {
     nextActions.push('Fix staging or curated source errors, then rerun grade7_9:build-curated and this audit.')
@@ -346,7 +351,7 @@ function main() {
       staging_subjects: staging?.subjects.length || 0,
       staging_standards: staging?.total || 0,
       expected_subjects: expectedSubjectSlugs().length,
-      public_h3_conflict_subjects: Object.keys(publicIntegration.conflicts || {}).length
+      public_junior_band_conflict_subjects: Object.keys(publicIntegration.conflicts || {}).length
     },
     completed_checks: errors.length ? [] : completedChecks,
     staging_subjects: staging?.bySubjectSummaries || {},

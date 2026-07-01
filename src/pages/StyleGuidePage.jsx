@@ -293,13 +293,19 @@ function StyleGuidePage() {
                                             className={`chip ${selectedChip === 'chip-2' ? 'selected' : ''}`}
                                             onClick={() => setSelectedChip('chip-2')}
                                         >
-                                            H2 (3-6年级)
+                                            H2 (3-4年级)
                                         </span>
                                         <span
                                             className={`chip ${selectedChip === 'chip-3' ? 'selected' : ''}`}
                                             onClick={() => setSelectedChip('chip-3')}
                                         >
-                                            H3 (7-9年级)
+                                            H3 (5-6年级)
+                                        </span>
+                                        <span
+                                            className={`chip ${selectedChip === 'chip-4' ? 'selected' : ''}`}
+                                            onClick={() => setSelectedChip('chip-4')}
+                                        >
+                                            H4 (7-9年级)
                                         </span>
                                     </div>
                                 </div>
@@ -331,15 +337,16 @@ function StyleGuidePage() {
                                 <div className="component-group full-width">
                                     <h4>Grade Band Tabs</h4>
                                     <div className="tabs-demo">
-                                        {['H1', 'H2', 'H3'].map(tab => (
+                                        {['H1', 'H2', 'H3', 'H4'].map(tab => (
                                             <button
                                                 key={tab}
                                                 className={`tab-btn ${activeTab === tab ? 'active' : ''}`}
                                                 onClick={() => setActiveTab(tab)}
                                             >
                                                 {tab === 'H1' && '1-2年级'}
-                                                {tab === 'H2' && '3-6年级'}
-                                                {tab === 'H3' && '7-9年级'}
+                                                {tab === 'H2' && '3-4年级'}
+                                                {tab === 'H3' && '5-6年级'}
+                                                {tab === 'H4' && '7-9年级'}
                                             </button>
                                         ))}
                                     </div>

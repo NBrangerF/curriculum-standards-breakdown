@@ -226,7 +226,7 @@ public/data/
 | `subject_slug` | string | 学科英文 slug，也是文件名。 |
 | `domain` | string | 学科一级领域。 |
 | `subdomain` | string | 子领域或更细分类。 |
-| `grade_band` | string | 学段代码：`H1`、`H2`、`H3`。 |
+| `grade_band` | string | 学段代码：`H1`、`H2`、`H3`、`H4`。 |
 | `grade_range` | string | 年级范围，如 `1-2`。 |
 | `grade` | string | 人类可读学段文本。 |
 | `standard` | string | 标准正文，是页面最核心展示内容。 |
@@ -344,12 +344,13 @@ public/data/
 ```json
 {
   "chinese": {
-    "total": 197,
+    "total": 225,
     "domains": 11,
     "grade_bands": {
       "H1": 15,
       "H2": 26,
-      "H3": 156
+      "H3": 28,
+      "H4": 156
     },
     "grades": {
       "七年级": 52,
@@ -369,16 +370,16 @@ public/data/
 
 | 学科 slug | 学科 | 实际条目数 |
 | --- | --- | ---: |
-| `arts` | 艺术 | 139 |
-| `chinese` | 语文 | 197 |
-| `english` | 英语 | 189 |
-| `it` | 信息科技 | 101 |
-| `labor` | 劳动 | 134 |
-| `math` | 数学 | 139 |
-| `morality_law` | 道德与法治 | 193 |
-| `pe` | 体育 | 182 |
-| `science` | 科学 | 305 |
-| **合计** |  | **1579** |
+| `arts` | 艺术 | 233 |
+| `chinese` | 语文 | 225 |
+| `english` | 英语 | 236 |
+| `it` | 信息科技 | 116 |
+| `labor` | 劳动 | 181 |
+| `math` | 数学 | 161 |
+| `morality_law` | 道德与法治 | 221 |
+| `pe` | 体育 | 211 |
+| `science` | 科学 | 349 |
+| **合计** |  | **1933** |
 
 注意：当前 `manifest.json` 与 `subject_stats.json` 已由主数据重新生成，并可通过 `npm run validate:indexes` 校验。
 
@@ -550,34 +551,34 @@ const STORAGE_KEY = 'curriculum-collections'
 截至 2026-07-01，`public/data/manifest.json` 已通过 `scripts/build-indexes.js` 从 `public/data/by_subject` 重新生成。当前 manifest 显示：
 
 - 学科数：9
-- 总条目数：1579
-- 科学：305
+- 总条目数：1933
+- 科学：349
 
 这与 `public/data/by_subject/*.json` 当前实际合计一致：
 
 - 学科数：9
-- 总条目数：1579
-- 科学：305
+- 总条目数：1933
+- 科学：349
 
 `manifest.subjects[].record_count`、`domains`、`grade_bands`、`grades` 均由主数据派生。
 
 ### 11.2 `subject_stats.json` 已由主数据重新生成
 
-截至 2026-07-01，`public/data/indexes/subject_stats.json` 已通过 `scripts/build-indexes.js` 从 `public/data/by_subject` 重新生成，合计 1579 条，与主数据实际数量一致，并包含 `grade_bands` 与具体 `grades` 两层统计。
+截至 2026-07-01，`public/data/indexes/subject_stats.json` 已通过 `scripts/build-indexes.js` 从 `public/data/by_subject` 重新生成，合计 1933 条，与主数据实际数量一致，并包含 `grade_bands` 与具体 `grades` 两层统计。
 
 当前正式主数据按学科统计如下：
 
 | 学科 | 主数据实际 |
 | --- | ---: |
-| 艺术 | 139 |
-| 语文 | 197 |
-| 英语 | 189 |
-| 信息科技 | 101 |
-| 劳动 | 134 |
-| 数学 | 139 |
-| 道德与法治 | 193 |
-| 体育 | 182 |
-| 科学 | 305 |
+| 艺术 | 233 |
+| 语文 | 225 |
+| 英语 | 236 |
+| 信息科技 | 116 |
+| 劳动 | 181 |
+| 数学 | 161 |
+| 道德与法治 | 221 |
+| 体育 | 211 |
+| 科学 | 349 |
 
 建议：每次修改 `public/data/by_subject` 后重新运行 `npm run build:indexes` 和 `npm run validate:indexes`，并一起提交 manifest 与派生索引。
 
@@ -609,17 +610,19 @@ const STORAGE_KEY = 'curriculum-collections'
 
 - `H1`：1-2 年级
 - `H2`：3-4 年级
-- `H3`：7-9 年级
+- `H3`：5-6 年级
+- `H4`：7-9 年级
 
 当前正式数据、manifest、indexes 和前端展示都采用：
 
 - `H1`：1-2 年级
 - `H2`：3-4 年级
-- `H3`：7-9 年级
+- `H3`：5-6 年级
+- `H4`：7-9 年级
 
-按该口径，旧 public 中没有目标槽位的 `H2:3-5`、`H3:5-6`、`H3:6-7` 记录未进入当前 runtime `public/data/by_subject`。
+按该口径，旧 public 中的 H1/H2/H3 记录已经恢复并保留；7-9 年级记录使用 H4。艺术旧数据中的 `H2:3-5`、`H3:6-7` 作为来源年级范围保留，不被硬改。
 
-建议：后续如果要恢复小学高段或艺术跨段数据，应先设计新的 grade_band 或数据集契约，再同步 README、glossary、`GRADE_BANDS`、数据字段和页面展示。
+建议：后续如果要调整学段定义，应先设计新的 grade_band 或数据集契约，再同步 README、glossary、`GRADE_BANDS`、数据字段和页面展示。
 
 ### 11.6 搜索页技能筛选字段疑似不一致
 
@@ -663,7 +666,7 @@ npm run build
 优先级从高到低：
 
 1. 修复 `glossary.json` 的 JSON 语法问题。
-2. 继续保持学段口径一致：README、glossary、`GRADE_BANDS`、数据字段都应维持 `H1=1-2, H2=3-4, H3=7-9`。
+2. 继续保持学段口径一致：README、glossary、`GRADE_BANDS`、数据字段都应维持 `H1=1-2, H2=3-4, H3=5-6, H4=7-9`。
 3. 每次修改主数据后重新生成 `manifest.json`，确保统计来自 `by_subject` 主数据。
 4. 让 `loadStandardByCode` 优先使用已纳入的 `code_to_subject.json`，减少 fallback 全量扫描。
 5. 持续保持搜索页、技能页和索引脚本统一使用 `ts_primary` / `ts_secondary`。

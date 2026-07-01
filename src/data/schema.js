@@ -170,7 +170,7 @@ export const FIELD_DEFINITIONS = {
     code: '标准的唯一编码，格式如 ML-H1-ENR-001',
     domain: '领域/模块，如"数与代数"、"阅读与鉴赏"',
     subdomain: '子领域，更细分的分类',
-    grade_band: '学段代码：H1=1-2年级, H2=3-4年级, H3=7-9年级',
+    grade_band: '学段代码：H1=1-2年级, H2=3-4年级, H3=5-6年级, H4=7-9年级',
     standard: '标准的核心描述文本',
     context: '情境说明，描述该标准适用的教学场景',
     practice: '实践建议，可落地的教学活动示例',
