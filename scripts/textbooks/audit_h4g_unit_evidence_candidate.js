@@ -43,7 +43,8 @@ function parseArgs(argv) {
     dataRoot: DEFAULT_DATA_ROOT,
     out: DEFAULT_OUT,
     strict: false,
-    requireCandidates: false
+    requireCandidates: false,
+    requirePageStart: false
   }
   for (let i = 0; i < argv.length; i += 1) {
     const item = argv[i]
@@ -52,6 +53,7 @@ function parseArgs(argv) {
     else if (item === '--out') args.out = argv[++i]
     else if (item === '--strict') args.strict = true
     else if (item === '--require-candidates') args.requireCandidates = true
+    else if (item === '--require-page-start') args.requirePageStart = true
     else if (item === '--help') args.help = true
   }
   return args
@@ -62,11 +64,13 @@ function usage() {
 node scripts/textbooks/audit_h4g_unit_evidence_candidate.js \\
   --candidate generated/textbook_evidence/h4g_unit_evidence_candidate.json \\
   --data-root public/data \\
-  --strict --require-candidates
+  --strict --require-candidates --require-page-start
 
 Audits an H4G unit-evidence candidate pack before it is applied to a candidate
 data root. The audit verifies that candidates are reviewable pre-publication
-artifacts and do not mutate official standard fields.`)
+artifacts and do not mutate official standard fields. Use --require-page-start
+when the pack is meant to support grade-by-grade H4G differentiation with
+textbook unit page evidence.`)
 }
 
 function readJson(path) {
@@ -151,7 +155,7 @@ function compareCurrentStatus(candidate, record, warnings) {
   }
 }
 
-function auditUnitEvidence(candidate, errors, warnings, stats) {
+function auditUnitEvidence(candidate, errors, warnings, stats, args) {
   const prefix = candidate.standard_code || candidate.candidate_id || '(missing candidate id)'
   const units = Array.isArray(candidate.unit_evidence) ? candidate.unit_evidence : []
   if (!units.length) errors.push(`${prefix} has no unit_evidence`)
@@ -210,6 +214,17 @@ function auditUnitEvidence(candidate, errors, warnings, stats) {
         errors.push(`${unitPrefix} strong_field_alignment requires matched_keywords`)
       }
     }
+    if (hasValue(unit.page_start)) {
+      stats.page_start_records += 1
+      if (!Number.isInteger(Number(unit.page_start)) || Number(unit.page_start) < 1) {
+        errors.push(`${unitPrefix} page_start must be a positive integer when present`)
+      }
+    } else {
+      warnings.push(`${unitPrefix} missing page_start`)
+      if (args.requirePageStart) errors.push(`${unitPrefix} missing page_start while requirePageStart is set`)
+    }
+    if (hasValue(unit.page_range)) stats.page_range_records += 1
+    countInto(stats.by_page_range_status, unit.page_range_status || 'missing')
     countInto(stats.by_eligible_alignment, unit.eligible_alignment)
   }
 }
@@ -265,7 +280,7 @@ function auditSafety(candidate, errors) {
   if (candidate.safety?.requires_manual_review !== true) errors.push(`${prefix} safety.requires_manual_review must be true`)
 }
 
-function auditCandidate(candidate, standardsByCode, errors, warnings, stats) {
+function auditCandidate(candidate, standardsByCode, errors, warnings, stats, args) {
   const prefix = candidate.standard_code || candidate.candidate_id || '(missing candidate id)'
   if (!candidate.candidate_id) errors.push(`${prefix} missing candidate_id`)
   if (!candidate.standard_code) errors.push(`${prefix} missing standard_code`)
@@ -286,7 +301,7 @@ function auditCandidate(candidate, standardsByCode, errors, warnings, stats) {
   }
   compareOfficialFields(candidate, record, errors)
   compareCurrentStatus(candidate, record, warnings)
-  auditUnitEvidence(candidate, errors, warnings, stats)
+  auditUnitEvidence(candidate, errors, warnings, stats, args)
   auditProposedUpdate(candidate, errors, warnings)
   auditSafety(candidate, errors)
   countInto(stats.by_subject, candidate.subject_slug)
@@ -311,7 +326,10 @@ function main() {
     by_grade_band: {},
     by_current_review_status: {},
     by_proposed_review_status: {},
-    by_eligible_alignment: {}
+    by_eligible_alignment: {},
+    by_page_range_status: {},
+    page_start_records: 0,
+    page_range_records: 0
   }
 
   if (!existsSync(args.candidate)) errors.push(`Missing candidate file: ${args.candidate}`)
@@ -337,7 +355,7 @@ function main() {
       if (seenStandardCodes.has(candidate.standard_code)) errors.push(`duplicate standard_code: ${candidate.standard_code}`)
       else seenStandardCodes.add(candidate.standard_code)
     }
-    auditCandidate(candidate, standardsByCode, errors, warnings, stats)
+    auditCandidate(candidate, standardsByCode, errors, warnings, stats, args)
   }
 
   stats.candidates = (payload.candidates || []).length
@@ -354,6 +372,7 @@ function main() {
     candidate: args.candidate,
     data_root: args.dataRoot,
     require_candidates: args.requireCandidates,
+    require_page_start: args.requirePageStart,
     summary: stats,
     errors,
     warnings

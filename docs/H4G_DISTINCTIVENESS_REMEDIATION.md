@@ -214,7 +214,7 @@ npm run textbooks:apply-h4g-unit-candidates -- --candidate /tmp/h4g_unit_evidenc
 
 该步骤会复制 `public/data` 到候选数据根，然后只更新候选命中的 H4G records。当前数学样本 apply 结果为 15 条 applied、0 条 missing、0 条 skipped、32 个单元证据对象，且 `official_standard_text_changed: false`、`writes_public_data: false`。候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 与 `audit-grade-band-policy --data-only --strict` 均通过；审计能识别到 15 条 `unit_level_evidence_records`。
 
-科学浙教版 7/8/9 六册也完成一轮小样本验证：加入 raw URL fallback 与 `.part` 断点续传后，六册都能进入文本层目录解析，共抽出 177 个真实目录/章节候选、0 个 `volume_seed`。201 条科学 H4G standards 进入匹配后，得到 77 个 matches、11 个 eligible candidates，并形成 11 条单元级证据候选，分布为 H4G7 2 条、H4G8 4 条、H4G9 5 条；alignment 分布为 `subdomain_anchor` 4 条、`strong_field_alignment` 7 条。候选 review pack 已生成 11 条逐条复核明细，候选包审计通过且 errors/warnings 均为 0；候选根 apply 后为 11 条 applied、0 条 missing、0 条 skipped，官方字段变化数为 0，严格索引校验、H4G distinctiveness 审计和 grade-band policy 审计均通过。该结果解决了先前八、九年级科学 PDF `materialize_timeout` 和 H4G8 被过严 `subdomain` 逐字锚点挡住的两个阻塞；但这些仍是候选证据，正式写入前还需要跨版本一致性、页码范围和人工/规则复核。
+科学浙教版 7/8/9 六册也完成一轮小样本验证：加入 raw URL fallback 与 `.part` 断点续传后，六册都能进入文本层目录解析，共抽出 175 个真实目录/章节候选、0 个 `volume_seed`，且 175 条都带有目录印刷页 `page_start/page_range`。201 条科学 H4G standards 进入匹配后，得到 77 个 matches、11 个 eligible candidates，并形成 11 条单元级证据候选，分布为 H4G7 2 条、H4G8 4 条、H4G9 5 条；alignment 分布为 `subdomain_anchor` 4 条、`strong_field_alignment` 7 条；页码状态分布为 `toc_page_range_inferred` 10 条、`toc_page_nonmonotonic` 1 条。候选 review pack 已生成 11 条逐条复核明细，候选包审计在 `--require-page-start` 下通过且 errors/warnings 均为 0。该结果解决了先前八、九年级科学 PDF `materialize_timeout`、H4G8 被过严 `subdomain` 逐字锚点挡住、以及候选包缺少页码证据的三个阻塞；但这些仍是候选证据，正式写入前还需要跨版本一致性、人工/规则复核，并对 `toc_page_nonmonotonic` 页段做人工确认。
 
 后续一旦有真实 `toc_unit_or_chapter`，匹配输出必须包含：
 
@@ -230,7 +230,7 @@ npm run textbooks:apply-h4g-unit-candidates -- --candidate /tmp/h4g_unit_evidenc
 npm run textbooks:audit-unit-matches -- --strict --require-matches --require-eligible
 ```
 
-该小批量已经通过严格匹配审计并形成写回前候选包，但仍不能直接写入 `public/data`：跨版本一致性、页码范围、人工/规则复核和正式 apply 流程尚未完成。
+该小批量已经通过严格匹配审计并形成带页码证据的写回前候选包，但仍不能直接写入 `public/data`：跨版本一致性、人工/规则复核和正式 apply 流程尚未完成。
 
 优先级建议：
 

@@ -129,6 +129,14 @@ function unitEvidenceFromMatch(match) {
     textbook_subject: match.textbook_subject,
     repository_path: match.repository_path,
     evidence_url: match.evidence_url,
+    page_start: match.page_start ?? null,
+    page_end: match.page_end ?? null,
+    page_range: match.page_range || '',
+    page_range_status: match.page_range_status || '',
+    toc_page_source: match.toc_page_source || '',
+    toc_raw_line: match.toc_raw_line || '',
+    toc_source_order: match.toc_source_order ?? null,
+    pdf_page_hint: match.pdf_page_hint ?? null,
     match_id: match.match_id,
     match_type: match.match_type,
     score: match.score,
@@ -266,9 +274,15 @@ function markdownSummary(payload) {
   const alignmentRows = Object.entries(payload.summary.by_eligible_alignment)
     .map(([alignment, count]) => `| ${alignment} | ${count} |`)
     .join('\n') || '| - | 0 |'
+  const pageStatusRows = Object.entries(payload.summary.by_page_range_status || {})
+    .map(([status, count]) => `| ${status} | ${count} |`)
+    .join('\n') || '| - | 0 |'
   const candidateRows = payload.candidates
     .map(candidate => {
-      const units = candidate.unit_evidence.map(unit => unit.unit_title).join('；')
+      const units = candidate.unit_evidence.map(unit => {
+        const page = unit.page_range ? ` p.${unit.page_range}` : ''
+        return `${unit.unit_title}${page}`
+      }).join('；')
       const alignments = unitAlignments(candidate.unit_evidence).join('；')
       return `| ${candidate.standard_code} | ${candidate.grade_band} | ${markdownCell(alignments)} | ${markdownCell(candidate.subdomain)} | ${candidate.unit_evidence.length} | ${markdownCell(units)} |`
     })
@@ -279,9 +293,9 @@ function markdownSummary(payload) {
         .map(unit => {
           const matchedFields = [...new Set((unit.matched_fields || []).map(field => field.field))].join('、') || '-'
           const keywords = unitKeywords([unit]).slice(0, 10).join('、') || '-'
-          return `| ${markdownCell(unit.unit_title)} | ${markdownCell(unit.eligible_alignment || '-')} | ${unit.score} | ${markdownCell(unit.confidence_band)} | ${markdownCell(matchedFields)} | ${markdownCell(keywords)} |`
+          return `| ${markdownCell(unit.unit_title)} | ${markdownCell(unit.page_range || '-')} | ${markdownCell(unit.page_range_status || '-')} | ${markdownCell(unit.eligible_alignment || '-')} | ${unit.score} | ${markdownCell(unit.confidence_band)} | ${markdownCell(matchedFields)} | ${markdownCell(keywords)} |`
         })
-        .join('\n') || '| - | - | - | - | - | - |'
+        .join('\n') || '| - | - | - | - | - | - | - | - |'
       return `### ${candidate.standard_code} ${candidate.grade_band}
 
 | 项 | 内容 |
@@ -295,8 +309,8 @@ function markdownSummary(payload) {
 | proposed status | ${markdownCell(`${candidate.proposed_update.review_status || ''} / ${candidate.proposed_update.evidence_granularity || ''}`)} |
 | safety | official text unchanged; requires manual review |
 
-| unit | alignment | score | confidence | matched fields | matched keywords |
-| --- | --- | ---: | --- | --- | --- |
+| unit | page_range | page status | alignment | score | confidence | matched fields | matched keywords |
+| --- | --- | --- | --- | ---: | --- | --- | --- |
 ${unitRows}
 `
     })
@@ -318,12 +332,20 @@ matches：\`${payload.matches_file}\`
 | candidate standards | ${payload.summary.candidate_standards} |
 | public records missing | ${payload.summary.missing_public_records} |
 | standards already unit-level | ${payload.summary.already_unit_level_records} |
+| unit evidence with page_start | ${payload.summary.page_start_records || 0} |
+| unit evidence with page_range | ${payload.summary.page_range_records || 0} |
 
 ## Alignment 分布
 
 | alignment | eligible unit matches |
 | --- | ---: |
 ${alignmentRows}
+
+## 页码状态分布
+
+| page_range_status | unit evidence |
+| --- | ---: |
+${pageStatusRows}
 
 ## 年级分布
 
@@ -386,7 +408,10 @@ function main() {
     by_subject: {},
     by_current_review_status: {},
     by_current_evidence_granularity: {},
-    by_eligible_alignment: {}
+    by_eligible_alignment: {},
+    by_page_range_status: {},
+    page_start_records: 0,
+    page_range_records: 0
   }
 
   for (const [code, matches] of [...eligibleGroups.entries()].sort(([a], [b]) => a.localeCompare(b))) {
@@ -403,6 +428,11 @@ function main() {
     countInto(summary.by_current_review_status, record.review_status)
     countInto(summary.by_current_evidence_granularity, record.evidence_granularity)
     for (const match of matches) countInto(summary.by_eligible_alignment, match.eligible_alignment || 'missing')
+    for (const unit of candidate.unit_evidence) {
+      if (unit.page_start) summary.page_start_records += 1
+      if (unit.page_range) summary.page_range_records += 1
+      countInto(summary.by_page_range_status, unit.page_range_status || 'missing')
+    }
     if (record.evidence_granularity === 'textbook_unit_level') summary.already_unit_level_records += 1
   }
   summary.candidate_standards = candidates.length

@@ -125,6 +125,11 @@ npm run textbooks:audit-unit-matches -- --strict --require-matches --require-eli
 | `unit_title` | 候选单元或占位标题。 |
 | `candidate_type` | `volume_seed` 或 `toc_unit_or_chapter`。 |
 | `evidence_granularity` | `textbook_file_grade_level` 或 `textbook_unit_or_chapter_candidate`。 |
+| `page_start` / `page_end` / `page_range` | 目录中解析出的教材印刷页起点、推断终点和候选页段。该字段来自目录文本，不是 PDF 页码。 |
+| `page_range_status` | 页段质量状态，如 `toc_page_range_inferred`、`toc_page_start_only`、`toc_page_nonmonotonic` 或 `missing`。 |
+| `toc_page_source` | 起始页来源：同一行尾页码或目录标题后的独立页码行。 |
+| `toc_raw_line` | 原始目录行，供人工复核页码和标题解析。 |
+| `pdf_page_hint` | 目录行所在的 PDF 页码提示，和教材印刷页不同。 |
 | `confidence` | 候选提取置信度。 |
 | `requires_review` | 当前一律为 true，不能跳过人工/规则复核。 |
 
@@ -136,6 +141,7 @@ npm run textbooks:audit-unit-matches -- --strict --require-matches --require-eli
 | `standard_code` | 被匹配的 H4G standard code，必须来自 `public/data` 或 candidate data root。 |
 | `unit_evidence_id` | 来源单元/章节候选 ID。 |
 | `candidate_type` | 当前可作为匹配证据的类型必须是 `toc_unit_or_chapter`。 |
+| `page_start` / `page_range` / `page_range_status` | 从单元候选传入的教材印刷页证据，用于 review pack 和 H4G 年级分化 gate。 |
 | `score` | 0 到 1 的关键词匹配分数。 |
 | `confidence_band` | `high`、`medium`、`low` 或 `below_threshold`。 |
 | `matched_keywords` | 标准字段与单元标题之间的关键词交集。 |
@@ -393,7 +399,7 @@ npm run grade7_9:audit-grade-band-policy -- --public-data-root /tmp/h4g_unit_evi
 浙教版六册完整诊断命令：
 
 ```bash
-npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6,ctb_943ec07406e2,ctb_c4e71c26b3da,ctb_056ac74f165c,ctb_df20fdb436e6 --materialize --ocr-fallback --max-pages 16 --materialize-timeout-ms 60000 --download-timeout-ms 180000 --debug-text-dir /tmp/textbook_debug_text_science_h4g_zj_all_raw --out /tmp/textbook_unit_index_science_h4g_zj_all_raw.json --summary-out /tmp/textbook_unit_index_science_h4g_zj_all_raw.md
+npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6,ctb_943ec07406e2,ctb_c4e71c26b3da,ctb_056ac74f165c,ctb_df20fdb436e6 --materialize --ocr-fallback --max-pages 16 --materialize-timeout-ms 60000 --download-timeout-ms 180000 --debug-text-dir /tmp/textbook_debug_text_science_h4g_zj_all_pages --out /tmp/textbook_unit_index_science_h4g_zj_all_pages.json --summary-out /tmp/textbook_unit_index_science_h4g_zj_all_pages.md
 ```
 
 目录索引结果：
@@ -401,9 +407,16 @@ npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6
 ```json
 {
   "textbook_files": 6,
-  "unit_candidates": 177,
-  "real_unit_or_chapter_candidates": 177,
+  "unit_candidates": 175,
+  "real_unit_or_chapter_candidates": 175,
+  "page_start_candidates": 175,
+  "page_range_candidates": 175,
   "volume_seed_candidates": 0,
+  "by_page_range_status": {
+    "toc_page_range_inferred": 136,
+    "toc_page_nonmonotonic": 33,
+    "toc_page_start_only": 6
+  },
   "by_extraction_status": {
     "cached": 6
   }
@@ -415,7 +428,7 @@ npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6
 ```json
 {
   "standards_evaluated": 201,
-  "unit_candidates_considered": 177,
+  "unit_candidates_considered": 175,
   "matches": 77,
   "eligible_matches": 11,
   "candidate_standards": 11,
@@ -427,29 +440,33 @@ npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6
   "by_eligible_alignment": {
     "subdomain_anchor": 4,
     "strong_field_alignment": 7
+  },
+  "by_page_range_status": {
+    "toc_page_range_inferred": 10,
+    "toc_page_nonmonotonic": 1
   }
 }
 ```
 
 生成的 11 条科学候选为：
 
-| standard_code | grade_band | alignment | unit |
-| --- | --- | --- | --- |
-| `SC-H4G7-EVOL-010` | H4G7 | `subdomain_anchor` | `第6节 细菌和真菌的繁殖` |
-| `SC-H4G7-PR-001` | H4G7 | `subdomain_anchor` | `第5节 科学探究` |
-| `SC-H4G8-CHG-011` | H4G8 | `strong_field_alignment` | `第3节 化学方程式` |
-| `SC-H4G8-HOME-002` | H4G8 | `strong_field_alignment` | `第6节 光合作用` |
-| `SC-H4G8-HOME-008` | H4G8 | `strong_field_alignment` | `第3节 神经调节` |
-| `SC-H4G8-MAT-005` | H4G8 | `strong_field_alignment` | `第4节 二氧化碳` |
-| `SC-H4G9-ECO-003` | H4G9 | `strong_field_alignment` | `第1节 生物与环境的相互关系` |
-| `SC-H4G9-ECO-009` | H4G9 | `strong_field_alignment` | `第6节 健康生活` |
-| `SC-H4G9-ECO-012` | H4G9 | `strong_field_alignment` | `第1节 生物与环境的相互关系` |
-| `SC-H4G9-ENE-006` | H4G9 | `subdomain_anchor` | `第4章 可持续发展` |
-| `SC-H4G9-MAT-009` | H4G9 | `subdomain_anchor` | `第1节 金属材料` |
+| standard_code | grade_band | alignment | unit | page_range | page status |
+| --- | --- | --- | --- | --- | --- |
+| `SC-H4G7-EVOL-010` | H4G7 | `subdomain_anchor` | `第6节 细菌和真菌的繁殖` | `43-87` | `toc_page_range_inferred` |
+| `SC-H4G7-PR-001` | H4G7 | `subdomain_anchor` | `第5节 科学探究` | `34-36` | `toc_page_range_inferred` |
+| `SC-H4G8-CHG-011` | H4G8 | `strong_field_alignment` | `第3节 化学方程式` | `108-114` | `toc_page_range_inferred` |
+| `SC-H4G8-HOME-002` | H4G8 | `strong_field_alignment` | `第6节 光合作用` | `129-163` | `toc_page_range_inferred` |
+| `SC-H4G8-HOME-008` | H4G8 | `strong_field_alignment` | `第3节 神经调节` | `121-128` | `toc_page_range_inferred` |
+| `SC-H4G8-MAT-005` | H4G8 | `strong_field_alignment` | `第4节 二氧化碳` | `115-119` | `toc_page_range_inferred` |
+| `SC-H4G9-ECO-003` | H4G9 | `strong_field_alignment` | `第1节 生物与环境的相互关系` | `42-78` | `toc_page_range_inferred` |
+| `SC-H4G9-ECO-009` | H4G9 | `strong_field_alignment` | `第6节 健康生活` | `125` | `toc_page_nonmonotonic` |
+| `SC-H4G9-ECO-012` | H4G9 | `strong_field_alignment` | `第1节 生物与环境的相互关系` | `42-78` | `toc_page_range_inferred` |
+| `SC-H4G9-ENE-006` | H4G9 | `subdomain_anchor` | `第4章 可持续发展` | `120-148` | `toc_page_range_inferred` |
+| `SC-H4G9-MAT-009` | H4G9 | `subdomain_anchor` | `第1节 金属材料` | `47-53` | `toc_page_range_inferred` |
 
-候选 review pack 已生成到 `/tmp/h4g_unit_evidence_candidate_science_zj_all_review_pack.md`，包含 11 条逐条复核明细。新增候选包审计对 `/tmp/h4g_unit_evidence_candidate_science_zj_all_final_review_pack.json` 通过，结果为 valid true、errors 0、warnings 0，并确认 11 条候选的 alignment 分布为 `subdomain_anchor` 4、`strong_field_alignment` 7。候选 apply 到 `/tmp/h4g_unit_evidence_data_candidate_science_zj_all_review_pack` 后，结果为 applied 11、missing 0、skipped 0、`official_standard_text_changed: false`。候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 和 `audit-grade-band-policy --data-only --strict` 均通过；审计识别到科学学科 11 条 `textbook_unit_level` 记录。独立比对显示 349 条科学记录的官方字段变化数为 0。
+候选 review pack 已生成到 `/tmp/h4g_unit_evidence_candidate_science_zj_all_pages.md`，包含 11 条逐条复核明细。新增候选包审计对 `/tmp/h4g_unit_evidence_candidate_science_zj_all_pages.json` 通过，结果为 valid true、errors 0、warnings 0；使用 `--require-page-start` 时也通过，并确认 11 条候选都带有 `page_start/page_range`。alignment 分布为 `subdomain_anchor` 4、`strong_field_alignment` 7；页码状态分布为 `toc_page_range_inferred` 10、`toc_page_nonmonotonic` 1。
 
-这个样本证明科学浙教版 7/8/9 六册可以走通 PDF 获取、目录抽取、标准匹配、候选包和候选根审计；也证明 H4G8 的问题主要来自过严的 `subdomain` 逐字锚点，而不是教材缺失。当前 11 条仍是候选证据，不能直接把记录标成 `grade_specific_variant`；下一步要继续做跨版本一致性、页码范围和人工/规则复核。
+这个样本证明科学浙教版 7/8/9 六册可以走通 PDF 获取、目录抽取、目录印刷页解析、标准匹配和候选包审计；也证明 H4G8 的问题主要来自过严的 `subdomain` 逐字锚点，而不是教材缺失。当前 11 条仍是候选证据，不能直接把记录标成 `grade_specific_variant`；下一步要继续做跨版本一致性、人工/规则复核，并对 `toc_page_nonmonotonic` 的页段做人工确认。
 
 ## 9. 与 H4G 分化的关系
 
@@ -459,8 +476,8 @@ H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 
 2. 标准核心字段与候选单元/章节建立可解释匹配。
 3. 匹配通过 `textbooks:audit-unit-matches -- --strict --require-matches --require-eligible`。
 4. 先通过 `textbooks:h4g-unit-candidates` 生成写回前候选包。
-5. 候选包通过 `textbooks:audit-h4g-unit-candidates -- --strict --require-candidates`。
-6. 候选包 summary/review pack 逐条展示官方字段、候选单元、alignment、匹配关键词、匹配分数和 rationale。
+5. 候选包通过 `textbooks:audit-h4g-unit-candidates -- --strict --require-candidates`；当该批次声称支持 H4G 年级分化时，还应加 `--require-page-start`。
+6. 候选包 summary/review pack 逐条展示官方字段、候选单元、页段、页码状态、alignment、匹配关键词、匹配分数和 rationale。
 7. `grade_specific_focus` 与 `progression_delta` 基于证据生成，不直接改写课标原文。
 8. `grade7_9:audit-h4g-distinctiveness -- --strict` 仍然通过。
 
@@ -472,5 +489,5 @@ H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
 2. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
-3. 补充页码范围、跨版本一致性和人工复核状态。
+3. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
 4. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。
