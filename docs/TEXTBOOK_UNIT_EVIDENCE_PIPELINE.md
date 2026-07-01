@@ -50,6 +50,7 @@ npm run textbooks:unit-index
 npm run textbooks:unit-index -- --subjects math --all
 npm run textbooks:unit-index -- --subjects math,science --max-files 12
 npm run textbooks:unit-index -- --grades 7,8 --max-files 20
+npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --max-pages 12 --materialize-timeout-ms 45000
 ```
 
 输出：
@@ -162,6 +163,7 @@ npm run textbooks:audit-unit-matches -- --strict --require-matches --require-eli
 
 ```bash
 npm run textbooks:unit-index -- --subjects math --max-files 2 --max-pages 18 --materialize
+npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --max-pages 12 --materialize-timeout-ms 45000 --debug-text-dir /tmp/textbook_debug_text
 ```
 
 该模式会：
@@ -171,7 +173,15 @@ npm run textbooks:unit-index -- --subjects math --max-files 2 --max-pages 18 --m
 3. 使用 Python `pypdf` 提取前若干页文本。
 4. 从目录行或“第 X 单元/章/课”模式生成 `toc_unit_or_chapter` 候选。
 
-注意：本地样本执行时曾因 GitHub 懒加载 PDF blob 超时中断。因此 `--materialize` 不能作为默认质量门；它只能用于小批量探索，或在后续建立稳定 PDF/OCR 缓存后再纳入严格流程。
+新增诊断参数：
+
+| 参数 | 作用 |
+| --- | --- |
+| `--evidence-ids` | 精确指定 `china_textbook_index.json` 中的教材文件 ID，适合小批量复现。指定后不再按 `--max-files` 截断。 |
+| `--materialize-timeout-ms` | 限制单个 PDF blob 物化时间，默认 60000ms。超时会记为 `materialize_timeout`。 |
+| `--debug-text-dir` | 保存已提取 PDF 文本，便于人工检查目录格式和改进解析规则。 |
+
+注意：本地样本执行时，`git show` 懒加载 PDF blob 与 GitHub raw URL 都出现超时。因此 `--materialize` 不能作为默认质量门；它只能用于小批量探索，或在后续建立稳定 PDF/OCR 缓存后再纳入严格流程。超时是教材 blob 获取失败，不等于教材没有目录。
 
 ## 7. 当前验证结果
 
@@ -187,6 +197,27 @@ npm run textbooks:unit-index -- --subjects math --all --out /tmp/textbook_unit_i
 node scripts/textbooks/audit_textbook_unit_index.js --unit-index /tmp/textbook_unit_index_math_all.json --out /tmp/textbook_unit_index_math_all_audit.json --strict
 npm run textbooks:match-units -- --subjects math --out /tmp/textbook_unit_standard_matches_math.json --summary-out /tmp/textbook_unit_standard_matches_math.md
 node scripts/textbooks/audit_textbook_standard_matches.js --matches /tmp/textbook_unit_standard_matches_math.json --out /tmp/textbook_unit_standard_matches_math_audit.json --strict
+```
+
+已通过指定教材 ID 的物化超时诊断：
+
+```bash
+npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --max-pages 12 --materialize-timeout-ms 45000 --debug-text-dir /tmp/textbook_debug_text --out /tmp/textbook_unit_index_math_g7_id_timeout.json --summary-out /tmp/textbook_unit_index_math_g7_id_timeout.md
+npm run textbooks:audit-unit-index -- --unit-index /tmp/textbook_unit_index_math_g7_id_timeout.json --out /tmp/textbook_unit_index_math_g7_id_timeout_audit.json --strict
+```
+
+该样本结果：
+
+```json
+{
+  "textbook_files": 1,
+  "unit_candidates": 1,
+  "real_unit_or_chapter_candidates": 0,
+  "volume_seed_candidates": 1,
+  "by_extraction_status": {
+    "materialize_timeout": 1
+  }
+}
 ```
 
 数学全量无物化结果：

@@ -253,7 +253,8 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 - 默认模式不下载 PDF，只生成 `volume_seed`，粒度为 `textbook_file_grade_level`。
 - `volume_seed` 只能说明某年级某册教材文件存在，不能证明某条 standard 对应具体单元。
 - 可选 `--materialize` 会尝试读取 PDF 前若干页并解析目录行，生成 `toc_unit_or_chapter`。
-- 当前本地样本的 PDF 物化曾因 GitHub 懒加载 blob 超时中断，所以 `--materialize` 暂不纳入默认 gate。
+- `--evidence-ids` 可以精确指定教材文件做小批量诊断；`--materialize-timeout-ms` 会把长时间 blob 获取记录为 `materialize_timeout`。
+- 当前本地样本的 PDF 物化与 GitHub raw 下载都曾超时，所以 `--materialize` 暂不纳入默认 gate；这代表远端教材 blob 未稳定取得，不代表教材没有目录。
 - 未来只有 `toc_unit_or_chapter` 加上标准匹配 rationale，才能写入正式 H4G 记录的 `textbook_unit_evidence_ids`。
 - `textbooks:match-units` 默认只匹配 `toc_unit_or_chapter`，并输出 `score`、`matched_fields`、`matched_keywords` 和 `rationale`。
 - `textbooks:audit-unit-matches` 会阻止 `volume_seed` 被当作正式匹配证据。
@@ -270,6 +271,17 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 ```
 
 审计通过但保留 warning：当前还没有真实单元/章节候选。
+
+当前指定教材诊断样例：
+
+```json
+{
+  "evidence_id": "ctb_48072359f7df",
+  "grade_label": "七年级",
+  "extraction_status": "materialize_timeout",
+  "real_unit_or_chapter_candidates": 0
+}
+```
 
 当前真实数据下，数学匹配 gate 的结果是：
 

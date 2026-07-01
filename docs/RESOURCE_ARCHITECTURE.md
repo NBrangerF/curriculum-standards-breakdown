@@ -96,7 +96,7 @@ npm run validate:indexes
 | `index.html` | Vite HTML 入口。 |
 | `scripts/build-indexes.js` | 根据主数据生成派生索引。 |
 | `scripts/textbooks/index_china_textbook.js` | 从 ChinaTextbook Git tree 生成初中教材文件证据索引，不下载 PDF blob。 |
-| `scripts/textbooks/build_textbook_unit_index.js` | 从教材文件索引生成单元/章节候选证据入口；默认只生成文件级 `volume_seed`。 |
+| `scripts/textbooks/build_textbook_unit_index.js` | 从教材文件索引生成单元/章节候选证据入口；默认只生成文件级 `volume_seed`，也支持按 `evidence_id` 小批量物化 PDF 并记录超时。 |
 | `scripts/textbooks/audit_textbook_unit_index.js` | 校验教材单元候选索引，区分文件级 seed 与真实目录/章节候选。 |
 | `scripts/textbooks/match_standards_to_textbook_units.js` | 将 H4G standards 与真实 `toc_unit_or_chapter` 候选做可解释匹配。 |
 | `scripts/textbooks/audit_textbook_standard_matches.js` | 校验标准-单元匹配，禁止把 `volume_seed` 当作正式分化证据。 |
@@ -318,6 +318,7 @@ npm run textbooks:audit-unit-matches -- --strict
 - `textbook_unit_evidence_ids` 只有在未来获得 `toc_unit_or_chapter` 并完成标准匹配后才能填写。
 - `volume_seed` 不能证明标准已完成单元级分化；它只是后续 OCR/目录提取的任务入口。
 - `eligible_for_h4g_differentiation` 必须来自真实 `toc_unit_or_chapter`，并且仍需人工或规则复核。
+- `materialize_timeout` 代表远端 PDF blob 没有稳定取得，不得被解释为教材缺少目录或标准无法分化。
 - `--materialize` 会尝试读取 PDF blob，可能受网络和外部仓库大小影响，暂不作为默认 gate。
 
 ### 6.3 学科元数据

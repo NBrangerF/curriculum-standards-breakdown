@@ -179,6 +179,8 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 
 当前管线默认不下载 PDF，只从 `china_textbook_index.json` 生成 `volume_seed`。`volume_seed` 只代表“某年级某册教材文件存在”，不能作为标准-单元匹配证据。只有后续通过可选 `--materialize` 或稳定 OCR 缓存得到的 `toc_unit_or_chapter`，才可以进入 H4G 年级分化匹配。
 
+`textbooks:unit-index` 已支持 `--evidence-ids`、`--materialize-timeout-ms` 和 `--debug-text-dir`，用于精确复现单本教材的 PDF 物化与目录解析。当前七年级数学样本 `ctb_48072359f7df` 在 45000ms 限制下记录为 `materialize_timeout`，说明瓶颈仍在远端 PDF blob 获取，而不是标准-单元匹配本身。
+
 当前已验证的无物化样例：
 
 ```json

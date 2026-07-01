@@ -12,6 +12,7 @@ const DEFAULT_OUT = 'generated/textbook_evidence/textbook_unit_index.json'
 const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/textbook_unit_index_summary.md'
 const DEFAULT_MAX_FILES = 24
 const DEFAULT_MAX_PAGES = 18
+const DEFAULT_MATERIALIZE_TIMEOUT_MS = 60000
 
 function parseArgs(argv) {
   const args = {
@@ -23,8 +24,11 @@ function parseArgs(argv) {
     summaryOut: DEFAULT_SUMMARY_OUT,
     subjects: [],
     grades: [],
+    evidenceIds: [],
     maxFiles: DEFAULT_MAX_FILES,
     maxPages: DEFAULT_MAX_PAGES,
+    materializeTimeoutMs: DEFAULT_MATERIALIZE_TIMEOUT_MS,
+    debugTextDir: '',
     all: false,
     materialize: false,
     force: false
@@ -39,8 +43,11 @@ function parseArgs(argv) {
     else if (item === '--summary-out') args.summaryOut = argv[++i]
     else if (item === '--subjects') args.subjects = splitArg(argv[++i])
     else if (item === '--grades') args.grades = splitArg(argv[++i])
+    else if (item === '--evidence-ids') args.evidenceIds = splitArg(argv[++i])
     else if (item === '--max-files') args.maxFiles = Number(argv[++i]) || args.maxFiles
     else if (item === '--max-pages') args.maxPages = Number(argv[++i]) || args.maxPages
+    else if (item === '--materialize-timeout-ms') args.materializeTimeoutMs = Number(argv[++i]) || args.materializeTimeoutMs
+    else if (item === '--debug-text-dir') args.debugTextDir = argv[++i] || ''
     else if (item === '--all') args.all = true
     else if (item === '--materialize') args.materialize = true
     else if (item === '--force') args.force = true
@@ -54,6 +61,7 @@ function usage() {
 node scripts/textbooks/build_textbook_unit_index.js \\
   --subjects math,science \\
   --max-files 8 \\
+  --evidence-ids ctb_48072359f7df \\
   --materialize
 
 Builds a first-pass textbook unit/chapter candidate index from the
@@ -61,6 +69,11 @@ ChinaTextbook evidence index. Without --materialize it only emits file-level
 volume seeds. With --materialize it lazily extracts selected PDF blobs from the
 local Git clone into generated/textbook_evidence/pdf_cache and attempts to parse
 table-of-contents / chapter lines from the first pages.
+
+Use --evidence-ids for deterministic small-batch exploration. Use
+--materialize-timeout-ms to prevent Git LFS/blob fetches from hanging an audit
+run. Use --debug-text-dir with --materialize to save extracted PDF text for
+manual parser inspection.
 
 This script never writes to public/data.`)
 }
@@ -121,14 +134,21 @@ function gradeAllowed(record, grades) {
 }
 
 function selectRecords(index, args) {
-  return (index.records || [])
+  const evidenceIds = new Set(args.evidenceIds)
+  const records = (index.records || [])
     .map(record => ({
       ...record,
       selected_standard_subject_mappings: selectedSubjectMappings(record, args.subjects)
     }))
     .filter(record => record.selected_standard_subject_mappings.length)
     .filter(record => gradeAllowed(record, args.grades))
+    .filter(record => !evidenceIds.size || evidenceIds.has(record.evidence_id))
     .filter(record => record.extension === 'pdf' && !record.is_fragment)
+  if (evidenceIds.size) {
+    const byId = new Map(records.map(record => [record.evidence_id, record]))
+    return args.evidenceIds.map(id => byId.get(id)).filter(Boolean)
+  }
+  return records
     .sort((a, b) => {
       const subject = a.selected_standard_subject_mappings[0].subject_slug.localeCompare(b.selected_standard_subject_mappings[0].subject_slug)
       if (subject !== 0) return subject
@@ -154,12 +174,34 @@ function materializePdf(record, args) {
   }
   mkdirSync(dirname(out), { recursive: true })
   try {
-    const buffer = git(args.repoDir, ['show', `${args.ref}:${record.repository_path}`])
+    const startedAt = Date.now()
+    const buffer = git(args.repoDir, ['show', `${args.ref}:${record.repository_path}`], {
+      timeout: args.materializeTimeoutMs
+    })
     writeFileSync(out, buffer)
-    return { status: 'materialized', path: out, bytes: buffer.length }
+    return {
+      status: 'materialized',
+      path: out,
+      bytes: buffer.length,
+      duration_ms: Date.now() - startedAt
+    }
   } catch (error) {
-    return { status: 'materialize_failed', path: out, error: error.message }
+    return {
+      status: error.signal === 'SIGTERM' ? 'materialize_timeout' : 'materialize_failed',
+      path: out,
+      error: formatExecError(error),
+      timeout_ms: args.materializeTimeoutMs
+    }
   }
+}
+
+function formatExecError(error) {
+  const pieces = [
+    error.message,
+    error.stderr ? String(error.stderr) : '',
+    error.stdout ? String(error.stdout) : ''
+  ].filter(Boolean)
+  return pieces.join('\n').trim()
 }
 
 function extractPdfText(pdfPath, maxPages) {
@@ -263,6 +305,14 @@ function extractTocCandidates(text) {
   })
 }
 
+function writeDebugText(record, text, args) {
+  if (!args.debugTextDir) return ''
+  mkdirSync(args.debugTextDir, { recursive: true })
+  const out = join(args.debugTextDir, `${record.evidence_id}.txt`)
+  writeFileSync(out, text)
+  return out
+}
+
 function volumeSeed(record) {
   return {
     candidate_type: 'volume_seed',
@@ -352,6 +402,7 @@ commit：\`${payload.source_commit}\`
 | 候选证据 | ${payload.summary.unit_candidates} |
 | 目录/章节候选 | ${payload.summary.real_unit_or_chapter_candidates} |
 | 文件名卷册 seed | ${payload.summary.volume_seed_candidates} |
+| PDF 物化超时 | ${payload.summary.by_extraction_status.materialize_timeout || 0} |
 
 ## 学科覆盖
 
@@ -383,6 +434,7 @@ function main() {
       cache_path: cachePathFor(record, args.cacheDir),
       extraction_status: args.materialize ? 'pending' : 'not_materialized',
       text_status: args.materialize ? 'pending' : 'not_read',
+      materialize_timeout_ms: args.materialize ? args.materializeTimeoutMs : null,
       toc_candidate_count: 0
     }
     let candidates = []
@@ -392,6 +444,7 @@ function main() {
       file.extraction_status = materialized.status
       file.cache_path = materialized.path
       file.materialize_error = materialized.error || ''
+      file.materialize_duration_ms = materialized.duration_ms || null
       if (materialized.status === 'materialized' || materialized.status === 'cached') {
         const extracted = extractPdfText(materialized.path, args.maxPages)
         file.text_status = extracted.error ? 'text_extract_failed' : extracted.chars > 0 ? 'text_extracted' : 'empty_text'
@@ -399,6 +452,7 @@ function main() {
         file.pages_read = extracted.pages_read
         file.total_pages = extracted.total_pages
         file.text_chars = extracted.chars
+        file.debug_text_path = extracted.error ? '' : writeDebugText(record, extracted.text, args)
         candidates = extracted.error ? [] : extractTocCandidates(extracted.text)
       }
     }
@@ -419,8 +473,11 @@ function main() {
     extraction: {
       materialize: args.materialize,
       all: args.all,
+      evidence_ids: args.evidenceIds,
       max_files: args.all ? null : args.maxFiles,
       max_pages: args.maxPages,
+      materialize_timeout_ms: args.materializeTimeoutMs,
+      debug_text_dir: args.debugTextDir || null,
       subjects: args.subjects,
       grades: args.grades
     },
