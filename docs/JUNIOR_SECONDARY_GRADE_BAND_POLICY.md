@@ -105,6 +105,7 @@ npm run grade7_9:audit-grade-band-policy -- --strict
 ```bash
 npm run grade7_9:build-grade-level-candidate
 npm run grade7_9:audit-grade-level-candidate -- --strict
+npm run grade7_9:audit-h4g-distinctiveness -- --data-root generated/grade7_9_grade_level_candidate --strict
 node scripts/validate-data-indexes.js --data-root generated/grade7_9_grade_level_candidate
 ```
 
@@ -119,7 +120,15 @@ npm run grade7_9:apply-grade-level-candidate -- --write --confirm-h4g-policy
 ```bash
 npm run build:indexes
 npm run validate:indexes
+npm run grade7_9:audit-h4g-distinctiveness -- --strict
 ```
+
+当前 H4G distinctiveness 口径：
+
+- `H4G7/H4G8/H4G9` 是正式 runtime 年级筛选口径。
+- 如果同一 `progression_group_id` 的三年级核心文本完全相同，数据必须标为 `standard_variant_type: "same_source_shared"`。
+- 这些记录的 `review_status` 必须包含 `needs_grade_differentiation`，直到教材单元/章节级证据足以支撑真实年级化解释。
+- 当前 public 数据中 323 个完整 H4G 三元组核心文本完全相同，均已标为共享源标准；`unlabeled_identical_triplets` 为 0。
 
 ## 6. 不应执行的操作
 
@@ -140,10 +149,12 @@ npm run validate:indexes
 ```bash
 npm run grade7_9:build-grade-level-candidate
 npm run grade7_9:audit-grade-level-candidate -- --strict
+npm run grade7_9:audit-h4g-distinctiveness -- --data-root generated/grade7_9_grade_level_candidate --strict
 npm run validate:indexes
 npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-textbook-progression -- --strict
+npm run grade7_9:audit-h4g-distinctiveness -- --strict
 npm run build
 ```
 
-只有以上 gates 通过，当前 `H1=1-2, H2=3-4, H3=5-6, H4G7=7, H4G8=8, H4G9=9` runtime 口径才算保持一致。
+只有以上 gates 通过，当前 `H1=1-2, H2=3-4, H3=5-6, H4G7=7, H4G8=8, H4G9=9` runtime 口径才算保持一致，并且 H4G 重复记录不会被误读为已完成真实年级分化。

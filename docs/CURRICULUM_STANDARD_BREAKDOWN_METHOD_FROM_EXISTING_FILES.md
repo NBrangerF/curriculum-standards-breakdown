@@ -146,6 +146,7 @@ raw/grade7_9/sources/
 - `ts_secondary` 最多两个。
 - TS code 只能来自 TS1-TS7。
 - manifest 和 indexes 必须由 `by_subject` 派生并一致。
+- H4G 完整三元组如果核心文本完全相同，必须标记为共享源标准和待年级化细分。
 
 ## 5. 标准记录结构
 
@@ -162,9 +163,15 @@ raw/grade7_9/sources/
 | `grade` | 人类可读年级或学段。 |
 | `stage_band` | 初中拆分记录的大阶段标记，当前为 `H4`。 |
 | `grade_level` | 初中拆分记录的具体年级数字，当前为 7、8、9。 |
-| `grade_assignment_type` | 年级归属依据类型，如 `textbook_supported` 或 `auto_judged_low_confidence`。 |
+| `grade_assignment_type` | 年级归属依据类型，如 `shared_requirement_textbook_file_supported` 或 `auto_judged_low_confidence`。 |
 | `textbook_evidence_ids` | 支持年级归属判断的教材证据 ID。 |
+| `textbook_unit_evidence_ids` | 未来单元/章节级教材证据 ID，当前仍为空数组。 |
 | `progression_group_id` | 同一标准在七/八/九年级进阶关系中的分组 ID。 |
+| `standard_variant_type` | 当前 H4G 记录是否为 `same_source_shared`、`grade_specific_variant` 或部分年级变体。 |
+| `evidence_granularity` | 教材证据粒度，如 `textbook_file_grade_level` 或 `textbook_unit_level`。 |
+| `progression_distinctiveness` | 同组 H4G 核心文本是否相同。 |
+| `requires_unit_level_evidence` | 是否仍需教材单元/章节级证据。 |
+| `review_status` | 审核状态，如 `needs_grade_differentiation`。 |
 | `domain` | 一级领域、核心素养维度、内容模块或任务群。 |
 | `subdomain` | 子领域、内容线索、项目主题或细分学习任务。 |
 | `project` | 项目、任务群或主题，可为空。 |
@@ -247,12 +254,13 @@ scripts/grade7_9/curated/{subject_slug}_h3_raw.json
 
 ## 8. 7-9 年级拆分规则
 
-2022 版课标的初中段经常把 7-9 年级合写。当前不新增必需 schema 字段，而是用现有字段承载初中年级：
+2022 版课标的初中段经常把 7-9 年级合写。staging 中仍可用 `H4=7-9` 表示第四学段中间层；正式 runtime 使用 `H4G7/H4G8/H4G9` 表示具体年级：
 
 ```json
 {
-  "grade_band": "H4",
-  "grade_range": "7-9",
+  "stage_band": "H4",
+  "grade_band": "H4G7",
+  "grade_range": "7",
   "grade": "七年级"
 }
 ```
@@ -261,10 +269,12 @@ scripts/grade7_9/curated/{subject_slug}_h3_raw.json
 
 1. 如果官方文本明确写七、八、九年级，按官方年级拆。
 2. 如果官方文本写 7-9 共同要求，且确实跨三年适用，`raw_items` 使用 `target_grades: [7, 8, 9]`。
-3. `normalize_schema.js` 会把一条共同要求展开成七年级、八年级、九年级三条 records。
-4. 展开后的 records 可以共享同一核心要求，但 code 必须独立。
-5. `audit_grade_split.js` 会核对 raw `target_grades` 与最终 `by_subject` 年级记录数是否一致。
-6. 如果无法确认年级归属，保留在 staging，不进入正式主数据。
+3. `normalize_schema.js` 会把一条共同要求展开成七年级、八年级、九年级三条 staging records。
+4. `build_grade_level_candidate.js` 会把正式 runtime 记录生成为 `H4G7/H4G8/H4G9`，并补充年级归属和进阶元数据。
+5. 展开后的 records 可以共享同一核心要求，但 code 必须独立。
+6. 完整 H4G 三元组如果核心文本完全相同，必须标为 `standard_variant_type: "same_source_shared"` 和 `review_status: "needs_grade_differentiation"`。
+7. `audit_h4g_distinctiveness.js` 会核对是否存在未标记的完全重复三元组。
+8. 如果无法确认年级归属，可低置信度发布，但必须显式标注，不能伪装成官方确定结论。
 
 当前 curated staging 的年级展开事实是：
 
@@ -453,6 +463,8 @@ H4G9 = 9
 
 当前正式主数据合计 1933 条，其中 H4G7 为 355 条、H4G8 为 363 条、H4G9 为 363 条。
 
+当前 H4G distinctiveness 审计显示：323 个完整 H4G 三元组核心文本完全相同，但 `unlabeled_identical_triplets` 为 0；这些记录已经标为共享源标准和待年级化细分。后续真正分化需要教材单元/章节级证据。
+
 用于审计该风险的命令是：
 
 ```bash
@@ -463,9 +475,10 @@ npm run grade7_9:audit-grade-band-policy -- --out generated/grade7_9_grade_band_
 
 ```bash
 npm run grade7_9:audit-grade-band-policy -- --strict
+npm run grade7_9:audit-h4g-distinctiveness -- --strict
 ```
 
-当前结论是：正式 public 数据和前端学段展示口径已经统一，`audit-grade-band-policy --strict` 可通过。
+当前结论是：正式 public 数据和前端学段展示口径已经统一，`audit-grade-band-policy --strict` 可通过；共享源标准也已被标记，`audit-h4g-distinctiveness --strict` 可通过。
 
 ## 15. 发布前必须通过的校验
 
@@ -481,6 +494,7 @@ npm run grade7_9:check-ui -- --staging-root generated/grade7_9_all_curated
 npm run grade7_9:build-release-candidate
 npm run grade7_9:check-release-candidate
 npm run grade7_9:audit-grade-band-policy -- --strict
+npm run grade7_9:audit-h4g-distinctiveness -- --strict
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
 npm run build:indexes
 npm run validate:indexes

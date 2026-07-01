@@ -157,15 +157,26 @@ generated/textbook_evidence/china_textbook_index_summary.md
   "grade_band": "H4G7",
   "grade_level": 7,
   "grade_range": "7",
-  "grade_assignment_type": "official_explicit | textbook_supported | multi_textbook_consensus | concept_prerequisite | auto_judged_low_confidence | shared_requirement",
+  "grade_assignment_type": "official_explicit | textbook_supported | shared_requirement_textbook_file_supported | shared_requirement_adjacent_textbook_file_supported | shared_requirement_textbook_unit_supported | concept_prerequisite | auto_judged_low_confidence",
   "grade_assignment_confidence": 0.0,
   "grade_assignment_rationale": "",
   "textbook_evidence_ids": [],
+  "textbook_unit_evidence_ids": [],
   "progression_group_id": "",
   "progression_role": "introductory | developing | consolidating | shared_requirement",
-  "progression_basis": "official_text | textbook_sequence | multi_textbook_consensus | source_order | concept_prerequisite | auto_judgment",
+  "progression_basis": "official_text | textbook_sequence | shared_standard_textbook_file_sequence | shared_standard_textbook_unit_sequence | source_order | concept_prerequisite | auto_judgment",
   "progression_confidence": 0.0,
-  "review_status": "needs_review | auto_judged | approved"
+  "standard_text_role": "source_standard_original",
+  "source_standard_scope": "stage_shared_7_9 | grade_specific_source | partial_grade_source",
+  "standard_variant_type": "same_source_shared | grade_specific_variant | single_or_partial_grade_variant",
+  "evidence_granularity": "none | textbook_file_grade_level | textbook_unit_level",
+  "progression_distinctiveness": "identical_core_fields | core_fields_differ | partial_group",
+  "progression_distinctiveness_fields": [],
+  "requires_unit_level_evidence": true,
+  "grade_specific_focus": "",
+  "progression_delta": "",
+  "progression_review_note": "",
+  "review_status": "needs_review | needs_grade_differentiation | needs_grade_differentiation_low_confidence | auto_judged | approved"
 }
 ```
 
@@ -238,9 +249,10 @@ scripts/grade7_9/curated/*_junior_raw.json
 
 1. 读取 `grade_assignments`。
 2. 生成 `H4G7/H4G8/H4G9` records。
-3. 对共同要求标 `shared_requirement`。
-4. 对教材支持项写入 `textbook_evidence_ids`。
-5. 对证据不足项写入 `auto_judged_low_confidence`。
+3. 对共同要求标 `standard_variant_type: "same_source_shared"`。
+4. 对教材文件级证据写入 `textbook_evidence_ids` 和 `evidence_granularity: "textbook_file_grade_level"`。
+5. 对尚未真正分化的三元组写入 `review_status: "needs_grade_differentiation"`。
+6. 对证据不足项写入 `auto_judged_low_confidence` 或 `needs_grade_differentiation_low_confidence`。
 
 ### Phase 4：严格 gate
 
@@ -251,6 +263,8 @@ scripts/grade7_9/curated/*_junior_raw.json
 - 每条初中记录必须有 `stage_band: H4`。
 - 每条初中记录必须有年级归属依据和置信度。
 - `textbook_supported` 必须至少有一个教材证据 id。
+- 完整 H4G 三元组如果核心文本完全相同，必须标为 `same_source_shared` 或 `needs_grade_differentiation`。
+- `textbook_file_grade_level` 只能证明年级教材文件存在，不能证明标准已经完成单元级分化。
 - progression graph 不能形成循环。
 - `auto_judged_low_confidence` 可发布，但必须可检索和统计。
 
@@ -336,7 +350,11 @@ generated/grade7_9_grade_level_candidate/
   "transformed_junior_records": 1081,
   "candidate_records": 1933,
   "records_with_textbook_evidence": 949,
-  "auto_judged_low_confidence_records": 132
+  "auto_judged_low_confidence_records": 132,
+  "shared_requirement_records": 969,
+  "needs_grade_differentiation_records": 969,
+  "records_requiring_unit_level_evidence": 1081,
+  "records_with_unit_level_evidence": 0
 }
 ```
 
@@ -360,10 +378,21 @@ generated/grade7_9_grade_level_candidate/
 - `grade_assignment_rationale`
 - `textbook_evidence_ids`
 - `textbook_evidence`
+- `textbook_unit_evidence_ids`
 - `progression_group_id`
 - `progression_role`
 - `progression_basis`
 - `progression_confidence`
+- `standard_text_role`
+- `source_standard_scope`
+- `standard_variant_type`
+- `evidence_granularity`
+- `progression_distinctiveness`
+- `progression_distinctiveness_fields`
+- `requires_unit_level_evidence`
+- `grade_specific_focus`
+- `progression_delta`
+- `progression_review_note`
 - `review_status`
 
 候选审计结果：
@@ -374,7 +403,10 @@ generated/grade7_9_grade_level_candidate/
   "ready_for_review": true,
   "junior_records": 1081,
   "records_with_textbook_evidence": 949,
-  "auto_judged_low_confidence_records": 132
+  "auto_judged_low_confidence_records": 132,
+  "shared_requirement_records": 969,
+  "needs_grade_differentiation_records": 969,
+  "records_with_unit_level_evidence": 0
 }
 ```
 
@@ -421,11 +453,13 @@ npm run textbooks:index-china
 npm run grade7_9:audit-textbook-progression
 npm run grade7_9:build-grade-level-candidate
 npm run grade7_9:audit-grade-level-candidate -- --strict
+npm run grade7_9:audit-h4g-distinctiveness -- --data-root generated/grade7_9_grade_level_candidate --strict
 npm run grade7_9:apply-grade-level-candidate -- --write --confirm-h4g-policy
 npm run build:indexes
 npm run validate:indexes
 npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-textbook-progression -- --strict
+npm run grade7_9:audit-h4g-distinctiveness -- --strict
 ```
 
-生成的 audit 用来决定每个学科后续人工复核优先级；正式写入 gate 则保证 public runtime 不再出现未拆分 H4。
+生成的 audit 用来决定每个学科后续人工复核优先级；正式写入 gate 保证 public runtime 不再出现未拆分 H4，distinctiveness gate 保证重复的 H4G 三元组不会被误标为已经完成年级分化。

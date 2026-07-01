@@ -25,8 +25,23 @@ const REQUIRED_EVIDENCE_FIELDS = [
   'progression_role',
   'progression_basis',
   'progression_confidence',
-  'review_status'
+  'review_status',
+  'standard_text_role',
+  'source_standard_scope',
+  'standard_variant_type',
+  'evidence_granularity',
+  'textbook_unit_evidence_ids',
+  'progression_distinctiveness',
+  'progression_distinctiveness_fields',
+  'progression_delta',
+  'progression_review_note',
+  'requires_unit_level_evidence'
 ]
+const REQUIRED_ARRAY_FIELDS = new Set([
+  'textbook_evidence_ids',
+  'textbook_unit_evidence_ids',
+  'progression_distinctiveness_fields'
+])
 
 function parseArgs(argv) {
   const args = { candidateRoot: DEFAULT_CANDIDATE_ROOT, out: DEFAULT_OUT, strict: false }
@@ -82,6 +97,9 @@ function auditRecord(record, subjectSlug, errors, warnings, stats) {
   countInto(stats.grade_bands, record.grade_band)
   countInto(stats.grade_assignment_types, record.grade_assignment_type)
   countInto(stats.progression_basis, record.progression_basis)
+  countInto(stats.standard_variant_types, record.standard_variant_type)
+  countInto(stats.evidence_granularities, record.evidence_granularity)
+  countInto(stats.review_statuses, record.review_status)
 
   if (record.grade_band === 'H4' || record.grade_range === '7-9') {
     errors.push(`${record.code || subjectSlug} still uses unsplit H4/7-9`)
@@ -100,7 +118,7 @@ function auditRecord(record, subjectSlug, errors, warnings, stats) {
   }
 
   for (const field of REQUIRED_EVIDENCE_FIELDS) {
-    if (field === 'textbook_evidence_ids') {
+    if (REQUIRED_ARRAY_FIELDS.has(field)) {
       if (!hasField(record, field) || !Array.isArray(record[field])) errors.push(`${record.code} missing evidence field: ${field}`)
     } else if (!hasValue(record[field])) {
       errors.push(`${record.code} missing evidence field: ${field}`)
@@ -112,16 +130,20 @@ function auditRecord(record, subjectSlug, errors, warnings, stats) {
   if (typeof record.progression_confidence !== 'number' || record.progression_confidence < 0 || record.progression_confidence > 1) {
     errors.push(`${record.code} progression_confidence must be a number between 0 and 1`)
   }
-  if (record.grade_assignment_type === 'textbook_supported' && !record.textbook_evidence_ids?.length) {
-    errors.push(`${record.code} textbook_supported record must have textbook_evidence_ids`)
+  if (String(record.grade_assignment_type || '').includes('textbook') && !record.textbook_evidence_ids?.length) {
+    errors.push(`${record.code} ${record.grade_assignment_type} record must have textbook_evidence_ids`)
   }
-  if (record.grade_assignment_type === 'auto_judged_low_confidence') {
+  if (record.grade_assignment_type === 'auto_judged_low_confidence' || String(record.review_status || '').includes('low_confidence')) {
     stats.auto_judged_low_confidence_records += 1
     if (record.grade_assignment_confidence > 0.5) {
       warnings.push(`${record.code} auto_judged_low_confidence has confidence > 0.5`)
     }
   }
   if (record.textbook_evidence_ids?.length) stats.records_with_textbook_evidence += 1
+  if (record.standard_variant_type === 'same_source_shared') stats.shared_requirement_records += 1
+  if (String(record.review_status || '').includes('needs_grade_differentiation')) stats.needs_grade_differentiation_records += 1
+  if (record.requires_unit_level_evidence) stats.records_requiring_unit_level_evidence += 1
+  if (record.evidence_granularity === 'textbook_unit_level') stats.records_with_unit_level_evidence += 1
 }
 
 function auditIndexes(candidateRoot, errors) {
@@ -153,7 +175,11 @@ function main() {
     records: 0,
     junior_records: 0,
     auto_judged_low_confidence_records: 0,
-    records_with_textbook_evidence: 0
+    records_with_textbook_evidence: 0,
+    shared_requirement_records: 0,
+    needs_grade_differentiation_records: 0,
+    records_requiring_unit_level_evidence: 0,
+    records_with_unit_level_evidence: 0
   }
   const seenCodes = new Set()
   const duplicateCodes = []
@@ -170,9 +196,16 @@ function main() {
         junior_records: 0,
         auto_judged_low_confidence_records: 0,
         records_with_textbook_evidence: 0,
+        shared_requirement_records: 0,
+        needs_grade_differentiation_records: 0,
+        records_requiring_unit_level_evidence: 0,
+        records_with_unit_level_evidence: 0,
         grade_bands: {},
         grade_assignment_types: {},
-        progression_basis: {}
+        progression_basis: {},
+        standard_variant_types: {},
+        evidence_granularities: {},
+        review_statuses: {}
       }
       for (const record of payload.standards || []) {
         stats.records += 1
@@ -185,6 +218,10 @@ function main() {
       totals.junior_records += stats.junior_records
       totals.auto_judged_low_confidence_records += stats.auto_judged_low_confidence_records
       totals.records_with_textbook_evidence += stats.records_with_textbook_evidence
+      totals.shared_requirement_records += stats.shared_requirement_records
+      totals.needs_grade_differentiation_records += stats.needs_grade_differentiation_records
+      totals.records_requiring_unit_level_evidence += stats.records_requiring_unit_level_evidence
+      totals.records_with_unit_level_evidence += stats.records_with_unit_level_evidence
       subjects[subjectSlug] = stats
     }
   }

@@ -13,6 +13,9 @@ const GRADE_META = {
   八年级: { grade_level: 8, grade_band: 'H4G8', grade_range: '8', progression_role: 'developing' },
   九年级: { grade_level: 9, grade_band: 'H4G9', grade_range: '9', progression_role: 'consolidating' }
 }
+const TARGET_GRADE_BANDS = ['H4G7', 'H4G8', 'H4G9']
+const TARGET_GRADE_SET = new Set(TARGET_GRADE_BANDS)
+const CORE_TEXT_FIELDS = ['domain', 'subdomain', 'standard', 'context', 'practice', 'teaching_tip', 'assessment_evidence_type']
 
 const EVIDENCE_ROLE_PRIORITY = {
   direct_textbook: 1,
@@ -96,9 +99,38 @@ function hashText(value, length = 12) {
   return createHash('sha1').update(String(value || '')).digest('hex').slice(0, length)
 }
 
+function normalizeText(value) {
+  return String(value || '').replace(/\s+/g, ' ').trim()
+}
+
+function signature(record, fields) {
+  return fields.map(field => normalizeText(record[field])).join('\n---\n')
+}
+
 function isJuniorRecord(record) {
   const grade = String(record.grade || '').trim()
   return record.grade_band === 'H4' || record.grade_range === '7-9' || Object.hasOwn(GRADE_META, grade)
+}
+
+function isTargetJuniorRecord(record) {
+  return record.stage_band === 'H4' || TARGET_GRADE_SET.has(record.grade_band) || record.source_grade_band === 'H4'
+}
+
+function hasUnitLevelEvidence(record) {
+  const evidence = Array.isArray(record.textbook_evidence) ? record.textbook_evidence : []
+  return evidence.some(item => (
+    item.unit_title ||
+    item.chapter_title ||
+    item.section_title ||
+    item.page_range ||
+    item.page_start ||
+    item.matched_keywords?.length
+  ))
+}
+
+function evidenceGranularity(record) {
+  if (!Array.isArray(record.textbook_evidence_ids) || record.textbook_evidence_ids.length === 0) return 'none'
+  return hasUnitLevelEvidence(record) ? 'textbook_unit_level' : 'textbook_file_grade_level'
 }
 
 function codeForGradeLevel(record, gradeBand) {
@@ -219,6 +251,106 @@ function transformJuniorRecord(record, evidenceBySubjectGrade, maxEvidence) {
   return { record: out }
 }
 
+function gradeLabel(record) {
+  return record.grade || `${record.grade_range || record.grade_band}年级`
+}
+
+function sharedRequirementType(record, granularity) {
+  if (!record.textbook_evidence_ids?.length) return 'auto_judged_low_confidence'
+  if (granularity === 'textbook_unit_level') return 'shared_requirement_textbook_unit_supported'
+  if (record.grade_assignment_type === 'adjacent_textbook_supported') return 'shared_requirement_adjacent_textbook_file_supported'
+  return 'shared_requirement_textbook_file_supported'
+}
+
+function changedCoreFields(records) {
+  return CORE_TEXT_FIELDS.filter(field => new Set(records.map(record => normalizeText(record[field]))).size > 1)
+}
+
+function annotateProgressionDistinctiveness(rows) {
+  const groups = new Map()
+  for (const record of rows) {
+    if (!isTargetJuniorRecord(record)) continue
+    const key = record.progression_group_id || progressionGroupId(record)
+    if (!groups.has(key)) groups.set(key, [])
+    groups.get(key).push(record)
+  }
+
+  const summary = {
+    progression_groups: groups.size,
+    complete_triplets: 0,
+    exact_identical_triplets: 0,
+    differentiated_triplets: 0,
+    incomplete_groups: 0,
+    shared_requirement_records: 0,
+    needs_grade_differentiation_records: 0,
+    records_requiring_unit_level_evidence: 0,
+    records_with_unit_level_evidence: 0,
+    standard_variant_types: {},
+    review_statuses: {},
+    evidence_granularities: {}
+  }
+
+  for (const [groupId, records] of groups.entries()) {
+    const presentBands = new Set(records.map(record => record.grade_band).filter(Boolean))
+    const completeTriplet = TARGET_GRADE_BANDS.every(band => presentBands.has(band))
+    const exactIdentical = completeTriplet && new Set(records.map(record => signature(record, CORE_TEXT_FIELDS))).size === 1
+    const changedFields = changedCoreFields(records)
+    if (completeTriplet) summary.complete_triplets += 1
+    else summary.incomplete_groups += 1
+    if (exactIdentical) summary.exact_identical_triplets += 1
+    if (completeTriplet && !exactIdentical) summary.differentiated_triplets += 1
+
+    for (const record of records) {
+      const granularity = evidenceGranularity(record)
+      const hasUnitEvidence = granularity === 'textbook_unit_level'
+      const hasEvidence = Array.isArray(record.textbook_evidence_ids) && record.textbook_evidence_ids.length > 0
+      const sourceScope = exactIdentical ? 'stage_shared_7_9' : completeTriplet ? 'grade_differentiated_source' : 'partial_grade_source'
+      const variantType = exactIdentical ? 'same_source_shared' : completeTriplet ? 'grade_specific_variant' : 'single_or_partial_grade_variant'
+
+      record.standard_text_role = 'source_standard_original'
+      record.source_standard_scope = sourceScope
+      record.standard_variant_type = variantType
+      record.evidence_granularity = granularity
+      record.textbook_unit_evidence_ids = record.textbook_unit_evidence_ids || []
+      record.progression_distinctiveness = exactIdentical ? 'identical_core_fields' : changedFields.length ? 'core_fields_differ' : 'partial_group'
+      record.progression_distinctiveness_fields = changedFields
+      record.requires_unit_level_evidence = !hasUnitEvidence
+
+      if (exactIdentical) {
+        record.grade_assignment_type = sharedRequirementType(record, granularity)
+        record.grade_assignment_confidence = hasEvidence ? Math.min(Number(record.grade_assignment_confidence) || 0.6, hasUnitEvidence ? 0.68 : 0.6) : 0.35
+        record.progression_basis = hasEvidence
+          ? hasUnitEvidence ? 'shared_standard_textbook_unit_sequence' : 'shared_standard_textbook_file_sequence'
+          : 'shared_standard_auto_judgment'
+        record.progression_confidence = hasEvidence ? Math.min(Number(record.progression_confidence) || 0.42, hasUnitEvidence ? 0.6 : 0.42) : 0.35
+        record.review_status = hasEvidence ? 'needs_grade_differentiation' : 'needs_grade_differentiation_low_confidence'
+        record.progression_role = record.progression_role || 'shared_requirement'
+        record.grade_specific_focus = `待基于${gradeLabel(record)}教材单元/章节补充本年级专属学习重点。`
+        record.progression_delta = 'not_yet_differentiated_from_shared_7_9_source'
+        record.progression_review_note = '该记录保留第四学段 7-9 共同课标原文；当前核心文本与同组其他年级一致，不能视为已经完成七八九分化。'
+        record.grade_assignment_rationale = hasEvidence
+          ? `该记录保留 7-9 共同课标文本；ChinaTextbook 目前提供${gradeLabel(record)}教材文件级证据，但尚未匹配到单元/章节级知识点，因此只作为共享要求的本年级展示。`
+          : `该记录保留 7-9 共同课标文本；当前没有映射到${gradeLabel(record)}教材证据，只能低置信度保留为共享要求的本年级展示。`
+      } else {
+        record.grade_specific_focus = record.grade_specific_focus || ''
+        record.progression_delta = changedFields.length ? `source_core_fields_differ:${changedFields.join(',')}` : 'partial_grade_group'
+        record.progression_review_note = hasUnitEvidence
+          ? '该记录已有单元/章节级教材证据，可用于进一步确认年级化解释。'
+          : '该记录核心文本已有年级差异或只覆盖部分年级，但教材证据仍需推进到单元/章节级。'
+      }
+
+      if (record.requires_unit_level_evidence) summary.records_requiring_unit_level_evidence += 1
+      if (hasUnitEvidence) summary.records_with_unit_level_evidence += 1
+      if (variantType === 'same_source_shared') summary.shared_requirement_records += 1
+      if (String(record.review_status || '').includes('needs_grade_differentiation')) summary.needs_grade_differentiation_records += 1
+      countInto(summary.standard_variant_types, record.standard_variant_type)
+      countInto(summary.review_statuses, record.review_status)
+      countInto(summary.evidence_granularities, record.evidence_granularity)
+    }
+  }
+  return summary
+}
+
 function buildSubjectPayload(subjectSlug, subjectName, rows, sourceRows) {
   const columns = [...new Set(rows.flatMap(row => Object.keys(row)))].sort((a, b) => a.localeCompare(b))
   return {
@@ -243,6 +375,9 @@ function buildSubjectPayload(subjectSlug, subjectName, rows, sourceRows) {
       grades: countBy(rows, gradeKey),
       grade_assignment_types: countBy(rows, row => row.grade_assignment_type),
       progression_basis: countBy(rows, row => row.progression_basis),
+      standard_variant_types: countBy(rows, row => row.standard_variant_type),
+      evidence_granularities: countBy(rows, row => row.evidence_granularity),
+      review_statuses: countBy(rows, row => row.review_status),
       ts_primary: countBy(rows, row => (row.ts_primary || [])[0])
     },
     standards: rows
@@ -358,7 +493,11 @@ function main() {
       transformed_junior_records: 0,
       candidate_records: 0,
       auto_judged_low_confidence_records: 0,
-      records_with_textbook_evidence: 0
+      records_with_textbook_evidence: 0,
+      shared_requirement_records: 0,
+      needs_grade_differentiation_records: 0,
+      records_requiring_unit_level_evidence: 0,
+      records_with_unit_level_evidence: 0
     },
     warnings: []
   }
@@ -371,10 +510,6 @@ function main() {
     const outRows = []
     let transformed = 0
     let preserved = 0
-    let lowConfidence = 0
-    let withEvidence = 0
-    const assignmentTypes = {}
-    const gradeBands = {}
 
     for (const row of rows) {
       if (!isJuniorRecord(row)) {
@@ -387,10 +522,19 @@ function main() {
       const record = transformedRow.record
       outRows.push(record)
       transformed += 1
-      if (record.grade_assignment_type === 'auto_judged_low_confidence') lowConfidence += 1
-      if (record.textbook_evidence_ids?.length) withEvidence += 1
-      countInto(assignmentTypes, record.grade_assignment_type)
-      countInto(gradeBands, record.grade_band)
+    }
+
+    const distinctiveness = annotateProgressionDistinctiveness(outRows)
+    const finalAssignmentTypes = {}
+    const finalGradeBands = {}
+    let finalLowConfidence = 0
+    let finalWithEvidence = 0
+    for (const record of outRows) {
+      if (!isTargetJuniorRecord(record)) continue
+      countInto(finalAssignmentTypes, record.grade_assignment_type)
+      countInto(finalGradeBands, record.grade_band)
+      if (record.grade_assignment_type === 'auto_judged_low_confidence' || String(record.review_status || '').includes('low_confidence')) finalLowConfidence += 1
+      if (record.textbook_evidence_ids?.length) finalWithEvidence += 1
     }
 
     summary.subjects[subjectSlug] = {
@@ -399,17 +543,22 @@ function main() {
       preserved_non_junior_records: preserved,
       transformed_junior_records: transformed,
       candidate_records: outRows.length,
-      grade_bands: gradeBands,
-      grade_assignment_types: assignmentTypes,
-      auto_judged_low_confidence_records: lowConfidence,
-      records_with_textbook_evidence: withEvidence
+      grade_bands: finalGradeBands,
+      grade_assignment_types: finalAssignmentTypes,
+      auto_judged_low_confidence_records: finalLowConfidence,
+      records_with_textbook_evidence: finalWithEvidence,
+      distinctiveness
     }
     summary.totals.source_records += rows.length
     summary.totals.preserved_non_junior_records += preserved
     summary.totals.transformed_junior_records += transformed
     summary.totals.candidate_records += outRows.length
-    summary.totals.auto_judged_low_confidence_records += lowConfidence
-    summary.totals.records_with_textbook_evidence += withEvidence
+    summary.totals.auto_judged_low_confidence_records += finalLowConfidence
+    summary.totals.records_with_textbook_evidence += finalWithEvidence
+    summary.totals.shared_requirement_records += distinctiveness.shared_requirement_records
+    summary.totals.needs_grade_differentiation_records += distinctiveness.needs_grade_differentiation_records
+    summary.totals.records_requiring_unit_level_evidence += distinctiveness.records_requiring_unit_level_evidence
+    summary.totals.records_with_unit_level_evidence += distinctiveness.records_with_unit_level_evidence
 
     writeJson(
       join(args.outDir, 'by_subject', `${subjectSlug}.json`),

@@ -26,8 +26,23 @@ const REQUIRED_JUNIOR_FIELDS = [
   'progression_role',
   'progression_basis',
   'progression_confidence',
-  'review_status'
+  'review_status',
+  'standard_text_role',
+  'source_standard_scope',
+  'standard_variant_type',
+  'evidence_granularity',
+  'textbook_unit_evidence_ids',
+  'progression_distinctiveness',
+  'progression_distinctiveness_fields',
+  'progression_delta',
+  'progression_review_note',
+  'requires_unit_level_evidence'
 ]
+const REQUIRED_ARRAY_FIELDS = new Set([
+  'textbook_evidence_ids',
+  'textbook_unit_evidence_ids',
+  'progression_distinctiveness_fields'
+])
 
 function parseArgs(argv) {
   const args = {
@@ -112,7 +127,7 @@ function inspectCandidateSubject(file, errors, warnings) {
       continue
     }
     for (const field of REQUIRED_JUNIOR_FIELDS) {
-      if (field === 'textbook_evidence_ids') {
+      if (REQUIRED_ARRAY_FIELDS.has(field)) {
         if (!Array.isArray(record[field])) errors.push(`${record.code} ${field} must be an array`)
       } else if (!hasValue(record[field])) {
         errors.push(`${record.code} missing required H4G field: ${field}`)
@@ -120,6 +135,9 @@ function inspectCandidateSubject(file, errors, warnings) {
     }
     if (record.grade_assignment_type === 'auto_judged_low_confidence' && record.textbook_evidence_ids?.length) {
       warnings.push(`${record.code} is low-confidence but still has textbook evidence ids; verify assignment type`)
+    }
+    if (String(record.grade_assignment_type || '').includes('textbook') && !record.textbook_evidence_ids?.length) {
+      errors.push(`${record.code} ${record.grade_assignment_type} must have textbook_evidence_ids`)
     }
   }
 

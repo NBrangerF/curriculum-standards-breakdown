@@ -23,7 +23,7 @@
 
 - `code`：唯一编码。
 - `subject` / `subject_slug`：学科名和 slug。
-- `grade_band` / `grade_range` / `grade`：学段和年级范围。
+- `grade_band` / `grade_range` / `grade`：学段和年级范围。正式 runtime 使用 `H1/H2/H3/H4G7/H4G8/H4G9`。
 - `domain` / `subdomain`：领域和子领域。
 - `standard`：课程标准正文。
 - `context`、`practice`、`teaching_tip`、`assessment_evidence_type`：教学支持字段。
@@ -36,6 +36,17 @@
 - H1：1-2 年级
 - H2：3-4 年级
 - H3：5-6 年级
+- H4G7：7 年级
+- H4G8：8 年级
+- H4G9：9 年级
+
+`H4` 只作为第四学段 legacy stage label 或 staging 语义，不作为正式筛选项。
+
+初中 H4G 记录如果来自 7-9 共同源标准，必须保留原 `standard` 文本，并标记：
+
+- `standard_variant_type: "same_source_shared"`
+- `review_status: "needs_grade_differentiation"`
+- `evidence_granularity: "textbook_file_grade_level" | "none"`
 
 README/术语文件可能出现“义务教育全阶段”口径：
 

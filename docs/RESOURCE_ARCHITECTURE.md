@@ -1,7 +1,7 @@
 # 课标罗盘资源与架构文档
 
-更新时间：2026-06-30
-对应本地提交：`58eebc3`，与 `origin/main` 一致
+更新时间：2026-07-01
+对应状态：当前工作树，H4G distinctiveness 修复后
 项目路径：`/Users/shawn.fsc/Downloads/curriculum breakdown/curriculum-standards-breakdown`
 
 ## 1. 项目概览
@@ -226,8 +226,8 @@ public/data/
 | `subject_slug` | string | 学科英文 slug，也是文件名。 |
 | `domain` | string | 学科一级领域。 |
 | `subdomain` | string | 子领域或更细分类。 |
-| `grade_band` | string | 学段代码：`H1`、`H2`、`H3`、`H4`。 |
-| `grade_range` | string | 年级范围，如 `1-2`。 |
+| `grade_band` | string | 学段/年级代码：`H1`、`H2`、`H3`、`H4G7`、`H4G8`、`H4G9`。`H4` 仅作为 legacy stage label，不作为正式筛选项。 |
+| `grade_range` | string | 年级范围，如 `1-2`、`7`、`8`、`9`。 |
 | `grade` | string | 人类可读学段文本。 |
 | `standard` | string | 标准正文，是页面最核心展示内容。 |
 | `context` | string | 情境说明。 |
@@ -248,6 +248,37 @@ public/data/
 | `art_discipline` | string | 艺术学科细分字段。 |
 
 `schema.js` 会将空值兜底为字符串或空数组，并保证 `ts_primary`、`ts_secondary`、`resources` 等字段始终是数组。
+
+### 6.2.1 H4G 年级拆分元数据
+
+初中正式记录使用 `H4G7/H4G8/H4G9` 作为 runtime 年级口径，同时保留 `stage_band: "H4"` 表示第四学段。因为 2022 版课标中大量初中要求本身是 7-9 共同要求，当前数据必须区分“源课标原文”和“年级化拆分状态”。
+
+| 字段 | 类型 | 说明 |
+| --- | --- | --- |
+| `stage_band` | string | 初中拆分记录的大阶段标记，当前为 `H4`。 |
+| `grade_level` | number | 具体年级数字，当前为 7、8、9。 |
+| `legacy_code` | string | H4 拆分前或来源记录的 code。 |
+| `source_grade_band` | string | 来源记录的学段，如 `H4`。 |
+| `source_grade_range` | string | 来源记录的年级范围，如 `7-9`。 |
+| `grade_assignment_type` | string | 年级归属依据类型；共享源记录会使用 `shared_requirement_*` 或低置信度类型。 |
+| `grade_assignment_confidence` | number | 年级归属置信度，0 到 1。 |
+| `grade_assignment_rationale` | string | 年级归属依据说明，非课标原文。 |
+| `textbook_evidence_ids` | string[] | 教材文件级证据 ID。 |
+| `textbook_unit_evidence_ids` | string[] | 未来单元/章节级证据 ID；当前仍为空数组。 |
+| `standard_text_role` | string | 当前 `standard` 的文本角色，当前为 `source_standard_original`。 |
+| `source_standard_scope` | string | 来源范围，如 `stage_shared_7_9`。 |
+| `standard_variant_type` | string | `same_source_shared`、`grade_specific_variant` 或 `single_or_partial_grade_variant`。 |
+| `evidence_granularity` | string | `none`、`textbook_file_grade_level` 或 `textbook_unit_level`。 |
+| `progression_group_id` | string | 同一源标准跨年级展示或进阶的分组 ID。 |
+| `progression_distinctiveness` | string | 当前三元组是否为 `identical_core_fields` 或 `core_fields_differ`。 |
+| `progression_distinctiveness_fields` | string[] | 发生差异的核心字段。 |
+| `requires_unit_level_evidence` | boolean | 是否仍需教材单元/章节级证据。 |
+| `grade_specific_focus` | string | 年级化学习重点；共享源记录只写待补充，不编造具体内容。 |
+| `progression_delta` | string | 年级间差异状态，如 `not_yet_differentiated_from_shared_7_9_source`。 |
+| `progression_review_note` | string | 给前端和人工复核看的拆分状态说明。 |
+| `review_status` | string | 如 `needs_grade_differentiation`、`needs_grade_differentiation_low_confidence`。 |
+
+当前 `public/data` 中 323 个完整 H4G 三元组核心文本完全相同，但 `unlabeled_identical_triplets` 为 0；这些记录已标为共享源标准和待年级化细分。详见 `docs/H4G_DISTINCTIVENESS_REMEDIATION.md`。
 
 ### 6.3 学科元数据
 
@@ -656,12 +687,14 @@ s?.transferable_skills?.map(t => t.code)
 ```bash
 npm run build:indexes
 npm run validate:indexes
+npm run grade7_9:audit-h4g-distinctiveness -- --strict
 npm run build
 ```
 
 然后检查：
 
 - `validate:indexes` 是否通过。
+- `audit-h4g-distinctiveness` 是否确认 `unlabeled_identical_triplets` 为 0。
 - `glossary.json`、`skills_meta.json`、`subjects_meta.json` 是否能被 `jq` 或 `JSON.parse` 正常解析。
 - 随机打开一个学科页、一个技能页、一个标准详情页、一个清单打印页。
 

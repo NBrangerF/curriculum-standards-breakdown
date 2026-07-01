@@ -22,6 +22,42 @@
 }
 ```
 
+### H4G 初中年级拆分字段
+
+当 `grade_band` 为 `H4G7`、`H4G8`、`H4G9` 时，记录还应携带以下拆分证据字段：
+
+```json
+{
+  "stage_band": "H4",
+  "grade_level": 7,
+  "legacy_code": "MA-H4-ALG-001",
+  "source_grade_band": "H4",
+  "source_grade_range": "7-9",
+  "grade_assignment_type": "shared_requirement_textbook_file_supported",
+  "grade_assignment_confidence": 0.6,
+  "grade_assignment_rationale": "年级归属依据说明，非课标原文。",
+  "textbook_evidence_ids": [],
+  "textbook_unit_evidence_ids": [],
+  "standard_text_role": "source_standard_original",
+  "source_standard_scope": "stage_shared_7_9",
+  "standard_variant_type": "same_source_shared",
+  "evidence_granularity": "textbook_file_grade_level",
+  "progression_group_id": "math-...",
+  "progression_role": "introductory",
+  "progression_basis": "shared_standard_textbook_file_sequence",
+  "progression_confidence": 0.42,
+  "progression_distinctiveness": "identical_core_fields",
+  "progression_distinctiveness_fields": [],
+  "requires_unit_level_evidence": true,
+  "grade_specific_focus": "待基于七年级教材单元/章节补充本年级专属学习重点。",
+  "progression_delta": "not_yet_differentiated_from_shared_7_9_source",
+  "progression_review_note": "该记录保留第四学段 7-9 共同课标原文；当前不能视为已经完成七八九分化。",
+  "review_status": "needs_grade_differentiation"
+}
+```
+
+注意：`standard` 仍是源课标核心文本。不能为了让 `H4G7/H4G8/H4G9` 看起来不同而改写或编造官方标准。若三年级核心文本相同，必须标为 `same_source_shared` 和 `needs_grade_differentiation`，直到有教材单元/章节级证据支撑真实年级化解释。
+
 ## 课程方案 ParsedPlan
 
 ```json

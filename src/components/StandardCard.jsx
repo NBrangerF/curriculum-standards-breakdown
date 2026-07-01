@@ -35,6 +35,13 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
         grade_assignment_confidence,
         grade_assignment_rationale,
         textbook_evidence_ids,
+        source_standard_scope,
+        standard_variant_type,
+        evidence_granularity,
+        grade_specific_focus,
+        progression_delta,
+        progression_review_note,
+        requires_unit_level_evidence,
         review_status,
         ts_primary,
         ts_secondary
@@ -42,9 +49,19 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
 
     const gradeBandInfo = GRADE_BANDS[grade_band] || {}
     const evidenceIds = Array.isArray(textbook_evidence_ids) ? textbook_evidence_ids : []
-    const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || review_status === 'auto_judged_low_confidence'
+    const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || String(review_status || '').includes('low_confidence')
+    const needsGradeDifferentiation = String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared'
     const hasGradeAssignmentConfidence = grade_assignment_confidence !== null && grade_assignment_confidence !== undefined
-    const hasGradeAssignmentDetails = grade_assignment_rationale || hasGradeAssignmentConfidence || evidenceIds.length > 0
+    const hasGradeAssignmentDetails = grade_assignment_rationale ||
+        hasGradeAssignmentConfidence ||
+        evidenceIds.length > 0 ||
+        source_standard_scope ||
+        standard_variant_type ||
+        evidence_granularity ||
+        grade_specific_focus ||
+        progression_delta ||
+        progression_review_note ||
+        requires_unit_level_evidence !== undefined
     const hasDetails = context || practice || teaching_tip || assessment_evidence_type || hasGradeAssignmentDetails
 
     // Get accent color from subject
@@ -132,6 +149,9 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                     )}
                     {isLowConfidence && (
                         <span className="review-status-chip">低置信度</span>
+                    )}
+                    {needsGradeDifferentiation && (
+                        <span className="review-status-chip needs-differentiation">待年级化细分</span>
                     )}
                 </div>
 
@@ -267,6 +287,12 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                             {grade_assignment_rationale && (
                                 <p className="detail-text">{grade_assignment_rationale}</p>
                             )}
+                            {grade_specific_focus && (
+                                <p className="detail-text">{grade_specific_focus}</p>
+                            )}
+                            {progression_review_note && (
+                                <p className="detail-text">{progression_review_note}</p>
+                            )}
                             <div className="grade-assignment-meta">
                                 {grade_assignment_type && (
                                     <span>{grade_assignment_type}</span>
@@ -276,6 +302,21 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                                 )}
                                 {evidenceIds.length > 0 && (
                                     <span>教材证据 {evidenceIds.length} 条</span>
+                                )}
+                                {source_standard_scope && (
+                                    <span>{source_standard_scope}</span>
+                                )}
+                                {standard_variant_type && (
+                                    <span>{standard_variant_type}</span>
+                                )}
+                                {evidence_granularity && (
+                                    <span>{evidence_granularity}</span>
+                                )}
+                                {progression_delta && (
+                                    <span>{progression_delta}</span>
+                                )}
+                                {requires_unit_level_evidence && (
+                                    <span>需单元级证据</span>
                                 )}
                             </div>
                         </div>

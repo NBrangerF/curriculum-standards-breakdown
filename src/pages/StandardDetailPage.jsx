@@ -84,6 +84,13 @@ function StandardDetailPage() {
         textbook_evidence_ids,
         progression_basis,
         progression_role,
+        source_standard_scope,
+        standard_variant_type,
+        evidence_granularity,
+        grade_specific_focus,
+        progression_delta,
+        progression_review_note,
+        requires_unit_level_evidence,
         review_status,
         ts_primary,
         ts_secondary,
@@ -99,8 +106,20 @@ function StandardDetailPage() {
     const shareURL = `${window.location.origin}/standards/${code}`
     const evidenceIds = Array.isArray(textbook_evidence_ids) ? textbook_evidence_ids : []
     const hasGradeAssignmentConfidence = grade_assignment_confidence !== null && grade_assignment_confidence !== undefined
-    const hasGradeAssignmentDetails = grade_assignment_rationale || hasGradeAssignmentConfidence || evidenceIds.length > 0 || progression_basis || progression_role
-    const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || review_status === 'auto_judged_low_confidence'
+    const hasGradeAssignmentDetails = grade_assignment_rationale ||
+        hasGradeAssignmentConfidence ||
+        evidenceIds.length > 0 ||
+        progression_basis ||
+        progression_role ||
+        source_standard_scope ||
+        standard_variant_type ||
+        evidence_granularity ||
+        grade_specific_focus ||
+        progression_delta ||
+        progression_review_note ||
+        requires_unit_level_evidence !== undefined
+    const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || String(review_status || '').includes('low_confidence')
+    const needsGradeDifferentiation = String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared'
 
     // Parse navigation codes (may be multiple, separated by \n)
     const prevCodes = previous_code ? previous_code.split('\n').filter(Boolean) : []
@@ -137,6 +156,9 @@ function StandardDetailPage() {
                             </span>
                             {isLowConfidence && (
                                 <span className="low-confidence-badge">低置信度</span>
+                            )}
+                            {needsGradeDifferentiation && (
+                                <span className="grade-differentiation-badge">待年级化细分</span>
                             )}
                         </div>
                         <h1 className="standard-title">{standardText}</h1>
@@ -284,6 +306,12 @@ function StandardDetailPage() {
                             {grade_assignment_rationale && (
                                 <p className="grade-assignment-rationale">{grade_assignment_rationale}</p>
                             )}
+                            {grade_specific_focus && (
+                                <p className="grade-assignment-rationale">{grade_specific_focus}</p>
+                            )}
+                            {progression_review_note && (
+                                <p className="grade-assignment-rationale">{progression_review_note}</p>
+                            )}
                             <div className="grade-assignment-facts">
                                 {grade_assignment_type && <span>{grade_assignment_type}</span>}
                                 {hasGradeAssignmentConfidence && (
@@ -292,6 +320,11 @@ function StandardDetailPage() {
                                 {progression_basis && <span>{progression_basis}</span>}
                                 {progression_role && <span>{progression_role}</span>}
                                 {evidenceIds.length > 0 && <span>教材证据 {evidenceIds.length} 条</span>}
+                                {source_standard_scope && <span>{source_standard_scope}</span>}
+                                {standard_variant_type && <span>{standard_variant_type}</span>}
+                                {evidence_granularity && <span>{evidence_granularity}</span>}
+                                {progression_delta && <span>{progression_delta}</span>}
+                                {requires_unit_level_evidence && <span>需单元级证据</span>}
                             </div>
                         </div>
                     </div>
