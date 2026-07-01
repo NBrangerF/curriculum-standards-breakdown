@@ -140,6 +140,9 @@ npm run textbooks:audit-unit-matches -- --strict --require-matches --require-eli
 | `confidence_band` | `high`、`medium`、`low` 或 `below_threshold`。 |
 | `matched_keywords` | 标准字段与单元标题之间的关键词交集。 |
 | `matched_fields` | 关键词命中的标准字段和短摘录。 |
+| `subdomain_alignment` | 单元标题是否命中标准 `subdomain` 锚点。 |
+| `field_alignment` | 当 `subdomain` 是科学编号内容项且标题不逐字命中时，记录是否由强标准字段概念词命中补足。 |
+| `eligible_alignment` | `subdomain_anchor`、`strong_field_alignment` 或 `none`。 |
 | `rationale` | 可读匹配理由。 |
 | `eligible_for_h4g_differentiation` | 是否达到后续 H4G 分化候选证据门槛。 |
 | `requires_review` | 当前一律为 true。 |
@@ -318,7 +321,7 @@ npm run textbooks:audit-unit-index -- --unit-index /tmp/textbook_unit_index_math
 npm run textbooks:audit-unit-matches -- --matches /tmp/textbook_unit_standard_matches_math_h4g_pep_ocr2.json --unit-index /tmp/textbook_unit_index_math_h4g_pep_ocr2.json --out /tmp/textbook_unit_standard_matches_math_h4g_pep_ocr2_audit.json --strict --require-matches --require-eligible
 ```
 
-当前 eligible 还只是候选证据，不直接写入 `public/data`。匹配脚本已经加上 `subdomain` 锚点门：达到 score 但没有命中 `subdomain` 锚点的候选，例如 `实数` 标准匹配到 `有理数` 单元、`一次函数` 标准匹配到 `一元一次方程` 单元，会被保留为普通 match，但不会成为 `eligible_for_h4g_differentiation`。
+当前 eligible 还只是候选证据，不直接写入 `public/data`。匹配脚本已经加上 alignment 门：数学等学科继续要求命中 `subdomain` 锚点，达到 score 但没有命中 `subdomain` 锚点的候选，例如 `实数` 标准匹配到 `有理数` 单元、`一次函数` 标准匹配到 `一元一次方程` 单元，会被保留为普通 match，但不会成为 `eligible_for_h4g_differentiation`。科学编号内容项允许第二通道 `strong_field_alignment`：必须是 `toc_unit_or_chapter`、medium 以上分数、命中 `standard` 字段、至少两个证据字段参与，并且有 4 个以上汉字的具体科学概念词命中。
 
 写回前候选包入口：
 
@@ -413,27 +416,39 @@ npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6
   "standards_evaluated": 201,
   "unit_candidates_considered": 177,
   "matches": 77,
-  "eligible_matches": 4,
-  "candidate_standards": 4,
+  "eligible_matches": 11,
+  "candidate_standards": 11,
   "by_grade_band": {
     "H4G7": 2,
-    "H4G9": 2
+    "H4G8": 4,
+    "H4G9": 5
+  },
+  "by_eligible_alignment": {
+    "subdomain_anchor": 4,
+    "strong_field_alignment": 7
   }
 }
 ```
 
-生成的 4 条科学候选为：
+生成的 11 条科学候选为：
 
-| standard_code | grade_band | subdomain | unit |
+| standard_code | grade_band | alignment | unit |
 | --- | --- | --- | --- |
-| `SC-H4G7-EVOL-010` | H4G7 | `8.4 细菌、真菌、病毒具有不同的繁殖方式` | `第6节 细菌和真菌的繁殖` |
-| `SC-H4G7-PR-001` | H4G7 | `科学探究与工程实践` | `第5节 科学探究` |
-| `SC-H4G9-ENE-006` | H4G9 | `4.2 能源与可持续发展` | `第4章 可持续发展` |
-| `SC-H4G9-MAT-009` | H4G9 | `1.3 金属及合金是重要的材料` | `第1节 金属材料` |
+| `SC-H4G7-EVOL-010` | H4G7 | `subdomain_anchor` | `第6节 细菌和真菌的繁殖` |
+| `SC-H4G7-PR-001` | H4G7 | `subdomain_anchor` | `第5节 科学探究` |
+| `SC-H4G8-CHG-011` | H4G8 | `strong_field_alignment` | `第3节 化学方程式` |
+| `SC-H4G8-HOME-002` | H4G8 | `strong_field_alignment` | `第6节 光合作用` |
+| `SC-H4G8-HOME-008` | H4G8 | `strong_field_alignment` | `第3节 神经调节` |
+| `SC-H4G8-MAT-005` | H4G8 | `strong_field_alignment` | `第4节 二氧化碳` |
+| `SC-H4G9-ECO-003` | H4G9 | `strong_field_alignment` | `第1节 生物与环境的相互关系` |
+| `SC-H4G9-ECO-009` | H4G9 | `strong_field_alignment` | `第6节 健康生活` |
+| `SC-H4G9-ECO-012` | H4G9 | `strong_field_alignment` | `第1节 生物与环境的相互关系` |
+| `SC-H4G9-ENE-006` | H4G9 | `subdomain_anchor` | `第4章 可持续发展` |
+| `SC-H4G9-MAT-009` | H4G9 | `subdomain_anchor` | `第1节 金属材料` |
 
-候选 apply 到 `/tmp/h4g_unit_evidence_data_candidate_science_zj_all` 后，结果为 applied 4、missing 0、skipped 0、`official_standard_text_changed: false`。候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 和 `audit-grade-band-policy --data-only --strict` 均通过；审计识别到科学学科 4 条 `textbook_unit_level` 记录。独立比对显示这 4 条记录的官方字段变化数为 0。
+候选 apply 到 `/tmp/h4g_unit_evidence_data_candidate_science_zj_all_field_alignment` 后，结果为 applied 11、missing 0、skipped 0、`official_standard_text_changed: false`。候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 和 `audit-grade-band-policy --data-only --strict` 均通过；审计识别到科学学科 11 条 `textbook_unit_level` 记录。独立比对显示这 11 条记录的官方字段变化数为 0。
 
-这个样本证明科学浙教版 7/8/9 六册可以走通 PDF 获取、目录抽取、标准匹配、候选包和候选根审计；但它仍不能证明科学 H4G8 已有足够单元级证据，因为 eligible gate 当前没有产出 H4G8 候选。下一步应聚焦匹配规则和标准进阶链，而不是再把八、九年级 PDF timeout 当作主瓶颈。
+这个样本证明科学浙教版 7/8/9 六册可以走通 PDF 获取、目录抽取、标准匹配、候选包和候选根审计；也证明 H4G8 的问题主要来自过严的 `subdomain` 逐字锚点，而不是教材缺失。当前 11 条仍是候选证据，不能直接把记录标成 `grade_specific_variant`；下一步要继续做跨版本一致性、页码范围和人工/规则复核。
 
 ## 9. 与 H4G 分化的关系
 

@@ -195,7 +195,7 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 
 这进一步确认当前 H4G standards 还不能声称已经真实分化；它们只是有了可重复的下一阶段证据任务入口。
 
-标准-单元匹配入口当前也已落地。数学人教版 7/8/9 小批量真实数据下，114 条 H4G standards 被评估，118 个 `toc_unit_or_chapter` 候选进入匹配，得到 106 个 matches 和 32 个 `eligible_for_h4g_differentiation` 候选。eligible 门槛要求真实单元候选、分数达标，并命中标准 `subdomain` 锚点；这会阻止 `实数` 被 `有理数` 单元误升级、`一次函数` 被 `一元一次方程` 单元误升级。
+标准-单元匹配入口当前也已落地。数学人教版 7/8/9 小批量真实数据下，114 条 H4G standards 被评估，118 个 `toc_unit_or_chapter` 候选进入匹配，得到 106 个 matches 和 32 个 `eligible_for_h4g_differentiation` 候选。eligible 门槛要求真实单元候选、分数达标，并通过 alignment gate；数学等学科继续要求命中标准 `subdomain` 锚点，这会阻止 `实数` 被 `有理数` 单元误升级、`一次函数` 被 `一元一次方程` 单元误升级。科学编号内容项允许 `strong_field_alignment` 第二通道：medium 以上分数、命中 `standard` 字段、至少两个证据字段参与，并且有 4 个以上汉字的具体科学概念词命中。
 
 写回前候选包入口也已新增：
 
@@ -203,7 +203,7 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 npm run textbooks:h4g-unit-candidates -- --strict --require-candidates
 ```
 
-当前数学 OCR 样本可生成 15 条 public standard 对应的单元级证据候选，分布为 H4G7 7 条、H4G8 3 条、H4G9 5 条。候选包只组织 `textbook_unit_evidence_ids`、单元标题、match score、matched fields、subdomain anchor 和建议更新字段，不写 `public/data`，也不改写课标原文。
+当前数学 OCR 样本可生成 15 条 public standard 对应的单元级证据候选，分布为 H4G7 7 条、H4G8 3 条、H4G9 5 条。候选包只组织 `textbook_unit_evidence_ids`、单元标题、match score、matched fields、alignment 证据和建议更新字段，不写 `public/data`，也不改写课标原文。
 
 候选包 apply 到独立数据根的流程也已落地：
 
@@ -213,7 +213,7 @@ npm run textbooks:apply-h4g-unit-candidates -- --candidate /tmp/h4g_unit_evidenc
 
 该步骤会复制 `public/data` 到候选数据根，然后只更新候选命中的 H4G records。当前数学样本 apply 结果为 15 条 applied、0 条 missing、0 条 skipped、32 个单元证据对象，且 `official_standard_text_changed: false`、`writes_public_data: false`。候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 与 `audit-grade-band-policy --data-only --strict` 均通过；审计能识别到 15 条 `unit_level_evidence_records`。
 
-科学浙教版 7/8/9 六册也完成一轮小样本验证：加入 raw URL fallback 与 `.part` 断点续传后，六册都能进入文本层目录解析，共抽出 177 个真实目录/章节候选、0 个 `volume_seed`。201 条科学 H4G standards 进入匹配后，得到 77 个 matches、4 个 eligible candidates，并形成 4 条单元级证据候选，分布为 H4G7 2 条、H4G9 2 条、H4G8 0 条。候选根 apply 后为 4 条 applied、0 条 missing、0 条 skipped，官方字段变化数为 0，严格索引校验、H4G distinctiveness 审计和 grade-band policy 审计均通过。该结果解决了先前八、九年级科学 PDF `materialize_timeout` 的主要阻塞，但科学 H4G8 仍不能声称已有单元级证据，需要继续改进匹配规则和进阶链判断。
+科学浙教版 7/8/9 六册也完成一轮小样本验证：加入 raw URL fallback 与 `.part` 断点续传后，六册都能进入文本层目录解析，共抽出 177 个真实目录/章节候选、0 个 `volume_seed`。201 条科学 H4G standards 进入匹配后，得到 77 个 matches、11 个 eligible candidates，并形成 11 条单元级证据候选，分布为 H4G7 2 条、H4G8 4 条、H4G9 5 条；alignment 分布为 `subdomain_anchor` 4 条、`strong_field_alignment` 7 条。候选根 apply 后为 11 条 applied、0 条 missing、0 条 skipped，官方字段变化数为 0，严格索引校验、H4G distinctiveness 审计和 grade-band policy 审计均通过。该结果解决了先前八、九年级科学 PDF `materialize_timeout` 和 H4G8 被过严 `subdomain` 逐字锚点挡住的两个阻塞；但这些仍是候选证据，正式写入前还需要跨版本一致性、页码范围和人工/规则复核。
 
 后续一旦有真实 `toc_unit_or_chapter`，匹配输出必须包含：
 

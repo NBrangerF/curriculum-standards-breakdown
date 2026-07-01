@@ -127,6 +127,8 @@ function unitEvidenceFromMatch(match) {
     matched_keywords: match.matched_keywords || [],
     matched_fields: compactMatchedFields(match.matched_fields),
     subdomain_alignment: match.subdomain_alignment,
+    field_alignment: match.field_alignment,
+    eligible_alignment: match.eligible_alignment,
     rationale: match.rationale
   }
 }
@@ -192,7 +194,7 @@ function buildCandidate(record, matches, args) {
       writes_public_data: false,
       official_standard_text_changed: false,
       requires_manual_review: true,
-      eligible_gate: 'toc_unit_or_chapter + eligible score + subdomain anchor'
+      eligible_gate: 'toc_unit_or_chapter + eligible score + subdomain anchor or strong field alignment'
     }
   }
 }
@@ -201,7 +203,7 @@ function groupEligible(matches) {
   const groups = new Map()
   for (const match of matches || []) {
     if (!match.eligible_for_h4g_differentiation) continue
-    if (!match.subdomain_alignment?.matched) continue
+    if (!match.subdomain_alignment?.matched && !match.field_alignment?.matched) continue
     if (match.candidate_type !== 'toc_unit_or_chapter') continue
     const key = match.standard_code
     if (!groups.has(key)) groups.set(key, [])

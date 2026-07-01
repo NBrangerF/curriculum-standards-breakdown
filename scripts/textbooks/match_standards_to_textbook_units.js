@@ -41,6 +41,13 @@ const BROAD_SUBDOMAIN_LABELS = new Set([
   '课程目标',
   '水平四内容结构'
 ])
+const FIELD_ALIGNMENT_EVIDENCE_FIELDS = new Set([
+  'standard',
+  'practice',
+  'teaching_tip',
+  'assessment_evidence_type'
+])
+const FIELD_ALIGNMENT_MIN_HAN_CHARS = 4
 
 function parseArgs(argv) {
   const args = {
@@ -146,6 +153,10 @@ function hasHan(value) {
   return /\p{Script=Han}/u.test(value)
 }
 
+function hanCharCount(value) {
+  return (String(value || '').match(/\p{Script=Han}/gu) || []).length
+}
+
 function grams(text, min, max) {
   const compact = String(text || '').replace(/\s+/g, '')
   const out = []
@@ -236,6 +247,36 @@ function subdomainAlignment(standard, unit) {
     matched: matchedAnchors.length > 0,
     anchors,
     matched_anchors: matchedAnchors
+  }
+}
+
+function allowsStrongFieldAlignment(standard) {
+  return standard.subject_slug === 'science' && /^\d+\.\d+\s/u.test(String(standard.subdomain || ''))
+}
+
+function strongFieldAlignment(standard, unit, scoredMatch, args) {
+  const matchedFields = new Set((scoredMatch.matched_fields || []).map(row => row.field))
+  const evidenceFields = [...matchedFields].filter(field => FIELD_ALIGNMENT_EVIDENCE_FIELDS.has(field))
+  const longKeywords = (scoredMatch.matched_keywords || [])
+    .filter(keyword => hanCharCount(keyword) >= FIELD_ALIGNMENT_MIN_HAN_CHARS)
+  const matched = (
+    allowsStrongFieldAlignment(standard) &&
+    scoredMatch.score >= args.eligibleScore &&
+    unit.candidate_type === 'toc_unit_or_chapter' &&
+    matchedFields.has('standard') &&
+    evidenceFields.length >= 2 &&
+    longKeywords.length > 0
+  )
+  return {
+    required: false,
+    matched,
+    policy: 'science_numbered_content_strong_field_terms',
+    evidence_fields: evidenceFields.sort((a, b) => a.localeCompare(b)),
+    matched_keywords: [...new Set(longKeywords)].sort((a, b) => a.localeCompare(b)).slice(0, 12),
+    min_keyword_han_chars: FIELD_ALIGNMENT_MIN_HAN_CHARS,
+    reason: matched
+      ? 'Strong science content term matched standard evidence fields even though the broad subdomain title did not appear verbatim in the unit title.'
+      : ''
   }
 }
 
@@ -372,7 +413,9 @@ function buildMatches(standards, unitsBySubjectGrade, args) {
       const scoredMatch = scoreMatch(standard, unit)
       if (scoredMatch.score < args.minScore) continue
       const alignment = subdomainAlignment(standard, unit)
-      const eligible = unit.candidate_type === 'toc_unit_or_chapter' && scoredMatch.score >= args.eligibleScore && alignment.matched
+      const fieldAlignment = strongFieldAlignment(standard, unit, scoredMatch, args)
+      const eligibleAlignment = alignment.matched || fieldAlignment.matched
+      const eligible = unit.candidate_type === 'toc_unit_or_chapter' && scoredMatch.score >= args.eligibleScore && eligibleAlignment
       scored.push({
         match_id: `ctm_${hashText(`${standard.code}|${unit.unit_evidence_id}`, 14)}`,
         standard_code: standard.code,
@@ -397,6 +440,8 @@ function buildMatches(standards, unitsBySubjectGrade, args) {
         matched_keywords: scoredMatch.matched_keywords,
         matched_fields: scoredMatch.matched_fields,
         subdomain_alignment: alignment,
+        field_alignment: fieldAlignment,
+        eligible_alignment: alignment.matched ? 'subdomain_anchor' : fieldAlignment.matched ? 'strong_field_alignment' : 'none',
         rationale: scoredMatch.rationale,
         eligible_for_h4g_differentiation: eligible,
         requires_review: true
@@ -512,7 +557,14 @@ function main() {
       max_matches_per_standard: args.maxMatches,
       include_volume_seeds: args.includeVolumeSeeds,
       eligible_candidate_type: 'toc_unit_or_chapter',
-      eligible_requires_subdomain_anchor: true
+      eligible_requires_alignment: 'subdomain_anchor_or_strong_field_alignment',
+      strong_field_alignment_policy: {
+        subjects: ['science'],
+        subdomain_pattern: '^\\d+\\.\\d+\\s',
+        min_han_keyword_chars: FIELD_ALIGNMENT_MIN_HAN_CHARS,
+        required_fields: ['standard'],
+        min_evidence_fields: 2
+      }
     },
     summary,
     warnings,

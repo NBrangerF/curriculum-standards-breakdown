@@ -95,7 +95,10 @@ function auditMatch(match, standardCodes, unitMap, errors, warnings, stats) {
   countInto(stats.by_subject, match.subject_slug)
   countInto(stats.by_confidence_band, match.confidence_band)
   countInto(stats.by_candidate_type, match.candidate_type)
-  if (match.eligible_for_h4g_differentiation) stats.eligible_matches += 1
+  if (match.eligible_for_h4g_differentiation) {
+    stats.eligible_matches += 1
+    countInto(stats.by_eligible_alignment, match.eligible_alignment || 'missing')
+  }
 
   const required = [
     'match_id',
@@ -146,8 +149,20 @@ function auditMatch(match, standardCodes, unitMap, errors, warnings, stats) {
   if (match.eligible_for_h4g_differentiation && match.candidate_type !== 'toc_unit_or_chapter') {
     errors.push(`${match.match_id} is eligible without toc_unit_or_chapter evidence`)
   }
-  if (match.eligible_for_h4g_differentiation && !match.subdomain_alignment?.matched) {
-    errors.push(`${match.match_id} is eligible without subdomain anchor alignment`)
+  if (
+    match.eligible_for_h4g_differentiation &&
+    !match.subdomain_alignment?.matched &&
+    !match.field_alignment?.matched
+  ) {
+    errors.push(`${match.match_id} is eligible without subdomain anchor or strong field alignment`)
+  }
+  if (match.eligible_for_h4g_differentiation && match.field_alignment?.matched) {
+    if (!Array.isArray(match.field_alignment.evidence_fields) || !match.field_alignment.evidence_fields.length) {
+      errors.push(`${match.match_id} strong field alignment missing evidence_fields`)
+    }
+    if (!Array.isArray(match.field_alignment.matched_keywords) || !match.field_alignment.matched_keywords.length) {
+      errors.push(`${match.match_id} strong field alignment missing matched_keywords`)
+    }
   }
   if (match.eligible_for_h4g_differentiation && match.confidence_band === 'low') {
     warnings.push(`${match.match_id} is eligible with low confidence`)
@@ -169,7 +184,8 @@ function main() {
     unmatched_standards: 0,
     by_subject: {},
     by_confidence_band: {},
-    by_candidate_type: {}
+    by_candidate_type: {},
+    by_eligible_alignment: {}
   }
 
   if (!existsSync(args.matches)) errors.push(`Missing matches file: ${args.matches}`)

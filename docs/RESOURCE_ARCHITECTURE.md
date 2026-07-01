@@ -325,7 +325,7 @@ npm run textbooks:apply-h4g-unit-candidates -- --strict
 - `textbook_evidence_ids` 当前是教材文件级证据，可支持年级适配判断。
 - `textbook_unit_evidence_ids` 只有在获得 `toc_unit_or_chapter`、完成标准匹配并进入 H4G 单元证据候选包后才能填写。
 - `volume_seed` 不能证明标准已完成单元级分化；它只是后续 OCR/目录提取的任务入口。
-- `eligible_for_h4g_differentiation` 必须来自真实 `toc_unit_or_chapter`、达到匹配分数、命中标准 `subdomain` 锚点，并且仍需人工或规则复核。
+- `eligible_for_h4g_differentiation` 必须来自真实 `toc_unit_or_chapter`、达到匹配分数，并通过 alignment gate：通常要求命中标准 `subdomain` 锚点；科学编号内容项可用 `strong_field_alignment` 作为第二通道，但仍需人工或规则复核。
 - `h4g_unit_evidence_candidate` 是写回前候选，不会修改 `public/data`，也不会改写课标原文。
 - `textbooks:apply-h4g-unit-candidates` 只把候选包应用到独立候选数据根；正式写入 `public/data` 仍需要单独发布 gate。
 - `materialize_timeout` 或 `raw_materialize_timeout` 代表远端 PDF 文件没有稳定取得，不得被解释为教材缺少目录或标准无法分化。
