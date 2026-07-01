@@ -327,6 +327,7 @@ npm run textbooks:audit-unit-matches -- --matches /tmp/textbook_unit_standard_ma
 
 ```bash
 npm run textbooks:h4g-unit-candidates -- --matches /tmp/textbook_unit_standard_matches_math_h4g_pep_ocr2.json --out /tmp/h4g_unit_evidence_candidate_math_ocr2.json --summary-out /tmp/h4g_unit_evidence_candidate_math_ocr2.md --strict --require-candidates
+npm run textbooks:audit-h4g-unit-candidates -- --candidate /tmp/h4g_unit_evidence_candidate_math_ocr2.json --out /tmp/h4g_unit_evidence_candidate_math_ocr2_audit.json --strict --require-candidates
 ```
 
 当前数学候选包结果：
@@ -345,7 +346,7 @@ npm run textbooks:h4g-unit-candidates -- --matches /tmp/textbook_unit_standard_m
 }
 ```
 
-该候选包仍不写 `public/data`，只把可复核的 `textbook_unit_evidence_ids`、单元标题、match score、matched fields、alignment 证据和建议更新字段组织出来。`--summary-out` 生成的 Markdown 现在同时作为 review pack：逐条列出官方字段摘录、当前/建议状态、候选单元、alignment 类型、命中字段和命中关键词，便于人工或更强规则复核。
+该候选包仍不写 `public/data`，只把可复核的 `textbook_unit_evidence_ids`、单元标题、match score、matched fields、alignment 证据和建议更新字段组织出来。`--summary-out` 生成的 Markdown 现在同时作为 review pack：逐条列出官方字段摘录、当前/建议状态、候选单元、alignment 类型、命中字段和命中关键词，便于人工或更强规则复核。`textbooks:audit-h4g-unit-candidates` 是 apply 前 gate，会校验候选包仍是写回前材料、官方字段快照与 `public/data` 一致、unit evidence 是真实 `toc_unit_or_chapter`、alignment 可解释、proposed update 不包含官方课标字段。
 
 ## 8. 应用到候选数据根
 
@@ -446,7 +447,7 @@ npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6
 | `SC-H4G9-ENE-006` | H4G9 | `subdomain_anchor` | `第4章 可持续发展` |
 | `SC-H4G9-MAT-009` | H4G9 | `subdomain_anchor` | `第1节 金属材料` |
 
-候选 review pack 已生成到 `/tmp/h4g_unit_evidence_candidate_science_zj_all_review_pack.md`，包含 11 条逐条复核明细。候选 apply 到 `/tmp/h4g_unit_evidence_data_candidate_science_zj_all_review_pack` 后，结果为 applied 11、missing 0、skipped 0、`official_standard_text_changed: false`。候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 和 `audit-grade-band-policy --data-only --strict` 均通过；审计识别到科学学科 11 条 `textbook_unit_level` 记录。独立比对显示 349 条科学记录的官方字段变化数为 0。
+候选 review pack 已生成到 `/tmp/h4g_unit_evidence_candidate_science_zj_all_review_pack.md`，包含 11 条逐条复核明细。新增候选包审计对 `/tmp/h4g_unit_evidence_candidate_science_zj_all_final_review_pack.json` 通过，结果为 valid true、errors 0、warnings 0，并确认 11 条候选的 alignment 分布为 `subdomain_anchor` 4、`strong_field_alignment` 7。候选 apply 到 `/tmp/h4g_unit_evidence_data_candidate_science_zj_all_review_pack` 后，结果为 applied 11、missing 0、skipped 0、`official_standard_text_changed: false`。候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 和 `audit-grade-band-policy --data-only --strict` 均通过；审计识别到科学学科 11 条 `textbook_unit_level` 记录。独立比对显示 349 条科学记录的官方字段变化数为 0。
 
 这个样本证明科学浙教版 7/8/9 六册可以走通 PDF 获取、目录抽取、标准匹配、候选包和候选根审计；也证明 H4G8 的问题主要来自过严的 `subdomain` 逐字锚点，而不是教材缺失。当前 11 条仍是候选证据，不能直接把记录标成 `grade_specific_variant`；下一步要继续做跨版本一致性、页码范围和人工/规则复核。
 
@@ -458,9 +459,10 @@ H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 
 2. 标准核心字段与候选单元/章节建立可解释匹配。
 3. 匹配通过 `textbooks:audit-unit-matches -- --strict --require-matches --require-eligible`。
 4. 先通过 `textbooks:h4g-unit-candidates` 生成写回前候选包。
-5. 候选包 summary/review pack 逐条展示官方字段、候选单元、alignment、匹配关键词、匹配分数和 rationale。
-6. `grade_specific_focus` 与 `progression_delta` 基于证据生成，不直接改写课标原文。
-7. `grade7_9:audit-h4g-distinctiveness -- --strict` 仍然通过。
+5. 候选包通过 `textbooks:audit-h4g-unit-candidates -- --strict --require-candidates`。
+6. 候选包 summary/review pack 逐条展示官方字段、候选单元、alignment、匹配关键词、匹配分数和 rationale。
+7. `grade_specific_focus` 与 `progression_delta` 基于证据生成，不直接改写课标原文。
+8. `grade7_9:audit-h4g-distinctiveness -- --strict` 仍然通过。
 
 换句话说，`volume_seed` 是任务入口；`toc_unit_or_chapter` 才是后续年级分化的候选证据。
 
