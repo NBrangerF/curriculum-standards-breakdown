@@ -244,37 +244,92 @@ function stripPdfExtension(name) {
 
 function normalizeLine(line) {
   return String(line || '')
+    .replace(/\u0000/g, ' ')
+    .replace(/[０-９]/g, char => String(char.charCodeAt(0) - 0xFF10))
+    .replace(/[．。]/g, '.')
+    .replace(/[－—–]/g, '-')
     .replace(/\s+/g, ' ')
     .replace(/[•●]/g, '')
+    .replace(/\s*\.\s*/g, '.')
     .replace(/[\.．·…]{2,}\s*\d+\s*$/u, '')
     .replace(/\s+\d+\s*$/u, '')
     .trim()
 }
 
+function normalizeLeadingSectionNumber(line) {
+  return String(line || '').replace(
+    /^((?:\d\s*){1,2})\.\s*((?:\d\s*){0,1}\d)(?=\s|\p{Script=Han})/u,
+    (_, chapter, section) => `${chapter.replace(/\s+/g, '')}.${section.replace(/\s+/g, '')}`
+  )
+}
+
+function hanCount(value) {
+  return (String(value || '').match(/\p{Script=Han}/gu) || []).length
+}
+
+function stripTocPageTail(value) {
+  return String(value || '')
+    .replace(/\s+(?:\d+\s*){1,3}(阅读与思考|实验与探究|观察与猜想|信息技术应用|数学活动|小结|复习题|部分中英文词汇索引).*$/u, '')
+    .replace(/\s+(?:\d+\s*){1,3}$/u, '')
+    .replace(/(?<=\p{Script=Han})\d(?:\s*\d){0,2}$/u, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function readableUnitTitle(value) {
+  const title = String(value || '').trim()
+  if (title.length < 2 || title.length > 70) return false
+  if (/[\u0000-\u001F\u007F]/u.test(title)) return false
+  if (hanCount(title) < 1) return false
+  if (/^[\d.\s-]+$/u.test(title)) return false
+  return true
+}
+
 function candidateFromLine(line, pdfPage) {
-  const normalized = normalizeLine(line)
+  const normalized = normalizeLeadingSectionNumber(normalizeLine(line))
   if (!normalized || normalized.length < 3 || normalized.length > 80) return null
   if (/^(目录|目 录|contents|CONTENTS)$/i.test(normalized)) return null
   if (/^(前言|编者的话|后记|附录|封面|版权|出版说明)$/u.test(normalized)) return null
 
   const strong = normalized.match(/^(第\s*[一二三四五六七八九十百\d]+\s*[章节单元课])\s*[：:、.\s-]*(.+)$/u)
   if (strong) {
+    const title = `${strong[1].replace(/\s+/g, '')} ${stripTocPageTail(strong[2])}`
+    if (!readableUnitTitle(title)) return null
     return {
       candidate_type: 'toc_unit_or_chapter',
       extraction_method: 'pdf_text_toc_line',
-      unit_title: `${strong[1].replace(/\s+/g, '')} ${strong[2].trim()}`,
+      unit_level: /章/u.test(strong[1]) ? 'chapter' : 'unit',
+      unit_title: title,
       matched_line: normalized,
       pdf_page_hint: pdfPage,
       confidence: 0.72
     }
   }
 
-  const numbered = normalized.match(/^([一二三四五六七八九十]+|\d+)[、.．]\s*(.{2,60})$/u)
+  const section = normalized.match(/^(\d+(?:\.\d+)+)\s+(.+)$/u)
+  if (section) {
+    const title = `${section[1]} ${stripTocPageTail(section[2])}`
+    if (!readableUnitTitle(title)) return null
+    return {
+      candidate_type: 'toc_unit_or_chapter',
+      extraction_method: 'pdf_text_toc_section_line',
+      unit_level: 'section',
+      unit_title: title,
+      matched_line: normalized,
+      pdf_page_hint: pdfPage,
+      confidence: 0.66
+    }
+  }
+
+  const numbered = normalized.match(/^([一二三四五六七八九十]+)[、.]\s*(.{2,60})$/u)
   if (numbered) {
+    const title = stripTocPageTail(numbered[2])
+    if (!readableUnitTitle(title)) return null
     return {
       candidate_type: 'toc_unit_or_chapter',
       extraction_method: 'pdf_text_numbered_line',
-      unit_title: numbered[2].trim(),
+      unit_level: 'numbered_item',
+      unit_title: title,
       matched_line: normalized,
       pdf_page_hint: pdfPage,
       confidence: 0.58
@@ -285,17 +340,25 @@ function candidateFromLine(line, pdfPage) {
 }
 
 function extractTocCandidates(text) {
-  const out = []
+  const pages = []
+  let current = { pdfPage: null, candidates: [], hasTocHeading: false }
   let pdfPage = null
   for (const rawLine of String(text || '').split(/\r?\n/)) {
     const pageMatch = rawLine.match(/^\[\[PDF_PAGE:(\d+)]]$/)
     if (pageMatch) {
+      if (current.pdfPage !== null || current.hasTocHeading || current.candidates.length) pages.push(current)
       pdfPage = Number(pageMatch[1])
+      current = { pdfPage, candidates: [], hasTocHeading: false }
       continue
     }
+    const normalized = normalizeLine(rawLine)
+    if (/^(目录|目 录)$/u.test(normalized)) current.hasTocHeading = true
     const candidate = candidateFromLine(rawLine, pdfPage)
-    if (candidate) out.push(candidate)
+    if (candidate) current.candidates.push(candidate)
   }
+  if (current.pdfPage !== null || current.hasTocHeading || current.candidates.length) pages.push(current)
+
+  const out = selectTocWindowCandidates(pages)
   const seen = new Set()
   return out.filter(candidate => {
     const key = candidate.unit_title
@@ -303,6 +366,26 @@ function extractTocCandidates(text) {
     seen.add(key)
     return true
   })
+}
+
+function selectTocWindowCandidates(pages) {
+  const hasTocWindow = pages.some(page => page.hasTocHeading)
+  if (!hasTocWindow) return pages.flatMap(page => page.candidates)
+
+  const out = []
+  let inTocWindow = false
+  for (const page of pages) {
+    if (page.hasTocHeading) inTocWindow = true
+    if (!inTocWindow) continue
+
+    const looksLikeTocPage = page.hasTocHeading || page.candidates.length >= 2
+    if (!looksLikeTocPage) {
+      if (out.length) break
+      continue
+    }
+    out.push(...page.candidates)
+  }
+  return out
 }
 
 function writeDebugText(record, text, args) {
@@ -362,6 +445,7 @@ function countInto(target, key, amount = 1) {
 function summarize(records, unitCandidates) {
   const bySubject = {}
   const byCandidateType = {}
+  const byUnitLevel = {}
   const byExtractionStatus = {}
   const byTextStatus = {}
   for (const record of records) {
@@ -369,7 +453,10 @@ function summarize(records, unitCandidates) {
     countInto(byExtractionStatus, record.extraction_status)
     countInto(byTextStatus, record.text_status)
   }
-  for (const candidate of unitCandidates) countInto(byCandidateType, candidate.candidate_type)
+  for (const candidate of unitCandidates) {
+    countInto(byCandidateType, candidate.candidate_type)
+    if (candidate.candidate_type === 'toc_unit_or_chapter') countInto(byUnitLevel, candidate.unit_level || 'missing')
+  }
   return {
     textbook_files: records.length,
     unit_candidates: unitCandidates.length,
@@ -377,6 +464,7 @@ function summarize(records, unitCandidates) {
     volume_seed_candidates: unitCandidates.filter(item => item.candidate_type === 'volume_seed').length,
     by_subject: Object.fromEntries(Object.entries(bySubject).sort(([a], [b]) => a.localeCompare(b))),
     by_candidate_type: Object.fromEntries(Object.entries(byCandidateType).sort(([a], [b]) => a.localeCompare(b))),
+    by_unit_level: Object.fromEntries(Object.entries(byUnitLevel).sort(([a], [b]) => a.localeCompare(b))),
     by_extraction_status: Object.fromEntries(Object.entries(byExtractionStatus).sort(([a], [b]) => a.localeCompare(b))),
     by_text_status: Object.fromEntries(Object.entries(byTextStatus).sort(([a], [b]) => a.localeCompare(b)))
   }
@@ -385,6 +473,12 @@ function summarize(records, unitCandidates) {
 function markdownSummary(payload) {
   const rows = Object.entries(payload.summary.by_subject)
     .map(([subject, count]) => `| ${subject} | ${count} |`)
+    .join('\n')
+  const levelRows = Object.entries(payload.summary.by_unit_level || {})
+    .map(([level, count]) => `| ${level} | ${count} |`)
+    .join('\n') || '| - | 0 |'
+  const fileRows = payload.textbook_files
+    .map(file => `| ${file.evidence_id} | ${file.grade_label || ''} | ${file.volume || ''} | ${file.extraction_status || ''} | ${file.text_status || ''} | ${file.toc_candidate_count || 0} |`)
     .join('\n')
   return `# Textbook Unit Candidate Index
 
@@ -403,6 +497,18 @@ commit：\`${payload.source_commit}\`
 | 目录/章节候选 | ${payload.summary.real_unit_or_chapter_candidates} |
 | 文件名卷册 seed | ${payload.summary.volume_seed_candidates} |
 | PDF 物化超时 | ${payload.summary.by_extraction_status.materialize_timeout || 0} |
+
+## 目录候选粒度
+
+| unit_level | 数量 |
+| --- | ---: |
+${levelRows}
+
+## 教材文件状态
+
+| evidence_id | 年级 | 册次 | 物化状态 | 文本状态 | 目录候选 |
+| --- | --- | --- | --- | --- | ---: |
+${fileRows}
 
 ## 学科覆盖
 

@@ -317,7 +317,7 @@ npm run textbooks:audit-unit-matches -- --strict
 - `textbook_evidence_ids` 当前是教材文件级证据，可支持年级适配判断。
 - `textbook_unit_evidence_ids` 只有在未来获得 `toc_unit_or_chapter` 并完成标准匹配后才能填写。
 - `volume_seed` 不能证明标准已完成单元级分化；它只是后续 OCR/目录提取的任务入口。
-- `eligible_for_h4g_differentiation` 必须来自真实 `toc_unit_or_chapter`，并且仍需人工或规则复核。
+- `eligible_for_h4g_differentiation` 必须来自真实 `toc_unit_or_chapter`、达到匹配分数、命中标准 `subdomain` 锚点，并且仍需人工或规则复核。
 - `materialize_timeout` 代表远端 PDF blob 没有稳定取得，不得被解释为教材缺少目录或标准无法分化。
 - `--materialize` 会尝试读取 PDF blob，可能受网络和外部仓库大小影响，暂不作为默认 gate。
 

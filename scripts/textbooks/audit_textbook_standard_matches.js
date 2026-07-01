@@ -111,6 +111,7 @@ function auditMatch(match, standardCodes, unitMap, errors, warnings, stats) {
     'match_type',
     'matched_keywords',
     'matched_fields',
+    'subdomain_alignment',
     'rationale',
     'eligible_for_h4g_differentiation',
     'requires_review'
@@ -144,6 +145,9 @@ function auditMatch(match, standardCodes, unitMap, errors, warnings, stats) {
   if (!Array.isArray(match.matched_fields)) errors.push(`${match.match_id} matched_fields must be an array`)
   if (match.eligible_for_h4g_differentiation && match.candidate_type !== 'toc_unit_or_chapter') {
     errors.push(`${match.match_id} is eligible without toc_unit_or_chapter evidence`)
+  }
+  if (match.eligible_for_h4g_differentiation && !match.subdomain_alignment?.matched) {
+    errors.push(`${match.match_id} is eligible without subdomain anchor alignment`)
   }
   if (match.eligible_for_h4g_differentiation && match.confidence_band === 'low') {
     warnings.push(`${match.match_id} is eligible with low confidence`)

@@ -254,10 +254,11 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 - `volume_seed` 只能说明某年级某册教材文件存在，不能证明某条 standard 对应具体单元。
 - 可选 `--materialize` 会尝试读取 PDF 前若干页并解析目录行，生成 `toc_unit_or_chapter`。
 - `--evidence-ids` 可以精确指定教材文件做小批量诊断；`--materialize-timeout-ms` 会把长时间 blob 获取记录为 `materialize_timeout`。
-- 当前本地样本的 PDF 物化与 GitHub raw 下载都曾超时，所以 `--materialize` 暂不纳入默认 gate；这代表远端教材 blob 未稳定取得，不代表教材没有目录。
+- 当前数学人教版样本已可物化 PDF；但 `--materialize` 仍依赖网络、PDF 文本层和 OCR，暂不纳入默认 gate。
 - 未来只有 `toc_unit_or_chapter` 加上标准匹配 rationale，才能写入正式 H4G 记录的 `textbook_unit_evidence_ids`。
 - `textbooks:match-units` 默认只匹配 `toc_unit_or_chapter`，并输出 `score`、`matched_fields`、`matched_keywords` 和 `rationale`。
-- `textbooks:audit-unit-matches` 会阻止 `volume_seed` 被当作正式匹配证据。
+- `textbooks:match-units` 的 eligible 门槛要求真实 `toc_unit_or_chapter`、分数达标，并命中标准 `subdomain` 锚点。
+- `textbooks:audit-unit-matches` 会阻止 `volume_seed` 或无 `subdomain` 锚点的匹配被当作正式分化证据。
 
 当前数学全量无物化验证结果：
 
@@ -272,30 +273,23 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 
 审计通过但保留 warning：当前还没有真实单元/章节候选。
 
-当前指定教材诊断样例：
+当前数学人教版 7/8/9 六册小批量验证：
 
 ```json
 {
-  "evidence_id": "ctb_48072359f7df",
-  "grade_label": "七年级",
-  "extraction_status": "materialize_timeout",
-  "real_unit_or_chapter_candidates": 0
+  "textbook_files": 6,
+  "real_unit_or_chapter_candidates": 61,
+  "volume_seed_candidates": 3,
+  "eligible_matches": 10,
+  "eligible_by_grade_band": {
+    "H4G7": 6,
+    "H4G8": 1,
+    "H4G9": 3
+  }
 }
 ```
 
-当前真实数据下，数学匹配 gate 的结果是：
-
-```json
-{
-  "standards_evaluated": 114,
-  "real_unit_or_chapter_candidates": 0,
-  "matches": 0,
-  "eligible_matches": 0,
-  "unmatched_standards": 114
-}
-```
-
-这不是失败，而是正确反映当前证据粒度仍不足。后续要先产生真实 `toc_unit_or_chapter`，再要求 `--require-matches --require-eligible`。
+七年级下册、八年级下册、九年级下册当前仍是图片型文本层，需要 OCR 才能补足下册单元证据。因此这一步是候选证据链打通，不是正式 public 写入。
 
 ### Phase 2：curated raw 升级
 

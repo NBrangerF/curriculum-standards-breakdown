@@ -50,6 +50,19 @@ function hasValue(value) {
   return value !== undefined && value !== null && value !== ''
 }
 
+function hanCount(value) {
+  return (String(value || '').match(/\p{Script=Han}/gu) || []).length
+}
+
+function readableUnitTitle(value) {
+  const title = String(value || '').trim()
+  if (title.length < 2 || title.length > 80) return false
+  if (/[\u0000-\u001F\u007F]/u.test(title)) return false
+  if (hanCount(title) < 1) return false
+  if (/^[\d.\s-]+$/u.test(title)) return false
+  return true
+}
+
 function auditCandidate(candidate, errors, warnings, stats) {
   countInto(stats.by_candidate_type, candidate.candidate_type)
   countInto(stats.by_subject, candidate.subject_slug)
@@ -87,6 +100,12 @@ function auditCandidate(candidate, errors, warnings, stats) {
       errors.push(`${candidate.unit_evidence_id} toc_unit_or_chapter must use textbook_unit_or_chapter_candidate granularity`)
     }
     if (!candidate.matched_line) warnings.push(`${candidate.unit_evidence_id} toc candidate has no matched_line`)
+    if (!readableUnitTitle(candidate.unit_title)) {
+      errors.push(`${candidate.unit_evidence_id} toc candidate has unreadable or numeric-only title: ${JSON.stringify(candidate.unit_title)}`)
+    }
+    if (candidate.matched_line && /[\u0000-\u001F\u007F]/u.test(candidate.matched_line)) {
+      errors.push(`${candidate.unit_evidence_id} toc candidate matched_line contains control characters`)
+    }
   }
 }
 

@@ -36,6 +36,11 @@ const FIELD_WEIGHTS = {
   teaching_tip: 0.8,
   assessment_evidence_type: 0.7
 }
+const BROAD_SUBDOMAIN_LABELS = new Set([
+  '第四学段目标',
+  '课程目标',
+  '水平四内容结构'
+])
 
 function parseArgs(argv) {
   const args = {
@@ -207,6 +212,33 @@ function excerpt(value, length = 80) {
   return normalizeText(value).slice(0, length)
 }
 
+function compactText(value) {
+  return normalizeText(value).replace(/\s+/g, '')
+}
+
+function subdomainAnchors(value) {
+  const raw = String(value || '').replace(/\s+/g, '')
+  if (!raw || BROAD_SUBDOMAIN_LABELS.has(raw)) return []
+  const chunks = raw
+    .split(/[与和及、，,\/（）()的]/u)
+    .map(item => item.trim())
+    .filter(item => item.length >= 2)
+  const anchors = chunks.length ? chunks : [raw]
+  return [...new Set(anchors.filter(anchor => !BROAD_SUBDOMAIN_LABELS.has(anchor)))]
+}
+
+function subdomainAlignment(standard, unit) {
+  const anchors = subdomainAnchors(standard.subdomain)
+  const unitTitle = compactText(unit.unit_title)
+  const matchedAnchors = anchors.filter(anchor => unitTitle.includes(compactText(anchor)))
+  return {
+    required: anchors.length > 0,
+    matched: matchedAnchors.length > 0,
+    anchors,
+    matched_anchors: matchedAnchors
+  }
+}
+
 function scoreMatch(standard, unit) {
   const { weights, fieldTokens } = weightedStandardTokens(standard)
   const titleTokens = unitTokens(unit)
@@ -339,7 +371,8 @@ function buildMatches(standards, unitsBySubjectGrade, args) {
     for (const unit of candidates) {
       const scoredMatch = scoreMatch(standard, unit)
       if (scoredMatch.score < args.minScore) continue
-      const eligible = unit.candidate_type === 'toc_unit_or_chapter' && scoredMatch.score >= args.eligibleScore
+      const alignment = subdomainAlignment(standard, unit)
+      const eligible = unit.candidate_type === 'toc_unit_or_chapter' && scoredMatch.score >= args.eligibleScore && alignment.matched
       scored.push({
         match_id: `ctm_${hashText(`${standard.code}|${unit.unit_evidence_id}`, 14)}`,
         standard_code: standard.code,
@@ -363,6 +396,7 @@ function buildMatches(standards, unitsBySubjectGrade, args) {
         match_type: 'textbook_unit_candidate_keyword',
         matched_keywords: scoredMatch.matched_keywords,
         matched_fields: scoredMatch.matched_fields,
+        subdomain_alignment: alignment,
         rationale: scoredMatch.rationale,
         eligible_for_h4g_differentiation: eligible,
         requires_review: true
@@ -447,7 +481,7 @@ ${subjectRows}
 
 ${warnings}
 
-说明：只有 \`candidate_type: "toc_unit_or_chapter"\` 且达到 eligible score 的匹配，才可能作为 H4G 年级分化候选证据。文件级 \`volume_seed\` 不可用于升级 \`standard_variant_type\`。
+说明：只有 \`candidate_type: "toc_unit_or_chapter"\`、达到 eligible score，并命中标准 \`subdomain\` 锚点的匹配，才可能作为 H4G 年级分化候选证据。文件级 \`volume_seed\` 不可用于升级 \`standard_variant_type\`。
 `
 }
 
@@ -477,7 +511,8 @@ function main() {
       eligible_score: args.eligibleScore,
       max_matches_per_standard: args.maxMatches,
       include_volume_seeds: args.includeVolumeSeeds,
-      eligible_candidate_type: 'toc_unit_or_chapter'
+      eligible_candidate_type: 'toc_unit_or_chapter',
+      eligible_requires_subdomain_anchor: true
     },
     summary,
     warnings,

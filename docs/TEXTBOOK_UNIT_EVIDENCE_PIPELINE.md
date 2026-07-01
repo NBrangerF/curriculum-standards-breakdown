@@ -181,7 +181,7 @@ npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --
 | `--materialize-timeout-ms` | 限制单个 PDF blob 物化时间，默认 60000ms。超时会记为 `materialize_timeout`。 |
 | `--debug-text-dir` | 保存已提取 PDF 文本，便于人工检查目录格式和改进解析规则。 |
 
-注意：本地样本执行时，`git show` 懒加载 PDF blob 与 GitHub raw URL 都出现超时。因此 `--materialize` 不能作为默认质量门；它只能用于小批量探索，或在后续建立稳定 PDF/OCR 缓存后再纳入严格流程。超时是教材 blob 获取失败，不等于教材没有目录。
+注意：`--materialize` 仍然不能作为默认质量门；它依赖外部 GitHub blob 获取和 PDF 文本层质量，只能用于小批量探索，或在后续建立稳定 PDF/OCR 缓存后再纳入严格流程。`materialize_timeout` 是教材 blob 获取失败，不等于教材没有目录；`text_extracted` 但无目录候选通常表示需要改 parser 或进入 OCR。
 
 ## 7. 当前验证结果
 
@@ -199,11 +199,11 @@ npm run textbooks:match-units -- --subjects math --out /tmp/textbook_unit_standa
 node scripts/textbooks/audit_textbook_standard_matches.js --matches /tmp/textbook_unit_standard_matches_math.json --out /tmp/textbook_unit_standard_matches_math_audit.json --strict
 ```
 
-已通过指定教材 ID 的物化超时诊断：
+已通过指定教材 ID 的真实物化与目录抽取：
 
 ```bash
-npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --max-pages 12 --materialize-timeout-ms 45000 --debug-text-dir /tmp/textbook_debug_text --out /tmp/textbook_unit_index_math_g7_id_timeout.json --summary-out /tmp/textbook_unit_index_math_g7_id_timeout.md
-npm run textbooks:audit-unit-index -- --unit-index /tmp/textbook_unit_index_math_g7_id_timeout.json --out /tmp/textbook_unit_index_math_g7_id_timeout_audit.json --strict
+npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --max-pages 24 --materialize-timeout-ms 120000 --debug-text-dir /tmp/textbook_debug_text_h4g_clean --out /tmp/textbook_unit_index_math_g7_clean.json --summary-out /tmp/textbook_unit_index_math_g7_clean.md
+npm run textbooks:audit-unit-index -- --unit-index /tmp/textbook_unit_index_math_g7_clean.json --out /tmp/textbook_unit_index_math_g7_clean_audit.json --strict --require-real-units
 ```
 
 该样本结果：
@@ -211,14 +211,41 @@ npm run textbooks:audit-unit-index -- --unit-index /tmp/textbook_unit_index_math
 ```json
 {
   "textbook_files": 1,
-  "unit_candidates": 1,
-  "real_unit_or_chapter_candidates": 0,
-  "volume_seed_candidates": 1,
+  "unit_candidates": 19,
+  "real_unit_or_chapter_candidates": 19,
+  "volume_seed_candidates": 0,
   "by_extraction_status": {
-    "materialize_timeout": 1
+    "cached": 1
+  },
+  "by_unit_level": {
+    "chapter": 4,
+    "section": 15
   }
 }
 ```
+
+数学人教版 7/8/9 六册小批量验证：
+
+```bash
+npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df,ctb_c5fa3c0e2226,ctb_e14d09b0b94a,ctb_485165afa9c8,ctb_045c4e32dda3,ctb_286bc7db0209 --materialize --max-pages 30 --materialize-timeout-ms 180000 --debug-text-dir /tmp/textbook_debug_text_math_h4g_all_norm2 --out /tmp/textbook_unit_index_math_h4g_pep_all_norm2.json --summary-out /tmp/textbook_unit_index_math_h4g_pep_all_norm2.md
+npm run textbooks:audit-unit-index -- --unit-index /tmp/textbook_unit_index_math_h4g_pep_all_norm2.json --out /tmp/textbook_unit_index_math_h4g_pep_all_norm2_audit.json --strict
+```
+
+结果：
+
+```json
+{
+  "textbook_files": 6,
+  "unit_candidates": 64,
+  "real_unit_or_chapter_candidates": 61,
+  "volume_seed_candidates": 3,
+  "by_extraction_status": {
+    "cached": 6
+  }
+}
+```
+
+其中七年级上册、八年级上册、九年级上册均可从文本层抽出目录候选；七年级下册、八年级下册、九年级下册前 30 页文本为空，只保留 `volume_seed`，需要 OCR 后才能进入单元级匹配。
 
 数学全量无物化结果：
 
@@ -236,20 +263,26 @@ npm run textbooks:audit-unit-index -- --unit-index /tmp/textbook_unit_index_math
 
 审计通过但保留 warning：当前索引还没有 `toc_unit_or_chapter`，只有文件/册次级 seed。
 
-当前真实数据下的数学标准-单元匹配结果：
+当前数学人教版 7/8/9 小批量标准-单元匹配结果：
 
 ```json
 {
   "standards_evaluated": 114,
-  "unit_candidates_considered": 0,
-  "real_unit_or_chapter_candidates": 0,
-  "matches": 0,
-  "eligible_matches": 0,
-  "unmatched_standards": 114
+  "unit_candidates_considered": 61,
+  "real_unit_or_chapter_candidates": 61,
+  "matches": 46,
+  "eligible_matches": 10,
+  "unmatched_standards": 94
 }
 ```
 
-这说明匹配 gate 目前能正确阻止文件级 seed 被误用为单元证据。临时 `toc_unit_or_chapter` 样本也已验证过非空路径：候选存在时会输出 `score`、`matched_fields`、`matched_keywords` 和 `rationale`，并由 `audit-unit-matches` 严格校验。
+该结果已通过：
+
+```bash
+npm run textbooks:audit-unit-matches -- --matches /tmp/textbook_unit_standard_matches_math_h4g_pep_all_norm2.json --unit-index /tmp/textbook_unit_index_math_h4g_pep_all_norm2.json --out /tmp/textbook_unit_standard_matches_math_h4g_pep_all_norm2_audit.json --strict --require-matches --require-eligible
+```
+
+当前 eligible 还只是候选证据，不直接写入 `public/data`。匹配脚本已经加上 `subdomain` 锚点门：达到 score 但没有命中 `subdomain` 锚点的候选，例如 `实数` 标准匹配到 `有理数` 单元、`一次函数` 标准匹配到 `一元一次方程` 单元，会被保留为普通 match，但不会成为 `eligible_for_h4g_differentiation`。
 
 ## 8. 与 H4G 分化的关系
 
