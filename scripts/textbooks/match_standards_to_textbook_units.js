@@ -471,9 +471,13 @@ function summarize(standards, units, matches, unmatchedStandards, warnings) {
   const bySubject = {}
   const byUnitType = {}
   const byConfidence = {}
+  const byEligibleAlignment = {}
   for (const standard of standards) countInto(bySubject, standard.subject_slug)
   for (const unit of units) countInto(byUnitType, unit.candidate_type)
-  for (const match of matches) countInto(byConfidence, match.confidence_band)
+  for (const match of matches) {
+    countInto(byConfidence, match.confidence_band)
+    if (match.eligible_for_h4g_differentiation) countInto(byEligibleAlignment, match.eligible_alignment || 'missing')
+  }
   return {
     standards_evaluated: standards.length,
     unit_candidates_considered: units.length,
@@ -486,7 +490,8 @@ function summarize(standards, units, matches, unmatchedStandards, warnings) {
     warnings: warnings.length,
     by_subject: Object.fromEntries(Object.entries(bySubject).sort(([a], [b]) => a.localeCompare(b))),
     by_unit_candidate_type: Object.fromEntries(Object.entries(byUnitType).sort(([a], [b]) => a.localeCompare(b))),
-    by_confidence_band: Object.fromEntries(Object.entries(byConfidence).sort(([a], [b]) => a.localeCompare(b)))
+    by_confidence_band: Object.fromEntries(Object.entries(byConfidence).sort(([a], [b]) => a.localeCompare(b))),
+    by_eligible_alignment: Object.fromEntries(Object.entries(byEligibleAlignment).sort(([a], [b]) => a.localeCompare(b)))
   }
 }
 
@@ -494,6 +499,9 @@ function markdownSummary(payload) {
   const subjectRows = Object.entries(payload.summary.by_subject)
     .map(([subject, count]) => `| ${subject} | ${count} |`)
     .join('\n')
+  const alignmentRows = Object.entries(payload.summary.by_eligible_alignment || {})
+    .map(([alignment, count]) => `| ${alignment} | ${count} |`)
+    .join('\n') || '| - | 0 |'
   const warnings = payload.warnings.length
     ? payload.warnings.map(item => `- ${item}`).join('\n')
     : '- 无'
@@ -516,6 +524,12 @@ function markdownSummary(payload) {
 | eligible matches | ${payload.summary.eligible_matches} |
 | unmatched standards | ${payload.summary.unmatched_standards} |
 
+## Eligible Alignment
+
+| alignment | matches |
+| --- | ---: |
+${alignmentRows}
+
 ## 学科范围
 
 | subject_slug | standards |
@@ -526,7 +540,7 @@ ${subjectRows}
 
 ${warnings}
 
-说明：只有 \`candidate_type: "toc_unit_or_chapter"\`、达到 eligible score，并命中标准 \`subdomain\` 锚点的匹配，才可能作为 H4G 年级分化候选证据。文件级 \`volume_seed\` 不可用于升级 \`standard_variant_type\`。
+说明：只有 \`candidate_type: "toc_unit_or_chapter"\`、达到 eligible score，并通过 alignment gate 的匹配，才可能作为 H4G 年级分化候选证据。alignment gate 通常要求 \`subdomain_anchor\`；科学编号内容项可用保守的 \`strong_field_alignment\` 第二通道。文件级 \`volume_seed\` 不可用于升级 \`standard_variant_type\`。
 `
 }
 

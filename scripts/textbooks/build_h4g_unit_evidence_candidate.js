@@ -8,6 +8,15 @@ const DEFAULT_DATA_ROOT = 'public/data'
 const DEFAULT_OUT = 'generated/textbook_evidence/h4g_unit_evidence_candidate.json'
 const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/h4g_unit_evidence_candidate_summary.md'
 const DEFAULT_MAX_UNITS = 6
+const OFFICIAL_STANDARD_FIELDS = [
+  'domain',
+  'subdomain',
+  'standard',
+  'context',
+  'practice',
+  'teaching_tip',
+  'assessment_evidence_type'
+]
 
 function parseArgs(argv) {
   const args = {
@@ -133,6 +142,40 @@ function unitEvidenceFromMatch(match) {
   }
 }
 
+function officialStandardFields(record) {
+  return Object.fromEntries(OFFICIAL_STANDARD_FIELDS.map(field => [field, record[field] ?? '']))
+}
+
+function cleanInline(value) {
+  return String(value || '').replace(/\s+/g, ' ').trim()
+}
+
+function markdownCell(value) {
+  return cleanInline(value).replace(/\|/g, '\\|')
+}
+
+function shortText(value, length = 140) {
+  const text = cleanInline(value)
+  return text.length > length ? `${text.slice(0, length)}...` : text
+}
+
+function shortMarkdownCell(value, length = 140) {
+  return markdownCell(shortText(value, length))
+}
+
+function unitAlignments(units) {
+  return [...new Set((units || []).map(unit => unit.eligible_alignment || 'missing'))]
+}
+
+function unitKeywords(units) {
+  const keywords = []
+  for (const unit of units || []) {
+    keywords.push(...(unit.matched_keywords || []))
+    keywords.push(...(unit.field_alignment?.matched_keywords || []))
+  }
+  return [...new Set(keywords.filter(Boolean))]
+}
+
 function proposedFocus(record, units) {
   const titles = units.map(unit => unit.unit_title).slice(0, 3)
   const label = titles.map(title => `《${title}》`).join('、')
@@ -166,6 +209,7 @@ function buildCandidate(record, matches, args) {
     grade: record.grade,
     domain: record.domain,
     subdomain: record.subdomain,
+    official_standard_fields: officialStandardFields(record),
     standard_text_role: record.standard_text_role || 'source_standard_original',
     source_standard_scope: record.source_standard_scope || '',
     current_record_status: {
@@ -219,12 +263,44 @@ function markdownSummary(payload) {
   const subjectRows = Object.entries(payload.summary.by_subject)
     .map(([subject, count]) => `| ${subject} | ${count} |`)
     .join('\n') || '| - | 0 |'
+  const alignmentRows = Object.entries(payload.summary.by_eligible_alignment)
+    .map(([alignment, count]) => `| ${alignment} | ${count} |`)
+    .join('\n') || '| - | 0 |'
   const candidateRows = payload.candidates
     .map(candidate => {
       const units = candidate.unit_evidence.map(unit => unit.unit_title).join('；')
-      return `| ${candidate.standard_code} | ${candidate.grade_band} | ${candidate.subdomain || ''} | ${candidate.unit_evidence.length} | ${units} |`
+      const alignments = unitAlignments(candidate.unit_evidence).join('；')
+      return `| ${candidate.standard_code} | ${candidate.grade_band} | ${markdownCell(alignments)} | ${markdownCell(candidate.subdomain)} | ${candidate.unit_evidence.length} | ${markdownCell(units)} |`
     })
-    .join('\n') || '| - | - | - | 0 | - |'
+    .join('\n') || '| - | - | - | - | 0 | - |'
+  const candidateDetails = payload.candidates
+    .map(candidate => {
+      const unitRows = candidate.unit_evidence
+        .map(unit => {
+          const matchedFields = [...new Set((unit.matched_fields || []).map(field => field.field))].join('、') || '-'
+          const keywords = unitKeywords([unit]).slice(0, 10).join('、') || '-'
+          return `| ${markdownCell(unit.unit_title)} | ${markdownCell(unit.eligible_alignment || '-')} | ${unit.score} | ${markdownCell(unit.confidence_band)} | ${markdownCell(matchedFields)} | ${markdownCell(keywords)} |`
+        })
+        .join('\n') || '| - | - | - | - | - | - |'
+      return `### ${candidate.standard_code} ${candidate.grade_band}
+
+| 项 | 内容 |
+| --- | --- |
+| domain | ${markdownCell(candidate.official_standard_fields?.domain)} |
+| subdomain | ${markdownCell(candidate.official_standard_fields?.subdomain)} |
+| official standard | ${shortMarkdownCell(candidate.official_standard_fields?.standard, 220)} |
+| practice | ${shortMarkdownCell(candidate.official_standard_fields?.practice, 180)} |
+| assessment | ${shortMarkdownCell(candidate.official_standard_fields?.assessment_evidence_type, 160)} |
+| current status | ${markdownCell(`${candidate.current_record_status.review_status || ''} / ${candidate.current_record_status.evidence_granularity || ''}`)} |
+| proposed status | ${markdownCell(`${candidate.proposed_update.review_status || ''} / ${candidate.proposed_update.evidence_granularity || ''}`)} |
+| safety | official text unchanged; requires manual review |
+
+| unit | alignment | score | confidence | matched fields | matched keywords |
+| --- | --- | ---: | --- | --- | --- |
+${unitRows}
+`
+    })
+    .join('\n')
 
   return `# H4G Unit Evidence Candidate Summary
 
@@ -243,6 +319,12 @@ matches：\`${payload.matches_file}\`
 | public records missing | ${payload.summary.missing_public_records} |
 | standards already unit-level | ${payload.summary.already_unit_level_records} |
 
+## Alignment 分布
+
+| alignment | eligible unit matches |
+| --- | ---: |
+${alignmentRows}
+
 ## 年级分布
 
 | grade_band | candidate standards |
@@ -257,11 +339,20 @@ ${subjectRows}
 
 ## 候选清单
 
-| standard_code | grade_band | subdomain | unit matches | units |
-| --- | --- | --- | ---: | --- |
+| standard_code | grade_band | alignment | subdomain | unit matches | units |
+| --- | --- | --- | --- | ---: | --- |
 ${candidateRows}
 
-说明：该文件只是写回前候选包，不修改 \`public/data\`，也不改写课标原文。进入正式数据前仍需人工或更强规则复核。
+## 复核明细
+
+${candidateDetails}
+
+## 复核边界
+
+- 该文件只是写回前候选包，不修改 \`public/data\`。
+- \`official standard\` 等字段来自现有数据源，候选更新不会改写课标原文。
+- \`grade_specific_focus\` 和 \`progression_delta\` 是候选说明，不是官方课标文本。
+- 进入正式数据前仍需人工或更强规则复核，尤其是跨版本一致性和页码范围。
 `
 }
 
@@ -294,7 +385,8 @@ function main() {
     by_grade_band: {},
     by_subject: {},
     by_current_review_status: {},
-    by_current_evidence_granularity: {}
+    by_current_evidence_granularity: {},
+    by_eligible_alignment: {}
   }
 
   for (const [code, matches] of [...eligibleGroups.entries()].sort(([a], [b]) => a.localeCompare(b))) {
@@ -310,6 +402,7 @@ function main() {
     countInto(summary.by_subject, record.subject_slug)
     countInto(summary.by_current_review_status, record.review_status)
     countInto(summary.by_current_evidence_granularity, record.evidence_granularity)
+    for (const match of matches) countInto(summary.by_eligible_alignment, match.eligible_alignment || 'missing')
     if (record.evidence_granularity === 'textbook_unit_level') summary.already_unit_level_records += 1
   }
   summary.candidate_standards = candidates.length
