@@ -200,10 +200,13 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 写回前候选包入口也已新增：
 
 ```bash
+npm run textbooks:plan-h4g-unit-worklist -- --strict --require-work-items
 npm run textbooks:h4g-unit-candidates -- --strict --require-candidates
 npm run textbooks:audit-h4g-unit-candidates -- --strict --require-candidates
 npm run textbooks:audit-h4g-unit-consistency -- --strict --require-candidates
 ```
+
+新增 worklist gate 会把当前正式 H4G 缺口转成可执行教材批次：全量 1081 条 H4G records、400 个 progression groups 仍需单元证据，正式 `public/data` 中 `textbook_unit_level` 仍为 0。当前教材索引下，数学、科学、英语、体育、艺术具备至少两个完整 7/8/9 教材版本，能进入跨版本候选生成；语文、道德与法治只有一个完整统编版本；信息科技、劳动暂无完整教材版本。以数学/科学试点时，worklist 推荐先跑数学人教版、冀教版、华东师大版，以及科学沪教版、华东师大版、武汉版。
 
 当前数学 OCR 样本可生成 15 条 public standard 对应的单元级证据候选，分布为 H4G7 7 条、H4G8 3 条、H4G9 5 条。候选包只组织 `textbook_unit_evidence_ids`、单元标题、页段、match score、matched fields、alignment 证据和建议更新字段，不写 `public/data`，也不改写课标原文。候选包 Markdown 摘要现在同时作为 review pack，逐条展示官方字段摘录、当前/建议状态、候选单元、页码状态、alignment 类型、命中字段和关键词。候选包 safety audit 会在 apply 前确认官方字段快照、候选安全边界、真实单元证据、alignment 和 proposed update 均符合写回前复核要求；新增 consistency audit 会检查跨版本一致性、progression group 年级覆盖和页码状态，避免把单版本诊断样本误当作发布级分化证据。
 
@@ -235,9 +238,9 @@ npm run textbooks:audit-unit-matches -- --strict --require-matches --require-eli
 
 优先级建议：
 
-1. 数学、科学：概念链和教材单元最清楚，最适合先做。
-2. 英语、语文：可按主题、任务群、文本类型和能力等级推进。
-3. 道德与法治、体育、艺术：保留更多人工复核环节。
+1. 数学、科学：先按 `textbooks:plan-h4g-unit-worklist -- --subjects math,science` 推荐的完整版本批次建立稳定 PDF/OCR 缓存。
+2. 英语、体育、艺术：有至少两个完整教材版本，可在数学/科学流程稳定后进入跨版本候选生成。
+3. 语文、道德与法治：当前只有一个完整统编版本，适合先做单版本 review pack，但不能单独证明跨版本一致。
 4. 信息科技、劳动：当前 ChinaTextbook 覆盖为空，应继续低置信度并寻找补充教材来源。
 
 ## 7. 当前边界

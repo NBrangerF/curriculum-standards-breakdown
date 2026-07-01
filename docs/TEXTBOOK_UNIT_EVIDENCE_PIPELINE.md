@@ -104,6 +104,15 @@ npm run textbooks:audit-unit-matches -- --strict
 npm run textbooks:audit-unit-matches -- --strict --require-matches --require-eligible
 ```
 
+生成 H4G 单元证据工作清单：
+
+```bash
+npm run textbooks:plan-h4g-unit-worklist -- --strict --require-work-items
+npm run textbooks:plan-h4g-unit-worklist -- --subjects math,science --out /tmp/h4g_unit_evidence_worklist_math_science.json --summary-out /tmp/h4g_unit_evidence_worklist_math_science.md --strict --require-work-items
+```
+
+该命令会合并三类事实：当前 `public/data` 中仍需单元证据的 H4G progression groups、已有候选包覆盖、以及 ChinaTextbook 中每个学科可用的完整 7/8/9 教材版本。它输出下一批应物化的 `evidence_ids` 和完整命令链，但不写 `public/data`，也不把工作项本身当作证据。
+
 ## 4. 输出结构
 
 `textbook_unit_index.json` 有两个核心数组：
@@ -354,6 +363,8 @@ npm run textbooks:audit-h4g-unit-consistency -- --candidate /tmp/h4g_unit_eviden
 ```
 
 该候选包仍不写 `public/data`，只把可复核的 `textbook_unit_evidence_ids`、单元标题、页段、match score、matched fields、alignment 证据和建议更新字段组织出来。`--summary-out` 生成的 Markdown 现在同时作为 review pack：逐条列出官方字段摘录、当前/建议状态、候选单元、页码状态、alignment 类型、命中字段和命中关键词，便于人工或更强规则复核。`textbooks:audit-h4g-unit-candidates` 是 apply 前 safety gate，会校验候选包仍是写回前材料、官方字段快照与 `public/data` 一致、unit evidence 是真实 `toc_unit_or_chapter`、alignment 可解释、proposed update 不包含官方课标字段。`textbooks:audit-h4g-unit-consistency` 是发布前 consistency gate，会报告每条候选的教材版本数、progression group 年级覆盖、页码状态和发布级缺口；正式发布级检查应使用 `--require-page-start --fail-on-nonmonotonic-pages --min-editions-per-standard 2 --min-editions-per-progression-group 2 --require-complete-progression-groups`。
+
+新增 H4G worklist 当前结果：全量 9 学科共 1081 条 H4G records、400 个 progression groups 仍需单元证据，正式 `public/data` 中 `textbook_unit_level` 仍为 0。当前 ChinaTextbook 索引下，数学有 9 个完整 7/8/9 版本、科学 8 个、英语 6 个、体育 3 个、艺术 26 个，可以进入跨版本候选生成；语文和道德与法治各只有 1 个完整统编版本，不能单独证明跨版本一致；信息科技和劳动没有完整教材版本。`--subjects math,science` 试运行给出 6 个推荐 work items：数学人教版、冀教版、华东师大版；科学沪教版、华东师大版、武汉版。
 
 ## 8. 应用到候选数据根
 

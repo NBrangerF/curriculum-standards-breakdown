@@ -240,6 +240,7 @@ npm run textbooks:unit-index
 npm run textbooks:audit-unit-index -- --strict
 npm run textbooks:match-units
 npm run textbooks:audit-unit-matches -- --strict
+npm run textbooks:plan-h4g-unit-worklist -- --strict --require-work-items
 ```
 
 新增文档：
@@ -260,6 +261,7 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 - `textbooks:match-units` 默认只匹配 `toc_unit_or_chapter`，并输出 `score`、`matched_fields`、`matched_keywords` 和 `rationale`。
 - `textbooks:match-units` 的 eligible 门槛要求真实 `toc_unit_or_chapter`、分数达标，并命中标准 `subdomain` 锚点。
 - `textbooks:audit-unit-matches` 会阻止 `volume_seed` 或无 `subdomain` 锚点的匹配被当作正式分化证据。
+- `textbooks:plan-h4g-unit-worklist` 在物化 PDF 前生成工作清单，按 H4G progression groups、当前候选覆盖和完整 7/8/9 教材版本推荐下一批 `evidence_ids`。
 - `textbooks:h4g-unit-candidates` 将 eligible matches 组织成写回前候选包，但不修改 `public/data`。
 - `textbooks:apply-h4g-unit-candidates` 将候选包应用到独立候选数据根，用于重建索引和严格审计；默认仍不写 `public/data`。
 
@@ -294,6 +296,8 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 ```
 
 七年级下册、八年级下册、九年级下册当前通过 OCR fallback 补足了目录候选。该结果说明候选证据链已经覆盖同版本六册数学教材，但仍不是正式 public 写入；进入写回前还需要通过 consistency audit 检查跨版本一致性、progression group 年级覆盖、页码状态和人工/规则复核状态。
+
+新增 H4G worklist 当前结论：全量 9 学科共有 400 个 progression groups 仍需单元证据，正式 `public/data` 中 `textbook_unit_level` 仍为 0。数学、科学、英语、体育、艺术在 ChinaTextbook 中具备至少两个完整 7/8/9 教材版本；语文、道德与法治只有一个完整统编版本；信息科技、劳动暂无完整教材版本。数学/科学试点 worklist 推荐先跑数学人教版、冀教版、华东师大版，以及科学沪教版、华东师大版、武汉版。
 
 ### Phase 2：curated raw 升级
 
