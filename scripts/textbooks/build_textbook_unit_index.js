@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 import { execFileSync, spawnSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, unlinkSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { basename, dirname, join } from 'node:path'
 
 const DEFAULT_TEXTBOOK_INDEX = 'generated/textbook_evidence/china_textbook_index.json'
@@ -13,6 +14,11 @@ const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/textbook_unit_index_sum
 const DEFAULT_MAX_FILES = 24
 const DEFAULT_MAX_PAGES = 18
 const DEFAULT_MATERIALIZE_TIMEOUT_MS = 60000
+const VISION_OCR_SOURCE = 'scripts/grade7_9/vision_ocr.swift'
+const VISION_OCR_BINARY = 'generated/textbook_evidence/.tools/vision_ocr'
+const DEFAULT_OCR_DPI = 180
+const DEFAULT_OCR_BATCH_SIZE = 4
+const DEFAULT_OCR_LANGUAGES = 'zh-Hans,en-US'
 
 function parseArgs(argv) {
   const args = {
@@ -29,6 +35,10 @@ function parseArgs(argv) {
     maxPages: DEFAULT_MAX_PAGES,
     materializeTimeoutMs: DEFAULT_MATERIALIZE_TIMEOUT_MS,
     debugTextDir: '',
+    ocrFallback: false,
+    ocrDpi: DEFAULT_OCR_DPI,
+    ocrBatchSize: DEFAULT_OCR_BATCH_SIZE,
+    ocrLanguages: DEFAULT_OCR_LANGUAGES,
     all: false,
     materialize: false,
     force: false
@@ -48,6 +58,10 @@ function parseArgs(argv) {
     else if (item === '--max-pages') args.maxPages = Number(argv[++i]) || args.maxPages
     else if (item === '--materialize-timeout-ms') args.materializeTimeoutMs = Number(argv[++i]) || args.materializeTimeoutMs
     else if (item === '--debug-text-dir') args.debugTextDir = argv[++i] || ''
+    else if (item === '--ocr-fallback') args.ocrFallback = true
+    else if (item === '--ocr-dpi') args.ocrDpi = Number(argv[++i]) || args.ocrDpi
+    else if (item === '--ocr-batch-size') args.ocrBatchSize = Number(argv[++i]) || args.ocrBatchSize
+    else if (item === '--ocr-languages') args.ocrLanguages = argv[++i] || args.ocrLanguages
     else if (item === '--all') args.all = true
     else if (item === '--materialize') args.materialize = true
     else if (item === '--force') args.force = true
@@ -74,6 +88,10 @@ Use --evidence-ids for deterministic small-batch exploration. Use
 --materialize-timeout-ms to prevent Git LFS/blob fetches from hanging an audit
 run. Use --debug-text-dir with --materialize to save extracted PDF text for
 manual parser inspection.
+
+Use --ocr-fallback on macOS to run Apple Vision OCR when PDF text extraction
+does not produce TOC candidates. OCR is intentionally opt-in because it depends
+on local rendering and Vision availability.
 
 This script never writes to public/data.`)
 }
@@ -118,6 +136,33 @@ function pythonCandidates() {
     '/Users/shawn.fsc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3',
     'python3'
   ].filter(Boolean)
+}
+
+function toolCandidates(name, extra = []) {
+  return [
+    process.env[name.toUpperCase()],
+    ...extra,
+    name
+  ].filter(Boolean)
+}
+
+function runFirstAvailable(candidates, args, options = {}) {
+  let lastError = null
+  for (const command of candidates) {
+    try {
+      if (command.includes('/') && !existsSync(command)) continue
+      return execFileSync(command, args, options)
+    } catch (error) {
+      lastError = error
+    }
+  }
+  throw lastError || new Error(`No executable found for ${candidates.join(', ')}`)
+}
+
+function pdftoppmCandidates() {
+  return toolCandidates('pdftoppm', [
+    '/Users/shawn.fsc/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/pdftoppm'
+  ])
 }
 
 function selectedSubjectMappings(record, subjects) {
@@ -235,6 +280,103 @@ print(json.dumps(result, ensure_ascii=False))
   return { pages_read: 0, total_pages: 0, chars: 0, text: '', error: 'no usable python/pypdf runtime', tool: 'none' }
 }
 
+function compileVisionWorker() {
+  if (!existsSync(VISION_OCR_SOURCE)) throw new Error(`Missing Vision OCR source: ${VISION_OCR_SOURCE}`)
+  mkdirSync(dirname(VISION_OCR_BINARY), { recursive: true })
+  const needsBuild = !existsSync(VISION_OCR_BINARY) || statSync(VISION_OCR_SOURCE).mtimeMs > statSync(VISION_OCR_BINARY).mtimeMs
+  if (needsBuild) execFileSync('swiftc', [VISION_OCR_SOURCE, '-O', '-o', VISION_OCR_BINARY], { stdio: 'inherit' })
+  return VISION_OCR_BINARY
+}
+
+function renderPageForOcr(pdfPath, page, tempDir, dpi) {
+  const prefix = join(tempDir, `page_${String(page).padStart(4, '0')}`)
+  runFirstAvailable(pdftoppmCandidates(), [
+    '-f', String(page),
+    '-l', String(page),
+    '-singlefile',
+    '-r', String(dpi),
+    '-png',
+    pdfPath,
+    prefix
+  ], { stdio: 'pipe' })
+  const image = `${prefix}.png`
+  if (!existsSync(image)) throw new Error(`Rendered image not found for page ${page}: ${image}`)
+  return image
+}
+
+function runVisionBatch(worker, images, languages) {
+  const result = spawnSync(worker, ['--languages', languages, ...images], {
+    encoding: 'utf8',
+    maxBuffer: 1024 * 1024 * 64
+  })
+  if (result.status !== 0) throw new Error(`Vision OCR failed: ${result.stderr || result.stdout}`)
+  const rows = result.stdout.trim().split('\n').filter(Boolean).map(line => JSON.parse(line))
+  const byFile = new Map(rows.map(row => [row.file, row]))
+  return images.map(image => byFile.get(image) || { file: image, text: '', error: 'empty OCR output' })
+}
+
+function pageCountFromPdf(pdfPath, maxPages) {
+  const extracted = extractPdfText(pdfPath, 0)
+  if (extracted.total_pages) return extracted.total_pages
+  return maxPages
+}
+
+function extractPdfOcrText(pdfPath, args) {
+  const startedAt = Date.now()
+  try {
+    const worker = compileVisionWorker()
+    const totalPages = pageCountFromPdf(pdfPath, args.maxPages)
+    const pagesToRead = Math.min(totalPages || args.maxPages, args.maxPages)
+    const tempDir = mkdtempSync(join(tmpdir(), 'textbook-ocr-'))
+    const pages = []
+    try {
+      for (let batchStart = 1; batchStart <= pagesToRead; batchStart += args.ocrBatchSize) {
+        const batchEnd = Math.min(pagesToRead, batchStart + args.ocrBatchSize - 1)
+        const rendered = []
+        for (let page = batchStart; page <= batchEnd; page += 1) {
+          rendered.push({ page, image: renderPageForOcr(pdfPath, page, tempDir, args.ocrDpi) })
+        }
+        const rows = runVisionBatch(worker, rendered.map(row => row.image), args.ocrLanguages)
+        rows.forEach((row, index) => {
+          pages.push({
+            page: rendered[index].page,
+            text: row.text || '',
+            chars: (row.text || '').trim().length,
+            error: row.error || null
+          })
+        })
+        rendered.forEach(row => unlinkSync(row.image))
+      }
+    } finally {
+      rmSync(tempDir, { recursive: true, force: true })
+    }
+    const text = pages
+      .map(row => [`[[PDF_PAGE:${row.page}]]`, row.text].join('\n'))
+      .join('\n')
+    return {
+      pages_read: pages.length,
+      total_pages: totalPages,
+      chars: text.trim().length,
+      text,
+      error: '',
+      tool: 'apple_vision',
+      duration_ms: Date.now() - startedAt,
+      page_chars: pages.map(row => ({ page: row.page, chars: row.chars, error: row.error }))
+    }
+  } catch (error) {
+    return {
+      pages_read: 0,
+      total_pages: 0,
+      chars: 0,
+      text: '',
+      error: error.message,
+      tool: 'apple_vision',
+      duration_ms: Date.now() - startedAt,
+      page_chars: []
+    }
+  }
+}
+
 function stripPdfExtension(name) {
   return String(name || '')
     .replace(/\.pdf$/i, '')
@@ -285,6 +427,18 @@ function readableUnitTitle(value) {
   return true
 }
 
+function isPageNumberLine(value) {
+  return /^\d{1,3}$/u.test(String(value || '').trim())
+}
+
+function pendingTocPrefix(line) {
+  const normalized = normalizeLeadingSectionNumber(normalizeLine(line))
+  if (/^第\s*[一二三四五六七八九十百\d]+\s*[章节单元课]$/u.test(normalized)) return normalized
+  const section = normalized.match(/^(\*?\d+\.\d+)-?$/u)
+  if (section) return section[1]
+  return ''
+}
+
 function candidateFromLine(line, pdfPage) {
   const normalized = normalizeLeadingSectionNumber(normalizeLine(line))
   if (!normalized || normalized.length < 3 || normalized.length > 80) return null
@@ -306,7 +460,7 @@ function candidateFromLine(line, pdfPage) {
     }
   }
 
-  const section = normalized.match(/^(\d+(?:\.\d+)+)\s+(.+)$/u)
+  const section = normalized.match(/^\*?(\d+\.\d+)\s*(.+)$/u)
   if (section) {
     const title = `${section[1]} ${stripTocPageTail(section[2])}`
     if (!readableUnitTitle(title)) return null
@@ -341,20 +495,46 @@ function candidateFromLine(line, pdfPage) {
 
 function extractTocCandidates(text) {
   const pages = []
-  let current = { pdfPage: null, candidates: [], hasTocHeading: false }
+  let current = { pdfPage: null, candidates: [], hasTocHeading: false, pendingPrefix: '', pendingTocChar: '' }
   let pdfPage = null
   for (const rawLine of String(text || '').split(/\r?\n/)) {
-    const pageMatch = rawLine.match(/^\[\[PDF_PAGE:(\d+)]]$/)
+    const pageMatch = rawLine.match(/^\[\[(?:PDF_PAGE:|PAGE\s+)(\d+)]]$/)
     if (pageMatch) {
       if (current.pdfPage !== null || current.hasTocHeading || current.candidates.length) pages.push(current)
       pdfPage = Number(pageMatch[1])
-      current = { pdfPage, candidates: [], hasTocHeading: false }
+      current = { pdfPage, candidates: [], hasTocHeading: false, pendingPrefix: '', pendingTocChar: '' }
       continue
     }
     const normalized = normalizeLine(rawLine)
-    if (/^(目录|目 录)$/u.test(normalized)) current.hasTocHeading = true
-    const candidate = candidateFromLine(rawLine, pdfPage)
+    if (!normalized) continue
+    if (isPageNumberLine(normalized)) continue
+    if (/^(目录|目 录)$/u.test(normalized)) {
+      current.hasTocHeading = true
+      current.pendingPrefix = ''
+      current.pendingTocChar = ''
+      continue
+    }
+    if (normalized === '目') {
+      current.pendingTocChar = '目'
+      continue
+    }
+    if (normalized === '录') {
+      current.hasTocHeading = true
+      current.pendingTocChar = ''
+      continue
+    }
+    current.pendingTocChar = ''
+
+    const prefix = pendingTocPrefix(normalized)
+    if (prefix) {
+      current.pendingPrefix = prefix
+      continue
+    }
+
+    const logicalLine = current.pendingPrefix ? `${current.pendingPrefix} ${normalized}` : rawLine
+    const candidate = candidateFromLine(logicalLine, pdfPage)
     if (candidate) current.candidates.push(candidate)
+    current.pendingPrefix = ''
   }
   if (current.pdfPage !== null || current.hasTocHeading || current.candidates.length) pages.push(current)
 
@@ -388,12 +568,20 @@ function selectTocWindowCandidates(pages) {
   return out
 }
 
-function writeDebugText(record, text, args) {
+function writeDebugText(record, text, args, suffix = '') {
   if (!args.debugTextDir) return ''
   mkdirSync(args.debugTextDir, { recursive: true })
-  const out = join(args.debugTextDir, `${record.evidence_id}.txt`)
+  const out = join(args.debugTextDir, `${record.evidence_id}${suffix}.txt`)
   writeFileSync(out, text)
   return out
+}
+
+function asOcrCandidates(candidates) {
+  return candidates.map(candidate => ({
+    ...candidate,
+    extraction_method: String(candidate.extraction_method || '').replace(/^pdf_text/, 'ocr_text'),
+    confidence: Math.min(candidate.confidence || 0.58, 0.62)
+  }))
 }
 
 function volumeSeed(record) {
@@ -448,10 +636,12 @@ function summarize(records, unitCandidates) {
   const byUnitLevel = {}
   const byExtractionStatus = {}
   const byTextStatus = {}
+  const byOcrStatus = {}
   for (const record of records) {
     for (const mapping of record.selected_standard_subject_mappings) countInto(bySubject, mapping.subject_slug)
     countInto(byExtractionStatus, record.extraction_status)
     countInto(byTextStatus, record.text_status)
+    countInto(byOcrStatus, record.ocr_status)
   }
   for (const candidate of unitCandidates) {
     countInto(byCandidateType, candidate.candidate_type)
@@ -466,7 +656,8 @@ function summarize(records, unitCandidates) {
     by_candidate_type: Object.fromEntries(Object.entries(byCandidateType).sort(([a], [b]) => a.localeCompare(b))),
     by_unit_level: Object.fromEntries(Object.entries(byUnitLevel).sort(([a], [b]) => a.localeCompare(b))),
     by_extraction_status: Object.fromEntries(Object.entries(byExtractionStatus).sort(([a], [b]) => a.localeCompare(b))),
-    by_text_status: Object.fromEntries(Object.entries(byTextStatus).sort(([a], [b]) => a.localeCompare(b)))
+    by_text_status: Object.fromEntries(Object.entries(byTextStatus).sort(([a], [b]) => a.localeCompare(b))),
+    by_ocr_status: Object.fromEntries(Object.entries(byOcrStatus).sort(([a], [b]) => a.localeCompare(b)))
   }
 }
 
@@ -478,7 +669,7 @@ function markdownSummary(payload) {
     .map(([level, count]) => `| ${level} | ${count} |`)
     .join('\n') || '| - | 0 |'
   const fileRows = payload.textbook_files
-    .map(file => `| ${file.evidence_id} | ${file.grade_label || ''} | ${file.volume || ''} | ${file.extraction_status || ''} | ${file.text_status || ''} | ${file.toc_candidate_count || 0} |`)
+    .map(file => `| ${file.evidence_id} | ${file.grade_label || ''} | ${file.volume || ''} | ${file.extraction_status || ''} | ${file.text_status || ''} | ${file.ocr_status || ''} | ${file.toc_candidate_count || 0} |`)
     .join('\n')
   return `# Textbook Unit Candidate Index
 
@@ -497,6 +688,7 @@ commit：\`${payload.source_commit}\`
 | 目录/章节候选 | ${payload.summary.real_unit_or_chapter_candidates} |
 | 文件名卷册 seed | ${payload.summary.volume_seed_candidates} |
 | PDF 物化超时 | ${payload.summary.by_extraction_status.materialize_timeout || 0} |
+| OCR 抽取成功 | ${payload.summary.by_ocr_status.ocr_text_extracted || 0} |
 
 ## 目录候选粒度
 
@@ -506,8 +698,8 @@ ${levelRows}
 
 ## 教材文件状态
 
-| evidence_id | 年级 | 册次 | 物化状态 | 文本状态 | 目录候选 |
-| --- | --- | --- | --- | --- | ---: |
+| evidence_id | 年级 | 册次 | 物化状态 | 文本状态 | OCR 状态 | 目录候选 |
+| --- | --- | --- | --- | --- | --- | ---: |
 ${fileRows}
 
 ## 学科覆盖
@@ -541,7 +733,8 @@ function main() {
       extraction_status: args.materialize ? 'pending' : 'not_materialized',
       text_status: args.materialize ? 'pending' : 'not_read',
       materialize_timeout_ms: args.materialize ? args.materializeTimeoutMs : null,
-      toc_candidate_count: 0
+      toc_candidate_count: 0,
+      ocr_status: args.ocrFallback ? 'not_run' : 'disabled'
     }
     let candidates = []
 
@@ -555,11 +748,28 @@ function main() {
         const extracted = extractPdfText(materialized.path, args.maxPages)
         file.text_status = extracted.error ? 'text_extract_failed' : extracted.chars > 0 ? 'text_extracted' : 'empty_text'
         file.text_error = extracted.error || ''
+        file.text_tool = extracted.tool || ''
         file.pages_read = extracted.pages_read
         file.total_pages = extracted.total_pages
         file.text_chars = extracted.chars
         file.debug_text_path = extracted.error ? '' : writeDebugText(record, extracted.text, args)
         candidates = extracted.error ? [] : extractTocCandidates(extracted.text)
+
+        if (args.ocrFallback && !candidates.length) {
+          const ocr = extractPdfOcrText(materialized.path, args)
+          file.ocr_status = ocr.error ? 'ocr_failed' : ocr.chars > 0 ? 'ocr_text_extracted' : 'ocr_empty_text'
+          file.ocr_error = ocr.error || ''
+          file.ocr_tool = ocr.tool
+          file.ocr_duration_ms = ocr.duration_ms
+          file.ocr_pages_read = ocr.pages_read
+          file.ocr_chars = ocr.chars
+          file.ocr_page_chars = ocr.page_chars
+          file.debug_ocr_text_path = ocr.error ? '' : writeDebugText(record, ocr.text, args, '.ocr')
+          if (!ocr.error && ocr.chars > 0) {
+            candidates = asOcrCandidates(extractTocCandidates(ocr.text))
+            if (candidates.length) file.text_status = 'ocr_text_extracted'
+          }
+        }
       }
     }
 
@@ -583,6 +793,10 @@ function main() {
       max_files: args.all ? null : args.maxFiles,
       max_pages: args.maxPages,
       materialize_timeout_ms: args.materializeTimeoutMs,
+      ocr_fallback: args.ocrFallback,
+      ocr_dpi: args.ocrDpi,
+      ocr_batch_size: args.ocrBatchSize,
+      ocr_languages: args.ocrLanguages,
       debug_text_dir: args.debugTextDir || null,
       subjects: args.subjects,
       grades: args.grades

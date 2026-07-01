@@ -96,9 +96,10 @@ npm run validate:indexes
 | `index.html` | Vite HTML 入口。 |
 | `scripts/build-indexes.js` | 根据主数据生成派生索引。 |
 | `scripts/textbooks/index_china_textbook.js` | 从 ChinaTextbook Git tree 生成初中教材文件证据索引，不下载 PDF blob。 |
-| `scripts/textbooks/build_textbook_unit_index.js` | 从教材文件索引生成单元/章节候选证据入口；默认只生成文件级 `volume_seed`，也支持按 `evidence_id` 小批量物化 PDF 并记录超时。 |
+| `scripts/textbooks/build_textbook_unit_index.js` | 从教材文件索引生成单元/章节候选证据入口；默认只生成文件级 `volume_seed`，也支持按 `evidence_id` 小批量物化 PDF、文本层解析和可选 OCR fallback。 |
 | `scripts/textbooks/audit_textbook_unit_index.js` | 校验教材单元候选索引，区分文件级 seed 与真实目录/章节候选。 |
 | `scripts/textbooks/match_standards_to_textbook_units.js` | 将 H4G standards 与真实 `toc_unit_or_chapter` 候选做可解释匹配。 |
+| `scripts/textbooks/build_h4g_unit_evidence_candidate.js` | 将通过 eligible 门的标准-单元匹配组织为写回前 H4G 单元证据候选包；不写 `public/data`。 |
 | `scripts/textbooks/audit_textbook_standard_matches.js` | 校验标准-单元匹配，禁止把 `volume_seed` 当作正式分化证据。 |
 | `dist` | 已构建产物目录，不是源码的主要维护入口。 |
 
@@ -300,6 +301,8 @@ public/data/
 | `generated/textbook_evidence/textbook_unit_standard_matches.json` | H4G standard 到教材单元/章节候选的可解释匹配结果。 |
 | `generated/textbook_evidence/textbook_unit_standard_matches_summary.md` | 标准-单元匹配摘要。 |
 | `generated/textbook_evidence/textbook_unit_standard_matches_audit.json` | 标准-单元匹配审计结果。 |
+| `generated/textbook_evidence/h4g_unit_evidence_candidate.json` | 写回前 H4G 单元证据候选包，包含拟写入的 `textbook_unit_evidence_ids` 和 review 信息。 |
+| `generated/textbook_evidence/h4g_unit_evidence_candidate_summary.md` | 写回前候选包摘要。 |
 | `generated/textbook_evidence/pdf_cache/` | 可选 PDF 物化缓存；不提交。 |
 
 相关命令：
@@ -310,16 +313,18 @@ npm run textbooks:unit-index
 npm run textbooks:audit-unit-index -- --strict
 npm run textbooks:match-units
 npm run textbooks:audit-unit-matches -- --strict
+npm run textbooks:h4g-unit-candidates -- --strict --require-candidates
 ```
 
 重要边界：
 
 - `textbook_evidence_ids` 当前是教材文件级证据，可支持年级适配判断。
-- `textbook_unit_evidence_ids` 只有在未来获得 `toc_unit_or_chapter` 并完成标准匹配后才能填写。
+- `textbook_unit_evidence_ids` 只有在获得 `toc_unit_or_chapter`、完成标准匹配并进入 H4G 单元证据候选包后才能填写。
 - `volume_seed` 不能证明标准已完成单元级分化；它只是后续 OCR/目录提取的任务入口。
 - `eligible_for_h4g_differentiation` 必须来自真实 `toc_unit_or_chapter`、达到匹配分数、命中标准 `subdomain` 锚点，并且仍需人工或规则复核。
+- `h4g_unit_evidence_candidate` 是写回前候选，不会修改 `public/data`，也不会改写课标原文。
 - `materialize_timeout` 代表远端 PDF blob 没有稳定取得，不得被解释为教材缺少目录或标准无法分化。
-- `--materialize` 会尝试读取 PDF blob，可能受网络和外部仓库大小影响，暂不作为默认 gate。
+- `--materialize` 会尝试读取 PDF blob，`--ocr-fallback` 会调用本机 Apple Vision OCR；二者可能受网络、外部仓库大小和本机环境影响，暂不作为默认 gate。
 
 ### 6.3 学科元数据
 

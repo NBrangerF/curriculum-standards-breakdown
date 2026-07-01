@@ -255,10 +255,12 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 - 可选 `--materialize` 会尝试读取 PDF 前若干页并解析目录行，生成 `toc_unit_or_chapter`。
 - `--evidence-ids` 可以精确指定教材文件做小批量诊断；`--materialize-timeout-ms` 会把长时间 blob 获取记录为 `materialize_timeout`。
 - 当前数学人教版样本已可物化 PDF；但 `--materialize` 仍依赖网络、PDF 文本层和 OCR，暂不纳入默认 gate。
+- `--ocr-fallback` 可在文本层没有目录候选时使用 macOS Apple Vision OCR 解析前若干页，仍只用于小批量诊断。
 - 未来只有 `toc_unit_or_chapter` 加上标准匹配 rationale，才能写入正式 H4G 记录的 `textbook_unit_evidence_ids`。
 - `textbooks:match-units` 默认只匹配 `toc_unit_or_chapter`，并输出 `score`、`matched_fields`、`matched_keywords` 和 `rationale`。
 - `textbooks:match-units` 的 eligible 门槛要求真实 `toc_unit_or_chapter`、分数达标，并命中标准 `subdomain` 锚点。
 - `textbooks:audit-unit-matches` 会阻止 `volume_seed` 或无 `subdomain` 锚点的匹配被当作正式分化证据。
+- `textbooks:h4g-unit-candidates` 将 eligible matches 组织成写回前候选包，但不修改 `public/data`。
 
 当前数学全量无物化验证结果：
 
@@ -278,18 +280,19 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 ```json
 {
   "textbook_files": 6,
-  "real_unit_or_chapter_candidates": 61,
-  "volume_seed_candidates": 3,
-  "eligible_matches": 10,
-  "eligible_by_grade_band": {
-    "H4G7": 6,
-    "H4G8": 1,
-    "H4G9": 3
+  "real_unit_or_chapter_candidates": 118,
+  "volume_seed_candidates": 0,
+  "eligible_matches": 32,
+  "candidate_standards": 15,
+  "candidate_standards_by_grade_band": {
+    "H4G7": 7,
+    "H4G8": 3,
+    "H4G9": 5
   }
 }
 ```
 
-七年级下册、八年级下册、九年级下册当前仍是图片型文本层，需要 OCR 才能补足下册单元证据。因此这一步是候选证据链打通，不是正式 public 写入。
+七年级下册、八年级下册、九年级下册当前通过 OCR fallback 补足了目录候选。该结果说明候选证据链已经覆盖同版本六册数学教材，但仍不是正式 public 写入；进入写回前还需要跨版本一致性、页码范围和人工/规则复核。
 
 ### Phase 2：curated raw 升级
 

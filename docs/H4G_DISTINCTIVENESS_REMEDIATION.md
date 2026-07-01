@@ -179,7 +179,7 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 
 当前管线默认不下载 PDF，只从 `china_textbook_index.json` 生成 `volume_seed`。`volume_seed` 只代表“某年级某册教材文件存在”，不能作为标准-单元匹配证据。只有后续通过可选 `--materialize` 或稳定 OCR 缓存得到的 `toc_unit_or_chapter`，才可以进入 H4G 年级分化匹配。
 
-`textbooks:unit-index` 已支持 `--evidence-ids`、`--materialize-timeout-ms` 和 `--debug-text-dir`，用于精确复现单本教材的 PDF 物化与目录解析。当前数学人教版 7/8/9 六册样本已能物化 PDF，并从七上、八上、九上抽出 61 个真实 `toc_unit_or_chapter`；七下、八下、九下文本层为空，仍需 OCR。
+`textbooks:unit-index` 已支持 `--evidence-ids`、`--materialize-timeout-ms`、`--debug-text-dir` 和可选 `--ocr-fallback`，用于精确复现单本教材的 PDF 物化、文本层目录解析和 OCR fallback。当前数学人教版 7/8/9 六册样本已能物化 PDF，并在 OCR fallback 后抽出 118 个真实 `toc_unit_or_chapter`；七下、八下、九下由 Apple Vision OCR 补足目录候选。
 
 当前已验证的无物化样例：
 
@@ -195,7 +195,15 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 
 这进一步确认当前 H4G standards 还不能声称已经真实分化；它们只是有了可重复的下一阶段证据任务入口。
 
-标准-单元匹配入口当前也已落地。数学人教版 7/8/9 小批量真实数据下，114 条 H4G standards 被评估，61 个 `toc_unit_or_chapter` 候选进入匹配，得到 46 个 matches 和 10 个 `eligible_for_h4g_differentiation` 候选。eligible 门槛要求真实单元候选、分数达标，并命中标准 `subdomain` 锚点；这会阻止 `实数` 被 `有理数` 单元误升级、`一次函数` 被 `一元一次方程` 单元误升级。
+标准-单元匹配入口当前也已落地。数学人教版 7/8/9 小批量真实数据下，114 条 H4G standards 被评估，118 个 `toc_unit_or_chapter` 候选进入匹配，得到 106 个 matches 和 32 个 `eligible_for_h4g_differentiation` 候选。eligible 门槛要求真实单元候选、分数达标，并命中标准 `subdomain` 锚点；这会阻止 `实数` 被 `有理数` 单元误升级、`一次函数` 被 `一元一次方程` 单元误升级。
+
+写回前候选包入口也已新增：
+
+```bash
+npm run textbooks:h4g-unit-candidates -- --strict --require-candidates
+```
+
+当前数学 OCR 样本可生成 15 条 public standard 对应的单元级证据候选，分布为 H4G7 7 条、H4G8 3 条、H4G9 5 条。候选包只组织 `textbook_unit_evidence_ids`、单元标题、match score、matched fields、subdomain anchor 和建议更新字段，不写 `public/data`，也不改写课标原文。
 
 后续一旦有真实 `toc_unit_or_chapter`，匹配输出必须包含：
 
@@ -211,7 +219,7 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 npm run textbooks:audit-unit-matches -- --strict --require-matches --require-eligible
 ```
 
-该小批量已经通过严格匹配审计，但仍不能直接写入 `public/data`：下册 OCR、跨版本一致性、人工/规则复核和写回流程尚未完成。
+该小批量已经通过严格匹配审计并形成写回前候选包，但仍不能直接写入 `public/data`：跨版本一致性、页码范围、人工/规则复核和正式 apply 流程尚未完成。
 
 优先级建议：
 

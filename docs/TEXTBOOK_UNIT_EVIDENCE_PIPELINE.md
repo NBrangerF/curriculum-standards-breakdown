@@ -172,6 +172,7 @@ npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --
 2. 缓存到 `generated/textbook_evidence/pdf_cache/`。
 3. 使用 Python `pypdf` 提取前若干页文本。
 4. 从目录行或“第 X 单元/章/课”模式生成 `toc_unit_or_chapter` 候选。
+5. 如显式启用 `--ocr-fallback`，当 PDF 文本层没有目录候选时，用 Apple Vision OCR 读取前若干页后再走同一套目录解析。
 
 新增诊断参数：
 
@@ -180,8 +181,12 @@ npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --
 | `--evidence-ids` | 精确指定 `china_textbook_index.json` 中的教材文件 ID，适合小批量复现。指定后不再按 `--max-files` 截断。 |
 | `--materialize-timeout-ms` | 限制单个 PDF blob 物化时间，默认 60000ms。超时会记为 `materialize_timeout`。 |
 | `--debug-text-dir` | 保存已提取 PDF 文本，便于人工检查目录格式和改进解析规则。 |
+| `--ocr-fallback` | 可选 macOS Apple Vision OCR fallback；仅在文本层没有目录候选时运行。默认关闭。 |
+| `--ocr-dpi` | OCR 渲染 DPI，默认 180。 |
+| `--ocr-batch-size` | OCR 分批页数，默认 4。 |
+| `--ocr-languages` | OCR 语言列表，默认 `zh-Hans,en-US`。 |
 
-注意：`--materialize` 仍然不能作为默认质量门；它依赖外部 GitHub blob 获取和 PDF 文本层质量，只能用于小批量探索，或在后续建立稳定 PDF/OCR 缓存后再纳入严格流程。`materialize_timeout` 是教材 blob 获取失败，不等于教材没有目录；`text_extracted` 但无目录候选通常表示需要改 parser 或进入 OCR。
+注意：`--materialize` 和 `--ocr-fallback` 仍然不能作为默认质量门；它们依赖外部 GitHub blob 获取、本机 PDF 渲染和 macOS Vision OCR，只能用于小批量探索，或在后续建立稳定 PDF/OCR 缓存后再纳入严格流程。`materialize_timeout` 是教材 blob 获取失败，不等于教材没有目录；`text_extracted` 但无目录候选通常表示需要改 parser 或进入 OCR。
 
 ## 7. 当前验证结果
 
@@ -245,7 +250,33 @@ npm run textbooks:audit-unit-index -- --unit-index /tmp/textbook_unit_index_math
 }
 ```
 
-其中七年级上册、八年级上册、九年级上册均可从文本层抽出目录候选；七年级下册、八年级下册、九年级下册前 30 页文本为空，只保留 `volume_seed`，需要 OCR 后才能进入单元级匹配。
+其中七年级上册、八年级上册、九年级上册均可从文本层抽出目录候选；七年级下册、八年级下册、九年级下册在不开 OCR 时文本层为空，只保留 `volume_seed`。
+
+开启 OCR fallback 后的数学人教版 7/8/9 六册验证：
+
+```bash
+npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df,ctb_c5fa3c0e2226,ctb_e14d09b0b94a,ctb_485165afa9c8,ctb_045c4e32dda3,ctb_286bc7db0209 --materialize --ocr-fallback --max-pages 14 --materialize-timeout-ms 180000 --debug-text-dir /tmp/textbook_debug_text_math_h4g_ocr2 --out /tmp/textbook_unit_index_math_h4g_pep_ocr2.json --summary-out /tmp/textbook_unit_index_math_h4g_pep_ocr2.md
+npm run textbooks:audit-unit-index -- --unit-index /tmp/textbook_unit_index_math_h4g_pep_ocr2.json --out /tmp/textbook_unit_index_math_h4g_pep_ocr2_audit.json --strict --require-real-units
+```
+
+结果：
+
+```json
+{
+  "textbook_files": 6,
+  "unit_candidates": 118,
+  "real_unit_or_chapter_candidates": 118,
+  "volume_seed_candidates": 0,
+  "by_text_status": {
+    "text_extracted": 3,
+    "ocr_text_extracted": 3
+  },
+  "by_ocr_status": {
+    "not_run": 3,
+    "ocr_text_extracted": 3
+  }
+}
+```
 
 数学全量无物化结果：
 
@@ -263,37 +294,62 @@ npm run textbooks:audit-unit-index -- --unit-index /tmp/textbook_unit_index_math
 
 审计通过但保留 warning：当前索引还没有 `toc_unit_or_chapter`，只有文件/册次级 seed。
 
-当前数学人教版 7/8/9 小批量标准-单元匹配结果：
+当前数学人教版 7/8/9 小批量标准-单元匹配结果（启用 OCR fallback 后）：
 
 ```json
 {
   "standards_evaluated": 114,
-  "unit_candidates_considered": 61,
-  "real_unit_or_chapter_candidates": 61,
-  "matches": 46,
-  "eligible_matches": 10,
-  "unmatched_standards": 94
+  "unit_candidates_considered": 118,
+  "real_unit_or_chapter_candidates": 118,
+  "matches": 106,
+  "eligible_matches": 32,
+  "unmatched_standards": 66
 }
 ```
 
 该结果已通过：
 
 ```bash
-npm run textbooks:audit-unit-matches -- --matches /tmp/textbook_unit_standard_matches_math_h4g_pep_all_norm2.json --unit-index /tmp/textbook_unit_index_math_h4g_pep_all_norm2.json --out /tmp/textbook_unit_standard_matches_math_h4g_pep_all_norm2_audit.json --strict --require-matches --require-eligible
+npm run textbooks:audit-unit-matches -- --matches /tmp/textbook_unit_standard_matches_math_h4g_pep_ocr2.json --unit-index /tmp/textbook_unit_index_math_h4g_pep_ocr2.json --out /tmp/textbook_unit_standard_matches_math_h4g_pep_ocr2_audit.json --strict --require-matches --require-eligible
 ```
 
 当前 eligible 还只是候选证据，不直接写入 `public/data`。匹配脚本已经加上 `subdomain` 锚点门：达到 score 但没有命中 `subdomain` 锚点的候选，例如 `实数` 标准匹配到 `有理数` 单元、`一次函数` 标准匹配到 `一元一次方程` 单元，会被保留为普通 match，但不会成为 `eligible_for_h4g_differentiation`。
 
+写回前候选包入口：
+
+```bash
+npm run textbooks:h4g-unit-candidates -- --matches /tmp/textbook_unit_standard_matches_math_h4g_pep_ocr2.json --out /tmp/h4g_unit_evidence_candidate_math_ocr2.json --summary-out /tmp/h4g_unit_evidence_candidate_math_ocr2.md --strict --require-candidates
+```
+
+当前数学候选包结果：
+
+```json
+{
+  "eligible_matches": 32,
+  "candidate_standards": 15,
+  "missing_public_records": 0,
+  "already_unit_level_records": 0,
+  "by_grade_band": {
+    "H4G7": 7,
+    "H4G8": 3,
+    "H4G9": 5
+  }
+}
+```
+
+该候选包仍不写 `public/data`，只把可复核的 `textbook_unit_evidence_ids`、单元标题、match score、matched fields、subdomain anchor 和建议更新字段组织出来。
+
 ## 8. 与 H4G 分化的关系
 
-H4G 记录只有满足以下条件，才可以从 `same_source_shared` 向 `grade_specific_variant` 升级：
+H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。
 
 1. 至少有一个同学科、同年级的 `toc_unit_or_chapter` 候选。
 2. 标准核心字段与候选单元/章节建立可解释匹配。
 3. 匹配通过 `textbooks:audit-unit-matches -- --strict --require-matches --require-eligible`。
-4. 记录写入 `textbook_unit_evidence_ids`、匹配关键词、匹配分数和 rationale。
-5. `grade_specific_focus` 与 `progression_delta` 基于证据生成，不直接改写课标原文。
-6. `grade7_9:audit-h4g-distinctiveness -- --strict` 仍然通过。
+4. 先通过 `textbooks:h4g-unit-candidates` 生成写回前候选包。
+5. 记录写入 `textbook_unit_evidence_ids`、匹配关键词、匹配分数和 rationale。
+6. `grade_specific_focus` 与 `progression_delta` 基于证据生成，不直接改写课标原文。
+7. `grade7_9:audit-h4g-distinctiveness -- --strict` 仍然通过。
 
 换句话说，`volume_seed` 是任务入口；`toc_unit_or_chapter` 才是后续年级分化的候选证据。
 
@@ -303,6 +359,5 @@ H4G 记录只有满足以下条件，才可以从 `same_source_shared` 向 `grad
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
 2. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
-3. 改进目录解析，补充页码范围、关键词和册次位置。
-4. 扩展标准-单元匹配脚本，加入页码范围、版本一致性和跨版本一致性证据。
-5. 设计通过复核的匹配写回 H4G candidate 的流程，再进入正式 public 写入 gate。
+3. 补充页码范围、跨版本一致性和人工复核状态。
+4. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。
