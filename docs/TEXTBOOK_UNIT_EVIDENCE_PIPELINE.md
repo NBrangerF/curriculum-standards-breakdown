@@ -169,10 +169,11 @@ npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --
 该模式会：
 
 1. 用 `git show` 从 ChinaTextbook 读取选中 PDF blob。
-2. 缓存到 `generated/textbook_evidence/pdf_cache/`。
-3. 使用 Python `pypdf` 提取前若干页文本。
-4. 从目录行或“第 X 单元/章/课”模式生成 `toc_unit_or_chapter` 候选。
-5. 如显式启用 `--ocr-fallback`，当 PDF 文本层没有目录候选时，用 Apple Vision OCR 读取前若干页后再走同一套目录解析。
+2. 如果 blobless Git 物化超时或失败，默认 fallback 到 `raw.githubusercontent.com` 下载同一 commit 的 PDF。
+3. 缓存到 `generated/textbook_evidence/pdf_cache/`；raw 下载超时时保留 `.part`，下次同一教材可断点续传。
+4. 使用 Python `pypdf` 提取前若干页文本。
+5. 从目录行或“第 X 单元/章/课”模式生成 `toc_unit_or_chapter` 候选。
+6. 如显式启用 `--ocr-fallback`，当 PDF 文本层没有目录候选时，用 Apple Vision OCR 读取前若干页后再走同一套目录解析。
 
 新增诊断参数：
 
@@ -180,13 +181,17 @@ npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --
 | --- | --- |
 | `--evidence-ids` | 精确指定 `china_textbook_index.json` 中的教材文件 ID，适合小批量复现。指定后不再按 `--max-files` 截断。 |
 | `--materialize-timeout-ms` | 限制单个 PDF blob 物化时间，默认 60000ms。超时会记为 `materialize_timeout`。 |
+| `--no-download-fallback` | 禁用 raw URL fallback，只使用本地 ChinaTextbook Git blob。 |
+| `--download-timeout-ms` | 限制 raw URL 下载窗口，默认 180000ms。超时会记为 `raw_materialize_timeout` 并保留可续传 `.part`。 |
+| `--download-retries` | raw URL 下载重试次数，默认 2。 |
+| `--raw-ref` | 覆盖 raw URL 使用的 ref；默认使用 `china_textbook_index.json` 固定的 `source_commit`。 |
 | `--debug-text-dir` | 保存已提取 PDF 文本，便于人工检查目录格式和改进解析规则。 |
 | `--ocr-fallback` | 可选 macOS Apple Vision OCR fallback；仅在文本层没有目录候选时运行。默认关闭。 |
 | `--ocr-dpi` | OCR 渲染 DPI，默认 180。 |
 | `--ocr-batch-size` | OCR 分批页数，默认 4。 |
 | `--ocr-languages` | OCR 语言列表，默认 `zh-Hans,en-US`。 |
 
-注意：`--materialize` 和 `--ocr-fallback` 仍然不能作为默认质量门；它们依赖外部 GitHub blob 获取、本机 PDF 渲染和 macOS Vision OCR，只能用于小批量探索，或在后续建立稳定 PDF/OCR 缓存后再纳入严格流程。`materialize_timeout` 是教材 blob 获取失败，不等于教材没有目录；`text_extracted` 但无目录候选通常表示需要改 parser 或进入 OCR。
+注意：`--materialize`、raw URL fallback 和 `--ocr-fallback` 仍然不能作为默认质量门；它们依赖外部 GitHub 文件获取、本机 PDF 渲染和 macOS Vision OCR，只能用于小批量探索，或在后续建立稳定 PDF/OCR 缓存后再纳入严格流程。`materialize_timeout` 或 `raw_materialize_timeout` 是教材文件获取失败，不等于教材没有目录；`text_extracted` 但无目录候选通常表示需要改 parser 或进入 OCR。
 
 ## 7. 当前验证结果
 
@@ -377,35 +382,58 @@ npm run grade7_9:audit-grade-band-policy -- --public-data-root /tmp/h4g_unit_evi
 
 科学学科的直接教材文件覆盖为 24 本，七、八、九年级各 8 本。当前先以浙教版六册做诊断：
 
-- 七年级上、下册已成功物化并从文本层抽取目录，得到 62 个真实 `toc_unit_or_chapter` 候选，其中 chapter 8、section 2、unit 52。
-- 浙教版八年级上、八年级下、九年级上、九年级下均在 60 秒单册窗口内返回 `materialize_timeout`，只能保留为 `volume_seed`。
-- 替代测试的华东师大版八年级上册也返回 `materialize_timeout`，说明当前瓶颈更可能是远端 PDF blob 获取稳定性，而不是单个版本目录不可解析。
+- 七年级上、下册可直接物化并从文本层抽取目录。
+- 八年级上、八年级下、九年级上、九年级下曾在 60 秒单册 Git blob 窗口内返回 `materialize_timeout`；加入 raw URL fallback 与 `.part` 断点续传后，六册都能稳定进入文本层目录解析。
+- 该结果说明先前瓶颈主要是远端 PDF blob 获取稳定性，不是浙教版科学八、九年级教材没有目录。
 
-七年级浙教版两册进入标准匹配后的当前结果：
+浙教版六册完整诊断命令：
+
+```bash
+npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6,ctb_943ec07406e2,ctb_c4e71c26b3da,ctb_056ac74f165c,ctb_df20fdb436e6 --materialize --ocr-fallback --max-pages 16 --materialize-timeout-ms 60000 --download-timeout-ms 180000 --debug-text-dir /tmp/textbook_debug_text_science_h4g_zj_all_raw --out /tmp/textbook_unit_index_science_h4g_zj_all_raw.json --summary-out /tmp/textbook_unit_index_science_h4g_zj_all_raw.md
+```
+
+目录索引结果：
 
 ```json
 {
-  "standards_evaluated": 201,
-  "unit_candidates_considered": 62,
-  "matches": 17,
-  "eligible_matches": 2,
-  "candidate_standards": 2,
-  "by_grade_band": {
-    "H4G7": 2
+  "textbook_files": 6,
+  "unit_candidates": 177,
+  "real_unit_or_chapter_candidates": 177,
+  "volume_seed_candidates": 0,
+  "by_extraction_status": {
+    "cached": 6
   }
 }
 ```
 
-生成的 2 条科学候选为：
+进入标准匹配后的结果：
+
+```json
+{
+  "standards_evaluated": 201,
+  "unit_candidates_considered": 177,
+  "matches": 77,
+  "eligible_matches": 4,
+  "candidate_standards": 4,
+  "by_grade_band": {
+    "H4G7": 2,
+    "H4G9": 2
+  }
+}
+```
+
+生成的 4 条科学候选为：
 
 | standard_code | grade_band | subdomain | unit |
 | --- | --- | --- | --- |
 | `SC-H4G7-EVOL-010` | H4G7 | `8.4 细菌、真菌、病毒具有不同的繁殖方式` | `第6节 细菌和真菌的繁殖` |
 | `SC-H4G7-PR-001` | H4G7 | `科学探究与工程实践` | `第5节 科学探究` |
+| `SC-H4G9-ENE-006` | H4G9 | `4.2 能源与可持续发展` | `第4章 可持续发展` |
+| `SC-H4G9-MAT-009` | H4G9 | `1.3 金属及合金是重要的材料` | `第1节 金属材料` |
 
-候选 apply 到 `/tmp/h4g_unit_evidence_data_candidate_science_zj_g7` 后，结果为 applied 2、missing 0、skipped 0、`official_standard_text_changed: false`。候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 和 `audit-grade-band-policy --data-only --strict` 均通过；审计识别到科学学科 2 条 `textbook_unit_level` 记录。独立比对显示这 2 条记录的官方字段变化数为 0。
+候选 apply 到 `/tmp/h4g_unit_evidence_data_candidate_science_zj_all` 后，结果为 applied 4、missing 0、skipped 0、`official_standard_text_changed: false`。候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 和 `audit-grade-band-policy --data-only --strict` 均通过；审计识别到科学学科 4 条 `textbook_unit_level` 记录。独立比对显示这 4 条记录的官方字段变化数为 0。
 
-这个样本只能证明科学 H4G7 的少量候选可走通；不能证明 H4G8/H4G9 已有足够单元级证据。下一步需要优先解决八、九年级科学 PDF 的稳定物化，或预先缓存可用教材 PDF。
+这个样本证明科学浙教版 7/8/9 六册可以走通 PDF 获取、目录抽取、标准匹配、候选包和候选根审计；但它仍不能证明科学 H4G8 已有足够单元级证据，因为 eligible gate 当前没有产出 H4G8 候选。下一步应聚焦匹配规则和标准进阶链，而不是再把八、九年级 PDF timeout 当作主瓶颈。
 
 ## 9. 与 H4G 分化的关系
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { execFileSync, spawnSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, unlinkSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, renameSync, rmSync, statSync, unlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { basename, dirname, join } from 'node:path'
 
@@ -14,11 +14,15 @@ const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/textbook_unit_index_sum
 const DEFAULT_MAX_FILES = 24
 const DEFAULT_MAX_PAGES = 18
 const DEFAULT_MATERIALIZE_TIMEOUT_MS = 60000
+const DEFAULT_DOWNLOAD_FALLBACK = true
+const DEFAULT_DOWNLOAD_TIMEOUT_MS = 180000
+const DEFAULT_DOWNLOAD_RETRIES = 2
 const VISION_OCR_SOURCE = 'scripts/grade7_9/vision_ocr.swift'
 const VISION_OCR_BINARY = 'generated/textbook_evidence/.tools/vision_ocr'
 const DEFAULT_OCR_DPI = 180
 const DEFAULT_OCR_BATCH_SIZE = 4
 const DEFAULT_OCR_LANGUAGES = 'zh-Hans,en-US'
+const MATERIALIZED_STATUSES = new Set(['materialized', 'raw_materialized', 'cached'])
 
 function parseArgs(argv) {
   const args = {
@@ -34,6 +38,10 @@ function parseArgs(argv) {
     maxFiles: DEFAULT_MAX_FILES,
     maxPages: DEFAULT_MAX_PAGES,
     materializeTimeoutMs: DEFAULT_MATERIALIZE_TIMEOUT_MS,
+    downloadFallback: DEFAULT_DOWNLOAD_FALLBACK,
+    downloadTimeoutMs: DEFAULT_DOWNLOAD_TIMEOUT_MS,
+    downloadRetries: DEFAULT_DOWNLOAD_RETRIES,
+    rawRef: '',
     debugTextDir: '',
     ocrFallback: false,
     ocrDpi: DEFAULT_OCR_DPI,
@@ -57,6 +65,10 @@ function parseArgs(argv) {
     else if (item === '--max-files') args.maxFiles = Number(argv[++i]) || args.maxFiles
     else if (item === '--max-pages') args.maxPages = Number(argv[++i]) || args.maxPages
     else if (item === '--materialize-timeout-ms') args.materializeTimeoutMs = Number(argv[++i]) || args.materializeTimeoutMs
+    else if (item === '--no-download-fallback') args.downloadFallback = false
+    else if (item === '--download-timeout-ms') args.downloadTimeoutMs = Number(argv[++i]) || args.downloadTimeoutMs
+    else if (item === '--download-retries') args.downloadRetries = Number(argv[++i]) || args.downloadRetries
+    else if (item === '--raw-ref') args.rawRef = argv[++i] || ''
     else if (item === '--debug-text-dir') args.debugTextDir = argv[++i] || ''
     else if (item === '--ocr-fallback') args.ocrFallback = true
     else if (item === '--ocr-dpi') args.ocrDpi = Number(argv[++i]) || args.ocrDpi
@@ -88,6 +100,12 @@ Use --evidence-ids for deterministic small-batch exploration. Use
 --materialize-timeout-ms to prevent Git LFS/blob fetches from hanging an audit
 run. Use --debug-text-dir with --materialize to save extracted PDF text for
 manual parser inspection.
+
+When the local blobless Git clone cannot materialize a PDF in time, the script
+falls back to raw.githubusercontent.com by default. Use --no-download-fallback
+to disable that path or --raw-ref to override the raw download ref. The raw
+download path has its own timeout/retry controls because large PDFs can be slow
+even when Git blob fetches are timing out.
 
 Use --ocr-fallback on macOS to run Apple Vision OCR when PDF text extraction
 does not produce TOC candidates. OCR is intentionally opt-in because it depends
@@ -212,6 +230,119 @@ function cachePathFor(record, cacheDir) {
   return join(cacheDir, `${record.evidence_id}.pdf`)
 }
 
+function rawDownloadRef(args) {
+  const ref = args.rawRef || args.ref || 'master'
+  return ref === 'HEAD' ? 'master' : ref
+}
+
+function rawUrlFor(record, args) {
+  const encodedPath = String(record.repository_path || '')
+    .split('/')
+    .map(part => encodeURIComponent(part))
+    .join('/')
+  return `https://raw.githubusercontent.com/TapXWorld/ChinaTextbook/${encodeURIComponent(rawDownloadRef(args))}/${encodedPath}`
+}
+
+function looksLikeCurlTimeout(result) {
+  const text = `${result.stderr || ''}\n${result.stdout || ''}`.toLowerCase()
+  return result.status === 28 || text.includes('timed out') || text.includes('timeout')
+}
+
+function downloadRawPdf(record, args, gitStatus, gitError) {
+  const out = cachePathFor(record, args.cacheDir)
+  const temp = `${out}.part`
+  const rawUrl = rawUrlFor(record, args)
+  const startedAt = Date.now()
+  try {
+    const result = spawnSync('curl', [
+      '--location',
+      '--fail',
+      '--silent',
+      '--show-error',
+      '--connect-timeout',
+      '20',
+      '--max-time',
+      String(Math.max(1, Math.ceil(args.downloadTimeoutMs / 1000))),
+      '--retry',
+      String(Math.max(0, args.downloadRetries)),
+      '--retry-all-errors',
+      '--retry-delay',
+      '2',
+      '--retry-max-time',
+      String(Math.max(1, Math.ceil(args.downloadTimeoutMs / 1000))),
+      '--continue-at',
+      '-',
+      '--output',
+      temp,
+      rawUrl
+    ], {
+      encoding: 'utf8',
+      maxBuffer: 1024 * 1024 * 16
+    })
+    if (result.error) throw result.error
+    if (result.status !== 0) {
+      const status = looksLikeCurlTimeout(result) ? 'raw_materialize_timeout' : 'raw_materialize_failed'
+      const partialBytes = existsSync(temp) ? statSync(temp).size : 0
+      if (!partialBytes && existsSync(temp)) unlinkSync(temp)
+      return {
+        status,
+        path: out,
+        raw_url: rawUrl,
+        raw_partial_path: partialBytes ? temp : '',
+        raw_partial_bytes: partialBytes,
+        error: [
+          `${gitStatus}: ${gitError}`,
+          `raw_download_exit_${result.status}: ${result.stderr || result.stdout || ''}`.trim()
+        ].filter(Boolean).join('\n'),
+        timeout_ms: args.downloadTimeoutMs,
+        duration_ms: Date.now() - startedAt
+      }
+    }
+    const bytes = existsSync(temp) ? statSync(temp).size : 0
+    if (!bytes) {
+      if (existsSync(temp)) unlinkSync(temp)
+      return {
+        status: 'raw_materialize_failed',
+        path: out,
+        raw_url: rawUrl,
+        raw_partial_path: '',
+        raw_partial_bytes: 0,
+        error: [
+          `${gitStatus}: ${gitError}`,
+          'raw_download_empty_file'
+        ].join('\n'),
+        timeout_ms: args.downloadTimeoutMs,
+        duration_ms: Date.now() - startedAt
+      }
+    }
+    renameSync(temp, out)
+    return {
+      status: 'raw_materialized',
+      path: out,
+      raw_url: rawUrl,
+      bytes,
+      duration_ms: Date.now() - startedAt,
+      fallback_from: gitStatus,
+      git_error: gitError
+    }
+  } catch (error) {
+    const partialBytes = existsSync(temp) ? statSync(temp).size : 0
+    return {
+      status: 'raw_materialize_failed',
+      path: out,
+      raw_url: rawUrl,
+      raw_partial_path: partialBytes ? temp : '',
+      raw_partial_bytes: partialBytes,
+      error: [
+        `${gitStatus}: ${gitError}`,
+        error.message
+      ].filter(Boolean).join('\n'),
+      timeout_ms: args.downloadTimeoutMs,
+      duration_ms: Date.now() - startedAt
+    }
+  }
+}
+
 function materializePdf(record, args) {
   const out = cachePathFor(record, args.cacheDir)
   if (existsSync(out) && !args.force) {
@@ -231,10 +362,13 @@ function materializePdf(record, args) {
       duration_ms: Date.now() - startedAt
     }
   } catch (error) {
+    const status = error.signal === 'SIGTERM' ? 'materialize_timeout' : 'materialize_failed'
+    const formattedError = formatExecError(error)
+    if (args.downloadFallback) return downloadRawPdf(record, args, status, formattedError)
     return {
-      status: error.signal === 'SIGTERM' ? 'materialize_timeout' : 'materialize_failed',
+      status,
       path: out,
-      error: formatExecError(error),
+      error: formattedError,
       timeout_ms: args.materializeTimeoutMs
     }
   }
@@ -688,6 +822,8 @@ commit：\`${payload.source_commit}\`
 | 目录/章节候选 | ${payload.summary.real_unit_or_chapter_candidates} |
 | 文件名卷册 seed | ${payload.summary.volume_seed_candidates} |
 | PDF 物化超时 | ${payload.summary.by_extraction_status.materialize_timeout || 0} |
+| raw URL 物化成功 | ${payload.summary.by_extraction_status.raw_materialized || 0} |
+| raw URL 物化超时 | ${payload.summary.by_extraction_status.raw_materialize_timeout || 0} |
 | OCR 抽取成功 | ${payload.summary.by_ocr_status.ocr_text_extracted || 0} |
 
 ## 目录候选粒度
@@ -722,6 +858,7 @@ function main() {
   if (args.materialize && !existsSync(args.repoDir)) throw new Error(`Missing ChinaTextbook repo: ${args.repoDir}`)
 
   const index = readJson(args.textbookIndex)
+  if (!args.rawRef) args.rawRef = index.source_commit || 'master'
   const records = selectRecords(index, args)
   const textbookFiles = []
   const unitCandidates = []
@@ -743,8 +880,13 @@ function main() {
       file.extraction_status = materialized.status
       file.cache_path = materialized.path
       file.materialize_error = materialized.error || ''
+      file.materialize_raw_url = materialized.raw_url || ''
+      file.materialize_raw_partial_path = materialized.raw_partial_path || ''
+      file.materialize_raw_partial_bytes = materialized.raw_partial_bytes || 0
+      file.materialize_fallback_from = materialized.fallback_from || ''
+      file.materialize_git_error = materialized.git_error || ''
       file.materialize_duration_ms = materialized.duration_ms || null
-      if (materialized.status === 'materialized' || materialized.status === 'cached') {
+      if (MATERIALIZED_STATUSES.has(materialized.status)) {
         const extracted = extractPdfText(materialized.path, args.maxPages)
         file.text_status = extracted.error ? 'text_extract_failed' : extracted.chars > 0 ? 'text_extracted' : 'empty_text'
         file.text_error = extracted.error || ''
@@ -793,6 +935,10 @@ function main() {
       max_files: args.all ? null : args.maxFiles,
       max_pages: args.maxPages,
       materialize_timeout_ms: args.materializeTimeoutMs,
+      download_fallback: args.downloadFallback,
+      download_timeout_ms: args.downloadTimeoutMs,
+      download_retries: args.downloadRetries,
+      raw_ref: rawDownloadRef(args),
       ocr_fallback: args.ocrFallback,
       ocr_dpi: args.ocrDpi,
       ocr_batch_size: args.ocrBatchSize,
