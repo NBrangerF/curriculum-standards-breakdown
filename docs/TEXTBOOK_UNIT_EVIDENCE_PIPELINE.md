@@ -373,6 +373,40 @@ npm run grade7_9:audit-grade-band-policy -- --public-data-root /tmp/h4g_unit_evi
 
 写入策略仍然是：候选根可用于复核和展示验证；正式 `public/data` 写入必须另走人工复核/发布 gate。
 
+### 8.1 科学浙教版诊断样本
+
+科学学科的直接教材文件覆盖为 24 本，七、八、九年级各 8 本。当前先以浙教版六册做诊断：
+
+- 七年级上、下册已成功物化并从文本层抽取目录，得到 62 个真实 `toc_unit_or_chapter` 候选，其中 chapter 8、section 2、unit 52。
+- 浙教版八年级上、八年级下、九年级上、九年级下均在 60 秒单册窗口内返回 `materialize_timeout`，只能保留为 `volume_seed`。
+- 替代测试的华东师大版八年级上册也返回 `materialize_timeout`，说明当前瓶颈更可能是远端 PDF blob 获取稳定性，而不是单个版本目录不可解析。
+
+七年级浙教版两册进入标准匹配后的当前结果：
+
+```json
+{
+  "standards_evaluated": 201,
+  "unit_candidates_considered": 62,
+  "matches": 17,
+  "eligible_matches": 2,
+  "candidate_standards": 2,
+  "by_grade_band": {
+    "H4G7": 2
+  }
+}
+```
+
+生成的 2 条科学候选为：
+
+| standard_code | grade_band | subdomain | unit |
+| --- | --- | --- | --- |
+| `SC-H4G7-EVOL-010` | H4G7 | `8.4 细菌、真菌、病毒具有不同的繁殖方式` | `第6节 细菌和真菌的繁殖` |
+| `SC-H4G7-PR-001` | H4G7 | `科学探究与工程实践` | `第5节 科学探究` |
+
+候选 apply 到 `/tmp/h4g_unit_evidence_data_candidate_science_zj_g7` 后，结果为 applied 2、missing 0、skipped 0、`official_standard_text_changed: false`。候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 和 `audit-grade-band-policy --data-only --strict` 均通过；审计识别到科学学科 2 条 `textbook_unit_level` 记录。独立比对显示这 2 条记录的官方字段变化数为 0。
+
+这个样本只能证明科学 H4G7 的少量候选可走通；不能证明 H4G8/H4G9 已有足够单元级证据。下一步需要优先解决八、九年级科学 PDF 的稳定物化，或预先缓存可用教材 PDF。
+
 ## 9. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。
