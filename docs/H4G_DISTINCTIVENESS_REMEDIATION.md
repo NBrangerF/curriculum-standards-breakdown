@@ -201,12 +201,15 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 
 ```bash
 npm run textbooks:plan-h4g-unit-worklist -- --strict --require-work-items
+npm run textbooks:run-h4g-unit-work-item -- --work-item h4g_unit_work_math_6aec3166
 npm run textbooks:h4g-unit-candidates -- --strict --require-candidates
 npm run textbooks:audit-h4g-unit-candidates -- --strict --require-candidates
 npm run textbooks:audit-h4g-unit-consistency -- --strict --require-candidates
 ```
 
 新增 worklist gate 会把当前正式 H4G 缺口转成可执行教材批次：全量 1081 条 H4G records、400 个 progression groups 仍需单元证据，正式 `public/data` 中 `textbook_unit_level` 仍为 0。当前教材索引下，数学、科学、英语、体育、艺术具备至少两个完整 7/8/9 教材版本，能进入跨版本候选生成；语文、道德与法治只有一个完整统编版本；信息科技、劳动暂无完整教材版本。以数学/科学试点时，worklist 推荐先跑数学人教版、冀教版、华东师大版，以及科学沪教版、华东师大版、武汉版。
+
+`textbooks:run-h4g-unit-work-item` 会把 worklist 的单个批次串起来执行：教材物化/OCR、真实单元审计、标准匹配、候选包、consistency audit、候选数据根 apply、索引重建和 H4G 审计。它默认只写 `generated/textbook_evidence/h4g_runs/<work_item_id>/`，不写 `public/data`。如果使用 `--publication-gate`，会要求至少两个版本、完整 progression group 覆盖，并阻止非单调页码证据通过发布级检查。
 
 当前数学 OCR 样本可生成 15 条 public standard 对应的单元级证据候选，分布为 H4G7 7 条、H4G8 3 条、H4G9 5 条。候选包只组织 `textbook_unit_evidence_ids`、单元标题、页段、match score、matched fields、alignment 证据和建议更新字段，不写 `public/data`，也不改写课标原文。候选包 Markdown 摘要现在同时作为 review pack，逐条展示官方字段摘录、当前/建议状态、候选单元、页码状态、alignment 类型、命中字段和关键词。候选包 safety audit 会在 apply 前确认官方字段快照、候选安全边界、真实单元证据、alignment 和 proposed update 均符合写回前复核要求；新增 consistency audit 会检查跨版本一致性、progression group 年级覆盖和页码状态，避免把单版本诊断样本误当作发布级分化证据。
 
@@ -217,6 +220,8 @@ npm run textbooks:apply-h4g-unit-candidates -- --candidate /tmp/h4g_unit_evidenc
 ```
 
 该步骤会复制 `public/data` 到候选数据根，然后只更新候选命中的 H4G records。当前数学样本 apply 结果为 15 条 applied、0 条 missing、0 条 skipped、32 个单元证据对象，且 `official_standard_text_changed: false`、`writes_public_data: false`。候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 与 `audit-grade-band-policy --data-only --strict` 均通过；审计能识别到 15 条 `unit_level_evidence_records`。
+
+同一数学人教版批次已由 runner 自动复现。`h4g_unit_work_math_6aec3166` 的端到端结果为 valid true、118 个真实单元/章节候选、106 个 matches、32 个 eligible matches、15 条 H4G 单元证据候选、32 个单元证据对象；候选数据根中 `unit_level_evidence_records` 从 0 增加到 15，且年级/学段 policy 仍通过。consistency audit 同时确认：当前 `cross_version_consistency_proven: false`、`complete_progression_groups: false`、`page_range_gate_ready: false`，所以该批次只能作为 review-only 证据推进，不能发布为真正年级化分化。
 
 科学浙教版 7/8/9 六册也完成一轮小样本验证：加入 raw URL fallback 与 `.part` 断点续传后，六册都能进入文本层目录解析，共抽出 175 个真实目录/章节候选、0 个 `volume_seed`，且 175 条都带有目录印刷页 `page_start/page_range`。201 条科学 H4G standards 进入匹配后，得到 77 个 matches、11 个 eligible candidates，并形成 11 条单元级证据候选，分布为 H4G7 2 条、H4G8 4 条、H4G9 5 条；alignment 分布为 `subdomain_anchor` 4 条、`strong_field_alignment` 7 条；页码状态分布为 `toc_page_range_inferred` 10 条、`toc_page_nonmonotonic` 1 条。候选 review pack 已生成 11 条逐条复核明细，候选包审计在 `--require-page-start` 下通过且 errors/warnings 均为 0。新增 consistency audit 对该包给出的结论是：`page_start_gate_ready: true`，但 `page_range_gate_ready: false`、`cross_version_consistency_proven: false`、`complete_progression_groups: false`，因为 11 条候选都来自单一浙教版、1 条页码非单调、且各 progression group 只覆盖一个年级。该结果解决了先前八、九年级科学 PDF `materialize_timeout`、H4G8 被过严 `subdomain` 逐字锚点挡住、以及候选包缺少页码证据的三个阻塞；但这些仍是诊断/复核候选，正式写入前还需要跨版本一致性、人工/规则复核，并对 `toc_page_nonmonotonic` 页段做人工确认。
 

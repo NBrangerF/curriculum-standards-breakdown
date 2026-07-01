@@ -241,6 +241,7 @@ npm run textbooks:audit-unit-index -- --strict
 npm run textbooks:match-units
 npm run textbooks:audit-unit-matches -- --strict
 npm run textbooks:plan-h4g-unit-worklist -- --strict --require-work-items
+npm run textbooks:run-h4g-unit-work-item -- --work-item h4g_unit_work_math_6aec3166
 ```
 
 新增文档：
@@ -262,6 +263,7 @@ docs/TEXTBOOK_UNIT_EVIDENCE_PIPELINE.md
 - `textbooks:match-units` 的 eligible 门槛要求真实 `toc_unit_or_chapter`、分数达标，并命中标准 `subdomain` 锚点。
 - `textbooks:audit-unit-matches` 会阻止 `volume_seed` 或无 `subdomain` 锚点的匹配被当作正式分化证据。
 - `textbooks:plan-h4g-unit-worklist` 在物化 PDF 前生成工作清单，按 H4G progression groups、当前候选覆盖和完整 7/8/9 教材版本推荐下一批 `evidence_ids`。
+- `textbooks:run-h4g-unit-work-item` 将单个 worklist 批次跑到候选包、consistency gate 和 generated 候选数据根审计；它是执行 gate，不是发布 gate。
 - `textbooks:h4g-unit-candidates` 将 eligible matches 组织成写回前候选包，但不修改 `public/data`。
 - `textbooks:apply-h4g-unit-candidates` 将候选包应用到独立候选数据根，用于重建索引和严格审计；默认仍不写 `public/data`。
 

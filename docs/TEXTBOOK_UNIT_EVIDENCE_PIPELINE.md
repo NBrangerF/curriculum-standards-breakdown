@@ -113,6 +113,15 @@ npm run textbooks:plan-h4g-unit-worklist -- --subjects math,science --out /tmp/h
 
 该命令会合并三类事实：当前 `public/data` 中仍需单元证据的 H4G progression groups、已有候选包覆盖、以及 ChinaTextbook 中每个学科可用的完整 7/8/9 教材版本。它输出下一批应物化的 `evidence_ids` 和完整命令链，但不写 `public/data`，也不把工作项本身当作证据。
 
+执行单个 H4G work item 的端到端 gate：
+
+```bash
+npm run textbooks:run-h4g-unit-work-item -- --work-item h4g_unit_work_math_6aec3166
+npm run textbooks:run-h4g-unit-work-item -- --subject math --edition 人教版-人民教育出版社 --out-dir generated/textbook_evidence/h4g_runs/math_renjiao
+```
+
+该命令会按 worklist 中的 `evidence_ids` 串行执行：教材单元物化与 OCR fallback、真实单元索引审计、标准-单元匹配、匹配审计、H4G 候选包、候选安全审计、consistency audit、候选数据根 apply、候选根索引重建、`validate-data-indexes`、`audit-h4g-distinctiveness` 和 `audit-grade-band-policy --data-only`。默认输出到 `generated/textbook_evidence/h4g_runs/<work_item_id>/`，并写出 `run_summary.json` 与 `run_summary.md`。该 runner 仍不写 `public/data`；加 `--publication-gate` 时会把 consistency audit 升级为发布级检查，即要求跨版本、完整 progression group 和非单调页码清零。
+
 ## 4. 输出结构
 
 `textbook_unit_index.json` 有两个核心数组：
@@ -399,6 +408,31 @@ npm run grade7_9:audit-grade-band-policy -- --public-data-root /tmp/h4g_unit_evi
 候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 和 `audit-grade-band-policy --data-only --strict` 均通过。H4G distinctiveness 审计在候选根中识别到 15 条 `unit_level_evidence_records`；数学学科内为 15 条 `textbook_unit_level`、99 条 `textbook_file_grade_level`。对这 15 条记录与正式 `public/data` 的官方字段进行独立比对，`domain`、`subdomain`、`standard`、`context`、`practice`、`teaching_tip`、`assessment_evidence_type` 的变化数为 0。
 
 写入策略仍然是：候选根可用于复核和展示验证；正式 `public/data` 写入必须另走人工复核/发布 gate。
+
+同一数学人教版批次现在也已通过 `textbooks:run-h4g-unit-work-item` 自动复现，输出目录示例为：
+
+```text
+generated/textbook_evidence/h4g_runs/math_renjiao_smoke_compact/
+```
+
+runner summary 的关键指标：
+
+```json
+{
+  "valid": true,
+  "real_unit_or_chapter_candidates": 118,
+  "matches": 106,
+  "eligible_matches": 32,
+  "candidates": 15,
+  "unit_evidence_objects": 32,
+  "applied_records": 15,
+  "candidate_data_unit_level_records": 15,
+  "cross_version_consistency_proven": false,
+  "complete_progression_groups": false
+}
+```
+
+该结果说明端到端执行 gate 已经稳定；同时也再次确认，单一人教版只能把 15 条记录推进到 review-only 单元证据候选，不能作为发布级年级分化。
 
 ### 8.1 科学浙教版诊断样本
 
