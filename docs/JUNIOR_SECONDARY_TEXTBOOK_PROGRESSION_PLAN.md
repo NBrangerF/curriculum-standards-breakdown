@@ -307,7 +307,92 @@ npm run grade7_9:audit-textbook-progression
 | it | 0 | 0 | 0 | 无直接覆盖 |
 | labor | 0 | 0 | 0 | 无直接覆盖 |
 
-## 9. 当前推荐命令
+## 9. H4G 候选集
+
+已新增 H4G 候选生成和审计命令：
+
+```bash
+npm run grade7_9:build-grade-level-candidate
+npm run grade7_9:audit-grade-level-candidate -- --strict
+node scripts/validate-data-indexes.js --data-root generated/grade7_9_grade_level_candidate
+```
+
+候选输出目录：
+
+```text
+generated/grade7_9_grade_level_candidate/
+```
+
+该候选集不写入正式 `public/data`，只用于审核和下一步前端/数据契约改造。
+
+当前候选集结果：
+
+```json
+{
+  "source_records": 1933,
+  "preserved_non_junior_records": 852,
+  "transformed_junior_records": 1081,
+  "candidate_records": 1933,
+  "records_with_textbook_evidence": 949,
+  "auto_judged_low_confidence_records": 132
+}
+```
+
+候选初中记录已经从 `H4=7-9` 转为：
+
+| grade_band | grade_range | grade |
+| --- | --- | --- |
+| H4G7 | 7 | 七年级 |
+| H4G8 | 8 | 八年级 |
+| H4G9 | 9 | 九年级 |
+
+每条转换后的初中记录都会保留：
+
+- `legacy_code`
+- `source_grade_band`
+- `source_grade_range`
+- `stage_band`
+- `grade_level`
+- `grade_assignment_type`
+- `grade_assignment_confidence`
+- `grade_assignment_rationale`
+- `textbook_evidence_ids`
+- `textbook_evidence`
+- `progression_group_id`
+- `progression_role`
+- `progression_basis`
+- `progression_confidence`
+- `review_status`
+
+候选审计结果：
+
+```json
+{
+  "valid": true,
+  "ready_for_review": true,
+  "junior_records": 1081,
+  "records_with_textbook_evidence": 949,
+  "auto_judged_low_confidence_records": 132
+}
+```
+
+分学科 H4G 候选统计：
+
+| subject_slug | H4G7 | H4G8 | H4G9 | 教材证据 | 低置信度自动判断 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| arts | 27 | 35 | 35 | 97 | 0 |
+| chinese | 52 | 52 | 52 | 156 | 0 |
+| english | 44 | 44 | 44 | 132 | 0 |
+| it | 22 | 22 | 22 | 0 | 66 |
+| labor | 22 | 22 | 22 | 0 | 66 |
+| math | 38 | 38 | 38 | 114 | 0 |
+| morality_law | 42 | 42 | 42 | 126 | 0 |
+| pe | 41 | 41 | 41 | 123 | 0 |
+| science | 67 | 67 | 67 | 201 | 0 |
+
+当前低置信度自动判断全部来自信息科技和劳动，因为 ChinaTextbook 初中目录没有这两科直接教材覆盖。
+
+## 10. 当前推荐命令
 
 ```bash
 git clone --filter=blob:none --no-checkout \
@@ -316,6 +401,8 @@ git clone --filter=blob:none --no-checkout \
 
 npm run textbooks:index-china
 npm run grade7_9:audit-textbook-progression
+npm run grade7_9:build-grade-level-candidate
+npm run grade7_9:audit-grade-level-candidate -- --strict
 ```
 
 生成的 audit 用来决定每个学科进入 Phase 2 时的优先级。
