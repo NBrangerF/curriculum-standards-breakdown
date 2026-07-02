@@ -185,6 +185,7 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 - `no_candidate_progression_group_gaps`：正式 H4G progression group 需要单元证据，但当前候选包完全没有覆盖。
 - `remediation_work_items`：按 `standard_below_min_editions`、`fill_missing_grade_slot`、`no_candidate_progression_group` 三类生成可排序工作项。
 - `remediation_actions`：把每个工作项归入 `recover_page_start`、`review_alignment_or_alias`、`low_score_or_wrong_grade`、`no_match_returned` 等最小修复动作。
+- `alias_review`：对 `review_alignment_or_alias` 工作项进一步标出泛词/目录噪声、需回源复核、或可进入标准级 alias 复核的状态。
 
 这层输出用于决定下一批具体复核/解析/alias 任务，不代表候选可以发布，也不能直接写入 `textbook_unit_evidence_ids`。
 
@@ -200,6 +201,21 @@ npm run textbooks:audit-h4g-reverse-gaps -- \
   --min-editions-per-standard 2 \
   --min-editions-per-progression-group 2
 ```
+
+生成 H4G alias 回源复核包：
+
+```bash
+npm run textbooks:h4g-alias-source-review -- --strict --require-items
+```
+
+该命令默认读取科学八版本 reverse gap 报告，并只抽取 `alias_review.status = needs_source_review` 的工作项，输出：
+
+```text
+generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_alias_source_review_packet.json
+generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_alias_source_review_packet.md
+```
+
+它会把每个待复核项补齐到可审粒度：目标 standard、同一 progression group 的 H4G7/H4G8/H4G9 原文、当前进阶差异状态、候选教材单元、页码、alignment gap、具体/泛化关键词、以及下一步 source review gate。该包不写 `public/data`，不新增 alias，也不改变官方标准文本。
 
 跨版本年级投放矩阵：
 
@@ -2249,6 +2265,33 @@ aggregate candidate audit 和普通 consistency audit 继续通过。发布级 g
 ```
 
 这说明当前科学没有任何可以直接升级为 `ready_for_standard_scoped_alias_review` 的 alias 候选。29 个 work items 应明确阻断，典型反例包括 `科学` 把 `2.1 阳光`、`6.1 种群`、`8.1 酸` 推成高分，或 `2 目录` 靠 `化学` 得分；这些正是 H4G7/H4G8/H4G9 看起来“几乎一样”的来源。12 个 `needs_source_review` 只能作为回源复核入口，例如 `生物与环境的相互关系`、`二力平衡`、`机械效率`、`低碳生活` 等具体概念，必须确认它们对应的是哪一个年级标准的进阶要求，而不是同一 progression group 的笼统主题。
+
+为避免继续靠临时查询推进，本轮新增 `textbooks:h4g-alias-source-review` 生成 read-only 回源复核包。复跑结果：
+
+```json
+{
+  "source_review_items": 12,
+  "standard_level_items": 6,
+  "group_level_items": 6,
+  "by_source_review_gate": {
+    "decompose_group_before_alias_review": 6,
+    "inspect_source_for_single_field_concept_match": 5,
+    "reject_or_reparse_noise_before_alias_review": 1
+  },
+  "candidate_matches": 118,
+  "page_ready_candidate_matches": 115,
+  "noise_title_candidate_matches": 2
+}
+```
+
+复核包路径：
+
+```text
+generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_alias_source_review_packet.json
+generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_alias_source_review_packet.md
+```
+
+该 packet 对每个 item 都带上 `progression_group_snapshot`。当前样本组的 `core_text_distinct_count` 仍为 1，`current_progression_distinctiveness` 仍为 `identical_core_fields`，这说明 H4G7/H4G8/H4G9 的核心标准文本还未真正分化；候选教材单元只能作为回源复核线索，不能直接升级为年级专属标准。
 
 下一步原则：
 
