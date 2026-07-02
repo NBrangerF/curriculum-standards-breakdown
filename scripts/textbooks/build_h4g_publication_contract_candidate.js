@@ -276,9 +276,11 @@ function blockedDraft(review) {
     blocked_reason: review.blocked_reason,
     required_next_step: review.required_next_step,
     publication_surface: 'none_until_remediated',
+    future_publication_condition: 'none_until_remediated',
     safety: {
       writes_public_data: false,
       writes_textbook_unit_evidence_ids: false,
+      writes_textbook_unit_evidence_ids_now: false,
       official_standard_text_changed: false
     }
   }

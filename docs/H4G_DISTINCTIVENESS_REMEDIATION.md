@@ -1230,6 +1230,40 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 这一步把 contract candidate 变成可跑索引和 policy audit 的候选数据根，但它仍不是正式 `public/data` 写入。标准记录只演练写入白名单中的证据/复核字段；`domain`、`subdomain`、`standard`、`context`、`practice`、`teaching_tip`、`assessment_evidence_type` 均保持不变；5 条 `h4g_progression_notes` 只是 progression group 级版本投放说明候选，不被当前前端读取。2 个 blocked registry contracts 继续只停留在 generated 复核层，没有 public surface。
 
+### 7.18 发布准备度安全审计
+
+在 dry-run 候选根之后，本轮新增发布准备度审计 gate：
+
+```bash
+npm run textbooks:audit-h4g-publication-readiness -- --strict
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_readiness_audit.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_readiness_audit.md
+```
+
+当前审计结果：
+
+```json
+{
+  "valid": true,
+  "readiness_level": "ready_for_manual_review_not_publication",
+  "manual_review_ready": true,
+  "publication_ready": false,
+  "public_migration_ready": false,
+  "applied_standard_records": 19,
+  "unit_evidence_objects": 87,
+  "progression_note_candidates": 5,
+  "blocked_registry_contracts": 2,
+  "not_in_current_unit_candidate_scope": 85
+}
+```
+
+这一步把“可以进入人工/课程复核”和“可以正式发布”拆开：审计会逐项比对 review packet、contract、apply summary、候选数据根、`h4g_progression_notes.json` 和 blocked registry，确认 19 条候选标准只改证据/复核字段、官方课标文本未变、5 条 note 仍是 progression group 级候选、2 个 blocked reviews 没有 public surface。它同时强制保留 `publication_ready=false`，因为人工复核记录、课程进阶复核、progression-note schema/UI、正式 public migration gate 和 85 条范围外数学 H4G standards 仍未完成。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：

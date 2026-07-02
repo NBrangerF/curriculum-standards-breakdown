@@ -351,6 +351,21 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 该命令会复制 `public/data` 到 generated 候选根，然后只对 contract 中的 `standard_same_grade_unit_evidence` records 写入白名单证据字段，并额外生成 `h4g_progression_notes.json` 作为 progression group 版本投放说明候选 collection。当前 dry-run 结果为 19 条 applied、0 条 missing、87 个单元证据对象、5 条 note candidates、2 个 blocked registry contracts；`official_standard_text_changed: false`、`writes_public_data: false`。这仍不是正式迁移：候选根用于索引、H4G distinctiveness 和 grade-band policy 审计，不会被当前网站 runtime 读取，也不会把任何 record 自动改成 `grade_specific_variant`。
 
+审计 H4G 发布准备度：
+
+```bash
+npm run textbooks:audit-h4g-publication-readiness -- --strict
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_readiness_audit.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_readiness_audit.md
+```
+
+该 gate 会把 publication review packet、contract candidate、apply summary、candidate data root、`h4g_progression_notes.json` 和 blocked registry 放在一起检查。当前审计 `valid=true`、`manual_review_ready=true`，但仍明确 `publication_ready=false`、`public_migration_ready=false`。阻塞原因包括：19 条同年级单元证据尚未有人工复核记录、5 条 progression notes 尚未有课程进阶复核、progression-group note collection 尚未完成 schema/UI 消费设计、正式 public migration gate 仍未建立、85 条数学 H4G standards 不在当前单元候选范围内、2 个 blocked reviews 没有 public surface。
+
 ## 4. 输出结构
 
 `textbook_unit_index.json` 有两个核心数组：
@@ -1012,6 +1027,8 @@ publication contract candidate 的边界：`h4g_publication_contract_candidate` 
 
 publication contract apply dry-run 的边界：`apply_h4g_publication_contract_candidate` 只把 contract candidate 应用到 generated 候选数据根。它会演练 19 条同年级单元证据写入和 5 条 progression note candidate collection，但仍保持 `writes_public_data=false`、`official_standard_text_changed=false`，也不让 blocked registry 进入 public surface。
 
+publication readiness audit 的边界：`audit_h4g_publication_readiness` 是安全审计，不是发布批准。它通过时只说明当前 artifacts 内部一致、未改官方课标文本、blocked 项没有混入 public surface，并且可以进入人工/课程复核；它仍必须保持 `publication_ready=false`，直到人工复核、schema/UI、正式 migration gate 和剩余缺口处理完成。
+
 ## 10. 下一步
 
 建议顺序：
@@ -1024,8 +1041,8 @@ publication contract apply dry-run 的边界：`apply_h4g_publication_contract_c
 6. 用 `textbooks:h4g-progression-review-worklist` 固化 blocked standards 的复核入口，区分 `edition_placement_model_review` 和 `same_grade_gap_remediation`。
 7. 用 `textbooks:h4g-edition-placement-model` 将可解释的跨版本投放差异升级为 progression group 级模型候选，同时保留 partial topics 的 blocked 状态。
 8. 用 `textbooks:h4g-publication-review` 把同年级单元证据、版本投放说明候选和 blocked items 合成互斥的发布前复核包。
-9. 用 `textbooks:h4g-publication-contract` 和 `textbooks:apply-h4g-publication-contract` 先在 generated 候选根演练未来字段契约；正式写入 `public/data` 前仍要通过人工/课程进阶复核、schema/UI 设计和完整审计。
-9. 用 `textbooks:h4g-publication-contract` 把正式数据模型候选固化为 additive contract 和字段白名单。
-10. 基于 contract candidate 完成人工/课程进阶复核，决定是否增加 progression-group note collection 或标准级 evidence migration。
-11. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
-12. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。
+9. 用 `textbooks:h4g-publication-contract` 和 `textbooks:apply-h4g-publication-contract` 先在 generated 候选根演练未来字段契约。
+10. 用 `textbooks:audit-h4g-publication-readiness` 确认 review packet、contract、候选根、notes 和 blocked registry 一致，且仍未越界成正式发布。
+11. 基于 contract candidate 完成人工/课程进阶复核，决定是否增加 progression-group note collection 或标准级 evidence migration。
+12. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
+13. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。
