@@ -961,6 +961,60 @@ npm run grade7_9:audit-grade-band-policy -- \
 
 隔离 apply 结果为 19 条 applied、0 条 missing、0 条 skipped、87 个单元证据对象，且 `official_standard_text_changed: false`、`writes_public_data: false`。候选根中 `unit_level_evidence_records` 从 0 增加到 19，索引校验、H4G distinctiveness strict audit 和 grade-band policy data-only strict audit 均通过。
 
+### 7.13 Progression review worklist
+
+ready-only 候选包排除了 10 条还不能进入同年级单元证据写回复核的 standards。本轮把这些 blocked standards 固化为 progression review worklist：
+
+```bash
+npm run textbooks:h4g-progression-review-worklist -- --strict --require-work-items
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_progression_review_worklist.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_progression_review_worklist.md
+```
+
+生成结果：
+
+```json
+{
+  "work_items": 7,
+  "affected_standards": 10,
+  "edition_placement_work_items": 6,
+  "same_grade_gap_work_items": 1,
+  "edition_placement_review_standards": 9,
+  "same_grade_gap_standards": 1,
+  "cross_grade_unit_evidence": 44,
+  "same_grade_unit_evidence": 27,
+  "by_grade_band": {
+    "H4G7": 5,
+    "H4G8": 4,
+    "H4G9": 1
+  }
+}
+```
+
+worklist 覆盖的 6 个跨版本投放复核主题：
+
+| progression group | topic | affected standards |
+| --- | --- | --- |
+| `math-277214238af387` | 图形的运动与坐标 | `MA-H4G7-GEO-040`, `MA-H4G8-GEO-041` |
+| `math-4c3aea46890a49` | 实数 | `MA-H4G7-ALG-007` |
+| `math-76edb58e7a55e4` | 旋转与中心对称 | `MA-H4G8-GEO-026`, `MA-H4G9-GEO-027` |
+| `math-78f4d5d99da1f7` | 反比例函数 | `MA-H4G8-ALG-029` |
+| `math-f2c7b690c0a85b` | 图形的位置与坐标 | `MA-H4G7-GEO-037`, `MA-H4G8-GEO-038` |
+| `math-f8d97669301604` | 三角形 | `MA-H4G7-GEO-010` |
+
+唯一同年级缺口补救项：
+
+| progression group | topic | affected standard | reverse gap actions |
+| --- | --- | --- | --- |
+| `math-cb764ede689779` | 图形与几何综合表现 | `MA-H4G7-QUAL-004` | `low_score_or_wrong_grade:1`, `no_match_returned:1` |
+
+这一步不是新的发布候选。它的作用是防止把 blocked standards 混入 ready-only，同时明确下一步策略：`edition_placement_model_review` 要讨论版本投放差异如何进入 progression model；`same_grade_gap_remediation` 才继续做同年级证据修复。worklist 的 policy 明确 `writes_public_data=false`、`writes_textbook_unit_evidence_ids=false`、`publication_candidate=false`，cross-grade units 只能作为诊断材料。
+
 跨学科优先级建议：
 
 1. 数学、科学：先按 `textbooks:plan-h4g-unit-worklist -- --subjects math,science` 推荐的完整版本批次建立稳定 PDF/OCR 缓存。
