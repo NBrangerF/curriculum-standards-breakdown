@@ -1390,6 +1390,127 @@ generated/textbook_evidence/h4g_runs/science_five_edition_page_clean/
 
 因此科学下一步应继续补苏科版和北京版。科普版可作为 adjacent 补充，用来解释化学/地理等分科主题的投放差异，但不能替代同年级、同学科的多版本发布 gate。
 
+### 8.8 科学苏科版分科教材与六版本合并
+
+2026-07-03 继续执行科学苏科版分科教材工作项。该批覆盖生物学与物理，不含完整综合科学教材，因此它主要用于补生命系统、生态、多样性、能量等分科主题证据。
+
+PDF 预取阶段直接缓存 7/8 本；`ctb_4aa8d7ad5883`（生物学七年级上册）raw 下载失败并留下 40,747 bytes partial，但本地 ChinaTextbook Git blob 可用，blob 大小为 45,427,127 bytes。随后 unit-index 阶段通过本地 blob 成功物化该文件，其余 7 本复用 PDF cache。完整 8 本目录抽取结果：
+
+```json
+{
+  "textbook_files": 8,
+  "unit_candidates": 126,
+  "real_unit_or_chapter_candidates": 126,
+  "volume_seed_candidates": 0,
+  "page_start_candidates": 102,
+  "page_range_candidates": 102,
+  "by_unit_level": {
+    "chapter": 45,
+    "section": 8,
+    "unit": 73
+  },
+  "by_page_range_status": {
+    "missing": 24,
+    "toc_page_range_inferred": 96,
+    "toc_page_start_only": 6
+  },
+  "by_extraction_status": {
+    "cached": 7,
+    "materialized": 1
+  }
+}
+```
+
+单元索引审计通过。标准匹配结果：
+
+```json
+{
+  "standards_evaluated": 201,
+  "unit_candidates_considered": 126,
+  "matches": 34,
+  "standards_with_matches": 21,
+  "eligible_matches": 3,
+  "unmatched_standards": 180,
+  "by_eligible_alignment": {
+    "strong_field_alignment": 2,
+    "subdomain_anchor": 1
+  }
+}
+```
+
+3 条 eligible 中，`SC-H4G9-ENE-006` 命中 `第十七章 能源与可持续发展`，但该章标题缺 `page_start`，因此在 page-clean 候选包中被过滤。苏科版最终 page-clean H4G candidate 有 2 条 standards，全部通过 candidate audit 与普通 consistency audit：
+
+| standard_code | grade_band | alignment | 单元 |
+| --- | --- | --- | --- |
+| `SC-H4G7-LIFE-016` | H4G7 | `strong_field_alignment` | `第3章 生态系统和生物圈` p.36 |
+| `SC-H4G8-ECO-005` | H4G8 | `strong_field_alignment` | `第2节 保护生物多样性` p.96-103 |
+
+随后将苏科版与既有科学五版本 page-clean 候选合并为六版本候选，输出到：
+
+```text
+generated/textbook_evidence/h4g_runs/science_six_edition_page_clean/
+```
+
+六版本合并结果：
+
+```json
+{
+  "merged_candidates": 35,
+  "unit_evidence_objects": 49,
+  "multi_edition_standards": 7,
+  "single_edition_standards": 28,
+  "by_grade_band": {
+    "H4G7": 11,
+    "H4G8": 13,
+    "H4G9": 11
+  },
+  "by_edition": {
+    "华东师大版-华东师范大学出版社": 19,
+    "武汉版-武汉出版社": 10,
+    "浙教版-浙江教育出版社": 11,
+    "人教版-人民教育出版社": 5,
+    "苏科版-江苏凤凰科学技术出版社": 2,
+    "沪教版-上海教育出版社": 2
+  },
+  "by_page_range_status": {
+    "toc_page_range_inferred": 46,
+    "toc_page_start_only": 3
+  }
+}
+```
+
+六版本 candidate audit 和普通 consistency audit 均通过：`unit_evidence_missing_page_start=0`、`nonmonotonic_page_records=0`。相较五版本，苏科版带来 1 条新增 standard（`SC-H4G8-ECO-005`），并把多版本 standards 从 6 条提升到 7 条。更重要的是，`science-d887780b2ca2bb` 第一次成为完整 H4G7/H4G8/H4G9 progression group candidate：
+
+| progression_group_id | candidate grade bands | standards | editions |
+| --- | --- | --- | --- |
+| `science-d887780b2ca2bb` | H4G7, H4G8, H4G9 | `SC-H4G7-ECO-004`, `SC-H4G8-ECO-005`, `SC-H4G9-ECO-006` | 华东师大版、苏科版 |
+
+但发布级 gate 仍失败：
+
+```json
+{
+  "standards_below_min_editions": 28,
+  "progression_groups": 26,
+  "progression_groups_below_min_editions": 15,
+  "complete_progression_group_candidates": 1,
+  "partial_progression_group_candidates": 25,
+  "unit_evidence_missing_page_start": 0,
+  "nonmonotonic_page_records": 0
+}
+```
+
+这个失败是预期的：`science-d887780b2ca2bb` 已经在 progression group 粒度补齐 H4G7/H4G8/H4G9，但多条单个 standard 仍只有一个教材版本证据，未达到 `min-editions-per-standard=2`。因此六版本包仍只能作为 review-only 候选，不写 `public/data`，也不能把科学 H4G 标记为正式完成分化。
+
+刷新 `math,science --discover-candidates` 后，科学当前候选覆盖为 35 条 page-clean standards、26 个 page-clean progression groups、6 个版本。下一批科学推荐工作项变为：
+
+| work item | 版本 | role | files | target groups |
+| --- | --- | --- | ---: | ---: |
+| `h4g_unit_work_science_b908a758` | 北京版-北京出版社 | `direct_or_discipline_all_grades` | 6 | 67 |
+| `h4g_unit_work_science_8ce3c359` | 科普版-科学普及出版社 | `adjacent_included` | 6 | 67 |
+| `h4g_unit_work_science_2e916100` | 沪教版-上海教育出版社 | `direct_all_grades` | 8 | 67 |
+
+因此下一步优先跑北京版，用化学和生物学补人教版/苏科版没有覆盖到的分科链条；科普版可继续作为 adjacent 补充，沪教版则可回头补完整 direct_all_grades 版本。
+
 ## 9. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。
