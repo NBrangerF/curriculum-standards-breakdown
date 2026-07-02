@@ -463,7 +463,7 @@ H4G9 = 9
 
 当前正式主数据合计 1933 条，其中 H4G7 为 355 条、H4G8 为 363 条、H4G9 为 363 条。
 
-当前 H4G distinctiveness 审计显示：323 个完整 H4G 三元组核心文本完全相同，但 `unlabeled_identical_triplets` 为 0；这些记录已经标为共享源标准和待年级化细分。后续真正分化需要教材单元/章节级证据。
+当前 H4G distinctiveness 审计显示：323 个完整 H4G 三元组核心文本完全相同，但 `unlabeled_identical_triplets` 为 0；这些记录已经标为共享源标准和待年级化细分。后续真正分化需要教材单元/章节级证据、可用 `grade_specific_focus` 和人工/课程复核批准。
 
 用于审计该风险的命令是：
 
@@ -476,9 +476,10 @@ npm run grade7_9:audit-grade-band-policy -- --out generated/grade7_9_grade_band_
 ```bash
 npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-h4g-distinctiveness -- --strict
+npm run grade7_9:audit-h4g-grade-differentiation
 ```
 
-当前结论是：正式 public 数据和前端学段展示口径已经统一，`audit-grade-band-policy --strict` 可通过；共享源标准也已被标记，`audit-h4g-distinctiveness --strict` 可通过。
+当前结论是：正式 public 数据和前端学段展示口径已经统一，`audit-grade-band-policy --strict` 可通过；共享源标准也已被标记，`audit-h4g-distinctiveness --strict` 可通过。但 `audit-h4g-grade-differentiation` 会报告 `differentiation_ready=false`，因为正式 public 尚无单元级教材证据和最终年级化重点。
 
 ## 15. 发布前必须通过的校验
 
@@ -495,6 +496,7 @@ npm run grade7_9:build-release-candidate
 npm run grade7_9:check-release-candidate
 npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-h4g-distinctiveness -- --strict
+npm run grade7_9:audit-h4g-grade-differentiation
 npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict
 npm run build:indexes
 npm run validate:indexes

@@ -10,6 +10,7 @@ import {
 } from '../data/dataLoader'
 import { LoadingState, ErrorState, CopyLinkButton } from '../components/StateComponents'
 import FavoriteButton from '../components/FavoriteButton'
+import { getH4GDifferentiationState } from '../data/h4gDifferentiation'
 import { buildShareableURL } from '../data/query'
 import './StandardDetailPage.css'
 
@@ -100,6 +101,7 @@ function StandardDetailPage() {
         resources = []
     } = standard
 
+    const h4gState = getH4GDifferentiationState(standard)
     const subjectColor = SUBJECT_COLORS[subject_slug]
     const gradeBandInfo = GRADE_BANDS[grade_band] || {}
     const subjectInfo = subjects.find(s => s.subject_slug === subject_slug)
@@ -117,9 +119,11 @@ function StandardDetailPage() {
         grade_specific_focus ||
         progression_delta ||
         progression_review_note ||
-        requires_unit_level_evidence !== undefined
+        requires_unit_level_evidence !== undefined ||
+        h4gState.isH4G
     const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || String(review_status || '').includes('low_confidence')
-    const needsGradeDifferentiation = String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared'
+    const needsGradeDifferentiation = h4gState.needsDifferentiation || String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared'
+    const pageTitle = h4gState.shouldLeadWithGradeFocus ? h4gState.gradeFocus : standardText
 
     // Parse navigation codes (may be multiple, separated by \n)
     const prevCodes = previous_code ? previous_code.split('\n').filter(Boolean) : []
@@ -160,8 +164,19 @@ function StandardDetailPage() {
                             {needsGradeDifferentiation && (
                                 <span className="grade-differentiation-badge">待年级化细分</span>
                             )}
+                            {h4gState.statusLabel && (
+                                <span className={`grade-differentiation-badge h4g-status-${h4gState.isFinalReady ? 'ready' : h4gState.isCandidate ? 'candidate' : 'pending'}`}>
+                                    {h4gState.statusLabel}
+                                </span>
+                            )}
                         </div>
-                        <h1 className="standard-title">{standardText}</h1>
+                        <h1 className="standard-title">{pageTitle}</h1>
+                        {h4gState.isH4G && (
+                            <div className={`h4g-detail-summary ${h4gState.shouldLeadWithGradeFocus ? 'has-focus' : 'pending'}`}>
+                                <span>{h4gState.shouldLeadWithGradeFocus ? h4gState.sourceTextLabel : h4gState.focusLabel}</span>
+                                <p>{h4gState.shouldLeadWithGradeFocus ? standardText : h4gState.statusMessage}</p>
+                            </div>
+                        )}
                         <div className="header-actions">
                             <FavoriteButton code={code} showLabel={true} size="large" />
                             <CopyLinkButton url={shareURL} />
@@ -306,8 +321,11 @@ function StandardDetailPage() {
                             {grade_assignment_rationale && (
                                 <p className="grade-assignment-rationale">{grade_assignment_rationale}</p>
                             )}
-                            {grade_specific_focus && (
-                                <p className="grade-assignment-rationale">{grade_specific_focus}</p>
+                            {h4gState.isH4G && !h4gState.hasUsableGradeFocus && (
+                                <p className="grade-assignment-rationale">{h4gState.statusMessage}</p>
+                            )}
+                            {h4gState.hasUsableGradeFocus && (
+                                <p className="grade-assignment-rationale">{h4gState.gradeFocus}</p>
                             )}
                             {progression_review_note && (
                                 <p className="grade-assignment-rationale">{progression_review_note}</p>

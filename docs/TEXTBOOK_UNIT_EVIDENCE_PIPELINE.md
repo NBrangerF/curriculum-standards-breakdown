@@ -371,6 +371,7 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 ```bash
 npm run textbooks:h4g-publication-review-decisions -- --strict
 npm run textbooks:audit-h4g-publication-review-decisions -- --strict
+npm run textbooks:audit-h4g-publication-readiness -- --strict --require-review-decisions-audit
 ```
 
 默认输出：
@@ -383,6 +384,8 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 ```
 
 当前模板包含 24 个必需人工/课程决策：19 个 `standard_same_grade_unit_evidence`、5 个 `progression_group_edition_placement_note`，另有 2 个 `blocked_review_registry` guardrail 决策。默认全部为 `pending`，所以审计结果是 `valid=true`、`manual_review_complete=false`、`publication_ready=false`。如果后续真实复核完成，应使用 `textbooks:audit-h4g-publication-review-decisions -- --strict --require-complete` 作为更强门禁；即便全部通过，仍需单独 public migration gate 才能写正式数据。
+
+带 `--require-review-decisions-audit` 复跑 readiness audit 后，当前 readiness summary 会显式包含 `review_decisions_audit_present=true`、`review_decisions_required_manual_decisions=24`、`review_decisions_pending_required_decisions=24`、`manual_review_complete=false`。这一步把复核决策文件接入发布准备度主链路，但仍保持 `publication_ready=false`。
 
 ## 4. 输出结构
 
@@ -1049,6 +1052,10 @@ publication readiness audit 的边界：`audit_h4g_publication_readiness` 是安
 
 publication review decisions 的边界：`h4g_publication_review_decisions_template` 是可编辑复核输入，不是机器自动审批。它只允许 `approve/reject/needs_revision/pending` 等受控决策值；任何 public write、官方课标文本改写、`grade_specific_variant` 自动升级、blocked 项发布、或把 progression note 写入 same-grade evidence 的请求都会被 `audit_h4g_publication_review_decisions` 拦截。
 
+H4G grade differentiation readiness 的边界：`grade7_9:audit-h4g-grade-differentiation` 是显示层/发布层质量 gate。它不改变数据，只统计 H4G 记录是否具备可用 `grade_specific_focus`、`textbook_unit_level` 证据和已批准的人工/课程复核状态。当前 public 应报告 `unit_level_evidence_records=0`、`final_ready_records=0`；数学 publication contract 候选根应报告 19 条 `candidate_needs_review`，但仍不是最终发布 ready。
+
+publication review decisions apply 的边界：`textbooks:apply-h4g-publication-review-decisions` 是 generated-root dry-run，不是正式发布。它复制 `data_candidate_publication_contract` 到 `data_candidate_review_decisions`，只根据已填写的 same-grade 决策更新标准记录的复核状态；pending 不改数据，progression note/blocker 决策只写 sidecar 摘要，不会写入 same-grade evidence，也不会改变官方课标字段。当前全部 pending 时应显示 `applied_standard_decisions=0`。
+
 ## 10. 下一步
 
 建议顺序：
@@ -1064,6 +1071,9 @@ publication review decisions 的边界：`h4g_publication_review_decisions_templ
 9. 用 `textbooks:h4g-publication-contract` 和 `textbooks:apply-h4g-publication-contract` 先在 generated 候选根演练未来字段契约。
 10. 用 `textbooks:audit-h4g-publication-readiness` 确认 review packet、contract、候选根、notes 和 blocked registry 一致，且仍未越界成正式发布。
 11. 用 `textbooks:h4g-publication-review-decisions` 生成可编辑复核决策模板，并用 `textbooks:audit-h4g-publication-review-decisions` 审计其边界。
-12. 由真实人工/课程进阶复核填写决策文件；复核完成后使用 `--require-complete` 重新审计。
-13. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
-14. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。
+12. 用 `textbooks:audit-h4g-publication-readiness -- --strict --require-review-decisions-audit` 把决策审计结果接回 readiness summary。
+13. 用 `textbooks:apply-h4g-publication-review-decisions -- --strict` 生成决策 apply dry-run 根；当前 pending 模板应不改变任何标准复核状态。
+14. 用 `grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_review_decisions` 区分 candidate focus 与 final ready。
+15. 由真实人工/课程进阶复核填写决策文件；复核完成后使用 `--require-complete` 重新审计，并重跑 apply dry-run。
+16. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
+17. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate；正式发布前 `grade7_9:audit-h4g-grade-differentiation -- --require-ready` 必须通过。

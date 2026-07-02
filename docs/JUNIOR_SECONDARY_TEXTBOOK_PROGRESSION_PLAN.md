@@ -418,9 +418,10 @@ npm run textbooks:apply-h4g-unit-candidates -- --candidate /tmp/h4g_unit_evidenc
 node scripts/build-indexes.js --data-root /tmp/h4g_unit_evidence_data_candidate_math
 node scripts/validate-data-indexes.js --data-root /tmp/h4g_unit_evidence_data_candidate_math
 npm run grade7_9:audit-h4g-distinctiveness -- --data-root /tmp/h4g_unit_evidence_data_candidate_math --strict
+npm run grade7_9:audit-h4g-grade-differentiation -- --data-root /tmp/h4g_unit_evidence_data_candidate_math
 ```
 
-当前数学样本验证结果：15 条 H4G records 获得 `textbook_unit_level` 候选证据，新增 32 个单元证据对象；正式课标字段变化数为 0，候选根严格索引校验和 H4G distinctiveness 审计均通过。
+当前数学样本验证结果：15 条 H4G records 获得 `textbook_unit_level` 候选证据，新增 32 个单元证据对象；正式课标字段变化数为 0，候选根严格索引校验和 H4G distinctiveness 审计均通过。新增的 grade differentiation readiness gate 会进一步区分 candidate focus 与 final ready：有单元候选和 `grade_specific_focus` 仍只是复核输入，未获人工/课程复核批准前不能算最终年级化。
 
 当前候选集结果：
 
@@ -545,6 +546,7 @@ npm run validate:indexes
 npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-textbook-progression -- --strict
 npm run grade7_9:audit-h4g-distinctiveness -- --strict
+npm run grade7_9:audit-h4g-grade-differentiation
 ```
 
-生成的 audit 用来决定每个学科后续人工复核优先级；正式写入 gate 保证 public runtime 不再出现未拆分 H4，distinctiveness gate 保证重复的 H4G 三元组不会被误标为已经完成年级分化。
+生成的 audit 用来决定每个学科后续人工复核优先级；正式写入 gate 保证 public runtime 不再出现未拆分 H4，distinctiveness gate 保证重复的 H4G 三元组不会被误标为已经完成年级分化，grade differentiation readiness gate 则确认是否已经具备可展示的本年级重点、单元级证据和复核批准。

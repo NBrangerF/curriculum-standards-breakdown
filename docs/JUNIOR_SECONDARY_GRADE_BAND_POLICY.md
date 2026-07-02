@@ -121,6 +121,7 @@ npm run grade7_9:apply-grade-level-candidate -- --write --confirm-h4g-policy
 npm run build:indexes
 npm run validate:indexes
 npm run grade7_9:audit-h4g-distinctiveness -- --strict
+npm run grade7_9:audit-h4g-grade-differentiation
 ```
 
 当前 H4G distinctiveness 口径：
@@ -129,6 +130,7 @@ npm run grade7_9:audit-h4g-distinctiveness -- --strict
 - 如果同一 `progression_group_id` 的三年级核心文本完全相同，数据必须标为 `standard_variant_type: "same_source_shared"`。
 - 这些记录的 `review_status` 必须包含 `needs_grade_differentiation`，直到教材单元/章节级证据足以支撑真实年级化解释。
 - 当前 public 数据中 323 个完整 H4G 三元组核心文本完全相同，均已标为共享源标准；`unlabeled_identical_triplets` 为 0。
+- `audit-h4g-grade-differentiation` 进一步检查 H4G 是否具备可展示的本年级学习重点、单元级证据和人工/课程复核批准。当前 public 应为 `differentiation_ready=false`，这表示 runtime 年级口径正确，但真实年级化解释尚未完成。
 
 ## 6. 不应执行的操作
 
@@ -154,7 +156,8 @@ npm run validate:indexes
 npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-textbook-progression -- --strict
 npm run grade7_9:audit-h4g-distinctiveness -- --strict
+npm run grade7_9:audit-h4g-grade-differentiation
 npm run build
 ```
 
-只有以上 gates 通过，当前 `H1=1-2, H2=3-4, H3=5-6, H4G7=7, H4G8=8, H4G9=9` runtime 口径才算保持一致，并且 H4G 重复记录不会被误读为已完成真实年级分化。
+只有以上 gates 通过，当前 `H1=1-2, H2=3-4, H3=5-6, H4G7=7, H4G8=8, H4G9=9` runtime 口径才算保持一致，并且 H4G 重复记录不会被误读为已完成真实年级分化。若要声称 H4G 已最终分化，必须额外使用 `grade7_9:audit-h4g-grade-differentiation -- --require-ready`。

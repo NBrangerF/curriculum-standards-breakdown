@@ -219,6 +219,8 @@ export const FIELD_DEFINITIONS = {
     progression_group_id: '同一标准在七/八/九年级进阶关系中的分组 ID',
     progression_basis: '进阶关系依据，如 shared_standard_textbook_file_sequence 或 auto_judgment',
     progression_distinctiveness: '同一 progression group 内七/八/九年级核心文本是否已经分化',
+    grade_specific_focus: 'H4G 本年级学习重点说明；未获单元级证据和复核批准时不得当作官方课标原文',
+    progression_review_note: 'H4G 进阶或证据复核说明；用于解释共同源标准、候选证据或待分化状态',
     requires_unit_level_evidence: '该 H4G 记录是否仍需教材单元/章节级证据',
     ts_primary: '主要可迁移技能标签，该标准主要培养的技能',
     ts_secondary: '次要可迁移技能标签，该标准附带培养的技能'

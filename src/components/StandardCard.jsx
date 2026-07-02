@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { GRADE_BANDS, SUBJECT_COLORS } from '../data/dataLoader'
+import { getH4GDifferentiationState } from '../data/h4gDifferentiation'
 import TSBadge from './TSBadge'
 import FavoriteButton from './FavoriteButton'
 import './StandardCard.css'
@@ -47,10 +48,11 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
         ts_secondary
     } = standard
 
+    const h4gState = getH4GDifferentiationState(standard)
     const gradeBandInfo = GRADE_BANDS[grade_band] || {}
     const evidenceIds = Array.isArray(textbook_evidence_ids) ? textbook_evidence_ids : []
     const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || String(review_status || '').includes('low_confidence')
-    const needsGradeDifferentiation = String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared'
+    const needsGradeDifferentiation = h4gState.needsDifferentiation || String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared'
     const hasGradeAssignmentConfidence = grade_assignment_confidence !== null && grade_assignment_confidence !== undefined
     const hasGradeAssignmentDetails = grade_assignment_rationale ||
         hasGradeAssignmentConfidence ||
@@ -61,7 +63,8 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
         grade_specific_focus ||
         progression_delta ||
         progression_review_note ||
-        requires_unit_level_evidence !== undefined
+        requires_unit_level_evidence !== undefined ||
+        h4gState.isH4G
     const hasDetails = context || practice || teaching_tip || assessment_evidence_type || hasGradeAssignmentDetails
 
     // Get accent color from subject
@@ -153,6 +156,11 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                     {needsGradeDifferentiation && (
                         <span className="review-status-chip needs-differentiation">待年级化细分</span>
                     )}
+                    {h4gState.statusLabel && (
+                        <span className={`review-status-chip h4g-status-${h4gState.isFinalReady ? 'ready' : h4gState.isCandidate ? 'candidate' : 'pending'}`}>
+                            {h4gState.statusLabel}
+                        </span>
+                    )}
                 </div>
 
                 <div className="standard-card-actions">
@@ -214,8 +222,19 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
 
             {/* Body - Standard Statement (Visual Focus) */}
             <div className="standard-card-body">
+                {h4gState.isH4G && (
+                    <div className={`h4g-grade-lens ${h4gState.shouldLeadWithGradeFocus ? 'has-focus' : 'pending'}`}>
+                        <span className="h4g-grade-lens-label">{h4gState.focusLabel}</span>
+                        <p>{highlightText(h4gState.shouldLeadWithGradeFocus ? h4gState.gradeFocus : h4gState.statusMessage)}</p>
+                    </div>
+                )}
                 <Link to={`/standards/${code}`} className="standard-text-link">
-                    <p className="standard-text">{highlightText(standardText)}</p>
+                    {h4gState.shouldLeadWithGradeFocus && (
+                        <span className="source-standard-label">{h4gState.sourceTextLabel}</span>
+                    )}
+                    <p className={`standard-text ${h4gState.shouldLeadWithGradeFocus ? 'source-standard-text' : ''}`}>
+                        {highlightText(standardText)}
+                    </p>
                 </Link>
             </div>
 
@@ -287,8 +306,11 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                             {grade_assignment_rationale && (
                                 <p className="detail-text">{grade_assignment_rationale}</p>
                             )}
-                            {grade_specific_focus && (
-                                <p className="detail-text">{grade_specific_focus}</p>
+                            {h4gState.isH4G && !h4gState.hasUsableGradeFocus && (
+                                <p className="detail-text">{h4gState.statusMessage}</p>
+                            )}
+                            {h4gState.hasUsableGradeFocus && (
+                                <p className="detail-text">{h4gState.gradeFocus}</p>
                             )}
                             {progression_review_note && (
                                 <p className="detail-text">{progression_review_note}</p>

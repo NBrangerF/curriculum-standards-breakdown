@@ -373,6 +373,10 @@ npm run textbooks:apply-h4g-publication-contract -- --strict
 npm run textbooks:audit-h4g-publication-readiness -- --strict
 npm run textbooks:h4g-publication-review-decisions -- --strict
 npm run textbooks:audit-h4g-publication-review-decisions -- --strict
+npm run textbooks:audit-h4g-publication-readiness -- --strict --require-review-decisions-audit
+npm run textbooks:apply-h4g-publication-review-decisions -- --strict
+npm run grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_publication_contract
+npm run grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_review_decisions
 npm run textbooks:audit-h4g-unit-candidates -- --candidate generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate_ready_only.json --strict --require-candidates --require-page-start
 npm run textbooks:plan-h4g-unit-worklist -- --strict --require-work-items
 npm run textbooks:run-h4g-unit-work-item -- --work-item h4g_unit_work_math_6aec3166
@@ -403,6 +407,9 @@ npm run textbooks:apply-h4g-unit-candidates -- --strict
 - `textbooks:audit-h4g-publication-readiness` 是发布前安全审计 gate。它要求 review packet、contract、apply summary、候选根、progression notes 和 blocked registry 互相一致；通过时只表示 `manual_review_ready=true`，仍明确 `publication_ready=false`。
 - `textbooks:h4g-publication-review-decisions` 是人工/课程复核入口生成 gate。它把 19 条 standard、5 条 progression note 和 2 条 blocked 项整理为可编辑决策文件，但默认所有必需复核仍是 `pending`。
 - `textbooks:audit-h4g-publication-review-decisions` 是决策文件审计 gate。默认允许 pending 并保持 `publication_ready=false`；复核完成后可加 `--require-complete`，要求 24 个必需人工/课程决策全部填写且不越权。
+- `textbooks:audit-h4g-publication-readiness -- --require-review-decisions-audit` 是决策模板接入后的 readiness 复跑 gate。它会把 `h4g_publication_review_decisions_audit` 中的 pending/complete 状态纳入 readiness summary；当前应报告 24 个必需决策 pending。
+- `textbooks:apply-h4g-publication-review-decisions` 是复核决策 dry-run apply gate。它只把通过复核模板表达的 approved/rejected/needs_revision 决策应用到新的 generated 候选根 `data_candidate_review_decisions`，拒绝写 `public/data`，也不改官方课标文本；当前 pending 模板应报告 `applied_standard_decisions=0`。
+- `grade7_9:audit-h4g-grade-differentiation` 是 H4G 年级化显示层 readiness gate。它不同于 `audit-h4g-distinctiveness`：后者只确认重复三元组被诚实标记，前者要求可用 `grade_specific_focus`、单元/章节级证据和人工/课程复核批准。当前 public 应为 `differentiation_ready=false`；数学候选根应显示 19 条 `candidate_needs_review`，但 `final_ready_records=0`。
 - `textbooks:plan-h4g-unit-worklist` 是任务规划 gate，不是证据 gate。它可以确认哪些学科有至少两个完整教材版本可进入跨版本候选生成，也会暴露当前 ChinaTextbook 无法覆盖的 IT、劳动等缺口。
 - `textbooks:run-h4g-unit-work-item` 是执行 gate，不是发布 gate。它把 worklist 的单个批次跑到 generated 候选数据根和审计摘要，但不会写 `public/data`；如果要证明发布级分化，仍需使用 consistency audit 的发布级参数。
 - `textbooks:apply-h4g-unit-candidates` 只把候选包应用到独立候选数据根；正式写入 `public/data` 仍需要单独发布 gate。
@@ -819,6 +826,7 @@ s?.transferable_skills?.map(t => t.code)
 npm run build:indexes
 npm run validate:indexes
 npm run grade7_9:audit-h4g-distinctiveness -- --strict
+npm run grade7_9:audit-h4g-grade-differentiation
 npm run build
 ```
 
@@ -826,6 +834,7 @@ npm run build
 
 - `validate:indexes` 是否通过。
 - `audit-h4g-distinctiveness` 是否确认 `unlabeled_identical_triplets` 为 0。
+- `audit-h4g-grade-differentiation` 是否把 H4G 的真实分化状态量化出来；当前 public 应保持 `valid=true`、`differentiation_ready=false`，因为 `unit_level_evidence_records=0`、`final_ready_records=0`。
 - `glossary.json`、`skills_meta.json`、`subjects_meta.json` 是否能被 `jq` 或 `JSON.parse` 正常解析。
 - 随机打开一个学科页、一个技能页、一个标准详情页、一个清单打印页。
 

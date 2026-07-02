@@ -8,6 +8,7 @@ const DEFAULT_CONTRACT = `${BASE_DIR}/h4g_publication_contract_candidate.json`
 const DEFAULT_APPLY_SUMMARY = `${BASE_DIR}/data_candidate_publication_contract/h4g_publication_contract_apply_summary.json`
 const DEFAULT_NOTES = `${BASE_DIR}/data_candidate_publication_contract/h4g_progression_notes.json`
 const DEFAULT_CANDIDATE_DATA_ROOT = `${BASE_DIR}/data_candidate_publication_contract`
+const DEFAULT_REVIEW_DECISIONS_AUDIT = `${BASE_DIR}/h4g_publication_review_decisions_audit.json`
 const DEFAULT_PUBLIC_DATA_ROOT = 'public/data'
 const DEFAULT_OUT = `${BASE_DIR}/h4g_publication_readiness_audit.json`
 const DEFAULT_SUMMARY_OUT = `${BASE_DIR}/h4g_publication_readiness_audit.md`
@@ -35,9 +36,11 @@ function parseArgs(argv) {
     applySummary: DEFAULT_APPLY_SUMMARY,
     notes: DEFAULT_NOTES,
     candidateDataRoot: DEFAULT_CANDIDATE_DATA_ROOT,
+    reviewDecisionsAudit: DEFAULT_REVIEW_DECISIONS_AUDIT,
     publicDataRoot: DEFAULT_PUBLIC_DATA_ROOT,
     out: DEFAULT_OUT,
     summaryOut: DEFAULT_SUMMARY_OUT,
+    requireReviewDecisionsAudit: false,
     strict: false
   }
   for (let i = 0; i < argv.length; i += 1) {
@@ -47,9 +50,11 @@ function parseArgs(argv) {
     else if (item === '--apply-summary') args.applySummary = argv[++i]
     else if (item === '--notes') args.notes = argv[++i]
     else if (item === '--candidate-data-root') args.candidateDataRoot = argv[++i]
+    else if (item === '--review-decisions-audit') args.reviewDecisionsAudit = argv[++i]
     else if (item === '--public-data-root') args.publicDataRoot = argv[++i]
     else if (item === '--out') args.out = argv[++i]
     else if (item === '--summary-out') args.summaryOut = argv[++i]
+    else if (item === '--require-review-decisions-audit') args.requireReviewDecisionsAudit = true
     else if (item === '--strict') args.strict = true
     else if (item === '--help') args.help = true
   }
@@ -150,6 +155,9 @@ function artifactExists(args, errors) {
     ['public data root', args.publicDataRoot]
   ]) {
     if (!existsSync(path)) errors.push(`Missing ${label}: ${path}`)
+  }
+  if (args.requireReviewDecisionsAudit && !existsSync(args.reviewDecisionsAudit)) {
+    errors.push(`Missing review decisions audit: ${args.reviewDecisionsAudit}`)
   }
 }
 
@@ -367,14 +375,36 @@ function auditBlocked(contract, errors, stats) {
   }
 }
 
-function buildReadiness(reviewPacket, contract, applySummary, errors, warnings) {
+function auditReviewDecisionsAudit(decisionsAudit, errors, warnings, stats) {
+  if (!decisionsAudit) return
+  if (decisionsAudit.valid !== true) errors.push('review decisions audit valid must be true')
+  if (decisionsAudit.publication_ready !== false) errors.push('review decisions audit publication_ready must be false')
+  stats.review_decisions_audit_present = true
+  stats.review_decisions_manual_review_complete = decisionsAudit.manual_review_complete === true
+  stats.review_decisions_pending_required_decisions = decisionsAudit.summary?.pending_required_decisions || 0
+  stats.review_decisions_completed_required_decisions = decisionsAudit.summary?.completed_required_decisions || 0
+  stats.review_decisions_required_manual_decisions = decisionsAudit.summary?.required_manual_decisions || 0
+  if ((decisionsAudit.summary?.pending_required_decisions || 0) > 0) {
+    warnings.push(`${decisionsAudit.summary.pending_required_decisions} required manual/curriculum decisions are still pending`)
+  }
+}
+
+function buildReadiness(reviewPacket, applySummary, decisionsAudit, errors, warnings) {
   const summary = reviewPacket.summary || {}
-  const blockingReasons = [
-    'manual same-grade unit evidence review not recorded',
-    'curriculum progression review for edition-placement notes not recorded',
-    'frontend/schema consumption for progression-group note collection not implemented',
-    'public migration gate intentionally absent'
-  ]
+  const decisionsPresent = Boolean(decisionsAudit)
+  const manualReviewComplete = decisionsAudit?.manual_review_complete === true
+  const blockingReasons = []
+  if (!decisionsPresent) {
+    blockingReasons.push('manual/curriculum review decisions audit not provided')
+  } else if (!manualReviewComplete) {
+    blockingReasons.push(`${decisionsAudit.summary?.pending_required_decisions || 0} required manual/curriculum review decisions are pending`)
+  }
+  if (!manualReviewComplete) {
+    blockingReasons.push('manual same-grade unit evidence review not complete')
+    blockingReasons.push('curriculum progression review for edition-placement notes not complete')
+  }
+  blockingReasons.push('frontend/schema consumption for progression-group note collection not implemented')
+  blockingReasons.push('public migration gate intentionally absent')
   if ((summary.not_in_current_unit_candidate_scope || 0) > 0) {
     blockingReasons.push(`${summary.not_in_current_unit_candidate_scope} math H4G standards remain outside current unit candidate scope`)
   }
@@ -384,6 +414,8 @@ function buildReadiness(reviewPacket, contract, applySummary, errors, warnings) 
   return {
     safety_audit_ready: errors.length === 0,
     manual_review_ready: errors.length === 0 && (applySummary.totals?.applied_standard_records || 0) > 0,
+    manual_review_complete: errors.length === 0 && manualReviewComplete,
+    review_decisions_audit_present: decisionsPresent,
     public_migration_ready: false,
     publication_ready: false,
     readiness_level: errors.length ? 'blocked_by_audit_errors' : 'ready_for_manual_review_not_publication',
@@ -404,6 +436,8 @@ Generated at: ${result.generated_at}
 | valid | ${result.valid} |
 | readiness level | ${result.readiness.readiness_level} |
 | manual review ready | ${result.readiness.manual_review_ready} |
+| manual review complete | ${result.readiness.manual_review_complete} |
+| review decisions audit present | ${result.readiness.review_decisions_audit_present} |
 | publication ready | ${result.readiness.publication_ready} |
 | public migration ready | ${result.readiness.public_migration_ready} |
 
@@ -416,6 +450,8 @@ Generated at: ${result.generated_at}
 | unit evidence objects | ${result.summary.unit_evidence_objects} |
 | progression note candidates | ${result.summary.progression_note_candidates} |
 | blocked registry contracts | ${result.summary.blocked_registry_contracts} |
+| required manual decisions | ${result.summary.review_decisions_required_manual_decisions} |
+| pending required decisions | ${result.summary.review_decisions_pending_required_decisions} |
 | not in current unit candidate scope | ${result.summary.not_in_current_unit_candidate_scope} |
 
 ## Applied Records By Grade
@@ -470,6 +506,7 @@ function main() {
   const contract = readJson(args.contract)
   const applySummary = readJson(args.applySummary)
   const notes = readJson(args.notes)
+  const decisionsAudit = existsSync(args.reviewDecisionsAudit) ? readJson(args.reviewDecisionsAudit) : null
   const publicRecords = loadRecords(args.publicDataRoot)
   const candidateRecords = loadRecords(args.candidateDataRoot)
   const stats = {
@@ -479,7 +516,12 @@ function main() {
     changed_fields_by_code: {},
     changed_standard_records: 0,
     note_statuses: {},
-    note_surfaces: {}
+    note_surfaces: {},
+    review_decisions_audit_present: false,
+    review_decisions_completed_required_decisions: 0,
+    review_decisions_manual_review_complete: false,
+    review_decisions_pending_required_decisions: 0,
+    review_decisions_required_manual_decisions: 0
   }
 
   auditPolicies(reviewPacket, contract, applySummary, notes, errors)
@@ -488,8 +530,9 @@ function main() {
   auditCandidateDataRoot(publicRecords, candidateRecords, contract, errors, warnings, stats)
   auditNotes(notes, contract, errors, stats)
   auditBlocked(contract, errors, stats)
+  auditReviewDecisionsAudit(decisionsAudit, errors, warnings, stats)
 
-  const readiness = buildReadiness(reviewPacket, contract, applySummary, errors, warnings)
+  const readiness = buildReadiness(reviewPacket, applySummary, decisionsAudit, errors, warnings)
   const result = {
     valid: errors.length === 0,
     generated_at: new Date().toISOString(),
@@ -497,6 +540,7 @@ function main() {
     contract_candidate: args.contract,
     apply_summary: args.applySummary,
     progression_notes: args.notes,
+    review_decisions_audit: decisionsAudit ? args.reviewDecisionsAudit : null,
     public_data_root: args.publicDataRoot,
     candidate_data_root: args.candidateDataRoot,
     summary: {
@@ -509,6 +553,11 @@ function main() {
       note_surfaces: stats.note_surfaces,
       not_in_current_unit_candidate_scope: reviewPacket.summary?.not_in_current_unit_candidate_scope || 0,
       progression_note_candidates: (notes.notes || []).length,
+      review_decisions_audit_present: stats.review_decisions_audit_present,
+      review_decisions_completed_required_decisions: stats.review_decisions_completed_required_decisions,
+      review_decisions_manual_review_complete: stats.review_decisions_manual_review_complete,
+      review_decisions_pending_required_decisions: stats.review_decisions_pending_required_decisions,
+      review_decisions_required_manual_decisions: stats.review_decisions_required_manual_decisions,
       standard_contracts: contract.summary?.standard_unit_evidence_contracts || 0,
       unit_evidence_objects: applySummary.totals?.unit_evidence_objects_added || 0
     },

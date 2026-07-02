@@ -1271,6 +1271,7 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 ```bash
 npm run textbooks:h4g-publication-review-decisions -- --strict
 npm run textbooks:audit-h4g-publication-review-decisions -- --strict
+npm run textbooks:audit-h4g-publication-readiness -- --strict --require-review-decisions-audit
 ```
 
 默认输出：
@@ -1296,7 +1297,61 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 }
 ```
 
-这一步把缺失的人工/课程复核记录变成了可编辑、可审计的输入文件。19 条同年级单元证据由 `manual_same_grade_unit_review` 决定，5 条 progression notes 由 `curriculum_progression_review` 决定，2 条 blocked guardrails 只能保持 blocked 或进入定向补救。默认所有必需决策都是 `pending`；审计允许 pending，但会报告 24 个 required decisions 未完成。真实复核完成后，应使用 `textbooks:audit-h4g-publication-review-decisions -- --strict --require-complete`，且任何 public write、官方课标文本改写、自动 `grade_specific_variant` 升级、blocked 项发布都会被拒绝。
+这一步把缺失的人工/课程复核记录变成了可编辑、可审计的输入文件。19 条同年级单元证据由 `manual_same_grade_unit_review` 决定，5 条 progression notes 由 `curriculum_progression_review` 决定，2 条 blocked guardrails 只能保持 blocked 或进入定向补救。默认所有必需决策都是 `pending`；审计允许 pending，但会报告 24 个 required decisions 未完成。带 `--require-review-decisions-audit` 复跑 readiness 后，主 readiness summary 也会记录 `review_decisions_audit_present=true`、`review_decisions_pending_required_decisions=24`、`manual_review_complete=false`。真实复核完成后，应使用 `textbooks:audit-h4g-publication-review-decisions -- --strict --require-complete`，且任何 public write、官方课标文本改写、自动 `grade_specific_variant` 升级、blocked 项发布都会被拒绝。
+
+### 7.20 年级化显示层 readiness gate
+
+本轮新增 H4G 年级化显示层审计：
+
+```bash
+npm run grade7_9:audit-h4g-grade-differentiation
+npm run textbooks:apply-h4g-publication-review-decisions -- --strict
+npm run grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_publication_contract
+npm run grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_review_decisions
+```
+
+它和 `audit-h4g-distinctiveness` 的职责不同：
+
+- `audit-h4g-distinctiveness` 只回答“重复的 H4G 三元组是否被诚实标成共享源标准/待分化”。
+- `audit-h4g-grade-differentiation` 回答“这些记录是否已经具备可展示的本年级学习重点、单元/章节级教材证据和人工/课程复核批准”。
+
+当前 public 根的预期结果：
+
+```json
+{
+  "valid": true,
+  "differentiation_ready": false,
+  "h4g_records": 1081,
+  "complete_triplets": 323,
+  "exact_core_identical_triplets": 323,
+  "unit_level_evidence_records": 0,
+  "usable_grade_focus_records": 0,
+  "final_ready_records": 0
+}
+```
+
+数学 publication contract 候选根的预期结果：
+
+```json
+{
+  "valid": true,
+  "differentiation_ready": false,
+  "unit_level_evidence_records": 19,
+  "usable_grade_focus_records": 19,
+  "candidate_grade_focus_records": 19,
+  "final_ready_records": 0
+}
+```
+
+这把“候选进展”和“最终发布就绪”拆开：19 条数学候选已经有单元级证据和 `grade_specific_focus` 候选，但仍是 `unit_evidence_candidate_needs_review`，所以不能算最终年级化完成。
+
+同时新增 `textbooks:apply-h4g-publication-review-decisions`。它把填好的复核决策应用到新的 generated 候选根：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_review_decisions/
+```
+
+当前默认模板全部 pending，因此 apply summary 应显示 `applied_standard_decisions=0`、`pending_standard_decisions=19`、`pending_note_decisions=5`、`pending_blocked_decisions=2`。临时回归测试证明：如果某条 same-grade decision 被合规标为 `approve_same_grade_unit_evidence`，该脚本会在候选根中把对应 record 标为 `review_status: "unit_evidence_approved"`，随后 `audit-h4g-grade-differentiation` 会把该条计入 `ready_grade_specific`。这仍不写 `public/data`，也不改 `standard` 原文。
 
 ## 8. 当前边界
 
