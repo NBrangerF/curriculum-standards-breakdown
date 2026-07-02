@@ -815,6 +815,62 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 placement 候选包仍不允许写入 `public/data`，也不允许写入 `textbook_unit_evidence_ids`。审计会强制 `writes_public_data=false`、`writes_textbook_unit_evidence_ids=false`、`cross_grade_evidence_is_diagnostic_only=true`，并禁止出现 `proposed_update`。也就是说，它解决的是“如何解释和决策”，不是“直接发布分化结果”。
 
+### 7.11 Progression 发布前决策矩阵
+
+为了避免 same-grade evidence、reverse gap 和 edition placement evidence 分散在三份报告中难以决策，本轮新增合并矩阵：
+
+```bash
+npm run textbooks:h4g-progression-decisions -- --strict --max-unresolved-gaps 1
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_progression_decision_matrix.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_progression_decision_matrix.md
+```
+
+当前数学结果：
+
+```json
+{
+  "standards_in_subject": 114,
+  "progression_groups_in_subject": 38,
+  "same_grade_unit_candidate_standards": 29,
+  "same_grade_unit_candidate_ready": 19,
+  "edition_placement_review_standards": 9,
+  "unresolved_gap_standards": 1,
+  "not_in_current_unit_candidate_scope": 85,
+  "by_standard_decision": {
+    "same_grade_unit_candidate_ready": 19,
+    "edition_placement_review": 9,
+    "continue_gap_remediation": 1,
+    "not_in_current_unit_candidate_scope": 85
+  }
+}
+```
+
+这一步把前几轮的发现转成可执行分流：
+
+| 决策类别 | 数量 | 含义 |
+| --- | ---: | --- |
+| `same_grade_unit_candidate_ready` | 19 | 已有同年级、多版本、页码可用的单元证据候选；可以进入人工发布复核，但仍不能自动发布。 |
+| `edition_placement_review` | 9 | 当前同年级版本数不足，但缺失版本存在 cross-grade topic；应讨论 progression model 或版本投放说明，而不是继续放宽 alias。 |
+| `continue_gap_remediation` | 1 | 仍需继续做同年级缺口修复。当前唯一项是 `MA-H4G7-QUAL-004`。 |
+| `not_in_current_unit_candidate_scope` | 85 | 当前数学三版本候选包尚未覆盖，不应被解读为已分化或已发布。 |
+
+当前唯一未被 placement 解释的缺口：
+
+| standard | grade | subdomain | 当前同年级版本 | reverse gap actions |
+| --- | --- | --- | ---: | --- |
+| `MA-H4G7-QUAL-004` | H4G7 | 图形与几何综合表现 | 1 | `low_score_or_wrong_grade:1`; `no_match_returned:1` |
+
+因此下一步数学不应继续追求“把 29 条全部硬推成同年级多版本”，而应分别处理：
+
+1. 对 19 条 `same_grade_unit_candidate_ready` 做人工/规则复核，确认是否可以进入候选数据根 apply。
+2. 对 9 条 `edition_placement_review` 设计新的 publication 表达：例如版本投放差异 note、progression group 层证据，或单独的 `edition_placement_evidence` 字段；不能写入同年级 `textbook_unit_evidence_ids`。
+3. 对 `MA-H4G7-QUAL-004` 继续做定向 reverse lookup，不用宽泛 alias 兜底。
+
 跨学科优先级建议：
 
 1. 数学、科学：先按 `textbooks:plan-h4g-unit-worklist -- --subjects math,science` 推荐的完整版本批次建立稳定 PDF/OCR 缓存。
