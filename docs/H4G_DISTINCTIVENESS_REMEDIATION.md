@@ -764,6 +764,57 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 1. same-grade unit evidence：某条 H4G7/H4G8/H4G9 standard 在同年级教材单元中被至少两个版本支持。
 2. edition placement evidence：同一 progression topic 在不同教材版本中存在年级投放差异，可解释为什么同一 standard 低于两版本门槛，但不能直接证明该年级标准完成分化。
 
+### 7.10 年级投放差异候选包
+
+为把上一步矩阵转成可复核材料，新增 progression group 级候选包：
+
+```bash
+npm run textbooks:h4g-placement-candidates -- --strict --require-candidates
+npm run textbooks:audit-h4g-placement-candidates -- --strict --require-candidates --require-cross-grade-evidence
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_placement_evidence_candidate.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_placement_evidence_candidate.md
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_placement_evidence_candidate_audit.json
+```
+
+当前候选包结果：
+
+```json
+{
+  "candidate_progression_groups": 6,
+  "review_standards": 9,
+  "same_grade_unit_evidence": 27,
+  "cross_grade_unit_evidence": 44,
+  "by_grade_band": {
+    "H4G7": 6,
+    "H4G8": 6,
+    "H4G9": 6
+  }
+}
+```
+
+候选包覆盖的 6 个 progression groups：
+
+| progression_group_id | 主题 | 需要 review 的 standards |
+| --- | --- | --- |
+| `math-277214238af387` | 图形的运动与坐标 | `MA-H4G7-GEO-040`, `MA-H4G8-GEO-041` |
+| `math-4c3aea46890a49` | 实数 | `MA-H4G7-ALG-007` |
+| `math-76edb58e7a55e4` | 旋转与中心对称 | `MA-H4G8-GEO-026`, `MA-H4G9-GEO-027` |
+| `math-78f4d5d99da1f7` | 反比例函数 | `MA-H4G8-ALG-029` |
+| `math-f2c7b690c0a85b` | 图形的位置与坐标 | `MA-H4G7-GEO-037`, `MA-H4G8-GEO-038` |
+| `math-f8d97669301604` | 三角形 | `MA-H4G7-GEO-010` |
+
+这一步的结论是：H4G7/H4G8/H4G9 “看起来仍不够分化”的原因，已经有一大块从“我们没有找到证据”变成了“教材版本之间本来就把同一主题放在不同年级”。因此修复方向不能只是继续补 alias 或降低匹配门槛，而应把 publication gate 拆成两层：
+
+1. `same-grade unit evidence`：仍用于证明某条具体年级 standard 有同年级教材单元支撑。
+2. `edition placement evidence`：用于说明不同版本教材的年级投放差异，支持 progression model 决策或人工 review note。
+
+placement 候选包仍不允许写入 `public/data`，也不允许写入 `textbook_unit_evidence_ids`。审计会强制 `writes_public_data=false`、`writes_textbook_unit_evidence_ids=false`、`cross_grade_evidence_is_diagnostic_only=true`，并禁止出现 `proposed_update`。也就是说，它解决的是“如何解释和决策”，不是“直接发布分化结果”。
+
 跨学科优先级建议：
 
 1. 数学、科学：先按 `textbooks:plan-h4g-unit-worklist -- --subjects math,science` 推荐的完整版本批次建立稳定 PDF/OCR 缓存。

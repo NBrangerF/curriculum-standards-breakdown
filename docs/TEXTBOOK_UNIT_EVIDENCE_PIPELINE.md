@@ -190,6 +190,23 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 它不写 `public/data`，只诊断同一主题在不同教材版本中的 7/8/9 年级投放位置。`review_cross_grade_placement` 表示缺失版本并非没有相关主题，而是该主题出现在另一个年级；这类结果不能自动当作 same-grade standard 证据，需要单独决定 progression model 或 publication gate 如何处理跨版本年级差异。
 
+生成 H4G 年级投放差异候选包：
+
+```bash
+npm run textbooks:h4g-placement-candidates -- --strict --require-candidates
+npm run textbooks:audit-h4g-placement-candidates -- --strict --require-candidates --require-cross-grade-evidence
+```
+
+该命令默认读取上一步 topic placement matrix，输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_placement_evidence_candidate.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_placement_evidence_candidate.md
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_placement_evidence_candidate_audit.json
+```
+
+它把 `review_cross_grade_placement` 的 standards 按 `progression_group_id` 汇总成 review pack。候选包会同时列出 same-grade units 和 cross-grade units，但它仍是诊断材料：`candidate_type=edition_topic_placement_candidate`、`evidence_granularity=textbook_topic_placement_diagnostic`，并显式声明 `writes_public_data=false`、`writes_textbook_unit_evidence_ids=false`。cross-grade units 只能解释“某个版本把同一主题放在另一个年级”，不能写入某条同年级 standard 的 `textbook_unit_evidence_ids`。
+
 ## 4. 输出结构
 
 `textbook_unit_index.json` 有两个核心数组：
@@ -835,12 +852,15 @@ H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 
 
 跨版本年级投放的边界：`h4g_topic_placement_matrix` 中的 cross-grade hit 只能说明“该版本教材在另一个年级讲了这个主题”。它可以解释为什么 `min-editions-per-standard=2` 失败，也可以支持后续人工决策；但不能把八年级教材单元写成七年级 standard 的单元证据。
 
+placement evidence candidate 的边界：`h4g_placement_evidence_candidate` 是 topic placement matrix 的 review pack 化版本。它能把多个 standards 归并到同一个 progression group 下，方便判断是否需要“版本投放差异说明”或调整 publication gate；但它不是 apply 输入，不包含 `proposed_update`，也不得把 cross-grade unit evidence 当作 `textbook_unit_level` 证据。
+
 ## 10. 下一步
 
 建议顺序：
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
 2. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
-3. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再决定是否调整 publication gate。
-4. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
-5. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。
+3. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
+4. 决定 publication gate 如何表达 same-grade unit evidence 与 edition placement evidence 的不同含义。
+5. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
+6. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。
