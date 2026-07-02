@@ -1154,6 +1154,45 @@ blocked reviews 当前包括：
 
 这个包的实质价值是把“下一步怎么发布”拆清楚：同年级单元证据、版本投放说明、阻塞项互斥，不再把 cross-grade units 写进 same-grade standard，也不再让 blocked standards 混入 ready-only apply。它仍然不是 `public/data` 写入，也不改任何课标原文字段。当前 85 条数学 H4G standards 仍不在三版本单元候选范围内，所以数学整体 H4G 分化仍未完成。
 
+### 7.16 发布数据契约候选
+
+在复核包之后，本轮继续新增数据契约候选 gate：
+
+```bash
+npm run textbooks:h4g-publication-contract -- --strict --require-ready-surface --require-edition-note-surface
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_contract_candidate.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_contract_candidate.md
+```
+
+当前结果：
+
+```json
+{
+  "standard_unit_evidence_contracts": 19,
+  "edition_placement_note_contracts": 5,
+  "blocked_registry_contracts": 2,
+  "candidate_unit_evidence_objects": 87,
+  "edition_note_affected_standards": 7,
+  "blocked_affected_standards": 3,
+  "not_in_current_unit_candidate_scope": 85
+}
+```
+
+这个 contract candidate 把未来可能发布的 surface 明确为三类：
+
+| surface | grain | 用途 | 边界 |
+| --- | --- | --- | --- |
+| `standard_same_grade_unit_evidence` | `standard_code` | 未来通过人工复核后，允许同年级单元证据写入标准记录的证据字段。 | 只能写证据/复核字段；不能改 `domain/subdomain/standard/context/practice/teaching_tip/assessment_evidence_type`，也不能自动改成 `grade_specific_variant`。 |
+| `progression_group_edition_placement_note` | `progression_group_id` | 未来通过课程进阶复核后，表达不同教材版本把同一主题放到不同年级。 | 应作为 progression group 层 note，不写入 same-grade `textbook_unit_evidence_ids`。 |
+| `blocked_review_registry` | `review_id` | 保留 partial/blocked 项，等待补证据或模型复核。 | 没有 public surface，不能发布。 |
+
+这一步是数据契约设计，不是迁移：policy 仍是 `writes_public_data=false`、`writes_standard_records=false`、`writes_textbook_unit_evidence_ids=false`。它把“可以怎么写”和“绝对不能怎么写”固化下来，为后续真正 public migration 做准备。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：
