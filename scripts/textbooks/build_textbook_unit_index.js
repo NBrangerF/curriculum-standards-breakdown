@@ -23,7 +23,7 @@ const VISION_OCR_BINARY = 'generated/textbook_evidence/.tools/vision_ocr'
 const DEFAULT_OCR_DPI = 180
 const DEFAULT_OCR_BATCH_SIZE = 4
 const DEFAULT_OCR_LANGUAGES = 'zh-Hans,en-US'
-const MATERIALIZED_STATUSES = new Set(['materialized', 'raw_materialized', 'cached'])
+const MATERIALIZED_STATUSES = new Set(['materialized', 'api_raw_materialized', 'raw_materialized', 'cached'])
 
 function parseArgs(argv) {
   const args = {
@@ -107,10 +107,12 @@ run. Use --debug-text-dir with --materialize to save extracted PDF text for
 manual parser inspection.
 
 When the local blobless Git clone cannot materialize a PDF in time, the script
-falls back to raw.githubusercontent.com by default. Use --no-download-fallback
-to disable that path or --raw-ref to override the raw download ref. The raw
-download path has its own timeout/retry controls because large PDFs can be slow
-even when Git blob fetches are timing out.
+first falls back to the GitHub git/blobs API with a raw response. If that API
+route fails without timing out, it can then try raw.githubusercontent.com. Use
+--no-download-fallback to disable those network paths or --raw-ref to override
+the remote download ref. The download paths have their own timeout/retry
+controls because large PDFs can be slow even when Git blob fetches are timing
+out.
 
 Use --ocr-fallback on macOS to run Apple Vision OCR when PDF text extraction
 does not produce TOC candidates. OCR is intentionally opt-in because it depends
@@ -257,6 +259,22 @@ function rawUrlFor(record, args) {
   return `https://raw.githubusercontent.com/TapXWorld/ChinaTextbook/${encodeURIComponent(rawDownloadRef(args))}/${encodedPath}`
 }
 
+function apiBlobUrlFor(blobSha) {
+  return `https://api.github.com/repos/TapXWorld/ChinaTextbook/git/blobs/${blobSha}`
+}
+
+function blobShaFor(record, args) {
+  try {
+    const output = git(args.repoDir, ['ls-tree', rawDownloadRef(args), '--', record.repository_path], {
+      encoding: 'utf8',
+      timeout: args.materializeTimeoutMs
+    })
+    return output.match(/\bblob\s+([0-9a-f]{40})\b/)?.[1] || ''
+  } catch {
+    return ''
+  }
+}
+
 function looksLikeCurlTimeout(result) {
   const text = `${result.stderr || ''}\n${result.stdout || ''}`.toLowerCase()
   return result.status === 28 || text.includes('timed out') || text.includes('timeout')
@@ -357,6 +375,147 @@ function downloadRawPdf(record, args, gitStatus, gitError) {
   }
 }
 
+function downloadApiRawBlobPdf(record, args, gitStatus, gitError) {
+  const blobSha = blobShaFor(record, args)
+  const out = cachePathFor(record, args.cacheDir)
+  const temp = `${out}.api.part`
+  const apiUrl = blobSha ? apiBlobUrlFor(blobSha) : ''
+  const startedAt = Date.now()
+  if (!apiUrl) {
+    return {
+      status: 'api_raw_materialize_failed',
+      path: out,
+      api_blob_sha: '',
+      api_url: '',
+      api_partial_path: '',
+      api_partial_bytes: 0,
+      error: [
+        `${gitStatus}: ${gitError}`,
+        'api_blob_sha_lookup_failed'
+      ].filter(Boolean).join('\n'),
+      timeout_ms: args.downloadTimeoutMs,
+      duration_ms: Date.now() - startedAt
+    }
+  }
+  try {
+    const result = spawnSync('curl', [
+      '--location',
+      '--fail',
+      '--silent',
+      '--show-error',
+      '--connect-timeout',
+      '20',
+      '--max-time',
+      String(Math.max(1, Math.ceil(args.downloadTimeoutMs / 1000))),
+      '--retry',
+      String(Math.max(0, args.downloadRetries)),
+      '--retry-all-errors',
+      '--retry-delay',
+      '2',
+      '--retry-max-time',
+      String(Math.max(1, Math.ceil(args.downloadTimeoutMs / 1000))),
+      '--continue-at',
+      '-',
+      '--header',
+      'Accept: application/vnd.github.raw',
+      '--header',
+      'X-GitHub-Api-Version: 2022-11-28',
+      '--header',
+      'User-Agent: curriculum-standards-h4g-unit-index',
+      '--output',
+      temp,
+      apiUrl
+    ], {
+      encoding: 'utf8',
+      maxBuffer: 1024 * 1024 * 16
+    })
+    if (result.error) throw result.error
+    if (result.status !== 0) {
+      const status = looksLikeCurlTimeout(result) ? 'api_raw_materialize_timeout' : 'api_raw_materialize_failed'
+      const partialBytes = existsSync(temp) ? statSync(temp).size : 0
+      if (!partialBytes && existsSync(temp)) unlinkSync(temp)
+      return {
+        status,
+        path: out,
+        api_blob_sha: blobSha,
+        api_url: apiUrl,
+        api_partial_path: partialBytes ? temp : '',
+        api_partial_bytes: partialBytes,
+        error: [
+          `${gitStatus}: ${gitError}`,
+          `api_raw_download_exit_${result.status}: ${result.stderr || result.stdout || ''}`.trim()
+        ].filter(Boolean).join('\n'),
+        timeout_ms: args.downloadTimeoutMs,
+        duration_ms: Date.now() - startedAt
+      }
+    }
+    const bytes = existsSync(temp) ? statSync(temp).size : 0
+    if (!bytes) {
+      if (existsSync(temp)) unlinkSync(temp)
+      return {
+        status: 'api_raw_materialize_failed',
+        path: out,
+        api_blob_sha: blobSha,
+        api_url: apiUrl,
+        api_partial_path: '',
+        api_partial_bytes: 0,
+        error: [
+          `${gitStatus}: ${gitError}`,
+          'api_raw_download_empty_file'
+        ].join('\n'),
+        timeout_ms: args.downloadTimeoutMs,
+        duration_ms: Date.now() - startedAt
+      }
+    }
+    renameSync(temp, out)
+    return {
+      status: 'api_raw_materialized',
+      path: out,
+      api_blob_sha: blobSha,
+      api_url: apiUrl,
+      bytes,
+      duration_ms: Date.now() - startedAt,
+      fallback_from: gitStatus,
+      git_error: gitError
+    }
+  } catch (error) {
+    const partialBytes = existsSync(temp) ? statSync(temp).size : 0
+    return {
+      status: 'api_raw_materialize_failed',
+      path: out,
+      api_blob_sha: blobSha,
+      api_url: apiUrl,
+      api_partial_path: partialBytes ? temp : '',
+      api_partial_bytes: partialBytes,
+      error: [
+        `${gitStatus}: ${gitError}`,
+        error.message
+      ].filter(Boolean).join('\n'),
+      timeout_ms: args.downloadTimeoutMs,
+      duration_ms: Date.now() - startedAt
+    }
+  }
+}
+
+function downloadFallbackPdf(record, args, gitStatus, gitError) {
+  const apiResult = downloadApiRawBlobPdf(record, args, gitStatus, gitError)
+  if (apiResult.status === 'api_raw_materialized') return apiResult
+  if (apiResult.status === 'api_raw_materialize_timeout') return apiResult
+  const rawResult = downloadRawPdf(record, args, `${gitStatus}; ${apiResult.status}`, [
+    gitError,
+    apiResult.error
+  ].filter(Boolean).join('\n'))
+  return {
+    ...rawResult,
+    api_fallback_status: apiResult.status,
+    api_fallback_error: apiResult.error || '',
+    api_blob_sha: apiResult.api_blob_sha || '',
+    api_url: apiResult.api_url || '',
+    api_partial_path: apiResult.api_partial_path || '',
+    api_partial_bytes: apiResult.api_partial_bytes || 0
+  }
+}
+
 function materializePdf(record, args) {
   const out = cachePathFor(record, args.cacheDir)
   if (existsSync(out) && !args.force) {
@@ -378,7 +537,7 @@ function materializePdf(record, args) {
   } catch (error) {
     const status = error.signal === 'SIGTERM' ? 'materialize_timeout' : 'materialize_failed'
     const formattedError = formatExecError(error)
-    if (args.downloadFallback) return downloadRawPdf(record, args, status, formattedError)
+    if (args.downloadFallback) return downloadFallbackPdf(record, args, status, formattedError)
     return {
       status,
       path: out,
@@ -1101,6 +1260,8 @@ commit：\`${payload.source_commit}\`
 | 页码补证据候选 | ${payload.summary.page_start_override_candidates || 0} |
 | 文件名卷册 seed | ${payload.summary.volume_seed_candidates} |
 | PDF 物化超时 | ${payload.summary.by_extraction_status.materialize_timeout || 0} |
+| GitHub API raw 物化成功 | ${payload.summary.by_extraction_status.api_raw_materialized || 0} |
+| GitHub API raw 物化超时 | ${payload.summary.by_extraction_status.api_raw_materialize_timeout || 0} |
 | raw URL 物化成功 | ${payload.summary.by_extraction_status.raw_materialized || 0} |
 | raw URL 物化超时 | ${payload.summary.by_extraction_status.raw_materialize_timeout || 0} |
 | OCR 抽取成功 | ${payload.summary.by_ocr_status.ocr_text_extracted || 0} |
@@ -1170,6 +1331,12 @@ function main() {
       file.materialize_raw_url = materialized.raw_url || ''
       file.materialize_raw_partial_path = materialized.raw_partial_path || ''
       file.materialize_raw_partial_bytes = materialized.raw_partial_bytes || 0
+      file.materialize_api_blob_sha = materialized.api_blob_sha || ''
+      file.materialize_api_url = materialized.api_url || ''
+      file.materialize_api_partial_path = materialized.api_partial_path || ''
+      file.materialize_api_partial_bytes = materialized.api_partial_bytes || 0
+      file.materialize_api_fallback_status = materialized.api_fallback_status || ''
+      file.materialize_api_fallback_error = materialized.api_fallback_error || ''
       file.materialize_fallback_from = materialized.fallback_from || ''
       file.materialize_git_error = materialized.git_error || ''
       file.materialize_duration_ms = materialized.duration_ms || null

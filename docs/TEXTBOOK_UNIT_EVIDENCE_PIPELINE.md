@@ -462,11 +462,12 @@ npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --
 该模式会：
 
 1. 用 `git show` 从 ChinaTextbook 读取选中 PDF blob。
-2. 如果 blobless Git 物化超时或失败，默认 fallback 到 `raw.githubusercontent.com` 下载同一 commit 的 PDF。
-3. 缓存到 `generated/textbook_evidence/pdf_cache/`；raw 下载超时时保留 `.part`，下次同一教材可断点续传。
-4. 使用 Python `pypdf` 提取前若干页文本。
-5. 从目录行或“第 X 单元/章/课”模式生成 `toc_unit_or_chapter` 候选。
-6. 如显式启用 `--ocr-fallback`，当 PDF 文本层没有目录候选时，用 Apple Vision OCR 读取前若干页后再走同一套目录解析。
+2. 如果 blobless Git 物化超时或失败，默认先通过 GitHub `git/blobs/<sha>` API 请求 raw PDF 内容。
+3. 如果 GitHub API raw 路径没有超时但仍失败，再 fallback 到 `raw.githubusercontent.com` 下载同一 commit 的 PDF。
+4. 缓存到 `generated/textbook_evidence/pdf_cache/`；API/raw 下载超时时分别保留 `.api.part` 或 `.part`，下次同一教材可断点续传。
+5. 使用 Python `pypdf` 提取前若干页文本。
+6. 从目录行或“第 X 单元/章/课”模式生成 `toc_unit_or_chapter` 候选。
+7. 如显式启用 `--ocr-fallback`，当 PDF 文本层没有目录候选时，用 Apple Vision OCR 读取前若干页后再走同一套目录解析。
 
 新增诊断参数：
 
@@ -474,10 +475,10 @@ npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --
 | --- | --- |
 | `--evidence-ids` | 精确指定 `china_textbook_index.json` 中的教材文件 ID，适合小批量复现。指定后不再按 `--max-files` 截断。 |
 | `--materialize-timeout-ms` | 限制单个 PDF blob 物化时间，默认 60000ms。超时会记为 `materialize_timeout`。 |
-| `--no-download-fallback` | 禁用 raw URL fallback，只使用本地 ChinaTextbook Git blob。 |
-| `--download-timeout-ms` | 限制 raw URL 下载窗口，默认 180000ms。超时会记为 `raw_materialize_timeout` 并保留可续传 `.part`。 |
-| `--download-retries` | raw URL 下载重试次数，默认 2。 |
-| `--raw-ref` | 覆盖 raw URL 使用的 ref；默认使用 `china_textbook_index.json` 固定的 `source_commit`。 |
+| `--no-download-fallback` | 禁用 GitHub API raw 与 raw URL fallback，只使用本地 ChinaTextbook Git blob。 |
+| `--download-timeout-ms` | 限制 GitHub API raw/raw URL 下载窗口，默认 180000ms。API 超时会记为 `api_raw_materialize_timeout` 并保留 `.api.part`；raw URL 超时会记为 `raw_materialize_timeout` 并保留 `.part`。 |
+| `--download-retries` | GitHub API raw/raw URL 下载重试次数，默认 2。 |
+| `--raw-ref` | 覆盖远端下载使用的 ref；默认使用 `china_textbook_index.json` 固定的 `source_commit`。 |
 | `--debug-text-dir` | 保存已提取 PDF 文本，便于人工检查目录格式和改进解析规则。 |
 | `--ocr-fallback` | 可选 macOS Apple Vision OCR fallback；仅在文本层没有目录候选时运行。默认关闭。 |
 | `--ocr-dpi` | OCR 渲染 DPI，默认 180。 |
@@ -486,7 +487,7 @@ npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --
 | `--page-start-overrides` | 指定已复核的目录页码补证据文件，默认读取 `scripts/textbooks/textbook_unit_page_start_overrides.json`。 |
 | `--no-page-start-overrides` | 关闭页码补证据，只看 parser/OCR 本身能抽出的目录页码。 |
 
-注意：`--materialize`、raw URL fallback 和 `--ocr-fallback` 仍然不能作为默认质量门；它们依赖外部 GitHub 文件获取、本机 PDF 渲染和 macOS Vision OCR，只能用于小批量探索，或在后续建立稳定 PDF/OCR 缓存后再纳入严格流程。`materialize_timeout` 或 `raw_materialize_timeout` 是教材文件获取失败，不等于教材没有目录；`text_extracted` 但无目录候选通常表示需要改 parser 或进入 OCR。
+注意：`--materialize`、GitHub API raw/raw URL fallback 和 `--ocr-fallback` 仍然不能作为默认质量门；它们依赖外部 GitHub 文件获取、本机 PDF 渲染和 macOS Vision OCR，只能用于小批量探索，或在后续建立稳定 PDF/OCR 缓存后再纳入严格流程。`materialize_timeout`、`api_raw_materialize_timeout` 或 `raw_materialize_timeout` 是教材文件获取失败，不等于教材没有目录；`text_extracted` 但无目录候选通常表示需要改 parser 或进入 OCR。
 
 页码补证据只允许附着到已经存在的 `toc_unit_or_chapter` 候选，不能新增教材单元，也不能改写课标字段。每条 override 必须记录 `textbook_evidence_id`、`unit_title`、`page_start`、`source`、`review_status` 和正文 OCR/页脚等 provenance；生成结果会把 `page_start_override` 传入 unit index、standard matches 和 H4G candidate review pack。
 
@@ -785,6 +786,26 @@ npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6
 新增 consistency audit 对同一候选包的结果为：普通 review gate valid true，`page_start_gate_ready: true`，但 `page_range_gate_ready: false`、`cross_version_consistency_proven: false`、`complete_progression_groups: false`。原因是 11 条候选都只来自 `浙教版-浙江教育出版社` 一个版本，其中 1 条存在 `toc_page_nonmonotonic`，且 11 个 progression group 都只覆盖了三年级中的一个年级。因此该样本已经能证明候选证据链可跑通，但不能证明可正式发布为跨版本一致的 H4G 年级分化。
 
 这个样本证明科学浙教版 7/8/9 六册可以走通 PDF 获取、目录抽取、目录印刷页解析、标准匹配和候选包审计；也证明 H4G8 的问题主要来自过严的 `subdomain` 逐字锚点，而不是教材缺失。当前 11 条仍是候选证据，不能直接把记录标成 `grade_specific_variant`；下一步要继续做跨版本一致性、人工/规则复核，并对 `toc_page_nonmonotonic` 的页段做人工确认。
+
+2026-07-02 追加科学 worklist 诊断：`textbooks:plan-h4g-unit-worklist -- --subjects science` 识别到 201 条科学 H4G records、67 个完整同文三元 progression groups，推荐优先跑沪教版、华东师大版和武汉版三个完整 7/8/9 教材版本。华东师大版完整 work item 在物化阶段长时间等待，因此先缩小到单册 `ctb_538ade3b02d2`（七年级上册）做 PDF 获取诊断。
+
+单册诊断结论：
+
+```json
+{
+  "evidence_id": "ctb_538ade3b02d2",
+  "edition": "华东师大版-华东师范大学出版社",
+  "grade_label": "七年级",
+  "volume": "上册",
+  "repository_path": "初中/科学/华东师大版-华东师范大学出版社/七年级/义务教育教科书·科学七年级上册.pdf",
+  "git_object": "f190241204289ba7fd4fd436630575d6140e4832",
+  "extraction_status": "api_raw_materialize_timeout",
+  "materialize_duration_ms": 20021,
+  "materialize_api_partial_bytes": 814903
+}
+```
+
+该结果说明本轮卡点仍在外部 PDF 物化：`api.github.com` 的 raw blob 路径可开始传输并保留 `.api.part`，但在 20 秒窗口内未完成 27MB PDF 下载；partial bytes 会随网络窗口变化。脚本现在会把这种状态明确记录为 `api_raw_materialize_timeout`，并停止继续尝试不稳定的 `raw.githubusercontent.com`，避免一次 work item 同时叠加多个长超时。后续科学批量运行应优先复用已缓存 PDF，或把单册下载窗口调大后分批跑；不能把该状态解释为科学课标没有教材单元依据。
 
 ### 8.2 数学三版本 page-clean 候选
 
