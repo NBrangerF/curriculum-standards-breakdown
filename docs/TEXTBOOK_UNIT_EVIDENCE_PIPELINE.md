@@ -1058,6 +1058,8 @@ publication review decisions apply 的边界：`textbooks:apply-h4g-publication-
 
 publication review recommendations 的边界：`textbooks:h4g-publication-review-recommendations` 是受控复核决策候选生成器，不是正式发布器。它读取 pending 的 decisions template 和 publication review packet，只对已经满足多版本同年级证据、页码安全、alignment 安全的 same-grade standards 填入 `approve_same_grade_unit_evidence`；只对 high-confidence 的 progression group 候选填入 `approve_progression_group_note`；blocked reviews 继续保持 blocked/remediation 状态。它仍保持 `writes_public_data=false`、`publication_ready=false`、`official_standard_text_changed=false`，输出文件必须继续通过 `audit-h4g-publication-review-decisions -- --require-complete` 和 generated-root apply/audit gates。
 
+H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 是总览型数据质量画像，不是发布 gate。它把每个学科的 H4G 总量、完整三元组、核心文本重复、单元证据、待复核候选、final-ready 记录和建议下一步整理成一张 compact matrix，用于决定下一批应该优先补单元证据、补复核决策，还是处理低置信度来源缺口。
+
 ## 10. 下一步
 
 建议顺序：
@@ -1076,8 +1078,10 @@ publication review recommendations 的边界：`textbooks:h4g-publication-review
 12. 用 `textbooks:audit-h4g-publication-readiness -- --strict --require-review-decisions-audit` 把决策审计结果接回 readiness summary。
 13. 用 `textbooks:apply-h4g-publication-review-decisions -- --strict` 生成决策 apply dry-run 根；当前 pending 模板应不改变任何标准复核状态。
 14. 用 `grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_review_decisions` 区分 candidate focus 与 final ready。
-15. 用 `textbooks:h4g-publication-review-recommendations -- --strict` 生成 Codex reviewed 决策候选；该文件仍在 generated 层，不写 public。
-16. 对 reviewed 决策候选使用 `textbooks:audit-h4g-publication-review-decisions -- --strict --require-complete`，再用 `textbooks:apply-h4g-publication-review-decisions -- --require-complete` 应用到新的 generated 候选根。
-17. 用 `grade7_9:audit-h4g-grade-differentiation` 验证 reviewed 候选根中 19 条数学 standards 是否进入 final-ready 统计。
-18. 补充跨版本一致性、真实人工/课程进阶复核状态，并复核剩余未覆盖学科和 standards。
-19. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate；正式发布前 `grade7_9:audit-h4g-grade-differentiation -- --require-ready` 必须通过。
+15. 用 `grade7_9:audit-h4g-subject-readiness` 生成学科级 readiness matrix，确认当前最大缺口仍是缺单元证据还是缺复核决策。
+16. 用 `textbooks:h4g-publication-review-recommendations -- --strict` 生成 Codex reviewed 决策候选；该文件仍在 generated 层，不写 public。
+17. 对 reviewed 决策候选使用 `textbooks:audit-h4g-publication-review-decisions -- --strict --require-complete`，再用 `textbooks:apply-h4g-publication-review-decisions -- --require-complete` 应用到新的 generated 候选根。
+18. 用 `grade7_9:audit-h4g-grade-differentiation` 验证 reviewed 候选根中 19 条数学 standards 是否进入 final-ready 统计。
+19. 用 `grade7_9:audit-h4g-subject-readiness -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_codex_reviewed` 复核 reviewed 候选根的学科矩阵，确定下一批优先学科。
+20. 补充跨版本一致性、真实人工/课程进阶复核状态，并复核剩余未覆盖学科和 standards。
+21. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate；正式发布前 `grade7_9:audit-h4g-grade-differentiation -- --require-ready` 必须通过。
