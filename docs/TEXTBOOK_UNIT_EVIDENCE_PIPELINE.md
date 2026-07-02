@@ -160,6 +160,21 @@ npm run textbooks:audit-h4g-unit-consistency -- \
 
 该命令允许在非 strict 模式下生成失败报告；只有 `valid: true` 时，候选才满足发布级跨版本与完整进阶组要求。
 
+反向检索 H4G 发布缺口：
+
+```bash
+npm run textbooks:audit-h4g-reverse-gaps
+```
+
+该命令默认读取数学三版本 `page_order_fix_page_clean` 候选包，以及人教版、冀教版、华东师大版三套标准-单元匹配结果，输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_page_order_fix_page_clean/h4g_reverse_lookup_gaps.json
+generated/textbook_evidence/h4g_runs/math_three_edition_page_order_fix_page_clean/h4g_reverse_lookup_gaps.md
+```
+
+它不写 `public/data`，只把 publication gate 失败拆成可执行原因：已有可用匹配但未打包、目录页码缺失、alignment gate 未通过、低分/疑似错年级、当前 top matches 没有返回候选。`near_miss_actions` 统计的是低于版本门槛 standards 的缺失版本；progression group 的缺失年级另在 `progression_group_gaps` 中展开。
+
 ## 4. 输出结构
 
 `textbook_unit_index.json` 有两个核心数组：

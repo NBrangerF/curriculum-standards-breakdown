@@ -536,6 +536,43 @@ MA-H4G9-GEO-036
 
 因此本轮结论是：数学证据管线的页码层已经足够干净，可以进入下一阶段“缺失年级/缺失版本反向检索”；但这批候选仍不得发布到 `public/data`，也不得把对应 records 标为已经完成真实年级分化。
 
+### 7.6 数学缺口反向检索画像
+
+本轮新增 read-only 反向检索审计：
+
+```bash
+npm run textbooks:audit-h4g-reverse-gaps
+```
+
+该命令读取数学三版本 `page_order_fix_page_clean` 候选包，以及三套版本各自的标准-单元匹配结果，按“当前候选已经有的版本”和“缺失版本教材中曾经出现过的近邻匹配”反推 publication gate 卡在哪里。当前结果：
+
+```json
+{
+  "candidate_standards": 29,
+  "standards_below_min_editions": 14,
+  "progression_groups_with_candidates": 20,
+  "complete_progression_groups": 2,
+  "partial_progression_groups": 18,
+  "progression_groups_below_min_editions": 4,
+  "missing_grade_slots": 31,
+  "near_miss_actions": {
+    "review_alignment_or_alias": 13,
+    "recover_page_start": 1,
+    "no_match_returned": 11,
+    "low_score_or_wrong_grade": 3
+  }
+}
+```
+
+这个画像说明剩余问题不是单一 parser bug，而是四类问题并存：
+
+- `recover_page_start`：有 eligible 匹配，但目录页码缺失。当前最典型的是人教版七下 `MA-H4G7-ALG-016`（不等式与不等式组）；OCR 目录能看到章/节标题，但右侧印刷页码缺失或未被识别。
+- `review_alignment_or_alias`：分数达到 eligible 线，但未通过 alignment gate。不能全局放宽，因为已有反例会把 `实数` 误吸到 `数轴`、把不相关单元靠共享词拉高分；这类应逐条确认是否补同义词、子领域锚点或规则例外。
+- `no_match_returned`：缺失版本当前 top matches 没有候选，需要扩大检索、检查教材目录是否缺 OCR，或确认该版本教材确实没有对应单元。
+- `low_score_or_wrong_grade`：只有低分或疑似错年级/错单元匹配，不应自动升级为证据。
+
+下一步修复顺序应从低风险到高风险推进：先处理 `recover_page_start` 的可见标题缺页码问题；再逐条审核 `review_alignment_or_alias`，只补局部 alias/anchor；最后才扩大检索 `no_match_returned`，避免为了追求覆盖率牺牲证据可靠性。
+
 跨学科优先级建议：
 
 1. 数学、科学：先按 `textbooks:plan-h4g-unit-worklist -- --subjects math,science` 推荐的完整版本批次建立稳定 PDF/OCR 缓存。
