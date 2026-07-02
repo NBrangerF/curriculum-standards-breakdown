@@ -581,28 +581,42 @@ function normalizeTocRawLine(value) {
     .trim()
 }
 
-function parsedPrintedPage(value) {
+function parsedPrintedPage(value, options = {}) {
   const normalized = String(value || '').replace(/\s+/g, '')
   if (!/^\d{1,3}$/u.test(normalized)) return null
-  const page = Number(normalized)
-  if (!Number.isInteger(page) || page < 1 || page > 999) return null
+  let page = Number(normalized)
+  if (page > 300 && options.allowOcrPrefix && normalized.length === 3) {
+    page = Number(normalized.slice(1))
+  }
+  if (!Number.isInteger(page) || page < 1 || page > 300) return null
   return page
 }
 
 function parsePageNumberLine(value) {
   const normalized = normalizeTocRawLine(value)
-  const match = normalized.match(/^(\d{1,3})$/u)
-  return match ? parsedPrintedPage(match[1]) : null
+  const match = normalized.match(/^[-_−]?\s*((?:\d\s*){1,3})$/u)
+  return match ? parsedPrintedPage(match[1], { allowOcrPrefix: true }) : null
 }
 
 function parseInlineTocPageTail(value) {
   const normalized = normalizeTocRawLine(value)
   if (!normalized) return { line: '', pageStart: null, pageSource: '' }
+  const auxiliaryTocLabel = /(阅读与思考|实验与探究|观察与猜想|信息技术应用|数学活动|小结|复习题|部分中英文词汇索引)/u
   const leader = normalized.match(/^(.*?)(?:[.·…]\s*){2,}\s*(\d{1,3})$/u)
   if (leader && /\p{Script=Han}/u.test(leader[1])) {
     return {
       line: leader[1].trim(),
       pageStart: parsedPrintedPage(leader[2]),
+      pageSource: 'toc_inline_page_tail'
+    }
+  }
+  const compactEnd = !auxiliaryTocLabel.test(normalized)
+    ? normalized.match(/^(.*\p{Script=Han})\s*((?:\d\s*){1,3})$/u)
+    : null
+  if (compactEnd) {
+    return {
+      line: compactEnd[1].trim(),
+      pageStart: parsedPrintedPage(compactEnd[2]),
       pageSource: 'toc_inline_page_tail'
     }
   }
@@ -637,10 +651,23 @@ function applyTocPageStart(candidate, pageStart, pageSource) {
 }
 
 function inferTocPageRanges(candidates) {
-  const ordered = candidates
+  const sourceOrdered = candidates
     .filter(candidate => candidate.candidate_type === 'toc_unit_or_chapter')
     .slice()
     .sort((a, b) => (a.toc_source_order || 0) - (b.toc_source_order || 0))
+  const pageStarts = sourceOrdered.filter(candidate => candidate.page_start)
+  const decreases = pageStarts.reduce((sum, candidate, index) => {
+    if (index === 0) return sum
+    return candidate.page_start < pageStarts[index - 1].page_start ? sum + 1 : sum
+  }, 0)
+  const usePrintedPageOrder = decreases >= 2
+  const ordered = (usePrintedPageOrder
+    ? sourceOrdered.slice().sort((a, b) => {
+        const page = (a.page_start || Number.MAX_SAFE_INTEGER) - (b.page_start || Number.MAX_SAFE_INTEGER)
+        if (page) return page
+        return (a.toc_source_order || 0) - (b.toc_source_order || 0)
+      })
+    : sourceOrdered)
 
   for (let index = 0; index < ordered.length; index += 1) {
     const candidate = ordered[index]
@@ -649,28 +676,31 @@ function inferTocPageRanges(candidates) {
       continue
     }
 
-    const next = ordered.slice(index + 1).find(item => item.page_start)
-    if (!next) {
+    const laterWithPage = ordered.slice(index + 1).filter(item => item.page_start)
+    const firstLaterWithPage = laterWithPage[0]
+    const nextGreater = laterWithPage.find(item => item.page_start > candidate.page_start)
+    if (!nextGreater) {
       candidate.page_range = String(candidate.page_start)
       candidate.toc_page_range = candidate.page_range
       candidate.page_range_status ||= 'toc_page_start_only'
       continue
     }
 
-    if (next.page_start > candidate.page_start) {
-      const pageEnd = next.page_start - 1
-      candidate.page_end = pageEnd
-      candidate.toc_page_end = pageEnd
-      candidate.page_range = pageEnd === candidate.page_start
-        ? String(candidate.page_start)
-        : `${candidate.page_start}-${pageEnd}`
-      candidate.toc_page_range = candidate.page_range
-      candidate.page_range_status = 'toc_page_range_inferred'
-    } else {
+    if (!usePrintedPageOrder && firstLaterWithPage && firstLaterWithPage.page_start < candidate.page_start) {
       candidate.page_range = String(candidate.page_start)
       candidate.toc_page_range = candidate.page_range
       candidate.page_range_status = 'toc_page_nonmonotonic'
+      continue
     }
+
+    const pageEnd = nextGreater.page_start - 1
+    candidate.page_end = pageEnd
+    candidate.toc_page_end = pageEnd
+    candidate.page_range = pageEnd === candidate.page_start
+      ? String(candidate.page_start)
+      : `${candidate.page_start}-${pageEnd}`
+    candidate.toc_page_range = candidate.page_range
+    candidate.page_range_status = 'toc_page_range_inferred'
   }
   return candidates
 }
@@ -752,23 +782,25 @@ function extractTocCandidates(text) {
   let current = { pdfPage: null, candidates: [], hasTocHeading: false, pendingPrefix: '', pendingTocChar: '' }
   let pdfPage = null
   let tocSourceOrder = 0
-  const pendingPageCandidates = []
+  let pendingPageCandidate = null
   for (const rawLine of String(text || '').split(/\r?\n/)) {
     const pageMatch = rawLine.match(/^\[\[(?:PDF_PAGE:|PAGE\s+)(\d+)]]$/)
     if (pageMatch) {
       if (current.pdfPage !== null || current.hasTocHeading || current.candidates.length) pages.push(current)
       pdfPage = Number(pageMatch[1])
       current = { pdfPage, candidates: [], hasTocHeading: false, pendingPrefix: '', pendingTocChar: '' }
+      pendingPageCandidate = null
       continue
     }
     const normalized = normalizeLine(rawLine)
     if (!normalized) continue
     const printedPage = parsePageNumberLine(rawLine)
     if (printedPage) {
-      const candidate = pendingPageCandidates.shift()
-      if (candidate) applyTocPageStart(candidate, printedPage, 'toc_following_page_number_line')
+      if (pendingPageCandidate) applyTocPageStart(pendingPageCandidate, printedPage, 'toc_following_page_number_line')
+      pendingPageCandidate = null
       continue
     }
+    pendingPageCandidate = null
     if (isPageNumberLine(normalized)) continue
     if (/^(目录|目 录)$/u.test(normalized)) {
       current.hasTocHeading = true
@@ -798,7 +830,7 @@ function extractTocCandidates(text) {
     if (candidate) {
       tocSourceOrder += 1
       current.candidates.push(candidate)
-      if (!candidate.page_start) pendingPageCandidates.push(candidate)
+      if (!candidate.page_start) pendingPageCandidate = candidate
     }
     current.pendingPrefix = ''
   }

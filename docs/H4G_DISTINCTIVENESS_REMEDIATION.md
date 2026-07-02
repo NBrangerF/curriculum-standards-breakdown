@@ -389,8 +389,8 @@ npm run grade7_9:audit-grade-band-policy -- --public-data-root generated/textboo
 ### 7.3 下一步修复顺序
 
 1. 先不写 `public/data`，继续把三版本数学候选作为 review pack。
-2. 对 `toc_page_nonmonotonic` 被排除的 33 条证据做目录解析/人工确认修复，优先看是否能为上表的单版本 standards 补第二版本。
-3. 对 progression groups 缺失年级做反向检索：从缺失年级教材目录出发，查是否是匹配锚点过严、目录标题同义词未覆盖，还是该版本教材确实没有对应单元。
+2. 页码非单调问题清零后，优先对单版本 standards 和缺失年级 progression groups 做反向检索：从缺失年级教材目录出发，查是否是匹配锚点过严、目录标题同义词未覆盖，还是该版本教材确实没有对应单元。
+3. 对仍只有单版本支撑的 standards 做跨版本补证据，优先补能让完整 progression group 达标的年级。
 4. 只有同时满足 `--min-editions-per-standard 2`、`--min-editions-per-progression-group 2`、`--require-complete-progression-groups` 且非单调页码为 0，才允许把对应 records 从 `same_source_shared` 进一步升级为真正的 `grade_specific_variant`。
 5. 数学门槛跑通后，再复制同一套 page-clean + publication gate 到科学、英语、体育、艺术等具备多版本教材的学科。
 
@@ -461,6 +461,80 @@ MA-H4G9-GEO-036
 ```
 
 其中 `MA-H4G7-QUAL-004` 和 `MA-H4G9-GEO-027` 是页码解析修复后新增召回的单版本候选，说明 parser 修复提升了召回，但也会暴露更多仍需复核的单版本证据。下一轮优先处理剩余 `toc_page_nonmonotonic` 的真实来源：无行内页码的章标题可能被后续 PDF 页脚误识别为目录页码；同时需要清理少量 OCR 噪声标题，并继续对单版本 standards 做缺失版本反向检索。
+
+### 7.5 目录顺序与独立页码绑定修复后的数学复跑
+
+在 `page_parse_fix` 后继续诊断剩余 `toc_page_nonmonotonic`，确认主要问题已转为目录结构解析：部分冀教版目录是双栏/交错 OCR 顺序，源文本顺序会出现多次页码回退；另有少量无行内页码的章标题会误绑定较远的 PDF 页脚或公式数字。本轮继续修复 `scripts/textbooks/build_textbook_unit_index.js`：
+
+- 独立页码行只绑定“紧邻上一条无页码目录候选”，遇到任何非页码行或新 PDF 页即清空 pending，避免章标题抓到后续页脚。
+- 当目录源顺序里出现两次及以上页码回退时，按教材印刷页顺序推断页段，用于处理双栏/交错 OCR 目录。
+- 独立页码行支持 `-34`、`_63`、`990` 这类 OCR 噪声，其中 `990` 会按前缀噪声恢复为 `90`。
+- 无附属栏目标签的紧凑行尾页码优先按整段尾部解析，修复 `纸盒1 4 2` 被误切成 `42` 的问题。
+
+修复后重新跑数学人教版、冀教版、华东师大版，并生成新的三版本候选：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_page_order_fix_page_clean/h4g_unit_evidence_candidate.json
+```
+
+与上一轮 `page_parse_fix` 候选相比：
+
+| 指标 | page_parse_fix | page_order_fix |
+| --- | ---: | ---: |
+| input candidates | 56 | 54 |
+| input unit evidence objects | 116 | 91 |
+| merged candidates | 26 | 29 |
+| unit evidence objects | 85 | 91 |
+| multi-edition standards | 15 | 15 |
+| single-edition standards | 11 | 14 |
+| excluded `toc_page_nonmonotonic` evidence | 31 | 0 |
+| complete progression group candidates | 1 | 2 |
+| progression groups below min editions | 6 | 4 |
+
+单版本候选包复跑结果：
+
+| 版本 | candidates | unit evidence | H4G7 | H4G8 | H4G9 | nonmonotonic |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 人教版 | 18 | 25 | 7 | 4 | 7 | 0 |
+| 冀教版 | 21 | 46 | 6 | 8 | 7 | 0 |
+| 华东师大版 | 15 | 20 | 3 | 7 | 5 | 0 |
+
+三版本合并结果为 29 条 standards、91 个单元级证据对象，分布为 H4G7 10 条、H4G8 11 条、H4G9 8 条；91 个证据全部带 `page_start`，页码状态为 `toc_page_range_inferred` 87 条、`toc_page_start_only` 4 条，`toc_page_nonmonotonic` 为 0。候选安全审计和普通 consistency audit 均通过；候选 apply 到隔离数据根后，29 条 records 获得 91 个单元证据对象，且 `official_standard_text_changed: false`、`writes_public_data: false`，隔离数据根通过 `build-indexes`、`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 和 `audit-grade-band-policy --data-only --strict`。
+
+publication gate 仍失败，但失败原因已经收敛到跨版本与完整 progression 覆盖，不再是页码质量：
+
+```json
+{
+  "valid": false,
+  "standards_below_min_editions": 14,
+  "progression_groups": 20,
+  "complete_progression_group_candidates": 2,
+  "partial_progression_group_candidates": 18,
+  "progression_groups_below_min_editions": 4,
+  "nonmonotonic_page_records": 0
+}
+```
+
+当前低于两版本门槛的 standards 为：
+
+```text
+MA-H4G7-ALG-007
+MA-H4G7-ALG-016
+MA-H4G7-GEO-010
+MA-H4G7-GEO-037
+MA-H4G7-GEO-040
+MA-H4G7-QUAL-004
+MA-H4G8-ALG-008
+MA-H4G8-ALG-029
+MA-H4G8-GEO-020
+MA-H4G8-GEO-026
+MA-H4G8-GEO-038
+MA-H4G8-GEO-041
+MA-H4G9-GEO-027
+MA-H4G9-GEO-036
+```
+
+因此本轮结论是：数学证据管线的页码层已经足够干净，可以进入下一阶段“缺失年级/缺失版本反向检索”；但这批候选仍不得发布到 `public/data`，也不得把对应 records 标为已经完成真实年级分化。
 
 跨学科优先级建议：
 

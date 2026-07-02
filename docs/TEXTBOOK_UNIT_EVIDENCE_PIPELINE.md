@@ -715,6 +715,71 @@ publication gate 仍失败：
 
 因此 parser 修复后的结论是：页码召回和 page-clean 质量有改进，尤其 `MA-H4G8-GEO-023` 已获得人教版 + 冀教版两版本支撑；但新增召回也带来新的单版本候选（如 `MA-H4G7-QUAL-004`、`MA-H4G9-GEO-027`）。这些仍只能作为 review pack，不得自动发布到 `public/data` 或标记为已经完成真实年级分化。
 
+### 8.4 数学目录顺序与页码绑定修复复跑
+
+继续排查剩余 `toc_page_nonmonotonic` 后，确认剩余噪声主要来自目录结构而非教材真实页码非单调：部分目录是双栏/交错 OCR 顺序，源文本顺序会多次回退；部分无行内页码标题会错误绑定后续页脚或公式数字。本轮在 `scripts/textbooks/build_textbook_unit_index.js` 中补充以下规则：
+
+- `parsePageNumberLine` 支持带 OCR 前缀符号和空格的独立页码行，如 `-34`、`_63`。
+- `parsedPrintedPage` 将印刷页限制在 1-300，并在独立页码行中允许恢复 `990 -> 90` 这类三位 OCR 前缀噪声。
+- 没有附属栏目标签时，行尾紧凑页码优先按整段尾部解析，避免 `纸盒1 4 2` 被切成 `42`。
+- 无页码候选只允许绑定紧邻下一行的独立页码；遇到新 PDF 页或任何非页码行即清空 pending。
+- 当一个目录窗口中页码在源顺序里出现两次及以上下降时，按教材印刷页顺序推断页段，用于双栏/交错目录；普通单次异常仍保留 `toc_page_nonmonotonic`，避免隐藏真实错误。
+
+重新跑数学三版本后，单版本 work item 全部通过 review gate：
+
+| 版本 | real units | matches | eligible | candidates | unit evidence | nonmonotonic |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 人教版 | 118 | 131 | 41 | 18 | 25 | 0 |
+| 冀教版 | 196 | 187 | 54 | 21 | 46 | 0 |
+| 华东师大版 | 112 | 110 | 24 | 15 | 20 | 0 |
+
+三版本合并输出到：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_page_order_fix_page_clean/
+```
+
+合并结果：
+
+```json
+{
+  "input_candidates": 54,
+  "input_unit_evidence_objects": 91,
+  "merged_candidates": 29,
+  "unit_evidence_objects": 91,
+  "multi_edition_standards": 15,
+  "single_edition_standards": 14,
+  "excluded_unit_evidence_objects": 0,
+  "page_start_records": 91,
+  "by_grade_band": {
+    "H4G7": 10,
+    "H4G8": 11,
+    "H4G9": 8
+  },
+  "by_page_range_status": {
+    "toc_page_range_inferred": 87,
+    "toc_page_start_only": 4
+  }
+}
+```
+
+候选安全审计通过，普通 consistency audit 通过，隔离数据根 apply 也通过：29 条 records 增加 91 个单元证据对象，`official_standard_text_changed: false`，`writes_public_data: false`。隔离数据根随后通过 `build-indexes`、`validate-data-indexes`、H4G distinctiveness strict audit 与 grade-band policy data-only strict audit。
+
+发布级 gate 仍失败：
+
+```json
+{
+  "valid": false,
+  "standards_below_min_editions": 14,
+  "complete_progression_group_candidates": 2,
+  "partial_progression_group_candidates": 18,
+  "progression_groups_below_min_editions": 4,
+  "nonmonotonic_page_records": 0
+}
+```
+
+因此本轮 parser 修复把数学候选推进到“页码证据可用于 review”的状态；下一步不再优先修页码，而是对单版本 standards 和缺失年级 progression groups 做反向检索，补足跨版本与完整 H4G7/H4G8/H4G9 覆盖。
+
 ## 9. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。
