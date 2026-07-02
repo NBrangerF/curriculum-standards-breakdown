@@ -1637,6 +1637,134 @@ generated/textbook_evidence/h4g_runs/science_seven_edition_page_clean/
 
 因此下一步不应把北京版重复跑一遍，而应优先处理科普版的 adjacent 分科证据，并回到沪教版、华东师大版这类完整 direct_all_grades 版本，补同年级第二版本证据和缺失 H4G7/H4G9 progression 节点。
 
+### 8.10 科学科普版 adjacent 分科教材与八版本合并
+
+2026-07-03 继续执行科学科普版 adjacent 工作项。该批覆盖地理七、八年级上下册和化学九年级上下册，不是综合科学整版教材；它的价值是补地球系统、自然环境、自然灾害等分科主题的年级投放证据，而不是直接证明完整科学 H4G 已完成。
+
+6 个 evidence 的本地 Git blob 均可用，大小约 9.5-15MB。unit-index 使用本地 blob 物化并启用 OCR fallback，未走 GitHub raw 下载；其中 4 本使用 OCR 文本，2 本直接抽取文本。完整目录抽取结果：
+
+```json
+{
+  "textbook_files": 6,
+  "unit_candidates": 76,
+  "real_unit_or_chapter_candidates": 74,
+  "volume_seed_candidates": 2,
+  "page_start_candidates": 31,
+  "page_range_candidates": 31,
+  "by_unit_level": {
+    "chapter": 18,
+    "unit": 56
+  },
+  "by_page_range_status": {
+    "missing": 43,
+    "toc_page_range_inferred": 27,
+    "toc_page_start_only": 4
+  },
+  "by_extraction_status": {
+    "materialized": 6
+  },
+  "by_text_status": {
+    "ocr_text_extracted": 4,
+    "text_extracted": 2
+  }
+}
+```
+
+单元索引审计通过。标准匹配结果：
+
+```json
+{
+  "standards_evaluated": 201,
+  "unit_candidates_considered": 74,
+  "matches": 7,
+  "standards_with_matches": 4,
+  "eligible_matches": 3,
+  "unmatched_standards": 197,
+  "by_eligible_alignment": {
+    "strong_field_alignment": 2,
+    "subdomain_anchor": 1
+  }
+}
+```
+
+科普版最终 page-clean H4G candidate 有 3 条 standards，全部带 `page_start` 和页段，并通过 candidate audit 与普通 consistency audit：
+
+| standard_code | grade_band | alignment | 单元 |
+| --- | --- | --- | --- |
+| `SC-H4G7-ESYS-001` | H4G7 | `subdomain_anchor` | `第三节 主要气候类型` p.61-70 |
+| `SC-H4G8-ENV-005` | H4G8 | `strong_field_alignment` | `第四节 自然灾害多发` p.48-51 |
+| `SC-H4G8-ENV-008` | H4G8 | `strong_field_alignment` | `第二章 自然环境` p.21-47 |
+
+随后将科普版与既有科学七版本 page-clean 候选合并为八版本候选，输出到：
+
+```text
+generated/textbook_evidence/h4g_runs/science_eight_edition_page_clean/
+```
+
+八版本合并结果：
+
+```json
+{
+  "merged_candidates": 37,
+  "unit_evidence_objects": 54,
+  "multi_edition_standards": 10,
+  "single_edition_standards": 27,
+  "by_grade_band": {
+    "H4G7": 12,
+    "H4G8": 14,
+    "H4G9": 11
+  },
+  "by_edition": {
+    "华东师大版-华东师范大学出版社": 19,
+    "武汉版-武汉出版社": 10,
+    "科普版-科学普及出版社": 3,
+    "浙教版-浙江教育出版社": 11,
+    "人教版-人民教育出版社": 5,
+    "苏科版-江苏凤凰科学技术出版社": 2,
+    "北京版-北京出版社": 2,
+    "沪教版-上海教育出版社": 2
+  },
+  "by_page_range_status": {
+    "toc_page_range_inferred": 51,
+    "toc_page_start_only": 3
+  }
+}
+```
+
+八版本 candidate audit 和普通 consistency audit 均通过：`unit_evidence_missing_page_start=0`、`nonmonotonic_page_records=0`。相较七版本，科普版新增 2 条 standards（`SC-H4G7-ESYS-001`、`SC-H4G8-ENV-008`），并把 `SC-H4G8-ENV-005` 从人教版单版本推进到人教版+科普版双版本：
+
+| standard_code | grade_band | progression_group_id | 八版本后的版本证据 |
+| --- | --- | --- | --- |
+| `SC-H4G7-ESYS-001` | H4G7 | `science-30035abac2f1b0` | 科普版 `第三节 主要气候类型` p.61-70 |
+| `SC-H4G8-ENV-005` | H4G8 | `science-dd33b8c6bcca73` | 人教版 `第四节 自然灾害` p.54-60；科普版 `第四节 自然灾害多发` p.48-51 |
+| `SC-H4G8-ENV-008` | H4G8 | `science-f6bbaae20ef843` | 科普版 `第二章 自然环境` p.21-47 |
+
+发布级 gate 仍失败：
+
+```json
+{
+  "standards_below_min_editions": 27,
+  "progression_groups": 27,
+  "progression_groups_below_min_editions": 14,
+  "complete_progression_group_candidates": 1,
+  "partial_progression_group_candidates": 26,
+  "unit_evidence_missing_page_start": 0,
+  "nonmonotonic_page_records": 0
+}
+```
+
+这个失败仍是预期的：科普版把科学候选从 35 条 standards / 26 个 progression groups 推进到 37 条 standards / 27 个 progression groups，但新增内容仍集中在 H4G7/H4G8，未补出 H4G9 对应节点，也没有增加新的完整 H4G7/H4G8/H4G9 progression group。当前唯一完整组仍是 `science-d887780b2ca2bb`。
+
+刷新 `math,science --discover-candidates` 后，科学当前候选覆盖为 37 条 page-clean standards、27 个 page-clean progression groups、8 个版本；科学总计仍有 201 条 H4G records、67 个完整同文三元 progression groups 需要单元级证据，正式 `public/data` 中 `textbook_unit_level` 仍为 0。下一批科学推荐工作项变为：
+
+| work item | 版本 | role | files | target groups |
+| --- | --- | --- | ---: | ---: |
+| `h4g_unit_work_science_2e916100` | 沪教版-上海教育出版社 | `direct_all_grades` | 8 | 67 |
+| `h4g_unit_work_science_32198635` | 华东师大版-华东师范大学出版社 | `direct_all_grades` | 6 | 67 |
+| `h4g_unit_work_science_06f37cd5` | 武汉版-武汉出版社 | `direct_all_grades` | 6 | 67 |
+
+因此下一步应回到完整 direct_all_grades 版本，优先补同年级第二版本证据和缺失 H4G9 节点；adjacent 分科版本只能解释特定主题的投放差异，不能替代完整版本的发布 gate。
+
 ## 9. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。
@@ -1690,7 +1818,7 @@ H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 
 建议顺序：
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
-2. 科学已完成苏科版和北京版候选链，下一步优先跑科普版 adjacent 分科证据，并回补沪教版、华东师大版完整 direct_all_grades 版本；每批仍先生成 review-only 候选，不写 `public/data`。
+2. 科学已完成苏科版、北京版和科普版候选链，下一步回到沪教版、华东师大版、武汉版完整 direct_all_grades 版本补缺；每批仍先生成 review-only 候选，不写 `public/data`。
 3. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
 4. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
 5. 使用 `textbooks:h4g-progression-decisions` 合并同年级证据、reverse gaps 和投放差异，形成可复核的发布前决策矩阵。
