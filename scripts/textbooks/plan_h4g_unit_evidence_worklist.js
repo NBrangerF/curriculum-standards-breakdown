@@ -612,6 +612,16 @@ function buildCommands(subject, edition, evidenceIds) {
   }
 }
 
+function rankEditionsForWork(editions, candidateSubject) {
+  const candidateEditions = new Set(candidateSubject?.editions || [])
+  return editions.slice().sort((a, b) => {
+    const aAlreadyCandidate = candidateEditions.has(a.edition)
+    const bAlreadyCandidate = candidateEditions.has(b.edition)
+    if (aAlreadyCandidate !== bAlreadyCandidate) return aAlreadyCandidate ? 1 : -1
+    return 0
+  })
+}
+
 function buildWorkItems(subjects, editionCoverage, candidateCoverage, args) {
   const items = []
   for (const [subject, stats] of Object.entries(subjects).sort(([a], [b]) => a.localeCompare(b))) {
@@ -619,9 +629,9 @@ function buildWorkItems(subjects, editionCoverage, candidateCoverage, args) {
     const candidateSubject = candidateCoverage.by_subject[subject]
     const candidateEditions = candidateSubject?.editions?.length || 0
     const candidateGroups = candidateSubject?.progression_groups?.length || 0
-    if (candidateEditions >= args.minPublicationEditions && candidateGroups > 0) continue
+    if (candidateEditions >= args.minPublicationEditions && candidateGroups >= stats.groups_needing_unit_evidence) continue
     const editions = (editionCoverage[subject] || []).filter(edition => edition.complete_grade_coverage)
-    for (const edition of editions.slice(0, args.maxEditionsPerSubject)) {
+    for (const edition of rankEditionsForWork(editions, candidateSubject).slice(0, args.maxEditionsPerSubject)) {
       const evidenceIds = edition.evidence_ids
       items.push({
         work_item_id: `h4g_unit_work_${subject}_${hashText(edition.edition, 8)}`,
@@ -698,7 +708,7 @@ function summarize(subjects, editionCoverage, candidateCoverage, workItems, args
       candidate_progression_groups: candidateSubject?.progression_groups?.length || 0,
       candidate_editions: candidateSubject?.editions?.length || 0,
       publication_status: status,
-      recommended_editions: completeEditions.slice(0, args.maxEditionsPerSubject).map(edition => ({
+      recommended_editions: rankEditionsForWork(completeEditions, candidateSubject).slice(0, args.maxEditionsPerSubject).map(edition => ({
         edition: edition.edition,
         coverage_role: edition.coverage_role,
         evidence_ids: edition.evidence_ids

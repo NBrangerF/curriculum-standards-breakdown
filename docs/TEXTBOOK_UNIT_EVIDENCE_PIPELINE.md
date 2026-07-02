@@ -116,6 +116,8 @@ npm run textbooks:plan-h4g-unit-worklist -- --subjects math,science --discover-c
 
 2026-07-02 的 `math,science --discover-candidates` 结果：发现 22 个数学候选包，覆盖 29 条数学 standards、20 个 progression groups、3 个教材版本和 1150 个历史候选 evidence objects；数学因此不再被推荐重复整版物化，而被标记为 `candidate_evidence_partial_needs_gap_remediation`。科学仍为 0 个 candidate standards / progression groups / editions，因此 worklist 只推荐科学沪教版、华东师大版、武汉版三项跨版本单元证据工作。
 
+2026-07-03 更新：worklist planner 不再因为某学科已有不少于 2 个候选版本就停止推荐。只有当候选 progression groups 已覆盖全部待补 groups 时才停止；否则继续推荐完整 7/8/9 教材版本，并优先把尚未进入候选包的版本排在前面。当前科学已有浙教版+沪教版候选后，`math,science --discover-candidates` 仍有效，并把科学后续工作项排为华东师大版、武汉版、人教版；科学当前候选覆盖为 12 个 standards / 12 个 progression groups / 2 个 editions，仍是 `candidate_evidence_partial_needs_gap_remediation`。
+
 执行单个 H4G work item 的端到端 gate：
 
 ```bash
@@ -466,7 +468,7 @@ npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --
 
 1. 用 `git show` 从 ChinaTextbook 读取选中 PDF blob。
 2. 如果 blobless Git 物化超时或失败，默认先通过 GitHub `git/blobs/<sha>` API 请求 raw PDF 内容。
-3. 如果 GitHub API raw 路径没有超时但仍失败，再 fallback 到 `raw.githubusercontent.com` 下载同一 commit 的 PDF。
+3. 如果 GitHub API raw 路径失败或超时，再 fallback 到 `raw.githubusercontent.com` 下载同一 commit 的 PDF。
 4. 缓存到 `generated/textbook_evidence/pdf_cache/`；API/raw 下载超时时分别保留 `.api.part` 或 `.part`，下次同一教材可断点续传。
 5. 使用 Python `pypdf` 提取前若干页文本。
 6. 从目录行或“第 X 单元/章/课”模式生成 `toc_unit_or_chapter` 候选。
@@ -479,7 +481,7 @@ npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --
 | `--evidence-ids` | 精确指定 `china_textbook_index.json` 中的教材文件 ID，适合小批量复现。指定后不再按 `--max-files` 截断。 |
 | `--materialize-timeout-ms` | 限制单个 PDF blob 物化时间，默认 60000ms。超时会记为 `materialize_timeout`。 |
 | `--no-download-fallback` | 禁用 GitHub API raw 与 raw URL fallback，只使用本地 ChinaTextbook Git blob。 |
-| `--download-timeout-ms` | 限制 GitHub API raw/raw URL 下载窗口，默认 180000ms。API 超时会记为 `api_raw_materialize_timeout` 并保留 `.api.part`；raw URL 超时会记为 `raw_materialize_timeout` 并保留 `.part`。 |
+| `--download-timeout-ms` | 限制 GitHub API raw/raw URL 下载窗口，默认 180000ms。API 超时会记为 `api_raw_materialize_timeout` 并保留 `.api.part`，随后继续尝试 raw URL；raw URL 超时会记为 `raw_materialize_timeout` 并保留 `.part`。两个 curl fallback 现在都有 Node 外层 timeout，避免子进程悬挂。 |
 | `--download-retries` | GitHub API raw/raw URL 下载重试次数，默认 2。 |
 | `--raw-ref` | 覆盖远端下载使用的 ref；默认使用 `china_textbook_index.json` 固定的 `source_commit`。 |
 | `--debug-text-dir` | 保存已提取 PDF 文本，便于人工检查目录格式和改进解析规则。 |
@@ -809,7 +811,15 @@ npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6
 }
 ```
 
-该结果说明本轮卡点仍在外部 PDF 物化：`api.github.com` 的 raw blob 路径可开始传输并保留 `.api.part`，但在 20 秒窗口内未完成 27MB PDF 下载；partial bytes 会随网络窗口变化。脚本现在会把这种状态明确记录为 `api_raw_materialize_timeout`，并停止继续尝试不稳定的 `raw.githubusercontent.com`，避免一次 work item 同时叠加多个长超时。后续科学批量运行应优先复用已缓存 PDF，或把单册下载窗口调大后分批跑；不能把该状态解释为科学课标没有教材单元依据。
+该结果说明本轮卡点仍在外部 PDF 物化：`api.github.com` 的 raw blob 路径可开始传输并保留 `.api.part`，但在 20 秒窗口内未完成 27MB PDF 下载；partial bytes 会随网络窗口变化。脚本现在会把这种状态明确记录为 `api_raw_materialize_timeout`，并继续尝试 raw URL fallback。后续科学批量运行应优先复用已缓存 PDF，或先用 `textbooks:prefetch-h4g-pdfs` 分批补齐 PDF cache；不能把该状态解释为科学课标没有教材单元依据。
+
+2026-07-03 追加科学沪教版诊断：
+
+- `textbooks:prefetch-h4g-pdfs --work-item h4g_unit_work_science_2e916100` 在固定 raw IP 轮换下先缓存 4/8 本，2 本 partial、2 本 missing；改用 `--raw-ips ""` 走系统 DNS 后，又补齐 3 本，最终 7/8 本完整缓存。
+- 唯一未完整的是 `ctb_f7198c2bcad8`（沪教版化学九年级下册），已续传到 41,737,693 bytes，但距离 44,714,543 bytes 仍差约 3MB，暂不作为可用证据。
+- 用已缓存的 7 本沪教版教材运行 `textbooks:unit-index --no-download-fallback --materialize-timeout-ms 1000`，结果为 7 个教材文件、34 个真实单元/章节、32 个 page start、32 个 page range。
+- `textbooks:match-units --subjects science` 得到 19 个 matches、2 个 eligible matches；H4G 候选包得到 2 条候选，均为 H4G9：`SC-H4G9-CHG-009` 和 `SC-H4G9-ECO-009`，页码状态均为 `toc_page_range_inferred`。
+- 将沪教版候选与浙教版候选合并后，科学共有 12 条候选 standards、13 个 unit evidence objects、H4G7 2 条、H4G8 4 条、H4G9 6 条；其中 `SC-H4G9-ECO-009` 已有浙教版+沪教版双版本证据。发布级 gate 仍为 false，因为 11 条 standards 仍低于 2 个版本，所有 12 个 progression groups 仍未覆盖完整 H4G7/H4G8/H4G9。
 
 ### 8.2 数学三版本 page-clean 候选
 

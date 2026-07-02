@@ -276,8 +276,19 @@ function blobShaFor(record, args) {
 }
 
 function looksLikeCurlTimeout(result) {
+  if (result?.error?.code === 'ETIMEDOUT') return true
+  if (result?.signal === 'SIGTERM' || result?.signal === 'SIGKILL') return true
   const text = `${result.stderr || ''}\n${result.stdout || ''}`.toLowerCase()
   return result.status === 28 || text.includes('timed out') || text.includes('timeout')
+}
+
+function curlSpawnOptions(args) {
+  return {
+    encoding: 'utf8',
+    maxBuffer: 1024 * 1024 * 16,
+    timeout: args.downloadTimeoutMs + 5000,
+    killSignal: 'SIGTERM'
+  }
 }
 
 function downloadRawPdf(record, args, gitStatus, gitError) {
@@ -307,11 +318,25 @@ function downloadRawPdf(record, args, gitStatus, gitError) {
       '--output',
       temp,
       rawUrl
-    ], {
-      encoding: 'utf8',
-      maxBuffer: 1024 * 1024 * 16
-    })
-    if (result.error) throw result.error
+    ], curlSpawnOptions(args))
+    if (result.error) {
+      const status = looksLikeCurlTimeout(result) ? 'raw_materialize_timeout' : 'raw_materialize_failed'
+      const partialBytes = existsSync(temp) ? statSync(temp).size : 0
+      if (!partialBytes && existsSync(temp)) unlinkSync(temp)
+      return {
+        status,
+        path: out,
+        raw_url: rawUrl,
+        raw_partial_path: partialBytes ? temp : '',
+        raw_partial_bytes: partialBytes,
+        error: [
+          `${gitStatus}: ${gitError}`,
+          `raw_download_error: ${result.error.message}`.trim()
+        ].filter(Boolean).join('\n'),
+        timeout_ms: args.downloadTimeoutMs,
+        duration_ms: Date.now() - startedAt
+      }
+    }
     if (result.status !== 0) {
       const status = looksLikeCurlTimeout(result) ? 'raw_materialize_timeout' : 'raw_materialize_failed'
       const partialBytes = existsSync(temp) ? statSync(temp).size : 0
@@ -425,11 +450,26 @@ function downloadApiRawBlobPdf(record, args, gitStatus, gitError) {
       '--output',
       temp,
       apiUrl
-    ], {
-      encoding: 'utf8',
-      maxBuffer: 1024 * 1024 * 16
-    })
-    if (result.error) throw result.error
+    ], curlSpawnOptions(args))
+    if (result.error) {
+      const status = looksLikeCurlTimeout(result) ? 'api_raw_materialize_timeout' : 'api_raw_materialize_failed'
+      const partialBytes = existsSync(temp) ? statSync(temp).size : 0
+      if (!partialBytes && existsSync(temp)) unlinkSync(temp)
+      return {
+        status,
+        path: out,
+        api_blob_sha: blobSha,
+        api_url: apiUrl,
+        api_partial_path: partialBytes ? temp : '',
+        api_partial_bytes: partialBytes,
+        error: [
+          `${gitStatus}: ${gitError}`,
+          `api_raw_download_error: ${result.error.message}`.trim()
+        ].filter(Boolean).join('\n'),
+        timeout_ms: args.downloadTimeoutMs,
+        duration_ms: Date.now() - startedAt
+      }
+    }
     if (result.status !== 0) {
       const status = looksLikeCurlTimeout(result) ? 'api_raw_materialize_timeout' : 'api_raw_materialize_failed'
       const partialBytes = existsSync(temp) ? statSync(temp).size : 0
@@ -500,7 +540,6 @@ function downloadApiRawBlobPdf(record, args, gitStatus, gitError) {
 function downloadFallbackPdf(record, args, gitStatus, gitError) {
   const apiResult = downloadApiRawBlobPdf(record, args, gitStatus, gitError)
   if (apiResult.status === 'api_raw_materialized') return apiResult
-  if (apiResult.status === 'api_raw_materialize_timeout') return apiResult
   const rawResult = downloadRawPdf(record, args, `${gitStatus}; ${apiResult.status}`, [
     gitError,
     apiResult.error

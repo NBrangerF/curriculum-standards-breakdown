@@ -161,7 +161,9 @@ function headRaw(url, args) {
   ], args.rawIps, 0)
   const result = spawnSync('curl', command, {
     encoding: 'utf8',
-    maxBuffer: 1024 * 1024 * 4
+    maxBuffer: 1024 * 1024 * 4,
+    timeout: args.headTimeoutMs + 5000,
+    killSignal: 'SIGTERM'
   })
   return {
     ok: result.status === 0,
@@ -196,7 +198,9 @@ function downloadAttempt(url, paths, args, attemptIndex) {
   const before = fileSize(paths.part)
   const result = spawnSync('curl', command, {
     encoding: 'utf8',
-    maxBuffer: 1024 * 1024 * 4
+    maxBuffer: 1024 * 1024 * 4,
+    timeout: args.attemptTimeoutMs + 5000,
+    killSignal: 'SIGTERM'
   })
   return {
     ok: result.status === 0,
