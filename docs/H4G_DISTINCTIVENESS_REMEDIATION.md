@@ -644,6 +644,76 @@ scripts/textbooks/textbook_unit_page_start_overrides.json
 
 这说明 `recover_page_start` 已清零；剩余问题已经转为 alignment、无候选和低分/疑似错年级，不应再通过页码 parser 修复来解决。publication gate 仍失败，因为还有 13 条 standards 低于两版本门槛、18 个 progression groups 仍不完整，所以仍不得写入 `public/data`。
 
+### 7.8 标准级 alignment alias 修复
+
+本轮处理 `review_alignment_or_alias` 时没有放宽全局 alignment gate，而是新增标准级、已复核 alias 文件：
+
+```text
+scripts/textbooks/textbook_unit_alignment_aliases.json
+```
+
+规则边界：
+
+- alias 必须绑定具体 `standard_code`，可选限制学科、年级、版本和单元标题。
+- 匹配结果保留 `alias_alignment`，候选包保留命中词、来源、复核状态和 rationale。
+- `eligible_alignment` 新增 `reviewed_alias_anchor`，但只在达到原有分数门槛且命中复核词时生效。
+- 不把局部 alias 扩散成全局同义词；例如不允许把 `实数` 全局映射到 `数轴/有理数`，也不允许把宽泛 `函数` 映射到 `反比例函数`。
+
+本轮采纳的 alias：
+
+| standard | 复核词 | 作用 |
+| --- | --- | --- |
+| `MA-H4G8-ALG-008` | `二次根式` | 补足 H4G8 实数标准在人教、冀教中的直接单元证据；华东原本已有 `11.2 实数`。 |
+| `MA-H4G8-GEO-020` | `反证法` | 补足“定义、命题、定理与证明”标准在冀教 `17.5 反证法` 的窄范围证明方法证据。 |
+| `MA-H4G9-GEO-036` | `投影与视图`、`投影`、`三视图` | 补足九年级“投影、视图、展开图”在人教 `29.1 投影`、`29.2 三视图` 和冀教 `32.1 投影` 的证据。 |
+
+同时补充人教九下 `ctb_286bc7db0209` 第二十九章正文 OCR 页码证据：
+
+| 候选 | PDF 页 | 印刷页 | 页段结果 |
+| --- | ---: | ---: | --- |
+| 第二十九章 投影与视图 | 92 | 86 | `86` |
+| 29.1 投影 | 93 | 87 | `87-93` |
+| 29.2 三视图 | 100 | 94 | `94-104` |
+| 29.3 课题学习 | 111 | 105 | `105` |
+
+三版本合并后的新候选包：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate.json
+```
+
+关键指标：
+
+```json
+{
+  "merged_candidates": 29,
+  "unit_evidence_objects": 101,
+  "multi_edition_standards": 19,
+  "single_edition_standards": 10,
+  "page_start_records": 101,
+  "by_eligible_alignment": {
+    "subdomain_anchor": 95,
+    "reviewed_alias_anchor": 6
+  }
+}
+```
+
+新的反向检索画像：
+
+```json
+{
+  "standards_below_min_editions": 10,
+  "progression_groups_below_min_editions": 1,
+  "near_miss_actions": {
+    "review_alignment_or_alias": 8,
+    "no_match_returned": 9,
+    "low_score_or_wrong_grade": 3
+  }
+}
+```
+
+这一步把低于两版本门槛的 standards 从 13 降到 10，把低于两版本门槛的 progression groups 从 3 降到 1。publication gate 仍不得放行，因为仍有 10 条 standards 只有单版本证据，18 个 progression groups 仍不完整；下一阶段应优先处理 `no_match_returned` 和剩余 `review_alignment_or_alias` 中可安全复核的具体单元。
+
 跨学科优先级建议：
 
 1. 数学、科学：先按 `textbooks:plan-h4g-unit-worklist -- --subjects math,science` 推荐的完整版本批次建立稳定 PDF/OCR 缓存。

@@ -166,11 +166,11 @@ npm run textbooks:audit-h4g-unit-consistency -- \
 npm run textbooks:audit-h4g-reverse-gaps
 ```
 
-该命令默认读取数学三版本 `page_override_page_clean` 候选包，以及人教版、冀教版、华东师大版三套标准-单元匹配结果，输出：
+该命令默认读取数学三版本 `alignment_alias_page_clean` 候选包，以及人教版、冀教版、华东师大版三套带标准级 alias 的标准-单元匹配结果，输出：
 
 ```text
-generated/textbook_evidence/h4g_runs/math_three_edition_page_override_page_clean/h4g_reverse_lookup_gaps.json
-generated/textbook_evidence/h4g_runs/math_three_edition_page_override_page_clean/h4g_reverse_lookup_gaps.md
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_reverse_lookup_gaps.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_reverse_lookup_gaps.md
 ```
 
 它不写 `public/data`，只把 publication gate 失败拆成可执行原因：已有可用匹配但未打包、目录页码缺失、alignment gate 未通过、低分/疑似错年级、当前 top matches 没有返回候选。`near_miss_actions` 统计的是低于版本门槛 standards 的缺失版本；progression group 的缺失年级另在 `progression_group_gaps` 中展开。
@@ -218,8 +218,9 @@ generated/textbook_evidence/h4g_runs/math_three_edition_page_override_page_clean
 | `matched_keywords` | 标准字段与单元标题之间的关键词交集。 |
 | `matched_fields` | 关键词命中的标准字段和短摘录。 |
 | `subdomain_alignment` | 单元标题是否命中标准 `subdomain` 锚点。 |
+| `alias_alignment` | 标准级、已复核 alias 是否命中；只来自 `scripts/textbooks/textbook_unit_alignment_aliases.json`，不能当作全局同义词。 |
 | `field_alignment` | 当 `subdomain` 是科学编号内容项且标题不逐字命中时，记录是否由强标准字段概念词命中补足。 |
-| `eligible_alignment` | `subdomain_anchor`、`strong_field_alignment` 或 `none`。 |
+| `eligible_alignment` | `subdomain_anchor`、`reviewed_alias_anchor`、`strong_field_alignment` 或 `none`。 |
 | `rationale` | 可读匹配理由。 |
 | `eligible_for_h4g_differentiation` | 是否达到后续 H4G 分化候选证据门槛。 |
 | `requires_review` | 当前一律为 true。 |
@@ -402,7 +403,7 @@ npm run textbooks:audit-unit-index -- --unit-index /tmp/textbook_unit_index_math
 npm run textbooks:audit-unit-matches -- --matches /tmp/textbook_unit_standard_matches_math_h4g_pep_ocr2.json --unit-index /tmp/textbook_unit_index_math_h4g_pep_ocr2.json --out /tmp/textbook_unit_standard_matches_math_h4g_pep_ocr2_audit.json --strict --require-matches --require-eligible
 ```
 
-当前 eligible 还只是候选证据，不直接写入 `public/data`。匹配脚本已经加上 alignment 门：数学等学科继续要求命中 `subdomain` 锚点，达到 score 但没有命中 `subdomain` 锚点的候选，例如 `实数` 标准匹配到 `有理数` 单元、`一次函数` 标准匹配到 `一元一次方程` 单元，会被保留为普通 match，但不会成为 `eligible_for_h4g_differentiation`。科学编号内容项允许第二通道 `strong_field_alignment`：必须是 `toc_unit_or_chapter`、medium 以上分数、命中 `standard` 字段、至少两个证据字段参与，并且有 4 个以上汉字的具体科学概念词命中。
+当前 eligible 还只是候选证据，不直接写入 `public/data`。匹配脚本已经加上 alignment 门：数学等学科默认要求命中 `subdomain` 锚点；达到 score 但没有命中 `subdomain` 锚点的候选，例如 `实数` 标准匹配到 `有理数` 单元、`一次函数` 标准匹配到 `一元一次方程` 单元，会被保留为普通 match，但不会成为 `eligible_for_h4g_differentiation`。只有写入 `scripts/textbooks/textbook_unit_alignment_aliases.json` 的标准级已复核 alias 可以作为 `reviewed_alias_anchor` 局部例外。科学编号内容项允许第二通道 `strong_field_alignment`：必须是 `toc_unit_or_chapter`、medium 以上分数、命中 `standard` 字段、至少两个证据字段参与，并且有 4 个以上汉字的具体科学概念词命中。
 
 写回前候选包入口：
 
@@ -814,6 +815,8 @@ H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 
 9. `grade7_9:audit-h4g-distinctiveness -- --strict` 仍然通过。
 
 换句话说，`volume_seed` 是任务入口；`toc_unit_or_chapter` 才是后续年级分化的候选证据。
+
+标准级 alias 的边界：`reviewed_alias_anchor` 只能由 `scripts/textbooks/textbook_unit_alignment_aliases.json` 中的具体 `standard_code` 触发。例如 `MA-H4G8-ALG-008` 可以用 `二次根式` 补足 H4G8 实数标准的教材单元证据，但不能把 `实数` 全局放宽为 `数轴` 或 `有理数`；`MA-H4G9-GEO-036` 可以用 `投影`、`三视图` 恢复九年级投影与视图证据，但不能让宽泛的 `函数` 或 `平行四边形` 单元通过无关标准。
 
 ## 10. 下一步
 

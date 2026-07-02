@@ -35,7 +35,7 @@ const ALLOWED_PROPOSED_UPDATE_FIELDS = new Set([
   'grade_specific_focus',
   'progression_delta'
 ])
-const ALLOWED_ELIGIBLE_ALIGNMENT = new Set(['subdomain_anchor', 'strong_field_alignment'])
+const ALLOWED_ELIGIBLE_ALIGNMENT = new Set(['subdomain_anchor', 'reviewed_alias_anchor', 'strong_field_alignment'])
 
 function parseArgs(argv) {
   const args = {
@@ -204,6 +204,15 @@ function auditUnitEvidence(candidate, errors, warnings, stats, args) {
     }
     if (unit.eligible_alignment === 'subdomain_anchor' && !unit.subdomain_alignment?.matched) {
       errors.push(`${unitPrefix} subdomain_anchor alignment missing subdomain_alignment.matched`)
+    }
+    if (unit.eligible_alignment === 'reviewed_alias_anchor') {
+      if (!unit.alias_alignment?.matched) errors.push(`${unitPrefix} reviewed_alias_anchor alignment missing alias_alignment.matched`)
+      if (!Array.isArray(unit.alias_alignment?.matched_terms) || !unit.alias_alignment.matched_terms.length) {
+        errors.push(`${unitPrefix} reviewed_alias_anchor requires matched_terms`)
+      }
+      if (!Array.isArray(unit.alias_alignment?.reviewed_aliases) || !unit.alias_alignment.reviewed_aliases.length) {
+        errors.push(`${unitPrefix} reviewed_alias_anchor requires reviewed_aliases`)
+      }
     }
     if (unit.eligible_alignment === 'strong_field_alignment') {
       if (!unit.field_alignment?.matched) errors.push(`${unitPrefix} strong_field_alignment missing field_alignment.matched`)

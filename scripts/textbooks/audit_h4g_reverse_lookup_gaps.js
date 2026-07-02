@@ -2,15 +2,15 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
 
-const DEFAULT_CANDIDATE = 'generated/textbook_evidence/h4g_runs/math_three_edition_page_override_page_clean/h4g_unit_evidence_candidate.json'
+const DEFAULT_CANDIDATE = 'generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate.json'
 const DEFAULT_MATCHES = [
-  'generated/textbook_evidence/h4g_runs/math_renjiao_page_override/textbook_unit_standard_matches.json',
-  'generated/textbook_evidence/h4g_runs/math_jijiao_page_order_fix/textbook_unit_standard_matches.json',
-  'generated/textbook_evidence/h4g_runs/math_huadong_page_order_fix/textbook_unit_standard_matches.json'
+  'generated/textbook_evidence/h4g_runs/math_renjiao_alignment_alias/textbook_unit_standard_matches.json',
+  'generated/textbook_evidence/h4g_runs/math_jijiao_alignment_alias/textbook_unit_standard_matches.json',
+  'generated/textbook_evidence/h4g_runs/math_huadong_alignment_alias/textbook_unit_standard_matches.json'
 ]
 const DEFAULT_DATA_ROOT = 'public/data'
-const DEFAULT_OUT = 'generated/textbook_evidence/h4g_runs/math_three_edition_page_override_page_clean/h4g_reverse_lookup_gaps.json'
-const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/h4g_runs/math_three_edition_page_override_page_clean/h4g_reverse_lookup_gaps.md'
+const DEFAULT_OUT = 'generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_reverse_lookup_gaps.json'
+const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_reverse_lookup_gaps.md'
 const TARGET_GRADE_BANDS = new Set(['H4G7', 'H4G8', 'H4G9'])
 
 function parseArgs(argv) {
@@ -48,8 +48,8 @@ function parseArgs(argv) {
 function usage() {
   console.log(`Usage:
 node scripts/textbooks/audit_h4g_reverse_lookup_gaps.js \\
-  --candidate generated/textbook_evidence/h4g_runs/math_three_edition_page_override_page_clean/h4g_unit_evidence_candidate.json \\
-  --matches generated/textbook_evidence/h4g_runs/math_renjiao_page_override/textbook_unit_standard_matches.json,generated/textbook_evidence/h4g_runs/math_jijiao_page_order_fix/textbook_unit_standard_matches.json,generated/textbook_evidence/h4g_runs/math_huadong_page_order_fix/textbook_unit_standard_matches.json
+  --candidate generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate.json \\
+  --matches generated/textbook_evidence/h4g_runs/math_renjiao_alignment_alias/textbook_unit_standard_matches.json,generated/textbook_evidence/h4g_runs/math_jijiao_alignment_alias/textbook_unit_standard_matches.json,generated/textbook_evidence/h4g_runs/math_huadong_alignment_alias/textbook_unit_standard_matches.json
 
 Builds a read-only reverse-lookup report for H4G unit-evidence candidates. It
 explains why publication gates are still failing by standard, progression group,
@@ -189,6 +189,7 @@ function compactMatch(match, eligibleScore) {
     page_range_status: match.page_range_status || '',
     matched_keywords: (match.matched_keywords || []).slice(0, 10),
     subdomain_alignment: match.subdomain_alignment || null,
+    alias_alignment: match.alias_alignment || null,
     field_alignment: match.field_alignment || null,
     rationale: match.rationale || ''
   }

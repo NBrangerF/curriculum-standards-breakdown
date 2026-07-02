@@ -152,9 +152,21 @@ function auditMatch(match, standardCodes, unitMap, errors, warnings, stats) {
   if (
     match.eligible_for_h4g_differentiation &&
     !match.subdomain_alignment?.matched &&
+    !match.alias_alignment?.matched &&
     !match.field_alignment?.matched
   ) {
-    errors.push(`${match.match_id} is eligible without subdomain anchor or strong field alignment`)
+    errors.push(`${match.match_id} is eligible without subdomain anchor, reviewed alias anchor, or strong field alignment`)
+  }
+  if (match.eligible_for_h4g_differentiation && match.eligible_alignment === 'reviewed_alias_anchor') {
+    if (!match.alias_alignment?.matched) {
+      errors.push(`${match.match_id} reviewed_alias_anchor alignment missing alias_alignment.matched`)
+    }
+    if (!Array.isArray(match.alias_alignment.matched_terms) || !match.alias_alignment.matched_terms.length) {
+      errors.push(`${match.match_id} reviewed alias alignment missing matched_terms`)
+    }
+    if (!Array.isArray(match.alias_alignment.reviewed_aliases) || !match.alias_alignment.reviewed_aliases.length) {
+      errors.push(`${match.match_id} reviewed alias alignment missing reviewed_aliases`)
+    }
   }
   if (match.eligible_for_h4g_differentiation && match.field_alignment?.matched) {
     if (!Array.isArray(match.field_alignment.evidence_fields) || !match.field_alignment.evidence_fields.length) {

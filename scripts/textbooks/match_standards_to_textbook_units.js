@@ -7,6 +7,7 @@ const DEFAULT_DATA_ROOT = 'public/data'
 const DEFAULT_UNIT_INDEX = 'generated/textbook_evidence/textbook_unit_index.json'
 const DEFAULT_OUT = 'generated/textbook_evidence/textbook_unit_standard_matches.json'
 const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/textbook_unit_standard_matches_summary.md'
+const DEFAULT_ALIGNMENT_ALIASES = 'scripts/textbooks/textbook_unit_alignment_aliases.json'
 const DEFAULT_MIN_SCORE = 0.3
 const DEFAULT_ELIGIBLE_SCORE = 0.55
 const DEFAULT_MAX_MATCHES = 5
@@ -60,7 +61,9 @@ function parseArgs(argv) {
     minScore: DEFAULT_MIN_SCORE,
     eligibleScore: DEFAULT_ELIGIBLE_SCORE,
     maxMatches: DEFAULT_MAX_MATCHES,
-    includeVolumeSeeds: false
+    includeVolumeSeeds: false,
+    alignmentAliases: DEFAULT_ALIGNMENT_ALIASES,
+    useAlignmentAliases: true
   }
   for (let i = 0; i < argv.length; i += 1) {
     const item = argv[i]
@@ -74,6 +77,8 @@ function parseArgs(argv) {
     else if (item === '--eligible-score') args.eligibleScore = Number(argv[++i]) || args.eligibleScore
     else if (item === '--max-matches') args.maxMatches = Number(argv[++i]) || args.maxMatches
     else if (item === '--include-volume-seeds') args.includeVolumeSeeds = true
+    else if (item === '--alignment-aliases') args.alignmentAliases = argv[++i]
+    else if (item === '--no-alignment-aliases') args.useAlignmentAliases = false
     else if (item === '--help') args.help = true
   }
   return args
@@ -87,7 +92,8 @@ node scripts/textbooks/match_standards_to_textbook_units.js \\
 
 Builds explainable candidate matches from H4G standards to textbook
 toc_unit_or_chapter candidates. File-level volume_seed records are ignored by
-default because they are not unit-level evidence.`)
+default because they are not unit-level evidence. Reviewed alignment aliases are
+standard-scoped by default; use --no-alignment-aliases to disable them.`)
 }
 
 function splitArg(value) {
@@ -99,6 +105,11 @@ function splitArg(value) {
 
 function readJson(path) {
   return JSON.parse(readFileSync(path, 'utf8'))
+}
+
+function readOptionalJson(path) {
+  if (!path || !existsSync(path)) return null
+  return readJson(path)
 }
 
 function stable(value) {
@@ -227,6 +238,10 @@ function compactText(value) {
   return normalizeText(value).replace(/\s+/g, '')
 }
 
+function normalizeAliasTerm(value) {
+  return compactText(value)
+}
+
 function subdomainAnchors(value) {
   const raw = String(value || '').replace(/\s+/g, '')
   if (!raw || BROAD_SUBDOMAIN_LABELS.has(raw)) return []
@@ -277,6 +292,68 @@ function strongFieldAlignment(standard, unit, scoredMatch, args) {
     reason: matched
       ? 'Strong science content term matched standard evidence fields even though the broad subdomain title did not appear verbatim in the unit title.'
       : ''
+  }
+}
+
+function loadAlignmentAliases(args) {
+  if (!args.useAlignmentAliases) return new Map()
+  const payload = readOptionalJson(args.alignmentAliases)
+  const aliases = new Map()
+  for (const row of payload?.aliases || []) {
+    const standardCode = String(row.standard_code || '').trim()
+    const terms = (row.terms || [])
+      .map(normalizeAliasTerm)
+      .filter(term => term.length >= 2)
+    if (!standardCode || !terms.length) continue
+    const editions = new Set((row.editions || []).map(item => String(item).trim()).filter(Boolean))
+    const unitTitles = new Set((row.unit_titles || []).map(normalizeAliasTerm).filter(Boolean))
+    aliases.set(standardCode, [
+      ...(aliases.get(standardCode) || []),
+      {
+        ...row,
+        alias_file: args.alignmentAliases,
+        standard_code: standardCode,
+        terms_original: row.terms || [],
+        terms,
+        editions,
+        unit_titles: unitTitles
+      }
+    ])
+  }
+  return aliases
+}
+
+function reviewedAliasAlignment(standard, unit, aliasIndex) {
+  const rows = aliasIndex.get(standard.code) || []
+  const unitTitle = compactText(unit.unit_title)
+  const edition = String(unit.edition || '').trim()
+  const matched = []
+  for (const row of rows) {
+    if (row.subject_slug && row.subject_slug !== standard.subject_slug) continue
+    if (row.grade_band && row.grade_band !== standard.grade_band) continue
+    if (row.editions.size && !row.editions.has(edition)) continue
+    if (row.unit_titles.size && !row.unit_titles.has(unitTitle)) continue
+    const matchedTerms = row.terms.filter(term => unitTitle.includes(term))
+    if (!matchedTerms.length) continue
+    matched.push({
+      source: row.source || 'reviewed_alignment_alias',
+      review_status: row.review_status || '',
+      rationale: row.rationale || '',
+      note: row.note || '',
+      alias_file: row.alias_file || '',
+      matched_terms: matchedTerms,
+      original_terms: row.terms_original || []
+    })
+  }
+  const matchedTerms = [...new Set(matched.flatMap(row => row.matched_terms))]
+    .sort((a, b) => a.localeCompare(b))
+  return {
+    required: false,
+    matched: matchedTerms.length > 0,
+    policy: 'standard_scoped_reviewed_alias',
+    alias_file: matched[0]?.alias_file || '',
+    matched_terms: matchedTerms,
+    reviewed_aliases: matched
   }
 }
 
@@ -402,7 +479,7 @@ function groupUnits(units) {
   return bySubjectGrade
 }
 
-function buildMatches(standards, unitsBySubjectGrade, args) {
+function buildMatches(standards, unitsBySubjectGrade, args, aliasIndex) {
   const matches = []
   const unmatchedStandards = []
   for (const standard of standards) {
@@ -414,7 +491,8 @@ function buildMatches(standards, unitsBySubjectGrade, args) {
       if (scoredMatch.score < args.minScore) continue
       const alignment = subdomainAlignment(standard, unit)
       const fieldAlignment = strongFieldAlignment(standard, unit, scoredMatch, args)
-      const eligibleAlignment = alignment.matched || fieldAlignment.matched
+      const aliasAlignment = reviewedAliasAlignment(standard, unit, aliasIndex)
+      const eligibleAlignment = alignment.matched || aliasAlignment.matched || fieldAlignment.matched
       const eligible = unit.candidate_type === 'toc_unit_or_chapter' && scoredMatch.score >= args.eligibleScore && eligibleAlignment
       scored.push({
         match_id: `ctm_${hashText(`${standard.code}|${unit.unit_evidence_id}`, 14)}`,
@@ -449,8 +527,9 @@ function buildMatches(standards, unitsBySubjectGrade, args) {
         matched_keywords: scoredMatch.matched_keywords,
         matched_fields: scoredMatch.matched_fields,
         subdomain_alignment: alignment,
+        alias_alignment: aliasAlignment,
         field_alignment: fieldAlignment,
-        eligible_alignment: alignment.matched ? 'subdomain_anchor' : fieldAlignment.matched ? 'strong_field_alignment' : 'none',
+        eligible_alignment: alignment.matched ? 'subdomain_anchor' : aliasAlignment.matched ? 'reviewed_alias_anchor' : fieldAlignment.matched ? 'strong_field_alignment' : 'none',
         rationale: scoredMatch.rationale,
         eligible_for_h4g_differentiation: eligible,
         requires_review: true
@@ -549,7 +628,7 @@ ${subjectRows}
 
 ${warnings}
 
-说明：只有 \`candidate_type: "toc_unit_or_chapter"\`、达到 eligible score，并通过 alignment gate 的匹配，才可能作为 H4G 年级分化候选证据。alignment gate 通常要求 \`subdomain_anchor\`；科学编号内容项可用保守的 \`strong_field_alignment\` 第二通道。文件级 \`volume_seed\` 不可用于升级 \`standard_variant_type\`。
+说明：只有 \`candidate_type: "toc_unit_or_chapter"\`、达到 eligible score，并通过 alignment gate 的匹配，才可能作为 H4G 年级分化候选证据。alignment gate 通常要求 \`subdomain_anchor\`；标准级已复核 alias 可用 \`reviewed_alias_anchor\` 作为局部例外；科学编号内容项可用保守的 \`strong_field_alignment\` 第二通道。文件级 \`volume_seed\` 不可用于升级 \`standard_variant_type\`。
 `
 }
 
@@ -567,7 +646,8 @@ function main() {
   const standards = loadStandards(args)
   const { payload: unitPayload, units } = loadUnits(args, warnings)
   const unitsBySubjectGrade = groupUnits(units)
-  const { matches, unmatchedStandards } = buildMatches(standards, unitsBySubjectGrade, args)
+  const aliasIndex = loadAlignmentAliases(args)
+  const { matches, unmatchedStandards } = buildMatches(standards, unitsBySubjectGrade, args, aliasIndex)
   const summary = summarize(standards, units, matches, unmatchedStandards, warnings)
   const output = {
     generated_at: new Date().toISOString(),
@@ -580,7 +660,14 @@ function main() {
       max_matches_per_standard: args.maxMatches,
       include_volume_seeds: args.includeVolumeSeeds,
       eligible_candidate_type: 'toc_unit_or_chapter',
-      eligible_requires_alignment: 'subdomain_anchor_or_strong_field_alignment',
+      eligible_requires_alignment: 'subdomain_anchor_or_reviewed_alias_anchor_or_strong_field_alignment',
+      alignment_aliases: args.useAlignmentAliases ? args.alignmentAliases : null,
+      alignment_aliases_loaded: [...aliasIndex.values()].reduce((sum, rows) => sum + rows.length, 0),
+      reviewed_alias_alignment_policy: {
+        scope: 'standard_code',
+        optional_filters: ['subject_slug', 'grade_band', 'editions', 'unit_titles'],
+        source_file: args.alignmentAliases
+      },
       strong_field_alignment_policy: {
         subjects: ['science'],
         subdomain_pattern: '^\\d+\\.\\d+\\s',

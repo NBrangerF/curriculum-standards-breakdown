@@ -152,6 +152,7 @@ function unitEvidenceFromMatch(match) {
     matched_keywords: match.matched_keywords || [],
     matched_fields: compactMatchedFields(match.matched_fields),
     subdomain_alignment: match.subdomain_alignment,
+    alias_alignment: match.alias_alignment || null,
     field_alignment: match.field_alignment,
     eligible_alignment: match.eligible_alignment,
     rationale: match.rationale
@@ -187,6 +188,7 @@ function unitKeywords(units) {
   const keywords = []
   for (const unit of units || []) {
     keywords.push(...(unit.matched_keywords || []))
+    keywords.push(...(unit.alias_alignment?.matched_terms || []))
     keywords.push(...(unit.field_alignment?.matched_keywords || []))
   }
   return [...new Set(keywords.filter(Boolean))]
@@ -261,7 +263,7 @@ function buildCandidate(record, matches, args) {
       writes_public_data: false,
       official_standard_text_changed: false,
       requires_manual_review: true,
-      eligible_gate: 'toc_unit_or_chapter + eligible score + subdomain anchor or strong field alignment'
+      eligible_gate: 'toc_unit_or_chapter + eligible score + subdomain anchor, reviewed alias anchor, or strong field alignment'
     }
   }
 }
@@ -270,7 +272,7 @@ function groupEligible(matches) {
   const groups = new Map()
   for (const match of matches || []) {
     if (!match.eligible_for_h4g_differentiation) continue
-    if (!match.subdomain_alignment?.matched && !match.field_alignment?.matched) continue
+    if (!match.subdomain_alignment?.matched && !match.alias_alignment?.matched && !match.field_alignment?.matched) continue
     if (match.candidate_type !== 'toc_unit_or_chapter') continue
     const key = match.standard_code
     if (!groups.has(key)) groups.set(key, [])
