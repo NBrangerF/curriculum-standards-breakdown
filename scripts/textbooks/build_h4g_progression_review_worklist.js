@@ -162,6 +162,94 @@ function compactMissingActions(gap) {
   }))
 }
 
+function maxMatchScore(actions) {
+  let max = null
+  for (const action of actions || []) {
+    for (const match of action.top_matches || []) {
+      if (typeof match.score !== 'number') continue
+      max = max === null ? match.score : Math.max(max, match.score)
+    }
+  }
+  return max
+}
+
+function countMatches(actions, predicate) {
+  let count = 0
+  for (const action of actions || []) {
+    for (const match of action.top_matches || []) {
+      if (predicate(match, action)) count += 1
+    }
+  }
+  return count
+}
+
+function missingEditionsByAction(actions, actionName) {
+  return sorted((actions || [])
+    .filter(action => action.action === actionName)
+    .map(action => action.edition))
+}
+
+function isBroadQualityStandard(standard) {
+  return standard.domain === '学业质量' ||
+    /综合表现|质量|表现/.test(standard.subdomain || '') ||
+    /-QUAL-/.test(standard.standard_code || '')
+}
+
+function analyzeGapRemediation(affectedStandards) {
+  const reasons = new Set()
+  const missingActions = affectedStandards.flatMap(standard => standard.missing_edition_actions || [])
+  const broadQualityStandards = affectedStandards.filter(isBroadQualityStandard).map(standard => standard.standard_code)
+  const noMatchEditions = missingEditionsByAction(missingActions, 'no_match_returned')
+  const lowScoreEditions = missingEditionsByAction(missingActions, 'low_score_or_wrong_grade')
+  const maxScore = maxMatchScore(missingActions)
+  const lowScoreOrNoiseMatches = countMatches(missingActions, match => match.bucket === 'low_score_or_noise')
+  const missingPageMatches = countMatches(missingActions, match => match.page_range_status === 'missing')
+  const eligibleMissingMatches = countMatches(missingActions, match => match.eligible)
+  const subdomainOnlyLowScoreMatches = countMatches(missingActions, match =>
+    match.subdomain_alignment?.matched === true && match.bucket === 'low_score_or_noise')
+  const currentEditionCount = Math.max(...affectedStandards.map(standard =>
+    (standard.current_same_grade_editions || []).length), 0)
+
+  if (broadQualityStandards.length) reasons.add('broad_quality_or_comprehensive_performance_standard')
+  if (currentEditionCount < 2) reasons.add('current_same_grade_evidence_below_publication_gate')
+  if (noMatchEditions.length) reasons.add('missing_edition_has_no_returned_match')
+  if (lowScoreEditions.length) reasons.add('missing_edition_only_has_low_score_or_wrong_grade_matches')
+  if (subdomainOnlyLowScoreMatches) reasons.add('subdomain_anchor_is_too_generic_at_low_score')
+  if (missingPageMatches) reasons.add('some_near_matches_lack_page_evidence')
+
+  let decision = 'continue_targeted_remediation'
+  let recommendedOutcome = 'Inspect missing edition matches and add scoped remediation only if conceptually equivalent.'
+  let safeToAddReviewedAlias = eligibleMissingMatches > 0
+  let rerunMatchingRecommended = noMatchEditions.length > 0
+
+  if (broadQualityStandards.length && eligibleMissingMatches === 0) {
+    decision = 'keep_blocked_no_safe_same_grade_remediation'
+    recommendedOutcome = 'Keep blocked; do not add alias or publish. This broad quality/performance standard lacks reliable same-grade multi-edition unit evidence.'
+    safeToAddReviewedAlias = false
+    rerunMatchingRecommended = false
+  } else if (eligibleMissingMatches === 0 && currentEditionCount < 2) {
+    decision = 'keep_blocked_until_better_same_grade_evidence'
+    recommendedOutcome = 'Keep blocked until a reliable same-grade unit match is available in at least two editions.'
+    safeToAddReviewedAlias = false
+  }
+
+  return {
+    decision,
+    recommended_outcome: recommendedOutcome,
+    safe_to_add_reviewed_alias: safeToAddReviewedAlias,
+    rerun_matching_recommended: rerunMatchingRecommended,
+    current_same_grade_edition_count: currentEditionCount,
+    max_missing_top_match_score: maxScore,
+    eligible_missing_matches: eligibleMissingMatches,
+    low_score_or_noise_matches: lowScoreOrNoiseMatches,
+    missing_page_matches: missingPageMatches,
+    no_match_returned_editions: noMatchEditions,
+    low_score_or_wrong_grade_editions: lowScoreEditions,
+    broad_quality_standard_codes: sorted(broadQualityStandards),
+    reason_codes: sorted([...reasons])
+  }
+}
+
 function compactUnit(unit) {
   return {
     source_standard_code: unit.source_standard_code || '',
@@ -269,6 +357,7 @@ function buildGapItem(group, standardByCode, gapByCode) {
       missing_edition_actions: compactMissingActions(gap)
     }
   })
+  const remediationAnalysis = analyzeGapRemediation(affectedStandards)
 
   return {
     work_item_id: `h4g_progression_review_${hashText(`${group.progression_group_id}|gap`)}`,
@@ -279,6 +368,7 @@ function buildGapItem(group, standardByCode, gapByCode) {
     topic_subdomains: sorted(affectedStandards.map(row => row.subdomain)),
     standard_codes: group.standard_codes || [],
     affected_standards: affectedStandards,
+    remediation_analysis: remediationAnalysis,
     ready_standards_in_group: group.ready_standards || [],
     candidate_standards_in_group: group.candidate_standards || [],
     required_decision: {
@@ -295,7 +385,7 @@ function buildGapItem(group, standardByCode, gapByCode) {
         'Do not publish with fewer than the configured same-grade edition gate.'
       ]
     },
-    recommended_next_step: 'Inspect missing_edition_actions, add only scoped remediation if justified, then rerun reverse gap and progression decision gates.',
+    recommended_next_step: remediationAnalysis.recommended_outcome,
     safety: {
       writes_public_data: false,
       writes_textbook_unit_evidence_ids: false,
@@ -327,6 +417,14 @@ function validateWorkItems(payload, matrix) {
       }
       if (item.safety?.cross_grade_evidence_is_diagnostic_only !== true) {
         errors.push(`${item.work_item_id} must mark cross-grade evidence as diagnostic only`)
+      }
+    } else if (item.work_item_type === 'same_grade_gap_remediation') {
+      if (!item.remediation_analysis?.decision) {
+        errors.push(`${item.work_item_id} same-grade gap item must include remediation_analysis.decision`)
+      }
+      if (item.remediation_analysis?.decision === 'keep_blocked_no_safe_same_grade_remediation' &&
+        item.remediation_analysis?.safe_to_add_reviewed_alias !== false) {
+        errors.push(`${item.work_item_id} blocked gap item must not recommend reviewed alias`)
       }
     }
   }
@@ -399,7 +497,8 @@ function buildPayload(args) {
     same_grade_unit_evidence: 0,
     by_work_item_type: {},
     by_grade_band: {},
-    by_required_decision_owner: {}
+    by_required_decision_owner: {},
+    by_gap_remediation_decision: {}
   }
 
   for (const item of workItems) {
@@ -415,6 +514,7 @@ function buildPayload(args) {
     } else if (item.work_item_type === 'same_grade_gap_remediation') {
       summary.same_grade_gap_work_items += 1
       summary.same_grade_gap_standards += (item.affected_standards || []).length
+      countInto(summary.by_gap_remediation_decision, item.remediation_analysis?.decision)
     }
   }
 
@@ -448,14 +548,16 @@ function workItemRow(item) {
   const topics = (item.topic_subdomains || []).join('；') || '-'
   const same = item.evidence_snapshot?.same_grade_units?.length || 0
   const cross = item.evidence_snapshot?.cross_grade_units?.length || 0
-  return `| ${item.work_item_id} | ${item.work_item_type} | ${item.progression_group_id} | ${markdownCell(topics)} | ${markdownCell(standards)} | ${same} | ${cross} |`
+  const decision = item.remediation_analysis?.decision || '-'
+  return `| ${item.work_item_id} | ${item.work_item_type} | ${item.progression_group_id} | ${markdownCell(topics)} | ${markdownCell(standards)} | ${same} | ${cross} | ${markdownCell(decision)} |`
 }
 
 function affectedStandardRow(item, standard) {
   const missing = standard.missing_same_grade_editions || []
   const cross = standard.missing_editions_with_cross_grade_topic || []
   const actions = Object.entries(standard.reverse_gap_actions || {}).map(([key, value]) => `${key}:${value}`).join('；') || '-'
-  return `| ${standard.standard_code} | ${standard.grade_band} | ${markdownCell(standard.subdomain)} | ${item.work_item_type} | ${markdownCell(missing.join('；') || '-')} | ${markdownCell(cross.join('；') || '-')} | ${markdownCell(actions)} |`
+  const decision = item.remediation_analysis?.decision || '-'
+  return `| ${standard.standard_code} | ${standard.grade_band} | ${markdownCell(standard.subdomain)} | ${item.work_item_type} | ${markdownCell(missing.join('；') || '-')} | ${markdownCell(cross.join('；') || '-')} | ${markdownCell(actions)} | ${markdownCell(decision)} |`
 }
 
 function markdownSummary(payload) {
@@ -493,6 +595,12 @@ reverse gaps：\`${payload.sources.reverse_gaps}\`
 | --- | ---: |
 ${countRows(payload.summary.by_work_item_type)}
 
+## Gap Remediation Decisions
+
+| decision | count |
+| --- | ---: |
+${countRows(payload.summary.by_gap_remediation_decision)}
+
 ## Grade Bands
 
 | grade | affected standards |
@@ -501,20 +609,21 @@ ${countRows(payload.summary.by_grade_band)}
 
 ## Work Items
 
-| work item | type | progression group | topic | affected standards | same-grade units | cross-grade units |
-| --- | --- | --- | --- | --- | ---: | ---: |
+| work item | type | progression group | topic | affected standards | same-grade units | cross-grade units | remediation decision |
+| --- | --- | --- | --- | --- | ---: | ---: | --- |
 ${workItemRows}
 
 ## Affected Standards
 
-| standard | grade | subdomain | work type | missing same-grade editions | editions with cross-grade topic | reverse gap actions |
-| --- | --- | --- | --- | --- | --- | --- |
+| standard | grade | subdomain | work type | missing same-grade editions | editions with cross-grade topic | reverse gap actions | remediation decision |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 ${standardRows}
 
 ## Review Rule
 
 - \`edition_placement_model_review\` means the same topic appears in different grades across editions; it must stay diagnostic until a progression rule is reviewed.
 - \`same_grade_gap_remediation\` means the current same-grade evidence is incomplete; fix through scoped alias, TOC/page repair, or rerun matching.
+- \`keep_blocked_no_safe_same_grade_remediation\` means the missing editions only provide low-score/no-match evidence for a broad quality/performance standard; do not add alias or publish.
 - Cross-grade units must not be written to same-grade \`textbook_unit_evidence_ids\`.
 - This worklist does not write \`public/data\`, does not alter official standard text, and is not a publication candidate.
 `

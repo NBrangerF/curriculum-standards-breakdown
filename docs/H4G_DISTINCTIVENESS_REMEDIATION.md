@@ -996,6 +996,36 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 }
 ```
 
+`same_grade_gap_remediation` 现在会给出机器可复核的 `remediation_analysis`。当前唯一缺口 `MA-H4G7-QUAL-004` 的结论为：
+
+```json
+{
+  "decision": "keep_blocked_no_safe_same_grade_remediation",
+  "current_same_grade_edition_count": 1,
+  "max_missing_top_match_score": 0.3978,
+  "eligible_missing_matches": 0,
+  "low_score_or_noise_matches": 3,
+  "safe_to_add_reviewed_alias": false,
+  "rerun_matching_recommended": false,
+  "no_match_returned_editions": [
+    "华东师大版-华东师范大学出版社"
+  ],
+  "low_score_or_wrong_grade_editions": [
+    "冀教版-河北教育出版社"
+  ],
+  "reason_codes": [
+    "broad_quality_or_comprehensive_performance_standard",
+    "current_same_grade_evidence_below_publication_gate",
+    "missing_edition_has_no_returned_match",
+    "missing_edition_only_has_low_score_or_wrong_grade_matches",
+    "some_near_matches_lack_page_evidence",
+    "subdomain_anchor_is_too_generic_at_low_score"
+  ]
+}
+```
+
+这意味着 `MA-H4G7-QUAL-004` 不能通过放宽 alias 修复：它属于 `学业质量/综合表现` 宽口径标准，当前只有人教版同年级单元候选；冀教版候选是低分或错向匹配，华东师大版无候选。该记录应保持 blocked，不进入 ready-only，也不写 `textbook_unit_evidence_ids`。
+
 worklist 覆盖的 6 个跨版本投放复核主题：
 
 | progression group | topic | affected standards |

@@ -260,6 +260,8 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 该命令专门处理 ready-only 排除掉的 standards。当前数学结果为 7 个 work items、10 条 affected standards：其中 6 个 `edition_placement_model_review` work items 覆盖 9 条 standards，1 个 `same_grade_gap_remediation` work item 覆盖 `MA-H4G7-QUAL-004`。它把 44 个 cross-grade diagnostic units 和 27 个 same-grade diagnostic units 放在同一复核入口里，但仍明确 `writes_public_data=false`、`writes_textbook_unit_evidence_ids=false`、`publication_candidate=false`。
 
+`same_grade_gap_remediation` 现在会生成 `remediation_analysis`。当前唯一缺口 `MA-H4G7-QUAL-004` 的结论是 `keep_blocked_no_safe_same_grade_remediation`：它属于 `学业质量/综合表现` 宽口径标准，只有人教版一个同年级单元候选；冀教版只有低分或错向候选，华东师大版无候选。因此当前不能加 reviewed alias、不能发布，也不应把低分泛词命中升级成同年级单元证据。
+
 ## 4. 输出结构
 
 `textbook_unit_index.json` 有两个核心数组：
@@ -911,7 +913,7 @@ progression decision matrix 的边界：`h4g_progression_decision_matrix` 是发
 
 ready-only candidate 的边界：`h4g_unit_evidence_candidate_ready_only` 继承原 H4G unit candidate schema，因此可以复用 candidate audit、consistency audit 和 apply-to-generated-data-root 流程。它排除了跨版本投放差异和未解缺口，但 `complete_progression_groups` 仍可能为 false，所以它只能证明 record-level 同年级证据已足够进入复核，不代表整组 H4G progression 已完成正式分化。
 
-progression review worklist 的边界：`h4g_progression_review_worklist` 是复核任务层，不是数据写回层。`edition_placement_model_review` 要回答“同一主题跨版本落在不同年级时，进阶模型如何表达”；`same_grade_gap_remediation` 才继续找同年级证据。该 worklist 覆盖 blocked standards 的下一步决策，但不生成 `proposed_update`，不应用候选数据根，也不能把 cross-grade units 写入 same-grade `textbook_unit_evidence_ids`。
+progression review worklist 的边界：`h4g_progression_review_worklist` 是复核任务层，不是数据写回层。`edition_placement_model_review` 要回答“同一主题跨版本落在不同年级时，进阶模型如何表达”；`same_grade_gap_remediation` 才继续找同年级证据。该 worklist 覆盖 blocked standards 的下一步决策，但不生成 `proposed_update`，不应用候选数据根，也不能把 cross-grade units 写入 same-grade `textbook_unit_evidence_ids`。当 `remediation_analysis.decision=keep_blocked_no_safe_same_grade_remediation` 时，应明确保留阻塞状态，不加 alias、不发布，直到出现更强的同年级多版本证据或新的非单元级质量表现证据模型。
 
 ## 10. 下一步
 
