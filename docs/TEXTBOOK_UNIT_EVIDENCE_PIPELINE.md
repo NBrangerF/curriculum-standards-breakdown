@@ -1047,6 +1047,110 @@ generated/textbook_evidence/h4g_runs/math_three_edition_page_order_fix_page_clea
 
 因此本轮 parser 修复把数学候选推进到“页码证据可用于 review”的状态；下一步不再优先修页码，而是对单版本 standards 和缺失年级 progression groups 做反向检索，补足跨版本与完整 H4G7/H4G8/H4G9 覆盖。
 
+### 8.5 科学华东师大版目录解析与三版本合并
+
+2026-07-03 继续补科学华东师大版 7/8/9 六册。PDF 缓存阶段先完整取得 5/6 本，`ctb_538ade3b02d2` 首次只得到 partial；单独重试后六册全部完整缓存。该版本目录格式不同于浙教版：章标题通常没有页码，例如 `第1章 声`；真正的印刷页码在下一层数字小节行，例如 `1 声音的产生和传播／2`。因此本轮在 `scripts/textbooks/build_textbook_unit_index.js` 中补充两条解析规则：
+
+- `parseInlineTocPageTail` 识别 `标题／页码` 和 `标题/页码` 形式。
+- `candidateFromLine` 在行内页码存在时，将 `1 标题／2` 这类数字小节识别为 `unit_level=section` 的真实目录单元。
+
+华东师大版单版本重新抽取结果：
+
+```json
+{
+  "textbook_files": 6,
+  "unit_candidates": 208,
+  "real_unit_or_chapter_candidates": 208,
+  "by_unit_level": {
+    "chapter": 44,
+    "section": 164
+  },
+  "page_start_candidates": 164,
+  "page_range_candidates": 164,
+  "by_page_range_status": {
+    "missing": 44,
+    "toc_page_range_inferred": 158,
+    "toc_page_start_only": 6
+  }
+}
+```
+
+其中 44 条 `missing` 是无页码的章标题；164 条 section 已有可用页码。单元索引审计通过，标准匹配结果为 201 条科学 H4G standards 参与、361 个 matches、111 条 standards 有 matches、24 个 eligible matches。原始 H4G candidate 有 15 条 standards、24 个 unit evidence objects；其中 5 个 evidence objects 来自无页码章标题，无法通过 `--require-page-start`。因此发布前口径使用 page-clean 过滤：
+
+```json
+{
+  "merged_candidates": 14,
+  "unit_evidence_objects": 19,
+  "single_edition_standards": 14,
+  "excluded_unit_evidence_objects": 5,
+  "by_grade_band": {
+    "H4G7": 5,
+    "H4G8": 5,
+    "H4G9": 4
+  },
+  "by_page_range_status": {
+    "toc_page_range_inferred": 18,
+    "toc_page_start_only": 1
+  }
+}
+```
+
+随后将科学浙教版、沪教版和华东师大版合并为三版本 page-clean 候选，输出到：
+
+```text
+generated/textbook_evidence/h4g_runs/science_three_edition_page_clean/
+```
+
+合并结果：
+
+```json
+{
+  "merged_candidates": 23,
+  "unit_evidence_objects": 32,
+  "multi_edition_standards": 4,
+  "single_edition_standards": 19,
+  "by_edition": {
+    "华东师大版-华东师范大学出版社": 19,
+    "沪教版-上海教育出版社": 2,
+    "浙教版-浙江教育出版社": 11
+  },
+  "by_grade_band": {
+    "H4G7": 6,
+    "H4G8": 8,
+    "H4G9": 9
+  },
+  "by_page_range_status": {
+    "toc_page_range_inferred": 31,
+    "toc_page_start_only": 1
+  }
+}
+```
+
+该候选包通过 `textbooks:audit-h4g-unit-candidates -- --strict --require-candidates --require-page-start` 和普通 consistency audit：`unit_evidence_missing_page_start=0`、`nonmonotonic_page_records=0`。但发布级 gate 仍失败：
+
+```json
+{
+  "standards_below_min_editions": 19,
+  "progression_groups_below_min_editions": 14,
+  "complete_progression_group_candidates": 0,
+  "partial_progression_group_candidates": 20,
+  "unit_evidence_missing_page_start": 0,
+  "nonmonotonic_page_records": 0
+}
+```
+
+这说明科学 H4G7/H4G8/H4G9 的核心问题已经从“页码/目录抽取不稳定”转移为“跨版本与完整 progression group 证据不足”：当前只有 4 条 standards 达到多版本候选，20 个 progression groups 仍都是 partial，不能写入 `public/data`，也不能宣称科学 H4G 已完成正式年级分化。
+
+刷新 `math,science --discover-candidates` 后，科学当前候选覆盖为 23 条 standards、20 个 progression groups、3 个版本。注意 discover 统计会扫描 generated 目录中的历史候选包，因此 page range status 中仍会看到旧的 raw 华东候选 `missing: 5`；真正干净的发布前口径应以 `science_three_edition_page_clean/h4g_unit_evidence_candidate.json` 为准。下一批科学推荐工作项为：
+
+| work item | 版本 | role | files | target groups |
+| --- | --- | --- | ---: | ---: |
+| `h4g_unit_work_science_06f37cd5` | 武汉版-武汉出版社 | `direct_all_grades` | 6 | 67 |
+| `h4g_unit_work_science_6aec3166` | 人教版-人民教育出版社 | `direct_or_discipline_all_grades` | 13 | 67 |
+| `h4g_unit_work_science_34a90be0` | 苏科版-江苏凤凰科学技术出版社 | `direct_or_discipline_all_grades` | 8 | 67 |
+
+因此科学下一步优先跑武汉版，因为它是完整 7/8/9 的直接科学教材版本；人教版和苏科版可以作为跨学科/分科版本补充，用于判断同一 progression topic 在不同教材体系中是否存在年级投放差异。
+
 ## 9. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。

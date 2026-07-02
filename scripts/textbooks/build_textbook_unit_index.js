@@ -814,6 +814,14 @@ function parseInlineTocPageTail(value) {
   const normalized = normalizeTocRawLine(value)
   if (!normalized) return { line: '', pageStart: null, pageSource: '' }
   const auxiliaryTocLabel = /(阅读与思考|实验与探究|观察与猜想|信息技术应用|数学活动|小结|复习题|部分中英文词汇索引)/u
+  const slashTail = normalized.match(/^(.*?\p{Script=Han}.*?)\s*[／/]\s*(\d{1,3})$/u)
+  if (slashTail) {
+    return {
+      line: slashTail[1].trim(),
+      pageStart: parsedPrintedPage(slashTail[2]),
+      pageSource: 'toc_inline_slash_page_tail'
+    }
+  }
   const leader = normalized.match(/^(.*?)(?:[.·…]\s*){2,}\s*(\d{1,3})$/u)
   if (leader && /\p{Script=Han}/u.test(leader[1])) {
     return {
@@ -1050,6 +1058,24 @@ function candidateFromLine(line, pdfPage, sourceOrder) {
       toc_source_order: sourceOrder,
       pdf_page_hint: pdfPage,
       confidence: 0.66
+    }
+    return applyTocPageStart(candidate, inlinePage.pageStart, inlinePage.pageSource)
+  }
+
+  const numberedSection = normalized.match(/^([1-9]\d?)\s+(.{2,60})$/u)
+  if (numberedSection && inlinePage.pageStart) {
+    const title = `${numberedSection[1]} ${stripTocPageTail(numberedSection[2])}`
+    if (!readableUnitTitle(title)) return null
+    const candidate = {
+      candidate_type: 'toc_unit_or_chapter',
+      extraction_method: 'pdf_text_toc_numbered_section_line',
+      unit_level: 'section',
+      unit_title: title,
+      matched_line: normalized,
+      toc_raw_line: normalizeTocRawLine(line),
+      toc_source_order: sourceOrder,
+      pdf_page_hint: pdfPage,
+      confidence: 0.64
     }
     return applyTocPageStart(candidate, inlinePage.pageStart, inlinePage.pageSource)
   }
