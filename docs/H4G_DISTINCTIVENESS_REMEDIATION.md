@@ -1512,6 +1512,8 @@ npm run textbooks:audit-h4g-theme-bridge-gaps -- \
 
 因此，English/PE 的下一步不是调低通用匹配分数，而是新增学科级主题桥接层；桥接数据必须记录来源、年级/版本适用范围和 review status，且不得改写官方课标原文。
 
+详细数据契约和进阶判定规则见 `docs/H4G_SUBJECT_THEME_BRIDGE_PLAN.md`。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：

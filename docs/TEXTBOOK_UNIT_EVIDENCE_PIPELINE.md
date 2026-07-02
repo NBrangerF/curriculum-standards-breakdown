@@ -2422,6 +2422,8 @@ npm run textbooks:audit-h4g-theme-bridge-gaps -- \
 
 该审计只输出诊断和 recommended actions，不写 `public/data`，不新增 alias，也不改官方课标原文。English/PE 的下一步应先建立可复核的学科主题桥接层：English 需要受控双语主题表，把英文 unit/module 标到中文课程主题；PE 需要运动项目/健康/体能/专项技能主题表，把活动标题和课程能力项建立受控映射。桥接映射必须绑定学科、年级/版本、progression group 或 standard code，并带 source/review status；不能通过降低阈值或把泛词扩散成全局 alias 来绕过 evidence gate。
 
+详细数据契约和进阶判定规则见 `docs/H4G_SUBJECT_THEME_BRIDGE_PLAN.md`。
+
 ## 10. 下一步
 
 建议顺序：
