@@ -1,6 +1,6 @@
 # H4G 七八九年级 distinctiveness 修复记录
 
-更新时间：2026-07-01
+更新时间：2026-07-02
 
 本文记录 `H4G7`、`H4G8`、`H4G9` 中 standards 几乎完全相同的问题、已完成的系统性修复，以及后续真正做年级进阶拆解的路线。
 
@@ -239,16 +239,171 @@ npm run textbooks:apply-h4g-unit-candidates -- --candidate /tmp/h4g_unit_evidenc
 npm run textbooks:audit-unit-matches -- --strict --require-matches --require-eligible
 ```
 
-该小批量已经通过严格匹配审计并形成带页码证据的写回前候选包，但仍不能直接写入 `public/data`：跨版本一致性、人工/规则复核和正式 apply 流程尚未完成。
+## 7. 2026-07-02 数学三版本 page-clean 候选进展
 
-优先级建议：
+本轮继续沿着“先证据、后写入”的路线推进数学。已完成三套完整 7/8/9 数学版本的端到端候选：
+
+| 版本 | 运行目录 | 状态 |
+| --- | --- | --- |
+| 人教版-人民教育出版社 | `generated/textbook_evidence/h4g_runs/math_renjiao_smoke` | 已生成候选 |
+| 冀教版-河北教育出版社 | `generated/textbook_evidence/h4g_runs/math_jijiao_smoke` | 已生成候选 |
+| 华东师大版-华东师范大学出版社 | `generated/textbook_evidence/h4g_runs/math_huadong_smoke` | 已生成候选 |
+
+三版本合并时使用发布前页码门：
+
+```bash
+npm run textbooks:combine-h4g-unit-candidates -- \
+  --candidates generated/textbook_evidence/h4g_runs/math_renjiao_smoke/h4g_unit_evidence_candidate.json,generated/textbook_evidence/h4g_runs/math_jijiao_smoke/h4g_unit_evidence_candidate.json,generated/textbook_evidence/h4g_runs/math_huadong_smoke/h4g_unit_evidence_candidate.json \
+  --out generated/textbook_evidence/h4g_runs/math_three_edition_page_clean/h4g_unit_evidence_candidate.json \
+  --summary-out generated/textbook_evidence/h4g_runs/math_three_edition_page_clean/h4g_unit_evidence_candidate_summary.md \
+  --strict \
+  --require-candidates \
+  --publication-page-gate
+```
+
+合并结果：
+
+```json
+{
+  "merged_candidates": 24,
+  "unit_evidence_objects": 74,
+  "by_grade_band": {
+    "H4G7": 8,
+    "H4G8": 9,
+    "H4G9": 7
+  },
+  "multi_edition_standards": 14,
+  "single_edition_standards": 10,
+  "excluded_unit_evidence_objects": 33,
+  "excluded_by_page_range_status": {
+    "toc_page_nonmonotonic": 33
+  }
+}
+```
+
+这说明三版本数学候选已经比两版本候选更稳定：候选 records 从 21 增加到 24，unit evidence 从 56 增加到 74，多版本支撑 standards 从 9 增加到 14；同时所有非单调页码证据都被 page-clean gate 排除。
+
+### 7.1 已通过的门
+
+三版本候选安全审计通过：
+
+```json
+{
+  "valid": true,
+  "candidates": 24,
+  "unit_evidence_objects": 74,
+  "page_start_records": 74,
+  "page_range_records": 74,
+  "errors": 0,
+  "warnings": 0
+}
+```
+
+consistency audit 在 review-only 口径下通过：
+
+```json
+{
+  "valid": true,
+  "page_start_gate_ready": true,
+  "page_range_gate_ready": true,
+  "nonmonotonic_page_records": 0,
+  "multi_edition_standards": 14,
+  "single_edition_standards": 10,
+  "complete_progression_group_candidates": 1,
+  "partial_progression_group_candidates": 17
+}
+```
+
+候选包已应用到独立数据根：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_page_clean/data_candidate
+```
+
+并通过：
+
+```bash
+node scripts/build-indexes.js --data-root generated/textbook_evidence/h4g_runs/math_three_edition_page_clean/data_candidate
+node scripts/validate-data-indexes.js --data-root generated/textbook_evidence/h4g_runs/math_three_edition_page_clean/data_candidate
+npm run grade7_9:audit-h4g-distinctiveness -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_page_clean/data_candidate --strict
+npm run grade7_9:audit-grade-band-policy -- --public-data-root generated/textbook_evidence/h4g_runs/math_three_edition_page_clean/data_candidate --data-only --strict
+```
+
+候选根仍保持 `1933` 条 standards，数学 `161` 条，说明该流程只添加单元证据候选，没有改写官方课标字段。
+
+### 7.2 仍未通过的发布门
+
+发布级门槛仍未通过：
+
+```json
+{
+  "valid": false,
+  "standards_below_min_editions": 10,
+  "progression_groups": 18,
+  "complete_progression_group_candidates": 1,
+  "partial_progression_group_candidates": 17,
+  "progression_groups_below_min_editions": 5,
+  "nonmonotonic_page_records": 0
+}
+```
+
+因此该数学三版本候选仍是 review-only，不应直接写入 `public/data`。主要缺口不是页码质量，而是跨版本一致性和 G7/G8/G9 进阶组完整度。
+
+当前单版本 standards：
+
+| standard_code | grade_band | subdomain | 当前唯一版本 | 单元 |
+| --- | --- | --- | --- | --- |
+| `MA-H4G7-ALG-007` | H4G7 | 实数 | 人教版-人民教育出版社 | `6.3 实数` |
+| `MA-H4G7-ALG-010` | H4G7 | 代数式 | 华东师大版-华东师范大学出版社 | `3.1 列代数式 /` |
+| `MA-H4G7-GEO-037` | H4G7 | 图形的位置与坐标 | 人教版-人民教育出版社 | `第七章 平面直角坐标系`、`7.1 平面直角坐标系` |
+| `MA-H4G7-GEO-040` | H4G7 | 图形的运动与坐标 | 人教版-人民教育出版社 | `第七章 平面直角坐标系`、`7.1 平面直角坐标系` |
+| `MA-H4G8-ALG-029` | H4G8 | 反比例函数 | 华东师大版-华东师范大学出版社 | `17.4 反比例函数 /` |
+| `MA-H4G8-GEO-020` | H4G8 | 定义命题定理与证明 | 华东师大版-华东师范大学出版社 | `13.1 命题、定理与证明 /` |
+| `MA-H4G8-GEO-023` | H4G8 | 轴对称 | 冀教版-河北教育出版社 | `16.1 轴对称` |
+| `MA-H4G8-GEO-038` | H4G8 | 图形的位置与坐标 | 冀教版-河北教育出版社 | `第十九章 平面直角坐标系` |
+| `MA-H4G8-GEO-041` | H4G8 | 图形的运动与坐标 | 冀教版-河北教育出版社 | `第十九章 平面直角坐标系` |
+| `MA-H4G9-GEO-036` | H4G9 | 投影视图与展开图 | 冀教版-河北教育出版社 | `32.3 直棱柱和圆锥的侧面展开图` |
+
+当前不完整 progression groups：
+
+| progression_group_id | 已覆盖 | 缺失 | standards |
+| --- | --- | --- | --- |
+| `math-0a46f4ce0f0992` | H4G8 | H4G7, H4G9 | `MA-H4G8-ALG-023` |
+| `math-277214238af387` | H4G7, H4G8 | H4G9 | `MA-H4G7-GEO-040`, `MA-H4G8-GEO-041` |
+| `math-345c62c4b339ff` | H4G9 | H4G7, H4G8 | `MA-H4G9-ALG-027` |
+| `math-4c3aea46890a49` | H4G7 | H4G8, H4G9 | `MA-H4G7-ALG-007` |
+| `math-53511c80d61c2f` | H4G8 | H4G7, H4G9 | `MA-H4G8-GEO-023` |
+| `math-69f11fc5c4e9d7` | H4G8 | H4G7, H4G9 | `MA-H4G8-GEO-014` |
+| `math-78f4d5d99da1f7` | H4G8, H4G9 | H4G7 | `MA-H4G8-ALG-029`, `MA-H4G9-ALG-030` |
+| `math-940b98b661e748` | H4G9 | H4G7, H4G8 | `MA-H4G9-GEO-033` |
+| `math-9861497a513d68` | H4G9 | H4G7, H4G8 | `MA-H4G9-GEO-036` |
+| `math-a150404509d8f2` | H4G7 | H4G8, H4G9 | `MA-H4G7-ALG-016` |
+| `math-aaf500e9978601` | H4G7 | H4G8, H4G9 | `MA-H4G7-ALG-004` |
+| `math-bfedcd833a8d70` | H4G7 | H4G8, H4G9 | `MA-H4G7-ALG-010` |
+| `math-d856f0e4936a67` | H4G9 | H4G7, H4G8 | `MA-H4G9-GEO-018` |
+| `math-ebcb1d40147403` | H4G7 | H4G8, H4G9 | `MA-H4G7-GEO-007` |
+| `math-f2c7b690c0a85b` | H4G7, H4G8 | H4G9 | `MA-H4G7-GEO-037`, `MA-H4G8-GEO-038` |
+| `math-f8d97669301604` | H4G8, H4G9 | H4G7 | `MA-H4G8-GEO-011`, `MA-H4G9-GEO-012` |
+| `math-fc9470468452b2` | H4G8 | H4G7, H4G9 | `MA-H4G8-GEO-020` |
+
+### 7.3 下一步修复顺序
+
+1. 先不写 `public/data`，继续把三版本数学候选作为 review pack。
+2. 对 `toc_page_nonmonotonic` 被排除的 33 条证据做目录解析/人工确认修复，优先看是否能为上表的单版本 standards 补第二版本。
+3. 对 progression groups 缺失年级做反向检索：从缺失年级教材目录出发，查是否是匹配锚点过严、目录标题同义词未覆盖，还是该版本教材确实没有对应单元。
+4. 只有同时满足 `--min-editions-per-standard 2`、`--min-editions-per-progression-group 2`、`--require-complete-progression-groups` 且非单调页码为 0，才允许把对应 records 从 `same_source_shared` 进一步升级为真正的 `grade_specific_variant`。
+5. 数学门槛跑通后，再复制同一套 page-clean + publication gate 到科学、英语、体育、艺术等具备多版本教材的学科。
+
+当前数学/科学候选包已经能形成带页码证据的写回前 review pack，但仍不能直接写入 `public/data`：跨版本一致性、完整 progression group、人工/规则复核和正式 apply 流程尚未全部完成。
+
+跨学科优先级建议：
 
 1. 数学、科学：先按 `textbooks:plan-h4g-unit-worklist -- --subjects math,science` 推荐的完整版本批次建立稳定 PDF/OCR 缓存。
 2. 英语、体育、艺术：有至少两个完整教材版本，可在数学/科学流程稳定后进入跨版本候选生成。
 3. 语文、道德与法治：当前只有一个完整统编版本，适合先做单版本 review pack，但不能单独证明跨版本一致。
 4. 信息科技、劳动：当前 ChinaTextbook 覆盖为空，应继续低置信度并寻找补充教材来源。
 
-## 7. 当前边界
+## 8. 当前边界
 
 当前 public 数据可以支持：
 
