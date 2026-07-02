@@ -1765,6 +1765,147 @@ generated/textbook_evidence/h4g_runs/science_eight_edition_page_clean/
 
 因此下一步应回到完整 direct_all_grades 版本，优先补同年级第二版本证据和缺失 H4G9 节点；adjacent 分科版本只能解释特定主题的投放差异，不能替代完整版本的发布 gate。
 
+### 8.11 科学沪教版完整八册复跑与 page-clean 稳定性
+
+2026-07-03 对科学沪教版重新执行完整 `direct_all_grades` 证据链。此前 `science_hujiao_unit_review` 只覆盖 7 个文件，缺少 `ctb_f7198c2bcad8`（沪教版九年级化学下册），并且该文件当时只有 `.part` 缓存。本轮 8 个 evidence 的本地 Git blob 均可读，使用本地 blob 物化，未走下载 fallback。
+
+完整八册 evidence：
+
+| evidence_id | 教材 | object size |
+| --- | --- | ---: |
+| `ctb_21ad4cf3b58e` | 科学 八年级 下册 | 7,742,016 |
+| `ctb_4a2f8e984139` | 科学 七年级 下册 | 7,645,810 |
+| `ctb_67c7dbc3ca69` | 科学 七年级 上册 | 8,243,931 |
+| `ctb_7e63d69177a1` | 科学 九年级 上册 | 10,019,020 |
+| `ctb_95efc7d32733` | 化学 九年级 上册 | 19,096,092 |
+| `ctb_afa098984e6c` | 科学 九年级 下册 | 10,191,899 |
+| `ctb_eeb16734255b` | 科学 八年级 上册 | 8,722,065 |
+| `ctb_f7198c2bcad8` | 化学 九年级 下册 | 44,714,543 |
+
+unit-index 输出到：
+
+```text
+generated/textbook_evidence/h4g_runs/science_hujiao_full_unit_review/
+```
+
+完整目录抽取结果：
+
+```json
+{
+  "textbook_files": 8,
+  "unit_candidates": 99,
+  "real_unit_or_chapter_candidates": 99,
+  "volume_seed_candidates": 0,
+  "page_start_candidates": 48,
+  "page_range_candidates": 48,
+  "by_unit_level": {
+    "chapter": 70,
+    "numbered_item": 2,
+    "unit": 27
+  },
+  "by_page_range_status": {
+    "missing": 51,
+    "toc_page_nonmonotonic": 2,
+    "toc_page_range_inferred": 43,
+    "toc_page_start_only": 3
+  },
+  "by_extraction_status": {
+    "cached": 7,
+    "materialized": 1
+  },
+  "by_text_status": {
+    "ocr_text_extracted": 5,
+    "text_extracted": 3
+  }
+}
+```
+
+单元索引审计通过。标准匹配结果：
+
+```json
+{
+  "standards_evaluated": 201,
+  "unit_candidates_considered": 99,
+  "matches": 35,
+  "standards_with_matches": 26,
+  "eligible_matches": 4,
+  "unmatched_standards": 175,
+  "confidence": {
+    "low": 30,
+    "medium": 5
+  },
+  "by_eligible_alignment": {
+    "strong_field_alignment": 4
+  }
+}
+```
+
+沪教版完整八册最终 page-clean H4G candidate 仍只有 2 条 standards，均为 H4G9，并通过 candidate audit 与普通 consistency audit：
+
+| standard_code | grade_band | evidence_id | 单元 | page_status |
+| --- | --- | --- | --- | --- |
+| `SC-H4G9-CHG-009` | H4G9 | `ctb_95efc7d32733` | `第4章 认识化学变化 ------` p.91 | `toc_page_range_inferred` |
+| `SC-H4G9-ECO-009` | H4G9 | `ctb_afa098984e6c` | `第三章 健康生活 ------` p.56-69 | `toc_page_range_inferred` |
+
+另外 2 条 H4G8 eligible matches 被 `--require-page-start` 过滤掉，原因不是缺少单元匹配，而是沪教版八上目录标题 `第八章 生态系统-----112` 没有被当前页码解析器稳定拆出 `page_start`：
+
+| standard_code | grade_band | evidence_id | 单元 | page_status |
+| --- | --- | --- | --- | --- |
+| `SC-H4G8-ECO-005` | H4G8 | `ctb_eeb16734255b` | `第八章 生态系统-----112` | `missing` |
+| `SC-H4G8-LIFE-017` | H4G8 | `ctb_eeb16734255b` | `第八章 生态系统-----112` | `missing` |
+
+也就是说，沪教版完整八册复跑解决了“缺九下化学文件”的问题，但没有增加 page-clean 候选；真正的下一处高价值修复是安全处理 `第八章 生态系统-----112` 这类 OCR/目录连字符页码，而不是机械重复整版复跑。
+
+随后将完整沪教版候选与既有科学八版本 page-clean 候选合并，输出到：
+
+```text
+generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/
+```
+
+合并结果仍为 37 条 standards、54 个 unit evidence objects：
+
+```json
+{
+  "merged_candidates": 37,
+  "unit_evidence_objects": 54,
+  "multi_edition_standards": 10,
+  "single_edition_standards": 27,
+  "by_grade_band": {
+    "H4G7": 12,
+    "H4G8": 14,
+    "H4G9": 11
+  },
+  "by_edition": {
+    "华东师大版-华东师范大学出版社": 19,
+    "武汉版-武汉出版社": 10,
+    "科普版-科学普及出版社": 3,
+    "浙教版-浙江教育出版社": 11,
+    "人教版-人民教育出版社": 5,
+    "苏科版-江苏凤凰科学技术出版社": 2,
+    "北京版-北京出版社": 2,
+    "沪教版-上海教育出版社": 2
+  },
+  "unit_evidence_missing_page_start": 0,
+  "nonmonotonic_page_records": 0
+}
+```
+
+发布级 gate 仍失败，且失败原因没有变化：
+
+```json
+{
+  "standards_below_min_editions": 27,
+  "progression_groups": 27,
+  "progression_groups_below_min_editions": 14,
+  "complete_progression_group_candidates": 1,
+  "partial_progression_group_candidates": 26,
+  "unit_evidence_missing_page_start": 0,
+  "nonmonotonic_page_records": 0
+}
+```
+
+刷新 `math,science --discover-candidates` 后，worklist 仍推荐沪教版、华东师大版、武汉版三个完整 `direct_all_grades` 工作项；但这里要区分“规划器看到沪教版仍有 gap”和“沪教版刚完成完整复跑但 page-clean 没有新增”。因此下一步不应再无条件重复沪教版整版任务，而应二选一：先对沪教八上 `第八章 生态系统-----112` 做页码解析/人工 override 复核，或跳过重复沪教复跑，进入华东师大版、武汉版完整版本补同年级第二版本证据。
+
 ## 9. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。
@@ -1818,7 +1959,7 @@ H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 
 建议顺序：
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
-2. 科学已完成苏科版、北京版和科普版候选链，下一步回到沪教版、华东师大版、武汉版完整 direct_all_grades 版本补缺；每批仍先生成 review-only 候选，不写 `public/data`。
+2. 科学已完成苏科版、北京版、科普版候选链，并补齐沪教版完整八册复跑；下一步优先处理沪教八上生态系统页码解析/override，或进入华东师大版、武汉版完整 direct_all_grades 补缺；每批仍先生成 review-only 候选，不写 `public/data`。
 3. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
 4. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
 5. 使用 `textbooks:h4g-progression-decisions` 合并同年级证据、reverse gaps 和投放差异，形成可复核的发布前决策矩阵。
