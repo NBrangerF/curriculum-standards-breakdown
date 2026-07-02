@@ -812,8 +812,8 @@ function parseInlineTocPageTail(value) {
   return { line: normalized, pageStart: null, pageSource: '' }
 }
 
-function applyTocPageStart(candidate, pageStart, pageSource) {
-  if (!pageStart || candidate.page_start) return candidate
+function applyTocPageStart(candidate, pageStart, pageSource, options = {}) {
+  if (!pageStart || (candidate.page_start && !options.override)) return candidate
   candidate.page_start = pageStart
   candidate.toc_page_start = pageStart
   candidate.page_range = String(pageStart)
@@ -1036,9 +1036,24 @@ function candidateFromLine(line, pdfPage, sourceOrder) {
   return null
 }
 
+function assignTocPageNumberBlocks(pages) {
+  const blockPages = pages.filter(page => page.candidates.length >= 5 && (page.pageNumbers || []).length >= 5)
+  if (!blockPages.length) return pages
+  const candidates = blockPages.flatMap(page => page.candidates)
+  const pageNumbers = blockPages.flatMap(page => page.pageNumbers || [])
+  if (pageNumbers.length < Math.ceil(candidates.length * 0.75)) return pages
+  const limit = Math.min(candidates.length, pageNumbers.length)
+  for (let index = 0; index < limit; index += 1) {
+    const candidate = candidates[index]
+    if (candidate.page_start && candidate.toc_page_source !== 'toc_following_page_number_line') continue
+    applyTocPageStart(candidate, pageNumbers[index], 'toc_page_number_block', { override: true })
+  }
+  return pages
+}
+
 function extractTocCandidates(text) {
   const pages = []
-  let current = { pdfPage: null, candidates: [], hasTocHeading: false, pendingPrefix: '', pendingTocChar: '' }
+  let current = { pdfPage: null, candidates: [], pageNumbers: [], hasTocHeading: false, pendingPrefix: '', pendingTocChar: '' }
   let pdfPage = null
   let tocSourceOrder = 0
   let pendingPageCandidate = null
@@ -1047,7 +1062,7 @@ function extractTocCandidates(text) {
     if (pageMatch) {
       if (current.pdfPage !== null || current.hasTocHeading || current.candidates.length) pages.push(current)
       pdfPage = Number(pageMatch[1])
-      current = { pdfPage, candidates: [], hasTocHeading: false, pendingPrefix: '', pendingTocChar: '' }
+      current = { pdfPage, candidates: [], pageNumbers: [], hasTocHeading: false, pendingPrefix: '', pendingTocChar: '' }
       pendingPageCandidate = null
       continue
     }
@@ -1055,6 +1070,7 @@ function extractTocCandidates(text) {
     if (!normalized) continue
     const printedPage = parsePageNumberLine(rawLine)
     if (printedPage) {
+      current.pageNumbers.push(printedPage)
       if (pendingPageCandidate) applyTocPageStart(pendingPageCandidate, printedPage, 'toc_following_page_number_line')
       pendingPageCandidate = null
       continue
@@ -1095,6 +1111,7 @@ function extractTocCandidates(text) {
   }
   if (current.pdfPage !== null || current.hasTocHeading || current.candidates.length) pages.push(current)
 
+  assignTocPageNumberBlocks(pages)
   const out = selectTocWindowCandidates(pages)
   const seen = new Set()
   const deduped = out.filter(candidate => {

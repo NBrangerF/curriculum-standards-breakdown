@@ -716,11 +716,13 @@ runner summary 的关键指标：
 - 八年级上、八年级下、九年级上、九年级下曾在 60 秒单册 Git blob 窗口内返回 `materialize_timeout`；加入 raw URL fallback 与 `.part` 断点续传后，六册都能稳定进入文本层目录解析。
 - 该结果说明先前瓶颈主要是远端 PDF blob 获取稳定性，不是浙教版科学八、九年级教材没有目录。
 
-浙教版六册完整诊断命令：
+浙教版六册持久复跑命令：
 
 ```bash
-npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6,ctb_943ec07406e2,ctb_c4e71c26b3da,ctb_056ac74f165c,ctb_df20fdb436e6 --materialize --ocr-fallback --max-pages 16 --materialize-timeout-ms 60000 --download-timeout-ms 180000 --debug-text-dir /tmp/textbook_debug_text_science_h4g_zj_all_pages --out /tmp/textbook_unit_index_science_h4g_zj_all_pages.json --summary-out /tmp/textbook_unit_index_science_h4g_zj_all_pages.md
+npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6,ctb_943ec07406e2,ctb_c4e71c26b3da,ctb_056ac74f165c,ctb_df20fdb436e6 --materialize --ocr-fallback --max-pages 16 --materialize-timeout-ms 60000 --download-timeout-ms 180000 --debug-text-dir generated/textbook_evidence/h4g_runs/science_zj_unit_review/debug_text --out generated/textbook_evidence/h4g_runs/science_zj_unit_review/textbook_unit_index.json --summary-out generated/textbook_evidence/h4g_runs/science_zj_unit_review/textbook_unit_index_summary.md
 ```
+
+2026-07-03 复跑时发现浙教版科学目录文本采用“标题块 + 独立页码块”格式：目录页先列出多个章节标题，再在页面下方集中列出页码。`build_textbook_unit_index.js` 现在只在明显目录页块中绑定这类页码，即同一 PDF 页至少有 5 个目录候选和 5 个独立页码行；绑定后仍交给 `page_range_status` 和 consistency audit 判断是否存在非单调页码风险。
 
 目录索引结果：
 
@@ -733,9 +735,9 @@ npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6
   "page_range_candidates": 175,
   "volume_seed_candidates": 0,
   "by_page_range_status": {
-    "toc_page_range_inferred": 136,
-    "toc_page_nonmonotonic": 33,
-    "toc_page_start_only": 6
+    "toc_page_range_inferred": 163,
+    "toc_page_nonmonotonic": 1,
+    "toc_page_start_only": 11
   },
   "by_extraction_status": {
     "cached": 6
@@ -762,8 +764,7 @@ npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6
     "strong_field_alignment": 7
   },
   "by_page_range_status": {
-    "toc_page_range_inferred": 10,
-    "toc_page_nonmonotonic": 1
+    "toc_page_range_inferred": 11
   }
 }
 ```
@@ -778,17 +779,17 @@ npm run textbooks:unit-index -- --evidence-ids ctb_4f376c0018fa,ctb_3f30c933f4d6
 | `SC-H4G8-HOME-002` | H4G8 | `strong_field_alignment` | `第6节 光合作用` | `129-163` | `toc_page_range_inferred` |
 | `SC-H4G8-HOME-008` | H4G8 | `strong_field_alignment` | `第3节 神经调节` | `121-128` | `toc_page_range_inferred` |
 | `SC-H4G8-MAT-005` | H4G8 | `strong_field_alignment` | `第4节 二氧化碳` | `115-119` | `toc_page_range_inferred` |
-| `SC-H4G9-ECO-003` | H4G9 | `strong_field_alignment` | `第1节 生物与环境的相互关系` | `42-78` | `toc_page_range_inferred` |
-| `SC-H4G9-ECO-009` | H4G9 | `strong_field_alignment` | `第6节 健康生活` | `125` | `toc_page_nonmonotonic` |
-| `SC-H4G9-ECO-012` | H4G9 | `strong_field_alignment` | `第1节 生物与环境的相互关系` | `42-78` | `toc_page_range_inferred` |
-| `SC-H4G9-ENE-006` | H4G9 | `subdomain_anchor` | `第4章 可持续发展` | `120-148` | `toc_page_range_inferred` |
+| `SC-H4G9-ECO-003` | H4G9 | `strong_field_alignment` | `第1节 生物与环境的相互关系` | `42-46` | `toc_page_range_inferred` |
+| `SC-H4G9-ECO-009` | H4G9 | `strong_field_alignment` | `第6节 健康生活` | `125-134` | `toc_page_range_inferred` |
+| `SC-H4G9-ECO-012` | H4G9 | `strong_field_alignment` | `第1节 生物与环境的相互关系` | `42-46` | `toc_page_range_inferred` |
+| `SC-H4G9-ENE-006` | H4G9 | `subdomain_anchor` | `第4章 可持续发展` | `120-124` | `toc_page_range_inferred` |
 | `SC-H4G9-MAT-009` | H4G9 | `subdomain_anchor` | `第1节 金属材料` | `47-53` | `toc_page_range_inferred` |
 
-候选 review pack 已生成到 `/tmp/h4g_unit_evidence_candidate_science_zj_all_pages.md`，包含 11 条逐条复核明细。新增候选包审计对 `/tmp/h4g_unit_evidence_candidate_science_zj_all_pages.json` 通过，结果为 valid true、errors 0、warnings 0；使用 `--require-page-start` 时也通过，并确认 11 条候选都带有 `page_start/page_range`。alignment 分布为 `subdomain_anchor` 4、`strong_field_alignment` 7；页码状态分布为 `toc_page_range_inferred` 10、`toc_page_nonmonotonic` 1。
+候选 review pack 已生成到 `generated/textbook_evidence/h4g_runs/science_zj_unit_review/h4g_unit_evidence_candidate_summary.md` 和 `h4g_unit_evidence_candidate.json`，包含 11 条逐条复核明细。候选包审计对 `generated/textbook_evidence/h4g_runs/science_zj_unit_review/h4g_unit_evidence_candidate.json` 通过，结果为 valid true、errors 0、warnings 0；使用 `--require-page-start` 时也通过，并确认 11 条候选都带有 `page_start/page_range`。alignment 分布为 `subdomain_anchor` 4、`strong_field_alignment` 7；页码状态分布为 `toc_page_range_inferred` 11。
 
-新增 consistency audit 对同一候选包的结果为：普通 review gate valid true，`page_start_gate_ready: true`，但 `page_range_gate_ready: false`、`cross_version_consistency_proven: false`、`complete_progression_groups: false`。原因是 11 条候选都只来自 `浙教版-浙江教育出版社` 一个版本，其中 1 条存在 `toc_page_nonmonotonic`，且 11 个 progression group 都只覆盖了三年级中的一个年级。因此该样本已经能证明候选证据链可跑通，但不能证明可正式发布为跨版本一致的 H4G 年级分化。
+新增 consistency audit 对同一候选包的结果为：普通 review gate valid true，`page_start_gate_ready: true`、`page_range_gate_ready: true`，但 `cross_version_consistency_proven: false`、`complete_progression_groups: false`。原因是 11 条候选都只来自 `浙教版-浙江教育出版社` 一个版本，且 11 个 progression group 都只覆盖了三年级中的一个年级。因此该样本已经能证明候选证据链可跑通，但不能证明可正式发布为跨版本一致的 H4G 年级分化。
 
-这个样本证明科学浙教版 7/8/9 六册可以走通 PDF 获取、目录抽取、目录印刷页解析、标准匹配和候选包审计；也证明 H4G8 的问题主要来自过严的 `subdomain` 逐字锚点，而不是教材缺失。当前 11 条仍是候选证据，不能直接把记录标成 `grade_specific_variant`；下一步要继续做跨版本一致性、人工/规则复核，并对 `toc_page_nonmonotonic` 的页段做人工确认。
+这个样本证明科学浙教版 7/8/9 六册可以走通 PDF 获取、目录抽取、目录印刷页解析、标准匹配和候选包审计；也证明 H4G8 的问题主要来自过严的 `subdomain` 逐字锚点，而不是教材缺失。当前 11 条仍是候选证据，不能直接把记录标成 `grade_specific_variant`；下一步要继续做跨版本一致性，并用科学沪教版、华东师大版、武汉版等版本补第二版本证据。
 
 2026-07-02 追加科学 worklist 诊断：`textbooks:plan-h4g-unit-worklist -- --subjects science` 识别到 201 条科学 H4G records、67 个完整同文三元 progression groups，推荐优先跑沪教版、华东师大版和武汉版三个完整 7/8/9 教材版本。华东师大版完整 work item 在物化阶段长时间等待，因此先缩小到单册 `ctb_538ade3b02d2`（七年级上册）做 PDF 获取诊断。
 
