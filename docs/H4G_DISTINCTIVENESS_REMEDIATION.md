@@ -1465,6 +1465,53 @@ generated/textbook_evidence/h4g_runs/math_six_edition_page_clean/
 
 英语外研社目录因此已能抽出 47 个真实 module/unit 候选，但标准匹配仍为 0；体育人教版目录也能抽出 13 个真实候选但匹配仍为 0。根因不是目录解析，而是英语标准多为中文能力描述、教材单元多为英文主题标题；体育标准多为体能/健康/品德能力项，教材单元多为运动项目或活动主题。下一步需要学科级主题桥接或标准级 alias source review，不能用泛词匹配绕过 evidence gate。
 
+### 7.23 English / PE 主题桥接缺口审计
+
+为把上述判断固化成可复现质量门，新增只读命令：
+
+```bash
+npm run textbooks:audit-h4g-theme-bridge-gaps -- \
+  --run-dirs generated/textbook_evidence/h4g_runs/h4g_unit_work_english_89497c34,generated/textbook_evidence/h4g_runs/h4g_unit_work_pe_6aec3166 \
+  --out generated/textbook_evidence/h4g_theme_bridge_gaps_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_gaps_english_pe.md \
+  --strict \
+  --require-items
+```
+
+审计结果为 `valid=true`，并生成 2 个 bridge work items：
+
+```json
+{
+  "bridge_work_items": 2,
+  "by_bridge_type": {
+    "bilingual_topic_bridge_required": 1,
+    "curriculum_activity_theme_bridge_required": 1
+  },
+  "by_subject": {
+    "english": {
+      "real_unit_or_chapter_candidates": 47,
+      "default_matches": 0,
+      "low_threshold_matches": 0,
+      "eligible_matches": 0
+    },
+    "pe": {
+      "real_unit_or_chapter_candidates": 13,
+      "default_matches": 0,
+      "low_threshold_matches": 114,
+      "eligible_matches": 0
+    }
+  }
+}
+```
+
+这一步明确区分了两个不同根因：
+
+- English：47 个真实目录候选都是英文标题，中文课标能力描述与英文教材主题在当前 token 模型下没有低阈值 overlap，应先做受控双语主题表，再把主题映射绑定到 progression group 或 standard code。
+- PE：低阈值虽然有 114 个弱匹配，但最高分只有 0.2525，且都没有 eligible alignment；“运动”“健康”等泛词不能作为证据，应先建立运动项目/健康/体能/专项技能主题表，再做 source review。
+- 两者还都有 page start gap：English 16/47，PE 1/13。主题桥接通过后仍需要页码补证据或人工回源复核，才能进入 reviewed publication gate。
+
+因此，English/PE 的下一步不是调低通用匹配分数，而是新增学科级主题桥接层；桥接数据必须记录来源、年级/版本适用范围和 review status，且不得改写官方课标原文。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：

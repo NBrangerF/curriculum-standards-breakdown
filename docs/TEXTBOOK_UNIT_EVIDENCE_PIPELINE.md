@@ -2407,6 +2407,21 @@ blocked remediation packet 的边界：`textbooks:h4g-blocked-remediation-packet
 
 H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 是总览型数据质量画像，不是发布 gate。它把每个学科的 H4G 总量、完整三元组、核心文本重复、单元证据、待复核候选、final-ready 记录和建议下一步整理成一张 compact matrix，用于决定下一批应该优先补单元证据、补复核决策，还是处理低置信度来源缺口。
 
+H4G subject theme bridge gap audit 的边界：`textbooks:audit-h4g-theme-bridge-gaps` 是学科桥接缺口审计，不是匹配器或发布 gate。它读取已执行 work item 的 `textbook_unit_index.json`、标准匹配结果和可选低阈值诊断匹配，专门识别“真实单元已经存在，但当前标准-单元匹配无法生成 H4G 候选证据”的情况。当前 English/PE 审计命令如下：
+
+```bash
+npm run textbooks:audit-h4g-theme-bridge-gaps -- \
+  --run-dirs generated/textbook_evidence/h4g_runs/h4g_unit_work_english_89497c34,generated/textbook_evidence/h4g_runs/h4g_unit_work_pe_6aec3166 \
+  --out generated/textbook_evidence/h4g_theme_bridge_gaps_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_gaps_english_pe.md \
+  --strict \
+  --require-items
+```
+
+当前结果生成 2 个 bridge work items：English 为 `bilingual_topic_bridge_required`，PE 为 `curriculum_activity_theme_bridge_required`。English 有 47 个真实 module/unit/revision module 候选，默认匹配 0、低阈值匹配 0、eligible 0，说明中文课标能力描述与英文单元标题在当前 token 模型下不可比；PE 有 13 个真实章节/活动候选，默认匹配 0、低阈值弱匹配 114、eligible 0，说明“运动”“健康”等泛词不足以支撑证据升级。两个学科都还有 page start gap：English 16/47，PE 1/13。
+
+该审计只输出诊断和 recommended actions，不写 `public/data`，不新增 alias，也不改官方课标原文。English/PE 的下一步应先建立可复核的学科主题桥接层：English 需要受控双语主题表，把英文 unit/module 标到中文课程主题；PE 需要运动项目/健康/体能/专项技能主题表，把活动标题和课程能力项建立受控映射。桥接映射必须绑定学科、年级/版本、progression group 或 standard code，并带 source/review status；不能通过降低阈值或把泛词扩散成全局 alias 来绕过 evidence gate。
+
 ## 10. 下一步
 
 建议顺序：
