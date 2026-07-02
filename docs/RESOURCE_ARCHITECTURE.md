@@ -399,12 +399,12 @@ npm run textbooks:apply-h4g-unit-candidates -- --strict
 - `textbooks:audit-h4g-placement-candidates` 必须确认 placement 候选包的 `writes_public_data=false`、`writes_textbook_unit_evidence_ids=false`，并确认 cross-grade unit evidence 只解释版本投放差异，不能升级为 same-grade evidence。
 - `textbooks:h4g-progression-decisions` 是发布前决策 gate。它把 same-grade unit evidence、reverse gap 和 edition placement evidence 合并到同一张矩阵中；输出可以说明哪些 standards 可进入人工发布复核、哪些需要 progression model 决策、哪些仍需继续补证据。
 - `textbooks:h4g-ready-unit-candidates` 是 ready-only 过滤 gate。它只保留 `same_grade_unit_candidate_ready`，因此可用于隔离数据根 QA；它仍不代表已完成正式年级化发布。
-- `textbooks:h4g-progression-review-worklist` 是 blocked standards 的复核任务 gate。它覆盖 ready-only 排除的跨版本投放差异和未解缺口，明确 cross-grade 单元只能诊断版本投放，不能写入 same-grade `textbook_unit_evidence_ids`。
-- `textbooks:h4g-edition-placement-model` 是 progression group 级模型候选 gate。它可以提出 `candidate_for_edition_placement_note`，但这仍只是课程进阶复核输入，不是前端发布字段，也不是 H4G standards 的单元级证据。
+- `textbooks:h4g-progression-review-worklist` 是 blocked standards 的复核任务 gate。它按标准级 decision 覆盖 ready-only 排除的跨版本投放差异和未解缺口；同一 progression group 可以同时生成 placement item 与 gap item。cross-grade 单元只能诊断版本投放，不能写入 same-grade `textbook_unit_evidence_ids`。
+- `textbooks:h4g-edition-placement-model` 是 progression group 级模型候选 gate。只有完整 multi-grade placement evidence 才能提出 `candidate_for_edition_placement_note`；单向或不完整 cross-grade 证据必须保持 partial review。它仍只是课程进阶复核输入，不是前端发布字段，也不是 H4G standards 的单元级证据。
 - `textbooks:h4g-publication-review` 是发布前复核包 gate。它把 same-grade unit review、progression-group edition placement note review 和 blocked review 拆成互斥层；该包仍不写 `public/data`，也不写 `textbook_unit_evidence_ids`。
 - `textbooks:h4g-publication-contract` 是数据契约候选 gate。它只定义未来 additive publication surfaces 和字段白名单：标准级同年级单元证据、progression group 版本投放说明、blocked registry；它不迁移 `public/data`。
-- `textbooks:apply-h4g-publication-contract` 是发布契约 dry-run gate。它复制 `public/data` 到 generated 候选根，只按 contract 白名单写入同年级单元证据字段，并生成 `h4g_progression_notes.json` 候选；它仍拒绝写正式 `public/data`，也不会自动标记 `grade_specific_variant`。
-- `textbooks:audit-h4g-publication-readiness` 是发布前安全审计 gate。它要求 review packet、contract、apply summary、候选根、progression notes 和 blocked registry 互相一致；通过时只表示 `manual_review_ready=true`，仍明确 `publication_ready=false`。
+- `textbooks:apply-h4g-publication-contract` 是发布契约 dry-run gate。它复制 `public/data` 到 generated 候选根，只按 contract 白名单写入同年级单元证据字段，并生成 `h4g_progression_notes.json` 候选；当没有 note-ready 候选时允许空 notes collection。它仍拒绝写正式 `public/data`，也不会自动标记 `grade_specific_variant`。
+- `textbooks:audit-h4g-publication-readiness` 是发布前安全审计 gate。它要求 review packet、contract、apply summary、候选根、progression notes 和 blocked registry 互相一致；自定义 run 只有显式传入 decisions audit 才接入人工/课程复核审计。通过时只表示 `manual_review_ready=true`，仍明确 `publication_ready=false`。
 - `textbooks:h4g-publication-review-decisions` 是人工/课程复核入口生成 gate。它把 19 条 standard、5 条 progression note 和 2 条 blocked 项整理为可编辑决策文件，但默认所有必需复核仍是 `pending`。
 - `textbooks:audit-h4g-publication-review-decisions` 是决策文件审计 gate。默认允许 pending 并保持 `publication_ready=false`；复核完成后可加 `--require-complete`，要求 24 个必需人工/课程决策全部填写且不越权。
 - `textbooks:audit-h4g-publication-readiness -- --require-review-decisions-audit` 是决策模板接入后的 readiness 复跑 gate。它会把 `h4g_publication_review_decisions_audit` 中的 pending/complete 状态纳入 readiness summary；当前应报告 24 个必需决策 pending。

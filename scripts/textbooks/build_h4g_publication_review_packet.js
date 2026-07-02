@@ -92,9 +92,15 @@ function standardDecisionMap(decisionMatrix) {
     .map(row => [row.standard_code, row]))
 }
 
-function worklistByGroup(worklist) {
+function worklistById(worklist) {
   return new Map((worklist.work_items || [])
-    .filter(item => item.progression_group_id)
+    .filter(item => item.work_item_id)
+    .map(item => [item.work_item_id, item]))
+}
+
+function editionWorklistByGroup(worklist) {
+  return new Map((worklist.work_items || [])
+    .filter(item => item.work_item_type === 'edition_placement_model_review' && item.progression_group_id)
     .map(item => [item.progression_group_id, item]))
 }
 
@@ -159,7 +165,7 @@ function editionNoteReview(candidate, workItem) {
     edition_count: candidate.placement_summary?.edition_count || 0,
     cross_grade_diagnostic_relations: (candidate.placement_relations || [])
       .filter(row => row.grade_relation !== 'same_grade').length,
-    required_decision_owner: workItem?.required_decision_owner || candidate.required_review?.decision_owner || 'curriculum_progression_review',
+    required_decision_owner: workItem?.required_decision?.decision_owner || candidate.required_review?.decision_owner || 'curriculum_progression_review',
     allowed_future_publication_surface: 'progression_group_edition_placement_note_after_curriculum_review',
     disallowed_publication_surface: 'same_grade_textbook_unit_evidence_ids',
     safety: {
@@ -335,7 +341,8 @@ function buildPayload(args) {
   errors.push(...inputPolicyErrors(inputs.decisionMatrix, 'decisionMatrix'))
 
   const decisionByCode = standardDecisionMap(inputs.decisionMatrix)
-  const workItemByGroup = worklistByGroup(inputs.reviewWorklist)
+  const workItemById = worklistById(inputs.reviewWorklist)
+  const editionWorkItemByGroup = editionWorklistByGroup(inputs.reviewWorklist)
   const sameGradeUnitReviews = (inputs.readyCandidate.candidates || [])
     .map(candidate => readyReview(candidate, decisionByCode))
     .sort((a, b) => a.standard_code.localeCompare(b.standard_code))
@@ -343,7 +350,7 @@ function buildPayload(args) {
   const noteReviews = []
   const blockedReviews = []
   for (const candidate of inputs.editionModel.candidates || []) {
-    const workItem = workItemByGroup.get(candidate.progression_group_id)
+    const workItem = workItemById.get(candidate.source_work_item_id) || editionWorkItemByGroup.get(candidate.progression_group_id)
     if (candidate.placement_model?.decision === 'candidate_for_edition_placement_note') {
       noteReviews.push(editionNoteReview(candidate, workItem))
     } else {

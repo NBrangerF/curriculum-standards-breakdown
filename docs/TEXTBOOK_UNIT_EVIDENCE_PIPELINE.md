@@ -302,6 +302,8 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 该命令专门处理 ready-only 排除掉的 standards。当前数学结果为 7 个 work items、10 条 affected standards：其中 6 个 `edition_placement_model_review` work items 覆盖 9 条 standards，1 个 `same_grade_gap_remediation` work item 覆盖 `MA-H4G7-QUAL-004`。它把 44 个 cross-grade diagnostic units 和 27 个 same-grade diagnostic units 放在同一复核入口里，但仍明确 `writes_public_data=false`、`writes_textbook_unit_evidence_ids=false`、`publication_candidate=false`。
 
+同一个 progression group 可以同时含有 `edition_placement_review` 和 `continue_gap_remediation` standards；worklist 必须按标准级 decision 分别生成 placement item 与 gap item，不能让 group 级 `group_decision` 单选标签吞掉其中一类。例如科学 `science-4b1d1f03f15d52` 中，`SC-H4G7-CHG-001` 进入同年级缺口补证，`SC-H4G8-CHG-002` 进入跨版本投放复核。
+
 `same_grade_gap_remediation` 现在会生成 `remediation_analysis`。当前唯一缺口 `MA-H4G7-QUAL-004` 的结论是 `keep_blocked_no_safe_same_grade_remediation`：它属于 `学业质量/综合表现` 宽口径标准，只有人教版一个同年级单元候选；冀教版只有低分或错向候选，华东师大版无候选。因此当前不能加 reviewed alias、不能发布，也不应把低分泛词命中升级成同年级单元证据。
 
 生成 H4G 版本投放模型候选：
@@ -320,6 +322,8 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 该命令只读取 `edition_placement_model_review` work items，把跨版本、跨年级教材单元位置整理成 progression group 级模型候选。当前数学结果为 6 个 candidates、9 条 affected standards、19 条 cross-grade diagnostic relations；其中 5 个为 `candidate_for_edition_placement_note`，1 个为 `partial_edition_placement_evidence_needs_more_review`。它仍是课程进阶复核输入，不写 `public/data`、不写 `textbook_unit_evidence_ids`、不改课标原文，也不生成可 apply 的 `proposed_update`。
 
 当前唯一 partial candidate 是 `math-76edb58e7a55e4`（旋转与中心对称）：`MA-H4G8-GEO-026` 和 `MA-H4G9-GEO-027` 的华东师大版 missing edition 仍缺 cross-grade topic 解释，因此应继续保留 review/block 状态，不能直接转成版本投放说明。
+
+`candidate_for_edition_placement_note` 只允许来自完整的 multi-grade placement evidence；如果只有单向 cross-grade 诊断证据，或仍有 missing editions 没有 cross-grade topic 解释，必须保持 `partial_edition_placement_evidence_needs_more_review`。科学八版本当前 13 个 placement model candidates 全部为 partial，因此不能生成 progression note draft。
 
 生成 H4G 发布前复核包：
 
@@ -2352,21 +2356,21 @@ progression decision matrix 的边界：`h4g_progression_decision_matrix` 是发
 
 ready-only candidate 的边界：`h4g_unit_evidence_candidate_ready_only` 继承原 H4G unit candidate schema，因此可以复用 candidate audit、consistency audit 和 apply-to-generated-data-root 流程。它排除了跨版本投放差异和未解缺口，但 `complete_progression_groups` 仍可能为 false，所以它只能证明 record-level 同年级证据已足够进入复核，不代表整组 H4G progression 已完成正式分化。
 
-progression review worklist 的边界：`h4g_progression_review_worklist` 是复核任务层，不是数据写回层。`edition_placement_model_review` 要回答“同一主题跨版本落在不同年级时，进阶模型如何表达”；`same_grade_gap_remediation` 才继续找同年级证据。该 worklist 覆盖 blocked standards 的下一步决策，但不生成 `proposed_update`，不应用候选数据根，也不能把 cross-grade units 写入 same-grade `textbook_unit_evidence_ids`。当 `remediation_analysis.decision=keep_blocked_no_safe_same_grade_remediation` 时，应明确保留阻塞状态，不加 alias、不发布，直到出现更强的同年级多版本证据或新的非单元级质量表现证据模型。
+progression review worklist 的边界：`h4g_progression_review_worklist` 是复核任务层，不是数据写回层。`edition_placement_model_review` 要回答“同一主题跨版本落在不同年级时，进阶模型如何表达”；`same_grade_gap_remediation` 才继续找同年级证据。该 worklist 覆盖 blocked standards 的下一步决策，但不生成 `proposed_update`，不应用候选数据根，也不能把 cross-grade units 写入 same-grade `textbook_unit_evidence_ids`。同一 progression group 如果同时有 placement review 和 gap remediation standards，必须生成两个 work items，并按标准级 decision 保持互斥覆盖。当 `remediation_analysis.decision=keep_blocked_no_safe_same_grade_remediation` 时，应明确保留阻塞状态，不加 alias、不发布，直到出现更强的同年级多版本证据或新的非单元级质量表现证据模型。
 
-edition placement model candidate 的边界：`h4g_edition_placement_model_candidate` 是 worklist 之后的模型复核输入，只处理 `edition_placement_model_review` 项。它可以把完整跨版本投放解释标为 `candidate_for_edition_placement_note`，但这仍不是正式发布字段；`progression_group_edition_placement_note` 必须另经课程进阶复核后设计。partial candidate 继续保留 blocked，不能用不完整的 cross-grade 诊断关系替代 missing edition 的同年级证据。
+edition placement model candidate 的边界：`h4g_edition_placement_model_candidate` 是 worklist 之后的模型复核输入，只处理 `edition_placement_model_review` 项。它可以把完整跨版本投放解释标为 `candidate_for_edition_placement_note`，但这仍不是正式发布字段；`progression_group_edition_placement_note` 必须另经课程进阶复核后设计。partial candidate 继续保留 blocked，不能用不完整、单向或单一 placement grade 的 cross-grade 诊断关系替代 missing edition 的同年级证据。
 
 publication review packet 的边界：`h4g_publication_review_packet` 是三层复核交付包，不是 public apply 输入。它把 `same_grade_unit_evidence_review`、`progression_group_edition_placement_note_review` 和 `blocked_or_partial_review` 拆开，防止把 cross-grade 诊断证据写进 same-grade standard，也防止 blocked standards 混入 ready-only apply。该包可以帮助设计后续正式字段或人工复核清单，但自身不写 `public/data`。
 
 publication contract candidate 的边界：`h4g_publication_contract_candidate` 只定义未来数据契约，不执行迁移。它是 additive contract：标准级 surface 只能写证据/复核字段，不能改官方核心字段；版本投放说明应落在 progression group 粒度，不能落到 same-grade `textbook_unit_evidence_ids`；blocked registry 没有 public surface。
 
-publication contract apply dry-run 的边界：`apply_h4g_publication_contract_candidate` 只把 contract candidate 应用到 generated 候选数据根。它会演练 19 条同年级单元证据写入和 5 条 progression note candidate collection，但仍保持 `writes_public_data=false`、`official_standard_text_changed=false`，也不让 blocked registry 进入 public surface。
+publication contract apply dry-run 的边界：`apply_h4g_publication_contract_candidate` 只把 contract candidate 应用到 generated 候选数据根。它会演练同年级单元证据写入和 progression note candidate collection，但仍保持 `writes_public_data=false`、`official_standard_text_changed=false`，也不让 blocked registry 进入 public surface。当本轮没有 note-ready placement candidates 时，应写出空的 `h4g_progression_notes.json` 并记录 warning，而不是为了满足脚本门槛生成虚假的 note draft。
 
-publication readiness audit 的边界：`audit_h4g_publication_readiness` 是安全审计，不是发布批准。它通过时只说明当前 artifacts 内部一致、未改官方课标文本、blocked 项没有混入 public surface，并且可以进入人工/课程复核；它仍必须保持 `publication_ready=false`，直到人工复核、schema/UI、正式 migration gate 和剩余缺口处理完成。
+publication readiness audit 的边界：`audit_h4g_publication_readiness` 是安全审计，不是发布批准。它通过时只说明当前 artifacts 内部一致、未改官方课标文本、blocked 项没有混入 public surface，并且可以进入人工/课程复核；它仍必须保持 `publication_ready=false`，直到人工复核、schema/UI、正式 migration gate 和剩余缺口处理完成。自定义 review packet 路径时，只有显式传入 `--review-decisions-audit` 或加 `--require-review-decisions-audit` 才接入复核决策审计，避免把默认数学 decisions audit 混入科学等其他 run。
 
 publication review decisions 的边界：`h4g_publication_review_decisions_template` 是可编辑复核输入，不是机器自动审批。它只允许 `approve/reject/needs_revision/pending` 等受控决策值；任何 public write、官方课标文本改写、`grade_specific_variant` 自动升级、blocked 项发布、或把 progression note 写入 same-grade evidence 的请求都会被 `audit_h4g_publication_review_decisions` 拦截。
 
-H4G grade differentiation readiness 的边界：`grade7_9:audit-h4g-grade-differentiation` 是显示层/发布层质量 gate。它不改变数据，只统计 H4G 记录是否具备可用 `grade_specific_focus`、`textbook_unit_level` 证据和已批准的人工/课程复核状态。当前 public 应报告 `unit_level_evidence_records=0`、`final_ready_records=0`；数学 publication contract 候选根应报告 19 条 `candidate_needs_review`，科学八版本候选根应报告 46 条 `candidate_needs_review`，但这些都仍不是最终发布 ready。
+H4G grade differentiation readiness 的边界：`grade7_9:audit-h4g-grade-differentiation` 是显示层/发布层质量 gate。它不改变数据，只统计 H4G 记录是否具备可用 `grade_specific_focus`、`textbook_unit_level` 证据和已批准的人工/课程复核状态。当前 public 应报告 `unit_level_evidence_records=0`、`final_ready_records=0`；数学 publication contract 候选根应报告 19 条 `candidate_needs_review`，科学八版本 publication contract 候选根当前只演练 12 条同年级单元证据写入，另有 26 个 blocked/partial review items 和 155 条 standards 仍不在当前 unit candidate scope；这些都仍不是最终发布 ready。
 
 publication review decisions apply 的边界：`textbooks:apply-h4g-publication-review-decisions` 是 generated-root dry-run，不是正式发布。它复制 `data_candidate_publication_contract` 到 `data_candidate_review_decisions`，只根据已填写的 same-grade 决策更新标准记录的复核状态；pending 不改数据，progression note/blocker 决策只写 sidecar 摘要，不会写入 same-grade evidence，也不会改变官方课标字段。当前全部 pending 时应显示 `applied_standard_decisions=0`。
 
@@ -2379,7 +2383,7 @@ H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 
 建议顺序：
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
-2. 科学八版本已完成匹配噪声修复、候选合并和 generated candidate root 验证：46 条 standards、69 个单元证据对象、12 条多版本 standards、3 个完整 progression group 候选；发布级 gate 仍因 34 条单版本 standards、29 个 partial progression groups 失败。`review_alignment_or_alias` triage 当前为 14 个泛词/噪声阻断、14 个需回源复核、0 个可直接进入 alias-ready，因此下一步应先处理 14 个 source review packet 项，并继续补齐缺年级/缺版本证据；每批仍先生成 review-only 候选，不写 `public/data`。
+2. 科学八版本已完成匹配噪声修复、候选合并和 publication review 分层：decision matrix 覆盖 201 条科学 H4G standards，其中 12 条进入 `same_grade_unit_candidate_ready`，17 条进入 `edition_placement_review`，17 条进入 `continue_gap_remediation`，155 条仍不在当前 unit candidate scope。ready-only 候选为 12 条 standards、32 个单元证据对象，全部满足至少 2 个版本、页码起始可用、无非单调页码；但 11 个 progression groups 全部仍是 partial group。progression review worklist 为 26 个 work items：13 个 placement、13 个 gap，覆盖 34 条 blocked standards。edition placement model 当前 13 个 candidates 全部为 `partial_edition_placement_evidence_needs_more_review`，没有 note-ready 项。publication review packet 和 contract dry-run 已通过，候选根演练写入 12 条科学 records、32 个 unit evidence objects，`manual_review_ready=true`、`publication_ready=false`；下一步应处理 13 个 placement partial 和 13 个 gap remediation，而不是把 cross-grade 诊断证据写入 same-grade evidence。
 3. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
 4. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
 5. 使用 `textbooks:h4g-progression-decisions` 合并同年级证据、reverse gaps 和投放差异，形成可复核的发布前决策矩阵。

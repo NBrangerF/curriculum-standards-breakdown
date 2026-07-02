@@ -188,8 +188,8 @@ function classifyCandidate(coverage, spread) {
   const completeCoverage = coverage.filter(row => row.cross_grade_coverage_complete).length
   const uncoveredStandards = coverage.filter(row => row.missing_editions_without_cross_grade_topic.length)
   const hasMultiGradePlacement = spread.placement_grade_band_count > 1
-  let decision = 'edition_variable_sequence_review'
-  let recommendation = 'Add a progression-group level edition placement note after review; do not write cross-grade units as same-grade evidence.'
+  let decision = 'partial_edition_placement_evidence_needs_more_review'
+  let recommendation = 'Keep blocked and inspect the uncovered or single-direction placement evidence before defining a progression-group placement note.'
   let confidence = 'medium'
 
   if (hasMultiGradePlacement && affected > 0 && completeCoverage === affected) {
@@ -259,11 +259,12 @@ function validateCandidates(payload) {
     if (candidate.safety?.cross_grade_evidence_is_diagnostic_only !== true) {
       errors.push(`${candidate.candidate_id} must mark cross-grade evidence as diagnostic only`)
     }
-    if (!candidate.placement_model?.has_multi_grade_placement) {
-      errors.push(`${candidate.candidate_id} has no multi-grade placement evidence`)
-    }
     if (!candidate.placement_relations.length) {
       errors.push(`${candidate.candidate_id} has no standard-to-placement-grade relations`)
+    }
+    if (candidate.placement_model?.decision === 'candidate_for_edition_placement_note' &&
+      !candidate.placement_model?.has_multi_grade_placement) {
+      errors.push(`${candidate.candidate_id} cannot be note-ready without multi-grade placement evidence`)
     }
     if (candidate.placement_model?.decision === 'candidate_for_edition_placement_note' &&
       candidate.placement_model.standards_with_uncovered_missing_editions.length) {

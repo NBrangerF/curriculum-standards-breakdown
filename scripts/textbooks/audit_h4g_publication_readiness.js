@@ -41,6 +41,7 @@ function parseArgs(argv) {
     out: DEFAULT_OUT,
     summaryOut: DEFAULT_SUMMARY_OUT,
     requireReviewDecisionsAudit: false,
+    reviewDecisionsAuditExplicit: false,
     strict: false
   }
   for (let i = 0; i < argv.length; i += 1) {
@@ -50,7 +51,10 @@ function parseArgs(argv) {
     else if (item === '--apply-summary') args.applySummary = argv[++i]
     else if (item === '--notes') args.notes = argv[++i]
     else if (item === '--candidate-data-root') args.candidateDataRoot = argv[++i]
-    else if (item === '--review-decisions-audit') args.reviewDecisionsAudit = argv[++i]
+    else if (item === '--review-decisions-audit') {
+      args.reviewDecisionsAudit = argv[++i]
+      args.reviewDecisionsAuditExplicit = true
+    }
     else if (item === '--public-data-root') args.publicDataRoot = argv[++i]
     else if (item === '--out') args.out = argv[++i]
     else if (item === '--summary-out') args.summaryOut = argv[++i]
@@ -59,6 +63,12 @@ function parseArgs(argv) {
     else if (item === '--help') args.help = true
   }
   return args
+}
+
+function shouldUseReviewDecisionsAudit(args) {
+  return args.requireReviewDecisionsAudit ||
+    args.reviewDecisionsAuditExplicit ||
+    args.reviewPacket === DEFAULT_REVIEW_PACKET
 }
 
 function usage() {
@@ -406,7 +416,7 @@ function buildReadiness(reviewPacket, applySummary, decisionsAudit, errors, warn
   blockingReasons.push('frontend/schema consumption for progression-group note collection not implemented')
   blockingReasons.push('public migration gate intentionally absent')
   if ((summary.not_in_current_unit_candidate_scope || 0) > 0) {
-    blockingReasons.push(`${summary.not_in_current_unit_candidate_scope} math H4G standards remain outside current unit candidate scope`)
+    blockingReasons.push(`${summary.not_in_current_unit_candidate_scope} H4G standards remain outside current unit candidate scope`)
   }
   if ((summary.blocked_reviews || 0) > 0) {
     blockingReasons.push(`${summary.blocked_reviews} blocked reviews have no public surface`)
@@ -506,7 +516,9 @@ function main() {
   const contract = readJson(args.contract)
   const applySummary = readJson(args.applySummary)
   const notes = readJson(args.notes)
-  const decisionsAudit = existsSync(args.reviewDecisionsAudit) ? readJson(args.reviewDecisionsAudit) : null
+  const decisionsAudit = shouldUseReviewDecisionsAudit(args) && existsSync(args.reviewDecisionsAudit)
+    ? readJson(args.reviewDecisionsAudit)
+    : null
   const publicRecords = loadRecords(args.publicDataRoot)
   const candidateRecords = loadRecords(args.candidateDataRoot)
   const stats = {

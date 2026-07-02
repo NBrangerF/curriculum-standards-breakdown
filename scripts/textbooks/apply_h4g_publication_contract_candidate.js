@@ -283,7 +283,7 @@ function main() {
   const blockedDrafts = contractPayload.contract_drafts?.blocked_review_registry || []
   const readyByCode = readyCandidateByCode(readyPayload)
   for (const draft of standardDrafts) validateReadyCandidate(readyByCode.get(draft.standard_code), draft, errors)
-  if (!noteDrafts.length) errors.push('Contract candidate has no progression-group note drafts')
+  if (!noteDrafts.length) warnings.push('Contract candidate has no progression-group note drafts; notes collection will be empty')
   if (errors.length) {
     console.log(JSON.stringify({ valid: false, errors, warnings }, null, 2))
     if (args.strict) process.exit(1)

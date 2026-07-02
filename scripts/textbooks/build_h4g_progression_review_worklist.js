@@ -472,14 +472,15 @@ function buildPayload(args) {
   const groups = groupDecisionById(matrix)
 
   for (const group of [...groups.values()].sort((a, b) => a.progression_group_id.localeCompare(b.progression_group_id))) {
-    if (group.group_decision === 'edition_placement_model_review') {
+    if ((group.placement_review_standards || []).length) {
       const placement = placementById.get(group.progression_group_id)
       if (!placement) {
-        errors.push(`${group.progression_group_id} is edition_placement_model_review but has no placement candidate`)
-        continue
+        errors.push(`${group.progression_group_id} has placement_review_standards but no placement candidate`)
+      } else {
+        workItems.push(buildPlacementItem(group, placement, standardByCode))
       }
-      workItems.push(buildPlacementItem(group, placement, standardByCode))
-    } else if (group.group_decision === 'unresolved_gap_remediation') {
+    }
+    if ((group.unresolved_gap_standards || []).length) {
       workItems.push(buildGapItem(group, standardByCode, gapByCode))
     }
   }
