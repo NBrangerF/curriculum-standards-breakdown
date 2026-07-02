@@ -396,6 +396,72 @@ npm run grade7_9:audit-grade-band-policy -- --public-data-root generated/textboo
 
 当前数学/科学候选包已经能形成带页码证据的写回前 review pack，但仍不能直接写入 `public/data`：跨版本一致性、完整 progression group、人工/规则复核和正式 apply 流程尚未全部完成。
 
+### 7.4 目录页码解析修复后的数学复跑
+
+对上一轮 33 条 `toc_page_nonmonotonic` 排除证据做质量诊断后，确认主要问题不是教材本身非单调，而是目录 OCR 文本里的页码被错误截断。例如 `1 3 . 1 轴对称 5 8` 原先会把页码解析成 `8`，实际应为印刷页 `58`；`2 2 . 1 二次函数的图象和性质 2 8` 原先会解析成 `8`，实际应为 `28`。本轮修复了 `scripts/textbooks/build_textbook_unit_index.js` 中目录行内页码解析：
+
+- `parsedPrintedPage` 会先移除页码内部空白，再要求 1-3 位数字。
+- `parseInlineTocPageTail` 会优先读取主标题后的第一个页码，避免同一行后续 `信息技术应用`、`复习题` 等附属栏目页码覆盖主单元页码。
+
+修复后重新跑数学人教版、冀教版、华东师大版，并生成新的三版本 page-clean 候选：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_page_parse_fix_page_clean/h4g_unit_evidence_candidate.json
+```
+
+与上一版 page-clean 候选相比：
+
+| 指标 | 修复前 | 修复后 |
+| --- | ---: | ---: |
+| input candidates | 51 | 56 |
+| input unit evidence objects | 107 | 116 |
+| merged candidates | 24 | 26 |
+| unit evidence objects | 74 | 85 |
+| multi-edition standards | 14 | 15 |
+| single-edition standards | 10 | 11 |
+| excluded `toc_page_nonmonotonic` evidence | 33 | 31 |
+
+修复后的 page-clean 候选分布为 H4G7 9 条、H4G8 9 条、H4G9 8 条；85 个保留的单元证据全部有 `page_start/page_range`，且 page-clean 候选内 `nonmonotonic_page_records` 为 0。
+
+本轮实质性改进：
+
+- `MA-H4G8-GEO-023`（轴对称）从单版本证据提升为人教版 + 冀教版两版本证据。
+- `MA-H4G9-ALG-027` 纳入人教版 `22.2 二次函数与一元二次方程`，该条达到三版本证据。
+- 再次验证候选 apply 仍是隔离数据根：26 条 applied、85 个单元证据对象、`official_standard_text_changed: false`、`writes_public_data: false`。
+- 候选数据根通过 `build-indexes`、`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 和 `audit-grade-band-policy --data-only --strict`。
+
+但发布级门槛仍未通过：
+
+```json
+{
+  "valid": false,
+  "standards_below_min_editions": 11,
+  "progression_groups": 20,
+  "complete_progression_group_candidates": 1,
+  "partial_progression_group_candidates": 19,
+  "progression_groups_below_min_editions": 6,
+  "nonmonotonic_page_records": 0
+}
+```
+
+当前低于两版本门槛的 standards 为：
+
+```text
+MA-H4G7-ALG-007
+MA-H4G7-ALG-010
+MA-H4G7-GEO-037
+MA-H4G7-GEO-040
+MA-H4G7-QUAL-004
+MA-H4G8-ALG-029
+MA-H4G8-GEO-020
+MA-H4G8-GEO-038
+MA-H4G8-GEO-041
+MA-H4G9-GEO-027
+MA-H4G9-GEO-036
+```
+
+其中 `MA-H4G7-QUAL-004` 和 `MA-H4G9-GEO-027` 是页码解析修复后新增召回的单版本候选，说明 parser 修复提升了召回，但也会暴露更多仍需复核的单版本证据。下一轮优先处理剩余 `toc_page_nonmonotonic` 的真实来源：无行内页码的章标题可能被后续 PDF 页脚误识别为目录页码；同时需要清理少量 OCR 噪声标题，并继续对单版本 standards 做缺失版本反向检索。
+
 跨学科优先级建议：
 
 1. 数学、科学：先按 `textbooks:plan-h4g-unit-worklist -- --subjects math,science` 推荐的完整版本批次建立稳定 PDF/OCR 缓存。

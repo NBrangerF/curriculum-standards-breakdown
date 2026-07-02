@@ -652,6 +652,69 @@ generated/textbook_evidence/h4g_runs/math_three_edition_page_clean/data_candidat
 1. 复核本轮被排除的 33 条 `toc_page_nonmonotonic` 证据，判断是否是目录解析问题，优先补上当前单版本 standards 的第二版本证据。
 2. 对不完整 progression groups 做缺失年级反向检索，区分“教材确实没有对应单元”和“同义标题、目录解析或匹配锚点导致漏召回”。
 
+### 8.3 数学目录页码 parser 修复复跑
+
+对三版本 page-clean 候选中的 33 条排除证据做数据质量检查后，发现一类稳定 parser 问题：OCR 会把目录页码拆成空格分隔数字，旧逻辑只读取最后一个数字，导致真实印刷页 `58` 被解析成 `8`、`28` 被解析成 `8`。另一个风险是同一目录行包含主单元和附属栏目时，旧逻辑可能把附属栏目页码绑定到主单元。
+
+已在 `scripts/textbooks/build_textbook_unit_index.js` 中修复：
+
+- `parsedPrintedPage` 支持 `5 8`、`2 8` 这类空格分隔页码，并继续拒绝非 1-3 位数字。
+- `parseInlineTocPageTail` 优先绑定“主标题后的第一个页码”，遇到 `阅读与思考`、`实验与探究`、`观察与猜想`、`信息技术应用`、`数学活动`、`小结`、`复习题` 等附属栏目时不再用最后页码覆盖主单元。
+
+复跑目录 probe 后，关键样例已恢复：
+
+| 原目录文本场景 | 修复后页码 |
+| --- | --- |
+| `13.1 轴对称 5 8` | `58-66` |
+| `22.1 二次函数的图象和性质 2 8` | `28-42` |
+| `22.2 二次函数与一元二次方程 4 3 信息技术应用 ... 4 8` | `43-48` |
+
+随后使用修复后的 parser 重新跑数学三版本，输出到：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_page_parse_fix_page_clean/
+```
+
+三版本 page-clean 合并结果变为：
+
+```json
+{
+  "source_files": 3,
+  "input_candidates": 56,
+  "input_unit_evidence_objects": 116,
+  "merged_candidates": 26,
+  "unit_evidence_objects": 85,
+  "by_grade_band": {
+    "H4G7": 9,
+    "H4G8": 9,
+    "H4G9": 8
+  },
+  "multi_edition_standards": 15,
+  "single_edition_standards": 11,
+  "excluded_unit_evidence_objects": 31,
+  "excluded_by_page_range_status": {
+    "toc_page_nonmonotonic": 31
+  }
+}
+```
+
+review-only gates 继续通过：候选安全审计 valid true、errors 0、warnings 0；consistency audit valid true，候选内 `nonmonotonic_page_records` 为 0。候选 apply 到隔离数据根后，26 条 records 获得 85 个单元证据对象，且 `official_standard_text_changed: false`、`writes_public_data: false`；候选数据根通过索引校验、H4G distinctiveness strict audit 和 grade-band policy data-only strict audit。
+
+publication gate 仍失败：
+
+```json
+{
+  "valid": false,
+  "standards_below_min_editions": 11,
+  "complete_progression_group_candidates": 1,
+  "partial_progression_group_candidates": 19,
+  "progression_groups_below_min_editions": 6,
+  "nonmonotonic_page_records": 0
+}
+```
+
+因此 parser 修复后的结论是：页码召回和 page-clean 质量有改进，尤其 `MA-H4G8-GEO-023` 已获得人教版 + 冀教版两版本支撑；但新增召回也带来新的单版本候选（如 `MA-H4G7-QUAL-004`、`MA-H4G9-GEO-027`）。这些仍只能作为 review pack，不得自动发布到 `public/data` 或标记为已经完成真实年级分化。
+
 ## 9. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。

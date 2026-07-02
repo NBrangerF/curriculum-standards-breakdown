@@ -582,7 +582,9 @@ function normalizeTocRawLine(value) {
 }
 
 function parsedPrintedPage(value) {
-  const page = Number(value)
+  const normalized = String(value || '').replace(/\s+/g, '')
+  if (!/^\d{1,3}$/u.test(normalized)) return null
+  const page = Number(normalized)
   if (!Number.isInteger(page) || page < 1 || page > 999) return null
   return page
 }
@@ -601,6 +603,14 @@ function parseInlineTocPageTail(value) {
     return {
       line: leader[1].trim(),
       pageStart: parsedPrintedPage(leader[2]),
+      pageSource: 'toc_inline_page_tail'
+    }
+  }
+  const firstInline = normalized.match(/^(.*?\p{Script=Han}.*?)\s+((?:\d\s*){1,3})(?=(阅读与思考|实验与探究|观察与猜想|信息技术应用|数学活动|小结|复习题|部分中英文词汇索引)|$)/u)
+  if (firstInline) {
+    return {
+      line: firstInline[1].trim(),
+      pageStart: parsedPrintedPage(firstInline[2]),
       pageSource: 'toc_inline_page_tail'
     }
   }
