@@ -386,7 +386,8 @@ function main() {
       '--summary-out',
       paths.candidateSummary,
       '--strict',
-      '--require-candidates'
+      '--require-candidates',
+      '--require-page-start'
     ], summary)
     runStep('audit_candidates', 'scripts/textbooks/audit_h4g_unit_evidence_candidate.js', [
       '--candidate',

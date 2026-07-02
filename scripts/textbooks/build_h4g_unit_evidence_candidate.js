@@ -26,7 +26,8 @@ function parseArgs(argv) {
     summaryOut: DEFAULT_SUMMARY_OUT,
     maxUnits: DEFAULT_MAX_UNITS,
     strict: false,
-    requireCandidates: false
+    requireCandidates: false,
+    requirePageStart: false
   }
   for (let i = 0; i < argv.length; i += 1) {
     const item = argv[i]
@@ -37,6 +38,7 @@ function parseArgs(argv) {
     else if (item === '--max-units') args.maxUnits = Number(argv[++i]) || args.maxUnits
     else if (item === '--strict') args.strict = true
     else if (item === '--require-candidates') args.requireCandidates = true
+    else if (item === '--require-page-start') args.requirePageStart = true
     else if (item === '--help') args.help = true
   }
   return args
@@ -49,7 +51,8 @@ node scripts/textbooks/build_h4g_unit_evidence_candidate.js \\
 
 Builds a reviewable H4G unit-evidence candidate pack from eligible textbook unit
 matches. This script never writes to public/data; it prepares proposed record
-updates for review or a future apply step.`)
+updates for review or a future apply step. Use --require-page-start to exclude
+unit matches without a positive page_start before candidate packing.`)
 }
 
 function readJson(path) {
@@ -79,6 +82,10 @@ function pct(numerator, denominator) {
 
 function hashText(value, length = 14) {
   return createHash('sha1').update(String(value || '')).digest('hex').slice(0, length)
+}
+
+function hasPositivePageStart(value) {
+  return Number.isInteger(Number(value)) && Number(value) >= 1
 }
 
 function subjectFiles(dataRoot) {
@@ -195,16 +202,23 @@ function proposedProgressionDelta(units) {
   return `unit_evidence_candidate:${titles}`
 }
 
-function buildCandidate(record, matches, args) {
-  const units = matches
+function sortedCandidateMatches(matches, args) {
+  return matches
     .slice()
     .sort((a, b) => {
       const score = b.score - a.score
       if (score !== 0) return score
       return String(a.unit_title || '').localeCompare(String(b.unit_title || ''))
     })
+    .filter(match => !args.requirePageStart || hasPositivePageStart(match.page_start))
+}
+
+function buildCandidate(record, matches, args) {
+  const units = sortedCandidateMatches(matches, args)
     .slice(0, args.maxUnits)
     .map(unitEvidenceFromMatch)
+  if (!units.length) return null
+
   const maxScore = Math.max(...units.map(unit => unit.score || 0))
   const unitIds = units.map(unit => unit.unit_evidence_id)
 
@@ -332,6 +346,8 @@ matches：\`${payload.matches_file}\`
 | candidate standards | ${payload.summary.candidate_standards} |
 | public records missing | ${payload.summary.missing_public_records} |
 | standards already unit-level | ${payload.summary.already_unit_level_records} |
+| filtered missing page_start matches | ${payload.summary.filtered_missing_page_start_matches || 0} |
+| standards skipped after filters | ${payload.summary.standards_skipped_after_filters || 0} |
 | unit evidence with page_start | ${payload.summary.page_start_records || 0} |
 | unit evidence with page_range | ${payload.summary.page_range_records || 0} |
 
@@ -404,6 +420,8 @@ function main() {
     candidate_standards: 0,
     missing_public_records: 0,
     already_unit_level_records: 0,
+    filtered_missing_page_start_matches: 0,
+    standards_skipped_after_filters: 0,
     by_grade_band: {},
     by_subject: {},
     by_current_review_status: {},
@@ -421,7 +439,17 @@ function main() {
       warnings.push(`${code} has eligible matches but no public record`)
       continue
     }
+    if (args.requirePageStart) {
+      const dropped = matches.filter(match => !hasPositivePageStart(match.page_start)).length
+      summary.filtered_missing_page_start_matches += dropped
+      if (dropped) warnings.push(`${code} excluded ${dropped} eligible match(es) without page_start`)
+    }
     const candidate = buildCandidate(record, matches, args)
+    if (!candidate) {
+      summary.standards_skipped_after_filters += 1
+      warnings.push(`${code} has eligible matches but no unit evidence after candidate filters`)
+      continue
+    }
     candidates.push(candidate)
     countInto(summary.by_grade_band, record.grade_band)
     countInto(summary.by_subject, record.subject_slug)
@@ -451,7 +479,8 @@ function main() {
       writes_public_data: false,
       only_eligible_matches: true,
       official_standard_text_changed: false,
-      max_units_per_standard: args.maxUnits
+      max_units_per_standard: args.maxUnits,
+      require_page_start: args.requirePageStart
     },
     summary,
     candidates,
