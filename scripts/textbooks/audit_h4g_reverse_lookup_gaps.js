@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
 
@@ -25,6 +26,7 @@ function parseArgs(argv) {
     minEditionsPerProgressionGroup: 2,
     eligibleScore: 0.55,
     maxMatchesPerEdition: 5,
+    maxRemediationItems: 200,
     maxSamples: 12
   }
   for (let i = 0; i < argv.length; i += 1) {
@@ -39,6 +41,7 @@ function parseArgs(argv) {
     else if (item === '--min-editions-per-progression-group') args.minEditionsPerProgressionGroup = positiveInteger(argv[++i], args.minEditionsPerProgressionGroup)
     else if (item === '--eligible-score') args.eligibleScore = Number(argv[++i]) || args.eligibleScore
     else if (item === '--max-matches-per-edition') args.maxMatchesPerEdition = positiveInteger(argv[++i], args.maxMatchesPerEdition)
+    else if (item === '--max-remediation-items') args.maxRemediationItems = positiveInteger(argv[++i], args.maxRemediationItems)
     else if (item === '--max-samples') args.maxSamples = positiveInteger(argv[++i], args.maxSamples)
     else if (item === '--help') args.help = true
   }
@@ -92,6 +95,16 @@ function sorted(values) {
 function countInto(target, key, amount = 1) {
   const normalized = key || 'missing'
   target[normalized] = (target[normalized] || 0) + amount
+}
+
+function hashText(value, length = 10) {
+  return createHash('sha1').update(String(value || '')).digest('hex').slice(0, length)
+}
+
+function needsUnitEvidence(record) {
+  return record?.requires_unit_level_evidence === true ||
+    record?.standard_variant_type === 'same_source_shared' ||
+    String(record?.review_status || '').includes('needs_grade_differentiation')
 }
 
 function hasPageStart(match) {
@@ -171,6 +184,45 @@ function repairClass(matches, eligibleScore) {
   return 'no_match_returned'
 }
 
+const ACTION_PRIORITY = {
+  ready_candidate_not_packed: 10,
+  recover_page_start: 20,
+  confirm_nonmonotonic_page: 25,
+  review_alignment_or_alias: 30,
+  review_match_policy: 35,
+  low_score_or_wrong_grade: 50,
+  no_match_returned: 60
+}
+
+const GAP_TYPE_PRIORITY = {
+  standard_below_min_editions: 10,
+  fill_missing_grade_slot: 20,
+  no_candidate_progression_group: 30
+}
+
+function actionPriority(action) {
+  return ACTION_PRIORITY[action] || 90
+}
+
+function gapTypePriority(type) {
+  return GAP_TYPE_PRIORITY[type] || 90
+}
+
+function bestAction(actions) {
+  const sortedActions = [...(actions || [])].sort((a, b) => {
+    const priority = actionPriority(a.action) - actionPriority(b.action)
+    if (priority) return priority
+    return String(a.edition || '').localeCompare(String(b.edition || ''))
+  })
+  return sortedActions[0]?.action || 'no_match_returned'
+}
+
+function summarizeActions(actions) {
+  const counts = {}
+  for (const action of actions || []) countInto(counts, action.action)
+  return Object.fromEntries(Object.entries(counts).sort(([a], [b]) => a.localeCompare(b)))
+}
+
 function compactMatch(match, eligibleScore) {
   return {
     match_id: match.match_id || '',
@@ -226,6 +278,49 @@ function opportunityForStandard(standardCode, currentEditions, allEditions, matc
   return { byEdition, missingEditionActions }
 }
 
+function remediationItemId(type, values) {
+  return `h4g_gap_${type}_${hashText(values.join('|'), 12)}`
+}
+
+function makeRemediationItem(type, values) {
+  const item = {
+    work_item_id: remediationItemId(type, [
+      values.subject_slug,
+      values.progression_group_id,
+      values.standard_code,
+      values.grade_band,
+      values.best_action
+    ]),
+    gap_type: type,
+    subject_slug: values.subject_slug || '',
+    progression_group_id: values.progression_group_id || '',
+    standard_code: values.standard_code || '',
+    grade_band: values.grade_band || '',
+    subdomain: values.subdomain || '',
+    best_action: values.best_action || 'no_match_returned',
+    priority_score: gapTypePriority(type) + actionPriority(values.best_action),
+    current_candidate_grade_bands: sorted(values.current_candidate_grade_bands || []),
+    missing_grade_bands: sorted(values.missing_grade_bands || []),
+    current_editions: sorted(values.current_editions || []),
+    target_missing_editions: sorted(values.target_missing_editions || []),
+    action_counts: summarizeActions(values.missing_edition_actions || []),
+    top_matches_by_edition: values.top_matches_by_edition || {}
+  }
+  return item
+}
+
+function sortRemediationItems(items, maxItems) {
+  return items
+    .sort((a, b) => {
+      const priority = a.priority_score - b.priority_score
+      if (priority) return priority
+      const group = a.progression_group_id.localeCompare(b.progression_group_id)
+      if (group) return group
+      return a.standard_code.localeCompare(b.standard_code)
+    })
+    .slice(0, maxItems)
+}
+
 function buildReport(args) {
   const candidatePayload = readJson(args.candidate)
   const matches = loadMatches(args.matches)
@@ -249,14 +344,22 @@ function buildReport(args) {
     all_editions: allEditions,
     standards_below_min_editions: 0,
     progression_groups_with_candidates: 0,
+    progression_groups_without_candidates: 0,
     partial_progression_groups: 0,
     complete_progression_groups: 0,
     progression_groups_below_min_editions: 0,
+    progression_groups_needing_unit_evidence: 0,
     missing_grade_slots: 0,
+    no_candidate_grade_slots: 0,
+    standards_needing_unit_evidence: 0,
+    remediation_work_items: 0,
+    remediation_actions: {},
+    remediation_gap_types: {},
     near_miss_actions: {}
   }
 
   const standardGaps = []
+  const remediationItems = []
   for (const candidate of candidateRows) {
     const record = standards.byCode.get(candidate.standard_code)
     const editions = candidateEditions(candidate)
@@ -264,7 +367,7 @@ function buildReport(args) {
     summary.standards_below_min_editions += 1
     const opportunity = opportunityForStandard(candidate.standard_code, editions, allEditions, matchesByCode, args)
     for (const item of opportunity.missingEditionActions) countInto(summary.near_miss_actions, item.action)
-    standardGaps.push({
+    const gap = {
       standard_code: candidate.standard_code,
       grade_band: candidate.grade_band || record?.grade_band || '',
       progression_group_id: candidate.progression_group_id || record?.progression_group_id || '',
@@ -274,25 +377,31 @@ function buildReport(args) {
       page_range_statuses: candidatePageStatuses(candidate),
       missing_edition_actions: opportunity.missingEditionActions,
       top_matches_by_edition: opportunity.byEdition
-    })
+    }
+    standardGaps.push(gap)
+    remediationItems.push(makeRemediationItem('standard_below_min_editions', {
+      subject_slug: candidate.subject_slug || record?.subject_slug || args.subject,
+      progression_group_id: gap.progression_group_id,
+      standard_code: gap.standard_code,
+      grade_band: gap.grade_band,
+      subdomain: gap.subdomain,
+      best_action: bestAction(gap.missing_edition_actions),
+      current_editions: gap.current_editions,
+      target_missing_editions: gap.missing_editions,
+      missing_edition_actions: gap.missing_edition_actions,
+      top_matches_by_edition: gap.top_matches_by_edition
+    }))
   }
 
   const progressionGaps = []
+  const noCandidateProgressionGaps = []
   for (const [progressionGroupId, publicRows] of standards.byProgressionGroup.entries()) {
+    const publicRowsNeedingUnitEvidence = publicRows.filter(needsUnitEvidence)
+    if (!publicRowsNeedingUnitEvidence.length) continue
+    summary.progression_groups_needing_unit_evidence += 1
+    summary.standards_needing_unit_evidence += publicRowsNeedingUnitEvidence.length
     const candidateStandards = publicRows.filter(row => candidateByCode.has(row.code))
-    if (!candidateStandards.length) continue
-    summary.progression_groups_with_candidates += 1
-    const candidateGradeBands = sorted(candidateStandards.map(row => row.grade_band))
     const publicGradeBands = sorted(publicRows.map(row => row.grade_band).filter(grade => TARGET_GRADE_BANDS.has(grade)))
-    const missingGradeBands = publicGradeBands.filter(grade => !candidateGradeBands.includes(grade))
-    const groupEditions = sorted(candidateStandards.flatMap(row => candidateEditions(candidateByCode.get(row.code))))
-    const status = missingGradeBands.length ? 'partial_candidate_group' : 'complete_candidate_group'
-    if (status === 'partial_candidate_group') summary.partial_progression_groups += 1
-    else summary.complete_progression_groups += 1
-    if (groupEditions.length < args.minEditionsPerProgressionGroup) summary.progression_groups_below_min_editions += 1
-    summary.missing_grade_slots += missingGradeBands.length
-    if (!missingGradeBands.length && groupEditions.length >= args.minEditionsPerProgressionGroup) continue
-
     const standardDetails = publicRows.map(row => {
       const candidate = candidateByCode.get(row.code)
       const currentEditions = candidate ? candidateEditions(candidate) : []
@@ -307,6 +416,50 @@ function buildReport(args) {
         top_matches_by_edition: opportunity.byEdition
       }
     })
+    if (!candidateStandards.length) {
+      summary.progression_groups_without_candidates += 1
+      summary.no_candidate_grade_slots += publicGradeBands.length
+      const actions = standardDetails.map(row => ({
+        edition: '',
+        action: row.best_action,
+        standard_code: row.standard_code,
+        grade_band: row.grade_band
+      }))
+      const gap = {
+        progression_group_id: progressionGroupId,
+        subject_slug: args.subject,
+        public_grade_bands: publicGradeBands,
+        candidate_grade_bands: [],
+        missing_grade_bands: publicGradeBands,
+        group_editions: [],
+        status: 'no_candidate_group',
+        standards: standardDetails
+      }
+      noCandidateProgressionGaps.push(gap)
+      remediationItems.push(makeRemediationItem('no_candidate_progression_group', {
+        subject_slug: args.subject,
+        progression_group_id: progressionGroupId,
+        best_action: bestAction(actions),
+        missing_grade_bands: publicGradeBands,
+        missing_edition_actions: actions,
+        top_matches_by_edition: Object.fromEntries(standardDetails.flatMap(row =>
+          Object.entries(row.top_matches_by_edition || {}).map(([edition, rows]) => [`${row.standard_code}:${edition}`, rows])
+        ))
+      }))
+      continue
+    }
+    if (!candidateStandards.length) continue
+    summary.progression_groups_with_candidates += 1
+    const candidateGradeBands = sorted(candidateStandards.map(row => row.grade_band))
+    const missingGradeBands = publicGradeBands.filter(grade => !candidateGradeBands.includes(grade))
+    const groupEditions = sorted(candidateStandards.flatMap(row => candidateEditions(candidateByCode.get(row.code))))
+    const status = missingGradeBands.length ? 'partial_candidate_group' : 'complete_candidate_group'
+    if (status === 'partial_candidate_group') summary.partial_progression_groups += 1
+    else summary.complete_progression_groups += 1
+    if (groupEditions.length < args.minEditionsPerProgressionGroup) summary.progression_groups_below_min_editions += 1
+    summary.missing_grade_slots += missingGradeBands.length
+    if (!missingGradeBands.length && groupEditions.length >= args.minEditionsPerProgressionGroup) continue
+
     progressionGaps.push({
       progression_group_id: progressionGroupId,
       subject_slug: args.subject,
@@ -317,6 +470,26 @@ function buildReport(args) {
       status,
       standards: standardDetails
     })
+    for (const row of standardDetails.filter(item => missingGradeBands.includes(item.grade_band))) {
+      remediationItems.push(makeRemediationItem('fill_missing_grade_slot', {
+        subject_slug: args.subject,
+        progression_group_id: progressionGroupId,
+        standard_code: row.standard_code,
+        grade_band: row.grade_band,
+        subdomain: row.subdomain,
+        best_action: row.best_action,
+        current_candidate_grade_bands: candidateGradeBands,
+        missing_grade_bands: [row.grade_band],
+        current_editions: groupEditions,
+        top_matches_by_edition: row.top_matches_by_edition
+      }))
+    }
+  }
+  const sortedRemediationItems = sortRemediationItems(remediationItems, args.maxRemediationItems)
+  summary.remediation_work_items = sortedRemediationItems.length
+  for (const item of sortedRemediationItems) {
+    countInto(summary.remediation_actions, item.best_action)
+    countInto(summary.remediation_gap_types, item.gap_type)
   }
 
   return {
@@ -334,7 +507,9 @@ function buildReport(args) {
     },
     summary,
     standard_gaps: standardGaps,
-    progression_group_gaps: progressionGaps
+    progression_group_gaps: progressionGaps,
+    no_candidate_progression_group_gaps: noCandidateProgressionGaps,
+    remediation_work_items: sortedRemediationItems
   }
 }
 
@@ -352,6 +527,10 @@ function actionSummary(actions) {
 }
 
 function markdownSummary(report, args) {
+  const remediationRows = report.remediation_work_items
+    .slice(0, args.maxSamples)
+    .map(item => `| ${item.work_item_id} | ${item.gap_type} | ${item.priority_score} | ${item.progression_group_id || '-'} | ${item.standard_code || '-'} | ${item.grade_band || item.missing_grade_bands.join('；') || '-'} | ${item.best_action} | ${item.current_editions.join('；') || '-'} |`)
+    .join('\n') || '| - | - | - | - | - | - | - | - |'
   const standardRows = report.standard_gaps
     .slice(0, args.maxSamples)
     .map(gap => `| ${gap.standard_code} | ${gap.grade_band} | ${markdownCell(gap.subdomain)} | ${gap.current_editions.join('；')} | ${gap.missing_editions.join('；')} | ${actionSummary(gap.missing_edition_actions)} |`)
@@ -360,9 +539,21 @@ function markdownSummary(report, args) {
     .slice(0, args.maxSamples)
     .map(gap => `| ${gap.progression_group_id} | ${gap.candidate_grade_bands.join('；')} | ${gap.missing_grade_bands.join('；') || '-'} | ${gap.group_editions.join('；')} |`)
     .join('\n') || '| - | - | - | - |'
+  const noCandidateRows = report.no_candidate_progression_group_gaps
+    .slice(0, args.maxSamples)
+    .map(gap => `| ${gap.progression_group_id} | ${gap.missing_grade_bands.join('；') || '-'} | ${gap.standards.map(row => `${row.standard_code}:${row.best_action}`).join('；')} |`)
+    .join('\n') || '| - | - | - |'
   const actionRows = Object.entries(report.summary.near_miss_actions)
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([action, count]) => `| ${action} | ${count} |`)
+    .join('\n') || '| - | 0 |'
+  const remediationActionRows = Object.entries(report.summary.remediation_actions)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([action, count]) => `| ${action} | ${count} |`)
+    .join('\n') || '| - | 0 |'
+  const remediationTypeRows = Object.entries(report.summary.remediation_gap_types)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([type, count]) => `| ${type} | ${count} |`)
     .join('\n') || '| - | 0 |'
 
   return `# H4G Reverse Lookup Gap Report
@@ -376,18 +567,41 @@ function markdownSummary(report, args) {
 | 指标 | 数量 |
 | --- | ---: |
 | candidate standards | ${report.summary.candidate_standards} |
+| standards needing unit evidence | ${report.summary.standards_needing_unit_evidence} |
 | standards below min editions | ${report.summary.standards_below_min_editions} |
+| progression groups needing unit evidence | ${report.summary.progression_groups_needing_unit_evidence} |
 | progression groups with candidates | ${report.summary.progression_groups_with_candidates} |
+| progression groups without candidates | ${report.summary.progression_groups_without_candidates} |
 | complete progression groups | ${report.summary.complete_progression_groups} |
 | partial progression groups | ${report.summary.partial_progression_groups} |
 | progression groups below min editions | ${report.summary.progression_groups_below_min_editions} |
 | missing grade slots | ${report.summary.missing_grade_slots} |
+| no-candidate grade slots | ${report.summary.no_candidate_grade_slots} |
+| remediation work items | ${report.summary.remediation_work_items} |
 
 ## Near-Miss Actions
 
 | action | missing edition count |
 | --- | ---: |
 ${actionRows}
+
+## Remediation Actions
+
+| action | work items |
+| --- | ---: |
+${remediationActionRows}
+
+## Remediation Gap Types
+
+| gap type | work items |
+| --- | ---: |
+${remediationTypeRows}
+
+## Remediation Work Items
+
+| work item | gap type | priority | progression group | standard | grade | best action | current editions |
+| --- | --- | ---: | --- | --- | --- | --- | --- |
+${remediationRows}
 
 ## Standard Gaps
 
@@ -400,6 +614,12 @@ ${standardRows}
 | progression group | candidate grades | missing grades | group editions |
 | --- | --- | --- | --- |
 ${progressionRows}
+
+## No-Candidate Progression Groups
+
+| progression group | missing grades | standard actions |
+| --- | --- | --- |
+${noCandidateRows}
 
 ## Action Meaning
 

@@ -180,6 +180,27 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 它不写 `public/data`，只把 publication gate 失败拆成可执行原因：已有可用匹配但未打包、目录页码缺失、alignment gate 未通过、低分/疑似错年级、当前 top matches 没有返回候选。`near_miss_actions` 统计的是低于版本门槛 standards 的缺失版本；progression group 的缺失年级另在 `progression_group_gaps` 中展开。
 
+2026-07-03 后，该报告还输出 targeted remediation 视图：
+
+- `no_candidate_progression_group_gaps`：正式 H4G progression group 需要单元证据，但当前候选包完全没有覆盖。
+- `remediation_work_items`：按 `standard_below_min_editions`、`fill_missing_grade_slot`、`no_candidate_progression_group` 三类生成可排序工作项。
+- `remediation_actions`：把每个工作项归入 `recover_page_start`、`review_alignment_or_alias`、`low_score_or_wrong_grade`、`no_match_returned` 等最小修复动作。
+
+这层输出用于决定下一批具体复核/解析/alias 任务，不代表候选可以发布，也不能直接写入 `textbook_unit_evidence_ids`。
+
+示例：对科学八版本候选包运行 reverse gap，可显式传入当前科学各批次的 matches：
+
+```bash
+npm run textbooks:audit-h4g-reverse-gaps -- \
+  --subject science \
+  --candidate generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_unit_evidence_candidate.json \
+  --matches generated/textbook_evidence/h4g_runs/science_beijing_discipline_unit_review/textbook_unit_standard_matches.json,generated/textbook_evidence/h4g_runs/science_huadong_page_clean_unit_review/textbook_unit_standard_matches.json,generated/textbook_evidence/h4g_runs/science_hujiao_full_unit_review/textbook_unit_standard_matches.json,generated/textbook_evidence/h4g_runs/science_kepu_adjacent_unit_review/textbook_unit_standard_matches.json,generated/textbook_evidence/h4g_runs/science_renjiao_discipline_unit_review/textbook_unit_standard_matches.json,generated/textbook_evidence/h4g_runs/science_suke_discipline_unit_review/textbook_unit_standard_matches.json,generated/textbook_evidence/h4g_runs/science_wuhan_unit_review/textbook_unit_standard_matches.json,generated/textbook_evidence/h4g_runs/science_zj_unit_review/textbook_unit_standard_matches.json \
+  --out generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_reverse_lookup_gaps.json \
+  --summary-out generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_reverse_lookup_gaps.md \
+  --min-editions-per-standard 2 \
+  --min-editions-per-progression-group 2
+```
+
 跨版本年级投放矩阵：
 
 ```bash
@@ -2093,6 +2114,51 @@ aggregate candidate audit 和普通 consistency audit 继续通过。发布级 g
 ```
 
 重新刷新 `math,science --discover-candidates` 后，科学候选覆盖仍为 37 条 standards、27 个 progression groups、8 个 editions；但 candidate coverage 的 page status 已经只剩 `toc_page_range_inferred` 和 `toc_page_start_only`，不再出现 `missing` 或 `toc_page_nonmonotonic`。这说明 worklist 的“已有候选覆盖”现在按 page-clean 口径读取，不再被旧诊断文件污染。后续真正要解决的是“所有完整版本都已经有候选，但发布 gate 仍缺同年级多版本/完整 H4G7-H4G8-H4G9 progression”的 targeted gap remediation，而不是继续机械重复整版 direct_all_grades。
+
+### 8.14 科学 targeted remediation baseline
+
+2026-07-03 对科学八版本 page-clean aggregate 运行 reverse gap 后，问题被拆成三层：
+
+```json
+{
+  "standards_needing_unit_evidence": 201,
+  "candidate_standards": 37,
+  "progression_groups_needing_unit_evidence": 67,
+  "progression_groups_with_candidates": 27,
+  "progression_groups_without_candidates": 40,
+  "partial_progression_groups": 26,
+  "complete_progression_groups": 1,
+  "standards_below_min_editions": 27,
+  "progression_groups_below_min_editions": 14,
+  "missing_grade_slots": 44,
+  "no_candidate_grade_slots": 120,
+  "remediation_work_items": 111
+}
+```
+
+这说明科学的 H4G7/H4G8/H4G9 不应继续按“再跑一个完整版本”理解；主要缺口已经变成：
+
+1. `no_candidate_progression_group`：40 个 progression groups 完全没有单元候选，覆盖 120 个年级槽位。
+2. `fill_missing_grade_slot`：26 个 progression groups 已有部分年级候选，但仍缺 44 个 H4G 年级槽位。
+3. `standard_below_min_editions`：27 条 standards 低于同年级至少 2 个版本的发布门槛。
+
+当前 remediation action 分布：
+
+| action | work items |
+| --- | ---: |
+| `recover_page_start` | 2 |
+| `review_alignment_or_alias` | 40 |
+| `low_score_or_wrong_grade` | 45 |
+| `no_match_returned` | 24 |
+
+推荐执行顺序：
+
+1. 先处理 `recover_page_start`，因为它通常是已命中但缺页码的最低风险修复。
+2. 再处理 `review_alignment_or_alias`，每次只补标准级、局部、可解释的 alias 或 anchor，不用泛词扩大覆盖。
+3. 对 `low_score_or_wrong_grade` 保持阻塞，除非有人工确认的同年级单元证据。
+4. 对 `no_match_returned` 进入更深的检索/教材主题定位，而不是降低自动匹配门槛。
+
+该 baseline 只说明下一批该修哪里；它不改变官方课标字段，不写 `public/data`，也不把 partial group 视为已经完成年级分化。
 
 ## 9. 与 H4G 分化的关系
 
