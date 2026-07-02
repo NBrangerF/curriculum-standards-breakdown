@@ -1,6 +1,6 @@
 # H4G 七八九年级 distinctiveness 修复记录
 
-更新时间：2026-07-02
+更新时间：2026-07-03
 
 本文记录 `H4G7`、`H4G8`、`H4G9` 中 standards 几乎完全相同的问题、已完成的系统性修复，以及后续真正做年级进阶拆解的路线。
 
@@ -60,11 +60,11 @@ scripts/grade7_9/audit_h4g_distinctiveness.js
   "exact_identical_triplets": 323,
   "unlabeled_identical_triplets": 0,
   "shared_labeled_records": 969,
-  "unit_level_evidence_records": 0
+  "unit_level_evidence_records": 36
 }
 ```
 
-这说明当前数据仍有大量三年级共享文本，但已经不再伪装成已分化标准；所有完整重复三元组都被标记为共享源标准。
+这说明当前数据仍有大量三年级共享文本，但已经不再伪装成已改写的官方分化标准；所有完整重复三元组都被标记为共享源标准。36 条数学/科学 records 已拥有 reviewed 单元级证据和年级化学习重点，但全量 H4G 仍为 `differentiation_ready=false`。
 
 ## 3. 数据字段修复
 
@@ -145,7 +145,42 @@ npm run grade7_9:audit-h4g-distinctiveness -- --strict
 
 这些内容都在“年级归属依据”区域展示，并明确不属于课程标准原文。
 
-## 6. 后续真正分化路线
+对 `review_status=unit_evidence_approved` 且具备 `textbook_unit_level` 证据的 records，前端优先展示 `grade_specific_focus`，并不再显示“待年级化细分”徽标；但仍保留共享源标准说明，避免把年级焦点误读为官方课标原文。
+
+## 6. Reviewed Publication Gate
+
+2026-07-03 新增正式 public 写入 gate：
+
+```bash
+npm run textbooks:publish-h4g-reviewed-candidate -- \
+  --candidate-roots generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_codex_reviewed,generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/data_candidate_codex_reviewed \
+  --write \
+  --confirm-reviewed-h4g-publication \
+  --strict
+```
+
+该 gate 的当前写入结果：
+
+```json
+{
+  "valid": true,
+  "applied_records": 36,
+  "by_subject": {
+    "math": 19,
+    "science": 17
+  },
+  "by_grade_band": {
+    "H4G7": 10,
+    "H4G8": 12,
+    "H4G9": 14
+  },
+  "official_standard_text_changed": false
+}
+```
+
+它只允许写入已审核的同年级单元证据字段，包括 `textbook_unit_evidence_ids`、`textbook_unit_evidence`、`evidence_granularity`、`grade_specific_focus` 和 `review_status` 等；`domain`、`subdomain`、`standard`、`context`、`practice`、`teaching_tip`、`assessment_evidence_type` 等官方核心字段必须保持不变。
+
+## 7. 后续真正分化路线
 
 当前修复的目标是“停止误导”和“建立质量门槛”，不是一次性完成所有七八九标准的真实分化。
 
@@ -207,7 +242,7 @@ npm run textbooks:audit-h4g-unit-candidates -- --strict --require-candidates
 npm run textbooks:audit-h4g-unit-consistency -- --strict --require-candidates
 ```
 
-新增 worklist gate 会把当前正式 H4G 缺口转成可执行教材批次：全量 1081 条 H4G records、400 个 progression groups 仍需单元证据，正式 `public/data` 中 `textbook_unit_level` 仍为 0。当前教材索引下，数学、科学、英语、体育、艺术具备至少两个完整 7/8/9 教材版本，能进入跨版本候选生成；语文、道德与法治只有一个完整统编版本；信息科技、劳动暂无完整教材版本。以数学/科学试点时，worklist 推荐先跑数学人教版、冀教版、华东师大版，以及科学沪教版、华东师大版、武汉版。
+新增 worklist gate 会把当前正式 H4G 缺口转成可执行教材批次：全量 1081 条 H4G records、400 个 progression groups 中，已有 36 条 records 进入 `textbook_unit_level`，仍有 1045 条 records 待补单元证据或复核。当前教材索引下，数学、科学、英语、体育、艺术具备至少两个完整 7/8/9 教材版本，能进入跨版本候选生成；语文、道德与法治只有一个完整统编版本；信息科技、劳动暂无完整教材版本。以数学/科学试点时，worklist 推荐先跑数学人教版、冀教版、华东师大版，以及科学沪教版、华东师大版、武汉版。
 
 `textbooks:run-h4g-unit-work-item` 会把 worklist 的单个批次串起来执行：教材物化/OCR、真实单元审计、标准匹配、候选包、consistency audit、候选数据根 apply、索引重建和 H4G 审计。它默认只写 `generated/textbook_evidence/h4g_runs/<work_item_id>/`，不写 `public/data`。如果使用 `--publication-gate`，会要求至少两个版本、完整 progression group 覆盖，并阻止非单调页码证据通过发布级检查。
 
@@ -1324,9 +1359,9 @@ npm run grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbo
   "h4g_records": 1081,
   "complete_triplets": 323,
   "exact_core_identical_triplets": 323,
-  "unit_level_evidence_records": 0,
-  "usable_grade_focus_records": 0,
-  "final_ready_records": 0
+  "unit_level_evidence_records": 36,
+  "usable_grade_focus_records": 36,
+  "final_ready_records": 36
 }
 ```
 
@@ -1343,7 +1378,7 @@ npm run grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbo
 }
 ```
 
-这把“候选进展”和“最终发布就绪”拆开：19 条数学候选已经有单元级证据和 `grade_specific_focus` 候选，但仍是 `unit_evidence_candidate_needs_review`，所以不能算最终年级化完成。
+这把“候选进展”和“最终发布就绪”拆开：contract 候选根中的 records 仍可能是 `unit_evidence_candidate_needs_review`；只有经过 review decisions apply 和 `textbooks:publish-h4g-reviewed-candidate` 的 records 才会在 public 中计入 `final_ready_records`。
 
 同时新增 `textbooks:apply-h4g-publication-review-decisions`。它把填好的复核决策应用到新的 generated 候选根：
 
@@ -1391,7 +1426,7 @@ npm run textbooks:apply-h4g-publication-review-decisions -- \
 }
 ```
 
-将该复核决策应用到隔离候选根后，`audit-h4g-grade-differentiation` 应能看到 19 条 `final_ready_records`。这说明数学已有一小批 standards 具备“候选层面的年级化显示 readiness”，但仍不等于正式发布：`public/data` 未被写入，`standard` 原文未改，85 条数学 H4G standards 仍不在当前候选范围内，其他学科也还没有完成同级别复核。
+将该复核决策应用到隔离候选根后，`audit-h4g-grade-differentiation` 应能看到 19 条数学 `final_ready_records`。2026-07-03 已进一步通过 reviewed publication gate 把数学 19 条和科学 17 条写入正式 `public/data`；`standard` 原文未改，且全量仍有 1045 条 H4G records 待补单元证据或复核。
 
 ## 8. 当前边界
 
@@ -1399,6 +1434,7 @@ npm run textbooks:apply-h4g-publication-review-decisions -- \
 
 - 按 H4G7/H4G8/H4G9 浏览。
 - 明确看到哪些记录只是共享源标准。
+- 对 36 条已审核 records 展示基于教材单元证据的 `grade_specific_focus`。
 - 明确看到哪些记录需要教材单元级证据。
 - 避免把 7-9 共同要求误读为官方逐年级标准。
 

@@ -2,6 +2,7 @@
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { buildH4GGradeFocus } from './h4g_grade_focus.js'
 
 const BASE_DIR = 'generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean'
 const DEFAULT_CONTRACT = `${BASE_DIR}/h4g_publication_contract_candidate.json`
@@ -184,6 +185,10 @@ function applyStandardDraft(record, candidate, draft, allowedFields, contractGen
   const before = officialSnapshot(record)
   const proposed = candidate.proposed_update || {}
   const unitEvidence = candidate.unit_evidence || []
+  const gradeSpecificFocus = buildH4GGradeFocus(record, unitEvidence, { approved: false }) ||
+    proposed.grade_specific_focus ||
+    record.grade_specific_focus ||
+    ''
   const unitIds = sorted([
     ...(record.textbook_unit_evidence_ids || []),
     ...(proposed.textbook_unit_evidence_ids || []),
@@ -205,7 +210,7 @@ function applyStandardDraft(record, candidate, draft, allowedFields, contractGen
     progression_delta: proposed.progression_delta || record.progression_delta || '',
     progression_review_note: '该记录保留第四学段 7-9 共同课标原文；本候选数据根已加入同年级单元证据，仍未自动升级为真正的年级化课标改写。',
     requires_unit_level_evidence: proposed.requires_unit_level_evidence ?? false,
-    grade_specific_focus: proposed.grade_specific_focus || record.grade_specific_focus || '',
+    grade_specific_focus: gradeSpecificFocus,
     review_status: proposed.review_status || 'unit_evidence_candidate_needs_review',
     h4g_unit_candidate_id: candidate.candidate_id || draft.draft_id,
     h4g_unit_candidate_generated_at: contractGeneratedAt || null,

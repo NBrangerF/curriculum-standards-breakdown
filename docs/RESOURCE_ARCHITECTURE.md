@@ -1,7 +1,7 @@
 # 课标罗盘资源与架构文档
 
-更新时间：2026-07-02
-对应状态：当前工作树，H4G distinctiveness 修复与教材单元证据入口落地后
+更新时间：2026-07-03
+对应状态：当前工作树，H4G reviewed publication gate 已发布首批数学/科学单元级年级焦点
 项目路径：`/Users/shawn.fsc/Downloads/curriculum breakdown/curriculum-standards-breakdown`
 
 ## 1. 项目概览
@@ -102,6 +102,7 @@ npm run validate:indexes
 | `scripts/textbooks/audit_textbook_unit_index.js` | 校验教材单元候选索引，区分文件级 seed 与真实目录/章节候选。 |
 | `scripts/textbooks/match_standards_to_textbook_units.js` | 将 H4G standards 与真实 `toc_unit_or_chapter` 候选做可解释匹配，并把单元页码、`subdomain_alignment`、标准级 `alias_alignment` 和强字段 alignment 传入匹配结果。 |
 | `scripts/textbooks/build_h4g_unit_evidence_candidate.js` | 将通过 eligible 门的标准-单元匹配组织为写回前 H4G 单元证据候选包和逐条 review pack；包含候选页段与页码状态，不写 `public/data`。 |
+| `scripts/textbooks/h4g_grade_focus.js` | 根据已审核的同年级单元证据生成 H4G 年级化学习重点文案；候选阶段带 `候选：` 前缀，审核通过后去除候选前缀并保留“课标原文保持不变”。 |
 | `scripts/textbooks/audit_h4g_unit_evidence_candidate.js` | 在 apply 前校验 H4G 单元证据候选包，确保官方字段未变、alignment 可解释、候选仍需人工复核；支持 `--require-page-start` 作为页码证据门禁。 |
 | `scripts/textbooks/audit_h4g_unit_evidence_consistency.js` | 校验 H4G 单元证据候选包的跨版本一致性、progression group 年级覆盖和页码状态；用于区分诊断样本与发布级候选。 |
 | `scripts/textbooks/audit_h4g_reverse_lookup_gaps.js` | 反向检索 H4G 候选包未过发布门的原因，按缺失版本和 progression group 输出页码、alignment、低分/错年级、无候选等缺口画像；只写 generated 报告，不写 `public/data`。 |
@@ -118,6 +119,7 @@ npm run validate:indexes
 | `scripts/textbooks/audit_h4g_publication_readiness.js` | 审计发布复核包、契约候选、dry-run 数据根、progression notes 和 blocked registry 是否一致；输出 `manual_review_ready` 与 `publication_ready=false` 的明确边界。 |
 | `scripts/textbooks/build_h4g_publication_review_decisions_template.js` | 从发布复核包、契约候选和 readiness audit 生成可编辑的人工/课程复核决策模板；默认所有必需决策为 `pending`。 |
 | `scripts/textbooks/audit_h4g_publication_review_decisions.js` | 审计人工/课程复核决策文件，防止请求 public write、官方课标文本改写、blocked 项发布或 cross-grade note 混入 same-grade evidence。 |
+| `scripts/textbooks/publish_h4g_reviewed_candidate.js` | reviewed H4G public migration gate；默认 dry-run，正式写入必须传 `--write --confirm-reviewed-h4g-publication --strict`，只发布已审核同年级单元证据字段并拒绝官方核心课标字段变更。 |
 | `scripts/textbooks/build_h4g_blocked_remediation_packet.js` | 合并 progression worklist、reverse gaps、alias source review 和 placement model，把 blocked H4G standards 分成可执行补证据/回源复核/继续阻断任务；只写 generated 行动包，不写正式数据。 |
 | `scripts/textbooks/plan_h4g_unit_evidence_worklist.js` | 生成 H4G 单元证据工作清单，把待分化 progression groups、当前候选覆盖和 ChinaTextbook 完整版本覆盖合并成下一批可执行教材物化任务。 |
 | `scripts/textbooks/run_h4g_unit_work_item.js` | 按 worklist 中的单个 work item 串行执行物化、索引审计、匹配、候选包、consistency gate、候选数据根 apply 和 H4G 审计；默认只写 `generated/textbook_evidence/h4g_runs/`。 |
@@ -292,7 +294,7 @@ public/data/
 | `grade_assignment_confidence` | number | 年级归属置信度，0 到 1。 |
 | `grade_assignment_rationale` | string | 年级归属依据说明，非课标原文。 |
 | `textbook_evidence_ids` | string[] | 教材文件级证据 ID。 |
-| `textbook_unit_evidence_ids` | string[] | 未来单元/章节级证据 ID；当前仍为空数组。 |
+| `textbook_unit_evidence_ids` | string[] | 单元/章节级证据 ID；当前数学 19 条、科学 17 条已正式写入，其他 H4G records 仍为空数组。 |
 | `standard_text_role` | string | 当前 `standard` 的文本角色，当前为 `source_standard_original`。 |
 | `source_standard_scope` | string | 来源范围，如 `stage_shared_7_9`。 |
 | `standard_variant_type` | string | `same_source_shared`、`grade_specific_variant` 或 `single_or_partial_grade_variant`。 |
@@ -301,12 +303,12 @@ public/data/
 | `progression_distinctiveness` | string | 当前三元组是否为 `identical_core_fields` 或 `core_fields_differ`。 |
 | `progression_distinctiveness_fields` | string[] | 发生差异的核心字段。 |
 | `requires_unit_level_evidence` | boolean | 是否仍需教材单元/章节级证据。 |
-| `grade_specific_focus` | string | 年级化学习重点；共享源记录只写待补充，不编造具体内容。 |
+| `grade_specific_focus` | string | 年级化学习重点；36 条 reviewed records 已写入基于教材单元证据的学习重点，其他共享源记录只写待补充，不编造具体内容。 |
 | `progression_delta` | string | 年级间差异状态，如 `not_yet_differentiated_from_shared_7_9_source`。 |
 | `progression_review_note` | string | 给前端和人工复核看的拆分状态说明。 |
-| `review_status` | string | 如 `needs_grade_differentiation`、`needs_grade_differentiation_low_confidence`。 |
+| `review_status` | string | 如 `needs_grade_differentiation`、`needs_grade_differentiation_low_confidence`、`unit_evidence_approved`。 |
 
-当前 `public/data` 中 323 个完整 H4G 三元组核心文本完全相同，但 `unlabeled_identical_triplets` 为 0；这些记录已标为共享源标准和待年级化细分。详见 `docs/H4G_DISTINCTIVENESS_REMEDIATION.md`。
+当前 `public/data` 中 323 个完整 H4G 三元组核心文本完全相同，但 `unlabeled_identical_triplets` 为 0；这些记录已标为共享源标准。36 条记录已经通过 reviewed publication gate 拥有 `textbook_unit_level` 证据和 `unit_evidence_approved` 状态，其余 1045 条 H4G records 仍待单元证据或复核。详见 `docs/H4G_DISTINCTIVENESS_REMEDIATION.md`。
 
 ### 6.2.2 教材证据工作产物
 
@@ -342,6 +344,8 @@ public/data/
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/h4g_publication_readiness_audit.json` / `.md` | 发布准备度安全审计；确认当前 artifacts 可进入人工/课程复核，但仍 `publication_ready=false`、`public_migration_ready=false`。 |
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/h4g_publication_review_decisions_template.json` / `.md` | 人工/课程复核决策模板；包含 19 条 same-grade standard 决策、5 条 progression note 决策和 2 条 blocked guardrail 决策，默认 pending。 |
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/h4g_publication_review_decisions_audit.json` / `.md` | 决策文件审计结果；默认允许 pending，但 `--require-complete` 可用于复核完成后的强门禁。 |
+| `generated/textbook_evidence/h4g_runs/<work_item_id>/data_candidate_codex_reviewed/` | 已完成复核决策 apply 的候选数据根；用于最终 public migration gate 的输入，仍不是 runtime 数据入口。 |
+| `generated/textbook_evidence/h4g_reviewed_publication_summary.json` | reviewed publication gate 的正式写入摘要；当前记录 36 条已写入 public，数学 19 条、科学 17 条，且 `official_standard_text_changed=false`。 |
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/h4g_blocked_remediation_packet.json` / `.md` | blocked H4G standards 的补救行动包；把 placement partial、same-grade gap、alias source review 和缺版本证据整理到同一任务层，不生成 publishable update。 |
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/data_candidate_ready_only/` | ready-only 候选包应用后的隔离数据根；用于索引、H4G 审计和 UI 兼容性验证，不是正式 `public/data`。 |
 | `generated/textbook_evidence/h4g_unit_evidence_worklist.json` / `.md` | H4G 单元证据工作清单；记录每个学科仍需单元证据的 progression groups、可用完整教材版本和推荐 `evidence_ids` 批次。 |
@@ -378,6 +382,7 @@ npm run textbooks:h4g-publication-review-decisions -- --strict
 npm run textbooks:audit-h4g-publication-review-decisions -- --strict
 npm run textbooks:audit-h4g-publication-readiness -- --strict --require-review-decisions-audit
 npm run textbooks:apply-h4g-publication-review-decisions -- --strict
+npm run textbooks:publish-h4g-reviewed-candidate -- --candidate-roots generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_codex_reviewed,generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/data_candidate_codex_reviewed --write --confirm-reviewed-h4g-publication --strict
 npm run grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_publication_contract
 npm run grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_review_decisions
 npm run textbooks:audit-h4g-unit-candidates -- --candidate generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate_ready_only.json --strict --require-candidates --require-page-start
@@ -411,9 +416,10 @@ npm run textbooks:apply-h4g-unit-candidates -- --strict
 - `textbooks:audit-h4g-publication-readiness` 是发布前安全审计 gate。它要求 review packet、contract、apply summary、候选根、progression notes 和 blocked registry 互相一致；自定义 run 只有显式传入 decisions audit 才接入人工/课程复核审计。通过时只表示 `manual_review_ready=true`，仍明确 `publication_ready=false`。
 - `textbooks:h4g-publication-review-decisions` 是人工/课程复核入口生成 gate。它把 review packet 中的 same-grade standards、progression notes 和 blocked 项整理为可编辑决策文件，但默认所有必需复核仍是 `pending`。
 - `textbooks:audit-h4g-publication-review-decisions` 是决策文件审计 gate。默认允许 pending 并保持 `publication_ready=false`；复核完成后可加 `--require-complete`，要求所有必需人工/课程决策全部填写且不越权。
-- `textbooks:audit-h4g-publication-readiness -- --require-review-decisions-audit` 是决策模板接入后的 readiness 复跑 gate。它会把 `h4g_publication_review_decisions_audit` 中的 pending/complete 状态纳入 readiness summary；science reviewed 决策当前报告 16 个 required decisions completed、0 pending，但仍 `publication_ready=false`。
+- `textbooks:audit-h4g-publication-readiness -- --require-review-decisions-audit` 是决策模板接入后的 readiness 复跑 gate。它会把 `h4g_publication_review_decisions_audit` 中的 pending/complete 状态纳入 readiness summary；science reviewed 决策当前报告 17 个 required standard decisions completed、0 pending，但 generated 候选根仍 `publication_ready=false`，需要单独 reviewed publication gate 才能写 public。
 - `textbooks:apply-h4g-publication-review-decisions` 是复核决策 dry-run apply gate。它只把通过复核模板表达的 approved/rejected/needs_revision 决策应用到新的 generated 候选根 `data_candidate_review_decisions` 或显式指定的 `data_candidate_codex_reviewed`，拒绝写 `public/data`，也不改官方课标文本；pending 模板应报告 `applied_standard_decisions=0`。
-- `grade7_9:audit-h4g-grade-differentiation` 是 H4G 年级化显示层 readiness gate。它不同于 `audit-h4g-distinctiveness`：后者只确认重复三元组被诚实标记，前者要求可用 `grade_specific_focus`、单元/章节级证据和人工/课程复核批准。当前 public 应为 `differentiation_ready=false`；science Codex reviewed 候选根显示 16 条 `final_ready_records`、0 个 `final_ready_groups`，仍不是正式发布 ready。
+- `textbooks:publish-h4g-reviewed-candidate` 是 reviewed public migration gate。默认 dry-run；正式写入必须传 `--write --confirm-reviewed-h4g-publication --strict`。它只发布已审核同年级单元证据字段，拒绝官方核心课标字段变更。当前 public 已通过该 gate 写入 36 条 records，数学 19 条、科学 17 条。
+- `grade7_9:audit-h4g-grade-differentiation` 是 H4G 年级化显示层 readiness gate。它不同于 `audit-h4g-distinctiveness`：后者只确认重复三元组被诚实标记，前者要求可用 `grade_specific_focus`、单元/章节级证据和人工/课程复核批准。当前 public 为 `valid=true`、`differentiation_ready=false`，其中 36 条 records 已 `final_ready`，但 1045 条仍未完成。
 - `textbooks:plan-h4g-unit-worklist` 是任务规划 gate，不是证据 gate。它可以确认哪些学科有至少两个完整教材版本可进入跨版本候选生成，也会暴露当前 ChinaTextbook 无法覆盖的 IT、劳动等缺口。
 - `textbooks:run-h4g-unit-work-item` 是执行 gate，不是发布 gate。它把 worklist 的单个批次跑到 generated 候选数据根和审计摘要，但不会写 `public/data`；如果要证明发布级分化，仍需使用 consistency audit 的发布级参数。
 - `textbooks:apply-h4g-unit-candidates` 只把候选包应用到独立候选数据根；正式写入 `public/data` 仍需要单独发布 gate。
@@ -838,7 +844,7 @@ npm run build
 
 - `validate:indexes` 是否通过。
 - `audit-h4g-distinctiveness` 是否确认 `unlabeled_identical_triplets` 为 0。
-- `audit-h4g-grade-differentiation` 是否把 H4G 的真实分化状态量化出来；当前 public 应保持 `valid=true`、`differentiation_ready=false`，因为 `unit_level_evidence_records=0`、`final_ready_records=0`。
+- `audit-h4g-grade-differentiation` 是否把 H4G 的真实分化状态量化出来；当前 public 应保持 `valid=true`、`differentiation_ready=false`，同时报告 `unit_level_evidence_records=36`、`final_ready_records=36`，说明已有首批 reviewed records 但全量尚未完成。
 - `glossary.json`、`skills_meta.json`、`subjects_meta.json` 是否能被 `jq` 或 `JSON.parse` 正常解析。
 - 随机打开一个学科页、一个技能页、一个标准详情页、一个清单打印页。
 

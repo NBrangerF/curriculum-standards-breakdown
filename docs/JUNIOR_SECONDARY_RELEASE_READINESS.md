@@ -1,6 +1,6 @@
 # 初中段 7-9 正式接入准备度
 
-更新时间：2026-07-01
+更新时间：2026-07-03
 
 本文记录当前 `public/data/` 的正式 runtime 状态。当前结论：`H3=5-6` 已保留，初中第四学段不再用单一 `H4=7-9` 暴露给网站，而是拆为 `H4G7`、`H4G8`、`H4G9`。
 
@@ -14,6 +14,7 @@
   "public_records": 1933,
   "junior_records": 1081,
   "records_with_textbook_evidence": 949,
+  "unit_level_evidence_records": 36,
   "auto_judged_low_confidence_records": 132,
   "legacy_unsplit_h4_public_records": 0
 }
@@ -31,6 +32,8 @@
 | H4G9 | 9 | 第四学段九年级 |
 
 旧 `H4=7-9` 只保留为 staging/legacy stage 语义，不再作为正式筛选项。
+
+2026-07-03 起，数学 19 条、科学 17 条 H4G records 已通过 reviewed publication gate 写入 `textbook_unit_level` 证据和 `grade_specific_focus`。这不是改写官方课标原文，而是在共享源标准下补充已审核的年级学习重点；全量 H4G 仍有 1045 条 records 待单元证据或复核。
 
 ## 2. 正式数据规模
 
@@ -50,6 +53,8 @@
 | **合计** | **1933** | **355** | **363** | **363** | **949** | **132** |
 
 信息科技和劳动在 ChinaTextbook 初中目录中没有可映射教材文件，因此 132 条记录显式标为 `auto_judged_low_confidence`，前端卡片和详情页会显示低置信度与年级归属依据。
+
+其中 `textbook_unit_level` records 当前合计 36 条：数学 19 条、科学 17 条；年级分布为 `H4G7=10`、`H4G8=12`、`H4G9=14`。
 
 ## 3. 已完成的修复
 
@@ -73,6 +78,8 @@ npm run build:indexes
 npm run validate:indexes
 npm run grade7_9:audit-grade-band-policy -- --strict
 npm run grade7_9:audit-textbook-progression -- --strict
+npm run grade7_9:audit-h4g-grade-differentiation -- --data-root public/data
+npm run grade7_9:audit-h4g-distinctiveness -- --data-root public/data --strict
 ```
 
 `audit-textbook-progression` 当前没有 blocker；保留 warning 的原因是部分 curated raw 仍为 7/8/9 共享要求，以及信息科技、劳动缺少教材覆盖但已低置信度标注。

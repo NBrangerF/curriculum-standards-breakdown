@@ -122,7 +122,8 @@ function StandardDetailPage() {
         requires_unit_level_evidence !== undefined ||
         h4gState.isH4G
     const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || String(review_status || '').includes('low_confidence')
-    const needsGradeDifferentiation = h4gState.needsDifferentiation || String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared'
+    const needsGradeDifferentiation = !h4gState.isFinalReady &&
+        (h4gState.needsDifferentiation || String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared')
     const pageTitle = h4gState.shouldLeadWithGradeFocus ? h4gState.gradeFocus : standardText
 
     // Parse navigation codes (may be multiple, separated by \n)

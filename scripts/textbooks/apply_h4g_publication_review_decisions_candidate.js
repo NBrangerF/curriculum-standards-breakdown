@@ -2,6 +2,7 @@
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { buildH4GGradeFocus } from './h4g_grade_focus.js'
 
 const BASE_DIR = 'generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean'
 const DEFAULT_DECISIONS = `${BASE_DIR}/h4g_publication_review_decisions_template.json`
@@ -197,8 +198,11 @@ function boundedDecisionNote(row) {
 function standardUpdateForDecision(row, record) {
   const note = boundedDecisionNote(row)
   if (row.reviewer_decision === SAME_GRADE_APPROVE) {
+    const approvedFocus = buildH4GGradeFocus(record, record.textbook_unit_evidence || [], { approved: true }) ||
+      normalizeText(record.grade_specific_focus).replace(/^候选[:：]\s*/, '')
     return {
       grade_assignment_rationale: `${record.grade_assignment_rationale || '该记录保留 7-9 共同课标文本；同年级单元/章节证据已进入候选数据根。'}${note ? ` ${note}` : ''}`,
+      grade_specific_focus: approvedFocus,
       h4g_unit_candidate_requires_manual_review: false,
       progression_review_note: `同年级单元/章节证据已获人工复核批准；课标原文保持不变。${note ? ` ${note}` : ''}`,
       requires_unit_level_evidence: false,

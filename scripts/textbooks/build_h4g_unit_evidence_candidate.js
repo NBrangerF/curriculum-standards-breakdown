@@ -2,6 +2,7 @@
 import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
+import { buildH4GGradeFocus } from './h4g_grade_focus.js'
 
 const DEFAULT_MATCHES = 'generated/textbook_evidence/textbook_unit_standard_matches.json'
 const DEFAULT_DATA_ROOT = 'public/data'
@@ -195,9 +196,7 @@ function unitKeywords(units) {
 }
 
 function proposedFocus(record, units) {
-  const titles = units.map(unit => unit.unit_title).slice(0, 3)
-  const label = titles.map(title => `《${title}》`).join('、')
-  return `候选：基于${record.grade || record.grade_band}教材单元${label}补充本年级学习重点；课标原文保持不变。`
+  return buildH4GGradeFocus(record, units, { approved: false })
 }
 
 function proposedProgressionDelta(units) {

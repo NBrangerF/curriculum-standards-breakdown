@@ -52,7 +52,8 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
     const gradeBandInfo = GRADE_BANDS[grade_band] || {}
     const evidenceIds = Array.isArray(textbook_evidence_ids) ? textbook_evidence_ids : []
     const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || String(review_status || '').includes('low_confidence')
-    const needsGradeDifferentiation = h4gState.needsDifferentiation || String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared'
+    const needsGradeDifferentiation = !h4gState.isFinalReady &&
+        (h4gState.needsDifferentiation || String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared')
     const hasGradeAssignmentConfidence = grade_assignment_confidence !== null && grade_assignment_confidence !== undefined
     const hasGradeAssignmentDetails = grade_assignment_rationale ||
         hasGradeAssignmentConfidence ||

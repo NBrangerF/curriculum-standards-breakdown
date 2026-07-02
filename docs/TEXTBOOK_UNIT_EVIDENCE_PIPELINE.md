@@ -2,7 +2,15 @@
 
 更新时间：2026-07-03
 
-本文记录从 ChinaTextbook 教材文件索引继续推进到“单元/章节级候选证据”的当前管线。它是后续真正区分 `H4G7`、`H4G8`、`H4G9` standards 的证据入口，但当前阶段不会直接改写正式 `public/data`。
+本文记录从 ChinaTextbook 教材文件索引继续推进到“单元/章节级候选证据”的当前管线。它是后续真正区分 `H4G7`、`H4G8`、`H4G9` standards 的证据入口。默认候选、复核、contract 和 decision apply 阶段仍只写 `generated/`；只有通过 reviewed publication gate 的 records 才能写入正式 `public/data`。
+
+2026-07-03 当前正式发布状态：
+
+- 已通过 reviewed publication gate 写入 36 条 H4G records：数学 19 条、科学 17 条。
+- 年级分布为 `H4G7=10`、`H4G8=12`、`H4G9=14`。
+- 这些 records 的 `review_status=unit_evidence_approved`、`evidence_granularity=textbook_unit_level`，并拥有可展示的 `grade_specific_focus`。
+- 正式课标核心文本未被改写，`official_standard_text_changed=false`。
+- 全量 H4G 仍是 `differentiation_ready=false`：1081 条 H4G records 中 36 条 ready，1045 条仍缺少已审核的单元级证据或年级焦点。
 
 ## 1. 目标
 
@@ -12,7 +20,7 @@
 - 核心文本完全相同的三年级记录已标为 `same_source_shared`。
 - 这些记录明确写入 `requires_unit_level_evidence: true` 和空的 `textbook_unit_evidence_ids`。
 
-下一步要解决的是：把教材证据从“某本教材属于某年级”推进到“某个标准可解释地对应某个教材单元/章节”。只有完成这一步，才可以把一部分记录从 `same_source_shared` 升级为真正的 `grade_specific_variant`。
+下一步要继续解决的是：把更多教材证据从“某本教材属于某年级”推进到“某个标准可解释地对应某个教材单元/章节”。只有完成单元级证据、人工/课程复核和 reviewed publication gate 后，才可以把对应记录标为已审核的年级化学习重点。当前仍保留 `standard_variant_type=same_source_shared`，因为官方源标准文本本身仍是 7-9 共享要求；前端通过 `grade_specific_focus` 呈现年级重点，而不是伪造新的课标原文。
 
 ## 2. 输入
 
@@ -2387,9 +2395,11 @@ publication readiness audit 的边界：`audit_h4g_publication_readiness` 是安
 
 publication review decisions 的边界：`h4g_publication_review_decisions_template` 是可编辑复核输入，不是机器自动审批。它只允许 `approve/reject/needs_revision/pending` 等受控决策值；任何 public write、官方课标文本改写、`grade_specific_variant` 自动升级、blocked 项发布、或把 progression note 写入 same-grade evidence 的请求都会被 `audit_h4g_publication_review_decisions` 拦截。
 
-H4G grade differentiation readiness 的边界：`grade7_9:audit-h4g-grade-differentiation` 是显示层/发布层质量 gate。它不改变数据，只统计 H4G 记录是否具备可用 `grade_specific_focus`、`textbook_unit_level` 证据和已批准的人工/课程复核状态。当前 public 应报告 `unit_level_evidence_records=0`、`final_ready_records=0`；数学 publication contract 候选根应报告 19 条 `candidate_needs_review`。科学八版本 publication contract 候选根只演练 16 条同年级单元证据写入；经过 Codex reviewed 决策 dry-run 后，`data_candidate_codex_reviewed` 报告 16 条 `final_ready_records`、0 个 `final_ready_groups`，另有 23 个 blocked/partial review items 和 155 条 standards 仍不在当前 unit candidate scope；这些仍不是正式 `public/data` 发布 ready。
+H4G grade differentiation readiness 的边界：`grade7_9:audit-h4g-grade-differentiation` 是显示层/发布层质量 gate。它不改变数据，只统计 H4G 记录是否具备可用 `grade_specific_focus`、`textbook_unit_level` 证据和已批准的人工/课程复核状态。当前 public 报告 `unit_level_evidence_records=36`、`final_ready_records=36`、`final_ready_groups=1`；数学 19 条、科学 17 条已经过 reviewed publication gate。全量仍为 `differentiation_ready=false`，因为 1045 条 H4G records 仍缺已审核的单元级证据或年级焦点。
 
-publication review decisions apply 的边界：`textbooks:apply-h4g-publication-review-decisions` 是 generated-root dry-run，不是正式发布。它复制 `data_candidate_publication_contract` 到 `data_candidate_review_decisions` 或本轮指定的 `data_candidate_codex_reviewed`，只根据已填写的 same-grade 决策更新标准记录的复核状态；pending 不改数据，progression note/blocker 决策只写 sidecar 摘要，不会写入 same-grade evidence，也不会改变官方课标字段。当前全部 pending 时应显示 `applied_standard_decisions=0`；science Codex reviewed 候选根显示 `applied_standard_decisions=16`、`reviewed_blocked_decisions=23`、`publication_ready=false`。
+publication review decisions apply 的边界：`textbooks:apply-h4g-publication-review-decisions` 是 generated-root dry-run，不是正式发布。它复制 `data_candidate_publication_contract` 到 `data_candidate_review_decisions` 或本轮指定的 `data_candidate_codex_reviewed`，只根据已填写的 same-grade 决策更新标准记录的复核状态；pending 不改数据，progression note/blocker 决策只写 sidecar 摘要，不会写入 same-grade evidence，也不会改变官方课标字段。当前全部 pending 时应显示 `applied_standard_decisions=0`；science Codex reviewed 候选根显示 `applied_standard_decisions=17`、`reviewed_blocked_decisions=24`、`publication_ready=false`。
+
+reviewed publication gate 的边界：`textbooks:publish-h4g-reviewed-candidate` 是当前唯一允许把 reviewed H4G same-grade unit evidence 写入正式 `public/data` 的命令。默认 dry-run；正式写入必须同时传入 `--write --confirm-reviewed-h4g-publication --strict`。该 gate 只接收 `data_candidate_codex_reviewed` 这类已完成决策 apply 的候选根，只发布 `review_status=unit_evidence_approved`、`evidence_granularity=textbook_unit_level`、非候选 `grade_specific_focus` 的标准记录，并拒绝官方核心字段变更。当前发布摘要为 `applied_records=36`、`by_subject={math:19,science:17}`、`by_grade_band={H4G7:10,H4G8:12,H4G9:14}`、`official_standard_text_changed=false`。
 
 publication review recommendations 的边界：`textbooks:h4g-publication-review-recommendations` 是受控复核决策候选生成器，不是正式发布器。它读取 pending 的 decisions template 和 publication review packet，只对已经满足多版本同年级证据、页码安全、alignment 安全的 same-grade standards 填入 `approve_same_grade_unit_evidence`；只对 high-confidence 的 progression group 候选填入 `approve_progression_group_note`；blocked reviews 继续保持 blocked/remediation 状态。它仍保持 `writes_public_data=false`、`publication_ready=false`、`official_standard_text_changed=false`，输出文件必须继续通过 `audit-h4g-publication-review-decisions -- --require-complete` 和 generated-root apply/audit gates。
 
@@ -2402,7 +2412,7 @@ H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 
 建议顺序：
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
-2. 科学八版本已完成匹配噪声修复、候选合并、publication review 分层和 Codex reviewed 决策 dry-run：decision matrix 覆盖 201 条科学 H4G standards，其中 16 条进入 `same_grade_unit_candidate_ready`，14 条进入 `edition_placement_review`，16 条进入 `continue_gap_remediation`，155 条仍不在当前 unit candidate scope。ready-only 候选为 16 条 standards、40 个单元证据对象，全部满足至少 2 个版本、页码起始可用、无非单调页码；但 14 个 progression groups 全部仍是 partial group。progression review worklist 为 23 个 work items：10 个 placement、13 个 gap，覆盖 30 条 blocked standards。edition placement model 当前 10 个 candidates 全部为 `partial_edition_placement_evidence_needs_more_review`，没有 note-ready 项。blocked remediation packet 已把 23 个 blockers 拆成 5 类行动：3 个 placement source review、6 个 placement missing edition evidence、1 个 single-direction placement review、12 个 same-grade missing edition unit collection、1 个 keep-blocked no-safe-alias。`SC-H4G9-ECO-006` 通过受限 `reviewed_alias_anchor` 获得华东师大版与浙教版双版本同年级证据；`SC-H4G9-ENE-003` 通过受限 `reviewed_alias_anchor` 获得华东师大版《3 热机》和武汉版《3.3 能的转化和能量守恒定律》双版本同年级证据；`SC-H4G7-LIFE-004` 通过受限 `reviewed_alias_anchor` 获得人教版与华东师大版双版本同年级证据；`SC-H4G9-EVOL-018` 通过受限 `reviewed_alias_anchor` 获得华东师大版与武汉版双版本同年级证据。Codex reviewed 决策候选批准 16 条 same-grade evidence，保留 10 个 placement partial 为 `keep_blocked`，标记 13 个 gap 为 `needs_targeted_remediation`；`data_candidate_codex_reviewed` 验证通过，报告 16 条 `final_ready_records`、0 个 `final_ready_groups`、`publication_ready=false`。下一步应按 remediation packet 处理 10 个 placement partial 和 13 个 gap remediation，并继续补齐缺年级/缺版本证据，而不是把 cross-grade 诊断证据写入 same-grade evidence。
+2. 科学八版本已完成匹配噪声修复、候选合并、publication review 分层和 Codex reviewed 决策 dry-run：decision matrix 覆盖 201 条科学 H4G standards，其中 17 条进入 `same_grade_unit_candidate_ready`，12 条进入 `edition_placement_review`，13 条进入 `continue_gap_remediation`，153 条仍不在当前 unit candidate scope。ready-only 候选为 17 条 standards、42 个单元证据对象，全部满足至少 2 个版本、页码起始可用、无非单调页码；但 17 条 ready records 仍分散在不同 progression groups，科学当前 `final_ready_groups=0`。Codex reviewed 决策候选批准 17 条 same-grade evidence，保留 10 个 placement partial 为 `keep_blocked`，标记 14 个 gap 为 `needs_targeted_remediation`；`data_candidate_codex_reviewed` 验证通过，报告 17 条 `final_ready_records`、0 个 `final_ready_groups`、`publication_ready=false`。其中 `SC-H4G7-MOT-001` 和 `SC-H4G7-ENV-007` 通过标准级受限 alias 完成了补证据链路，但只有 `SC-H4G7-MOT-001` 本轮达到 same-grade unit evidence approved；`SC-H4G7-ENV-007` 继续留在 targeted remediation。下一步应按 remediation packet 处理 10 个 placement partial 和 14 个 gap remediation，并继续补齐缺年级/缺版本证据，而不是把 cross-grade 诊断证据写入 same-grade evidence。
 3. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
 4. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
 5. 使用 `textbooks:h4g-progression-decisions` 合并同年级证据、reverse gaps 和投放差异，形成可复核的发布前决策矩阵。
@@ -2423,4 +2433,5 @@ H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 
 20. 用 `grade7_9:audit-h4g-grade-differentiation` 验证 reviewed 候选根中 19 条数学 standards 是否进入 final-ready 统计。
 21. 用 `grade7_9:audit-h4g-subject-readiness -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_codex_reviewed` 复核 reviewed 候选根的学科矩阵，确定下一批优先学科。
 22. 补充跨版本一致性、真实人工/课程进阶复核状态，并复核剩余未覆盖学科和 standards。
-23. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate；正式发布前 `grade7_9:audit-h4g-grade-differentiation -- --require-ready` 必须通过。
+23. 对已完成人工/课程复核的候选根，使用 `textbooks:publish-h4g-reviewed-candidate -- --write --confirm-reviewed-h4g-publication --strict` 进入正式 public 写入 gate。
+24. 写入后必须重跑 `build:indexes`、`validate:indexes`、`grade7_9:audit-h4g-grade-differentiation`、`grade7_9:audit-h4g-distinctiveness -- --strict`、`grade7_9:audit-grade-band-policy -- --data-only --strict` 和 `npm run build`。
