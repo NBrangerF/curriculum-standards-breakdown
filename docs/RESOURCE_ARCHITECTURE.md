@@ -99,6 +99,7 @@ npm run validate:indexes
 | `scripts/textbooks/build_textbook_unit_index.js` | 从教材文件索引生成单元/章节候选证据入口；默认只生成文件级 `volume_seed`，也支持按 `evidence_id` 小批量物化 PDF、raw URL fallback、断点续传、文本层目录解析、英文 `Contents/Module/Unit` 目录解析、`S2/S 2` 印刷页、目录页码在 leader 前后的解析和可选 OCR fallback。 |
 | `scripts/textbooks/textbook_unit_page_start_overrides.json` | 已复核的教材印刷页码补证据；用于 TOC OCR 缺右侧页码但正文 OCR 标题/页脚可确认页码的情况，只附着到已有单元候选。 |
 | `scripts/textbooks/textbook_unit_alignment_aliases.json` | 已复核的标准级 alignment alias；只允许指定 `standard_code` 使用指定单元标题关键词，不作为全局同义词表。 |
+| `scripts/textbooks/h4g_subject_theme_taxonomy.json` | English/PE 等学科主题桥接的受控主题表；只提供 review seed 和禁用泛词规则，不代表 approved evidence。 |
 | `scripts/textbooks/audit_textbook_unit_index.js` | 校验教材单元候选索引，区分文件级 seed 与真实目录/章节候选。 |
 | `scripts/textbooks/match_standards_to_textbook_units.js` | 将 H4G standards 与真实 `toc_unit_or_chapter` 候选做可解释匹配，并把单元页码、`subdomain_alignment`、标准级 `alias_alignment` 和强字段 alignment 传入匹配结果。 |
 | `scripts/textbooks/build_h4g_unit_evidence_candidate.js` | 将通过 eligible 门的标准-单元匹配组织为写回前 H4G 单元证据候选包和逐条 review pack；包含候选页段与页码状态，不写 `public/data`。 |
@@ -106,6 +107,9 @@ npm run validate:indexes
 | `scripts/textbooks/audit_h4g_unit_evidence_candidate.js` | 在 apply 前校验 H4G 单元证据候选包，确保官方字段未变、alignment 可解释、候选仍需人工复核；支持 `--require-page-start` 作为页码证据门禁。 |
 | `scripts/textbooks/audit_h4g_unit_evidence_consistency.js` | 校验 H4G 单元证据候选包的跨版本一致性、progression group 年级覆盖和页码状态；用于区分诊断样本与发布级候选。 |
 | `scripts/textbooks/audit_h4g_reverse_lookup_gaps.js` | 反向检索 H4G 候选包未过发布门的原因，按缺失版本和 progression group 输出页码、alignment、低分/错年级、无候选等缺口画像；只写 generated 报告，不写 `public/data`。 |
+| `scripts/textbooks/audit_h4g_subject_theme_bridge_gaps.js` | 审计真实单元已存在但标准-单元匹配仍为 0 或只有弱匹配的学科，输出是否需要 `bilingual_topic_bridge_required` 或 `curriculum_activity_theme_bridge_required`。 |
+| `scripts/textbooks/build_h4g_subject_theme_bridge_review_packet.js` | 根据受控主题表为教材单元和 H4G progression groups 生成 review-only 主题桥接候选；所有候选默认 `needs_source_review`，不可直接作为 H4G evidence。 |
+| `scripts/textbooks/audit_h4g_subject_theme_bridge_review_packet.js` | 审计主题桥接 review packet，拦截 unknown topic tag、未复核 eligible、public write、官方文本变更、跨年级 same-grade 候选和 approved bridge 混入 review-only packet。 |
 | `scripts/textbooks/audit_h4g_topic_placement_matrix.js` | 扫描同一主题在不同教材版本的 7/8/9 年级单元投放位置，区分真实缺证据与跨版本年级投放差异；只作诊断，不把跨年级单元升级为同年级证据。 |
 | `scripts/textbooks/build_h4g_placement_evidence_candidate.js` | 将 topic placement matrix 中的跨年级投放差异整理成 progression group 级候选包；只用于发布前决策，不写 `public/data`，不生成 `textbook_unit_evidence_ids`。 |
 | `scripts/textbooks/audit_h4g_placement_evidence_candidate.js` | 校验 placement 候选包仍是只读诊断材料，并强制 cross-grade unit evidence 不能被当作 same-grade standard evidence。 |
@@ -325,6 +329,9 @@ public/data/
 | `generated/textbook_evidence/textbook_unit_standard_matches.json` | H4G standard 到教材单元/章节候选的可解释匹配结果；会继承单元页码字段，并保留 `subdomain_alignment`、`alias_alignment`、`field_alignment`。 |
 | `generated/textbook_evidence/textbook_unit_standard_matches_summary.md` | 标准-单元匹配摘要，包含 eligible alignment 分布。 |
 | `generated/textbook_evidence/textbook_unit_standard_matches_audit.json` | 标准-单元匹配审计结果。 |
+| `generated/textbook_evidence/h4g_subject_theme_bridge_gaps.json` / `.md` | 学科主题桥接缺口审计；识别 English/PE 这类真实单元存在但仍需双语或活动主题桥接的情况。 |
+| `generated/textbook_evidence/h4g_subject_theme_bridge_review_packet.json` / `.md` | 学科主题桥接 review-only 候选包；包含 unit theme items、progression theme items 和同年级 bridge review candidates，默认全部 `needs_source_review`。 |
+| `generated/textbook_evidence/h4g_subject_theme_bridge_review_packet_audit.json` / `.md` | 主题桥接 review packet 审计结果；确认不写 public、不改官方文本、不跨年级、不把未复核候选升级成 eligible evidence。 |
 | `generated/textbook_evidence/h4g_unit_evidence_candidate.json` | 写回前 H4G 单元证据候选包，包含拟写入的 `textbook_unit_evidence_ids` 和 review 信息。 |
 | `generated/textbook_evidence/h4g_unit_evidence_candidate_summary.md` | 写回前候选包 review pack，逐条展示官方字段、候选单元、页段、页码状态、alignment、命中字段和关键词。 |
 | `generated/textbook_evidence/h4g_unit_evidence_candidate_audit.json` | 写回前候选包审计结果，校验官方字段快照、安全边界、alignment、页码门禁和 proposed update。 |

@@ -2424,6 +2424,27 @@ npm run textbooks:audit-h4g-theme-bridge-gaps -- \
 
 详细数据契约和进阶判定规则见 `docs/H4G_SUBJECT_THEME_BRIDGE_PLAN.md`。
 
+H4G subject theme bridge review packet 的边界：`textbooks:h4g-theme-bridge-review` 和 `textbooks:audit-h4g-theme-bridge-review` 是 English/PE 主题桥接的 review-only gate。它们读取 `scripts/textbooks/h4g_subject_theme_taxonomy.json`、已执行 work item 的 `textbook_unit_index.json` 和当前 H4G standards，生成同学科同年级的待复核 bridge candidates；所有候选都保持 `review_status=needs_source_review`、`eligible_for_h4g_differentiation=false`、`writes_public_data=false`。
+
+```bash
+npm run textbooks:h4g-theme-bridge-review -- \
+  --run-dirs generated/textbook_evidence/h4g_runs/h4g_unit_work_english_89497c34,generated/textbook_evidence/h4g_runs/h4g_unit_work_pe_6aec3166 \
+  --subjects english,pe \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_packet_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_packet_english_pe.md \
+  --strict \
+  --require-candidates
+
+npm run textbooks:audit-h4g-theme-bridge-review -- \
+  --packet generated/textbook_evidence/h4g_theme_bridge_review_packet_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_packet_english_pe_audit.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_packet_english_pe_audit.md \
+  --strict \
+  --require-candidates
+```
+
+当前 English/PE review packet 结果为 `valid=true`：生成 60 个 unit theme items、95 个 progression theme items、515 个 bridge review candidates，其中 English 340 条、PE 175 条；全部 670 个 review items 都是 `needs_source_review`。audit 也为 `valid=true`，确认没有 public write、没有官方文本变更、没有未复核 eligible evidence、没有跨年级 same-grade candidate。当前仍有 421 条 bridge candidates 缺 page-ready evidence，后续不能进入 publication gate，必须先做页码补证据或 source review。
+
 ## 10. 下一步
 
 建议顺序：
