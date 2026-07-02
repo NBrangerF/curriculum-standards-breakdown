@@ -325,6 +325,23 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 `candidate_for_edition_placement_note` 只允许来自完整的 multi-grade placement evidence；如果只有单向 cross-grade 诊断证据，或仍有 missing editions 没有 cross-grade topic 解释，必须保持 `partial_edition_placement_evidence_needs_more_review`。科学八版本当前 13 个 placement model candidates 全部为 partial，因此不能生成 progression note draft。
 
+生成 H4G blocked remediation 行动包：
+
+```bash
+npm run textbooks:h4g-blocked-remediation-packet -- --strict --require-items
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_blocked_remediation_packet.json
+generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_blocked_remediation_packet.md
+```
+
+该命令把 progression worklist、reverse gaps、alias source review packet 和 edition placement model candidate 合并成 blocker 级行动清单。它不会生成 publication candidate，也不会写 `public/data`、`textbook_unit_evidence_ids` 或官方课标文本；cross-grade evidence 继续只能作为诊断，same-grade gap 只能通过 source-reviewed、standard-scoped evidence 补救。
+
+当前科学八版本结果为 26 个 remediation items，覆盖 34 条 affected standards：13 个 `edition_placement_model_review` 和 13 个 `same_grade_gap_remediation`。其中 9 个为 high priority，17 个为 medium priority；13 个归 `curriculum_progression_review`，13 个归 `unit_evidence_remediation`。action family 分布为：`placement_partial_single_direction_review=1`、`placement_partial_source_review_before_note=6`、`placement_partial_collect_missing_edition_evidence=6`、`same_grade_gap_keep_blocked_no_safe_alias=1`、`same_grade_gap_source_review_or_scoped_anchor=1`、`same_grade_gap_collect_missing_edition_units=11`。
+
 生成 H4G 发布前复核包：
 
 ```bash
@@ -2376,6 +2393,8 @@ publication review decisions apply 的边界：`textbooks:apply-h4g-publication-
 
 publication review recommendations 的边界：`textbooks:h4g-publication-review-recommendations` 是受控复核决策候选生成器，不是正式发布器。它读取 pending 的 decisions template 和 publication review packet，只对已经满足多版本同年级证据、页码安全、alignment 安全的 same-grade standards 填入 `approve_same_grade_unit_evidence`；只对 high-confidence 的 progression group 候选填入 `approve_progression_group_note`；blocked reviews 继续保持 blocked/remediation 状态。它仍保持 `writes_public_data=false`、`publication_ready=false`、`official_standard_text_changed=false`，输出文件必须继续通过 `audit-h4g-publication-review-decisions -- --require-complete` 和 generated-root apply/audit gates。
 
+blocked remediation packet 的边界：`textbooks:h4g-blocked-remediation-packet` 是复核/补证据行动层，不是决策 apply 层。它只把已经 blocked 的 standards 分配到 placement partial review、source review、missing edition evidence collection 或 keep-blocked 路径；任何 item 都不能绕过 source review、same-grade evidence gate 或课程进阶复核直接写入 `grade_specific_focus`、`textbook_unit_evidence_ids`、progression note 或正式 `public/data`。
+
 H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 是总览型数据质量画像，不是发布 gate。它把每个学科的 H4G 总量、完整三元组、核心文本重复、单元证据、待复核候选、final-ready 记录和建议下一步整理成一张 compact matrix，用于决定下一批应该优先补单元证据、补复核决策，还是处理低置信度来源缺口。
 
 ## 10. 下一步
@@ -2383,24 +2402,25 @@ H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 
 建议顺序：
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
-2. 科学八版本已完成匹配噪声修复、候选合并、publication review 分层和 Codex reviewed 决策 dry-run：decision matrix 覆盖 201 条科学 H4G standards，其中 12 条进入 `same_grade_unit_candidate_ready`，17 条进入 `edition_placement_review`，17 条进入 `continue_gap_remediation`，155 条仍不在当前 unit candidate scope。ready-only 候选为 12 条 standards、32 个单元证据对象，全部满足至少 2 个版本、页码起始可用、无非单调页码；但 11 个 progression groups 全部仍是 partial group。progression review worklist 为 26 个 work items：13 个 placement、13 个 gap，覆盖 34 条 blocked standards。edition placement model 当前 13 个 candidates 全部为 `partial_edition_placement_evidence_needs_more_review`，没有 note-ready 项。Codex reviewed 决策候选批准 12 条 same-grade evidence，保留 13 个 placement partial 为 `keep_blocked`，标记 13 个 gap 为 `needs_targeted_remediation`；`data_candidate_codex_reviewed` 验证通过，报告 12 条 `final_ready_records`、0 个 `final_ready_groups`、`publication_ready=false`。下一步应处理 13 个 placement partial 和 13 个 gap remediation，并继续补齐缺年级/缺版本证据，而不是把 cross-grade 诊断证据写入 same-grade evidence。
+2. 科学八版本已完成匹配噪声修复、候选合并、publication review 分层和 Codex reviewed 决策 dry-run：decision matrix 覆盖 201 条科学 H4G standards，其中 12 条进入 `same_grade_unit_candidate_ready`，17 条进入 `edition_placement_review`，17 条进入 `continue_gap_remediation`，155 条仍不在当前 unit candidate scope。ready-only 候选为 12 条 standards、32 个单元证据对象，全部满足至少 2 个版本、页码起始可用、无非单调页码；但 11 个 progression groups 全部仍是 partial group。progression review worklist 为 26 个 work items：13 个 placement、13 个 gap，覆盖 34 条 blocked standards。edition placement model 当前 13 个 candidates 全部为 `partial_edition_placement_evidence_needs_more_review`，没有 note-ready 项。blocked remediation packet 已把 26 个 blockers 拆成 6 类行动：6 个 placement source review、6 个 placement missing edition evidence、1 个 single-direction placement review、11 个 same-grade missing edition unit collection、1 个 same-grade scoped source review、1 个 keep-blocked no-safe-alias。Codex reviewed 决策候选批准 12 条 same-grade evidence，保留 13 个 placement partial 为 `keep_blocked`，标记 13 个 gap 为 `needs_targeted_remediation`；`data_candidate_codex_reviewed` 验证通过，报告 12 条 `final_ready_records`、0 个 `final_ready_groups`、`publication_ready=false`。下一步应按 remediation packet 处理 13 个 placement partial 和 13 个 gap remediation，并继续补齐缺年级/缺版本证据，而不是把 cross-grade 诊断证据写入 same-grade evidence。
 3. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
 4. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
 5. 使用 `textbooks:h4g-progression-decisions` 合并同年级证据、reverse gaps 和投放差异，形成可复核的发布前决策矩阵。
 6. 使用 `textbooks:h4g-ready-unit-candidates` 把 record-level ready 的 standards 过滤成隔离 QA 候选包，并在 generated data root 上验证。
 7. 用 `textbooks:h4g-progression-review-worklist` 固化 blocked standards 的复核入口，区分 `edition_placement_model_review` 和 `same_grade_gap_remediation`。
 8. 用 `textbooks:h4g-edition-placement-model` 将可解释的跨版本投放差异升级为 progression group 级模型候选，同时保留 partial topics 的 blocked 状态。
-9. 用 `textbooks:h4g-publication-review` 把同年级单元证据、版本投放说明候选和 blocked items 合成互斥的发布前复核包。
-10. 用 `textbooks:h4g-publication-contract` 和 `textbooks:apply-h4g-publication-contract` 先在 generated 候选根演练未来字段契约。
-11. 用 `textbooks:audit-h4g-publication-readiness` 确认 review packet、contract、候选根、notes 和 blocked registry 一致，且仍未越界成正式发布。
-12. 用 `textbooks:h4g-publication-review-decisions` 生成可编辑复核决策模板，并用 `textbooks:audit-h4g-publication-review-decisions` 审计其边界。
-13. 用 `textbooks:audit-h4g-publication-readiness -- --strict --require-review-decisions-audit` 把决策审计结果接回 readiness summary。
-14. 用 `textbooks:apply-h4g-publication-review-decisions -- --strict` 生成决策 apply dry-run 根；当前 pending 模板应不改变任何标准复核状态。
-15. 用 `grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_review_decisions` 区分 candidate focus 与 final ready。
-16. 用 `grade7_9:audit-h4g-subject-readiness` 生成学科级 readiness matrix，确认当前最大缺口仍是缺单元证据还是缺复核决策。
-17. 用 `textbooks:h4g-publication-review-recommendations -- --strict` 生成 Codex reviewed 决策候选；该文件仍在 generated 层，不写 public。
-18. 对 reviewed 决策候选使用 `textbooks:audit-h4g-publication-review-decisions -- --strict --require-complete`，再用 `textbooks:apply-h4g-publication-review-decisions -- --require-complete` 应用到新的 generated 候选根。
-19. 用 `grade7_9:audit-h4g-grade-differentiation` 验证 reviewed 候选根中 19 条数学 standards 是否进入 final-ready 统计。
-20. 用 `grade7_9:audit-h4g-subject-readiness -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_codex_reviewed` 复核 reviewed 候选根的学科矩阵，确定下一批优先学科。
-21. 补充跨版本一致性、真实人工/课程进阶复核状态，并复核剩余未覆盖学科和 standards。
-22. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate；正式发布前 `grade7_9:audit-h4g-grade-differentiation -- --require-ready` 必须通过。
+9. 用 `textbooks:h4g-blocked-remediation-packet` 把 blocked standards 转成 source review、missing edition evidence、placement partial review 或 keep-blocked 的行动清单。
+10. 用 `textbooks:h4g-publication-review` 把同年级单元证据、版本投放说明候选和 blocked items 合成互斥的发布前复核包。
+11. 用 `textbooks:h4g-publication-contract` 和 `textbooks:apply-h4g-publication-contract` 先在 generated 候选根演练未来字段契约。
+12. 用 `textbooks:audit-h4g-publication-readiness` 确认 review packet、contract、候选根、notes 和 blocked registry 一致，且仍未越界成正式发布。
+13. 用 `textbooks:h4g-publication-review-decisions` 生成可编辑复核决策模板，并用 `textbooks:audit-h4g-publication-review-decisions` 审计其边界。
+14. 用 `textbooks:audit-h4g-publication-readiness -- --strict --require-review-decisions-audit` 把决策审计结果接回 readiness summary。
+15. 用 `textbooks:apply-h4g-publication-review-decisions -- --strict` 生成决策 apply dry-run 根；当前 pending 模板应不改变任何标准复核状态。
+16. 用 `grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_review_decisions` 区分 candidate focus 与 final ready。
+17. 用 `grade7_9:audit-h4g-subject-readiness` 生成学科级 readiness matrix，确认当前最大缺口仍是缺单元证据还是缺复核决策。
+18. 用 `textbooks:h4g-publication-review-recommendations -- --strict` 生成 Codex reviewed 决策候选；该文件仍在 generated 层，不写 public。
+19. 对 reviewed 决策候选使用 `textbooks:audit-h4g-publication-review-decisions -- --strict --require-complete`，再用 `textbooks:apply-h4g-publication-review-decisions -- --require-complete` 应用到新的 generated 候选根。
+20. 用 `grade7_9:audit-h4g-grade-differentiation` 验证 reviewed 候选根中 19 条数学 standards 是否进入 final-ready 统计。
+21. 用 `grade7_9:audit-h4g-subject-readiness -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_codex_reviewed` 复核 reviewed 候选根的学科矩阵，确定下一批优先学科。
+22. 补充跨版本一致性、真实人工/课程进阶复核状态，并复核剩余未覆盖学科和 standards。
+23. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate；正式发布前 `grade7_9:audit-h4g-grade-differentiation -- --require-ready` 必须通过。
