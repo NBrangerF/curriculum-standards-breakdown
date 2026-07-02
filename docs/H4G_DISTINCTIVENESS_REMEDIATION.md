@@ -1264,6 +1264,40 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 这一步把“可以进入人工/课程复核”和“可以正式发布”拆开：审计会逐项比对 review packet、contract、apply summary、候选数据根、`h4g_progression_notes.json` 和 blocked registry，确认 19 条候选标准只改证据/复核字段、官方课标文本未变、5 条 note 仍是 progression group 级候选、2 个 blocked reviews 没有 public surface。它同时强制保留 `publication_ready=false`，因为人工复核记录、课程进阶复核、progression-note schema/UI、正式 public migration gate 和 85 条范围外数学 H4G standards 仍未完成。
 
+### 7.19 人工/课程复核决策模板
+
+在 readiness audit 之后，本轮新增复核决策模板：
+
+```bash
+npm run textbooks:h4g-publication-review-decisions -- --strict
+npm run textbooks:audit-h4g-publication-review-decisions -- --strict
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_decisions_template.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_decisions_template.md
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_decisions_audit.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_decisions_audit.md
+```
+
+当前模板结果：
+
+```json
+{
+  "required_manual_decisions": 24,
+  "pending_required_decisions": 24,
+  "standard_same_grade_decisions": 19,
+  "progression_note_decisions": 5,
+  "blocked_registry_decisions": 2,
+  "manual_review_complete": false,
+  "publication_ready": false
+}
+```
+
+这一步把缺失的人工/课程复核记录变成了可编辑、可审计的输入文件。19 条同年级单元证据由 `manual_same_grade_unit_review` 决定，5 条 progression notes 由 `curriculum_progression_review` 决定，2 条 blocked guardrails 只能保持 blocked 或进入定向补救。默认所有必需决策都是 `pending`；审计允许 pending，但会报告 24 个 required decisions 未完成。真实复核完成后，应使用 `textbooks:audit-h4g-publication-review-decisions -- --strict --require-complete`，且任何 public write、官方课标文本改写、自动 `grade_specific_variant` 升级、blocked 项发布都会被拒绝。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：

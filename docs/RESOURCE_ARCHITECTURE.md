@@ -116,6 +116,8 @@ npm run validate:indexes
 | `scripts/textbooks/build_h4g_publication_contract_candidate.js` | 从发布前复核包生成未来数据契约候选；定义标准级同年级单元证据、progression group 版本投放说明和 blocked registry 三个 surface 的字段白名单与 gate。 |
 | `scripts/textbooks/apply_h4g_publication_contract_candidate.js` | 将 H4G 发布契约候选应用到独立 generated 数据根；只演练标准级同年级单元证据和 progression note candidate，不写 `public/data`。 |
 | `scripts/textbooks/audit_h4g_publication_readiness.js` | 审计发布复核包、契约候选、dry-run 数据根、progression notes 和 blocked registry 是否一致；输出 `manual_review_ready` 与 `publication_ready=false` 的明确边界。 |
+| `scripts/textbooks/build_h4g_publication_review_decisions_template.js` | 从发布复核包、契约候选和 readiness audit 生成可编辑的人工/课程复核决策模板；默认所有必需决策为 `pending`。 |
+| `scripts/textbooks/audit_h4g_publication_review_decisions.js` | 审计人工/课程复核决策文件，防止请求 public write、官方课标文本改写、blocked 项发布或 cross-grade note 混入 same-grade evidence。 |
 | `scripts/textbooks/plan_h4g_unit_evidence_worklist.js` | 生成 H4G 单元证据工作清单，把待分化 progression groups、当前候选覆盖和 ChinaTextbook 完整版本覆盖合并成下一批可执行教材物化任务。 |
 | `scripts/textbooks/run_h4g_unit_work_item.js` | 按 worklist 中的单个 work item 串行执行物化、索引审计、匹配、候选包、consistency gate、候选数据根 apply 和 H4G 审计；默认只写 `generated/textbook_evidence/h4g_runs/`。 |
 | `scripts/textbooks/apply_h4g_unit_evidence_candidate.js` | 将 H4G 单元证据候选包应用到独立候选数据根，供索引、审计和 UI 验证；默认拒绝写入 `public/data`。 |
@@ -337,6 +339,8 @@ public/data/
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/data_candidate_publication_contract/h4g_progression_notes.json` | progression group 级版本投放说明候选 collection；用于后续课程进阶复核和 UI/schema 设计，不会被当前网站 runtime 读取。 |
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/data_candidate_publication_contract/h4g_publication_contract_apply_summary.json` | 发布契约候选 apply 摘要，记录 applied/missing、unit evidence objects、notes、blocked contracts、官方字段变更检查和候选根审计命令。 |
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/h4g_publication_readiness_audit.json` / `.md` | 发布准备度安全审计；确认当前 artifacts 可进入人工/课程复核，但仍 `publication_ready=false`、`public_migration_ready=false`。 |
+| `generated/textbook_evidence/h4g_runs/<work_item_id>/h4g_publication_review_decisions_template.json` / `.md` | 人工/课程复核决策模板；包含 19 条 same-grade standard 决策、5 条 progression note 决策和 2 条 blocked guardrail 决策，默认 pending。 |
+| `generated/textbook_evidence/h4g_runs/<work_item_id>/h4g_publication_review_decisions_audit.json` / `.md` | 决策文件审计结果；默认允许 pending，但 `--require-complete` 可用于复核完成后的强门禁。 |
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/data_candidate_ready_only/` | ready-only 候选包应用后的隔离数据根；用于索引、H4G 审计和 UI 兼容性验证，不是正式 `public/data`。 |
 | `generated/textbook_evidence/h4g_unit_evidence_worklist.json` / `.md` | H4G 单元证据工作清单；记录每个学科仍需单元证据的 progression groups、可用完整教材版本和推荐 `evidence_ids` 批次。 |
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/` | 单个 H4G work item 的端到端运行目录；包含单元索引、匹配、候选包、consistency audit、候选数据根、`run_summary.json` 和 `run_summary.md`。 |
@@ -367,6 +371,8 @@ npm run textbooks:h4g-publication-review -- --strict --require-ready --require-e
 npm run textbooks:h4g-publication-contract -- --strict --require-ready-surface --require-edition-note-surface
 npm run textbooks:apply-h4g-publication-contract -- --strict
 npm run textbooks:audit-h4g-publication-readiness -- --strict
+npm run textbooks:h4g-publication-review-decisions -- --strict
+npm run textbooks:audit-h4g-publication-review-decisions -- --strict
 npm run textbooks:audit-h4g-unit-candidates -- --candidate generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate_ready_only.json --strict --require-candidates --require-page-start
 npm run textbooks:plan-h4g-unit-worklist -- --strict --require-work-items
 npm run textbooks:run-h4g-unit-work-item -- --work-item h4g_unit_work_math_6aec3166
@@ -395,6 +401,8 @@ npm run textbooks:apply-h4g-unit-candidates -- --strict
 - `textbooks:h4g-publication-contract` 是数据契约候选 gate。它只定义未来 additive publication surfaces 和字段白名单：标准级同年级单元证据、progression group 版本投放说明、blocked registry；它不迁移 `public/data`。
 - `textbooks:apply-h4g-publication-contract` 是发布契约 dry-run gate。它复制 `public/data` 到 generated 候选根，只按 contract 白名单写入同年级单元证据字段，并生成 `h4g_progression_notes.json` 候选；它仍拒绝写正式 `public/data`，也不会自动标记 `grade_specific_variant`。
 - `textbooks:audit-h4g-publication-readiness` 是发布前安全审计 gate。它要求 review packet、contract、apply summary、候选根、progression notes 和 blocked registry 互相一致；通过时只表示 `manual_review_ready=true`，仍明确 `publication_ready=false`。
+- `textbooks:h4g-publication-review-decisions` 是人工/课程复核入口生成 gate。它把 19 条 standard、5 条 progression note 和 2 条 blocked 项整理为可编辑决策文件，但默认所有必需复核仍是 `pending`。
+- `textbooks:audit-h4g-publication-review-decisions` 是决策文件审计 gate。默认允许 pending 并保持 `publication_ready=false`；复核完成后可加 `--require-complete`，要求 24 个必需人工/课程决策全部填写且不越权。
 - `textbooks:plan-h4g-unit-worklist` 是任务规划 gate，不是证据 gate。它可以确认哪些学科有至少两个完整教材版本可进入跨版本候选生成，也会暴露当前 ChinaTextbook 无法覆盖的 IT、劳动等缺口。
 - `textbooks:run-h4g-unit-work-item` 是执行 gate，不是发布 gate。它把 worklist 的单个批次跑到 generated 候选数据根和审计摘要，但不会写 `public/data`；如果要证明发布级分化，仍需使用 consistency audit 的发布级参数。
 - `textbooks:apply-h4g-unit-candidates` 只把候选包应用到独立候选数据根；正式写入 `public/data` 仍需要单独发布 gate。

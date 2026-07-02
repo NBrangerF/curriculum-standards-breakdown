@@ -366,6 +366,24 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 该 gate 会把 publication review packet、contract candidate、apply summary、candidate data root、`h4g_progression_notes.json` 和 blocked registry 放在一起检查。当前审计 `valid=true`、`manual_review_ready=true`，但仍明确 `publication_ready=false`、`public_migration_ready=false`。阻塞原因包括：19 条同年级单元证据尚未有人工复核记录、5 条 progression notes 尚未有课程进阶复核、progression-group note collection 尚未完成 schema/UI 消费设计、正式 public migration gate 仍未建立、85 条数学 H4G standards 不在当前单元候选范围内、2 个 blocked reviews 没有 public surface。
 
+生成 H4G 人工/课程复核决策模板：
+
+```bash
+npm run textbooks:h4g-publication-review-decisions -- --strict
+npm run textbooks:audit-h4g-publication-review-decisions -- --strict
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_decisions_template.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_decisions_template.md
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_decisions_audit.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_decisions_audit.md
+```
+
+当前模板包含 24 个必需人工/课程决策：19 个 `standard_same_grade_unit_evidence`、5 个 `progression_group_edition_placement_note`，另有 2 个 `blocked_review_registry` guardrail 决策。默认全部为 `pending`，所以审计结果是 `valid=true`、`manual_review_complete=false`、`publication_ready=false`。如果后续真实复核完成，应使用 `textbooks:audit-h4g-publication-review-decisions -- --strict --require-complete` 作为更强门禁；即便全部通过，仍需单独 public migration gate 才能写正式数据。
+
 ## 4. 输出结构
 
 `textbook_unit_index.json` 有两个核心数组：
@@ -1029,6 +1047,8 @@ publication contract apply dry-run 的边界：`apply_h4g_publication_contract_c
 
 publication readiness audit 的边界：`audit_h4g_publication_readiness` 是安全审计，不是发布批准。它通过时只说明当前 artifacts 内部一致、未改官方课标文本、blocked 项没有混入 public surface，并且可以进入人工/课程复核；它仍必须保持 `publication_ready=false`，直到人工复核、schema/UI、正式 migration gate 和剩余缺口处理完成。
 
+publication review decisions 的边界：`h4g_publication_review_decisions_template` 是可编辑复核输入，不是机器自动审批。它只允许 `approve/reject/needs_revision/pending` 等受控决策值；任何 public write、官方课标文本改写、`grade_specific_variant` 自动升级、blocked 项发布、或把 progression note 写入 same-grade evidence 的请求都会被 `audit_h4g_publication_review_decisions` 拦截。
+
 ## 10. 下一步
 
 建议顺序：
@@ -1043,6 +1063,7 @@ publication readiness audit 的边界：`audit_h4g_publication_readiness` 是安
 8. 用 `textbooks:h4g-publication-review` 把同年级单元证据、版本投放说明候选和 blocked items 合成互斥的发布前复核包。
 9. 用 `textbooks:h4g-publication-contract` 和 `textbooks:apply-h4g-publication-contract` 先在 generated 候选根演练未来字段契约。
 10. 用 `textbooks:audit-h4g-publication-readiness` 确认 review packet、contract、候选根、notes 和 blocked registry 一致，且仍未越界成正式发布。
-11. 基于 contract candidate 完成人工/课程进阶复核，决定是否增加 progression-group note collection 或标准级 evidence migration。
-12. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
-13. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。
+11. 用 `textbooks:h4g-publication-review-decisions` 生成可编辑复核决策模板，并用 `textbooks:audit-h4g-publication-review-decisions` 审计其边界。
+12. 由真实人工/课程进阶复核填写决策文件；复核完成后使用 `--require-complete` 重新审计。
+13. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
+14. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。
