@@ -109,9 +109,12 @@ npm run textbooks:audit-unit-matches -- --strict --require-matches --require-eli
 ```bash
 npm run textbooks:plan-h4g-unit-worklist -- --strict --require-work-items
 npm run textbooks:plan-h4g-unit-worklist -- --subjects math,science --out /tmp/h4g_unit_evidence_worklist_math_science.json --summary-out /tmp/h4g_unit_evidence_worklist_math_science.md --strict --require-work-items
+npm run textbooks:plan-h4g-unit-worklist -- --subjects math,science --discover-candidates --out /tmp/h4g_unit_worklist_math_science_discovered.json --summary-out /tmp/h4g_unit_worklist_math_science_discovered.md --strict --require-work-items
 ```
 
-该命令会合并三类事实：当前 `public/data` 中仍需单元证据的 H4G progression groups、已有候选包覆盖、以及 ChinaTextbook 中每个学科可用的完整 7/8/9 教材版本。它输出下一批应物化的 `evidence_ids` 和完整命令链，但不写 `public/data`，也不把工作项本身当作证据。
+该命令会合并三类事实：当前 `public/data` 中仍需单元证据的 H4G progression groups、已有候选包覆盖、以及 ChinaTextbook 中每个学科可用的完整 7/8/9 教材版本。`--candidate` 可以传入逗号分隔的候选包；`--discover-candidates` 会扫描 `generated/textbook_evidence/h4g_runs/**/h4g_unit_evidence_candidate*.json`，并用当前标准索引补齐旧候选包缺失的 `progression_group_id`。它输出下一批应物化的 `evidence_ids` 和完整命令链，但不写 `public/data`，也不把工作项本身当作证据。
+
+2026-07-02 的 `math,science --discover-candidates` 结果：发现 22 个数学候选包，覆盖 29 条数学 standards、20 个 progression groups、3 个教材版本和 1150 个历史候选 evidence objects；数学因此不再被推荐重复整版物化，而被标记为 `candidate_evidence_partial_needs_gap_remediation`。科学仍为 0 个 candidate standards / progression groups / editions，因此 worklist 只推荐科学沪教版、华东师大版、武汉版三项跨版本单元证据工作。
 
 执行单个 H4G work item 的端到端 gate：
 

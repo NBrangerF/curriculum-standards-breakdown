@@ -7,8 +7,13 @@ const DEFAULT_TEXTBOOK_INDEX = 'generated/textbook_evidence/china_textbook_index
 const DEFAULT_DATA_ROOT = 'public/data'
 const DEFAULT_UNIT_INDEX = 'generated/textbook_evidence/textbook_unit_index.json'
 const DEFAULT_CANDIDATE = 'generated/textbook_evidence/h4g_unit_evidence_candidate.json'
+const DEFAULT_CANDIDATE_ROOT = 'generated/textbook_evidence/h4g_runs'
 const DEFAULT_OUT = 'generated/textbook_evidence/h4g_unit_evidence_worklist.json'
 const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/h4g_unit_evidence_worklist.md'
+const CANDIDATE_FILE_NAMES = new Set([
+  'h4g_unit_evidence_candidate.json',
+  'h4g_unit_evidence_candidate_ready_only.json'
+])
 const TARGET_GRADE_BANDS = ['H4G7', 'H4G8', 'H4G9']
 const GRADE_LABEL_BY_BAND = {
   H4G7: '七年级',
@@ -47,7 +52,9 @@ function parseArgs(argv) {
     textbookIndex: DEFAULT_TEXTBOOK_INDEX,
     dataRoot: DEFAULT_DATA_ROOT,
     unitIndex: DEFAULT_UNIT_INDEX,
-    candidate: DEFAULT_CANDIDATE,
+    candidates: [DEFAULT_CANDIDATE],
+    candidateRoot: DEFAULT_CANDIDATE_ROOT,
+    discoverCandidates: false,
     out: DEFAULT_OUT,
     summaryOut: DEFAULT_SUMMARY_OUT,
     subjects: [],
@@ -61,7 +68,9 @@ function parseArgs(argv) {
     if (item === '--textbook-index') args.textbookIndex = argv[++i]
     else if (item === '--data-root') args.dataRoot = argv[++i]
     else if (item === '--unit-index') args.unitIndex = argv[++i]
-    else if (item === '--candidate') args.candidate = argv[++i]
+    else if (item === '--candidate') args.candidates = splitArg(argv[++i])
+    else if (item === '--candidate-root') args.candidateRoot = argv[++i]
+    else if (item === '--discover-candidates') args.discoverCandidates = true
     else if (item === '--out') args.out = argv[++i]
     else if (item === '--summary-out') args.summaryOut = argv[++i]
     else if (item === '--subjects') args.subjects = splitArg(argv[++i])
@@ -78,12 +87,17 @@ function usage() {
   console.log(`Usage:
 node scripts/textbooks/plan_h4g_unit_evidence_worklist.js \\
   --subjects math,science \\
-  --max-editions-per-subject 3
+  --max-editions-per-subject 3 \\
+  --discover-candidates
 
 Builds a read-only worklist for the H4G unit-evidence effort. It joins public
 H4G progression groups, current unit/candidate evidence, and ChinaTextbook
 edition coverage to identify which textbook batches should be materialized next.
-It does not write public/data.`)
+It does not write public/data.
+
+Use --candidate with a comma-separated list for explicit candidate packs, or
+--discover-candidates to scan generated/textbook_evidence/h4g_runs for existing
+H4G unit evidence candidate packs.`)
 }
 
 function splitArg(value) {
@@ -160,6 +174,7 @@ function loadH4GStandards(dataRoot, subjectsFilter) {
   const selected = new Set(subjectsFilter)
   const subjects = {}
   const groups = new Map()
+  const standardsByCode = {}
   const errors = []
 
   if (!existsSync(join(dataRoot, 'by_subject'))) {
@@ -196,6 +211,14 @@ function loadH4GStandards(dataRoot, subjectsFilter) {
       if (needsUnitEvidence(record)) subjectStats.records_needing_unit_evidence += 1
 
       const groupId = record.progression_group_id || `${subjectSlug}:${record.code || hashText(JSON.stringify(record))}`
+      if (record.code) {
+        standardsByCode[record.code] = {
+          code: record.code,
+          subject_slug: subjectSlug,
+          grade_band: record.grade_band,
+          progression_group_id: groupId
+        }
+      }
       if (!groups.has(groupId)) {
         groups.set(groupId, {
           progression_group_id: groupId,
@@ -242,7 +265,7 @@ function loadH4GStandards(dataRoot, subjectsFilter) {
     if (group.public_unit_level_records) subject.groups_with_public_unit_evidence += 1
   }
 
-  return { subjects, groups: groupDetails, errors }
+  return { subjects, groups: groupDetails, standards_by_code: standardsByCode, errors }
 }
 
 function loadUnitIndexSummary(path) {
@@ -258,67 +281,204 @@ function loadUnitIndexSummary(path) {
   }
 }
 
-function loadCandidateCoverage(path) {
-  if (!path || !existsSync(path)) return { exists: false, by_subject: {}, by_progression_group: {}, summary: {} }
-  const payload = readJson(path)
+function discoverCandidateFiles(root) {
+  const found = []
+  function walk(dir) {
+    if (!existsSync(dir)) return
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const path = join(dir, entry.name)
+      if (entry.isDirectory()) walk(path)
+      else if (entry.isFile() && CANDIDATE_FILE_NAMES.has(entry.name)) found.push(path)
+    }
+  }
+  walk(root)
+  return sorted(found)
+}
+
+function candidatePaths(args) {
+  const explicit = (args.candidates || [])
+    .filter(Boolean)
+    .filter(path => !args.discoverCandidates || path !== DEFAULT_CANDIDATE || existsSync(path))
+  const discovered = args.discoverCandidates ? discoverCandidateFiles(args.candidateRoot) : []
+  return sorted([...explicit, ...discovered])
+}
+
+function emptyCandidateCoverage(paths) {
+  return {
+    exists: false,
+    candidate_files: paths,
+    missing_candidate_files: [],
+    by_subject: {},
+    by_progression_group: {},
+    summary: {
+      candidate_files: 0,
+      candidates: 0,
+      standard_codes: 0,
+      progression_groups: 0,
+      editions: 0,
+      unit_evidence_objects: 0
+    }
+  }
+}
+
+function loadCandidateCoverage(paths, standardsByCode = {}) {
+  const coverage = emptyCandidateCoverage(paths)
+  const existingPaths = []
+  for (const path of paths) {
+    if (!path || !existsSync(path)) {
+      if (path) coverage.missing_candidate_files.push(path)
+      continue
+    }
+    existingPaths.push(path)
+    const payload = readJson(path)
+    addCandidatePayloadCoverage(coverage, payload, path, standardsByCode)
+  }
+  coverage.exists = existingPaths.length > 0
+  coverage.candidate_files = existingPaths
+  finalizeCandidateCoverage(coverage)
+  return coverage
+}
+
+function addCandidatePayloadCoverage(coverage, payload, path, standardsByCode = {}) {
   const bySubject = {}
   const byProgressionGroup = {}
   for (const candidate of payload.candidates || []) {
-    const subject = candidate.subject_slug || 'missing'
+    const standardMeta = standardsByCode[candidate.standard_code] || {}
+    const subject = candidate.subject_slug || standardMeta.subject_slug || 'missing'
+    const gradeBand = candidate.grade_band || standardMeta.grade_band || ''
+    const progressionGroupId = candidate.progression_group_id || standardMeta.progression_group_id || ''
     bySubject[subject] ||= {
       candidates: 0,
       standard_codes: new Set(),
       progression_groups: new Set(),
       grade_bands: {},
       editions: new Set(),
-      page_range_statuses: {}
+      page_range_statuses: {},
+      source_files: new Set(),
+      unit_evidence_objects: 0
     }
     const subjectStats = bySubject[subject]
     subjectStats.candidates += 1
+    subjectStats.source_files.add(path)
     if (candidate.standard_code) subjectStats.standard_codes.add(candidate.standard_code)
-    if (candidate.progression_group_id) subjectStats.progression_groups.add(candidate.progression_group_id)
-    countInto(subjectStats.grade_bands, candidate.grade_band)
+    if (progressionGroupId) subjectStats.progression_groups.add(progressionGroupId)
+    countInto(subjectStats.grade_bands, gradeBand)
     for (const unit of candidate.unit_evidence || []) {
+      subjectStats.unit_evidence_objects += 1
       if (unit.edition) subjectStats.editions.add(unit.edition)
       countInto(subjectStats.page_range_statuses, unit.page_range_status || 'missing')
     }
 
-    const groupId = candidate.progression_group_id || candidate.standard_code || candidate.candidate_id
+    const groupId = progressionGroupId || candidate.standard_code || candidate.candidate_id
     if (groupId) {
       byProgressionGroup[groupId] ||= {
         candidates: 0,
         standard_codes: new Set(),
         grade_bands: new Set(),
-        editions: new Set()
+        editions: new Set(),
+        source_files: new Set()
       }
       const group = byProgressionGroup[groupId]
       group.candidates += 1
+      group.source_files.add(path)
       if (candidate.standard_code) group.standard_codes.add(candidate.standard_code)
-      if (candidate.grade_band) group.grade_bands.add(candidate.grade_band)
+      if (gradeBand) group.grade_bands.add(gradeBand)
       for (const unit of candidate.unit_evidence || []) {
         if (unit.edition) group.editions.add(unit.edition)
       }
     }
   }
 
-  return {
-    exists: true,
-    candidate_file: path,
-    by_subject: Object.fromEntries(Object.entries(bySubject).map(([subject, stats]) => [subject, {
-      candidates: stats.candidates,
-      standard_codes: sorted([...stats.standard_codes]),
-      progression_groups: sorted([...stats.progression_groups]),
-      grade_bands: stats.grade_bands,
-      editions: sorted([...stats.editions]),
-      page_range_statuses: stats.page_range_statuses
-    }])),
-    by_progression_group: Object.fromEntries(Object.entries(byProgressionGroup).map(([groupId, stats]) => [groupId, {
+  for (const [subject, stats] of Object.entries(bySubject)) {
+    coverage.by_subject[subject] ||= {
+      candidates: 0,
+      standard_codes: new Set(),
+      progression_groups: new Set(),
+      grade_bands: {},
+      editions: new Set(),
+      page_range_statuses: {},
+      source_files: new Set(),
+      unit_evidence_objects: 0
+    }
+    const target = coverage.by_subject[subject]
+    target.candidates += stats.candidates
+    target.unit_evidence_objects += stats.unit_evidence_objects
+    for (const code of stats.standard_codes) target.standard_codes.add(code)
+    for (const groupId of stats.progression_groups) target.progression_groups.add(groupId)
+    for (const edition of stats.editions) target.editions.add(edition)
+    for (const file of stats.source_files) target.source_files.add(file)
+    for (const [band, count] of Object.entries(stats.grade_bands)) countInto(target.grade_bands, band, count)
+    for (const [status, count] of Object.entries(stats.page_range_statuses)) countInto(target.page_range_statuses, status, count)
+  }
+
+  for (const [groupId, stats] of Object.entries(byProgressionGroup)) {
+    coverage.by_progression_group[groupId] ||= {
+      candidates: 0,
+      standard_codes: new Set(),
+      grade_bands: new Set(),
+      editions: new Set(),
+      source_files: new Set()
+    }
+    const target = coverage.by_progression_group[groupId]
+    target.candidates += stats.candidates
+    for (const code of stats.standard_codes) target.standard_codes.add(code)
+    for (const band of stats.grade_bands) target.grade_bands.add(band)
+    for (const edition of stats.editions) target.editions.add(edition)
+    for (const file of stats.source_files) target.source_files.add(file)
+  }
+}
+
+function finalizeCandidateCoverage(coverage) {
+  const allStandards = new Set()
+  const allGroups = new Set()
+  const allEditions = new Set()
+  let candidateCount = 0
+  let unitEvidenceObjects = 0
+  coverage.by_subject = Object.fromEntries(Object.entries(coverage.by_subject)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([subject, stats]) => {
+      for (const code of stats.standard_codes) allStandards.add(code)
+      for (const groupId of stats.progression_groups) allGroups.add(groupId)
+      for (const edition of stats.editions) allEditions.add(edition)
+      candidateCount += stats.candidates
+      unitEvidenceObjects += stats.unit_evidence_objects
+      return [subject, {
+        candidates: stats.candidates,
+        standard_codes: sorted([...stats.standard_codes]),
+        progression_groups: sorted([...stats.progression_groups]),
+        grade_bands: stats.grade_bands,
+        editions: sorted([...stats.editions]),
+        page_range_statuses: stats.page_range_statuses,
+        source_files: sorted([...stats.source_files]),
+        unit_evidence_objects: stats.unit_evidence_objects
+      }]
+    }))
+
+  coverage.by_progression_group = Object.fromEntries(Object.entries(coverage.by_progression_group)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([groupId, stats]) => [groupId, {
       candidates: stats.candidates,
       standard_codes: sorted([...stats.standard_codes]),
       grade_bands: sorted([...stats.grade_bands]),
-      editions: sorted([...stats.editions])
-    }])),
-    summary: payload.summary || {}
+      editions: sorted([...stats.editions]),
+      source_files: sorted([...stats.source_files])
+    }]))
+
+  coverage.summary = {
+    candidate_files: coverage.candidate_files.length,
+    candidates: candidateCount,
+    standard_codes: allStandards.size,
+    progression_groups: allGroups.size,
+    editions: allEditions.size,
+    unit_evidence_objects: unitEvidenceObjects,
+    by_subject: Object.fromEntries(Object.entries(coverage.by_subject).map(([subject, stats]) => [subject, {
+      candidates: stats.candidates,
+      standard_codes: stats.standard_codes.length,
+      progression_groups: stats.progression_groups.length,
+      editions: stats.editions.length,
+      unit_evidence_objects: stats.unit_evidence_objects,
+      source_files: stats.source_files.length
+    }]))
   }
 }
 
@@ -456,6 +616,10 @@ function buildWorkItems(subjects, editionCoverage, candidateCoverage, args) {
   const items = []
   for (const [subject, stats] of Object.entries(subjects).sort(([a], [b]) => a.localeCompare(b))) {
     if (!stats.groups_needing_unit_evidence) continue
+    const candidateSubject = candidateCoverage.by_subject[subject]
+    const candidateEditions = candidateSubject?.editions?.length || 0
+    const candidateGroups = candidateSubject?.progression_groups?.length || 0
+    if (candidateEditions >= args.minPublicationEditions && candidateGroups > 0) continue
     const editions = (editionCoverage[subject] || []).filter(edition => edition.complete_grade_coverage)
     for (const edition of editions.slice(0, args.maxEditionsPerSubject)) {
       const evidenceIds = edition.evidence_ids
@@ -484,10 +648,12 @@ function buildWorkItems(subjects, editionCoverage, candidateCoverage, args) {
 function publicationStatus(subjectStats, editions, candidateSubject, minPublicationEditions) {
   const completeEditions = editions.filter(edition => edition.complete_grade_coverage).length
   const candidateEditions = candidateSubject?.editions?.length || 0
+  const candidateGroups = candidateSubject?.progression_groups?.length || 0
   if (!subjectStats.groups_needing_unit_evidence) return 'no_h4g_unit_evidence_gap'
   if (!completeEditions) return 'no_complete_textbook_edition_available'
   if (completeEditions < minPublicationEditions) return 'textbook_index_has_single_complete_edition'
   if (candidateEditions < minPublicationEditions) return 'needs_cross_version_candidate_evidence'
+  if (candidateGroups < subjectStats.groups_needing_unit_evidence) return 'candidate_evidence_partial_needs_gap_remediation'
   return 'candidate_evidence_ready_for_publication_gate'
 }
 
@@ -594,6 +760,10 @@ ${Object.values(item.commands).join('\n')}
 | identical complete triplets | ${result.summary.identical_complete_triplets} |
 | groups needing unit evidence | ${result.summary.groups_needing_unit_evidence} |
 | public unit-level records | ${result.summary.public_unit_level_records} |
+| candidate source files | ${result.candidate_coverage.summary?.candidate_files || 0} |
+| candidate standards | ${result.candidate_coverage.summary?.standard_codes || 0} |
+| candidate progression groups | ${result.candidate_coverage.summary?.progression_groups || 0} |
+| candidate editions | ${result.candidate_coverage.summary?.editions || 0} |
 | recommended work items | ${result.summary.recommended_work_items} |
 
 ## 学科状态
@@ -650,8 +820,13 @@ function main() {
   const h4g = loadH4GStandards(args.dataRoot, args.subjects)
   errors.push(...h4g.errors)
   const unitIndex = loadUnitIndexSummary(args.unitIndex)
-  const candidateCoverage = loadCandidateCoverage(args.candidate)
-  if (!candidateCoverage.exists) warnings.push(`No candidate pack found at ${args.candidate}; candidate coverage is treated as 0`)
+  const candidates = candidatePaths(args)
+  const candidateCoverage = loadCandidateCoverage(candidates, h4g.standards_by_code)
+  if (!candidateCoverage.exists) {
+    warnings.push(`No candidate packs found from ${candidates.length ? candidates.join(', ') : 'empty candidate list'}; candidate coverage is treated as 0`)
+  } else if (candidateCoverage.missing_candidate_files.length) {
+    warnings.push(`${candidateCoverage.missing_candidate_files.length} candidate pack path(s) were missing and ignored`)
+  }
 
   const editionCoverage = buildEditionCoverage(index, args.subjects)
   const workItems = buildWorkItems(h4g.subjects, editionCoverage, candidateCoverage, args)
@@ -671,7 +846,9 @@ function main() {
     requirements: {
       target_grade_bands: TARGET_GRADE_BANDS,
       max_editions_per_subject: args.maxEditionsPerSubject,
-      min_publication_editions: args.minPublicationEditions
+      min_publication_editions: args.minPublicationEditions,
+      discover_candidates: args.discoverCandidates,
+      candidate_root: args.candidateRoot
     },
     summary: summarize(h4g.subjects, editionCoverage, candidateCoverage, workItems, args),
     edition_coverage: Object.fromEntries(Object.entries(editionCoverage).map(([subject, editions]) => [
