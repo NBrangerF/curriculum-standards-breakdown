@@ -2015,6 +2015,85 @@ generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clea
 
 本轮修复后，`science-d887780b2ca2bb` 生态 progression group 的 H4G8 标准 `SC-H4G8-ECO-005` 已有北京版、苏科版、沪教版三版本同年级单元证据；但整个科学候选仍只有 1 个完整 H4G7/H4G8/H4G9 progression group。刷新 worklist 后，科学仍显示 37 条 candidate standards、27 个 candidate progression groups、8 个 candidate editions，正式 `public/data` 的 `textbook_unit_level` 仍为 0。planner 仍推荐沪教版，是因为当前 planner 还不区分“刚完成复跑并已做 parser remediation 的版本”和“仍未处理的完整版本”；后续可以改 planner 去重，也可以直接进入华东师大版、武汉版补缺。
 
+### 8.13 planner page-clean 口径与华东师大版严格复跑
+
+2026-07-03 继续检查科学华东师大版、武汉版和沪教版的单批质量。使用 data-quality 口径看，武汉版现有单批已经没有缺页码 unit evidence：10 条 standards、10 个 unit evidence objects，`unit_evidence_missing_page_start=0`。华东师大版旧单批则仍有 5 个无页码章标题混入 candidate package；虽然这些 standards 往往还有 section-level 页码证据，但 standalone candidate 不能再把 missing chapter 当作可发布候选。
+
+本轮先修 planner 两个系统性问题：
+
+1. `plan_h4g_unit_evidence_worklist.js` 生成的 `build_candidates` 命令现在带 `--require-page-start`，与 `run_h4g_unit_work_item.js` 和后续 audit gate 保持一致。
+2. `--discover-candidates` 的 candidate coverage 只统计 page-clean unit evidence：必须有正整数 `page_start`，且 `page_range_status` 不能是 `toc_page_nonmonotonic`。这样旧 generated candidate 文件即使仍在本地，也不会把 `missing` 或 nonmonotonic 页码证据计入当前覆盖画像。
+
+随后用修正后的 runner 对华东师大版完整 6 册重跑严格 page-clean 单批，输出到：
+
+```text
+generated/textbook_evidence/h4g_runs/science_huadong_page_clean_unit_review/
+```
+
+华东师大版旧单批与严格单批对比：
+
+| 指标 | 旧 `science_huadong_unit_review` | 新 `science_huadong_page_clean_unit_review` |
+| --- | ---: | ---: |
+| candidate standards | 15 | 14 |
+| unit evidence objects | 24 | 19 |
+| H4G7/H4G8/H4G9 | 5 / 5 / 5 | 5 / 5 / 4 |
+| `filtered_missing_page_start_matches` | 0 | 5 |
+| `unit_evidence_missing_page_start` | 5 | 0 |
+| `nonmonotonic_page_records` | 0 | 0 |
+| page statuses | `missing` 5, inferred 18, start-only 1 | inferred 18, start-only 1 |
+
+被严格 page-start gate 剔除的是：
+
+| standard_code | reason |
+| --- | --- |
+| `SC-H4G9-CHG-009` | 只命中华东师大版九上无页码章标题 `第1章 化学反应`；没有可用 `page_start` 的同标准华东师大版 unit evidence。 |
+
+华东师大版严格单批仍通过 candidate audit 与普通 consistency audit；其作用是把 standalone 华东师大版 candidate package 收敛到 page-clean 证据，而不是增加新的标准覆盖。重新合并到科学八版本 aggregate 后，全局候选没有回退：
+
+```json
+{
+  "merged_candidates": 37,
+  "unit_evidence_objects": 58,
+  "multi_edition_standards": 10,
+  "single_edition_standards": 27,
+  "by_grade_band": {
+    "H4G7": 12,
+    "H4G8": 14,
+    "H4G9": 11
+  },
+  "by_edition": {
+    "华东师大版-华东师范大学出版社": 19,
+    "武汉版-武汉出版社": 10,
+    "科普版-科学普及出版社": 3,
+    "浙教版-浙江教育出版社": 11,
+    "人教版-人民教育出版社": 5,
+    "苏科版-江苏凤凰科学技术出版社": 2,
+    "北京版-北京出版社": 2,
+    "沪教版-上海教育出版社": 6
+  },
+  "by_page_range_status": {
+    "toc_page_range_inferred": 55,
+    "toc_page_start_only": 3
+  }
+}
+```
+
+aggregate candidate audit 和普通 consistency audit 继续通过。发布级 gate 仍失败，仍是覆盖不足而不是页码质量问题：
+
+```json
+{
+  "standards_below_min_editions": 27,
+  "progression_groups": 27,
+  "progression_groups_below_min_editions": 14,
+  "complete_progression_group_candidates": 1,
+  "partial_progression_group_candidates": 26,
+  "unit_evidence_missing_page_start": 0,
+  "nonmonotonic_page_records": 0
+}
+```
+
+重新刷新 `math,science --discover-candidates` 后，科学候选覆盖仍为 37 条 standards、27 个 progression groups、8 个 editions；但 candidate coverage 的 page status 已经只剩 `toc_page_range_inferred` 和 `toc_page_start_only`，不再出现 `missing` 或 `toc_page_nonmonotonic`。这说明 worklist 的“已有候选覆盖”现在按 page-clean 口径读取，不再被旧诊断文件污染。后续真正要解决的是“所有完整版本都已经有候选，但发布 gate 仍缺同年级多版本/完整 H4G7-H4G8-H4G9 progression”的 targeted gap remediation，而不是继续机械重复整版 direct_all_grades。
+
 ## 9. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。
@@ -2068,7 +2147,7 @@ H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 
 建议顺序：
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
-2. 科学已完成苏科版、北京版、科普版候选链，补齐沪教版完整八册复跑，并修复沪教八上生态系统页码解析；下一步应进入华东师大版、武汉版完整 direct_all_grades 补缺，或先改 worklist planner 避免继续推荐刚完成 remediation 的沪教版；每批仍先生成 review-only 候选，不写 `public/data`。
+2. 科学已完成苏科版、北京版、科普版候选链，补齐沪教版完整八册复跑，修复沪教八上生态系统页码解析，并将华东师大版 standalone 候选收敛到 page-clean 口径；下一步应从“整版重复复跑”转向 targeted gap remediation 或 planner 的 already-remediated edition 去重；每批仍先生成 review-only 候选，不写 `public/data`。
 3. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
 4. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
 5. 使用 `textbooks:h4g-progression-decisions` 合并同年级证据、reverse gaps 和投放差异，形成可复核的发布前决策矩阵。

@@ -112,6 +112,16 @@ function positiveInteger(value, fallback) {
   return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback
 }
 
+function hasPositivePageStart(value) {
+  const page = Number(value)
+  return Number.isInteger(page) && page > 0
+}
+
+function isPageCleanUnitEvidence(unit) {
+  return hasPositivePageStart(unit?.page_start) &&
+    (unit.page_range_status || 'missing') !== 'toc_page_nonmonotonic'
+}
+
 function readJson(path) {
   return JSON.parse(readFileSync(path, 'utf8'))
 }
@@ -343,6 +353,8 @@ function addCandidatePayloadCoverage(coverage, payload, path, standardsByCode = 
   const bySubject = {}
   const byProgressionGroup = {}
   for (const candidate of payload.candidates || []) {
+    const cleanUnitEvidence = (candidate.unit_evidence || []).filter(isPageCleanUnitEvidence)
+    if (!cleanUnitEvidence.length) continue
     const standardMeta = standardsByCode[candidate.standard_code] || {}
     const subject = candidate.subject_slug || standardMeta.subject_slug || 'missing'
     const gradeBand = candidate.grade_band || standardMeta.grade_band || ''
@@ -363,7 +375,7 @@ function addCandidatePayloadCoverage(coverage, payload, path, standardsByCode = 
     if (candidate.standard_code) subjectStats.standard_codes.add(candidate.standard_code)
     if (progressionGroupId) subjectStats.progression_groups.add(progressionGroupId)
     countInto(subjectStats.grade_bands, gradeBand)
-    for (const unit of candidate.unit_evidence || []) {
+    for (const unit of cleanUnitEvidence) {
       subjectStats.unit_evidence_objects += 1
       if (unit.edition) subjectStats.editions.add(unit.edition)
       countInto(subjectStats.page_range_statuses, unit.page_range_status || 'missing')
@@ -383,7 +395,7 @@ function addCandidatePayloadCoverage(coverage, payload, path, standardsByCode = 
       group.source_files.add(path)
       if (candidate.standard_code) group.standard_codes.add(candidate.standard_code)
       if (gradeBand) group.grade_bands.add(gradeBand)
-      for (const unit of candidate.unit_evidence || []) {
+      for (const unit of cleanUnitEvidence) {
         if (unit.edition) group.editions.add(unit.edition)
       }
     }
@@ -606,7 +618,7 @@ function buildCommands(subject, edition, evidenceIds) {
     audit_units: `npm run textbooks:audit-unit-index -- --unit-index ${paths.unitIndex} --out ${paths.unitAudit} --strict --require-real-units`,
     match_units: `npm run textbooks:match-units -- --subjects ${subject} --unit-index ${paths.unitIndex} --out ${paths.matches} --summary-out ${paths.matchesSummary}`,
     audit_matches: `npm run textbooks:audit-unit-matches -- --matches ${paths.matches} --unit-index ${paths.unitIndex} --out ${paths.matchesAudit} --strict --require-matches --require-eligible`,
-    build_candidates: `npm run textbooks:h4g-unit-candidates -- --matches ${paths.matches} --out ${paths.candidate} --summary-out ${paths.candidateSummary} --strict --require-candidates`,
+    build_candidates: `npm run textbooks:h4g-unit-candidates -- --matches ${paths.matches} --out ${paths.candidate} --summary-out ${paths.candidateSummary} --strict --require-candidates --require-page-start`,
     audit_candidates: `npm run textbooks:audit-h4g-unit-candidates -- --candidate ${paths.candidate} --out ${paths.candidateAudit} --strict --require-candidates --require-page-start`,
     audit_consistency_review_gate: `npm run textbooks:audit-h4g-unit-consistency -- --candidate ${paths.candidate} --out ${paths.consistencyAudit} --strict --require-candidates --require-page-start`
   }
