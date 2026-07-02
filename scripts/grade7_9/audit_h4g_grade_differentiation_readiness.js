@@ -304,8 +304,9 @@ function auditSubject(file, args, blockers, warnings) {
   if (stats.exact_core_identical_triplets > 0) {
     warnings.push(`${subjectSlug}: ${stats.exact_core_identical_triplets}/${stats.complete_triplets} complete H4G triplets still share identical core text`)
   }
-  if (stats.candidate_grade_focus_records > 0) {
-    warnings.push(`${subjectSlug}: ${stats.candidate_grade_focus_records} records have candidate grade focus but still need manual/curriculum review`)
+  const candidateNeedsReviewRecords = stats.by_record_status.candidate_needs_review || 0
+  if (candidateNeedsReviewRecords > 0) {
+    warnings.push(`${subjectSlug}: ${candidateNeedsReviewRecords} records have candidate grade focus but still need manual/curriculum review`)
   }
 
   stats.rates = {
@@ -376,7 +377,7 @@ ${result.warnings.length ? result.warnings.map(item => `- ${item}`).join('\n') :
 - standard remains the official/shared source-text layer.
 - grade_specific_focus is only display-ready when it is not a placeholder.
 - Final grade differentiation requires usable grade focus, unit-level evidence, and an approved manual/curriculum review status.
-- Candidate grade focus is useful progress, but it is not final publication readiness.
+- Unapproved candidate grade focus is useful progress, but it is not final publication readiness.
 `
 }
 

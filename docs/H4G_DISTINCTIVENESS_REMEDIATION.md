@@ -1353,6 +1353,46 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 当前默认模板全部 pending，因此 apply summary 应显示 `applied_standard_decisions=0`、`pending_standard_decisions=19`、`pending_note_decisions=5`、`pending_blocked_decisions=2`。临时回归测试证明：如果某条 same-grade decision 被合规标为 `approve_same_grade_unit_evidence`，该脚本会在候选根中把对应 record 标为 `review_status: "unit_evidence_approved"`，随后 `audit-h4g-grade-differentiation` 会把该条计入 `ready_grade_specific`。这仍不写 `public/data`，也不改 `standard` 原文。
 
+### 7.21 Codex 复核决策候选
+
+为把数学 19 条 ready 候选从“证据已准备好但全部 pending”推进到“候选根可验证的复核完成状态”，新增命令：
+
+```bash
+npm run textbooks:h4g-publication-review-recommendations -- --strict
+npm run textbooks:audit-h4g-publication-review-decisions -- \
+  --decisions generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_decisions_codex_reviewed.json \
+  --out generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_decisions_codex_reviewed_audit.json \
+  --summary-out generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_decisions_codex_reviewed_audit.md \
+  --strict \
+  --require-complete
+npm run textbooks:apply-h4g-publication-review-decisions -- \
+  --decisions generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_decisions_codex_reviewed.json \
+  --out-data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_codex_reviewed \
+  --strict \
+  --require-complete
+```
+
+该脚本只会在 publication review packet 已经满足以下条件时填入批准决策：
+
+- 同年级 standard evidence 至少有 2 个版本、真实单元/章节证据、无 `toc_page_nonmonotonic`，且 alignment 为 `subdomain_anchor`、`reviewed_alias_anchor` 或 `strong_field_alignment`。
+- progression note 必须是 high-confidence 的 `candidate_for_edition_placement_note`，且只批准为 progression-group 说明，不写入 same-grade `textbook_unit_evidence_ids`。
+- blocked reviews 继续保持 `keep_blocked` 或 `needs_targeted_remediation`，没有 public publication surface。
+
+当前数学候选的预期复核结果是：
+
+```json
+{
+  "approve_same_grade_unit_evidence": 19,
+  "approve_progression_group_note": 5,
+  "blocked_review_kept_or_remediation": 2,
+  "pending_required_decisions": 0,
+  "writes_public_data": false,
+  "official_standard_text_changed": false
+}
+```
+
+将该复核决策应用到隔离候选根后，`audit-h4g-grade-differentiation` 应能看到 19 条 `final_ready_records`。这说明数学已有一小批 standards 具备“候选层面的年级化显示 readiness”，但仍不等于正式发布：`public/data` 未被写入，`standard` 原文未改，85 条数学 H4G standards 仍不在当前候选范围内，其他学科也还没有完成同级别复核。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：
