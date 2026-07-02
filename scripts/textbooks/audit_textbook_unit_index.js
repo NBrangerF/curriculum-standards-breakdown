@@ -58,7 +58,7 @@ function readableUnitTitle(value) {
   const title = String(value || '').trim()
   if (title.length < 2 || title.length > 80) return false
   if (/[\u0000-\u001F\u007F]/u.test(title)) return false
-  if (hanCount(title) < 1) return false
+  if (hanCount(title) < 1 && !/[A-Za-z]{2,}/u.test(title)) return false
   if (/^[\d.\s-]+$/u.test(title)) return false
   return true
 }

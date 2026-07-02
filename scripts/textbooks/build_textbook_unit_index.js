@@ -774,7 +774,7 @@ function readableUnitTitle(value) {
   const title = String(value || '').trim()
   if (title.length < 2 || title.length > 70) return false
   if (/[\u0000-\u001F\u007F]/u.test(title)) return false
-  if (hanCount(title) < 1) return false
+  if (hanCount(title) < 1 && !/[A-Za-z]{2,}/u.test(title)) return false
   if (/^[\d.\s-]+$/u.test(title)) return false
   return true
 }
@@ -795,8 +795,10 @@ function normalizeTocRawLine(value) {
 
 function parsedPrintedPage(value, options = {}) {
   const normalized = String(value || '').replace(/\s+/g, '')
-  if (!/^\d{1,3}$/u.test(normalized)) return null
-  let page = Number(normalized)
+  const prefixed = normalized.match(/^S(\d{1,3})$/iu)
+  const rawNumber = prefixed ? prefixed[1] : normalized
+  if (!/^\d{1,3}$/u.test(rawNumber)) return null
+  let page = Number(rawNumber)
   if (page > 300 && options.allowOcrPrefix && normalized.length === 3) {
     page = Number(normalized.slice(1))
   }
@@ -806,7 +808,7 @@ function parsedPrintedPage(value, options = {}) {
 
 function parsePageNumberLine(value) {
   const normalized = normalizeTocRawLine(value)
-  const match = normalized.match(/^[-_−]?\s*((?:\d\s*){1,3})$/u)
+  const match = normalized.match(/^[-_−]?\s*(S?\s*(?:\d\s*){1,3})$/iu)
   return match ? parsedPrintedPage(match[1], { allowOcrPrefix: true }) : null
 }
 
@@ -822,12 +824,20 @@ function parseInlineTocPageTail(value) {
       pageSource: 'toc_inline_slash_page_tail'
     }
   }
-  const leader = normalized.match(/^(.*?)(?:[.·…]\s*){2,}\s*(\d{1,3})$/u)
-  if (leader && /\p{Script=Han}/u.test(leader[1])) {
+  const leader = normalized.match(/^(.*?[\p{Letter}\p{Number}].*?)(?:[.·…]\s*){2,}\s*(S?\s*\d{1,3})$/iu)
+  if (leader) {
     return {
       line: leader[1].trim(),
       pageStart: parsedPrintedPage(leader[2]),
       pageSource: 'toc_inline_page_tail'
+    }
+  }
+  const pageBeforeLeader = normalized.match(/^(.*?[\p{Letter}\p{Number}].*?)\s+((?:\d\s*){1,3})(?:[.·…]\s*){2,}$/u)
+  if (pageBeforeLeader) {
+    return {
+      line: pageBeforeLeader[1].trim(),
+      pageStart: parsedPrintedPage(pageBeforeLeader[2]),
+      pageSource: 'toc_inline_page_before_leader_tail'
     }
   }
   const dashLeader = normalized.match(/^(.*?\p{Script=Han}.*?)(?:\s*-\s*){2,}((?:\d\s*){1,3})$/u)
@@ -1032,7 +1042,7 @@ function candidateFromLine(line, pdfPage, sourceOrder) {
   const inlinePage = parseInlineTocPageTail(line)
   const normalized = normalizeLeadingSectionNumber(normalizeLine(inlinePage.line))
   if (!normalized || normalized.length < 3 || normalized.length > 80) return null
-  if (/^(目录|目 录|contents|CONTENTS)$/i.test(normalized)) return null
+  if (/^(目录|目 录|contents)$/i.test(normalized)) return null
   if (/^(前言|编者的话|后记|附录|封面|版权|出版说明)$/u.test(normalized)) return null
 
   const strong = normalized.match(/^(第\s*[一二三四五六七八九十百\d]+\s*[章节单元课])\s*[：:、.\s-]*(.+)$/u)
@@ -1049,6 +1059,60 @@ function candidateFromLine(line, pdfPage, sourceOrder) {
       toc_source_order: sourceOrder,
       pdf_page_hint: pdfPage,
       confidence: 0.72
+    }
+    return applyTocPageStart(candidate, inlinePage.pageStart, inlinePage.pageSource)
+  }
+
+  const englishModule = normalized.match(/^(Module\s+[A-Za-z]?\d+[A-Za-z]?)\s+(.{2,70})$/iu)
+  if (englishModule) {
+    const title = `${englishModule[1].replace(/\s+/g, ' ')} ${stripTocPageTail(englishModule[2])}`
+    if (!readableUnitTitle(title)) return null
+    const candidate = {
+      candidate_type: 'toc_unit_or_chapter',
+      extraction_method: 'pdf_text_toc_english_module_line',
+      unit_level: 'module',
+      unit_title: title,
+      matched_line: normalized,
+      toc_raw_line: normalizeTocRawLine(line),
+      toc_source_order: sourceOrder,
+      pdf_page_hint: pdfPage,
+      confidence: 0.68
+    }
+    return applyTocPageStart(candidate, inlinePage.pageStart, inlinePage.pageSource)
+  }
+
+  const englishUnit = normalized.match(/^(Unit\s+[A-Za-z]?\d+[A-Za-z]?)\s+(.{2,70})$/iu)
+  if (englishUnit) {
+    const title = `${englishUnit[1].replace(/\s+/g, ' ')} ${stripTocPageTail(englishUnit[2])}`
+    if (!readableUnitTitle(title)) return null
+    const candidate = {
+      candidate_type: 'toc_unit_or_chapter',
+      extraction_method: 'pdf_text_toc_english_unit_line',
+      unit_level: 'unit',
+      unit_title: title,
+      matched_line: normalized,
+      toc_raw_line: normalizeTocRawLine(line),
+      toc_source_order: sourceOrder,
+      pdf_page_hint: pdfPage,
+      confidence: 0.66
+    }
+    return applyTocPageStart(candidate, inlinePage.pageStart, inlinePage.pageSource)
+  }
+
+  const englishRevision = normalized.match(/^(Revision\s+module\s+[A-Za-z])$/iu)
+  if (englishRevision) {
+    const title = englishRevision[1].replace(/\s+/g, ' ')
+    if (!readableUnitTitle(title)) return null
+    const candidate = {
+      candidate_type: 'toc_unit_or_chapter',
+      extraction_method: 'pdf_text_toc_english_revision_line',
+      unit_level: 'revision_module',
+      unit_title: title,
+      matched_line: normalized,
+      toc_raw_line: normalizeTocRawLine(line),
+      toc_source_order: sourceOrder,
+      pdf_page_hint: pdfPage,
+      confidence: 0.58
     }
     return applyTocPageStart(candidate, inlinePage.pageStart, inlinePage.pageSource)
   }
@@ -1151,7 +1215,7 @@ function extractTocCandidates(text) {
     }
     pendingPageCandidate = null
     if (isPageNumberLine(normalized)) continue
-    if (/^(目录|目 录)$/u.test(normalized)) {
+    if (/^(目录|目 录|contents)$/iu.test(normalized)) {
       current.hasTocHeading = true
       current.pendingPrefix = ''
       current.pendingTocChar = ''
