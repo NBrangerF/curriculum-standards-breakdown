@@ -22,7 +22,8 @@ function parseArgs(argv) {
     summaryOut: DEFAULT_SUMMARY_OUT,
     strict: false,
     requireCandidates: false,
-    requirePageStart: false
+    requirePageStart: false,
+    excludePageStatuses: []
   }
   for (let i = 0; i < argv.length; i += 1) {
     const item = argv[i]
@@ -33,6 +34,11 @@ function parseArgs(argv) {
     else if (item === '--strict') args.strict = true
     else if (item === '--require-candidates') args.requireCandidates = true
     else if (item === '--require-page-start') args.requirePageStart = true
+    else if (item === '--exclude-page-statuses') args.excludePageStatuses = splitArg(argv[++i])
+    else if (item === '--publication-page-gate') {
+      args.requirePageStart = true
+      args.excludePageStatuses = uniqueSorted([...args.excludePageStatuses, 'toc_page_nonmonotonic'])
+    }
     else if (item === '--help') args.help = true
   }
   args.candidates = [...new Set(args.candidates.filter(Boolean))]
@@ -47,7 +53,9 @@ node scripts/textbooks/combine_h4g_unit_evidence_candidates.js \\
 
 Combines reviewable H4G unit-evidence candidate packs by standard_code so one
 candidate can carry unit evidence from multiple textbook editions. The output
-is still a pre-publication candidate pack and never writes public/data.`)
+is still a pre-publication candidate pack and never writes public/data. Use
+--publication-page-gate to exclude nonmonotonic TOC page evidence while keeping
+only candidates that still have page-start-backed units.`)
 }
 
 function splitArg(value) {
@@ -90,6 +98,10 @@ function uniqueSorted(values) {
     .sort((a, b) => a.localeCompare(b))
 }
 
+function candidateEditions(candidate) {
+  return uniqueSorted((candidate.unit_evidence || []).map(unit => unit.edition))
+}
+
 function hasPositivePageStart(value) {
   return Number.isInteger(Number(value)) && Number(value) >= 1
 }
@@ -124,6 +136,24 @@ function dedupeUnits(items, warnings, standardCode) {
     byId.set(id, clone(unit))
   }
   return [...byId.values()].sort(unitSort)
+}
+
+function filterUnitItems(items, args, stats, warnings, standardCode) {
+  const excludedStatuses = new Set(args.excludePageStatuses || [])
+  const out = []
+  for (const item of items) {
+    const unit = item.unit || {}
+    if (excludedStatuses.has(unit.page_range_status || 'missing')) {
+      stats.excluded_unit_evidence_objects += 1
+      countInto(stats.excluded_by_page_range_status, unit.page_range_status || 'missing')
+      continue
+    }
+    out.push(item)
+  }
+  if (items.length && !out.length) {
+    warnings.push(`${standardCode} has no unit evidence after page-status filters`)
+  }
+  return out
 }
 
 function assertCompatible(base, incoming, source, errors) {
@@ -162,14 +192,17 @@ function proposedProgressionDelta(units) {
   return `unit_evidence_candidate:multi_edition:${editions}:${titles}`
 }
 
-function mergeGroup(rows, args, errors, warnings) {
+function mergeGroup(rows, args, errors, warnings, filterStats) {
   const base = clone(rows[0].candidate)
   for (const row of rows.slice(1)) assertCompatible(base, row.candidate, row.source, errors)
 
-  const units = dedupeUnits(rows.flatMap(row => (row.candidate.unit_evidence || []).map(unit => ({
+  const unitItems = rows.flatMap(row => (row.candidate.unit_evidence || []).map(unit => ({
     unit,
     source: row.source
-  }))), warnings, base.standard_code)
+  })))
+  const filteredUnitItems = filterUnitItems(unitItems, args, filterStats, warnings, base.standard_code)
+  const units = dedupeUnits(filteredUnitItems, warnings, base.standard_code)
+  if (!units.length) return null
 
   if (args.requirePageStart) {
     for (const unit of units) {
@@ -247,10 +280,15 @@ ${sourceRows}
 | --- | ---: |
 | source files | ${payload.summary.source_files} |
 | input candidates | ${payload.summary.input_candidates} |
+| input unit evidence | ${payload.summary.input_unit_evidence_objects} |
 | merged candidates | ${payload.summary.merged_candidates} |
 | multi-source standards | ${payload.summary.multi_source_standards} |
 | single-source standards | ${payload.summary.single_source_standards} |
+| multi-edition standards | ${payload.summary.multi_edition_standards} |
+| single-edition standards | ${payload.summary.single_edition_standards} |
 | unit evidence objects | ${payload.summary.unit_evidence_objects} |
+| excluded unit evidence | ${payload.summary.excluded_unit_evidence_objects} |
+| standards skipped after filters | ${payload.summary.standards_skipped_after_filters} |
 | page_start records | ${payload.summary.page_start_records} |
 
 ## 版本分布
@@ -316,23 +354,33 @@ function main() {
   }
 
   const candidates = []
+  const filterStats = {
+    excluded_unit_evidence_objects: 0,
+    excluded_by_page_range_status: {}
+  }
   for (const [code, rows] of [...groups.entries()].sort(([a], [b]) => a.localeCompare(b))) {
-    const candidate = mergeGroup(rows, args, errors, warnings)
-    candidates.push(candidate)
+    const candidate = mergeGroup(rows, args, errors, warnings, filterStats)
+    if (candidate) candidates.push(candidate)
   }
 
   const summary = {
     source_files: sources.length,
     input_candidates: sources.reduce((sum, source) => sum + source.candidates, 0),
+    input_unit_evidence_objects: sources.reduce((sum, source) => sum + source.unit_evidence_objects, 0),
     merged_candidates: candidates.length,
+    standards_skipped_after_filters: groups.size - candidates.length,
     multi_source_standards: candidates.filter(candidate => (candidate.source_candidate_files || []).length > 1).length,
     single_source_standards: candidates.filter(candidate => (candidate.source_candidate_files || []).length === 1).length,
+    multi_edition_standards: candidates.filter(candidate => candidateEditions(candidate).length > 1).length,
+    single_edition_standards: candidates.filter(candidate => candidateEditions(candidate).length === 1).length,
     unit_evidence_objects: candidates.reduce((sum, candidate) => sum + candidate.unit_evidence.length, 0),
+    excluded_unit_evidence_objects: filterStats.excluded_unit_evidence_objects,
     page_start_records: candidates.reduce((sum, candidate) => sum + candidate.unit_evidence.filter(unit => hasPositivePageStart(unit.page_start)).length, 0),
     by_subject: {},
     by_grade_band: {},
     by_edition: {},
-    by_page_range_status: {}
+    by_page_range_status: {},
+    excluded_by_page_range_status: filterStats.excluded_by_page_range_status
   }
   for (const candidate of candidates) {
     countInto(summary.by_subject, candidate.subject_slug)
@@ -356,7 +404,8 @@ function main() {
       only_eligible_matches: true,
       official_standard_text_changed: false,
       combined_candidate_sources: true,
-      require_page_start: args.requirePageStart
+      require_page_start: args.requirePageStart,
+      exclude_page_statuses: args.excludePageStatuses
     },
     summary,
     candidates,
