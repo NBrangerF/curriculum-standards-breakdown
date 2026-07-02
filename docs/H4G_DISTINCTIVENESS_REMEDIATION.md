@@ -1052,6 +1052,62 @@ worklist 覆盖的 6 个跨版本投放复核主题：
 3. 语文、道德与法治：当前只有一个完整统编版本，适合先做单版本 review pack，但不能单独证明跨版本一致。
 4. 信息科技、劳动：当前 ChinaTextbook 覆盖为空，应继续低置信度并寻找补充教材来源。
 
+### 7.14 版本投放模型候选
+
+worklist 把 6 个跨版本投放主题标为 `edition_placement_model_review` 后，本轮继续新增只读模型候选 gate：
+
+```bash
+npm run textbooks:h4g-edition-placement-model -- --strict --require-candidates
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_edition_placement_model_candidate.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_edition_placement_model_candidate.md
+```
+
+当前结果：
+
+```json
+{
+  "candidates": 6,
+  "affected_standards": 9,
+  "candidate_for_edition_placement_note": 5,
+  "partial_edition_placement_evidence_needs_more_review": 1,
+  "cross_grade_diagnostic_relations": 19,
+  "by_confidence": {
+    "high": 5,
+    "medium": 1
+  }
+}
+```
+
+这一步进一步区分了两类 `edition_placement_model_review`：
+
+| model decision | 数量 | 含义 |
+| --- | ---: | --- |
+| `candidate_for_edition_placement_note` | 5 | 缺失的同年级版本在其他年级存在同主题教材单元，可进入 progression group 级“版本投放差异说明”复核。 |
+| `partial_edition_placement_evidence_needs_more_review` | 1 | 仍有 missing edition 没有 cross-grade topic 解释，不能先写投放说明。 |
+
+5 个可进入版本投放说明复核的主题：
+
+| progression group | 主题 | 受影响 standards |
+| --- | --- | --- |
+| `math-277214238af387` | 图形的运动与坐标 | `MA-H4G7-GEO-040`, `MA-H4G8-GEO-041` |
+| `math-4c3aea46890a49` | 实数 | `MA-H4G7-ALG-007` |
+| `math-78f4d5d99da1f7` | 反比例函数 | `MA-H4G8-ALG-029` |
+| `math-f2c7b690c0a85b` | 图形的位置与坐标 | `MA-H4G7-GEO-037`, `MA-H4G8-GEO-038` |
+| `math-f8d97669301604` | 三角形 | `MA-H4G7-GEO-010` |
+
+仍需继续 review 的主题：
+
+| progression group | 主题 | 阻塞点 |
+| --- | --- | --- |
+| `math-76edb58e7a55e4` | 旋转与中心对称 | `MA-H4G8-GEO-026`、`MA-H4G9-GEO-027` 的华东师大版 missing edition 仍没有 cross-grade topic 覆盖。 |
+
+这个 gate 的安全边界比 placement candidate 更明确：它只产出 `progression_group_edition_placement_diagnostic`，建议的 publication surface 也只是 `progression_group_edition_placement_note`。即使 decision 是 `candidate_for_edition_placement_note`，也仍然需要课程进阶复核；它不写 `public/data`，不生成 `proposed_update`，不把 cross-grade units 写入 same-grade `textbook_unit_evidence_ids`，也不把任何 record 自动升级为 `grade_specific_variant`。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：
