@@ -175,6 +175,21 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 它不写 `public/data`，只把 publication gate 失败拆成可执行原因：已有可用匹配但未打包、目录页码缺失、alignment gate 未通过、低分/疑似错年级、当前 top matches 没有返回候选。`near_miss_actions` 统计的是低于版本门槛 standards 的缺失版本；progression group 的缺失年级另在 `progression_group_gaps` 中展开。
 
+跨版本年级投放矩阵：
+
+```bash
+npm run textbooks:audit-h4g-topic-placement -- --strict --require-hits
+```
+
+该命令默认读取数学三版本单元索引、最新 reverse gap 报告和标准级 alias 文件，输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_topic_placement_matrix.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_topic_placement_matrix.md
+```
+
+它不写 `public/data`，只诊断同一主题在不同教材版本中的 7/8/9 年级投放位置。`review_cross_grade_placement` 表示缺失版本并非没有相关主题，而是该主题出现在另一个年级；这类结果不能自动当作 same-grade standard 证据，需要单独决定 progression model 或 publication gate 如何处理跨版本年级差异。
+
 ## 4. 输出结构
 
 `textbook_unit_index.json` 有两个核心数组：
@@ -818,11 +833,14 @@ H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 
 
 标准级 alias 的边界：`reviewed_alias_anchor` 只能由 `scripts/textbooks/textbook_unit_alignment_aliases.json` 中的具体 `standard_code` 触发。例如 `MA-H4G8-ALG-008` 可以用 `二次根式` 补足 H4G8 实数标准的教材单元证据，但不能把 `实数` 全局放宽为 `数轴` 或 `有理数`；`MA-H4G9-GEO-036` 可以用 `投影`、`三视图` 恢复九年级投影与视图证据，但不能让宽泛的 `函数` 或 `平行四边形` 单元通过无关标准。
 
+跨版本年级投放的边界：`h4g_topic_placement_matrix` 中的 cross-grade hit 只能说明“该版本教材在另一个年级讲了这个主题”。它可以解释为什么 `min-editions-per-standard=2` 失败，也可以支持后续人工决策；但不能把八年级教材单元写成七年级 standard 的单元证据。
+
 ## 10. 下一步
 
 建议顺序：
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
 2. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
-3. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
-4. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。
+3. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再决定是否调整 publication gate。
+4. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
+5. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。

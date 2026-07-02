@@ -714,6 +714,56 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 这一步把低于两版本门槛的 standards 从 13 降到 10，把低于两版本门槛的 progression groups 从 3 降到 1。publication gate 仍不得放行，因为仍有 10 条 standards 只有单版本证据，18 个 progression groups 仍不完整；下一阶段应优先处理 `no_match_returned` 和剩余 `review_alignment_or_alias` 中可安全复核的具体单元。
 
+### 7.9 跨版本年级投放矩阵
+
+继续检查剩余 10 条单版本 standards 后，发现多数缺口不是 parser、页码或 alias 问题，而是不同教材版本把同一主题安排在不同年级。为避免把错年级教材单元硬塞进某条 standard，新增只读诊断脚本：
+
+```bash
+npm run textbooks:audit-h4g-topic-placement -- --strict --require-hits
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_topic_placement_matrix.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_topic_placement_matrix.md
+```
+
+该脚本读取三版本单元索引、最新 reverse gap 报告和标准级 alias 文件，按 standard / progression group / 教材版本 / 年级列出主题单元位置。它只做诊断，不写 `public/data`，也不会把 cross-grade hit 当作 same-grade evidence。
+
+收紧主题词后，本轮矩阵结果：
+
+```json
+{
+  "standards_evaluated": 114,
+  "unit_candidates_scanned": 426,
+  "standards_with_topic_hits": 63,
+  "standards_with_same_grade_hits": 41,
+  "standards_with_cross_grade_hits": 55,
+  "standards_with_cross_grade_only_hits": 22,
+  "standards_in_reverse_gap_report": 10,
+  "reverse_gap_standards_with_cross_grade_missing_edition_hits": 9,
+  "by_missing_edition_action_hint": {
+    "review_cross_grade_placement": 9,
+    "continue_existing_gap_action": 1
+  }
+}
+```
+
+典型结论：
+
+| progression group / standard | 当前现象 | 含义 |
+| --- | --- | --- |
+| `math-f8d97669301604` / 三角形 | 冀教在七年级，人教和华东主要在八年级 | `MA-H4G7-GEO-010` 缺人教/华东不是无教材主题，而是年级投放不同。 |
+| `math-f2c7b690c0a85b` / 图形的位置与坐标 | 人教七年级、冀教八年级、华东九年级 | 同一主题跨版本分散到 7/8/9，不能用单一 `min-editions-per-standard=2` 简单解释。 |
+| `math-78f4d5d99da1f7` / 反比例函数 | 华东八年级，人教/冀教九年级 | `MA-H4G8-ALG-029` 的缺失版本不应通过 `函数` 这种宽泛 alias 修复。 |
+| `math-76edb58e7a55e4` / 旋转与中心对称 | 人教九年级，冀教七/八年级 | 需讨论 progression model 是否允许“版本内年级投放”作为独立证据层。 |
+
+因此下一步不应继续扩大 alias 表来追求指标，而应先决定 publication gate 如何表达两类不同事实：
+
+1. same-grade unit evidence：某条 H4G7/H4G8/H4G9 standard 在同年级教材单元中被至少两个版本支持。
+2. edition placement evidence：同一 progression topic 在不同教材版本中存在年级投放差异，可解释为什么同一 standard 低于两版本门槛，但不能直接证明该年级标准完成分化。
+
 跨学科优先级建议：
 
 1. 数学、科学：先按 `textbooks:plan-h4g-unit-worklist -- --subjects math,science` 推荐的完整版本批次建立稳定 PDF/OCR 缓存。
