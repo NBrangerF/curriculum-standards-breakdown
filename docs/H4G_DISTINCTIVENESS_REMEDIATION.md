@@ -573,6 +573,77 @@ npm run textbooks:audit-h4g-reverse-gaps
 
 下一步修复顺序应从低风险到高风险推进：先处理 `recover_page_start` 的可见标题缺页码问题；再逐条审核 `review_alignment_or_alias`，只补局部 alias/anchor；最后才扩大检索 `no_match_returned`，避免为了追求覆盖率牺牲证据可靠性。
 
+### 7.7 人教七下缺页码补证据
+
+本轮优先处理 `recover_page_start` 的唯一缺口：人教版七年级下册 `ctb_c5fa3c0e2226` 中第九章“不等式与不等式组”。目录 OCR 第 6 页能识别章/节标题，但缺右侧印刷页码；因此上一轮人教版有 4 个 eligible matches 被 `--require-page-start` 排除。
+
+新增受审计的页码补证据文件：
+
+```text
+scripts/textbooks/textbook_unit_page_start_overrides.json
+```
+
+补证据原则：
+
+- 只补已有 `toc_unit_or_chapter` 候选的 `page_start`，不新增单元。
+- 来源必须来自正文 OCR 的标题和页脚，不凭目录上下文猜页码。
+- 补证据通过 `page_start_override` 保留 provenance，并继续标记为 `requires_review`。
+- 可用 `--no-page-start-overrides` 关闭该机制，做 parser-only 对照。
+
+本次正文 OCR 证据：
+
+| 候选 | PDF 页 | 印刷页 | 证据 |
+| --- | ---: | ---: | --- |
+| 第九章 不等式与不等式组 | 119 | 113 | PDF 120 同章页脚为 114，故相邻章首页为 113 |
+| 9.1 不等式 | 120 | 114 | 同页标题 `9.1 不等式`，页脚 `114 第九章 不等式与不等式组` |
+| 9.2 一元一次不等式 | 128 | 122 | 同页标题 `9.2 一元一次不等式`，页脚 `122 第九章 不等式与不等式组` |
+| 9.3 一元一次不等式组 | 133 | 127 | 同页标题 `9.3 一元一次不等式组`，页脚 `127` |
+| 第十章 数据的收集、整理与描述 | 140 | 134 | PDF 141 的 `10.1` 首页页脚为 135，故相邻章首页为 134 |
+| 10.1 统计调查 | 141 | 135 | 同页标题 `10.1 统计调查`，页脚 `135` |
+
+重跑人教版候选后：
+
+```json
+{
+  "eligible_matches": 41,
+  "candidate_standards": 19,
+  "page_start_records": 29,
+  "page_range_records": 29,
+  "page_start_override_candidates": 6
+}
+```
+
+`MA-H4G7-ALG-016` 现在获得人教版 + 冀教版两版本证据，人教版候选页段为 `9.1 不等式 114-121`、`9.2 一元一次不等式 122-126`、`9.3 一元一次不等式组 127-133` 和章首页 `113`。
+
+三版本 page-clean 合并后的指标：
+
+```json
+{
+  "merged_candidates": 29,
+  "unit_evidence_objects": 95,
+  "multi_edition_standards": 16,
+  "single_edition_standards": 13,
+  "page_start_records": 95,
+  "excluded_unit_evidence_objects": 0
+}
+```
+
+新的反向检索画像：
+
+```json
+{
+  "standards_below_min_editions": 13,
+  "progression_groups_below_min_editions": 3,
+  "near_miss_actions": {
+    "review_alignment_or_alias": 12,
+    "no_match_returned": 11,
+    "low_score_or_wrong_grade": 3
+  }
+}
+```
+
+这说明 `recover_page_start` 已清零；剩余问题已经转为 alignment、无候选和低分/疑似错年级，不应再通过页码 parser 修复来解决。publication gate 仍失败，因为还有 13 条 standards 低于两版本门槛、18 个 progression groups 仍不完整，所以仍不得写入 `public/data`。
+
 跨学科优先级建议：
 
 1. 数学、科学：先按 `textbooks:plan-h4g-unit-worklist -- --subjects math,science` 推荐的完整版本批次建立稳定 PDF/OCR 缓存。

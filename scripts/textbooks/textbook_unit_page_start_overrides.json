@@ -1,0 +1,87 @@
+{
+  "description": "Reviewed textbook printed-page starts recovered from body OCR when TOC OCR omitted right-side page numbers. These overrides only attach page_start evidence to existing toc_unit_or_chapter candidates.",
+  "overrides": [
+    {
+      "evidence": {
+        "ocr_excerpt": "PDF page 119 contains the body heading 第九章 不等式与不等式组. PDF page 120 contains heading 9.1 不等式 and footer 114 第九章 不等式与不等式组.",
+        "pdf_page": 119,
+        "printed_page_evidence": "PDF page 120 footer shows printed page 114, so adjacent PDF page 119 is printed page 113."
+      },
+      "note": "TOC OCR page 6 has the chapter title but no right-side printed page number.",
+      "page_start": 113,
+      "review_status": "reviewed_from_body_ocr",
+      "source": "body_ocr_page_footer",
+      "textbook_evidence_id": "ctb_c5fa3c0e2226",
+      "unit_title": "第九章 不等式与不等式组"
+    },
+    {
+      "evidence": {
+        "ocr_excerpt": "PDF page 120 contains heading 9.1 不等式 and footer 114 第九章 不等式与不等式组.",
+        "pdf_page": 120,
+        "printed_page_evidence": "Footer on the same OCR page shows printed page 114."
+      },
+      "note": "TOC OCR page 6 has the section title but no right-side printed page number.",
+      "page_start": 114,
+      "review_status": "reviewed_from_body_ocr",
+      "source": "body_ocr_page_footer",
+      "textbook_evidence_id": "ctb_c5fa3c0e2226",
+      "unit_title": "9.1 不等式"
+    },
+    {
+      "evidence": {
+        "ocr_excerpt": "PDF page 128 contains heading 9.2 一元一次不等式 and footer 122 第九章 不等式与不等式组.",
+        "pdf_page": 128,
+        "printed_page_evidence": "Footer on the same OCR page shows printed page 122."
+      },
+      "note": "TOC OCR page 6 has the section title but no right-side printed page number.",
+      "page_start": 122,
+      "review_status": "reviewed_from_body_ocr",
+      "source": "body_ocr_page_footer",
+      "textbook_evidence_id": "ctb_c5fa3c0e2226",
+      "unit_title": "9.2 一元一次不等式"
+    },
+    {
+      "evidence": {
+        "ocr_excerpt": "PDF page 133 contains heading 9.3 一元一次不等式组 and footer 第九章 不等式与不等式组 127.",
+        "pdf_page": 133,
+        "printed_page_evidence": "Footer on the same OCR page shows printed page 127."
+      },
+      "note": "TOC OCR page 6 has the section title but no right-side printed page number.",
+      "page_start": 127,
+      "review_status": "reviewed_from_body_ocr",
+      "source": "body_ocr_page_footer",
+      "textbook_evidence_id": "ctb_c5fa3c0e2226",
+      "unit_title": "9.3 一元一次不等式组"
+    },
+    {
+      "evidence": {
+        "ocr_excerpt": "PDF page 140 contains the body heading 第十章 数据的收集、整理. PDF page 141 contains heading 10.1 统计调查 and footer 第十章 数据的收集、整理与描述135.",
+        "pdf_page": 140,
+        "printed_page_evidence": "PDF page 141 footer shows printed page 135, so adjacent PDF page 140 is printed page 134."
+      },
+      "match_titles": [
+        "第十章 数据的收集、整理与描述"
+      ],
+      "note": "TOC OCR page 6 split 第十章 and 数据的收集、整理与描述 across lines and omitted the right-side printed page number.",
+      "page_start": 134,
+      "review_status": "reviewed_from_body_ocr",
+      "source": "body_ocr_page_footer",
+      "textbook_evidence_id": "ctb_c5fa3c0e2226",
+      "unit_title": "第十章 数据的收集、整理与描述"
+    },
+    {
+      "evidence": {
+        "ocr_excerpt": "PDF page 141 contains heading 10.1 统计调查 and footer 第十章 数据的收集、整理与描述135.",
+        "pdf_page": 141,
+        "printed_page_evidence": "Footer on the same OCR page shows printed page 135."
+      },
+      "note": "TOC OCR page 6 has the section title but no right-side printed page number.",
+      "page_start": 135,
+      "review_status": "reviewed_from_body_ocr",
+      "source": "body_ocr_page_footer",
+      "textbook_evidence_id": "ctb_c5fa3c0e2226",
+      "unit_title": "10.1 统计调查"
+    }
+  ],
+  "version": 1
+}

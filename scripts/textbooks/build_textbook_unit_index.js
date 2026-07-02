@@ -11,6 +11,7 @@ const DEFAULT_REF = 'HEAD'
 const DEFAULT_CACHE_DIR = 'generated/textbook_evidence/pdf_cache'
 const DEFAULT_OUT = 'generated/textbook_evidence/textbook_unit_index.json'
 const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/textbook_unit_index_summary.md'
+const DEFAULT_PAGE_START_OVERRIDES = 'scripts/textbooks/textbook_unit_page_start_overrides.json'
 const DEFAULT_MAX_FILES = 24
 const DEFAULT_MAX_PAGES = 18
 const DEFAULT_MATERIALIZE_TIMEOUT_MS = 60000
@@ -32,6 +33,7 @@ function parseArgs(argv) {
     cacheDir: DEFAULT_CACHE_DIR,
     out: DEFAULT_OUT,
     summaryOut: DEFAULT_SUMMARY_OUT,
+    pageStartOverrides: DEFAULT_PAGE_START_OVERRIDES,
     subjects: [],
     grades: [],
     evidenceIds: [],
@@ -47,6 +49,7 @@ function parseArgs(argv) {
     ocrDpi: DEFAULT_OCR_DPI,
     ocrBatchSize: DEFAULT_OCR_BATCH_SIZE,
     ocrLanguages: DEFAULT_OCR_LANGUAGES,
+    usePageStartOverrides: true,
     all: false,
     materialize: false,
     force: false
@@ -59,6 +62,8 @@ function parseArgs(argv) {
     else if (item === '--cache-dir') args.cacheDir = argv[++i]
     else if (item === '--out') args.out = argv[++i]
     else if (item === '--summary-out') args.summaryOut = argv[++i]
+    else if (item === '--page-start-overrides') args.pageStartOverrides = argv[++i] || ''
+    else if (item === '--no-page-start-overrides') args.usePageStartOverrides = false
     else if (item === '--subjects') args.subjects = splitArg(argv[++i])
     else if (item === '--grades') args.grades = splitArg(argv[++i])
     else if (item === '--evidence-ids') args.evidenceIds = splitArg(argv[++i])
@@ -111,6 +116,10 @@ Use --ocr-fallback on macOS to run Apple Vision OCR when PDF text extraction
 does not produce TOC candidates. OCR is intentionally opt-in because it depends
 on local rendering and Vision availability.
 
+Reviewed page-start overrides are applied by default from
+scripts/textbooks/textbook_unit_page_start_overrides.json when the file exists.
+Use --no-page-start-overrides to disable them for parser-only audits.
+
 This script never writes to public/data.`)
 }
 
@@ -123,6 +132,11 @@ function splitArg(value) {
 
 function readJson(path) {
   return JSON.parse(readFileSync(path, 'utf8'))
+}
+
+function readOptionalJson(path, fallback) {
+  if (!path || !existsSync(path)) return fallback
+  return readJson(path)
 }
 
 function writeJson(path, value) {
@@ -650,6 +664,92 @@ function applyTocPageStart(candidate, pageStart, pageSource) {
   return candidate
 }
 
+function normalizeOverrideTitle(value) {
+  return normalizeTocRawLine(value)
+    .replace(/\s+/g, '')
+    .trim()
+}
+
+function loadPageStartOverrides(args) {
+  if (!args.usePageStartOverrides) {
+    return { byTextbook: new Map(), count: 0, path: null }
+  }
+  const payload = readOptionalJson(args.pageStartOverrides, { overrides: [] })
+  const byTextbook = new Map()
+  for (const override of payload.overrides || []) {
+    const textbookId = override.textbook_evidence_id
+    const pageStart = Number(override.page_start)
+    if (!textbookId || !Number.isInteger(pageStart) || pageStart < 1) continue
+    const keys = [
+      override.unit_title,
+      override.toc_raw_line,
+      ...(override.match_titles || [])
+    ].filter(Boolean).map(normalizeOverrideTitle)
+    if (!keys.length) continue
+    if (!byTextbook.has(textbookId)) byTextbook.set(textbookId, [])
+    byTextbook.get(textbookId).push({
+      ...override,
+      page_start: pageStart,
+      _keys: keys
+    })
+  }
+  return {
+    byTextbook,
+    count: [...byTextbook.values()].reduce((sum, rows) => sum + rows.length, 0),
+    path: existsSync(args.pageStartOverrides) ? args.pageStartOverrides : null
+  }
+}
+
+function clearInferredTocRanges(candidates) {
+  for (const candidate of candidates) {
+    if (candidate.candidate_type !== 'toc_unit_or_chapter') continue
+    delete candidate.page_end
+    delete candidate.toc_page_end
+    delete candidate.page_range
+    delete candidate.toc_page_range
+    delete candidate.page_range_status
+  }
+}
+
+function applyPageStartOverrides(record, candidates, overrideIndex) {
+  const overrides = overrideIndex.byTextbook.get(record.evidence_id) || []
+  if (!overrides.length || !candidates.length) return { candidates, applied: 0 }
+  let applied = 0
+  const used = new Set()
+  for (const candidate of candidates) {
+    if (candidate.candidate_type !== 'toc_unit_or_chapter') continue
+    if (candidate.page_start) continue
+    const candidateKeys = [
+      candidate.unit_title,
+      candidate.toc_raw_line,
+      candidate.matched_line
+    ].filter(Boolean).map(normalizeOverrideTitle)
+    let overrideIndex = -1
+    const override = overrides.find((item, index) => {
+      if (used.has(index)) return false
+      const matched = item._keys.some(key => candidateKeys.includes(key))
+      if (matched) overrideIndex = index
+      return matched
+    })
+    if (!override) continue
+    applyTocPageStart(candidate, override.page_start, override.source || 'reviewed_page_start_override')
+    candidate.page_start_override = {
+      page_start: override.page_start,
+      source: override.source || 'reviewed_page_start_override',
+      review_status: override.review_status || 'reviewed',
+      evidence: override.evidence || null,
+      note: override.note || ''
+    }
+    applied += 1
+    used.add(overrideIndex)
+  }
+  if (applied) {
+    clearInferredTocRanges(candidates)
+    inferTocPageRanges(candidates)
+  }
+  return { candidates, applied }
+}
+
 function inferTocPageRanges(candidates) {
   const sourceOrdered = candidates
     .filter(candidate => candidate.candidate_type === 'toc_unit_or_chapter')
@@ -957,6 +1057,7 @@ function summarize(records, unitCandidates) {
     volume_seed_candidates: unitCandidates.filter(item => item.candidate_type === 'volume_seed').length,
     page_start_candidates: unitCandidates.filter(item => item.candidate_type === 'toc_unit_or_chapter' && item.page_start).length,
     page_range_candidates: unitCandidates.filter(item => item.candidate_type === 'toc_unit_or_chapter' && item.page_range).length,
+    page_start_override_candidates: unitCandidates.filter(item => item.candidate_type === 'toc_unit_or_chapter' && item.page_start_override).length,
     by_subject: Object.fromEntries(Object.entries(bySubject).sort(([a], [b]) => a.localeCompare(b))),
     by_candidate_type: Object.fromEntries(Object.entries(byCandidateType).sort(([a], [b]) => a.localeCompare(b))),
     by_unit_level: Object.fromEntries(Object.entries(byUnitLevel).sort(([a], [b]) => a.localeCompare(b))),
@@ -997,6 +1098,7 @@ commit：\`${payload.source_commit}\`
 | 目录/章节候选 | ${payload.summary.real_unit_or_chapter_candidates} |
 | 有起始页候选 | ${payload.summary.page_start_candidates} |
 | 有页段候选 | ${payload.summary.page_range_candidates} |
+| 页码补证据候选 | ${payload.summary.page_start_override_candidates || 0} |
 | 文件名卷册 seed | ${payload.summary.volume_seed_candidates} |
 | PDF 物化超时 | ${payload.summary.by_extraction_status.materialize_timeout || 0} |
 | raw URL 物化成功 | ${payload.summary.by_extraction_status.raw_materialized || 0} |
@@ -1042,6 +1144,7 @@ function main() {
 
   const index = readJson(args.textbookIndex)
   if (!args.rawRef) args.rawRef = index.source_commit || 'master'
+  const pageStartOverrides = loadPageStartOverrides(args)
   const records = selectRecords(index, args)
   const textbookFiles = []
   const unitCandidates = []
@@ -1099,6 +1202,9 @@ function main() {
       }
     }
 
+    const overrideResult = applyPageStartOverrides(record, candidates, pageStartOverrides)
+    candidates = overrideResult.candidates
+    file.page_start_override_count = overrideResult.applied
     if (!candidates.length) candidates = [volumeSeed(record)]
     file.toc_candidate_count = candidates.filter(candidate => candidate.candidate_type === 'toc_unit_or_chapter').length
     file.toc_page_start_count = candidates.filter(candidate => candidate.candidate_type === 'toc_unit_or_chapter' && candidate.page_start).length
@@ -1129,6 +1235,8 @@ function main() {
       ocr_batch_size: args.ocrBatchSize,
       ocr_languages: args.ocrLanguages,
       debug_text_dir: args.debugTextDir || null,
+      page_start_overrides: pageStartOverrides.path,
+      page_start_overrides_loaded: pageStartOverrides.count,
       subjects: args.subjects,
       grades: args.grades
     },

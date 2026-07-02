@@ -166,11 +166,11 @@ npm run textbooks:audit-h4g-unit-consistency -- \
 npm run textbooks:audit-h4g-reverse-gaps
 ```
 
-该命令默认读取数学三版本 `page_order_fix_page_clean` 候选包，以及人教版、冀教版、华东师大版三套标准-单元匹配结果，输出：
+该命令默认读取数学三版本 `page_override_page_clean` 候选包，以及人教版、冀教版、华东师大版三套标准-单元匹配结果，输出：
 
 ```text
-generated/textbook_evidence/h4g_runs/math_three_edition_page_order_fix_page_clean/h4g_reverse_lookup_gaps.json
-generated/textbook_evidence/h4g_runs/math_three_edition_page_order_fix_page_clean/h4g_reverse_lookup_gaps.md
+generated/textbook_evidence/h4g_runs/math_three_edition_page_override_page_clean/h4g_reverse_lookup_gaps.json
+generated/textbook_evidence/h4g_runs/math_three_edition_page_override_page_clean/h4g_reverse_lookup_gaps.md
 ```
 
 它不写 `public/data`，只把 publication gate 失败拆成可执行原因：已有可用匹配但未打包、目录页码缺失、alignment gate 未通过、低分/疑似错年级、当前 top matches 没有返回候选。`near_miss_actions` 统计的是低于版本门槛 standards 的缺失版本；progression group 的缺失年级另在 `progression_group_gaps` 中展开。
@@ -270,8 +270,12 @@ npm run textbooks:unit-index -- --evidence-ids ctb_48072359f7df --materialize --
 | `--ocr-dpi` | OCR 渲染 DPI，默认 180。 |
 | `--ocr-batch-size` | OCR 分批页数，默认 4。 |
 | `--ocr-languages` | OCR 语言列表，默认 `zh-Hans,en-US`。 |
+| `--page-start-overrides` | 指定已复核的目录页码补证据文件，默认读取 `scripts/textbooks/textbook_unit_page_start_overrides.json`。 |
+| `--no-page-start-overrides` | 关闭页码补证据，只看 parser/OCR 本身能抽出的目录页码。 |
 
 注意：`--materialize`、raw URL fallback 和 `--ocr-fallback` 仍然不能作为默认质量门；它们依赖外部 GitHub 文件获取、本机 PDF 渲染和 macOS Vision OCR，只能用于小批量探索，或在后续建立稳定 PDF/OCR 缓存后再纳入严格流程。`materialize_timeout` 或 `raw_materialize_timeout` 是教材文件获取失败，不等于教材没有目录；`text_extracted` 但无目录候选通常表示需要改 parser 或进入 OCR。
+
+页码补证据只允许附着到已经存在的 `toc_unit_or_chapter` 候选，不能新增教材单元，也不能改写课标字段。每条 override 必须记录 `textbook_evidence_id`、`unit_title`、`page_start`、`source`、`review_status` 和正文 OCR/页脚等 provenance；生成结果会把 `page_start_override` 传入 unit index、standard matches 和 H4G candidate review pack。
 
 ## 7. 当前验证结果
 

@@ -439,6 +439,7 @@ function buildMatches(standards, unitsBySubjectGrade, args) {
         page_range: unit.page_range || '',
         page_range_status: unit.page_range_status || '',
         toc_page_source: unit.toc_page_source || '',
+        page_start_override: unit.page_start_override || null,
         toc_raw_line: unit.toc_raw_line || '',
         toc_source_order: unit.toc_source_order ?? null,
         pdf_page_hint: unit.pdf_page_hint ?? null,

@@ -141,6 +141,7 @@ function unitEvidenceFromMatch(match) {
     page_range: match.page_range || '',
     page_range_status: match.page_range_status || '',
     toc_page_source: match.toc_page_source || '',
+    page_start_override: match.page_start_override || null,
     toc_raw_line: match.toc_raw_line || '',
     toc_source_order: match.toc_source_order ?? null,
     pdf_page_hint: match.pdf_page_hint ?? null,
