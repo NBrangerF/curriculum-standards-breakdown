@@ -880,6 +880,7 @@ function applyTocPageStart(candidate, pageStart, pageSource, options = {}) {
 
 function normalizeOverrideTitle(value) {
   return normalizeTocRawLine(value)
+    .replace(/\uFFFD+/g, '')
     .replace(/\s+/g, '')
     .trim()
 }

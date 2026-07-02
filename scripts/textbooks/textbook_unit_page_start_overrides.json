@@ -133,6 +133,35 @@
       "source": "body_ocr_page_footer",
       "textbook_evidence_id": "ctb_286bc7db0209",
       "unit_title": "29.3 课题学习"
+    },
+    {
+      "evidence": {
+        "ocr_excerpt": "PDF page 7 contains the body heading 第1章 / 化学反应. PDF page 8 contains the first section 1 化学方程式 and footer 2 科学.",
+        "pdf_page": 7,
+        "printed_page_evidence": "The next extracted body page is printed page 2, so the chapter-opening body page is printed page 1. TOC PDF page 5 lists 第1章 化学反应 before section 1 化学方程式／2."
+      },
+      "note": "TOC OCR has the chapter title but omits the right-side printed page number; body OCR confirms the chapter-opening page.",
+      "page_start": 1,
+      "review_status": "reviewed_from_body_ocr",
+      "source": "body_ocr_page_footer",
+      "textbook_evidence_id": "ctb_c991a01e3f75",
+      "unit_title": "第1章 化学反应"
+    },
+    {
+      "evidence": {
+        "ocr_excerpt": "TOC PDF page 6 lists 第 8 章 碳的世界, then 第一节 碳的单质 143, 第二节 二氧化碳的性质和用途 147, 第三节 二氧化碳的实验室制法 153.",
+        "pdf_page": 6,
+        "printed_page_evidence": "The printed page number 153 is visible on the same TOC line after the section title."
+      },
+      "match_titles": [
+        "第三节 二氧化碳的实验室制法"
+      ],
+      "note": "TOC text extraction split 第三节 onto the previous line and left OCR replacement glyphs in the candidate title; reviewed TOC text shows the printed page start.",
+      "page_start": 153,
+      "review_status": "reviewed_from_toc_ocr",
+      "source": "toc_ocr_reviewed_page_tail",
+      "textbook_evidence_id": "ctb_de4bb9a6664f",
+      "unit_title": "第三节 二氧化碳的实验室制法"
     }
   ],
   "version": 1

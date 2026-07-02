@@ -2160,6 +2160,68 @@ aggregate candidate audit 和普通 consistency audit 继续通过。发布级 g
 
 该 baseline 只说明下一批该修哪里；它不改变官方课标字段，不写 `public/data`，也不把 partial group 视为已经完成年级分化。
 
+### 8.15 科学 recover_page_start 修复
+
+按 8.14 的低风险顺序，先处理 `recover_page_start`。本轮只接受已有 eligible 匹配且能从 TOC/OCR 明确恢复印刷页码的单元，不放宽标准匹配规则，不写 `public/data`。
+
+新增两个 reviewed page-start overrides：
+
+| standard | edition | unit | recovered page | evidence |
+| --- | --- | --- | ---: | --- |
+| `SC-H4G9-CHG-009` | 华东师大版-华东师范大学出版社 | `第1章 化学反应` | 1 | 华东师大九上 debug text 中 PDF page 7 为正文章首页；PDF page 8 第一节页脚显示印刷页 2，因此章首页为印刷页 1。 |
+| `SC-H4G9-MAT-006` | 北京版-北京出版社 | `第三节 二氧化碳的实验室制法` | 153 | 北京版九上化学目录 PDF page 6 明确列出 `第三节 二氧化碳的实验室制法 153`；原候选标题因 OCR replacement glyph 未能解析页码。 |
+
+同时，`build_textbook_unit_index.js` 的 override title 归一化会忽略 OCR replacement glyph，避免 reviewed override 被 `����` 阻断。该变化只影响人工复核过的 page-start override 匹配，不扩大自动候选匹配口径。
+
+复跑华东师大版和北京版单批后：
+
+```json
+{
+  "huadong_candidate_standards": 15,
+  "huadong_unit_evidence_objects": 21,
+  "beijing_candidate_standards": 3,
+  "beijing_unit_evidence_objects": 3,
+  "target_matches_with_page_start": 2
+}
+```
+
+重新合并科学八版本 aggregate 后：
+
+```json
+{
+  "candidate_standards": 38,
+  "unit_evidence_objects": 61,
+  "multi_edition_standards": 11,
+  "single_edition_standards": 27,
+  "complete_progression_group_candidates": 2,
+  "partial_progression_group_candidates": 25,
+  "progression_groups_below_min_editions": 13,
+  "unit_evidence_missing_page_start": 0,
+  "nonmonotonic_page_records": 0
+}
+```
+
+刷新 reverse gap 后，`recover_page_start` 已清零：
+
+| metric | before | after |
+| --- | ---: | ---: |
+| candidate standards | 37 | 38 |
+| complete progression groups | 1 | 2 |
+| partial progression groups | 26 | 25 |
+| missing grade slots | 44 | 43 |
+| remediation work items | 111 | 110 |
+| `recover_page_start` actions | 2 | 0 |
+
+当前剩余 remediation action 为：
+
+| action | work items |
+| --- | ---: |
+| `review_alignment_or_alias` | 41 |
+| `low_score_or_wrong_grade` | 45 |
+| `no_match_returned` | 24 |
+
+发布级 gate 仍失败是预期结果：科学仍有 27 条 standards 低于同年级多版本门槛，并且还有 25 个 partial progression groups。下一步应进入 `review_alignment_or_alias`，每次只处理标准级、局部、可解释的 alias/anchor，不使用泛词兜底。
+
 ## 9. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。
@@ -2213,7 +2275,7 @@ H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 
 建议顺序：
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
-2. 科学已完成苏科版、北京版、科普版候选链，补齐沪教版完整八册复跑，修复沪教八上生态系统页码解析，并将华东师大版 standalone 候选收敛到 page-clean 口径；下一步应从“整版重复复跑”转向 targeted gap remediation 或 planner 的 already-remediated edition 去重；每批仍先生成 review-only 候选，不写 `public/data`。
+2. 科学已完成苏科版、北京版、科普版候选链，补齐沪教版完整八册复跑，修复沪教八上生态系统页码解析，并将华东师大版 standalone 候选收敛到 page-clean 口径；`recover_page_start` 已清零，下一步应转向 `review_alignment_or_alias` 的标准级局部复核，以及 planner 的 already-remediated edition 去重；每批仍先生成 review-only 候选，不写 `public/data`。
 3. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
 4. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
 5. 使用 `textbooks:h4g-progression-decisions` 合并同年级证据、reverse gaps 和投放差异，形成可复核的发布前决策矩阵。
