@@ -279,6 +279,29 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 当前唯一 partial candidate 是 `math-76edb58e7a55e4`（旋转与中心对称）：`MA-H4G8-GEO-026` 和 `MA-H4G9-GEO-027` 的华东师大版 missing edition 仍缺 cross-grade topic 解释，因此应继续保留 review/block 状态，不能直接转成版本投放说明。
 
+生成 H4G 发布前复核包：
+
+```bash
+npm run textbooks:h4g-publication-review -- --strict --require-ready --require-edition-notes
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_packet.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_packet.md
+```
+
+该命令把三类结果合并到同一个只读复核包中，但保持 publication surface 分离：
+
+| layer | 当前数量 | 后续可能的 publication surface |
+| --- | ---: | --- |
+| `same_grade_unit_evidence_review` | 19 条 standards / 87 个单元证据对象 | `standard.textbook_unit_evidence_ids`，仅限人工复核后同年级证据写入。 |
+| `progression_group_edition_placement_note_review` | 5 个 progression groups / 7 条 affected standards | `progression_group_edition_placement_note`，仅限课程进阶复核后表达版本投放差异。 |
+| `blocked_or_partial_review` | 2 个 blocked reviews / 3 条 affected standards | 暂无 publication surface，先继续补证据或模型复核。 |
+
+这一步解决的是“如何把可复核材料分层交付”，不是正式发布。它的 policy 明确 `writes_public_data=false`、`writes_standard_records=false`、`writes_textbook_unit_evidence_ids=false`，并强制 `separates_same_grade_unit_evidence_from_edition_placement_notes=true`。当前仍有 85 条数学 H4G standards 不在三版本单元候选范围内，不能因为 19 条 ready 或 5 个 note candidates 就声称数学 H4G 已整体完成分化。
+
 ## 4. 输出结构
 
 `textbook_unit_index.json` 有两个核心数组：
@@ -934,6 +957,8 @@ progression review worklist 的边界：`h4g_progression_review_worklist` 是复
 
 edition placement model candidate 的边界：`h4g_edition_placement_model_candidate` 是 worklist 之后的模型复核输入，只处理 `edition_placement_model_review` 项。它可以把完整跨版本投放解释标为 `candidate_for_edition_placement_note`，但这仍不是正式发布字段；`progression_group_edition_placement_note` 必须另经课程进阶复核后设计。partial candidate 继续保留 blocked，不能用不完整的 cross-grade 诊断关系替代 missing edition 的同年级证据。
 
+publication review packet 的边界：`h4g_publication_review_packet` 是三层复核交付包，不是 public apply 输入。它把 `same_grade_unit_evidence_review`、`progression_group_edition_placement_note_review` 和 `blocked_or_partial_review` 拆开，防止把 cross-grade 诊断证据写进 same-grade standard，也防止 blocked standards 混入 ready-only apply。该包可以帮助设计后续正式字段或人工复核清单，但自身不写 `public/data`。
+
 ## 10. 下一步
 
 建议顺序：
@@ -945,6 +970,7 @@ edition placement model candidate 的边界：`h4g_edition_placement_model_candi
 5. 使用 `textbooks:h4g-ready-unit-candidates` 把 record-level ready 的 standards 过滤成隔离 QA 候选包，并在 generated data root 上验证。
 6. 用 `textbooks:h4g-progression-review-worklist` 固化 blocked standards 的复核入口，区分 `edition_placement_model_review` 和 `same_grade_gap_remediation`。
 7. 用 `textbooks:h4g-edition-placement-model` 将可解释的跨版本投放差异升级为 progression group 级模型候选，同时保留 partial topics 的 blocked 状态。
-8. 决定 publication gate 如何表达 same-grade unit evidence 与 edition placement evidence 的不同含义。
-9. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
-10. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。
+8. 用 `textbooks:h4g-publication-review` 把同年级单元证据、版本投放说明候选和 blocked items 合成互斥的发布前复核包。
+9. 基于复核包决定正式数据模型如何表达 same-grade unit evidence 与 edition placement evidence 的不同含义。
+10. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
+11. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。

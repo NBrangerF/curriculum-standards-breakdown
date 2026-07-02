@@ -1108,6 +1108,52 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 这个 gate 的安全边界比 placement candidate 更明确：它只产出 `progression_group_edition_placement_diagnostic`，建议的 publication surface 也只是 `progression_group_edition_placement_note`。即使 decision 是 `candidate_for_edition_placement_note`，也仍然需要课程进阶复核；它不写 `public/data`，不生成 `proposed_update`，不把 cross-grade units 写入 same-grade `textbook_unit_evidence_ids`，也不把任何 record 自动升级为 `grade_specific_variant`。
 
+### 7.15 发布前复核包
+
+为了把前面几层结果转成可执行的复核入口，本轮新增只读 publication review packet：
+
+```bash
+npm run textbooks:h4g-publication-review -- --strict --require-ready --require-edition-notes
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_packet.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_publication_review_packet.md
+```
+
+当前结果：
+
+```json
+{
+  "ready_same_grade_standard_reviews": 19,
+  "ready_unit_evidence_objects": 87,
+  "edition_placement_note_reviews": 5,
+  "edition_placement_note_affected_standards": 7,
+  "blocked_reviews": 2,
+  "blocked_affected_standards": 3,
+  "not_in_current_unit_candidate_scope": 85
+}
+```
+
+三层含义：
+
+| publication layer | 数量 | 含义 |
+| --- | ---: | --- |
+| `same_grade_unit_evidence_review` | 19 | 同年级、多版本、页码可用的 standards，可进入人工复核；未来 surface 才可能是 `standard.textbook_unit_evidence_ids`。 |
+| `progression_group_edition_placement_note_review` | 5 | 跨版本投放差异已完整解释的 progression groups，可进入课程进阶复核；未来 surface 才可能是 `progression_group_edition_placement_note`。 |
+| `blocked_or_partial_review` | 2 | 仍未满足发布前条件的 partial/缺口项，继续 blocked。 |
+
+blocked reviews 当前包括：
+
+| progression group | 类型 | 影响 |
+| --- | --- | --- |
+| `math-76edb58e7a55e4` | `blocked_partial_edition_placement_review` | “旋转与中心对称”仍缺华东师大版 cross-grade topic 解释，影响 `MA-H4G8-GEO-026`、`MA-H4G9-GEO-027`。 |
+| `math-cb764ede689779` | `blocked_same_grade_gap_remediation` | `MA-H4G7-QUAL-004` 仍是宽口径学业质量/综合表现标准，不能用低分或泛词候选补证据。 |
+
+这个包的实质价值是把“下一步怎么发布”拆清楚：同年级单元证据、版本投放说明、阻塞项互斥，不再把 cross-grade units 写进 same-grade standard，也不再让 blocked standards 混入 ready-only apply。它仍然不是 `public/data` 写入，也不改任何课标原文字段。当前 85 条数学 H4G standards 仍不在三版本单元候选范围内，所以数学整体 H4G 分化仍未完成。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：
