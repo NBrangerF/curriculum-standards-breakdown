@@ -830,6 +830,14 @@ function parseInlineTocPageTail(value) {
       pageSource: 'toc_inline_page_tail'
     }
   }
+  const dashLeader = normalized.match(/^(.*?\p{Script=Han}.*?)(?:\s*-\s*){2,}((?:\d\s*){1,3})$/u)
+  if (dashLeader) {
+    return {
+      line: dashLeader[1].trim(),
+      pageStart: parsedPrintedPage(dashLeader[2]),
+      pageSource: 'toc_inline_dash_page_tail'
+    }
+  }
   const compactEnd = !auxiliaryTocLabel.test(normalized)
     ? normalized.match(/^(.*\p{Script=Han})\s*((?:\d\s*){1,3})$/u)
     : null
