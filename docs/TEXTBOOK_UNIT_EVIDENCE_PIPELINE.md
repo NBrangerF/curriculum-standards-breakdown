@@ -1511,6 +1511,132 @@ generated/textbook_evidence/h4g_runs/science_six_edition_page_clean/
 
 因此下一步优先跑北京版，用化学和生物学补人教版/苏科版没有覆盖到的分科链条；科普版可继续作为 adjacent 补充，沪教版则可回头补完整 direct_all_grades 版本。
 
+### 8.9 科学北京版分科教材与七版本合并
+
+2026-07-03 继续执行科学北京版分科教材工作项。该批覆盖生物学与化学，其中生物学为七、八年级上下册，化学为九年级上下册；它不是综合科学整版教材，因此主要用于补生态、生命系统和九年级化学链条的分科证据。
+
+PDF 预取阶段 `ctb_05dc6712c813` 长时间无进展，因此中止 raw 预取，改用本地 ChinaTextbook Git blob 物化。6 个 evidence 的 Git blob 均可用，最大文件为九年级化学下册 `ctb_2e8be265691e`，大小 51,785,902 bytes。随后 unit-index 阶段全部通过本地 blob 成功物化：
+
+```json
+{
+  "textbook_files": 6,
+  "unit_candidates": 121,
+  "real_unit_or_chapter_candidates": 121,
+  "page_start_candidates": 103,
+  "page_range_candidates": 103,
+  "by_unit_level": {
+    "chapter": 28,
+    "unit": 93
+  },
+  "by_page_range_status": {
+    "missing": 18,
+    "toc_page_nonmonotonic": 1,
+    "toc_page_range_inferred": 96,
+    "toc_page_start_only": 6
+  },
+  "by_extraction_status": {
+    "materialized": 6
+  }
+}
+```
+
+单元索引审计通过。标准匹配结果：
+
+```json
+{
+  "standards_evaluated": 201,
+  "unit_candidates_considered": 121,
+  "matches": 44,
+  "standards_with_matches": 28,
+  "eligible_matches": 6,
+  "unmatched_standards": 173,
+  "by_eligible_alignment": {
+    "strong_field_alignment": 6
+  }
+}
+```
+
+6 条 eligible 中有 4 条来自九年级化学章标题，但这些目录候选缺少可靠 `page_start`，因此在 page-clean 口径下被过滤。北京版最终 page-clean H4G candidate 有 2 条 standards，全部来自八年级下册生物学 `第三节 生态系统`，并通过 candidate audit 与普通 consistency audit：
+
+| standard_code | grade_band | alignment | 单元 |
+| --- | --- | --- | --- |
+| `SC-H4G8-ECO-005` | H4G8 | `strong_field_alignment` | `第三节 生态系统` p.65-72 |
+| `SC-H4G8-LIFE-017` | H4G8 | `strong_field_alignment` | `第三节 生态系统` p.65-72 |
+
+随后将北京版与既有科学六版本 page-clean 候选合并为七版本候选，输出到：
+
+```text
+generated/textbook_evidence/h4g_runs/science_seven_edition_page_clean/
+```
+
+七版本合并结果：
+
+```json
+{
+  "merged_candidates": 35,
+  "unit_evidence_objects": 51,
+  "multi_edition_standards": 9,
+  "single_edition_standards": 26,
+  "by_grade_band": {
+    "H4G7": 11,
+    "H4G8": 13,
+    "H4G9": 11
+  },
+  "by_edition": {
+    "华东师大版-华东师范大学出版社": 19,
+    "武汉版-武汉出版社": 10,
+    "浙教版-浙江教育出版社": 11,
+    "人教版-人民教育出版社": 5,
+    "苏科版-江苏凤凰科学技术出版社": 2,
+    "北京版-北京出版社": 2,
+    "沪教版-上海教育出版社": 2
+  },
+  "by_page_range_status": {
+    "toc_page_range_inferred": 48,
+    "toc_page_start_only": 3
+  }
+}
+```
+
+七版本 candidate audit 和普通 consistency audit 均通过：`unit_evidence_missing_page_start=0`、`nonmonotonic_page_records=0`。相较六版本，北京版没有新增 standard，但把 2 条 H4G8 standards 从单版本推进到多版本：
+
+| standard_code | grade_band | progression_group_id | 七版本后的版本证据 |
+| --- | --- | --- | --- |
+| `SC-H4G8-ECO-005` | H4G8 | `science-d887780b2ca2bb` | 北京版 `第三节 生态系统` p.65-72；苏科版 `第2节 保护生物多样性` p.96-103 |
+| `SC-H4G8-LIFE-017` | H4G8 | `science-015acdb16d7e4d` | 北京版 `第三节 生态系统` p.65-72；武汉版 `6.3 生态系统和生物圈` p.118-129 |
+
+其中 `science-d887780b2ca2bb` 仍是当前唯一完整 H4G7/H4G8/H4G9 progression group candidate，并且版本集合扩展为北京版、华东师大版、苏科版：
+
+| progression_group_id | candidate grade bands | standards | editions |
+| --- | --- | --- | --- |
+| `science-d887780b2ca2bb` | H4G7, H4G8, H4G9 | `SC-H4G7-ECO-004`, `SC-H4G8-ECO-005`, `SC-H4G9-ECO-006` | 北京版、华东师大版、苏科版 |
+
+发布级 gate 仍失败：
+
+```json
+{
+  "standards_below_min_editions": 26,
+  "progression_groups": 26,
+  "progression_groups_below_min_editions": 15,
+  "complete_progression_group_candidates": 1,
+  "partial_progression_group_candidates": 25,
+  "unit_evidence_missing_page_start": 0,
+  "nonmonotonic_page_records": 0
+}
+```
+
+这个失败仍是预期的：北京版提升了 H4G8 生态/生命系统的跨版本一致性，但没有补出新的 H4G7 或 H4G9 standards，也没有让 25 个 partial progression groups 变成完整三元组。因此七版本包仍只能作为 review-only 候选，不写 `public/data`，也不能把科学 H4G 标记为正式完成分化。
+
+刷新 `math,science --discover-candidates` 后，科学当前候选覆盖为 35 条 page-clean standards、26 个 page-clean progression groups、7 个版本；科学总计仍有 201 条 H4G records、67 个完整同文三元 progression groups 需要单元级证据，正式 `public/data` 中 `textbook_unit_level` 仍为 0。下一批科学推荐工作项变为：
+
+| work item | 版本 | role | files |
+| --- | --- | --- | ---: |
+| `h4g_unit_work_science_8ce3c359` | 科普版-科学普及出版社 | `adjacent_included` | 6 |
+| `h4g_unit_work_science_2e916100` | 沪教版-上海教育出版社 | `direct_all_grades` | 8 |
+| `h4g_unit_work_science_32198635` | 华东师大版-华东师范大学出版社 | `direct_all_grades` | 6 |
+
+因此下一步不应把北京版重复跑一遍，而应优先处理科普版的 adjacent 分科证据，并回到沪教版、华东师大版这类完整 direct_all_grades 版本，补同年级第二版本证据和缺失 H4G7/H4G9 progression 节点。
+
 ## 9. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。
@@ -1564,7 +1690,7 @@ H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 
 建议顺序：
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
-2. 科学继续跑苏科版和北京版，必要时再用科普版作为 adjacent 补充；每批仍先生成 review-only 候选，不写 `public/data`。
+2. 科学已完成苏科版和北京版候选链，下一步优先跑科普版 adjacent 分科证据，并回补沪教版、华东师大版完整 direct_all_grades 版本；每批仍先生成 review-only 候选，不写 `public/data`。
 3. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
 4. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
 5. 使用 `textbooks:h4g-progression-decisions` 合并同年级证据、reverse gaps 和投放差异，形成可复核的发布前决策矩阵。
