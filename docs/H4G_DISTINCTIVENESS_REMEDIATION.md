@@ -1187,11 +1187,48 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 | surface | grain | 用途 | 边界 |
 | --- | --- | --- | --- |
-| `standard_same_grade_unit_evidence` | `standard_code` | 未来通过人工复核后，允许同年级单元证据写入标准记录的证据字段。 | 只能写证据/复核字段；不能改 `domain/subdomain/standard/context/practice/teaching_tip/assessment_evidence_type`，也不能自动改成 `grade_specific_variant`。 |
+| `standard_same_grade_unit_evidence` | `standard_code` | 未来通过人工复核后，允许同年级单元证据写入标准记录的证据字段。 | 只能写 `textbook_evidence_ids`、`textbook_unit_evidence_ids`、`textbook_unit_evidence`、progression/review 等证据字段；不能改 `domain/subdomain/standard/context/practice/teaching_tip/assessment_evidence_type`，也不能自动改成 `grade_specific_variant`。 |
 | `progression_group_edition_placement_note` | `progression_group_id` | 未来通过课程进阶复核后，表达不同教材版本把同一主题放到不同年级。 | 应作为 progression group 层 note，不写入 same-grade `textbook_unit_evidence_ids`。 |
 | `blocked_review_registry` | `review_id` | 保留 partial/blocked 项，等待补证据或模型复核。 | 没有 public surface，不能发布。 |
 
 这一步是数据契约设计，不是迁移：policy 仍是 `writes_public_data=false`、`writes_standard_records=false`、`writes_textbook_unit_evidence_ids=false`。它把“可以怎么写”和“绝对不能怎么写”固化下来，为后续真正 public migration 做准备。
+
+### 7.17 发布契约候选数据根 dry-run
+
+在 contract candidate 之后，本轮新增一个隔离 apply gate：
+
+```bash
+npm run textbooks:apply-h4g-publication-contract -- --strict
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_publication_contract/
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_publication_contract/h4g_progression_notes.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_publication_contract/h4g_publication_contract_apply_summary.json
+```
+
+当前 apply dry-run 结果：
+
+```json
+{
+  "applied_standard_records": 19,
+  "missing_standard_records": 0,
+  "unit_evidence_objects_added": 87,
+  "notes": 5,
+  "blocked_registry_contracts": 2,
+  "by_grade_band": {
+    "H4G7": 5,
+    "H4G8": 7,
+    "H4G9": 7
+  },
+  "official_standard_text_changed": false,
+  "writes_public_data": false
+}
+```
+
+这一步把 contract candidate 变成可跑索引和 policy audit 的候选数据根，但它仍不是正式 `public/data` 写入。标准记录只演练写入白名单中的证据/复核字段；`domain`、`subdomain`、`standard`、`context`、`practice`、`teaching_tip`、`assessment_evidence_type` 均保持不变；5 条 `h4g_progression_notes` 只是 progression group 级版本投放说明候选，不被当前前端读取。2 个 blocked registry contracts 继续只停留在 generated 复核层，没有 public surface。
 
 ## 8. 当前边界
 

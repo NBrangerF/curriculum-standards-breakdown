@@ -19,6 +19,7 @@ const OFFICIAL_STANDARD_FIELDS = new Set([
 ])
 
 const STANDARD_UNIT_ALLOWED_FIELDS = [
+  'textbook_evidence_ids',
   'textbook_unit_evidence_ids',
   'textbook_unit_evidence',
   'evidence_granularity',
@@ -30,7 +31,10 @@ const STANDARD_UNIT_ALLOWED_FIELDS = [
   'progression_review_note',
   'requires_unit_level_evidence',
   'grade_specific_focus',
-  'review_status'
+  'review_status',
+  'h4g_unit_candidate_id',
+  'h4g_unit_candidate_generated_at',
+  'h4g_unit_candidate_requires_manual_review'
 ]
 
 const NOTE_RECORD_FIELDS = [

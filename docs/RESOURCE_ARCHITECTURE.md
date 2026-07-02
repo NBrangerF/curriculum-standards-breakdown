@@ -114,6 +114,7 @@ npm run validate:indexes
 | `scripts/textbooks/build_h4g_edition_placement_model_candidate.js` | 将 progression review worklist 中的跨版本投放差异整理为 progression group 级模型候选；区分可进入版本投放说明复核和仍需补充 review 的主题，不写正式数据。 |
 | `scripts/textbooks/build_h4g_publication_review_packet.js` | 合并 ready-only 单元证据、版本投放模型候选和 blocked worklist，生成三层发布前复核包；明确同年级单元证据、progression group 投放说明和阻塞项互不混写。 |
 | `scripts/textbooks/build_h4g_publication_contract_candidate.js` | 从发布前复核包生成未来数据契约候选；定义标准级同年级单元证据、progression group 版本投放说明和 blocked registry 三个 surface 的字段白名单与 gate。 |
+| `scripts/textbooks/apply_h4g_publication_contract_candidate.js` | 将 H4G 发布契约候选应用到独立 generated 数据根；只演练标准级同年级单元证据和 progression note candidate，不写 `public/data`。 |
 | `scripts/textbooks/plan_h4g_unit_evidence_worklist.js` | 生成 H4G 单元证据工作清单，把待分化 progression groups、当前候选覆盖和 ChinaTextbook 完整版本覆盖合并成下一批可执行教材物化任务。 |
 | `scripts/textbooks/run_h4g_unit_work_item.js` | 按 worklist 中的单个 work item 串行执行物化、索引审计、匹配、候选包、consistency gate、候选数据根 apply 和 H4G 审计；默认只写 `generated/textbook_evidence/h4g_runs/`。 |
 | `scripts/textbooks/apply_h4g_unit_evidence_candidate.js` | 将 H4G 单元证据候选包应用到独立候选数据根，供索引、审计和 UI 验证；默认拒绝写入 `public/data`。 |
@@ -331,6 +332,9 @@ public/data/
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/h4g_edition_placement_model_candidate.json` / `.md` | H4G 版本投放模型候选；把 cross-grade 教材单元转成 progression group 级诊断关系，明确不能写入 same-grade `textbook_unit_evidence_ids`。 |
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/h4g_publication_review_packet.json` / `.md` | H4G 发布前复核包；把 ready same-grade standard reviews、edition placement note reviews 和 blocked reviews 拆成三层，作为后续人工/课程进阶复核入口。 |
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/h4g_publication_contract_candidate.json` / `.md` | H4G 发布数据契约候选；只定义未来可加的字段/collection 和 required gates，不执行 public migration。 |
+| `generated/textbook_evidence/h4g_runs/<work_item_id>/data_candidate_publication_contract/` | 发布契约候选 apply 后的隔离数据根；当前演练 19 条 same-grade unit evidence records、5 条 progression note candidates 和 blocked registry 摘要，不是正式 `public/data`。 |
+| `generated/textbook_evidence/h4g_runs/<work_item_id>/data_candidate_publication_contract/h4g_progression_notes.json` | progression group 级版本投放说明候选 collection；用于后续课程进阶复核和 UI/schema 设计，不会被当前网站 runtime 读取。 |
+| `generated/textbook_evidence/h4g_runs/<work_item_id>/data_candidate_publication_contract/h4g_publication_contract_apply_summary.json` | 发布契约候选 apply 摘要，记录 applied/missing、unit evidence objects、notes、blocked contracts、官方字段变更检查和候选根审计命令。 |
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/data_candidate_ready_only/` | ready-only 候选包应用后的隔离数据根；用于索引、H4G 审计和 UI 兼容性验证，不是正式 `public/data`。 |
 | `generated/textbook_evidence/h4g_unit_evidence_worklist.json` / `.md` | H4G 单元证据工作清单；记录每个学科仍需单元证据的 progression groups、可用完整教材版本和推荐 `evidence_ids` 批次。 |
 | `generated/textbook_evidence/h4g_runs/<work_item_id>/` | 单个 H4G work item 的端到端运行目录；包含单元索引、匹配、候选包、consistency audit、候选数据根、`run_summary.json` 和 `run_summary.md`。 |
@@ -359,6 +363,7 @@ npm run textbooks:h4g-progression-review-worklist -- --strict --require-work-ite
 npm run textbooks:h4g-edition-placement-model -- --strict --require-candidates
 npm run textbooks:h4g-publication-review -- --strict --require-ready --require-edition-notes
 npm run textbooks:h4g-publication-contract -- --strict --require-ready-surface --require-edition-note-surface
+npm run textbooks:apply-h4g-publication-contract -- --strict
 npm run textbooks:audit-h4g-unit-candidates -- --candidate generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate_ready_only.json --strict --require-candidates --require-page-start
 npm run textbooks:plan-h4g-unit-worklist -- --strict --require-work-items
 npm run textbooks:run-h4g-unit-work-item -- --work-item h4g_unit_work_math_6aec3166
@@ -385,6 +390,7 @@ npm run textbooks:apply-h4g-unit-candidates -- --strict
 - `textbooks:h4g-edition-placement-model` 是 progression group 级模型候选 gate。它可以提出 `candidate_for_edition_placement_note`，但这仍只是课程进阶复核输入，不是前端发布字段，也不是 H4G standards 的单元级证据。
 - `textbooks:h4g-publication-review` 是发布前复核包 gate。它把 same-grade unit review、progression-group edition placement note review 和 blocked review 拆成互斥层；该包仍不写 `public/data`，也不写 `textbook_unit_evidence_ids`。
 - `textbooks:h4g-publication-contract` 是数据契约候选 gate。它只定义未来 additive publication surfaces 和字段白名单：标准级同年级单元证据、progression group 版本投放说明、blocked registry；它不迁移 `public/data`。
+- `textbooks:apply-h4g-publication-contract` 是发布契约 dry-run gate。它复制 `public/data` 到 generated 候选根，只按 contract 白名单写入同年级单元证据字段，并生成 `h4g_progression_notes.json` 候选；它仍拒绝写正式 `public/data`，也不会自动标记 `grade_specific_variant`。
 - `textbooks:plan-h4g-unit-worklist` 是任务规划 gate，不是证据 gate。它可以确认哪些学科有至少两个完整教材版本可进入跨版本候选生成，也会暴露当前 ChinaTextbook 无法覆盖的 IT、劳动等缺口。
 - `textbooks:run-h4g-unit-work-item` 是执行 gate，不是发布 gate。它把 worklist 的单个批次跑到 generated 候选数据根和审计摘要，但不会写 `public/data`；如果要证明发布级分化，仍需使用 consistency audit 的发布级参数。
 - `textbooks:apply-h4g-unit-candidates` 只把候选包应用到独立候选数据根；正式写入 `public/data` 仍需要单独发布 gate。
