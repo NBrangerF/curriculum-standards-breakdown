@@ -25,7 +25,9 @@ const STOP_TOKENS = new Set([
   '义务', '教育', '教科', '教科书', '教材', '课程', '标准', '年级',
   '上册', '下册', '全一册', '学生', '学习', '活动', '能够', '通过',
   '理解', '认识', '了解', '掌握', '运用', '形成', '发展', '进行',
-  '数学', '七年级', '八年级', '九年级'
+  '目录', '语文', '英语', '数学', '科学', '化学', '物理', '生物',
+  '地理', '历史', '艺术', '音乐', '美术', '体育', '劳动',
+  '七年级', '八年级', '九年级'
 ])
 const WEAK_EDGE_CHARS = new Set(['与', '的', '和', '中', '及', '或', '并', '在', '为', '对', '到', '从'])
 const FIELD_WEIGHTS = {
@@ -218,7 +220,6 @@ function unitTokens(unit) {
   return tokenize([
     unit.unit_title,
     unit.matched_line,
-    unit.textbook_subject,
     unit.volume
   ].filter(Boolean).join(' '))
 }
@@ -459,14 +460,26 @@ function loadUnits(args, warnings) {
     .filter(unit => !allowedSubjects.size || allowedSubjects.has(unit.subject_slug))
     .filter(unit => !allowedBands.size || allowedBands.has(unit.grade_band))
     .filter(unit => args.includeVolumeSeeds || unit.candidate_type === 'toc_unit_or_chapter')
-  const realUnits = units.filter(unit => unit.candidate_type === 'toc_unit_or_chapter')
+  const filteredNoiseUnits = units.filter(unit => unit.candidate_type === 'toc_unit_or_chapter' && isNoiseUnitCandidate(unit))
+  const cleanUnits = units.filter(unit => unit.candidate_type !== 'toc_unit_or_chapter' || !isNoiseUnitCandidate(unit))
+  if (filteredNoiseUnits.length) {
+    warnings.push(`Filtered ${filteredNoiseUnits.length} toc_unit_or_chapter candidate(s) with empty/TOC-only titles before matching.`)
+  }
+  const realUnits = cleanUnits.filter(unit => unit.candidate_type === 'toc_unit_or_chapter')
   if (!realUnits.length) {
     warnings.push('No toc_unit_or_chapter candidates are available; standard-unit matching cannot produce H4G differentiation evidence yet.')
   }
   if (args.includeVolumeSeeds) {
     warnings.push('includeVolumeSeeds is enabled; volume_seed matches are diagnostic only and are never eligible for H4G differentiation.')
   }
-  return { payload, units }
+  return { payload, units: cleanUnits }
+}
+
+function isNoiseUnitCandidate(unit) {
+  const title = compactText(unit.unit_title)
+  if (!title) return true
+  if (title === '目录' || title.includes('目录')) return true
+  return false
 }
 
 function groupUnits(units) {

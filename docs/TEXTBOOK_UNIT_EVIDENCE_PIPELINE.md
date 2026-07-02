@@ -660,6 +660,8 @@ npm run textbooks:audit-unit-matches -- --matches /tmp/textbook_unit_standard_ma
 
 当前 eligible 还只是候选证据，不直接写入 `public/data`。匹配脚本已经加上 alignment 门：数学等学科默认要求命中 `subdomain` 锚点；达到 score 但没有命中 `subdomain` 锚点的候选，例如 `实数` 标准匹配到 `有理数` 单元、`一次函数` 标准匹配到 `一元一次方程` 单元，会被保留为普通 match，但不会成为 `eligible_for_h4g_differentiation`。只有写入 `scripts/textbooks/textbook_unit_alignment_aliases.json` 的标准级已复核 alias 可以作为 `reviewed_alias_anchor` 局部例外。科学编号内容项允许第二通道 `strong_field_alignment`：必须是 `toc_unit_or_chapter`、medium 以上分数、命中 `standard` 字段、至少两个证据字段参与，并且有 4 个以上汉字的具体科学概念词命中。
 
+2026-07-03 证据清洗更新：标准-单元匹配不再把 `textbook_subject` 当作单元 token，并把 `目录`、`科学`、`化学`、`物理`、`生物`、`地理` 等学科/噪声词纳入 stop tokens；读取单元候选时也会过滤空标题或 `目录` 标题。`textbooks:audit-unit-matches -- --strict` 现在会阻止空/目录标题，以及“高置信但只命中泛学科词”的 match 回归。科学八版本复跑后，8 个 match 文件合计 405 条 matches、76 条 eligible matches、`generic_only_high_confidence_matches=0`、`noise_title_matches=0`。
+
 写回前候选包入口：
 
 ```bash
@@ -721,6 +723,30 @@ npm run grade7_9:audit-grade-band-policy -- --public-data-root /tmp/h4g_unit_evi
 候选根重建索引后，`validate-data-indexes`、`audit-h4g-distinctiveness --strict` 和 `audit-grade-band-policy --data-only --strict` 均通过。H4G distinctiveness 审计在候选根中识别到 15 条 `unit_level_evidence_records`；数学学科内为 15 条 `textbook_unit_level`、99 条 `textbook_file_grade_level`。对这 15 条记录与正式 `public/data` 的官方字段进行独立比对，`domain`、`subdomain`、`standard`、`context`、`practice`、`teaching_tip`、`assessment_evidence_type` 的变化数为 0。
 
 写入策略仍然是：候选根可用于复核和展示验证；正式 `public/data` 写入必须另走人工复核/发布 gate。
+
+2026-07-03 科学八版本候选根执行结果：
+
+```bash
+npm run textbooks:apply-h4g-unit-candidates -- --candidate generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_unit_evidence_candidate.json --out-data-root generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_unit_evidence_data_candidate --strict
+node scripts/build-indexes.js --data-root generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_unit_evidence_data_candidate
+node scripts/validate-data-indexes.js --data-root generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_unit_evidence_data_candidate
+npm run grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/h4g_unit_evidence_data_candidate
+```
+
+```json
+{
+  "candidate_standards": 46,
+  "unit_evidence_objects": 69,
+  "applied_records": 46,
+  "official_standard_text_changed": false,
+  "writes_public_data": false,
+  "candidate_grade_focus_records": 46,
+  "candidate_ready_groups": 3,
+  "final_ready_records": 0
+}
+```
+
+该候选根使科学 46 条 H4G records 从占位状态推进到 `candidate_needs_review`，但仍保留 `standard_variant_type: "same_source_shared"`，不把候选 focus 当作官方课标文本，也不标记为最终发布 ready。
 
 同一数学人教版批次现在也已通过 `textbooks:run-h4g-unit-work-item` 自动复现，输出目录示例为：
 
@@ -2340,7 +2366,7 @@ publication readiness audit 的边界：`audit_h4g_publication_readiness` 是安
 
 publication review decisions 的边界：`h4g_publication_review_decisions_template` 是可编辑复核输入，不是机器自动审批。它只允许 `approve/reject/needs_revision/pending` 等受控决策值；任何 public write、官方课标文本改写、`grade_specific_variant` 自动升级、blocked 项发布、或把 progression note 写入 same-grade evidence 的请求都会被 `audit_h4g_publication_review_decisions` 拦截。
 
-H4G grade differentiation readiness 的边界：`grade7_9:audit-h4g-grade-differentiation` 是显示层/发布层质量 gate。它不改变数据，只统计 H4G 记录是否具备可用 `grade_specific_focus`、`textbook_unit_level` 证据和已批准的人工/课程复核状态。当前 public 应报告 `unit_level_evidence_records=0`、`final_ready_records=0`；数学 publication contract 候选根应报告 19 条 `candidate_needs_review`，但仍不是最终发布 ready。
+H4G grade differentiation readiness 的边界：`grade7_9:audit-h4g-grade-differentiation` 是显示层/发布层质量 gate。它不改变数据，只统计 H4G 记录是否具备可用 `grade_specific_focus`、`textbook_unit_level` 证据和已批准的人工/课程复核状态。当前 public 应报告 `unit_level_evidence_records=0`、`final_ready_records=0`；数学 publication contract 候选根应报告 19 条 `candidate_needs_review`，科学八版本候选根应报告 46 条 `candidate_needs_review`，但这些都仍不是最终发布 ready。
 
 publication review decisions apply 的边界：`textbooks:apply-h4g-publication-review-decisions` 是 generated-root dry-run，不是正式发布。它复制 `data_candidate_publication_contract` 到 `data_candidate_review_decisions`，只根据已填写的 same-grade 决策更新标准记录的复核状态；pending 不改数据，progression note/blocker 决策只写 sidecar 摘要，不会写入 same-grade evidence，也不会改变官方课标字段。当前全部 pending 时应显示 `applied_standard_decisions=0`。
 
@@ -2353,7 +2379,7 @@ H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 
 建议顺序：
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
-2. 科学已完成苏科版、北京版、科普版候选链，补齐沪教版完整八册复跑，修复沪教八上生态系统页码解析，并将华东师大版 standalone 候选收敛到 page-clean 口径；`recover_page_start` 已清零，`review_alignment_or_alias` triage 显示 29 个泛词/噪声阻断、12 个需回源复核、0 个可直接进入 alias-ready，因此下一步应先逐条回源确认这些具体概念和年级进阶关系，以及 planner 的 already-remediated edition 去重；每批仍先生成 review-only 候选，不写 `public/data`。
+2. 科学八版本已完成匹配噪声修复、候选合并和 generated candidate root 验证：46 条 standards、69 个单元证据对象、12 条多版本 standards、3 个完整 progression group 候选；发布级 gate 仍因 34 条单版本 standards、29 个 partial progression groups 失败。`review_alignment_or_alias` triage 当前为 14 个泛词/噪声阻断、14 个需回源复核、0 个可直接进入 alias-ready，因此下一步应先处理 14 个 source review packet 项，并继续补齐缺年级/缺版本证据；每批仍先生成 review-only 候选，不写 `public/data`。
 3. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
 4. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
 5. 使用 `textbooks:h4g-progression-decisions` 合并同年级证据、reverse gaps 和投放差异，形成可复核的发布前决策矩阵。

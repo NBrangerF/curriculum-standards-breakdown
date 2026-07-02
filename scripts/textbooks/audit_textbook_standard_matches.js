@@ -8,6 +8,10 @@ const DEFAULT_UNIT_INDEX = 'generated/textbook_evidence/textbook_unit_index.json
 const DEFAULT_OUT = 'generated/textbook_evidence/textbook_unit_standard_matches_audit.json'
 const ALLOWED_CANDIDATE_TYPES = new Set(['toc_unit_or_chapter'])
 const ALLOWED_CONFIDENCE_BANDS = new Set(['high', 'medium', 'low', 'below_threshold'])
+const GENERIC_ONLY_MATCH_TOKENS = new Set([
+  '目录', '语文', '英语', '数学', '科学', '化学', '物理', '生物',
+  '地理', '历史', '艺术', '音乐', '美术', '体育', '劳动'
+])
 
 function parseArgs(argv) {
   const args = {
@@ -91,10 +95,26 @@ function expectedBand(score) {
   return 'below_threshold'
 }
 
+function compactText(value) {
+  return String(value || '').replace(/\s+/g, '').trim()
+}
+
+function isNoiseTitle(value) {
+  const title = compactText(value)
+  return !title || title === '目录' || title.includes('目录')
+}
+
+function isGenericOnlyMatch(match) {
+  const keywords = Array.isArray(match.matched_keywords) ? match.matched_keywords.map(String).filter(Boolean) : []
+  return keywords.length > 0 && keywords.every(keyword => GENERIC_ONLY_MATCH_TOKENS.has(keyword))
+}
+
 function auditMatch(match, standardCodes, unitMap, errors, warnings, stats) {
   countInto(stats.by_subject, match.subject_slug)
   countInto(stats.by_confidence_band, match.confidence_band)
   countInto(stats.by_candidate_type, match.candidate_type)
+  if (isNoiseTitle(match.unit_title)) stats.noise_title_matches += 1
+  if (match.confidence_band === 'high' && isGenericOnlyMatch(match)) stats.generic_only_high_confidence_matches += 1
   if (match.eligible_for_h4g_differentiation) {
     stats.eligible_matches += 1
     countInto(stats.by_eligible_alignment, match.eligible_alignment || 'missing')
@@ -146,6 +166,12 @@ function auditMatch(match, standardCodes, unitMap, errors, warnings, stats) {
   }
   if (!Array.isArray(match.matched_keywords)) errors.push(`${match.match_id} matched_keywords must be an array`)
   if (!Array.isArray(match.matched_fields)) errors.push(`${match.match_id} matched_fields must be an array`)
+  if (isNoiseTitle(match.unit_title)) {
+    errors.push(`${match.match_id} uses an empty or TOC-only unit_title: ${match.unit_title || 'missing'}`)
+  }
+  if (match.confidence_band === 'high' && isGenericOnlyMatch(match)) {
+    errors.push(`${match.match_id} is high confidence using only generic subject/noise keyword(s): ${(match.matched_keywords || []).join(', ')}`)
+  }
   if (match.eligible_for_h4g_differentiation && match.candidate_type !== 'toc_unit_or_chapter') {
     errors.push(`${match.match_id} is eligible without toc_unit_or_chapter evidence`)
   }
@@ -193,6 +219,8 @@ function main() {
   const stats = {
     matches: 0,
     eligible_matches: 0,
+    generic_only_high_confidence_matches: 0,
+    noise_title_matches: 0,
     unmatched_standards: 0,
     by_subject: {},
     by_confidence_band: {},
