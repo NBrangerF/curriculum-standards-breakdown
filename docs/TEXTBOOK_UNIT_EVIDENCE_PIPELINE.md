@@ -2222,6 +2222,41 @@ aggregate candidate audit 和普通 consistency audit 继续通过。发布级 g
 
 发布级 gate 仍失败是预期结果：科学仍有 27 条 standards 低于同年级多版本门槛，并且还有 25 个 partial progression groups。下一步应进入 `review_alignment_or_alias`，每次只处理标准级、局部、可解释的 alias/anchor，不使用泛词兜底。
 
+### 8.16 科学 review_alignment_or_alias triage
+
+`review_alignment_or_alias` 不能直接等同于“应该补 alias”。本轮给 reverse gap audit 增加了 alias review triage，只增强诊断报告，不写 `public/data`，也不修改 `scripts/textbooks/textbook_unit_alignment_aliases.json`。triage 会把每个 `review_alignment_or_alias` work item 拆成三类：
+
+| status | 含义 |
+| --- | --- |
+| `ready_for_standard_scoped_alias_review` | 具备具体 `standard_code`、页码可用、非目录噪声，并且具体关键词同时得到多个标准字段支撑；仍只表示可进入人工复核，不自动新增 alias。 |
+| `needs_source_review` | 有具体概念词或 group-level 线索，但证据字段不足、混有泛词/目录噪声，或缺少具体 `standard_code`，必须回到标准原文和教材源页逐条确认。 |
+| `blocked_generic_or_noise` | 高分主要来自 `科学`、`化学`、短词、目录页或过宽单元标题，不能作为 H4G7/H4G8/H4G9 分化证据。 |
+
+复跑科学八版本 reverse gap 后：
+
+```json
+{
+  "alias_review_items": 41,
+  "alias_review_statuses": {
+    "blocked_generic_or_noise": 29,
+    "needs_source_review": 12
+  },
+  "alias_review_recommendations": {
+    "do_not_add_alias": 29,
+    "inspect_standard_and_textbook_source_before_alias": 12
+  }
+}
+```
+
+这说明当前科学没有任何可以直接升级为 `ready_for_standard_scoped_alias_review` 的 alias 候选。29 个 work items 应明确阻断，典型反例包括 `科学` 把 `2.1 阳光`、`6.1 种群`、`8.1 酸` 推成高分，或 `2 目录` 靠 `化学` 得分；这些正是 H4G7/H4G8/H4G9 看起来“几乎一样”的来源。12 个 `needs_source_review` 只能作为回源复核入口，例如 `生物与环境的相互关系`、`二力平衡`、`机械效率`、`低碳生活` 等具体概念，必须确认它们对应的是哪一个年级标准的进阶要求，而不是同一 progression group 的笼统主题。
+
+下一步原则：
+
+1. 不新增科学 alias，直到某个 work item 同时具备具体 `standard_code`、同年级页码证据、非目录/非泛词标题、多个标准字段支持，以及人工确认的年级进阶差异。
+2. Group-level 缺口不得直接补 alias；必须先拆回 H4G7、H4G8、H4G9 的单条 standards，再分别判断。
+3. 对 29 个 `blocked_generic_or_noise`，默认关闭 alias 路径，转向改进检索、修正 TOC 噪声或保留 blocked。
+4. 对 12 个 `needs_source_review`，先回源确认标准原文和教材页，再决定是否补标准级 alias、补 field anchor，或维持 blocked。
+
 ## 9. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。
@@ -2275,7 +2310,7 @@ H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 
 建议顺序：
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
-2. 科学已完成苏科版、北京版、科普版候选链，补齐沪教版完整八册复跑，修复沪教八上生态系统页码解析，并将华东师大版 standalone 候选收敛到 page-clean 口径；`recover_page_start` 已清零，下一步应转向 `review_alignment_or_alias` 的标准级局部复核，以及 planner 的 already-remediated edition 去重；每批仍先生成 review-only 候选，不写 `public/data`。
+2. 科学已完成苏科版、北京版、科普版候选链，补齐沪教版完整八册复跑，修复沪教八上生态系统页码解析，并将华东师大版 standalone 候选收敛到 page-clean 口径；`recover_page_start` 已清零，`review_alignment_or_alias` triage 显示 29 个泛词/噪声阻断、12 个需回源复核、0 个可直接进入 alias-ready，因此下一步应先逐条回源确认这些具体概念和年级进阶关系，以及 planner 的 already-remediated edition 去重；每批仍先生成 review-only 候选，不写 `public/data`。
 3. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
 4. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
 5. 使用 `textbooks:h4g-progression-decisions` 合并同年级证据、reverse gaps 和投放差异，形成可复核的发布前决策矩阵。

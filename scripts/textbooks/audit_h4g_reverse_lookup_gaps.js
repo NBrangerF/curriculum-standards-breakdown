@@ -101,6 +101,18 @@ function hashText(value, length = 10) {
   return createHash('sha1').update(String(value || '')).digest('hex').slice(0, length)
 }
 
+function compactText(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/\uFFFD+/gu, '')
+    .replace(/[，。！？；：、“”‘’（）《》【】\s]/g, '')
+    .trim()
+}
+
+function hanCharCount(value) {
+  return (String(value || '').match(/\p{Script=Han}/gu) || []).length
+}
+
 function needsUnitEvidence(record) {
   return record?.requires_unit_level_evidence === true ||
     record?.standard_variant_type === 'same_source_shared' ||
@@ -200,6 +212,26 @@ const GAP_TYPE_PRIORITY = {
   no_candidate_progression_group: 30
 }
 
+const GENERIC_ALIGNMENT_TERMS = new Set([
+  '科学', '化学', '物理', '生物', '地理', '数学',
+  '科学探究', '工程实践',
+  '探究', '实验', '活动', '实践', '研究',
+  '物质', '物体', '自然', '环境', '生命', '健康',
+  '材料', '性质', '变化', '作用', '关系', '结构',
+  '系统', '形式', '转化', '转移', '能量', '运动',
+  '资源', '地球', '宇宙', '技术', '工程', '人类',
+  '生活', '组成', '分类', '循环', '平衡', '原因',
+  '影响', '空气', '水'
+])
+
+const ALIAS_REVIEW_STATUS_PRIORITY = {
+  ready_for_standard_scoped_alias_review: 10,
+  needs_source_review: 20,
+  blocked_no_page_evidence: 50,
+  blocked_generic_or_noise: 60,
+  blocked_no_alignment_gap_match: 70
+}
+
 function actionPriority(action) {
   return ACTION_PRIORITY[action] || 90
 }
@@ -244,6 +276,138 @@ function compactMatch(match, eligibleScore) {
     alias_alignment: match.alias_alignment || null,
     field_alignment: match.field_alignment || null,
     rationale: match.rationale || ''
+  }
+}
+
+function aliasReviewStatusPriority(status) {
+  return ALIAS_REVIEW_STATUS_PRIORITY[status] || 90
+}
+
+function unitTitleIsNoise(match) {
+  const title = compactText(match.unit_title)
+  if (!title) return true
+  if (title === '目录' || title.includes('目录')) return true
+  return false
+}
+
+function normalizedKeywords(match) {
+  const keywords = [
+    ...(match.matched_keywords || []),
+    ...(match.field_alignment?.matched_keywords || [])
+  ]
+  return sorted(keywords.map(keyword => compactText(keyword)).filter(Boolean))
+}
+
+function isGenericAlignmentTerm(keyword) {
+  const term = compactText(keyword)
+  if (!term) return true
+  if (hanCharCount(term) < 4) return true
+  if (GENERIC_ALIGNMENT_TERMS.has(term)) return true
+  return false
+}
+
+function specificKeywords(match) {
+  return normalizedKeywords(match).filter(keyword => !isGenericAlignmentTerm(keyword))
+}
+
+function genericKeywords(match) {
+  return normalizedKeywords(match).filter(keyword => isGenericAlignmentTerm(keyword))
+}
+
+function collectAlignmentGapMatches(item) {
+  const seen = new Set()
+  const rows = []
+  for (const matches of Object.values(item.top_matches_by_edition || {})) {
+    for (const match of matches || []) {
+      if (match.bucket !== 'alignment_gap') continue
+      const key = match.match_id || `${match.edition}|${match.unit_evidence_id}|${match.unit_title}`
+      if (seen.has(key)) continue
+      seen.add(key)
+      rows.push(match)
+    }
+  }
+  return rows.sort((a, b) => {
+    const score = (Number(b.score) || 0) - (Number(a.score) || 0)
+    if (score) return score
+    return String(a.unit_evidence_id || '').localeCompare(String(b.unit_evidence_id || ''))
+  })
+}
+
+function aliasReviewCompactMatch(match) {
+  return {
+    edition: match.edition || '',
+    unit_title: match.unit_title || '',
+    score: match.score ?? null,
+    page_start: match.page_start ?? null,
+    page_range_status: match.page_range_status || '',
+    field_evidence_fields: match.field_alignment?.evidence_fields || [],
+    specific_keywords: specificKeywords(match).slice(0, 8),
+    generic_keywords: genericKeywords(match).slice(0, 8)
+  }
+}
+
+function aliasReviewDiagnostics(item) {
+  if (item.best_action !== 'review_alignment_or_alias') return null
+  const matches = collectAlignmentGapMatches(item)
+  const reasons = []
+  if (!matches.length) {
+    return {
+      status: 'blocked_no_alignment_gap_match',
+      recommended_action: 'rerun_or_inspect_match_inputs',
+      candidate_for_standard_scoped_alias: false,
+      auto_add_reviewed_alias: false,
+      reasons: ['No alignment_gap match was retained in the top match sample.'],
+      candidate_matches: []
+    }
+  }
+
+  const pageReadyMatches = matches.filter(pageReady)
+  const nonNoiseMatches = pageReadyMatches.filter(match => !unitTitleIsNoise(match))
+  const specificMatches = nonNoiseMatches.filter(match => specificKeywords(match).length > 0)
+  const fieldBackedMatches = specificMatches.filter(match => {
+    const fields = match.field_alignment?.evidence_fields || []
+    return fields.includes('standard') && fields.length >= 2
+  })
+  const genericOnlyMatches = nonNoiseMatches.filter(match => specificKeywords(match).length === 0)
+  const noiseMatches = matches.filter(unitTitleIsNoise)
+  const canReviewStandardScopedAlias = Boolean(item.standard_code)
+
+  if (!pageReadyMatches.length) {
+    reasons.push('Alignment-gap matches lack page-ready toc evidence.')
+  }
+  if (!canReviewStandardScopedAlias) {
+    reasons.push('Group-level gaps must be decomposed to individual standards before any standard-scoped alias can be reviewed.')
+  }
+  if (noiseMatches.length) {
+    reasons.push('At least one high-score alignment gap is a TOC/noise title such as 目录.')
+  }
+  if (genericOnlyMatches.length || !specificMatches.length) {
+    reasons.push('Matched keywords are generic or too short for a standard-scoped alias.')
+  }
+  if (specificMatches.length && !fieldBackedMatches.length) {
+    reasons.push('Specific-looking keywords are not backed by at least two standard evidence fields.')
+  }
+
+  let status = 'blocked_generic_or_noise'
+  let recommendedAction = 'do_not_add_alias'
+  if (!pageReadyMatches.length) {
+    status = 'blocked_no_page_evidence'
+    recommendedAction = 'recover_page_start_before_alias_review'
+  } else if (fieldBackedMatches.length && !genericOnlyMatches.length && !noiseMatches.length && canReviewStandardScopedAlias) {
+    status = 'ready_for_standard_scoped_alias_review'
+    recommendedAction = 'human_review_standard_scoped_alias'
+  } else if (specificMatches.length) {
+    status = 'needs_source_review'
+    recommendedAction = 'inspect_standard_and_textbook_source_before_alias'
+  }
+
+  return {
+    status,
+    recommended_action: recommendedAction,
+    candidate_for_standard_scoped_alias: status === 'ready_for_standard_scoped_alias_review',
+    auto_add_reviewed_alias: false,
+    reasons,
+    candidate_matches: matches.slice(0, 5).map(aliasReviewCompactMatch)
   }
 }
 
@@ -355,6 +519,9 @@ function buildReport(args) {
     remediation_work_items: 0,
     remediation_actions: {},
     remediation_gap_types: {},
+    alias_review_items: 0,
+    alias_review_statuses: {},
+    alias_review_recommendations: {},
     near_miss_actions: {}
   }
 
@@ -488,8 +655,14 @@ function buildReport(args) {
   const sortedRemediationItems = sortRemediationItems(remediationItems, args.maxRemediationItems)
   summary.remediation_work_items = sortedRemediationItems.length
   for (const item of sortedRemediationItems) {
+    item.alias_review = aliasReviewDiagnostics(item)
     countInto(summary.remediation_actions, item.best_action)
     countInto(summary.remediation_gap_types, item.gap_type)
+    if (item.alias_review) {
+      summary.alias_review_items += 1
+      countInto(summary.alias_review_statuses, item.alias_review.status)
+      countInto(summary.alias_review_recommendations, item.alias_review.recommended_action)
+    }
   }
 
   return {
@@ -529,8 +702,8 @@ function actionSummary(actions) {
 function markdownSummary(report, args) {
   const remediationRows = report.remediation_work_items
     .slice(0, args.maxSamples)
-    .map(item => `| ${item.work_item_id} | ${item.gap_type} | ${item.priority_score} | ${item.progression_group_id || '-'} | ${item.standard_code || '-'} | ${item.grade_band || item.missing_grade_bands.join('；') || '-'} | ${item.best_action} | ${item.current_editions.join('；') || '-'} |`)
-    .join('\n') || '| - | - | - | - | - | - | - | - |'
+    .map(item => `| ${item.work_item_id} | ${item.gap_type} | ${item.priority_score} | ${item.progression_group_id || '-'} | ${item.standard_code || '-'} | ${item.grade_band || item.missing_grade_bands.join('；') || '-'} | ${item.best_action} | ${item.alias_review?.status || '-'} | ${item.current_editions.join('；') || '-'} |`)
+    .join('\n') || '| - | - | - | - | - | - | - | - | - |'
   const standardRows = report.standard_gaps
     .slice(0, args.maxSamples)
     .map(gap => `| ${gap.standard_code} | ${gap.grade_band} | ${markdownCell(gap.subdomain)} | ${gap.current_editions.join('；')} | ${gap.missing_editions.join('；')} | ${actionSummary(gap.missing_edition_actions)} |`)
@@ -555,6 +728,14 @@ function markdownSummary(report, args) {
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([type, count]) => `| ${type} | ${count} |`)
     .join('\n') || '| - | 0 |'
+  const aliasReviewRows = Object.entries(report.summary.alias_review_statuses || {})
+    .sort(([a], [b]) => aliasReviewStatusPriority(a) - aliasReviewStatusPriority(b) || a.localeCompare(b))
+    .map(([status, count]) => `| ${status} | ${count} |`)
+    .join('\n') || '| - | 0 |'
+  const aliasRecommendationRows = Object.entries(report.summary.alias_review_recommendations || {})
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([recommendation, count]) => `| ${recommendation} | ${count} |`)
+    .join('\n') || '| - | 0 |'
 
   return `# H4G Reverse Lookup Gap Report
 
@@ -578,6 +759,7 @@ function markdownSummary(report, args) {
 | missing grade slots | ${report.summary.missing_grade_slots} |
 | no-candidate grade slots | ${report.summary.no_candidate_grade_slots} |
 | remediation work items | ${report.summary.remediation_work_items} |
+| alias review items | ${report.summary.alias_review_items} |
 
 ## Near-Miss Actions
 
@@ -597,10 +779,20 @@ ${remediationActionRows}
 | --- | ---: |
 ${remediationTypeRows}
 
+## Alignment Alias Review Triage
+
+| status | work items |
+| --- | ---: |
+${aliasReviewRows}
+
+| recommendation | work items |
+| --- | ---: |
+${aliasRecommendationRows}
+
 ## Remediation Work Items
 
-| work item | gap type | priority | progression group | standard | grade | best action | current editions |
-| --- | --- | ---: | --- | --- | --- | --- | --- |
+| work item | gap type | priority | progression group | standard | grade | best action | alias triage | current editions |
+| --- | --- | ---: | --- | --- | --- | --- | --- | --- |
 ${remediationRows}
 
 ## Standard Gaps
@@ -625,6 +817,8 @@ ${noCandidateRows}
 
 - \`recover_page_start\`: 有 eligible 匹配，但缺教材目录印刷页码，优先回到 TOC/OCR 解析补页码。
 - \`review_alignment_or_alias\`: 分数达到 eligible 线，但没有通过 alignment gate，需人工确认是否补同义词/领域锚点。
+- \`ready_for_standard_scoped_alias_review\`: 仅表示可进入人工复核队列；报告不会自动新增 alias。
+- \`blocked_generic_or_noise\`: 高分主要来自泛词、短词或目录噪声，不能作为 7/8/9 年级分化证据。
 - \`low_score_or_wrong_grade\`: 只有低分或疑似错年级/错单元匹配，不应自动放宽。
 - \`no_match_returned\`: 当前 top matches 没有返回候选，需扩大检索或确认教材确无对应单元。
 - \`ready_candidate_not_packed\`: 已有可用匹配但未进入候选包，需检查 max-units 或合并逻辑。
