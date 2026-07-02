@@ -1,6 +1,6 @@
 # 教材单元证据管线
 
-更新时间：2026-07-02
+更新时间：2026-07-03
 
 本文记录从 ChinaTextbook 教材文件索引继续推进到“单元/章节级候选证据”的当前管线。它是后续真正区分 `H4G7`、`H4G8`、`H4G9` standards 的证据入口，但当前阶段不会直接改写正式 `public/data`。
 
@@ -1277,6 +1277,119 @@ generated/textbook_evidence/h4g_runs/science_four_edition_page_clean/
 
 因此下一步不再优先找新的直接科学整版，而应进入分科/跨学科教材版本：先跑人教版，再跑苏科版或北京版，用于补同一 progression group 的缺失年级和第二版本证据，同时记录可能出现的年级投放差异。
 
+### 8.7 科学人教版分科教材与五版本合并
+
+2026-07-03 继续执行科学人教版分科教材工作项。该批不是一套名为“科学”的综合教材，而是覆盖化学、地理、物理、生物学的分科教材组合，因此它的作用是补强特定概念链和跨学科年级投放判断，不能期待它像直接科学整版一样覆盖全部科学 H4G groups。
+
+PDF 预取阶段直接缓存 12/13 本；`ctb_29dc6f39b08d`（化学九年级上册）通过 raw 下载多次失败，但 ChinaTextbook 本地 Git blob 已存在，blob 大小为 16,252,622 bytes，随后通过 `textbooks:unit-index --materialize` 从本地 blob 成功物化。完整 13 本分科教材目录抽取结果：
+
+```json
+{
+  "textbook_files": 13,
+  "unit_candidates": 190,
+  "real_unit_or_chapter_candidates": 184,
+  "volume_seed_candidates": 6,
+  "page_start_candidates": 184,
+  "page_range_candidates": 184,
+  "by_unit_level": {
+    "chapter": 43,
+    "section": 1,
+    "unit": 140
+  },
+  "by_page_range_status": {
+    "toc_page_nonmonotonic": 1,
+    "toc_page_range_inferred": 176,
+    "toc_page_start_only": 7
+  }
+}
+```
+
+单元索引审计通过。标准匹配结果显示分科教材能补到少量高价值概念，但召回范围有限：
+
+```json
+{
+  "standards_evaluated": 201,
+  "unit_candidates_considered": 184,
+  "matches": 52,
+  "standards_with_matches": 28,
+  "eligible_matches": 5,
+  "unmatched_standards": 173,
+  "by_eligible_alignment": {
+    "strong_field_alignment": 3,
+    "subdomain_anchor": 2
+  }
+}
+```
+
+人教版单版本 H4G candidate 有 5 条 standards，全部具备 page_start，并通过 candidate audit 与普通 consistency audit：
+
+| standard_code | grade_band | alignment | 单元 |
+| --- | --- | --- | --- |
+| `SC-H4G7-LIFE-007` | H4G7 | `subdomain_anchor` | `第一章 细胞是生命活动的基本单位` p.36-41 |
+| `SC-H4G8-CHG-002` | H4G8 | `strong_field_alignment` | `第三章 物态变化` p.46 |
+| `SC-H4G8-ENV-005` | H4G8 | `strong_field_alignment` | `第四节 自然灾害` p.54-60 |
+| `SC-H4G9-CHG-012` | H4G9 | `strong_field_alignment` | `第五单 元 化学方程式` p.91-104 |
+| `SC-H4G9-ENE-006` | H4G9 | `subdomain_anchor` | `第4节 能源与可持续发展` p.178 |
+
+随后将人教版与既有科学四版本 page-clean 候选合并为五版本候选，输出到：
+
+```text
+generated/textbook_evidence/h4g_runs/science_five_edition_page_clean/
+```
+
+五版本合并结果：
+
+```json
+{
+  "merged_candidates": 34,
+  "unit_evidence_objects": 47,
+  "multi_edition_standards": 6,
+  "single_edition_standards": 28,
+  "by_grade_band": {
+    "H4G7": 11,
+    "H4G8": 12,
+    "H4G9": 11
+  },
+  "by_edition": {
+    "华东师大版-华东师范大学出版社": 19,
+    "武汉版-武汉出版社": 10,
+    "浙教版-浙江教育出版社": 11,
+    "人教版-人民教育出版社": 5,
+    "沪教版-上海教育出版社": 2
+  },
+  "by_page_range_status": {
+    "toc_page_range_inferred": 44,
+    "toc_page_start_only": 3
+  }
+}
+```
+
+五版本 candidate audit 和普通 consistency audit 均通过：`unit_evidence_missing_page_start=0`、`nonmonotonic_page_records=0`。发布级 gate 仍失败：
+
+```json
+{
+  "standards_below_min_editions": 28,
+  "progression_groups": 26,
+  "progression_groups_below_min_editions": 16,
+  "complete_progression_group_candidates": 0,
+  "partial_progression_group_candidates": 26,
+  "unit_evidence_missing_page_start": 0,
+  "nonmonotonic_page_records": 0
+}
+```
+
+相较四版本，人教版新增 3 条 standards / progression groups，并强化了部分九年级化学与能源链条，例如 `SC-H4G9-CHG-012` 现在有人教版、华东师大版、武汉版三版本证据，`SC-H4G9-ENE-006` 现在有人教版、华东师大版、浙教版三版本证据。但整体发布状态没有改变：科学仍有 28 条 standards 只有单版本证据，26 个 progression groups 全部都是 partial，没有任何一组完整覆盖 H4G7/H4G8/H4G9。
+
+刷新 `math,science --discover-candidates` 后，科学当前候选覆盖为 34 条 page-clean standards、26 个 page-clean progression groups、5 个版本；discover 统计会扫描 generated 历史候选包，因此聚合口径会看到 143 个历史 science candidates、186 个历史 unit evidence objects 和旧 raw 华东候选遗留的 `missing: 5`。发布前干净口径仍应以 `science_five_edition_page_clean/h4g_unit_evidence_candidate.json` 为准。下一批科学推荐工作项变为：
+
+| work item | 版本 | role | files | target groups |
+| --- | --- | --- | ---: | ---: |
+| `h4g_unit_work_science_34a90be0` | 苏科版-江苏凤凰科学技术出版社 | `direct_or_discipline_all_grades` | 8 | 67 |
+| `h4g_unit_work_science_b908a758` | 北京版-北京出版社 | `direct_or_discipline_all_grades` | 6 | 67 |
+| `h4g_unit_work_science_8ce3c359` | 科普版-科学普及出版社 | `adjacent_included` | 6 | 67 |
+
+因此科学下一步应继续补苏科版和北京版。科普版可作为 adjacent 补充，用来解释化学/地理等分科主题的投放差异，但不能替代同年级、同学科的多版本发布 gate。
+
 ## 9. 与 H4G 分化的关系
 
 H4G 记录只有满足以下条件，才可以从文件级共享要求推进到 `textbook_unit_level` 候选证据。是否进一步标为 `grade_specific_variant`，必须依赖人工复核、真实源文本差异或更强的年级化证据，不能仅凭单一教材关键词匹配自动完成。
@@ -1330,23 +1443,24 @@ H4G subject readiness matrix 的边界：`grade7_9:audit-h4g-subject-readiness` 
 建议顺序：
 
 1. 先以数学、科学为试点，因为概念链和教材单元结构最清楚。
-2. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
-3. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
-4. 使用 `textbooks:h4g-progression-decisions` 合并同年级证据、reverse gaps 和投放差异，形成可复核的发布前决策矩阵。
-5. 使用 `textbooks:h4g-ready-unit-candidates` 把 record-level ready 的 standards 过滤成隔离 QA 候选包，并在 generated data root 上验证。
-6. 用 `textbooks:h4g-progression-review-worklist` 固化 blocked standards 的复核入口，区分 `edition_placement_model_review` 和 `same_grade_gap_remediation`。
-7. 用 `textbooks:h4g-edition-placement-model` 将可解释的跨版本投放差异升级为 progression group 级模型候选，同时保留 partial topics 的 blocked 状态。
-8. 用 `textbooks:h4g-publication-review` 把同年级单元证据、版本投放说明候选和 blocked items 合成互斥的发布前复核包。
-9. 用 `textbooks:h4g-publication-contract` 和 `textbooks:apply-h4g-publication-contract` 先在 generated 候选根演练未来字段契约。
-10. 用 `textbooks:audit-h4g-publication-readiness` 确认 review packet、contract、候选根、notes 和 blocked registry 一致，且仍未越界成正式发布。
-11. 用 `textbooks:h4g-publication-review-decisions` 生成可编辑复核决策模板，并用 `textbooks:audit-h4g-publication-review-decisions` 审计其边界。
-12. 用 `textbooks:audit-h4g-publication-readiness -- --strict --require-review-decisions-audit` 把决策审计结果接回 readiness summary。
-13. 用 `textbooks:apply-h4g-publication-review-decisions -- --strict` 生成决策 apply dry-run 根；当前 pending 模板应不改变任何标准复核状态。
-14. 用 `grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_review_decisions` 区分 candidate focus 与 final ready。
-15. 用 `grade7_9:audit-h4g-subject-readiness` 生成学科级 readiness matrix，确认当前最大缺口仍是缺单元证据还是缺复核决策。
-16. 用 `textbooks:h4g-publication-review-recommendations -- --strict` 生成 Codex reviewed 决策候选；该文件仍在 generated 层，不写 public。
-17. 对 reviewed 决策候选使用 `textbooks:audit-h4g-publication-review-decisions -- --strict --require-complete`，再用 `textbooks:apply-h4g-publication-review-decisions -- --require-complete` 应用到新的 generated 候选根。
-18. 用 `grade7_9:audit-h4g-grade-differentiation` 验证 reviewed 候选根中 19 条数学 standards 是否进入 final-ready 统计。
-19. 用 `grade7_9:audit-h4g-subject-readiness -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_codex_reviewed` 复核 reviewed 候选根的学科矩阵，确定下一批优先学科。
-20. 补充跨版本一致性、真实人工/课程进阶复核状态，并复核剩余未覆盖学科和 standards。
-21. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate；正式发布前 `grade7_9:audit-h4g-grade-differentiation -- --require-ready` 必须通过。
+2. 科学继续跑苏科版和北京版，必要时再用科普版作为 adjacent 补充；每批仍先生成 review-only 候选，不写 `public/data`。
+3. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
+4. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
+5. 使用 `textbooks:h4g-progression-decisions` 合并同年级证据、reverse gaps 和投放差异，形成可复核的发布前决策矩阵。
+6. 使用 `textbooks:h4g-ready-unit-candidates` 把 record-level ready 的 standards 过滤成隔离 QA 候选包，并在 generated data root 上验证。
+7. 用 `textbooks:h4g-progression-review-worklist` 固化 blocked standards 的复核入口，区分 `edition_placement_model_review` 和 `same_grade_gap_remediation`。
+8. 用 `textbooks:h4g-edition-placement-model` 将可解释的跨版本投放差异升级为 progression group 级模型候选，同时保留 partial topics 的 blocked 状态。
+9. 用 `textbooks:h4g-publication-review` 把同年级单元证据、版本投放说明候选和 blocked items 合成互斥的发布前复核包。
+10. 用 `textbooks:h4g-publication-contract` 和 `textbooks:apply-h4g-publication-contract` 先在 generated 候选根演练未来字段契约。
+11. 用 `textbooks:audit-h4g-publication-readiness` 确认 review packet、contract、候选根、notes 和 blocked registry 一致，且仍未越界成正式发布。
+12. 用 `textbooks:h4g-publication-review-decisions` 生成可编辑复核决策模板，并用 `textbooks:audit-h4g-publication-review-decisions` 审计其边界。
+13. 用 `textbooks:audit-h4g-publication-readiness -- --strict --require-review-decisions-audit` 把决策审计结果接回 readiness summary。
+14. 用 `textbooks:apply-h4g-publication-review-decisions -- --strict` 生成决策 apply dry-run 根；当前 pending 模板应不改变任何标准复核状态。
+15. 用 `grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_review_decisions` 区分 candidate focus 与 final ready。
+16. 用 `grade7_9:audit-h4g-subject-readiness` 生成学科级 readiness matrix，确认当前最大缺口仍是缺单元证据还是缺复核决策。
+17. 用 `textbooks:h4g-publication-review-recommendations -- --strict` 生成 Codex reviewed 决策候选；该文件仍在 generated 层，不写 public。
+18. 对 reviewed 决策候选使用 `textbooks:audit-h4g-publication-review-decisions -- --strict --require-complete`，再用 `textbooks:apply-h4g-publication-review-decisions -- --require-complete` 应用到新的 generated 候选根。
+19. 用 `grade7_9:audit-h4g-grade-differentiation` 验证 reviewed 候选根中 19 条数学 standards 是否进入 final-ready 统计。
+20. 用 `grade7_9:audit-h4g-subject-readiness -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_codex_reviewed` 复核 reviewed 候选根的学科矩阵，确定下一批优先学科。
+21. 补充跨版本一致性、真实人工/课程进阶复核状态，并复核剩余未覆盖学科和 standards。
+22. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate；正式发布前 `grade7_9:audit-h4g-grade-differentiation -- --require-ready` 必须通过。
