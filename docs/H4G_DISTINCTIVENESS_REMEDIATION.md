@@ -871,6 +871,96 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 2. 对 9 条 `edition_placement_review` 设计新的 publication 表达：例如版本投放差异 note、progression group 层证据，或单独的 `edition_placement_evidence` 字段；不能写入同年级 `textbook_unit_evidence_ids`。
 3. 对 `MA-H4G7-QUAL-004` 继续做定向 reverse lookup，不用宽泛 alias 兜底。
 
+### 7.12 Ready-only 候选包与隔离数据根验证
+
+本轮把 19 条 `same_grade_unit_candidate_ready` 从 29 条数学候选中单独过滤出来，形成 ready-only 写回前候选包：
+
+```bash
+npm run textbooks:h4g-ready-unit-candidates -- --strict --require-candidates
+```
+
+默认输出：
+
+```text
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate_ready_only.json
+generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate_ready_only.md
+```
+
+过滤结果：
+
+```json
+{
+  "candidates": 19,
+  "unit_evidence_objects": 87,
+  "by_grade_band": {
+    "H4G7": 5,
+    "H4G8": 7,
+    "H4G9": 7
+  },
+  "multi_edition_standards": 19,
+  "single_edition_standards": 0,
+  "page_start_records": 87,
+  "excluded_by_decision": {
+    "edition_placement_review": 9,
+    "continue_gap_remediation": 1
+  }
+}
+```
+
+ready-only 候选包通过：
+
+```bash
+npm run textbooks:audit-h4g-unit-candidates -- \
+  --candidate generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate_ready_only.json \
+  --strict \
+  --require-candidates \
+  --require-page-start
+npm run textbooks:audit-h4g-unit-consistency -- \
+  --candidate generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate_ready_only.json \
+  --strict \
+  --require-candidates \
+  --require-page-start \
+  --fail-on-nonmonotonic-pages \
+  --min-editions-per-standard 2 \
+  --min-editions-per-progression-group 2
+```
+
+consistency 结果显示：
+
+```json
+{
+  "cross_version_consistency_proven": true,
+  "page_start_gate_ready": true,
+  "page_range_gate_ready": true,
+  "standards_below_min_editions": 0,
+  "progression_groups_below_min_editions": 0,
+  "complete_progression_groups": false
+}
+```
+
+这说明 19 条 ready-only standards 在 record-level 上已经具备同年级、多版本、页码可用的候选证据；但 progression group 完整度仍未全部满足，所以它们只能进入人工发布复核，不能被解释为整组 H4G progression 已正式完成。
+
+ready-only 候选包已应用到隔离数据根：
+
+```bash
+npm run textbooks:apply-h4g-unit-candidates -- \
+  --candidate generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate_ready_only.json \
+  --out-data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_ready_only \
+  --strict
+node scripts/build-indexes.js --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_ready_only
+node scripts/validate-data-indexes.js --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_ready_only
+npm run grade7_9:audit-h4g-distinctiveness -- \
+  --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_ready_only \
+  --strict
+npm run grade7_9:audit-grade-band-policy -- \
+  --public-data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_ready_only \
+  --staging-root generated/grade7_9_all_curated \
+  --data-only \
+  --strict
+```
+
+隔离 apply 结果为 19 条 applied、0 条 missing、0 条 skipped、87 个单元证据对象，且 `official_standard_text_changed: false`、`writes_public_data: false`。候选根中 `unit_level_evidence_records` 从 0 增加到 19，索引校验、H4G distinctiveness strict audit 和 grade-band policy data-only strict audit 均通过。
+
 跨学科优先级建议：
 
 1. 数学、科学：先按 `textbooks:plan-h4g-unit-worklist -- --subjects math,science` 推荐的完整版本批次建立稳定 PDF/OCR 缓存。

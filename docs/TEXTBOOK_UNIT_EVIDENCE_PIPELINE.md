@@ -222,6 +222,29 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 
 它把每条数学 H4G standard 分成四类：`same_grade_unit_candidate_ready`、`edition_placement_review`、`continue_gap_remediation` 和 `not_in_current_unit_candidate_scope`。这一步仍不写 `public/data`，也不把候选证据转成 `textbook_unit_evidence_ids`；它只是把“同年级证据可进入人工发布复核”和“跨版本投放差异需要 progression model 决策”放到同一张矩阵里。
 
+生成 ready-only H4G 单元证据候选包：
+
+```bash
+npm run textbooks:h4g-ready-unit-candidates -- --strict --require-candidates
+npm run textbooks:audit-h4g-unit-candidates -- \
+  --candidate generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate_ready_only.json \
+  --out generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate_ready_only_audit.json \
+  --strict \
+  --require-candidates \
+  --require-page-start
+npm run textbooks:audit-h4g-unit-consistency -- \
+  --candidate generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_candidate_ready_only.json \
+  --out generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/h4g_unit_evidence_consistency_ready_only_audit.json \
+  --strict \
+  --require-candidates \
+  --require-page-start \
+  --fail-on-nonmonotonic-pages \
+  --min-editions-per-standard 2 \
+  --min-editions-per-progression-group 2
+```
+
+该命令只保留 decision matrix 中的 `same_grade_unit_candidate_ready` standards，自动排除 `edition_placement_review` 和 `continue_gap_remediation`。当前数学结果为 19 条 standards、87 个单元证据对象、0 条单版本 standards、0 条缺页码、0 条非单调页码。它仍是写回前候选包，只能先应用到隔离数据根做 QA。
+
 ## 4. 输出结构
 
 `textbook_unit_index.json` 有两个核心数组：
@@ -871,6 +894,8 @@ placement evidence candidate 的边界：`h4g_placement_evidence_candidate` 是 
 
 progression decision matrix 的边界：`h4g_progression_decision_matrix` 是发布前决策层，不是数据写回层。`same_grade_unit_candidate_ready` 只表示同年级、多版本、页码可用的候选可以进入人工复核；`edition_placement_review` 只表示该 progression topic 需要讨论版本投放差异；`continue_gap_remediation` 才表示还需要继续找同年级证据或改进检索。
 
+ready-only candidate 的边界：`h4g_unit_evidence_candidate_ready_only` 继承原 H4G unit candidate schema，因此可以复用 candidate audit、consistency audit 和 apply-to-generated-data-root 流程。它排除了跨版本投放差异和未解缺口，但 `complete_progression_groups` 仍可能为 false，所以它只能证明 record-level 同年级证据已足够进入复核，不代表整组 H4G progression 已完成正式分化。
+
 ## 10. 下一步
 
 建议顺序：
@@ -879,6 +904,7 @@ progression decision matrix 的边界：`h4g_progression_decision_matrix` 是发
 2. 为少量教材建立稳定 PDF/OCR 缓存，避免每次依赖 GitHub 懒加载。
 3. 对数学先使用 `textbooks:audit-h4g-topic-placement` 区分“同年级证据不足”和“跨版本年级投放差异”，再用 `textbooks:h4g-placement-candidates` 生成 progression group 级 review pack。
 4. 使用 `textbooks:h4g-progression-decisions` 合并同年级证据、reverse gaps 和投放差异，形成可复核的发布前决策矩阵。
-5. 决定 publication gate 如何表达 same-grade unit evidence 与 edition placement evidence 的不同含义。
-6. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
-7. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。
+5. 使用 `textbooks:h4g-ready-unit-candidates` 把 record-level ready 的 standards 过滤成隔离 QA 候选包，并在 generated data root 上验证。
+6. 决定 publication gate 如何表达 same-grade unit evidence 与 edition placement evidence 的不同含义。
+7. 补充跨版本一致性、人工/规则复核状态，并复核 `toc_page_nonmonotonic` 页段。
+8. 设计通过复核的候选包 apply 流程，再进入正式 public 写入 gate。
