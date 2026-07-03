@@ -669,6 +669,25 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 parent downstream decisions candidate 为 `valid=true`，专用 audit 与原 downstream decisions audit 均为 `valid=true`：201 条 parent downstream decisions 中只有同一 6 条 target-standard gap rows 被标记为 `target_standard_gap_confirmed` 候选，其余 195 条保持 `pending`；candidate 目标年级分布为 H4G7 1 条、H4G8 3 条、H4G9 2 条，expected/parent candidate 为 6/6，missing/extra 均为 0。该层仍不修改 editable downstream decisions template，不批准 bridge，不新增或改写 official standard，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+在 parent downstream candidate 之后，新增 item-review decisions candidate，将 6 条 parent target-standard gap 证据精确回传到 3 条 source-evidence item-review decisions：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-target-gap-inventory-decisions-candidate -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-target-gap-inventory-decisions-candidate -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-decisions -- --decisions generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_target_gap_inventory_decisions_candidate_anchor_domain_rejected_english_pe.json --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_target_gap_inventory_decisions_candidate_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_target_gap_inventory_decisions_candidate_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_target_gap_inventory_decisions_candidate_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_target_gap_inventory_decisions_candidate_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 item-review target-gap decisions candidate 为 `valid=true`，专用 audit 与原 item-review decisions audit 均为 `valid=true`：115 条 item decisions 中只有 3 条 source-evidence target-gap rows 被标记为 `target_missing_grade_standard_absent` 候选，其余 112 条保持 `pending`；这 3 条 rows 由 6 条 parent target-standard gap candidate 完整覆盖，目标年级分布为 H4G7 1 条、H4G8 3 条、H4G9 2 条，expected/audited/candidate markers 为 3/3/3，missing/extra 均为 0。该层仍不修改 editable item decisions template，不批准 bridge，不新增或改写 official standard，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
