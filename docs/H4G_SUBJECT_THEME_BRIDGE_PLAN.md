@@ -587,6 +587,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 downstream manual scope/indexing inventory 为 `valid=true`，audit 结果为 `valid=true`：12 条 inventory rows 精确覆盖 12 条 manual scope/indexing items，missing/extra 均为 0。3 个 unit index 去重后提供 90 条 unit candidates，覆盖 English/PE 的 7/8/9 年级；12 条目标年级 rows 都已有同年级 unit-index candidates，且都有 page-ready candidates。但 12 条都有跨年级已有证据，且 `missing_grade_textbook_units_indexed`、`same_grade_scope_checked` 等 manual confirmation 仍未关闭，所以全部落在 `manual_scope_indexing_has_page_ready_candidates_needs_reviewer_confirmation`。该层只证明“可以进入人工 scope confirmation”，不自动改 downstream/action decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+在 manual scope/indexing inventory 之后，新增非发布型 decisions candidate，把这 12 条已有同年级 page-ready unit candidates 的 rows 从 inventory evidence 推进为可审阅 action outcome：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-manual-scope-indexing-decisions-candidate -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-manual-scope-indexing-decisions-candidate -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_manual_scope_indexing_decisions_candidate_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_manual_scope_indexing_decisions_candidate_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_manual_scope_indexing_decisions_candidate_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_manual_scope_indexing_decisions_candidate_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 manual scope/indexing decisions candidate 为 `valid=true`，audit 结果为 `valid=true`：201 条 action decisions 中只有 12 条 manual scope/indexing rows 被标记为 `missing_grade_units_indexed_for_later_source_review` 候选，其余 189 条保持 `pending`；candidate 为 English/PE 各 6 条，目标年级 H4G8 3 条、H4G9 9 条，覆盖 9 个 target standards / 6 个 progression groups / 90 条 unit-index candidates。专用 audit 确认 expected/audited candidate decisions 为 12/12，changed non-candidate decisions 为 0。该层仍不修改 editable action decisions template，不自动批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready；后续还必须做 source-anchor review、item-level decision、matcher gate 和 publication gate。
+
 新增 downstream source-anchor evidence batch，将 168 条 `needs_source_anchor_evidence` work items 封成单 source row 的 anchor evidence 复核包：
 
 ```bash
