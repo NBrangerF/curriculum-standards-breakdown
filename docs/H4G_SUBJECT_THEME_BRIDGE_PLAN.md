@@ -388,6 +388,8 @@ after-P2 页码恢复已完成一批 reviewed overrides：`scripts/textbooks/tex
 
 已进一步新增 progression-group matrix，把 414 条 remediation items 和 18 条 approved bridges 上卷到 70 个 `progression_group_id`。matrix/audit 均为 `valid=true`，source groups 70 个全部覆盖，missing/extra group 均为 0；其中 English 46 个组、PE 24 个组，60 个组本身覆盖 H4G7/H4G8/H4G9 三年级。关键结论是 `complete_h4g_triplet_approved_groups=0`：当前没有任何 English/PE 主题桥接组已经证明七、八、九年级完整进阶。resolution track 分布为：26 个 generic Language in use title bridge blocked、12 个 English source-anchor model required、16 个 PE source-anchor model required、5 个 PE curriculum progression review required、9 个 partial approved bridge needs grade completion、2 个 single/partial-grade complete 但仍需 publication gates。该 matrix 仍是 read-only，只用于确定下一步 owner 和阻塞原因。
 
+已执行第一轮 remediation decision recommendation：只处理 item-level `english_language_use_requires_function_anchor`，把 110 条 title-only `Unit 3 Language in use` bridge 从 `needs_revision` 推进为 `reject_subject_theme_bridge`。新的 decisions audit 在 `--require-complete --require-page-ready-for-approval` 下为 `valid=true`：approved 18、rejected 193、needs_revision 304、pending 0，且 `source_review_complete=true`。基于该 decisions 重建的 registry 仍为 18 条 approved bridges；新的 remediation packet/audit 为 `valid=true`，剩余 304 条 needs_revision，覆盖 128 条 standards、69 个 progression groups；新的 progression matrix/audit 也为 `valid=true`，`missing_source_groups=0`、`extra_matrix_groups=0`、`complete_h4g_triplet_approved_groups=0`。原先的 generic Language in use title bridge blocked track 已清空，剩余 English 组统一进入更窄 `english_source_anchor_model_required`。
+
 ## 8. 当前结论
 
 English/PE 现在不是 H4G 分组失败，也不是目录解析完全失败。真正问题是标准能力项与教材主题标题之间缺少受控、可复核、学科化的桥接层。下一阶段的质量目标不是提高 match 数量，而是让每一个 match 都能解释：
