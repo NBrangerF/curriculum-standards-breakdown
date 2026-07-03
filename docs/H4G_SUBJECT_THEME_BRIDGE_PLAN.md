@@ -320,6 +320,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_child_spli
 
 当前 child split batch 为 `valid=true`，audit 结果为 `valid=true`：124 条 child split review items 精确覆盖 124 条 expected child slices，missing/extra 均为 0，来自 44 个父 work items，`unique_source_keys=124`。按年级拆分为 H4G7 50 条、H4G8 40 条、H4G9 34 条；按学科拆分为 English 101 条、PE 23 条。该层把继续拆分项收窄到 `standard_code + grade_band + unit_evidence_id + anchor_review_item_id` 粒度，仍不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+对 `source_anchor_specificity_queue`，新增 source-anchor specificity batch，将 52 个父 work items 展开为逐 source row 的 exact-anchor 审阅包：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-source-anchor-specificity-batch -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-source-anchor-specificity-batch -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_source_anchor_specificity_batch_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_source_anchor_specificity_batch_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_source_anchor_specificity_batch_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_source_anchor_specificity_batch_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 specificity batch 为 `valid=true`，audit 结果为 `valid=true`：52 条 source-anchor specificity review items 精确覆盖 52 条 expected items，missing/extra 均为 0，来自 52 个父 work items，`unique_source_keys=52`。按年级拆分为 H4G7 8 条、H4G8 36 条、H4G9 8 条；按学科拆分为 English 47 条、PE 5 条。该层聚焦确认 source row 是否证明 exact anchor，而不是仅共享宽主题或标题；仍不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
