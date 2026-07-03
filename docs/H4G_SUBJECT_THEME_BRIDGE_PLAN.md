@@ -248,6 +248,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_source_evidence_batch_
 
 当前 source evidence batch 为 `valid=true`，audit 结果为 `valid=true`：9 个 group 精确展开为 12 个 source-anchor evidence requests，覆盖 36 条现有 source-anchor review rows；English 9 个 requests、PE 3 个 requests，缺失年级请求分布为 H4G7=1、H4G8=6、H4G9=11。该 batch 反查到 12 个 missing-grade target standards，同时标出 3 个 request 存在 target-standard gap（缺失年级在当前 public standards 中没有对应 progression target）。它仍只是补证据审阅入口，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+在 split review batch 和 source evidence batch 后，新增 item review decisions template，把两条分支合并成可编辑决策面：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-decisions -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-decisions -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_decisions_template_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_decisions_template_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_decisions_template_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_decisions_template_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 item review decisions template 为 `valid=true`，audit 结果为 `valid=true`：115 行 decisions 全部为 `pending`，其中 103 行来自 split review、12 行来自 source evidence request；总计覆盖 219 条 source-anchor review rows。该层只是记录后续 item-level 审阅结果的位置，不等于 source review complete，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
