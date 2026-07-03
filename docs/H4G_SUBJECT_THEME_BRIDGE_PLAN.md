@@ -266,6 +266,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_decisions_
 
 当前 item review decisions template 为 `valid=true`，audit 结果为 `valid=true`：115 行 decisions 全部为 `pending`，其中 103 行来自 split review、12 行来自 source evidence request；总计覆盖 219 条 source-anchor review rows。该层只是记录后续 item-level 审阅结果的位置，不等于 source review complete，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+在 editable template 旁边，新增 recommendation-only 辅助层，给 pending item decisions 生成可复算的审阅建议：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-recommendations -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-recommendations -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_recommendations_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_recommendations_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_recommendations_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_recommendations_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 recommendation 为 `valid=true`，audit 结果为 `valid=true`：115 行 recommendations 全覆盖、missing/extra 均为 0。其中 7 行建议 `accept_bounded_slice_for_item_level_source_review`，44 行建议 `split_slice_further`，52 行建议 `needs_source_anchor_evidence`，9 行建议 `needs_textbook_unit_indexing`，3 行建议 `target_missing_grade_standard_absent`。这些只是 reviewer 填写 template 的建议，不是官方 decision，不修改 editable template，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
