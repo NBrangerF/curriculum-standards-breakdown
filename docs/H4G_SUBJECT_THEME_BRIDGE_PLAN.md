@@ -497,6 +497,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 downstream item-level source review batch 为 `valid=true`，audit 结果为 `valid=true`：8 条 item-level source review items 精确覆盖 8 条 expected work items，missing/extra 均为 0，`unique_source_keys=8`。全部为 H4G7/P1，English/PE 各 4 条，全部来自 `child_split`；anchor 类型为 `english_speech_function_or_discourse_anchor` 4 条、`pe_movement_skill_fitness_or_sportsmanship_anchor` 4 条。该层只打开后续 item-level source review 的单源审阅入口，仍不修改 downstream decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+新增 downstream target-standard gap resolution batch，将 6 条 `target_standard_gap_confirmed` work items 封成目标标准缺口复核包：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-target-standard-gap-resolution-batch -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-target-standard-gap-resolution-batch -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_target_standard_gap_resolution_batch_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_target_standard_gap_resolution_batch_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_target_standard_gap_resolution_batch_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_target_standard_gap_resolution_batch_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 downstream target-standard gap resolution batch 为 `valid=true`，audit 结果为 `valid=true`：6 条 gap resolution items 精确覆盖 6 条 expected work items，missing/extra 均为 0，`unique_source_keys=6`。全部为 English/P1，缺口年级为 H4G7 1 条、H4G8 3 条、H4G9 2 条；涉及 3 个 source standards / 3 个 progression groups。该层只用于确认目标年级标准是否真的缺位、是否存在于其他 code/group，或 progression group 是否需要重切；仍不修改 downstream decisions，不改 official standard text，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
