@@ -8,6 +8,9 @@ const DEFAULT_OUT = 'generated/textbook_evidence/h4g_theme_bridge_review_decisio
 const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/h4g_theme_bridge_review_decisions_anchor_domain_rejected_english_pe.md'
 const DEFAULT_REJECT_RULES = [
   'english_culture_anchor_non_culture_domain_mismatch',
+  'english_culture_anchor_quality_direct_bridge',
+  'english_learning_anchor_quality_direct_bridge',
+  'english_speech_anchor_quality_direct_bridge',
   'pe_movement_anchor_domain_mismatch',
   'pe_health_anchor_domain_mismatch'
 ]
@@ -19,6 +22,30 @@ const REJECT_RULES = {
     domains: new Set(['学习策略', '语篇', '语言知识']),
     note: '拒绝 English culture-to-non-culture domain mismatch：文化/地点主题只能提示文化目标回源审阅，不能仅凭 culture_places 证明语篇、学习策略或语言知识标准；后续若有明确语篇任务、策略任务或语言知识活动证据，应重新进入标准级 source review。',
     required_risk_flags: ['deny_term_in_unit_title:culture'],
+    subject_slug: 'english'
+  },
+  english_culture_anchor_quality_direct_bridge: {
+    action_family: 'english_culture_theme_requires_cultural_objective_review',
+    anchor_type: 'english_cultural_objective_anchor',
+    domains: new Set(['学业质量']),
+    note: '拒绝 English culture-to-quality direct bridge：文化/地点主题标题不能直接证明学业质量标准；这类标准需要表现任务、评价量规或课程进阶证据，后续若有明确文化表达/比较任务证据，应重新进入标准级 source review。',
+    required_risk_flags: ['quality_or_performance_standard_needs_curriculum_review'],
+    subject_slug: 'english'
+  },
+  english_learning_anchor_quality_direct_bridge: {
+    action_family: 'english_learning_strategy_requires_standard_anchor',
+    anchor_type: 'english_learning_strategy_or_language_knowledge_anchor',
+    domains: new Set(['学业质量']),
+    note: '拒绝 English learning-to-quality direct bridge：学习策略或语言学习主题标题不能直接证明学业质量标准；这类标准需要表现任务、评价量规或课程进阶证据，后续若有明确学习策略表现任务证据，应重新进入标准级 source review。',
+    required_risk_flags: ['quality_or_performance_standard_needs_curriculum_review'],
+    subject_slug: 'english'
+  },
+  english_speech_anchor_quality_direct_bridge: {
+    action_family: 'english_communication_topic_requires_speech_function_anchor',
+    anchor_type: 'english_speech_function_or_discourse_anchor',
+    domains: new Set(['学业质量']),
+    note: '拒绝 English speech-to-quality direct bridge：日常交际、情感沟通或学校生活主题标题不能直接证明学业质量标准；这类标准需要表现任务、评价量规或课程进阶证据，后续若有明确听说读写表现任务证据，应重新进入标准级 source review。',
+    required_risk_flags: ['quality_or_performance_standard_needs_curriculum_review'],
     subject_slug: 'english'
   },
   pe_movement_anchor_domain_mismatch: {

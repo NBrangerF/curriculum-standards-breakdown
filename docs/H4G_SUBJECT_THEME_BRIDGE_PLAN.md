@@ -405,7 +405,7 @@ npm run textbooks:audit-h4g-theme-bridge-anchor-review-batch -- --strict --requi
 npm run textbooks:h4g-theme-bridge-anchor-recommendations -- --strict --require-items
 ```
 
-该 pass 拒绝 37 条 mismatch：11 条 English cultural objective anchor 打到语篇、学习策略或语言知识；15 条 PE activity/movement anchor 打到课程目标、健康教育或跨学科主题学习；11 条 PE health/load-management anchor 打到课程目标、体育品德、运动能力或跨学科主题学习。新的 decisions audit 为 `valid=true`：approved 18、rejected 246、needs_revision 251、pending 0，所有 decisions 均 page-ready。下游 registry 仍只有 18 条 approved bridges；新的 remediation packet/audit 为 `valid=true`，剩余 251 条 needs_revision，覆盖 106 条 standards、58 个 progression groups；新的 progression matrix/audit 也为 `valid=true`，`complete_h4g_triplet_approved_groups=0`。这一步只收敛明确 domain mismatch，不自动处理更模糊的英语 speech/learning rows。
+该 pass 拒绝 69 条 mismatch：11 条 English cultural objective anchor 打到语篇、学习策略或语言知识；32 条 English speech/culture/learning anchor 直接打到学业质量标准；15 条 PE activity/movement anchor 打到课程目标、健康教育或跨学科主题学习；11 条 PE health/load-management anchor 打到课程目标、体育品德、运动能力或跨学科主题学习。新的 decisions audit 为 `valid=true`：approved 18、rejected 278、needs_revision 219、pending 0，所有 decisions 均 page-ready。下游 registry 仍只有 18 条 approved bridges；新的 remediation packet/audit 为 `valid=true`，剩余 219 条 needs_revision，覆盖 93 条 standards、52 个 progression groups；新的 progression matrix/audit 也为 `valid=true`，`complete_h4g_triplet_approved_groups=0`。这一步只收敛明确 domain/quality direct-bridge mismatch，不自动处理仍可能由具体活动回源成立的英语 speech/learning rows。
 
 ## 8. 当前结论
 
