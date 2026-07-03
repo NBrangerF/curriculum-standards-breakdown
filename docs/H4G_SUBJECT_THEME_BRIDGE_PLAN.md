@@ -605,6 +605,25 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 manual scope/indexing decisions candidate 为 `valid=true`，audit 结果为 `valid=true`：201 条 action decisions 中只有 12 条 manual scope/indexing rows 被标记为 `missing_grade_units_indexed_for_later_source_review` 候选，其余 189 条保持 `pending`；candidate 为 English/PE 各 6 条，目标年级 H4G8 3 条、H4G9 9 条，覆盖 9 个 target standards / 6 个 progression groups / 90 条 unit-index candidates。专用 audit 确认 expected/audited candidate decisions 为 12/12，changed non-candidate decisions 为 0。该层仍不修改 editable action decisions template，不自动批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready；后续还必须做 source-anchor review、item-level decision、matcher gate 和 publication gate。
 
+在 action-review candidate 之后，新增 parent downstream decisions candidate，将这 12 条 manual-scope action candidate 精确回传到上游 downstream decisions：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-manual-scope-indexing-parent-decisions-candidate -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-manual-scope-indexing-parent-decisions-candidate -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-decisions -- --decisions generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_manual_scope_indexing_parent_decisions_candidate_anchor_domain_rejected_english_pe.json --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_manual_scope_indexing_parent_decisions_candidate_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_manual_scope_indexing_parent_decisions_candidate_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_manual_scope_indexing_parent_decisions_candidate_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_manual_scope_indexing_parent_decisions_candidate_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 parent downstream manual scope/indexing candidate 为 `valid=true`，专用 audit 与原 downstream decisions audit 均为 `valid=true`：201 条 parent downstream decisions 中只有同一 12 条 manual-scope rows 被标记为 `missing_grade_units_indexed_for_later_source_review` 候选，其余 189 条保持 `pending`；candidate 为 English/PE 各 6 条，目标年级 H4G8 3 条、H4G9 9 条，覆盖 9 个 target standards / 6 个 progression groups。该层仍不修改 editable downstream decisions template，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready；后续还必须做 source-anchor review、item-level decision、matcher gate 和 publication gate。
+
 新增 downstream source-anchor evidence batch，将 168 条 `needs_source_anchor_evidence` work items 封成单 source row 的 anchor evidence 复核包：
 
 ```bash
