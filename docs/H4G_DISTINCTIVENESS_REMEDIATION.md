@@ -1650,6 +1650,41 @@ npm run textbooks:audit-h4g-theme-bridge-review-batch -- \
 
 这个 batch 的作用是让 reviewer 判断“该单元是否真的支撑这个标准或 progression group”，不是自动批准。分布上也暴露了下一步风险：P1 没有覆盖 H4G8/H4G9；P2 才出现少量 H4G9，H4G8 当前全部位于 page recovery 队列。因此后续 7/8/9 分化不能只跑 P1 source review，还必须做 H4G8 页码补证据和 H4G9 P2 复核。
 
+### 7.30 H4G8 主题桥接 page recovery batch
+
+为了系统性处理 H4G8 全部缺页码的问题，本轮新增 page recovery batch：
+
+```bash
+npm run textbooks:h4g-theme-bridge-page-recovery -- \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_page_recovery_batch_h4g8_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_page_recovery_batch_h4g8_english_pe.md \
+  --strict \
+  --require-items \
+  --grade-bands H4G8
+
+npm run textbooks:audit-h4g-theme-bridge-page-recovery -- \
+  --batch generated/textbook_evidence/h4g_theme_bridge_page_recovery_batch_h4g8_english_pe.json \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_page_recovery_batch_h4g8_english_pe_audit.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_page_recovery_batch_h4g8_english_pe_audit.md \
+  --strict \
+  --require-items \
+  --grade-bands H4G8
+```
+
+结果为 `valid=true`：H4G8 的 160 条 `page_recovery_then_source_review` work items 聚合成 9 个 recovery units，其中 English 8 个、PE 1 个，分布在 `ctb_f73a093e2c3d`、`ctb_0f2ed61a1c90`、`ctb_640488b51030` 三个教材文件。优先级分布为 `R1=5`、`R2=2`、`R3=1`、`R4=1`，R1 包含：
+
+- `Unit 1 Let’s try to speak English as much`
+- `Unit 2 I feel nervous when I speak Chinese.`
+- `Unit 2 You should smile at her!`
+- `第三章 足球`
+- `Unit 3 Language in use`
+
+这一步把 H4G8 阻塞从“160 条 standards 候选都缺页码”收敛为“先复核 3 个教材文件中的 9 个单元页码”。但它仍是 read-only page recovery task：不填 `page_start`，不写 `public/data`，不批准 subject-theme bridge。真实页码应先通过 TOC OCR 或正文页脚证据写入 `scripts/textbooks/textbook_unit_page_start_overrides.json`，再重跑 unit index、theme bridge packet、decisions/worklist、source review batch 和后续 registry/matcher gates。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：

@@ -232,6 +232,31 @@ npm run textbooks:audit-h4g-theme-bridge-review-batch -- \
 
 当前 P1 batch 为 `valid=true`：27 条全部是 English/H4G7，全部 page-ready，且全部仍为 `pending`。这说明首批可复核证据集中在七年级英语；H4G8 没有 page-ready 主题桥接候选，后续必须先做 page recovery，不能把 P1 结果误读成 H4G7/H4G8/H4G9 已经均衡覆盖。
 
+已新增 H4G8 page recovery batch，用来处理首批无法进入 source review 的缺页码项：
+
+```bash
+npm run textbooks:h4g-theme-bridge-page-recovery -- \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_page_recovery_batch_h4g8_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_page_recovery_batch_h4g8_english_pe.md \
+  --strict \
+  --require-items \
+  --grade-bands H4G8
+
+npm run textbooks:audit-h4g-theme-bridge-page-recovery -- \
+  --batch generated/textbook_evidence/h4g_theme_bridge_page_recovery_batch_h4g8_english_pe.json \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_page_recovery_batch_h4g8_english_pe_audit.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_page_recovery_batch_h4g8_english_pe_audit.md \
+  --strict \
+  --require-items \
+  --grade-bands H4G8
+```
+
+当前 H4G8 page recovery batch 为 `valid=true`：160 条缺页码 work items 聚合为 9 个教材单元，English 8 个、PE 1 个，覆盖 3 个教材文件。R1 优先级有 5 个单元，先恢复这些 printed page start 能最大幅度打开 H4G8 source review 面。batch 只提供 override 模板，不填 page_start，不批准 bridge；真实页码证据应进入 `scripts/textbooks/textbook_unit_page_start_overrides.json` 后再重跑 unit index、review packet、decisions/worklist 和 source review batch。
+
 已新增 approved bridge registry 和 matcher 接口：
 
 ```bash
