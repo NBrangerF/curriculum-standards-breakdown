@@ -6,7 +6,7 @@ import { basename, dirname, join } from 'node:path'
 const DEFAULT_DATA_ROOT = 'public/data'
 const DEFAULT_PRODUCT_READINESS = 'generated/grade7_9_h4g_product_readiness.json'
 const DEFAULT_ISSUE_MATRIX = 'generated/grade7_9_h4g_differentiation_issue_matrix.json'
-const DEFAULT_ANCHOR_GROUP_DECISIONS = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_decisions_template_anchor_domain_rejected_english_pe.json'
+const DEFAULT_ANCHOR_GROUP_DECISIONS = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_decisions_triage_candidate_anchor_domain_rejected_english_pe.json'
 const DEFAULT_SOURCE_ANCHOR_GROUP_TRIAGE = 'generated/textbook_evidence/h4g_unit_evidence_anchor_policy_source_anchor_specificity_group_triage.json'
 const DEFAULT_GROUP_READY_CANDIDATE = 'generated/textbook_evidence/h4g_unit_evidence_group_ready_candidate.json'
 const DEFAULT_OUT = 'generated/grade7_9_h4g_product_readiness_worklist.json'
@@ -25,6 +25,8 @@ const APPROVED_REVIEW_STATUSES = new Set([
 
 const ROUTES = {
   ANCHOR_GROUP_DECISION: 'complete_anchor_group_decisions_before_item_review',
+  ANCHOR_GROUP_SOURCE_EVIDENCE: 'collect_anchor_group_source_anchor_evidence_before_item_review',
+  ANCHOR_GROUP_SPLIT: 'split_anchor_group_scope_before_item_review',
   BUILD_UNIT_EVIDENCE: 'build_unit_chapter_evidence_from_file_level_sources',
   LOW_CONFIDENCE_GAP: 'source_coverage_or_low_confidence_evidence_gap',
   PARTIAL_ASSIGNMENT: 'repair_or_confirm_single_partial_grade_assignment',
@@ -37,6 +39,8 @@ const ROUTES = {
 
 const ROUTE_PRIORITY = {
   [ROUTES.ANCHOR_GROUP_DECISION]: 10,
+  [ROUTES.ANCHOR_GROUP_SPLIT]: 11,
+  [ROUTES.ANCHOR_GROUP_SOURCE_EVIDENCE]: 12,
   [ROUTES.SOURCE_ANCHOR_READY]: 15,
   [ROUTES.SOURCE_ANCHOR_ANCHOR_GAP]: 16,
   [ROUTES.SOURCE_ANCHOR_REPAIR]: 17,
@@ -313,7 +317,10 @@ function groupFacts(groupId, records) {
 
 function routeFor(facts, records, sourceArtifacts) {
   if (facts.product_ready_group) return ROUTES.PRODUCT_READY
-  if (sourceArtifacts.anchor_group_decision?.reviewer_decision === 'pending') return ROUTES.ANCHOR_GROUP_DECISION
+  const anchorDecision = sourceArtifacts.anchor_group_decision?.reviewer_decision
+  if (anchorDecision === 'pending') return ROUTES.ANCHOR_GROUP_DECISION
+  if (anchorDecision === 'split_or_refine_group_scope') return ROUTES.ANCHOR_GROUP_SPLIT
+  if (anchorDecision === 'needs_source_anchor_evidence') return ROUTES.ANCHOR_GROUP_SOURCE_EVIDENCE
   const sourceAnchorRoute = sourceArtifacts.source_anchor_group_triage?.triage_route
   if (sourceAnchorRoute === 'ready_for_manual_source_anchor_specificity_decision_review') return ROUTES.SOURCE_ANCHOR_READY
   if (sourceAnchorRoute === 'collect_missing_target_grade_anchors_before_decision_review') return ROUTES.SOURCE_ANCHOR_ANCHOR_GAP
@@ -328,7 +335,9 @@ function routeFor(facts, records, sourceArtifacts) {
 
 function nextGate(route) {
   return {
-    [ROUTES.ANCHOR_GROUP_DECISION]: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-decisions -- --strict --require-groups --require-complete',
+    [ROUTES.ANCHOR_GROUP_DECISION]: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-triage-decisions -- --strict --require-groups --require-complete',
+    [ROUTES.ANCHOR_GROUP_SOURCE_EVIDENCE]: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-source-evidence-batch -- --strict --require-requests',
+    [ROUTES.ANCHOR_GROUP_SPLIT]: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-split-review-batch -- --strict --require-candidates',
     [ROUTES.BUILD_UNIT_EVIDENCE]: 'npm run textbooks:audit-h4g-unit-candidates -- --strict --require-candidates',
     [ROUTES.LOW_CONFIDENCE_GAP]: 'npm run textbooks:h4g-unit-blocker-match-diagnostics -- --strict',
     [ROUTES.PARTIAL_ASSIGNMENT]: 'npm run grade7_9:audit-h4g-grade-differentiation -- --strict',

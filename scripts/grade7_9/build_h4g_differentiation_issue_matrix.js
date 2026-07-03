@@ -6,7 +6,7 @@ const DEFAULT_READINESS = 'generated/grade7_9_h4g_grade_differentiation_readines
 const DEFAULT_DISTINCTIVENESS = 'generated/grade7_9_distinctiveness_audit.json'
 const DEFAULT_PRODUCT_READINESS = 'generated/grade7_9_h4g_product_readiness.json'
 const DEFAULT_PRODUCT_READINESS_WORKLIST = 'generated/grade7_9_h4g_product_readiness_worklist.json'
-const DEFAULT_ANCHOR_GROUP_DECISIONS = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_decisions_template_anchor_domain_rejected_english_pe.json'
+const DEFAULT_ANCHOR_GROUP_DECISIONS = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_decisions_triage_candidate_anchor_domain_rejected_english_pe.json'
 const DEFAULT_ANCHOR_PRIORITY_MATRIX = 'generated/textbook_evidence/h4g_theme_bridge_anchor_priority_matrix_anchor_domain_rejected_english_pe.json'
 const DEFAULT_UNIT_CANDIDATE_COVERAGE = 'generated/textbook_evidence/h4g_unit_evidence_candidate_coverage_audit.json'
 const DEFAULT_UNIT_CANDIDATE_COVERAGE_WORKLIST = 'generated/textbook_evidence/h4g_unit_evidence_candidate_coverage_worklist.json'
@@ -701,8 +701,9 @@ function executionBatches(subjectRows, anchorStats, priorityStats, productReadin
     {
       batch_id: 'english_pe_anchor_group_decision_gate',
       entry_gate: 'npm run textbooks:h4g-theme-bridge-anchor-group-decisions -- --strict --require-groups',
-      exit_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-decisions -- --strict --require-groups --require-complete',
-      next_action: 'complete_anchor_group_decisions_before_item_review',
+      triage_candidate_gate: 'npm run textbooks:h4g-theme-bridge-anchor-group-triage-decisions -- --strict --require-groups',
+      exit_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-triage-decisions -- --strict --require-groups --require-complete',
+      next_action: 'route_anchor_groups_to_split_or_source_anchor_evidence',
       pending_groups: (anchorStats.english?.pending_group_decisions || 0) + (anchorStats.pe?.pending_group_decisions || 0),
       priority_groups: priorityStats.priority_groups,
       scope: {
@@ -986,7 +987,7 @@ ${batchMarkdownRows(payload.execution_batches)}
 
 - Keep official source standard fields immutable.
 - Treat identical H4G triplets as shared 7-9 source standards until reviewed unit evidence proves a grade-specific focus.
-- Complete English/PE anchor group decisions before item-level source review or matcher use.
+- Use audited English/PE anchor group triage decisions before item-level source review or matcher use.
 - Use unit candidate coverage to distinguish already-public evidence, single-edition candidates, and missing candidate gaps before any Math/Science publication attempt.
 - Use publication gates only after reviewed unit evidence, same-grade scope, cross-version consistency, and no-public-write dry-run checks pass.
 

@@ -8,6 +8,7 @@ const DEFAULT_OUT = 'generated/grade7_9_h4g_product_readiness_worklist_audit.jso
 const DEFAULT_SUMMARY_OUT = 'generated/grade7_9_h4g_product_readiness_worklist_audit.md'
 const ALLOWED_ROUTES = new Set([
   'build_unit_chapter_evidence_from_file_level_sources',
+  'collect_anchor_group_source_anchor_evidence_before_item_review',
   'collect_missing_target_grade_anchors_before_decision_review',
   'complete_anchor_group_decisions_before_item_review',
   'expand_existing_unit_evidence_pipeline',
@@ -15,6 +16,7 @@ const ALLOWED_ROUTES = new Set([
   'product_ready_no_action',
   'repair_or_confirm_single_partial_grade_assignment',
   'repair_partial_progression_group_or_standard_context_before_anchor_review',
+  'split_anchor_group_scope_before_item_review',
   'source_coverage_or_low_confidence_evidence_gap'
 ])
 
