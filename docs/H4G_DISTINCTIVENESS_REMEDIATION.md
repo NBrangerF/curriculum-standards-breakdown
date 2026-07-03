@@ -1569,6 +1569,32 @@ npm run textbooks:audit-h4g-theme-bridge-review-decisions -- \
 
 这一步补上的不是 matcher 逻辑，而是决策记录层：每条批准都必须明确 `approve_standard_scoped_subject_theme_bridge` 或 `approve_progression_group_subject_theme_bridge`，并确认 source text、同学科、同年级、非泛词、页码检查、scope bounded、官方课标文本不变、不请求 public write。后续真实复核完成后，应先用 `--require-complete` 复跑 audit；若要进入 publication-page eligible 的后续 gate，还应加 `--require-page-ready-for-approval`。
 
+### 7.27 主题桥接 source review worklist
+
+在 decisions template 之后，本轮继续新增复核执行队列：
+
+```bash
+npm run textbooks:h4g-theme-bridge-review-worklist -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.md \
+  --strict \
+  --require-items
+
+npm run textbooks:audit-h4g-theme-bridge-review-worklist -- \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_worklist_audit_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_worklist_audit_english_pe.md \
+  --strict \
+  --require-items \
+  --require-priority-one
+```
+
+结果为 `valid=true`：515 个 work items 全覆盖 source review decisions；94 个可先进入 `source_review_ready`，421 个必须先做 `page_recovery_then_source_review`。优先级分布为 `P1=27`、`P2=67`、`P3=3`、`P4=418`。主要风险包括 broad topic tag、同一 unit 关联过多 standards、低 bridge score、quality/performance standard 需要课程复核，以及 421 条 page missing。
+
+这个 worklist 是执行层，不是审批层：P1 只表示“最适合先审”，不表示 bridge 已批准。下一步 source reviewer 应先处理 P1/page-ready 条目，并对 high fan-out units（例如 English 的 `Language in use`、PE 的球类章节）保持 standard-scoped 审核，防止主题桥接扩散成泛 alias。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：

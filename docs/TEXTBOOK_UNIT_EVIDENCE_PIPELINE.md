@@ -2465,6 +2465,28 @@ npm run textbooks:audit-h4g-theme-bridge-review-decisions -- \
 
 当前 decisions template 为 `valid=true`：515 条必需 source review decisions，English 340 条、PE 175 条；按年级为 `H4G7=216`、`H4G8=160`、`H4G9=139`；其中 94 条 page-ready、421 条缺页码。audit 为 `valid=true`，但 `source_review_complete=false`、`matcher_ready=false`、`publication_ready=false`，并提示 515 条仍 pending。真实复核完成后，可用 `--require-complete` 要求全部填写；如果本轮目标是 publication-page eligible bridge，还应加 `--require-page-ready-for-approval`。
 
+H4G subject theme bridge review worklist 的边界：`textbooks:h4g-theme-bridge-review-worklist` 和 `textbooks:audit-h4g-theme-bridge-review-worklist` 只负责把 source review decisions 排成可执行队列。它们会暴露 page recovery、broad topic tag、unit overmatch、quality/performance standard 等风险，但不改变 decisions，不审批 bridge，也不启用 matcher。
+
+```bash
+npm run textbooks:h4g-theme-bridge-review-worklist -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.md \
+  --strict \
+  --require-items
+
+npm run textbooks:audit-h4g-theme-bridge-review-worklist -- \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_worklist_audit_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_worklist_audit_english_pe.md \
+  --strict \
+  --require-items \
+  --require-priority-one
+```
+
+当前 worklist 为 `valid=true`：515 个 work items 全覆盖 decisions，其中 94 个 `source_review_ready`、421 个 `page_recovery_then_source_review`；优先级为 `P1=27`、`P2=67`、`P3=3`、`P4=418`。audit 为 `valid=true`，但警告 421 个 work items 进入 publication gate 前仍需 page recovery。复核建议先从 P1 且 page-ready 的项目开始，再处理 high fan-out unit 和 broad topic tag。
+
 ## 10. 下一步
 
 建议顺序：
