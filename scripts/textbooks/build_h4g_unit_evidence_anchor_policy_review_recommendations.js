@@ -266,7 +266,16 @@ function hasScopedAlignment(summary) {
 
 function referenceMatches(item, route) {
   if (route === 'manual_candidate_rebuild_required') return []
-  return [...(item.candidate_matches || [])]
+  const byMatchId = new Map()
+  for (const match of item.candidate_matches || []) {
+    const matchId = match.match_id || ''
+    if (!matchId) continue
+    const current = byMatchId.get(matchId)
+    if (!current || Number(match.keyword_score || 0) > Number(current.keyword_score || 0)) {
+      byMatchId.set(matchId, match)
+    }
+  }
+  return [...byMatchId.values()]
     .filter(match => match.page_start !== '' && match.page_start !== null && match.page_start !== undefined)
     .sort((a, b) => {
       const band = (b.confidence_band === 'high' ? 2 : 1) - (a.confidence_band === 'high' ? 2 : 1)

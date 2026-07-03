@@ -209,6 +209,17 @@ function itemMatchIds(item) {
   return sorted((item?.candidate_matches || []).map(match => match.match_id))
 }
 
+function duplicates(values) {
+  const seen = new Set()
+  const repeated = new Set()
+  for (const value of values || []) {
+    if (!value) continue
+    if (seen.has(value)) repeated.add(value)
+    seen.add(value)
+  }
+  return [...repeated].sort((a, b) => a.localeCompare(b))
+}
+
 function validateRecommendation(row, item, decision, errors, stats) {
   const prefix = row.recommendation_id || row.anchor_policy_review_item_id || '(recommendation)'
   validatePolicy(prefix, row, errors)
@@ -249,6 +260,14 @@ function validateRecommendation(row, item, decision, errors, stats) {
   if (row.current_reviewer_decision !== decision.reviewer_decision) errors.push(`${prefix} current_reviewer_decision mismatch`)
   if (row.current_decision_status !== decision.decision_status) errors.push(`${prefix} current_decision_status mismatch`)
   const sourceMatchIds = itemMatchIds(item)
+  const duplicateReferenceIds = duplicates(row.reference_candidate_match_ids || [])
+  if (duplicateReferenceIds.length) {
+    errors.push(`${prefix} reference_candidate_match_ids must be unique: ${duplicateReferenceIds.join(', ')}`)
+  }
+  const duplicateReferenceObjects = duplicates((row.reference_candidate_matches || []).map(match => match.match_id))
+  if (duplicateReferenceObjects.length) {
+    errors.push(`${prefix} reference_candidate_matches must have unique match_id values: ${duplicateReferenceObjects.join(', ')}`)
+  }
   for (const matchId of row.reference_candidate_match_ids || []) {
     if (!sourceMatchIds.includes(matchId)) errors.push(`${prefix} reference match is not in source item: ${matchId}`)
   }
