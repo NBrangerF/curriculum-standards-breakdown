@@ -1699,9 +1699,25 @@ npm run textbooks:audit-h4g-theme-bridge-page-recovery -- \
 
 重跑 run-level unit index 后，English 的 page-start candidates 从 16 增至 20，其中 4 条来自 override；PE 的 page-start candidates 从 1 增至 2，其中 1 条来自 override。两个 unit index audit 均为 `valid=true`。
 
-重跑 theme bridge 全链路后，English/PE review packet 仍为 515 条 bridge candidates，但 page-ready bridge candidates 从 94 增至 226，缺页码 candidates 从 421 降至 289。Worklist 现在为 `source_review_ready=226`、`page_recovery_then_source_review=289`，优先级为 `P1=54`、`P2=172`、`P3=3`、`P4=286`。H4G8 的分布从 160 条全缺页码，变为 English `source_review_ready=110`、PE `source_review_ready=22`、English 剩余 `page_recovery_then_source_review=28`。新的 H4G8 page recovery batch 为 `valid=true`，只剩 28 条 work items、3 个 English recovery units。
+重跑 theme bridge 全链路后，English/PE review packet 仍为 515 条 bridge candidates，但 page-ready bridge candidates 从 94 增至 226，缺页码 candidates 从 421 降至 289。R1 后 worklist 为 `source_review_ready=226`、`page_recovery_then_source_review=289`，优先级为 `P1=54`、`P2=172`、`P3=3`、`P4=286`。H4G8 的分布从 160 条全缺页码，变为 English `source_review_ready=110`、PE `source_review_ready=22`、English 剩余 `page_recovery_then_source_review=28`。新的 H4G8 page recovery batch 为 `valid=true`，只剩 28 条 work items、3 个 English recovery units。
 
 P1 source review batch 也随之从 27 条扩展为 54 条：H4G7 27 条、H4G8 27 条；subject 分布为 English 40 条、PE 14 条。注意这仍只是 source review 输入，不是 approval；registry 重跑后仍为 `approved_bridges=0`，因为所有 decisions 仍是 `pending`。
+
+### 7.32 H4G8 R2/R3 页码恢复完成
+
+为清空 H4G8 剩余 page recovery，本轮继续恢复 R2/R3 的 3 个 English 单元，并写入 `scripts/textbooks/textbook_unit_page_start_overrides.json`：
+
+| textbook_evidence_id | 单元 | page_start | 证据 |
+| --- | --- | ---: | --- |
+| `ctb_0f2ed61a1c90` | `Unit 3 Language in use` | 6 | PDF page 13 正文标题 `Unit 3 Language in use`，同页页脚 6。 |
+| `ctb_f73a093e2c3d` | `Unit 1 It’s taller than many other buildings.` | 10 | Scope and sequence PDF page 5 列 Module 2 `P10`；PDF page 17 正文标题同页页脚 10。 |
+| `ctb_0f2ed61a1c90` | `Unit 1 It smells delicious.` | 2 | Scope and sequence PDF page 5 列 Module 1 `P2`；PDF page 9 正文标题同页页脚 2。 |
+
+局部 unit index audit 和 English run-level unit index audit 均为 `valid=true`。English page-start candidates 从 R1 后的 20 增至 23，新增 3 条来自 reviewed overrides。
+
+重跑 theme bridge 全链路后，515 条 bridge candidates 不变，但 page-ready bridge candidates 从 226 增至 254，缺页码 candidates 从 289 降至 261。Worklist 为 `source_review_ready=254`、`page_recovery_then_source_review=261`，优先级为 `P1=57`、`P2=197`、`P3=3`、`P4=258`。H4G8 已没有 page recovery 项：160 条全部进入 `source_review_ready`，其中 English 138 条、PE 22 条。新的 H4G8 page recovery batch 为 `valid=true` 且 `selected_work_items=0`，作为 H4G8 页码恢复完成的审计证据。
+
+P1 source review batch 现在为 57 条：H4G7 27 条、H4G8 30 条；subject 分布为 English 43 条、PE 14 条；全部 page-ready 且仍为 `pending`。Registry 仍为 `approved_bridges=0`，因为页码恢复不能替代 source review approval。
 
 ## 8. 当前边界
 

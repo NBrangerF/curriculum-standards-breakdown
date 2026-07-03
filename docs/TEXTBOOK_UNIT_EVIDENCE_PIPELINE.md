@@ -2444,7 +2444,7 @@ npm run textbooks:audit-h4g-theme-bridge-review -- \
   --require-candidates
 ```
 
-当前 English/PE review packet 结果为 `valid=true`：生成 60 个 unit theme items、95 个 progression theme items、515 个 bridge review candidates，其中 English 340 条、PE 175 条；全部 670 个 review items 都是 `needs_source_review`。audit 也为 `valid=true`，确认没有 public write、没有官方文本变更、没有未复核 eligible evidence、没有跨年级 same-grade candidate。当前仍有 421 条 bridge candidates 缺 page-ready evidence，后续不能进入 publication gate，必须先做页码补证据或 source review。
+初始 English/PE review packet 结果为 `valid=true`：生成 60 个 unit theme items、95 个 progression theme items、515 个 bridge review candidates，其中 English 340 条、PE 175 条；全部 670 个 review items 都是 `needs_source_review`。audit 也为 `valid=true`，确认没有 public write、没有官方文本变更、没有未复核 eligible evidence、没有跨年级 same-grade candidate。当时仍有 421 条 bridge candidates 缺 page-ready evidence，后续不能进入 publication gate，必须先做页码补证据或 source review。
 
 H4G subject theme bridge review decisions 的边界：`textbooks:h4g-theme-bridge-review-decisions` 和 `textbooks:audit-h4g-theme-bridge-review-decisions` 把 review packet 中的 bridge candidates 转成可编辑 source review 决策文件。它们不写 `public/data`、不改官方课标、不批准直接 matcher use；批准只表示该 bridge 已经过 source review，可作为后续 matcher gate 的输入候选。
 
@@ -2464,7 +2464,7 @@ npm run textbooks:audit-h4g-theme-bridge-review-decisions -- \
   --strict
 ```
 
-当前 decisions template 为 `valid=true`：515 条必需 source review decisions，English 340 条、PE 175 条；按年级为 `H4G7=216`、`H4G8=160`、`H4G9=139`；其中 94 条 page-ready、421 条缺页码。audit 为 `valid=true`，但 `source_review_complete=false`、`matcher_ready=false`、`publication_ready=false`，并提示 515 条仍 pending。真实复核完成后，可用 `--require-complete` 要求全部填写；如果本轮目标是 publication-page eligible bridge，还应加 `--require-page-ready-for-approval`。
+当前 decisions template 为 `valid=true`：515 条必需 source review decisions，English 340 条、PE 175 条；按年级为 `H4G7=216`、`H4G8=160`、`H4G9=139`；R2/R3 页码恢复后为 254 条 page-ready、261 条缺页码。audit 为 `valid=true`，但 `source_review_complete=false`、`matcher_ready=false`、`publication_ready=false`，并提示 515 条仍 pending。真实复核完成后，可用 `--require-complete` 要求全部填写；如果本轮目标是 publication-page eligible bridge，还应加 `--require-page-ready-for-approval`。
 
 H4G subject theme bridge review worklist 的边界：`textbooks:h4g-theme-bridge-review-worklist` 和 `textbooks:audit-h4g-theme-bridge-review-worklist` 只负责把 source review decisions 排成可执行队列。它们会暴露 page recovery、broad topic tag、unit overmatch、quality/performance standard 等风险，但不改变 decisions，不审批 bridge，也不启用 matcher。
 
@@ -2486,7 +2486,7 @@ npm run textbooks:audit-h4g-theme-bridge-review-worklist -- \
   --require-priority-one
 ```
 
-当前 worklist 为 `valid=true`：515 个 work items 全覆盖 decisions，其中 94 个 `source_review_ready`、421 个 `page_recovery_then_source_review`；优先级为 `P1=27`、`P2=67`、`P3=3`、`P4=418`。audit 为 `valid=true`，但警告 421 个 work items 进入 publication gate 前仍需 page recovery。复核建议先从 P1 且 page-ready 的项目开始，再处理 high fan-out unit 和 broad topic tag。
+当前 worklist 为 `valid=true`：515 个 work items 全覆盖 decisions；R2/R3 页码恢复后为 254 个 `source_review_ready`、261 个 `page_recovery_then_source_review`，优先级为 `P1=57`、`P2=197`、`P3=3`、`P4=258`。audit 为 `valid=true`，但仍警告 261 个 work items 进入 publication gate 前需 page recovery。H4G8 已无 page recovery 项，复核建议先从 P1 且 page-ready 的项目开始，再处理 high fan-out unit 和 broad topic tag。
 
 H4G subject theme bridge source review batch 的边界：`textbooks:h4g-theme-bridge-review-batch` 和 `textbooks:audit-h4g-theme-bridge-review-batch` 把 worklist 中某个可执行批次整理成审前阅读包。它会补齐 `public/data/by_subject` 中的官方标准原文、context、practice、teaching tip、assessment evidence type，以及单元页码和 topic/fan-out 风险；但 batch 不改变 source decisions，不批准 bridge，也不启用 matcher。
 
@@ -2540,7 +2540,9 @@ npm run textbooks:audit-h4g-theme-bridge-page-recovery -- \
 
 初始 H4G8 page recovery batch 为 `valid=true`：160 条 page-missing work items 聚合为 9 个 recovery units，English 8 个、PE 1 个，分布在 3 个教材文件。优先级为 `R1=5`、`R2=2`、`R3=1`、`R4=1`；R1 覆盖 `Unit 1 Let’s try to speak English as much`、`Unit 2 I feel nervous when I speak Chinese.`、`Unit 2 You should smile at her!`、`第三章 足球`、`Unit 3 Language in use`。audit 为 `valid=true`，但这些项目仍只是 page recovery tasks，不是 approved bridge。
 
-H4G8 R1 page recovery 已完成第一批 reviewed overrides：英语八上 3 个单元、英语八下 1 个单元、体育八年级全一册 1 个章节，共 5 条 `page_start`。证据均来自 PDF text layer 中的正文标题和页脚，体育同时有 TOC 页码与正文页脚互相确认。重跑 English/PE run-level unit index 后，English page-start candidates 从 16 增至 20，PE 从 1 增至 2；重跑 theme bridge packet 后，page-ready bridge candidates 从 94 增至 226，page-missing bridge candidates 从 421 降至 289。当前 H4G8 worklist 分布为 English `source_review_ready=110`、PE `source_review_ready=22`、English `page_recovery_then_source_review=28`；P1 source review batch 为 54 条，其中 H4G7 27 条、H4G8 27 条。
+H4G8 R1 page recovery 已完成第一批 reviewed overrides：英语八上 3 个单元、英语八下 1 个单元、体育八年级全一册 1 个章节，共 5 条 `page_start`。证据均来自 PDF text layer 中的正文标题和页脚，体育同时有 TOC 页码与正文页脚互相确认。重跑 English/PE run-level unit index 后，English page-start candidates 从 16 增至 20，PE 从 1 增至 2；重跑 theme bridge packet 后，page-ready bridge candidates 从 94 增至 226，page-missing bridge candidates 从 421 降至 289。R1 后 H4G8 worklist 分布为 English `source_review_ready=110`、PE `source_review_ready=22`、English `page_recovery_then_source_review=28`；P1 source review batch 为 54 条，其中 H4G7 27 条、H4G8 27 条。
+
+H4G8 R2/R3 page recovery 已完成剩余 3 个 English 单元：八下 `Unit 3 Language in use` page_start 6、八上 `Unit 1 It’s taller than many other buildings.` page_start 10、八下 `Unit 1 It smells delicious.` page_start 2。证据来自 Scope and sequence 的模块页码、PDF text layer 正文标题和同页页脚。重跑后，English page-start candidates 从 20 增至 23；theme bridge packet 的 page-ready bridge candidates 增至 254，page-missing bridge candidates 降至 261。H4G8 的 `page_recovery_then_source_review` 已归零，160 条全部进入 `source_review_ready`（English 138、PE 22）；最新 P1 source review batch 为 57 条，其中 H4G7 27 条、H4G8 30 条。
 
 H4G subject theme bridge registry 的边界：`textbooks:h4g-theme-bridge-registry` 和 `textbooks:audit-h4g-theme-bridge-registry` 是 matcher 前的 approved bridge 导出 gate。它们只读取 approved source review decisions；pending、rejected、needs_revision 都不会进入 registry。registry 仍只写 generated artifact，不写 `public/data`，也不代表 publication ready。
 

@@ -161,7 +161,7 @@ npm run textbooks:audit-h4g-theme-bridge-review -- \
 | page-ready bridge candidates | 94 |
 | standards without bridge candidates | 64 |
 
-审计结果为 `valid=true`。所有 review items 都是 `needs_source_review`，且 `eligible_for_h4g_differentiation=false`、`writes_public_data=false`、`changes_official_standard_text=false`。当前 421 条 bridge candidates 缺 page-ready evidence，只能作为 review queue，不能进入 publication gate。
+初始审计结果为 `valid=true`。所有 review items 都是 `needs_source_review`，且 `eligible_for_h4g_differentiation=false`、`writes_public_data=false`、`changes_official_standard_text=false`。当时 421 条 bridge candidates 缺 page-ready evidence，只能作为 review queue，不能进入 publication gate。
 
 已新增 source review decisions 模板和审计 gate：
 
@@ -203,7 +203,7 @@ npm run textbooks:audit-h4g-theme-bridge-review-worklist -- \
   --require-priority-one
 ```
 
-当前 worklist 覆盖 515 条 decisions：94 条为 `source_review_ready`，421 条为 `page_recovery_then_source_review`；优先级为 `P1=27`、`P2=67`、`P3=3`、`P4=418`。audit 为 `valid=true`，并明确警告 421 条 item 进入 publication gate 前仍需 page recovery。该队列只用于复核排序，不代表 source review complete、matcher ready 或 publication ready。
+初始 worklist 覆盖 515 条 decisions：94 条为 `source_review_ready`，421 条为 `page_recovery_then_source_review`；优先级为 `P1=27`、`P2=67`、`P3=3`、`P4=418`。audit 为 `valid=true`，并明确警告 421 条 item 进入 publication gate 前仍需 page recovery。该队列只用于复核排序，不代表 source review complete、matcher ready 或 publication ready。
 
 已新增 P1 source review batch，把最适合先审的 page-ready items 补齐为审前阅读包：
 
@@ -257,7 +257,9 @@ npm run textbooks:audit-h4g-theme-bridge-page-recovery -- \
 
 初始 H4G8 page recovery batch 为 `valid=true`：160 条缺页码 work items 聚合为 9 个教材单元，English 8 个、PE 1 个，覆盖 3 个教材文件。R1 优先级有 5 个单元，先恢复这些 printed page start 能最大幅度打开 H4G8 source review 面。batch 只提供 override 模板，不填 page_start，不批准 bridge；真实页码证据应进入 `scripts/textbooks/textbook_unit_page_start_overrides.json` 后再重跑 unit index、review packet、decisions/worklist 和 source review batch。
 
-R1 页码恢复已完成第一批写入：`scripts/textbooks/textbook_unit_page_start_overrides.json` 新增 5 条 reviewed overrides，覆盖 English 八上 `Unit 1 Let’s try to speak English as much`、`Unit 2 You should smile at her!`、`Unit 3 Language in use`，English 八下 `Unit 2 I feel nervous when I speak Chinese.`，以及 PE 八年级全一册 `第三章 足球`。这些页码均由正文标题和页脚，或 TOC + 正文页脚共同确认。重跑后，review packet 的 page-ready bridge candidates 从 94 增至 226，缺页码 candidates 从 421 降至 289；H4G8 现在有 132 条 `source_review_ready`（English 110、PE 22），剩余 28 条 page recovery 聚合为 3 个 English 单元。P1 source review batch 也从 27 条扩展到 54 条，其中 H4G7 27 条、H4G8 27 条。
+R1 页码恢复已完成第一批写入：`scripts/textbooks/textbook_unit_page_start_overrides.json` 新增 5 条 reviewed overrides，覆盖 English 八上 `Unit 1 Let’s try to speak English as much`、`Unit 2 You should smile at her!`、`Unit 3 Language in use`，English 八下 `Unit 2 I feel nervous when I speak Chinese.`，以及 PE 八年级全一册 `第三章 足球`。这些页码均由正文标题和页脚，或 TOC + 正文页脚共同确认。重跑后，review packet 的 page-ready bridge candidates 从 94 增至 226，缺页码 candidates 从 421 降至 289；R1 后 H4G8 有 132 条 `source_review_ready`（English 110、PE 22），剩余 28 条 page recovery 聚合为 3 个 English 单元。P1 source review batch 也从 27 条扩展到 54 条，其中 H4G7 27 条、H4G8 27 条。
+
+R2/R3 页码恢复继续补齐剩余 3 个 H4G8 English 单元：八下 `Unit 3 Language in use` page_start 6、八上 `Unit 1 It’s taller than many other buildings.` page_start 10、八下 `Unit 1 It smells delicious.` page_start 2。证据来自 Scope and sequence 的模块页码、PDF text layer 中的正文标题和同页页脚。重跑后，English page-start candidates 从 20 增至 23；review packet 的 page-ready bridge candidates 增至 254，缺页码 candidates 降至 261。H4G8 的 `page_recovery_then_source_review` 已归零，160 条全部进入 `source_review_ready`（English 138、PE 22）。最新 P1 source review batch 为 57 条，其中 H4G7 27 条、H4G8 30 条；English 43 条、PE 14 条。所有 decisions 仍是 `pending`，所以这只是 source review 入口打开，不是 bridge approval。
 
 已新增 approved bridge registry 和 matcher 接口：
 
