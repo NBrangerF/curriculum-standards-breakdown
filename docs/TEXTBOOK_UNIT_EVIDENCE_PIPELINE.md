@@ -2646,6 +2646,8 @@ H4G subject theme bridge progression matrix 的边界：`textbooks:h4g-theme-bri
 
 H4G subject theme bridge remediation recommendation 的边界：`textbooks:h4g-theme-bridge-remediation-recommendations` 读取已完成 source review 的 decisions 和 remediation packet，只允许把指定 `needs_revision` action family 推进为更明确的 rejection；它不新增 approval，不写 `public/data`，不改官方课标文本，也不启用 matcher。当前两轮已处理 `english_language_use_requires_function_anchor` 与 `pe_quality_or_performance_requires_curriculum_progression_review`：110 条 `Language in use` title-only bridge 和 16 条 PE 学业质量/表现类 direct bridge 被 reject，决策分布变为 approved 18、rejected 209、needs_revision 288、pending 0。下游 registry 仍为 18 条 approved bridges；新的 remediation packet 精确覆盖 288 条 needs_revision，新的 progression matrix 精确覆盖 64 个 source groups，仍 `complete_h4g_triplet_approved_groups=0`。
 
+H4G subject theme bridge anchor review batch 的边界：`textbooks:h4g-theme-bridge-anchor-review-batch` 和 `textbooks:audit-h4g-theme-bridge-anchor-review-batch` 读取最新 288 条 needs_revision remediation packet 与 64 组 progression matrix，把宽主题问题转成 5 类回源锚点审阅：English speech function/discourse 140 条、English cultural objective 48 条、English learning strategy/language knowledge 27 条、PE movement skill/fitness/sportsmanship 38 条、PE health behavior/load management 35 条。batch/audit 为 `valid=true`，`missing_remediation_items=0`、`extra_anchor_review_items=0`，但它仍不生成 reviewer decision、不扩大 approved registry、不启用 matcher。
+
 H4G subject theme bridge source review recommendation 的边界：`textbooks:h4g-theme-bridge-review-recommendations` 读取一个 decisions template 和一个 source review batch，生成新的 reviewed decision candidate 文件。它只更新 batch 内出现的 decisions；未进入 batch 的 rows 保持 `pending`。该命令可以用于 Codex/规则化第一轮复核，但它仍不写 `public/data`、不改官方课标文本、不让系统 publication-ready。
 
 ```bash

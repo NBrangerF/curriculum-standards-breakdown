@@ -390,6 +390,15 @@ after-P2 页码恢复已完成一批 reviewed overrides：`scripts/textbooks/tex
 
 已执行两轮 remediation decision recommendation：第一轮只处理 item-level `english_language_use_requires_function_anchor`，把 110 条 title-only `Unit 3 Language in use` bridge 从 `needs_revision` 推进为 `reject_subject_theme_bridge`；第二轮处理 `pe_quality_or_performance_requires_curriculum_progression_review`，把 16 条 PE 学业质量/表现类 direct bridge 从 `needs_revision` 推进为 `reject_subject_theme_bridge`。新的 decisions audit 在 `--require-complete --require-page-ready-for-approval` 下为 `valid=true`：approved 18、rejected 209、needs_revision 288、pending 0，且 `source_review_complete=true`。基于该 decisions 重建的 registry 仍为 18 条 approved bridges；新的 remediation packet/audit 为 `valid=true`，剩余 288 条 needs_revision，覆盖 120 条 standards、64 个 progression groups；新的 progression matrix/audit 也为 `valid=true`，`missing_source_groups=0`、`extra_matrix_groups=0`、`complete_h4g_triplet_approved_groups=0`。原先的 generic Language in use title bridge blocked track 和 PE curriculum progression review required track 均已清空；剩余项集中在 `english_source_anchor_model_required`、`pe_source_anchor_model_required`、partial approved grade completion 和 single/partial-grade publication gates。
 
+已新增 source-anchor review batch，把剩余 288 条 needs_revision 转成可执行回源审阅项，而不是继续自动扩大 approved registry：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-review-batch -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-review-batch -- --strict --require-items
+```
+
+该 batch/audit 均为 `valid=true`，且 `missing_remediation_items=0`、`extra_anchor_review_items=0`。它覆盖 120 条 standards、64 个 progression groups，所有 288 条均 page-ready，但仍保持 `publication_ready=false`、`matcher_ready=false`。5 个 anchor 类型分别是 English speech function/discourse 140 条、English cultural objective 48 条、English learning strategy/language knowledge 27 条、PE movement skill/fitness/sportsmanship 38 条、PE health behavior/load management 35 条。它的用途是让 reviewer 判断“有没有具体功能/目标/技能/行为锚点”，不能直接替代 source review decision，也不能写入 `public/data`。
+
 ## 8. 当前结论
 
 English/PE 现在不是 H4G 分组失败，也不是目录解析完全失败。真正问题是标准能力项与教材主题标题之间缺少受控、可复核、学科化的桥接层。下一阶段的质量目标不是提高 match 数量，而是让每一个 match 都能解释：
