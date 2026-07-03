@@ -551,6 +551,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 downstream source-anchor evidence batch 为 `valid=true`，audit 结果为 `valid=true`：168 条 source-anchor evidence items 精确覆盖 168 条 expected work items，missing/extra 均为 0，`unique_source_keys=168`。其中 child split 116 条、source-anchor specificity 52 条；H4G7/H4G8/H4G9 为 50/76/42，English/PE 为 144/24，P1/P2 为 96/72。该层只允许后续在 editable downstream decisions 中记录 `accept_bounded_slice_for_item_level_source_review`、继续 `needs_source_anchor_evidence` 或 `reject_slice_as_overbroad`；仍不修改 downstream decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+在 source-anchor evidence batch 后，新增 read-only source-anchor evidence inventory，把 168 条单源证据的风险结构标准化，供后续人工 exact-anchor review 使用：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-source-anchor-evidence-inventory -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-source-anchor-evidence-inventory -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_anchor_evidence_inventory_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_anchor_evidence_inventory_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_anchor_evidence_inventory_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_anchor_evidence_inventory_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 inventory 为 `valid=true`，audit 结果为 `valid=true`：168 条 inventory items 与 source-anchor evidence batch、downstream action decisions 一一对应，expected/audited 为 168/168，missing/extra 均为 0。所有 168 条仍需人工 exact-anchor review；其中 157 条 low bridge score，49 条落入 generic/deny-term 或 broad-topic 风险，116 条多 source/多 unit scope 尚未关闭，3 条需要 fan-out review。该层只提供风险 inventory，不写 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 新增 downstream action coverage audit，将 downstream worklist 的 201 条 work items 与 5 个后续执行 batch 做完整性与互斥性校验：
 
 ```bash
