@@ -155,6 +155,7 @@ function unitEvidenceFromMatch(match) {
     subdomain_alignment: match.subdomain_alignment,
     alias_alignment: match.alias_alignment || null,
     field_alignment: match.field_alignment,
+    subject_theme_bridge_alignment: match.subject_theme_bridge_alignment || null,
     eligible_alignment: match.eligible_alignment,
     rationale: match.rationale
   }
@@ -191,6 +192,7 @@ function unitKeywords(units) {
     keywords.push(...(unit.matched_keywords || []))
     keywords.push(...(unit.alias_alignment?.matched_terms || []))
     keywords.push(...(unit.field_alignment?.matched_keywords || []))
+    keywords.push(...(unit.subject_theme_bridge_alignment?.matched_topic_tags || []))
   }
   return [...new Set(keywords.filter(Boolean))]
 }
@@ -271,7 +273,10 @@ function groupEligible(matches) {
   const groups = new Map()
   for (const match of matches || []) {
     if (!match.eligible_for_h4g_differentiation) continue
-    if (!match.subdomain_alignment?.matched && !match.alias_alignment?.matched && !match.field_alignment?.matched) continue
+    if (!match.subdomain_alignment?.matched &&
+        !match.alias_alignment?.matched &&
+        !match.field_alignment?.matched &&
+        !match.subject_theme_bridge_alignment?.matched) continue
     if (match.candidate_type !== 'toc_unit_or_chapter') continue
     const key = match.standard_code
     if (!groups.has(key)) groups.set(key, [])

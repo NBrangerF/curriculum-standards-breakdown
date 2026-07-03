@@ -179,9 +179,10 @@ function auditMatch(match, standardCodes, unitMap, errors, warnings, stats) {
     match.eligible_for_h4g_differentiation &&
     !match.subdomain_alignment?.matched &&
     !match.alias_alignment?.matched &&
-    !match.field_alignment?.matched
+    !match.field_alignment?.matched &&
+    !match.subject_theme_bridge_alignment?.matched
   ) {
-    errors.push(`${match.match_id} is eligible without subdomain anchor, reviewed alias anchor, or strong field alignment`)
+    errors.push(`${match.match_id} is eligible without subdomain anchor, reviewed alias anchor, strong field alignment, or reviewed subject theme bridge`)
   }
   if (match.eligible_for_h4g_differentiation && match.eligible_alignment === 'reviewed_alias_anchor') {
     if (!match.alias_alignment?.matched) {
@@ -200,6 +201,17 @@ function auditMatch(match, standardCodes, unitMap, errors, warnings, stats) {
     }
     if (!Array.isArray(match.field_alignment.matched_keywords) || !match.field_alignment.matched_keywords.length) {
       errors.push(`${match.match_id} strong field alignment missing matched_keywords`)
+    }
+  }
+  if (match.eligible_for_h4g_differentiation && match.eligible_alignment === 'reviewed_subject_theme_bridge') {
+    if (!match.subject_theme_bridge_alignment?.matched) {
+      errors.push(`${match.match_id} reviewed_subject_theme_bridge missing subject_theme_bridge_alignment.matched`)
+    }
+    if (!Array.isArray(match.subject_theme_bridge_alignment?.matched_topic_tags) || !match.subject_theme_bridge_alignment.matched_topic_tags.length) {
+      errors.push(`${match.match_id} reviewed_subject_theme_bridge requires matched_topic_tags`)
+    }
+    if (!Array.isArray(match.subject_theme_bridge_alignment?.reviewed_bridges) || !match.subject_theme_bridge_alignment.reviewed_bridges.length) {
+      errors.push(`${match.match_id} reviewed_subject_theme_bridge requires reviewed_bridges`)
     }
   }
   if (match.eligible_for_h4g_differentiation && match.confidence_band === 'low') {

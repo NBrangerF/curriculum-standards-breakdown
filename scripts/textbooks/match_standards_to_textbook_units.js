@@ -8,6 +8,7 @@ const DEFAULT_UNIT_INDEX = 'generated/textbook_evidence/textbook_unit_index.json
 const DEFAULT_OUT = 'generated/textbook_evidence/textbook_unit_standard_matches.json'
 const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/textbook_unit_standard_matches_summary.md'
 const DEFAULT_ALIGNMENT_ALIASES = 'scripts/textbooks/textbook_unit_alignment_aliases.json'
+const DEFAULT_SUBJECT_THEME_BRIDGES = 'generated/textbook_evidence/h4g_subject_theme_bridge_registry.json'
 const DEFAULT_MIN_SCORE = 0.3
 const DEFAULT_ELIGIBLE_SCORE = 0.55
 const DEFAULT_MAX_MATCHES = 5
@@ -65,7 +66,9 @@ function parseArgs(argv) {
     maxMatches: DEFAULT_MAX_MATCHES,
     includeVolumeSeeds: false,
     alignmentAliases: DEFAULT_ALIGNMENT_ALIASES,
-    useAlignmentAliases: true
+    useAlignmentAliases: true,
+    subjectThemeBridges: DEFAULT_SUBJECT_THEME_BRIDGES,
+    useSubjectThemeBridges: true
   }
   for (let i = 0; i < argv.length; i += 1) {
     const item = argv[i]
@@ -81,6 +84,8 @@ function parseArgs(argv) {
     else if (item === '--include-volume-seeds') args.includeVolumeSeeds = true
     else if (item === '--alignment-aliases') args.alignmentAliases = argv[++i]
     else if (item === '--no-alignment-aliases') args.useAlignmentAliases = false
+    else if (item === '--subject-theme-bridges') args.subjectThemeBridges = argv[++i]
+    else if (item === '--no-subject-theme-bridges') args.useSubjectThemeBridges = false
     else if (item === '--help') args.help = true
   }
   return args
@@ -95,7 +100,9 @@ node scripts/textbooks/match_standards_to_textbook_units.js \\
 Builds explainable candidate matches from H4G standards to textbook
 toc_unit_or_chapter candidates. File-level volume_seed records are ignored by
 default because they are not unit-level evidence. Reviewed alignment aliases are
-standard-scoped by default; use --no-alignment-aliases to disable them.`)
+standard-scoped by default; use --no-alignment-aliases to disable them. Reviewed
+subject-theme bridges are loaded only from an approved generated registry and
+can be disabled with --no-subject-theme-bridges.`)
 }
 
 function splitArg(value) {
@@ -324,6 +331,32 @@ function loadAlignmentAliases(args) {
   return aliases
 }
 
+function loadSubjectThemeBridgeRegistry(args, warnings) {
+  if (!args.useSubjectThemeBridges) return { byStandard: new Map(), byGroup: new Map(), loaded: 0, source: null }
+  const payload = readOptionalJson(args.subjectThemeBridges)
+  if (!payload) return { byStandard: new Map(), byGroup: new Map(), loaded: 0, source: args.subjectThemeBridges }
+  if (payload.valid !== true || payload.purpose !== 'h4g_reviewed_subject_theme_bridge_registry') {
+    warnings.push(`Ignoring invalid subject theme bridge registry: ${args.subjectThemeBridges}`)
+    return { byStandard: new Map(), byGroup: new Map(), loaded: 0, source: args.subjectThemeBridges }
+  }
+  const byStandard = new Map()
+  const byGroup = new Map()
+  for (const bridge of payload.bridges || []) {
+    if (bridge.eligible_alignment !== 'reviewed_subject_theme_bridge') continue
+    if (bridge.scope_type === 'standard_code' && bridge.standard_code) {
+      byStandard.set(bridge.standard_code, [...(byStandard.get(bridge.standard_code) || []), bridge])
+    } else if (bridge.scope_type === 'progression_group' && bridge.progression_group_id) {
+      byGroup.set(bridge.progression_group_id, [...(byGroup.get(bridge.progression_group_id) || []), bridge])
+    }
+  }
+  return {
+    byStandard,
+    byGroup,
+    loaded: [...byStandard.values(), ...byGroup.values()].reduce((sum, rows) => sum + rows.length, 0),
+    source: args.subjectThemeBridges
+  }
+}
+
 function reviewedAliasAlignment(standard, unit, aliasIndex) {
   const rows = aliasIndex.get(standard.code) || []
   const unitTitle = compactText(unit.unit_title)
@@ -355,6 +388,50 @@ function reviewedAliasAlignment(standard, unit, aliasIndex) {
     alias_file: matched[0]?.alias_file || '',
     matched_terms: matchedTerms,
     reviewed_aliases: matched
+  }
+}
+
+function reviewedSubjectThemeBridgeAlignment(standard, unit, bridgeIndex) {
+  const rows = [
+    ...(bridgeIndex.byStandard.get(standard.code) || []),
+    ...(bridgeIndex.byGroup.get(standard.progression_group_id || '') || [])
+  ]
+  const matched = []
+  for (const row of rows) {
+    if (row.subject_slug && row.subject_slug !== standard.subject_slug) continue
+    if (row.grade_band && row.grade_band !== standard.grade_band) continue
+    if (row.unit_grade_band && row.unit_grade_band !== unit.grade_band) continue
+    if (row.unit_evidence_id && row.unit_evidence_id !== unit.unit_evidence_id) continue
+    if (row.textbook_evidence_id && row.textbook_evidence_id !== unit.textbook_evidence_id) continue
+    if (row.edition && row.edition !== unit.edition) continue
+    matched.push({
+      bridge_id: row.bridge_id || '',
+      source_decision_id: row.source_decision_id || '',
+      source_review_id: row.source_review_id || '',
+      scope_type: row.scope_type || '',
+      reviewer_decision: row.reviewer_decision || '',
+      reviewed_at: row.reviewed_at || '',
+      reviewed_by: row.reviewed_by || '',
+      decision_note: row.decision_note || '',
+      matcher_score: row.matcher_score || 0.56,
+      shared_topic_tags: row.shared_topic_tags || [],
+      standard_topic_tags: row.standard_topic_tags || [],
+      unit_topic_tags: row.unit_topic_tags || [],
+      page_ready: row.page_ready === true,
+      page_range_status: row.page_range_status || '',
+      publication_policy: row.publication_policy || {}
+    })
+  }
+  const topicTags = [...new Set(matched.flatMap(row => row.shared_topic_tags || []))]
+    .sort((a, b) => a.localeCompare(b))
+  return {
+    required: false,
+    matched: matched.length > 0,
+    policy: 'approved_subject_theme_bridge_registry',
+    bridge_registry: bridgeIndex.source || '',
+    matched_topic_tags: topicTags,
+    reviewed_bridges: matched,
+    matcher_score: Math.max(...matched.map(row => Number(row.matcher_score || 0.56)), 0.56)
   }
 }
 
@@ -492,7 +569,27 @@ function groupUnits(units) {
   return bySubjectGrade
 }
 
-function buildMatches(standards, unitsBySubjectGrade, args, aliasIndex) {
+function bridgeMatchedFields(themeBridgeAlignment) {
+  return (themeBridgeAlignment.matched_topic_tags || []).map(tag => ({
+    field: 'subject_theme_bridge',
+    keyword: tag,
+    field_excerpt: 'approved subject theme bridge registry'
+  }))
+}
+
+function bridgeMatchedKeywords(scoredMatch, themeBridgeAlignment) {
+  return [...new Set([
+    ...(scoredMatch.matched_keywords || []),
+    ...(themeBridgeAlignment.matched_topic_tags || [])
+  ])].sort((a, b) => a.localeCompare(b)).slice(0, 40)
+}
+
+function effectiveScore(scoredMatch, themeBridgeAlignment) {
+  if (!themeBridgeAlignment.matched) return scoredMatch.score
+  return Number(Math.max(scoredMatch.score, themeBridgeAlignment.matcher_score || DEFAULT_ELIGIBLE_SCORE).toFixed(4))
+}
+
+function buildMatches(standards, unitsBySubjectGrade, args, aliasIndex, bridgeIndex) {
   const matches = []
   const unmatchedStandards = []
   for (const standard of standards) {
@@ -501,12 +598,18 @@ function buildMatches(standards, unitsBySubjectGrade, args, aliasIndex) {
     const scored = []
     for (const unit of candidates) {
       const scoredMatch = scoreMatch(standard, unit)
-      if (scoredMatch.score < args.minScore) continue
       const alignment = subdomainAlignment(standard, unit)
       const fieldAlignment = strongFieldAlignment(standard, unit, scoredMatch, args)
       const aliasAlignment = reviewedAliasAlignment(standard, unit, aliasIndex)
-      const eligibleAlignment = alignment.matched || aliasAlignment.matched || fieldAlignment.matched
-      const eligible = unit.candidate_type === 'toc_unit_or_chapter' && scoredMatch.score >= args.eligibleScore && eligibleAlignment
+      const themeBridgeAlignment = reviewedSubjectThemeBridgeAlignment(standard, unit, bridgeIndex)
+      if (scoredMatch.score < args.minScore && !themeBridgeAlignment.matched) continue
+      const score = effectiveScore(scoredMatch, themeBridgeAlignment)
+      const eligibleAlignment = alignment.matched || aliasAlignment.matched || fieldAlignment.matched || themeBridgeAlignment.matched
+      const eligible = unit.candidate_type === 'toc_unit_or_chapter' && score >= args.eligibleScore && eligibleAlignment
+      const matchedKeywords = themeBridgeAlignment.matched ? bridgeMatchedKeywords(scoredMatch, themeBridgeAlignment) : scoredMatch.matched_keywords
+      const matchedFields = themeBridgeAlignment.matched
+        ? [...scoredMatch.matched_fields, ...bridgeMatchedFields(themeBridgeAlignment)]
+        : scoredMatch.matched_fields
       scored.push({
         match_id: `ctm_${hashText(`${standard.code}|${unit.unit_evidence_id}`, 14)}`,
         standard_code: standard.code,
@@ -534,16 +637,20 @@ function buildMatches(standards, unitsBySubjectGrade, args, aliasIndex) {
         toc_raw_line: unit.toc_raw_line || '',
         toc_source_order: unit.toc_source_order ?? null,
         pdf_page_hint: unit.pdf_page_hint ?? null,
-        score: scoredMatch.score,
-        confidence_band: confidenceBand(scoredMatch.score),
-        match_type: 'textbook_unit_candidate_keyword',
-        matched_keywords: scoredMatch.matched_keywords,
-        matched_fields: scoredMatch.matched_fields,
+        score,
+        keyword_score: scoredMatch.score,
+        confidence_band: confidenceBand(score),
+        match_type: themeBridgeAlignment.matched ? 'textbook_unit_candidate_subject_theme_bridge' : 'textbook_unit_candidate_keyword',
+        matched_keywords: matchedKeywords,
+        matched_fields: dedupeMatchedFields(matchedFields).slice(0, 30),
         subdomain_alignment: alignment,
         alias_alignment: aliasAlignment,
         field_alignment: fieldAlignment,
-        eligible_alignment: alignment.matched ? 'subdomain_anchor' : aliasAlignment.matched ? 'reviewed_alias_anchor' : fieldAlignment.matched ? 'strong_field_alignment' : 'none',
-        rationale: scoredMatch.rationale,
+        subject_theme_bridge_alignment: themeBridgeAlignment,
+        eligible_alignment: alignment.matched ? 'subdomain_anchor' : aliasAlignment.matched ? 'reviewed_alias_anchor' : fieldAlignment.matched ? 'strong_field_alignment' : themeBridgeAlignment.matched ? 'reviewed_subject_theme_bridge' : 'none',
+        rationale: themeBridgeAlignment.matched
+          ? `Approved subject-theme bridge matched topic tag(s): ${themeBridgeAlignment.matched_topic_tags.join(', ')}. Keyword score before bridge: ${scoredMatch.score}.`
+          : scoredMatch.rationale,
         eligible_for_h4g_differentiation: eligible,
         requires_review: true
       })
@@ -660,7 +767,8 @@ function main() {
   const { payload: unitPayload, units } = loadUnits(args, warnings)
   const unitsBySubjectGrade = groupUnits(units)
   const aliasIndex = loadAlignmentAliases(args)
-  const { matches, unmatchedStandards } = buildMatches(standards, unitsBySubjectGrade, args, aliasIndex)
+  const bridgeIndex = loadSubjectThemeBridgeRegistry(args, warnings)
+  const { matches, unmatchedStandards } = buildMatches(standards, unitsBySubjectGrade, args, aliasIndex, bridgeIndex)
   const summary = summarize(standards, units, matches, unmatchedStandards, warnings)
   const output = {
     generated_at: new Date().toISOString(),
@@ -673,9 +781,11 @@ function main() {
       max_matches_per_standard: args.maxMatches,
       include_volume_seeds: args.includeVolumeSeeds,
       eligible_candidate_type: 'toc_unit_or_chapter',
-      eligible_requires_alignment: 'subdomain_anchor_or_reviewed_alias_anchor_or_strong_field_alignment',
+      eligible_requires_alignment: 'subdomain_anchor_or_reviewed_alias_anchor_or_strong_field_alignment_or_reviewed_subject_theme_bridge',
       alignment_aliases: args.useAlignmentAliases ? args.alignmentAliases : null,
       alignment_aliases_loaded: [...aliasIndex.values()].reduce((sum, rows) => sum + rows.length, 0),
+      subject_theme_bridges: args.useSubjectThemeBridges ? args.subjectThemeBridges : null,
+      subject_theme_bridges_loaded: bridgeIndex.loaded,
       reviewed_alias_alignment_policy: {
         scope: 'standard_code',
         optional_filters: ['subject_slug', 'grade_band', 'editions', 'unit_titles'],
@@ -687,6 +797,13 @@ function main() {
         min_han_keyword_chars: FIELD_ALIGNMENT_MIN_HAN_CHARS,
         required_fields: ['standard'],
         min_evidence_fields: 2
+      },
+      reviewed_subject_theme_bridge_policy: {
+        source_file: args.subjectThemeBridges,
+        eligible_alignment: 'reviewed_subject_theme_bridge',
+        required_scope: 'standard_code_or_progression_group',
+        source_review_required: true,
+        publication_gate_still_required: true
       }
     },
     summary,

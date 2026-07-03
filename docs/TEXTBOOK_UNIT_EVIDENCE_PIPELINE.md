@@ -503,7 +503,8 @@ generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_cle
 | `subdomain_alignment` | 单元标题是否命中标准 `subdomain` 锚点。 |
 | `alias_alignment` | 标准级、已复核 alias 是否命中；只来自 `scripts/textbooks/textbook_unit_alignment_aliases.json`，不能当作全局同义词。 |
 | `field_alignment` | 当 `subdomain` 是科学编号内容项且标题不逐字命中时，记录是否由强标准字段概念词命中补足。 |
-| `eligible_alignment` | `subdomain_anchor`、`reviewed_alias_anchor`、`strong_field_alignment` 或 `none`。 |
+| `subject_theme_bridge_alignment` | 当 approved subject-theme bridge registry 命中时，记录 bridge id、source decision、matched topic tags 和 page readiness。 |
+| `eligible_alignment` | `subdomain_anchor`、`reviewed_alias_anchor`、`strong_field_alignment`、`reviewed_subject_theme_bridge` 或 `none`。 |
 | `rationale` | 可读匹配理由。 |
 | `eligible_for_h4g_differentiation` | 是否达到后续 H4G 分化候选证据门槛。 |
 | `requires_review` | 当前一律为 true。 |
@@ -2486,6 +2487,26 @@ npm run textbooks:audit-h4g-theme-bridge-review-worklist -- \
 ```
 
 当前 worklist 为 `valid=true`：515 个 work items 全覆盖 decisions，其中 94 个 `source_review_ready`、421 个 `page_recovery_then_source_review`；优先级为 `P1=27`、`P2=67`、`P3=3`、`P4=418`。audit 为 `valid=true`，但警告 421 个 work items 进入 publication gate 前仍需 page recovery。复核建议先从 P1 且 page-ready 的项目开始，再处理 high fan-out unit 和 broad topic tag。
+
+H4G subject theme bridge registry 的边界：`textbooks:h4g-theme-bridge-registry` 和 `textbooks:audit-h4g-theme-bridge-registry` 是 matcher 前的 approved bridge 导出 gate。它们只读取 approved source review decisions；pending、rejected、needs_revision 都不会进入 registry。registry 仍只写 generated artifact，不写 `public/data`，也不代表 publication ready。
+
+```bash
+npm run textbooks:h4g-theme-bridge-registry -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --decisions-audit generated/textbook_evidence/h4g_theme_bridge_review_decisions_audit_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_registry_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_registry_english_pe.md \
+  --strict
+
+npm run textbooks:audit-h4g-theme-bridge-registry -- \
+  --registry generated/textbook_evidence/h4g_theme_bridge_registry_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_registry_audit_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_registry_audit_english_pe.md \
+  --strict
+```
+
+当前 English/PE 全部 decisions 仍为 pending，因此 registry 为 `valid=true`、`approved_bridges=0`。`match_standards_to_textbook_units.js` 已支持读取 approved registry：命中后会输出 `eligible_alignment=reviewed_subject_theme_bridge` 和 `subject_theme_bridge_alignment`；registry 为空时不改变现有匹配结果。临时正向验证显示：1 条 approved standard-scoped bridge 可生成 1 条 English eligible match，并能进入 H4G candidate/audit；但如果 page_start 缺失，candidate audit 仍会警告，`--require-page-start` 或 publication page gate 仍可继续拦截。
 
 ## 10. 下一步
 

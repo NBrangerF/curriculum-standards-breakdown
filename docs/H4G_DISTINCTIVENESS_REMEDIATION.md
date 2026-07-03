@@ -1595,6 +1595,30 @@ npm run textbooks:audit-h4g-theme-bridge-review-worklist -- \
 
 这个 worklist 是执行层，不是审批层：P1 只表示“最适合先审”，不表示 bridge 已批准。下一步 source reviewer 应先处理 P1/page-ready 条目，并对 high fan-out units（例如 English 的 `Language in use`、PE 的球类章节）保持 standard-scoped 审核，防止主题桥接扩散成泛 alias。
 
+### 7.28 Approved bridge registry 与 matcher 接口
+
+为了让真实 source review 完成后可以进入 matcher，同时防止 pending bridge 被误用，本轮新增 approved bridge registry：
+
+```bash
+npm run textbooks:h4g-theme-bridge-registry -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --decisions-audit generated/textbook_evidence/h4g_theme_bridge_review_decisions_audit_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_registry_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_registry_english_pe.md \
+  --strict
+
+npm run textbooks:audit-h4g-theme-bridge-registry -- \
+  --registry generated/textbook_evidence/h4g_theme_bridge_registry_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_registry_audit_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_registry_audit_english_pe.md \
+  --strict
+```
+
+当前正式 decisions 全部 pending，因此 registry 为 `valid=true`、`approved_bridges=0`。这正是预期状态：没有 source review 批准，就不会有任何 theme bridge 进入 matcher。
+
+同时，`match_standards_to_textbook_units.js` 已新增 `reviewed_subject_theme_bridge` alignment 通道。该通道只读取 approved registry，并把证据写入 `subject_theme_bridge_alignment`；`audit_textbook_standard_matches.js` 和 `audit_h4g_unit_evidence_candidate.js` 已同步要求该 alignment 必须带 matched topic tags 和 reviewed bridge 记录。临时正向验证显示，1 条 approved standard-scoped bridge 可生成 1 条 English eligible match 和 1 条 H4G candidate；但该示例缺 page_start，所以仍被候选审计警告，后续 publication page gate 不会被绕过。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：
