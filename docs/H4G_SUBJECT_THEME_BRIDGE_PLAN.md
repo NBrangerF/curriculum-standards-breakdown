@@ -169,6 +169,30 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_decision_recommendatio
 
 当前 recommendation 结果为 `valid=true`，覆盖 52 个 pending group：43 个建议先 `split_or_refine_group_scope`，9 个建议先 `needs_source_anchor_evidence`。没有任何 group 被建议直接视为 matcher-ready 或 publication-ready。
 
+为了把 recommendation 变成可执行审阅面，新增 anchor group action worklist：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-worklist -- --strict --require-groups
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_action_worklist_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_action_worklist_anchor_domain_rejected_english_pe.md
+```
+
+该 worklist 会读取完整的 219 条 anchor review item，把 52 个 group 展开成两类工作路径：
+
+| work path | 用途 |
+| --- | --- |
+| `split_scope_before_item_review` | 对 fan-out 或 mixed anchor/action family 的 group，按 `standard_code + grade_band + action_family + anchor_type` 拆成 bounded slices。 |
+| `source_anchor_evidence_gap_review` | 对缺年级槽位或弱证据 group，列出需要补证据的 standard/anchor requests。 |
+
+worklist 仍是 review-only：它不更新正式 decision template，不批准 bridge，不写 `public/data`，不改官方课标文本，也不让 matcher 使用。
+
+当前 action worklist 为 `valid=true`：52 个 group 全覆盖，219 条 item-level anchor review rows 全覆盖；43 个 `split_scope_before_item_review` group 展开为 103 个 bounded split candidates，9 个 `source_anchor_evidence_gap_review` group 展开为 12 个 source-anchor evidence requests。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
