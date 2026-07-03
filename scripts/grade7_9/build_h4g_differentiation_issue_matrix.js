@@ -4,6 +4,7 @@ import { dirname } from 'node:path'
 
 const DEFAULT_READINESS = 'generated/grade7_9_h4g_grade_differentiation_readiness.json'
 const DEFAULT_DISTINCTIVENESS = 'generated/grade7_9_distinctiveness_audit.json'
+const DEFAULT_PRODUCT_READINESS = 'generated/grade7_9_h4g_product_readiness.json'
 const DEFAULT_ANCHOR_GROUP_DECISIONS = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_decisions_template_anchor_domain_rejected_english_pe.json'
 const DEFAULT_ANCHOR_PRIORITY_MATRIX = 'generated/textbook_evidence/h4g_theme_bridge_anchor_priority_matrix_anchor_domain_rejected_english_pe.json'
 const DEFAULT_UNIT_CANDIDATE_COVERAGE = 'generated/textbook_evidence/h4g_unit_evidence_candidate_coverage_audit.json'
@@ -17,6 +18,7 @@ const DEFAULT_UNIT_ANCHOR_POLICY_REVIEW_ACTION_WORKLIST = 'generated/textbook_ev
 const DEFAULT_UNIT_ANCHOR_POLICY_SOURCE_ANCHOR_SPECIFICITY_BATCH = 'generated/textbook_evidence/h4g_unit_evidence_anchor_policy_source_anchor_specificity_batch.json'
 const DEFAULT_UNIT_ANCHOR_POLICY_SOURCE_ANCHOR_SPECIFICITY_DECISIONS = 'generated/textbook_evidence/h4g_unit_evidence_anchor_policy_source_anchor_specificity_decisions_template.json'
 const DEFAULT_UNIT_ANCHOR_POLICY_SOURCE_ANCHOR_SPECIFICITY_EVIDENCE_PACKET = 'generated/textbook_evidence/h4g_unit_evidence_anchor_policy_source_anchor_specificity_evidence_packet.json'
+const DEFAULT_UNIT_ANCHOR_POLICY_SOURCE_ANCHOR_SPECIFICITY_GROUP_TRIAGE = 'generated/textbook_evidence/h4g_unit_evidence_anchor_policy_source_anchor_specificity_group_triage.json'
 const DEFAULT_UNIT_GROUP_READY_CANDIDATE = 'generated/textbook_evidence/h4g_unit_evidence_group_ready_candidate.json'
 const DEFAULT_OUT = 'generated/grade7_9_h4g_differentiation_issue_matrix.json'
 const DEFAULT_SUMMARY_OUT = 'generated/grade7_9_h4g_differentiation_issue_matrix.md'
@@ -39,6 +41,7 @@ function parseArgs(argv) {
     anchorPriorityMatrix: DEFAULT_ANCHOR_PRIORITY_MATRIX,
     distinctiveness: DEFAULT_DISTINCTIVENESS,
     out: DEFAULT_OUT,
+    productReadiness: DEFAULT_PRODUCT_READINESS,
     readiness: DEFAULT_READINESS,
     strict: false,
     summaryOut: DEFAULT_SUMMARY_OUT,
@@ -49,6 +52,7 @@ function parseArgs(argv) {
     unitAnchorPolicySourceAnchorSpecificityBatch: DEFAULT_UNIT_ANCHOR_POLICY_SOURCE_ANCHOR_SPECIFICITY_BATCH,
     unitAnchorPolicySourceAnchorSpecificityDecisions: DEFAULT_UNIT_ANCHOR_POLICY_SOURCE_ANCHOR_SPECIFICITY_DECISIONS,
     unitAnchorPolicySourceAnchorSpecificityEvidencePacket: DEFAULT_UNIT_ANCHOR_POLICY_SOURCE_ANCHOR_SPECIFICITY_EVIDENCE_PACKET,
+    unitAnchorPolicySourceAnchorSpecificityGroupTriage: DEFAULT_UNIT_ANCHOR_POLICY_SOURCE_ANCHOR_SPECIFICITY_GROUP_TRIAGE,
     unitBlockerActionWorklist: DEFAULT_UNIT_BLOCKER_ACTION_WORKLIST,
     unitBlockerMatchDiagnostics: DEFAULT_UNIT_BLOCKER_MATCH_DIAGNOSTICS,
     unitCandidateCoverage: DEFAULT_UNIT_CANDIDATE_COVERAGE,
@@ -59,6 +63,7 @@ function parseArgs(argv) {
     const item = argv[i]
     if (item === '--readiness') args.readiness = argv[++i]
     else if (item === '--distinctiveness') args.distinctiveness = argv[++i]
+    else if (item === '--product-readiness') args.productReadiness = argv[++i]
     else if (item === '--anchor-group-decisions') args.anchorGroupDecisions = argv[++i]
     else if (item === '--anchor-priority-matrix') args.anchorPriorityMatrix = argv[++i]
     else if (item === '--unit-candidate-coverage') args.unitCandidateCoverage = argv[++i]
@@ -72,6 +77,7 @@ function parseArgs(argv) {
     else if (item === '--unit-anchor-policy-source-anchor-specificity-batch') args.unitAnchorPolicySourceAnchorSpecificityBatch = argv[++i]
     else if (item === '--unit-anchor-policy-source-anchor-specificity-decisions') args.unitAnchorPolicySourceAnchorSpecificityDecisions = argv[++i]
     else if (item === '--unit-anchor-policy-source-anchor-specificity-evidence-packet') args.unitAnchorPolicySourceAnchorSpecificityEvidencePacket = argv[++i]
+    else if (item === '--unit-anchor-policy-source-anchor-specificity-group-triage') args.unitAnchorPolicySourceAnchorSpecificityGroupTriage = argv[++i]
     else if (item === '--unit-group-ready-candidate') args.unitGroupReadyCandidate = argv[++i]
     else if (item === '--out') args.out = argv[++i]
     else if (item === '--summary-out') args.summaryOut = argv[++i]
@@ -199,9 +205,20 @@ function priorityGroupStats(matrix) {
   return stats
 }
 
-function validateInputs(readiness, distinctiveness, anchorDecisions, priorityMatrix, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitGroupReadyCandidate, errors, warnings) {
+function validateInputs(readiness, distinctiveness, productReadiness, anchorDecisions, priorityMatrix, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate, errors, warnings) {
   if (readiness?.valid !== true) errors.push('readiness audit must be valid=true')
   if (distinctiveness?.valid !== true) errors.push('distinctiveness audit must be valid=true')
+  if (productReadiness) {
+    if (productReadiness.valid !== true) errors.push('product readiness audit must be valid=true')
+    if (productReadiness.purpose !== 'h4g_product_readiness_audit') {
+      errors.push('product readiness audit purpose mismatch')
+    }
+    if (productReadiness.writes_public_data !== false) errors.push('product readiness audit writes_public_data must be false')
+    if (productReadiness.changes_official_standard_text !== false) {
+      errors.push('product readiness audit changes_official_standard_text must be false')
+    }
+    if (productReadiness.direct_matcher_use !== false) errors.push('product readiness audit direct_matcher_use must be false')
+  }
   if (anchorDecisions?.valid !== true) errors.push('anchor group decisions must be valid=true')
   if (priorityMatrix?.valid !== true) errors.push('anchor priority matrix must be valid=true')
   if (anchorDecisions?.writes_public_data !== false) errors.push('anchor group decisions writes_public_data must be false')
@@ -458,6 +475,38 @@ function validateInputs(readiness, distinctiveness, anchorDecisions, priorityMat
       errors.push('unit anchor policy source-anchor specificity evidence packet matcher_ready must be false')
     }
   }
+  if (unitAnchorPolicySourceAnchorSpecificityGroupTriage) {
+    if (unitAnchorPolicySourceAnchorSpecificityGroupTriage.valid !== true) {
+      errors.push('unit anchor policy source-anchor specificity group triage must be valid=true')
+    }
+    if (unitAnchorPolicySourceAnchorSpecificityGroupTriage.purpose !== 'h4g_unit_evidence_anchor_policy_source_anchor_specificity_group_triage') {
+      errors.push('unit anchor policy source-anchor specificity group triage purpose mismatch')
+    }
+    if (unitAnchorPolicySourceAnchorSpecificityGroupTriage.review_batch_only !== true) {
+      errors.push('unit anchor policy source-anchor specificity group triage review_batch_only must be true')
+    }
+    if (unitAnchorPolicySourceAnchorSpecificityGroupTriage.source_anchor_specificity_batch_only !== true) {
+      errors.push('unit anchor policy source-anchor specificity group triage source_anchor_specificity_batch_only must be true')
+    }
+    if (unitAnchorPolicySourceAnchorSpecificityGroupTriage.source_anchor_specificity_group_triage_only !== true) {
+      errors.push('unit anchor policy source-anchor specificity group triage source_anchor_specificity_group_triage_only must be true')
+    }
+    if (unitAnchorPolicySourceAnchorSpecificityGroupTriage.writes_public_data !== false) {
+      errors.push('unit anchor policy source-anchor specificity group triage writes_public_data must be false')
+    }
+    if (unitAnchorPolicySourceAnchorSpecificityGroupTriage.changes_official_standard_text !== false) {
+      errors.push('unit anchor policy source-anchor specificity group triage changes_official_standard_text must be false')
+    }
+    if (unitAnchorPolicySourceAnchorSpecificityGroupTriage.direct_matcher_use !== false) {
+      errors.push('unit anchor policy source-anchor specificity group triage direct_matcher_use must be false')
+    }
+    if (unitAnchorPolicySourceAnchorSpecificityGroupTriage.publication_ready !== false) {
+      errors.push('unit anchor policy source-anchor specificity group triage publication_ready must be false')
+    }
+    if (unitAnchorPolicySourceAnchorSpecificityGroupTriage.matcher_ready !== false) {
+      errors.push('unit anchor policy source-anchor specificity group triage matcher_ready must be false')
+    }
+  }
   if (unitGroupReadyCandidate) {
     if (unitGroupReadyCandidate.valid !== true) errors.push('unit group-ready candidate must be valid=true')
     if (unitGroupReadyCandidate.purpose !== 'h4g_unit_evidence_group_ready_candidate') {
@@ -489,6 +538,18 @@ function validateInputs(readiness, distinctiveness, anchorDecisions, priorityMat
   for (const [label, left, right] of totalChecks) {
     if (Number(left || 0) !== Number(right || 0)) {
       warnings.push(`${label} differs between readiness and distinctiveness audits: ${left ?? 'missing'} vs ${right ?? 'missing'}`)
+    }
+  }
+  if (productReadiness) {
+    const productSummary = productReadiness.summary || {}
+    for (const [label, left, right] of [
+      ['h4g_records vs product readiness', readinessTotals.h4g_records, productSummary.h4g_records],
+      ['progression_groups vs product readiness', readinessTotals.progression_groups, productSummary.progression_groups],
+      ['complete_triplets vs product readiness', readinessTotals.complete_triplets, productSummary.complete_triplets]
+    ]) {
+      if (Number(left || 0) !== Number(right || 0)) {
+        warnings.push(`${label} differs: ${left ?? 'missing'} vs ${right ?? 'missing'}`)
+      }
     }
   }
 }
@@ -578,7 +639,7 @@ function summarizeIssues(subjectRows) {
   return summary
 }
 
-function executionBatches(subjectRows, anchorStats, priorityStats, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitGroupReadyCandidate) {
+function executionBatches(subjectRows, anchorStats, priorityStats, productReadiness, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate) {
   const bySlug = Object.fromEntries(subjectRows.map(row => [row.subject_slug, row]))
   const english = bySlug.english || {}
   const pe = bySlug.pe || {}
@@ -592,6 +653,22 @@ function executionBatches(subjectRows, anchorStats, priorityStats, unitCandidate
     .map(row => row.subject_slug)
 
   return [
+    {
+      batch_id: 'h4g_product_readiness_gate',
+      entry_gate: 'npm run grade7_9:audit-h4g-product-readiness -- --strict',
+      exit_gate: 'npm run grade7_9:audit-h4g-product-readiness -- --strict --require-product-ready',
+      next_action: 'prove_h4g_product_display_readiness',
+      scope: {
+        focus_distinct_groups: productReadiness?.summary?.focus_distinct_groups || 0,
+        missing_or_placeholder_focus_records: productReadiness?.summary?.missing_or_placeholder_focus_records || 0,
+        missing_unit_level_evidence_records: productReadiness?.summary?.missing_unit_level_evidence_records || 0,
+        non_distinct_focus_groups: productReadiness?.summary?.non_distinct_focus_groups || 0,
+        product_ready_groups: productReadiness?.summary?.product_ready_groups || 0,
+        product_ready_records: productReadiness?.summary?.product_ready_records || 0,
+        review_not_approved_records: productReadiness?.summary?.review_not_approved_records || 0
+      },
+      writes_public_data: false
+    },
     {
       batch_id: 'english_pe_anchor_group_decision_gate',
       entry_gate: 'npm run textbooks:h4g-theme-bridge-anchor-group-decisions -- --strict --require-groups',
@@ -619,6 +696,7 @@ function executionBatches(subjectRows, anchorStats, priorityStats, unitCandidate
       anchor_policy_source_anchor_specificity_gate: 'npm run textbooks:audit-h4g-unit-anchor-policy-source-anchor-specificity-batch -- --strict --require-items',
       anchor_policy_source_anchor_specificity_decisions_gate: 'npm run textbooks:audit-h4g-unit-anchor-policy-source-anchor-specificity-decisions -- --strict --require-items',
       anchor_policy_source_anchor_specificity_evidence_packet_gate: 'npm run textbooks:audit-h4g-unit-anchor-policy-source-anchor-specificity-evidence-packet -- --strict --require-items',
+      anchor_policy_source_anchor_specificity_group_triage_gate: 'npm run textbooks:audit-h4g-unit-anchor-policy-source-anchor-specificity-group-triage -- --strict --require-items',
       group_ready_candidate_gate: 'npm run textbooks:audit-h4g-unit-group-ready-candidate -- --strict --require-candidates',
       remediation_worklist_gate: 'npm run textbooks:h4g-unit-candidate-coverage-worklist -- --strict',
       exit_gate: 'npm run textbooks:audit-h4g-unit-consistency -- --strict --require-candidates',
@@ -653,6 +731,10 @@ function executionBatches(subjectRows, anchorStats, priorityStats, unitCandidate
         anchor_policy_source_anchor_specificity_evidence_groups: unitAnchorPolicySourceAnchorSpecificityEvidencePacket?.summary?.evidence_packet_items || 0,
         anchor_policy_source_anchor_specificity_evidence_decision_rows: unitAnchorPolicySourceAnchorSpecificityEvidencePacket?.summary?.decision_rows_in_packet || 0,
         anchor_policy_source_anchor_specificity_evidence_standard_context_rows: unitAnchorPolicySourceAnchorSpecificityEvidencePacket?.summary?.standard_context_rows || 0,
+        anchor_policy_source_anchor_specificity_triage_groups: unitAnchorPolicySourceAnchorSpecificityGroupTriage?.summary?.group_triage_items || 0,
+        anchor_policy_source_anchor_specificity_ready_groups: unitAnchorPolicySourceAnchorSpecificityGroupTriage?.summary?.ready_for_manual_review_groups || 0,
+        anchor_policy_source_anchor_specificity_anchor_grade_gap_groups: unitAnchorPolicySourceAnchorSpecificityGroupTriage?.summary?.anchor_grade_gap_groups || 0,
+        anchor_policy_source_anchor_specificity_partial_context_gap_groups: unitAnchorPolicySourceAnchorSpecificityGroupTriage?.summary?.partial_or_context_gap_groups || 0,
         blocker_action_work_items: unitBlockerActionWorklist?.summary?.action_work_items || 0,
         blocker_action_worklist_routes: unitBlockerActionWorklist?.summary?.by_primary_diagnostic_route || {},
         blocker_match_diagnostic_rows: unitBlockerMatchDiagnostics?.summary?.blocker_rows || 0,
@@ -698,7 +780,7 @@ function subjectMarkdownRows(rows) {
 
 function batchMarkdownRows(rows) {
   return rows.map(row => (
-    `| ${markdownCell(row.batch_id)} | ${markdownCell(row.next_action)} | ${row.writes_public_data} | ${markdownCell(row.anchor_policy_source_anchor_specificity_evidence_packet_gate || row.anchor_policy_source_anchor_specificity_decisions_gate || row.group_ready_candidate_gate || row.anchor_policy_source_anchor_specificity_gate || row.anchor_policy_action_worklist_gate || row.anchor_policy_recommendations_gate || row.anchor_policy_decisions_gate || row.anchor_policy_review_gate || row.action_worklist_gate || row.blocker_diagnostics_gate || row.remediation_worklist_gate || row.coverage_gate || row.entry_gate)} | ${markdownCell(row.exit_gate)} |`
+    `| ${markdownCell(row.batch_id)} | ${markdownCell(row.next_action)} | ${row.writes_public_data} | ${markdownCell(row.anchor_policy_source_anchor_specificity_group_triage_gate || row.anchor_policy_source_anchor_specificity_evidence_packet_gate || row.anchor_policy_source_anchor_specificity_decisions_gate || row.group_ready_candidate_gate || row.anchor_policy_source_anchor_specificity_gate || row.anchor_policy_action_worklist_gate || row.anchor_policy_recommendations_gate || row.anchor_policy_decisions_gate || row.anchor_policy_review_gate || row.action_worklist_gate || row.blocker_diagnostics_gate || row.remediation_worklist_gate || row.coverage_gate || row.entry_gate)} | ${markdownCell(row.exit_gate)} |`
   )).join('\n') || '| - | - | false | - | - |'
 }
 
@@ -723,6 +805,10 @@ or enable matcher use.
 | exact identical triplets | ${payload.public_readiness_totals.exact_core_identical_triplets} |
 | unit-level evidence records | ${payload.public_readiness_totals.unit_level_evidence_records} |
 | final-ready records | ${payload.public_readiness_totals.final_ready_records} |
+| product-ready records | ${payload.product_readiness_summary?.product_ready_records || 0} |
+| product-ready groups | ${payload.product_readiness_summary?.product_ready_groups || 0} |
+| product focus-distinct groups | ${payload.product_readiness_summary?.focus_distinct_groups || 0} |
+| product non-distinct complete groups | ${payload.product_readiness_summary?.non_distinct_focus_groups || 0} |
 | anchor priority groups | ${payload.anchor_priority_stats.priority_groups} |
 | anchor review items | ${payload.anchor_priority_stats.total_anchor_review_items} |
 | unit blocker diagnostic rows | ${payload.unit_blocker_match_diagnostics_summary?.blocker_rows || 0} |
@@ -735,6 +821,9 @@ or enable matcher use.
 | unit anchor policy source-anchor pending decisions | ${payload.unit_anchor_policy_source_anchor_specificity_decisions_summary?.pending_decisions || 0} |
 | unit anchor policy source-anchor completed decisions | ${payload.unit_anchor_policy_source_anchor_specificity_decisions_summary?.completed_decisions || 0} |
 | unit anchor policy source-anchor evidence groups | ${payload.unit_anchor_policy_source_anchor_specificity_evidence_packet_summary?.evidence_packet_items || 0} |
+| unit anchor policy source-anchor ready groups | ${payload.unit_anchor_policy_source_anchor_specificity_group_triage_summary?.ready_for_manual_review_groups || 0} |
+| unit anchor policy source-anchor anchor-gap groups | ${payload.unit_anchor_policy_source_anchor_specificity_group_triage_summary?.anchor_grade_gap_groups || 0} |
+| unit anchor policy source-anchor partial/context-gap groups | ${payload.unit_anchor_policy_source_anchor_specificity_group_triage_summary?.partial_or_context_gap_groups || 0} |
 | unit group-ready candidate records | ${payload.unit_group_ready_candidate_summary?.candidates || 0} |
 
 ## Next Actions
@@ -748,6 +837,18 @@ ${countRows(payload.issue_summary.by_next_action)}
 | root cause | subjects |
 | --- | ---: |
 ${countRows(payload.issue_summary.by_root_cause)}
+
+## Product Readiness Record Gate
+
+| blocker | count |
+| --- | ---: |
+${countRows(payload.product_readiness_summary?.by_record_blocker || {})}
+
+## Product Readiness Group Gate
+
+| blocker | count |
+| --- | ---: |
+${countRows(payload.product_readiness_summary?.by_group_blocker || {})}
 
 ## Unit Evidence Blocker Routes
 
@@ -788,6 +889,10 @@ ${countRows(payload.unit_blocker_action_worklist_summary?.by_primary_diagnostic_
 | source-anchor evidence groups | ${payload.unit_anchor_policy_source_anchor_specificity_evidence_packet_summary?.evidence_packet_items || 0} |
 | source-anchor evidence decision rows | ${payload.unit_anchor_policy_source_anchor_specificity_evidence_packet_summary?.decision_rows_in_packet || 0} |
 | source-anchor standard context rows | ${payload.unit_anchor_policy_source_anchor_specificity_evidence_packet_summary?.standard_context_rows || 0} |
+| source-anchor triage groups | ${payload.unit_anchor_policy_source_anchor_specificity_group_triage_summary?.group_triage_items || 0} |
+| source-anchor ready groups | ${payload.unit_anchor_policy_source_anchor_specificity_group_triage_summary?.ready_for_manual_review_groups || 0} |
+| source-anchor anchor grade gap groups | ${payload.unit_anchor_policy_source_anchor_specificity_group_triage_summary?.anchor_grade_gap_groups || 0} |
+| source-anchor partial/context gap groups | ${payload.unit_anchor_policy_source_anchor_specificity_group_triage_summary?.partial_or_context_gap_groups || 0} |
 
 ## Unit Anchor Policy Action Queues
 
@@ -812,6 +917,12 @@ ${countRows(payload.unit_anchor_policy_source_anchor_specificity_decisions_summa
 | subject | groups |
 | --- | ---: |
 ${countRows(payload.unit_anchor_policy_source_anchor_specificity_evidence_packet_summary?.by_subject || {})}
+
+## Unit Anchor Policy Source-Anchor Group Triage
+
+| route | groups |
+| --- | ---: |
+${countRows(payload.unit_anchor_policy_source_anchor_specificity_group_triage_summary?.by_triage_route || {})}
 
 ## Unit Group-Ready Candidate
 
@@ -863,6 +974,7 @@ function main() {
   const warnings = []
   const readiness = requireInput(args.readiness, 'readiness audit', errors)
   const distinctiveness = requireInput(args.distinctiveness, 'distinctiveness audit', errors)
+  const productReadiness = optionalInput(args.productReadiness, 'product readiness audit', warnings)
   const anchorDecisions = requireInput(args.anchorGroupDecisions, 'anchor group decisions', errors)
   const priorityMatrix = requireInput(args.anchorPriorityMatrix, 'anchor priority matrix', errors)
   const unitCandidateCoverage = optionalInput(args.unitCandidateCoverage, 'unit candidate coverage audit', warnings)
@@ -876,10 +988,11 @@ function main() {
   const unitAnchorPolicySourceAnchorSpecificityBatch = optionalInput(args.unitAnchorPolicySourceAnchorSpecificityBatch, 'unit anchor policy source-anchor specificity batch', warnings)
   const unitAnchorPolicySourceAnchorSpecificityDecisions = optionalInput(args.unitAnchorPolicySourceAnchorSpecificityDecisions, 'unit anchor policy source-anchor specificity decisions', warnings)
   const unitAnchorPolicySourceAnchorSpecificityEvidencePacket = optionalInput(args.unitAnchorPolicySourceAnchorSpecificityEvidencePacket, 'unit anchor policy source-anchor specificity evidence packet', warnings)
+  const unitAnchorPolicySourceAnchorSpecificityGroupTriage = optionalInput(args.unitAnchorPolicySourceAnchorSpecificityGroupTriage, 'unit anchor policy source-anchor specificity group triage', warnings)
   const unitGroupReadyCandidate = optionalInput(args.unitGroupReadyCandidate, 'unit group-ready candidate', warnings)
 
   if (!errors.length) {
-    validateInputs(readiness, distinctiveness, anchorDecisions, priorityMatrix, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitGroupReadyCandidate, errors, warnings)
+    validateInputs(readiness, distinctiveness, productReadiness, anchorDecisions, priorityMatrix, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate, errors, warnings)
   }
 
   const anchorBySubject = anchorSubjectStats(anchorDecisions)
@@ -893,17 +1006,19 @@ function main() {
     direct_matcher_use: false,
     eligible_for_h4g_differentiation: false,
     errors,
-    execution_batches: executionBatches(subjectRows, anchorBySubject, priorityStats, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitGroupReadyCandidate),
+    execution_batches: executionBatches(subjectRows, anchorBySubject, priorityStats, productReadiness, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate),
     generated_at: new Date().toISOString(),
     issue_summary: summarizeIssues(subjectRows),
     matcher_ready: false,
     publication_ready: false,
     public_readiness_totals: readiness?.totals || {},
+    product_readiness_summary: productReadiness?.summary || null,
     purpose: 'h4g_differentiation_issue_matrix',
     source_inputs: {
       anchor_group_decisions: args.anchorGroupDecisions,
       anchor_priority_matrix: args.anchorPriorityMatrix,
       distinctiveness: args.distinctiveness,
+      product_readiness: args.productReadiness,
       readiness: args.readiness,
       unit_anchor_policy_review_action_worklist: args.unitAnchorPolicyReviewActionWorklist,
       unit_anchor_policy_review_batch: args.unitAnchorPolicyReviewBatch,
@@ -912,6 +1027,7 @@ function main() {
       unit_anchor_policy_source_anchor_specificity_batch: args.unitAnchorPolicySourceAnchorSpecificityBatch,
       unit_anchor_policy_source_anchor_specificity_decisions: args.unitAnchorPolicySourceAnchorSpecificityDecisions,
       unit_anchor_policy_source_anchor_specificity_evidence_packet: args.unitAnchorPolicySourceAnchorSpecificityEvidencePacket,
+      unit_anchor_policy_source_anchor_specificity_group_triage: args.unitAnchorPolicySourceAnchorSpecificityGroupTriage,
       unit_blocker_action_worklist: args.unitBlockerActionWorklist,
       unit_blocker_match_diagnostics: args.unitBlockerMatchDiagnostics,
       unit_candidate_coverage: args.unitCandidateCoverage,
@@ -927,6 +1043,7 @@ function main() {
     unit_anchor_policy_source_anchor_specificity_batch_summary: unitAnchorPolicySourceAnchorSpecificityBatch?.summary || null,
     unit_anchor_policy_source_anchor_specificity_decisions_summary: unitAnchorPolicySourceAnchorSpecificityDecisions?.summary || null,
     unit_anchor_policy_source_anchor_specificity_evidence_packet_summary: unitAnchorPolicySourceAnchorSpecificityEvidencePacket?.summary || null,
+    unit_anchor_policy_source_anchor_specificity_group_triage_summary: unitAnchorPolicySourceAnchorSpecificityGroupTriage?.summary || null,
     unit_blocker_action_worklist_summary: unitBlockerActionWorklist?.summary || null,
     unit_candidate_coverage_summary: unitCandidateCoverage?.summary || null,
     unit_candidate_coverage_worklist_summary: unitCandidateCoverageWorklist?.summary || null,
