@@ -384,6 +384,8 @@ after-P2 页码恢复已完成一批 reviewed overrides：`scripts/textbooks/tex
 
 剩余 10 个 page recovery units 也已完成 reviewed overrides，覆盖 H4G7 PE 第一章/第二章/第七章/第八章/第九章，H4G9 English 上册 `Unit 1 My family always go somewhere interesting`，H4G9 English 下册 `Unit 1 We toured the city by bus and by taxi.`、`Unit 2 It’s a long story.`，以及 H4G7 English 下册 `Unit 1 Whose bag is this?`、`Unit 2 I can run really fast.`。重跑后 English page-start candidates 为 33/47、PE 为 13/13；保守刷新后的 decisions 审计为 `valid=true` 且 page-ready decisions 为 515、page-missing 为 0。最后 43 条 pending batch 也完成保守 source review，严格审计 `--require-complete --require-page-ready-for-approval` 为 `valid=true`：515 条全部完成，18 条 approved、83 条 rejected、414 条 needs_revision、0 pending。最终 registry 仍为 18 条 approved bridges，说明 source review complete 不等于扩大可发布范围。
 
+已新增 subject-theme bridge remediation packet，把 414 条 `needs_revision` 从单一状态拆成 7 个可执行 action families。packet/audit 均为 `valid=true`，且精确覆盖全部 needs_revision decisions：missing coverage 0、extra coverage 0。当前分布为 English 325 条、PE 89 条；高优先级 113 条、中优先级 301 条；action families 包括 English 语言运用需功能锚点 110 条、English 日常交际主题需 speech-function 锚点 140 条、English 文化主题需文化目标复核 48 条、PE 活动技能需运动标准锚点 38 条、PE 健康理论需健康行为复核 35 条、PE 学业质量/表现需课程进阶复核 16 条。该 packet 仍是 read-only，不批准 bridge、不写 `public/data`、不启用 matcher。
+
 ## 8. 当前结论
 
 English/PE 现在不是 H4G 分组失败，也不是目录解析完全失败。真正问题是标准能力项与教材主题标题之间缺少受控、可复核、学科化的桥接层。下一阶段的质量目标不是提高 match 数量，而是让每一个 match 都能解释：

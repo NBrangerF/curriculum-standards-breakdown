@@ -2640,6 +2640,8 @@ after-page-recovery pending batch 已完成一轮保守 source review recommenda
 
 remaining page recovery 也已完成：新增 10 条 reviewed overrides 后，English run-level unit index 保持 47 个真实 candidates、page-start candidates 增至 33；PE 保持 13 个真实 candidates、page-start candidates 增至 13。full-page-recovered decisions 保留原 515 条 decision surface 和所有既有 reviewer decisions，只刷新 page fields，审计为 `valid=true`：515 条全部 page-ready、0 条 page-missing。最后 43 条 pending/full-page-recovered batch 审计为 `valid=true`，随后 conservative recommendation 将所有 decisions 推进到 completed：approved 18、rejected 83、needs_revision 414、pending 0。严格 decisions audit 带 `--require-complete --require-page-ready-for-approval` 通过，registry 仍为 18 条 approved bridges、`publication_ready=false`。
 
+H4G subject theme bridge remediation packet 的边界：`textbooks:h4g-theme-bridge-remediation-packet` 和 `textbooks:audit-h4g-theme-bridge-remediation-packet` 只读取已完成 source review 的 decisions/worklist，并只抽取 `needs_revision` rows。当前 packet 为 `valid=true`：414 个 remediation items，覆盖 155 条 standards、70 个 progression groups；audit 也为 `valid=true`，`expected_needs_revision_decisions=414`、`missing_decision_coverage=0`、`extra_decision_coverage=0`。它把后续工作拆成 action family、priority 和 decision owner，但仍不批准 bridge、不写 `public/data`、不改官方文本、不启用 matcher。
+
 H4G subject theme bridge source review recommendation 的边界：`textbooks:h4g-theme-bridge-review-recommendations` 读取一个 decisions template 和一个 source review batch，生成新的 reviewed decision candidate 文件。它只更新 batch 内出现的 decisions；未进入 batch 的 rows 保持 `pending`。该命令可以用于 Codex/规则化第一轮复核，但它仍不写 `public/data`、不改官方课标文本、不让系统 publication-ready。
 
 ```bash
