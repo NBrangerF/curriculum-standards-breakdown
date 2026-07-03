@@ -230,6 +230,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_split_review_batch_anc
 
 当前 split review batch 为 `valid=true`，audit 结果为 `valid=true`：43 个 split/refine group 精确展开为 103 个 `standard_code + grade_band + action_family + anchor_type` bounded slices，覆盖 183 条 source-anchor review rows；其中 English 83 个 slices、PE 20 个 slices，H4G7/H4G8/H4G9 分别为 28/53/22 个 slices。该 batch 只用于判断 bounded slice 是否足够窄、是否需要再拆、是否需补 source-anchor evidence；它不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+对 9 个 `needs_source_anchor_evidence` group，新增 source evidence request batch，把补证据路径也拆成可审计的请求项：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-source-evidence-batch -- --strict --require-requests
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-source-evidence-batch -- --strict --require-requests
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_source_evidence_batch_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_source_evidence_batch_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_source_evidence_batch_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_source_evidence_batch_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 source evidence batch 为 `valid=true`，audit 结果为 `valid=true`：9 个 group 精确展开为 12 个 source-anchor evidence requests，覆盖 36 条现有 source-anchor review rows；English 9 个 requests、PE 3 个 requests，缺失年级请求分布为 H4G7=1、H4G8=6、H4G9=11。该 batch 反查到 12 个 missing-grade target standards，同时标出 3 个 request 存在 target-standard gap（缺失年级在当前 public standards 中没有对应 progression target）。它仍只是补证据审阅入口，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
