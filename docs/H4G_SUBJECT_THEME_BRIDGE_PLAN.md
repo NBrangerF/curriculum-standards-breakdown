@@ -461,6 +461,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 downstream action worklist 为 `valid=true`，audit 结果为 `valid=true`：201 个 downstream action work items 精确覆盖 201 条 downstream recommendations，missing/extra 均为 0。队列分布为：168 条 `downstream_source_anchor_evidence_queue`，12 条 `downstream_manual_scope_indexing_queue`，8 条 `downstream_item_level_source_review_queue`，7 条 `downstream_source_row_confirmation_queue`，6 条 `downstream_target_standard_gap_resolution_queue`；按年级仍为 H4G7 66 条、H4G8 82 条、H4G9 53 条。该层只是把 recommendation-only 行变成执行清单，不修改 downstream decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+新增 downstream source-row confirmation batch，将 7 条已经进入 `source_row_confirms_target_anchor_for_later_gate` 的 work items 封成可人工确认的单源批次：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-source-row-confirmation-batch -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-source-row-confirmation-batch -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_row_confirmation_batch_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_row_confirmation_batch_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_row_confirmation_batch_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_row_confirmation_batch_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 downstream source-row confirmation batch 为 `valid=true`，audit 结果为 `valid=true`：7 条 source-row confirmation items 精确覆盖 7 条 expected work items，missing/extra 均为 0，`unique_source_keys=7`，全部为 PE/H4G7，其中 6 条为 `pe_health_behavior_or_load_management_anchor`，1 条为 `pe_movement_skill_fitness_or_sportsmanship_anchor`。该层只记录后续人工确认所需的 source-row 证据粒度，仍不修改 downstream decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
