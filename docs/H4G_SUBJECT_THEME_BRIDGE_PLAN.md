@@ -515,6 +515,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 downstream item-level source review batch 为 `valid=true`，audit 结果为 `valid=true`：8 条 item-level source review items 精确覆盖 8 条 expected work items，missing/extra 均为 0，`unique_source_keys=8`。全部为 H4G7/P1，English/PE 各 4 条，全部来自 `child_split`；anchor 类型为 `english_speech_function_or_discourse_anchor` 4 条、`pe_movement_skill_fitness_or_sportsmanship_anchor` 4 条。该层只打开后续 item-level source review 的单源审阅入口，仍不修改 downstream decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+新增 downstream item-level source review inventory，将上述 8 条单源审阅 rows 做只读风险盘点，避免把 item-level review-ready 误判为 bridge/matcher/publication approval：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-item-level-source-review-inventory -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-item-level-source-review-inventory -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_item_level_source_review_inventory_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_item_level_source_review_inventory_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_item_level_source_review_inventory_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_item_level_source_review_inventory_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 downstream item-level source review inventory 为 `valid=true`，audit 结果为 `valid=true`：8 条 inventory rows 精确覆盖 8 条 item-level source review items，missing/extra 均为 0，全部 H4G7/P1，English/PE 各 4 条，page-ready 8 条，low bridge score 0 条。虽然这 8 条都具备 page-ready、single anchor-review row 的优势，但每条仍有 shared-topic、multi-source、multi-unit scope 风险，并且 `anchor_type_matches_target_domain`、`same_grade_scope_checked`、`same_subject_scope_checked`、`source_item_reviewed` 4 个 manual confirmation 字段未关闭，所以全部落在 `item_level_source_review_needs_manual_unit_scope_check`。该层是 evidence inventory only，不修改 downstream/action decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 新增 downstream target-standard gap resolution batch，将 6 条 `target_standard_gap_confirmed` work items 封成目标标准缺口复核包：
 
 ```bash
