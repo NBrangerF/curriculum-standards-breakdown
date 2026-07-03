@@ -479,6 +479,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 downstream source-row confirmation batch 为 `valid=true`，audit 结果为 `valid=true`：7 条 source-row confirmation items 精确覆盖 7 条 expected work items，missing/extra 均为 0，`unique_source_keys=7`，全部为 PE/H4G7，其中 6 条为 `pe_health_behavior_or_load_management_anchor`，1 条为 `pe_movement_skill_fitness_or_sportsmanship_anchor`。该层只记录后续人工确认所需的 source-row 证据粒度，仍不修改 downstream decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+新增 downstream source-row confirmation inventory，将上述 7 条单源确认 rows 做只读风险盘点，区分“接近可人工确认”的证据优势和仍未关闭的 scope 风险：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-source-row-confirmation-inventory -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-source-row-confirmation-inventory -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_row_confirmation_inventory_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_row_confirmation_inventory_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_row_confirmation_inventory_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_row_confirmation_inventory_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 downstream source-row confirmation inventory 为 `valid=true`，audit 结果为 `valid=true`：7 条 inventory rows 精确覆盖 7 条 source-row confirmation items，missing/extra 均为 0，全部 PE/H4G7，page-ready 7 条，low bridge score 7 条。虽然这 7 条都具备 single-source、same standard+grade+anchor、page-ready 的优势，但每条仍有 shared-topic 风险与 4 个 manual confirmation 字段未关闭，所以全部落在 `single_source_confirmation_needs_manual_scope_check`，`single_source_confirmation_ready_rows=0`。该层是 evidence inventory only，不修改 downstream/action decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 新增 downstream item-level source review batch，将 8 条 `accept_bounded_slice_for_item_level_source_review` work items 封成 child-split 后的单源审阅包：
 
 ```bash
