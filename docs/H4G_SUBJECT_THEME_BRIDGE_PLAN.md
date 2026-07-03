@@ -281,6 +281,45 @@ npm run textbooks:audit-h4g-theme-bridge-registry -- \
 
 当前 English/PE decisions 全部 pending，因此 registry 为 `valid=true` 且 `approved_bridges=0`。matcher 已支持读取 registry；只有 registry 中的 approved rows 才会生成 `eligible_alignment=reviewed_subject_theme_bridge`，并写入 `subject_theme_bridge_alignment`。用 `/tmp` 临时构造 1 条 approved decision 的正向验证已通过：该链路能生成 1 条 English eligible match 和 1 条 H4G candidate，但缺 page_start 时仍会被 page gate 标记为不能发布。
 
+已新增 P1 source review recommendation 候选层，用于把 R2/R3 后的 57 条 P1/page-ready batch items 做第一轮可复核的规则化审阅建议，而不是改写原始 template：
+
+```bash
+npm run textbooks:h4g-theme-bridge-review-recommendations -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --batch generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.md \
+  --strict \
+  --require-items
+
+npm run textbooks:audit-h4g-theme-bridge-review-decisions -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.json \
+  --packet generated/textbook_evidence/h4g_theme_bridge_review_packet_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe_audit.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe_audit.md \
+  --strict \
+  --require-page-ready-for-approval
+```
+
+当前 P1 recommendation audit 为 `valid=true`：57 条 batch decisions 已审阅，其中 18 条为 `approve_standard_scoped_subject_theme_bridge`、9 条为 `reject_subject_theme_bridge`、30 条为 `needs_revision`，其余 458 条仍为 `pending`。18 条 approval 全部 page-ready、全部 standard-scoped；English 15 条、PE 3 条；H4G7 12 条、H4G8 6 条；H4G9 仍未进入本轮 approved registry。这一步会明确拒绝 PE 足球单元映射到田径、体操、水上、传统体育或新兴体育等 standards 的 false positives，也会把宽泛主题相关但不能证明精确标准关系的 English/PE rows 保持为 `needs_revision`。
+
+基于 P1 recommendation 导出的 registry 和 matcher/candidate 验证也已跑通：
+
+```bash
+npm run textbooks:h4g-theme-bridge-registry -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.json \
+  --decisions-audit generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe_audit.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_registry_p1_codex_reviewed_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_registry_p1_codex_reviewed_english_pe.md \
+  --strict \
+  --require-approved \
+  --require-page-ready
+```
+
+P1 registry audit 为 `valid=true`、`matcher_ready=true`、`publication_ready=false`，包含 18 条 approved bridges，全部有 page-ready 证据。用该 registry 复跑 matcher 后，English 产生 15 条 `reviewed_subject_theme_bridge` eligible matches，覆盖 8 条 standards；PE 产生 3 条 eligible matches，覆盖 3 条 standards。进一步生成 H4G unit candidate 后，English 得到 8 条候选 standards / 15 个单元证据对象，PE 得到 3 条候选 standards / 3 个单元证据对象，候选审计均为 `valid=true` 且 page_start 完整。
+
+但 consistency audit 仍明确阻止发布：English 和 PE 的 P1 候选都只来自单一教材版本，`cross_version_consistency_proven=false`、`complete_progression_groups=false`。因此 P1 recommendation 只证明“主题桥接审批、registry、matcher、candidate/audit 这条链路可以安全工作”，不能证明 H4G7/H4G8/H4G9 已完成真实分化，也不能写入 `public/data`。
+
 ## 8. 当前结论
 
 English/PE 现在不是 H4G 分组失败，也不是目录解析完全失败。真正问题是标准能力项与教材主题标题之间缺少受控、可复核、学科化的桥接层。下一阶段的质量目标不是提高 match 数量，而是让每一个 match 都能解释：

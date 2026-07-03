@@ -1719,6 +1719,66 @@ P1 source review batch 也随之从 27 条扩展为 54 条：H4G7 27 条、H4G8 
 
 P1 source review batch 现在为 57 条：H4G7 27 条、H4G8 30 条；subject 分布为 English 43 条、PE 14 条；全部 page-ready 且仍为 `pending`。Registry 仍为 `approved_bridges=0`，因为页码恢复不能替代 source review approval。
 
+### 7.33 P1 source review recommendation 与 matcher 验证
+
+在 H4G8 页码恢复完成后，本轮新增 P1 批次级 source review recommendation 脚本：
+
+```bash
+npm run textbooks:h4g-theme-bridge-review-recommendations -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --batch generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.md \
+  --strict \
+  --require-items
+```
+
+该脚本只修改 batch 内出现的 decisions，不改原始 pending template。规则边界是保守的：只批准强 standard-scoped bridge；PE 足球单元误连到田径、体操、水上、传统体育、轮滑、新兴体育等 standards 时显式拒绝；其余宽泛主题相关但不足以证明精确 standard-to-unit 关系的 rows 标为 `needs_revision`。
+
+当前 P1 结果：
+
+```json
+{
+  "required_source_review_decisions": 515,
+  "completed_source_review_decisions": 57,
+  "approved_bridge_decisions": 18,
+  "pending_source_review_decisions": 458,
+  "by_reviewer_decision": {
+    "approve_standard_scoped_subject_theme_bridge": 18,
+    "needs_revision": 30,
+    "reject_subject_theme_bridge": 9,
+    "pending": 458
+  }
+}
+```
+
+decision audit 为 `valid=true`，且 18 条 approved bridges 全部 page-ready；但 `source_review_complete=false`、`matcher_ready=false`、`publication_ready=false`，因为还有 458 条 source review decisions 没有完成。
+
+用 P1 reviewed decisions 导出的 registry 也通过审计：
+
+```json
+{
+  "approved_bridges": 18,
+  "by_subject": {
+    "english": 15,
+    "pe": 3
+  },
+  "by_grade_band": {
+    "H4G7": 12,
+    "H4G8": 6
+  },
+  "by_scope_type": {
+    "standard_code": 18
+  },
+  "page_missing_bridges": 0,
+  "page_ready_bridges": 18
+}
+```
+
+这说明 theme bridge 的 approved registry 可以安全进入 matcher，但只是 P1 子集：H4G9 仍没有 approved bridge，H4G7/H4G8 也只覆盖少量标准。用该 registry 复跑后，English 产生 15 条 `reviewed_subject_theme_bridge` eligible matches，覆盖 8 条 standards；PE 产生 3 条 eligible matches，覆盖 3 条 standards。对应 H4G unit candidate audit 均为 `valid=true`，且 page_start 完整。
+
+最终 consistency audit 仍给出发布阻断：English 8 条 candidate standards / 15 个单元证据对象和 PE 3 条 candidate standards / 3 个单元证据对象都只来自单一教材版本，`cross_version_consistency_proven=false`、`complete_progression_groups=false`。因此本轮修复的结论是：English/PE 的主题桥接审批链、approved registry、matcher 和候选包审计可以工作；但这些 P1 样本不能写入 `public/data`，也不能证明 H4G7/H4G8/H4G9 standards 已完成真实年级分化。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：

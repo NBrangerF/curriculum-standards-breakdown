@@ -2544,6 +2544,28 @@ H4G8 R1 page recovery 已完成第一批 reviewed overrides：英语八上 3 个
 
 H4G8 R2/R3 page recovery 已完成剩余 3 个 English 单元：八下 `Unit 3 Language in use` page_start 6、八上 `Unit 1 It’s taller than many other buildings.` page_start 10、八下 `Unit 1 It smells delicious.` page_start 2。证据来自 Scope and sequence 的模块页码、PDF text layer 正文标题和同页页脚。重跑后，English page-start candidates 从 20 增至 23；theme bridge packet 的 page-ready bridge candidates 增至 254，page-missing bridge candidates 降至 261。H4G8 的 `page_recovery_then_source_review` 已归零，160 条全部进入 `source_review_ready`（English 138、PE 22）；最新 P1 source review batch 为 57 条，其中 H4G7 27 条、H4G8 30 条。
 
+H4G subject theme bridge source review recommendation 的边界：`textbooks:h4g-theme-bridge-review-recommendations` 读取一个 decisions template 和一个 source review batch，生成新的 reviewed decision candidate 文件。它只更新 batch 内出现的 decisions；未进入 batch 的 rows 保持 `pending`。该命令可以用于 Codex/规则化第一轮复核，但它仍不写 `public/data`、不改官方课标文本、不让系统 publication-ready。
+
+```bash
+npm run textbooks:h4g-theme-bridge-review-recommendations -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --batch generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.md \
+  --strict \
+  --require-items
+
+npm run textbooks:audit-h4g-theme-bridge-review-decisions -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.json \
+  --packet generated/textbook_evidence/h4g_theme_bridge_review_packet_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe_audit.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe_audit.md \
+  --strict \
+  --require-page-ready-for-approval
+```
+
+当前 P1 recommendation 结果为 `valid=true`：57 条 batch decisions 被审阅，18 条 `approve_standard_scoped_subject_theme_bridge`，9 条 `reject_subject_theme_bridge`，30 条 `needs_revision`，其余 458 条仍 pending。审批只放行强 standard-scoped 关系，例如七年级英语 greetings/identity 单元与对应沟通/策略 standards、八年级英语 `Let’s try to speak English as much` 与学习策略/主题 standards、八年级体育 `第三章 足球` 与足球/球类专项技能 standards；PE 足球单元误连到田径、体操、水上、传统体育、新兴体育等项目时被显式拒绝。audit 同时确认 18 条 approved bridges 全部 page-ready，`matcher_ready=false`、`publication_ready=false`。
+
 H4G subject theme bridge registry 的边界：`textbooks:h4g-theme-bridge-registry` 和 `textbooks:audit-h4g-theme-bridge-registry` 是 matcher 前的 approved bridge 导出 gate。它们只读取 approved source review decisions；pending、rejected、needs_revision 都不会进入 registry。registry 仍只写 generated artifact，不写 `public/data`，也不代表 publication ready。
 
 ```bash
@@ -2563,6 +2585,8 @@ npm run textbooks:audit-h4g-theme-bridge-registry -- \
 ```
 
 当前 English/PE 全部 decisions 仍为 pending，因此 registry 为 `valid=true`、`approved_bridges=0`。`match_standards_to_textbook_units.js` 已支持读取 approved registry：命中后会输出 `eligible_alignment=reviewed_subject_theme_bridge` 和 `subject_theme_bridge_alignment`；registry 为空时不改变现有匹配结果。临时正向验证显示：1 条 approved standard-scoped bridge 可生成 1 条 English eligible match，并能进入 H4G candidate/audit；但如果 page_start 缺失，candidate audit 仍会警告，`--require-page-start` 或 publication page gate 仍可继续拦截。
+
+如果改用 P1 recommendation candidate 作为 registry 输入，当前 P1 registry 为 `valid=true`、`matcher_ready=true`、`publication_ready=false`，包含 18 条 approved bridges：English 15 条、PE 3 条；H4G7 12 条、H4G8 6 条；全部为 `standard_code` scope 且 page-ready。用该 registry 复跑 matcher 后，English 得到 15 条 `reviewed_subject_theme_bridge` eligible matches、8 条 candidate standards、15 个单元证据对象；PE 得到 3 条 eligible matches、3 条 candidate standards、3 个单元证据对象。两个 candidate audit 和普通 consistency audit 都为 `valid=true`，但 consistency audit 仍报告 `cross_version_consistency_proven=false`、`complete_progression_groups=false`，因为这些 P1 候选都只有单一教材版本支撑。因此 P1 registry 可用于继续复核链路和 matcher 验证，不能进入正式 reviewed publication gate。
 
 ## 10. 下一步
 
