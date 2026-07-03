@@ -566,6 +566,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 downstream action coverage audit 为 `valid=true`：5 个 downstream action batches 精确覆盖 201 个 parent work items，expected/actual review rows 为 201/201，missing parent work items 为 0，duplicate parent assignments 为 0。覆盖结构为 source-anchor evidence 168、manual scope/indexing 12、item-level source review 8、source-row confirmation 7、target-standard gap resolution 6。该层只证明执行队列没有漏项或重复分配，仍不代表任何 downstream decision 已完成、不批准 bridge、不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+新增 downstream action decisions template，将上述 5 个 downstream action batches 合并为统一 editable review surface：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-action-decisions -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-action-decisions -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_decisions_template_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_decisions_template_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_decisions_template_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_decisions_template_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 downstream action decisions template 为 `valid=true`，audit 结果为 `valid=true`：201 条 downstream action decisions 精确覆盖 201 条 expected action rows，missing/extra 均为 0，全部 `pending_review` / `reviewer_decision=pending`。该层将 source-anchor evidence、manual scope/indexing、item-level source review、source-row confirmation 和 target-standard gap resolution 的 reviewer outcome 统一到一个可编辑入口；仍不自动关闭任何 downstream decision，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
