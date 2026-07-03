@@ -415,6 +415,15 @@ npm run textbooks:h4g-theme-bridge-anchor-priority-matrix -- --strict --require-
 
 该 matrix 为 `valid=true`，仍保持 `writes_public_data=false`、`publication_ready=false`、`matcher_ready=false`。它覆盖 52 个 priority groups，其中 English 39 组、PE 13 组；按 item 仍是 English 172 条、PE 47 条。优先级分布为 `P1=27` 组、`P2=25` 组；其中 21 组含 high-priority item。review strategy 分布显示真正工作重点：9 组应先补齐已部分 approved 的缺失年级，2 组可在确认 anchor 后进入 publication gate 检查，40 组应先做 fanout-first source review，因为存在单元过度匹配多 standards、standard 多候选或 single shared topic tag 风险。该矩阵只决定复核顺序和证据焦点，不新增 approval，也不改变官方课标文本。
 
+已新增 group-level anchor decision template 和 audit gate，把 52 个 priority groups 变成可编辑、可审计的复核路由层：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-decisions -- --strict --require-groups
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-decisions -- --strict --require-groups
+```
+
+初始 template/audit 均为 `valid=true`，覆盖 52/52 个 priority groups：English 39 组、PE 13 组；P1 27 组、P2 25 组；所有 `reviewer_decision=pending`，所以 `group_review_complete=false`。该层允许 reviewer 选择 `ready_for_item_level_source_review`、`needs_source_anchor_evidence`、`reject_group_anchor_path` 或 `split_or_refine_group_scope`，但即便 group 决策完成，也仍只表示“下一步怎么审”；它不批准任何 bridge，不让 matcher 使用，也不写入 `public/data`。
+
 ## 8. 当前结论
 
 English/PE 现在不是 H4G 分组失败，也不是目录解析完全失败。真正问题是标准能力项与教材主题标题之间缺少受控、可复核、学科化的桥接层。下一阶段的质量目标不是提高 match 数量，而是让每一个 match 都能解释：
