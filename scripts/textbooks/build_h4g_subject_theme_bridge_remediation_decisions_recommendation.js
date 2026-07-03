@@ -44,9 +44,11 @@ node scripts/textbooks/build_h4g_subject_theme_bridge_remediation_decisions_reco
   --strict --require-items
 
 Builds a generated source-review decision candidate from a remediation packet.
-By default it rejects title-only English Language in use bridge candidates. It
-never approves new bridges, writes public/data, changes official standard text,
-or enables direct matcher use.`)
+By default it rejects title-only English Language in use bridge candidates. Use
+--reject-action-families to add other audited rejection families such as
+pe_quality_or_performance_requires_curriculum_progression_review. It never
+approves new bridges, writes public/data, changes official standard text, or
+enables direct matcher use.`)
 }
 
 function parseList(value) {
@@ -127,6 +129,14 @@ function targetIsSafeToReject(row, remediation) {
       riskFlags.includes('deny_term_in_unit_title:language in use') &&
       row.page_ready === true
   }
+  if (family === 'pe_quality_or_performance_requires_curriculum_progression_review') {
+    const riskFlags = remediation.evidence_profile?.risk_flags || []
+    return row.subject_slug === 'pe' &&
+      row.domain === '学业质量' &&
+      /-QUAL-/.test(row.standard_code || '') &&
+      riskFlags.includes('quality_or_performance_standard_needs_curriculum_review') &&
+      row.page_ready === true
+  }
   return false
 }
 
@@ -134,6 +144,9 @@ function rejectionNote(row, remediation) {
   const family = remediation.action?.action_family || ''
   if (family === 'english_language_use_requires_function_anchor') {
     return '拒绝 title-only Language in use 主题桥接：该单元标题只能说明语言运用/复习板块，不能证明具体 standard-to-unit 关系；后续若有明确语言功能、任务或活动锚点，应重新进入更窄 source review。'
+  }
+  if (family === 'pe_quality_or_performance_requires_curriculum_progression_review') {
+    return '拒绝 PE 学业质量/表现类 direct subject-theme bridge：单元或章节标题不能证明学业质量、运动表现、安全健康或心理调适标准；后续若有量规、表现任务或课程进阶证据，应进入 curriculum progression review。'
   }
   return `拒绝 ${family} remediation item：当前证据不足以证明精确 subject-theme bridge。`
 }
@@ -149,6 +162,7 @@ function applyRecommendation(row, remediation, args, stats, errors) {
   countInto(stats.by_rejected_grade_band, row.grade_band)
   countInto(stats.by_rejected_subject, row.subject_slug)
   stats.remediation_rejected_decisions += 1
+  stats.changed_decision_ids.push(row.decision_id)
   return {
     ...row,
     decision_note: rejectionNote(row, remediation),
@@ -225,8 +239,9 @@ function validateOutput(beforeRows, afterRows, args, stats, errors) {
   }
 }
 
-function changedRows(rows) {
-  return rows.filter(row => row.reviewed_by === 'Codex remediation source review').slice(0, 120)
+function changedRows(rows, stats) {
+  const ids = new Set(stats.changed_decision_ids || [])
+  return rows.filter(row => ids.has(row.decision_id)).slice(0, 120)
     .map(row => `| ${markdownCell(row.reviewer_decision)} | ${markdownCell(row.subject_slug)} | ${markdownCell(row.grade_band)} | ${markdownCell(row.standard_code)} | ${markdownCell(row.unit_title)} | ${markdownCell(row.decision_note)} |`)
     .join('\n') || '| - | - | - | - | - | - |'
 }
@@ -270,7 +285,7 @@ ${countRows(payload.summary.by_reviewer_decision)}
 
 | Decision | Subject | Grade | Standard | Unit | Note |
 | --- | --- | --- | --- | --- | --- |
-${changedRows(payload.bridge_review_decisions)}
+${changedRows(payload.bridge_review_decisions, payload.remediation_decision_recommendation.stats)}
 
 ## Boundary
 
@@ -303,6 +318,7 @@ function main() {
     by_rejected_action_family: {},
     by_rejected_grade_band: {},
     by_rejected_subject: {},
+    changed_decision_ids: [],
     remediation_rejected_decisions: 0
   }
   const beforeRows = decisions.bridge_review_decisions || []
@@ -325,7 +341,8 @@ function main() {
       reviewed_at: args.reviewedAt,
       reviewed_by: args.reviewer,
       source_decisions: args.decisions,
-      source_remediation_packet: args.packet
+      source_remediation_packet: args.packet,
+      stats
     },
     source_review_complete: summary.pending_source_review_decisions === 0,
     summary,
