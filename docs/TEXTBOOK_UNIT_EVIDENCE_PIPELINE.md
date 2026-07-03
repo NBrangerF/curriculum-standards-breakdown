@@ -2445,6 +2445,26 @@ npm run textbooks:audit-h4g-theme-bridge-review -- \
 
 当前 English/PE review packet 结果为 `valid=true`：生成 60 个 unit theme items、95 个 progression theme items、515 个 bridge review candidates，其中 English 340 条、PE 175 条；全部 670 个 review items 都是 `needs_source_review`。audit 也为 `valid=true`，确认没有 public write、没有官方文本变更、没有未复核 eligible evidence、没有跨年级 same-grade candidate。当前仍有 421 条 bridge candidates 缺 page-ready evidence，后续不能进入 publication gate，必须先做页码补证据或 source review。
 
+H4G subject theme bridge review decisions 的边界：`textbooks:h4g-theme-bridge-review-decisions` 和 `textbooks:audit-h4g-theme-bridge-review-decisions` 把 review packet 中的 bridge candidates 转成可编辑 source review 决策文件。它们不写 `public/data`、不改官方课标、不批准直接 matcher use；批准只表示该 bridge 已经过 source review，可作为后续 matcher gate 的输入候选。
+
+```bash
+npm run textbooks:h4g-theme-bridge-review-decisions -- \
+  --packet generated/textbook_evidence/h4g_theme_bridge_review_packet_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.md \
+  --strict \
+  --require-decisions
+
+npm run textbooks:audit-h4g-theme-bridge-review-decisions -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --packet generated/textbook_evidence/h4g_theme_bridge_review_packet_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_decisions_audit_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_decisions_audit_english_pe.md \
+  --strict
+```
+
+当前 decisions template 为 `valid=true`：515 条必需 source review decisions，English 340 条、PE 175 条；按年级为 `H4G7=216`、`H4G8=160`、`H4G9=139`；其中 94 条 page-ready、421 条缺页码。audit 为 `valid=true`，但 `source_review_complete=false`、`matcher_ready=false`、`publication_ready=false`，并提示 515 条仍 pending。真实复核完成后，可用 `--require-complete` 要求全部填写；如果本轮目标是 publication-page eligible bridge，还应加 `--require-page-ready-for-approval`。
+
 ## 10. 下一步
 
 建议顺序：

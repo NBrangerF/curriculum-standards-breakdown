@@ -110,6 +110,8 @@ npm run validate:indexes
 | `scripts/textbooks/audit_h4g_subject_theme_bridge_gaps.js` | 审计真实单元已存在但标准-单元匹配仍为 0 或只有弱匹配的学科，输出是否需要 `bilingual_topic_bridge_required` 或 `curriculum_activity_theme_bridge_required`。 |
 | `scripts/textbooks/build_h4g_subject_theme_bridge_review_packet.js` | 根据受控主题表为教材单元和 H4G progression groups 生成 review-only 主题桥接候选；所有候选默认 `needs_source_review`，不可直接作为 H4G evidence。 |
 | `scripts/textbooks/audit_h4g_subject_theme_bridge_review_packet.js` | 审计主题桥接 review packet，拦截 unknown topic tag、未复核 eligible、public write、官方文本变更、跨年级 same-grade 候选和 approved bridge 混入 review-only packet。 |
+| `scripts/textbooks/build_h4g_subject_theme_bridge_review_decisions_template.js` | 从主题桥接 review packet 生成可编辑 source review 决策模板；每条 bridge candidate 默认 `pending`，并要求 reviewer 明确 standard-scoped 或 progression-group-scoped。 |
+| `scripts/textbooks/audit_h4g_subject_theme_bridge_review_decisions.js` | 审计主题桥接 source review 决策文件，拦截 public write、官方文本变更、直接 matcher use、未确认 source/page/scope 的批准，以及缺失/越权 bridge decision。 |
 | `scripts/textbooks/audit_h4g_topic_placement_matrix.js` | 扫描同一主题在不同教材版本的 7/8/9 年级单元投放位置，区分真实缺证据与跨版本年级投放差异；只作诊断，不把跨年级单元升级为同年级证据。 |
 | `scripts/textbooks/build_h4g_placement_evidence_candidate.js` | 将 topic placement matrix 中的跨年级投放差异整理成 progression group 级候选包；只用于发布前决策，不写 `public/data`，不生成 `textbook_unit_evidence_ids`。 |
 | `scripts/textbooks/audit_h4g_placement_evidence_candidate.js` | 校验 placement 候选包仍是只读诊断材料，并强制 cross-grade unit evidence 不能被当作 same-grade standard evidence。 |
@@ -332,6 +334,8 @@ public/data/
 | `generated/textbook_evidence/h4g_subject_theme_bridge_gaps.json` / `.md` | 学科主题桥接缺口审计；识别 English/PE 这类真实单元存在但仍需双语或活动主题桥接的情况。 |
 | `generated/textbook_evidence/h4g_subject_theme_bridge_review_packet.json` / `.md` | 学科主题桥接 review-only 候选包；包含 unit theme items、progression theme items 和同年级 bridge review candidates，默认全部 `needs_source_review`。 |
 | `generated/textbook_evidence/h4g_subject_theme_bridge_review_packet_audit.json` / `.md` | 主题桥接 review packet 审计结果；确认不写 public、不改官方文本、不跨年级、不把未复核候选升级成 eligible evidence。 |
+| `generated/textbook_evidence/h4g_subject_theme_bridge_review_decisions_template.json` / `.md` | 主题桥接 source review 决策模板；English/PE 首批包含 515 条 bridge 决策，默认全部 pending，并显式记录 approval scope 和 required confirmations。 |
+| `generated/textbook_evidence/h4g_subject_theme_bridge_review_decisions_audit.json` / `.md` | 主题桥接 source review 决策审计；默认允许 pending，保持 `matcher_ready=false`、`publication_ready=false`，复核完成后可加 `--require-complete`。 |
 | `generated/textbook_evidence/h4g_unit_evidence_candidate.json` | 写回前 H4G 单元证据候选包，包含拟写入的 `textbook_unit_evidence_ids` 和 review 信息。 |
 | `generated/textbook_evidence/h4g_unit_evidence_candidate_summary.md` | 写回前候选包 review pack，逐条展示官方字段、候选单元、页段、页码状态、alignment、命中字段和关键词。 |
 | `generated/textbook_evidence/h4g_unit_evidence_candidate_audit.json` | 写回前候选包审计结果，校验官方字段快照、安全边界、alignment、页码门禁和 proposed update。 |
@@ -423,6 +427,8 @@ npm run textbooks:apply-h4g-unit-candidates -- --strict
 - `textbooks:audit-h4g-publication-readiness` 是发布前安全审计 gate。它要求 review packet、contract、apply summary、候选根、progression notes 和 blocked registry 互相一致；自定义 run 只有显式传入 decisions audit 才接入人工/课程复核审计。通过时只表示 `manual_review_ready=true`，仍明确 `publication_ready=false`。
 - `textbooks:h4g-publication-review-decisions` 是人工/课程复核入口生成 gate。它把 review packet 中的 same-grade standards、progression notes 和 blocked 项整理为可编辑决策文件，但默认所有必需复核仍是 `pending`。
 - `textbooks:audit-h4g-publication-review-decisions` 是决策文件审计 gate。默认允许 pending 并保持 `publication_ready=false`；复核完成后可加 `--require-complete`，要求所有必需人工/课程决策全部填写且不越权。
+- `textbooks:h4g-theme-bridge-review-decisions` 是 English/PE 主题桥接 source review 的决策入口。它把 review packet 中的 515 条 bridge candidates 转为可编辑决策文件；批准时必须绑定 standard code 或 progression group，默认不会请求 matcher use。
+- `textbooks:audit-h4g-theme-bridge-review-decisions` 是主题桥接决策审计 gate。默认允许 pending 并保持 `matcher_ready=false`、`publication_ready=false`；加 `--require-complete` 可要求全部 source review 填写，加 `--require-page-ready-for-approval` 可禁止批准缺页码 bridge。
 - `textbooks:audit-h4g-publication-readiness -- --require-review-decisions-audit` 是决策模板接入后的 readiness 复跑 gate。它会把 `h4g_publication_review_decisions_audit` 中的 pending/complete 状态纳入 readiness summary；science reviewed 决策当前报告 17 个 required standard decisions completed、0 pending，但 generated 候选根仍 `publication_ready=false`，需要单独 reviewed publication gate 才能写 public。
 - `textbooks:apply-h4g-publication-review-decisions` 是复核决策 dry-run apply gate。它只把通过复核模板表达的 approved/rejected/needs_revision 决策应用到新的 generated 候选根 `data_candidate_review_decisions` 或显式指定的 `data_candidate_codex_reviewed`，拒绝写 `public/data`，也不改官方课标文本；pending 模板应报告 `applied_standard_decisions=0`。
 - `textbooks:publish-h4g-reviewed-candidate` 是 reviewed public migration gate。默认 dry-run；正式写入必须传 `--write --confirm-reviewed-h4g-publication --strict`。它只发布已审核同年级单元证据字段，拒绝官方核心课标字段变更。当前 public 已通过该 gate 写入 45 条 records，数学 28 条、科学 17 条。

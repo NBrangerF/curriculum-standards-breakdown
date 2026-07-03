@@ -1545,6 +1545,30 @@ npm run textbooks:audit-h4g-theme-bridge-review -- \
 
 结果为 `valid=true`：60 个 unit theme items、95 个 progression theme items、515 个 bridge review candidates，其中 English 340 条、PE 175 条；所有 670 个 review items 都是 `needs_source_review`。audit 确认没有 public write、没有官方文本变更、没有未复核 eligible evidence、没有跨年级 same-grade candidate。仍有 421 条 bridge candidates 缺 page-ready evidence，因此它们只能进入 source review / page recovery 队列，不能进入 reviewed publication gate。
 
+### 7.26 主题桥接 source review 决策层
+
+为避免 English/PE 的 515 条 bridge candidates 停留在“待复核列表”而无法进入可治理流程，本轮新增 source review decisions 模板和审计：
+
+```bash
+npm run textbooks:h4g-theme-bridge-review-decisions -- \
+  --packet generated/textbook_evidence/h4g_theme_bridge_review_packet_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.md \
+  --strict \
+  --require-decisions
+
+npm run textbooks:audit-h4g-theme-bridge-review-decisions -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --packet generated/textbook_evidence/h4g_theme_bridge_review_packet_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_decisions_audit_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_decisions_audit_english_pe.md \
+  --strict
+```
+
+生成结果：515 条必需 source review decisions，English 340 条、PE 175 条；按年级分布为 `H4G7=216`、`H4G8=160`、`H4G9=139`；94 条 page-ready，421 条缺页码。默认全部 pending，因此 audit 为 `valid=true`，但 `source_review_complete=false`、`matcher_ready=false`、`publication_ready=false`。
+
+这一步补上的不是 matcher 逻辑，而是决策记录层：每条批准都必须明确 `approve_standard_scoped_subject_theme_bridge` 或 `approve_progression_group_subject_theme_bridge`，并确认 source text、同学科、同年级、非泛词、页码检查、scope bounded、官方课标文本不变、不请求 public write。后续真实复核完成后，应先用 `--require-complete` 复跑 audit；若要进入 publication-page eligible 的后续 gate，还应加 `--require-page-ready-for-approval`。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：
