@@ -392,6 +392,21 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_target_sta
 
 当前 target-standard gap batch 为 `valid=true`，audit 结果为 `valid=true`：6 条 target-standard gap items 精确覆盖 6 条 expected missing-grade rows，missing/extra 均为 0，来自 3 个父 work items。待处理缺口年级为 H4G7 1 条、H4G8 3 条、H4G9 2 条，全部来自 English。该层只确认“目标年级是否真的没有对应 public standard，或 progression group 是否需要重新切分/收窄”；它不修改 official standard text，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+新增 downstream coverage audit，系统性确认 item-review worklist 的 5 个执行队列全部有对应下游 batch：
+
+```bash
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-coverage -- --strict --require-complete
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_coverage_audit_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_coverage_audit_anchor_domain_rejected_english_pe.md
+```
+
+当前 downstream coverage audit 为 `valid=true`：5 个 downstream batches 精确覆盖 115 个 parent work items，展开为 201 条 review rows；expected/covered parent work items 为 115/115，expected/actual review rows 为 201/201，missing parent、extra parent、duplicate parent assignments 均为 0。该 gate 只证明队列覆盖完整，不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
