@@ -345,6 +345,35 @@ npm run textbooks:h4g-theme-bridge-review-batch -- \
 
 该 P2 pending batch 审计为 `valid=true`：197 条全部 page-ready、全部 pending、全部 `source_review_ready`；年级分布为 `H4G7=57`、`H4G8=130`、`H4G9=10`，学科分布为 English 179 条、PE 18 条。它是下一轮人工/课程 source review 的主入口，尤其首次把 H4G9 的 PE page-ready 候选纳入审阅；但 182 条存在 `unit_overmatches_many_standards`，193 条只有单一 shared topic tag，131 条 standard 本身有多个 bridge candidates，因此不能自动套用 P1 的批准规则。
 
+已对 P2 batch 执行保守 recommendation：只拒绝明确项目错配，其余高风险/宽主题 rows 标为 `needs_revision`，不新增 approved bridge。
+
+```bash
+npm run textbooks:h4g-theme-bridge-review-recommendations -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.json \
+  --batch generated/textbook_evidence/h4g_theme_bridge_review_batch_p2_pending_after_p1_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_p2_codex_reviewed_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_p2_codex_reviewed_english_pe.md \
+  --strict \
+  --require-items
+```
+
+P1+P2 recommendation audit 为 `valid=true`：515 条 decisions 中 254 条已完成审阅，18 条 approved、16 条 rejected、220 条 needs_revision、261 条仍 pending。18 条 approved bridge 全部来自 P1 且 page-ready；P2 没有新增 matcher-approved bridge。after-P2 registry 仍是 18 条，`matcher_ready=true`、`publication_ready=false`。
+
+因此当前主阻塞已经从 source review 转到 page recovery：剩余 261 条 pending 全部是缺页码，按年级和学科为 `PE H4G7=113`、`English H4G9=99`、`PE H4G9=30`、`English H4G7=19`。已生成 after-P2 page recovery 批次：
+
+```bash
+npm run textbooks:h4g-theme-bridge-page-recovery -- \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_after_p2_codex_reviewed_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_p2_codex_reviewed_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_page_recovery_batch_h4g9_after_p2_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_page_recovery_batch_h4g9_after_p2_english_pe.md \
+  --strict \
+  --require-items \
+  --grade-bands H4G9
+```
+
+H4G9 page recovery audit 为 `valid=true`：129 条 linked work items 聚合为 9 个 recovery units，English 7 个、PE 2 个，R1 为两个 English `Unit 3 Language in use` 单元；R2 包含 English `Unit 1 It’s more than 2,000 years old.`、`Unit 2 The Grand Canyon was not just big.`，以及 PE `合理安排运动负荷`、`第一节 运动负荷的自我监测`。H4G7 page recovery audit 也为 `valid=true`：132 条 linked work items 聚合为 12 个 recovery units，R1 为 PE 七年级足球、排球、乒乓球、篮球四个章节。两批都只是页码恢复任务，不批准 bridge。
+
 ## 8. 当前结论
 
 English/PE 现在不是 H4G 分组失败，也不是目录解析完全失败。真正问题是标准能力项与教材主题标题之间缺少受控、可复核、学科化的桥接层。下一阶段的质量目标不是提高 match 数量，而是让每一个 match 都能解释：

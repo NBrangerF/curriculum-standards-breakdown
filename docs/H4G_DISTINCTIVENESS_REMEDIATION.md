@@ -1833,6 +1833,57 @@ P2 batch audit 为 `valid=true`：
 
 这一步的价值是把 H4G9 纳入可执行 source review 队列，并把 H4G8 的审阅面从 P1 的 30 条扩大到 P2 的 130 条；但它不是 approval。P2 的质量画像显示 182 条 `unit_overmatches_many_standards`、193 条 `single_shared_topic_tag`、131 条 `standard_has_many_bridge_candidates`，因此下一轮应以人工/课程 source review 为主，不能直接用 P1 的强规则自动生成大批 approved registry。
 
+### 7.35 P2 conservative recommendation 与 after-P2 page recovery
+
+对 P2 pending batch 运行同一 recommendation gate，但采用保守结果：不新增 approved bridge，只把明确项目错配拒绝，其余高风险宽主题 rows 标为 `needs_revision`。
+
+```bash
+npm run textbooks:h4g-theme-bridge-review-recommendations -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.json \
+  --batch generated/textbook_evidence/h4g_theme_bridge_review_batch_p2_pending_after_p1_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_p2_codex_reviewed_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_p2_codex_reviewed_english_pe.md \
+  --strict \
+  --require-items
+```
+
+审计结果为 `valid=true`：
+
+```json
+{
+  "required_source_review_decisions": 515,
+  "completed_source_review_decisions": 254,
+  "approved_bridge_decisions": 18,
+  "pending_source_review_decisions": 261,
+  "by_reviewer_decision": {
+    "approve_standard_scoped_subject_theme_bridge": 18,
+    "needs_revision": 220,
+    "reject_subject_theme_bridge": 16,
+    "pending": 261
+  }
+}
+```
+
+P2 没有新增 matcher-approved bridge；after-P2 registry 仍是 18 条，全部来自 P1。这个结果很关键：P2 确认了高 fan-out 宽主题不能自动放行，source review 风险被收敛到需要更窄 topic/alias 或课程复核。
+
+after-P2 的剩余 261 条 pending 全部缺页码，不再有 page-ready pending 项。缺口分布：
+
+| subject / grade | pending page-missing decisions |
+| --- | ---: |
+| PE H4G7 | 113 |
+| English H4G9 | 99 |
+| PE H4G9 | 30 |
+| English H4G7 | 19 |
+
+因此下一步主线转为 page recovery。已生成并审计两个恢复批次：
+
+| batch | recovery units | linked work items | R1 units |
+| --- | ---: | ---: | --- |
+| H4G9 after-P2 | 9 | 129 | English 九年级两个 `Unit 3 Language in use` |
+| H4G7 after-P2 | 12 | 132 | PE 七年级足球、篮球、排球、乒乓球章节 |
+
+H4G9 批次分布在 `ctb_0ad2b1e46e08`、`ctb_836e0338edc2`、`ctb_028db4ce8af0` 三个教材文件；H4G7 批次分布在 `ctb_b2ca748e7eca` 和 `ctb_7f9265bf475e`。这些批次仍只是 override 模板和页码恢复任务，不填 `page_start`，不批准 bridge，也不写 `public/data`。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：
