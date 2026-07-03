@@ -302,6 +302,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_action_wor
 
 当前 action worklist 为 `valid=true`，audit 结果为 `valid=true`：115 个 work items 精确覆盖 115 条 recommendations，missing/extra 均为 0，覆盖 219 条 source-anchor review rows。队列分布为：7 条 `item_level_source_review_ready_queue`，44 条 `unit_or_source_row_split_queue`，52 条 `source_anchor_specificity_queue`，9 条 `missing_grade_textbook_unit_indexing_queue`，3 条 `target_standard_gap_queue`。其中 `split_slice_further` 行进一步给出 124 个建议 child slices，便于后续按 unit/source row 继续拆。该层仍是 worklist-only，不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+对 `item_level_source_review_ready_queue`，新增 source-review-ready batch，将 7 个父 work items 展开为单源 item-level source review 入口：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-source-review-ready-batch -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-source-review-ready-batch -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_source_review_ready_batch_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_source_review_ready_batch_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_source_review_ready_batch_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_source_review_ready_batch_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 source-review-ready batch 为 `valid=true`，audit 结果为 `valid=true`：7 条 source review ready items 精确覆盖 7 条 expected ready rows，missing/extra 均为 0，来自 7 个父 work items，`unique_source_keys=7`。全部为 PE/H4G7，其中 1 条 movement/fitness/sportsmanship anchor，6 条 health behavior/load-management anchor；该层只打开 item-level source review 入口，不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 对 `unit_or_source_row_split_queue`，新增 child split batch，将 44 个父 work items 展开为单源粒度审阅行：
 
 ```bash
