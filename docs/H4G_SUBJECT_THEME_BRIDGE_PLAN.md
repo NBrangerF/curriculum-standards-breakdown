@@ -407,6 +407,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 downstream coverage audit 为 `valid=true`：5 个 downstream batches 精确覆盖 115 个 parent work items，展开为 201 条 review rows；expected/covered parent work items 为 115/115，expected/actual review rows 为 201/201，missing parent、extra parent、duplicate parent assignments 均为 0。该 gate 只证明队列覆盖完整，不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+新增 downstream decisions template，将这 5 个 downstream batches 合并成统一可编辑决策入口：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-decisions -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-decisions -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_decisions_template_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_decisions_template_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_decisions_template_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_decisions_template_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 downstream decisions template 为 `valid=true`，audit 结果为 `valid=true`：201 条 downstream decisions 精确覆盖 201 条 expected downstream review rows，missing/extra 均为 0，全部为 `pending`。按 batch 拆分为 child split 124 条、source-anchor specificity 52 条、missing-grade unit indexing 12 条、source-review ready 7 条、target-standard gap 6 条；按年级拆分为 H4G7 66 条、H4G8 82 条、H4G9 53 条。该层只是统一记录后续 reviewer outcome，不修改上一层 editable item decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
