@@ -9,6 +9,7 @@ const DEFAULT_ANCHOR_PRIORITY_MATRIX = 'generated/textbook_evidence/h4g_theme_br
 const DEFAULT_UNIT_CANDIDATE_COVERAGE = 'generated/textbook_evidence/h4g_unit_evidence_candidate_coverage_audit.json'
 const DEFAULT_UNIT_CANDIDATE_COVERAGE_WORKLIST = 'generated/textbook_evidence/h4g_unit_evidence_candidate_coverage_worklist.json'
 const DEFAULT_UNIT_BLOCKER_MATCH_DIAGNOSTICS = 'generated/textbook_evidence/h4g_unit_evidence_blocker_match_diagnostics.json'
+const DEFAULT_UNIT_BLOCKER_ACTION_WORKLIST = 'generated/textbook_evidence/h4g_unit_evidence_blocker_action_worklist.json'
 const DEFAULT_OUT = 'generated/grade7_9_h4g_differentiation_issue_matrix.json'
 const DEFAULT_SUMMARY_OUT = 'generated/grade7_9_h4g_differentiation_issue_matrix.md'
 
@@ -33,6 +34,7 @@ function parseArgs(argv) {
     readiness: DEFAULT_READINESS,
     strict: false,
     summaryOut: DEFAULT_SUMMARY_OUT,
+    unitBlockerActionWorklist: DEFAULT_UNIT_BLOCKER_ACTION_WORKLIST,
     unitBlockerMatchDiagnostics: DEFAULT_UNIT_BLOCKER_MATCH_DIAGNOSTICS,
     unitCandidateCoverage: DEFAULT_UNIT_CANDIDATE_COVERAGE,
     unitCandidateCoverageWorklist: DEFAULT_UNIT_CANDIDATE_COVERAGE_WORKLIST
@@ -46,6 +48,7 @@ function parseArgs(argv) {
     else if (item === '--unit-candidate-coverage') args.unitCandidateCoverage = argv[++i]
     else if (item === '--unit-candidate-coverage-worklist') args.unitCandidateCoverageWorklist = argv[++i]
     else if (item === '--unit-blocker-match-diagnostics') args.unitBlockerMatchDiagnostics = argv[++i]
+    else if (item === '--unit-blocker-action-worklist') args.unitBlockerActionWorklist = argv[++i]
     else if (item === '--out') args.out = argv[++i]
     else if (item === '--summary-out') args.summaryOut = argv[++i]
     else if (item === '--strict') args.strict = true
@@ -172,7 +175,7 @@ function priorityGroupStats(matrix) {
   return stats
 }
 
-function validateInputs(readiness, distinctiveness, anchorDecisions, priorityMatrix, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, errors, warnings) {
+function validateInputs(readiness, distinctiveness, anchorDecisions, priorityMatrix, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, errors, warnings) {
   if (readiness?.valid !== true) errors.push('readiness audit must be valid=true')
   if (distinctiveness?.valid !== true) errors.push('distinctiveness audit must be valid=true')
   if (anchorDecisions?.valid !== true) errors.push('anchor group decisions must be valid=true')
@@ -221,6 +224,22 @@ function validateInputs(readiness, distinctiveness, anchorDecisions, priorityMat
     }
     if (unitBlockerMatchDiagnostics.publication_ready !== false) errors.push('unit blocker match diagnostics publication_ready must be false')
     if (unitBlockerMatchDiagnostics.matcher_ready !== false) errors.push('unit blocker match diagnostics matcher_ready must be false')
+  }
+  if (unitBlockerActionWorklist) {
+    if (unitBlockerActionWorklist.valid !== true) errors.push('unit blocker action worklist must be valid=true')
+    if (unitBlockerActionWorklist.purpose !== 'h4g_unit_evidence_blocker_action_worklist') {
+      errors.push('unit blocker action worklist purpose mismatch')
+    }
+    if (unitBlockerActionWorklist.worklist_only !== true) errors.push('unit blocker action worklist worklist_only must be true')
+    if (unitBlockerActionWorklist.writes_public_data !== false) errors.push('unit blocker action worklist writes_public_data must be false')
+    if (unitBlockerActionWorklist.changes_official_standard_text !== false) {
+      errors.push('unit blocker action worklist changes_official_standard_text must be false')
+    }
+    if (unitBlockerActionWorklist.direct_matcher_use !== false) {
+      errors.push('unit blocker action worklist direct_matcher_use must be false')
+    }
+    if (unitBlockerActionWorklist.publication_ready !== false) errors.push('unit blocker action worklist publication_ready must be false')
+    if (unitBlockerActionWorklist.matcher_ready !== false) errors.push('unit blocker action worklist matcher_ready must be false')
   }
 
   const readinessTotals = readiness?.totals || {}
@@ -324,7 +343,7 @@ function summarizeIssues(subjectRows) {
   return summary
 }
 
-function executionBatches(subjectRows, anchorStats, priorityStats, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics) {
+function executionBatches(subjectRows, anchorStats, priorityStats, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist) {
   const bySlug = Object.fromEntries(subjectRows.map(row => [row.subject_slug, row]))
   const english = bySlug.english || {}
   const pe = bySlug.pe || {}
@@ -357,11 +376,14 @@ function executionBatches(subjectRows, anchorStats, priorityStats, unitCandidate
       entry_gate: 'npm run textbooks:plan-h4g-unit-worklist -- --subjects math,science --discover-candidates --strict',
       coverage_gate: 'npm run textbooks:audit-h4g-unit-candidate-coverage -- --subjects math,science --strict --require-candidates',
       blocker_diagnostics_gate: 'npm run textbooks:audit-h4g-unit-blocker-match-diagnostics -- --subjects math,science --strict --require-rows',
+      action_worklist_gate: 'npm run textbooks:audit-h4g-unit-blocker-action-worklist -- --subjects math,science --strict --require-items',
       remediation_worklist_gate: 'npm run textbooks:h4g-unit-candidate-coverage-worklist -- --strict',
       exit_gate: 'npm run textbooks:audit-h4g-unit-consistency -- --strict --require-candidates',
       next_action: 'expand_existing_unit_evidence_pipeline',
       scope: {
         candidate_files_read: unitCandidateCoverage?.summary?.candidate_files_read || 0,
+        blocker_action_work_items: unitBlockerActionWorklist?.summary?.action_work_items || 0,
+        blocker_action_worklist_routes: unitBlockerActionWorklist?.summary?.by_primary_diagnostic_route || {},
         blocker_match_diagnostic_rows: unitBlockerMatchDiagnostics?.summary?.blocker_rows || 0,
         blocker_match_diagnostic_routes: unitBlockerMatchDiagnostics?.summary?.by_diagnostic_route || {},
         math_missing_unit_records: math.missing_unit_level_evidence_records || 0,
@@ -405,7 +427,7 @@ function subjectMarkdownRows(rows) {
 
 function batchMarkdownRows(rows) {
   return rows.map(row => (
-    `| ${markdownCell(row.batch_id)} | ${markdownCell(row.next_action)} | ${row.writes_public_data} | ${markdownCell(row.blocker_diagnostics_gate || row.remediation_worklist_gate || row.coverage_gate || row.entry_gate)} | ${markdownCell(row.exit_gate)} |`
+    `| ${markdownCell(row.batch_id)} | ${markdownCell(row.next_action)} | ${row.writes_public_data} | ${markdownCell(row.action_worklist_gate || row.blocker_diagnostics_gate || row.remediation_worklist_gate || row.coverage_gate || row.entry_gate)} | ${markdownCell(row.exit_gate)} |`
   )).join('\n') || '| - | - | false | - | - |'
 }
 
@@ -433,6 +455,7 @@ or enable matcher use.
 | anchor priority groups | ${payload.anchor_priority_stats.priority_groups} |
 | anchor review items | ${payload.anchor_priority_stats.total_anchor_review_items} |
 | unit blocker diagnostic rows | ${payload.unit_blocker_match_diagnostics_summary?.blocker_rows || 0} |
+| unit blocker action work items | ${payload.unit_blocker_action_worklist_summary?.action_work_items || 0} |
 
 ## Next Actions
 
@@ -451,6 +474,12 @@ ${countRows(payload.issue_summary.by_root_cause)}
 | route | rows |
 | --- | ---: |
 ${countRows(payload.unit_blocker_match_diagnostics_summary?.by_diagnostic_route || {})}
+
+## Unit Evidence Action Routes
+
+| route | work items |
+| --- | ---: |
+${countRows(payload.unit_blocker_action_worklist_summary?.by_primary_diagnostic_route || {})}
 
 ## Subject Matrix
 
@@ -498,9 +527,10 @@ function main() {
   const unitCandidateCoverage = optionalInput(args.unitCandidateCoverage, 'unit candidate coverage audit', warnings)
   const unitCandidateCoverageWorklist = optionalInput(args.unitCandidateCoverageWorklist, 'unit candidate coverage worklist', warnings)
   const unitBlockerMatchDiagnostics = optionalInput(args.unitBlockerMatchDiagnostics, 'unit blocker match diagnostics', warnings)
+  const unitBlockerActionWorklist = optionalInput(args.unitBlockerActionWorklist, 'unit blocker action worklist', warnings)
 
   if (!errors.length) {
-    validateInputs(readiness, distinctiveness, anchorDecisions, priorityMatrix, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, errors, warnings)
+    validateInputs(readiness, distinctiveness, anchorDecisions, priorityMatrix, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, errors, warnings)
   }
 
   const anchorBySubject = anchorSubjectStats(anchorDecisions)
@@ -514,7 +544,7 @@ function main() {
     direct_matcher_use: false,
     eligible_for_h4g_differentiation: false,
     errors,
-    execution_batches: executionBatches(subjectRows, anchorBySubject, priorityStats, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics),
+    execution_batches: executionBatches(subjectRows, anchorBySubject, priorityStats, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist),
     generated_at: new Date().toISOString(),
     issue_summary: summarizeIssues(subjectRows),
     matcher_ready: false,
@@ -526,12 +556,14 @@ function main() {
       anchor_priority_matrix: args.anchorPriorityMatrix,
       distinctiveness: args.distinctiveness,
       readiness: args.readiness,
+      unit_blocker_action_worklist: args.unitBlockerActionWorklist,
       unit_blocker_match_diagnostics: args.unitBlockerMatchDiagnostics,
       unit_candidate_coverage: args.unitCandidateCoverage,
       unit_candidate_coverage_worklist: args.unitCandidateCoverageWorklist
     },
     subject_issue_matrix: subjectRows,
     target_grade_bands: TARGET_GRADE_BANDS,
+    unit_blocker_action_worklist_summary: unitBlockerActionWorklist?.summary || null,
     unit_candidate_coverage_summary: unitCandidateCoverage?.summary || null,
     unit_candidate_coverage_worklist_summary: unitCandidateCoverageWorklist?.summary || null,
     unit_blocker_match_diagnostics_summary: unitBlockerMatchDiagnostics?.summary || null,
