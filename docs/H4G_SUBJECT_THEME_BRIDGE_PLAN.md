@@ -212,6 +212,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_decisions_triage_candi
 
 当前 triage candidate 为 `valid=true`，并通过 `--require-complete` audit：52 个 group 全部完成非批准型分流，其中 43 个进入 `split_or_refine_group_scope`，9 个进入 `needs_source_anchor_evidence`；覆盖 219 条 anchor items、103 个 bounded split candidates 和 12 个 source-anchor evidence requests。该层只允许 `split_or_refine_group_scope` 与 `needs_source_anchor_evidence` 两类 reviewer decision，明确 `approval_prohibited=true`、`item_level_review_still_required=true`、`writes_public_data=false`、`direct_matcher_use=false`、`publication_ready=false`。
 
+对 43 个 `split_or_refine_group_scope` group，新增 split review batch，把 group-level 分流继续拆到 item-level 审阅粒度：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-split-review-batch -- --strict --require-candidates
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-split-review-batch -- --strict --require-candidates
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_split_review_batch_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_split_review_batch_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_split_review_batch_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_split_review_batch_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 split review batch 为 `valid=true`，audit 结果为 `valid=true`：43 个 split/refine group 精确展开为 103 个 `standard_code + grade_band + action_family + anchor_type` bounded slices，覆盖 183 条 source-anchor review rows；其中 English 83 个 slices、PE 20 个 slices，H4G7/H4G8/H4G9 分别为 28/53/22 个 slices。该 batch 只用于判断 bounded slice 是否足够窄、是否需要再拆、是否需补 source-anchor evidence；它不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
