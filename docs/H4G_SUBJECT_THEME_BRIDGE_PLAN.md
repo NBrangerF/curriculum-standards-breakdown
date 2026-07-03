@@ -602,6 +602,21 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 downstream action recommendations 为 `valid=true`，audit 结果为 `valid=true`：201 条 recommendations 精确覆盖 201 条 action decisions，missing/extra 均为 0，全部 `recommendation_only=true` 且 `recommendation_requires_manual_confirmation=true`。推荐分布与 action decision allowed outcomes 对齐：needs_source_anchor_evidence 168、target_standard_requires_manual_scope_review 12、accept_bounded_slice_for_item_level_source_review 8、source_row_confirms_target_anchor_for_later_gate 7、target_standard_gap_confirmed 6。该层只给 reviewer 一个可复算建议，不自动改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+新增 downstream action closure readiness audit，用来确认 recommendation 是否足以关闭 action decision：
+
+```bash
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-action-closure-readiness -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_closure_readiness_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_closure_readiness_anchor_domain_rejected_english_pe.md
+```
+
+当前 closure readiness audit 为 `valid=true`：201 条 closure readiness rows 精确覆盖 201 条 action decisions；`auto_close_allowed_items=0`、`close_ready_items=0`、`manual_confirmation_required_items=201`。其中 6 条 `target_standard_gap_confirmed` 被标为 `priority_manual_confirmation_candidate`，可优先做人审；其余 195 条仍需要 source/scope/item-level/source-row evidence review。该层专门防止把 recommendation 误当成正式 reviewer decision，不修改 editable action decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
