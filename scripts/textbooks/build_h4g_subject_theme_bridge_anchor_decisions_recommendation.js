@@ -7,22 +7,33 @@ const DEFAULT_BATCH = 'generated/textbook_evidence/h4g_theme_bridge_anchor_revie
 const DEFAULT_OUT = 'generated/textbook_evidence/h4g_theme_bridge_review_decisions_anchor_domain_rejected_english_pe.json'
 const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/h4g_theme_bridge_review_decisions_anchor_domain_rejected_english_pe.md'
 const DEFAULT_REJECT_RULES = [
+  'english_culture_anchor_non_culture_domain_mismatch',
   'pe_movement_anchor_domain_mismatch',
   'pe_health_anchor_domain_mismatch'
 ]
 
 const REJECT_RULES = {
+  english_culture_anchor_non_culture_domain_mismatch: {
+    action_family: 'english_culture_theme_requires_cultural_objective_review',
+    anchor_type: 'english_cultural_objective_anchor',
+    domains: new Set(['学习策略', '语篇', '语言知识']),
+    note: '拒绝 English culture-to-non-culture domain mismatch：文化/地点主题只能提示文化目标回源审阅，不能仅凭 culture_places 证明语篇、学习策略或语言知识标准；后续若有明确语篇任务、策略任务或语言知识活动证据，应重新进入标准级 source review。',
+    required_risk_flags: ['deny_term_in_unit_title:culture'],
+    subject_slug: 'english'
+  },
   pe_movement_anchor_domain_mismatch: {
     anchor_type: 'pe_movement_skill_fitness_or_sportsmanship_anchor',
     action_family: 'pe_activity_skill_requires_movement_standard_anchor',
     domains: new Set(['课程目标', '健康教育', '跨学科主题学习']),
-    note: '拒绝 PE activity-to-domain mismatch：运动项目/活动技能章节不能仅凭项目名称证明课程目标、健康教育或跨学科主题学习标准；后续若有明确安全、健康行为或跨学科任务证据，应重新进入标准级 source review。'
+    note: '拒绝 PE activity-to-domain mismatch：运动项目/活动技能章节不能仅凭项目名称证明课程目标、健康教育或跨学科主题学习标准；后续若有明确安全、健康行为或跨学科任务证据，应重新进入标准级 source review。',
+    subject_slug: 'pe'
   },
   pe_health_anchor_domain_mismatch: {
     anchor_type: 'pe_health_behavior_or_load_management_anchor',
     action_family: 'pe_health_theory_requires_health_behavior_review',
     domains: new Set(['课程目标', '体育品德', '运动能力', '跨学科主题学习']),
-    note: '拒绝 PE health-to-domain mismatch：健康理论、运动负荷或自我监测章节不能仅凭宽主题证明课程目标、体育品德、运动能力或跨学科主题学习标准；后续若有明确行为任务或表现证据，应重新进入标准级 source review。'
+    note: '拒绝 PE health-to-domain mismatch：健康理论、运动负荷或自我监测章节不能仅凭宽主题证明课程目标、体育品德、运动能力或跨学科主题学习标准；后续若有明确行为任务或表现证据，应重新进入标准级 source review。',
+    subject_slug: 'pe'
   }
 }
 
@@ -142,19 +153,26 @@ function hasRiskEvidence(anchor) {
     flags.some(flag => String(flag).startsWith('deny_term_in_unit_title:'))
 }
 
+function hasRequiredRiskFlags(anchor, rule) {
+  const required = rule.required_risk_flags || []
+  const flags = anchor.evidence_profile?.risk_flags || []
+  return required.every(flag => flags.includes(flag))
+}
+
 function matchingRejectRule(row, anchor, ruleIds) {
   if (!anchor) return null
   if (row.reviewer_decision !== 'needs_revision') return null
-  if (row.subject_slug !== 'pe' || anchor.subject_slug !== 'pe') return null
   if (row.page_ready !== true || anchor.bridge_context?.page_ready !== true) return null
   if (anchor.evidence_profile?.source_review_decision !== 'needs_revision') return null
   for (const ruleId of ruleIds) {
     const rule = REJECT_RULES[ruleId]
     if (!rule) continue
+    if (row.subject_slug !== rule.subject_slug || anchor.subject_slug !== rule.subject_slug) continue
     if (anchor.action_family !== rule.action_family) continue
     if (anchor.anchor_requirement?.anchor_type !== rule.anchor_type) continue
     if (!rule.domains.has(anchor.standard_context?.domain || row.domain || '')) continue
     if (!hasRiskEvidence(anchor)) continue
+    if (!hasRequiredRiskFlags(anchor, rule)) continue
     return ruleId
   }
   return null
