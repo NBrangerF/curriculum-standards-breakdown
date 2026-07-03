@@ -16,8 +16,10 @@ function parseArgs(argv) {
     standardsRoot: DEFAULT_STANDARDS_ROOT,
     out: DEFAULT_OUT,
     summaryOut: DEFAULT_SUMMARY_OUT,
+    minPriority: 1,
     maxPriority: 1,
     reviewPath: 'source_review_ready',
+    reviewerDecisions: null,
     strict: false,
     requireItems: false
   }
@@ -28,8 +30,10 @@ function parseArgs(argv) {
     else if (item === '--standards-root') args.standardsRoot = argv[++i]
     else if (item === '--out') args.out = argv[++i]
     else if (item === '--summary-out') args.summaryOut = argv[++i]
+    else if (item === '--min-priority') args.minPriority = Number(argv[++i])
     else if (item === '--max-priority') args.maxPriority = Number(argv[++i])
     else if (item === '--review-path') args.reviewPath = argv[++i]
+    else if (item === '--reviewer-decisions') args.reviewerDecisions = parseList(argv[++i])
     else if (item === '--strict') args.strict = true
     else if (item === '--require-items') args.requireItems = true
     else if (item === '--help') args.help = true
@@ -43,12 +47,22 @@ node scripts/textbooks/build_h4g_subject_theme_bridge_review_batch.js \\
   --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \\
   --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \\
   --out generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe.json \\
-  --strict --require-items --max-priority 1 --review-path source_review_ready
+  --strict --require-items --min-priority 1 --max-priority 1 \\
+  --review-path source_review_ready --reviewer-decisions pending
 
 Builds a read-only source-review batch from the H4G subject theme bridge
 worklist. The batch enriches selected work items with official standard context
 so reviewers can decide bridge scope, but it never approves bridges, writes
 public/data, changes official standard text, or enables matcher use.`)
+}
+
+function parseList(value) {
+  const values = String(value || '')
+    .split(',')
+    .map(item => item.trim())
+    .filter(Boolean)
+  if (!values.length || values.includes('all')) return null
+  return values
 }
 
 function readJson(path) {
@@ -147,9 +161,13 @@ function matchingTextbookEvidence(standard, item) {
 }
 
 function validateInputs(worklist, decisions, args, errors) {
+  if (!Number.isInteger(args.minPriority) || args.minPriority < 1 || args.minPriority > 4) {
+    errors.push('--min-priority must be an integer from 1 to 4')
+  }
   if (!Number.isInteger(args.maxPriority) || args.maxPriority < 1 || args.maxPriority > 4) {
     errors.push('--max-priority must be an integer from 1 to 4')
   }
+  if (args.minPriority > args.maxPriority) errors.push('--min-priority must be <= --max-priority')
   if (worklist.valid !== true) errors.push('worklist valid must be true')
   if (worklist.purpose !== 'h4g_subject_theme_bridge_source_review_worklist') {
     errors.push('worklist purpose must be h4g_subject_theme_bridge_source_review_worklist')
@@ -172,9 +190,12 @@ function validateInputs(worklist, decisions, args, errors) {
 }
 
 function selectedWorkItems(workItems, args) {
+  const reviewerDecisionSet = args.reviewerDecisions ? new Set(args.reviewerDecisions) : null
   return (workItems || [])
+    .filter(item => Number(item.priority_tier || 0) >= args.minPriority)
     .filter(item => Number(item.priority_tier || 0) <= args.maxPriority)
     .filter(item => args.reviewPath === 'all' || item.review_path === args.reviewPath)
+    .filter(item => !reviewerDecisionSet || reviewerDecisionSet.has(item.reviewer_decision || ''))
 }
 
 function standardContext(standard, item) {
@@ -346,8 +367,10 @@ or enable matcher use.
 | Field | Value |
 | --- | --- |
 | valid | ${payload.valid} |
+| min priority | P${payload.selection.min_priority} |
 | max priority | P${payload.selection.max_priority} |
 | review path | ${payload.selection.review_path} |
+| reviewer decisions | ${payload.selection.reviewer_decisions.join(', ')} |
 | batch items | ${payload.summary.batch_items} |
 | source-review ready items | ${payload.summary.source_review_ready_items} |
 | page-recovery items | ${payload.summary.page_recovery_items} |
@@ -431,8 +454,10 @@ function main() {
     source_decisions: args.decisions,
     standards_root: args.standardsRoot,
     selection: {
+      min_priority: args.minPriority,
       max_priority: args.maxPriority,
       review_path: args.reviewPath,
+      reviewer_decisions: args.reviewerDecisions || ['all'],
       selected_work_items: batchItems.length
     },
     publication_candidate: false,

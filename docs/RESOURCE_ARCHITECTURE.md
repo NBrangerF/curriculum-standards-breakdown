@@ -115,8 +115,8 @@ npm run validate:indexes
 | `scripts/textbooks/build_h4g_subject_theme_bridge_review_decisions_recommendation.js` | 从 source review batch 生成 reviewed decision candidate；只更新批次内 decisions，强 standard-scoped 关系可建议批准，明确错配可拒绝，其余保持需修订或 pending。 |
 | `scripts/textbooks/build_h4g_subject_theme_bridge_review_worklist.js` | 将主题桥接 source review decisions 排成只读复核队列；按页码、topic fan-out、unit overmatch 和质量类标准风险划分 P1-P4。 |
 | `scripts/textbooks/audit_h4g_subject_theme_bridge_review_worklist.js` | 审计主题桥接复核队列覆盖所有 decisions，且不写 public、不启用 matcher、不把 priority 当作 approval。 |
-| `scripts/textbooks/build_h4g_subject_theme_bridge_review_batch.js` | 从 worklist 选出指定优先级和 review path 的主题桥接复核批次，并补齐 official standard context、unit context、topic/fan-out 风险和决策模板；只作审前阅读包。 |
-| `scripts/textbooks/audit_h4g_subject_theme_bridge_review_batch.js` | 审计主题桥接复核批次与 worklist、decisions、`public/data/by_subject` 的 lineage 一致，并确认批次仍不写 public、不启用 matcher、不代表 approval。 |
+| `scripts/textbooks/build_h4g_subject_theme_bridge_review_batch.js` | 从 worklist 选出指定 priority range、review path 和 reviewer decision 的主题桥接复核批次，并补齐 official standard context、unit context、topic/fan-out 风险和决策模板；只作审前阅读包。 |
+| `scripts/textbooks/audit_h4g_subject_theme_bridge_review_batch.js` | 审计主题桥接复核批次与 worklist、decisions、`public/data/by_subject` 的 lineage 和 selection filter 一致，并确认批次仍不写 public、不启用 matcher、不代表 approval。 |
 | `scripts/textbooks/build_h4g_subject_theme_bridge_page_recovery_batch.js` | 将 page-missing 主题桥接 work items 按教材单元聚合成页码恢复批次，并生成 `textbook_unit_page_start_overrides.json` 填写模板。 |
 | `scripts/textbooks/audit_h4g_subject_theme_bridge_page_recovery_batch.js` | 审计页码恢复批次只包含 `page_recovery_then_source_review` items，且每条 linked standard 能回溯到 decisions 和 `public/data/by_subject`。 |
 | `scripts/textbooks/build_h4g_subject_theme_bridge_registry.js` | 从已审 decisions 和 decisions audit 导出 matcher 可读取的 approved subject-theme bridge registry；pending/rejected 不会进入。 |
@@ -349,8 +349,11 @@ public/data/
 | `generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe_audit.json` / `.md` | P1 recommendation 审计结果；确认 approved rows 全部 page-ready，且仍 `source_review_complete=false`、`matcher_ready=false`、`publication_ready=false`。 |
 | `generated/textbook_evidence/h4g_subject_theme_bridge_review_worklist.json` / `.md` | 主题桥接 source review 复核队列；把 515 条 decisions 分成 page-ready source review、page recovery 和 P1-P4 优先级，并暴露高 fan-out 单元。 |
 | `generated/textbook_evidence/h4g_subject_theme_bridge_review_worklist_audit.json` / `.md` | 主题桥接复核队列审计；确认 515 条 decisions 全覆盖且队列仍为 read-only，不具备 matcher/public 发布能力。 |
+| `generated/textbook_evidence/h4g_theme_bridge_review_worklist_after_p1_codex_reviewed_english_pe.json` / `.md` | 基于 P1 reviewed decisions 重建的 after-P1 worklist；仍覆盖 515 条 decisions，但每条带有 P1 后的 reviewer decision，供后续只抽 pending。 |
 | `generated/textbook_evidence/h4g_subject_theme_bridge_review_batch.json` / `.md` | 主题桥接 source review 批次；把选中的 worklist items 补齐标准原文、实践、教学提示、单元页码、topic/fan-out 风险和待编辑决策模板。 |
 | `generated/textbook_evidence/h4g_subject_theme_bridge_review_batch_audit.json` / `.md` | 主题桥接批次审计；确认批次 selection 与 worklist 一致，且所有标准上下文能回溯到 `public/data/by_subject`。 |
+| `generated/textbook_evidence/h4g_theme_bridge_review_batch_p2_pending_after_p1_english_pe.json` / `.md` | P1 后精确抽取的 P2 pending/source-ready 审前阅读包；197 条全部 page-ready、全部 pending，覆盖 H4G7 57 条、H4G8 130 条、H4G9 10 条。 |
+| `generated/textbook_evidence/h4g_theme_bridge_review_batch_p2_pending_after_p1_english_pe_audit.json` / `.md` | P2 pending batch 审计；确认 selection 为 `min=max=P2`、`review_path=source_review_ready`、`reviewer_decisions=pending`，且不写 public、不启用 matcher。 |
 | `generated/textbook_evidence/h4g_subject_theme_bridge_page_recovery_batch.json` / `.md` | 主题桥接页码恢复批次；把缺页码 work items 聚合到教材单元，暴露受影响 standards、topic tags、风险和 override 模板。 |
 | `generated/textbook_evidence/h4g_subject_theme_bridge_page_recovery_batch_audit.json` / `.md` | 页码恢复批次审计；确认 selection 与 worklist 一致，且仍不代表 source review、matcher 或 publication readiness。 |
 | `generated/textbook_evidence/h4g_subject_theme_bridge_registry.json` / `.md` | 已审核主题桥接 registry；只包含 approved decisions，供 matcher 生成 `reviewed_subject_theme_bridge` eligible alignment。当前 English/PE pending 模板导出 0 条。 |
@@ -418,6 +421,8 @@ npm run textbooks:h4g-publication-review-decisions -- --strict
 npm run textbooks:audit-h4g-publication-review-decisions -- --strict
 npm run textbooks:audit-h4g-publication-readiness -- --strict --require-review-decisions-audit
 npm run textbooks:h4g-theme-bridge-review-recommendations -- --strict --require-items
+npm run textbooks:h4g-theme-bridge-review-batch -- --min-priority 2 --max-priority 2 --review-path source_review_ready --reviewer-decisions pending --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-review-batch -- --min-priority 2 --max-priority 2 --review-path source_review_ready --reviewer-decisions pending --strict --require-items
 npm run textbooks:apply-h4g-publication-review-decisions -- --strict
 npm run textbooks:publish-h4g-reviewed-candidate -- --candidate-roots generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_codex_reviewed,generated/textbook_evidence/h4g_runs/science_eight_edition_hujiao_full_page_clean/data_candidate_codex_reviewed --write --confirm-reviewed-h4g-publication --strict
 npm run grade7_9:audit-h4g-grade-differentiation -- --data-root generated/textbook_evidence/h4g_runs/math_three_edition_alignment_alias_page_clean/data_candidate_publication_contract
@@ -460,6 +465,7 @@ npm run textbooks:apply-h4g-unit-candidates -- --strict
 - `textbooks:audit-h4g-theme-bridge-review-worklist` 是复核队列覆盖审计 gate。它确保每条 source decision 恰好出现一次，并警告仍有多少 item 需要 page recovery；它不代表 source review complete。
 - `textbooks:h4g-theme-bridge-review-batch` 是主题桥接审前阅读包 gate。R2/R3 页码恢复后，当前 P1 English/PE 批次选出 57 条 `source_review_ready` items，其中 H4G7 27 条、H4G8 30 条，English 43 条、PE 14 条；这仍只是审前阅读包，不代表 H4G8/H4G9 已完成复核。
 - `textbooks:audit-h4g-theme-bridge-review-batch` 是批次 lineage 审计 gate。它校验 batch 与 worklist、decisions 和 official standards 一致，保持 `matcher_ready=false`、`publication_ready=false`。
+- batch/audit 现在支持 `--min-priority` 和 `--reviewer-decisions`，用于 after-P1 这类增量复核。当前 P2 pending batch 精确选出 197 条 page-ready/pending items，包含 H4G9 10 条，但全部仍需要 source review，不能直接批准。
 - `textbooks:h4g-theme-bridge-page-recovery` 是缺页码主题桥接的单元级恢复 gate。初始 H4G8 English/PE 批次把 160 条 page-missing work items 聚合成 9 个教材单元、3 个教材文件；R2/R3 页码恢复写入后，当前 H4G8 剩余 0 条 page-missing work items、0 个 recovery units。
 - `textbooks:audit-h4g-theme-bridge-page-recovery` 是页码恢复批次审计 gate。它确认批次只包含 `page_recovery_then_source_review` items，且 page recovery 不能被当作 bridge approval。
 - `textbooks:h4g-theme-bridge-registry` 是 matcher 前的 approved bridge 导出 gate。当前 English/PE 全部 pending 时输出 `approved_bridges=0`；只有 approved source-review decisions 才能进入 registry。

@@ -320,6 +320,31 @@ P1 registry audit 为 `valid=true`、`matcher_ready=true`、`publication_ready=f
 
 但 consistency audit 仍明确阻止发布：English 和 PE 的 P1 候选都只来自单一教材版本，`cross_version_consistency_proven=false`、`complete_progression_groups=false`。因此 P1 recommendation 只证明“主题桥接审批、registry、matcher、candidate/audit 这条链路可以安全工作”，不能证明 H4G7/H4G8/H4G9 已完成真实分化，也不能写入 `public/data`。
 
+P1 后已新增精确 batch selection：`textbooks:h4g-theme-bridge-review-batch` 和对应 audit 支持 `--min-priority` 与 `--reviewer-decisions`，可从 after-P1 worklist 中只抽取仍为 pending 的下一批 source review items，避免把已审阅的 P1 rows 混入下一轮：
+
+```bash
+npm run textbooks:h4g-theme-bridge-review-worklist -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_worklist_after_p1_codex_reviewed_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_worklist_after_p1_codex_reviewed_english_pe.md \
+  --strict \
+  --require-items
+
+npm run textbooks:h4g-theme-bridge-review-batch -- \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_after_p1_codex_reviewed_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_batch_p2_pending_after_p1_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_batch_p2_pending_after_p1_english_pe.md \
+  --strict \
+  --require-items \
+  --min-priority 2 \
+  --max-priority 2 \
+  --review-path source_review_ready \
+  --reviewer-decisions pending
+```
+
+该 P2 pending batch 审计为 `valid=true`：197 条全部 page-ready、全部 pending、全部 `source_review_ready`；年级分布为 `H4G7=57`、`H4G8=130`、`H4G9=10`，学科分布为 English 179 条、PE 18 条。它是下一轮人工/课程 source review 的主入口，尤其首次把 H4G9 的 PE page-ready 候选纳入审阅；但 182 条存在 `unit_overmatches_many_standards`，193 条只有单一 shared topic tag，131 条 standard 本身有多个 bridge candidates，因此不能自动套用 P1 的批准规则。
+
 ## 8. 当前结论
 
 English/PE 现在不是 H4G 分组失败，也不是目录解析完全失败。真正问题是标准能力项与教材主题标题之间缺少受控、可复核、学科化的桥接层。下一阶段的质量目标不是提高 match 数量，而是让每一个 match 都能解释：

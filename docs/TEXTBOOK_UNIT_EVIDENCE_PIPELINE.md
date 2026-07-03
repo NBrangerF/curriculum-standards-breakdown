@@ -2515,6 +2515,51 @@ npm run textbooks:audit-h4g-theme-bridge-review-batch -- \
 
 R1 页码恢复前的 P1 batch 为 `valid=true`：27 个 batch items，全部是 English/H4G7、`source_review_ready` 且 page-ready；所有 decisions 仍为 `pending`。这不是 7/8/9 覆盖完成的信号，而是数据质量排序结果：P2 中有 H4G7 和少量 H4G9 page-ready items；H4G8 当时的主题桥接候选全部需要 page recovery 后才能进入 publication gate。
 
+R2/R3 页码恢复和 P1 recommendation 后，batch builder/audit 新增两个筛选参数：
+
+| 参数 | 作用 |
+| --- | --- |
+| `--min-priority` | 与 `--max-priority` 组合成 priority range，避免下一批 `P2` 把已经审过的 `P1` 混进来。 |
+| `--reviewer-decisions` | 只选择指定当前决策状态，如 `pending`；默认 `all`，保持旧行为。 |
+
+使用 P1 reviewed decisions 生成 after-P1 worklist 后，可以精确抽取下一批 P2 pending/page-ready source review：
+
+```bash
+npm run textbooks:h4g-theme-bridge-review-worklist -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_worklist_after_p1_codex_reviewed_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_worklist_after_p1_codex_reviewed_english_pe.md \
+  --strict \
+  --require-items
+
+npm run textbooks:h4g-theme-bridge-review-batch -- \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_after_p1_codex_reviewed_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_batch_p2_pending_after_p1_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_batch_p2_pending_after_p1_english_pe.md \
+  --strict \
+  --require-items \
+  --min-priority 2 \
+  --max-priority 2 \
+  --review-path source_review_ready \
+  --reviewer-decisions pending
+
+npm run textbooks:audit-h4g-theme-bridge-review-batch -- \
+  --batch generated/textbook_evidence/h4g_theme_bridge_review_batch_p2_pending_after_p1_english_pe.json \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_after_p1_codex_reviewed_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_p1_codex_reviewed_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_batch_p2_pending_after_p1_english_pe_audit.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_batch_p2_pending_after_p1_english_pe_audit.md \
+  --strict \
+  --require-items \
+  --min-priority 2 \
+  --max-priority 2 \
+  --review-path source_review_ready \
+  --reviewer-decisions pending
+```
+
+当前 P2 pending batch 为 `valid=true`：197 条全部 page-ready、全部 pending、全部 P2；English 179 条、PE 18 条；年级分布为 `H4G7=57`、`H4G8=130`、`H4G9=10`。这批的统一 next step 是 `source_review_exact_standard_to_unit_relationship_before_any_approval`，因为风险集中在高 fan-out 和宽主题：182 条 `unit_overmatches_many_standards`、193 条 `single_shared_topic_tag`、131 条 `standard_has_many_bridge_candidates`。它打开了 H4G9 审阅入口，但不代表可以直接生成 approved registry。
+
 H4G subject theme bridge page recovery batch 的边界：`textbooks:h4g-theme-bridge-page-recovery` 和 `textbooks:audit-h4g-theme-bridge-page-recovery` 面向缺页码项，不做 source review。它把 `page_recovery_then_source_review` work items 按教材单元聚合，生成 `textbook_unit_page_start_overrides.json` 的填写模板；只有真实 TOC/OCR/页脚证据确认 page_start 后，才能把 page recovery 写入 override 文件并重跑 unit index 与后续 bridge gates。
 
 ```bash

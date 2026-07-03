@@ -17,8 +17,10 @@ function parseArgs(argv) {
     standardsRoot: DEFAULT_STANDARDS_ROOT,
     out: DEFAULT_OUT,
     summaryOut: DEFAULT_SUMMARY_OUT,
+    minPriority: 1,
     maxPriority: 1,
     reviewPath: 'source_review_ready',
+    reviewerDecisions: null,
     strict: false,
     requireItems: false
   }
@@ -30,8 +32,10 @@ function parseArgs(argv) {
     else if (item === '--standards-root') args.standardsRoot = argv[++i]
     else if (item === '--out') args.out = argv[++i]
     else if (item === '--summary-out') args.summaryOut = argv[++i]
+    else if (item === '--min-priority') args.minPriority = Number(argv[++i])
     else if (item === '--max-priority') args.maxPriority = Number(argv[++i])
     else if (item === '--review-path') args.reviewPath = argv[++i]
+    else if (item === '--reviewer-decisions') args.reviewerDecisions = parseList(argv[++i])
     else if (item === '--strict') args.strict = true
     else if (item === '--require-items') args.requireItems = true
     else if (item === '--help') args.help = true
@@ -45,11 +49,21 @@ node scripts/textbooks/audit_h4g_subject_theme_bridge_review_batch.js \\
   --batch generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe.json \\
   --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \\
   --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \\
-  --strict --require-items --max-priority 1 --review-path source_review_ready
+  --strict --require-items --min-priority 1 --max-priority 1 \\
+  --review-path source_review_ready --reviewer-decisions pending
 
 Audits a read-only H4G subject theme bridge source-review batch. It verifies the
 batch selection, standard context enrichment, source decision/worklist lineage,
 and no-public-write/no-matcher-use policy boundary.`)
+}
+
+function parseList(value) {
+  const values = String(value || '')
+    .split(',')
+    .map(item => item.trim())
+    .filter(Boolean)
+  if (!values.length || values.includes('all')) return null
+  return values
 }
 
 function readJson(path) {
@@ -122,9 +136,13 @@ function buildStandardIndex(root, subjectSlugs, errors) {
 }
 
 function auditTopLevel(batch, worklist, decisions, args, errors) {
+  if (!Number.isInteger(args.minPriority) || args.minPriority < 1 || args.minPriority > 4) {
+    errors.push('--min-priority must be an integer from 1 to 4')
+  }
   if (!Number.isInteger(args.maxPriority) || args.maxPriority < 1 || args.maxPriority > 4) {
     errors.push('--max-priority must be an integer from 1 to 4')
   }
+  if (args.minPriority > args.maxPriority) errors.push('--min-priority must be <= --max-priority')
   if (batch.valid !== true) errors.push('batch valid must be true')
   if (batch.purpose !== 'h4g_subject_theme_bridge_source_review_batch') {
     errors.push('batch purpose must be h4g_subject_theme_bridge_source_review_batch')
@@ -151,8 +169,14 @@ function auditTopLevel(batch, worklist, decisions, args, errors) {
   if (policy.changes_official_standard_text !== false) errors.push('policy.changes_official_standard_text must be false')
   if (policy.eligible_for_h4g_differentiation !== false) errors.push('policy.eligible_for_h4g_differentiation must be false')
   if (policy.direct_matcher_use !== false) errors.push('policy.direct_matcher_use must be false')
+  if (batch.selection?.min_priority !== args.minPriority) errors.push('batch selection.min_priority must match audit arg')
   if (batch.selection?.max_priority !== args.maxPriority) errors.push('batch selection.max_priority must match audit arg')
   if (batch.selection?.review_path !== args.reviewPath) errors.push('batch selection.review_path must match audit arg')
+  const actualDecisions = batch.selection?.reviewer_decisions || ['all']
+  const expectedDecisions = args.reviewerDecisions || ['all']
+  if (actualDecisions.join(',') !== expectedDecisions.join(',')) {
+    errors.push('batch selection.reviewer_decisions must match audit arg')
+  }
 }
 
 function auditItemPolicy(item, prefix, errors) {
@@ -186,6 +210,7 @@ function auditItem(item, indexes, args, errors, warnings, stats) {
   if (!workItem) errors.push(`${prefix} source_work_item_id not found in worklist`)
   if (!decision) errors.push(`${prefix} source_decision_id not found in decisions`)
   if (!publicStandard) errors.push(`${prefix} standard_context.standard_code not found in public data`)
+  if (item.priority_tier < args.minPriority) errors.push(`${prefix} priority_tier is below min priority P${args.minPriority}`)
   if (item.priority_tier > args.maxPriority) errors.push(`${prefix} priority_tier exceeds max priority P${args.maxPriority}`)
   if (args.reviewPath !== 'all' && item.review_path !== args.reviewPath) errors.push(`${prefix} review_path must be ${args.reviewPath}`)
   if (!standard.standard_code || !standard.standard) errors.push(`${prefix} standard_context must include standard_code and standard`)
@@ -244,6 +269,9 @@ function auditItem(item, indexes, args, errors, warnings, stats) {
     if (decisionTemplate.current_reviewer_decision !== decision.reviewer_decision) {
       errors.push(`${prefix} review_decision_template.current_reviewer_decision must match decision`)
     }
+    if (args.reviewerDecisions && !args.reviewerDecisions.includes(decision.reviewer_decision)) {
+      errors.push(`${prefix} reviewer_decision ${decision.reviewer_decision} is outside requested filter`)
+    }
   }
 
   if (publicStandard) {
@@ -272,9 +300,12 @@ function auditItem(item, indexes, args, errors, warnings, stats) {
 }
 
 function expectedSelectedCount(worklist, args) {
+  const reviewerDecisionSet = args.reviewerDecisions ? new Set(args.reviewerDecisions) : null
   return (worklist.work_items || [])
+    .filter(item => Number(item.priority_tier || 0) >= args.minPriority)
     .filter(item => Number(item.priority_tier || 0) <= args.maxPriority)
     .filter(item => args.reviewPath === 'all' || item.review_path === args.reviewPath)
+    .filter(item => !reviewerDecisionSet || reviewerDecisionSet.has(item.reviewer_decision || ''))
     .length
 }
 
@@ -289,8 +320,10 @@ Generated at: ${result.generated_at}
 | --- | ---: |
 | valid | ${result.valid} |
 | require items | ${result.require_items} |
+| min priority | P${result.min_priority} |
 | max priority | P${result.max_priority} |
 | review path | ${result.review_path} |
+| reviewer decisions | ${result.reviewer_decisions.join(', ')} |
 | batch items | ${result.summary.batch_items} |
 | expected selected items | ${result.summary.expected_selected_items} |
 | page-ready items | ${result.summary.page_ready_items} |
@@ -396,8 +429,10 @@ function main() {
     decisions: args.decisions,
     standards_root: args.standardsRoot,
     require_items: args.requireItems,
+    min_priority: args.minPriority,
     max_priority: args.maxPriority,
     review_path: args.reviewPath,
+    reviewer_decisions: args.reviewerDecisions || ['all'],
     matcher_ready: false,
     publication_ready: false,
     summary: stable(stats),
