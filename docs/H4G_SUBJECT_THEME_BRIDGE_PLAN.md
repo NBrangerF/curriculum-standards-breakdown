@@ -551,6 +551,21 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 downstream source-anchor evidence batch 为 `valid=true`，audit 结果为 `valid=true`：168 条 source-anchor evidence items 精确覆盖 168 条 expected work items，missing/extra 均为 0，`unique_source_keys=168`。其中 child split 116 条、source-anchor specificity 52 条；H4G7/H4G8/H4G9 为 50/76/42，English/PE 为 144/24，P1/P2 为 96/72。该层只允许后续在 editable downstream decisions 中记录 `accept_bounded_slice_for_item_level_source_review`、继续 `needs_source_anchor_evidence` 或 `reject_slice_as_overbroad`；仍不修改 downstream decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+新增 downstream action coverage audit，将 downstream worklist 的 201 条 work items 与 5 个后续执行 batch 做完整性与互斥性校验：
+
+```bash
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-action-coverage -- --strict --require-complete
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_coverage_audit_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_coverage_audit_anchor_domain_rejected_english_pe.md
+```
+
+当前 downstream action coverage audit 为 `valid=true`：5 个 downstream action batches 精确覆盖 201 个 parent work items，expected/actual review rows 为 201/201，missing parent work items 为 0，duplicate parent assignments 为 0。覆盖结构为 source-anchor evidence 168、manual scope/indexing 12、item-level source review 8、source-row confirmation 7、target-standard gap resolution 6。该层只证明执行队列没有漏项或重复分配，仍不代表任何 downstream decision 已完成、不批准 bridge、不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
