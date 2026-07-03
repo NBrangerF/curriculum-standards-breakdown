@@ -382,6 +382,8 @@ after-P2 页码恢复已完成一批 reviewed overrides：`scripts/textbooks/tex
 
 已对这 218 条 after-page-recovery pending batch 执行保守 source review recommendation。结果审计为 `valid=true`：515 条 decisions 中 472 条已完成审阅，18 条 approved、80 条 rejected、374 条 needs_revision、43 条仍 pending。43 条 pending 全部是缺页码项；472 条 page-ready decisions 已无 source-ready pending。新的 registry 审计为 `valid=true`、`matcher_ready=true`、`publication_ready=false`，仍只有原 18 条 approved bridges，全部 page-ready、standard-scoped，分布为 English 15 条、PE 3 条、H4G7 12 条、H4G8 6 条。也就是说，本轮打开并处理了 H4G7/H4G9 的 page-ready 审阅面，但没有自动扩大 matcher-approved 范围。
 
+剩余 10 个 page recovery units 也已完成 reviewed overrides，覆盖 H4G7 PE 第一章/第二章/第七章/第八章/第九章，H4G9 English 上册 `Unit 1 My family always go somewhere interesting`，H4G9 English 下册 `Unit 1 We toured the city by bus and by taxi.`、`Unit 2 It’s a long story.`，以及 H4G7 English 下册 `Unit 1 Whose bag is this?`、`Unit 2 I can run really fast.`。重跑后 English page-start candidates 为 33/47、PE 为 13/13；保守刷新后的 decisions 审计为 `valid=true` 且 page-ready decisions 为 515、page-missing 为 0。最后 43 条 pending batch 也完成保守 source review，严格审计 `--require-complete --require-page-ready-for-approval` 为 `valid=true`：515 条全部完成，18 条 approved、83 条 rejected、414 条 needs_revision、0 pending。最终 registry 仍为 18 条 approved bridges，说明 source review complete 不等于扩大可发布范围。
+
 ## 8. 当前结论
 
 English/PE 现在不是 H4G 分组失败，也不是目录解析完全失败。真正问题是标准能力项与教材主题标题之间缺少受控、可复核、学科化的桥接层。下一阶段的质量目标不是提高 match 数量，而是让每一个 match 都能解释：

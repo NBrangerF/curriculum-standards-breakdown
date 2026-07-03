@@ -2638,6 +2638,8 @@ after-P2 H4G7/H4G9 page recovery 已完成第一批 reviewed overrides，共 11 
 
 after-page-recovery pending batch 已完成一轮保守 source review recommendation：218 条 batch decisions 中没有新增 approval，明确错配项被 reject，其余宽主题项进入 needs_revision。新 decisions 审计为 `valid=true`：472 条 completed、43 条 pending；决策分布为 approved 18、rejected 80、needs_revision 374、pending 43。所有 approved rows 均 page-ready，且 pending rows 全部仍为 page-missing。基于该 decisions 导出的 registry 仍为 18 条 approved bridges，matcher-ready 但 publication-ready 仍为 false；新的 remaining page recovery batch 仍是 43 条 linked work items / 10 个 recovery units。
 
+remaining page recovery 也已完成：新增 10 条 reviewed overrides 后，English run-level unit index 保持 47 个真实 candidates、page-start candidates 增至 33；PE 保持 13 个真实 candidates、page-start candidates 增至 13。full-page-recovered decisions 保留原 515 条 decision surface 和所有既有 reviewer decisions，只刷新 page fields，审计为 `valid=true`：515 条全部 page-ready、0 条 page-missing。最后 43 条 pending/full-page-recovered batch 审计为 `valid=true`，随后 conservative recommendation 将所有 decisions 推进到 completed：approved 18、rejected 83、needs_revision 414、pending 0。严格 decisions audit 带 `--require-complete --require-page-ready-for-approval` 通过，registry 仍为 18 条 approved bridges、`publication_ready=false`。
+
 H4G subject theme bridge source review recommendation 的边界：`textbooks:h4g-theme-bridge-review-recommendations` 读取一个 decisions template 和一个 source review batch，生成新的 reviewed decision candidate 文件。它只更新 batch 内出现的 decisions；未进入 batch 的 rows 保持 `pending`。该命令可以用于 Codex/规则化第一轮复核，但它仍不写 `public/data`、不改官方课标文本、不让系统 publication-ready。
 
 ```bash
