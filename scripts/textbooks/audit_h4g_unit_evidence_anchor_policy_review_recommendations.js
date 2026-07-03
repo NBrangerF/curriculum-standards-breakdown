@@ -273,6 +273,7 @@ function validateRecommendation(row, item, decision, errors, stats) {
   }
   for (const match of row.reference_candidate_matches || []) {
     if (!sourceMatchIds.includes(match.match_id)) errors.push(`${prefix} reference match object is not in source item: ${match.match_id}`)
+    if (!match.source_file) errors.push(`${prefix} reference match object missing source_file: ${match.match_id}`)
   }
   if ((row.evidence_summary?.candidate_matches || 0) !== (item.candidate_matches || []).length) {
     errors.push(`${prefix} evidence_summary.candidate_matches mismatch`)

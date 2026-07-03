@@ -287,6 +287,9 @@ function auditWorkItem(row, recommendation, decision, errors, stats) {
   if (!sameJson((row.reference_candidate_matches || []).map(match => match.match_id), row.reference_candidate_match_ids || [])) {
     errors.push(`${prefix} reference_candidate_matches must align with reference_candidate_match_ids`)
   }
+  for (const match of row.reference_candidate_matches || []) {
+    if (!match.source_file) errors.push(`${prefix} reference match object missing source_file: ${match.match_id}`)
+  }
   stats.audited_work_items += 1
 }
 

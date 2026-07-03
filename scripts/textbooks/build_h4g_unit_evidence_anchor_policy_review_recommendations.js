@@ -293,6 +293,7 @@ function referenceMatches(item, route) {
       match_id: match.match_id || '',
       page_range: match.page_range || '',
       page_start: match.page_start || '',
+      source_file: match.source_file || '',
       unit_title: match.unit_title || ''
     }))
 }

@@ -200,6 +200,7 @@ function uniqueReferenceMatches(recommendation) {
       match_id: id,
       page_range: match.page_range || '',
       page_start: match.page_start || '',
+      source_file: match.source_file || '',
       unit_title: match.unit_title || ''
     })
   }
