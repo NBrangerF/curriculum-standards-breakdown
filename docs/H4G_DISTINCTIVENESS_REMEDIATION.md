@@ -1685,6 +1685,24 @@ npm run textbooks:audit-h4g-theme-bridge-page-recovery -- \
 
 这一步把 H4G8 阻塞从“160 条 standards 候选都缺页码”收敛为“先复核 3 个教材文件中的 9 个单元页码”。但它仍是 read-only page recovery task：不填 `page_start`，不写 `public/data`，不批准 subject-theme bridge。真实页码应先通过 TOC OCR 或正文页脚证据写入 `scripts/textbooks/textbook_unit_page_start_overrides.json`，再重跑 unit index、theme bridge packet、decisions/worklist、source review batch 和后续 registry/matcher gates。
 
+### 7.31 H4G8 R1 页码恢复写入
+
+本轮按 7.30 的 R1 顺序，先恢复 5 个最高影响面的 H4G8 单元页码，并写入 `scripts/textbooks/textbook_unit_page_start_overrides.json`：
+
+| textbook_evidence_id | 单元 | page_start | 证据 |
+| --- | --- | ---: | --- |
+| `ctb_f73a093e2c3d` | `Unit 1 Let’s try to speak English as much` | 2 | PDF page 9 正文标题 `Unit 1 Let’s try to speak English as much as possible.`，同页页脚 2；Scope and sequence PDF page 5 也列 Module 1 `P2`。 |
+| `ctb_f73a093e2c3d` | `Unit 2 You should smile at her!` | 4 | PDF page 11 正文标题 `Unit 2 You should smile at her!`，同页页脚 4。 |
+| `ctb_f73a093e2c3d` | `Unit 3 Language in use` | 6 | PDF page 13 正文标题 `Unit 3 Language in use`，同页页脚 6。 |
+| `ctb_0f2ed61a1c90` | `Unit 2 I feel nervous when I speak Chinese.` | 4 | PDF page 11 正文标题 `Unit 2 I feel nervous when I speak Chinese.`，同页页脚 4。 |
+| `ctb_640488b51030` | `第三章 足球` | 22 | TOC PDF page 5 列 `P22 第三章 足球`；PDF page 28 正文标题 `第三章 足 球`，同页页脚 22。 |
+
+重跑 run-level unit index 后，English 的 page-start candidates 从 16 增至 20，其中 4 条来自 override；PE 的 page-start candidates 从 1 增至 2，其中 1 条来自 override。两个 unit index audit 均为 `valid=true`。
+
+重跑 theme bridge 全链路后，English/PE review packet 仍为 515 条 bridge candidates，但 page-ready bridge candidates 从 94 增至 226，缺页码 candidates 从 421 降至 289。Worklist 现在为 `source_review_ready=226`、`page_recovery_then_source_review=289`，优先级为 `P1=54`、`P2=172`、`P3=3`、`P4=286`。H4G8 的分布从 160 条全缺页码，变为 English `source_review_ready=110`、PE `source_review_ready=22`、English 剩余 `page_recovery_then_source_review=28`。新的 H4G8 page recovery batch 为 `valid=true`，只剩 28 条 work items、3 个 English recovery units。
+
+P1 source review batch 也随之从 27 条扩展为 54 条：H4G7 27 条、H4G8 27 条；subject 分布为 English 40 条、PE 14 条。注意这仍只是 source review 输入，不是 approval；registry 重跑后仍为 `approved_bridges=0`，因为所有 decisions 仍是 `pending`。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：

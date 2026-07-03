@@ -445,11 +445,11 @@ npm run textbooks:apply-h4g-unit-candidates -- --strict
 - `textbooks:audit-h4g-publication-review-decisions` 是决策文件审计 gate。默认允许 pending 并保持 `publication_ready=false`；复核完成后可加 `--require-complete`，要求所有必需人工/课程决策全部填写且不越权。
 - `textbooks:h4g-theme-bridge-review-decisions` 是 English/PE 主题桥接 source review 的决策入口。它把 review packet 中的 515 条 bridge candidates 转为可编辑决策文件；批准时必须绑定 standard code 或 progression group，默认不会请求 matcher use。
 - `textbooks:audit-h4g-theme-bridge-review-decisions` 是主题桥接决策审计 gate。默认允许 pending 并保持 `matcher_ready=false`、`publication_ready=false`；加 `--require-complete` 可要求全部 source review 填写，加 `--require-page-ready-for-approval` 可禁止批准缺页码 bridge。
-- `textbooks:h4g-theme-bridge-review-worklist` 是主题桥接复核执行队列 gate。它不改变 decisions，只把 pending/approved/rejected rows 按证据质量和 fan-out 风险排序，当前 English/PE 输出 27 个 P1、67 个 P2、3 个 P3、418 个 P4。
+- `textbooks:h4g-theme-bridge-review-worklist` 是主题桥接复核执行队列 gate。它不改变 decisions，只把 pending/approved/rejected rows 按证据质量和 fan-out 风险排序；R1 页码恢复后，当前 English/PE 输出 54 个 P1、172 个 P2、3 个 P3、286 个 P4。
 - `textbooks:audit-h4g-theme-bridge-review-worklist` 是复核队列覆盖审计 gate。它确保每条 source decision 恰好出现一次，并警告仍有多少 item 需要 page recovery；它不代表 source review complete。
-- `textbooks:h4g-theme-bridge-review-batch` 是主题桥接审前阅读包 gate。当前 P1 English/PE 批次选出 27 条 `source_review_ready` items，全部为 H4G7 English；这表示首批 page-ready 证据集中在七年级，并不代表 H4G8/H4G9 已覆盖。
+- `textbooks:h4g-theme-bridge-review-batch` 是主题桥接审前阅读包 gate。R1 页码恢复后，当前 P1 English/PE 批次选出 54 条 `source_review_ready` items，其中 H4G7 27 条、H4G8 27 条，English 40 条、PE 14 条；这仍只是审前阅读包，不代表 H4G8/H4G9 已完成复核。
 - `textbooks:audit-h4g-theme-bridge-review-batch` 是批次 lineage 审计 gate。它校验 batch 与 worklist、decisions 和 official standards 一致，保持 `matcher_ready=false`、`publication_ready=false`。
-- `textbooks:h4g-theme-bridge-page-recovery` 是缺页码主题桥接的单元级恢复 gate。当前 H4G8 English/PE 批次把 160 条 page-missing work items 聚合成 9 个教材单元、3 个教材文件，方便优先恢复 printed page start。
+- `textbooks:h4g-theme-bridge-page-recovery` 是缺页码主题桥接的单元级恢复 gate。初始 H4G8 English/PE 批次把 160 条 page-missing work items 聚合成 9 个教材单元、3 个教材文件；R1 页码恢复写入后，当前 H4G8 剩余 28 条 page-missing work items、3 个 English recovery units。
 - `textbooks:audit-h4g-theme-bridge-page-recovery` 是页码恢复批次审计 gate。它确认批次只包含 `page_recovery_then_source_review` items，且 page recovery 不能被当作 bridge approval。
 - `textbooks:h4g-theme-bridge-registry` 是 matcher 前的 approved bridge 导出 gate。当前 English/PE 全部 pending 时输出 `approved_bridges=0`；只有 approved source-review decisions 才能进入 registry。
 - `textbooks:audit-h4g-theme-bridge-registry` 是 registry 安全审计 gate。它校验每条 registry bridge 都能回溯到 approved decision，且仍保持 `publication_ready=false`。

@@ -1,5 +1,5 @@
 {
-  "description": "Reviewed textbook printed-page starts recovered from body OCR when TOC OCR omitted right-side page numbers. These overrides only attach page_start evidence to existing toc_unit_or_chapter candidates.",
+  "description": "Reviewed textbook printed-page starts recovered from TOC/body OCR or extracted body text when TOC parsing omitted right-side page numbers. These overrides only attach page_start evidence to existing toc_unit_or_chapter candidates.",
   "overrides": [
     {
       "evidence": {
@@ -162,6 +162,77 @@
       "source": "toc_ocr_reviewed_page_tail",
       "textbook_evidence_id": "ctb_de4bb9a6664f",
       "unit_title": "第三节 二氧化碳的实验室制法"
+    },
+    {
+      "evidence": {
+        "ocr_excerpt": "PDF page 9 contains Module 1 How to learn English, Unit 1 Let’s try to speak English as much as possible, and footer 2.",
+        "pdf_page": 9,
+        "printed_page_evidence": "Body text footer on the same PDF page shows printed page 2 for Unit 1."
+      },
+      "match_titles": [
+        "Unit 1 Let’s try to speak English as much as possible."
+      ],
+      "note": "H4G8 English 上册 subject-theme page recovery R1; Scope and sequence PDF page 5 lists Module 1 How to learn English at P2, and body text confirms Unit 1 starts on printed page 2.",
+      "page_start": 2,
+      "review_status": "reviewed_from_body_text",
+      "source": "body_text_page_footer",
+      "textbook_evidence_id": "ctb_f73a093e2c3d",
+      "unit_title": "Unit 1 Let’s try to speak English as much"
+    },
+    {
+      "evidence": {
+        "ocr_excerpt": "PDF page 11 contains Module 1 How to learn English, Unit 2 You should smile at her!, and footer 4.",
+        "pdf_page": 11,
+        "printed_page_evidence": "Body text footer on the same PDF page shows printed page 4 for Unit 2."
+      },
+      "note": "H4G8 English 上册 subject-theme page recovery R1; body text confirms Unit 2 starts on printed page 4.",
+      "page_start": 4,
+      "review_status": "reviewed_from_body_text",
+      "source": "body_text_page_footer",
+      "textbook_evidence_id": "ctb_f73a093e2c3d",
+      "unit_title": "Unit 2 You should smile at her!"
+    },
+    {
+      "evidence": {
+        "ocr_excerpt": "PDF page 13 contains Module 1 How to learn English, Unit 3 Language in use, and footer 6.",
+        "pdf_page": 13,
+        "printed_page_evidence": "Body text footer on the same PDF page shows printed page 6 for Unit 3."
+      },
+      "note": "H4G8 English 上册 subject-theme page recovery R1; body text confirms Unit 3 starts on printed page 6.",
+      "page_start": 6,
+      "review_status": "reviewed_from_body_text",
+      "source": "body_text_page_footer",
+      "textbook_evidence_id": "ctb_f73a093e2c3d",
+      "unit_title": "Unit 3 Language in use"
+    },
+    {
+      "evidence": {
+        "ocr_excerpt": "PDF page 11 contains Module 1 Feelings and impressions, Unit 2 I feel nervous when I speak Chinese., and footer 4.",
+        "pdf_page": 11,
+        "printed_page_evidence": "Body text footer on the same PDF page shows printed page 4 for Unit 2."
+      },
+      "note": "H4G8 English 下册 subject-theme page recovery R1; body text confirms Unit 2 starts on printed page 4.",
+      "page_start": 4,
+      "review_status": "reviewed_from_body_text",
+      "source": "body_text_page_footer",
+      "textbook_evidence_id": "ctb_0f2ed61a1c90",
+      "unit_title": "Unit 2 I feel nervous when I speak Chinese."
+    },
+    {
+      "evidence": {
+        "ocr_excerpt": "TOC PDF page 5 lists P22 第三章 足球. PDF page 28 contains heading 第三章 足 球 and footer 22 体育与健康 八年级 全一册.",
+        "pdf_page": 28,
+        "printed_page_evidence": "TOC and body text agree that 第三章 足球 starts on printed page 22."
+      },
+      "match_titles": [
+        "第三章 足 球"
+      ],
+      "note": "H4G8 PE subject-theme page recovery R1; TOC and body text confirm the printed page start.",
+      "page_start": 22,
+      "review_status": "reviewed_from_toc_and_body_text",
+      "source": "toc_and_body_text_page_footer",
+      "textbook_evidence_id": "ctb_640488b51030",
+      "unit_title": "第三章 足球"
     }
   ],
   "version": 1

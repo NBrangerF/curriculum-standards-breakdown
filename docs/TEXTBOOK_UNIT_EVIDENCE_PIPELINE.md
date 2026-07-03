@@ -2513,7 +2513,7 @@ npm run textbooks:audit-h4g-theme-bridge-review-batch -- \
   --review-path source_review_ready
 ```
 
-当前 P1 batch 为 `valid=true`：27 个 batch items，全部是 English/H4G7、`source_review_ready` 且 page-ready；所有 decisions 仍为 `pending`。这不是 7/8/9 覆盖完成的信号，而是数据质量排序结果：P2 中有 H4G7 和少量 H4G9 page-ready items；H4G8 当前主题桥接候选全部需要 page recovery 后才能进入 publication gate。
+R1 页码恢复前的 P1 batch 为 `valid=true`：27 个 batch items，全部是 English/H4G7、`source_review_ready` 且 page-ready；所有 decisions 仍为 `pending`。这不是 7/8/9 覆盖完成的信号，而是数据质量排序结果：P2 中有 H4G7 和少量 H4G9 page-ready items；H4G8 当时的主题桥接候选全部需要 page recovery 后才能进入 publication gate。
 
 H4G subject theme bridge page recovery batch 的边界：`textbooks:h4g-theme-bridge-page-recovery` 和 `textbooks:audit-h4g-theme-bridge-page-recovery` 面向缺页码项，不做 source review。它把 `page_recovery_then_source_review` work items 按教材单元聚合，生成 `textbook_unit_page_start_overrides.json` 的填写模板；只有真实 TOC/OCR/页脚证据确认 page_start 后，才能把 page recovery 写入 override 文件并重跑 unit index 与后续 bridge gates。
 
@@ -2538,7 +2538,9 @@ npm run textbooks:audit-h4g-theme-bridge-page-recovery -- \
   --grade-bands H4G8
 ```
 
-当前 H4G8 page recovery batch 为 `valid=true`：160 条 page-missing work items 聚合为 9 个 recovery units，English 8 个、PE 1 个，分布在 3 个教材文件。优先级为 `R1=5`、`R2=2`、`R3=1`、`R4=1`；R1 覆盖 `Unit 1 Let’s try to speak English as much`、`Unit 2 I feel nervous when I speak Chinese.`、`Unit 2 You should smile at her!`、`第三章 足球`、`Unit 3 Language in use`。audit 为 `valid=true`，但这些项目仍只是 page recovery tasks，不是 approved bridge。
+初始 H4G8 page recovery batch 为 `valid=true`：160 条 page-missing work items 聚合为 9 个 recovery units，English 8 个、PE 1 个，分布在 3 个教材文件。优先级为 `R1=5`、`R2=2`、`R3=1`、`R4=1`；R1 覆盖 `Unit 1 Let’s try to speak English as much`、`Unit 2 I feel nervous when I speak Chinese.`、`Unit 2 You should smile at her!`、`第三章 足球`、`Unit 3 Language in use`。audit 为 `valid=true`，但这些项目仍只是 page recovery tasks，不是 approved bridge。
+
+H4G8 R1 page recovery 已完成第一批 reviewed overrides：英语八上 3 个单元、英语八下 1 个单元、体育八年级全一册 1 个章节，共 5 条 `page_start`。证据均来自 PDF text layer 中的正文标题和页脚，体育同时有 TOC 页码与正文页脚互相确认。重跑 English/PE run-level unit index 后，English page-start candidates 从 16 增至 20，PE 从 1 增至 2；重跑 theme bridge packet 后，page-ready bridge candidates 从 94 增至 226，page-missing bridge candidates 从 421 降至 289。当前 H4G8 worklist 分布为 English `source_review_ready=110`、PE `source_review_ready=22`、English `page_recovery_then_source_review=28`；P1 source review batch 为 54 条，其中 H4G7 27 条、H4G8 27 条。
 
 H4G subject theme bridge registry 的边界：`textbooks:h4g-theme-bridge-registry` 和 `textbooks:audit-h4g-theme-bridge-registry` 是 matcher 前的 approved bridge 导出 gate。它们只读取 approved source review decisions；pending、rejected、needs_revision 都不会进入 registry。registry 仍只写 generated artifact，不写 `public/data`，也不代表 publication ready。
 

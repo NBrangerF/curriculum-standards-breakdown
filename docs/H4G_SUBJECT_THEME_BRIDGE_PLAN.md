@@ -230,7 +230,7 @@ npm run textbooks:audit-h4g-theme-bridge-review-batch -- \
   --review-path source_review_ready
 ```
 
-当前 P1 batch 为 `valid=true`：27 条全部是 English/H4G7，全部 page-ready，且全部仍为 `pending`。这说明首批可复核证据集中在七年级英语；H4G8 没有 page-ready 主题桥接候选，后续必须先做 page recovery，不能把 P1 结果误读成 H4G7/H4G8/H4G9 已经均衡覆盖。
+R1 页码恢复前的 P1 batch 为 `valid=true`：27 条全部是 English/H4G7，全部 page-ready，且全部仍为 `pending`。这说明首批可复核证据集中在七年级英语；H4G8 没有 page-ready 主题桥接候选，后续必须先做 page recovery，不能把 P1 结果误读成 H4G7/H4G8/H4G9 已经均衡覆盖。
 
 已新增 H4G8 page recovery batch，用来处理首批无法进入 source review 的缺页码项：
 
@@ -255,7 +255,9 @@ npm run textbooks:audit-h4g-theme-bridge-page-recovery -- \
   --grade-bands H4G8
 ```
 
-当前 H4G8 page recovery batch 为 `valid=true`：160 条缺页码 work items 聚合为 9 个教材单元，English 8 个、PE 1 个，覆盖 3 个教材文件。R1 优先级有 5 个单元，先恢复这些 printed page start 能最大幅度打开 H4G8 source review 面。batch 只提供 override 模板，不填 page_start，不批准 bridge；真实页码证据应进入 `scripts/textbooks/textbook_unit_page_start_overrides.json` 后再重跑 unit index、review packet、decisions/worklist 和 source review batch。
+初始 H4G8 page recovery batch 为 `valid=true`：160 条缺页码 work items 聚合为 9 个教材单元，English 8 个、PE 1 个，覆盖 3 个教材文件。R1 优先级有 5 个单元，先恢复这些 printed page start 能最大幅度打开 H4G8 source review 面。batch 只提供 override 模板，不填 page_start，不批准 bridge；真实页码证据应进入 `scripts/textbooks/textbook_unit_page_start_overrides.json` 后再重跑 unit index、review packet、decisions/worklist 和 source review batch。
+
+R1 页码恢复已完成第一批写入：`scripts/textbooks/textbook_unit_page_start_overrides.json` 新增 5 条 reviewed overrides，覆盖 English 八上 `Unit 1 Let’s try to speak English as much`、`Unit 2 You should smile at her!`、`Unit 3 Language in use`，English 八下 `Unit 2 I feel nervous when I speak Chinese.`，以及 PE 八年级全一册 `第三章 足球`。这些页码均由正文标题和页脚，或 TOC + 正文页脚共同确认。重跑后，review packet 的 page-ready bridge candidates 从 94 增至 226，缺页码 candidates 从 421 降至 289；H4G8 现在有 132 条 `source_review_ready`（English 110、PE 22），剩余 28 条 page recovery 聚合为 3 个 English 单元。P1 source review batch 也从 27 条扩展到 54 条，其中 H4G7 27 条、H4G8 27 条。
 
 已新增 approved bridge registry 和 matcher 接口：
 
