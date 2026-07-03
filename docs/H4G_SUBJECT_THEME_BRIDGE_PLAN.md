@@ -479,6 +479,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 downstream source-row confirmation batch 为 `valid=true`，audit 结果为 `valid=true`：7 条 source-row confirmation items 精确覆盖 7 条 expected work items，missing/extra 均为 0，`unique_source_keys=7`，全部为 PE/H4G7，其中 6 条为 `pe_health_behavior_or_load_management_anchor`，1 条为 `pe_movement_skill_fitness_or_sportsmanship_anchor`。该层只记录后续人工确认所需的 source-row 证据粒度，仍不修改 downstream decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+新增 downstream item-level source review batch，将 8 条 `accept_bounded_slice_for_item_level_source_review` work items 封成 child-split 后的单源审阅包：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-item-level-source-review-batch -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-item-level-source-review-batch -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_item_level_source_review_batch_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_item_level_source_review_batch_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_item_level_source_review_batch_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_item_level_source_review_batch_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 downstream item-level source review batch 为 `valid=true`，audit 结果为 `valid=true`：8 条 item-level source review items 精确覆盖 8 条 expected work items，missing/extra 均为 0，`unique_source_keys=8`。全部为 H4G7/P1，English/PE 各 4 条，全部来自 `child_split`；anchor 类型为 `english_speech_function_or_discourse_anchor` 4 条、`pe_movement_skill_fitness_or_sportsmanship_anchor` 4 条。该层只打开后续 item-level source review 的单源审阅入口，仍不修改 downstream decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
