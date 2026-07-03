@@ -2642,6 +2642,8 @@ remaining page recovery 也已完成：新增 10 条 reviewed overrides 后，En
 
 H4G subject theme bridge remediation packet 的边界：`textbooks:h4g-theme-bridge-remediation-packet` 和 `textbooks:audit-h4g-theme-bridge-remediation-packet` 只读取已完成 source review 的 decisions/worklist，并只抽取 `needs_revision` rows。当前 packet 为 `valid=true`：414 个 remediation items，覆盖 155 条 standards、70 个 progression groups；audit 也为 `valid=true`，`expected_needs_revision_decisions=414`、`missing_decision_coverage=0`、`extra_decision_coverage=0`。它把后续工作拆成 action family、priority 和 decision owner，但仍不批准 bridge、不写 `public/data`、不改官方文本、不启用 matcher。
 
+H4G subject theme bridge progression matrix 的边界：`textbooks:h4g-theme-bridge-progression-matrix` 和 `textbooks:audit-h4g-theme-bridge-progression-matrix` 把 remediation packet 与 approved bridge registry 上卷到 `progression_group_id`。当前 matrix 为 `valid=true`：70 个 progression groups、414 个 remediation items、18 条 approved bridges；audit 为 `valid=true`，`expected_source_groups=70`、`missing_source_groups=0`、`extra_matrix_groups=0`。它明确记录 `complete_h4g_triplet_approved_groups=0`，也就是 English/PE 仍没有任何七、八、九年级完整 approved bridge progression group；两个 complete groups 只是单/部分年级 public group，不可误读为完整 H4G 分化。
+
 H4G subject theme bridge source review recommendation 的边界：`textbooks:h4g-theme-bridge-review-recommendations` 读取一个 decisions template 和一个 source review batch，生成新的 reviewed decision candidate 文件。它只更新 batch 内出现的 decisions；未进入 batch 的 rows 保持 `pending`。该命令可以用于 Codex/规则化第一轮复核，但它仍不写 `public/data`、不改官方课标文本、不让系统 publication-ready。
 
 ```bash

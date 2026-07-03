@@ -386,6 +386,8 @@ after-P2 页码恢复已完成一批 reviewed overrides：`scripts/textbooks/tex
 
 已新增 subject-theme bridge remediation packet，把 414 条 `needs_revision` 从单一状态拆成 7 个可执行 action families。packet/audit 均为 `valid=true`，且精确覆盖全部 needs_revision decisions：missing coverage 0、extra coverage 0。当前分布为 English 325 条、PE 89 条；高优先级 113 条、中优先级 301 条；action families 包括 English 语言运用需功能锚点 110 条、English 日常交际主题需 speech-function 锚点 140 条、English 文化主题需文化目标复核 48 条、PE 活动技能需运动标准锚点 38 条、PE 健康理论需健康行为复核 35 条、PE 学业质量/表现需课程进阶复核 16 条。该 packet 仍是 read-only，不批准 bridge、不写 `public/data`、不启用 matcher。
 
+已进一步新增 progression-group matrix，把 414 条 remediation items 和 18 条 approved bridges 上卷到 70 个 `progression_group_id`。matrix/audit 均为 `valid=true`，source groups 70 个全部覆盖，missing/extra group 均为 0；其中 English 46 个组、PE 24 个组，60 个组本身覆盖 H4G7/H4G8/H4G9 三年级。关键结论是 `complete_h4g_triplet_approved_groups=0`：当前没有任何 English/PE 主题桥接组已经证明七、八、九年级完整进阶。resolution track 分布为：26 个 generic Language in use title bridge blocked、12 个 English source-anchor model required、16 个 PE source-anchor model required、5 个 PE curriculum progression review required、9 个 partial approved bridge needs grade completion、2 个 single/partial-grade complete 但仍需 publication gates。该 matrix 仍是 read-only，只用于确定下一步 owner 和阻塞原因。
+
 ## 8. 当前结论
 
 English/PE 现在不是 H4G 分组失败，也不是目录解析完全失败。真正问题是标准能力项与教材主题标题之间缺少受控、可复核、学科化的桥接层。下一阶段的质量目标不是提高 match 数量，而是让每一个 match 都能解释：
