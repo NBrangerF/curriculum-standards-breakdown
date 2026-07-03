@@ -2636,6 +2636,8 @@ after-P2 H4G7/H4G9 page recovery 已完成第一批 reviewed overrides，共 11 
 
 基于该 page-recovered decisions 生成的新 worklist 审计为 `valid=true`：472 条 `source_review_ready`、43 条 `page_recovery_then_source_review`。新的 pending source review batch 审计为 `valid=true`：218 条全部 page-ready、全部 pending、全部 P2，分布为 H4G7 103 条、H4G9 115 条，English 100 条、PE 118 条。剩余 page recovery batch 审计为 `valid=true`：43 条 linked work items 聚合为 10 个 recovery units，English 5 个、PE 5 个；这些项目仍必须先补页码，再进入 source review。
 
+after-page-recovery pending batch 已完成一轮保守 source review recommendation：218 条 batch decisions 中没有新增 approval，明确错配项被 reject，其余宽主题项进入 needs_revision。新 decisions 审计为 `valid=true`：472 条 completed、43 条 pending；决策分布为 approved 18、rejected 80、needs_revision 374、pending 43。所有 approved rows 均 page-ready，且 pending rows 全部仍为 page-missing。基于该 decisions 导出的 registry 仍为 18 条 approved bridges，matcher-ready 但 publication-ready 仍为 false；新的 remaining page recovery batch 仍是 43 条 linked work items / 10 个 recovery units。
+
 H4G subject theme bridge source review recommendation 的边界：`textbooks:h4g-theme-bridge-review-recommendations` 读取一个 decisions template 和一个 source review batch，生成新的 reviewed decision candidate 文件。它只更新 batch 内出现的 decisions；未进入 batch 的 rows 保持 `pending`。该命令可以用于 Codex/规则化第一轮复核，但它仍不写 `public/data`、不改官方课标文本、不让系统 publication-ready。
 
 ```bash
