@@ -81,6 +81,21 @@ generated/grade7_9_h4g_differentiation_issue_matrix.md
 
 它的目的不是再次证明三年级相同，而是把相同背后的根因分流：English/PE 进入 anchor group decision gate，数学/科学继续 unit evidence pipeline，艺术等 incomplete group 先修复年级归属，其他 file-level source 学科先补真实单元/章节证据。该矩阵仍是只读工件，不写 `public/data`，不改官方课标文本，不批准 matcher。
 
+新增全局 progression decision model：
+
+```bash
+npm run grade7_9:h4g-progression-decision-model -- --strict
+```
+
+输出：
+
+```text
+generated/grade7_9_h4g_progression_decision_model.json
+generated/grade7_9_h4g_progression_decision_model.md
+```
+
+它把 400 个 `progression_group_id` 逐组分类为下一步安全执行路线，而不是只在学科层面分流。当前结果为 `valid=true`：43 组进入 `anchor_group_split_before_item_review`，9 组进入 `anchor_group_source_evidence_gap_review`，35 组进入 `unit_evidence_focus_completion`，68 组进入 `partial_grade_scope_assignment_review`，200 组进入 `shared_source_unit_evidence_required`，44 组进入 `source_coverage_or_low_confidence_gap`，1 组为 `reviewed_grade_focus_verified`。该模型仍是 read-only，`writes_public_data=false`、`changes_official_standard_text=false`、`direct_matcher_use=false`、`publication_ready=false`。
+
 ## 3. 数据字段修复
 
 H4G records 新增或强化以下字段：
@@ -211,6 +226,7 @@ npm run textbooks:publish-h4g-reviewed-candidate -- \
 已落地的下一阶段入口：
 
 ```bash
+npm run grade7_9:h4g-progression-decision-model -- --strict
 npm run textbooks:unit-index
 npm run textbooks:audit-unit-index -- --strict
 npm run textbooks:match-units
