@@ -338,6 +338,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_source_anc
 
 当前 specificity batch 为 `valid=true`，audit 结果为 `valid=true`：52 条 source-anchor specificity review items 精确覆盖 52 条 expected items，missing/extra 均为 0，来自 52 个父 work items，`unique_source_keys=52`。按年级拆分为 H4G7 8 条、H4G8 36 条、H4G9 8 条；按学科拆分为 English 47 条、PE 5 条。该层聚焦确认 source row 是否证明 exact anchor，而不是仅共享宽主题或标题；仍不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+对 `missing_grade_textbook_unit_indexing_queue`，新增 missing-grade textbook unit indexing batch，将 9 个父 work items 展开为 target-standard 级索引任务：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-missing-grade-unit-indexing-batch -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-missing-grade-unit-indexing-batch -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_missing_grade_unit_indexing_batch_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_missing_grade_unit_indexing_batch_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_missing_grade_unit_indexing_batch_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_missing_grade_unit_indexing_batch_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 indexing batch 为 `valid=true`，audit 结果为 `valid=true`：12 条 missing-grade unit indexing items 精确覆盖 12 条 expected target-standard items，missing/extra 均为 0，来自 9 个父 work items。待索引年级为 H4G8 3 条、H4G9 9 条；按学科拆分为 English 6 条、PE 6 条。该层只要求为缺失年级 target standards 找同年级教材单元候选；这些候选之后仍需 source-anchor 和 item-level review，不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
