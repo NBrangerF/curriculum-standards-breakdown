@@ -193,6 +193,25 @@ worklist 仍是 review-only：它不更新正式 decision template，不批准 b
 
 当前 action worklist 为 `valid=true`：52 个 group 全覆盖，219 条 item-level anchor review rows 全覆盖；43 个 `split_scope_before_item_review` group 展开为 103 个 bounded split candidates，9 个 `source_anchor_evidence_gap_review` group 展开为 12 个 source-anchor evidence requests。
 
+在 worklist 后新增一个非批准型 triage decision candidate，用来把 recommendation/worklist 固化成可被现有 decisions audit 验证的候选决策层：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-triage-decisions -- --strict --require-groups
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-decisions -- \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_anchor_group_decisions_triage_candidate_anchor_domain_rejected_english_pe.json \
+  --matrix generated/textbook_evidence/h4g_theme_bridge_anchor_priority_matrix_anchor_domain_rejected_english_pe.json \
+  --strict --require-groups --require-complete
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_decisions_triage_candidate_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_decisions_triage_candidate_anchor_domain_rejected_english_pe.md
+```
+
+当前 triage candidate 为 `valid=true`，并通过 `--require-complete` audit：52 个 group 全部完成非批准型分流，其中 43 个进入 `split_or_refine_group_scope`，9 个进入 `needs_source_anchor_evidence`；覆盖 219 条 anchor items、103 个 bounded split candidates 和 12 个 source-anchor evidence requests。该层只允许 `split_or_refine_group_scope` 与 `needs_source_anchor_evidence` 两类 reviewer decision，明确 `approval_prohibited=true`、`item_level_review_still_required=true`、`writes_public_data=false`、`direct_matcher_use=false`、`publication_ready=false`。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
