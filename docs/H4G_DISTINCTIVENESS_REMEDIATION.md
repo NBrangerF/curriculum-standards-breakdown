@@ -66,6 +66,21 @@ scripts/grade7_9/audit_h4g_distinctiveness.js
 
 这说明当前数据仍有大量三年级共享文本，但已经不再伪装成已改写的官方分化标准；所有完整重复三元组都被标记为共享源标准。45 条数学/科学 records 已拥有 reviewed 单元级证据和年级化学习重点，但全量 H4G 仍为 `differentiation_ready=false`。
 
+新增全局执行矩阵：
+
+```bash
+npm run grade7_9:h4g-differentiation-issue-matrix -- --strict
+```
+
+该矩阵读取最新 public H4G readiness、distinctiveness audit、English/PE anchor priority matrix 和 anchor group decisions，输出：
+
+```text
+generated/grade7_9_h4g_differentiation_issue_matrix.json
+generated/grade7_9_h4g_differentiation_issue_matrix.md
+```
+
+它的目的不是再次证明三年级相同，而是把相同背后的根因分流：English/PE 进入 anchor group decision gate，数学/科学继续 unit evidence pipeline，艺术等 incomplete group 先修复年级归属，其他 file-level source 学科先补真实单元/章节证据。该矩阵仍是只读工件，不写 `public/data`，不改官方课标文本，不批准 matcher。
+
 ## 3. 数据字段修复
 
 H4G records 新增或强化以下字段：
