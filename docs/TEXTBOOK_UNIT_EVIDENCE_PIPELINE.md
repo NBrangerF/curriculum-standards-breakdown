@@ -2650,6 +2650,8 @@ H4G subject theme bridge anchor review batch 的边界：`textbooks:h4g-theme-br
 
 H4G subject theme bridge anchor recommendation 的边界：`textbooks:h4g-theme-bridge-anchor-recommendations` 读取 decisions 与 source-anchor review batch，只拒绝通过安全检查的 anchor/domain 或 quality direct-bridge mismatch。当前默认处理 69 条：11 条 English cultural objective anchor 错打语篇、学习策略或语言知识；32 条 English speech/culture/learning anchor 直接打到学业质量标准；15 条 PE activity/movement anchor 错打课程目标、健康教育或跨学科主题学习；11 条 PE health/load-management anchor 错打课程目标、体育品德、运动能力或跨学科主题学习。新的 decisions audit 为 `valid=true`：approved 18、rejected 278、needs_revision 219、pending 0；新的 remediation packet 精确覆盖 219 条 needs_revision，新的 progression matrix 精确覆盖 52 个 source groups，仍 `complete_h4g_triplet_approved_groups=0`。
 
+H4G subject theme bridge anchor priority matrix 的边界：`textbooks:h4g-theme-bridge-anchor-priority-matrix` 读取最新 source-anchor review batch，把剩余 219 条 needs_revision 聚合成 52 个 progression-group 级复核单元。它输出 P1/P2 队列、review strategy、group 内 standards/units/grade bands/fanout 风险和 sample items；当前结果为 `valid=true`，P1 27 组、P2 25 组，English 39 组、PE 13 组。该矩阵只用于安排回源复核顺序，不写 `public/data`，不新增 approved bridge，不启用 matcher；只有后续 reviewer decision、registry audit、matcher gate 和 publication gate 全部通过，才允许进入 H4G 年级化 evidence 写入链路。
+
 H4G subject theme bridge source review recommendation 的边界：`textbooks:h4g-theme-bridge-review-recommendations` 读取一个 decisions template 和一个 source review batch，生成新的 reviewed decision candidate 文件。它只更新 batch 内出现的 decisions；未进入 batch 的 rows 保持 `pending`。该命令可以用于 Codex/规则化第一轮复核，但它仍不写 `public/data`、不改官方课标文本、不让系统 publication-ready。
 
 ```bash

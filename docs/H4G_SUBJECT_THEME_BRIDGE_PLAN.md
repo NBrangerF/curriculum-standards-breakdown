@@ -407,6 +407,14 @@ npm run textbooks:h4g-theme-bridge-anchor-recommendations -- --strict --require-
 
 该 pass 拒绝 69 条 mismatch：11 条 English cultural objective anchor 打到语篇、学习策略或语言知识；32 条 English speech/culture/learning anchor 直接打到学业质量标准；15 条 PE activity/movement anchor 打到课程目标、健康教育或跨学科主题学习；11 条 PE health/load-management anchor 打到课程目标、体育品德、运动能力或跨学科主题学习。新的 decisions audit 为 `valid=true`：approved 18、rejected 278、needs_revision 219、pending 0，所有 decisions 均 page-ready。下游 registry 仍只有 18 条 approved bridges；新的 remediation packet/audit 为 `valid=true`，剩余 219 条 needs_revision，覆盖 93 条 standards、52 个 progression groups；新的 progression matrix/audit 也为 `valid=true`，`complete_h4g_triplet_approved_groups=0`。这一步只收敛明确 domain/quality direct-bridge mismatch，不自动处理仍可能由具体活动回源成立的英语 speech/learning rows。
 
+已新增 anchor priority matrix，把剩余 219 条 `needs_revision` 进一步按 `progression_group_id` 聚合成复核队列，避免 reviewer 继续按散点 item 判断：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-priority-matrix -- --strict --require-items
+```
+
+该 matrix 为 `valid=true`，仍保持 `writes_public_data=false`、`publication_ready=false`、`matcher_ready=false`。它覆盖 52 个 priority groups，其中 English 39 组、PE 13 组；按 item 仍是 English 172 条、PE 47 条。优先级分布为 `P1=27` 组、`P2=25` 组；其中 21 组含 high-priority item。review strategy 分布显示真正工作重点：9 组应先补齐已部分 approved 的缺失年级，2 组可在确认 anchor 后进入 publication gate 检查，40 组应先做 fanout-first source review，因为存在单元过度匹配多 standards、standard 多候选或 single shared topic tag 风险。该矩阵只决定复核顺序和证据焦点，不新增 approval，也不改变官方课标文本。
+
 ## 8. 当前结论
 
 English/PE 现在不是 H4G 分组失败，也不是目录解析完全失败。真正问题是标准能力项与教材主题标题之间缺少受控、可复核、学科化的桥接层。下一阶段的质量目标不是提高 match 数量，而是让每一个 match 都能解释：
