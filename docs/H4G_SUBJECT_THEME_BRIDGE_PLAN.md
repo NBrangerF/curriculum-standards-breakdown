@@ -617,6 +617,21 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 closure readiness audit 为 `valid=true`：201 条 closure readiness rows 精确覆盖 201 条 action decisions；`auto_close_allowed_items=0`、`close_ready_items=0`、`manual_confirmation_required_items=201`。其中 6 条 `target_standard_gap_confirmed` 被标为 `priority_manual_confirmation_candidate`，可优先做人审；其余 195 条仍需要 source/scope/item-level/source-row evidence review。该层专门防止把 recommendation 误当成正式 reviewer decision，不修改 editable action decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+对 6 条 priority target-standard gap，新增 public inventory audit：
+
+```bash
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-target-standard-gap-inventory -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_target_standard_gap_inventory_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_target_standard_gap_inventory_anchor_domain_rejected_english_pe.md
+```
+
+当前 target gap inventory audit 为 `valid=true`：6 条 inventory rows 全部在 `public/data` 中确认 source standard 存在、同 progression group 只有原 source grade，推导出的 missing-grade target code 不存在，目标年级也没有同 `legacy_code` 的替代记录。因此 6 条均为 `confirmed_absent_in_public_inventory`。这仍只是 inventory evidence，不自动关闭 editable action decisions、不新增或改写 official standard、不写正式数据、不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
