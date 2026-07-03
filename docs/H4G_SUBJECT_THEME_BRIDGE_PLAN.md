@@ -689,6 +689,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 closure readiness audit 为 `valid=true`：201 条 closure readiness rows 精确覆盖 201 条 action decisions；`auto_close_allowed_items=0`、`close_ready_items=0`、`manual_confirmation_required_items=201`。其中 6 条 `target_standard_gap_confirmed` 被标为 `priority_manual_confirmation_candidate`，可优先做人审；其余 195 条仍需要 source/scope/item-level/source-row evidence review。该层专门防止把 recommendation 误当成正式 reviewer decision，不修改 editable action decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+新增 downstream manual confirmation worklist，把 closure readiness 与所有 downstream inventories 合并为一张统一的人审队列，避免 reviewer 在 5 条分支里散找下一步：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-manual-confirmation-worklist -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-manual-confirmation-worklist -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_manual_confirmation_worklist_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_manual_confirmation_worklist_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_manual_confirmation_worklist_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_manual_confirmation_worklist_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 manual confirmation worklist 为 `valid=true`，audit 结果为 `valid=true`：201 条 worklist items 精确覆盖 201 条 action decisions，missing/extra 均为 0；全部仍需人工确认，`auto_close_allowed_items=0`、`close_ready_items=0`。队列按可执行 lane 排序：priority target gap 6 条、same-grade unit scope 12 条、single source-row 7 条、bounded item-level source review 8 条、source-anchor generic/deny-term 49 条、source-anchor unit/source scope 116 条、source-anchor fanout 3 条；H4G7/H4G8/H4G9 分布为 66/82/53。该层只整理人工确认顺序和所需证据，不自动关闭 action decisions，不修改 editable templates，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 对 6 条 priority target-standard gap，新增 public inventory audit：
 
 ```bash
