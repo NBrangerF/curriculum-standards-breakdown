@@ -374,6 +374,12 @@ npm run textbooks:h4g-theme-bridge-page-recovery -- \
 
 H4G9 page recovery audit 为 `valid=true`：129 条 linked work items 聚合为 9 个 recovery units，English 7 个、PE 2 个，R1 为两个 English `Unit 3 Language in use` 单元；R2 包含 English `Unit 1 It’s more than 2,000 years old.`、`Unit 2 The Grand Canyon was not just big.`，以及 PE `合理安排运动负荷`、`第一节 运动负荷的自我监测`。H4G7 page recovery audit 也为 `valid=true`：132 条 linked work items 聚合为 12 个 recovery units，R1 为 PE 七年级足球、排球、乒乓球、篮球四个章节。两批都只是页码恢复任务，不批准 bridge。
 
+after-P2 页码恢复已完成一批 reviewed overrides：`scripts/textbooks/textbook_unit_page_start_overrides.json` 新增 11 条 page_start，覆盖 H4G9 English 上/下册 4 个单元、H4G9 PE 2 个章节/小节、H4G7 PE 4 个章节、H4G7 English 下册 1 个单元。证据来自 PDF text layer 中的正文标题、Scope and sequence/目录页码与正文页脚交叉确认。重跑 English/PE run-level unit index 后，English page-start candidates 从 23 增至 28，PE 从 2 增至 8；候选总数保持 English 47、PE 13，不扩大 review surface。
+
+注意：重建 review packet 会因为 top-4 候选排序变化而改变旧 P1/P2 审核面。因此当前 official review state 使用保守的 `h4g_theme_bridge_review_decisions_p1_p2_page_recovered_english_pe.json`：它保留原 515 条 decision surface 和 254 条已审 P1/P2 结论，只刷新页码字段。该文件审计为 `valid=true`：254 条 completed、18 条 approved、16 条 rejected、220 条 needs_revision、261 条 pending；18 条 approved 全部仍为 page-ready，且 page-ready decisions 已从 254 增至 472，page-missing 降至 43。
+
+基于保守 page-recovered decisions 重建的 worklist 审计为 `valid=true`：515 条 work items 中 472 条为 `source_review_ready`、43 条仍需 `page_recovery_then_source_review`。新的 pending source-review batch 为 `valid=true`，共 218 条，全部 page-ready、全部 pending、全部 P2；分布为 H4G7 103 条、H4G9 115 条，English 100 条、PE 118 条。剩余 page recovery batch 也审计为 `valid=true`：43 条 linked work items 聚合为 10 个 recovery units，其中 H4G7 7 个、H4G9 3 个；这些仍只是补页码任务，不批准 bridge。
+
 ## 8. 当前结论
 
 English/PE 现在不是 H4G 分组失败，也不是目录解析完全失败。真正问题是标准能力项与教材主题标题之间缺少受控、可复核、学科化的桥接层。下一阶段的质量目标不是提高 match 数量，而是让每一个 match 都能解释：

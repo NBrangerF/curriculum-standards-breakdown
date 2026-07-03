@@ -2630,6 +2630,12 @@ npm run textbooks:h4g-theme-bridge-page-recovery -- \
 
 after-P2 H4G7 page recovery batch 也已生成并审计为 `valid=true`：132 条 linked work items 聚合为 12 个 recovery units，English 3 个、PE 9 个，分布在 `ctb_b2ca748e7eca` 和 `ctb_7f9265bf475e` 两个教材文件。R1 是 PE 七年级 `第三章 足 球`、`第四章 篮 球`、`第五章 排 球`、`第六章 乒乓球`。这两个 page recovery batch 均只生成 override 模板，不填页码、不批准 bridge、不启用 matcher。
 
+after-P2 H4G7/H4G9 page recovery 已完成第一批 reviewed overrides，共 11 条，写入 `scripts/textbooks/textbook_unit_page_start_overrides.json`。本轮确认了 H4G9 English 上册 `Unit 1 It’s more than 2,000 years old.` page_start 2、`Unit 2 The Grand Canyon was not just big.` page_start 4、`Unit 3 Language in use` page_start 6；H4G9 English 下册 `Unit 3 Language in use` page_start 6；H4G9 PE `第一节 运动负荷的自我监测` 与 `合理安排运动负荷` page_start 1；H4G7 PE 足球、篮球、排球、乒乓球章节 page_start 分别为 34、40、47、51；H4G7 English 下册 `Unit 3 Language in use` page_start 6。
+
+重跑 run-level unit index 后，English 仍为 47 个真实 unit candidates、page-start candidates 从 23 增至 28；PE 仍为 13 个真实 unit candidates、page-start candidates 从 2 增至 8。后续没有采用重排后的 packet 作为 official review state，因为 top candidate 排序会让 14 条旧 P1/P2 reviewed decisions 离开新的 top-4 surface；当前采用保守刷新策略：保留原 515 条 decisions 与 254 条 P1/P2 审阅结论，只从最新 unit index 刷新 page fields。保守 decisions 审计为 `valid=true`，page-ready decisions 为 472、page-missing decisions 为 43，approved 仍为 18 且全部 page-ready。
+
+基于该 page-recovered decisions 生成的新 worklist 审计为 `valid=true`：472 条 `source_review_ready`、43 条 `page_recovery_then_source_review`。新的 pending source review batch 审计为 `valid=true`：218 条全部 page-ready、全部 pending、全部 P2，分布为 H4G7 103 条、H4G9 115 条，English 100 条、PE 118 条。剩余 page recovery batch 审计为 `valid=true`：43 条 linked work items 聚合为 10 个 recovery units，English 5 个、PE 5 个；这些项目仍必须先补页码，再进入 source review。
+
 H4G subject theme bridge source review recommendation 的边界：`textbooks:h4g-theme-bridge-review-recommendations` 读取一个 decisions template 和一个 source review batch，生成新的 reviewed decision candidate 文件。它只更新 batch 内出现的 decisions；未进入 batch 的 rows 保持 `pending`。该命令可以用于 Codex/规则化第一轮复核，但它仍不写 `public/data`、不改官方课标文本、不让系统 publication-ready。
 
 ```bash
