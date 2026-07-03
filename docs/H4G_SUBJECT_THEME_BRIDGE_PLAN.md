@@ -443,6 +443,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 downstream recommendations 为 `valid=true`，audit 结果为 `valid=true`：201 条 recommendations 精确覆盖 201 条 downstream decisions，missing/extra 均为 0。推荐分布为：168 条 `needs_source_anchor_evidence`，12 条 `target_standard_requires_manual_scope_review`，7 条 `source_row_confirms_target_anchor_for_later_gate`，8 条 `accept_bounded_slice_for_item_level_source_review`，6 条 `target_standard_gap_confirmed`。这些 recommendation 必须仍由 reviewer 写入 downstream decisions template 才能生效；它们不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+新增 downstream action worklist，将 201 条 downstream recommendations 转为下一步执行队列：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-worklist -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-worklist -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_worklist_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_worklist_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_worklist_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_worklist_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 downstream action worklist 为 `valid=true`，audit 结果为 `valid=true`：201 个 downstream action work items 精确覆盖 201 条 downstream recommendations，missing/extra 均为 0。队列分布为：168 条 `downstream_source_anchor_evidence_queue`，12 条 `downstream_manual_scope_indexing_queue`，8 条 `downstream_item_level_source_review_queue`，7 条 `downstream_source_row_confirmation_queue`，6 条 `downstream_target_standard_gap_resolution_queue`；按年级仍为 H4G7 66 条、H4G8 82 条、H4G9 53 条。该层只是把 recommendation-only 行变成执行清单，不修改 downstream decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
