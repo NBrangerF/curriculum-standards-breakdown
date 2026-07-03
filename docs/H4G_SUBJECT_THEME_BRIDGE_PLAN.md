@@ -632,6 +632,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 target gap inventory audit 为 `valid=true`：6 条 inventory rows 全部在 `public/data` 中确认 source standard 存在、同 progression group 只有原 source grade，推导出的 missing-grade target code 不存在，目标年级也没有同 `legacy_code` 的替代记录。因此 6 条均为 `confirmed_absent_in_public_inventory`。这仍只是 inventory evidence，不自动关闭 editable action decisions、不新增或改写 official standard、不写正式数据、不启用 matcher，也不进入 publication-ready。
 
+在 inventory evidence 之后，新增非发布型 target-gap inventory decisions candidate，将 6 条 confirmed-absent target gap 从散落审计发现整理成可审阅的候选 reviewer outcome：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-target-gap-inventory-decisions-candidate -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-target-gap-inventory-decisions-candidate -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_target_gap_inventory_decisions_candidate_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_target_gap_inventory_decisions_candidate_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_target_gap_inventory_decisions_candidate_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_target_gap_inventory_decisions_candidate_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 target-gap inventory decisions candidate 为 `valid=true`，audit 结果为 `valid=true`：201 条 action decisions 中只有 6 条 target-standard gap rows 被标记为 `target_standard_gap_confirmed` 候选，其余 195 条保持 `pending`；candidate 目标年级分布为 H4G7 1 条、H4G8 3 条、H4G9 2 条，expected/candidate 为 6/6，missing/extra 均为 0。该层仍不修改 editable action decisions template，不自动关闭上游 downstream decisions，不新增或改写 official standard，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
