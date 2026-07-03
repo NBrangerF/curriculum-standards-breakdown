@@ -54,7 +54,9 @@ function parseArgs(argv) {
     unitIndex: DEFAULT_UNIT_INDEX,
     candidates: [DEFAULT_CANDIDATE],
     candidateRoot: DEFAULT_CANDIDATE_ROOT,
+    completedRunRoot: DEFAULT_CANDIDATE_ROOT,
     discoverCandidates: false,
+    includeCompletedWorkItems: false,
     out: DEFAULT_OUT,
     summaryOut: DEFAULT_SUMMARY_OUT,
     subjects: [],
@@ -70,7 +72,9 @@ function parseArgs(argv) {
     else if (item === '--unit-index') args.unitIndex = argv[++i]
     else if (item === '--candidate') args.candidates = splitArg(argv[++i])
     else if (item === '--candidate-root') args.candidateRoot = argv[++i]
+    else if (item === '--completed-run-root') args.completedRunRoot = argv[++i]
     else if (item === '--discover-candidates') args.discoverCandidates = true
+    else if (item === '--include-completed-work-items') args.includeCompletedWorkItems = true
     else if (item === '--out') args.out = argv[++i]
     else if (item === '--summary-out') args.summaryOut = argv[++i]
     else if (item === '--subjects') args.subjects = splitArg(argv[++i])
@@ -97,7 +101,9 @@ It does not write public/data.
 
 Use --candidate with a comma-separated list for explicit candidate packs, or
 --discover-candidates to scan generated/textbook_evidence/h4g_runs for existing
-H4G unit evidence candidate packs.`)
+H4G unit evidence candidate packs. By default, work items with a successful
+run_summary.json under --completed-run-root are skipped so rerunning this plan
+advances to the next unfinished textbook batch.`)
 }
 
 function splitArg(value) {
@@ -303,6 +309,43 @@ function discoverCandidateFiles(root) {
   }
   walk(root)
   return sorted(found)
+}
+
+function discoverRunSummaryFiles(root) {
+  const found = []
+  function walk(dir) {
+    if (!existsSync(dir)) return
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const path = join(dir, entry.name)
+      if (entry.isDirectory()) walk(path)
+      else if (entry.isFile() && entry.name === 'run_summary.json') found.push(path)
+    }
+  }
+  walk(root)
+  return sorted(found)
+}
+
+function successfulCandidateCount(summary) {
+  return Number(summary?.metrics?.candidates?.candidates || 0) ||
+    Number(summary?.metrics?.apply?.candidates || 0)
+}
+
+function loadCompletedWorkItems(root) {
+  const completed = {}
+  for (const path of discoverRunSummaryFiles(root)) {
+    const summary = readJson(path)
+    const workItemId = summary?.work_item?.work_item_id
+    if (!workItemId || summary.valid !== true) continue
+    const candidates = successfulCandidateCount(summary)
+    if (candidates <= 0) continue
+    completed[workItemId] = {
+      candidate_count: candidates,
+      completed_at: summary.generated_at || '',
+      run_summary: path,
+      work_item_id: workItemId
+    }
+  }
+  return completed
 }
 
 function candidatePaths(args) {
@@ -634,8 +677,9 @@ function rankEditionsForWork(editions, candidateSubject) {
   })
 }
 
-function buildWorkItems(subjects, editionCoverage, candidateCoverage, args) {
+function buildWorkItems(subjects, editionCoverage, candidateCoverage, completedWorkItems, args) {
   const items = []
+  const skippedCompletedWorkItems = []
   for (const [subject, stats] of Object.entries(subjects).sort(([a], [b]) => a.localeCompare(b))) {
     if (!stats.groups_needing_unit_evidence) continue
     const candidateSubject = candidateCoverage.by_subject[subject]
@@ -643,10 +687,27 @@ function buildWorkItems(subjects, editionCoverage, candidateCoverage, args) {
     const candidateGroups = candidateSubject?.progression_groups?.length || 0
     if (candidateEditions >= args.minPublicationEditions && candidateGroups >= stats.groups_needing_unit_evidence) continue
     const editions = (editionCoverage[subject] || []).filter(edition => edition.complete_grade_coverage)
-    for (const edition of rankEditionsForWork(editions, candidateSubject).slice(0, args.maxEditionsPerSubject)) {
+    let addedForSubject = 0
+    for (const edition of rankEditionsForWork(editions, candidateSubject)) {
+      if (addedForSubject >= args.maxEditionsPerSubject) break
       const evidenceIds = edition.evidence_ids
+      const workItemId = `h4g_unit_work_${subject}_${hashText(edition.edition, 8)}`
+      const completed = completedWorkItems[workItemId]
+      if (completed && !args.includeCompletedWorkItems) {
+        skippedCompletedWorkItems.push({
+          work_item_id: workItemId,
+          subject,
+          subject_label: stats.subject,
+          edition: edition.edition,
+          candidate_count: completed.candidate_count,
+          completed_at: completed.completed_at,
+          run_summary: completed.run_summary
+        })
+        continue
+      }
+      addedForSubject += 1
       items.push({
-        work_item_id: `h4g_unit_work_${subject}_${hashText(edition.edition, 8)}`,
+        work_item_id: workItemId,
         subject,
         subject_label: stats.subject,
         edition: edition.edition,
@@ -664,7 +725,7 @@ function buildWorkItems(subjects, editionCoverage, candidateCoverage, args) {
       })
     }
   }
-  return items
+  return { items, skippedCompletedWorkItems }
 }
 
 function publicationStatus(subjectStats, editions, candidateSubject, minPublicationEditions) {
@@ -679,7 +740,16 @@ function publicationStatus(subjectStats, editions, candidateSubject, minPublicat
   return 'candidate_evidence_ready_for_publication_gate'
 }
 
-function summarize(subjects, editionCoverage, candidateCoverage, workItems, args) {
+function summarize(subjects, editionCoverage, candidateCoverage, workItems, skippedCompletedWorkItems, args) {
+  const workItemsBySubject = workItems.reduce((acc, item) => {
+    acc[item.subject] ||= []
+    acc[item.subject].push(item)
+    return acc
+  }, {})
+  const skippedBySubject = skippedCompletedWorkItems.reduce((acc, item) => {
+    acc[item.subject] = (acc[item.subject] || 0) + 1
+    return acc
+  }, {})
   const summary = {
     subjects: Object.keys(subjects).length,
     h4g_records: 0,
@@ -689,6 +759,7 @@ function summarize(subjects, editionCoverage, candidateCoverage, workItems, args
     groups_needing_unit_evidence: 0,
     public_unit_level_records: 0,
     recommended_work_items: workItems.length,
+    skipped_completed_work_items: skippedCompletedWorkItems.length,
     subjects_with_publication_edition_capacity: 0,
     subjects_without_complete_textbook_edition: 0,
     by_subject: {}
@@ -720,11 +791,12 @@ function summarize(subjects, editionCoverage, candidateCoverage, workItems, args
       candidate_progression_groups: candidateSubject?.progression_groups?.length || 0,
       candidate_editions: candidateSubject?.editions?.length || 0,
       publication_status: status,
-      recommended_editions: rankEditionsForWork(completeEditions, candidateSubject).slice(0, args.maxEditionsPerSubject).map(edition => ({
-        edition: edition.edition,
-        coverage_role: edition.coverage_role,
-        evidence_ids: edition.evidence_ids
-      }))
+      recommended_editions: (workItemsBySubject[subject] || []).map(item => ({
+        edition: item.edition,
+        coverage_role: item.coverage_role,
+        evidence_ids: item.evidence_ids
+      })),
+      skipped_completed_work_items: skippedBySubject[subject] || 0
     }
   }
 
@@ -787,6 +859,7 @@ ${Object.values(item.commands).join('\n')}
 | candidate progression groups | ${result.candidate_coverage.summary?.progression_groups || 0} |
 | candidate editions | ${result.candidate_coverage.summary?.editions || 0} |
 | recommended work items | ${result.summary.recommended_work_items} |
+| skipped completed work items | ${result.summary.skipped_completed_work_items} |
 
 ## 学科状态
 
@@ -851,7 +924,10 @@ function main() {
   }
 
   const editionCoverage = buildEditionCoverage(index, args.subjects)
-  const workItems = buildWorkItems(h4g.subjects, editionCoverage, candidateCoverage, args)
+  const completedWorkItems = loadCompletedWorkItems(args.completedRunRoot)
+  const workItemPlan = buildWorkItems(h4g.subjects, editionCoverage, candidateCoverage, completedWorkItems, args)
+  const workItems = workItemPlan.items
+  const skippedCompletedWorkItems = workItemPlan.skippedCompletedWorkItems
   if (!workItems.length) {
     warnings.push('No recommended work items were generated')
     if (args.requireWorkItems) errors.push('requireWorkItems is set but no work items were generated')
@@ -870,9 +946,11 @@ function main() {
       max_editions_per_subject: args.maxEditionsPerSubject,
       min_publication_editions: args.minPublicationEditions,
       discover_candidates: args.discoverCandidates,
-      candidate_root: args.candidateRoot
+      candidate_root: args.candidateRoot,
+      completed_run_root: args.completedRunRoot,
+      include_completed_work_items: args.includeCompletedWorkItems
     },
-    summary: summarize(h4g.subjects, editionCoverage, candidateCoverage, workItems, args),
+    summary: summarize(h4g.subjects, editionCoverage, candidateCoverage, workItems, skippedCompletedWorkItems, args),
     edition_coverage: Object.fromEntries(Object.entries(editionCoverage).map(([subject, editions]) => [
       subject,
       editions.map(edition => ({
@@ -888,6 +966,7 @@ function main() {
       }))
     ])),
     progression_groups_needing_unit_evidence: h4g.groups.filter(group => group.group_needs_unit_evidence),
+    skipped_completed_work_items: skippedCompletedWorkItems,
     recommended_work_items: workItems,
     errors,
     warnings
