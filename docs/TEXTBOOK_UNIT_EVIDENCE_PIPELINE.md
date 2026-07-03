@@ -2488,6 +2488,33 @@ npm run textbooks:audit-h4g-theme-bridge-review-worklist -- \
 
 当前 worklist 为 `valid=true`：515 个 work items 全覆盖 decisions，其中 94 个 `source_review_ready`、421 个 `page_recovery_then_source_review`；优先级为 `P1=27`、`P2=67`、`P3=3`、`P4=418`。audit 为 `valid=true`，但警告 421 个 work items 进入 publication gate 前仍需 page recovery。复核建议先从 P1 且 page-ready 的项目开始，再处理 high fan-out unit 和 broad topic tag。
 
+H4G subject theme bridge source review batch 的边界：`textbooks:h4g-theme-bridge-review-batch` 和 `textbooks:audit-h4g-theme-bridge-review-batch` 把 worklist 中某个可执行批次整理成审前阅读包。它会补齐 `public/data/by_subject` 中的官方标准原文、context、practice、teaching tip、assessment evidence type，以及单元页码和 topic/fan-out 风险；但 batch 不改变 source decisions，不批准 bridge，也不启用 matcher。
+
+```bash
+npm run textbooks:h4g-theme-bridge-review-batch -- \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe.md \
+  --strict \
+  --require-items \
+  --max-priority 1 \
+  --review-path source_review_ready
+
+npm run textbooks:audit-h4g-theme-bridge-review-batch -- \
+  --batch generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe.json \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe_audit.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe_audit.md \
+  --strict \
+  --require-items \
+  --max-priority 1 \
+  --review-path source_review_ready
+```
+
+当前 P1 batch 为 `valid=true`：27 个 batch items，全部是 English/H4G7、`source_review_ready` 且 page-ready；所有 decisions 仍为 `pending`。这不是 7/8/9 覆盖完成的信号，而是数据质量排序结果：P2 中有 H4G7 和少量 H4G9 page-ready items；H4G8 当前主题桥接候选全部需要 page recovery 后才能进入 publication gate。
+
 H4G subject theme bridge registry 的边界：`textbooks:h4g-theme-bridge-registry` 和 `textbooks:audit-h4g-theme-bridge-registry` 是 matcher 前的 approved bridge 导出 gate。它们只读取 approved source review decisions；pending、rejected、needs_revision 都不会进入 registry。registry 仍只写 generated artifact，不写 `public/data`，也不代表 publication ready。
 
 ```bash

@@ -1619,6 +1619,37 @@ npm run textbooks:audit-h4g-theme-bridge-registry -- \
 
 同时，`match_standards_to_textbook_units.js` 已新增 `reviewed_subject_theme_bridge` alignment 通道。该通道只读取 approved registry，并把证据写入 `subject_theme_bridge_alignment`；`audit_textbook_standard_matches.js` 和 `audit_h4g_unit_evidence_candidate.js` 已同步要求该 alignment 必须带 matched topic tags 和 reviewed bridge 记录。临时正向验证显示，1 条 approved standard-scoped bridge 可生成 1 条 English eligible match 和 1 条 H4G candidate；但该示例缺 page_start，所以仍被候选审计警告，后续 publication page gate 不会被绕过。
 
+### 7.29 主题桥接 P1 source review batch
+
+为了让真实 source review 不再只面对 515 条 pending rows，本轮新增 P1 审前阅读包：
+
+```bash
+npm run textbooks:h4g-theme-bridge-review-batch -- \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe.md \
+  --strict \
+  --require-items \
+  --max-priority 1 \
+  --review-path source_review_ready
+
+npm run textbooks:audit-h4g-theme-bridge-review-batch -- \
+  --batch generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe.json \
+  --worklist generated/textbook_evidence/h4g_theme_bridge_review_worklist_english_pe.json \
+  --decisions generated/textbook_evidence/h4g_theme_bridge_review_decisions_template_english_pe.json \
+  --out generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe_audit.json \
+  --summary-out generated/textbook_evidence/h4g_theme_bridge_review_batch_p1_english_pe_audit.md \
+  --strict \
+  --require-items \
+  --max-priority 1 \
+  --review-path source_review_ready
+```
+
+结果为 `valid=true`：27 个 batch items 与 worklist selection 完全一致，全部是 English/H4G7、`source_review_ready`、page-ready，且 27 条 source decisions 仍为 `pending`。batch 中每条都补齐了官方标准原文、context、practice、teaching tip、assessment evidence type、教材单元页码、topic tag、fan-out 风险和待编辑决策模板。
+
+这个 batch 的作用是让 reviewer 判断“该单元是否真的支撑这个标准或 progression group”，不是自动批准。分布上也暴露了下一步风险：P1 没有覆盖 H4G8/H4G9；P2 才出现少量 H4G9，H4G8 当前全部位于 page recovery 队列。因此后续 7/8/9 分化不能只跑 P1 source review，还必须做 H4G8 页码补证据和 H4G9 P2 复核。
+
 ## 8. 当前边界
 
 当前 public 数据可以支持：
