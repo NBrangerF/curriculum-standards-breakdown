@@ -8,6 +8,8 @@ const DEFAULT_PRODUCT_READINESS = 'generated/grade7_9_h4g_product_readiness.json
 const DEFAULT_PRODUCT_READINESS_WORKLIST = 'generated/grade7_9_h4g_product_readiness_worklist.json'
 const DEFAULT_ANCHOR_GROUP_DECISIONS = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_decisions_triage_candidate_anchor_domain_rejected_english_pe.json'
 const DEFAULT_ANCHOR_PRIORITY_MATRIX = 'generated/textbook_evidence/h4g_theme_bridge_anchor_priority_matrix_anchor_domain_rejected_english_pe.json'
+const DEFAULT_ANCHOR_GROUP_ITEM_REVIEW_WORKLIST = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_action_worklist_anchor_domain_rejected_english_pe.json'
+const DEFAULT_ANCHOR_GROUP_ITEM_REVIEW_DOWNSTREAM_COVERAGE = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_coverage_audit_anchor_domain_rejected_english_pe.json'
 const DEFAULT_UNIT_CANDIDATE_COVERAGE = 'generated/textbook_evidence/h4g_unit_evidence_candidate_coverage_audit.json'
 const DEFAULT_UNIT_CANDIDATE_COVERAGE_WORKLIST = 'generated/textbook_evidence/h4g_unit_evidence_candidate_coverage_worklist.json'
 const DEFAULT_UNIT_BLOCKER_MATCH_DIAGNOSTICS = 'generated/textbook_evidence/h4g_unit_evidence_blocker_match_diagnostics.json'
@@ -28,6 +30,7 @@ const TARGET_GRADE_BANDS = ['H4G7', 'H4G8', 'H4G9']
 
 const ROUTE_PRIORITY = {
   complete_anchor_group_decisions_before_item_review: 10,
+  complete_anchor_group_item_review_downstream_batches: 11,
   expand_existing_unit_evidence_pipeline: 20,
   repair_or_confirm_single_partial_grade_assignment: 30,
   build_unit_chapter_evidence_from_file_level_sources: 40,
@@ -39,6 +42,8 @@ const ROUTE_PRIORITY = {
 function parseArgs(argv) {
   const args = {
     anchorGroupDecisions: DEFAULT_ANCHOR_GROUP_DECISIONS,
+    anchorGroupItemReviewDownstreamCoverage: DEFAULT_ANCHOR_GROUP_ITEM_REVIEW_DOWNSTREAM_COVERAGE,
+    anchorGroupItemReviewWorklist: DEFAULT_ANCHOR_GROUP_ITEM_REVIEW_WORKLIST,
     anchorPriorityMatrix: DEFAULT_ANCHOR_PRIORITY_MATRIX,
     distinctiveness: DEFAULT_DISTINCTIVENESS,
     out: DEFAULT_OUT,
@@ -68,6 +73,8 @@ function parseArgs(argv) {
     else if (item === '--product-readiness') args.productReadiness = argv[++i]
     else if (item === '--product-readiness-worklist') args.productReadinessWorklist = argv[++i]
     else if (item === '--anchor-group-decisions') args.anchorGroupDecisions = argv[++i]
+    else if (item === '--anchor-group-item-review-downstream-coverage') args.anchorGroupItemReviewDownstreamCoverage = argv[++i]
+    else if (item === '--anchor-group-item-review-worklist') args.anchorGroupItemReviewWorklist = argv[++i]
     else if (item === '--anchor-priority-matrix') args.anchorPriorityMatrix = argv[++i]
     else if (item === '--unit-candidate-coverage') args.unitCandidateCoverage = argv[++i]
     else if (item === '--unit-candidate-coverage-worklist') args.unitCandidateCoverageWorklist = argv[++i]
@@ -208,7 +215,35 @@ function priorityGroupStats(matrix) {
   return stats
 }
 
-function validateInputs(readiness, distinctiveness, productReadiness, productReadinessWorklist, anchorDecisions, priorityMatrix, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate, errors, warnings) {
+function zeroAnchorItemReviewSubjectStats(subjectSlug) {
+  return {
+    by_recommendation: {},
+    by_work_queue: {},
+    item_review_action_work_items: 0,
+    source_anchor_review_rows: 0,
+    subject_slug: subjectSlug,
+    suggested_child_slices: 0,
+    target_missing_grade_standards: 0
+  }
+}
+
+function anchorItemReviewSubjectStats(worklist) {
+  const stats = {}
+  for (const row of worklist?.item_review_action_work_items || []) {
+    const subjectSlug = row.subject_slug || 'missing'
+    if (!stats[subjectSlug]) stats[subjectSlug] = zeroAnchorItemReviewSubjectStats(subjectSlug)
+    const subject = stats[subjectSlug]
+    subject.item_review_action_work_items += 1
+    subject.source_anchor_review_rows += Number(row.source_anchor_review_rows || 0)
+    subject.suggested_child_slices += (row.suggested_child_slices || []).length
+    subject.target_missing_grade_standards += (row.target_missing_grade_standards || []).length
+    countInto(subject.by_recommendation, row.recommended_reviewer_decision)
+    countInto(subject.by_work_queue, row.work_queue)
+  }
+  return stats
+}
+
+function validateInputs(readiness, distinctiveness, productReadiness, productReadinessWorklist, anchorDecisions, priorityMatrix, anchorItemReviewWorklist, anchorItemReviewDownstreamCoverage, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate, errors, warnings) {
   if (readiness?.valid !== true) errors.push('readiness audit must be valid=true')
   if (distinctiveness?.valid !== true) errors.push('distinctiveness audit must be valid=true')
   if (productReadiness) {
@@ -242,6 +277,46 @@ function validateInputs(readiness, distinctiveness, productReadiness, productRea
   if (anchorDecisions?.changes_official_standard_text !== false) errors.push('anchor group decisions changes_official_standard_text must be false')
   if (anchorDecisions?.direct_matcher_use !== false) errors.push('anchor group decisions direct_matcher_use must be false')
   if (priorityMatrix?.writes_public_data !== false) errors.push('anchor priority matrix writes_public_data must be false')
+  if (anchorItemReviewWorklist) {
+    if (anchorItemReviewWorklist.valid !== true) errors.push('anchor group item review worklist must be valid=true')
+    if (anchorItemReviewWorklist.purpose !== 'h4g_subject_theme_bridge_anchor_group_item_review_action_worklist') {
+      errors.push('anchor group item review worklist purpose mismatch')
+    }
+    if (anchorItemReviewWorklist.worklist_only !== true) errors.push('anchor group item review worklist worklist_only must be true')
+    if (anchorItemReviewWorklist.writes_public_data !== false) errors.push('anchor group item review worklist writes_public_data must be false')
+    if (anchorItemReviewWorklist.changes_official_standard_text !== false) {
+      errors.push('anchor group item review worklist changes_official_standard_text must be false')
+    }
+    if (anchorItemReviewWorklist.direct_matcher_use !== false) errors.push('anchor group item review worklist direct_matcher_use must be false')
+    if (anchorItemReviewWorklist.matcher_ready !== false) errors.push('anchor group item review worklist matcher_ready must be false')
+    if (anchorItemReviewWorklist.publication_ready !== false) errors.push('anchor group item review worklist publication_ready must be false')
+  }
+  if (anchorItemReviewDownstreamCoverage) {
+    if (anchorItemReviewDownstreamCoverage.valid !== true) errors.push('anchor group item review downstream coverage must be valid=true')
+    if (anchorItemReviewDownstreamCoverage.purpose !== 'h4g_subject_theme_bridge_anchor_group_item_review_downstream_coverage_audit') {
+      errors.push('anchor group item review downstream coverage purpose mismatch')
+    }
+    if (anchorItemReviewDownstreamCoverage.worklist_only !== true) {
+      errors.push('anchor group item review downstream coverage worklist_only must be true')
+    }
+    if (anchorItemReviewDownstreamCoverage.writes_public_data !== false) {
+      errors.push('anchor group item review downstream coverage writes_public_data must be false')
+    }
+    if (anchorItemReviewDownstreamCoverage.changes_official_standard_text !== false) {
+      errors.push('anchor group item review downstream coverage changes_official_standard_text must be false')
+    }
+    if (anchorItemReviewDownstreamCoverage.direct_matcher_use !== false) {
+      errors.push('anchor group item review downstream coverage direct_matcher_use must be false')
+    }
+    if (anchorItemReviewDownstreamCoverage.matcher_ready !== false) errors.push('anchor group item review downstream coverage matcher_ready must be false')
+    if (anchorItemReviewDownstreamCoverage.publication_ready !== false) {
+      errors.push('anchor group item review downstream coverage publication_ready must be false')
+    }
+    if (anchorItemReviewWorklist &&
+        Number(anchorItemReviewDownstreamCoverage.summary?.expected_parent_work_items || 0) !== Number(anchorItemReviewWorklist.summary?.item_review_action_work_items || 0)) {
+      warnings.push(`anchor item review downstream expected_parent_work_items differs from worklist item_review_action_work_items: ${anchorItemReviewDownstreamCoverage.summary?.expected_parent_work_items ?? 'missing'} vs ${anchorItemReviewWorklist.summary?.item_review_action_work_items ?? 'missing'}`)
+    }
+  }
   if (unitCandidateCoverage) {
     if (unitCandidateCoverage.valid !== true) errors.push('unit candidate coverage audit must be valid=true')
     if (unitCandidateCoverage.purpose !== 'h4g_unit_evidence_candidate_coverage_audit') {
@@ -579,7 +654,7 @@ function validateInputs(readiness, distinctiveness, productReadiness, productRea
   }
 }
 
-function rootCausesForSubject(stats, anchorStats) {
+function rootCausesForSubject(stats, anchorStats, anchorItemReviewStats) {
   const causes = []
   const evidence = stats.by_evidence_granularity || {}
   const reviewStatus = stats.by_review_status || {}
@@ -591,28 +666,37 @@ function rootCausesForSubject(stats, anchorStats) {
     causes.push('low_confidence_or_no_evidence_gap')
   }
   if ((anchorStats?.pending_group_decisions || 0) > 0) causes.push('anchor_group_decision_pending')
+  if ((anchorItemReviewStats?.item_review_action_work_items || 0) > 0) {
+    causes.push('anchor_group_item_review_downstream_queue_open')
+  }
   return causes
 }
 
-function nextActionForSubject(stats, causes, anchorStats) {
+function nextActionForSubject(stats, causes, anchorStats, anchorItemReviewStats) {
   if (!stats.h4g_records) return 'no_h4g_records'
   if (stats.final_ready_records === stats.h4g_records) return 'ready_for_publication_gate'
   if ((anchorStats?.pending_group_decisions || 0) > 0) return 'complete_anchor_group_decisions_before_item_review'
+  if ((anchorItemReviewStats?.item_review_action_work_items || 0) > 0) {
+    return 'complete_anchor_group_item_review_downstream_batches'
+  }
   if ((stats.unit_level_evidence_records || 0) > 0) return 'expand_existing_unit_evidence_pipeline'
   if (causes.includes('incomplete_h4g_grade_assignment_groups')) return 'repair_or_confirm_single_partial_grade_assignment'
   if (causes.includes('low_confidence_or_no_evidence_gap')) return 'source_coverage_or_low_confidence_evidence_gap'
   return 'build_unit_chapter_evidence_from_file_level_sources'
 }
 
-function subjectIssueRows(readiness, anchorBySubject) {
+function subjectIssueRows(readiness, anchorBySubject, anchorItemReviewBySubject) {
   return Object.values(readiness?.subjects || {})
     .map(stats => {
       const subjectSlug = stats.subject_slug
       const anchorStats = anchorBySubject[subjectSlug] || zeroAnchorSubjectStats(subjectSlug)
-      const causes = rootCausesForSubject(stats, anchorStats)
-      const nextAction = nextActionForSubject(stats, causes, anchorStats)
+      const anchorItemReviewStats = anchorItemReviewBySubject[subjectSlug] || zeroAnchorItemReviewSubjectStats(subjectSlug)
+      const causes = rootCausesForSubject(stats, anchorStats, anchorItemReviewStats)
+      const nextAction = nextActionForSubject(stats, causes, anchorStats, anchorItemReviewStats)
       return {
         anchor_group_decisions: anchorStats.priority_groups,
+        anchor_item_review_queues: anchorItemReviewStats.by_work_queue,
+        anchor_item_review_work_items: anchorItemReviewStats.item_review_action_work_items,
         anchor_items: anchorStats.total_items,
         complete_triplets: stats.complete_triplets || 0,
         exact_core_identical_triplets: stats.exact_core_identical_triplets || 0,
@@ -649,6 +733,7 @@ function summarizeIssues(subjectRows) {
     h4g_records_requiring_unit_evidence: 0,
     subjects: subjectRows.length,
     subjects_with_anchor_group_gate: 0,
+    subjects_with_anchor_item_review_queue: 0,
     subjects_with_incomplete_grade_assignment: 0,
     subjects_with_zero_unit_evidence: 0
   }
@@ -658,13 +743,14 @@ function summarizeIssues(subjectRows) {
     summary.h4g_records_requiring_grade_focus += row.missing_grade_focus_records
     summary.h4g_records_requiring_unit_evidence += row.missing_unit_level_evidence_records
     if (row.pending_anchor_group_decisions > 0) summary.subjects_with_anchor_group_gate += 1
+    if (row.anchor_item_review_work_items > 0) summary.subjects_with_anchor_item_review_queue += 1
     if (row.incomplete_groups > 0) summary.subjects_with_incomplete_grade_assignment += 1
     if (row.unit_level_evidence_records === 0 && row.h4g_records > 0) summary.subjects_with_zero_unit_evidence += 1
   }
   return summary
 }
 
-function executionBatches(subjectRows, anchorStats, priorityStats, productReadiness, productReadinessWorklist, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate) {
+function executionBatches(subjectRows, anchorStats, priorityStats, productReadiness, productReadinessWorklist, anchorItemReviewWorklist, anchorItemReviewDownstreamCoverage, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate) {
   const bySlug = Object.fromEntries(subjectRows.map(row => [row.subject_slug, row]))
   const english = bySlug.english || {}
   const pe = bySlug.pe || {}
@@ -702,12 +788,19 @@ function executionBatches(subjectRows, anchorStats, priorityStats, productReadin
       batch_id: 'english_pe_anchor_group_decision_gate',
       entry_gate: 'npm run textbooks:h4g-theme-bridge-anchor-group-decisions -- --strict --require-groups',
       triage_candidate_gate: 'npm run textbooks:h4g-theme-bridge-anchor-group-triage-decisions -- --strict --require-groups',
+      item_review_worklist_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-worklist -- --strict --require-items',
+      item_review_downstream_coverage_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-coverage -- --strict --require-complete',
       exit_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-triage-decisions -- --strict --require-groups --require-complete',
-      next_action: 'route_anchor_groups_to_split_or_source_anchor_evidence',
+      next_action: 'complete_anchor_group_item_review_downstream_batches',
       pending_groups: (anchorStats.english?.pending_group_decisions || 0) + (anchorStats.pe?.pending_group_decisions || 0),
       priority_groups: priorityStats.priority_groups,
       scope: {
+        downstream_actual_review_rows: anchorItemReviewDownstreamCoverage?.summary?.actual_review_rows || 0,
+        downstream_covered_parent_work_items: anchorItemReviewDownstreamCoverage?.summary?.covered_parent_work_items || 0,
+        downstream_expected_parent_work_items: anchorItemReviewDownstreamCoverage?.summary?.expected_parent_work_items || 0,
         english_records: english.h4g_records || 0,
+        item_review_action_work_items: anchorItemReviewWorklist?.summary?.item_review_action_work_items || 0,
+        item_review_queues: anchorItemReviewWorklist?.summary?.by_work_queue || {},
         pe_records: pe.h4g_records || 0,
         priority_matrix_items: priorityStats.total_anchor_review_items
       },
@@ -804,13 +897,13 @@ function executionBatches(subjectRows, anchorStats, priorityStats, productReadin
 
 function subjectMarkdownRows(rows) {
   return rows.map(row => (
-    `| ${markdownCell(row.subject_slug)} | ${row.h4g_records} | ${row.exact_core_identical_triplets}/${row.complete_triplets} | ${row.unit_level_evidence_records} | ${row.usable_grade_focus_records} | ${row.final_ready_records} | ${row.pending_anchor_group_decisions} | ${markdownCell(row.next_action)} |`
-  )).join('\n') || '| - | 0 | 0/0 | 0 | 0 | 0 | 0 | - |'
+    `| ${markdownCell(row.subject_slug)} | ${row.h4g_records} | ${row.exact_core_identical_triplets}/${row.complete_triplets} | ${row.unit_level_evidence_records} | ${row.usable_grade_focus_records} | ${row.final_ready_records} | ${row.pending_anchor_group_decisions} | ${row.anchor_item_review_work_items} | ${markdownCell(row.next_action)} |`
+  )).join('\n') || '| - | 0 | 0/0 | 0 | 0 | 0 | 0 | 0 | - |'
 }
 
 function batchMarkdownRows(rows) {
   return rows.map(row => (
-    `| ${markdownCell(row.batch_id)} | ${markdownCell(row.next_action)} | ${row.writes_public_data} | ${markdownCell(row.product_readiness_worklist_gate || row.anchor_policy_source_anchor_specificity_group_triage_gate || row.anchor_policy_source_anchor_specificity_evidence_packet_gate || row.anchor_policy_source_anchor_specificity_decisions_gate || row.group_ready_candidate_gate || row.anchor_policy_source_anchor_specificity_gate || row.anchor_policy_action_worklist_gate || row.anchor_policy_recommendations_gate || row.anchor_policy_decisions_gate || row.anchor_policy_review_gate || row.action_worklist_gate || row.blocker_diagnostics_gate || row.remediation_worklist_gate || row.coverage_gate || row.entry_gate)} | ${markdownCell(row.exit_gate)} |`
+    `| ${markdownCell(row.batch_id)} | ${markdownCell(row.next_action)} | ${row.writes_public_data} | ${markdownCell(row.item_review_downstream_coverage_gate || row.item_review_worklist_gate || row.product_readiness_worklist_gate || row.anchor_policy_source_anchor_specificity_group_triage_gate || row.anchor_policy_source_anchor_specificity_evidence_packet_gate || row.anchor_policy_source_anchor_specificity_decisions_gate || row.group_ready_candidate_gate || row.anchor_policy_source_anchor_specificity_gate || row.anchor_policy_action_worklist_gate || row.anchor_policy_recommendations_gate || row.anchor_policy_decisions_gate || row.anchor_policy_review_gate || row.action_worklist_gate || row.blocker_diagnostics_gate || row.remediation_worklist_gate || row.coverage_gate || row.entry_gate)} | ${markdownCell(row.exit_gate)} |`
   )).join('\n') || '| - | - | false | - | - |'
 }
 
@@ -843,6 +936,8 @@ or enable matcher use.
 | product remediation action-required groups | ${payload.product_readiness_worklist_summary?.work_items_requiring_action || 0} |
 | anchor priority groups | ${payload.anchor_priority_stats.priority_groups} |
 | anchor review items | ${payload.anchor_priority_stats.total_anchor_review_items} |
+| anchor item-review action work items | ${payload.anchor_group_item_review_worklist_summary?.item_review_action_work_items || 0} |
+| anchor item-review downstream review rows | ${payload.anchor_group_item_review_downstream_coverage_summary?.actual_review_rows || 0} |
 | unit blocker diagnostic rows | ${payload.unit_blocker_match_diagnostics_summary?.blocker_rows || 0} |
 | unit blocker action work items | ${payload.unit_blocker_action_worklist_summary?.action_work_items || 0} |
 | unit anchor policy review items | ${payload.unit_anchor_policy_review_batch_summary?.anchor_policy_review_items || 0} |
@@ -887,6 +982,22 @@ ${countRows(payload.product_readiness_summary?.by_group_blocker || {})}
 | route | groups |
 | --- | ---: |
 ${countRows(payload.product_readiness_worklist_summary?.by_recommended_route || {})}
+
+## Anchor Group Item Review Queues
+
+| queue | work items |
+| --- | ---: |
+${countRows(payload.anchor_group_item_review_worklist_summary?.by_work_queue || {})}
+
+## Anchor Group Item Review Downstream Coverage
+
+| field | value |
+| --- | ---: |
+| expected parent work items | ${payload.anchor_group_item_review_downstream_coverage_summary?.expected_parent_work_items || 0} |
+| covered parent work items | ${payload.anchor_group_item_review_downstream_coverage_summary?.covered_parent_work_items || 0} |
+| missing parent work items | ${payload.anchor_group_item_review_downstream_coverage_summary?.missing_parent_work_items || 0} |
+| expected review rows | ${payload.anchor_group_item_review_downstream_coverage_summary?.expected_review_rows || 0} |
+| actual review rows | ${payload.anchor_group_item_review_downstream_coverage_summary?.actual_review_rows || 0} |
 
 ## Unit Evidence Blocker Routes
 
@@ -973,8 +1084,8 @@ ${countRows(payload.unit_anchor_policy_source_anchor_specificity_group_triage_su
 
 ## Subject Matrix
 
-| subject | H4G records | identical triplets | unit evidence | usable focus | final ready | pending anchor groups | next action |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| subject | H4G records | identical triplets | unit evidence | usable focus | final ready | pending anchor groups | anchor item work items | next action |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 ${subjectMarkdownRows(payload.subject_issue_matrix)}
 
 ## Execution Batches
@@ -1016,6 +1127,8 @@ function main() {
   const productReadinessWorklist = optionalInput(args.productReadinessWorklist, 'product readiness worklist', warnings)
   const anchorDecisions = requireInput(args.anchorGroupDecisions, 'anchor group decisions', errors)
   const priorityMatrix = requireInput(args.anchorPriorityMatrix, 'anchor priority matrix', errors)
+  const anchorItemReviewWorklist = optionalInput(args.anchorGroupItemReviewWorklist, 'anchor group item review worklist', warnings)
+  const anchorItemReviewDownstreamCoverage = optionalInput(args.anchorGroupItemReviewDownstreamCoverage, 'anchor group item review downstream coverage', warnings)
   const unitCandidateCoverage = optionalInput(args.unitCandidateCoverage, 'unit candidate coverage audit', warnings)
   const unitCandidateCoverageWorklist = optionalInput(args.unitCandidateCoverageWorklist, 'unit candidate coverage worklist', warnings)
   const unitBlockerMatchDiagnostics = optionalInput(args.unitBlockerMatchDiagnostics, 'unit blocker match diagnostics', warnings)
@@ -1031,11 +1144,12 @@ function main() {
   const unitGroupReadyCandidate = optionalInput(args.unitGroupReadyCandidate, 'unit group-ready candidate', warnings)
 
   if (!errors.length) {
-    validateInputs(readiness, distinctiveness, productReadiness, productReadinessWorklist, anchorDecisions, priorityMatrix, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate, errors, warnings)
+    validateInputs(readiness, distinctiveness, productReadiness, productReadinessWorklist, anchorDecisions, priorityMatrix, anchorItemReviewWorklist, anchorItemReviewDownstreamCoverage, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate, errors, warnings)
   }
 
   const anchorBySubject = anchorSubjectStats(anchorDecisions)
-  const subjectRows = readiness ? subjectIssueRows(readiness, anchorBySubject) : []
+  const anchorItemReviewBySubject = anchorItemReviewSubjectStats(anchorItemReviewWorklist)
+  const subjectRows = readiness ? subjectIssueRows(readiness, anchorBySubject, anchorItemReviewBySubject) : []
   const priorityStats = priorityGroupStats(priorityMatrix)
   const payload = {
     anchor_group_decision_summary: anchorDecisions?.summary || {},
@@ -1045,7 +1159,7 @@ function main() {
     direct_matcher_use: false,
     eligible_for_h4g_differentiation: false,
     errors,
-    execution_batches: executionBatches(subjectRows, anchorBySubject, priorityStats, productReadiness, productReadinessWorklist, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate),
+    execution_batches: executionBatches(subjectRows, anchorBySubject, priorityStats, productReadiness, productReadinessWorklist, anchorItemReviewWorklist, anchorItemReviewDownstreamCoverage, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate),
     generated_at: new Date().toISOString(),
     issue_summary: summarizeIssues(subjectRows),
     matcher_ready: false,
@@ -1056,6 +1170,8 @@ function main() {
     purpose: 'h4g_differentiation_issue_matrix',
     source_inputs: {
       anchor_group_decisions: args.anchorGroupDecisions,
+      anchor_group_item_review_downstream_coverage: args.anchorGroupItemReviewDownstreamCoverage,
+      anchor_group_item_review_worklist: args.anchorGroupItemReviewWorklist,
       anchor_priority_matrix: args.anchorPriorityMatrix,
       distinctiveness: args.distinctiveness,
       product_readiness: args.productReadiness,
@@ -1077,6 +1193,9 @@ function main() {
     },
     subject_issue_matrix: subjectRows,
     target_grade_bands: TARGET_GRADE_BANDS,
+    anchor_group_item_review_by_subject: anchorItemReviewBySubject,
+    anchor_group_item_review_downstream_coverage_summary: anchorItemReviewDownstreamCoverage?.summary || null,
+    anchor_group_item_review_worklist_summary: anchorItemReviewWorklist?.summary || null,
     unit_anchor_policy_review_action_worklist_summary: unitAnchorPolicyReviewActionWorklist?.summary || null,
     unit_anchor_policy_review_batch_summary: unitAnchorPolicyReviewBatch?.summary || null,
     unit_anchor_policy_review_decisions_summary: unitAnchorPolicyReviewDecisions?.summary || null,
