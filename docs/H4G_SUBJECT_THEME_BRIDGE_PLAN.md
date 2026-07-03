@@ -533,6 +533,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 downstream manual scope/indexing batch 为 `valid=true`，audit 结果为 `valid=true`：12 条 manual scope/indexing items 精确覆盖 12 条 expected work items，missing/extra 均为 0，`unique_source_keys=12`。全部为 P1，English/PE 各 6 条；目标年级为 H4G8 3 条、H4G9 9 条，涉及 9 个 target standards / 6 个 progression groups。该层只用于确认目标 standard scope 与同年级教材单元索引需求，允许后续在 editable downstream decisions 中记录 `missing_grade_units_indexed_for_later_source_review`、`missing_grade_units_not_found` 或继续 `target_standard_requires_manual_scope_review`；仍不修改 downstream decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+新增 downstream source-anchor evidence batch，将 168 条 `needs_source_anchor_evidence` work items 封成单 source row 的 anchor evidence 复核包：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-source-anchor-evidence-batch -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-source-anchor-evidence-batch -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_anchor_evidence_batch_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_anchor_evidence_batch_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_anchor_evidence_batch_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_source_anchor_evidence_batch_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 downstream source-anchor evidence batch 为 `valid=true`，audit 结果为 `valid=true`：168 条 source-anchor evidence items 精确覆盖 168 条 expected work items，missing/extra 均为 0，`unique_source_keys=168`。其中 child split 116 条、source-anchor specificity 52 条；H4G7/H4G8/H4G9 为 50/76/42，English/PE 为 144/24，P1/P2 为 96/72。该层只允许后续在 editable downstream decisions 中记录 `accept_bounded_slice_for_item_level_source_review`、继续 `needs_source_anchor_evidence` 或 `reject_slice_as_overbroad`；仍不修改 downstream decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
