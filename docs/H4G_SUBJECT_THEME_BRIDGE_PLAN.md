@@ -302,6 +302,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_action_wor
 
 当前 action worklist 为 `valid=true`，audit 结果为 `valid=true`：115 个 work items 精确覆盖 115 条 recommendations，missing/extra 均为 0，覆盖 219 条 source-anchor review rows。队列分布为：7 条 `item_level_source_review_ready_queue`，44 条 `unit_or_source_row_split_queue`，52 条 `source_anchor_specificity_queue`，9 条 `missing_grade_textbook_unit_indexing_queue`，3 条 `target_standard_gap_queue`。其中 `split_slice_further` 行进一步给出 124 个建议 child slices，便于后续按 unit/source row 继续拆。该层仍是 worklist-only，不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+对 `unit_or_source_row_split_queue`，新增 child split batch，将 44 个父 work items 展开为单源粒度审阅行：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-child-split-batch -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-child-split-batch -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_child_split_batch_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_child_split_batch_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_child_split_batch_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_child_split_batch_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 child split batch 为 `valid=true`，audit 结果为 `valid=true`：124 条 child split review items 精确覆盖 124 条 expected child slices，missing/extra 均为 0，来自 44 个父 work items，`unique_source_keys=124`。按年级拆分为 H4G7 50 条、H4G8 40 条、H4G9 34 条；按学科拆分为 English 101 条、PE 23 条。该层把继续拆分项收窄到 `standard_code + grade_band + unit_evidence_id + anchor_review_item_id` 粒度，仍不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
