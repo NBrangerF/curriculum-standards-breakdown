@@ -356,6 +356,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_missing_gr
 
 当前 indexing batch 为 `valid=true`，audit 结果为 `valid=true`：12 条 missing-grade unit indexing items 精确覆盖 12 条 expected target-standard items，missing/extra 均为 0，来自 9 个父 work items。待索引年级为 H4G8 3 条、H4G9 9 条；按学科拆分为 English 6 条、PE 6 条。该层只要求为缺失年级 target standards 找同年级教材单元候选；这些候选之后仍需 source-anchor 和 item-level review，不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+对 `target_standard_gap_queue`，新增 target-standard gap batch，将 3 个父 work items 展开为逐缺失年级的目标标准缺口复核行：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-target-standard-gap-batch -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-target-standard-gap-batch -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_target_standard_gap_batch_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_target_standard_gap_batch_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_target_standard_gap_batch_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_target_standard_gap_batch_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 target-standard gap batch 为 `valid=true`，audit 结果为 `valid=true`：6 条 target-standard gap items 精确覆盖 6 条 expected missing-grade rows，missing/extra 均为 0，来自 3 个父 work items。待处理缺口年级为 H4G7 1 条、H4G8 3 条、H4G9 2 条，全部来自 English。该层只确认“目标年级是否真的没有对应 public standard，或 progression group 是否需要重新切分/收窄”；它不修改 official standard text，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
