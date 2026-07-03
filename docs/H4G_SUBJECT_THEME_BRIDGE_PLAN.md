@@ -284,6 +284,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_recommenda
 
 当前 recommendation 为 `valid=true`，audit 结果为 `valid=true`：115 行 recommendations 全覆盖、missing/extra 均为 0。其中 7 行建议 `accept_bounded_slice_for_item_level_source_review`，44 行建议 `split_slice_further`，52 行建议 `needs_source_anchor_evidence`，9 行建议 `needs_textbook_unit_indexing`，3 行建议 `target_missing_grade_standard_absent`。这些只是 reviewer 填写 template 的建议，不是官方 decision，不修改 editable template，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+在 recommendation-only 辅助层后，新增 item-review action worklist，把 115 条建议拆成可执行队列：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-worklist -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-worklist -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_action_worklist_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_action_worklist_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_action_worklist_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_action_worklist_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 action worklist 为 `valid=true`，audit 结果为 `valid=true`：115 个 work items 精确覆盖 115 条 recommendations，missing/extra 均为 0，覆盖 219 条 source-anchor review rows。队列分布为：7 条 `item_level_source_review_ready_queue`，44 条 `unit_or_source_row_split_queue`，52 条 `source_anchor_specificity_queue`，9 条 `missing_grade_textbook_unit_indexing_queue`，3 条 `target_standard_gap_queue`。其中 `split_slice_further` 行进一步给出 124 个建议 child slices，便于后续按 unit/source row 继续拆。该层仍是 worklist-only，不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 ## 7. 当前落地状态
 
 已新增受控主题表：
