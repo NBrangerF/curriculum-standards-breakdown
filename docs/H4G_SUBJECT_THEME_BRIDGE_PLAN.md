@@ -1,6 +1,6 @@
 # H4G Subject Theme Bridge Plan
 
-更新时间：2026-07-03
+更新时间：2026-07-04
 
 本文定义 H4G7/H4G8/H4G9 在“官方源标准为 7-9 共享文本”时，如何通过教材单元和学科主题桥接来确定年级进阶关系。它是 English/PE 下一阶段的执行边界，不是 public data migration。
 
@@ -833,6 +833,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 ```
 
 当前 decisions template 为 `valid=true`，audit 结果为 `valid=true`：expected/audited decisions 为 67/67，missing/extra 均为 0；67 条全部仍是 pending，completed 为 0，`evidence_ready_decisions=67`，`decisions_requiring_manual_confirmation=67`。packet source 为 source-anchor exact evidence 52 条、bounded-source evidence 15 条；下游 action batch 为 source-anchor evidence 52 条、source-row confirmation 7 条、item-level source review 8 条；H4G7/H4G8/H4G9 为 23/36/8，English/PE 为 51/16。该层只是可编辑人工决策模板，不写 `public/data`、不修改 official standard text、不启用 matcher、不进入 publication；未来非 pending rows 仍需 reviewer metadata、确认项和后续 action gate 才能继续推进。
+
+针对同一 67 条 post-candidate manual review decisions，新增 recommendation-only 分流层，把 bounded-source 行和 exact-anchor 行拆开处理，避免把页面范围较窄的确认项和仍需人工精读的 exact-anchor 风险混在一起：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-recommendations -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-recommendations -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_recommendations_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_recommendations_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_recommendations_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_recommendations_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 recommendations 为 `valid=true`，audit 结果为 `valid=true`：67 条 recommendation-only rows 精确覆盖 67 条 manual review decisions，missing/extra 均为 0。其中 7 条 `source_row_confirmation` 建议 `confirm_source_row_for_later_action_gate`，8 条 `item_level_source_review` 建议 `confirm_item_level_source_scope_for_later_action_gate`，合计 15 条 bounded-source confirmation candidates；52 条 `source_anchor_evidence` 保持 `pending`，因为它们仍需要人工读取 exact anchor 文本和 H4G sibling context。该层不修改 editable decisions、不批准 bridge、不写 `public/data`、不启用 matcher、不进入 publication；后续仍需 reviewer 把确认结果写回 editable template 并通过 action gate。
 
 对 6 条 priority target-standard gap，新增 public inventory audit：
 
