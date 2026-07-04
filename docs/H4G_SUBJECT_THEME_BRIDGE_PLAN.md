@@ -852,6 +852,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 recommendations 为 `valid=true`，audit 结果为 `valid=true`：67 条 recommendation-only rows 精确覆盖 67 条 manual review decisions，missing/extra 均为 0。其中 7 条 `source_row_confirmation` 建议 `confirm_source_row_for_later_action_gate`，8 条 `item_level_source_review` 建议 `confirm_item_level_source_scope_for_later_action_gate`，合计 15 条 bounded-source confirmation candidates；52 条 `source_anchor_evidence` 保持 `pending`，因为它们仍需要人工读取 exact anchor 文本和 H4G sibling context。该层不修改 editable decisions、不批准 bridge、不写 `public/data`、不启用 matcher、不进入 publication；后续仍需 reviewer 把确认结果写回 editable template 并通过 action gate。
 
+为了避免 reviewer 在 67 条混合队列中误把 exact-anchor 风险行当成同一类确认项，新增 bounded-source confirmation worklist，只抽出 recommendations 中可优先人工确认的 15 条，作为后续手动更新 editable decisions template 的聚焦入口：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-confirmation-worklist -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-confirmation-worklist -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_worklist_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_worklist_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_worklist_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_worklist_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 confirmation worklist 为 `valid=true`，audit 结果为 `valid=true`：expected/audited work items 为 15/15，missing/extra 均为 0；其中 7 条是 `confirm_source_row_for_later_action_gate` 人审入口，8 条是 `confirm_item_level_source_scope_for_later_action_gate` 人审入口，全部为 H4G7，English/PE 为 4/11。52 条 source-anchor exact recommendations 被明确排除并继续 pending。该层只是 reviewer worklist，不修改 editable decisions、不批准 bridge、不写 `public/data`、不启用 matcher、不进入 publication。
+
 对 6 条 priority target-standard gap，新增 public inventory audit：
 
 ```bash
