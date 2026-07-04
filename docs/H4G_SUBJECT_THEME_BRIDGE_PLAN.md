@@ -996,6 +996,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 action evidence recommendations 为 `valid=true`，audit 结果为 `valid=true`：30 条 recommendation-only rows 精确对应 30 条 action evidence items 与 30 条 action decisions；继续覆盖 45/45 条 source contrast rows，全部 `text_evidence_ready`，manual confirmation required 为 30。推荐分布为 needs public sibling context repair 3、needs more grade-specific source evidence 18、needs sibling-grade source evidence 9；missing/extra/mismatch 为 0，official decision/public write/auto approval 均为 0。该层只给 reviewer 指明下一步，不等同于 reviewer decision，也不批准 matcher 或 publication。
 
+针对上述 3 条 `needs_public_sibling_progression_context_repair`，新增 sibling-context repair candidates。这个层把真正的 P0 问题独立出来：不是先猜 G7/G8/G9 应该如何不同，而是先修复 public sibling context，因为这 3 条 progression group 目前只看到 H4G8，缺 H4G7 与 H4G9。缺 context 时，后续 evidence review 只能判断为不可判定，不能进入 matcher、publication 或 split approval。
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-split-review-progression-contrast-action-sibling-context-repair-candidates -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-split-review-progression-contrast-action-sibling-context-repair-candidates -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_sibling_context_repair_candidates_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_sibling_context_repair_candidates_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_sibling_context_repair_candidates_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_sibling_context_repair_candidates_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 sibling-context repair candidates 为 `valid=true`，audit 结果为 `valid=true`：3 条候选全部为 English/P0，existing sibling context 均为 H4G8，missing sibling bands 均为 H4G7+H4G9；涉及 `ENG-H4G8-SKILL-006`、`ENG-H4G8-SKILL-010`、`ENG-H4G8-SKILL-009`。summary 显示 repair candidates=3、missing sibling grade band instances=6、manual confirmation required=3、missing/extra/mismatch=0、public write/auto repair/official decision=0。下一步 gate 固定为 `repair_public_h4g_sibling_progression_context_then_rerun_contrast_packet`。
+
 针对剩余 67 条中未被 source-anchor exact packet 覆盖的 15 条，新增 post-candidate bounded-source evidence packet，把 7 条 source-row confirmation 和 8 条 item-level source review 与各自 inventory、action decisions、recommendation-only rows 合并成第二个小型精读入口：
 
 ```bash
