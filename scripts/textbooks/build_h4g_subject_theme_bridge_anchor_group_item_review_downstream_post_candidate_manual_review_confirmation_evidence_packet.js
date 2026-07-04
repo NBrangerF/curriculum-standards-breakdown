@@ -258,10 +258,14 @@ function isTocLikeText(value) {
   const dottedLeaders = (text.match(/\.{4,}/g) || []).length
   const unitMentions = (normalized.match(/\bunit\b/g) || []).length
   const moduleMentions = (normalized.match(/\bmodule\b/g) || []).length
-  const pageListMarkers = (normalized.match(/\bs\d+\b/g) || []).length
+  const pageListMarkers = (normalized.match(/\b[ps]\d+\b/g) || []).length
+  const chineseChapterMentions = (text.match(/第[一二三四五六七八九十百\d]+章/g) || []).length
   return dottedLeaders >= 3 ||
     pageListMarkers >= 6 ||
+    (pageListMarkers >= 4 && chineseChapterMentions >= 2) ||
     (unitMentions >= 8 && moduleMentions >= 3) ||
+    normalized.includes('目 录') ||
+    normalized.includes('目录') ||
     normalized.includes('contents')
 }
 
@@ -359,6 +363,15 @@ function pageHintFromUnitRow(unitRow) {
   return { pdfPage: null, source: 'unit_index_without_pdf_page_hint' }
 }
 
+function selectionHasBodyText(extracted, pages) {
+  const byPage = new Map((extracted?.pages || []).map(item => [item.pdf_page, item]))
+  return (pages || []).some(page => {
+    const source = byPage.get(page.pdf_page)
+    if (!source || source.status !== 'text_extracted' || Number(source.text_chars || 0) <= 0) return false
+    return !isTocLikeText(source.search_text || source.text_excerpt || '')
+  })
+}
+
 function selectPages(row, unitRow, extracted, args) {
   const pageRange = parsePageRange(row.page_range || unitRow?.page_range)
   const count = Math.max(1, Math.min(args.maxPagesPerItem, pageRange.count || 1))
@@ -375,6 +388,21 @@ function selectPages(row, unitRow, extracted, args) {
       pageHintSource = 'pdf_toc_title_search_needs_body_page_review'
     }
   }
+  if (basePdfPage) {
+    const initialPages = Array.from({ length: count }, (_, index) => ({ pdf_page: basePdfPage + index }))
+    if (!selectionHasBodyText(extracted, initialPages)) {
+      const fallbackTitleSearch = titleSearchPage(row, extracted)
+      if (fallbackTitleSearch.page && fallbackTitleSearch.page !== basePdfPage) {
+        titleSearch = fallbackTitleSearch
+        basePdfPage = fallbackTitleSearch.page
+        pageHintSource = 'pdf_title_text_search_after_toc_hint'
+      } else if (fallbackTitleSearch.status === 'toc_title_match_only_needs_body_page') {
+        titleSearch = fallbackTitleSearch
+        basePdfPage = null
+        pageHintSource = 'pdf_toc_title_search_needs_body_page_review'
+      }
+    }
+  }
   if (!basePdfPage && pageRange.start && pageHintSource !== 'pdf_toc_title_search_needs_body_page_review') {
     basePdfPage = pageRange.start
     pageHintSource = 'printed_page_range_as_pdf_page_unverified'
@@ -383,7 +411,7 @@ function selectPages(row, unitRow, extracted, args) {
   return {
     page_hint_confidence: ['unit_index_page_start_override_pdf_page', 'unit_index_body_pdf_page', 'unit_index_pdf_page_hint'].includes(pageHintSource)
       ? 'unit_index_backed'
-      : pageHintSource === 'pdf_title_text_search'
+      : ['pdf_title_text_search', 'pdf_title_text_search_after_toc_hint'].includes(pageHintSource)
         ? 'title_search_backed'
         : pageHintSource === 'printed_page_range_as_pdf_page_unverified'
           ? 'low_unverified'
@@ -403,9 +431,37 @@ function selectPages(row, unitRow, extracted, args) {
 
 function excerptForPage(extracted, page) {
   const source = new Map((extracted?.pages || []).map(item => [item.pdf_page, item])).get(page.pdf_page)
-  if (!source) return { ...page, status: 'missing_extraction', text_chars: 0, text_excerpt: '' }
+  if (!source) return { ...page, is_toc_like: false, status: 'missing_extraction', text_chars: 0, text_excerpt: '' }
   const { search_text: _searchText, ...publicFields } = source
-  return { ...page, ...publicFields }
+  return { ...page, ...publicFields, is_toc_like: isTocLikeText(source.search_text || source.text_excerpt || '') }
+}
+
+function bodyTextStats(row) {
+  const pages = row.page_text_excerpts || []
+  const tocLikePageCount = pages.filter(page => page.is_toc_like).length
+  const extractedPageCount = pages.filter(page => page.status === 'text_extracted' && Number(page.text_chars || 0) > 0).length
+  const nonemptyBodyTextPageCount = pages.filter(page =>
+    page.status === 'text_extracted' &&
+    Number(page.text_chars || 0) > 0 &&
+    page.is_toc_like !== true
+  ).length
+  const emptyPageCount = pages.filter(page => page.status === 'empty_text' || Number(page.text_chars || 0) === 0).length
+  let selectedPageQuality = 'missing_pdf_page_hint'
+  if (!row.pdf_cache_found) selectedPageQuality = 'missing_pdf_cache'
+  else if (!row.pdf_pages.length) selectedPageQuality = 'missing_pdf_page_hint'
+  else if (pages.some(page => page.status === 'extract_failed')) selectedPageQuality = 'extract_failed'
+  else if (nonemptyBodyTextPageCount > 0) selectedPageQuality = 'body_text_ready'
+  else if (tocLikePageCount > 0 && extractedPageCount > 0) selectedPageQuality = 'toc_only'
+  else if (emptyPageCount === pages.length) selectedPageQuality = 'empty_text'
+  else selectedPageQuality = 'no_body_text'
+  return {
+    body_text_ready: selectedPageQuality === 'body_text_ready',
+    empty_page_count: emptyPageCount,
+    extracted_page_count: extractedPageCount,
+    nonempty_body_text_page_count: nonemptyBodyTextPageCount,
+    selected_page_quality: selectedPageQuality,
+    toc_like_page_count: tocLikePageCount
+  }
 }
 
 function rowStatus(row) {
@@ -593,7 +649,8 @@ function buildRows(confirmationWorklist, boundedSourcePacket, manualConfirmation
       writes_public_data: false
     }
     row.page_evidence_status = rowStatus(row)
-    row.ready_for_manual_review = row.page_evidence_status === 'text_extracted'
+    Object.assign(row, bodyTextStats(row))
+    row.ready_for_manual_review = row.page_evidence_status === 'text_extracted' && row.body_text_ready === true
     return row
   }).sort((a, b) => Number(a.worklist_rank || 0) - Number(b.worklist_rank || 0) ||
     String(a.subject_slug).localeCompare(String(b.subject_slug)) ||
@@ -612,10 +669,12 @@ function summarize(rows, confirmationWorklist) {
     by_page_hint_confidence: {},
     by_page_hint_source: {},
     by_page_range_status: {},
+    by_selected_page_quality: {},
     by_recommendation: {},
     by_sibling_grade_context: {},
     by_source_downstream_action_batch: {},
     by_subject: {},
+    body_text_ready_items: 0,
     confirmation_evidence_items: rows.length,
     expected_confirmation_evidence_items: Number(confirmationWorklist.summary?.confirmation_work_items || 0),
     full_h4g_triplet_context_items: 0,
@@ -625,6 +684,8 @@ function summarize(rows, confirmationWorklist) {
     source_row_confirmation_items: 0,
     text_extracted_items: 0,
     title_search_page_hint_items: 0,
+    toc_hint_fallback_items: 0,
+    toc_only_items: 0,
     unit_index_found_items: 0,
     unique_action_decisions: sorted(rows.map(row => row.downstream_action_decision_id)).length,
     unique_progression_groups: sorted(rows.map(row => row.progression_group_id)).length,
@@ -635,8 +696,11 @@ function summarize(rows, confirmationWorklist) {
   }
   for (const row of rows) {
     if (row.ready_for_manual_review) summary.ready_for_manual_review_items += 1
+    if (row.body_text_ready) summary.body_text_ready_items += 1
     if (row.page_evidence_status === 'text_extracted') summary.text_extracted_items += 1
-    if (row.page_hint_source === 'pdf_title_text_search') summary.title_search_page_hint_items += 1
+    if (['pdf_title_text_search', 'pdf_title_text_search_after_toc_hint'].includes(row.page_hint_source)) summary.title_search_page_hint_items += 1
+    if (row.page_hint_source === 'pdf_title_text_search_after_toc_hint') summary.toc_hint_fallback_items += 1
+    if (row.selected_page_quality === 'toc_only') summary.toc_only_items += 1
     if (row.page_hint_source === 'printed_page_range_as_pdf_page_unverified') summary.unverified_printed_page_hint_items += 1
     if (row.unit_index_found) summary.unit_index_found_items += 1
     if (row.has_full_h4g_triplet_context) summary.full_h4g_triplet_context_items += 1
@@ -650,6 +714,7 @@ function summarize(rows, confirmationWorklist) {
     countInto(summary.by_page_hint_confidence, row.page_hint_confidence)
     countInto(summary.by_page_hint_source, row.page_hint_source)
     countInto(summary.by_page_range_status, row.page_range_status)
+    countInto(summary.by_selected_page_quality, row.selected_page_quality)
     countInto(summary.by_recommendation, row.recommended_reviewer_decision_to_consider)
     countInto(summary.by_sibling_grade_context, row.same_progression_group_grade_bands.join('+') || 'missing')
     countInto(summary.by_source_downstream_action_batch, row.source_downstream_action_batch)
@@ -660,7 +725,7 @@ function summarize(rows, confirmationWorklist) {
 
 function previewRows(rows) {
   return rows.map(row => (
-    `| ${row.worklist_rank} | ${markdownCell(row.subject_slug)} | ${markdownCell(row.grade_band)} | ${markdownCell(row.source_downstream_action_batch)} | ${markdownCell(row.standard_code)} | ${markdownCell(row.page_evidence_status)} | ${markdownCell(row.page_hint_source)} | ${markdownCell(row.pdf_pages.join(','))} | ${markdownCell(row.same_progression_group_grade_bands.join('+'))} | ${truncate(row.unit_title)} |`
+    `| ${row.worklist_rank} | ${markdownCell(row.subject_slug)} | ${markdownCell(row.grade_band)} | ${markdownCell(row.source_downstream_action_batch)} | ${markdownCell(row.standard_code)} | ${markdownCell(row.selected_page_quality || row.page_evidence_status)} | ${markdownCell(row.page_hint_source)} | ${markdownCell(row.pdf_pages.join(','))} | ${markdownCell(row.same_progression_group_grade_bands.join('+'))} | ${truncate(row.unit_title)} |`
   )).join('\n') || '| - | - | - | - | - | - | - | - | - | - |'
 }
 
@@ -682,7 +747,10 @@ decision adoption only; it does not edit decisions, approve bridges, write
 | confirmation evidence items | ${payload.summary.confirmation_evidence_items} |
 | expected confirmation evidence items | ${payload.summary.expected_confirmation_evidence_items} |
 | text extracted items | ${payload.summary.text_extracted_items} |
+| body-text-ready items | ${payload.summary.body_text_ready_items} |
 | ready for manual review items | ${payload.summary.ready_for_manual_review_items} |
+| TOC-only items | ${payload.summary.toc_only_items} |
+| TOC hint fallback items | ${payload.summary.toc_hint_fallback_items} |
 | source-row confirmation items | ${payload.summary.source_row_confirmation_items} |
 | item-level confirmation items | ${payload.summary.item_level_confirmation_items} |
 | full H4G triplet context items | ${payload.summary.full_h4g_triplet_context_items} |
@@ -696,6 +764,12 @@ decision adoption only; it does not edit decisions, approve bridges, write
 | --- | ---: |
 ${countRows(payload.summary.by_page_evidence_status)}
 
+## Selected Page Quality
+
+| quality | rows |
+| --- | ---: |
+${countRows(payload.summary.by_selected_page_quality)}
+
 ## Sibling Grade Context
 
 | context | rows |
@@ -704,7 +778,7 @@ ${countRows(payload.summary.by_sibling_grade_context)}
 
 ## Preview
 
-| rank | subject | grade | lane | standard | status | page hint source | PDF pages | sibling grades | unit |
+| rank | subject | grade | lane | standard | page quality | page hint source | PDF pages | sibling grades | unit |
 | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 ${previewRows(payload.confirmation_evidence_items)}
 

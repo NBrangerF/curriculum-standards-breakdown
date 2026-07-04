@@ -1982,10 +1982,12 @@ function downstreamPostCandidateManualReviewConfirmationEvidencePacketSummary(an
     by_page_hint_confidence: packetSummary.by_page_hint_confidence || auditSummary.by_page_hint_confidence || {},
     by_page_hint_source: packetSummary.by_page_hint_source || auditSummary.by_page_hint_source || {},
     by_page_range_status: packetSummary.by_page_range_status || auditSummary.by_page_range_status || {},
+    by_selected_page_quality: packetSummary.by_selected_page_quality || auditSummary.by_selected_page_quality || {},
     by_recommendation: packetSummary.by_recommendation || auditSummary.by_recommendation || {},
     by_sibling_grade_context: packetSummary.by_sibling_grade_context || auditSummary.by_sibling_grade_context || {},
     by_source_downstream_action_batch: packetSummary.by_source_downstream_action_batch || auditSummary.by_source_downstream_action_batch || {},
     by_subject: packetSummary.by_subject || auditSummary.by_subject || {},
+    body_text_ready_items: Number(auditSummary.body_text_ready_items || packetSummary.body_text_ready_items || 0),
     confirmation_evidence_items: Number(auditSummary.audited_confirmation_evidence_items || packetSummary.confirmation_evidence_items || 0),
     expected_confirmation_evidence_items: Number(auditSummary.expected_confirmation_evidence_items || packetSummary.expected_confirmation_evidence_items || 0),
     extra_confirmation_evidence_items: Number(auditSummary.extra_confirmation_evidence_items || 0),
@@ -1997,6 +1999,8 @@ function downstreamPostCandidateManualReviewConfirmationEvidencePacketSummary(an
     source_row_confirmation_items: Number(auditSummary.source_row_confirmation_items || packetSummary.source_row_confirmation_items || 0),
     text_extracted_items: Number(auditSummary.text_extracted_items || packetSummary.text_extracted_items || 0),
     title_search_page_hint_items: Number(auditSummary.title_search_page_hint_items || packetSummary.title_search_page_hint_items || 0),
+    toc_hint_fallback_items: Number(auditSummary.toc_hint_fallback_items || packetSummary.toc_hint_fallback_items || 0),
+    toc_only_items: Number(auditSummary.toc_only_items || packetSummary.toc_only_items || 0),
     unique_action_decisions: Number(auditSummary.unique_action_decisions || packetSummary.unique_action_decisions || 0),
     unique_progression_groups: Number(auditSummary.unique_progression_groups || packetSummary.unique_progression_groups || 0),
     unique_standard_codes: Number(auditSummary.unique_standard_codes || packetSummary.unique_standard_codes || 0),
@@ -2072,7 +2076,7 @@ function executionBatches(subjectRows, anchorStats, priorityStats, productReadin
       downstream_post_candidate_manual_review_decisions_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-decisions -- --strict --require-items',
       downstream_post_candidate_manual_review_recommendations_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-recommendations -- --strict --require-items',
       downstream_post_candidate_manual_review_confirmation_worklist_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-confirmation-worklist -- --strict --require-items',
-      downstream_post_candidate_manual_review_confirmation_evidence_packet_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-confirmation-evidence-packet -- --strict --require-items --require-text',
+      downstream_post_candidate_manual_review_confirmation_evidence_packet_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-confirmation-evidence-packet -- --strict --require-items --require-text --require-body-text',
       exit_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-triage-decisions -- --strict --require-groups --require-complete',
       next_action: 'complete_anchor_group_downstream_manual_confirmation',
       pending_groups: (anchorStats.english?.pending_group_decisions || 0) + (anchorStats.pe?.pending_group_decisions || 0),
@@ -2851,6 +2855,10 @@ ${countRows(payload.anchor_group_downstream_post_candidate_manual_review_confirm
 | --- | ---: |
 ${countRows(payload.anchor_group_downstream_post_candidate_manual_review_confirmation_evidence_packet_summary?.by_page_evidence_status || {})}
 
+| selected page quality | evidence items |
+| --- | ---: |
+${countRows(payload.anchor_group_downstream_post_candidate_manual_review_confirmation_evidence_packet_summary?.by_selected_page_quality || {})}
+
 | sibling grade context | evidence items |
 | --- | ---: |
 ${countRows(payload.anchor_group_downstream_post_candidate_manual_review_confirmation_evidence_packet_summary?.by_sibling_grade_context || {})}
@@ -2861,7 +2869,10 @@ ${countRows(payload.anchor_group_downstream_post_candidate_manual_review_confirm
 | audited confirmation evidence items | ${payload.anchor_group_downstream_post_candidate_manual_review_confirmation_evidence_packet_summary?.audited_confirmation_evidence_items || 0} |
 | confirmation evidence items | ${payload.anchor_group_downstream_post_candidate_manual_review_confirmation_evidence_packet_summary?.confirmation_evidence_items || 0} |
 | text-extracted items | ${payload.anchor_group_downstream_post_candidate_manual_review_confirmation_evidence_packet_summary?.text_extracted_items || 0} |
+| body-text-ready items | ${payload.anchor_group_downstream_post_candidate_manual_review_confirmation_evidence_packet_summary?.body_text_ready_items || 0} |
 | ready for manual review items | ${payload.anchor_group_downstream_post_candidate_manual_review_confirmation_evidence_packet_summary?.ready_for_manual_review_items || 0} |
+| TOC-only items | ${payload.anchor_group_downstream_post_candidate_manual_review_confirmation_evidence_packet_summary?.toc_only_items || 0} |
+| TOC hint fallback items | ${payload.anchor_group_downstream_post_candidate_manual_review_confirmation_evidence_packet_summary?.toc_hint_fallback_items || 0} |
 | source-row confirmation items | ${payload.anchor_group_downstream_post_candidate_manual_review_confirmation_evidence_packet_summary?.source_row_confirmation_items || 0} |
 | item-level confirmation items | ${payload.anchor_group_downstream_post_candidate_manual_review_confirmation_evidence_packet_summary?.item_level_confirmation_items || 0} |
 | missing confirmation evidence items | ${payload.anchor_group_downstream_post_candidate_manual_review_confirmation_evidence_packet_summary?.missing_confirmation_evidence_items || 0} |
@@ -3235,6 +3246,7 @@ function main() {
     const confirmationEvidenceMissingItems = Number(anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacketAudit?.summary?.missing_confirmation_evidence_items || 0)
     const confirmationEvidenceExtraItems = Number(anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacketAudit?.summary?.extra_confirmation_evidence_items || 0)
     const confirmationEvidenceTextItems = Number(anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacketAudit?.summary?.text_extracted_items || anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacket?.summary?.text_extracted_items || 0)
+    const confirmationEvidenceBodyTextItems = Number(anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacketAudit?.summary?.body_text_ready_items || anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacket?.summary?.body_text_ready_items || 0)
     const confirmationEvidenceReadyItems = Number(anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacketAudit?.summary?.ready_for_manual_review_items || anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacket?.summary?.ready_for_manual_review_items || 0)
     if (anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacket?.source_confirmation_worklist &&
         anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacket.source_confirmation_worklist !== args.anchorGroupDownstreamPostCandidateManualReviewConfirmationWorklist) {
@@ -3251,6 +3263,9 @@ function main() {
     if (anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacketAudit?.require_text !== true) {
       errors.push('post-candidate manual review confirmation evidence packet audit must require text')
     }
+    if (anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacketAudit?.require_body_text !== true) {
+      errors.push('post-candidate manual review confirmation evidence packet audit must require body text')
+    }
     if (anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacket && anchorDownstreamPostCandidateManualReviewConfirmationEvidencePacketAudit && confirmationEvidenceItems !== confirmationEvidenceAuditItems) {
       errors.push(`post-candidate manual review confirmation evidence items differ from audit: ${confirmationEvidenceItems} vs ${confirmationEvidenceAuditItems}`)
     }
@@ -3264,6 +3279,9 @@ function main() {
     if (confirmationEvidenceExtraItems) errors.push(`post-candidate manual review confirmation evidence packet has extra items: ${confirmationEvidenceExtraItems}`)
     if (confirmationEvidenceItems && confirmationEvidenceTextItems !== confirmationEvidenceItems) {
       errors.push(`post-candidate manual review confirmation evidence packet must have text for every item: ${confirmationEvidenceTextItems} vs ${confirmationEvidenceItems}`)
+    }
+    if (confirmationEvidenceItems && confirmationEvidenceBodyTextItems !== confirmationEvidenceItems) {
+      errors.push(`post-candidate manual review confirmation evidence packet must have body text for every item: ${confirmationEvidenceBodyTextItems} vs ${confirmationEvidenceItems}`)
     }
     if (confirmationEvidenceItems && confirmationEvidenceReadyItems !== confirmationEvidenceItems) {
       errors.push(`post-candidate manual review confirmation evidence packet must be ready for manual review for every item: ${confirmationEvidenceReadyItems} vs ${confirmationEvidenceItems}`)

@@ -18,6 +18,7 @@ function parseArgs(argv) {
     manualConfirmationWorklist: DEFAULT_MANUAL_CONFIRMATION_WORKLIST,
     out: DEFAULT_OUT,
     packet: DEFAULT_PACKET,
+    requireBodyText: false,
     requireItems: false,
     requireText: false,
     strict: false,
@@ -32,6 +33,7 @@ function parseArgs(argv) {
     else if (item === '--out') args.out = argv[++i]
     else if (item === '--summary-out') args.summaryOut = argv[++i]
     else if (item === '--strict') args.strict = true
+    else if (item === '--require-body-text') args.requireBodyText = true
     else if (item === '--require-items') args.requireItems = true
     else if (item === '--require-text') args.requireText = true
     else if (item === '--help') args.help = true
@@ -42,7 +44,7 @@ function parseArgs(argv) {
 function usage() {
   console.log(`Usage:
 node scripts/textbooks/audit_h4g_subject_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_evidence_packet.js \\
-  --strict --require-items --require-text
+  --strict --require-items --require-text --require-body-text
 
 Audits the focused manual confirmation evidence packet against the confirmation
 worklist and bounded-source packet. The packet is reviewer evidence only; it is
@@ -335,6 +337,7 @@ function validateItem(item, workItem, boundedItem, byProgression, errors, stats)
     'unit_index_pdf_page_hint',
     'unit_index_without_pdf_page_hint',
     'pdf_title_text_search',
+    'pdf_title_text_search_after_toc_hint',
     'pdf_toc_title_search_needs_body_page_review',
     'printed_page_range_as_pdf_page_unverified',
     'missing_unit_index'
@@ -342,10 +345,32 @@ function validateItem(item, workItem, boundedItem, byProgression, errors, stats)
   if (!allowedHintSources.includes(item.page_hint_source)) errors.push(`${prefix} page_hint_source invalid`)
   const allowedHintConfidence = ['unit_index_backed', 'title_search_backed', 'low_unverified', 'missing']
   if (!allowedHintConfidence.includes(item.page_hint_confidence)) errors.push(`${prefix} page_hint_confidence invalid`)
+  const allowedPageQualities = ['body_text_ready', 'toc_only', 'empty_text', 'extract_failed', 'missing_pdf_cache', 'missing_pdf_page_hint', 'no_body_text']
+  if (!allowedPageQualities.includes(item.selected_page_quality)) errors.push(`${prefix} selected_page_quality invalid`)
+  if (typeof item.body_text_ready !== 'boolean') errors.push(`${prefix} body_text_ready must be boolean`)
+  for (const field of ['empty_page_count', 'extracted_page_count', 'nonempty_body_text_page_count', 'toc_like_page_count']) {
+    if (!Number.isInteger(Number(item[field])) || Number(item[field]) < 0) errors.push(`${prefix} ${field} must be a non-negative integer`)
+  }
+  for (const page of item.page_text_excerpts || []) {
+    if (typeof page.is_toc_like !== 'boolean') errors.push(`${prefix} page ${page.pdf_page || '(missing page)'} is_toc_like must be boolean`)
+  }
+  const nonemptyBodyPages = (item.page_text_excerpts || []).filter(page =>
+    page.status === 'text_extracted' &&
+    Number(page.text_chars || 0) > 0 &&
+    page.is_toc_like !== true
+  )
+  if (item.body_text_ready && item.selected_page_quality !== 'body_text_ready') {
+    errors.push(`${prefix} body_text_ready must use selected_page_quality=body_text_ready`)
+  }
+  if (item.body_text_ready && !nonemptyBodyPages.length) {
+    errors.push(`${prefix} body_text_ready must include a non-TOC non-empty page excerpt`)
+  }
   if (item.page_evidence_status === 'text_extracted') {
-    if (item.ready_for_manual_review !== true) errors.push(`${prefix} text_extracted must be ready_for_manual_review`)
     if (!(item.page_text_excerpts || []).some(page => page.status === 'text_extracted' && Number(page.text_chars || 0) > 0)) {
       errors.push(`${prefix} text_extracted must include a non-empty page excerpt`)
+    }
+    if (item.ready_for_manual_review !== item.body_text_ready) {
+      errors.push(`${prefix} ready_for_manual_review must match body_text_ready when text is extracted`)
     }
   } else if (item.ready_for_manual_review !== false) {
     errors.push(`${prefix} non-text_extracted item must not be ready_for_manual_review`)
@@ -353,6 +378,7 @@ function validateItem(item, workItem, boundedItem, byProgression, errors, stats)
 
   stats.audited_confirmation_evidence_items += 1
   if (item.ready_for_manual_review) stats.ready_for_manual_review_items += 1
+  if (item.body_text_ready) stats.body_text_ready_items += 1
   if (item.page_evidence_status === 'text_extracted') stats.text_extracted_items += 1
 }
 
@@ -365,10 +391,12 @@ function summarizeRows(rows, confirmationWorklist) {
     by_page_hint_confidence: {},
     by_page_hint_source: {},
     by_page_range_status: {},
+    by_selected_page_quality: {},
     by_recommendation: {},
     by_sibling_grade_context: {},
     by_source_downstream_action_batch: {},
     by_subject: {},
+    body_text_ready_items: 0,
     confirmation_evidence_items: rows.length,
     expected_confirmation_evidence_items: Number(confirmationWorklist.summary?.confirmation_work_items || 0),
     full_h4g_triplet_context_items: 0,
@@ -378,6 +406,8 @@ function summarizeRows(rows, confirmationWorklist) {
     source_row_confirmation_items: 0,
     text_extracted_items: 0,
     title_search_page_hint_items: 0,
+    toc_hint_fallback_items: 0,
+    toc_only_items: 0,
     unit_index_found_items: 0,
     unique_action_decisions: sorted(rows.map(row => row.downstream_action_decision_id)).length,
     unique_progression_groups: sorted(rows.map(row => row.progression_group_id)).length,
@@ -388,8 +418,11 @@ function summarizeRows(rows, confirmationWorklist) {
   }
   for (const row of rows) {
     if (row.ready_for_manual_review) summary.ready_for_manual_review_items += 1
+    if (row.body_text_ready) summary.body_text_ready_items += 1
     if (row.page_evidence_status === 'text_extracted') summary.text_extracted_items += 1
-    if (row.page_hint_source === 'pdf_title_text_search') summary.title_search_page_hint_items += 1
+    if (['pdf_title_text_search', 'pdf_title_text_search_after_toc_hint'].includes(row.page_hint_source)) summary.title_search_page_hint_items += 1
+    if (row.page_hint_source === 'pdf_title_text_search_after_toc_hint') summary.toc_hint_fallback_items += 1
+    if (row.selected_page_quality === 'toc_only') summary.toc_only_items += 1
     if (row.page_hint_source === 'printed_page_range_as_pdf_page_unverified') summary.unverified_printed_page_hint_items += 1
     if (row.unit_index_found) summary.unit_index_found_items += 1
     if (row.has_full_h4g_triplet_context) summary.full_h4g_triplet_context_items += 1
@@ -403,6 +436,7 @@ function summarizeRows(rows, confirmationWorklist) {
     countInto(summary.by_page_hint_confidence, row.page_hint_confidence)
     countInto(summary.by_page_hint_source, row.page_hint_source)
     countInto(summary.by_page_range_status, row.page_range_status)
+    countInto(summary.by_selected_page_quality, row.selected_page_quality)
     countInto(summary.by_recommendation, row.recommended_reviewer_decision_to_consider)
     countInto(summary.by_sibling_grade_context, (row.same_progression_group_grade_bands || []).join('+') || 'missing')
     countInto(summary.by_source_downstream_action_batch, row.source_downstream_action_batch)
@@ -426,8 +460,12 @@ Generated at: ${payload.generated_at}
 | missing confirmation evidence items | ${payload.summary.missing_confirmation_evidence_items} |
 | extra confirmation evidence items | ${payload.summary.extra_confirmation_evidence_items} |
 | text extracted items | ${payload.summary.text_extracted_items} |
+| body-text-ready items | ${payload.summary.body_text_ready_items} |
 | ready for manual review items | ${payload.summary.ready_for_manual_review_items} |
+| TOC-only items | ${payload.summary.toc_only_items} |
+| TOC hint fallback items | ${payload.summary.toc_hint_fallback_items} |
 | require text | ${payload.require_text} |
+| require body text | ${payload.require_body_text} |
 | matcher ready | ${payload.matcher_ready} |
 | publication ready | ${payload.publication_ready} |
 
@@ -436,6 +474,12 @@ Generated at: ${payload.generated_at}
 | status | rows |
 | --- | ---: |
 ${countRows(payload.summary.by_page_evidence_status)}
+
+## Selected Page Quality
+
+| quality | rows |
+| --- | ---: |
+${countRows(payload.summary.by_selected_page_quality)}
 
 ## Sibling Grade Context
 
@@ -482,6 +526,7 @@ function audit(args) {
     missing_confirmation_evidence_items: 0
   }
   stats.ready_for_manual_review_items = 0
+  stats.body_text_ready_items = 0
   stats.text_extracted_items = 0
 
   if (items.length !== workItems.length) errors.push(`packet rows ${items.length} must match worklist rows ${workItems.length}`)
@@ -514,6 +559,9 @@ function audit(args) {
   if (args.requireText && stats.text_extracted_items !== stats.expected_confirmation_evidence_items) {
     errors.push(`requireText is set but text_extracted_items ${stats.text_extracted_items} does not match expected ${stats.expected_confirmation_evidence_items}`)
   }
+  if (args.requireBodyText && stats.body_text_ready_items !== stats.expected_confirmation_evidence_items) {
+    errors.push(`requireBodyText is set but body_text_ready_items ${stats.body_text_ready_items} does not match expected ${stats.expected_confirmation_evidence_items}`)
+  }
 
   return {
     bounded_source_packet: args.boundedSourcePacket,
@@ -527,6 +575,7 @@ function audit(args) {
     matcher_ready: false,
     packet: args.packet,
     publication_ready: false,
+    require_body_text: args.requireBodyText,
     require_items: args.requireItems,
     require_text: args.requireText,
     summary: stats,
