@@ -54,6 +54,8 @@ const DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_SOURCE_ANCHOR_EXACT_GROUP_R
 const DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_SOURCE_ANCHOR_EXACT_GROUP_REVIEW_DECISIONS_AUDIT = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_review_decisions_template_anchor_domain_rejected_english_pe_audit.json'
 const DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_SOURCE_ANCHOR_EXACT_GROUP_REVIEW_RECOMMENDATIONS = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_review_recommendations_anchor_domain_rejected_english_pe.json'
 const DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_SOURCE_ANCHOR_EXACT_GROUP_REVIEW_RECOMMENDATIONS_AUDIT = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_review_recommendations_anchor_domain_rejected_english_pe_audit.json'
+const DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_SOURCE_ANCHOR_EXACT_GROUP_REVIEW_ACTION_WORKLIST = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_anchor_domain_rejected_english_pe.json'
+const DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_SOURCE_ANCHOR_EXACT_GROUP_REVIEW_ACTION_WORKLIST_AUDIT = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_anchor_domain_rejected_english_pe_audit.json'
 const DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_BOUNDED_SOURCE_EVIDENCE_PACKET = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_bounded_source_evidence_packet_anchor_domain_rejected_english_pe.json'
 const DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_BOUNDED_SOURCE_EVIDENCE_PACKET_AUDIT = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_bounded_source_evidence_packet_anchor_domain_rejected_english_pe_audit.json'
 const DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_MANUAL_REVIEW_PACKET = 'generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_packet_anchor_domain_rejected_english_pe.json'
@@ -141,6 +143,8 @@ function parseArgs(argv) {
     anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewDecisionsAudit: DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_SOURCE_ANCHOR_EXACT_GROUP_REVIEW_DECISIONS_AUDIT,
     anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendations: DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_SOURCE_ANCHOR_EXACT_GROUP_REVIEW_RECOMMENDATIONS,
     anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsAudit: DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_SOURCE_ANCHOR_EXACT_GROUP_REVIEW_RECOMMENDATIONS_AUDIT,
+    anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist: DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_SOURCE_ANCHOR_EXACT_GROUP_REVIEW_ACTION_WORKLIST,
+    anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit: DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_SOURCE_ANCHOR_EXACT_GROUP_REVIEW_ACTION_WORKLIST_AUDIT,
     anchorGroupDownstreamPostCandidateBoundedSourceEvidencePacket: DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_BOUNDED_SOURCE_EVIDENCE_PACKET,
     anchorGroupDownstreamPostCandidateBoundedSourceEvidencePacketAudit: DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_BOUNDED_SOURCE_EVIDENCE_PACKET_AUDIT,
     anchorGroupDownstreamPostCandidateManualReviewPacket: DEFAULT_ANCHOR_GROUP_DOWNSTREAM_POST_CANDIDATE_MANUAL_REVIEW_PACKET,
@@ -234,6 +238,8 @@ function parseArgs(argv) {
     else if (item === '--anchor-group-downstream-post-candidate-source-anchor-exact-group-review-decisions-audit') args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewDecisionsAudit = argv[++i]
     else if (item === '--anchor-group-downstream-post-candidate-source-anchor-exact-group-review-recommendations') args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendations = argv[++i]
     else if (item === '--anchor-group-downstream-post-candidate-source-anchor-exact-group-review-recommendations-audit') args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsAudit = argv[++i]
+    else if (item === '--anchor-group-downstream-post-candidate-source-anchor-exact-group-review-action-worklist') args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist = argv[++i]
+    else if (item === '--anchor-group-downstream-post-candidate-source-anchor-exact-group-review-action-worklist-audit') args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit = argv[++i]
     else if (item === '--anchor-group-downstream-post-candidate-bounded-source-evidence-packet') args.anchorGroupDownstreamPostCandidateBoundedSourceEvidencePacket = argv[++i]
     else if (item === '--anchor-group-downstream-post-candidate-bounded-source-evidence-packet-audit') args.anchorGroupDownstreamPostCandidateBoundedSourceEvidencePacketAudit = argv[++i]
     else if (item === '--anchor-group-downstream-post-candidate-manual-review-packet') args.anchorGroupDownstreamPostCandidateManualReviewPacket = argv[++i]
@@ -2013,6 +2019,36 @@ function downstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsSumma
   }
 }
 
+function downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistSummary(anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist, anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit) {
+  const worklistSummary = anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist?.summary || {}
+  const auditSummary = anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit?.summary || {}
+  return {
+    action_work_items: Number(auditSummary.action_work_items || worklistSummary.action_work_items || 0),
+    audited_action_work_items: Number(auditSummary.action_work_items || 0),
+    auto_approval_work_items: Number(auditSummary.auto_approval_work_items || worklistSummary.auto_approval_work_items || 0),
+    by_grade_band: worklistSummary.by_grade_band || auditSummary.by_grade_band || {},
+    by_group_review_route: worklistSummary.by_group_review_route || auditSummary.by_group_review_route || {},
+    by_priority_tier: worklistSummary.by_priority_tier || auditSummary.by_priority_tier || {},
+    by_recommendation: worklistSummary.by_recommendation || auditSummary.by_recommendation || {},
+    by_recommendation_confidence: worklistSummary.by_recommendation_confidence || auditSummary.by_recommendation_confidence || {},
+    by_recommendation_route: worklistSummary.by_recommendation_route || auditSummary.by_recommendation_route || {},
+    by_subject: worklistSummary.by_subject || auditSummary.by_subject || {},
+    by_work_queue: worklistSummary.by_work_queue || auditSummary.by_work_queue || {},
+    collect_specific_evidence_work_items: Number(auditSummary.collect_specific_evidence_work_items || worklistSummary.collect_specific_evidence_work_items || 0),
+    expected_recommendations: Number(auditSummary.expected_recommendations || worklistSummary.action_work_items || 0),
+    extra_work_items: Number(auditSummary.extra_work_items || 0),
+    groups_with_multiple_standards: Number(auditSummary.groups_with_multiple_standards || worklistSummary.groups_with_multiple_standards || 0),
+    max_rows_per_group: Number(auditSummary.max_rows_per_group || worklistSummary.max_rows_per_group || 0),
+    missing_work_items: Number(auditSummary.missing_work_items || 0),
+    reject_group_work_items: Number(auditSummary.reject_group_work_items || worklistSummary.reject_group_work_items || 0),
+    source_anchor_exact_evidence_items: Number(auditSummary.source_anchor_exact_evidence_items || worklistSummary.source_anchor_exact_evidence_items || 0),
+    split_group_work_items: Number(auditSummary.split_group_work_items || worklistSummary.split_group_work_items || 0),
+    standard_level_ready_work_items: Number(auditSummary.standard_level_ready_work_items || worklistSummary.standard_level_ready_work_items || 0),
+    unique_standard_codes: Number(auditSummary.unique_standard_codes || worklistSummary.unique_standard_codes || 0),
+    unique_unit_evidence_ids: Number(auditSummary.unique_unit_evidence_ids || worklistSummary.unique_unit_evidence_ids || 0)
+  }
+}
+
 function downstreamPostCandidateBoundedSourceEvidencePacketSummary(anchorDownstreamPostCandidateBoundedSourceEvidencePacket, anchorDownstreamPostCandidateBoundedSourceEvidencePacketAudit) {
   const packetSummary = anchorDownstreamPostCandidateBoundedSourceEvidencePacket?.summary || {}
   const auditSummary = anchorDownstreamPostCandidateBoundedSourceEvidencePacketAudit?.summary || {}
@@ -2245,7 +2281,7 @@ function downstreamPostCandidateManualReviewConfirmationDecisionsCandidateSummar
   }
 }
 
-function executionBatches(subjectRows, anchorStats, priorityStats, productReadiness, productReadinessWorklist, anchorItemReviewWorklist, anchorItemReviewDownstreamCoverage, anchorDownstreamActionWorklist, anchorDownstreamActionCoverage, anchorDownstreamActionClosureReadiness, anchorDownstreamManualConfirmationWorklist, downstreamCandidateSummary, downstreamSourceAnchorSummary, downstreamSourceAnchorReviewWorklistSummary, downstreamSourceAnchorPageEvidencePacketSummary, downstreamSourceAnchorReviewDecisionsTemplateSummary, downstreamSourceAnchorReviewRecommendationsSummary, downstreamSourceAnchorScopeNotClosedCandidateSummary, downstreamSourceAnchorScopeNotClosedActionCandidateSummary, downstreamSourceAnchorScopeNotClosedClosureCandidateSummary, downstreamActionClosureCandidatesCombinedSummary, downstreamActionClosureCandidatesAfterPostConfirmationSummary, downstreamPostCandidateRemainingWorklistSummary, downstreamPostCandidateSourceAnchorExactEvidencePacketSummary, downstreamPostCandidateSourceAnchorExactGroupReviewPacketSummary, downstreamPostCandidateSourceAnchorExactGroupReviewDecisionsSummary, downstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsSummary, downstreamPostCandidateBoundedSourceEvidencePacketSummary, downstreamPostCandidateManualReviewPacketSummary, downstreamPostCandidateManualReviewDecisionsSummary, downstreamPostCandidateManualReviewRecommendationsSummary, downstreamPostCandidateManualReviewConfirmationWorklistSummary, downstreamPostCandidateManualReviewConfirmationEvidencePacketSummary, downstreamPostCandidateManualReviewConfirmationDecisionsCandidateSummary, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate) {
+function executionBatches(subjectRows, anchorStats, priorityStats, productReadiness, productReadinessWorklist, anchorItemReviewWorklist, anchorItemReviewDownstreamCoverage, anchorDownstreamActionWorklist, anchorDownstreamActionCoverage, anchorDownstreamActionClosureReadiness, anchorDownstreamManualConfirmationWorklist, downstreamCandidateSummary, downstreamSourceAnchorSummary, downstreamSourceAnchorReviewWorklistSummary, downstreamSourceAnchorPageEvidencePacketSummary, downstreamSourceAnchorReviewDecisionsTemplateSummary, downstreamSourceAnchorReviewRecommendationsSummary, downstreamSourceAnchorScopeNotClosedCandidateSummary, downstreamSourceAnchorScopeNotClosedActionCandidateSummary, downstreamSourceAnchorScopeNotClosedClosureCandidateSummary, downstreamActionClosureCandidatesCombinedSummary, downstreamActionClosureCandidatesAfterPostConfirmationSummary, downstreamPostCandidateRemainingWorklistSummary, downstreamPostCandidateSourceAnchorExactEvidencePacketSummary, downstreamPostCandidateSourceAnchorExactGroupReviewPacketSummary, downstreamPostCandidateSourceAnchorExactGroupReviewDecisionsSummary, downstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsSummary, downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistSummary, downstreamPostCandidateBoundedSourceEvidencePacketSummary, downstreamPostCandidateManualReviewPacketSummary, downstreamPostCandidateManualReviewDecisionsSummary, downstreamPostCandidateManualReviewRecommendationsSummary, downstreamPostCandidateManualReviewConfirmationWorklistSummary, downstreamPostCandidateManualReviewConfirmationEvidencePacketSummary, downstreamPostCandidateManualReviewConfirmationDecisionsCandidateSummary, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate) {
   const bySlug = Object.fromEntries(subjectRows.map(row => [row.subject_slug, row]))
   const english = bySlug.english || {}
   const pe = bySlug.pe || {}
@@ -2309,6 +2345,7 @@ function executionBatches(subjectRows, anchorStats, priorityStats, productReadin
       downstream_post_candidate_source_anchor_exact_group_review_packet_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-review-packet -- --strict --require-items',
       downstream_post_candidate_source_anchor_exact_group_review_decisions_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-review-decisions -- --strict --require-items',
       downstream_post_candidate_source_anchor_exact_group_review_recommendations_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-review-recommendations -- --strict --require-items',
+      downstream_post_candidate_source_anchor_exact_group_review_action_worklist_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-review-action-worklist -- --strict --require-items',
       downstream_post_candidate_bounded_source_evidence_packet_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-bounded-source-evidence-packet -- --strict --require-items',
       downstream_post_candidate_manual_review_packet_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-packet -- --strict --require-items',
       downstream_post_candidate_manual_review_decisions_gate: 'npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-decisions -- --strict --require-items',
@@ -2413,6 +2450,14 @@ function executionBatches(subjectRows, anchorStats, priorityStats, productReadin
         post_candidate_source_anchor_exact_group_review_recommendation_missing_rows: downstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsSummary?.missing_recommendations || 0,
         post_candidate_source_anchor_exact_group_review_recommendation_extra_rows: downstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsSummary?.extra_recommendations || 0,
         post_candidate_source_anchor_exact_group_review_recommendation_auto_approval_items: downstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsSummary?.exact_group_review_auto_approval_recommendations || 0,
+        post_candidate_source_anchor_exact_group_review_action_work_items: downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistSummary?.action_work_items || 0,
+        post_candidate_source_anchor_exact_group_review_action_split_work_items: downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistSummary?.split_group_work_items || 0,
+        post_candidate_source_anchor_exact_group_review_action_reject_work_items: downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistSummary?.reject_group_work_items || 0,
+        post_candidate_source_anchor_exact_group_review_action_collect_evidence_work_items: downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistSummary?.collect_specific_evidence_work_items || 0,
+        post_candidate_source_anchor_exact_group_review_action_standard_level_ready_work_items: downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistSummary?.standard_level_ready_work_items || 0,
+        post_candidate_source_anchor_exact_group_review_action_missing_rows: downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistSummary?.missing_work_items || 0,
+        post_candidate_source_anchor_exact_group_review_action_extra_rows: downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistSummary?.extra_work_items || 0,
+        post_candidate_source_anchor_exact_group_review_action_auto_approval_items: downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistSummary?.auto_approval_work_items || 0,
         post_candidate_bounded_source_evidence_items: downstreamPostCandidateBoundedSourceEvidencePacketSummary?.bounded_source_evidence_items || 0,
         post_candidate_bounded_source_lanes: downstreamPostCandidateBoundedSourceEvidencePacketSummary?.by_evidence_lane || {},
         post_candidate_bounded_source_review_buckets: downstreamPostCandidateBoundedSourceEvidencePacketSummary?.by_review_bucket || {},
@@ -2589,6 +2634,7 @@ function candidateGateMarkdownRows(rows) {
     ['downstream_post_candidate_source_anchor_exact_group_review_packet_gate', 'post-candidate source-anchor exact group review packet'],
     ['downstream_post_candidate_source_anchor_exact_group_review_decisions_gate', 'post-candidate source-anchor exact group review decisions'],
     ['downstream_post_candidate_source_anchor_exact_group_review_recommendations_gate', 'post-candidate source-anchor exact group review recommendations'],
+    ['downstream_post_candidate_source_anchor_exact_group_review_action_worklist_gate', 'post-candidate source-anchor exact group review action worklist'],
     ['downstream_post_candidate_bounded_source_evidence_packet_gate', 'post-candidate bounded-source evidence packet'],
     ['downstream_post_candidate_manual_review_packet_gate', 'post-candidate manual review packet'],
     ['downstream_post_candidate_manual_review_decisions_gate', 'post-candidate manual review decisions'],
@@ -2665,6 +2711,10 @@ or enable matcher use.
 | anchor downstream post-candidate source-anchor exact group recommendations | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_recommendations_summary?.exact_group_review_recommendations || 0} |
 | anchor downstream post-candidate source-anchor exact group split recommendations | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_recommendations_summary?.recommended_split_groups || 0} |
 | anchor downstream post-candidate source-anchor exact group reject recommendations | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_recommendations_summary?.recommended_reject_groups || 0} |
+| anchor downstream post-candidate source-anchor exact group action work items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.action_work_items || 0} |
+| anchor downstream post-candidate source-anchor exact group split work items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.split_group_work_items || 0} |
+| anchor downstream post-candidate source-anchor exact group reject work items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.reject_group_work_items || 0} |
+| anchor downstream post-candidate source-anchor exact group collect-evidence work items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.collect_specific_evidence_work_items || 0} |
 | anchor downstream post-candidate source-anchor text-extracted items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_evidence_packet_summary?.text_extracted_items || 0} |
 | anchor downstream post-candidate bounded-source evidence items | ${payload.anchor_group_downstream_post_candidate_bounded_source_evidence_packet_summary?.bounded_source_evidence_items || 0} |
 | anchor downstream post-candidate bounded-source page-ready items | ${payload.anchor_group_downstream_post_candidate_bounded_source_evidence_packet_summary?.page_ready_items || 0} |
@@ -3105,6 +3155,26 @@ ${countRows(payload.anchor_group_downstream_post_candidate_source_anchor_exact_g
 | source-anchor exact evidence rows | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_recommendations_summary?.source_anchor_exact_evidence_items || 0} |
 | auto approval recommendations | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_recommendations_summary?.exact_group_review_auto_approval_recommendations || 0} |
 
+## Anchor Group Downstream Post-Candidate Source-Anchor Exact Group Review Action Worklist
+
+| work queue | work items |
+| --- | ---: |
+${countRows(payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.by_work_queue || {})}
+
+| field | value |
+| --- | ---: |
+| expected recommendations | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.expected_recommendations || 0} |
+| audited action work items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.audited_action_work_items || 0} |
+| action work items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.action_work_items || 0} |
+| split work items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.split_group_work_items || 0} |
+| reject work items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.reject_group_work_items || 0} |
+| collect evidence work items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.collect_specific_evidence_work_items || 0} |
+| standard-level ready work items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.standard_level_ready_work_items || 0} |
+| missing work items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.missing_work_items || 0} |
+| extra work items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.extra_work_items || 0} |
+| source-anchor exact evidence rows | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.source_anchor_exact_evidence_items || 0} |
+| auto approval work items | ${payload.anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary?.auto_approval_work_items || 0} |
+
 ## Anchor Group Downstream Post-Candidate Bounded Source Evidence Packet
 
 | lane | bounded source evidence items |
@@ -3454,6 +3524,8 @@ function main() {
   const anchorDownstreamPostCandidateSourceAnchorExactGroupReviewDecisionsAudit = optionalInput(args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewDecisionsAudit, 'anchor downstream post-candidate source-anchor exact group review decisions audit', warnings)
   const anchorDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendations = optionalInput(args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendations, 'anchor downstream post-candidate source-anchor exact group review recommendations', warnings)
   const anchorDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsAudit = optionalInput(args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsAudit, 'anchor downstream post-candidate source-anchor exact group review recommendations audit', warnings)
+  const anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist = optionalInput(args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist, 'anchor downstream post-candidate source-anchor exact group review action worklist', warnings)
+  const anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit = optionalInput(args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit, 'anchor downstream post-candidate source-anchor exact group review action worklist audit', warnings)
   const anchorDownstreamPostCandidateBoundedSourceEvidencePacket = optionalInput(args.anchorGroupDownstreamPostCandidateBoundedSourceEvidencePacket, 'anchor downstream post-candidate bounded-source evidence packet', warnings)
   const anchorDownstreamPostCandidateBoundedSourceEvidencePacketAudit = optionalInput(args.anchorGroupDownstreamPostCandidateBoundedSourceEvidencePacketAudit, 'anchor downstream post-candidate bounded-source evidence packet audit', warnings)
   const anchorDownstreamPostCandidateManualReviewPacket = optionalInput(args.anchorGroupDownstreamPostCandidateManualReviewPacket, 'anchor downstream post-candidate manual review packet', warnings)
@@ -3643,6 +3715,60 @@ function main() {
     }
     if (exactGroupRecommendationAutoApprovalItems) {
       errors.push(`post-candidate source-anchor exact group review recommendations must not auto-approve: ${exactGroupRecommendationAutoApprovalItems}`)
+    }
+
+    validateReadOnlyArtifact('anchor downstream post-candidate source-anchor exact group review action worklist', anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist, errors, {
+      purpose: 'h4g_subject_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_review_action_worklist',
+      trueFlags: ['action_worklist_only', 'review_only']
+    })
+    validateReadOnlyAudit('anchor downstream post-candidate source-anchor exact group review action worklist audit', anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit, errors)
+    const exactGroupActionWorkItems = Number(anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist?.summary?.action_work_items || 0)
+    const exactGroupActionAuditItems = Number(anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit?.summary?.action_work_items || 0)
+    const exactGroupActionExpectedRecommendations = Number(anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit?.summary?.expected_recommendations || 0)
+    const exactGroupActionMissingItems = Number(anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit?.summary?.missing_work_items || 0)
+    const exactGroupActionExtraItems = Number(anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit?.summary?.extra_work_items || 0)
+    const exactGroupActionSourceAnchorItems = Number(anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit?.summary?.source_anchor_exact_evidence_items || anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist?.summary?.source_anchor_exact_evidence_items || 0)
+    const exactGroupActionReadyItems = Number(anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit?.summary?.standard_level_ready_work_items || anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist?.summary?.standard_level_ready_work_items || 0)
+    const exactGroupActionAutoApprovalItems = Number(anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit?.summary?.auto_approval_work_items || anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist?.summary?.auto_approval_work_items || 0)
+    if (anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist?.source_exact_group_review_recommendations &&
+        anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist.source_exact_group_review_recommendations !== args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendations) {
+      errors.push(`post-candidate source-anchor exact group review action worklist source recommendations mismatch: ${anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist.source_exact_group_review_recommendations} vs ${args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendations}`)
+    }
+    if (anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist?.source_exact_group_review_decisions &&
+        anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist.source_exact_group_review_decisions !== args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewDecisions) {
+      errors.push(`post-candidate source-anchor exact group review action worklist source decisions mismatch: ${anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist.source_exact_group_review_decisions} vs ${args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewDecisions}`)
+    }
+    if (anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit?.worklist &&
+        anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit.worklist !== args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist) {
+      errors.push(`post-candidate source-anchor exact group review action worklist audit worklist mismatch: ${anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit.worklist} vs ${args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist}`)
+    }
+    if (anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit?.recommendations &&
+        anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit.recommendations !== args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendations) {
+      errors.push(`post-candidate source-anchor exact group review action worklist audit recommendations mismatch: ${anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit.recommendations} vs ${args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendations}`)
+    }
+    if (anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit?.decisions &&
+        anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit.decisions !== args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewDecisions) {
+      errors.push(`post-candidate source-anchor exact group review action worklist audit decisions mismatch: ${anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit.decisions} vs ${args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewDecisions}`)
+    }
+    if (anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist && anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit && exactGroupActionWorkItems !== exactGroupActionAuditItems) {
+      errors.push(`post-candidate source-anchor exact group review action worklist items differ from audit: ${exactGroupActionWorkItems} vs ${exactGroupActionAuditItems}`)
+    }
+    if (exactGroupRecommendationItems && exactGroupActionExpectedRecommendations && exactGroupActionExpectedRecommendations !== exactGroupRecommendationItems) {
+      errors.push(`post-candidate source-anchor exact group action worklist expected recommendations differ from recommendations: ${exactGroupActionExpectedRecommendations} vs ${exactGroupRecommendationItems}`)
+    }
+    if (exactGroupRecommendationItems && exactGroupActionWorkItems && exactGroupActionWorkItems !== exactGroupRecommendationItems) {
+      errors.push(`post-candidate source-anchor exact group action worklist must match recommendations: ${exactGroupActionWorkItems} vs ${exactGroupRecommendationItems}`)
+    }
+    if (exactGroupSourceAnchorItems && exactGroupActionSourceAnchorItems && exactGroupActionSourceAnchorItems !== exactGroupSourceAnchorItems) {
+      errors.push(`post-candidate source-anchor exact group action worklist rows must cover grouped exact rows: ${exactGroupActionSourceAnchorItems} vs ${exactGroupSourceAnchorItems}`)
+    }
+    if (exactGroupActionMissingItems) errors.push(`post-candidate source-anchor exact group action worklist has missing rows: ${exactGroupActionMissingItems}`)
+    if (exactGroupActionExtraItems) errors.push(`post-candidate source-anchor exact group action worklist has extra rows: ${exactGroupActionExtraItems}`)
+    if (exactGroupActionReadyItems) {
+      errors.push(`post-candidate source-anchor exact group action worklist must not mark groups standard-level ready before completed group review: ${exactGroupActionReadyItems}`)
+    }
+    if (exactGroupActionAutoApprovalItems) {
+      errors.push(`post-candidate source-anchor exact group action worklist must not auto-approve: ${exactGroupActionAutoApprovalItems}`)
     }
 
     validateReadOnlyArtifact('anchor downstream post-candidate manual review packet', anchorDownstreamPostCandidateManualReviewPacket, errors, {
@@ -3910,6 +4036,7 @@ function main() {
   const downstreamPostCandidateSourceAnchorExactGroupReviewPacketTemplateSummary = downstreamPostCandidateSourceAnchorExactGroupReviewPacketSummary(anchorDownstreamPostCandidateSourceAnchorExactGroupReviewPacket, anchorDownstreamPostCandidateSourceAnchorExactGroupReviewPacketAudit)
   const downstreamPostCandidateSourceAnchorExactGroupReviewDecisionsTemplateSummary = downstreamPostCandidateSourceAnchorExactGroupReviewDecisionsSummary(anchorDownstreamPostCandidateSourceAnchorExactGroupReviewDecisions, anchorDownstreamPostCandidateSourceAnchorExactGroupReviewDecisionsAudit)
   const downstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsTemplateSummary = downstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsSummary(anchorDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendations, anchorDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsAudit)
+  const downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistTemplateSummary = downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistSummary(anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist, anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit)
   const downstreamPostCandidateBoundedSourceEvidencePacketTemplateSummary = downstreamPostCandidateBoundedSourceEvidencePacketSummary(anchorDownstreamPostCandidateBoundedSourceEvidencePacket, anchorDownstreamPostCandidateBoundedSourceEvidencePacketAudit)
   const downstreamPostCandidateManualReviewPacketTemplateSummary = downstreamPostCandidateManualReviewPacketSummary(anchorDownstreamPostCandidateManualReviewPacket, anchorDownstreamPostCandidateManualReviewPacketAudit)
   const downstreamPostCandidateManualReviewDecisionsTemplateSummary = downstreamPostCandidateManualReviewDecisionsSummary(anchorDownstreamPostCandidateManualReviewDecisions, anchorDownstreamPostCandidateManualReviewDecisionsAudit)
@@ -3925,7 +4052,7 @@ function main() {
     direct_matcher_use: false,
     eligible_for_h4g_differentiation: false,
     errors,
-    execution_batches: executionBatches(subjectRows, anchorBySubject, priorityStats, productReadiness, productReadinessWorklist, anchorItemReviewWorklist, anchorItemReviewDownstreamCoverage, anchorDownstreamActionWorklist, anchorDownstreamActionCoverage, anchorDownstreamActionClosureReadiness, anchorDownstreamManualConfirmationWorklist, downstreamCandidateSummary, downstreamSourceAnchorSummary, downstreamSourceAnchorReviewWorklistSummary, downstreamSourceAnchorPageEvidencePacketSummary, downstreamSourceAnchorReviewDecisionsTemplateSummary, downstreamSourceAnchorReviewRecommendationsTemplateSummary, downstreamSourceAnchorScopeNotClosedCandidateTemplateSummary, downstreamSourceAnchorScopeNotClosedActionCandidateTemplateSummary, downstreamSourceAnchorScopeNotClosedClosureCandidateTemplateSummary, downstreamActionClosureCandidatesCombinedTemplateSummary, downstreamActionClosureCandidatesAfterPostConfirmationTemplateSummary, downstreamPostCandidateRemainingWorklistTemplateSummary, downstreamPostCandidateSourceAnchorExactEvidencePacketTemplateSummary, downstreamPostCandidateSourceAnchorExactGroupReviewPacketTemplateSummary, downstreamPostCandidateSourceAnchorExactGroupReviewDecisionsTemplateSummary, downstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsTemplateSummary, downstreamPostCandidateBoundedSourceEvidencePacketTemplateSummary, downstreamPostCandidateManualReviewPacketTemplateSummary, downstreamPostCandidateManualReviewDecisionsTemplateSummary, downstreamPostCandidateManualReviewRecommendationsTemplateSummary, downstreamPostCandidateManualReviewConfirmationWorklistTemplateSummary, downstreamPostCandidateManualReviewConfirmationEvidencePacketTemplateSummary, downstreamPostCandidateManualReviewConfirmationDecisionsCandidateTemplateSummary, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate),
+    execution_batches: executionBatches(subjectRows, anchorBySubject, priorityStats, productReadiness, productReadinessWorklist, anchorItemReviewWorklist, anchorItemReviewDownstreamCoverage, anchorDownstreamActionWorklist, anchorDownstreamActionCoverage, anchorDownstreamActionClosureReadiness, anchorDownstreamManualConfirmationWorklist, downstreamCandidateSummary, downstreamSourceAnchorSummary, downstreamSourceAnchorReviewWorklistSummary, downstreamSourceAnchorPageEvidencePacketSummary, downstreamSourceAnchorReviewDecisionsTemplateSummary, downstreamSourceAnchorReviewRecommendationsTemplateSummary, downstreamSourceAnchorScopeNotClosedCandidateTemplateSummary, downstreamSourceAnchorScopeNotClosedActionCandidateTemplateSummary, downstreamSourceAnchorScopeNotClosedClosureCandidateTemplateSummary, downstreamActionClosureCandidatesCombinedTemplateSummary, downstreamActionClosureCandidatesAfterPostConfirmationTemplateSummary, downstreamPostCandidateRemainingWorklistTemplateSummary, downstreamPostCandidateSourceAnchorExactEvidencePacketTemplateSummary, downstreamPostCandidateSourceAnchorExactGroupReviewPacketTemplateSummary, downstreamPostCandidateSourceAnchorExactGroupReviewDecisionsTemplateSummary, downstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsTemplateSummary, downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistTemplateSummary, downstreamPostCandidateBoundedSourceEvidencePacketTemplateSummary, downstreamPostCandidateManualReviewPacketTemplateSummary, downstreamPostCandidateManualReviewDecisionsTemplateSummary, downstreamPostCandidateManualReviewRecommendationsTemplateSummary, downstreamPostCandidateManualReviewConfirmationWorklistTemplateSummary, downstreamPostCandidateManualReviewConfirmationEvidencePacketTemplateSummary, downstreamPostCandidateManualReviewConfirmationDecisionsCandidateTemplateSummary, unitCandidateCoverage, unitCandidateCoverageWorklist, unitBlockerMatchDiagnostics, unitBlockerActionWorklist, unitAnchorPolicyReviewBatch, unitAnchorPolicyReviewDecisions, unitAnchorPolicyReviewRecommendations, unitAnchorPolicyReviewActionWorklist, unitAnchorPolicySourceAnchorSpecificityBatch, unitAnchorPolicySourceAnchorSpecificityDecisions, unitAnchorPolicySourceAnchorSpecificityEvidencePacket, unitAnchorPolicySourceAnchorSpecificityGroupTriage, unitGroupReadyCandidate),
     generated_at: new Date().toISOString(),
     issue_summary: summarizeIssues(subjectRows),
     matcher_ready: false,
@@ -3976,6 +4103,8 @@ function main() {
       anchor_group_downstream_post_candidate_source_anchor_exact_group_review_decisions_audit: args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewDecisionsAudit,
       anchor_group_downstream_post_candidate_source_anchor_exact_group_review_recommendations: args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendations,
       anchor_group_downstream_post_candidate_source_anchor_exact_group_review_recommendations_audit: args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsAudit,
+      anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist: args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklist,
+      anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_audit: args.anchorGroupDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit,
       anchor_group_downstream_post_candidate_bounded_source_evidence_packet: args.anchorGroupDownstreamPostCandidateBoundedSourceEvidencePacket,
       anchor_group_downstream_post_candidate_bounded_source_evidence_packet_audit: args.anchorGroupDownstreamPostCandidateBoundedSourceEvidencePacketAudit,
       anchor_group_downstream_post_candidate_manual_review_packet: args.anchorGroupDownstreamPostCandidateManualReviewPacket,
@@ -4058,6 +4187,8 @@ function main() {
     anchor_group_downstream_post_candidate_source_anchor_exact_group_review_decisions_summary: downstreamPostCandidateSourceAnchorExactGroupReviewDecisionsTemplateSummary,
     anchor_group_downstream_post_candidate_source_anchor_exact_group_review_recommendations_audit_summary: anchorDownstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsAudit?.summary || null,
     anchor_group_downstream_post_candidate_source_anchor_exact_group_review_recommendations_summary: downstreamPostCandidateSourceAnchorExactGroupReviewRecommendationsTemplateSummary,
+    anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_audit_summary: anchorDownstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistAudit?.summary || null,
+    anchor_group_downstream_post_candidate_source_anchor_exact_group_review_action_worklist_summary: downstreamPostCandidateSourceAnchorExactGroupReviewActionWorklistTemplateSummary,
     anchor_group_downstream_post_candidate_bounded_source_evidence_packet_audit_summary: anchorDownstreamPostCandidateBoundedSourceEvidencePacketAudit?.summary || null,
     anchor_group_downstream_post_candidate_bounded_source_evidence_packet_summary: downstreamPostCandidateBoundedSourceEvidencePacketTemplateSummary,
     anchor_group_downstream_post_candidate_manual_review_packet_audit_summary: anchorDownstreamPostCandidateManualReviewPacketAudit?.summary || null,
