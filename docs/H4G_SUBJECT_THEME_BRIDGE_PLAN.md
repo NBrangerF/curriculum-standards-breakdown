@@ -870,6 +870,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 confirmation worklist 为 `valid=true`，audit 结果为 `valid=true`：expected/audited work items 为 15/15，missing/extra 均为 0；其中 7 条是 `confirm_source_row_for_later_action_gate` 人审入口，8 条是 `confirm_item_level_source_scope_for_later_action_gate` 人审入口，全部为 H4G7，English/PE 为 4/11。52 条 source-anchor exact recommendations 被明确排除并继续 pending。该层只是 reviewer worklist，不修改 editable decisions、不批准 bridge、不写 `public/data`、不启用 matcher、不进入 publication。
 
+为了避免把“page-ready”误当成“已经审过教材页文本”，新增 bounded-source confirmation evidence packet。该层只服务上述 15 条 confirmation work items，抽取本地 PDF 页文本，并带上 same progression group 的 H4G7/H4G8/H4G9 sibling context：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-confirmation-evidence-packet -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-confirmation-evidence-packet -- --strict --require-items --require-text
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_evidence_packet_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_evidence_packet_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_evidence_packet_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_evidence_packet_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 confirmation evidence packet 为 `valid=true`，audit 结果为 `valid=true` 且 `require_text=true`：expected/audited evidence items 为 15/15，missing/extra 均为 0；15 条全部为 `text_extracted` 且 `ready_for_manual_review=true`。page hint source 为 unit index override 4 条、unit index hint 9 条、PDF title search 2 条；sibling grade context 为 H4G7+H4G8 4 条、H4G7+H4G8+H4G9 4 条、H4G7+H4G9 7 条。该层仍只是 evidence packet，不修改 editable decisions、不批准 bridge、不写 `public/data`、不启用 matcher、不进入 publication；后续 adoption 仍必须由 reviewer 在 decisions template 中填 confirmations、notes 和 decision。
+
 对 6 条 priority target-standard gap，新增 public inventory audit：
 
 ```bash
