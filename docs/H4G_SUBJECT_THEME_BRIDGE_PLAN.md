@@ -744,6 +744,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 manual confirmation worklist 为 `valid=true`，audit 结果为 `valid=true`：201 条 worklist items 精确覆盖 201 条 action decisions，missing/extra 均为 0；全部仍需人工确认，`auto_close_allowed_items=0`、`close_ready_items=0`。队列按可执行 lane 排序：priority target gap 6 条、same-grade unit scope 12 条、single source-row 7 条、bounded item-level source review 8 条、source-anchor generic/deny-term 49 条、source-anchor unit/source scope 116 条、source-anchor fanout 3 条；H4G7/H4G8/H4G9 分布为 66/82/53。该层只整理人工确认顺序和所需证据，不自动关闭 action decisions，不修改 editable templates，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+combined closure candidate 之后，新增 post-candidate remaining worklist，只保留真正尚未被候选收口的 67 条：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-remaining-worklist -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-remaining-worklist -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_remaining_worklist_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_remaining_worklist_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_remaining_worklist_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_remaining_worklist_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 post-candidate remaining worklist 为 `valid=true`，audit 结果为 `valid=true`：201 条 manual confirmation items 中，134 条已由 combined closure candidate 标成候选闭环并被排除；剩余 67 条 expected/audited remaining work items 完全一致，missing/extra 均为 0。剩余结构为 source-anchor exact review 52 条、source-row confirmation 7 条、item-level source review 8 条；按年级为 H4G7/H4G8/H4G9 = 23/36/8。该层只是缩小下一轮人工复核范围，不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
+
 对 6 条 priority target-standard gap，新增 public inventory audit：
 
 ```bash
