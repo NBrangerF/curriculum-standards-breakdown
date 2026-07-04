@@ -870,6 +870,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 exact group split review surface 为 `valid=true`，audit 结果为 `valid=true`：4 个 parent split action work items 展开为 45 条 standard-level review rows，missing/extra 均为 0；H4G7/H4G8/H4G9 为 8/34/3，全部为 English，覆盖 45 条 source-anchor exact evidence rows、39 个 unique standard codes、4 个 unit evidence ids。`standard_level_ready_items=0`，`auto_approval_items=0`。这一步只是把 reviewer 面从 group-level 切回标准级，不修改 editable decisions、不批准任何 standard、不写 `public/data`、不启用 matcher、不进入 publication。
 
+在 split review surface 后，新增可编辑 standard-level split review decisions template。该层把 45 条标准级复核行变成 reviewer 可填写的决策入口，但仍然把“accept”限制为 later action gate candidate，不是 matcher/publication approval：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-split-review-decisions -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-split-review-decisions -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_decisions_template_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_decisions_template_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_decisions_template_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_decisions_template_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 exact group split review decisions template 为 `valid=true`，audit 结果为 `valid=true`：45 条 decisions 精确覆盖 45 条 split review rows，missing/extra 均为 0；H4G7/H4G8/H4G9 为 8/34/3，全部为 English，覆盖 45 条 source-anchor exact evidence rows、39 个 unique standard codes、4 个 parent split action work items。全部仍为 `pending`，`completed_decisions=0`，`accept_candidate_decisions=0`，`reject_generic_decisions=0`，`more_evidence_decisions=0`，`split_activity_decisions=0`，`auto_approval_decisions=0`。任何完成项都必须填写 reviewer metadata、精确页码/证据说明和年级差异说明；这一步不修改 official standard、不写 `public/data`、不启用 matcher、不进入 publication。
+
 针对剩余 67 条中未被 source-anchor exact packet 覆盖的 15 条，新增 post-candidate bounded-source evidence packet，把 7 条 source-row confirmation 和 8 条 item-level source review 与各自 inventory、action decisions、recommendation-only rows 合并成第二个小型精读入口：
 
 ```bash
