@@ -906,6 +906,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 exact group split review recommendations 为 `valid=true`，audit 结果为 `valid=true`：45 条 recommendations 精确覆盖 45 条 split decisions，missing/extra 均为 0；H4G7/H4G8/H4G9 为 8/34/3，全部为 English，覆盖 39 个 unique standard codes。全部仍为 `pending_recommendations=45`，`accept_candidate_recommendations=0`，`reject_generic_recommendations=0`，`more_evidence_recommendations=0`，`split_activity_recommendations=0`，`auto_approval_recommendations=0`。该层只做 recommendation-only routing，不修改 editable decisions、不批准 standard、不写 `public/data`、不启用 matcher、不进入 publication。
 
+针对 H4G7/H4G8/H4G9 在 split review rows 中几乎完全一样的问题，新增只读 progression contrast packet。它把每条 standard-level split review row 与同 `progression_group_id` 的 H4G7/H4G8/H4G9 public sibling standards 并排，先确认问题源头：到底是 official standard 原文相同、sibling context 缺失，还是只有当前年级 evidence 被带入。
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-split-review-progression-contrast-packet -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-split-review-progression-contrast-packet -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_packet_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_packet_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_packet_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_packet_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 progression contrast packet 为 `valid=true`，audit 结果为 `valid=true`：45 条 contrast items 精确覆盖 45 条 split review rows，missing/extra/mismatch 均为 0；H4G7/H4G8/H4G9 为 8/34/3，覆盖 30 个 progression groups、39 个 unique standard codes。41 条有完整 H4G7/H4G8/H4G9 sibling context，且这 41 条 official standard 文本完全相同；25 条属于 `identical_official_standard_current_grade_only_source_evidence`，20 条属于 `identical_official_standard_no_public_unit_evidence_yet`，4 条属于 `missing_public_sibling_progression_context`。该层只用于定位“为什么 G7/G8/G9 看起来一样”，不能作为 accept/reject 决策，不修改 official standard、不写 `public/data`、不启用 matcher、不进入 publication。
+
 针对剩余 67 条中未被 source-anchor exact packet 覆盖的 15 条，新增 post-candidate bounded-source evidence packet，把 7 条 source-row confirmation 和 8 条 item-level source review 与各自 inventory、action decisions、recommendation-only rows 合并成第二个小型精读入口：
 
 ```bash
