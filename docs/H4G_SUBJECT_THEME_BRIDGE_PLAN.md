@@ -909,6 +909,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 confirmation decisions candidate 为 `valid=true`，专用 audit 和原 manual-review-decisions audit 均为 `valid=true`：67 条 decisions 中只有 15 条 body-text-ready bounded-source rows 被标为 reviewed candidate，其余 52 条 source-anchor exact rows 保持 pending；candidate 分布为 source-row 7 条、item-level source scope 8 条，English/PE 为 4/11，全部 H4G7。专用 audit 确认 expected/candidate 为 15/15、changed non-candidate decisions 为 0、missing/extra 为 0。该层仍不修改源 editable template、不批准 bridge、不写 `public/data`、不启用 matcher、不进入 publication；它只是把已具备正文页证据的 15 条从“待人工确认”推进到“可被后续 action gate 采用的 reviewed candidate”。
 
+在 confirmation decisions candidate 后，新增后置 closure candidate gate。这个 gate 不改写旧 combined closure candidate 的前置语义，而是以旧 combined 的 134 条候选为基底，再吸收上述 15 条正文页确认完成的 bounded-source rows：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-action-closure-candidates-after-post-confirmation -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-action-closure-candidates-after-post-confirmation -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_closure_candidates_after_post_confirmation_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_closure_candidates_after_post_confirmation_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_closure_candidates_after_post_confirmation_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_action_closure_candidates_after_post_confirmation_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 after-post-confirmation closure candidate 为 `valid=true`，audit 结果为 `valid=true`：201 条 closure readiness rows 中，继承旧 combined candidate 134 条，并新增 post-confirmation candidate 15 条，合计 149 条 candidate closure items；剩余 52 条 pending manual confirmation items 正好对应 source-anchor exact rows。新增 15 条中，source-row confirmation 7 条、item-level source review 8 条，全部来自 body-text-ready confirmation decisions candidate。audit 确认 changed non-post-confirmation rows 为 0，`auto_close_allowed_items=0`、`close_ready_items=0`。该层仍只是后置 action/closure candidate，不批准 bridge、不写 `public/data`、不启用 matcher、不进入 publication；后续 52 条 exact-anchor 仍必须人工精读。
+
 对 6 条 priority target-standard gap，新增 public inventory audit：
 
 ```bash
