@@ -960,6 +960,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 progression action decisions template 为 `valid=true`，audit 结果为 `valid=true`：30 条 decision rows 精确对应 30 个 action work items，pending/completed 为 30/0，manual confirmation required 为 30；继续覆盖 45/45 条 source contrast rows，missing/extra/mismatch 均为 0，public write 与 auto approval 均为 0。该层是人工 decision gate，不自动批准 split review，不修改 official standard，不写 `public/data`，不启用 matcher，不进入 publication。
 
+在 progression action decisions 后，新增只读 action evidence packet。它不让 reviewer 只看 H4 标题或三份近似相同的 official standard text，而是把每条 pending decision 绑定回 source contrast rows、page excerpt previews、split-surface evidence by grade、sibling progression records 和 public sibling evidence context；后续判断 G7/G8/G9 是否真的能拆开时，必须在这里先看证据。
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-split-review-progression-contrast-action-evidence-packet -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-split-review-progression-contrast-action-evidence-packet -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_evidence_packet_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_evidence_packet_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_evidence_packet_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_evidence_packet_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 progression action evidence packet 为 `valid=true`，audit 结果为 `valid=true`：30 条 action evidence items 精确对应 30 条 action decisions，全部 `text_evidence_ready`；绑定 45/45 条 source contrast rows 与 78 个 page text excerpt previews。队列继续保持 repair missing sibling context 3、prove current-grade-specific evidence 18、collect sibling-grade evidence 9；missing/extra/mismatch/link 均为 0，public write 与 auto approval 均为 0。该层只作为 reviewer 的证据包，不修改 editable decisions、不批准 split review、不写 `public/data`、不启用 matcher、不进入 publication。
+
 针对剩余 67 条中未被 source-anchor exact packet 覆盖的 15 条，新增 post-candidate bounded-source evidence packet，把 7 条 source-row confirmation 和 8 条 item-level source review 与各自 inventory、action decisions、recommendation-only rows 合并成第二个小型精读入口：
 
 ```bash
