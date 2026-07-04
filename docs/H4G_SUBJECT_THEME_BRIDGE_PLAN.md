@@ -762,6 +762,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 post-candidate remaining worklist 为 `valid=true`，audit 结果为 `valid=true`：201 条 manual confirmation items 中，134 条已由 combined closure candidate 标成候选闭环并被排除；剩余 67 条 expected/audited remaining work items 完全一致，missing/extra 均为 0。剩余结构为 source-anchor exact review 52 条、source-row confirmation 7 条、item-level source review 8 条；按年级为 H4G7/H4G8/H4G9 = 23/36/8。该层只是缩小下一轮人工复核范围，不修改 editable decisions，不批准 bridge，不写 `public/data`，不启用 matcher，也不进入 publication-ready。
 
+针对 67 条中的 52 条 source-anchor exact review，新增 post-candidate source-anchor exact evidence packet，把剩余项、source-anchor review decisions、recommendation-only rows 和页面文本证据合并成一个小型精读入口：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-evidence-packet -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-evidence-packet -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_evidence_packet_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_evidence_packet_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_evidence_packet_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_evidence_packet_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 exact evidence packet 为 `valid=true`，audit 结果为 `valid=true`：52 条 source-anchor exact evidence items 精确覆盖 post-candidate remaining worklist 的 source-anchor 子集，missing/extra 均为 0；52 条全部仍是 pending review decisions/pending recommendations，全部已有 `text_extracted` page evidence 且 `ready_for_manual_review=true`，`exact_anchor_auto_approval_items=0`。page hint source 分布为 unit index override 29 条、unit index hint 15 条、PDF title search 8 条；H4G7/H4G8/H4G9 为 8/36/8。该层只给人工精读 exact anchor、H4G sibling context 和页面摘录，不写 editable decisions、不批准 bridge、不进入 matcher/publication。
+
 对 6 条 priority target-standard gap，新增 public inventory audit：
 
 ```bash
