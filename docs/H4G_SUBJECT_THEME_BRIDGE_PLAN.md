@@ -924,6 +924,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 progression contrast packet 为 `valid=true`，audit 结果为 `valid=true`：45 条 contrast items 精确覆盖 45 条 split review rows，missing/extra/mismatch 均为 0；H4G7/H4G8/H4G9 为 8/34/3，覆盖 30 个 progression groups、39 个 unique standard codes。41 条有完整 H4G7/H4G8/H4G9 sibling context，且这 41 条 official standard 文本完全相同；25 条属于 `identical_official_standard_current_grade_only_source_evidence`，20 条属于 `identical_official_standard_no_public_unit_evidence_yet`，4 条属于 `missing_public_sibling_progression_context`。该层只用于定位“为什么 G7/G8/G9 看起来一样”，不能作为 accept/reject 决策，不修改 official standard、不写 `public/data`、不启用 matcher、不进入 publication。
 
+在 progression contrast packet 后，新增 progression-level action worklist。它不再按 45 条 standard rows 分散处理，而是按 30 个 `progression_group_id` 聚合，先确定这一组 H4G7/H4G8/H4G9 的进阶关系下一步该怎么修：缺 sibling context 的先修上下文；只有当前年级证据的先证明不是共享课标文本；没有 public unit evidence 的先补同组年级证据。
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-split-review-progression-contrast-action-worklist -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-split-review-progression-contrast-action-worklist -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_worklist_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_worklist_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_worklist_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_worklist_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 progression contrast action worklist 为 `valid=true`，audit 结果为 `valid=true`：30 个 progression-level work items 覆盖 45/45 条 contrast rows，expected/action 为 30/30，missing/extra/mismatch 均为 0；P0/P1 为 3/27。队列分布为 `repair_missing_public_sibling_progression_context_queue=3`、`prove_current_grade_specific_source_evidence_queue=18`、`collect_sibling_grade_source_evidence_queue=9`。这一步把“G7/G8/G9 为什么一样”的诊断变成下一步人工修复入口，但仍不是 decision，不修改 official standard、不写 `public/data`、不启用 matcher、不进入 publication。
+
 针对剩余 67 条中未被 source-anchor exact packet 覆盖的 15 条，新增 post-candidate bounded-source evidence packet，把 7 条 source-row confirmation 和 8 条 item-level source review 与各自 inventory、action decisions、recommendation-only rows 合并成第二个小型精读入口：
 
 ```bash
