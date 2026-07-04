@@ -96,6 +96,7 @@ npm run validate:indexes
 | `index.html` | Vite HTML 入口。 |
 | `scripts/build-indexes.js` | 根据主数据生成派生索引。 |
 | `scripts/grade7_9/build_h4g_progression_decision_model.js` | 从正式 `public/data` 和 English/PE anchor action worklist 生成全量 H4G progression group 决策模型；逐组判断下一步是 anchor 拆分、补 source anchor、补单元证据、修复部分年级归属、补 source coverage，或保持 reviewed focus verified。只写 generated 报告。 |
+| `scripts/grade7_9/repair_english_h4g_language_skill_progression_groups.js` | 白名单修复 English 三级语言技能 H4G7/H4G8/H4G9 进阶上下文；把 15 条分年级语言技能记录按 5 个技能槽位重建为完整 triplet，只改 progression metadata 和 summary，不改官方课标文本。 |
 | `scripts/textbooks/index_china_textbook.js` | 从 ChinaTextbook Git tree 生成初中教材文件证据索引，不下载 PDF blob。 |
 | `scripts/textbooks/build_textbook_unit_index.js` | 从教材文件索引生成单元/章节候选证据入口；默认只生成文件级 `volume_seed`，也支持按 `evidence_id` 小批量物化 PDF、raw URL fallback、断点续传、文本层目录解析、英文 `Contents/Module/Unit` 目录解析、`S2/S 2` 印刷页、目录页码在 leader 前后的解析和可选 OCR fallback。 |
 | `scripts/textbooks/textbook_unit_page_start_overrides.json` | 已复核的教材印刷页码补证据；用于 TOC OCR 缺右侧页码但正文 OCR 标题/页脚可确认页码的情况，只附着到已有单元候选。 |
