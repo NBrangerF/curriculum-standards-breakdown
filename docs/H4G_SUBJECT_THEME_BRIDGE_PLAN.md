@@ -942,6 +942,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 progression contrast action worklist 为 `valid=true`，audit 结果为 `valid=true`：30 个 progression-level work items 覆盖 45/45 条 contrast rows，expected/action 为 30/30，missing/extra/mismatch 均为 0；P0/P1 为 3/27。队列分布为 `repair_missing_public_sibling_progression_context_queue=3`、`prove_current_grade_specific_source_evidence_queue=18`、`collect_sibling_grade_source_evidence_queue=9`。这一步把“G7/G8/G9 为什么一样”的诊断变成下一步人工修复入口，但仍不是 decision，不修改 official standard、不写 `public/data`、不启用 matcher、不进入 publication。
 
+在 progression action worklist 后，新增可编辑但默认全 pending 的 action decisions template。它把 30 个 progression-level work items 变成 reviewer 可逐条填写的 decision rows：缺 sibling context 的记录修复/确认状态；当前年级证据孤岛的记录 grade-specific source evidence；缺 sibling grade evidence 的记录补证据状态。任何 completed decision 都必须带 reviewer metadata、reviewed_at、notes，以及 sibling context 或 grade-specific evidence/rejection notes。
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-split-review-progression-contrast-action-decisions -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-split-review-progression-contrast-action-decisions -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_decisions_template_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_decisions_template_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_decisions_template_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_split_review_progression_contrast_action_decisions_template_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 progression action decisions template 为 `valid=true`，audit 结果为 `valid=true`：30 条 decision rows 精确对应 30 个 action work items，pending/completed 为 30/0，manual confirmation required 为 30；继续覆盖 45/45 条 source contrast rows，missing/extra/mismatch 均为 0，public write 与 auto approval 均为 0。该层是人工 decision gate，不自动批准 split review，不修改 official standard，不写 `public/data`，不启用 matcher，不进入 publication。
+
 针对剩余 67 条中未被 source-anchor exact packet 覆盖的 15 条，新增 post-candidate bounded-source evidence packet，把 7 条 source-row confirmation 和 8 条 item-level source review 与各自 inventory、action decisions、recommendation-only rows 合并成第二个小型精读入口：
 
 ```bash
