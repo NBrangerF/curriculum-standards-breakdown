@@ -816,6 +816,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 manual review packet 为 `valid=true`，audit 结果为 `valid=true`：67 条 manual review items 精确覆盖 post-candidate remaining worklist，missing/extra 均为 0；packet source 为 source-anchor exact evidence 52 条、bounded-source evidence 15 条；下游 action batch 为 source-anchor evidence 52 条、source-row confirmation 7 条、item-level source review 8 条。H4G7/H4G8/H4G9 为 23/36/8，English/PE 为 51/16；67 条全部仍是 pending、`evidence_ready=true`、`manual_confirmation_required=true`，`auto_approval_items=0`。该层只是人工复核包，不写 editable decisions、不修改 official standard text、不写 `public/data`、不进入 matcher/publication。
 
+针对同一 67 条 post-candidate 人工复核项，新增 editable decisions template，把 review packet 转成后续人工可以逐条确认/拒绝/要求补证据的决策面：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-decisions -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-decisions -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_decisions_template_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_decisions_template_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_decisions_template_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_decisions_template_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 decisions template 为 `valid=true`，audit 结果为 `valid=true`：expected/audited decisions 为 67/67，missing/extra 均为 0；67 条全部仍是 pending，completed 为 0，`evidence_ready_decisions=67`，`decisions_requiring_manual_confirmation=67`。packet source 为 source-anchor exact evidence 52 条、bounded-source evidence 15 条；下游 action batch 为 source-anchor evidence 52 条、source-row confirmation 7 条、item-level source review 8 条；H4G7/H4G8/H4G9 为 23/36/8，English/PE 为 51/16。该层只是可编辑人工决策模板，不写 `public/data`、不修改 official standard text、不启用 matcher、不进入 publication；未来非 pending rows 仍需 reviewer metadata、确认项和后续 action gate 才能继续推进。
+
 对 6 条 priority target-standard gap，新增 public inventory audit：
 
 ```bash
