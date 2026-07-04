@@ -798,6 +798,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 bounded-source evidence packet 为 `valid=true`，audit 结果为 `valid=true`：15 条 bounded-source evidence items 精确覆盖 post-candidate remaining worklist 的 source-row + item-level 子集，missing/extra 均为 0；7 条为 source-row confirmation，8 条为 item-level source review，全部为 H4G7。15 条全部仍是 pending action decisions，全部 `page_ready=true` 且 `manual_confirmation_required=true`，`bounded_source_auto_approval_items=0`；English/PE 为 4/11，P1/P2 为 9/6。该层只给人工确认 source-row 或 item-level source scope 的 evidence/profile/review questions，不写 editable decisions、不批准 bridge、不进入 matcher/publication。
 
+针对 67 条 post-candidate 剩余项，新增统一 manual review packet，把 source-anchor exact evidence packet 的 52 条和 bounded-source evidence packet 的 15 条合并成一个人工复核入口：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-packet -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-packet -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_packet_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_packet_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_packet_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_packet_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 manual review packet 为 `valid=true`，audit 结果为 `valid=true`：67 条 manual review items 精确覆盖 post-candidate remaining worklist，missing/extra 均为 0；packet source 为 source-anchor exact evidence 52 条、bounded-source evidence 15 条；下游 action batch 为 source-anchor evidence 52 条、source-row confirmation 7 条、item-level source review 8 条。H4G7/H4G8/H4G9 为 23/36/8，English/PE 为 51/16；67 条全部仍是 pending、`evidence_ready=true`、`manual_confirmation_required=true`，`auto_approval_items=0`。该层只是人工复核包，不写 editable decisions、不修改 official standard text、不写 `public/data`、不进入 matcher/publication。
+
 对 6 条 priority target-standard gap，新增 public inventory audit：
 
 ```bash
