@@ -886,7 +886,28 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_evidence_packet_anchor_domain_rejected_english_pe_audit.md
 ```
 
-当前 confirmation evidence packet 为 `valid=true`，audit 结果为 `valid=true` 且 `require_text=true`、`require_body_text=true`：expected/audited evidence items 为 15/15，missing/extra 均为 0；15 条全部为 `text_extracted`、`body_text_ready=true` 且 `ready_for_manual_review=true`，`toc_only_items=0`。page hint source 为 unit index override 4 条、unit index hint 2 条、PDF title search 2 条、TOC hint 后正文标题回退 7 条；这 7 条原本来自目录页 hint，现已回退到正文页文本。sibling grade context 为 H4G7+H4G8 4 条、H4G7+H4G8+H4G9 4 条、H4G7+H4G9 7 条。该层仍只是 evidence packet，不修改 editable decisions、不批准 bridge、不写 `public/data`、不启用 matcher、不进入 publication；后续 adoption 仍必须由 reviewer 在 decisions template 中填 confirmations、notes 和 decision。
+当前 confirmation evidence packet 为 `valid=true`，audit 结果为 `valid=true` 且 `require_text=true`、`require_body_text=true`：expected/audited evidence items 为 15/15，missing/extra 均为 0；15 条全部为 `text_extracted`、`body_text_ready=true` 且 `ready_for_manual_review=true`，`toc_only_items=0`。page hint source 为 unit index override 4 条、unit index hint 2 条、PDF title search 2 条、TOC hint 后正文标题回退 7 条；这 7 条原本来自目录页 hint，现已回退到正文页文本。sibling grade context 为 H4G7+H4G8 4 条、H4G7+H4G8+H4G9 4 条、H4G7+H4G9 7 条。该层仍只是 evidence packet，不修改 editable decisions、不批准 bridge、不写 `public/data`、不启用 matcher、不进入 publication。
+
+在正文页证据 gate 后，新增非发布型 confirmation decisions candidate，把这 15 条 bounded-source rows 写成可审计的 reviewed decision candidate，同时保留 52 条 source-anchor exact rows 为 pending：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-confirmation-decisions-candidate -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-confirmation-decisions-candidate -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-manual-review-decisions -- --decisions generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_decisions_candidate_anchor_domain_rejected_english_pe.json --out generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_decisions_candidate_anchor_domain_rejected_english_pe_generic_audit.json --summary-out generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_decisions_candidate_anchor_domain_rejected_english_pe_generic_audit.md --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_decisions_candidate_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_decisions_candidate_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_decisions_candidate_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_decisions_candidate_anchor_domain_rejected_english_pe_audit.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_decisions_candidate_anchor_domain_rejected_english_pe_generic_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_manual_review_confirmation_decisions_candidate_anchor_domain_rejected_english_pe_generic_audit.md
+```
+
+当前 confirmation decisions candidate 为 `valid=true`，专用 audit 和原 manual-review-decisions audit 均为 `valid=true`：67 条 decisions 中只有 15 条 body-text-ready bounded-source rows 被标为 reviewed candidate，其余 52 条 source-anchor exact rows 保持 pending；candidate 分布为 source-row 7 条、item-level source scope 8 条，English/PE 为 4/11，全部 H4G7。专用 audit 确认 expected/candidate 为 15/15、changed non-candidate decisions 为 0、missing/extra 为 0。该层仍不修改源 editable template、不批准 bridge、不写 `public/data`、不启用 matcher、不进入 publication；它只是把已具备正文页证据的 15 条从“待人工确认”推进到“可被后续 action gate 采用的 reviewed candidate”。
 
 对 6 条 priority target-standard gap，新增 public inventory audit：
 
