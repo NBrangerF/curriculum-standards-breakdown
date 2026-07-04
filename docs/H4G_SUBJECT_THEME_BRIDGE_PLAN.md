@@ -798,6 +798,24 @@ generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream
 
 当前 group review packet 为 `valid=true`，audit 结果为 `valid=true`：52 条 source-anchor exact evidence rows 被压缩成 7 个 unit-level review groups，missing exact evidence items 为 0、unexpected group rows 为 0。route 分布为 `single_unit_generic_or_deny_term_exact_anchor_review=5`、`single_unit_many_standard_generic_anchor_review=1`、`unit_or_standard_fanout_exact_anchor_group_review=1`；最大单组 25 条 standards，7 个组全部涉及多个 standards。这说明 H4G7/H4G8/H4G9 的“看起来 standards 几乎一样”主要来自同一教材单元/泛主题对多条 standards 的 fan-out，而不是已经有足够证据证明每条 standard 的年级锚点。该层只用于先确认 unit-level 证据是否能承载这些 standards，不写 editable decisions、不批准 bridge、不进入 matcher/publication。
 
+针对这 7 个 unit-level review groups，新增可编辑 group-level decisions template，把“问题定位”推进到“人工可判定下一步”的小入口，但仍不直接批准任何 standard：
+
+```bash
+npm run textbooks:h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-review-decisions -- --strict --require-items
+npm run textbooks:audit-h4g-theme-bridge-anchor-group-item-review-downstream-post-candidate-source-anchor-exact-group-review-decisions -- --strict --require-items
+```
+
+输出：
+
+```text
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_review_decisions_template_anchor_domain_rejected_english_pe.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_review_decisions_template_anchor_domain_rejected_english_pe.md
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_review_decisions_template_anchor_domain_rejected_english_pe_audit.json
+generated/textbook_evidence/h4g_theme_bridge_anchor_group_item_review_downstream_post_candidate_source_anchor_exact_group_review_decisions_template_anchor_domain_rejected_english_pe_audit.md
+```
+
+当前 group-level decisions template 为 `valid=true`，audit 结果为 `valid=true`：7 条 decisions 精确覆盖 7 个 group，missing/extra 均为 0；pending/completed 为 7/0，覆盖 52 条 source-anchor exact evidence rows，`groups_with_multiple_standards=7`，`max_rows_per_group=25`，`exact_group_review_auto_approval_decisions=0`。允许的人工结果只用于决定下一步：回到 standard-level exact-anchor review、先拆组、拒绝过宽单元/泛主题、补充单元或页面证据，或标记重复/过期；group decision 本身不修改 official standard text、不写 `public/data`、不启用 matcher、不进入 publication。
+
 针对剩余 67 条中未被 source-anchor exact packet 覆盖的 15 条，新增 post-candidate bounded-source evidence packet，把 7 条 source-row confirmation 和 8 条 item-level source review 与各自 inventory、action decisions、recommendation-only rows 合并成第二个小型精读入口：
 
 ```bash
