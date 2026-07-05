@@ -1,7 +1,7 @@
 # 课标罗盘资源与架构文档
 
-更新时间：2026-07-04
-对应状态：当前工作树，H4G reviewed publication gate 已发布数学六版本/科学单元级年级焦点，并新增全局 H4G progression group decision model
+更新时间：2026-07-05
+对应状态：当前工作树，H4G reviewed publication gate 已发布数学六版本/科学单元级年级焦点，并已全量发布 G7/G8/G9 standard enrichment 到正式 `public/data`：当前正式数据为 2022 条 standards，其中 H4G 为 1170 条、390 个完整 H4G7/H4G8/H4G9 progression groups。
 项目路径：`/Users/shawn.fsc/Downloads/curriculum breakdown/curriculum-standards-breakdown`
 
 ## 1. 项目概览
@@ -96,6 +96,26 @@ npm run validate:indexes
 | `index.html` | Vite HTML 入口。 |
 | `scripts/build-indexes.js` | 根据主数据生成派生索引。 |
 | `scripts/grade7_9/build_h4g_progression_decision_model.js` | 从正式 `public/data` 和 English/PE anchor action worklist 生成全量 H4G progression group 决策模型；逐组判断下一步是 anchor 拆分、补 source anchor、补单元证据、修复部分年级归属、补 source coverage，或保持 reviewed focus verified。只写 generated 报告。 |
+| `docs/H4G_STANDARD_REWRITE_CONTRACT.md` | H4G G7/G8/G9 年级化 standard 改写契约：确认 `standard` 可作为产品展示字段按年级改写，同时必须保留 `source_standard_original`、改写方法、证据链、置信度和 review 状态。 |
+| `docs/H4G_STANDARD_ENRICHMENT_PUBLICATION_CONTRACT.md` | H4G standard enrichment publication candidate 契约：定义如何把 enrichment candidate 转成隔离 public apply candidate root，并明确该 gate 仍禁止写入正式 `public/data`。 |
+| `scripts/grade7_9/build_h4g_supplemental_source_registry.js` | Gate 0 source ingestion lock：登记 H4G G7/G8/G9 年级化补强资料源，生成 `source_registry`、`source_authority_map`、`source_index_by_subject`、audit 和可选 freeze；只分类 source metadata，不抽 evidence、不建 skill graph、不写 `public/data`。 |
+| `scripts/grade7_9/audit_h4g_supplemental_source_registry.js` | 复算校验 Gate 0 source registry、authority map 和 subject index；验证 source 必填字段、authority threshold、P0/P1 学科覆盖、URL validation 和 no-public-write 边界。 |
+| `scripts/grade7_9/h4g_supplemental_pipeline_utils.js` | H4G G7/G8/G9 supplemental pipeline 共享工具：提供 H4G 记录加载、progression group 汇总、source grade signal hint、confidence、skill node id、稳定 JSON 写出等函数。 |
+| `scripts/grade7_9/build_h4g_supplemental_evidence.js` | Gate 1 evidence extraction：从 frozen source registry 和 H4G progression groups 生成 `evidence_items`、`task_signal_items`、audit 和 freeze；只产生 review-only grade signal hints，不做最终年级归属。 |
+| `scripts/grade7_9/audit_h4g_supplemental_evidence.js` | 复算校验 Gate 1 evidence/task signals 的 source lineage、group coverage、P0/G8/G9 覆盖、task signal 引用和 no-public-write/no-direct-grade-assignment 边界。 |
+| `scripts/grade7_9/build_h4g_skill_graph.js` | Gate 2 skill graph construction：从 Gate 1 evidence 构建 grade-invariant `skill_nodes`、`skill_edges` 和 `group_to_skill_map`；标记 partial triplet、exact identical 等风险，不生成 final descriptors。 |
+| `scripts/grade7_9/audit_h4g_skill_graph.js` | 复算校验 Gate 2 skill graph：确保每个 H4G progression group 有且只有 review-only skill mapping，skill node 不含 G7/G8/G9 年级主键，并保持 no-public-write。 |
+| `scripts/grade7_9/build_h4g_progression_candidates.js` | Gate 3 progression inference：生成 review-only `progression_candidates`、按学科候选、`review_worklist.md` 和 `public_write_candidates.json`；当前 public-write candidates 强制为 0。 |
+| `scripts/grade7_9/audit_h4g_progression_candidates.js` | 复算校验 Gate 3 candidates 和 public-write gate：拦截 draft descriptor 被误标为可发布、public write candidate 非空、或缺少人工 review blocker 的情况。 |
+| `scripts/grade7_9/build_h4g_standard_rewrite_candidates.js` | H4G standard rewrite staging candidate gate：根据 rewrite contract 生成完整 G7/G8/G9 产品展示用 `standard` 候选，保留 `source_standard_original`，补齐缺失 H4G sibling，并只写 `generated/h4g_standard_rewrite`。 |
+| `scripts/grade7_9/audit_h4g_standard_rewrite_candidates.js` | 独立复算校验 H4G standard rewrite staging candidate：检查 390 个 group 是否完整三元组、1170 条 H4G records 是否符合 contract、89 条缺失 sibling 是否补齐、evidence id 是否可回链、且不写 `public/data`。 |
+| `scripts/grade7_9/build_h4g_standard_enrichment_candidate.js` | H4G standard enrichment full-batch gate：在 standard rewrite staging root 上全量补强 1170 条 H4G `standard` 展示文案，压缩旧模板痕迹，增强学科/年级任务差异，并只写 `generated/h4g_standard_enrichment`。 |
+| `scripts/grade7_9/audit_h4g_standard_enrichment_candidate.js` | 独立复算校验 H4G standard enrichment candidate：检查完整三元组、证据链、旧模板痕迹、与原文/上一轮 rewrite 重复、grade progression marker 和 no-public-write 边界。 |
+| `scripts/grade7_9/build_h4g_standard_enrichment_publication_candidate.js` | H4G standard enrichment publication dry-run apply gate：复制正式 `public/data` 到隔离候选根，用 enrichment H4G records 替换已有 1081 条 H4G records，并补入 89 条缺失 sibling；拒绝写正式数据。 |
+| `scripts/grade7_9/audit_h4g_standard_enrichment_publication_candidate.js` | 独立复算校验 publication candidate：确认 1170 条 H4G records 与 enrichment root 完全一致、非 H4G records 完全不变、candidate indexes 有效且 `writes_public_data=false`。 |
+| `scripts/grade7_9/build_h4g_standard_enrichment_publication_review_packet.js` | H4G standard enrichment publication review packet gate：从 dry-run candidate、apply summary 和 audits 生成可读 review packet 与机器可读 review surface；只做审阅整理，不写正式数据。 |
+| `scripts/grade7_9/publish_h4g_standard_enrichment_publication_candidate.js` | H4G standard enrichment production write gate：在显式 `--write --confirm-h4g-standard-enrichment-publication` 后备份当前 `public/data`，全量发布 1170 条 H4G enrichment records，并把 H4G records 标记为 published 态。 |
+| `scripts/grade7_9/audit_h4g_standard_enrichment_publication_release.js` | H4G standard enrichment 发布后审计：确认正式 `public/data` 与 candidate 内容一致、非 H4G records 不变、H4G published metadata 正确、1170 条 H4G 与 390 个 progression groups 完整。 |
 | `scripts/grade7_9/repair_english_h4g_language_skill_progression_groups.js` | 白名单修复 English 三级语言技能 H4G7/H4G8/H4G9 进阶上下文；把 15 条分年级语言技能记录按 5 个技能槽位重建为完整 triplet，只改 progression metadata 和 summary，不改官方课标文本。 |
 | `scripts/textbooks/index_china_textbook.js` | 从 ChinaTextbook Git tree 生成初中教材文件证据索引，不下载 PDF blob。 |
 | `scripts/textbooks/build_textbook_unit_index.js` | 从教材文件索引生成单元/章节候选证据入口；默认只生成文件级 `volume_seed`，也支持按 `evidence_id` 小批量物化 PDF、raw URL fallback、断点续传、文本层目录解析、英文 `Contents/Module/Unit` 目录解析、`S2/S 2` 印刷页、目录页码在 leader 前后的解析和可选 OCR fallback。 |
@@ -459,6 +479,48 @@ public/data/
 | --- | --- |
 | `generated/grade7_9_h4g_progression_decision_model.json` | 全量 400 个 H4G progression group 的只读决策模型；每组包含 `decision_layer`、`decision_route`、证据覆盖、缺失年级、anchor worklist 路由和下一步 gate。 |
 | `generated/grade7_9_h4g_progression_decision_model.md` | 上述模型的人读摘要，列出 route 分布、layer 分布、学科路线和最高优先级 group。 |
+
+### 6.2.1.1 H4G supplemental / standard rewrite 产物
+
+H4G G7/G8/G9 supplemental pipeline 与 standard rewrite staging candidate 的产物位于 `generated/`，属于可重建、可审计、供 review 使用的工作产物。它们不会被网站运行时读取，也不会自动写入 `public/data`。
+
+| 路径 | 作用 |
+| --- | --- |
+| `generated/h4g_supplemental_sources/source_registry.json` | Gate 0 source registry，记录 H4G G7/G8/G9 补强资料源、authority、subject coverage、allowed use 和 URL validation 状态。 |
+| `generated/h4g_supplemental_sources/source_authority_map.json` | Gate 0 authority 聚合视图，用于检查 P0/P1/P2/P3 来源分布。 |
+| `generated/h4g_supplemental_sources/source_index_by_subject.json` | Gate 0 学科索引，回答每个学科有哪些可用补强 sources。 |
+| `generated/h4g_supplemental_sources/source_registry_audit.json` / `.md` | Gate 0 source registry audit；确认 source 字段、authority 阈值、学科覆盖和 no-public-write 边界。 |
+| `generated/h4g_supplemental_evidence/evidence_items.json` | Gate 1 evidence items，覆盖 390 个 H4G progression groups 的 source-derived task/evidence signals。 |
+| `generated/h4g_supplemental_evidence/task_signal_items.json` | Gate 1 task signals，包含 Bloom/DOK、grade signal hint、task complexity 等 review-only 信号。 |
+| `generated/h4g_supplemental_evidence/evidence_extraction_audit.json` / `.md` | Gate 1 evidence audit；确认 evidence lineage、group coverage、task signal 引用和 no-direct-grade-assignment 边界。 |
+| `generated/h4g_skill_graph/skill_nodes.json` | Gate 2 grade-invariant skill nodes；不把 G7/G8/G9 当作 skill 主键。 |
+| `generated/h4g_skill_graph/skill_edges.json` | Gate 2 skill graph edges，描述同学科内的邻接和 progression 关系。 |
+| `generated/h4g_skill_graph/group_to_skill_map.json` | Gate 2 progression group 到 skill node 的映射。 |
+| `generated/h4g_skill_graph/skill_graph_audit.json` / `skill_graph_review.md` | Gate 2 audit 和人读摘要；标出 partial triplet、exact identical 等风险。 |
+| `generated/h4g_progression_candidates/progression_candidates.json` | Gate 3 progression candidate，仍是 draft axis / review-only，不是 public descriptor。 |
+| `generated/h4g_progression_candidates/review_worklist.md` | Gate 3 review worklist，列出 compressed、partial、manual-ready 等阻塞类型。 |
+| `generated/h4g_progression_candidates/public_write_candidates.json` | Gate 3 public-write gate；当前保持 0 条，防止 draft descriptors 被误发布。 |
+| `generated/h4g_progression_candidates/progression_candidates_audit.json` / `.md` | Gate 3 audit；确认 public write candidate 为空且每个 candidate 保持人工 review blocker。 |
+| `generated/h4g_standard_rewrite/standard_rewrite_candidates.json` | H4G standard rewrite staging candidate 总表；1170 条 H4G G7/G8/G9 产品展示用 `standard` 候选，不写 `public/data`。 |
+| `generated/h4g_standard_rewrite/by_subject/*.json` | 按学科拆分的 rewrite candidates，适合人工质量 review。 |
+| `generated/h4g_standard_rewrite/data_candidate` | 完整候选数据根，包含 `by_subject`、`manifest.json` 和 `indexes`；可用 `--data-root` 进行索引验证，但不是正式 runtime 数据。 |
+| `generated/h4g_standard_rewrite/standard_rewrite_audit.json` / `.md` | 独立 rewrite audit；确认 390 个 progression groups、1170 条 H4G records、89 条 generated missing siblings、字段 contract 和 evidence links。 |
+| `generated/h4g_standard_rewrite/standard_rewrite_review.md` | rewrite candidate 生成器的人读摘要，供整体 review 起步。 |
+| `generated/h4g_standard_rewrite/standard_rewrite.freeze.json` | standard rewrite staging candidate freeze 指纹，用于确认候选包没有无记录漂移。 |
+| `generated/h4g_standard_enrichment/standard_enrichment_candidates.json` | H4G standard enrichment full-batch 候选总表；1170 条 H4G records 均已补强，quality flags 为 0。 |
+| `generated/h4g_standard_enrichment/by_subject/*.json` | 按学科拆分的 enrichment review surface，是当前推荐的人工整体 review 入口。 |
+| `generated/h4g_standard_enrichment/data_candidate` | 完整 enrichment 候选数据根，包含 `by_subject`、`manifest.json` 和 `indexes`；可用 `--data-root` 进行索引验证，但不是正式 runtime 数据。 |
+| `generated/h4g_standard_enrichment/standard_enrichment_audit.json` / `.md` | 独立 enrichment audit；确认 390 个 progression groups、1170 条 H4G records、旧模板痕迹 0、与原文/上一轮 rewrite 重复 0、quality flags 0。 |
+| `generated/h4g_standard_enrichment/standard_enrichment_review.md` | enrichment candidate 生成器的人读摘要，供当前阶段整体 review 起步。 |
+| `generated/h4g_standard_enrichment/standard_enrichment.freeze.json` | standard enrichment full-batch candidate freeze 指纹，用于确认候选包没有无记录漂移。 |
+| `generated/h4g_standard_enrichment_publication/data_candidate` | standard enrichment publication dry-run 候选数据根；模拟把 enrichment 应用到 public 后的数据形态，包含 1170 条 H4G records 和不变的非 H4G records，但不是正式 runtime 数据。 |
+| `generated/h4g_standard_enrichment_publication/publication_apply_summary.json` / `.md` | publication apply gate 摘要；记录已有 1081 条 H4G records 被替换、89 条新 H4G sibling records 被补入、390 个 progression groups 完整，且 `writes_public_data=false`。 |
+| `generated/h4g_standard_enrichment_publication/publication_audit.json` / `.md` | publication candidate 独立 audit；确认 candidate H4G 与 enrichment root 完全一致、非 H4G records changed 为 0、索引验证可通过、正式 `public/data` 未被本 gate 写入。 |
+| `generated/h4g_standard_enrichment_publication/publication_review_surface.json` | publication review 的完整机器可读 surface；包含 390 个 review groups、P0/P1/P2 风险队列、学科汇总和样例索引。 |
+| `docs/H4G_STANDARD_ENRICHMENT_PUBLICATION_REVIEW_PACKET.md` | publication review packet 人读入口；汇总 gate 状态、风险队列、学科统计、P0/P1 样例和下一步 review checklist。 |
+| `generated/h4g_standard_enrichment_publication/publication_release_summary.json` / `.md` | production write 摘要；记录已写入 `public/data`、备份路径、1170 条 H4G records、390 个 progression groups 和 9 个更新学科文件。 |
+| `generated/h4g_standard_enrichment_publication/publication_release_audit.json` / `.md` | 发布后独立 audit；确认 public records=2022、public H4G records=1170、candidate content mismatch=0、non-H4G mismatch=0、published status errors=0。 |
+| `generated/h4g_standard_enrichment_publication/backups/public_data_before_h4g_standard_enrichment_*` | 发布脚本写入前自动备份的正式 `public/data`。 |
 
 ### 6.2.2 教材证据工作产物
 
@@ -1265,6 +1327,14 @@ s?.transferable_skills?.map(t => t.code)
 ```bash
 npm run build:indexes
 npm run validate:indexes
+npm run grade7_9:h4g-standard-enrichment-publication-candidate -- --strict --clean
+node scripts/build-indexes.js --data-root generated/h4g_standard_enrichment_publication/data_candidate
+node scripts/validate-data-indexes.js --data-root generated/h4g_standard_enrichment_publication/data_candidate
+npm run grade7_9:audit-h4g-standard-enrichment-publication-candidate -- --strict
+npm run grade7_9:h4g-standard-enrichment-publication-review-packet -- --strict
+npm run grade7_9:publish-h4g-standard-enrichment-publication-candidate -- --write --confirm-h4g-standard-enrichment-publication --strict
+npm run build:indexes
+npm run grade7_9:audit-h4g-standard-enrichment-publication-release -- --strict
 npm run grade7_9:audit-h4g-distinctiveness -- --strict
 npm run grade7_9:audit-h4g-grade-differentiation
 npm run build
@@ -1273,6 +1343,7 @@ npm run build
 然后检查：
 
 - `validate:indexes` 是否通过。
+- release audit 是否确认 `public_records=2022`、`public_h4g_records=1170`、`progression_groups=390`、`h4g_candidate_content_mismatches=0`、`non_h4g_mismatches=0`。
 - `audit-h4g-distinctiveness` 是否确认 `unlabeled_identical_triplets` 为 0。
 - `audit-h4g-grade-differentiation` 是否把 H4G 的真实分化状态量化出来；当前 public 应保持 `valid=true`、`differentiation_ready=false`，同时报告 `unit_level_evidence_records=45`、`final_ready_records=45`，说明已有 reviewed records 但全量尚未完成。
 - `glossary.json`、`skills_meta.json`、`subjects_meta.json` 是否能被 `jq` 或 `JSON.parse` 正常解析。
