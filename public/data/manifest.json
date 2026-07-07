@@ -1,11 +1,15 @@
 {
   "columns": [
     "art_discipline",
+    "art_discipline_tag",
     "assessment_evidence_type",
     "candidate_added_record",
     "code",
+    "content_module_tag",
     "context",
+    "core_concept_tag",
     "discipline",
+    "display_subcategory",
     "domain",
     "evidence_granularity",
     "grade",
@@ -25,13 +29,24 @@
     "h4g_unit_candidate_id",
     "h4g_unit_candidate_requires_manual_review",
     "id",
+    "learning_theme_tag",
     "legacy_code",
     "materials_tools",
     "next_code",
+    "original_domain",
+    "original_h4g_domain",
+    "original_subdomain",
     "practice",
     "pre_publication_review_status",
     "previous_code",
+    "previous_domain",
+    "previous_source_standard_original",
+    "previous_source_standard_scope",
     "previous_standard_rewrite",
+    "previous_subdomain",
+    "previous_template_grade_specific_focus",
+    "previous_template_standard",
+    "previous_v2_subdomain",
     "progression_basis",
     "progression_confidence",
     "progression_delta",
@@ -43,13 +58,48 @@
     "progression_review_note",
     "progression_role",
     "project",
+    "public_record_group",
     "public_write_candidate",
+    "published_from_source_aligned_candidate",
     "requires_unit_level_evidence",
     "review_status",
     "safety_notes",
     "skill_node_id",
+    "source_aligned_candidate_grade_specific_focus",
+    "source_aligned_corrected_source_overlap",
+    "source_aligned_forbidden_template_hits",
+    "source_aligned_metadata_leak_hits",
+    "source_aligned_primary_source_overlap",
+    "source_aligned_rewrite_candidate_id",
+    "source_aligned_rewrite_contract_version",
+    "source_aligned_rewrite_method",
+    "source_aligned_rewrite_published_at",
+    "source_aligned_rewrite_rationale",
+    "source_aligned_rewrite_status",
+    "source_aligned_source_overlap",
+    "source_aligned_supporting_source_overlap",
+    "source_aligned_v2_issue_flags",
+    "source_aligned_v2_review_decision_note",
+    "source_aligned_v2_source_role",
+    "source_anchor_category",
+    "source_anchor_correction_confidence",
+    "source_anchor_correction_contract_version",
+    "source_anchor_correction_method",
+    "source_anchor_correction_rationale",
+    "source_anchor_correction_status",
+    "source_anchor_dimension_basis",
+    "source_anchor_id",
+    "source_anchor_match_score",
+    "source_anchor_method_contract_version",
+    "source_anchor_remap_candidate_id",
+    "source_anchor_review_priority",
+    "source_anchor_review_risk_reasons",
+    "source_anchor_second_match_score",
+    "source_anchor_subcategory",
+    "source_anchor_tags",
     "source_grade_band",
     "source_grade_range",
+    "source_section_type",
     "source_standard_original",
     "source_standard_scope",
     "stage_band",
@@ -67,12 +117,19 @@
     "standard_rewrite_candidate_id",
     "standard_rewrite_group_status",
     "standard_rewrite_record_origin",
+    "standard_source_alignment_status",
     "standard_text_role",
+    "standard_title",
     "standard_variant_type",
     "subdomain",
     "subject",
     "subject_slug",
+    "supplemental_alignment_reason",
     "supplemental_evidence_ids",
+    "supplemental_public_alignment_record",
+    "supporting_source_section_type",
+    "supporting_source_standard_original",
+    "task_group_tag",
     "teaching_tip",
     "textbook_evidence",
     "textbook_evidence_ids",
@@ -90,17 +147,10 @@
   "subjects": [
     {
       "domains": {
-        "创意实践": 25,
-        "学业质量": 21,
-        "审美感知": 25,
-        "影视（含数字媒体艺术）": 18,
-        "戏剧（含戏曲）": 18,
-        "文化理解": 20,
-        "美术": 30,
-        "舞蹈": 15,
-        "艺术表现": 66,
-        "课程目标": 21,
-        "音乐": 63
+        "创意实践": 94,
+        "审美感知": 52,
+        "文化理解": 74,
+        "艺术表现": 102
       },
       "file": "by_subject/arts.json",
       "grade_bands": {
@@ -116,8 +166,8 @@
         "九年级": 62,
         "八年级": 62,
         "第一学段（1-2年级）": 42,
-        "第三学段（6-7年级）": 48,
-        "第二学段（3-5年级）": 46
+        "第三学段（5-6年级）": 48,
+        "第二学段（3-4年级）": 46
       },
       "record_count": 322,
       "subject": "艺术",
@@ -125,17 +175,10 @@
     },
     {
       "domains": {
-        "学业质量": 21,
-        "实用性阅读与交流": 9,
-        "思辨性阅读与表达": 12,
-        "整本书阅读": 12,
-        "文学阅读与创意表达": 12,
-        "梳理与探究": 23,
+        "梳理与探究": 59,
         "表达与交流": 42,
-        "识字与写字": 24,
-        "语言文字积累与梳理": 9,
-        "跨学科学习": 15,
-        "阅读与鉴赏": 46
+        "识字与写字": 33,
+        "阅读与鉴赏": 91
       },
       "file": "by_subject/chinese.json",
       "grade_bands": {
@@ -160,17 +203,10 @@
     },
     {
       "domains": {
-        "主题": 9,
-        "学业质量": 21,
-        "学习策略": 12,
-        "学习能力": 27,
-        "思维品质": 25,
-        "文化意识": 37,
-        "文化知识": 6,
-        "语篇": 6,
-        "语言技能": 15,
-        "语言知识": 27,
-        "语言能力": 51
+        "学习能力": 39,
+        "思维品质": 40,
+        "文化意识": 58,
+        "语言能力": 99
       },
       "file": "by_subject/english.json",
       "grade_bands": {
@@ -193,16 +229,10 @@
     },
     {
       "domains": {
-        "互联智能设计": 3,
-        "互联网应用与创新": 9,
-        "人工智能与智慧社会": 12,
-        "信息意识": 7,
-        "信息社会责任": 25,
-        "信息科技目标": 6,
-        "学业质量": 6,
-        "数字化学习与创新": 18,
-        "物联网实践与探索": 9,
-        "计算思维": 21
+        "信息意识": 13,
+        "信息社会责任": 43,
+        "数字化学习与创新": 30,
+        "计算思维": 30
       },
       "file": "by_subject/it.json",
       "grade_bands": {
@@ -228,12 +258,9 @@
     {
       "domains": {
         "公益劳动与志愿服务": 7,
-        "劳动目标": 12,
-        "劳动素养要求": 12,
-        "日常生活劳动": 65,
+        "日常生活劳动": 92,
         "服务性劳动": 16,
-        "生产劳动": 63,
-        "课程评价": 6
+        "生产劳动": 66
       },
       "file": "by_subject/labor.json",
       "grade_bands": {
@@ -258,17 +285,16 @@
     },
     {
       "domains": {
-        "图形与几何": 64,
-        "学业质量": 15,
-        "数与代数": 48,
-        "统计与概率": 22,
-        "综合与实践": 12
+        "图形与几何": 67,
+        "数与代数": 57,
+        "统计与概率": 25,
+        "综合与实践": 15
       },
       "file": "by_subject/math.json",
       "grade_bands": {
-        "H1": 7,
-        "H2": 18,
-        "H3": 22,
+        "H1": 8,
+        "H2": 19,
+        "H3": 23,
         "H4G7": 38,
         "H4G8": 38,
         "H4G9": 38
@@ -277,25 +303,22 @@
         "七年级": 38,
         "九年级": 38,
         "八年级": 38,
-        "第一学段（1-2 年级）": 7,
-        "第三学段（5-6 年级）": 22,
-        "第二学段（3-4 年级）": 18
+        "第一学段（1-2 年级）": 8,
+        "第三学段（5-6 年级）": 23,
+        "第二学段（3-4 年级）": 19
       },
-      "record_count": 161,
+      "record_count": 164,
       "subject": "数学",
       "subject_slug": "math"
     },
     {
       "domains": {
-        "中华优秀传统文化与革命传统教育": 23,
-        "中华优秀传统文化教育": 15,
+        "中华优秀传统文化与革命传统教育": 59,
         "入学教育": 9,
-        "国情教育": 21,
-        "学业质量": 21,
-        "法治教育": 63,
-        "生命安全与健康教育": 27,
-        "道德教育": 27,
-        "革命传统教育": 15
+        "国情教育": 30,
+        "法治教育": 69,
+        "生命安全与健康教育": 30,
+        "道德教育": 24
       },
       "file": "by_subject/morality_law.json",
       "grade_bands": {
@@ -320,15 +343,10 @@
     },
     {
       "domains": {
-        "专项运动技能": 36,
-        "体育品德": 29,
-        "体能": 17,
-        "健康教育": 65,
-        "学业质量": 30,
-        "课程目标": 3,
-        "跨学科主题学习": 15,
-        "运动技能": 13,
-        "运动能力": 3
+        "体育品德": 47,
+        "体能": 26,
+        "健康教育": 71,
+        "运动技能": 67
       },
       "file": "by_subject/pe.json",
       "grade_bands": {
@@ -353,25 +371,10 @@
     },
     {
       "domains": {
-        "人类活动与环境": 9,
-        "地球系统": 12,
-        "学业质量": 15,
-        "宇宙中的地球": 18,
-        "工程设计与物化": 9,
-        "态度责任": 23,
-        "技术、工程与社会": 9,
-        "探究实践": 40,
-        "核心素养": 12,
-        "物质的变化与化学反应": 12,
-        "物质的结构与性质": 21,
-        "物质的运动与相互作用": 9,
-        "生命的延续与进化": 18,
-        "生命系统的构成层次": 18,
-        "生物与环境的相互关系": 12,
-        "生物体的稳态与调节": 9,
-        "科学思维": 23,
-        "科学观念": 74,
-        "能的转化与能量守恒": 6
+        "态度责任": 47,
+        "探究实践": 64,
+        "科学思维": 29,
+        "科学观念": 209
       },
       "file": "by_subject/science.json",
       "grade_bands": {
