@@ -13,6 +13,7 @@
 | `docs/CURRICULUM_STANDARD_DECOMPOSITION_METHOD.md` | 早期课标拆解方法说明。 |
 | `docs/CURRICULUM_STANDARD_DECOMPOSITION_METHOD_SUMMARY.md` | 早期方法总结。 |
 | `docs/CURRICULUM_STANDARD_BREAKDOWN_METHOD_CURRENT.md` | 当前工作法总结。 |
+| `docs/STANDARD_EXTRACTION_METHOD_CONTRACT.md` | 全学科 standards 提取方法总 contract，固定每个学科的 primary source section、分类方式和必须保留的标签。 |
 | `docs/RESOURCE_ARCHITECTURE.md` | 网站资源、架构和数据组织说明。 |
 | `docs/JUNIOR_SECONDARY_EXPANSION_WORKFLOW.md` | 7-9 年级扩展工作流。 |
 | `docs/JUNIOR_SECONDARY_SOURCE_AUDIT.md` | 官方来源和 OCR 证据审计。 |
@@ -35,6 +36,14 @@
 我们的课标拆解方法是：
 
 > 以官方 2022 版课标为唯一可信来源，先定位 PDF 页码和章节，再人工复核并整理为 `raw_items`；随后把每个原子学习目标转换成统一 schema 的标准记录，补充教学支持字段和 TS1-TS7 可迁移技能标签，最后生成按学科组织的 JSON、manifest、indexes，并通过脚本校验。
+
+后续全学科标准提取和 H4G source-anchor correction 的最高方法 contract 是：
+
+```text
+docs/STANDARD_EXTRACTION_METHOD_CONTRACT.md
+```
+
+该 contract 明确：第 1-3 学段沿用当前已确定方法；H4G7/H4G8/H4G9 保留当前年级化结果作为起点，但必须按学科修正 primary source anchor、分类方式和必要标签。
 
 网站正式运行时的主数据入口是：
 
