@@ -5,7 +5,8 @@ const APPROVED_REVIEW_STATUSES = new Set([
     'manual_review_approved',
     'unit_evidence_approved',
     'unit_evidence_reviewed',
-    'publication_approved'
+    'publication_approved',
+    'source_aligned_standard_rewrite_v2_published'
 ])
 
 function normalizeText(value) {
@@ -50,40 +51,55 @@ export function getH4GDifferentiationState(standard) {
     const gradeFocus = normalizeText(standard?.grade_specific_focus)
     const hasUsableGradeFocus = isH4G && !isPlaceholderGradeFocus(gradeFocus)
     const hasUnitLevelEvidence = isH4G && hasH4GUnitLevelEvidence(standard)
-    const reviewApproved = isH4G && isH4GReviewApproved(standard)
+    const reviewStatus = String(standard?.review_status || '')
+    const rewriteStatus = String(standard?.source_aligned_rewrite_status || '')
+    const isSourceAlignedPublished = isH4G && (
+        reviewStatus === 'source_aligned_standard_rewrite_v2_published' ||
+        rewriteStatus === 'v2_published_to_public_preview' ||
+        standard?.published_from_source_aligned_candidate === true
+    )
+    const reviewApproved = isH4G && (isH4GReviewApproved(standard) || isSourceAlignedPublished)
     const isCandidate = hasUsableGradeFocus && hasUnitLevelEvidence && !reviewApproved
-    const isFinalReady = hasUsableGradeFocus && hasUnitLevelEvidence && reviewApproved
+    const isFinalReady = isSourceAlignedPublished || (hasUsableGradeFocus && hasUnitLevelEvidence && reviewApproved)
     const isSharedSource = isH4G && (
         standard?.standard_variant_type === 'same_source_shared' ||
         standard?.source_standard_scope === 'stage_shared_7_9' ||
-        String(standard?.review_status || '').includes('needs_grade_differentiation')
+        reviewStatus.includes('needs_grade_differentiation')
     )
     const needsDifferentiation = isH4G && !isFinalReady && isSharedSource
 
     let statusLabel = ''
-    if (isFinalReady) statusLabel = '已年级化'
+    if (isSourceAlignedPublished) statusLabel = '已发布'
+    else if (isFinalReady) statusLabel = '已年级化'
     else if (isCandidate) statusLabel = '候选待复核'
     else if (needsDifferentiation) statusLabel = '共同课标待细分'
 
     let focusLabel = ''
-    if (isFinalReady) focusLabel = '本年级学习重点'
+    if (isSourceAlignedPublished) focusLabel = '年级化说明'
+    else if (isFinalReady) focusLabel = '本年级学习重点'
     else if (isCandidate) focusLabel = '本年级学习重点候选'
     else if (isH4G) focusLabel = '年级化状态'
 
-    const statusMessage = isH4G
+    const statusMessage = isSourceAlignedPublished
+        ? '已按审核通过的 Source-Aligned Candidate 发布为年级化课标。'
+        : isH4G
         ? '当前仍是 7-9 共同课标原文，待基于教材单元/章节补充本年级学习重点。'
         : ''
+    const shouldLeadWithGradeFocus = hasUsableGradeFocus && !isSourceAlignedPublished
+    const showGradeLens = isH4G && !isSourceAlignedPublished
 
     return {
         isH4G,
         isSharedSource,
+        isSourceAlignedPublished,
         hasUsableGradeFocus,
         hasUnitLevelEvidence,
         reviewApproved,
         isCandidate,
         isFinalReady,
         needsDifferentiation,
-        shouldLeadWithGradeFocus: hasUsableGradeFocus,
+        shouldLeadWithGradeFocus,
+        showGradeLens,
         gradeFocus,
         statusLabel,
         focusLabel,

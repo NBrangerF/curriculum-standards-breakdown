@@ -21,6 +21,12 @@ export function normalizeStandard(raw) {
         subject: raw.subject || '',
         domain: raw.domain || '',
         subdomain: raw.subdomain || '',
+        display_subcategory: raw.display_subcategory || raw.subdomain || raw.domain || '',
+        standard_title: raw.standard_title || '',
+        original_domain: raw.original_domain || raw.original_h4g_domain || raw.domain || '',
+        original_subdomain: raw.original_subdomain || raw.subdomain || '',
+        original_h4g_domain: raw.original_h4g_domain || '',
+        public_record_group: raw.public_record_group || '',
 
         // Grade level
         grade_band: raw.grade_band || '',
@@ -67,7 +73,40 @@ export function normalizeStandard(raw) {
         progression_review_note: raw.progression_review_note || '',
         requires_unit_level_evidence: raw.requires_unit_level_evidence ?? false,
         grade_specific_focus: raw.grade_specific_focus || '',
+        pre_publication_review_status: raw.pre_publication_review_status || '',
         review_status: raw.review_status || '',
+        source_aligned_rewrite_status: raw.source_aligned_rewrite_status || '',
+        source_aligned_rewrite_published_at: raw.source_aligned_rewrite_published_at || '',
+        published_from_source_aligned_candidate: raw.published_from_source_aligned_candidate ?? false,
+
+        // H4G source-anchor remap review fields
+        source_anchor_id: raw.source_anchor_id || '',
+        source_anchor_category: raw.source_anchor_category || '',
+        source_anchor_subcategory: raw.source_anchor_subcategory || '',
+        source_anchor_tags: ensureObject(raw.source_anchor_tags),
+        source_anchor_review_priority: raw.source_anchor_review_priority || '',
+        source_anchor_review_risk_reasons: ensureArray(raw.source_anchor_review_risk_reasons),
+        source_anchor_correction_confidence: raw.source_anchor_correction_confidence ?? null,
+        source_anchor_correction_status: raw.source_anchor_correction_status || '',
+        source_anchor_correction_method: raw.source_anchor_correction_method || '',
+        source_anchor_correction_rationale: raw.source_anchor_correction_rationale || '',
+        source_anchor_match_score: raw.source_anchor_match_score ?? null,
+        source_anchor_second_match_score: raw.source_anchor_second_match_score ?? null,
+        source_section_type: raw.source_section_type || '',
+        source_standard_original: raw.source_standard_original || '',
+        previous_domain: raw.previous_domain || '',
+        previous_subdomain: raw.previous_subdomain || '',
+        previous_source_standard_original: raw.previous_source_standard_original || '',
+        previous_source_standard_scope: raw.previous_source_standard_scope || '',
+        supporting_source_standard_original: raw.supporting_source_standard_original || '',
+        supporting_source_section_type: raw.supporting_source_section_type || '',
+        standard_source_alignment_status: raw.standard_source_alignment_status || '',
+        source_aligned_candidate_topic: raw.source_aligned_candidate_topic || '',
+        art_discipline_tag: raw.art_discipline_tag || raw.source_anchor_tags?.art_discipline_tag || '',
+        core_concept_tag: raw.core_concept_tag || raw.source_anchor_tags?.core_concept_tag || '',
+        content_module_tag: raw.content_module_tag || raw.source_anchor_tags?.content_module_tag || '',
+        task_group_tag: raw.task_group_tag || raw.source_anchor_tags?.task_group_tag || '',
+        learning_theme_tag: raw.learning_theme_tag || raw.source_anchor_tags?.learning_theme_tag || '',
 
         // Transferable skills - ALWAYS arrays
         ts_primary: ensureArray(raw.ts_primary),
@@ -174,6 +213,11 @@ function ensureArray(value) {
     if (Array.isArray(value)) return value
     if (value === null || value === undefined || value === '') return []
     return [value]
+}
+
+function ensureObject(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return {}
+    return value
 }
 
 /**

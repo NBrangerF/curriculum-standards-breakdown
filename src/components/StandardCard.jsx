@@ -26,6 +26,8 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
         standard: standardText,
         domain,
         subdomain,
+        display_subcategory,
+        standard_title,
         grade_band,
         subject_slug,
         context,
@@ -127,8 +129,9 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
         }
     }
 
-    // Display subdomain or domain as primary label
-    const primaryLabel = subdomain || domain || ''
+    // Display public-facing subcategory, not the H4G standard title/topic.
+    const primaryLabel = display_subcategory || subdomain || domain || ''
+    const secondaryLabel = domain && primaryLabel !== domain ? domain : ''
 
     return (
         <div
@@ -143,13 +146,13 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
             {/* Header Row */}
             <div className="standard-card-header">
                 <div className="standard-card-labels">
-                    {/* Subdomain/Domain as primary identifier */}
+                    {/* Public subcategory as primary identifier */}
                     {primaryLabel && (
                         <span className="subdomain-label">{primaryLabel}</span>
                     )}
-                    {/* Show domain as secondary if subdomain exists */}
-                    {subdomain && domain && (
-                        <span className="domain-label">{domain}</span>
+                    {/* Show domain as secondary when it adds information */}
+                    {secondaryLabel && (
+                        <span className="domain-label">{secondaryLabel}</span>
                     )}
                     {isLowConfidence && (
                         <span className="review-status-chip">低置信度</span>
@@ -223,7 +226,7 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
 
             {/* Body - Standard Statement (Visual Focus) */}
             <div className="standard-card-body">
-                {h4gState.isH4G && (
+                {h4gState.showGradeLens && (
                     <div className={`h4g-grade-lens ${h4gState.shouldLeadWithGradeFocus ? 'has-focus' : 'pending'}`}>
                         <span className="h4g-grade-lens-label">{h4gState.focusLabel}</span>
                         <p>{highlightText(h4gState.shouldLeadWithGradeFocus ? h4gState.gradeFocus : h4gState.statusMessage)}</p>
@@ -306,6 +309,9 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                             <h4 className="detail-label">年级归属依据（非课标原文）</h4>
                             {grade_assignment_rationale && (
                                 <p className="detail-text">{grade_assignment_rationale}</p>
+                            )}
+                            {standard_title && (
+                                <p className="detail-text">标准名称：{standard_title}</p>
                             )}
                             {h4gState.isH4G && !h4gState.hasUsableGradeFocus && (
                                 <p className="detail-text">{h4gState.statusMessage}</p>

@@ -41,7 +41,7 @@ function SubjectColumn({
         Object.entries(byDomain).forEach(([domain, domainStandards]) => {
             const bySubdomain = {}
             domainStandards.forEach(std => {
-                const subdomain = std.subdomain || ''
+                const subdomain = std.display_subcategory || std.subdomain || ''
                 if (!bySubdomain[subdomain]) {
                     bySubdomain[subdomain] = []
                 }
@@ -69,7 +69,10 @@ function SubjectColumn({
                     domainMatches ||
                     subdomainMatches ||
                     std.code?.toLowerCase().includes(term) ||
+                    std.display_subcategory?.toLowerCase().includes(term) ||
+                    std.standard_title?.toLowerCase().includes(term) ||
                     std.content?.toLowerCase().includes(term) ||
+                    std.standard?.toLowerCase().includes(term) ||
                     std.context?.toLowerCase().includes(term)
                 )
 

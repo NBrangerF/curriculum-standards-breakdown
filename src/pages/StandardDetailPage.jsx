@@ -72,6 +72,8 @@ function StandardDetailPage() {
         subject_slug,
         domain,
         subdomain,
+        display_subcategory,
+        standard_title,
         grade_band,
         grade_range,
         standard: standardText,
@@ -172,7 +174,7 @@ function StandardDetailPage() {
                             )}
                         </div>
                         <h1 className="standard-title">{pageTitle}</h1>
-                        {h4gState.isH4G && (
+                        {h4gState.showGradeLens && (
                             <div className={`h4g-detail-summary ${h4gState.shouldLeadWithGradeFocus ? 'has-focus' : 'pending'}`}>
                                 <span>{h4gState.shouldLeadWithGradeFocus ? h4gState.sourceTextLabel : h4gState.focusLabel}</span>
                                 <p>{h4gState.shouldLeadWithGradeFocus ? standardText : h4gState.statusMessage}</p>
@@ -200,10 +202,16 @@ function StandardDetailPage() {
                             <span className="label">领域</span>
                             <span className="value">{domain}</span>
                         </div>
-                        {subdomain && (
+                        {(display_subcategory || subdomain) && (
                             <div className="classification-item">
-                                <span className="label">子领域</span>
-                                <span className="value">{subdomain}</span>
+                                <span className="label">子类别</span>
+                                <span className="value">{display_subcategory || subdomain}</span>
+                            </div>
+                        )}
+                        {standard_title && standard_title !== (display_subcategory || subdomain) && (
+                            <div className="classification-item">
+                                <span className="label">标准名称</span>
+                                <span className="value">{standard_title}</span>
                             </div>
                         )}
                         <div className="classification-item">

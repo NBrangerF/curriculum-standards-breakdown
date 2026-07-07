@@ -14,6 +14,7 @@ import CollectionDetailPage from './pages/CollectionDetailPage'
 import PrintPage from './pages/PrintPage'
 import StyleGuidePage from './pages/StyleGuidePage'
 import FeedbackPage from './pages/FeedbackPage'
+import H4GReviewPage from './pages/H4GReviewPage'
 import './App.css'
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                     <Route path="/print" element={<PrintPage />} />
                     <Route path="/styleguide" element={<StyleGuidePage />} />
                     <Route path="/feedback" element={<FeedbackPage />} />
+                    <Route path="/h4g-review" element={<H4GReviewPage />} />
                 </Routes>
             </main>
             <Footer />
@@ -43,5 +45,4 @@ function App() {
 }
 
 export default App
-
 
