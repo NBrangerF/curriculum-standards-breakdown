@@ -1,6 +1,6 @@
 # H1-H3 与 H4G Public 字段对齐 Review
 
-Generated at: 2026-07-07T16:13:24.477Z
+Generated at: 2026-07-08T05:29:00.785Z
 
 ## Summary
 
