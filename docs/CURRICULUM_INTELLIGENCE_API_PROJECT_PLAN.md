@@ -2,7 +2,7 @@
 
 更新时间：2026-07-09
 仓库路径：`curriculum-standards-breakdown`
-当前执行状态：Phase 0-2 已落地；Phase 3 的 API key / rate limit / OpenAPI 契约 / OpenAPI UI / TypeScript client / Vercel 配置 / structured logging / file-backed metrics MVP / Meilisearch adapter 已落地；Phase 4 Graph API 已落地；Phase 5 Agent API 已完成 deterministic MVP，并加入 evaluation fixtures。
+当前执行状态：Phase 0-2 已落地；Phase 3 的 API key / rate limit / OpenAPI 契约 / production-first OpenAPI UI / TypeScript client / Vercel 配置 / structured logging / file-backed metrics MVP / Meilisearch adapter / API quickstart / automated smoke tests 已落地；Phase 4 Graph API 已落地；Phase 5 Agent API 已完成 deterministic MVP，并加入 evaluation fixtures。
 
 本文档基于当前 insight、`docs/API_DATA_STRUCTURE_PREP.md`、`skills/github/zhenzheng-keyong-kebiao-skill` 以及当前仓库结构，规划如何把课标罗盘从“课程标准查询网站”升级为：
 
@@ -88,7 +88,7 @@
 - Layer 2 Graph API：`/subjects/{subject_slug}/domains`, `/standards/{code}/progression`, `/standards/{code}/neighbors`, `/standards/{code}/evidence`, `/standards/compare`
 - Layer 3 Agent API deterministic MVP：`/plans/parse`, `/plans/validate`, `/matching/plan-to-standards`, `/coverage/analyze`, `/schedules/weekly`
 - Access governance：匿名/developer/partner/admin tier、`x-api-key`、基础内存 rate limit、字段级 fieldset access control
-- Integration surface：`/api/v1/docs`, `/api/v1/openapi.yaml`, `@curriculum/client`
+- Integration surface：`/api/v1/docs`, `/api/v1/openapi.yaml`, `@curriculum/client`, `docs/API_QUICKSTART.md`, `npm run smoke:api`
 - Observability MVP：`CURRICULUM_ENABLE_REQUEST_LOGS=true` 时输出结构化请求日志；`CURRICULUM_METRICS_FILE` 可启用 NDJSON file-backed metrics；`/api/v1/metrics` admin-only 返回内存与持久化摘要
 - Search adapter：`packages/curriculum-core/src/meilisearch.ts`, `scripts/index-meilisearch.ts`
 - Matching eval：`packages/curriculum-core/test/fixtures/plan-matching-fixtures.json`, `scripts/evaluate-plan-matching.ts`
@@ -803,10 +803,10 @@ Research targets for API and education standards interoperability:
 
 当前 endpoint 与 deterministic MVP 已经落地，下一步建议从“可发布”进入“可集成”：
 
-1. 在 Vercel project 中配置环境变量，并通过 Git Integration 生成 Preview Deployment。
-2. 对 Preview Deployment 跑 `docs/DEPLOYMENT_VERCEL.md` 中的 smoke tests。
-3. 如果要正式接入搜索服务，部署 Meilisearch 并执行 `npm run search:index-meilisearch -- --write`。
-4. 把 API key 从本地 env 管理切到 Vercel Project Environment Variables，分 Preview/Production 管理。
-5. 下一轮可做自动生成 SDK、durable metrics backend、CI workflow 和 GitHub PR。
+1. 购买或绑定正式域名后，按 `docs/DEPLOYMENT_VERCEL.md` 的 Custom Domain Cutover 更新 OpenAPI server、CORS 和 smoke base URL。
+2. 如果要正式接入搜索服务，部署 Meilisearch 并执行 `npm run search:index-meilisearch -- --write`。
+3. 将 smoke test 接入 GitHub Actions 或 Vercel deployment hook，确保每次部署后自动验证。
+4. 把 file-backed metrics 继续升级为真正 durable backend，例如 Vercel Log Drains、Postgres、ClickHouse 或对象存储聚合。
+5. 下一轮可做自动生成 SDK、正式 API key 申请流程、usage dashboard 和 GitHub PR 模板。
 
 这样项目会从“一个网站的数据层”平稳升级为“课程智能基础设施”，同时保留当前 Web 的稳定性和数据生产管线的可信度。

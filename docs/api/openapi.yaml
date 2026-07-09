@@ -4,6 +4,8 @@ info:
   version: 0.2.0
   description: API layer for building curriculum-aware education products from structured curriculum standards.
 servers:
+  - url: https://curriculum-standards-breakdown.vercel.app
+    description: Production
   - url: http://localhost:8787
     description: Local development
 tags:

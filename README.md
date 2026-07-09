@@ -125,8 +125,9 @@ npm run eval:matching
 npm run search:index-meilisearch
 ```
 
-API 默认地址: http://localhost:8787
-API 文档页面: http://localhost:8787/api/v1/docs
+API 生产地址: https://curriculum-standards-breakdown.vercel.app
+API 本地地址: http://localhost:8787
+API 文档页面: https://curriculum-standards-breakdown.vercel.app/api/v1/docs
 
 当前 API 已覆盖：
 
@@ -136,8 +137,15 @@ API 文档页面: http://localhost:8787/api/v1/docs
 - Planning API: `/api/v1/plans/parse`, `/api/v1/plans/validate`, `/api/v1/matching/plan-to-standards`, `/api/v1/coverage/analyze`, `/api/v1/schedules/weekly`
 
 API 契约见：`docs/api/openapi.yaml`
+API Quickstart 见：`docs/API_QUICKSTART.md`
 TypeScript client 见：`packages/curriculum-client`
 Vercel 部署说明见：`docs/DEPLOYMENT_VERCEL.md`
+
+部署后 smoke test：
+
+```bash
+API_BASE=https://curriculum-standards-breakdown.vercel.app npm run smoke:api
+```
 
 可选环境变量：
 

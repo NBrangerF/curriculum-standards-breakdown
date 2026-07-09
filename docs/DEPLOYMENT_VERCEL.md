@@ -17,6 +17,8 @@
 - `api/v1/[...path].ts`
 - `.vercelignore`
 - `apps/api/src/config.ts`
+- `docs/api/openapi.yaml`
+- `scripts/smoke-api.ts`
 
 ## 2. Vercel Project Settings
 
@@ -36,6 +38,7 @@
 - `docs/api/openapi.yaml` 打包进 API function。
 - `/api/:path*` 走 Vercel Function。
 - 其他非静态资源路径回落到 SPA `index.html`。
+- OpenAPI `servers` 默认 production first，Swagger UI 的 Try it out 会优先请求线上 API。
 
 ## 3. Environment Variables
 
@@ -67,6 +70,28 @@ npm run build
 npm audit --omit=dev
 ```
 
+本地 smoke test 需要先启动 API：
+
+```bash
+npm run api:dev
+API_BASE=http://localhost:8787 npm run smoke:api
+```
+
+如果要对 production 或 preview 做 smoke test：
+
+```bash
+API_BASE=https://YOUR_DOMAIN npm run smoke:api
+```
+
+带 developer/admin key 验证受限 fieldset 和 metrics：
+
+```bash
+API_BASE=https://YOUR_DOMAIN \
+CURRICULUM_SMOKE_API_KEY=dev_xxx \
+CURRICULUM_SMOKE_ADMIN_API_KEY=admin_xxx \
+npm run smoke:api
+```
+
 `npm run search:index-meilisearch` 默认 dry run，不会写入远端。实际写入：
 
 ```bash
@@ -94,6 +119,12 @@ npm run deploy:vercel
 部署后验证：
 
 ```bash
+API_BASE=https://YOUR_DOMAIN npm run smoke:api
+```
+
+也可以手动验证关键路径：
+
+```bash
 curl -s https://YOUR_DOMAIN/api/v1/health | jq
 curl -s https://YOUR_DOMAIN/api/v1/openapi.yaml | head
 curl -s https://YOUR_DOMAIN/api/v1/standards/SC-D2-SC-010/neighbors | jq
@@ -109,7 +140,18 @@ curl -s https://YOUR_DOMAIN/api/v1/metrics \
   -H 'x-api-key: YOUR_ADMIN_KEY' | jq
 ```
 
-## 7. Rollback
+## 7. Custom Domain Cutover
+
+你后续在 Vercel 购买或绑定正式域名后，按这个顺序切换：
+
+1. 在 Vercel Project 里添加 domain，并等待 DNS / SSL 状态变为 ready。
+2. 将 `CURRICULUM_ALLOWED_ORIGINS` 从 `*` 或旧域名改为正式域名；若还有管理后台或本地调试来源，用逗号追加。
+3. 更新 `docs/api/openapi.yaml` 的 production server URL。
+4. 运行 `npm run typecheck && npm run test:api && npm run build`。
+5. 部署后执行 `API_BASE=https://YOUR_DOMAIN npm run smoke:api`。
+6. 确认 Swagger UI 的 server 下拉框默认显示正式域名。
+
+## 8. Rollback
 
 首选 Vercel dashboard 直接 Promote 前一个健康 deployment。
 
@@ -121,7 +163,7 @@ vercel rollback
 
 回滚前后都要验证 `/api/v1/health` 和一个真实 standards endpoint。
 
-## 8. Notes
+## 9. Notes
 
 - Planning APIs 不记录原始请求体；日志只记录 method、path、status、duration、tier、request_id。
 - `admin` fieldset 只允许 admin tier。

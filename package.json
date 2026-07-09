@@ -21,6 +21,7 @@
         "eval:matching": "tsx scripts/evaluate-plan-matching.ts",
         "search:index-meilisearch": "tsx scripts/index-meilisearch.ts",
         "deploy:vercel": "npx vercel --prod",
+        "smoke:api": "tsx scripts/smoke-api.ts",
         "test:api": "npm run validate:json && npm run validate:indexes && npm run core:test && npm run client:test && npm run api:test",
         "textbooks:index-china": "node scripts/textbooks/index_china_textbook.js",
         "textbooks:unit-index": "node scripts/textbooks/build_textbook_unit_index.js",
