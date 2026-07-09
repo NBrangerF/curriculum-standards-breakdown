@@ -6,10 +6,7 @@
     "functions": {
         "api/[...path].ts": {
             "maxDuration": 10,
-            "includeFiles": [
-                "public/data/**",
-                "docs/api/openapi.yaml"
-            ]
+            "includeFiles": "{public/data/**,docs/api/**}"
         }
     },
     "rewrites": [
