@@ -11,7 +11,7 @@ import {
     StandardSearchRequestSchema,
     WeeklyScheduleRequestSchema,
     projectStandard
-} from '@curriculum/core'
+} from '../../../packages/curriculum-core/src/index.js'
 import {
     apiAccessMiddleware,
     apiError,
