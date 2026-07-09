@@ -35,7 +35,7 @@
 | `code` | 唯一标识符 | `SC-D1-AR-001` |
 | `standard` | 标准正文 | "愿意倾听他人想法，并乐于分享..." |
 | `subject` | 学科 | 科学 |
-| `grade_band` | 学段代码 | H1/H2/H3/H4（当前口径：H1=1-2，H2=3-4，H3=5-6，H4=7-9） |
+| `grade_band` | 学段/年级代码 | H1/H2/H3/H4G7/H4G8/H4G9（当前口径：H1=1-2，H2=3-4，H3=5-6，H4G7=7，H4G8=8，H4G9=9） |
 | `domain` | 核心素养维度 | 态度责任 / 科学观念 / 探究实践 / 科学思维 |
 | `subdomain` | 具体领域 | 人类活动与环境 |
 
@@ -87,9 +87,9 @@ SC-D1-AR-001
 | 维度 | 数量 |
 |------|------|
 | 学科 | 9 |
-| 总标准数 | 1933 |
+| 总标准数 | 2025 |
 | 可迁移能力 | 7 类 |
-| 学段 | 4 (H1/H2/H3/H4) |
+| 学段 | 6 (H1/H2/H3/H4G7/H4G8/H4G9) |
 
 ---
 
@@ -108,12 +108,57 @@ npm run build
 
 启动后访问: http://localhost:5173
 
+### Curriculum Intelligence API
+
+```bash
+# 启动 API 服务
+npm run api:dev
+
+# 运行 API/Core 测试与数据质量门
+npm run test:api
+
+# 运行类型检查和匹配质量评估
+npm run typecheck
+npm run eval:matching
+
+# Meilisearch dry run
+npm run search:index-meilisearch
+```
+
+API 默认地址: http://localhost:8787
+API 文档页面: http://localhost:8787/api/v1/docs
+
+当前 API 已覆盖：
+
+- Ops API: `/api/v1/health`, `/api/v1/openapi.yaml`, `/api/v1/docs`, `/api/v1/metrics`
+- Data API: `/api/v1/meta`, `/api/v1/data-version`, `/api/v1/subjects`, `/api/v1/skills`, `/api/v1/standards/search`
+- Graph API: `/api/v1/standards/{code}/progression`, `/api/v1/standards/{code}/neighbors`, `/api/v1/standards/{code}/evidence`, `/api/v1/standards/compare`
+- Planning API: `/api/v1/plans/parse`, `/api/v1/plans/validate`, `/api/v1/matching/plan-to-standards`, `/api/v1/coverage/analyze`, `/api/v1/schedules/weekly`
+
+API 契约见：`docs/api/openapi.yaml`
+TypeScript client 见：`packages/curriculum-client`
+Vercel 部署说明见：`docs/DEPLOYMENT_VERCEL.md`
+
+可选环境变量：
+
+| 变量 | 说明 |
+|------|------|
+| `CURRICULUM_DATA_ROOT` | 指定 API 读取的数据目录，默认 `../../public/data` |
+| `CURRICULUM_OPENAPI_PATH` | 指定 API 文档 YAML 路径，默认 `../../docs/api/openapi.yaml` |
+| `CURRICULUM_ENABLE_REQUEST_LOGS` | 设为 `true` 时输出不含请求体的结构化请求日志 |
+| `CURRICULUM_ALLOWED_ORIGINS` | CORS 允许来源，生产建议设置为正式域名 |
+| `CURRICULUM_METRICS_FILE` | 可选 NDJSON metrics 文件路径，用于 Node/file 部署持久化 |
+| `PORT` | API 端口，默认 `8787` |
+| `CURRICULUM_API_KEYS` | 逗号分隔的 API key，例如 `dev_key:developer,partner_key:partner` |
+| `CURRICULUM_ADMIN_API_KEYS` | 逗号分隔的 admin key |
+
 ---
 
 ## 📁 项目结构
 
 ```
 ├── public/data/              # 结构化数据 (JSON)
+│   ├── data_version.json     # 数据版本与发布契约
 │   ├── manifest.json         # 全站索引
 │   ├── subjects_meta.json    # 学科元数据
 │   ├── skills_meta.json      # 可迁移能力元数据
@@ -138,6 +183,11 @@ npm run build
 │       ├── dataLoader.js     # 按需加载
 │       ├── schema.js         # 数据规范化
 │       └── query.js          # URL 参数处理
+├── packages/
+│   ├── curriculum-core/      # API/Web/Skill 共享的课程标准核心逻辑
+│   └── curriculum-client/    # 轻量 TypeScript API client
+├── apps/
+│   └── api/                  # Curriculum Intelligence API MVP
 └── .env                      # 环境变量 (不提交)
 ```
 

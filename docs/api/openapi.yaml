@@ -1,0 +1,968 @@
+openapi: 3.1.0
+info:
+  title: Curriculum Intelligence API
+  version: 0.2.0
+  description: API layer for building curriculum-aware education products from structured curriculum standards.
+servers:
+  - url: http://localhost:8787
+    description: Local development
+tags:
+  - name: Meta
+  - name: Subjects
+  - name: Skills
+  - name: Standards
+  - name: Graph
+  - name: Planning
+security:
+  - ApiKeyAuth: []
+  - {}
+paths:
+  /api/v1/health:
+    get:
+      tags: [Meta]
+      summary: Get service health and current data version
+      responses:
+        "200":
+          description: Service health
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+  /api/v1/openapi.yaml:
+    get:
+      tags: [Meta]
+      summary: Get this OpenAPI document as YAML
+      responses:
+        "200":
+          description: OpenAPI YAML
+          content:
+            application/yaml:
+              schema:
+                type: string
+  /api/v1/docs:
+    get:
+      tags: [Meta]
+      summary: Open Swagger UI documentation
+      responses:
+        "200":
+          description: Swagger UI HTML
+          content:
+            text/html:
+              schema:
+                type: string
+  /api/v1/metrics:
+    get:
+      tags: [Meta]
+      summary: Get in-memory API metrics
+      description: Requires admin tier API key.
+      responses:
+        "200":
+          description: Metrics snapshot
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+  /api/v1/meta:
+    get:
+      tags: [Meta]
+      summary: Get API metadata and supported filters
+      responses:
+        "200":
+          description: API metadata
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
+  /api/v1/data-version:
+    get:
+      tags: [Meta]
+      summary: Get stable data version contract
+      responses:
+        "200":
+          description: Data version
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/DataVersion"
+  /api/v1/subjects:
+    get:
+      tags: [Subjects]
+      summary: List subjects with metadata and stats
+      responses:
+        "200":
+          description: Subject list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+  /api/v1/subjects/{subject_slug}:
+    get:
+      tags: [Subjects]
+      summary: Get one subject
+      parameters:
+        - $ref: "#/components/parameters/SubjectSlug"
+      responses:
+        "200":
+          description: Subject detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/subjects/{subject_slug}/domains:
+    get:
+      tags: [Subjects, Graph]
+      summary: Get domain and subdomain taxonomy for one subject
+      parameters:
+        - $ref: "#/components/parameters/SubjectSlug"
+      responses:
+        "200":
+          description: Subject domain taxonomy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/skills:
+    get:
+      tags: [Skills]
+      summary: List transferable skills
+      responses:
+        "200":
+          description: Skill metadata
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+  /api/v1/skills/{skill_code}:
+    get:
+      tags: [Skills]
+      summary: Get one transferable skill
+      parameters:
+        - $ref: "#/components/parameters/SkillCode"
+      responses:
+        "200":
+          description: Skill detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/skills/{skill_code}/standards:
+    get:
+      tags: [Skills, Standards, Graph]
+      summary: List standards aligned to a transferable skill
+      parameters:
+        - $ref: "#/components/parameters/SkillCode"
+        - $ref: "#/components/parameters/Include"
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Cursor"
+      responses:
+        "200":
+          description: Standards for skill
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StandardCollectionResponse"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+  /api/v1/standards/{code}:
+    get:
+      tags: [Standards]
+      summary: Get one standard by code
+      parameters:
+        - $ref: "#/components/parameters/StandardCode"
+        - $ref: "#/components/parameters/Include"
+      responses:
+        "200":
+          description: Standard detail
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/StandardPublic"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/standards/{code}/progression:
+    get:
+      tags: [Standards, Graph]
+      summary: Get progression group for a standard
+      parameters:
+        - $ref: "#/components/parameters/StandardCode"
+        - $ref: "#/components/parameters/Include"
+      responses:
+        "200":
+          description: Progression group
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/standards/{code}/neighbors:
+    get:
+      tags: [Graph]
+      summary: Get previous, next, same-domain, same-skill, and progression neighbors
+      parameters:
+        - $ref: "#/components/parameters/StandardCode"
+        - $ref: "#/components/parameters/Include"
+      responses:
+        "200":
+          description: Standard neighbors
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/StandardNeighbors"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/standards/{code}/evidence:
+    get:
+      tags: [Graph]
+      summary: Get bounded source and evidence summary for one standard
+      parameters:
+        - $ref: "#/components/parameters/StandardCode"
+      responses:
+        "200":
+          description: Evidence summary
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/StandardEvidenceSummary"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/standards/search:
+    post:
+      tags: [Standards]
+      summary: Search standards
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StandardSearchRequest"
+      responses:
+        "200":
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StandardCollectionResponse"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+  /api/v1/standards/batch:
+    post:
+      tags: [Standards]
+      summary: Batch fetch standards by code
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StandardBatchRequest"
+      responses:
+        "200":
+          description: Batch result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StandardCollectionResponse"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+  /api/v1/standards/compare:
+    post:
+      tags: [Standards, Graph]
+      summary: Compare two to ten standards
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StandardCompareRequest"
+      responses:
+        "200":
+          description: Standards comparison
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+  /api/v1/plans/parse:
+    post:
+      tags: [Planning]
+      summary: Parse structured or plain-text curriculum plan into ParsedPlan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlanParseRequest"
+      responses:
+        "200":
+          description: Parsed plan with warnings
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+  /api/v1/plans/validate:
+    post:
+      tags: [Planning]
+      summary: Validate subject, grade band, and units for a ParsedPlan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [plan]
+              properties:
+                plan:
+                  $ref: "#/components/schemas/ParsedPlan"
+      responses:
+        "200":
+          description: Validation result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+  /api/v1/matching/plan-to-standards:
+    post:
+      tags: [Planning]
+      summary: Match plan units to real standards with scores and rationale
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlanToStandardsRequest"
+      responses:
+        "200":
+          description: Explainable matches
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/PlanMatchingResult"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+  /api/v1/coverage/analyze:
+    post:
+      tags: [Planning]
+      summary: Analyze standards coverage for a plan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CoverageAnalyzeRequest"
+      responses:
+        "200":
+          description: Coverage analysis
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+  /api/v1/schedules/weekly:
+    post:
+      tags: [Planning]
+      summary: Generate deterministic weekly schedule from a plan and matched standards
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WeeklyScheduleRequest"
+      responses:
+        "200":
+          description: Weekly schedule
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Optional API key. Without a key, requests run as anonymous tier.
+  parameters:
+    SubjectSlug:
+      name: subject_slug
+      in: path
+      required: true
+      schema:
+        type: string
+        example: science
+    SkillCode:
+      name: skill_code
+      in: path
+      required: true
+      schema:
+        type: string
+        example: TS1
+    StandardCode:
+      name: code
+      in: path
+      required: true
+      schema:
+        type: string
+        example: SC-D2-SC-010
+    Include:
+      name: include
+      in: query
+      required: false
+      description: Comma-separated fieldsets. Defaults to public. source/evidence require developer tier, textbook requires partner tier, admin requires admin tier.
+      schema:
+        type: string
+        example: public,evidence
+    Limit:
+      name: limit
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 20
+    Cursor:
+      name: cursor
+      in: query
+      required: false
+      schema:
+        type: string
+  responses:
+    Forbidden:
+      description: Fieldset or endpoint requires a higher access tier
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ApiError"
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ApiError"
+    TooManyRequests:
+      description: Rate limit exceeded
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ApiError"
+    ValidationError:
+      description: Request validation failed
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ApiError"
+  schemas:
+    Fieldset:
+      type: string
+      enum: [public, source, evidence, textbook, admin]
+    ApiMeta:
+      type: object
+      properties:
+        request_id:
+          type: string
+        data_version:
+          type: string
+          example: "2026.07.09"
+        schema_version:
+          type: string
+          example: "1.0.0"
+        warnings:
+          type: array
+          items:
+            type: string
+      required: [request_id, data_version, schema_version, warnings]
+    ApiResponse:
+      type: object
+      properties:
+        data: {}
+        meta:
+          $ref: "#/components/schemas/ApiMeta"
+      required: [data, meta]
+    ApiError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+            details:
+              type: array
+              items: {}
+          required: [code, message, details]
+        meta:
+          type: object
+          properties:
+            request_id:
+              type: string
+          required: [request_id]
+      required: [error, meta]
+    DataVersion:
+      type: object
+      properties:
+        data_version:
+          type: string
+        schema_version:
+          type: string
+        source_standard:
+          type: string
+        source_commit:
+          type: string
+        generated_at:
+          type: string
+        data_source_generated_at:
+          type: string
+        validated:
+          type: boolean
+        subjects_covered:
+          type: integer
+        standard_count:
+          type: integer
+      required: [data_version, schema_version, validated, subjects_covered, standard_count]
+    StandardPublic:
+      type: object
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        subject:
+          type: string
+        subject_slug:
+          type: string
+        domain:
+          type: string
+        subdomain:
+          type: string
+        display_subcategory:
+          type: string
+        standard_title:
+          type: string
+        grade_band:
+          type: string
+        grade_range:
+          type: string
+        grade:
+          type: string
+        grade_level:
+          type: [integer, "null"]
+        stage_band:
+          type: string
+        standard:
+          type: string
+        context:
+          type: string
+        practice:
+          type: string
+        teaching_tip:
+          type: string
+        assessment_evidence_type:
+          type: string
+        ts_primary:
+          type: array
+          items:
+            type: string
+        ts_secondary:
+          type: array
+          items:
+            type: string
+        ts_rationale:
+          type: string
+      required: [id, code, subject, subject_slug, grade_band, standard]
+    StandardSearchRequest:
+      type: object
+      properties:
+        subjects:
+          type: array
+          items:
+            type: string
+        grade_bands:
+          type: array
+          items:
+            type: string
+        domains:
+          type: array
+          items:
+            type: string
+        skills:
+          type: array
+          items:
+            type: string
+        keyword:
+          type: string
+        include:
+          type: array
+          items:
+            $ref: "#/components/schemas/Fieldset"
+        limit:
+          type: integer
+          minimum: 1
+          maximum: 100
+        cursor:
+          type: [string, "null"]
+    StandardBatchRequest:
+      type: object
+      properties:
+        codes:
+          type: array
+          minItems: 1
+          maxItems: 100
+          items:
+            type: string
+        include:
+          type: array
+          items:
+            $ref: "#/components/schemas/Fieldset"
+      required: [codes]
+    StandardCompareRequest:
+      type: object
+      properties:
+        codes:
+          type: array
+          minItems: 2
+          maxItems: 10
+          items:
+            type: string
+        include:
+          type: array
+          items:
+            $ref: "#/components/schemas/Fieldset"
+      required: [codes]
+    StandardCollectionResponse:
+      allOf:
+        - $ref: "#/components/schemas/ApiResponse"
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: "#/components/schemas/StandardPublic"
+            meta:
+              allOf:
+                - $ref: "#/components/schemas/ApiMeta"
+                - type: object
+                  properties:
+                    total:
+                      type: integer
+                    limit:
+                      type: integer
+                    next_cursor:
+                      type: [string, "null"]
+    StandardNeighbors:
+      type: object
+      properties:
+        anchor:
+          $ref: "#/components/schemas/StandardPublic"
+        relationships:
+          type: object
+          properties:
+            previous:
+              anyOf:
+                - $ref: "#/components/schemas/StandardPublic"
+                - type: "null"
+            next:
+              anyOf:
+                - $ref: "#/components/schemas/StandardPublic"
+                - type: "null"
+            same_domain:
+              $ref: "#/components/schemas/RelatedStandards"
+            same_skill:
+              type: object
+              properties:
+                skills:
+                  type: array
+                  items:
+                    type: string
+                total:
+                  type: integer
+                items:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/StandardPublic"
+            progression:
+              type: object
+              properties:
+                progression_group_id:
+                  type: [string, "null"]
+                total:
+                  type: integer
+                items:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/StandardPublic"
+    RelatedStandards:
+      type: object
+      properties:
+        total:
+          type: integer
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/StandardPublic"
+    StandardEvidenceSummary:
+      type: object
+      properties:
+        code:
+          type: string
+        subject_slug:
+          type: string
+        grade_band:
+          type: string
+        evidence_ids:
+          type: object
+          properties:
+            textbook:
+              type: array
+              items:
+                type: string
+            textbook_unit:
+              type: array
+              items:
+                type: string
+            supplemental:
+              type: array
+              items:
+                type: string
+        evidence_counts:
+          type: object
+          properties:
+            textbook:
+              type: integer
+            textbook_unit:
+              type: integer
+            supplemental:
+              type: integer
+        source:
+          type: object
+        progression:
+          type: object
+        warnings:
+          type: array
+          items:
+            type: string
+    PlanUnit:
+      type: object
+      properties:
+        unit_id:
+          type: string
+        title:
+          type: string
+        week_start:
+          type: integer
+        week_end:
+          type: integer
+        lesson_count:
+          type: integer
+        learning_goals:
+          type: array
+          items:
+            type: string
+        keywords:
+          type: array
+          items:
+            type: string
+      required: [title]
+    ParsedPlan:
+      type: object
+      properties:
+        plan_id:
+          type: string
+        title:
+          type: string
+        subject_slug:
+          type: string
+        grade:
+          type: string
+        grade_band:
+          type: string
+        duration_weeks:
+          type: integer
+        lessons_per_week:
+          type: integer
+        units:
+          type: array
+          items:
+            $ref: "#/components/schemas/PlanUnit"
+      required: [title]
+    PlanParseRequest:
+      type: object
+      properties:
+        text:
+          type: string
+        plan:
+          $ref: "#/components/schemas/ParsedPlan"
+      anyOf:
+        - required: [text]
+        - required: [plan]
+    PlanToStandardsRequest:
+      type: object
+      properties:
+        plan:
+          $ref: "#/components/schemas/ParsedPlan"
+        top_k_per_unit:
+          type: integer
+          minimum: 1
+          maximum: 20
+        min_score:
+          type: number
+          minimum: 0
+          maximum: 1
+        review_threshold:
+          type: number
+          minimum: 0
+          maximum: 1
+        include:
+          type: array
+          items:
+            $ref: "#/components/schemas/Fieldset"
+      required: [plan]
+    MatchedField:
+      type: object
+      properties:
+        field:
+          type: string
+        matched_keywords:
+          type: array
+          items:
+            type: string
+        value: {}
+    PlanStandardMatch:
+      type: object
+      properties:
+        code:
+          type: string
+        score:
+          type: number
+        match_type:
+          type: string
+          enum: [deterministic_field_overlap]
+        matched_fields:
+          type: array
+          items:
+            $ref: "#/components/schemas/MatchedField"
+        rationale:
+          type: string
+        requires_human_review:
+          type: boolean
+        standard:
+          $ref: "#/components/schemas/StandardPublic"
+      required: [code, score, match_type, matched_fields, rationale, requires_human_review, standard]
+    PlanMatchingResult:
+      type: object
+      properties:
+        plan:
+          $ref: "#/components/schemas/ParsedPlan"
+        units:
+          type: array
+          items:
+            type: object
+            properties:
+              unit_id:
+                type: string
+              unit_title:
+                type: string
+              matches:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PlanStandardMatch"
+              warnings:
+                type: array
+                items:
+                  type: string
+        warnings:
+          type: array
+          items:
+            type: string
+    CoverageAnalyzeRequest:
+      allOf:
+        - $ref: "#/components/schemas/PlanToStandardsRequest"
+        - type: object
+          properties:
+            matches:
+              $ref: "#/components/schemas/PlanMatchingResult"
+    WeeklyScheduleRequest:
+      allOf:
+        - $ref: "#/components/schemas/PlanToStandardsRequest"
+        - type: object
+          properties:
+            matches:
+              $ref: "#/components/schemas/PlanMatchingResult"
+            teaching_weeks:
+              type: integer
+              minimum: 1
+              maximum: 60
+            lessons_per_week:
+              type: integer
+              minimum: 1
+              maximum: 20
+            review_weeks:
+              type: array
+              items:
+                type: integer
+            exam_weeks:
+              type: array
+              items:
+                type: integer
