@@ -4,7 +4,7 @@
     "installCommand": "npm install",
     "outputDirectory": "dist",
     "functions": {
-        "api/[...path].ts": {
+        "api/v1/[...path].ts": {
             "maxDuration": 10,
             "includeFiles": "{public/data/**,docs/api/**}"
         }

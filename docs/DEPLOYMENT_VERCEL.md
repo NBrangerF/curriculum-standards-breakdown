@@ -9,12 +9,12 @@
 当前仓库使用同一个 Vercel project 承载两层能力：
 
 - Web app：Vite build 输出到 `dist/`。
-- API service：根目录 `api/[...path].ts` 作为 Vercel Function 入口，复用 `apps/api/src/app.ts` 和 `packages/curriculum-core`。
+- API service：`api/v1/[...path].ts` 作为 Vercel Function 入口，复用 `apps/api/src/app.ts` 和 `packages/curriculum-core`。
 
 关键文件：
 
 - `vercel.json`
-- `api/[...path].ts`
+- `api/v1/[...path].ts`
 - `.vercelignore`
 - `apps/api/src/config.ts`
 

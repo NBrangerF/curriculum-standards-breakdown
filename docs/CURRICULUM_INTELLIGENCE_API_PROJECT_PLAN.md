@@ -69,7 +69,7 @@
 - API service：`apps/api`
 - OpenAPI 契约：`docs/api/openapi.yaml`
 - TypeScript client：`packages/curriculum-client`
-- Vercel deployment：`vercel.json`, `api/[...path].ts`, `docs/DEPLOYMENT_VERCEL.md`
+- Vercel deployment：`vercel.json`, `api/v1/[...path].ts`, `docs/DEPLOYMENT_VERCEL.md`
 - API 数据版本：`public/data/data_version.json`
 - JSON 质量门：`scripts/validate-public-json.js`
 
