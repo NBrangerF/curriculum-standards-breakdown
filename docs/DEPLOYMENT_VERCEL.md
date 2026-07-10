@@ -1,6 +1,6 @@
 # Vercel Deployment Runbook
 
-更新时间：2026-07-09
+更新时间：2026-07-10
 
 本文档说明如何把 Curriculum Intelligence API + Web app 部署到 Vercel。
 
@@ -36,7 +36,7 @@
 
 - `public/data/**` 打包进 API function。
 - `docs/api/openapi.yaml` 打包进 API function。
-- `/api/:path*` 走 Vercel Function。
+- `/api/v1/:path*` 显式改写到 Vercel Function，避免嵌套路由落入 SPA fallback。
 - 其他非静态资源路径回落到 SPA `index.html`。
 - OpenAPI `servers` 默认 production first，Swagger UI 的 Try it out 会优先请求线上 API。
 
@@ -48,7 +48,7 @@ Production/Preview 至少配置：
 | --- | --- | --- | --- |
 | `CURRICULUM_API_KEYS` | Recommended | `dev_xxx:developer,partner_xxx:partner` | 逗号分隔，格式为 `key:tier`。 |
 | `CURRICULUM_ADMIN_API_KEYS` | Recommended | `admin_xxx` | 访问 `/api/v1/metrics` 和 admin fieldset。 |
-| `CURRICULUM_ALLOWED_ORIGINS` | Recommended | `https://your-domain.com` | 默认 `*`，生产建议收窄。 |
+| `CURRICULUM_ALLOWED_ORIGINS` | Recommended | `https://www.kebiao.org,https://kebiao.org` | 默认 `*`，生产建议仅允许正式域名。 |
 | `CURRICULUM_ENABLE_REQUEST_LOGS` | Recommended | `true` | 输出不含请求体的结构化日志。 |
 | `CURRICULUM_DATA_ROOT` | Optional | `public/data` | Vercel 默认可不填。 |
 | `CURRICULUM_OPENAPI_PATH` | Optional | `docs/api/openapi.yaml` | Vercel 默认可不填。 |
@@ -80,13 +80,13 @@ API_BASE=http://localhost:8787 npm run smoke:api
 如果要对 production 或 preview 做 smoke test：
 
 ```bash
-API_BASE=https://YOUR_DOMAIN npm run smoke:api
+API_BASE=https://www.kebiao.org npm run smoke:api
 ```
 
 带 developer/admin key 验证受限 fieldset 和 metrics：
 
 ```bash
-API_BASE=https://YOUR_DOMAIN \
+API_BASE=https://www.kebiao.org \
 CURRICULUM_SMOKE_API_KEY=dev_xxx \
 CURRICULUM_SMOKE_ADMIN_API_KEY=admin_xxx \
 npm run smoke:api
@@ -119,16 +119,16 @@ npm run deploy:vercel
 部署后验证：
 
 ```bash
-API_BASE=https://YOUR_DOMAIN npm run smoke:api
+API_BASE=https://www.kebiao.org npm run smoke:api
 ```
 
 也可以手动验证关键路径：
 
 ```bash
-curl -s https://YOUR_DOMAIN/api/v1/health | jq
-curl -s https://YOUR_DOMAIN/api/v1/openapi.yaml | head
-curl -s https://YOUR_DOMAIN/api/v1/standards/SC-D2-SC-010/neighbors | jq
-curl -s -X POST https://YOUR_DOMAIN/api/v1/matching/plan-to-standards \
+curl -s https://www.kebiao.org/api/v1/health | jq
+curl -s https://www.kebiao.org/api/v1/openapi.yaml | head
+curl -s https://www.kebiao.org/api/v1/standards/SC-D2-SC-010/neighbors | jq
+curl -s -X POST https://www.kebiao.org/api/v1/matching/plan-to-standards \
   -H 'content-type: application/json' \
   -d '{"plan":{"title":"三年级科学植物观察单元","subject_slug":"science","grade":"三年级","units":[{"title":"植物生命周期观察","learning_goals":["观察植物结构","记录数据并交流发现"],"keywords":["植物","观察","数据"]}]},"top_k_per_unit":2,"min_score":0.2}' | jq
 ```
@@ -136,20 +136,21 @@ curl -s -X POST https://YOUR_DOMAIN/api/v1/matching/plan-to-standards \
 Admin-only metrics:
 
 ```bash
-curl -s https://YOUR_DOMAIN/api/v1/metrics \
+curl -s https://www.kebiao.org/api/v1/metrics \
   -H 'x-api-key: YOUR_ADMIN_KEY' | jq
 ```
 
-## 7. Custom Domain Cutover
+## 7. 正式域名
 
-你后续在 Vercel 购买或绑定正式域名后，按这个顺序切换：
+当前正式生产域名是 `https://www.kebiao.org`。所有新的客户集成、SDK 示例、OpenAPI `servers` 和 smoke test 都必须使用该地址。
 
-1. 在 Vercel Project 里添加 domain，并等待 DNS / SSL 状态变为 ready。
-2. 将 `CURRICULUM_ALLOWED_ORIGINS` 从 `*` 或旧域名改为正式域名；若还有管理后台或本地调试来源，用逗号追加。
-3. 更新 `docs/api/openapi.yaml` 的 production server URL。
-4. 运行 `npm run typecheck && npm run test:api && npm run build`。
-5. 部署后执行 `API_BASE=https://YOUR_DOMAIN npm run smoke:api`。
-6. 确认 Swagger UI 的 server 下拉框默认显示正式域名。
+域名配置后的发布检查：
+
+1. 确认 Vercel 的 `www.kebiao.org` DNS 和 SSL 均为 ready，并且 apex 域名的跳转策略已明确。
+2. 将 `CURRICULUM_ALLOWED_ORIGINS` 设为实际需要的浏览器来源，例如 `https://www.kebiao.org,https://kebiao.org`；不要在生产环境长期保留 `*`。
+3. 运行 `npm run typecheck && npm run test:api && npm run eval:matching && npm run build`。
+4. 部署后执行 `API_BASE=https://www.kebiao.org npm run smoke:api`。
+5. 打开 `https://www.kebiao.org/api/v1/docs`，确认 Swagger UI 的首个 server 为正式域名。
 
 ## 8. Rollback
 

@@ -47,6 +47,7 @@ test('GET /api/v1/openapi.yaml and /api/v1/docs expose API documentation', async
     assert.equal(specResponse.status, 200)
     const spec = await specResponse.text()
     assert.match(spec, /课程智能 API/)
+    assert.match(spec, /url: https:\/\/www\.kebiao\.org/)
     assert.match(spec, /operationId: searchStandards/)
     assert.match(spec, /summary: 搜索科学学科中与观察有关的标准/)
     assert.match(spec, /title: 课程标准覆盖分析结果/)

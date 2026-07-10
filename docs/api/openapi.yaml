@@ -8,8 +8,8 @@ info:
 
     所有成功响应统一返回 `data` 和 `meta`；错误响应统一返回 `error` 和 `meta.request_id`。匿名请求可访问 `public` 字段集；如需来源、证据、教材或管理字段，请在请求头中提供 `x-api-key`。
 servers:
-  - url: https://curriculum-standards-breakdown.vercel.app
-    description: 生产环境
+  - url: https://www.kebiao.org
+    description: 正式生产环境（课程表）
   - url: http://localhost:8787
     description: 本地开发
 tags:

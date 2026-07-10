@@ -1,77 +1,371 @@
-[
-  {
-    "id": "science-h2-plant-observation",
-    "plan": {
-      "title": "三年级科学植物观察单元",
-      "subject_slug": "science",
-      "grade": "三年级",
-      "units": [
-        {
-          "title": "植物生命周期观察",
-          "learning_goals": [
-            "观察植物结构",
-            "记录数据并交流发现"
-          ],
-          "keywords": ["植物", "观察", "数据"]
-        }
-      ]
-    },
-    "expectations": {
-      "expected_subject_slug": "science",
-      "expected_grade_band": "H2",
-      "min_top_score": 0.55,
-      "min_matched_fields": 2,
-      "top_code_prefix": "SC-"
-    }
+{
+  "schema_version": "1.0.0",
+  "data_version": "2026.07.09",
+  "description": "基于真实课程标准语义改写的教学计划匹配基线。金标由课程标准 code 和教学活动的显性目标共同确定；不把模型输出当作金标来源。",
+  "matching_options": {
+    "top_k_per_unit": 3,
+    "min_score": 0.2,
+    "review_threshold": 0.8
   },
-  {
-    "id": "math-h3-data-statistics",
-    "plan": {
-      "title": "五年级数学统计与数据表达单元",
-      "subject_slug": "math",
-      "grade": "五年级",
-      "units": [
-        {
-          "title": "收集、整理与表达数据",
-          "learning_goals": [
-            "用统计图表表示数据",
-            "分析数据并说明发现"
-          ],
-          "keywords": ["统计", "数据", "图表", "分析"]
-        }
-      ]
-    },
-    "expectations": {
-      "expected_subject_slug": "math",
-      "expected_grade_band": "H3",
-      "min_top_score": 0.45,
-      "min_matched_fields": 2,
-      "top_code_prefix": "MA-"
-    }
+  "quality_gates": {
+    "minimum_metadata_accuracy": 1,
+    "minimum_top_1_accuracy": 0.9,
+    "minimum_recall_at_k": 1,
+    "minimum_mean_reciprocal_rank": 0.93,
+    "minimum_explainability_rate": 1,
+    "minimum_review_expectation_accuracy": 1,
+    "maximum_forbidden_top_match_count": 0
   },
-  {
-    "id": "chinese-h4g7-reading-expression",
-    "plan": {
-      "title": "七年级语文阅读表达单元",
-      "subject_slug": "chinese",
-      "grade": "七年级",
-      "units": [
-        {
-          "title": "阅读鉴赏与表达交流",
-          "learning_goals": [
-            "阅读文本并提炼观点",
-            "结合证据进行表达交流"
-          ],
-          "keywords": ["阅读", "表达", "交流", "观点"]
-        }
-      ]
+  "fixtures": [
+    {
+      "id": "science-h2-soil-and-natural-observation",
+      "source_note": "三年级科学的连续教学计划，分别检验具体科学概念和科学态度两个单元。",
+      "plan": {
+        "title": "三年级科学：土壤与自然观察",
+        "subject_slug": "science",
+        "grade": "三年级",
+        "units": [
+          {
+            "unit_id": "U1",
+            "title": "比较不同土壤的特点",
+            "learning_goals": [
+              "采集土壤样品，观察砂质土、黏质土和壤质土。",
+              "根据土壤特点讨论适合生长的植物。"
+            ],
+            "keywords": ["土壤", "砂质土", "黏质土", "壤质土", "植物"]
+          },
+          {
+            "unit_id": "U2",
+            "title": "持续观察自然现象",
+            "learning_goals": [
+              "对自然现象保持好奇心，连续观察并记录变化，尊重事实。"
+            ],
+            "keywords": ["自然现象", "好奇心", "观察", "记录", "尊重事实"]
+          }
+        ]
+      },
+      "expectations": {
+        "expected_subject_slug": "science",
+        "expected_grade_band": "H2",
+        "units": [
+          {
+            "unit_id": "U1",
+            "acceptable_codes": ["SC-D2-SC-002"],
+            "forbidden_top_codes": ["SC-D2-SC-004"],
+            "min_top_score": 0.8,
+            "min_matched_fields": 4,
+            "expected_requires_human_review": false
+          },
+          {
+            "unit_id": "U2",
+            "acceptable_codes": ["SC-D2-AR-004"],
+            "forbidden_top_codes": ["SC-D2-SC-002"],
+            "min_top_score": 0.8,
+            "min_matched_fields": 4,
+            "expected_requires_human_review": false
+          }
+        ]
+      }
     },
-    "expectations": {
-      "expected_subject_slug": "chinese",
-      "expected_grade_band": "H4G7",
-      "min_top_score": 0.45,
-      "min_matched_fields": 1,
-      "top_code_prefix": "CN-"
+    {
+      "id": "math-h3-data-statistics",
+      "source_note": "五年级数学的真实数据收集、统计图表达和预测活动。",
+      "plan": {
+        "title": "五年级数学：体育数据统计图表",
+        "subject_slug": "math",
+        "grade": "五年级",
+        "units": [
+          {
+            "unit_id": "U1",
+            "title": "体育数据统计图表",
+            "learning_goals": [
+              "收集班级体育活动数据，选择条形图、折线图或扇形图表示。",
+              "根据统计图解释变化并作出预测。"
+            ],
+            "keywords": ["数据", "条形图", "折线图", "扇形图", "统计图", "预测"]
+          }
+        ]
+      },
+      "expectations": {
+        "expected_subject_slug": "math",
+        "expected_grade_band": "H3",
+        "units": [
+          {
+            "unit_id": "U1",
+            "acceptable_codes": ["MA-D3-ST-001"],
+            "forbidden_top_codes": ["MA-D3-ST-002"],
+            "min_top_score": 0.8,
+            "min_matched_fields": 5,
+            "expected_requires_human_review": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "chinese-h4g7-literature-reading",
+      "source_note": "七年级中外文学名著阅读与研讨活动；用于追踪同域名著标准之间的排序质量。",
+      "plan": {
+        "title": "七年级语文：中外文学名著阅读研讨",
+        "subject_slug": "chinese",
+        "grade": "七年级",
+        "units": [
+          {
+            "unit_id": "U1",
+            "title": "中外文学名著阅读研讨",
+            "learning_goals": [
+              "阅读一部中外文学名著，按进度完成读书笔记。",
+              "围绕作品语言、人物形象和主题展开小组研讨。"
+            ],
+            "keywords": ["中外文学名著", "读书笔记", "语言", "人物形象", "主题", "研讨"]
+          }
+        ]
+      },
+      "expectations": {
+        "expected_subject_slug": "chinese",
+        "expected_grade_band": "H4G7",
+        "units": [
+          {
+            "unit_id": "U1",
+            "acceptable_codes": ["CN-H4G7-BOOK-007"],
+            "min_top_score": 0.8,
+            "min_matched_fields": 5,
+            "expected_requires_human_review": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "arts-h1-music-emotion",
+      "source_note": "一年级艺术的聆听、比较和表达音乐情绪活动。",
+      "plan": {
+        "title": "一年级艺术：听见音乐的情绪",
+        "subject_slug": "arts",
+        "grade": "一年级",
+        "units": [
+          {
+            "unit_id": "U1",
+            "title": "听见音乐的情绪",
+            "learning_goals": [
+              "聆听两段短小音乐，感受并比较音乐情绪。",
+              "用颜色和动作表达快乐、安静等不同感受。"
+            ],
+            "keywords": ["聆听", "音乐情绪", "比较", "表达"]
+          }
+        ]
+      },
+      "expectations": {
+        "expected_subject_slug": "arts",
+        "expected_grade_band": "H1",
+        "units": [
+          {
+            "unit_id": "U1",
+            "acceptable_codes": ["AR-D1-AA-MU-007"],
+            "forbidden_top_codes": ["AR-D1-AA-MU-008"],
+            "min_top_score": 0.8,
+            "min_matched_fields": 4,
+            "expected_requires_human_review": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "english-h2-culture-cards",
+      "source_note": "三年级英语的中外节日、食物和文化标志比较活动。",
+      "plan": {
+        "title": "三年级英语：中外节日文化卡",
+        "subject_slug": "english",
+        "grade": "三年级",
+        "units": [
+          {
+            "unit_id": "U1",
+            "title": "中外节日文化卡",
+            "learning_goals": [
+              "认识中外节日、食物和文化标志。",
+              "比较节日习俗并制作文化卡片。"
+            ],
+            "keywords": ["节日", "文化标志", "食物", "比较", "文化卡"]
+          }
+        ]
+      },
+      "expectations": {
+        "expected_subject_slug": "english",
+        "expected_grade_band": "H2",
+        "units": [
+          {
+            "unit_id": "U1",
+            "acceptable_codes": ["EN-D1-CA-003"],
+            "forbidden_top_codes": ["EN-D1-CA-001"],
+            "min_top_score": 0.8,
+            "min_matched_fields": 4,
+            "expected_requires_human_review": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-h1-digital-folder",
+      "source_note": "一年级信息科技的数字资料分类、保存和检索活动；两个标准均为可接受的细粒度匹配。",
+      "plan": {
+        "title": "一年级信息科技：整理我的数字资料夹",
+        "subject_slug": "it",
+        "grade": "一年级",
+        "units": [
+          {
+            "unit_id": "U1",
+            "title": "整理我的数字资料夹",
+            "learning_goals": [
+              "给文字、图片和录音分类命名并保存。",
+              "在资料夹中检索需要的文件。"
+            ],
+            "keywords": ["文字", "图片", "录音", "分类", "保存", "检索", "资料夹"]
+          }
+        ]
+      },
+      "expectations": {
+        "expected_subject_slug": "it",
+        "expected_grade_band": "H1",
+        "units": [
+          {
+            "unit_id": "U1",
+            "acceptable_codes": ["IT-H1-DL-004", "IT-H1-DL-006"],
+            "min_top_score": 0.8,
+            "min_matched_fields": 4,
+            "expected_requires_human_review": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "labor-h1-waste-sorting",
+      "source_note": "二年级劳动的校园垃圾分类和投放活动。",
+      "plan": {
+        "title": "二年级劳动：校园垃圾分类行动",
+        "subject_slug": "labor",
+        "grade": "二年级",
+        "units": [
+          {
+            "unit_id": "U1",
+            "title": "校园垃圾分类行动",
+            "learning_goals": [
+              "根据垃圾桶颜色和文字识别垃圾类别。",
+              "把常见垃圾分类投放并说明原因。"
+            ],
+            "keywords": ["垃圾分类", "垃圾桶", "分类投放", "颜色", "文字"]
+          }
+        ]
+      },
+      "expectations": {
+        "expected_subject_slug": "labor",
+        "expected_grade_band": "H1",
+        "units": [
+          {
+            "unit_id": "U1",
+            "acceptable_codes": ["LA-D1-DL-CH-005"],
+            "forbidden_top_codes": ["LA-D1-DL-OS-010"],
+            "min_top_score": 0.8,
+            "min_matched_fields": 4,
+            "expected_requires_human_review": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "pe-h1-personal-hygiene",
+      "source_note": "二年级体育与健康的个人卫生习惯和一周记录活动。",
+      "plan": {
+        "title": "二年级体育与健康：我的个人卫生习惯",
+        "subject_slug": "pe",
+        "grade": "二年级",
+        "units": [
+          {
+            "unit_id": "U1",
+            "title": "我的个人卫生习惯",
+            "learning_goals": [
+              "了解洗手、刷牙、整理仪表等个人卫生要求。",
+              "连续记录一周个人卫生习惯。"
+            ],
+            "keywords": ["个人卫生", "洗手", "刷牙", "卫生习惯", "记录"]
+          }
+        ]
+      },
+      "expectations": {
+        "expected_subject_slug": "pe",
+        "expected_grade_band": "H1",
+        "units": [
+          {
+            "unit_id": "U1",
+            "acceptable_codes": ["PE-D1-HB-008"],
+            "min_top_score": 0.8,
+            "min_matched_fields": 4,
+            "expected_requires_human_review": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "morality-law-h1-campus-rules",
+      "source_note": "一年级道德与法治的校园规则认识、海报制作和遵守活动。",
+      "plan": {
+        "title": "一年级道德与法治：我们一起守规则",
+        "subject_slug": "morality_law",
+        "grade": "一年级",
+        "units": [
+          {
+            "unit_id": "U1",
+            "title": "我们一起守规则",
+            "learning_goals": [
+              "说出校园中的三条规则。",
+              "制作班级规则海报并在日常中遵守。"
+            ],
+            "keywords": ["校园规则", "班级规则", "遵守", "海报"]
+          }
+        ]
+      },
+      "expectations": {
+        "expected_subject_slug": "morality_law",
+        "expected_grade_band": "H1",
+        "units": [
+          {
+            "unit_id": "U1",
+            "acceptable_codes": ["ML-D1-LAW-001"],
+            "forbidden_top_codes": ["ML-D1-ENR-001"],
+            "min_top_score": 0.6,
+            "min_matched_fields": 4,
+            "expected_requires_human_review": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "science-h2-open-project-requires-review",
+      "source_note": "刻意保留学科和学段、但语义不够具体的真实风格开放任务；只评估系统是否正确提示人工复核，不把任一标准 code 视为金标。",
+      "plan": {
+        "title": "三年级科学：本周学习安排",
+        "subject_slug": "science",
+        "grade": "三年级",
+        "units": [
+          {
+            "unit_id": "U1",
+            "title": "本周学习任务",
+            "learning_goals": [
+              "学生完成本周学习任务并作简短分享。"
+            ],
+            "keywords": ["本周", "任务"]
+          }
+        ]
+      },
+      "expectations": {
+        "expected_subject_slug": "science",
+        "expected_grade_band": "H2",
+        "units": [
+          {
+            "unit_id": "U1",
+            "min_top_score": 0.6,
+            "min_matched_fields": 4,
+            "expected_requires_human_review": true
+          }
+        ]
+      }
     }
-  }
-]
+  ]
+}

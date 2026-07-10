@@ -9,7 +9,7 @@
 当前生产地址：
 
 ```text
-https://curriculum-standards-breakdown.vercel.app
+https://www.kebiao.org
 ```
 
 本地开发地址：
@@ -18,25 +18,20 @@ https://curriculum-standards-breakdown.vercel.app
 http://localhost:8787
 ```
 
-后续购买并绑定正式域名后，只需要把示例里的 base URL 换成新域名，并同步更新：
-
-- Vercel domain alias
-- `CURRICULUM_ALLOWED_ORIGINS`
-- `docs/api/openapi.yaml` 的 `servers`
-- smoke test 的 `API_BASE`
+`www.kebiao.org` 是对外文档、SDK 示例和 OpenAPI 的唯一正式 base URL。Vercel 技术域名只保留为部署别名，不应作为新的集成地址。
 
 ## 2. API 文档
 
 中文 API 文档界面：
 
 ```text
-https://curriculum-standards-breakdown.vercel.app/api/v1/docs
+https://www.kebiao.org/api/v1/docs
 ```
 
 中文 OpenAPI YAML：
 
 ```text
-https://curriculum-standards-breakdown.vercel.app/api/v1/openapi.yaml
+https://www.kebiao.org/api/v1/openapi.yaml
 ```
 
 API 文档界面的 server 默认指向 production。若本地调试，可以在 server 下拉框切换到 `http://localhost:8787`。
@@ -112,7 +107,7 @@ CURRICULUM_ADMIN_API_KEYS="admin_xxx"
 设置 base URL：
 
 ```bash
-export API_BASE="https://curriculum-standards-breakdown.vercel.app"
+export API_BASE="https://www.kebiao.org"
 ```
 
 健康检查：
@@ -186,7 +181,7 @@ curl -s "$API_BASE/api/v1/metrics" \
 import { CurriculumClient } from '@curriculum/client'
 
 const client = new CurriculumClient({
-  baseUrl: 'https://curriculum-standards-breakdown.vercel.app',
+  baseUrl: 'https://www.kebiao.org',
   apiKey: process.env.CURRICULUM_API_KEY
 })
 
@@ -220,13 +215,13 @@ const matches = await client.matchPlanToStandards({
 部署后运行：
 
 ```bash
-API_BASE="https://curriculum-standards-breakdown.vercel.app" npm run smoke:api
+API_BASE="https://www.kebiao.org" npm run smoke:api
 ```
 
 带 API Key 验证 developer/admin 权限：
 
 ```bash
-API_BASE="https://curriculum-standards-breakdown.vercel.app" \
+API_BASE="https://www.kebiao.org" \
 CURRICULUM_SMOKE_API_KEY="$CURRICULUM_API_KEY" \
 CURRICULUM_SMOKE_ADMIN_API_KEY="$CURRICULUM_ADMIN_API_KEY" \
 npm run smoke:api

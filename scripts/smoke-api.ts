@@ -176,7 +176,7 @@ const checks: SmokeCheck[] = [
         expect(response, _payload, text) {
             assert((response.headers.get('content-type') || '').includes('yaml'), 'Expected YAML content-type')
             assert(text.includes('openapi: 3.1.0'), 'Expected OpenAPI version')
-            assert(text.includes('https://curriculum-standards-breakdown.vercel.app'), 'Expected production server')
+            assert(text.includes('https://www.kebiao.org'), 'Expected canonical production server')
         }
     },
     {

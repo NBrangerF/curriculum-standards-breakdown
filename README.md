@@ -125,9 +125,9 @@ npm run eval:matching
 npm run search:index-meilisearch
 ```
 
-API 生产地址: https://curriculum-standards-breakdown.vercel.app
+API 正式地址: https://www.kebiao.org
 API 本地地址: http://localhost:8787
-中文 API 文档页面: https://curriculum-standards-breakdown.vercel.app/api/v1/docs
+中文 API 文档页面: https://www.kebiao.org/api/v1/docs
 
 当前 API 已覆盖：
 
@@ -144,7 +144,7 @@ Vercel 部署说明见：`docs/DEPLOYMENT_VERCEL.md`
 部署后 smoke test：
 
 ```bash
-API_BASE=https://curriculum-standards-breakdown.vercel.app npm run smoke:api
+API_BASE=https://www.kebiao.org npm run smoke:api
 ```
 
 可选环境变量：

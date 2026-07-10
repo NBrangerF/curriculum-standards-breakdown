@@ -1,8 +1,8 @@
 # Curriculum Intelligence API Project Plan
 
-更新时间：2026-07-09
+更新时间：2026-07-10
 仓库路径：`curriculum-standards-breakdown`
-当前执行状态：Phase 0-2 已落地；Phase 3 的 API key / rate limit / OpenAPI 契约 / production-first OpenAPI UI / TypeScript client / Vercel 配置 / structured logging / file-backed metrics MVP / Meilisearch adapter / API quickstart / automated smoke tests 已落地；Phase 4 Graph API 已落地；Phase 5 Agent API 已完成 deterministic MVP，并加入 evaluation fixtures。
+当前执行状态：Phase 0-2 已落地；Phase 3 的 API key / rate limit / OpenAPI 契约 / production-first OpenAPI UI / TypeScript client / Vercel 配置 / structured logging / file-backed metrics MVP / Meilisearch adapter / API quickstart / automated smoke tests 已落地；Phase 4 Graph API 已落地；Phase 5 Agent API 已完成 deterministic MVP，并加入数据版本绑定、跨九学科的 plan-to-standards evaluation baseline；正式域名为 `https://www.kebiao.org`。
 
 本文档基于当前 insight、`docs/API_DATA_STRUCTURE_PREP.md`、`skills/github/zhenzheng-keyong-kebiao-skill` 以及当前仓库结构，规划如何把课标罗盘从“课程标准查询网站”升级为：
 
@@ -91,7 +91,7 @@
 - Integration surface：`/api/v1/docs`, `/api/v1/openapi.yaml`, `@curriculum/client`, `docs/API_QUICKSTART.md`, `npm run smoke:api`
 - Observability MVP：`CURRICULUM_ENABLE_REQUEST_LOGS=true` 时输出结构化请求日志；`CURRICULUM_METRICS_FILE` 可启用 NDJSON file-backed metrics；`/api/v1/metrics` admin-only 返回内存与持久化摘要
 - Search adapter：`packages/curriculum-core/src/meilisearch.ts`, `scripts/index-meilisearch.ts`
-- Matching eval：`packages/curriculum-core/test/fixtures/plan-matching-fixtures.json`, `scripts/evaluate-plan-matching.ts`
+- Matching eval：`packages/curriculum-core/test/fixtures/plan-matching-fixtures.json`, `scripts/evaluate-plan-matching.ts`, `docs/evals/PLAN_TO_STANDARDS_EVALUATION.md`
 - 验证：core tests、client tests、API contract tests、matching eval、TypeScript typecheck、OpenAPI YAML parse check
 
 ## 3. 设计原则
@@ -783,7 +783,7 @@ Skill 输出必须保留：
 18. `api: add structured request logging without raw planning payloads`。已完成 MVP。
 19. `api: add durable metrics for tier, endpoint, latency, status`。已完成 file-backed MVP。
 20. `search: add Meilisearch indexer and repository adapter`。已完成第一版。
-21. `planning: add evaluation fixtures for plan-to-standard matching quality`。已完成。
+21. `planning: add evaluation fixtures for plan-to-standard matching quality`。已完成跨九学科、十一条单元断言的 data-version-bound baseline，包含 MRR、命中率、禁配项和人工复核质量门。
 22. `security: load API keys from deployment secret manager`
 23. `deploy: add Vercel/Cloudflare deployment target for apps/api`。已完成 Vercel 配置。
 
