@@ -2,7 +2,11 @@ openapi: 3.1.0
 info:
   title: 课程智能 API
   version: 0.2.0
-  description: 面向课程标准检索、能力图谱、教学规划解析、标准匹配和覆盖分析的课程智能 API。
+  summary: 面向教育产品的结构化课程标准与教学规划能力
+  description: |
+    课程智能 API 提供课程标准检索、能力与进阶关系查询、教学计划解析、标准匹配、覆盖分析和周进度生成。
+
+    所有成功响应统一返回 `data` 和 `meta`；错误响应统一返回 `error` 和 `meta.request_id`。匿名请求可访问 `public` 字段集；如需来源、证据、教材或管理字段，请在请求头中提供 `x-api-key`。
 servers:
   - url: https://curriculum-standards-breakdown.vercel.app
     description: 生产环境
@@ -21,14 +25,14 @@ tags:
     description: 标准进阶、前后关系、同领域、同能力和证据摘要。
   - name: 教学规划
     description: 教学计划解析、校验、标准匹配、覆盖分析和周进度生成。
-security:
-  - ApiKeyAuth: []
-  - {}
 paths:
   /api/v1/health:
     get:
       tags: [元信息]
+      operationId: getHealth
       summary: 获取服务健康状态和当前数据版本
+      description: 用于部署探针、运行状态检查和确认当前数据版本。匿名可调用。
+      security: []
       responses:
         "200":
           description: 服务健康状态
@@ -36,10 +40,15 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ApiResponse"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
   /api/v1/openapi.yaml:
     get:
       tags: [元信息]
+      operationId: getOpenApiDocument
       summary: 获取当前 OpenAPI YAML 文档
+      description: 下载机器可读的 OpenAPI 3.1 契约，可用于生成 SDK、Mock Server 或导入 API 工具。匿名可调用。
+      security: []
       responses:
         "200":
           description: OpenAPI YAML 文档
@@ -47,10 +56,15 @@ paths:
             application/yaml:
               schema:
                 type: string
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
   /api/v1/docs:
     get:
       tags: [元信息]
+      operationId: getApiDocs
       summary: 打开中文 API 文档界面
+      description: 返回当前中文开发者文档和可交互的接口参考页面。匿名可调用。
+      security: []
       responses:
         "200":
           description: 中文 API 文档 HTML 页面
@@ -58,11 +72,16 @@ paths:
             text/html:
               schema:
                 type: string
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
   /api/v1/metrics:
     get:
       tags: [元信息]
+      operationId: getMetrics
       summary: 获取 API 运行指标快照
       description: 需要 admin 权限 API key。当前支持内存指标，并可在 Node 文件部署下追加写入持久化 NDJSON。
+      security:
+        - ApiKeyAuth: []
       responses:
         "200":
           description: 指标快照
@@ -75,7 +94,10 @@ paths:
   /api/v1/meta:
     get:
       tags: [元信息]
+      operationId: getApiMeta
       summary: 获取 API 元信息和可用筛选项
+      description: 返回数据覆盖范围、标准数量以及可用于检索的学科、学段和能力 code。适合在客户端初始化筛选器，匿名可调用。
+      security: []
       responses:
         "200":
           description: API 元信息
@@ -88,7 +110,10 @@ paths:
   /api/v1/data-version:
     get:
       tags: [元信息]
+      operationId: getDataVersion
       summary: 获取稳定的数据版本契约
+      description: 返回数据版本、Schema 版本、来源提交和校验状态，便于客户端缓存、审计和判断是否需要重新同步。匿名可调用。
+      security: []
       responses:
         "200":
           description: 数据版本
@@ -101,10 +126,15 @@ paths:
                     properties:
                       data:
                         $ref: "#/components/schemas/DataVersion"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
   /api/v1/subjects:
     get:
       tags: [学科]
+      operationId: listSubjects
       summary: 列出学科、元数据和统计信息
+      description: 返回全部已覆盖学科及其标准数量、学段分布和元数据。适合构建学科选择器，匿名可调用。
+      security: []
       responses:
         "200":
           description: 学科列表
@@ -112,10 +142,15 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ApiResponse"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
   /api/v1/subjects/{subject_slug}:
     get:
       tags: [学科]
+      operationId: getSubject
       summary: 获取单个学科详情
+      description: 通过稳定的英文 `subject_slug` 获取一个学科的元数据和统计信息。匿名可调用。
+      security: []
       parameters:
         - $ref: "#/components/parameters/SubjectSlug"
       responses:
@@ -129,8 +164,11 @@ paths:
           $ref: "#/components/responses/NotFound"
   /api/v1/subjects/{subject_slug}/domains:
     get:
-      tags: [学科, 关系图谱]
+      tags: [学科]
+      operationId: getSubjectDomains
       summary: 获取某个学科的领域和子领域结构
+      description: 返回学科内的领域、子领域和标准数量，可用于目录导航和课程结构展示。匿名可调用。
+      security: []
       parameters:
         - $ref: "#/components/parameters/SubjectSlug"
       responses:
@@ -145,7 +183,10 @@ paths:
   /api/v1/skills:
     get:
       tags: [能力]
+      operationId: listSkills
       summary: 列出可迁移能力元数据
+      description: 返回 TS1 至 TS7 可迁移能力体系及其子能力说明。匿名可调用。
+      security: []
       responses:
         "200":
           description: 能力元数据
@@ -153,10 +194,15 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ApiResponse"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
   /api/v1/skills/{skill_code}:
     get:
       tags: [能力]
+      operationId: getSkill
       summary: 获取单个可迁移能力详情
+      description: 按能力 code 获取名称、定义和子能力信息，例如 `TS1`。匿名可调用。
+      security: []
       parameters:
         - $ref: "#/components/parameters/SkillCode"
       responses:
@@ -170,8 +216,13 @@ paths:
           $ref: "#/components/responses/NotFound"
   /api/v1/skills/{skill_code}/standards:
     get:
-      tags: [能力, 课程标准, 关系图谱]
+      tags: [能力]
+      operationId: listStandardsBySkill
       summary: 列出与某个可迁移能力对齐的课程标准
+      description: 按能力 code 反查课程标准。默认只返回 `public` 字段；请求受限字段集时需要对应权限的 API Key。
+      security:
+        - ApiKeyAuth: []
+        - {}
       parameters:
         - $ref: "#/components/parameters/SkillCode"
         - $ref: "#/components/parameters/Include"
@@ -189,7 +240,12 @@ paths:
   /api/v1/standards/{code}:
     get:
       tags: [课程标准]
+      operationId: getStandard
       summary: 按 code 获取单条课程标准
+      description: 获取一条课程标准的结构化详情。匿名请求返回 `public` 字段；通过 `include` 请求受限字段集时需要对应权限的 API Key。
+      security:
+        - ApiKeyAuth: []
+        - {}
       parameters:
         - $ref: "#/components/parameters/StandardCode"
         - $ref: "#/components/parameters/Include"
@@ -211,8 +267,13 @@ paths:
           $ref: "#/components/responses/NotFound"
   /api/v1/standards/{code}/progression:
     get:
-      tags: [课程标准, 关系图谱]
+      tags: [关系图谱]
+      operationId: getStandardProgression
       summary: 获取某条标准所在的进阶组
+      description: 返回锚点标准及其同一进阶组中的其他学段或年级标准，用于纵向课程衔接。受限字段集遵循 `include` 权限规则。
+      security:
+        - ApiKeyAuth: []
+        - {}
       parameters:
         - $ref: "#/components/parameters/StandardCode"
         - $ref: "#/components/parameters/Include"
@@ -230,7 +291,12 @@ paths:
   /api/v1/standards/{code}/neighbors:
     get:
       tags: [关系图谱]
+      operationId: getStandardNeighbors
       summary: 获取前后、同领域、同能力和进阶相邻标准
+      description: 以一条标准为锚点，一次返回前置、后续、同领域、同能力和进阶关系。受限字段集遵循 `include` 权限规则。
+      security:
+        - ApiKeyAuth: []
+        - {}
       parameters:
         - $ref: "#/components/parameters/StandardCode"
         - $ref: "#/components/parameters/Include"
@@ -253,7 +319,10 @@ paths:
   /api/v1/standards/{code}/evidence:
     get:
       tags: [关系图谱]
+      operationId: getStandardEvidence
       summary: 获取某条标准的来源和证据摘要
+      description: 返回边界明确的来源、证据 ID、证据数量和进阶状态摘要，不返回完整大型证据对象。匿名可调用。
+      security: []
       parameters:
         - $ref: "#/components/parameters/StandardCode"
       responses:
@@ -273,13 +342,34 @@ paths:
   /api/v1/standards/search:
     post:
       tags: [课程标准]
+      operationId: searchStandards
       summary: 搜索课程标准
+      description: |
+        按学科、学段、领域、能力或关键词组合检索课程标准。请求体可省略；默认返回第一页和 `public` 字段集。
+
+        分页时把上一页 `meta.next_cursor` 原样传入 `cursor`。请求 `source`、`evidence`、`textbook` 或 `admin` 字段集时需要对应权限的 API Key。
+      security:
+        - ApiKeyAuth: []
+        - {}
       requestBody:
         required: false
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/StandardSearchRequest"
+            examples:
+              scienceObservation:
+                summary: 搜索科学学科中与观察有关的标准
+                value:
+                  subjects: [science]
+                  keyword: 观察
+                  limit: 3
+              skillSearch:
+                summary: 按可迁移能力检索
+                value:
+                  skills: [TS1]
+                  grade_bands: [H2]
+                  limit: 10
       responses:
         "200":
           description: 搜索结果
@@ -294,13 +384,20 @@ paths:
   /api/v1/standards/batch:
     post:
       tags: [课程标准]
+      operationId: batchGetStandards
       summary: 按 code 批量获取课程标准
+      description: 一次获取 1 至 100 条课程标准。不存在的 code 不会使整个请求失败，而是返回在 `meta.missing` 中。受限字段集需要对应权限的 API Key。
+      security:
+        - ApiKeyAuth: []
+        - {}
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/StandardBatchRequest"
+            example:
+              codes: [SC-D1-SC-014, SC-D2-SC-010]
       responses:
         "200":
           description: 批量查询结果
@@ -314,14 +411,21 @@ paths:
           $ref: "#/components/responses/ValidationError"
   /api/v1/standards/compare:
     post:
-      tags: [课程标准, 关系图谱]
+      tags: [课程标准]
+      operationId: compareStandards
       summary: 对比 2 到 10 条课程标准
+      description: 对比多条标准的共同字段、差异字段和进阶关系。适合课程衔接分析；受限字段集需要对应权限的 API Key。
+      security:
+        - ApiKeyAuth: []
+        - {}
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/StandardCompareRequest"
+            example:
+              codes: [SC-D1-SC-014, SC-D2-SC-010]
       responses:
         "200":
           description: 标准对比结果
@@ -336,26 +440,57 @@ paths:
   /api/v1/plans/parse:
     post:
       tags: [教学规划]
+      operationId: parsePlan
       summary: 将结构化或纯文本教学计划解析为 ParsedPlan
+      description: 接收中文纯文本教学计划或已结构化对象，保守地提取学科、年级、学段和单元。解析提示会写入响应，匿名可调用。
+      security: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/PlanParseRequest"
+            examples:
+              plainText:
+                summary: 解析中文纯文本教学计划
+                value:
+                  text: |-
+                    三年级科学植物观察计划
+                    学科：科学
+                    年级：三年级
+                    单元一：植物生命周期观察
+              structuredPlan:
+                summary: 规范化已有结构化计划
+                value:
+                  plan:
+                    title: 三年级科学植物观察单元
+                    subject_slug: science
+                    grade: 三年级
+                    units:
+                      - title: 植物生命周期观察
+                        learning_goals: [观察植物结构, 记录数据并交流发现]
+                        keywords: [植物, 观察, 数据]
       responses:
         "200":
           description: 解析后的教学计划和提示信息
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApiResponse"
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/PlanParseResult"
         "422":
           $ref: "#/components/responses/ValidationError"
   /api/v1/plans/validate:
     post:
       tags: [教学规划]
+      operationId: validatePlan
       summary: 校验 ParsedPlan 的学科、年级段和单元结构
+      description: 校验结构化教学计划是否具备可用于后续匹配的学科、年级、学段和单元信息。匿名可调用，不会修改原计划。
+      security: []
       requestBody:
         required: true
         content:
@@ -366,25 +501,56 @@ paths:
               properties:
                 plan:
                   $ref: "#/components/schemas/ParsedPlan"
+            example:
+              plan:
+                title: 三年级科学植物观察单元
+                subject_slug: science
+                grade: 三年级
+                units:
+                  - title: 植物生命周期观察
+                    learning_goals: [观察植物结构]
+                    keywords: [植物, 观察]
       responses:
         "200":
           description: 校验结果
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApiResponse"
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/PlanValidationResult"
         "422":
           $ref: "#/components/responses/ValidationError"
   /api/v1/matching/plan-to-standards:
     post:
       tags: [教学规划]
+      operationId: matchPlanToStandards
       summary: 将教学计划单元匹配到真实课程标准，并返回分数和理由
+      description: 对每个教学单元检索真实课程标准 code，并返回匹配分数、命中字段、中文理由和人工复核标记。请求受限字段集时需要对应权限的 API Key。
+      security:
+        - ApiKeyAuth: []
+        - {}
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/PlanToStandardsRequest"
+            example:
+              plan:
+                title: 三年级科学植物观察单元
+                subject_slug: science
+                grade: 三年级
+                units:
+                  - title: 植物生命周期观察
+                    learning_goals: [观察植物结构, 记录数据并交流发现]
+                    keywords: [植物, 观察, 数据]
+              top_k_per_unit: 3
+              min_score: 0.2
+              review_threshold: 0.45
       responses:
         "200":
           description: 可解释的匹配结果
@@ -404,20 +570,41 @@ paths:
   /api/v1/coverage/analyze:
     post:
       tags: [教学规划]
+      operationId: analyzePlanCoverage
       summary: 分析教学计划对课程标准的覆盖情况
+      description: 基于教学计划和可选的既有匹配结果，汇总已覆盖标准、领域分布、未匹配单元和需要人工复核的结果。
+      security:
+        - ApiKeyAuth: []
+        - {}
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/CoverageAnalyzeRequest"
+            example:
+              plan:
+                title: 三年级科学植物观察单元
+                subject_slug: science
+                grade: 三年级
+                units:
+                  - title: 植物生命周期观察
+                    learning_goals: [观察植物结构, 记录数据并交流发现]
+                    keywords: [植物, 观察, 数据]
+              top_k_per_unit: 3
+              min_score: 0.2
       responses:
         "200":
           description: 覆盖分析结果
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApiResponse"
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/CoverageAnalysis"
         "403":
           $ref: "#/components/responses/Forbidden"
         "422":
@@ -425,20 +612,46 @@ paths:
   /api/v1/schedules/weekly:
     post:
       tags: [教学规划]
+      operationId: generateWeeklySchedule
       summary: 根据教学计划和标准匹配结果生成确定性的周进度安排
+      description: 把教学单元和匹配到的标准确定性地分配到教学周。相同输入会得到相同结果，便于审计和二次编辑。
+      security:
+        - ApiKeyAuth: []
+        - {}
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/WeeklyScheduleRequest"
+            example:
+              plan:
+                title: 三年级科学植物观察单元
+                subject_slug: science
+                grade: 三年级
+                units:
+                  - title: 植物生命周期观察
+                    lesson_count: 4
+                    learning_goals: [观察植物结构, 记录数据并交流发现]
+                    keywords: [植物, 观察, 数据]
+              teaching_weeks: 2
+              lessons_per_week: 2
+              top_k_per_unit: 3
+              min_score: 0.2
       responses:
         "200":
           description: 周进度安排
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApiResponse"
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/WeeklyScheduleItem"
         "403":
           $ref: "#/components/responses/Forbidden"
         "422":
@@ -449,13 +662,21 @@ components:
       type: apiKey
       in: header
       name: x-api-key
-      description: 可选 API key。未提供 key 时按 anonymous 权限层级处理，只能访问 public 字段集。
+      description: |
+        在请求头中发送已分配的 API Key。请只填写 Key 本身，不要添加 `Bearer` 前缀。
+
+        - 不填写：匿名访问，可使用 `public` 字段集
+        - developer：增加 `source`、`evidence`
+        - partner：增加 `textbook`
+        - admin：增加 `admin` 和运行指标接口
+
+        不要把 API Key 写入浏览器前端、日志或公开仓库。
   parameters:
     SubjectSlug:
       name: subject_slug
       in: path
       required: true
-      description: 学科 slug，例如 science。
+      description: 稳定的英文学科标识，例如 `science`。可先调用 `GET /api/v1/subjects` 获取完整列表。
       schema:
         type: string
         example: science
@@ -463,7 +684,7 @@ components:
       name: skill_code
       in: path
       required: true
-      description: 可迁移能力 code，例如 TS1。
+      description: 可迁移能力 code，例如 `TS1`。可先调用 `GET /api/v1/skills` 获取完整列表。
       schema:
         type: string
         example: TS1
@@ -471,7 +692,7 @@ components:
       name: code
       in: path
       required: true
-      description: 课程标准 code，例如 SC-D2-SC-010。
+      description: 全局唯一的课程标准 code，例如 `SC-D2-SC-010`。
       schema:
         type: string
         example: SC-D2-SC-010
@@ -479,7 +700,7 @@ components:
       name: include
       in: query
       required: false
-      description: 逗号分隔的字段集。默认 public。source/evidence 需要 developer 权限层级，textbook 需要 partner 权限层级，admin 需要 admin 权限层级。
+      description: 逗号分隔的字段集。默认 `public`；`source`/`evidence` 需要 developer，`textbook` 需要 partner，`admin` 需要 admin 权限。
       schema:
         type: string
         example: public,evidence
@@ -500,6 +721,7 @@ components:
       description: 分页游标，来自上一页响应的 meta.next_cursor。
       schema:
         type: string
+        example: "20"
   responses:
     Forbidden:
       description: 当前字段集或接口需要更高权限层级
@@ -507,30 +729,62 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/ApiError"
+          example:
+            error:
+              code: forbidden_fieldset
+              message: 字段集 evidence 需要 developer 或更高权限。
+              details: []
+            meta:
+              request_id: req_7e8a15d0
     NotFound:
       description: 资源不存在
       content:
         application/json:
           schema:
             $ref: "#/components/schemas/ApiError"
+          example:
+            error:
+              code: not_found
+              message: 未找到课程标准：NOPE-404
+              details: []
+            meta:
+              request_id: req_4c32e2a1
     TooManyRequests:
       description: 超出当前 tier 的限流
       content:
         application/json:
           schema:
             $ref: "#/components/schemas/ApiError"
+          example:
+            error:
+              code: rate_limit_exceeded
+              message: 当前访问层级已超过速率限制，请稍后重试。
+              details: []
+            meta:
+              request_id: req_f67a9210
     ValidationError:
       description: 请求参数或请求体校验失败
       content:
         application/json:
           schema:
             $ref: "#/components/schemas/ApiError"
+          example:
+            error:
+              code: validation_error
+              message: 请求参数或请求体校验失败。
+              details:
+                - path: [limit]
+                  code: too_big
+                  message: 数值必须小于或等于 100。
+            meta:
+              request_id: req_52ad740c
   schemas:
     Fieldset:
       title: 权限字段集
-      description: 控制标准详情返回范围的字段集。高敏感来源、证据、教材和 admin 字段需要更高权限。
+      description: 控制标准详情返回范围。`public` 可匿名访问；`source` 和 `evidence` 需要 developer；`textbook` 需要 partner；`admin` 仅管理员可用。
       type: string
       enum: [public, source, evidence, textbook, admin]
+      example: public
     ApiMeta:
       title: API 响应元信息
       description: 每次成功响应都会返回的请求追踪、数据版本和提示信息。
@@ -539,6 +793,7 @@ components:
         request_id:
           description: 服务端生成的请求追踪 ID。
           type: string
+          example: req_7e8a15d0
         data_version:
           description: 当前使用的数据版本。
           type: string
@@ -552,13 +807,15 @@ components:
           type: array
           items:
             type: string
+          example: []
       required: [request_id, data_version, schema_version, warnings]
     ApiResponse:
       title: 成功响应
       description: API 成功响应统一封装格式。
       type: object
       properties:
-        data: {}
+        data:
+          description: 当前接口的业务数据；具体结构以该接口的响应 Schema 为准。
         meta:
           $ref: "#/components/schemas/ApiMeta"
       required: [data, meta]
@@ -568,13 +825,19 @@ components:
       type: object
       properties:
         error:
+          description: 机器可读错误信息。客户端应根据 `code` 分支处理，而不是解析 `message`。
           type: object
           properties:
             code:
+              description: 稳定的英文错误 code。
               type: string
+              example: validation_error
             message:
+              description: 面向开发者的中文错误说明。
               type: string
+              example: 请求参数或请求体校验失败。
             details:
+              description: 字段级错误详情；无详情时为空数组。
               type: array
               items: {}
           required: [code, message, details]
@@ -582,7 +845,9 @@ components:
           type: object
           properties:
             request_id:
+              description: 用于日志排查和支持请求的追踪 ID。
               type: string
+              example: req_52ad740c
           required: [request_id]
       required: [error, meta]
     DataVersion:
@@ -591,23 +856,43 @@ components:
       type: object
       properties:
         data_version:
+          description: 当前数据快照版本，格式为 `YYYY.MM.DD`。
           type: string
+          example: "2026.07.09"
         schema_version:
+          description: 结构化数据 Schema 版本。
           type: string
+          example: "1.0.0"
         source_standard:
+          description: 主要课程标准来源名称。
           type: string
+          example: 义务教育课程方案和课程标准（2022年版）
         source_commit:
+          description: 生成此数据快照的 Git commit。
           type: string
+          example: fa175f9aa0f1e623383b81a37660289b3eb6207e
         generated_at:
+          description: 当前 API 数据快照生成时间，ISO 8601 格式。
           type: string
+          format: date-time
+          example: "2026-07-09T00:00:00.000+08:00"
         data_source_generated_at:
+          description: 上游源数据生成时间，ISO 8601 格式。
           type: string
+          format: date-time
+          example: "2026-07-01T07:46:17.346Z"
         validated:
+          description: 当前快照是否通过发布前数据校验。
           type: boolean
+          example: true
         subjects_covered:
+          description: 当前覆盖的学科数量。
           type: integer
+          example: 9
         standard_count:
+          description: 当前可查询的课程标准总数。
           type: integer
+          example: 2025
       required: [data_version, schema_version, validated, subjects_covered, standard_count]
     StandardPublic:
       title: 课程标准公开字段
@@ -615,117 +900,235 @@ components:
       type: object
       properties:
         id:
+          description: 课程标准记录 ID；当前与 `code` 相同。
           type: string
+          example: SC-D2-SC-010
         code:
+          description: 全局唯一、可长期引用的课程标准 code。
           type: string
+          example: SC-D2-SC-010
         subject:
+          description: 中文学科名称。
           type: string
+          example: 科学
         subject_slug:
+          description: 稳定的英文学科标识，用于筛选和路径参数。
           type: string
+          example: science
         domain:
+          description: 课程标准所属一级领域。
           type: string
+          example: 科学观念
         subdomain:
+          description: 课程标准所属二级领域或核心概念。
           type: string
+          example: 物质的变化与化学反应
         display_subcategory:
+          description: 面向界面展示的规范化子分类名称。
           type: string
+          example: 物质的变化与化学反应
         standard_title:
+          description: 由标准正文提炼的简短标题，适合列表展示。
           type: string
+          example: 常见物体的某些特征和常见材料的某些性能
         grade_band:
+          description: 规范化学段 code，例如 `H2` 表示 3 至 4 年级。
           type: string
+          example: H2
         grade_range:
+          description: 适用年级范围。
           type: string
+          example: 3-4
         grade:
+          description: 面向用户展示的中文学段或年级名称。
           type: string
+          example: 第二学段（3-4年级）
         grade_level:
+          description: 单一年级数字；学段级共享标准为 `null`。
           type: [integer, "null"]
+          example: null
         stage_band:
+          description: 标准来源中使用的规范化学段 code。
           type: string
+          example: H2
         standard:
+          description: 可用于教学规划和课程对齐的课程标准正文。
           type: string
+          example: 认识常见物体的某些特征和常见材料的某些性能。
         context:
+          description: 帮助理解标准的课程情境或内容提示。
           type: string
+          example: 理解物质的三态及其变化的特点，并能用图像描述这些特点。
         practice:
+          description: 与该标准相关的学习实践或活动类型。
           type: string
+          example: 观察
         teaching_tip:
+          description: 面向教师的教学实施建议。
           type: string
+          example: 引导学生结合真实物体进行观察、比较并记录证据。
         assessment_evidence_type:
+          description: 可用于判断学习达成的证据类型。
           type: string
+          example: 观察记录+实验/探究记录
         ts_primary:
+          description: 与该标准主要对齐的可迁移能力 code。
           type: array
           items:
             type: string
+          example: [TS1]
         ts_secondary:
+          description: 与该标准次要对齐的可迁移能力 code。
           type: array
           items:
             type: string
+          example: []
         ts_rationale:
+          description: 标准与可迁移能力对齐的中文理由。
           type: string
+          example: 标准强调基于证据的推理、分析与解释，直接对应批判性思维与问题解决。
+        materials_tools:
+          description: 实施教学活动时可参考的材料与工具建议；无建议时为空字符串。
+          type: string
+          example: 观察记录表、常见材料样品
+        safety_notes:
+          description: 教学活动的安全注意事项；无特殊要求时为空字符串。
+          type: string
+          example: 实验前说明材料使用规范，并在教师指导下操作。
+        previous_code:
+          description: 明确关联的前置课程标准 code；不存在时为空字符串。
+          type: string
+          example: SC-D1-SC-014
+        next_code:
+          description: 明确关联的后续课程标准 code；不存在时为空字符串。
+          type: string
+          example: SC-D3-SC-010
       required: [id, code, subject, subject_slug, grade_band, standard]
+      example:
+        id: SC-D2-SC-010
+        code: SC-D2-SC-010
+        subject: 科学
+        subject_slug: science
+        domain: 科学观念
+        subdomain: 物质的变化与化学反应
+        display_subcategory: 物质的变化与化学反应
+        standard_title: 常见物体的某些特征和常见材料的某些性能
+        grade_band: H2
+        grade_range: 3-4
+        grade: 第二学段（3-4年级）
+        grade_level: null
+        stage_band: H2
+        standard: 认识常见物体的某些特征和常见材料的某些性能。
+        context: 理解物质的三态及其变化的特点，并能用图像描述这些特点。
+        practice: 观察
+        teaching_tip: 引导学生结合真实物体进行观察、比较并记录证据。
+        assessment_evidence_type: 观察记录+实验/探究记录
+        ts_primary: [TS1]
+        ts_secondary: []
+        ts_rationale: 标准强调基于证据的推理、分析与解释，直接对应批判性思维与问题解决。
+        materials_tools: 观察记录表、常见材料样品
+        safety_notes: 实验前说明材料使用规范，并在教师指导下操作。
+        previous_code: SC-D1-SC-014
+        next_code: SC-D3-SC-010
     StandardSearchRequest:
       title: 标准搜索请求
       description: 按学科、年级段、领域、能力或关键词搜索课程标准。
       type: object
       properties:
         subjects:
+          description: 学科 slug 列表；多个值按 OR 匹配。
           type: array
           items:
             type: string
+          example: [science]
         grade_bands:
+          description: 学段 code 列表，例如 `H1`、`H2`、`H3`、`H4G7`、`H4G8`、`H4G9`。
           type: array
           items:
             type: string
+          example: [H2]
         domains:
+          description: 一级领域名称列表，需与数据中的中文领域名称一致。
           type: array
           items:
             type: string
+          example: [科学观念]
         skills:
+          description: 可迁移能力 code 列表，例如 `TS1`。
           type: array
           items:
             type: string
+          example: [TS1]
         keyword:
+          description: 在标准正文、标题、领域、情境和教学提示等字段中检索的中文关键词。
           type: string
+          example: 观察
         include:
+          description: 需要返回的字段集。省略时只返回 `public`。
           type: array
           items:
             $ref: "#/components/schemas/Fieldset"
+          example: [public]
         limit:
+          description: 每页返回数量，默认 20，最大 100。
           type: integer
           minimum: 1
           maximum: 100
+          default: 20
+          example: 3
         cursor:
+          description: 上一页 `meta.next_cursor`；首次请求省略或传 `null`。
           type: [string, "null"]
+          example: null
+      example:
+        subjects: [science]
+        keyword: 观察
+        include: [public]
+        limit: 3
     StandardBatchRequest:
       title: 批量标准请求
       description: 通过多个标准 code 批量获取课程标准。
       type: object
       properties:
         codes:
+          description: 需要读取的课程标准 code，数量为 1 至 100。
           type: array
           minItems: 1
           maxItems: 100
           items:
             type: string
+          example: [SC-D1-SC-014, SC-D2-SC-010]
         include:
+          description: 需要返回的字段集。省略时只返回 `public`。
           type: array
           items:
             $ref: "#/components/schemas/Fieldset"
+          example: [public]
       required: [codes]
+      example:
+        codes: [SC-D1-SC-014, SC-D2-SC-010]
     StandardCompareRequest:
       title: 标准对比请求
       description: 对比 2 到 10 条课程标准的相同点、差异点和进阶关系。
       type: object
       properties:
         codes:
+          description: 需要对比的 2 至 10 个课程标准 code。
           type: array
           minItems: 2
           maxItems: 10
           items:
             type: string
+          example: [SC-D1-SC-014, SC-D2-SC-010]
         include:
+          description: 参与对比并返回的字段集。省略时只使用 `public`。
           type: array
           items:
             $ref: "#/components/schemas/Fieldset"
+          example: [public]
       required: [codes]
+      example:
+        codes: [SC-D1-SC-014, SC-D2-SC-010]
     StandardCollectionResponse:
       title: 标准列表响应
       description: 带分页元信息的课程标准列表响应。
@@ -743,48 +1146,64 @@ components:
                 - type: object
                   properties:
                     total:
+                      description: 符合条件的结果总数。
                       type: integer
+                      example: 42
                     limit:
+                      description: 当前页最大返回数量。
                       type: integer
+                      example: 20
                     next_cursor:
+                      description: 下一页游标；没有下一页时为 `null`。
                       type: [string, "null"]
+                      example: "20"
     StandardNeighbors:
       title: 标准邻接关系
       description: 某条标准的前后标准、同领域标准、同能力标准和进阶关系。
       type: object
       properties:
         anchor:
+          description: 当前查询的锚点课程标准。
           $ref: "#/components/schemas/StandardPublic"
         relationships:
+          description: 按关系类型分组的相邻标准。
           type: object
           properties:
             previous:
+              description: 前一学段或年级的对应标准；不存在时为 `null`。
               anyOf:
                 - $ref: "#/components/schemas/StandardPublic"
                 - type: "null"
             next:
+              description: 后一学段或年级的对应标准；不存在时为 `null`。
               anyOf:
                 - $ref: "#/components/schemas/StandardPublic"
                 - type: "null"
             same_domain:
+              description: 同学科、同领域的相关标准。
               $ref: "#/components/schemas/RelatedStandards"
             same_skill:
+              description: 共享可迁移能力标签的相关标准。
               type: object
               properties:
                 skills:
+                  description: 锚点标准使用的能力 code。
                   type: array
                   items:
                     type: string
                 total:
+                  description: 同能力相关标准总数。
                   type: integer
                 items:
                   type: array
                   items:
                     $ref: "#/components/schemas/StandardPublic"
             progression:
+              description: 同一进阶组中的标准。
               type: object
               properties:
                 progression_group_id:
+                  description: 进阶组 ID；未归组时为 `null`。
                   type: [string, "null"]
                 total:
                   type: integer
@@ -798,8 +1217,10 @@ components:
       type: object
       properties:
         total:
+          description: 相关标准总数。
           type: integer
         items:
+          description: 相关标准列表。
           type: array
           items:
             $ref: "#/components/schemas/StandardPublic"
@@ -809,12 +1230,19 @@ components:
       type: object
       properties:
         code:
+          description: 课程标准 code。
           type: string
+          example: SC-H4G7-AR-001
         subject_slug:
+          description: 英文学科标识。
           type: string
+          example: science
         grade_band:
+          description: 规范化学段或年级 code。
           type: string
+          example: H4G7
         evidence_ids:
+          description: 按证据类型分组的稳定 evidence ID。
           type: object
           properties:
             textbook:
@@ -830,6 +1258,7 @@ components:
               items:
                 type: string
         evidence_counts:
+          description: 按证据类型汇总的数量。
           type: object
           properties:
             textbook:
@@ -839,10 +1268,13 @@ components:
             supplemental:
               type: integer
         source:
+          description: 标准来源与来源对齐状态摘要。
           type: object
         progression:
+          description: 进阶组和年级化状态摘要。
           type: object
         warnings:
+          description: 证据不足、低置信度或需要人工复核的非阻断提示。
           type: array
           items:
             type: string
@@ -852,60 +1284,127 @@ components:
       type: object
       properties:
         unit_id:
+          description: 调用方提供或解析器生成的单元 ID。
           type: string
+          example: unit-1
         title:
+          description: 教学单元标题；匹配时的主要文本信号之一。
           type: string
+          example: 植物生命周期观察
         week_start:
+          description: 单元开始周次，从 1 开始。
           type: integer
+          minimum: 1
+          example: 1
         week_end:
+          description: 单元结束周次，从 1 开始。
           type: integer
+          minimum: 1
+          example: 2
         lesson_count:
+          description: 该单元计划课时数。
           type: integer
+          minimum: 1
+          example: 4
         learning_goals:
+          description: 中文学习目标列表；会参与标准匹配和理由生成。
           type: array
           items:
             type: string
+          example: [观察植物结构, 记录数据并交流发现]
         keywords:
+          description: 由教师或上游系统提供的主题关键词。
           type: array
           items:
             type: string
+          example: [植物, 观察, 数据]
       required: [title]
+      example:
+        unit_id: unit-1
+        title: 植物生命周期观察
+        week_start: 1
+        week_end: 2
+        lesson_count: 4
+        learning_goals: [观察植物结构, 记录数据并交流发现]
+        keywords: [植物, 观察, 数据]
     ParsedPlan:
       title: 解析后的教学计划
       description: 结构化教学计划，用于校验、标准匹配、覆盖分析和周进度生成。
       type: object
       properties:
         plan_id:
+          description: 调用方提供或解析器生成的教学计划 ID。
           type: string
+          example: plan-science-grade-3
         title:
+          description: 教学计划标题。
           type: string
+          example: 三年级科学植物观察单元
         subject_slug:
+          description: 稳定的英文学科标识；建议填写以提高匹配精度。
           type: string
+          example: science
         grade:
+          description: 面向用户的中文年级，例如 `三年级`。
           type: string
+          example: 三年级
         grade_band:
+          description: 规范化学段 code；可由解析器根据年级推断。
           type: string
+          example: H2
         duration_weeks:
+          description: 教学计划总周数。
           type: integer
+          minimum: 1
+          example: 2
         lessons_per_week:
+          description: 每周课时数。
           type: integer
+          minimum: 1
+          example: 2
         units:
+          description: 教学单元列表。
           type: array
           items:
             $ref: "#/components/schemas/PlanUnit"
       required: [title]
+      example:
+        plan_id: plan-science-grade-3
+        title: 三年级科学植物观察单元
+        subject_slug: science
+        grade: 三年级
+        grade_band: H2
+        duration_weeks: 2
+        lessons_per_week: 2
+        units:
+          - unit_id: unit-1
+            title: 植物生命周期观察
+            learning_goals: [观察植物结构, 记录数据并交流发现]
+            keywords: [植物, 观察, 数据]
     PlanParseRequest:
       title: 计划解析请求
       description: 传入纯文本计划或已结构化 plan，返回规范化 ParsedPlan。
       type: object
       properties:
         text:
+          description: 需要解析的中文纯文本教学计划。`text` 和 `plan` 至少提供一个。
           type: string
+          example: |-
+            三年级科学植物观察计划
+            学科：科学
+            年级：三年级
+            单元一：植物生命周期观察
         plan:
           $ref: "#/components/schemas/ParsedPlan"
       anyOf:
         - required: [text]
         - required: [plan]
+      example:
+        text: |-
+          三年级科学植物观察计划
+          学科：科学
+          年级：三年级
+          单元一：植物生命周期观察
     PlanToStandardsRequest:
       title: 计划匹配标准请求
       description: 将教学计划中的单元匹配到真实课程标准，并控制返回数量、最低分和复核阈值。
@@ -914,21 +1413,32 @@ components:
         plan:
           $ref: "#/components/schemas/ParsedPlan"
         top_k_per_unit:
+          description: 每个教学单元最多返回的候选标准数量。
           type: integer
           minimum: 1
           maximum: 20
+          default: 5
+          example: 3
         min_score:
+          description: 最低匹配分数，范围 0 至 1；低于该值的候选不会返回。
           type: number
           minimum: 0
           maximum: 1
+          default: 0.2
+          example: 0.2
         review_threshold:
+          description: 人工复核阈值；低于该值的结果会标记 `requires_human_review=true`。
           type: number
           minimum: 0
           maximum: 1
+          default: 0.45
+          example: 0.45
         include:
+          description: 匹配结果中课程标准需要包含的字段集。
           type: array
           items:
             $ref: "#/components/schemas/Fieldset"
+          example: [public]
       required: [plan]
     MatchedField:
       title: 命中字段
@@ -936,32 +1446,49 @@ components:
       type: object
       properties:
         field:
+          description: 发生关键词命中的课程标准字段名。
           type: string
+          example: standard
         matched_keywords:
+          description: 该字段中命中的中文关键词。
           type: array
           items:
             type: string
-        value: {}
+          example: [植物, 观察]
+        value:
+          description: 用于匹配的字段原始值；类型取决于 `field`。
     PlanStandardMatch:
       title: 计划标准匹配结果
       description: 单个教学单元与一条课程标准之间的匹配结果、分数、理由和人工复核标记。
       type: object
       properties:
         code:
+          description: 匹配到的真实课程标准 code。
           type: string
+          example: SC-D2-SC-010
         score:
+          description: 0 至 1 的确定性匹配分数，越高表示文本与结构信号越强。
           type: number
+          minimum: 0
+          maximum: 1
+          example: 0.62
         match_type:
+          description: 当前匹配算法类型。
           type: string
           enum: [deterministic_field_overlap]
         matched_fields:
+          description: 支撑该匹配结果的字段与关键词证据。
           type: array
           items:
             $ref: "#/components/schemas/MatchedField"
         rationale:
+          description: 面向教研人员的中文匹配理由。
           type: string
+          example: 教学单元中的“观察”和“数据”与标准正文及实践字段一致。
         requires_human_review:
+          description: 该匹配是否低于复核阈值，或存在证据不足等风险。
           type: boolean
+          example: false
         standard:
           $ref: "#/components/schemas/StandardPublic"
       required: [code, score, match_type, matched_fields, rationale, requires_human_review, standard]
@@ -973,6 +1500,114 @@ components:
         plan:
           $ref: "#/components/schemas/ParsedPlan"
         units:
+          description: 按教学单元组织的标准匹配结果。
+          type: array
+          items:
+            type: object
+            properties:
+              unit_id:
+                description: 对应教学单元 ID。
+                type: string
+              unit_title:
+                description: 对应教学单元标题。
+                type: string
+              matches:
+                description: 按分数从高到低排列的候选标准。
+                type: array
+                items:
+                  $ref: "#/components/schemas/PlanStandardMatch"
+              warnings:
+                description: 当前单元的非阻断提示。
+                type: array
+                items:
+                  type: string
+        warnings:
+          description: 整个教学计划层级的非阻断提示。
+          type: array
+          items:
+            type: string
+    PlanParseResult:
+      title: 教学计划解析结果
+      description: 规范化后的教学计划、输入来源和需要复核的提示。
+      type: object
+      properties:
+        plan:
+          $ref: "#/components/schemas/ParsedPlan"
+        source:
+          description: 本次解析使用的输入类型。
+          type: string
+          enum: [structured, text]
+          example: text
+        warnings:
+          description: 解析过程中产生的非阻断中文提示。
+          type: array
+          items:
+            type: string
+          example: [纯文本解析采用确定性保守策略；正式使用匹配结果前，请先复核结构化教学计划。]
+      required: [plan, source, warnings]
+    PlanValidationResult:
+      title: 教学计划校验结果
+      description: 教学计划是否有效，以及错误、提示和规范化后的计划。
+      type: object
+      properties:
+        valid:
+          description: 是否可以继续用于标准匹配。
+          type: boolean
+          example: true
+        errors:
+          description: 阻断后续处理的中文错误列表。
+          type: array
+          items:
+            type: string
+          example: []
+        warnings:
+          description: 不阻断处理、但建议人工关注的中文提示。
+          type: array
+          items:
+            type: string
+          example: []
+        normalized_plan:
+          $ref: "#/components/schemas/ParsedPlan"
+      required: [valid, errors, warnings, normalized_plan]
+    CoverageAnalysis:
+      title: 课程标准覆盖分析结果
+      description: 教学计划覆盖到的标准、领域、能力、单元缺口和复核提示。
+      type: object
+      properties:
+        covered_standard_codes:
+          description: 去重并排序后的已覆盖课程标准 code。
+          type: array
+          items:
+            type: string
+          example: [SC-D2-SC-010]
+        unmatched_units:
+          description: 没有任何标准达到最低匹配分数的教学单元 ID。
+          type: array
+          items:
+            type: string
+          example: []
+        duplicate_standards:
+          description: 被多个教学单元重复匹配的课程标准 code。
+          type: array
+          items:
+            type: string
+          example: []
+        standards_by_domain:
+          description: 按课程领域汇总的匹配数量。
+          type: object
+          additionalProperties:
+            type: integer
+          example:
+            科学观念: 1
+        standards_by_skill:
+          description: 按可迁移能力 code 汇总的匹配数量。
+          type: object
+          additionalProperties:
+            type: integer
+          example:
+            TS1: 1
+        units:
+          description: 每个教学单元的覆盖摘要。
           type: array
           items:
             type: object
@@ -981,18 +1616,65 @@ components:
                 type: string
               unit_title:
                 type: string
-              matches:
-                type: array
-                items:
-                  $ref: "#/components/schemas/PlanStandardMatch"
-              warnings:
+              matched_standard_codes:
                 type: array
                 items:
                   type: string
+              low_confidence_match_count:
+                type: integer
         warnings:
+          description: 覆盖重复、覆盖缺口或低置信度结果的中文提示。
           type: array
           items:
             type: string
+      required: [covered_standard_codes, unmatched_units, duplicate_standards, standards_by_domain, standards_by_skill, units, warnings]
+    WeeklyScheduleItem:
+      title: 单周教学进度
+      description: 一周的教学、复习或考试安排，以及关联课程标准。
+      type: object
+      properties:
+        week:
+          description: 周次，从 1 开始。
+          type: integer
+          example: 1
+        type:
+          description: 周类型；枚举值保持英文以便程序处理。
+          type: string
+          enum: [teaching, review, exam]
+          example: teaching
+        unit_id:
+          description: 对应教学单元 ID；复习周和考试周可能为 `null`。
+          type: [string, "null"]
+          example: U1
+        unit_title:
+          description: 对应教学单元标题；复习周和考试周可能为 `null`。
+          type: [string, "null"]
+          example: 植物生命周期观察
+        focus:
+          description: 本周教学重点。
+          type: string
+          example: 植物生命周期观察
+        lesson_count:
+          description: 本周课时数。
+          type: integer
+          example: 2
+        standard_codes:
+          description: 本周重点对齐的课程标准 code，最多取前四条匹配结果。
+          type: array
+          items:
+            type: string
+          example: [SC-D2-SC-010]
+        assessment_focus:
+          description: 建议的评价证据类型；无建议时为 `null`。
+          type: [string, "null"]
+          example: 观察记录+实验/探究记录
+        warnings:
+          description: 本周需要人工复核的中文提示。
+          type: array
+          items:
+            type: string
+          example: []
+      required: [week, type, unit_id, unit_title, focus, lesson_count, standard_codes, assessment_focus, warnings]
     CoverageAnalyzeRequest:
       title: 覆盖分析请求
       description: 基于教学计划和可选匹配结果分析课程标准覆盖情况。
@@ -1001,6 +1683,7 @@ components:
         - type: object
           properties:
             matches:
+              description: 可选的既有匹配结果；省略时服务端会先执行标准匹配。
               $ref: "#/components/schemas/PlanMatchingResult"
     WeeklyScheduleRequest:
       title: 周进度请求
@@ -1010,20 +1693,29 @@ components:
         - type: object
           properties:
             matches:
+              description: 可选的既有匹配结果；省略时服务端会先执行标准匹配。
               $ref: "#/components/schemas/PlanMatchingResult"
             teaching_weeks:
+              description: 需要生成的教学周总数；省略时优先使用计划中的 `duration_weeks`。
               type: integer
               minimum: 1
               maximum: 60
+              example: 2
             lessons_per_week:
+              description: 每周课时数；省略时优先使用计划中的同名字段。
               type: integer
               minimum: 1
               maximum: 20
+              example: 2
             review_weeks:
+              description: 需要安排为复习周的周次。
               type: array
               items:
                 type: integer
+              example: []
             exam_weeks:
+              description: 需要安排为考试或总结性评价周的周次。
               type: array
               items:
                 type: integer
+              example: []

@@ -44,14 +44,36 @@ test('OPTIONS preflight returns CORS headers', async () => {
 test('GET /api/v1/openapi.yaml and /api/v1/docs expose API documentation', async () => {
     const specResponse = await app.request('/api/v1/openapi.yaml')
     assert.equal(specResponse.status, 200)
-    assert.match(await specResponse.text(), /课程智能 API/)
+    const spec = await specResponse.text()
+    assert.match(spec, /课程智能 API/)
+    assert.match(spec, /operationId: searchStandards/)
+    assert.match(spec, /summary: 搜索科学学科中与观察有关的标准/)
+    assert.match(spec, /title: 课程标准覆盖分析结果/)
+    assert.match(spec, /materials_tools:/)
 
     const docsResponse = await app.request('/api/v1/docs')
     assert.equal(docsResponse.status, 200)
     const docsHtml = await docsResponse.text()
     assert.match(docsHtml, /<html lang="zh-CN">/)
-    assert.match(docsHtml, /课程智能 API 文档/)
+    assert.match(docsHtml, /课程智能 API 中文开发者文档/)
+    assert.match(docsHtml, /三步完成第一次调用/)
+    assert.match(docsHtml, /设置 API Key/)
+    assert.match(docsHtml, /docExpansion: 'none'/)
+    assert.match(docsHtml, /filter: true/)
+    assert.match(docsHtml, /persistAuthorization: false/)
     assert.match(docsHtml, /SwaggerUIBundle/)
+    assert.match(docsHtml, /\/api\/v1\/docs\/assets\/swagger-ui-bundle\.js\?v=5\.32\.8/)
+    assert.doesNotMatch(docsHtml, /unpkg\.com/)
+
+    const cssResponse = await app.request('/api/v1/docs/assets/swagger-ui.css')
+    assert.equal(cssResponse.status, 200)
+    assert.match(cssResponse.headers.get('content-type') || '', /text\/css/)
+    assert.match(await cssResponse.text(), /\.swagger-ui/)
+
+    const scriptResponse = await app.request('/api/v1/docs/assets/swagger-ui-bundle.js')
+    assert.equal(scriptResponse.status, 200)
+    assert.match(scriptResponse.headers.get('content-type') || '', /text\/javascript/)
+    assert.match(await scriptResponse.text(), /SwaggerUIBundle/)
 })
 
 test('GET /api/v1/metrics requires admin tier', async () => {
@@ -93,6 +115,7 @@ test('GET /api/v1/standards/:code returns public standard without admin fields',
     assert.equal(response.status, 200)
     const body = await json(response)
     assert.equal(body.data.code, 'AR-D1-AA-MU-007')
+    assert.equal('materials_tools' in body.data, true)
     assert.equal('review_status' in body.data, false)
 })
 
@@ -101,6 +124,7 @@ test('GET /api/v1/standards/:code returns 404 for missing code', async () => {
     assert.equal(response.status, 404)
     const body = await json(response)
     assert.equal(body.error.code, 'not_found')
+    assert.equal(body.error.message, '未找到课程标准：NOPE-404')
 })
 
 test('POST /api/v1/standards/search filters by subject and keyword', async () => {
@@ -192,6 +216,7 @@ test('POST /api/v1/plans/parse parses plain text conservatively', async () => {
     assert.equal(body.data.plan.subject_slug, 'science')
     assert.equal(body.data.plan.grade_band, 'H2')
     assert.equal(body.data.source, 'text')
+    assert.match(body.data.warnings[0], /纯文本解析采用确定性保守策略/)
 })
 
 test('POST /api/v1/matching/plan-to-standards returns explainable real-code matches', async () => {
@@ -221,6 +246,7 @@ test('POST /api/v1/matching/plan-to-standards returns explainable real-code matc
     assert.ok(body.data.units[0].matches.length > 0)
     assert.match(body.data.units[0].matches[0].code, /^SC-/)
     assert.ok(body.data.units[0].matches[0].matched_fields.length > 0)
+    assert.match(body.data.units[0].matches[0].rationale, /教学单元关键词/)
 })
 
 test('POST /api/v1/coverage/analyze and /api/v1/schedules/weekly support planning workflows', async () => {

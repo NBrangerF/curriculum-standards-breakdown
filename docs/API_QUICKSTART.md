@@ -1,10 +1,10 @@
 # 课程智能 API 快速开始
 
-更新时间：2026-07-09
+更新时间：2026-07-10
 
-本文档面向 API 使用者和集成方，说明如何调用课程智能 API、如何使用 API key、如何理解返回结构，以及如何在部署后做 smoke test。
+本文档面向 API 使用者和集成方，说明如何调用课程智能 API、如何使用 API Key、如何理解返回结构，以及如何在部署后做冒烟测试。
 
-## 1. Base URL
+## 1. 服务地址
 
 当前生产地址：
 
@@ -41,7 +41,7 @@ https://curriculum-standards-breakdown.vercel.app/api/v1/openapi.yaml
 
 API 文档界面的 server 默认指向 production。若本地调试，可以在 server 下拉框切换到 `http://localhost:8787`。
 
-## 3. Authentication
+## 3. 认证
 
 公开 fieldset 可匿名访问。更高权限通过 `x-api-key` 请求头传入：
 
@@ -57,16 +57,16 @@ CURRICULUM_API_KEYS="dev_xxx:developer,partner_xxx:partner"
 CURRICULUM_ADMIN_API_KEYS="admin_xxx"
 ```
 
-权限 tier：
+权限层级：
 
-| Tier | 用途 | 可访问 fieldset |
+| 层级 | 用途 | 可访问字段集 |
 | --- | --- | --- |
 | anonymous | 文档、健康检查、公开标准数据 | `public` |
 | developer | 开发者集成与 evidence 级别分析 | `public`, `source`, `evidence` |
 | partner | 教材证据和合作方集成 | `public`, `source`, `evidence`, `textbook` |
 | admin | 运维和内部诊断 | all fieldsets, `/api/v1/metrics` |
 
-## 4. Response Envelope
+## 4. 响应结构
 
 成功响应统一返回：
 
@@ -88,7 +88,7 @@ CURRICULUM_ADMIN_API_KEYS="admin_xxx"
 {
   "error": {
     "code": "validation_error",
-    "message": "Request validation failed",
+    "message": "请求参数或请求体校验失败。",
     "details": []
   },
   "meta": {
@@ -101,13 +101,13 @@ CURRICULUM_ADMIN_API_KEYS="admin_xxx"
 
 | HTTP | Code | 说明 |
 | --- | --- | --- |
-| 403 | `forbidden_tier` | 需要更高 API tier |
-| 403 | `forbidden_fieldset` | 当前 key 不能访问请求的 fieldset |
+| 403 | `forbidden_tier` | 需要更高 API 权限层级 |
+| 403 | `forbidden_fieldset` | 当前 API Key 不能访问请求的字段集 |
 | 404 | `not_found` | 学科、技能或标准 code 不存在 |
 | 422 | `validation_error` | 请求体字段不符合 schema |
 | 429 | `rate_limit_exceeded` | 超出当前 tier 限流 |
 
-## 5. Curl Examples
+## 5. curl 示例
 
 设置 base URL：
 
@@ -133,7 +133,7 @@ curl -s "$API_BASE/api/v1/subjects" | jq
 curl -s "$API_BASE/api/v1/standards/SC-D2-SC-010" | jq
 ```
 
-搜索 standards：
+搜索课程标准：
 
 ```bash
 curl -s -X POST "$API_BASE/api/v1/standards/search" \
@@ -141,7 +141,7 @@ curl -s -X POST "$API_BASE/api/v1/standards/search" \
   -d '{"subjects":["science"],"keyword":"植物","limit":3}' | jq
 ```
 
-课程计划匹配 standards：
+课程计划匹配课程标准：
 
 ```bash
 curl -s -X POST "$API_BASE/api/v1/matching/plan-to-standards" \
@@ -164,23 +164,23 @@ curl -s -X POST "$API_BASE/api/v1/matching/plan-to-standards" \
   }' | jq
 ```
 
-访问 evidence fieldset：
+访问 evidence 字段集：
 
 ```bash
 curl -s "$API_BASE/api/v1/standards/SC-D2-SC-010?include=public,evidence" \
   -H "x-api-key: $CURRICULUM_API_KEY" | jq
 ```
 
-Admin metrics：
+管理员运行指标：
 
 ```bash
 curl -s "$API_BASE/api/v1/metrics" \
   -H "x-api-key: $CURRICULUM_ADMIN_API_KEY" | jq
 ```
 
-## 6. TypeScript Client
+## 6. TypeScript 客户端
 
-当前仓库提供轻量 client：
+当前仓库提供轻量客户端：
 
 ```ts
 import { CurriculumClient } from '@curriculum/client'
@@ -215,7 +215,7 @@ const matches = await client.matchPlanToStandards({
 })
 ```
 
-## 7. Smoke Test
+## 7. 冒烟测试
 
 部署后运行：
 
@@ -223,7 +223,7 @@ const matches = await client.matchPlanToStandards({
 API_BASE="https://curriculum-standards-breakdown.vercel.app" npm run smoke:api
 ```
 
-带 API key 验证 developer/admin 权限：
+带 API Key 验证 developer/admin 权限：
 
 ```bash
 API_BASE="https://curriculum-standards-breakdown.vercel.app" \
@@ -239,9 +239,9 @@ npm run api:dev
 API_BASE="http://localhost:8787" npm run smoke:api
 ```
 
-## 8. Integration Notes
+## 8. 集成注意事项
 
 - 教学规划 API 不记录原始请求体；日志只记录 method、path、status、latency、tier、request_id。
-- `public/data` 是当前 source of truth；Meilisearch 只作为搜索 adapter。
-- 对外集成建议先从匿名/public 数据开始，再申请 developer 或 partner key。
+- `public/data` 是当前唯一数据源；Meilisearch 只作为搜索适配器。
+- 对外集成建议先从匿名/public 数据开始，再申请 developer 或 partner API Key。
 - 所有返回都带 `request_id`；遇到错误时请把 `request_id` 和请求时间一起提供，方便查日志。

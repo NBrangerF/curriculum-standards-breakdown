@@ -152,7 +152,7 @@ export const rateLimitMiddleware: MiddlewareHandler<ApiBindings> = async (c, nex
 
     if (current.count > limit) {
         c.header('retry-after', String(Math.max(1, Math.ceil((current.resetAt - now) / 1000))))
-        return apiError(c, 429, 'rate_limit_exceeded', `Rate limit exceeded for ${tier} tier.`)
+        return apiError(c, 429, 'rate_limit_exceeded', `当前 ${tier} 访问层级已超过速率限制，请稍后重试。`)
     }
 
     await next()
@@ -234,7 +234,7 @@ export function hasTierAccess(actual: AccessTier, required: AccessTier): boolean
 export function ensureTierAccess(c: Context<ApiBindings>, required: AccessTier) {
     const tier = c.get('accessTier') || 'anonymous'
     if (hasTierAccess(tier, required)) return null
-    return apiError(c, 403, 'forbidden_tier', `${required} tier access is required.`)
+    return apiError(c, 403, 'forbidden_tier', `此接口需要 ${required} 或更高访问权限。`)
 }
 
 export function ensureFieldsetAccess(c: Context<ApiBindings>, include: string[] | undefined) {
@@ -246,7 +246,7 @@ export function ensureFieldsetAccess(c: Context<ApiBindings>, include: string[] 
         c,
         403,
         'forbidden_fieldset',
-        `Fieldset "${blocked}" requires ${FIELDSET_MIN_TIER[blocked]} tier access.`
+        `字段集 ${blocked} 需要 ${FIELDSET_MIN_TIER[blocked]} 或更高访问权限。`
     )
 }
 

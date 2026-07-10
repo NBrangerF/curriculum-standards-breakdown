@@ -132,7 +132,7 @@ export function extractPlanKeywords(text: string, limit = 80): string[] {
 }
 
 function normalizeUnit(raw: Partial<PlanUnit>, index: number): PlanUnit {
-    const title = compact(raw.title) || `Unit ${index + 1}`
+    const title = compact(raw.title) || `单元 ${index + 1}`
     const learningGoals = ensureArray<string>(raw.learning_goals).map(compact).filter(Boolean)
     const keywords = [
         ...ensureArray<string>(raw.keywords).map(compact),
@@ -149,7 +149,7 @@ function normalizeUnit(raw: Partial<PlanUnit>, index: number): PlanUnit {
 }
 
 export function normalizeParsedPlan(raw: ParsedPlanInput): ParsedPlan {
-    const title = compact(raw.title) || 'Untitled curriculum plan'
+    const title = compact(raw.title) || '未命名课程计划'
     const grade = compact(raw.grade)
     const gradeBand = compact(raw.grade_band) || deriveGradeBand(grade)
     const units = ensureArray<Partial<PlanUnit>>(raw.units).length
@@ -173,7 +173,7 @@ export function normalizeParsedPlan(raw: ParsedPlanInput): ParsedPlan {
 
 function parsePlanText(text: string): ParsedPlan {
     const lines = text.split(/\r?\n/).map(line => line.trim()).filter(Boolean)
-    const title = lines.find(line => !line.includes('：') && !line.includes(':')) || lines[0] || 'Untitled curriculum plan'
+    const title = lines.find(line => !line.includes('：') && !line.includes(':')) || lines[0] || '未命名课程计划'
     const units: Partial<PlanUnit>[] = []
     let subjectSlug = detectSubjectSlug(text)
     let grade: string | undefined
@@ -239,9 +239,9 @@ export function parsePlanInput(input: { text?: string; plan?: ParsedPlanInput })
 
     const text = compact(input.text)
     const plan = parsePlanText(text)
-    const warnings = ['Plain-text parsing is deterministic and conservative; review the structured plan before using matches operationally.']
-    if (!plan.subject_slug) warnings.push('Subject could not be confidently detected from text.')
-    if (!plan.grade_band) warnings.push('Grade band could not be confidently detected from text.')
+    const warnings = ['纯文本解析采用确定性保守策略；正式使用匹配结果前，请先复核结构化教学计划。']
+    if (!plan.subject_slug) warnings.push('无法从文本中可靠识别学科。')
+    if (!plan.grade_band) warnings.push('无法从文本中可靠识别学段。')
     return { plan, source: 'text', warnings }
 }
 
@@ -252,25 +252,25 @@ export function validateParsedPlan(plan: ParsedPlan, manifest: Manifest): PlanVa
     const subjects = new Set(manifest.subjects.map(subject => subject.subject_slug))
     const gradeBands = new Set(Object.keys(manifest.target_policy || GRADE_BANDS))
 
-    if (!normalized.subject_slug) warnings.push('subject_slug is missing; matching will search across all subjects.')
-    else if (!subjects.has(normalized.subject_slug)) errors.push(`Unknown subject_slug: ${normalized.subject_slug}`)
+    if (!normalized.subject_slug) warnings.push('缺少 subject_slug；标准匹配将跨全部学科搜索。')
+    else if (!subjects.has(normalized.subject_slug)) errors.push(`未知的 subject_slug：${normalized.subject_slug}`)
 
-    if (!normalized.grade_band) warnings.push('grade_band is missing; matching will not filter by grade band.')
-    else if (!gradeBands.has(normalized.grade_band)) errors.push(`Unknown grade_band: ${normalized.grade_band}`)
+    if (!normalized.grade_band) warnings.push('缺少 grade_band；标准匹配将不按学段筛选。')
+    else if (!gradeBands.has(normalized.grade_band)) errors.push(`未知的 grade_band：${normalized.grade_band}`)
 
-    if (!normalized.units.length) errors.push('At least one unit is required.')
+    if (!normalized.units.length) errors.push('至少需要一个教学单元。')
     for (const unit of normalized.units) {
-        if (!unit.title) errors.push(`Unit ${unit.unit_id} is missing title.`)
+        if (!unit.title) errors.push(`教学单元 ${unit.unit_id} 缺少 title。`)
         if (!unit.learning_goals.length && !unit.keywords.length) {
-            warnings.push(`Unit ${unit.unit_id} has no learning_goals or keywords; matching confidence may be low.`)
+            warnings.push(`教学单元 ${unit.unit_id} 没有 learning_goals 或 keywords；匹配置信度可能较低。`)
         }
     }
 
     if (normalized.duration_weeks !== undefined && normalized.duration_weeks < 1) {
-        errors.push('duration_weeks must be greater than 0.')
+        errors.push('duration_weeks 必须大于 0。')
     }
     if (normalized.lessons_per_week !== undefined && normalized.lessons_per_week < 1) {
-        errors.push('lessons_per_week must be greater than 0.')
+        errors.push('lessons_per_week 必须大于 0。')
     }
 
     return {
@@ -366,8 +366,8 @@ function scoreStandardForUnit(
     const normalizedScore = Math.min(1, Number(score.toFixed(3)))
     const topFields = matchedFields.map(field => field.field).slice(0, 4)
     const rationale = matchedFields.length
-        ? `Matched by ${topFields.join(', ')} overlap with unit keywords.`
-        : 'Returned from subject/grade candidates only; no strong text overlap was found.'
+        ? `教学单元关键词与以下标准字段存在重合：${topFields.join('、')}。`
+        : '该结果仅由学科和学段候选范围筛出，未发现较强的文本重合。'
 
     return {
         code: standard.code,
@@ -397,7 +397,7 @@ export function matchPlanToStandards(
     })
 
     if (!candidateStandards.length) {
-        warnings.push('No standards matched the plan subject/grade filters; broaden the plan metadata or validate subject_slug and grade_band.')
+        warnings.push('没有课程标准符合教学计划的学科和学段筛选；请放宽计划元数据，或检查 subject_slug 与 grade_band。')
     }
 
     const units: PlanUnitMatches[] = normalizedPlan.units.map(unit => {
@@ -407,9 +407,9 @@ export function matchPlanToStandards(
             .sort((a, b) => b.score - a.score || a.code.localeCompare(b.code))
             .slice(0, topK)
         const unitWarnings: string[] = []
-        if (!matches.length) unitWarnings.push('No standard reached the minimum deterministic score for this unit.')
+        if (!matches.length) unitWarnings.push('没有课程标准达到该教学单元的最低确定性匹配分数。')
         if (matches.some(match => match.requires_human_review)) {
-            unitWarnings.push('One or more matches are below the review threshold and require human confirmation.')
+            unitWarnings.push('一条或多条匹配结果低于复核阈值，需要人工确认。')
         }
         return {
             unit_id: unit.unit_id,
@@ -466,8 +466,8 @@ export function analyzeCoverage(plan: ParsedPlan, matching: PlanMatchingResult):
         })),
         warnings: [
             ...matching.warnings,
-            ...(duplicateStandards.length ? ['Some standards are matched by multiple units; review for intentional spiral coverage or duplication.'] : []),
-            ...(unmatchedUnits.length ? ['Some units have no standards above the deterministic match threshold.'] : [])
+            ...(duplicateStandards.length ? ['部分课程标准被多个教学单元重复匹配；请确认这是有意的螺旋式覆盖，还是需要去重。'] : []),
+            ...(unmatchedUnits.length ? ['部分教学单元没有达到确定性匹配阈值的课程标准。'] : [])
         ]
     }
 }
@@ -501,10 +501,10 @@ export function generateWeeklySchedule(
                 type: 'exam',
                 unit_id: null,
                 unit_title: null,
-                focus: 'Assessment and evidence collection',
+                focus: '评价与学习证据收集',
                 lesson_count: lessonsPerWeek,
                 standard_codes: [],
-                assessment_focus: 'Summative assessment',
+                assessment_focus: '总结性评价',
                 warnings: []
             })
             continue
@@ -516,10 +516,10 @@ export function generateWeeklySchedule(
                 type: 'review',
                 unit_id: null,
                 unit_title: null,
-                focus: 'Review, consolidation, and low-confidence match confirmation',
+                focus: '复习巩固与低置信度匹配确认',
                 lesson_count: lessonsPerWeek,
                 standard_codes: [],
-                assessment_focus: 'Formative review',
+                assessment_focus: '形成性复习',
                 warnings: []
             })
             continue
@@ -543,7 +543,7 @@ export function generateWeeklySchedule(
             standard_codes: standardCodes,
             assessment_focus: compact(firstMatch?.assessment_evidence_type) || null,
             warnings: unitMatches.some(match => match.requires_human_review)
-                ? ['This week includes low-confidence standard matches that need human review.']
+                ? ['本周包含低置信度的课程标准匹配，需要人工复核。']
                 : []
         })
     }

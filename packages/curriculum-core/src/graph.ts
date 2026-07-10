@@ -40,11 +40,11 @@ export function buildStandardEvidenceSummary(record: StandardRecord): StandardEv
     const warnings: string[] = []
 
     if (!textbookIds.length && !textbookUnitIds.length && !supplementalIds.length) {
-        warnings.push('No textbook or supplemental evidence ids are attached to this standard.')
+        warnings.push('该课程标准尚未关联教材或补充证据 ID。')
     }
 
     if (String(normalized.requires_unit_level_evidence || '').toLowerCase() === 'true') {
-        warnings.push('This standard is marked as requiring unit-level evidence review.')
+        warnings.push('该课程标准已标记为需要单元级证据复核。')
     }
 
     return {

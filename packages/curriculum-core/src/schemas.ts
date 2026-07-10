@@ -48,7 +48,7 @@ export const PlanParseRequestSchema = z.object({
     text: z.string().min(1).optional(),
     plan: ParsedPlanSchema.partial().optional()
 }).refine(value => Boolean(value.text || value.plan), {
-    message: 'Either text or plan is required.'
+    message: 'text 和 plan 至少需要提供一个。'
 })
 
 export const PlanValidateRequestSchema = z.object({
