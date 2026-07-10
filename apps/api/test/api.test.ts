@@ -4,6 +4,7 @@ import { resolve } from 'node:path'
 import { readFile, rm } from 'node:fs/promises'
 import { FileCurriculumRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
+import vercelHandler from '../../../api/v1/[...path].js'
 
 const dataRoot = resolve(process.cwd(), '../../public/data')
 const app = createApp(new FileCurriculumRepository(dataRoot))
@@ -82,6 +83,18 @@ test('Vercel rewrite forwards nested API paths to the Hono function', async () =
         source: '/api/v1/:path*',
         destination: '/api/v1/[...path]'
     })
+})
+
+test('Vercel web handler preserves POST JSON request bodies', async () => {
+    const response = await vercelHandler.fetch(new Request('http://localhost/api/v1/standards/search', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ subjects: ['science'], keyword: '观察', limit: 1 })
+    }))
+    assert.equal(response.status, 200)
+    const body = await json(response)
+    assert.equal(body.data.length, 1)
+    assert.equal(body.data[0].subject_slug, 'science')
 })
 
 test('GET /api/v1/metrics requires admin tier', async () => {
