@@ -155,10 +155,13 @@ API_BASE=https://www.kebiao.org npm run smoke:api
 | `CURRICULUM_OPENAPI_PATH` | 指定 API 文档 YAML 路径，默认 `../../docs/api/openapi.yaml` |
 | `CURRICULUM_ENABLE_REQUEST_LOGS` | 设为 `true` 时输出不含请求体的结构化请求日志 |
 | `CURRICULUM_ALLOWED_ORIGINS` | CORS 允许来源，生产建议设置为正式域名 |
-| `CURRICULUM_METRICS_FILE` | 可选 NDJSON metrics 文件路径，用于 Node/file 部署持久化 |
+| `CURRICULUM_METRICS_REDIS_REST_URL` / `CURRICULUM_METRICS_REDIS_REST_TOKEN` | Redis REST durable metrics；Vercel 生产推荐配置 |
+| `CURRICULUM_METRICS_FILE` | 可选 NDJSON metrics 文件路径，仅适合 Node/file 部署 |
 | `PORT` | API 端口，默认 `8787` |
-| `CURRICULUM_API_KEYS` | 逗号分隔的 API key，例如 `dev_key:developer,partner_key:partner` |
-| `CURRICULUM_ADMIN_API_KEYS` | 逗号分隔的 admin key |
+| `CURRICULUM_API_KEYS` | 逗号分隔的 key registry；推荐 `key_id:key:developer` |
+| `CURRICULUM_ADMIN_API_KEYS` | 逗号分隔的 admin registry；推荐 `key_id:key` |
+
+持久化指标与 API Key 签发/轮换见：`docs/API_OPERATIONS.md`
 
 ---
 

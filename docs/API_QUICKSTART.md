@@ -48,9 +48,11 @@ curl -s "$API_BASE/api/v1/health" \
 环境变量格式：
 
 ```bash
-CURRICULUM_API_KEYS="dev_xxx:developer,partner_xxx:partner"
-CURRICULUM_ADMIN_API_KEYS="admin_xxx"
+CURRICULUM_API_KEYS="partner_alpha_20260710:kb_live_developer_xxx:developer"
+CURRICULUM_ADMIN_API_KEYS="ops_primary_20260710:kb_live_admin_xxx"
 ```
+
+推荐的 registry 格式是 `key_id:key:tier`（admin 为 `key_id:key`）。`key_id` 只用于管理员指标和运维日志归属；不要在其中放姓名、邮箱或其他个人信息。历史 `key:tier` 格式仍可用。签发、轮换和撤销流程见 `docs/API_OPERATIONS.md`。
 
 权限层级：
 
@@ -236,7 +238,7 @@ API_BASE="http://localhost:8787" npm run smoke:api
 
 ## 8. 集成注意事项
 
-- 教学规划 API 不记录原始请求体；日志只记录 method、path、status、latency、tier、request_id。
+- 教学规划 API 不记录原始请求体；日志与 durable metrics 只记录 method、path、status、latency、tier 和非敏感 `api_key_id`。
 - `public/data` 是当前唯一数据源；Meilisearch 只作为搜索适配器。
 - 对外集成建议先从匿名/public 数据开始，再申请 developer 或 partner API Key。
 - 所有返回都带 `request_id`；遇到错误时请把 `request_id` 和请求时间一起提供，方便查日志。

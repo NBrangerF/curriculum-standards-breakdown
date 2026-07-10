@@ -1,5 +1,6 @@
 import { mkdir, readFile, appendFile } from 'fs/promises'
 import { dirname } from 'path'
+import { createHash } from 'crypto'
 import type { Context, MiddlewareHandler } from 'hono'
 import type { AccessTier, DataVersion, JsonObject } from '@curriculum/core'
 
@@ -42,12 +43,17 @@ interface MetricsEvent {
     status: number
     duration_ms: number
     tier: AccessTier
+    api_key_id: string
 }
+
+type DurableMetricsEvent = Omit<MetricsEvent, 'request_id'>
 
 interface MetricsSummary {
     total_requests: number
     by_status: Map<string, number>
     by_route: Map<string, number>
+    by_tier: Map<string, number>
+    by_api_key_id: Map<string, number>
     latency: {
         count: number
         sum_ms: number
@@ -60,6 +66,8 @@ const memoryMetrics: MetricsSummary & { started_at: string } = {
     total_requests: 0,
     by_status: new Map<string, number>(),
     by_route: new Map<string, number>(),
+    by_tier: new Map<string, number>(),
+    by_api_key_id: new Map<string, number>(),
     latency: {
         count: 0,
         sum_ms: 0,
@@ -67,15 +75,39 @@ const memoryMetrics: MetricsSummary & { started_at: string } = {
     }
 }
 
-function parseApiKeys(): Map<string, AccessTier> {
-    const entries = new Map<string, AccessTier>()
+interface ApiKeyAccess {
+    key_id: string
+    tier: AccessTier
+}
+
+interface RedisMetricsConfig {
+    base_url: string
+    token: string
+    key: string
+    max_events: number
+    ttl_seconds: number
+}
+
+function parseApiKeys(): Map<string, ApiKeyAccess> {
+    const entries = new Map<string, ApiKeyAccess>()
     const raw = process.env.CURRICULUM_API_KEYS || ''
     for (const item of raw.split(',').map(value => value.trim()).filter(Boolean)) {
-        const [key, tier = 'developer'] = item.split(':')
-        if (key) entries.set(key, normalizeTier(tier))
+        const [first, second, third] = item.split(':')
+        if (first && second && third) {
+            const keyId = normalizeApiKeyId(first)
+            if (keyId) entries.set(second, { key_id: keyId, tier: normalizeTier(third) })
+            continue
+        }
+        if (first) entries.set(first, { key_id: keyFingerprint(first), tier: normalizeTier(second || 'developer') })
     }
-    for (const key of (process.env.CURRICULUM_ADMIN_API_KEYS || '').split(',').map(value => value.trim()).filter(Boolean)) {
-        entries.set(key, 'admin')
+    for (const item of (process.env.CURRICULUM_ADMIN_API_KEYS || '').split(',').map(value => value.trim()).filter(Boolean)) {
+        const [first, second] = item.split(':')
+        if (first && second) {
+            const keyId = normalizeApiKeyId(first)
+            if (keyId) entries.set(second, { key_id: keyId, tier: 'admin' })
+            continue
+        }
+        if (first) entries.set(first, { key_id: keyFingerprint(first), tier: 'admin' })
     }
     return entries
 }
@@ -86,7 +118,11 @@ function normalizeTier(value: string): AccessTier {
 }
 
 function keyFingerprint(key: string): string {
-    return key.length <= 8 ? key : `${key.slice(0, 4)}...${key.slice(-4)}`
+    return `legacy_${createHash('sha256').update(key).digest('hex').slice(0, 12)}`
+}
+
+function normalizeApiKeyId(value: string): string | null {
+    return /^[a-z0-9][a-z0-9_-]{2,63}$/.test(value) ? value : null
 }
 
 export const requestIdMiddleware: MiddlewareHandler<ApiBindings> = async (c, next) => {
@@ -127,9 +163,9 @@ export const securityHeadersMiddleware: MiddlewareHandler<ApiBindings> = async (
 export const apiAccessMiddleware: MiddlewareHandler<ApiBindings> = async (c, next) => {
     const key = c.req.header('x-api-key') || ''
     const configuredKeys = parseApiKeys()
-    const tier = key && configuredKeys.has(key) ? configuredKeys.get(key)! : 'anonymous'
-    c.set('accessTier', tier)
-    c.set('apiKeyId', key ? keyFingerprint(key) : 'anonymous')
+    const access = key ? configuredKeys.get(key) : undefined
+    c.set('accessTier', access?.tier || 'anonymous')
+    c.set('apiKeyId', access?.key_id || (key ? keyFingerprint(key) : 'anonymous'))
     await next()
 }
 
@@ -171,7 +207,8 @@ export const observabilityMiddleware: MiddlewareHandler<ApiBindings> = async (c,
         path: c.req.path,
         status: c.res.status,
         duration_ms: durationMs,
-        tier: c.get('accessTier') || 'anonymous'
+        tier: c.get('accessTier') || 'anonymous',
+        api_key_id: c.get('apiKeyId') || 'anonymous'
     }
     await recordMetricsEvent(event)
 
@@ -256,6 +293,8 @@ function applyMetricsEvent(summary: MetricsSummary, event: MetricsEvent) {
     summary.total_requests += 1
     summary.by_status.set(status, (summary.by_status.get(status) || 0) + 1)
     summary.by_route.set(routeKey, (summary.by_route.get(routeKey) || 0) + 1)
+    summary.by_tier.set(event.tier, (summary.by_tier.get(event.tier) || 0) + 1)
+    summary.by_api_key_id.set(event.api_key_id, (summary.by_api_key_id.get(event.api_key_id) || 0) + 1)
     summary.latency.count += 1
     summary.latency.sum_ms += event.duration_ms
     summary.latency.max_ms = Math.max(summary.latency.max_ms, event.duration_ms)
@@ -263,6 +302,22 @@ function applyMetricsEvent(summary: MetricsSummary, event: MetricsEvent) {
 
 async function recordMetricsEvent(event: MetricsEvent) {
     applyMetricsEvent(memoryMetrics, event)
+    const redisConfig = resolveRedisMetricsConfig()
+    try {
+        if (redisConfig) {
+            await persistRedisMetricsEvent(redisConfig, event)
+            return
+        }
+        await persistFileMetricsEvent(event)
+    } catch {
+        console.warn(JSON.stringify({
+            event: 'api_metrics_persist_failed',
+            sink: redisConfig ? 'redis' : 'file'
+        }))
+    }
+}
+
+async function persistFileMetricsEvent(event: MetricsEvent) {
     const metricsFile = process.env.CURRICULUM_METRICS_FILE
     if (!metricsFile) return
     const resolved = metricsFile.startsWith('/') ? metricsFile : `${process.cwd()}/${metricsFile}`
@@ -270,11 +325,74 @@ async function recordMetricsEvent(event: MetricsEvent) {
     await appendFile(resolved, `${JSON.stringify(event)}\n`, 'utf8')
 }
 
+function readBoundedInteger(value: string | undefined, fallback: number, minimum: number, maximum: number): number {
+    const parsed = Number(value)
+    if (!Number.isFinite(parsed)) return fallback
+    return Math.min(Math.max(Math.floor(parsed), minimum), maximum)
+}
+
+function resolveRedisMetricsConfig(): RedisMetricsConfig | null {
+    const rawUrl = process.env.CURRICULUM_METRICS_REDIS_REST_URL || ''
+    const token = process.env.CURRICULUM_METRICS_REDIS_REST_TOKEN || ''
+    if (!rawUrl || !token) return null
+    try {
+        const url = new URL(rawUrl)
+        if (url.protocol !== 'https:') return null
+        const prefix = process.env.CURRICULUM_METRICS_REDIS_KEY_PREFIX || 'curriculum:api:metrics'
+        if (!/^[a-zA-Z0-9:_-]{1,80}$/.test(prefix)) return null
+        const day = new Date().toISOString().slice(0, 10)
+        return {
+            base_url: url.toString().replace(/\/$/, ''),
+            token,
+            key: `${prefix}:events:${day}`,
+            max_events: readBoundedInteger(process.env.CURRICULUM_METRICS_REDIS_MAX_EVENTS, 10000, 100, 100000),
+            ttl_seconds: readBoundedInteger(process.env.CURRICULUM_METRICS_REDIS_TTL_SECONDS, 2592000, 3600, 31536000)
+        }
+    } catch {
+        return null
+    }
+}
+
+async function redisPipeline(config: RedisMetricsConfig, commands: string[][]): Promise<Array<{ result?: unknown }>> {
+    const response = await fetch(`${config.base_url}/pipeline`, {
+        method: 'POST',
+        headers: {
+            authorization: `Bearer ${config.token}`,
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(commands),
+        signal: AbortSignal.timeout(750)
+    })
+    if (!response.ok) throw new Error(`metrics redis request failed with ${response.status}`)
+    const payload = await response.json()
+    if (!Array.isArray(payload)) throw new Error('metrics redis response is invalid')
+    return payload as Array<{ result?: unknown }>
+}
+
+async function persistRedisMetricsEvent(config: RedisMetricsConfig, event: MetricsEvent) {
+    const durableEvent: DurableMetricsEvent = {
+        timestamp: event.timestamp,
+        method: event.method,
+        path: event.path,
+        status: event.status,
+        duration_ms: event.duration_ms,
+        tier: event.tier,
+        api_key_id: event.api_key_id
+    }
+    await redisPipeline(config, [
+        ['lpush', config.key, JSON.stringify(durableEvent)],
+        ['ltrim', config.key, '0', String(config.max_events - 1)],
+        ['expire', config.key, String(config.ttl_seconds)]
+    ])
+}
+
 function serializeSummary(summary: MetricsSummary) {
     return {
         total_requests: summary.total_requests,
         by_status: Object.fromEntries(summary.by_status.entries()),
         by_route: Object.fromEntries(summary.by_route.entries()),
+        by_tier: Object.fromEntries(summary.by_tier.entries()),
+        by_api_key_id: Object.fromEntries(summary.by_api_key_id.entries()),
         latency_ms: {
             average: summary.latency.count ? Math.round((summary.latency.sum_ms / summary.latency.count) * 100) / 100 : 0,
             max: summary.latency.max_ms
@@ -282,18 +400,24 @@ function serializeSummary(summary: MetricsSummary) {
     }
 }
 
-async function loadPersistentMetrics(): Promise<JsonObject | null> {
+function createMetricsSummary(): MetricsSummary {
+    return {
+        total_requests: 0,
+        by_status: new Map(),
+        by_route: new Map(),
+        by_tier: new Map(),
+        by_api_key_id: new Map(),
+        latency: { count: 0, sum_ms: 0, max_ms: 0 }
+    }
+}
+
+async function loadFileMetrics(): Promise<JsonObject | null> {
     const metricsFile = process.env.CURRICULUM_METRICS_FILE
     if (!metricsFile) return null
     const resolved = metricsFile.startsWith('/') ? metricsFile : `${process.cwd()}/${metricsFile}`
     try {
         const text = await readFile(resolved, 'utf8')
-        const summary: MetricsSummary = {
-            total_requests: 0,
-            by_status: new Map(),
-            by_route: new Map(),
-            latency: { count: 0, sum_ms: 0, max_ms: 0 }
-        }
+        const summary = createMetricsSummary()
         for (const line of text.split('\n')) {
             if (!line.trim()) continue
             const event = JSON.parse(line) as MetricsEvent
@@ -319,10 +443,67 @@ async function loadPersistentMetrics(): Promise<JsonObject | null> {
     }
 }
 
+function isDurableMetricsEvent(value: unknown): value is DurableMetricsEvent {
+    if (!value || typeof value !== 'object') return false
+    const event = value as Record<string, unknown>
+    return (
+        typeof event.timestamp === 'string'
+        && typeof event.method === 'string'
+        && typeof event.path === 'string'
+        && typeof event.status === 'number'
+        && typeof event.duration_ms === 'number'
+        && typeof event.api_key_id === 'string'
+        && (event.tier === 'anonymous' || event.tier === 'developer' || event.tier === 'partner' || event.tier === 'admin')
+    )
+}
+
+async function loadRedisMetrics(config: RedisMetricsConfig): Promise<JsonObject> {
+    try {
+        const response = await redisPipeline(config, [
+            ['lrange', config.key, '0', '-1'],
+            ['ttl', config.key]
+        ])
+        const serializedEvents = Array.isArray(response[0]?.result) ? response[0].result : []
+        const summary = createMetricsSummary()
+        for (const value of serializedEvents) {
+            if (typeof value !== 'string') continue
+            try {
+                const event = JSON.parse(value)
+                if (!isDurableMetricsEvent(event)) continue
+                applyMetricsEvent(summary, { ...event, request_id: 'durable' })
+            } catch {
+                continue
+            }
+        }
+        return {
+            enabled: true,
+            backend: 'upstash_redis',
+            key: config.key,
+            retained_event_count: serializedEvents.length,
+            ttl_seconds_remaining: typeof response[1]?.result === 'number' ? response[1].result : null,
+            ...serializeSummary(summary)
+        }
+    } catch {
+        return {
+            enabled: false,
+            backend: 'upstash_redis',
+            key: config.key,
+            retained_event_count: 0
+        }
+    }
+}
+
+async function loadPersistentMetrics(): Promise<JsonObject | null> {
+    const redisConfig = resolveRedisMetricsConfig()
+    if (redisConfig) return loadRedisMetrics(redisConfig)
+    return loadFileMetrics()
+}
+
 export async function metricsSnapshot(): Promise<JsonObject> {
+    const redisConfig = resolveRedisMetricsConfig()
     return {
         started_at: memoryMetrics.started_at,
-        sink: process.env.CURRICULUM_METRICS_FILE ? 'file' : 'memory',
+        sink: redisConfig ? 'redis' : process.env.CURRICULUM_METRICS_FILE ? 'file' : 'memory',
         memory: serializeSummary(memoryMetrics),
         persistent: await loadPersistentMetrics()
     }
