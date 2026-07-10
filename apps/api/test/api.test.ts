@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { resolve } from 'node:path'
-import { rm } from 'node:fs/promises'
+import { readFile, rm } from 'node:fs/promises'
 import { FileCurriculumRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
 
@@ -74,6 +74,14 @@ test('GET /api/v1/openapi.yaml and /api/v1/docs expose API documentation', async
     assert.equal(scriptResponse.status, 200)
     assert.match(scriptResponse.headers.get('content-type') || '', /text\/javascript/)
     assert.match(await scriptResponse.text(), /SwaggerUIBundle/)
+})
+
+test('Vercel rewrite forwards nested API paths to the Hono function', async () => {
+    const config = JSON.parse(await readFile(resolve(process.cwd(), '../../vercel.json'), 'utf8'))
+    assert.deepEqual(config.rewrites[0], {
+        source: '/api/v1/:path*',
+        destination: '/api/v1/[...path]'
+    })
 })
 
 test('GET /api/v1/metrics requires admin tier', async () => {
