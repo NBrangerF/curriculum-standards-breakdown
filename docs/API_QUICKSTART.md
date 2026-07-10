@@ -1,8 +1,8 @@
-# Curriculum Intelligence API Quickstart
+# 课程智能 API 快速开始
 
 更新时间：2026-07-09
 
-本文档面向 API 使用者和集成方，说明如何调用 Curriculum Intelligence API、如何使用 API key、如何理解返回结构，以及如何在部署后做 smoke test。
+本文档面向 API 使用者和集成方，说明如何调用课程智能 API、如何使用 API key、如何理解返回结构，以及如何在部署后做 smoke test。
 
 ## 1. Base URL
 
@@ -25,21 +25,21 @@ http://localhost:8787
 - `docs/api/openapi.yaml` 的 `servers`
 - smoke test 的 `API_BASE`
 
-## 2. API Docs
+## 2. API 文档
 
-Swagger UI：
+中文 API 文档界面：
 
 ```text
 https://curriculum-standards-breakdown.vercel.app/api/v1/docs
 ```
 
-OpenAPI YAML：
+中文 OpenAPI YAML：
 
 ```text
 https://curriculum-standards-breakdown.vercel.app/api/v1/openapi.yaml
 ```
 
-Swagger UI 里的 server 默认指向 production。若本地调试，可以在 server 下拉框切换到 `http://localhost:8787`。
+API 文档界面的 server 默认指向 production。若本地调试，可以在 server 下拉框切换到 `http://localhost:8787`。
 
 ## 3. Authentication
 
@@ -241,7 +241,7 @@ API_BASE="http://localhost:8787" npm run smoke:api
 
 ## 8. Integration Notes
 
-- Planning APIs 不记录原始请求体；日志只记录 method、path、status、latency、tier、request_id。
+- 教学规划 API 不记录原始请求体；日志只记录 method、path、status、latency、tier、request_id。
 - `public/data` 是当前 source of truth；Meilisearch 只作为搜索 adapter。
 - 对外集成建议先从匿名/public 数据开始，再申请 developer 或 partner key。
 - 所有返回都带 `request_id`；遇到错误时请把 `request_id` 和请求时间一起提供，方便查日志。

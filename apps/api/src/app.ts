@@ -59,18 +59,173 @@ export function createApp(repository: FileCurriculumRepository) {
     app.get('/api/v1/docs', c => {
         c.header('content-type', 'text/html; charset=utf-8')
         return c.body(`<!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Curriculum Intelligence API Docs</title>
+  <title>课程智能 API 文档</title>
   <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css" />
-  <style>body{margin:0;background:#fff}#swagger-ui{min-height:100vh}</style>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    body { margin: 0; background: #fff; color: #172033; }
+    .api-docs-header {
+      border-bottom: 1px solid #e6e8ef;
+      padding: 24px 36px 18px;
+    }
+    .api-docs-header h1 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    .api-docs-header p {
+      margin: 0;
+      max-width: 920px;
+      color: #536079;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    #swagger-ui { min-height: 100vh; }
+    .swagger-ui,
+    .swagger-ui .info .title,
+    .swagger-ui .opblock-tag,
+    .swagger-ui button,
+    .swagger-ui input,
+    .swagger-ui select,
+    .swagger-ui textarea {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .swagger-ui .info { margin: 24px 0 18px; }
+    .swagger-ui .info .title { font-size: 28px; letter-spacing: 0; }
+    .swagger-ui .scheme-container { box-shadow: none; border-top: 1px solid #eef0f5; border-bottom: 1px solid #eef0f5; }
+    @media (max-width: 720px) {
+      .api-docs-header { padding: 18px 18px 14px; }
+      .api-docs-header h1 { font-size: 21px; }
+    }
+  </style>
 </head>
 <body>
+  <header class="api-docs-header">
+    <h1>课程智能 API 文档</h1>
+    <p>面向课程标准检索、能力图谱、教学规划解析、标准匹配、覆盖分析和周进度生成的中文 API 文档。Endpoint、字段名和枚举值保持英文，以便开发者直接复制调用。</p>
+  </header>
   <div id="swagger-ui"></div>
   <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
   <script>
+    const zhText = new Map(Object.entries({
+      "Servers": "服务地址",
+      "Schemas": "数据结构",
+      "Authorize": "认证",
+      "Close": "关闭",
+      "Available authorizations": "可用认证方式",
+      "Value": "值",
+      "Logout": "退出认证",
+      "Try it out": "试运行",
+      "Cancel": "取消",
+      "Execute": "发送请求",
+      "Clear": "清除",
+      "Reset": "重置",
+      "Responses": "响应",
+      "Response body": "响应体",
+      "Response headers": "响应头",
+      "Request body": "请求体",
+      "Parameters": "参数",
+      "Name": "名称",
+      "Description": "说明",
+      "Default value": "默认值",
+      "Required": "必填",
+      "Schema": "结构",
+      "Example Value": "示例值",
+      "Model": "模型",
+      "Media type": "媒体类型",
+      "Code": "状态码",
+      "Links": "链接",
+      "No links": "无链接",
+      "Server response": "服务端响应",
+      "Curl": "curl 命令",
+      "Request URL": "请求地址",
+      "Undocumented": "未文档化",
+      "Controls Accept header.": "控制 Accept 请求头。",
+      "Parameter content type": "参数内容类型",
+      "No parameters": "无参数",
+      "Responses content type": "响应内容类型",
+      "Download": "下载",
+      "string": "字符串",
+      "object": "对象",
+      "integer": "整数",
+      "number": "数字",
+      "boolean": "布尔值",
+      "array": "数组",
+      "Fieldset": "字段集",
+      "ApiMeta": "响应元信息",
+      "ApiResponse": "成功响应",
+      "ApiError": "错误响应",
+      "DataVersion": "数据版本",
+      "StandardPublic": "课程标准公开字段",
+      "StandardSearchRequest": "标准搜索请求",
+      "StandardBatchRequest": "批量标准请求",
+      "StandardCompareRequest": "标准对比请求",
+      "StandardCollectionResponse": "标准列表响应",
+      "StandardNeighbors": "标准邻接关系",
+      "RelatedStandards": "相关标准集合",
+      "StandardEvidenceSummary": "标准证据摘要",
+      "PlanUnit": "教学单元",
+      "ParsedPlan": "解析后的教学计划",
+      "PlanParseRequest": "计划解析请求",
+      "PlanToStandardsRequest": "计划匹配标准请求",
+      "MatchedField": "命中字段",
+      "PlanStandardMatch": "计划标准匹配结果",
+      "PlanMatchingResult": "计划匹配结果",
+      "CoverageAnalyzeRequest": "覆盖分析请求",
+      "WeeklyScheduleRequest": "周进度请求"
+    }))
+
+    const zhAttributes = new Map(Object.entries({
+      "Collapse operation": "收起接口",
+      "Expand operation": "展开接口",
+      "Expand all": "全部展开",
+      "Collapse all": "全部收起",
+      "authorization header": "认证请求头"
+    }))
+
+    function replaceExactText(node) {
+      const raw = node.nodeValue || ""
+      const trimmed = raw.trim()
+      const replacement = zhText.get(trimmed) || zhAttributes.get(trimmed)
+      if (!replacement) return
+      node.nodeValue = raw.replace(trimmed, replacement)
+    }
+
+    function localizeAttributes(element) {
+      for (const attribute of ["aria-label", "title", "placeholder", "value"]) {
+        const value = element.getAttribute(attribute)
+        if (!value) continue
+        const replacement = zhText.get(value.trim()) || zhAttributes.get(value.trim())
+        if (replacement) element.setAttribute(attribute, replacement)
+      }
+    }
+
+    function localizeSwaggerUi(root) {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
+      let textNode = walker.nextNode()
+      while (textNode) {
+        replaceExactText(textNode)
+        textNode = walker.nextNode()
+      }
+      root.querySelectorAll("[aria-label], [title], [placeholder], [value]").forEach(localizeAttributes)
+    }
+
+    function scheduleLocalization() {
+      window.requestAnimationFrame(function () {
+        const root = document.getElementById("swagger-ui")
+        if (root) localizeSwaggerUi(root)
+      })
+    }
+
     window.ui = SwaggerUIBundle({
       url: '/api/v1/openapi.yaml',
       dom_id: '#swagger-ui',
@@ -78,6 +233,10 @@ export function createApp(repository: FileCurriculumRepository) {
       presets: [SwaggerUIBundle.presets.apis],
       layout: 'BaseLayout'
     })
+
+    const observer = new MutationObserver(scheduleLocalization)
+    observer.observe(document.getElementById("swagger-ui"), { childList: true, subtree: true })
+    scheduleLocalization()
   </script>
 </body>
 </html>`)

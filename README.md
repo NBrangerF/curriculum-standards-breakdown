@@ -108,7 +108,7 @@ npm run build
 
 启动后访问: http://localhost:5173
 
-### Curriculum Intelligence API
+### 课程智能 API
 
 ```bash
 # 启动 API 服务
@@ -127,17 +127,17 @@ npm run search:index-meilisearch
 
 API 生产地址: https://curriculum-standards-breakdown.vercel.app
 API 本地地址: http://localhost:8787
-API 文档页面: https://curriculum-standards-breakdown.vercel.app/api/v1/docs
+中文 API 文档页面: https://curriculum-standards-breakdown.vercel.app/api/v1/docs
 
 当前 API 已覆盖：
 
-- Ops API: `/api/v1/health`, `/api/v1/openapi.yaml`, `/api/v1/docs`, `/api/v1/metrics`
-- Data API: `/api/v1/meta`, `/api/v1/data-version`, `/api/v1/subjects`, `/api/v1/skills`, `/api/v1/standards/search`
-- Graph API: `/api/v1/standards/{code}/progression`, `/api/v1/standards/{code}/neighbors`, `/api/v1/standards/{code}/evidence`, `/api/v1/standards/compare`
-- Planning API: `/api/v1/plans/parse`, `/api/v1/plans/validate`, `/api/v1/matching/plan-to-standards`, `/api/v1/coverage/analyze`, `/api/v1/schedules/weekly`
+- 运维 API: `/api/v1/health`, `/api/v1/openapi.yaml`, `/api/v1/docs`, `/api/v1/metrics`
+- 数据 API: `/api/v1/meta`, `/api/v1/data-version`, `/api/v1/subjects`, `/api/v1/skills`, `/api/v1/standards/search`
+- 关系图谱 API: `/api/v1/standards/{code}/progression`, `/api/v1/standards/{code}/neighbors`, `/api/v1/standards/{code}/evidence`, `/api/v1/standards/compare`
+- 教学规划 API: `/api/v1/plans/parse`, `/api/v1/plans/validate`, `/api/v1/matching/plan-to-standards`, `/api/v1/coverage/analyze`, `/api/v1/schedules/weekly`
 
-API 契约见：`docs/api/openapi.yaml`
-API Quickstart 见：`docs/API_QUICKSTART.md`
+中文 OpenAPI 契约见：`docs/api/openapi.yaml`
+API 快速开始见：`docs/API_QUICKSTART.md`
 TypeScript client 见：`packages/curriculum-client`
 Vercel 部署说明见：`docs/DEPLOYMENT_VERCEL.md`
 
@@ -195,7 +195,7 @@ API_BASE=https://curriculum-standards-breakdown.vercel.app npm run smoke:api
 │   ├── curriculum-core/      # API/Web/Skill 共享的课程标准核心逻辑
 │   └── curriculum-client/    # 轻量 TypeScript API client
 ├── apps/
-│   └── api/                  # Curriculum Intelligence API MVP
+│   └── api/                  # 课程智能 API MVP
 └── .env                      # 环境变量 (不提交)
 ```
 

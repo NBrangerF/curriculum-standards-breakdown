@@ -44,11 +44,14 @@ test('OPTIONS preflight returns CORS headers', async () => {
 test('GET /api/v1/openapi.yaml and /api/v1/docs expose API documentation', async () => {
     const specResponse = await app.request('/api/v1/openapi.yaml')
     assert.equal(specResponse.status, 200)
-    assert.match(await specResponse.text(), /Curriculum Intelligence API/)
+    assert.match(await specResponse.text(), /课程智能 API/)
 
     const docsResponse = await app.request('/api/v1/docs')
     assert.equal(docsResponse.status, 200)
-    assert.match(await docsResponse.text(), /SwaggerUIBundle/)
+    const docsHtml = await docsResponse.text()
+    assert.match(docsHtml, /<html lang="zh-CN">/)
+    assert.match(docsHtml, /课程智能 API 文档/)
+    assert.match(docsHtml, /SwaggerUIBundle/)
 })
 
 test('GET /api/v1/metrics requires admin tier', async () => {
