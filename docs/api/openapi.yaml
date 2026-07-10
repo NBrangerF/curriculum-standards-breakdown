@@ -79,7 +79,7 @@ paths:
       tags: [元信息]
       operationId: getMetrics
       summary: 获取 API 运行指标快照
-      description: 需要 admin 权限 API key。当前支持内存指标，并可在 Node 文件部署下追加写入持久化 NDJSON。
+      description: 需要 admin 权限 API key。返回内存指标；配置 Redis REST 时还返回按 UTC 日保留的持久化事件窗口摘要，含 endpoint、tier、非敏感 key ID、状态和延迟，不含 API Key、请求体或教学计划原文。Node/file 部署仍支持 NDJSON 文件摘要。
       security:
         - ApiKeyAuth: []
       responses:

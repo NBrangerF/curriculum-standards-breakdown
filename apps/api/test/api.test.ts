@@ -132,6 +132,98 @@ test('metrics can persist sanitized request events to file', async () => {
     assert.equal('body' in body.data.persistent, false)
 })
 
+test('metrics can persist sanitized events to Upstash Redis REST', async () => {
+    const originalFetch = globalThis.fetch
+    const originalRedisUrl = process.env.CURRICULUM_METRICS_REDIS_REST_URL
+    const originalRedisToken = process.env.CURRICULUM_METRICS_REDIS_REST_TOKEN
+    const originalAdminKeys = process.env.CURRICULUM_ADMIN_API_KEYS
+    const requests: string[][][] = []
+
+    globalThis.fetch = async (_input, init) => {
+        const commands = JSON.parse(String(init?.body || '[]')) as string[][]
+        requests.push(commands)
+        if (commands[0]?.[0] === 'lrange') {
+            return Response.json([
+                {
+                    result: [JSON.stringify({
+                        timestamp: '2026-07-10T00:00:00.000Z',
+                        method: 'GET',
+                        path: '/api/v1/health',
+                        status: 200,
+                        duration_ms: 12.5,
+                        tier: 'anonymous',
+                        api_key_id: 'anonymous'
+                    })]
+                },
+                { result: 3600 }
+            ])
+        }
+        return Response.json([{ result: 1 }, { result: 'OK' }, { result: 1 }])
+    }
+    process.env.CURRICULUM_METRICS_REDIS_REST_URL = 'https://metrics.example.test'
+    process.env.CURRICULUM_METRICS_REDIS_REST_TOKEN = 'test-token'
+    process.env.CURRICULUM_ADMIN_API_KEYS = 'ops_admin:metrics_redis_test_key'
+
+    try {
+        await app.request('/api/v1/health')
+        const response = await app.request('/api/v1/metrics', {
+            headers: { 'x-api-key': 'metrics_redis_test_key' }
+        })
+        assert.equal(response.status, 200)
+        const body = await json(response)
+        assert.equal(body.data.sink, 'redis')
+        assert.equal(body.data.persistent.backend, 'upstash_redis')
+        assert.equal(body.data.persistent.total_requests, 1)
+        assert.equal(body.data.persistent.by_tier.anonymous, 1)
+        assert.equal(body.data.persistent.by_api_key_id.anonymous, 1)
+
+        const write = requests.find(commands => commands[0]?.[0] === 'lpush')
+        assert.ok(write)
+        const event = JSON.parse(write![0][2]) as Record<string, unknown>
+        assert.deepEqual(Object.keys(event).sort(), ['api_key_id', 'duration_ms', 'method', 'path', 'status', 'tier', 'timestamp'])
+        assert.equal(event.api_key_id, 'anonymous')
+        assert.equal('request_id' in event, false)
+        assert.equal('body' in event, false)
+    } finally {
+        globalThis.fetch = originalFetch
+        if (originalRedisUrl === undefined) delete process.env.CURRICULUM_METRICS_REDIS_REST_URL
+        else process.env.CURRICULUM_METRICS_REDIS_REST_URL = originalRedisUrl
+        if (originalRedisToken === undefined) delete process.env.CURRICULUM_METRICS_REDIS_REST_TOKEN
+        else process.env.CURRICULUM_METRICS_REDIS_REST_TOKEN = originalRedisToken
+        if (originalAdminKeys === undefined) delete process.env.CURRICULUM_ADMIN_API_KEYS
+        else process.env.CURRICULUM_ADMIN_API_KEYS = originalAdminKeys
+    }
+})
+
+test('API key registry supports named key IDs without breaking legacy keys', async () => {
+    const originalApiKeys = process.env.CURRICULUM_API_KEYS
+    const originalAdminKeys = process.env.CURRICULUM_ADMIN_API_KEYS
+    process.env.CURRICULUM_API_KEYS = 'district_alpha:developer_registry_test_key:developer,legacy_partner_key:partner'
+    process.env.CURRICULUM_ADMIN_API_KEYS = 'ops_admin:admin_registry_test_key'
+
+    try {
+        const developer = await app.request('/api/v1/standards/SC-D2-SC-010?include=public,evidence', {
+            headers: { 'x-api-key': 'developer_registry_test_key' }
+        })
+        assert.equal(developer.status, 200)
+
+        const legacyPartner = await app.request('/api/v1/standards/SC-D2-SC-010?include=public,textbook', {
+            headers: { 'x-api-key': 'legacy_partner_key' }
+        })
+        assert.equal(legacyPartner.status, 200)
+
+        const admin = await app.request('/api/v1/metrics', {
+            headers: { 'x-api-key': 'admin_registry_test_key' }
+        })
+        assert.equal(admin.status, 200)
+    } finally {
+        if (originalApiKeys === undefined) delete process.env.CURRICULUM_API_KEYS
+        else process.env.CURRICULUM_API_KEYS = originalApiKeys
+        if (originalAdminKeys === undefined) delete process.env.CURRICULUM_ADMIN_API_KEYS
+        else process.env.CURRICULUM_ADMIN_API_KEYS = originalAdminKeys
+    }
+})
+
 test('GET /api/v1/standards/:code returns public standard without admin fields', async () => {
     const response = await app.request('/api/v1/standards/AR-D1-AA-MU-007')
     assert.equal(response.status, 200)

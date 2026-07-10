@@ -46,13 +46,17 @@ Production/Preview 至少配置：
 
 | Variable | Required | Example | Notes |
 | --- | --- | --- | --- |
-| `CURRICULUM_API_KEYS` | Recommended | `dev_xxx:developer,partner_xxx:partner` | 逗号分隔，格式为 `key:tier`。 |
-| `CURRICULUM_ADMIN_API_KEYS` | Recommended | `admin_xxx` | 访问 `/api/v1/metrics` 和 admin fieldset。 |
+| `CURRICULUM_API_KEYS` | Recommended | `partner_alpha:key:developer` | 逗号分隔，推荐格式为 `key_id:key:tier`。 |
+| `CURRICULUM_ADMIN_API_KEYS` | Recommended | `ops_primary:key` | 访问 `/api/v1/metrics` 和 admin fieldset；推荐格式为 `key_id:key`。 |
 | `CURRICULUM_ALLOWED_ORIGINS` | Recommended | `https://www.kebiao.org,https://kebiao.org` | 默认 `*`，生产建议仅允许正式域名。 |
 | `CURRICULUM_ENABLE_REQUEST_LOGS` | Recommended | `true` | 输出不含请求体的结构化日志。 |
 | `CURRICULUM_DATA_ROOT` | Optional | `public/data` | Vercel 默认可不填。 |
 | `CURRICULUM_OPENAPI_PATH` | Optional | `docs/api/openapi.yaml` | Vercel 默认可不填。 |
-| `CURRICULUM_METRICS_FILE` | Optional | `/tmp/curriculum-api-metrics.ndjson` | Node/file 部署可持久到文件；Vercel 上建议依赖平台日志作为 durable sink。 |
+| `CURRICULUM_METRICS_REDIS_REST_URL` | Recommended | `https://...` | Vercel/Upstash Redis REST URL；与 token 同时配置后启用 durable metrics。 |
+| `CURRICULUM_METRICS_REDIS_REST_TOKEN` | Recommended | `...` | Redis REST bearer token。 |
+| `CURRICULUM_METRICS_REDIS_MAX_EVENTS` | Optional | `10000` | 每个 UTC 日键保留的事件上限。 |
+| `CURRICULUM_METRICS_REDIS_TTL_SECONDS` | Optional | `2592000` | Redis 事件窗口保留时间，默认 30 天。 |
+| `CURRICULUM_METRICS_FILE` | Optional | `/tmp/curriculum-api-metrics.ndjson` | 仅适用于 Node/file 部署；Vercel 不应依赖 `/tmp`。 |
 | `MEILI_HOST` | Optional | `https://search.example.com` | Meilisearch 写入时使用。 |
 | `MEILI_API_KEY` | Optional | `...` | Meilisearch 写入时使用。 |
 | `MEILI_INDEX_UID` | Optional | `curriculum_standards` | Meilisearch index 名称。 |
@@ -139,6 +143,8 @@ Admin-only metrics:
 curl -s https://www.kebiao.org/api/v1/metrics \
   -H 'x-api-key: YOUR_ADMIN_KEY' | jq
 ```
+
+持久化指标与 API Key 签发、轮换、撤销见 `docs/API_OPERATIONS.md`。
 
 ## 7. 正式域名
 
