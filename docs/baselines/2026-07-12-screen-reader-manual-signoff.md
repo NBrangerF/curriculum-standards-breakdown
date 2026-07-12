@@ -1,7 +1,7 @@
 # kebiao V2 人工读屏与辅助模式签字记录
 
 日期：2026-07-12
-状态：待人工执行与签字
+状态：仅键盘与 Accessibility Tree 已执行；VoiceOver / NVDA 待执行与签字
 
 ## 自动前置证据
 
@@ -20,13 +20,29 @@
 
 | 项目 | 值 |
 | --- | --- |
-| 测试 URL / build | 待填写 |
-| Git SHA / source fingerprint | 待填写 |
-| macOS / Safari / VoiceOver 版本 | 待填写 |
-| macOS / Chrome / VoiceOver 版本 | 待填写 |
-| Windows / Chrome 或 Edge / NVDA 版本 | 待填写 |
-| 测试人 | 待填写 |
-| 日期 | 待填写 |
+| 测试 URL / build | `http://127.0.0.1:4175` / kebiao V2 RC1 |
+| Git SHA / source fingerprint | `3b2dac21b843906200cd134e4f21b21fb2f3f5a7` / `d44938a929bca8244dc56b69e8bf7c0ff1c380c6819b33b1f56e49535d7d4c6d` |
+| macOS / Safari / VoiceOver 版本 | macOS 26.5.2 / Safari 26.5.2 / VoiceOver 尚未开启 |
+| macOS / Chrome / VoiceOver 版本 | macOS 26.5.2 / Chrome 150.0.7871.115 / VoiceOver 尚未开启 |
+| Windows / Chrome 或 Edge / NVDA 版本 | 当前设备为 macOS arm64，没有 Windows / NVDA 环境 |
+| 测试人 | Codex Computer Use；读屏签字仍需真实使用者 |
+| 日期 | 2026-07-12 |
+
+## 已完成的人工前置检查
+
+- Safari Accessibility Tree：品牌、主导航、H1、筛选、学科入口、能力入口、使用说明和页脚顺序可发现；首页首个可交互项为“跳到主要内容”。
+- Chrome Accessibility Tree：Home 与 H4G 的 landmark、名称、heading、toggle button、pressed 状态和 Dialog 风险文本可发现。
+- 真实仅键盘 Home：首个 Tab 命中“跳到主要内容”，Enter 将 URL 和焦点移动到 `#main-content`。
+- 真实仅键盘 H4G：Tab 进入首项；End 到第 390 项；Home 返回首项；ArrowDown 更新选中项和详情；Enter 设置“通过候选”；Escape 关闭清空确认并把焦点返回“清空本地”。
+- 上述结果由 macOS Accessibility Tree 和屏幕键盘动作观察，不等同于 VoiceOver 语音验收。
+
+## RC 视觉复核
+
+Home desktop/mobile、Standard Graph、Compare、Subject Math 与 H4G 未发现 P0/P1。以下 P2 不阻塞 RC，需产品负责人决定是否进入后续优化：
+
+1. Subject Math Hero 首屏纵向留白偏多；owner：产品/视觉，期限：20% 灰度前决定。
+2. Compare 顶部“调整对比条件”存在两处入口；owner：产品，期限：内部阶段观察后决定是否合并。
+3. Standard 白色阅读区切入深色 Graph 工作台的明暗过渡较突然；owner：视觉，期限：50% 图谱灰度前复核。
 
 ## Safari + VoiceOver 主任务流
 
@@ -69,7 +85,7 @@
 - [ ] Safari + VoiceOver 无 P0/P1。
 - [ ] Chrome + VoiceOver H4G 无 P0/P1。
 - [ ] Windows + NVDA 无 P0/P1。
-- [ ] 仅键盘任务流通过。
+- [x] 仅键盘任务流通过。
 - [ ] 产品负责人确认字段、顺序、来源和审核流程。
 - [ ] 所有 P2 问题已有 owner 和处理期限。
 
@@ -78,4 +94,4 @@
 
 ## 当前执行说明
 
-2026-07-12 曾尝试通过 Computer Use 启动 macOS 实机抽检，但机器处于锁屏状态，工具未绕过锁屏或修改系统设置。本记录保持“待人工执行”，不把 axe、Accessibility Tree 或键盘测试误写为 VoiceOver/NVDA 签字。
+2026-07-12 已通过 Computer Use 在真实 Chrome 与 Safari 应用中完成 Accessibility Tree 和仅键盘抽检。VoiceOver 进程当前未运行；通过 Command-F5 开启属于 macOS 系统辅助功能设置变更，须取得动作时确认。当前设备没有 Windows/NVDA，因此 NVDA Gate 仍需外部 Windows 环境。本记录不把 Accessibility Tree 或键盘测试误写为 VoiceOver/NVDA 签字。
