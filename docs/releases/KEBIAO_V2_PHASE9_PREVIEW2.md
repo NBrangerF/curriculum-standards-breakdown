@@ -30,5 +30,6 @@
 - bundle budget：main 138.95 KB gzip，graph lazy leak 0。
 - 12 × 5 baseline：60/60；内容、溢出、触控与运行错误均为 0。
 - `npm audit --audit-level=high`：0 vulnerabilities。
+- READY 后一小时 error-level Runtime Logs 扫描：0 条错误。
 
 该 Preview 是启用观测前的最终 dormant-telemetry 候选。只有获得产品方明确授权后，才允许在后续 Preview 打开 Analytics / Speed Insights 并验证 dashboard 数据。
