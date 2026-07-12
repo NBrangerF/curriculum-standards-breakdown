@@ -39,8 +39,22 @@ export function evaluatePhase9Observation(report) {
 
     const hours = observationHours(report.startedAt, report.endedAt)
     const checks = []
-    checks.push({ key: 'observationDuration', status: finiteNumber(hours) && hours >= requirement.minimumHours ? 'pass' : 'hold', value: hours })
-    checks.push({ key: 'sampleAdequate', status: report.sampleAdequate === true ? 'pass' : 'hold', value: report.sampleAdequate })
+    const accelerated = report.mode === 'accelerated'
+    if (accelerated) {
+        const evidence = report.acceleratedEvidence || {}
+        checks.push({ key: 'cohortBuildMatrix', status: evidence.cohortBuildMatrixPassed === true ? 'pass' : 'hold', value: evidence.cohortBuildMatrixPassed })
+        checks.push({ key: 'fullQualityGate', status: evidence.fullQualityGatePassed === true ? 'pass' : 'hold', value: evidence.fullQualityGatePassed })
+        checks.push({ key: 'syntheticPerformanceGate', status: evidence.syntheticPerformanceGatePassed === true ? 'pass' : 'hold', value: evidence.syntheticPerformanceGatePassed })
+        checks.push({ key: 'productionReady', status: evidence.productionReady === true ? 'pass' : 'hold', value: evidence.productionReady })
+        checks.push({ key: 'rollbackProbe', status: evidence.rollbackProbePassed === true ? 'pass' : 'hold', value: evidence.rollbackProbePassed })
+        checks.push({ key: 'runtimeErrors', status: evidence.runtimeErrorCount === 0 ? 'pass' : finiteNumber(evidence.runtimeErrorCount) ? 'rollback' : 'hold', value: evidence.runtimeErrorCount })
+        if (String(report.stage) === '100') {
+            checks.push({ key: 'acceleratedStableCycles', status: evidence.acceleratedStableCycles >= 2 ? 'pass' : 'hold', value: evidence.acceleratedStableCycles })
+        }
+    } else {
+        checks.push({ key: 'observationDuration', status: finiteNumber(hours) && hours >= requirement.minimumHours ? 'pass' : 'hold', value: hours })
+        checks.push({ key: 'sampleAdequate', status: report.sampleAdequate === true ? 'pass' : 'hold', value: report.sampleAdequate })
+    }
     checks.push({ key: 'deploymentId', status: /^dpl_[A-Za-z0-9]+$/u.test(report.deploymentId || '') ? 'pass' : 'hold', value: report.deploymentId })
     checks.push({ key: 'gitSha', status: /^[a-f0-9]{7,40}$/u.test(report.gitSha || '') ? 'pass' : 'hold', value: report.gitSha })
     checks.push({ key: 'signedBy', status: typeof report.signedBy === 'string' && report.signedBy.trim() ? 'pass' : 'hold', value: report.signedBy })
@@ -49,7 +63,7 @@ export function evaluatePhase9Observation(report) {
     checks.push({ key: 'routes', status: JSON.stringify(actualRoutes) === JSON.stringify([...expectedRoutes].sort()) ? 'pass' : 'hold', value: actualRoutes })
     checks.push({ key: 'p0', status: report.defects?.p0 === 0 ? 'pass' : finiteNumber(report.defects?.p0) ? 'rollback' : 'hold', value: report.defects?.p0 })
     checks.push({ key: 'p1', status: report.defects?.p1 === 0 ? 'pass' : finiteNumber(report.defects?.p1) ? 'rollback' : 'hold', value: report.defects?.p1 })
-    if (requirement.minimumStableCycles) {
+    if (!accelerated && requirement.minimumStableCycles) {
         checks.push({
             key: 'stableCycles',
             status: Number.isInteger(report.stableCycleCount) && report.stableCycleCount >= requirement.minimumStableCycles ? 'pass' : 'hold',
@@ -57,15 +71,17 @@ export function evaluatePhase9Observation(report) {
         })
     }
 
-    for (const [key, rule] of Object.entries(METRIC_RULES)) {
-        const value = report.metrics?.[key]
-        const status = !finiteNumber(value) ? 'hold' : rule.rollback(value) ? 'rollback' : rule.pass(value) ? 'pass' : 'hold'
-        checks.push({ key, status, value })
+    if (!accelerated) {
+        for (const [key, rule] of Object.entries(METRIC_RULES)) {
+            const value = report.metrics?.[key]
+            const status = !finiteNumber(value) ? 'hold' : rule.rollback(value) ? 'rollback' : rule.pass(value) ? 'pass' : 'hold'
+            checks.push({ key, status, value })
+        }
     }
 
     const decision = checks.some(check => check.status === 'rollback')
         ? 'rollback'
         : checks.every(check => check.status === 'pass') ? 'advance' : 'hold'
 
-    return { stage: String(report.stage), decision, observationHours: hours, checks }
+    return { stage: String(report.stage), mode: accelerated ? 'accelerated' : 'live', decision, observationHours: hours, checks }
 }

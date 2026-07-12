@@ -32,4 +32,24 @@ assert.equal(evaluatePhase9Observation({ ...healthy, stage: 50, routes: ['skills
 assert.equal(evaluatePhase9Observation({ ...healthy, stage: 100, routes: ['all'], stableCycleCount: 1 }).decision, 'hold')
 assert.equal(evaluatePhase9Observation({ ...healthy, stage: 100, routes: ['all'], stableCycleCount: 2 }).decision, 'advance')
 
+const accelerated = {
+    ...healthy,
+    mode: 'accelerated',
+    startedAt: '2026-07-12T10:00:00.000Z',
+    endedAt: '2026-07-12T10:30:00.000Z',
+    acceleratedEvidence: {
+        cohortBuildMatrixPassed: true,
+        fullQualityGatePassed: true,
+        syntheticPerformanceGatePassed: true,
+        productionReady: true,
+        rollbackProbePassed: true,
+        runtimeErrorCount: 0,
+        acceleratedStableCycles: 0
+    }
+}
+assert.equal(evaluatePhase9Observation(accelerated).decision, 'advance')
+assert.equal(evaluatePhase9Observation({ ...accelerated, acceleratedEvidence: { ...accelerated.acceleratedEvidence, runtimeErrorCount: 1 } }).decision, 'rollback')
+assert.equal(evaluatePhase9Observation({ ...accelerated, stage: 100, routes: ['all'], acceleratedEvidence: { ...accelerated.acceleratedEvidence, acceleratedStableCycles: 1 } }).decision, 'hold')
+assert.equal(evaluatePhase9Observation({ ...accelerated, stage: 100, routes: ['all'], acceleratedEvidence: { ...accelerated.acceleratedEvidence, acceleratedStableCycles: 2 } }).decision, 'advance')
+
 console.log(JSON.stringify({ stages: [5, 20, 50, 100], decisions: ['advance', 'hold', 'rollback'], status: 'passed' }, null, 2))

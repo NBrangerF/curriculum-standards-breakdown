@@ -4,6 +4,8 @@
 
 当前执行状态（2026-07-12）：RC2 已冻结；Phase 9 安全部署控制已加入 `codex/kebiao-v2-rc2`。Preview 环境全量开启 V2，Production 未部署、未修改，仍为旧版。5% 生产阶段必须在启用观测能力并获得明确生产发布授权后开始。
 
+产品方随后明确取消 48 小时等待并授权使用同日可完成方式继续。当前执行模式切换为 `docs/releases/KEBIAO_V2_PHASE9_ACCELERATED_PROTOCOL.md`；下列长窗口保留为标准模式参考，不再作为本次加速发布的完成条件。
+
 观测实现与隐私字段契约：`docs/releases/KEBIAO_V2_PHASE9_OBSERVABILITY.md`。Analytics 与 Speed Insights 均默认关闭；不得在未确认数据采集边界时仅为满足 Gate 而开启。
 
 ## 上线原则
@@ -26,6 +28,7 @@
 
 - `npm run test:e2e`
 - `npm run validate:rollout-contract`
+- `npm run validate:rollout-build-matrix`
 - `npm run validate:observability-contract`
 - `npm run validate:phase9-observation-contract`
 - `npm run test:a11y`
