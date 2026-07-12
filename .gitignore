@@ -25,3 +25,14 @@ Thumbs.db
 npm-debug.log*
 .vercel
 .env*
+
+# Local browser and quality-gate artifacts
+.playwright-cli/
+output/
+storybook-static/
+.lighthouseci/
+tmp/
+
+# Full-page audit captures are reproducible; keep manifests and canonical
+# Playwright snapshots in Git, but do not add five-viewport PNG exports.
+docs/baselines/*-five-viewport/**/*.png

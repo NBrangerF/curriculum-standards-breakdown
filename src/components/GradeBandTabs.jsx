@@ -1,5 +1,5 @@
 import { GRADE_BANDS } from '../data/dataLoader'
-import './GradeBandTabs.css'
+import styles from './GradeBandTabs.module.css'
 
 function GradeBandTabs({ selected = [], onChange, availableBands = ['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9'], multiSelect = true }) {
     const handleToggle = (band) => {
@@ -23,10 +23,14 @@ function GradeBandTabs({ selected = [], onChange, availableBands = ['H1', 'H2', 
     }
 
     return (
-        <div className="grade-band-tabs">
+        <div className={styles.root} data-kb-component="grade-band-tabs">
             {multiSelect && (
                 <button
-                    className={`grade-band-tab all ${selected.length === 0 || selected.length === availableBands.length ? 'active' : ''}`}
+                    type="button"
+                    className={`${styles.tab} ${styles.all} ${selected.length === 0 || selected.length === availableBands.length ? styles.active : ''}`}
+                    data-kb-grade-tab="all"
+                    data-selected={selected.length === 0 || selected.length === availableBands.length ? 'true' : 'false'}
+                    aria-pressed={selected.length === 0 || selected.length === availableBands.length}
                     onClick={handleSelectAll}
                 >
                     全部学段/年级
@@ -37,12 +41,16 @@ function GradeBandTabs({ selected = [], onChange, availableBands = ['H1', 'H2', 
                 const isActive = selected.includes(band)
                 return (
                     <button
+                        type="button"
                         key={band}
-                        className={`grade-band-tab ${isActive ? 'active' : ''}`}
+                        className={`${styles.tab} ${isActive ? styles.active : ''}`}
+                        data-kb-grade-tab={band}
+                        data-selected={isActive ? 'true' : 'false'}
+                        aria-pressed={isActive}
                         onClick={() => handleToggle(band)}
                     >
-                        <span className="grade-band-label">{info.label || band}</span>
-                        <span className="grade-band-range">{info.range}</span>
+                        <span className={styles.label}>{info.label || band}</span>
+                        <span className={styles.range} data-kb-grade-range>{info.range}</span>
                     </button>
                 )
             })}

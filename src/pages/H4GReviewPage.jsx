@@ -1,8 +1,21 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useVirtualizer } from '@tanstack/react-virtual'
+import {
+    Button as AriaButton,
+    Dialog,
+    DialogTrigger,
+    Heading,
+    Modal,
+    ModalOverlay
+} from '../ui/primitives/dialog'
+import { DownloadSimpleIcon } from '@phosphor-icons/react/dist/csr/DownloadSimple'
+import { MagnifyingGlassIcon } from '@phosphor-icons/react/dist/csr/MagnifyingGlass'
+import { TrashIcon } from '@phosphor-icons/react/dist/csr/Trash'
+import { XIcon } from '@phosphor-icons/react/dist/csr/X'
 import { GRADE_BANDS, SUBJECT_COLORS } from '../data/dataLoader'
 import { ErrorState, LoadingState } from '../components/StateComponents'
-import './H4GReviewPage.css'
+import styles from './H4GReviewPage.module.css'
 
 const PACKET_URL = '/data/reviews/h4g_source_aligned_standard_review_packet_v2.json'
 const REVIEW_STORAGE_KEY = 'h4g-source-aligned-standard-review-v2'
@@ -75,6 +88,7 @@ function H4GReviewPage() {
     const [selectedQuality, setSelectedQuality] = useState('all')
     const [query, setQuery] = useState('')
     const [selectedGroupId, setSelectedGroupId] = useState('')
+    const queueScrollRef = useRef(null)
 
     useEffect(() => {
         let cancelled = false
@@ -152,6 +166,24 @@ function H4GReviewPage() {
         return filteredGroups.find(group => group.group_id === selectedGroupId) || filteredGroups[0]
     }, [filteredGroups, selectedGroupId])
 
+    const getQueueItemKey = useCallback(
+        index => filteredGroups[index]?.group_id || index,
+        [filteredGroups]
+    )
+    const queueVirtualizer = useVirtualizer({
+        count: filteredGroups.length,
+        getScrollElement: () => queueScrollRef.current,
+        estimateSize: () => 112,
+        getItemKey: getQueueItemKey,
+        overscan: 6,
+        useFlushSync: false
+    })
+
+    useEffect(() => {
+        const selectedIndex = filteredGroups.findIndex(group => group.group_id === selectedGroupId)
+        if (selectedIndex >= 0) queueVirtualizer.scrollToIndex(selectedIndex, { align: 'auto' })
+    }, [filteredGroups, queueVirtualizer, selectedGroupId])
+
     const summary = useMemo(() => {
         const byStatus = Object.fromEntries(STATUS_OPTIONS.map(item => [item.value, 0]))
         for (const group of groups) {
@@ -190,6 +222,31 @@ function H4GReviewPage() {
         updateDecision(groupId, { issues: nextIssues })
     }
 
+    const focusQueueItem = useCallback(function focusVirtualQueueItem(index, attempt = 0) {
+        const target = document.querySelector(`[data-kb-h4g-queue-index="${index}"]`)
+        if (target) {
+            target.focus({ preventScroll: true })
+            return
+        }
+        if (attempt < 12) requestAnimationFrame(() => focusVirtualQueueItem(index, attempt + 1))
+    }, [])
+
+    const handleQueueKeyDown = (event, currentIndex) => {
+        const keyTargets = {
+            ArrowDown: Math.min(currentIndex + 1, filteredGroups.length - 1),
+            ArrowUp: Math.max(currentIndex - 1, 0),
+            Home: 0,
+            End: filteredGroups.length - 1
+        }
+        if (!(event.key in keyTargets) || keyTargets[event.key] < 0) return
+        event.preventDefault()
+        const targetIndex = keyTargets[event.key]
+        const targetGroup = filteredGroups[targetIndex]
+        setSelectedGroupId(targetGroup.group_id)
+        queueVirtualizer.scrollToIndex(targetIndex, { align: 'auto' })
+        requestAnimationFrame(() => focusQueueItem(targetIndex))
+    }
+
     const exportDecisions = () => {
         const payload = {
             decisions,
@@ -211,10 +268,6 @@ function H4GReviewPage() {
         URL.revokeObjectURL(url)
     }
 
-    const clearDecisions = () => {
-        if (window.confirm('清空本地审核记录？')) setDecisions({})
-    }
-
     if (loading) {
         return (
             <div className="page-content container">
@@ -232,14 +285,15 @@ function H4GReviewPage() {
     }
 
     return (
-        <div className="h4g-review-page">
-            <section className="h4g-review-hero">
-                <div className="container h4g-review-hero-inner">
+        <div className={styles['h4g-review-page']} data-kb-route="h4g-review">
+            <section className={styles['h4g-review-hero']}>
+                <div className={`container ${styles['h4g-review-hero-inner']}`}>
                     <div>
+                        <span className={styles['h4g-review-coordinate']} aria-hidden="true">INTERNAL / REVIEW WORKBENCH</span>
                         <h1>H4G Source-Aligned 审核</h1>
-                        <p>Current public standard vs source-aligned candidate standard</p>
+                        <p>当前公开标准与 source-aligned 候选标准的逐组对照工作台。</p>
                     </div>
-                    <div className="h4g-review-summary">
+                    <div className={styles['h4g-review-summary']}>
                         <SummaryTile label="总组数" value={summary.groups} />
                         <SummaryTile label="已审核" value={summary.reviewed} />
                         <SummaryTile label="已变化" value={summary.changed} tone="changed" />
@@ -249,9 +303,9 @@ function H4GReviewPage() {
                 </div>
             </section>
 
-            <section className="h4g-review-toolbar">
-                <div className="container h4g-review-toolbar-inner">
-                    <label className="review-field">
+            <section className={styles['h4g-review-toolbar']} aria-label="审核筛选与操作">
+                <div className={`container ${styles['h4g-review-toolbar-inner']}`}>
+                    <label className={styles['review-field']}>
                         <span>学科</span>
                         <select value={selectedSubject} onChange={event => setSelectedSubject(event.target.value)}>
                             <option value="all">全部学科</option>
@@ -260,7 +314,7 @@ function H4GReviewPage() {
                             ))}
                         </select>
                     </label>
-                    <label className="review-field">
+                    <label className={styles['review-field']}>
                         <span>优先级</span>
                         <select value={selectedPriority} onChange={event => setSelectedPriority(event.target.value)}>
                             <option value="all">全部优先级</option>
@@ -269,7 +323,7 @@ function H4GReviewPage() {
                             ))}
                         </select>
                     </label>
-                    <label className="review-field">
+                    <label className={styles['review-field']}>
                         <span>状态</span>
                         <select value={selectedStatus} onChange={event => setSelectedStatus(event.target.value)}>
                             <option value="all">全部状态</option>
@@ -278,7 +332,7 @@ function H4GReviewPage() {
                             ))}
                         </select>
                     </label>
-                    <label className="review-field">
+                    <label className={styles['review-field']}>
                         <span>变化</span>
                         <select value={selectedQuality} onChange={event => setSelectedQuality(event.target.value)}>
                             {QUALITY_OPTIONS.map(option => (
@@ -286,52 +340,109 @@ function H4GReviewPage() {
                             ))}
                         </select>
                     </label>
-                    <label className="review-field review-search-field">
+                    <label className={`${styles['review-field']} ${styles['review-search-field']}`}>
                         <span>搜索</span>
-                        <input
-                            type="search"
-                            value={query}
-                            onChange={event => setQuery(event.target.value)}
-                            placeholder="code、source、candidate..."
-                        />
+                        <div className={styles['review-search-control']}>
+                            <MagnifyingGlassIcon size={17} aria-hidden="true" />
+                            <input
+                                type="search"
+                                value={query}
+                                onChange={event => setQuery(event.target.value)}
+                                placeholder="code、source、candidate"
+                            />
+                            {query ? (
+                                <button type="button" onClick={() => setQuery('')} aria-label="清除审核搜索">
+                                    <XIcon size={15} aria-hidden="true" />
+                                </button>
+                            ) : null}
+                        </div>
                     </label>
-                    <div className="review-toolbar-actions">
-                        <button type="button" className="btn btn-secondary" onClick={exportDecisions}>导出结果</button>
-                        <button type="button" className="btn btn-ghost" onClick={clearDecisions}>清空本地</button>
+                    <div className={styles['review-toolbar-actions']}>
+                        <button type="button" className="btn btn-secondary" onClick={exportDecisions}>
+                            <DownloadSimpleIcon size={17} aria-hidden="true" />导出结果
+                        </button>
+                        <DialogTrigger>
+                            <AriaButton className="btn btn-ghost">
+                                <TrashIcon size={17} aria-hidden="true" />清空本地
+                            </AriaButton>
+                            <ModalOverlay className={styles['h4g-modal-overlay']} isDismissable>
+                                <Modal className={styles['h4g-modal']}>
+                                    <Dialog className={styles['h4g-dialog']} aria-label="清空本地审核记录">
+                                        {({ close }) => (
+                                            <>
+                                                <div className={styles['h4g-dialog-icon']} aria-hidden="true"><TrashIcon size={22} /></div>
+                                                <Heading slot="title">清空本地审核记录</Heading>
+                                                <p>所有审核状态、问题标签和备注都会从当前浏览器移除，且无法撤销。审核数据本身不会被修改。</p>
+                                                <div>
+                                                    <AriaButton className="btn btn-ghost" onPress={close}>取消</AriaButton>
+                                                    <AriaButton className={`btn ${styles['h4g-danger-button']}`} onPress={() => { setDecisions({}); close() }}>确认清空</AriaButton>
+                                                </div>
+                                            </>
+                                        )}
+                                    </Dialog>
+                                </Modal>
+                            </ModalOverlay>
+                        </DialogTrigger>
                     </div>
                 </div>
             </section>
 
-            <section className="h4g-review-workspace container">
-                <aside className="review-queue">
-                    <div className="queue-header">
-                        <h2>审核队列</h2>
+            <section className={`${styles['h4g-review-workspace']} container`} aria-label="审核工作台">
+                <aside className={styles['review-queue']}>
+                    <div className={styles['queue-header']}>
+                        <h2 id="h4g-review-queue-title">审核队列</h2>
                         <span>{filteredGroups.length} 组</span>
                     </div>
-                    <div className="queue-list">
-                        {filteredGroups.map(group => (
-                            <button
-                                key={group.group_id}
-                                type="button"
-                                className={`queue-item ${selectedGroup?.group_id === group.group_id ? 'active' : ''}`}
-                                onClick={() => setSelectedGroupId(group.group_id)}
-                                style={{ '--subject-color': SUBJECT_COLORS[group.subject_slug] || 'var(--color-primary)' }}
-                            >
-                                <div className="queue-item-topline">
-                                    <span className={`priority-chip priority-${group.priority.toLowerCase()}`}>{group.priority}</span>
-                                    <span className={`decision-dot decision-${decisions[group.group_id]?.status || 'pending'}`}>
-                                        {STATUS_OPTIONS.find(item => item.value === (decisions[group.group_id]?.status || 'pending'))?.label}
-                                    </span>
-                                </div>
-                                <strong>{group.topic}</strong>
-                                <span>{group.subject} / {group.category}</span>
-                                <span>{group.changed_records} changed / {group.template_removed_records} template removed</span>
-                            </button>
-                        ))}
+                    <div
+                        ref={queueScrollRef}
+                        className={styles['queue-list']}
+                        aria-labelledby="h4g-review-queue-title"
+                        data-kb-component="h4g-virtual-queue"
+                        data-kb-total-count={filteredGroups.length}
+                    >
+                        <div
+                            className={styles['queue-virtualizer']}
+                            style={{ height: `${queueVirtualizer.getTotalSize()}px` }}
+                        >
+                            {queueVirtualizer.getVirtualItems().map(virtualItem => {
+                                const group = filteredGroups[virtualItem.index]
+                                return (
+                                    <div
+                                        key={virtualItem.key}
+                                        ref={queueVirtualizer.measureElement}
+                                        className={styles['queue-virtual-row']}
+                                        data-index={virtualItem.index}
+                                        style={{ transform: `translateY(${virtualItem.start}px)` }}
+                                    >
+                                        <button
+                                            type="button"
+                                            className={`${styles['queue-item']} ${selectedGroup?.group_id === group.group_id ? styles.active : ''}`}
+                                            onClick={() => setSelectedGroupId(group.group_id)}
+                                            onKeyDown={event => handleQueueKeyDown(event, virtualItem.index)}
+                                            aria-pressed={selectedGroup?.group_id === group.group_id}
+                                            aria-label={`${group.topic}，${group.subject}，${group.category}，${group.priority}，${STATUS_OPTIONS.find(item => item.value === (decisions[group.group_id]?.status || 'pending'))?.label}`}
+                                            tabIndex={selectedGroup?.group_id === group.group_id ? 0 : -1}
+                                            data-kb-h4g-queue-index={virtualItem.index}
+                                            style={{ '--subject-color': SUBJECT_COLORS[group.subject_slug] || 'var(--color-primary)' }}
+                                        >
+                                            <div className={styles['queue-item-topline']}>
+                                                <span className={`${styles['priority-chip']} ${styles[`priority-${group.priority.toLowerCase()}`]}`}>{group.priority}</span>
+                                                <span className={`${styles['decision-dot']} ${styles[`decision-${decisions[group.group_id]?.status || 'pending'}`]}`}>
+                                                    {STATUS_OPTIONS.find(item => item.value === (decisions[group.group_id]?.status || 'pending'))?.label}
+                                                </span>
+                                            </div>
+                                            <strong>{group.topic}</strong>
+                                            <span>{group.subject} / {group.category}</span>
+                                            <span>{group.changed_records} changed / {group.template_removed_records} template removed</span>
+                                        </button>
+                                    </div>
+                                )
+                            })}
+                        </div>
                     </div>
                 </aside>
 
-                <main className="review-detail">
+                <section className={styles['review-detail']} aria-label="审核详情">
                     {selectedGroup ? (
                         <ReviewDetail
                             decision={decisions[selectedGroup.group_id] || { status: 'pending', issues: [], note: '' }}
@@ -342,9 +453,9 @@ function H4GReviewPage() {
                             onUpdateNote={(note) => updateDecision(selectedGroup.group_id, { note })}
                         />
                     ) : (
-                        <div className="review-empty-state">没有符合条件的审核组</div>
+                        <div className={styles['review-empty-state']}>没有符合条件的审核组</div>
                     )}
-                </main>
+                </section>
             </section>
         </div>
     )
@@ -352,7 +463,7 @@ function H4GReviewPage() {
 
 function SummaryTile({ label, value, tone = '' }) {
     return (
-        <div className={`summary-tile ${tone ? `summary-${tone}` : ''}`}>
+        <div className={`${styles['summary-tile']} ${tone ? styles[`summary-${tone}`] : ''}`}>
             <span>{label}</span>
             <strong>{value}</strong>
         </div>
@@ -365,24 +476,25 @@ function ReviewDetail({ decision, group, packet, onSetStatus, onToggleIssue, onU
     const lowOverlap = group.low_overlap_records > 0
 
     return (
-        <article className="review-detail-panel">
-            <header className="detail-header" style={{ '--subject-color': SUBJECT_COLORS[group.subject_slug] || 'var(--color-primary)' }}>
+        <article className={styles['review-detail-panel']}>
+            <header className={styles['detail-header']} style={{ '--subject-color': SUBJECT_COLORS[group.subject_slug] || 'var(--color-primary)' }}>
                 <div>
-                    <div className="detail-kicker">
-                        <span className={`priority-chip priority-${group.priority.toLowerCase()}`}>{group.priority}</span>
+                    <div className={styles['detail-kicker']}>
+                        <span className={`${styles['priority-chip']} ${styles[`priority-${group.priority.toLowerCase()}`]}`}>{group.priority}</span>
                         <span>{group.subject}</span>
                         <span>{group.group_id}</span>
                     </div>
                     <h2>{group.topic}</h2>
                     <p>{group.category} / {group.source_anchor_subcategory}</p>
                 </div>
-                <div className="detail-status-actions">
+                <div className={styles['detail-status-actions']} role="group" aria-label="设置审核状态">
                     {STATUS_OPTIONS.map(option => (
                         <button
                             key={option.value}
                             type="button"
-                            className={`status-button status-${option.value} ${decision.status === option.value ? 'active' : ''}`}
+                            className={`${styles['status-button']} ${styles[`status-${option.value}`]} ${decision.status === option.value ? styles.active : ''}`}
                             onClick={() => onSetStatus(option.value)}
+                            aria-pressed={decision.status === option.value}
                         >
                             {option.label}
                         </button>
@@ -390,36 +502,36 @@ function ReviewDetail({ decision, group, packet, onSetStatus, onToggleIssue, onU
                 </div>
             </header>
 
-            <section className="review-check-grid">
+            <section className={styles['review-check-grid']}>
                 <CheckCard label="candidate audit" value={packet?.summary?.candidate_audit_valid ? 'valid' : 'invalid'} tone={packet?.summary?.candidate_audit_valid ? 'ok' : 'warn'} />
                 <CheckCard label="candidate split" value={`${group.candidate_distinct_standard_count}/${group.records.length} distinct`} tone={candidateSplitOk ? 'ok' : 'warn'} />
                 <CheckCard label="template trace" value={templateRemovedOk ? 'removed' : `${group.candidate_template_hit_records} hit`} tone={templateRemovedOk ? 'ok' : 'warn'} />
                 <CheckCard label="min source overlap" value={formatScore(group.source_aligned_source_overlap_min)} tone={lowOverlap ? 'warn' : 'ok'} />
             </section>
 
-            <section className="source-compare source-compare-three">
+            <section className={`${styles['source-compare']} ${styles['source-compare-three']}`}>
                 <SourceBlock title="Corrected Source" text={group.source_standard_original} />
                 <SourceBlock title="Supporting Source" text={group.supporting_source_standard_original || '无'} muted />
                 <SourceBlock title="Previous Source" text={group.previous_source_standard_original || '无'} muted />
             </section>
 
             {(group.risk_reasons.length > 0 || Object.keys(group.source_anchor_tags).length > 0) && (
-                <section className="review-meta-strip">
+                <section className={styles['review-meta-strip']}>
                     {group.risk_reasons.map(reason => (
-                        <span key={reason} className="risk-chip">{reason}</span>
+                        <span key={reason} className={styles['risk-chip']}>{reason}</span>
                     ))}
                     {Object.entries(group.source_anchor_tags).map(([key, value]) => (
-                        <span key={key} className="tag-chip">{key}: {displayValue(value)}</span>
+                        <span key={key} className={styles['tag-chip']}>{key}: {displayValue(value)}</span>
                     ))}
                 </section>
             )}
 
-            <section className="grade-triplet">
+            <section className={styles['grade-triplet']}>
                 {group.records.map(row => (
-                    <div key={row.code} className={`grade-column ${row.standard_changed ? 'grade-column-changed' : ''} ${Number(row.source_aligned_source_overlap) < 0.12 ? 'grade-column-low-overlap' : ''}`}>
-                        <div className="grade-column-header">
+                    <div key={row.code} className={`${styles['grade-column']} ${row.standard_changed ? styles['grade-column-changed'] : ''} ${Number(row.source_aligned_source_overlap) < 0.12 ? styles['grade-column-low-overlap'] : ''}`}>
+                        <div className={styles['grade-column-header']}>
                             <span
-                                className="grade-band-mini"
+                                className={styles['grade-band-mini']}
                                 style={{
                                     '--band-color': GRADE_BANDS[row.grade_band]?.color,
                                     '--band-bg': GRADE_BANDS[row.grade_band]?.bgColor
@@ -430,18 +542,18 @@ function ReviewDetail({ decision, group, packet, onSetStatus, onToggleIssue, onU
                             <Link to={row.current_standard_url}>{row.code}</Link>
                         </div>
 
-                        <div className="standard-compare-stack">
-                            <div className="standard-compare-card current-standard-block">
+                        <div className={styles['standard-compare-stack']}>
+                            <div className={`${styles['standard-compare-card']} ${styles['current-standard-block']}`}>
                                 <h3>Current Public Standard</h3>
                                 <p>{row.current_standard}</p>
                             </div>
-                            <div className="standard-compare-card candidate-standard-block">
+                            <div className={`${styles['standard-compare-card']} ${styles['candidate-standard-block']}`}>
                                 <h3>Source-Aligned Candidate</h3>
                                 <p>{row.candidate_standard}</p>
                             </div>
                         </div>
 
-                        <div className="focus-compare">
+                        <div className={styles['focus-compare']}>
                             <div>
                                 <h3>Current Focus</h3>
                                 <p>{row.current_grade_specific_focus}</p>
@@ -482,10 +594,10 @@ function ReviewDetail({ decision, group, packet, onSetStatus, onToggleIssue, onU
                 ))}
             </section>
 
-            <section className="decision-panel">
-                <div className="issue-options">
+            <section className={styles['decision-panel']}>
+                <div className={styles['issue-options']}>
                     {ISSUE_OPTIONS.map(option => (
-                        <label key={option.value} className={`issue-option ${decision.issues?.includes(option.value) ? 'active' : ''}`}>
+                        <label key={option.value} className={`${styles['issue-option']} ${decision.issues?.includes(option.value) ? styles.active : ''}`}>
                             <input
                                 type="checkbox"
                                 checked={decision.issues?.includes(option.value) || false}
@@ -495,7 +607,7 @@ function ReviewDetail({ decision, group, packet, onSetStatus, onToggleIssue, onU
                         </label>
                     ))}
                 </div>
-                <label className="review-note-field">
+                <label className={styles['review-note-field']}>
                     <span>审核备注</span>
                     <textarea
                         value={decision.note || ''}
@@ -511,7 +623,7 @@ function ReviewDetail({ decision, group, packet, onSetStatus, onToggleIssue, onU
 
 function SourceBlock({ title, text, muted = false }) {
     return (
-        <div className={`source-block ${muted ? 'muted' : ''}`}>
+        <div className={`${styles['source-block']} ${muted ? styles.muted : ''}`}>
             <h3>{title}</h3>
             <p>{text}</p>
         </div>
@@ -520,7 +632,7 @@ function SourceBlock({ title, text, muted = false }) {
 
 function CheckCard({ label, value, tone = '' }) {
     return (
-        <div className={`check-card ${tone ? `check-${tone}` : ''}`}>
+        <div className={`${styles['check-card']} ${tone ? styles[`check-${tone}`] : ''}`}>
             <span>{label}</span>
             <strong>{value}</strong>
         </div>

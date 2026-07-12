@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { AnimatePresence, m } from 'motion/react'
 import {
     loadStandardByCode,
     loadManifest,
+    loadSkillsMeta,
+    getSkillsMeta,
     getSubjectsFromManifest,
     SUBJECT_COLORS,
     SKILL_COLORS,
@@ -10,17 +13,111 @@ import {
 } from '../data/dataLoader'
 import { LoadingState, ErrorState, CopyLinkButton } from '../components/StateComponents'
 import FavoriteButton from '../components/FavoriteButton'
+import StandardRelationPanel from '../components/StandardRelationPanel'
+import { useUiV2 } from '../components/RouteUiBoundary.jsx'
+import { Tooltip } from '../ui/primitives/Tooltip.jsx'
 import { getH4GDifferentiationState } from '../data/h4gDifferentiation'
-import { buildShareableURL } from '../data/query'
-import './StandardDetailPage.css'
+import { copyToClipboard } from '../data/query'
+import { runViewTransition } from '../utils/viewTransition.js'
+import { buildStandardGraphModel } from '../graph/adapters/standardGraphAdapter'
+import styles from './StandardDetailPage.module.css'
+
+function getDisplayTitle(sourceText, fallbackTitle = '') {
+    const cleanFallback = String(fallbackTitle || '').replace(/[.…]+$/u, '').trim()
+    if (cleanFallback && cleanFallback.length <= 32 && !String(fallbackTitle).includes('...')) {
+        return cleanFallback
+    }
+
+    const cleanSource = String(sourceText || '').trim()
+    if (cleanSource.length <= 32) return cleanSource
+
+    const firstClause = cleanSource.split(/[，；。]/u).map(part => part.trim()).find(Boolean)
+    return firstClause || cleanFallback || cleanSource
+}
+
+function StandardPreviewLink({ standardCode, direction }) {
+    const normalizedCode = standardCode.trim()
+    const [preview, setPreview] = useState(null)
+
+    useEffect(() => {
+        let cancelled = false
+        loadStandardByCode(normalizedCode)
+            .then(record => {
+                if (!cancelled) setPreview(record)
+            })
+            .catch(() => {
+                if (!cancelled) setPreview(null)
+            })
+        return () => { cancelled = true }
+    }, [normalizedCode])
+
+    const previewTitle = preview
+        ? getDisplayTitle(preview.standard, preview.standard_title)
+        : '正在读取标准摘要'
+
+    return (
+        <Tooltip
+            placement={direction === 'prev' ? 'top-start' : 'top-end'}
+            content={(
+                <span className={styles['standard-nav-preview']} data-kb-standard-preview={normalizedCode}>
+                    <span>{normalizedCode}</span>
+                    <strong>{previewTitle}</strong>
+                    {preview ? <small>{preview.subject} · {preview.domain} · {preview.grade_range}年级</small> : null}
+                </span>
+            )}
+        >
+            <Link
+                to={`/standards/${normalizedCode}`}
+                className={`${styles['nav-link']} ${styles[direction]}`}
+            >
+                {direction === 'prev' ? `← ${normalizedCode}` : `${normalizedCode} →`}
+            </Link>
+        </Tooltip>
+    )
+}
+
+function ReadingNavLink({ sectionId, activeSection, children }) {
+    const isActive = activeSection === sectionId
+
+    return (
+        <a
+            className={isActive ? styles.active : ''}
+            href={`#${sectionId}`}
+            aria-current={isActive ? 'location' : undefined}
+        >
+            <span>{children}</span>
+            {isActive ? (
+                <m.span
+                    layoutId="standard-reading-nav-indicator"
+                    className={styles['reading-nav-indicator']}
+                    data-kb-reading-indicator={sectionId}
+                    transition={{ type: 'spring', stiffness: 420, damping: 36, mass: 0.72 }}
+                    aria-hidden="true"
+                />
+            ) : null}
+        </a>
+    )
+}
 
 function StandardDetailPage() {
+    const { enabled: uiV2Enabled } = useUiV2()
     const { code } = useParams()
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [standard, setStandard] = useState(null)
     const [subjects, setSubjects] = useState([])
+    const [skills, setSkills] = useState([])
     const [resourcesExpanded, setResourcesExpanded] = useState(false)
+    const [relationsExpanded, setRelationsExpanded] = useState(false)
+    const [activeSection, setActiveSection] = useState('standard-skills')
+    const [codeCopyStatus, setCodeCopyStatus] = useState('idle')
+    const relationHeadingRef = useRef(null)
+    const copyTimerRef = useRef(null)
+
+    const graphModel = useMemo(
+        () => (standard ? buildStandardGraphModel(standard, { skills }) : null),
+        [standard, skills]
+    )
 
     useEffect(() => {
         setLoading(true)
@@ -28,15 +125,17 @@ function StandardDetailPage() {
 
         Promise.all([
             loadStandardByCode(code),
-            loadManifest()
+            loadManifest(),
+            loadSkillsMeta()
         ])
-            .then(([std, _]) => {
+            .then(([std]) => {
                 if (!std) {
                     setError(`找不到标准 ${code}`)
                 } else {
                     setStandard(std)
                 }
                 setSubjects(getSubjectsFromManifest())
+                setSkills(getSkillsMeta())
                 setLoading(false)
             })
             .catch(err => {
@@ -44,6 +143,60 @@ function StandardDetailPage() {
                 setLoading(false)
             })
     }, [code])
+
+    useEffect(() => {
+        if (!standard) return undefined
+
+        let observer
+        const frame = requestAnimationFrame(() => {
+            const sections = document.querySelectorAll('[data-reading-section]')
+            observer = new IntersectionObserver(entries => {
+                const visible = entries
+                    .filter(entry => entry.isIntersecting)
+                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+                if (visible?.target?.id) setActiveSection(visible.target.id)
+            }, {
+                rootMargin: '-24% 0px -62% 0px',
+                threshold: [0.05, 0.2, 0.45]
+            })
+            sections.forEach(section => observer.observe(section))
+        })
+
+        return () => {
+            cancelAnimationFrame(frame)
+            observer?.disconnect()
+        }
+    }, [standard, relationsExpanded])
+
+    useEffect(() => () => {
+        if (copyTimerRef.current) window.clearTimeout(copyTimerRef.current)
+    }, [])
+
+    const handleCopyCode = useCallback(async () => {
+        const copied = await copyToClipboard(code)
+        setCodeCopyStatus(copied ? 'copied' : 'error')
+        if (copyTimerRef.current) window.clearTimeout(copyTimerRef.current)
+        copyTimerRef.current = window.setTimeout(() => setCodeCopyStatus('idle'), 1800)
+    }, [code])
+
+    const handleLocateGraph = useCallback(() => {
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        const scrollToGraph = () => requestAnimationFrame(() => {
+            window.setTimeout(() => {
+                relationHeadingRef.current?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' })
+                relationHeadingRef.current?.focus({ preventScroll: true })
+            }, reducedMotion ? 0 : 120)
+        })
+
+        if (relationsExpanded) {
+            scrollToGraph()
+            return
+        }
+
+        const transition = runViewTransition(() => setRelationsExpanded(true))
+        if (transition?.finished) transition.finished.finally(scrollToGraph)
+        else scrollToGraph()
+    }, [relationsExpanded])
 
     if (loading) {
         return (
@@ -60,7 +213,7 @@ function StandardDetailPage() {
                     title="标准未找到"
                     message={error || `找不到代码为 ${code} 的标准`}
                 />
-                <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+                <div className={styles['not-found-actions']}>
                     <Link to="/" className="btn btn-primary">返回首页</Link>
                 </div>
             </div>
@@ -126,61 +279,92 @@ function StandardDetailPage() {
     const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || String(review_status || '').includes('low_confidence')
     const needsGradeDifferentiation = !h4gState.isFinalReady &&
         (h4gState.needsDifferentiation || String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared')
-    const pageTitle = h4gState.shouldLeadWithGradeFocus ? h4gState.gradeFocus : standardText
+    const titleSource = h4gState.shouldLeadWithGradeFocus ? h4gState.gradeFocus : standardText
+    const pageTitle = getDisplayTitle(titleSource, standard_title)
+    const standardLead = titleSource !== pageTitle ? titleSource : ''
 
     // Parse navigation codes (may be multiple, separated by \n)
     const prevCodes = previous_code ? previous_code.split('\n').filter(Boolean) : []
     const nextCodes = next_code ? next_code.split('\n').filter(Boolean) : []
 
     return (
-        <div className="standard-detail-page">
+        <div className={styles['standard-detail-page']} data-kb-route="standard">
             {/* Breadcrumb */}
-            <div className="breadcrumb-bar">
+            <div className={styles['breadcrumb-bar']}>
                 <div className="container">
-                    <nav className="breadcrumb">
+                    <nav className={styles.breadcrumb} aria-label="面包屑">
                         <Link to="/">首页</Link>
-                        <span className="separator">›</span>
+                        <span className={styles.separator}>›</span>
                         <Link to={`/subjects/${subject_slug}`}>{subject}</Link>
-                        <span className="separator">›</span>
-                        <span className="current">{domain}</span>
-                        <span className="separator">›</span>
-                        <span className="current">{code}</span>
+                        <span className={styles.separator}>›</span>
+                        <span className={styles.current}>{domain}</span>
+                        <span className={styles.separator}>›</span>
+                        <span className={styles.current}>{code}</span>
                     </nav>
                 </div>
             </div>
 
             {/* Header */}
-            <section className="standard-header" style={{ '--subject-color': subjectColor }}>
+            <section className={styles['standard-header']} style={{ '--subject-color': subjectColor }}>
                 <div className="container">
-                    <div className="header-content">
-                        <div className="header-meta">
-                            <span className="standard-code">{code}</span>
-                            <Link to={`/subjects/${subject_slug}`} className="subject-badge">
+                    <div className={styles['header-content']}>
+                        <div className={styles['header-meta']}>
+                            <button
+                                type="button"
+                                className={`${styles['standard-code']} ${styles[codeCopyStatus] || ''}`}
+                                style={{ viewTransitionName: relationsExpanded ? 'none' : 'kb-standard-code' }}
+                                onClick={handleCopyCode}
+                                aria-label={`${code} 复制编码`}
+                            >
+                                <span>{code}</span>
+                                <span className={styles['code-copy-feedback']} aria-live="polite">
+                                    {codeCopyStatus === 'copied' ? '已复制' : codeCopyStatus === 'error' ? '复制失败' : '复制编码'}
+                                </span>
+                            </button>
+                            <Link to={`/subjects/${subject_slug}`} className={styles['subject-badge']}>
                                 {subject}
                             </Link>
-                            <span className="grade-band-badge">
+                            <span className={styles['grade-band-badge']}>
                                 {gradeBandInfo.label} ({grade_range})
                             </span>
                             {isLowConfidence && (
-                                <span className="low-confidence-badge">低置信度</span>
+                                <span className={styles['low-confidence-badge']}>低置信度</span>
                             )}
                             {needsGradeDifferentiation && (
-                                <span className="grade-differentiation-badge">待年级化细分</span>
+                                <span className={styles['grade-differentiation-badge']}>待年级化细分</span>
                             )}
                             {h4gState.statusLabel && (
-                                <span className={`grade-differentiation-badge h4g-status-${h4gState.isFinalReady ? 'ready' : h4gState.isCandidate ? 'candidate' : 'pending'}`}>
+                                <span className={`${styles['grade-differentiation-badge']} ${styles[`h4g-status-${h4gState.isFinalReady ? 'ready' : h4gState.isCandidate ? 'candidate' : 'pending'}`]}`}>
                                     {h4gState.statusLabel}
                                 </span>
                             )}
                         </div>
-                        <h1 className="standard-title">{pageTitle}</h1>
+                        <h1 className={styles['standard-title']} style={{ viewTransitionName: relationsExpanded ? 'none' : 'kb-standard-title' }}>{pageTitle}</h1>
+                        {standardLead && (
+                            <p className={styles['standard-lead']}>{standardLead}</p>
+                        )}
                         {h4gState.showGradeLens && (
-                            <div className={`h4g-detail-summary ${h4gState.shouldLeadWithGradeFocus ? 'has-focus' : 'pending'}`}>
+                            <div className={`${styles['h4g-detail-summary']} ${h4gState.shouldLeadWithGradeFocus ? styles['has-focus'] : styles.pending}`}>
                                 <span>{h4gState.shouldLeadWithGradeFocus ? h4gState.sourceTextLabel : h4gState.focusLabel}</span>
                                 <p>{h4gState.shouldLeadWithGradeFocus ? standardText : h4gState.statusMessage}</p>
                             </div>
                         )}
-                        <div className="header-actions">
+                        <div className={styles['header-actions']}>
+                            {uiV2Enabled ? <button
+                                type="button"
+                                className={styles['graph-locate-button']}
+                                onClick={handleLocateGraph}
+                                aria-expanded={relationsExpanded}
+                                aria-controls="standard-relations"
+                            >
+                                <svg viewBox="0 0 20 20" aria-hidden="true">
+                                    <circle cx="4" cy="10" r="2" />
+                                    <circle cx="15" cy="4" r="2" />
+                                    <circle cx="15" cy="16" r="2" />
+                                    <path d="M6 9l7-4M6 11l7 4" />
+                                </svg>
+                                在图谱中定位
+                            </button> : null}
                             <FavoriteButton code={code} showLabel={true} size="large" />
                             <CopyLinkButton url={shareURL} />
                         </div>
@@ -189,59 +373,72 @@ function StandardDetailPage() {
             </section>
 
             {/* Classification */}
-            <section className="classification-section">
+            <section className={styles['classification-section']}>
                 <div className="container">
-                    <div className="classification-grid">
-                        <div className="classification-item">
-                            <span className="label">学科</span>
-                            <Link to={`/subjects/${subject_slug}`} className="value link">
+                    <div className={styles['classification-grid']}>
+                        <div className={styles['classification-item']}>
+                            <span className={styles.label}>学科</span>
+                            <Link to={`/subjects/${subject_slug}`} className={`${styles.value} ${styles.link}`}>
                                 {subject}
                             </Link>
                         </div>
-                        <div className="classification-item">
-                            <span className="label">领域</span>
-                            <span className="value">{domain}</span>
+                        <div className={styles['classification-item']}>
+                            <span className={styles.label}>领域</span>
+                            <span className={styles.value}>{domain}</span>
                         </div>
                         {(display_subcategory || subdomain) && (
-                            <div className="classification-item">
-                                <span className="label">子类别</span>
-                                <span className="value">{display_subcategory || subdomain}</span>
+                            <div className={styles['classification-item']}>
+                                <span className={styles.label}>子类别</span>
+                                <span className={styles.value}>{display_subcategory || subdomain}</span>
                             </div>
                         )}
                         {standard_title && standard_title !== (display_subcategory || subdomain) && (
-                            <div className="classification-item">
-                                <span className="label">标准名称</span>
-                                <span className="value">{standard_title}</span>
+                            <div className={styles['classification-item']}>
+                                <span className={styles.label}>标准名称</span>
+                                <span className={styles.value}>{standard_title}</span>
                             </div>
                         )}
-                        <div className="classification-item">
-                            <span className="label">学段</span>
-                            <span className="value">{gradeBandInfo.label} ({grade_band})</span>
+                        <div className={styles['classification-item']}>
+                            <span className={styles.label}>学段</span>
+                            <span className={styles.value}>{gradeBandInfo.label} ({grade_band})</span>
                         </div>
-                        <div className="classification-item">
-                            <span className="label">年级</span>
-                            <span className="value">{grade_range}年级</span>
+                        <div className={styles['classification-item']}>
+                            <span className={styles.label}>年级</span>
+                            <span className={styles.value}>{grade_range}年级</span>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <nav className={styles['standard-reading-nav']} aria-label="本页目录">
+                <div className={`container ${styles['standard-reading-nav-inner']}`}>
+                    <span className={styles['reading-nav-label']}>本页</span>
+                    <ReadingNavLink sectionId="standard-skills" activeSection={activeSection}>相关能力</ReadingNavLink>
+                    <ReadingNavLink sectionId="standard-content" activeSection={activeSection}>教学线索</ReadingNavLink>
+                    {hasGradeAssignmentDetails && (
+                        <ReadingNavLink sectionId="standard-evidence" activeSection={activeSection}>归属依据</ReadingNavLink>
+                    )}
+                    <ReadingNavLink sectionId="standard-resources" activeSection={activeSection}>教学资源</ReadingNavLink>
+                    {uiV2Enabled ? <button type="button" onClick={handleLocateGraph}>关系图谱</button> : null}
+                </div>
+            </nav>
+
             {/* Skills */}
-            <section className="skills-section">
+            <section className={styles['skills-section']} id="standard-skills" data-reading-section="standard-skills">
                 <div className="container">
                     <h2>可迁移技能</h2>
-                    <div className="skills-container">
+                    <div className={styles['skills-container']}>
                         {ts_primary.length > 0 && (
-                            <div className="skill-group">
+                            <div className={styles['skill-group']}>
                                 <h3>主要技能</h3>
-                                <div className="skill-tags">
+                                <div className={styles['skill-tags']}>
                                     {ts_primary.map(ts => {
                                         const mainSkill = ts.split('.')[0]
                                         return (
                                             <Link
                                                 key={ts}
                                                 to={`/skills/${mainSkill}`}
-                                                className="skill-tag primary"
+                                                className={`${styles['skill-tag']} ${styles.primary}`}
                                                 style={{ '--skill-color': SKILL_COLORS[mainSkill] }}
                                             >
                                                 {ts}
@@ -252,16 +449,16 @@ function StandardDetailPage() {
                             </div>
                         )}
                         {ts_secondary.length > 0 && (
-                            <div className="skill-group">
+                            <div className={styles['skill-group']}>
                                 <h3>次要技能</h3>
-                                <div className="skill-tags">
+                                <div className={styles['skill-tags']}>
                                     {ts_secondary.map(ts => {
                                         const mainSkill = ts.split('.')[0]
                                         return (
                                             <Link
                                                 key={ts}
                                                 to={`/skills/${mainSkill}`}
-                                                className="skill-tag secondary"
+                                                className={`${styles['skill-tag']} ${styles.secondary}`}
                                                 style={{ '--skill-color': SKILL_COLORS[mainSkill] }}
                                             >
                                                 {ts}
@@ -272,10 +469,10 @@ function StandardDetailPage() {
                             </div>
                         )}
                         {ts_primary.length === 0 && ts_secondary.length === 0 && (
-                            <p className="no-skills">暂无技能标签</p>
+                            <p className={styles['no-skills']}>暂无技能标签</p>
                         )}
                         {ts_rationale && (
-                            <div className="skill-rationale">
+                            <div className={styles['skill-rationale']}>
                                 <strong>标注理由：</strong>
                                 <p>{ts_rationale}</p>
                             </div>
@@ -285,33 +482,33 @@ function StandardDetailPage() {
             </section>
 
             {/* Content Details */}
-            <section className="content-section">
+            <section className={styles['content-section']} id="standard-content" data-reading-section="standard-content">
                 <div className="container">
-                    <div className="content-grid">
+                    <div className={styles['content-grid']}>
                         {context && (
-                            <div className="content-card">
-                                <h3>🎯 情境说明</h3>
+                            <div className={styles['content-card']}>
+                                <h3>情境说明</h3>
                                 <p>{context}</p>
                             </div>
                         )}
 
                         {practice && (
-                            <div className="content-card">
-                                <h3>📝 实践建议</h3>
+                            <div className={styles['content-card']}>
+                                <h3>实践建议</h3>
                                 <p>{practice}</p>
                             </div>
                         )}
 
                         {teaching_tip && (
-                            <div className="content-card">
-                                <h3>💡 教学提示</h3>
+                            <div className={styles['content-card']}>
+                                <h3>教学提示</h3>
                                 <p>{teaching_tip}</p>
                             </div>
                         )}
 
                         {assessment_evidence_type && (
-                            <div className="content-card">
-                                <h3>📊 评价证据</h3>
+                            <div className={styles['content-card']}>
+                                <h3>评价证据</h3>
                                 <p>{assessment_evidence_type}</p>
                             </div>
                         )}
@@ -320,26 +517,26 @@ function StandardDetailPage() {
             </section>
 
             {hasGradeAssignmentDetails && (
-                <section className="grade-assignment-detail-section">
+                <section className={styles['grade-assignment-detail-section']} id="standard-evidence" data-reading-section="standard-evidence">
                     <div className="container">
-                        <div className="grade-assignment-detail">
+                        <div className={styles['grade-assignment-detail']}>
                             <div>
                                 <h2>年级归属依据</h2>
-                                <p className="grade-assignment-note">以下内容用于说明 H4G 年级拆分，不属于课程标准原文。</p>
+                                <p className={styles['grade-assignment-note']}>以下内容用于说明 H4G 年级拆分，不属于课程标准原文。</p>
                             </div>
                             {grade_assignment_rationale && (
-                                <p className="grade-assignment-rationale">{grade_assignment_rationale}</p>
+                                <p className={styles['grade-assignment-rationale']}>{grade_assignment_rationale}</p>
                             )}
                             {h4gState.isH4G && !h4gState.hasUsableGradeFocus && (
-                                <p className="grade-assignment-rationale">{h4gState.statusMessage}</p>
+                                <p className={styles['grade-assignment-rationale']}>{h4gState.statusMessage}</p>
                             )}
                             {h4gState.hasUsableGradeFocus && (
-                                <p className="grade-assignment-rationale">{h4gState.gradeFocus}</p>
+                                <p className={styles['grade-assignment-rationale']}>{h4gState.gradeFocus}</p>
                             )}
                             {progression_review_note && (
-                                <p className="grade-assignment-rationale">{progression_review_note}</p>
+                                <p className={styles['grade-assignment-rationale']}>{progression_review_note}</p>
                             )}
-                            <div className="grade-assignment-facts">
+                            <div className={styles['grade-assignment-facts']}>
                                 {grade_assignment_type && <span>{grade_assignment_type}</span>}
                                 {hasGradeAssignmentConfidence && (
                                     <span>置信度 {Math.round(Number(grade_assignment_confidence) * 100)}%</span>
@@ -359,21 +556,23 @@ function StandardDetailPage() {
             )}
 
             {/* P1: Resources Placeholder */}
-            <section className="resources-section">
+            <section className={styles['resources-section']} id="standard-resources" data-reading-section="standard-resources">
                 <div className="container">
                     <button
-                        className={`resources-header-btn ${resourcesExpanded ? 'expanded' : ''}`}
+                        className={`${styles['resources-header-btn']} ${resourcesExpanded ? styles.expanded : ''}`}
                         onClick={() => setResourcesExpanded(!resourcesExpanded)}
+                        aria-expanded={resourcesExpanded}
+                        aria-controls="standard-resource-content"
                     >
-                        <span>📦 教学资源</span>
-                        <span className="coming-soon-badge">即将上线</span>
-                        <span className={`toggle-icon ${resourcesExpanded ? 'up' : 'down'}`}>▼</span>
+                        <span className={styles['resource-title']}><span className={styles['resource-symbol']} aria-hidden="true"></span>教学资源</span>
+                        <span className={styles['coming-soon-badge']}>即将上线</span>
+                        <span className={`${styles['toggle-icon']} ${resourcesExpanded ? styles.up : ''}`} aria-hidden="true"></span>
                     </button>
                     {resourcesExpanded && (
-                        <div className="resources-placeholder">
-                            <div className="placeholder-content">
-                                <span className="placeholder-icon">🎓</span>
-                                <h4>教学资源即将上线</h4>
+                        <div className={styles['resources-placeholder']} id="standard-resource-content">
+                            <div className={styles['placeholder-content']}>
+                                <span className={styles['placeholder-index']} aria-hidden="true">R</span>
+                                <h3>教学资源即将上线</h3>
                                 <p>未来将支持绑定课例、活动设计、任务单等教学资源</p>
                                 <ul>
                                     <li>典型课例与教学设计</li>
@@ -386,41 +585,45 @@ function StandardDetailPage() {
                 </div>
             </section>
 
+            <AnimatePresence initial={false}>
+                {uiV2Enabled && relationsExpanded ? (
+                    <StandardRelationPanel
+                        key="standard-relations"
+                        model={graphModel}
+                        focusRef={relationHeadingRef}
+                        transitionCode={code}
+                        transitionTitle={pageTitle}
+                    />
+                ) : null}
+            </AnimatePresence>
+
             {/* Navigation */}
-            <section className="navigation-section">
+            <section className={styles['navigation-section']}>
                 <div className="container">
-                    <div className="nav-grid">
-                        <div className="nav-group">
-                            <h4>上一条标准</h4>
+                    <div className={styles['nav-grid']}>
+                        <div className={styles['nav-group']}>
+                            <p className={styles['nav-group-label']}>上一条标准</p>
                             {prevCodes.length > 0 ? (
-                                <div className="nav-links">
-                                    {prevCodes.map(c => (
-                                        <Link key={c} to={`/standards/${c.trim()}`} className="nav-link prev">
-                                            ← {c.trim()}
-                                        </Link>
-                                    ))}
+                                <div className={styles['nav-links']}>
+                                    {prevCodes.map(c => <StandardPreviewLink key={c} standardCode={c} direction="prev" />)}
                                 </div>
                             ) : (
-                                <span className="nav-empty">无</span>
+                                <span className={styles['nav-empty']}>无</span>
                             )}
                         </div>
-                        <div className="nav-group center">
+                        <div className={`${styles['nav-group']} ${styles.center}`}>
                             <Link to={`/subjects/${subject_slug}`} className="btn btn-secondary">
                                 返回 {subject}
                             </Link>
                         </div>
-                        <div className="nav-group right">
-                            <h4>下一条标准</h4>
+                        <div className={`${styles['nav-group']} ${styles.right}`}>
+                            <p className={styles['nav-group-label']}>下一条标准</p>
                             {nextCodes.length > 0 ? (
-                                <div className="nav-links">
-                                    {nextCodes.map(c => (
-                                        <Link key={c} to={`/standards/${c.trim()}`} className="nav-link next">
-                                            {c.trim()} →
-                                        </Link>
-                                    ))}
+                                <div className={styles['nav-links']}>
+                                    {nextCodes.map(c => <StandardPreviewLink key={c} standardCode={c} direction="next" />)}
                                 </div>
                             ) : (
-                                <span className="nav-empty">无</span>
+                                <span className={styles['nav-empty']}>无</span>
                             )}
                         </div>
                     </div>

@@ -1,0 +1,82 @@
+.hero-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    color: var(--hero-signal, #3e5bef);
+    pointer-events: none;
+}
+
+.hero-coordinate-field {
+    position: absolute;
+    top: 50%;
+    right: -4%;
+    width: min(58rem, 72%);
+    height: 112%;
+    transform: translateY(-50%);
+}
+
+.hero-coordinate-grid {
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 1;
+    opacity: 0.08;
+}
+
+.hero-coordinate-route {
+    fill: var(--hero-signal, #3e5bef);
+    stroke: var(--hero-signal, #3e5bef);
+    stroke-width: 1.5;
+    opacity: 0.32;
+}
+
+.hero-coordinate-route path {
+    fill: none;
+    stroke-dasharray: 3 8;
+}
+
+.hero-coordinate-route circle {
+    stroke-width: 2;
+}
+
+.hero-coordinate-labels {
+    fill: currentcolor;
+    font: 600 11px/1 var(--font-mono);
+    letter-spacing: 0.12em;
+    opacity: 0.38;
+}
+
+.hero-icon-overlay {
+    position: absolute;
+    top: 50%;
+    right: 9%;
+    width: 9rem;
+    height: 9rem;
+    transform: translateY(-50%);
+    opacity: 0.055;
+    stroke-width: 0.8;
+}
+
+@media (max-width: 1024px) {
+    .hero-coordinate-field {
+        right: -18%;
+        width: 88%;
+    }
+
+    .hero-icon-overlay {
+        right: 4%;
+        width: 7rem;
+        height: 7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-coordinate-field {
+        right: -42%;
+        width: 130%;
+        opacity: 0.7;
+    }
+
+    .hero-icon-overlay {
+        display: none;
+    }
+}

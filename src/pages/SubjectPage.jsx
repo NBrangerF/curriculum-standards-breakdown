@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { lazy, Suspense, useCallback, useState, useEffect, useMemo } from 'react'
 import { useParams, useSearchParams, Link } from 'react-router-dom'
 import {
     loadManifest,
@@ -17,9 +17,16 @@ import StandardCard from '../components/StandardCard'
 import CompareView from '../components/CompareView'
 import SubjectHeroBanner from '../components/SubjectHeroBanner'
 import { LoadingState, ErrorState } from '../components/StateComponents'
-import './SubjectPage.css'
+import { useUiV2 } from '../components/RouteUiBoundary.jsx'
+import { mergeGraphStateIntoURL, parseGraphStateFromURL } from '../data/query.js'
+import { runViewTransition } from '../utils/viewTransition.js'
+import styles from './SubjectPage.module.css'
+
+const SkillsGraphWorkspace = lazy(() => import('../features/graph/SkillsGraphWorkspace.jsx'))
+const GRAPH_RELATION_TYPES = Object.freeze(['contains', 'progression', 'skill_alignment'])
 
 function SubjectPage() {
+    const { enabled: uiV2Enabled } = useUiV2()
     const { slug } = useParams()
     const [searchParams, setSearchParams] = useSearchParams()
     const [loading, setLoading] = useState(true)
@@ -27,8 +34,10 @@ function SubjectPage() {
     const [selectedBands, setSelectedBands] = useState([])
     const [expandedDomains, setExpandedDomains] = useState({})
 
-    // View mode: 'list' or 'compare'
-    const viewMode = searchParams.get('view') || 'list'
+    const searchKey = searchParams.toString()
+    const graphState = useMemo(() => parseGraphStateFromURL(new URLSearchParams(searchKey)), [searchKey])
+    const requestedViewMode = graphState.view || 'list'
+    const viewMode = !uiV2Enabled && requestedViewMode === 'graph' ? 'list' : requestedViewMode
 
     // Data
     const [subjectMeta, setSubjectMeta] = useState(null)
@@ -97,14 +106,25 @@ function SubjectPage() {
     }
 
     const setViewMode = (mode) => {
-        const params = new URLSearchParams(searchParams)
-        if (mode === 'list') {
-            params.delete('view')
-        } else {
-            params.set('view', mode)
+        if (mode === 'graph') {
+            runViewTransition(() => setSearchParams(mergeGraphStateIntoURL(searchParams, {
+                view: 'graph',
+                subject: slug,
+                selectedNode: `subject:${encodeURIComponent(slug.toLowerCase())}`,
+                focusDepth: 2,
+                relationTypes: [...GRAPH_RELATION_TYPES],
+                compareSelection: []
+            }), { replace: false }))
+            return
         }
-        setSearchParams(params, { replace: true })
+        runViewTransition(() => setSearchParams(mergeGraphStateIntoURL(searchParams, mode === 'compare' ? { view: 'compare' } : {}), { replace: false }))
     }
+
+    const updateGraphState = useCallback((partial, options = {}) => {
+        const current = parseGraphStateFromURL(new URLSearchParams(searchParams))
+        const next = { ...current, ...partial, view: 'graph', subject: slug }
+        setSearchParams(mergeGraphStateIntoURL(searchParams, next), { replace: options.replace === true })
+    }, [searchParams, setSearchParams, slug])
 
     // In compare mode, default to all bands if none selected
     useEffect(() => {
@@ -142,7 +162,7 @@ function SubjectPage() {
                     title="学科未找到"
                     message="找不到该学科的信息"
                 />
-                <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+                <div className={styles['not-found-actions']}>
                     <Link to="/" className="btn btn-primary">返回首页</Link>
                 </div>
             </div>
@@ -150,7 +170,7 @@ function SubjectPage() {
     }
 
     return (
-        <div className="subject-page">
+        <div className={styles['subject-page']} data-kb-route="subject">
             {/* Subject Hero Banner - New Component */}
             <SubjectHeroBanner
                 title={manifestSubject?.subject || subjectMeta?.subject_cn || slug}
@@ -166,57 +186,93 @@ function SubjectPage() {
             />
 
             {/* Subject Description */}
-            {subjectMeta && (
-                <section className="subject-description">
+            {subjectMeta && viewMode !== 'graph' ? (
+                <section className={styles['subject-description']}>
                     <div className="container">
-                        <div className="description-grid">
-                            <div className="description-card">
-                                <h3>📖 课程说明</h3>
+                        <div className={styles['description-grid']}>
+                            <div className={styles['description-card']}>
+                                <span>课程定位</span>
+                                <h3>课程说明</h3>
                                 <p>{subjectMeta.long_description}</p>
                             </div>
-                            <div className="description-card">
-                                <h3>🏗️ 内容结构</h3>
+                            <div className={styles['description-card']}>
+                                <span>内容组织</span>
+                                <h3>内容结构</h3>
                                 <p>{subjectMeta.structure_notes}</p>
                             </div>
                         </div>
                     </div>
                 </section>
-            )}
+            ) : null}
 
             {/* Grade Band Filter + View Toggle */}
-            <section className="grade-band-section">
+            <section className={`${styles['grade-band-section']} ${viewMode === 'graph' ? styles['is-graph'] : ''}`}>
                 <div className="container">
-                    <div className="grade-band-header">
+                    <div className={styles['grade-band-header']}>
                         <div>
-                            <h3>选择学段</h3>
-                            <p>可多选学段{viewMode === 'compare' ? '进行并列对比' : '进行筛选'}</p>
+                            <span className={styles['subject-view-kicker']}>Browse Mode</span>
+                            <h3>{viewMode === 'graph' ? '课程关系工作台' : '选择学段'}</h3>
+                            <p>{viewMode === 'graph' ? '图谱筛选、路径与节点对比均保存在当前链接中。' : `可多选学段${viewMode === 'compare' ? '进行并列对比' : '进行筛选'}`}</p>
                         </div>
-                        <div className="view-toggle">
+                        <div className={styles['view-toggle']}>
                             <button
-                                className={`view-toggle-btn ${viewMode === 'list' ? 'active' : ''}`}
+                                type="button"
+                                className={`${styles['view-toggle-btn']} ${viewMode === 'list' ? styles.active : ''}`}
+                                aria-pressed={viewMode === 'list'}
                                 onClick={() => setViewMode('list')}
                             >
-                                📋 列表视图
+                                列表视图
                             </button>
                             <button
-                                className={`view-toggle-btn ${viewMode === 'compare' ? 'active' : ''}`}
+                                type="button"
+                                className={`${styles['view-toggle-btn']} ${viewMode === 'compare' ? styles.active : ''}`}
+                                aria-pressed={viewMode === 'compare'}
                                 onClick={() => setViewMode('compare')}
                             >
-                                🔄 对比视图
+                                学段对比
                             </button>
+                            {uiV2Enabled ? <button
+                                type="button"
+                                className={`${styles['view-toggle-btn']} ${viewMode === 'graph' ? styles.active : ''}`}
+                                aria-pressed={viewMode === 'graph'}
+                                onClick={() => setViewMode('graph')}
+                            >
+                                关系图谱
+                            </button> : null}
                         </div>
                     </div>
-                    <GradeBandTabs
-                        selected={selectedBands}
-                        onChange={setSelectedBands}
-                        availableBands={availableBands}
-                    />
+                    {viewMode !== 'graph' ? (
+                        <GradeBandTabs
+                            selected={selectedBands}
+                            onChange={setSelectedBands}
+                            availableBands={availableBands}
+                        />
+                    ) : null}
                 </div>
             </section>
 
             {/* Standards Section */}
-            <section className="standards-section">
-                <div className="container">
+            <div style={{ viewTransitionName: 'kb-view-surface' }}>
+            {viewMode === 'graph' ? (
+                <section className={styles['subject-graph-section']}>
+                    <Suspense fallback={(
+                        <div className={styles['subject-graph-loading']} aria-live="polite">
+                            <span></span>
+                            <p>正在加载学科关系图谱</p>
+                        </div>
+                    )}>
+                        <SkillsGraphWorkspace
+                            graphState={graphState}
+                            onGraphStateChange={updateGraphState}
+                            providedStandards={standards}
+                            lockedSubjectSlug={slug}
+                            lockedSubjectLabel={manifestSubject?.subject || subjectMeta?.subject_cn || slug}
+                        />
+                    </Suspense>
+                </section>
+            ) : (
+                <section className={styles['standards-section']}>
+                    <div className="container">
                     {viewMode === 'compare' ? (
                         /* Compare View */
                         <CompareView
@@ -228,35 +284,37 @@ function SubjectPage() {
                     ) : (
                         /* List View */
                         <>
-                            <div className="standards-header">
+                            <div className={styles['standards-header']}>
                                 <h2>课程标准</h2>
-                                <div className="standards-actions">
-                                    <button className="btn btn-ghost" onClick={expandAll}>展开全部</button>
-                                    <button className="btn btn-ghost" onClick={collapseAll}>收起全部</button>
+                                <div className={styles['standards-actions']}>
+                                    <button type="button" className="btn btn-ghost" onClick={expandAll}>展开全部</button>
+                                    <button type="button" className="btn btn-ghost" onClick={collapseAll}>收起全部</button>
                                 </div>
                             </div>
 
-                            <div className="domains-list">
+                            <div className={styles['domains-list']}>
                                 {domains.map(domain => {
                                     const domainStandards = standardsByDomain[domain]
                                     const isExpanded = expandedDomains[domain] !== false // default to expanded
 
                                     return (
-                                        <div key={domain} className="domain-group">
+                                        <div key={domain} className={styles['domain-group']}>
                                             <button
-                                                className={`domain-header ${isExpanded ? 'expanded' : ''}`}
+                                                type="button"
+                                                className={`${styles['domain-header']} ${isExpanded ? styles.expanded : ''}`}
+                                                aria-expanded={isExpanded}
                                                 onClick={() => toggleDomain(domain)}
                                                 style={{ '--subject-color': subjectColor }}
                                             >
-                                                <div className="domain-info">
-                                                    <span className="domain-name">{domain}</span>
-                                                    <span className="domain-count">{domainStandards.length} 条</span>
+                                                <div className={styles['domain-info']}>
+                                                    <span className={styles['domain-name']}>{domain}</span>
+                                                    <span className={styles['domain-count']}>{domainStandards.length} 条</span>
                                                 </div>
-                                                <span className={`domain-toggle ${isExpanded ? 'up' : 'down'}`}>▼</span>
+                                                <span className={`${styles['domain-toggle']} ${isExpanded ? styles.up : ''}`}>▼</span>
                                             </button>
 
                                             {isExpanded && (
-                                                <div className="standards-list animate-fade-in">
+                                                <div className={`${styles['standards-list']} animate-fade-in`}>
                                                     {domainStandards.map(std => (
                                                         <StandardCard key={std.id} standard={std} />
                                                     ))}
@@ -268,17 +326,19 @@ function SubjectPage() {
                             </div>
 
                             {domains.length === 0 && (
-                                <div className="empty-state">
+                                <div className={styles['empty-state']}>
                                     <p>没有找到符合条件的标准</p>
-                                    <button className="btn btn-secondary" onClick={() => setSelectedBands([])}>
+                                    <button type="button" className="btn btn-secondary" onClick={() => setSelectedBands([])}>
                                         清除筛选
                                     </button>
                                 </div>
                             )}
                         </>
                     )}
-                </div>
-            </section>
+                    </div>
+                </section>
+            )}
+            </div>
         </div>
     )
 }

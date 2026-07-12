@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { SKILL_COLORS } from '../data/dataLoader'
 import HeroBackground from './HeroBackground'
-import './TSHeroBanner.css'
+import styles from './TSHeroBanner.module.css'
 
 /**
  * Abstract symbol SVG paths for TS skills
@@ -84,7 +84,7 @@ function TSHeroBanner({
 
     return (
         <section
-            className="ts-hero-banner"
+            className={styles['ts-hero-banner']}
             style={{ '--theme-color': color }}
         >
             {/* Shared TS-style background */}
@@ -94,31 +94,22 @@ function TSHeroBanner({
                 uniqueId={`ts-${tsCode}`}
             />
 
-            {/* Content */}
-            <div className="hero-content container">
-                {/* Back link */}
-                <Link to={backLink} className="hero-back-link">
+            <div className={`${styles['hero-content']} container`}>
+                <Link to={backLink} className={styles['hero-back-link']}>
                     {backLabel}
                 </Link>
-
-                {/* TS Badge */}
-                <span className="ts-badge">{tsCode}</span>
-
-                {/* Title CN (H1) */}
-                <h1 className="hero-title ts-title-cn">{titleCN}</h1>
-
-                {/* Title EN (H2) */}
-                {titleEN && (
-                    <h2 className="hero-title-en">{titleEN}</h2>
-                )}
-
-                {/* Definition with accent line */}
-                {definition && (
-                    <div className="ts-definition">
-                        <div className="definition-accent" />
-                        <p className="definition-text">{definition}</p>
+                <div className={styles['ts-hero-grid']}>
+                    <div className={styles['ts-hero-copy']}>
+                        <span className={styles['ts-badge']}>Transferable Skill · {tsCode}</span>
+                        <h1 className={`${styles['hero-title']} ${styles['ts-title-cn']}`}>{titleCN}</h1>
+                        {titleEN ? <h2 className={styles['hero-title-en']}>{titleEN}</h2> : null}
+                        {definition ? <p className={styles['ts-definition']}>{definition}</p> : null}
                     </div>
-                )}
+                    <div className={styles['ts-hero-visual']} aria-hidden="true">
+                        <span>{tsCode}</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">{iconPath}</svg>
+                    </div>
+                </div>
             </div>
         </section>
     )

@@ -1,6 +1,11 @@
-import { useMemo } from 'react'
 import { SKILL_COLORS } from '../data/dataLoader'
-import './TSBadge.css'
+import styles from './TSBadge.module.css'
+
+const SIZE_CONFIG = {
+    sm: { icon: 16 },
+    md: { icon: 24 },
+    lg: { icon: 32 }
+}
 
 /**
  * TS Icon Mappings
@@ -129,35 +134,32 @@ function TSBadge({
     const iconData = TS_ICONS[tsId]
     const color = SKILL_COLORS[tsId] || 'var(--color-primary)'
 
-    const sizeConfig = useMemo(() => ({
-        sm: { icon: 16, padding: 4, fontSize: 10 },
-        md: { icon: 24, padding: 6, fontSize: 12 },
-        lg: { icon: 32, padding: 8, fontSize: 14 }
-    }), [])
-
-    const config = sizeConfig[size] || sizeConfig.sm
+    const config = SIZE_CONFIG[size] || SIZE_CONFIG.sm
+    const badgeClassName = `${styles.badge} ${styles[size] || styles.sm} ${styles[variant] || styles.soft} ${className}`
 
     if (!iconData) {
         return (
             <span
-                className={`ts-badge ts-badge-${size} ts-badge-${variant} ${className}`}
+                className={badgeClassName}
+                data-kb-component="ts-badge"
                 style={{ '--ts-color': color }}
                 title={tsId}
             >
-                <span className="ts-badge-text">{tsId}</span>
+                <span className={styles.text}>{tsId}</span>
             </span>
         )
     }
 
     return (
         <span
-            className={`ts-badge ts-badge-${size} ts-badge-${variant} ${className}`}
+            className={badgeClassName}
+            data-kb-component="ts-badge"
             style={{ '--ts-color': color }}
             title={`${iconData.name} (${tsId})`}
             aria-label={`${iconData.name}`}
         >
             <svg
-                className="ts-badge-icon"
+                className={styles.icon}
                 width={config.icon}
                 height={config.icon}
                 viewBox={iconData.viewBox}
@@ -177,7 +179,7 @@ function TSBadge({
                 ))}
             </svg>
             {showLabel && (
-                <span className="ts-badge-label">{iconData.name}</span>
+                <span className={styles.label}>{iconData.name}</span>
             )}
         </span>
     )
@@ -199,7 +201,7 @@ export function TSBadgeGroup({
     const remaining = skills.length - max
 
     return (
-        <span className={`ts-badge-group ${className}`}>
+        <span className={`${styles.group} ${className}`} data-kb-component="ts-badge-group">
             {displayed.map(skill => {
                 const code = typeof skill === 'string' ? skill : skill.code
                 return (
@@ -212,7 +214,7 @@ export function TSBadgeGroup({
                 )
             })}
             {remaining > 0 && (
-                <span className="ts-badge-more" title={`还有 ${remaining} 个`}>
+                <span className={styles.more} title={`还有 ${remaining} 个`}>
                     +{remaining}
                 </span>
             )}

@@ -1,0 +1,156 @@
+.ts-hero-banner {
+    position: relative;
+    min-height: clamp(31rem, 62vh, 44rem);
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    border-bottom: 1px solid #dfe3ea;
+    background: #f2f4f7;
+    color: #151a23;
+}
+
+.ts-hero-banner [data-kb-component="hero-background"] {
+    background:
+        radial-gradient(circle at 78% 42%, color-mix(in srgb, var(--theme-color) 16%, transparent) 0, transparent 33%),
+        linear-gradient(115deg, #fafbfc 0%, #f2f4f7 62%, #e8ecf2 100%);
+}
+
+.ts-hero-banner [data-kb-component="hero-background"]::before {
+    opacity: 0.55;
+    background-image:
+        linear-gradient(rgba(37, 48, 66, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 48, 66, 0.045) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    mask-image: linear-gradient(90deg, transparent, #000 48%, #000);
+}
+
+.ts-hero-banner .hero-noise { opacity: 0.018; mix-blend-mode: multiply; }
+.ts-hero-banner .hero-shape-container { opacity: 0.2; }
+.ts-hero-banner .hero-icon-overlay { display: none; }
+
+.ts-hero-banner .hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);
+    padding-bottom: clamp(3.5rem, 7vw, 6rem);
+}
+
+.ts-hero-banner .hero-back-link {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    min-height: 2.75rem;
+    margin-bottom: auto;
+    color: #687385;
+    font: 560 0.7rem/1 var(--font-mono);
+    text-decoration: none;
+    transition: color 180ms ease, transform 180ms ease;
+}
+
+.ts-hero-banner .hero-back-link:hover,
+.ts-hero-banner .hero-back-link:focus-visible { color: #151a23; transform: translateX(-2px); }
+
+.ts-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.64fr) minmax(18rem, 0.36fr);
+    gap: clamp(2rem, 6vw, 7rem);
+    align-items: end;
+    padding-top: clamp(4rem, 9vw, 8rem);
+}
+
+.ts-hero-copy { max-width: 55rem; }
+
+.ts-badge {
+    display: block;
+    margin-bottom: 1.4rem;
+    color: var(--theme-color, #5065c8);
+    font: 650 0.68rem/1 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ts-title-cn {
+    max-width: 12ch;
+    margin: 0;
+    color: #111721;
+    font-size: clamp(3.5rem, 8vw, 7.8rem);
+    font-weight: 620;
+    line-height: 0.88;
+    letter-spacing: -0.075em;
+    text-wrap: balance;
+}
+
+.hero-title-en {
+    margin: 1.25rem 0 0;
+    color: #7a8494;
+    font: 500 clamp(0.78rem, 1.2vw, 1rem)/1.4 var(--font-mono);
+    letter-spacing: 0.025em;
+}
+
+.ts-definition {
+    max-width: 42rem;
+    margin: clamp(2rem, 4vw, 3.5rem) 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid #cfd5df;
+    color: #4d5869;
+    font-size: clamp(0.95rem, 1.35vw, 1.12rem);
+    line-height: 1.75;
+    text-wrap: pretty;
+}
+
+.ts-hero-visual {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: min(28vw, 22rem);
+    aspect-ratio: 1;
+    justify-self: end;
+    border: 1px solid color-mix(in srgb, var(--theme-color) 36%, #c5ccd7);
+    border-radius: 50%;
+    color: var(--theme-color, #5065c8);
+    box-shadow:
+        0 0 0 2.2rem color-mix(in srgb, var(--theme-color) 4%, transparent),
+        0 0 0 4.4rem rgba(42, 53, 72, 0.025);
+}
+
+.ts-hero-visual::before,
+.ts-hero-visual::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: var(--theme-color, #5065c8);
+}
+
+.ts-hero-visual::before { top: 11%; right: 10%; width: 0.5rem; height: 0.5rem; }
+.ts-hero-visual::after { bottom: 5%; left: 21%; width: 0.25rem; height: 0.25rem; opacity: 0.6; }
+
+.ts-hero-visual > span {
+    position: absolute;
+    top: 12%;
+    left: 12%;
+    color: #7d8796;
+    font: 560 0.65rem/1 var(--font-mono);
+}
+
+.ts-hero-visual svg { width: 36%; height: 36%; stroke-width: 1.15; }
+
+@media (max-width: 760px) {
+    .ts-hero-banner { min-height: 34rem; }
+    .ts-hero-grid { grid-template-columns: 1fr; padding-top: 4rem; }
+    .ts-hero-visual {
+        position: absolute;
+        right: -2.5rem;
+        bottom: -2.5rem;
+        width: 12rem;
+        opacity: 0.58;
+    }
+    .ts-title-cn { max-width: 9ch; font-size: clamp(3.5rem, 17vw, 5.4rem); }
+    .ts-definition { max-width: calc(100% - 3rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ts-hero-banner .hero-back-link { transition: none; }
+}

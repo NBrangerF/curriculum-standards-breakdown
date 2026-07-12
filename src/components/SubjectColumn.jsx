@@ -1,7 +1,10 @@
 import { useState, useMemo } from 'react'
+import { CaretDownIcon } from '@phosphor-icons/react/dist/csr/CaretDown'
+import { CaretUpIcon } from '@phosphor-icons/react/dist/csr/CaretUp'
+import { XIcon } from '@phosphor-icons/react/dist/csr/X'
 import StandardCard from './StandardCard'
 import { SUBJECT_COLORS, groupByDomain } from '../data/dataLoader'
-import './SubjectColumn.css'
+import styles from './SubjectColumn.module.css'
 
 /**
  * SubjectColumn - Independent column for multi-subject comparison
@@ -15,7 +18,8 @@ function SubjectColumn({
     subjectName,
     gradeBand,
     standards,
-    defaultExpandFirst = true
+    defaultExpandFirst = true,
+    quickPreview = false
 }) {
     const subjectColor = SUBJECT_COLORS[subjectSlug] || 'var(--color-primary)'
 
@@ -117,44 +121,46 @@ function SubjectColumn({
         .length
 
     return (
-        <div className="subject-column" style={{ '--column-color': subjectColor }}>
+        <div className={styles['subject-column']} style={{ '--column-color': subjectColor }} data-kb-component="subject-column">
             {/* Sticky Header */}
-            <div className="column-header">
-                <div className="column-title-row">
-                    <h3 className="column-title">{subjectName}</h3>
-                    <span className="column-badge">{gradeBand}</span>
+            <div className={styles['column-header']}>
+                <div className={styles['column-title-row']}>
+                    <h3 className={styles['column-title']}>{subjectName}</h3>
+                    <span className={styles['column-badge']}>{gradeBand}</span>
                 </div>
 
                 {/* Column Search */}
-                <div className="column-search">
+                <div className={styles['column-search']}>
                     <input
                         type="text"
                         placeholder="搜索本列..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="column-search-input"
+                        className={styles['column-search-input']}
                     />
                     {searchTerm && (
                         <button
-                            className="column-search-clear"
+                            className={styles['column-search-clear']}
                             onClick={() => setSearchTerm('')}
+                            type="button"
+                            aria-label={`清空${subjectName}列搜索`}
                         >
-                            ✕
+                            <XIcon size={15} aria-hidden="true" />
                         </button>
                     )}
                 </div>
 
                 {searchTerm && (
-                    <div className="column-search-status">
+                    <div className={styles['column-search-status']}>
                         找到 {filteredCount} / {totalCount} 条
                     </div>
                 )}
             </div>
 
             {/* Scrollable Content */}
-            <div className="column-content">
+            <div className={styles['column-content']}>
                 {domainKeys.length === 0 ? (
-                    <div className="column-empty">
+                    <div className={styles['column-empty']}>
                         {searchTerm ? (
                             <span>未找到匹配内容</span>
                         ) : (
@@ -171,43 +177,47 @@ function SubjectColumn({
                         const domainCount = Object.values(subdomains).flat().length
 
                         return (
-                            <div key={domain} className="domain-group">
+                            <div key={domain} className={styles['domain-group']}>
                                 {/* Domain Header */}
                                 <button
-                                    className={`domain-header ${isExpanded ? 'expanded' : ''}`}
+                                    className={`${styles['domain-header']} ${isExpanded ? styles.expanded : ''}`}
                                     onClick={() => toggleDomain(domain)}
+                                    type="button"
+                                    aria-expanded={Boolean(isExpanded)}
                                 >
-                                    <span className="domain-name">
+                                    <span className={styles['domain-name']}>
                                         {highlightMatch(domain, searchTerm)}
                                     </span>
-                                    <span className="domain-meta">
-                                        <span className="domain-count">{domainCount}</span>
-                                        <span className={`domain-toggle ${isExpanded ? 'up' : 'down'}`}>
-                                            ▼
-                                        </span>
+                                    <span className={styles['domain-meta']}>
+                                        <span className={styles['domain-count']}>{domainCount}</span>
+                                        {isExpanded
+                                            ? <CaretUpIcon className={`${styles['domain-toggle']} ${styles.up}`} size={16} aria-hidden="true" />
+                                            : <CaretDownIcon className={styles['domain-toggle']} size={16} aria-hidden="true" />}
                                     </span>
                                 </button>
 
                                 {/* Domain Content */}
                                 {isExpanded && (
-                                    <div className="domain-content">
+                                    <div className={styles['domain-content']}>
                                         {subdomainKeys.map(subdomain => {
                                             const stds = subdomains[subdomain]
                                             const hasSubdomain = subdomain !== ''
 
                                             return (
-                                                <div key={subdomain || '__root__'} className="subdomain-group">
+                                                <div key={subdomain || '__root__'} className={styles['subdomain-group']}>
                                                     {hasSubdomain && (
-                                                        <h5 className="subdomain-title">
+                                                        <h5 className={styles['subdomain-title']}>
                                                             {highlightMatch(subdomain, searchTerm)}
                                                         </h5>
                                                     )}
-                                                    <div className="standards-list">
+                                                    <div className={styles['standards-list']}>
                                                         {stds.map(std => (
                                                             <StandardCard
                                                                 key={std.id}
                                                                 standard={std}
                                                                 highlightTerm={searchTerm}
+                                                                quickPreview={quickPreview}
+                                                                contextLabel={`${subjectName} · ${gradeBand}`}
                                                             />
                                                         ))}
                                                     </div>
@@ -236,7 +246,7 @@ function highlightMatch(text, term) {
 
     return parts.map((part, i) =>
         regex.test(part)
-            ? <mark key={i} className="search-highlight">{part}</mark>
+            ? <mark key={i} className={styles['search-highlight']}>{part}</mark>
             : part
     )
 }

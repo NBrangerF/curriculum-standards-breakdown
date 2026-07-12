@@ -1,0 +1,615 @@
+/* ============================================
+   Standard Card Component - Refined Visual Hierarchy
+   Upgraded: Hover-reveal actions + 4px left accent line
+   ============================================ */
+
+.standard-card {
+    position: relative;
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-gray-200);
+    overflow: hidden;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.88);
+    transition:
+        transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 180ms ease,
+        box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    /* Accent color injection via CSS variable */
+    --card-accent: var(--color-primary);
+}
+
+/* 4px Left Accent Line */
+.standard-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--card-accent);
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+.standard-card:hover {
+    border-color: var(--color-gray-300);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.96),
+        0 0.8rem 2.4rem rgba(30, 42, 67, 0.08);
+    transform: translateY(-1px);
+}
+
+.standard-card.expanded {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   Header Row
+   ============================================ */
+
+.standard-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    padding-left: calc(var(--space-4) + 4px);
+    /* Account for left accent */
+    border-bottom: 1px solid var(--color-gray-100);
+}
+
+/* Labels (Subdomain + Domain) */
+.standard-card-labels {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    flex: 1;
+    min-width: 0;
+}
+
+.standard-code {
+    color: var(--text-tertiary);
+    font: 550 0.64rem/1 var(--font-mono);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.comparison-context {
+    display: none;
+}
+
+.subdomain-label {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-2);
+    background: var(--color-gray-100);
+    color: #000;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+}
+
+.domain-label {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.review-status-chip {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    padding: var(--space-1) var(--space-2);
+    background: var(--color-warning);
+    color: var(--color-gray-900);
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+}
+
+.review-status-chip.needs-differentiation {
+    background: var(--color-info-light, #DBEAFE);
+    color: var(--color-info-dark, #2563EB);
+}
+
+.review-status-chip.h4g-status-ready {
+    background: #DCFCE7;
+    color: #166534;
+}
+
+.review-status-chip.h4g-status-candidate {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.review-status-chip.h4g-status-pending {
+    background: #E0E7FF;
+    color: #3730A3;
+}
+
+/* ============================================
+   Actions - Hover Reveal System
+   ============================================ */
+
+.standard-card-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    flex-shrink: 0;
+}
+
+/* Primary action: always visible (Favorite star) */
+.action-primary {
+    display: contents;
+}
+
+/* Secondary actions: hover/focus reveal */
+.action-secondary {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(0.2rem);
+    transition:
+        opacity 150ms ease,
+        transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reveal on card hover or focus-within */
+.standard-card:hover .action-secondary,
+.standard-card:focus-within .action-secondary {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+/* Focus visible override - always show when focused */
+.action-secondary:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Grade band chip */
+.grade-band-chip {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-2);
+    background: var(--band-bg, var(--color-primary-light, rgba(59, 130, 246, 0.1)));
+    color: var(--band-color, var(--color-primary));
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+}
+
+/* ============================================
+   Action Buttons - Unified Styling
+   ============================================ */
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    color: var(--text-tertiary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition:
+        transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 150ms ease,
+        color 150ms ease;
+}
+
+.action-btn:hover {
+    background: var(--color-gray-100);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+.action-btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    opacity: 1;
+}
+
+/* Menu */
+.menu-container {
+    position: relative;
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    color: var(--text-tertiary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition:
+        transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 150ms ease,
+        color 150ms ease;
+}
+
+.menu-btn:hover {
+    background: var(--color-gray-100);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+.menu-btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.menu-dropdown {
+    z-index: var(--z-dropdown);
+    min-width: 140px;
+    background: var(--bg-primary);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-0.25rem) scale(0.98);
+    transform-origin: top right;
+    transition:
+        opacity 140ms ease,
+        transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-dropdown[data-ready] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.menu-dropdown[data-placement='top'] {
+    transform-origin: bottom right;
+}
+
+.menu-dropdown[data-placement='top']:not([data-ready]) {
+    transform: translateY(0.25rem) scale(0.98);
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    width: 100%;
+    min-height: 44px;
+    padding: var(--space-2) var(--space-3);
+    border: none;
+    background: transparent;
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+    text-align: left;
+}
+
+.menu-item:hover {
+    background: var(--color-gray-100);
+}
+
+.menu-icon {
+    font-size: var(--font-size-sm);
+}
+
+/* Expand button */
+.expand-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background: var(--color-gray-100);
+    border: none;
+    color: var(--text-tertiary);
+    transition:
+        transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 150ms ease,
+        color 150ms ease;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.expand-btn:hover {
+    background: var(--color-gray-200);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+.expand-btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.expand-icon {
+    transition: transform var(--transition-fast);
+}
+
+/* ============================================
+   Body - Standard Statement (Visual Focus)
+   ============================================ */
+
+.standard-card-body {
+    padding: var(--space-3) var(--space-4);
+    padding-left: calc(var(--space-4) + 4px);
+    /* Account for left accent */
+}
+
+.h4g-grade-lens {
+    margin-bottom: var(--space-3);
+    padding: var(--space-3);
+    border-left: 3px solid var(--card-accent);
+    background: var(--color-gray-50);
+    border-radius: var(--radius-md);
+}
+
+.h4g-grade-lens.has-focus {
+    background: #F0FDF4;
+    border-left-color: #16A34A;
+}
+
+.h4g-grade-lens.pending {
+    background: #F8FAFC;
+    border-left-color: #64748B;
+}
+
+.h4g-grade-lens-label,
+.source-standard-label {
+    display: block;
+    margin-bottom: var(--space-1);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--text-tertiary);
+}
+
+.h4g-grade-lens p {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+}
+
+.standard-text-link {
+    text-decoration: none;
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+}
+
+.standard-text {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-primary);
+    margin: 0;
+    transition: color 180ms ease;
+}
+
+.standard-text.source-standard-text {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.standard-text-link:hover .standard-text {
+    color: var(--color-primary-dark);
+}
+
+.standard-quick-preview {
+    display: grid;
+    gap: 0.48rem;
+    min-width: 12rem;
+    max-width: 14rem;
+    padding: 0.18rem 0.08rem;
+    text-align: left;
+}
+
+.standard-quick-preview > span {
+    color: #9aa8c0;
+    font: 600 0.58rem/1.25 var(--font-mono);
+    letter-spacing: 0.025em;
+}
+
+.standard-quick-preview > strong {
+    display: -webkit-box;
+    overflow: hidden;
+    color: #f5f7fb;
+    font: 540 0.72rem/1.58 var(--font-sans);
+    text-wrap: pretty;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.standard-quick-preview > small {
+    padding-top: 0.42rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.11);
+    color: #aab4c5;
+    font: 0.59rem/1.45 var(--font-mono);
+}
+
+.keyword-highlight {
+    background: var(--color-warning);
+    color: var(--color-gray-900);
+    padding: 0 var(--space-1);
+    border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   TS Badges Row
+   ============================================ */
+
+.standard-ts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    padding: 0 var(--space-4) var(--space-3);
+    padding-left: calc(var(--space-4) + 4px);
+    /* Account for left accent */
+}
+
+.ts-badge-link {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.ts-badge-link:hover [data-kb-component="ts-badge"] {
+    transform: scale(1.1);
+}
+
+/* ============================================
+   Expanded Details
+   ============================================ */
+
+.standard-card-details {
+    padding: 0 var(--space-4) var(--space-4);
+    padding-left: calc(var(--space-4) + 4px);
+    /* Account for left accent */
+    border-top: 1px solid var(--color-gray-100);
+    background: var(--bg-secondary);
+}
+
+.detail-section {
+    padding-top: var(--space-4);
+}
+
+.detail-section:first-child {
+    padding-top: var(--space-4);
+}
+
+.detail-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.detail-text {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+}
+
+.grade-assignment-section {
+    border-top: 1px solid var(--color-gray-200);
+    margin-top: var(--space-4);
+}
+
+.grade-assignment-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+}
+
+.grade-assignment-meta span {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--bg-primary);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-md);
+    padding: var(--space-1) var(--space-2);
+}
+
+.detail-actions {
+    padding-top: var(--space-4);
+    display: flex;
+    gap: var(--space-3);
+}
+
+.btn-sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-xs);
+}
+
+/* ============================================
+   Mobile Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+    .standard-card-header {
+        padding: var(--space-2) var(--space-3);
+        padding-left: calc(var(--space-3) + 4px);
+    }
+
+    .standard-card-body {
+        padding: var(--space-2) var(--space-3);
+        padding-left: calc(var(--space-3) + 4px);
+    }
+
+    .standard-ts-row {
+        padding: 0 var(--space-3) var(--space-2);
+        padding-left: calc(var(--space-3) + 4px);
+    }
+
+    /* Mobile: show primary action and menu, hide others */
+    .action-secondary:not(.mobile-show) {
+        display: none;
+    }
+
+    /* Keep menu always visible on mobile */
+    .menu-container {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    .domain-label {
+        display: none;
+    }
+
+    .comparison-context {
+        display: inline-flex;
+        min-height: 1.7rem;
+        align-items: center;
+        padding: 0 0.48rem;
+        border-left: 2px solid var(--card-accent);
+        background: color-mix(in srgb, var(--card-accent) 7%, white);
+        color: #465366;
+        font: 600 0.6rem/1.2 var(--font-mono);
+        white-space: nowrap;
+    }
+
+    .standard-text {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Keep full touch targets on mobile. */
+    .action-btn,
+    .menu-btn,
+    .expand-btn {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .standard-card,
+    .action-secondary,
+    .action-btn,
+    .menu-btn,
+    .expand-btn,
+    .standard-text {
+        transition: none;
+    }
+
+    .standard-card:hover,
+    .action-btn:hover,
+    .menu-btn:hover,
+    .expand-btn:hover {
+        transform: none;
+    }
+
+    .menu-dropdown { transition: none; }
+}

@@ -1,0 +1,73 @@
+/* Favorite Button */
+.favorite-button-wrapper {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.favorite-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-2);
+    background: transparent;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    justify-content: center;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+}
+
+.favorite-button:hover {
+    border-color: var(--color-warning);
+    color: var(--color-warning);
+}
+
+.favorite-button.favorited {
+    background: var(--color-warning);
+    border-color: var(--color-warning);
+    color: white;
+}
+
+.favorite-button.favorited:hover {
+    background: var(--color-warning-dark, #d97706);
+}
+
+.star-icon {
+    flex: none;
+}
+
+.collection-menu-btn {
+    padding: var(--space-1) var(--space-2);
+    background: var(--bg-secondary);
+    border: 1px solid var(--color-gray-300);
+    border-left: none;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    cursor: pointer;
+    color: var(--text-tertiary);
+    transition: all var(--transition-fast);
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+}
+
+.collection-menu-btn:hover {
+    background: var(--color-gray-200);
+    color: var(--text-primary);
+}
+
+/* Size variants */
+.favorite-button-wrapper.small .favorite-button,
+.favorite-button-wrapper.small .collection-menu-btn {
+    padding: 0 6px;
+    font-size: var(--font-size-xs);
+}
+
+.favorite-button-wrapper.large .favorite-button,
+.favorite-button-wrapper.large .collection-menu-btn {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-base);
+}

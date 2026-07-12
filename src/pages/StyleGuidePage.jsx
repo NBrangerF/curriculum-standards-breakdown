@@ -1,523 +1,280 @@
 import { useState } from 'react'
-import { LoadingState, ErrorState, EmptyState } from '../components/StateComponents'
-import './StyleGuidePage.css'
+import { CheckIcon } from '@phosphor-icons/react/dist/csr/Check'
+import { CircleNotchIcon } from '@phosphor-icons/react/dist/csr/CircleNotch'
+import { CopyIcon } from '@phosphor-icons/react/dist/csr/Copy'
+import { MagnifyingGlassIcon } from '@phosphor-icons/react/dist/csr/MagnifyingGlass'
+import { StarIcon } from '@phosphor-icons/react/dist/csr/Star'
+import { WarningCircleIcon } from '@phosphor-icons/react/dist/csr/WarningCircle'
+import { EmptyState, ErrorState, LoadingState } from '../components/StateComponents'
+import { Disclosure, DisclosureIndicator } from '../ui/primitives/Disclosure'
+import { Tooltip } from '../ui/primitives/Tooltip'
+import styles from './StyleGuidePage.module.css'
+
+const FOUNDATION_COLORS = [
+    ['Canvas', '--bg-secondary', '#F7F8FA'],
+    ['Surface', '--bg-primary', '#FFFFFF'],
+    ['Ink', '--text-primary', '#15181E'],
+    ['Muted ink', '--text-secondary', '#566170'],
+    ['Signal indigo', '--color-primary', '#3D5AFE'],
+    ['Accent soft', '--color-primary-subtle', '#EEF0FF']
+]
+
+const SEMANTIC_COLORS = [
+    ['Success', '--color-success', '#167D55'],
+    ['Warning', '--color-warning', '#B96A0A'],
+    ['Error', '--color-error', '#C33945'],
+    ['Graph canvas', '--kb-graph-canvas', '#090C14'],
+    ['Graph surface', '--kb-graph-surface', '#111725'],
+    ['Graph text', '--kb-graph-text', '#F3F6FF']
+]
+
+const SUBJECTS = [
+    ['语文', '--subject-chinese'], ['数学', '--subject-math'], ['英语', '--subject-english'],
+    ['科学', '--subject-science'], ['信息科技', '--subject-it'], ['艺术', '--subject-arts']
+]
+
+const SKILLS = ['TS1', 'TS2', 'TS3', 'TS4', 'TS5', 'TS6', 'TS7']
+const GRADE_TABS = [['H1', '1–2年级'], ['H2', '3–4年级'], ['H3', '5–6年级'], ['H4G7', '7年级'], ['H4G8', '8年级'], ['H4G9', '9年级']]
 
 function StyleGuidePage() {
     const [density, setDensity] = useState('compact')
-    const [accordionOpen, setAccordionOpen] = useState(false)
-    const [selectedChip, setSelectedChip] = useState('chip-1')
-    const [activeTab, setActiveTab] = useState('H1')
+    const [activeTab, setActiveTab] = useState('H2')
+    const [disclosureOpen, setDisclosureOpen] = useState(true)
+    const [selectedSkill, setSelectedSkill] = useState('TS4')
+    const [checked, setChecked] = useState(true)
 
     return (
-        <div className="styleguide-page" data-density={density}>
-            {/* Header */}
-            <header className="styleguide-header">
-                <div className="container">
-                    <div className="header-content">
-                        <div className="header-text">
-                            <h1>Style Guide</h1>
-                            <p className="tagline">Ocean Soft · Orca Brand System</p>
-                        </div>
-                        <div className="density-toggle">
-                            <span className="toggle-label">密度</span>
-                            <button
-                                className={`toggle-btn ${density === 'compact' ? 'active' : ''}`}
-                                onClick={() => setDensity('compact')}
-                            >
-                                紧凑
+        <div className={styles.root} data-density={density} data-kb-route="styleguide">
+            <header className={styles.header}>
+                <div className={`container ${styles.headerLayout}`}>
+                    <div>
+                        <span className={styles.coordinate} aria-hidden="true">SYSTEM / V2.0</span>
+                        <h1>kebiao Design System</h1>
+                        <p>Precision Intelligence Workbench——用于课程标准索引、阅读、审核与图谱探索的统一视觉和交互契约。</p>
+                    </div>
+                    <div className={styles.density} role="group" aria-label="预览密度">
+                        <span>密度</span>
+                        {['compact', 'comfortable'].map(value => (
+                            <button key={value} type="button" aria-pressed={density === value} onClick={() => setDensity(value)}>
+                                {value === 'compact' ? '紧凑' : '舒适'}
                             </button>
-                            <button
-                                className={`toggle-btn ${density === 'comfortable' ? 'active' : ''}`}
-                                onClick={() => setDensity('comfortable')}
-                            >
-                                舒适
-                            </button>
-                        </div>
+                        ))}
                     </div>
                 </div>
-                {/* Wave divider */}
-                <div className="wave-divider">
-                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M0,60 C200,120 400,0 600,60 C800,120 1000,0 1200,60 L1200,120 L0,120 Z" />
-                    </svg>
-                </div>
+                <nav className={`container ${styles.nav}`} aria-label="设计系统目录">
+                    <a href="#foundation">Foundation</a>
+                    <a href="#primitives">Primitives</a>
+                    <a href="#states">States</a>
+                    <a href="#graph-language">Graph language</a>
+                    <a href="#brand">Brand</a>
+                </nav>
             </header>
 
-            {/* Bubble pattern background */}
-            <div className="bubble-pattern" aria-hidden="true">
-                <div className="bubble b1"></div>
-                <div className="bubble b2"></div>
-                <div className="bubble b3"></div>
-                <div className="bubble b4"></div>
-                <div className="bubble b5"></div>
-            </div>
-
-            <main className="styleguide-content">
-                {/* ================================
-            SECTION A: TOKENS
-            ================================ */}
-                <section className="guide-section" id="tokens">
+            <main>
+                <section id="foundation" className={styles.section}>
                     <div className="container">
-                        <h2 className="section-title">
-                            <span className="orca-fin"></span>
-                            Tokens
-                        </h2>
+                        <SectionHeading index="01" title="Foundation" description="单一 canonical token 源，legacy 变量只作为单向兼容别名。" />
 
-                        {/* Colors */}
-                        <div className="subsection">
-                            <h3>Color Palette</h3>
-
-                            <h4>Primary & Secondary</h4>
-                            <div className="color-grid">
-                                <div className="color-swatch" style={{ '--swatch': 'var(--color-primary)' }}>
-                                    <div className="swatch"></div>
-                                    <span className="name">Primary</span>
-                                    <code>#0891B2</code>
-                                </div>
-                                <div className="color-swatch" style={{ '--swatch': 'var(--color-primary-light)' }}>
-                                    <div className="swatch"></div>
-                                    <span className="name">Primary Light</span>
-                                    <code>#22D3EE</code>
-                                </div>
-                                <div className="color-swatch" style={{ '--swatch': 'var(--color-primary-dark)' }}>
-                                    <div className="swatch"></div>
-                                    <span className="name">Primary Dark</span>
-                                    <code>#0E7490</code>
-                                </div>
-                                <div className="color-swatch" style={{ '--swatch': 'var(--color-secondary)' }}>
-                                    <div className="swatch"></div>
-                                    <span className="name">Secondary</span>
-                                    <code>#06B6D4</code>
-                                </div>
-                                <div className="color-swatch" style={{ '--swatch': 'var(--color-accent)' }}>
-                                    <div className="swatch"></div>
-                                    <span className="name">Accent</span>
-                                    <code>#F97316</code>
+                        <div className={styles.tokenLayout}>
+                            <div className={styles.tokenGroup}>
+                                <h3>核心表面</h3>
+                                <div className={styles.colorGrid}>
+                                    {FOUNDATION_COLORS.map(token => <TokenSwatch key={token[1]} token={token} />)}
                                 </div>
                             </div>
-
-                            <h4>Semantic</h4>
-                            <div className="color-grid">
-                                <div className="color-swatch" style={{ '--swatch': 'var(--color-success)' }}>
-                                    <div className="swatch"></div>
-                                    <span className="name">Success</span>
-                                    <code>#10B981</code>
-                                </div>
-                                <div className="color-swatch" style={{ '--swatch': 'var(--color-warning)' }}>
-                                    <div className="swatch"></div>
-                                    <span className="name">Warning</span>
-                                    <code>#F59E0B</code>
-                                </div>
-                                <div className="color-swatch" style={{ '--swatch': 'var(--color-error)' }}>
-                                    <div className="swatch"></div>
-                                    <span className="name">Error</span>
-                                    <code>#EF4444</code>
-                                </div>
-                                <div className="color-swatch" style={{ '--swatch': 'var(--color-info)' }}>
-                                    <div className="swatch"></div>
-                                    <span className="name">Info</span>
-                                    <code>#3B82F6</code>
-                                </div>
-                            </div>
-
-                            <h4>Background & Text</h4>
-                            <div className="color-grid">
-                                <div className="color-swatch" style={{ '--swatch': 'var(--bg-primary)' }}>
-                                    <div className="swatch bordered"></div>
-                                    <span className="name">BG Primary</span>
-                                    <code>#F8FAFC</code>
-                                </div>
-                                <div className="color-swatch" style={{ '--swatch': 'var(--bg-secondary)' }}>
-                                    <div className="swatch bordered"></div>
-                                    <span className="name">BG Secondary</span>
-                                    <code>#F1F5F9</code>
-                                </div>
-                                <div className="color-swatch" style={{ '--swatch': 'var(--text-primary)' }}>
-                                    <div className="swatch"></div>
-                                    <span className="name">Text Primary</span>
-                                    <code>#0F172A</code>
-                                </div>
-                                <div className="color-swatch" style={{ '--swatch': 'var(--text-secondary)' }}>
-                                    <div className="swatch"></div>
-                                    <span className="name">Text Secondary</span>
-                                    <code>#475569</code>
-                                </div>
-                                <div className="color-swatch" style={{ '--swatch': 'var(--border-default)' }}>
-                                    <div className="swatch bordered"></div>
-                                    <span className="name">Border</span>
-                                    <code>#E2E8F0</code>
+                            <div className={styles.tokenGroup}>
+                                <h3>语义与图谱</h3>
+                                <div className={styles.colorGrid}>
+                                    {SEMANTIC_COLORS.map(token => <TokenSwatch key={token[1]} token={token} />)}
                                 </div>
                             </div>
                         </div>
 
-                        {/* Typography */}
-                        <div className="subsection">
-                            <h3>Typography</h3>
-                            <div className="typography-samples">
-                                <div className="type-sample">
-                                    <span className="type-label">H1 · Display</span>
-                                    <h1 className="demo-h1">课程标准导航</h1>
-                                </div>
-                                <div className="type-sample">
-                                    <span className="type-label">H2 · Section</span>
-                                    <h2 className="demo-h2">义务教育课程标准</h2>
-                                </div>
-                                <div className="type-sample">
-                                    <span className="type-label">H3 · Subsection</span>
-                                    <h3 className="demo-h3">可迁移技能概述</h3>
-                                </div>
-                                <div className="type-sample">
-                                    <span className="type-label">Body · 正文</span>
-                                    <p className="demo-body">
-                                        能结合生活情境，初步感受数学与日常生活的密切联系。在具体情境中理解加法和减法运算的意义，熟练口算20以内的加减法。
-                                    </p>
-                                </div>
-                                <div className="type-sample">
-                                    <span className="type-label">Caption · 说明</span>
-                                    <p className="demo-caption">
-                                        数据来源：《义务教育课程标准（2022年版）》· 仅供教学研究参考
-                                    </p>
-                                </div>
+                        <div className={styles.typography}>
+                            <div className={styles.typeDisplay}>
+                                <span>DISPLAY / GEIST SANS 660</span>
+                                <p>课程标准<br />关系索引</p>
+                            </div>
+                            <div className={styles.typeBody}>
+                                <span>BODY / GEIST SANS 400</span>
+                                <p>学生通过观察、操作、想象等活动，认识物体的形状与结构，理解图形的位置与运动，发展空间观念。</p>
+                                <code>MA-D2-GE-003 · Geist Mono 550</code>
                             </div>
                         </div>
 
-                        {/* Spacing & Radius & Shadow */}
-                        <div className="subsection">
-                            <h3>Spacing · Radius · Shadow</h3>
-                            <div className="token-demos">
-                                <div className="token-demo-group">
-                                    <h4>Spacing (8px Grid)</h4>
-                                    <div className="spacing-samples">
-                                        {[1, 2, 3, 4, 6, 8, 12].map(n => (
-                                            <div key={n} className="spacing-item">
-                                                <div className="spacing-bar" style={{ width: `var(--space-${n})` }}></div>
-                                                <code>--space-{n}</code>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="token-demo-group">
-                                    <h4>Border Radius</h4>
-                                    <div className="radius-samples">
-                                        {['sm', 'md', 'lg', 'xl', '2xl', 'full'].map(r => (
-                                            <div key={r} className="radius-item">
-                                                <div className="radius-box" style={{ borderRadius: `var(--radius-${r})` }}></div>
-                                                <code>--radius-{r}</code>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="token-demo-group">
-                                    <h4>Shadow</h4>
-                                    <div className="shadow-samples">
-                                        {['sm', 'md', 'lg', 'xl'].map(s => (
-                                            <div key={s} className="shadow-item">
-                                                <div className="shadow-box" style={{ boxShadow: `var(--shadow-${s})` }}></div>
-                                                <code>--shadow-{s}</code>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
+                        <div className={styles.dataColors}>
+                            <div>
+                                <h3>学科数据色</h3>
+                                <div>{SUBJECTS.map(([label, variable]) => <span key={label} style={{ '--data-color': `var(${variable})` }}>{label}</span>)}</div>
                             </div>
+                            <div>
+                                <h3>可迁移技能</h3>
+                                <div>{SKILLS.map((skill, index) => <span key={skill} style={{ '--data-color': `var(--skill-ts${index + 1})` }}>{skill}</span>)}</div>
+                            </div>
+                        </div>
+
+                        <div className={styles.motionTable}>
+                            <div><span>反馈</span><strong>140ms</strong><code>cubic-bezier(.2,0,0,1)</code></div>
+                            <div><span>组件</span><strong>220ms</strong><code>cubic-bezier(.2,0,0,1)</code></div>
+                            <div><span>面板</span><strong>340ms</strong><code>cubic-bezier(.16,1,.3,1)</code></div>
+                            <div><span>视图</span><strong>520ms</strong><code>cubic-bezier(.16,1,.3,1)</code></div>
                         </div>
                     </div>
                 </section>
 
-                {/* ================================
-            SECTION B: COMPONENTS
-            ================================ */}
-                <section className="guide-section" id="components">
+                <section id="primitives" className={`${styles.section} ${styles.muted}`}>
                     <div className="container">
-                        <h2 className="section-title">
-                            <span className="orca-fin"></span>
-                            Components
-                        </h2>
+                        <SectionHeading index="02" title="Primitives" description="所有状态必须可见、可聚焦、可按键操作，并保持 44px 关键触摸目标。" />
 
-                        {/* Buttons */}
-                        <div className="subsection">
-                            <h3>Buttons</h3>
-                            <div className="component-row">
-                                <div className="component-group">
-                                    <h4>Primary</h4>
-                                    <div className="button-states">
-                                        <button className="btn btn-primary">默认</button>
-                                        <button className="btn btn-primary hover">悬停</button>
-                                        <button className="btn btn-primary active">激活</button>
-                                        <button className="btn btn-primary" disabled>禁用</button>
-                                    </div>
+                        <div className={styles.primitiveGrid}>
+                            <article>
+                                <h3>Button</h3>
+                                <div className={styles.buttonStates}>
+                                    <button className="btn btn-primary">主要操作</button>
+                                    <button className="btn btn-secondary">次要操作</button>
+                                    <button className="btn btn-ghost">文字操作</button>
+                                    <button className="btn btn-primary" disabled>不可用</button>
                                 </div>
-                                <div className="component-group">
-                                    <h4>Secondary</h4>
-                                    <div className="button-states">
-                                        <button className="btn btn-secondary">默认</button>
-                                        <button className="btn btn-secondary hover">悬停</button>
-                                        <button className="btn btn-secondary active">激活</button>
-                                        <button className="btn btn-secondary" disabled>禁用</button>
-                                    </div>
+                                <div className={styles.iconButtons}>
+                                    <button type="button" aria-label="收藏"><StarIcon size={19} aria-hidden="true" /></button>
+                                    <Tooltip content="复制编码">
+                                        <button type="button" aria-label="复制编码"><CopyIcon size={19} aria-hidden="true" /></button>
+                                    </Tooltip>
+                                    <button type="button" aria-label="已收藏" aria-pressed="true"><StarIcon size={19} weight="fill" aria-hidden="true" /></button>
                                 </div>
-                                <div className="component-group">
-                                    <h4>Ghost</h4>
-                                    <div className="button-states">
-                                        <button className="btn btn-ghost">默认</button>
-                                        <button className="btn btn-ghost hover">悬停</button>
-                                        <button className="btn btn-ghost active">激活</button>
-                                        <button className="btn btn-ghost" disabled>禁用</button>
-                                    </div>
-                                </div>
-                                <div className="component-group">
-                                    <h4>Icon</h4>
-                                    <div className="button-states">
-                                        <button className="btn btn-icon" aria-label="收藏">★</button>
-                                        <button className="btn btn-icon hover" aria-label="收藏">★</button>
-                                        <button className="btn btn-icon active" aria-label="收藏">★</button>
-                                        <button className="btn btn-icon" disabled aria-label="收藏">★</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            </article>
 
-                        {/* Chips */}
-                        <div className="subsection">
-                            <h3>Chips / Tags</h3>
-                            <div className="component-row">
-                                <div className="component-group">
-                                    <h4>Default</h4>
-                                    <div className="chip-demo">
-                                        <span
-                                            className={`chip ${selectedChip === 'chip-1' ? 'selected' : ''}`}
-                                            onClick={() => setSelectedChip('chip-1')}
-                                        >
-                                            H1 (1-2年级)
-                                        </span>
-                                        <span
-                                            className={`chip ${selectedChip === 'chip-2' ? 'selected' : ''}`}
-                                            onClick={() => setSelectedChip('chip-2')}
-                                        >
-                                            H2 (3-4年级)
-                                        </span>
-                                        <span
-                                            className={`chip ${selectedChip === 'chip-3' ? 'selected' : ''}`}
-                                            onClick={() => setSelectedChip('chip-3')}
-                                        >
-                                            H3 (5-6年级)
-                                        </span>
-                                        <span
-                                            className={`chip ${selectedChip === 'chip-4' ? 'selected' : ''}`}
-                                            onClick={() => setSelectedChip('chip-4')}
-                                        >
-                                            H4G7 (7年级)
-                                        </span>
-                                        <span
-                                            className={`chip ${selectedChip === 'chip-5' ? 'selected' : ''}`}
-                                            onClick={() => setSelectedChip('chip-5')}
-                                        >
-                                            H4G8 (8年级)
-                                        </span>
-                                        <span
-                                            className={`chip ${selectedChip === 'chip-6' ? 'selected' : ''}`}
-                                            onClick={() => setSelectedChip('chip-6')}
-                                        >
-                                            H4G9 (9年级)
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className="component-group">
-                                    <h4>Subject Color</h4>
-                                    <div className="chip-demo">
-                                        <span className="chip subject" style={{ '--chip-color': '#E53935' }}>语文</span>
-                                        <span className="chip subject" style={{ '--chip-color': '#1E88E5' }}>数学</span>
-                                        <span className="chip subject" style={{ '--chip-color': '#43A047' }}>英语</span>
-                                        <span className="chip subject" style={{ '--chip-color': '#8E24AA' }}>科学</span>
-                                    </div>
-                                </div>
-                                <div className="component-group">
-                                    <h4>Skill Color</h4>
-                                    <div className="chip-demo">
-                                        <span className="chip skill" style={{ '--chip-color': '#0891B2' }}>CT</span>
-                                        <span className="chip skill" style={{ '--chip-color': '#059669' }}>CM</span>
-                                        <span className="chip skill" style={{ '--chip-color': '#7C3AED' }}>CL</span>
-                                        <span className="chip skill" style={{ '--chip-color': '#DC2626' }}>CR</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <article>
+                                <h3>Search & checkbox</h3>
+                                <label className={styles.search}>
+                                    <span className="sr-only">搜索课程标准</span>
+                                    <MagnifyingGlassIcon size={18} aria-hidden="true" />
+                                    <input type="search" placeholder="搜索标准编码、领域或能力" />
+                                    <kbd>⌘ K</kbd>
+                                </label>
+                                <label className={styles.checkbox}>
+                                    <input type="checkbox" checked={checked} onChange={event => setChecked(event.target.checked)} />
+                                    <span aria-hidden="true"><CheckIcon size={14} weight="bold" /></span>
+                                    显示学段进阶关系
+                                </label>
+                            </article>
 
-                        {/* Tabs */}
-                        <div className="subsection">
-                            <h3>Tabs</h3>
-                            <div className="component-row">
-                                <div className="component-group full-width">
-                                    <h4>Grade Band Tabs</h4>
-                                    <div className="tabs-demo">
-                                        {['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9'].map(tab => (
-                                            <button
-                                                key={tab}
-                                                className={`tab-btn ${activeTab === tab ? 'active' : ''}`}
-                                                onClick={() => setActiveTab(tab)}
-                                            >
-                                                {tab === 'H1' && '1-2年级'}
-                                                {tab === 'H2' && '3-4年级'}
-                                                {tab === 'H3' && '5-6年级'}
-                                                {tab === 'H4G7' && '7年级'}
-                                                {tab === 'H4G8' && '8年级'}
-                                                {tab === 'H4G9' && '9年级'}
-                                            </button>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Card */}
-                        <div className="subsection">
-                            <h3>Card (StandardCard)</h3>
-                            <div className="component-row">
-                                <div className="card-demo">
-                                    <div className="demo-card">
-                                        <div className="card-header">
-                                            <span className="card-code">ML-H1-ENR-001</span>
-                                            <span className="card-band">1-2年级</span>
-                                            <button className="card-favorite">☆</button>
-                                        </div>
-                                        <p className="card-text">
-                                            能结合生活情境，初步感受数学与日常生活的密切联系。在具体情境中理解加法和减法运算的意义。
-                                        </p>
-                                        <div className="card-tags">
-                                            <span className="skill-tag" style={{ '--skill-color': '#0891B2' }}>CT.1</span>
-                                            <span className="skill-tag" style={{ '--skill-color': '#059669' }}>CM.2</span>
-                                        </div>
-                                        <div className="card-expand">
-                                            <button className="expand-btn">展开详情 ▼</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Accordion */}
-                        <div className="subsection">
-                            <h3>Accordion</h3>
-                            <div className="component-row">
-                                <div className="accordion-demo">
-                                    <div className={`accordion ${accordionOpen ? 'open' : ''}`}>
+                            <article className={styles.wide}>
+                                <h3>Grade tabs</h3>
+                                <div className={styles.tabs} role="tablist" aria-label="学段">
+                                    {GRADE_TABS.map(([code, label]) => (
                                         <button
-                                            className="accordion-header"
-                                            onClick={() => setAccordionOpen(!accordionOpen)}
+                                            key={code}
+                                            type="button"
+                                            role="tab"
+                                            aria-selected={activeTab === code}
+                                            onClick={() => setActiveTab(code)}
                                         >
-                                            <span>数与代数</span>
-                                            <span className="accordion-icon">{accordionOpen ? '▲' : '▼'}</span>
+                                            <span>{label}</span><code>{code}</code>
                                         </button>
-                                        <div className="accordion-content">
-                                            <p>包含数的认识、数的运算、式与方程等子领域内容...</p>
-                                        </div>
-                                    </div>
+                                    ))}
                                 </div>
-                            </div>
-                        </div>
+                            </article>
 
-                        {/* Filter Bar */}
-                        <div className="subsection">
-                            <h3>Filter Bar</h3>
-                            <div className="component-row">
-                                <div className="filter-bar-demo">
-                                    <div className="filter-bar">
-                                        <div className="filter-search">
-                                            <input type="text" placeholder="搜索标准..." />
-                                        </div>
-                                        <div className="filter-chips">
-                                            <span className="chip selected">全部</span>
-                                            <span className="chip">语文</span>
-                                            <span className="chip">数学</span>
-                                            <span className="chip">英语</span>
-                                        </div>
-                                    </div>
+                            <article>
+                                <h3>Filter chips</h3>
+                                <div className={styles.skillChips} role="group" aria-label="能力筛选">
+                                    {SKILLS.map(skill => (
+                                        <button key={skill} type="button" aria-pressed={selectedSkill === skill} onClick={() => setSelectedSkill(skill)}>{skill}</button>
+                                    ))}
                                 </div>
-                            </div>
-                        </div>
+                            </article>
 
-                        {/* States */}
-                        <div className="subsection">
-                            <h3>States</h3>
-                            <div className="states-grid">
-                                <div className="state-demo">
-                                    <h4>Loading</h4>
-                                    <div className="state-box">
-                                        <LoadingState message="加载中..." />
-                                    </div>
-                                </div>
-                                <div className="state-demo">
-                                    <h4>Error</h4>
-                                    <div className="state-box">
-                                        <ErrorState title="加载失败" message="请检查网络后重试" />
-                                    </div>
-                                </div>
-                                <div className="state-demo">
-                                    <h4>Empty</h4>
-                                    <div className="state-box">
-                                        <EmptyState title="暂无数据" message="尝试调整筛选条件" />
-                                    </div>
-                                </div>
-                            </div>
+                            <article>
+                                <h3>Disclosure</h3>
+                                <Disclosure
+                                    isExpanded={disclosureOpen}
+                                    onExpandedChange={setDisclosureOpen}
+                                    triggerClassName={styles.disclosureTrigger}
+                                    panelClassName={styles.disclosureContent}
+                                    panelId="styleguide-disclosure-content"
+                                    trigger={({ isExpanded }) => (
+                                        <><span>图形与几何</span><DisclosureIndicator isExpanded={isExpanded} /></>
+                                    )}
+                                >
+                                    领域展开保持原行位置；关闭后焦点仍停留在触发器。
+                                </Disclosure>
+                            </article>
                         </div>
                     </div>
                 </section>
 
-                {/* ================================
-            SECTION C: ORCA BRAND ELEMENTS
-            ================================ */}
-                <section className="guide-section" id="brand">
+                <section id="states" className={styles.section}>
                     <div className="container">
-                        <h2 className="section-title">
-                            <span className="orca-fin"></span>
-                            Orca Brand Elements
-                        </h2>
+                        <SectionHeading index="03" title="States" description="状态不是装饰；每一种都说明当前发生了什么，以及用户下一步能做什么。" />
+                        <div className={styles.controlStates}>
+                            <div><span>Default</span><button className="btn btn-secondary">保存到清单</button></div>
+                            <div><span>Pressed</span><button className={`btn btn-secondary ${styles.forcePressed}`}>保存到清单</button></div>
+                            <div><span>Loading</span><button className="btn btn-primary" disabled><CircleNotchIcon className={styles.spin} size={17} />正在保存</button></div>
+                            <div><span>Success</span><button className={`btn ${styles.success}`}><CheckIcon size={17} />已保存</button></div>
+                            <div><span>Error</span><button className={`btn ${styles.error}`}><WarningCircleIcon size={17} />重试保存</button></div>
+                        </div>
+                        <div className={styles.resultStates}>
+                            <div><LoadingState message="正在加载课程标准" /></div>
+                            <div><ErrorState title="数据暂时不可用" message="请检查连接后重试" /></div>
+                            <div><EmptyState title="没有匹配结果" message="调整学科、学段或能力筛选" /></div>
+                        </div>
+                    </div>
+                </section>
 
-                        <div className="brand-elements-grid">
-                            {/* Wave Divider */}
-                            <div className="brand-element">
-                                <h4>Wave Divider</h4>
-                                <div className="element-demo wave-demo">
-                                    <div className="wave-divider-sample">
-                                        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                                            <path d="M0,60 C200,120 400,0 600,60 C800,120 1000,0 1200,60 L1200,120 L0,120 Z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <code>.wave-divider</code>
+                <section id="graph-language" className={`${styles.section} ${styles.graphSection}`}>
+                    <div className="container">
+                        <SectionHeading index="04" title="Graph language" description="深石墨只服务关系探索；实体类型、关系和焦点不只依赖颜色。" />
+                        <div className={styles.graphSample}>
+                            <div className={`${styles.graphNode} ${styles.subjectNode}`}><span>SUBJECT</span><strong>数学</strong></div>
+                            <i aria-hidden="true" />
+                            <div className={`${styles.graphNode} ${styles.domainNode}`}><span>DOMAIN</span><strong>图形与几何</strong></div>
+                            <i className={styles.progressionLine} aria-hidden="true" />
+                            <div className={`${styles.graphNode} ${styles.standardNode}`}><span>STANDARD</span><strong>MA-D2-GE-003</strong></div>
+                            <i className={styles.skillLine} aria-hidden="true" />
+                            <div className={`${styles.graphNode} ${styles.skillNode}`}><span>SKILL</span><strong>TS1 批判性思维</strong></div>
+                        </div>
+                        <div className={styles.graphLegend}>
+                            <span><i />结构包含</span>
+                            <span><i className={styles.progressionLine} />学段进阶</span>
+                            <span><i className={styles.skillLine} />能力关联</span>
+                            <span>Canvas 失败时必须提供 DOM 等价关系列表</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="brand" className={styles.section}>
+                    <div className="container">
+                        <SectionHeading index="05" title="Brand" description="品牌来自真实课程坐标系，不来自海浪、鲸鱼、古籍、印章或通用 AI 光球。" />
+                        <div className={styles.brandLayout}>
+                            <div className={styles.brandLockup}>
+                                <img src="/kebiao-mark.svg" alt="" />
+                                <div><strong>kebiao</strong><span>中国课程标准的结构化索引与智能引擎</span></div>
                             </div>
-
-                            {/* Bubble Pattern */}
-                            <div className="brand-element">
-                                <h4>Bubble Pattern</h4>
-                                <div className="element-demo bubble-demo">
-                                    <div className="bubble-pattern-sample">
-                                        <div className="bubble"></div>
-                                        <div className="bubble"></div>
-                                        <div className="bubble"></div>
-                                    </div>
-                                </div>
-                                <code>.bubble-pattern (4% opacity)</code>
-                            </div>
-
-                            {/* Orca Fin */}
-                            <div className="brand-element">
-                                <h4>Orca Fin Corner Mark</h4>
-                                <div className="element-demo fin-demo">
-                                    <span className="orca-fin large"></span>
-                                </div>
-                                <code>.orca-fin</code>
+                            <div className={styles.brandRules}>
+                                <div><span>使用</span><p>冷白、石墨、信号靛蓝、课程坐标轴、标准编码锚点。</p></div>
+                                <div><span>避免</span><p>暖纸朱红、古籍衬线、蓝紫渐变、全站玻璃、装饰性数据面板。</p></div>
                             </div>
                         </div>
                     </div>
                 </section>
             </main>
+        </div>
+    )
+}
 
-            {/* Footer */}
-            <footer className="styleguide-footer">
-                <div className="container">
-                    <p>Ocean Soft Design System · Version 1.0</p>
-                </div>
-            </footer>
+function SectionHeading({ index, title, description }) {
+    return (
+        <header className={styles.sectionHeading}>
+            <span>{index}</span><h2>{title}</h2><p>{description}</p>
+        </header>
+    )
+}
+
+function TokenSwatch({ token: [label, variable, value] }) {
+    return (
+        <div className={styles.swatch} style={{ '--swatch': `var(${variable}, ${value})` }}>
+            <i aria-hidden="true" /><strong>{label}</strong><code>{variable}</code><span>{value}</span>
         </div>
     )
 }

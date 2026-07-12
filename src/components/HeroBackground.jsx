@@ -1,74 +1,34 @@
-import './HeroBackground.css'
+import styles from './HeroBackground.module.css'
 
-/**
- * HeroBackground - Shared background layer for Hero Banners
- * 
- * Provides the TS-style visual quality:
- * - Deep gradient base
- * - Noise texture overlay
- * - Right-side dynamic blob shapes (themeColor driven)
- * - Faded icon overlay
- * 
- * @param {string} themeColor - Primary color for shapes (hex)
- * @param {React.ReactNode} iconPath - SVG path elements for the icon
- * @param {string} uniqueId - Unique ID for gradient definitions
- */
-function HeroBackground({ themeColor = '#3b82f6', iconPath, uniqueId = 'hero' }) {
+function HeroBackground({ themeColor = '#3e5bef', iconPath, uniqueId = 'hero' }) {
     return (
-        <div className="hero-background">
-            {/* Noise texture overlay */}
-            <div className="hero-noise" />
-
-            {/* Right side decorative shape - dynamic fluid blob */}
-            <div className="hero-shape-container">
-                <svg
-                    className="hero-blob"
-                    viewBox="0 0 400 400"
-                    fill="none"
-                    preserveAspectRatio="xMidYMid slice"
-                >
-                    <defs>
-                        <linearGradient id={`blob-grad-${uniqueId}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor={themeColor} stopOpacity="0.35" />
-                            <stop offset="50%" stopColor={themeColor} stopOpacity="0.15" />
-                            <stop offset="100%" stopColor={themeColor} stopOpacity="0.05" />
-                        </linearGradient>
-                        <filter id={`blur-${uniqueId}`} x="-50%" y="-50%" width="200%" height="200%">
-                            <feGaussianBlur in="SourceGraphic" stdDeviation="20" />
-                        </filter>
-                    </defs>
-                    {/* Primary fluid blob */}
-                    <path
-                        d="M300,50 Q400,100 380,200 Q360,300 280,350 Q200,400 150,350 Q100,300 120,200 Q140,100 200,50 Q260,0 300,50 Z"
-                        fill={`url(#blob-grad-${uniqueId})`}
-                        filter={`url(#blur-${uniqueId})`}
-                    />
-                    {/* Secondary accent blob */}
-                    <ellipse
-                        cx="320" cy="180" rx="180" ry="140"
-                        fill={themeColor}
-                        fillOpacity="0.08"
-                    />
-                    {/* Tertiary highlight */}
-                    <ellipse
-                        cx="280" cy="120" rx="100" ry="80"
-                        fill={themeColor}
-                        fillOpacity="0.04"
-                    />
+        <div className={styles['hero-background']} style={{ '--hero-signal': themeColor }} aria-hidden="true" data-kb-component="hero-background">
+            <svg className={styles['hero-coordinate-field']} viewBox="0 0 720 360" preserveAspectRatio="xMidYMid slice">
+                <g className={styles['hero-coordinate-grid']}>
+                    <path d="M0 72H720M0 144H720M0 216H720M0 288H720" />
+                    <path d="M120 0V360M240 0V360M360 0V360M480 0V360M600 0V360" />
+                </g>
+                <g className={styles['hero-coordinate-route']}>
+                    <path d="M72 280L212 212L350 236L486 126L648 86" />
+                    <circle cx="72" cy="280" r="5" />
+                    <circle cx="212" cy="212" r="5" />
+                    <circle cx="350" cy="236" r="5" />
+                    <circle cx="486" cy="126" r="7" />
+                    <circle cx="648" cy="86" r="5" />
+                </g>
+                <g className={styles['hero-coordinate-labels']}>
+                    <text x="48" y="314">H1</text>
+                    <text x="188" y="196">H2</text>
+                    <text x="326" y="270">H3</text>
+                    <text x="462" y="110">H4</text>
+                    <text x="614" y="70">{uniqueId.toUpperCase().slice(0, 8)}</text>
+                </g>
+            </svg>
+            {iconPath ? (
+                <svg className={styles['hero-icon-overlay']} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    {iconPath}
                 </svg>
-
-                {/* Decorative icon overlay */}
-                {iconPath && (
-                    <svg
-                        className="hero-icon-overlay"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke={themeColor}
-                    >
-                        {iconPath}
-                    </svg>
-                )}
-            </div>
+            ) : null}
         </div>
     )
 }

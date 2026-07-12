@@ -1,0 +1,95 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-12);
+    border-radius: var(--radius-xl);
+    background: var(--bg-primary);
+    text-align: center;
+}
+
+.icon {
+    display: grid;
+    width: 4rem;
+    height: 4rem;
+    place-items: center;
+    margin-bottom: var(--space-4);
+    color: var(--kb-accent);
+}
+
+.icon svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.15;
+}
+
+.title {
+    margin-bottom: var(--space-2);
+    color: var(--text-primary);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+}
+
+.message {
+    max-width: 400px;
+    margin-bottom: var(--space-5);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.loading { min-height: 200px; }
+.small { min-height: 100px; padding: var(--space-6); }
+.loading [data-kb-primitive="skeleton"] { margin-bottom: var(--space-4); }
+
+.error {
+    border: 1px solid var(--color-error);
+    background: var(--bg-primary);
+}
+
+.error .icon { color: var(--color-error); }
+.empty { background: var(--bg-secondary); }
+
+.resultStats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    background: var(--bg-secondary);
+}
+
+.statsCount {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.statsCount strong {
+    color: var(--color-primary);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+}
+
+.statsBreakdown {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.breakdownChip {
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-full);
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    font-size: var(--font-size-xs);
+}
+
+.copyButton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.copyControl { display: inline-flex; }

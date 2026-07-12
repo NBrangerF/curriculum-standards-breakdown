@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import HeroBackground from './HeroBackground'
-import './SubjectHeroBanner.css'
+import styles from './SubjectHeroBanner.module.css'
 
 /**
  * Subject Icon SVG paths (outline style)
@@ -85,7 +85,7 @@ function SubjectHeroBanner({
 
     return (
         <section
-            className="subject-hero-banner"
+            className={styles['subject-hero-banner']}
             style={{ '--theme-color': themeColor }}
         >
             {/* Shared TS-style background */}
@@ -96,29 +96,29 @@ function SubjectHeroBanner({
             />
 
             {/* Content - Left Aligned */}
-            <div className="hero-content container">
+            <div className={`${styles['hero-content']} container`}>
                 {/* Back link */}
-                <Link to={backLink} className="hero-back-link">
+                <Link to={backLink} className={styles['hero-back-link']}>
                     {backLabel}
                 </Link>
 
                 {/* Title */}
-                <h1 className="hero-title">{title}</h1>
+                <h1 className={styles['hero-title']}>{title}</h1>
 
                 {/* Subtitle */}
                 {subtitle && (
-                    <p className="hero-subtitle">{subtitle}</p>
+                    <p className={styles['hero-subtitle']}>{subtitle}</p>
                 )}
 
                 {/* Stats row - Glass cards */}
-                <div className="hero-stats">
-                    <div className="stat-glass-card">
-                        <span className="stat-value">{standardsCount}</span>
-                        <span className="stat-label">条标准</span>
+                <div className={styles['hero-stats']}>
+                    <div className={styles['stat-glass-card']}>
+                        <span className={styles['stat-value']}>{standardsCount}</span>
+                        <span className={styles['stat-label']}>条标准</span>
                     </div>
-                    <div className="stat-glass-card">
-                        <span className="stat-value">{domainsCount}</span>
-                        <span className="stat-label">个领域</span>
+                    <div className={styles['stat-glass-card']}>
+                        <span className={styles['stat-value']}>{domainsCount}</span>
+                        <span className={styles['stat-label']}>个领域</span>
                     </div>
                 </div>
             </div>

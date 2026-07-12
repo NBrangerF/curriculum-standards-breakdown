@@ -1,0 +1,12 @@
+.root { display: contents; }
+
+.indicator {
+    flex: none;
+    transition: transform var(--transition-normal);
+}
+
+.expanded { transform: rotate(90deg); }
+
+@media (prefers-reduced-motion: reduce) {
+    .indicator { transition: none; }
+}
