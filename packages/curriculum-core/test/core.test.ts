@@ -3,12 +3,17 @@ import { test } from 'node:test'
 import { resolve } from 'node:path'
 import {
     buildMeilisearchFilter,
+    buildTopologicalLayers,
+    createKnowledgeGraphIndex,
     createMeilisearchDocuments,
     FileCurriculumRepository,
     filterStandards,
+    getLearningContext,
+    getPrerequisites,
+    getUnlocks,
     projectStandard
 } from '../src/index.js'
-import type { StandardRecord } from '../src/index.js'
+import type { KnowledgeGraphDataset, StandardRecord } from '../src/index.js'
 
 const dataRoot = resolve(process.cwd(), '../../public/data')
 
@@ -127,4 +132,54 @@ test('FileCurriculumRepository matches plans to real standards with explanations
     const schedule = await repository.generateWeeklySchedule(parsed.plan, matching, { teaching_weeks: 2, lessons_per_week: 2 })
     assert.equal(schedule.length, 2)
     assert.ok(schedule[0].standard_codes.length > 0)
+})
+
+const learningFixture: KnowledgeGraphDataset = {
+    knowledgePoints: [
+        { id: 'kp:a', type: 'knowledge_point', label: 'A', subjectSlug: 'math', standardCodes: ['MA-A'], dependencyCoverage: { incoming: 'reviewed', outgoing: 'reviewed' }, reviewStatus: 'approved' },
+        { id: 'kp:b', type: 'knowledge_point', label: 'B', subjectSlug: 'math', standardCodes: ['MA-B'], dependencyCoverage: { incoming: 'reviewed', outgoing: 'reviewed' }, reviewStatus: 'approved' },
+        { id: 'kp:c', type: 'knowledge_point', label: 'C', subjectSlug: 'math', standardCodes: ['MA-C'], dependencyCoverage: { incoming: 'reviewed', outgoing: 'reviewed' }, reviewStatus: 'approved' },
+        { id: 'kp:d', type: 'knowledge_point', label: 'D', subjectSlug: 'math', standardCodes: ['MA-D'], dependencyCoverage: { incoming: 'reviewed', outgoing: 'reviewed' }, reviewStatus: 'approved' }
+    ],
+    taxonomyNodes: [
+        { id: 'topic:math', type: 'taxonomy_node', label: '数学', taxonomyId: 'fixture', subjectSlug: 'math', order: 1, reviewStatus: 'approved' },
+        { id: 'topic:math:geometry', type: 'taxonomy_node', label: '图形与几何', taxonomyId: 'fixture', subjectSlug: 'math', order: 2, reviewStatus: 'approved' }
+    ],
+    prerequisites: [
+        { id: 'pre:a:b', source: 'kp:a', target: 'kp:b', type: 'prerequisite', directed: true, necessity: 'required', rationale: 'A before B', evidenceRefs: ['ev:a-b'], confidence: 'high', reviewStatus: 'approved', reviewedByRole: 'fixture', reviewedAt: '2026-07-12', version: 'fixture' },
+        { id: 'pre:a:c', source: 'kp:a', target: 'kp:c', type: 'prerequisite', directed: true, necessity: 'required', rationale: 'A before C', evidenceRefs: ['ev:a-c'], confidence: 'high', reviewStatus: 'approved', reviewedByRole: 'fixture', reviewedAt: '2026-07-12', version: 'fixture' },
+        { id: 'pre:b:d', source: 'kp:b', target: 'kp:d', type: 'prerequisite', directed: true, necessity: 'required', rationale: 'B before D', evidenceRefs: ['ev:b-d'], confidence: 'high', reviewStatus: 'approved', reviewedByRole: 'fixture', reviewedAt: '2026-07-12', version: 'fixture' },
+        { id: 'pre:c:d', source: 'kp:c', target: 'kp:d', type: 'prerequisite', directed: true, necessity: 'recommended', rationale: 'C helps D', evidenceRefs: ['ev:c-d'], confidence: 'medium', reviewStatus: 'approved', reviewedByRole: 'fixture', reviewedAt: '2026-07-12', version: 'fixture' }
+    ],
+    taxonomyEdges: [
+        { id: 'tax:math:geometry', source: 'topic:math', target: 'topic:math:geometry', type: 'taxonomy_parent', taxonomyId: 'fixture', directed: true, order: 1, reviewStatus: 'approved' },
+        { id: 'tax:geometry:d', source: 'topic:math:geometry', target: 'kp:d', type: 'taxonomy_parent', taxonomyId: 'fixture', directed: true, order: 2, reviewStatus: 'approved' },
+        { id: 'tax:math:d', source: 'topic:math', target: 'kp:d', type: 'taxonomy_parent', taxonomyId: 'fixture', directed: true, order: 3, reviewStatus: 'approved' }
+    ],
+    evidence: [
+        { id: 'ev:a-b', sourceType: 'fixture', sourceId: 'fixture', locator: 'a-b', statement: 'A before B' },
+        { id: 'ev:a-c', sourceType: 'fixture', sourceId: 'fixture', locator: 'a-c', statement: 'A before C' },
+        { id: 'ev:b-d', sourceType: 'fixture', sourceId: 'fixture', locator: 'b-d', statement: 'B before D' },
+        { id: 'ev:c-d', sourceType: 'fixture', sourceId: 'fixture', locator: 'c-d', statement: 'C helps D' }
+    ]
+}
+
+test('Learning Map keeps prerequisite direction and all diamond branches', () => {
+    const index = createKnowledgeGraphIndex(learningFixture)
+    assert.deepEqual(getPrerequisites(index, 'kp:d').map(point => point.id), ['kp:b', 'kp:c'])
+    assert.deepEqual(getUnlocks(index, 'kp:a').map(point => point.id), ['kp:b', 'kp:c'])
+    assert.deepEqual(buildTopologicalLayers(index, 'kp:d', { prerequisiteDepth: 2, unlockDepth: 1 }).prerequisiteLayers.map(layer => layer.map(point => point.id)), [['kp:b', 'kp:c'], ['kp:a']])
+})
+
+test('Learning Map restores a deterministic taxonomy context and honest coverage', () => {
+    const index = createKnowledgeGraphIndex(learningFixture)
+    const context = getLearningContext(index, 'kp:d', {
+        prerequisiteDepth: 1,
+        unlockDepth: 1,
+        contextPath: ['topic:math', 'topic:math:geometry', 'kp:d']
+    })
+    assert.deepEqual(context.taxonomy.activePath.map(node => node.id), ['topic:math', 'topic:math:geometry', 'kp:d'])
+    assert.equal(context.taxonomy.alternativePaths.length, 1)
+    assert.equal(context.coverage.incoming, 'reviewed')
+    assert.equal(context.coverage.outgoing, 'reviewed')
 })
