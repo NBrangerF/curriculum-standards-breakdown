@@ -42,6 +42,19 @@ export const GRAPH_VIEW_VALUES = Object.freeze(['list', 'compare', 'matrix', 'gr
 export const GRAPH_RELATION_VALUES = Object.freeze(['contains', 'progression', 'skill_alignment'])
 export const GRAPH_ANALYSIS_VALUES = Object.freeze(['compare', 'path', 'progression'])
 
+export const LEARNING_MAP_QUERY_PARAMS = Object.freeze({
+    VIEW: 'view',
+    SELECTED_NODE: 'selectedNode',
+    TAXONOMY: 'taxonomy',
+    CONTEXT_PATH: 'contextPath',
+    PREREQUISITE_DEPTH: 'prerequisiteDepth',
+    UNLOCK_DEPTH: 'unlockDepth',
+    NECESSITY: 'necessity'
+})
+
+export const LEARNING_MAP_VIEW_VALUES = Object.freeze(['learning-map'])
+export const LEARNING_MAP_NECESSITY_VALUES = Object.freeze(['required', 'recommended'])
+
 const splitUniqueValues = value => [...new Set(
     String(value || '')
         .split(',')
@@ -116,6 +129,73 @@ export function mergeGraphStateIntoURL(searchParams, graphState = {}) {
         GRAPH_ANALYSIS_VALUES.includes(graphState.analysis) ? graphState.analysis : undefined
     )
 
+    return params
+}
+
+export function parseLearningMapStateFromURL(searchParams) {
+    const view = cleanScalar(searchParams.get(LEARNING_MAP_QUERY_PARAMS.VIEW))
+    const prerequisiteDepth = Number(searchParams.get(LEARNING_MAP_QUERY_PARAMS.PREREQUISITE_DEPTH))
+    const unlockDepth = Number(searchParams.get(LEARNING_MAP_QUERY_PARAMS.UNLOCK_DEPTH))
+    const necessity = splitUniqueValues(searchParams.get(LEARNING_MAP_QUERY_PARAMS.NECESSITY))
+        .filter(value => LEARNING_MAP_NECESSITY_VALUES.includes(value))
+
+    return {
+        ...(LEARNING_MAP_VIEW_VALUES.includes(view) ? { view } : {}),
+        ...(cleanScalar(searchParams.get(LEARNING_MAP_QUERY_PARAMS.SELECTED_NODE))
+            ? { selectedNode: searchParams.get(LEARNING_MAP_QUERY_PARAMS.SELECTED_NODE).trim() }
+            : {}),
+        ...(cleanScalar(searchParams.get(LEARNING_MAP_QUERY_PARAMS.TAXONOMY))
+            ? { taxonomy: searchParams.get(LEARNING_MAP_QUERY_PARAMS.TAXONOMY).trim() }
+            : {}),
+        ...(splitUniqueValues(searchParams.get(LEARNING_MAP_QUERY_PARAMS.CONTEXT_PATH)).length
+            ? { contextPath: splitUniqueValues(searchParams.get(LEARNING_MAP_QUERY_PARAMS.CONTEXT_PATH)) }
+            : {}),
+        ...(Number.isInteger(prerequisiteDepth) && prerequisiteDepth >= 1 && prerequisiteDepth <= 2
+            ? { prerequisiteDepth }
+            : {}),
+        ...(Number.isInteger(unlockDepth) && unlockDepth >= 1 && unlockDepth <= 2
+            ? { unlockDepth }
+            : {}),
+        ...(necessity.length ? { necessity } : {})
+    }
+}
+
+export function mergeLearningMapStateIntoURL(searchParams, learningMapState = {}) {
+    const params = new URLSearchParams(searchParams)
+    const writeScalar = (key, value) => {
+        const cleanValue = cleanScalar(value)
+        if (cleanValue) params.set(key, cleanValue)
+        else params.delete(key)
+    }
+    const writeList = (key, values) => {
+        const cleanValues = splitUniqueValues(Array.isArray(values) ? values.join(',') : values)
+        if (cleanValues.length) params.set(key, cleanValues.join(','))
+        else params.delete(key)
+    }
+
+    writeScalar(
+        LEARNING_MAP_QUERY_PARAMS.VIEW,
+        LEARNING_MAP_VIEW_VALUES.includes(learningMapState.view) ? learningMapState.view : undefined
+    )
+    writeScalar(LEARNING_MAP_QUERY_PARAMS.SELECTED_NODE, learningMapState.selectedNode)
+    writeScalar(LEARNING_MAP_QUERY_PARAMS.TAXONOMY, learningMapState.taxonomy)
+    writeList(LEARNING_MAP_QUERY_PARAMS.CONTEXT_PATH, learningMapState.contextPath)
+    writeScalar(
+        LEARNING_MAP_QUERY_PARAMS.PREREQUISITE_DEPTH,
+        Number.isInteger(learningMapState.prerequisiteDepth) && learningMapState.prerequisiteDepth >= 1 && learningMapState.prerequisiteDepth <= 2
+            ? String(learningMapState.prerequisiteDepth)
+            : undefined
+    )
+    writeScalar(
+        LEARNING_MAP_QUERY_PARAMS.UNLOCK_DEPTH,
+        Number.isInteger(learningMapState.unlockDepth) && learningMapState.unlockDepth >= 1 && learningMapState.unlockDepth <= 2
+            ? String(learningMapState.unlockDepth)
+            : undefined
+    )
+    writeList(
+        LEARNING_MAP_QUERY_PARAMS.NECESSITY,
+        (learningMapState.necessity || []).filter(value => LEARNING_MAP_NECESSITY_VALUES.includes(value))
+    )
     return params
 }
 
