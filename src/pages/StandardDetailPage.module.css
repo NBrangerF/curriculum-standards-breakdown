@@ -399,7 +399,6 @@
 
 .standard-detail-page .skills-section,
 .standard-detail-page .content-section,
-.standard-detail-page .grade-assignment-detail-section,
 .standard-detail-page .resources-section {
     scroll-margin-top: 8.25rem;
 }
@@ -529,61 +528,6 @@
     line-height: 1.92;
     white-space: pre-wrap;
     text-wrap: pretty;
-}
-
-.standard-detail-page .grade-assignment-detail-section {
-    padding: 4.5rem 0;
-    border-top: 1px solid var(--border-default);
-    background: #f7f7f3;
-}
-
-.standard-detail-page .grade-assignment-detail {
-    display: grid;
-    grid-template-columns: minmax(13rem, 0.32fr) minmax(0, 0.68fr);
-    gap: 1rem clamp(2.5rem, 7vw, 7rem);
-    padding: 0;
-    border: 0;
-    background: transparent;
-}
-
-.standard-detail-page .grade-assignment-detail > div:first-child {
-    grid-row: 1 / span 8;
-}
-
-.standard-detail-page .grade-assignment-detail h2 {
-    margin: 0 0 0.65rem;
-    font-size: 1.55rem;
-    letter-spacing: -0.04em;
-}
-
-.standard-detail-page .grade-assignment-note,
-.standard-detail-page .grade-assignment-rationale {
-    max-width: 70ch;
-    margin: 0;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    line-height: 1.78;
-}
-
-.standard-detail-page .grade-assignment-rationale + .grade-assignment-rationale {
-    padding-top: 0.8rem;
-    border-top: 1px solid rgba(163, 156, 135, 0.32);
-}
-
-.standard-detail-page .grade-assignment-facts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-top: 0.5rem;
-}
-
-.standard-detail-page .grade-assignment-facts span {
-    padding: 0.4rem 0.55rem;
-    border: 1px solid #d6d2c6;
-    border-radius: var(--radius-xs);
-    background: rgba(255, 255, 255, 0.48);
-    color: #625e53;
-    font: 0.61rem/1.25 var(--font-mono);
 }
 
 .standard-detail-page .resources-section {
@@ -881,14 +825,9 @@
         top: 64px;
     }
 
-    .standard-detail-page .skills-section :global(.container),
-    .standard-detail-page .grade-assignment-detail {
+    .standard-detail-page .skills-section :global(.container) {
         grid-template-columns: 1fr;
         gap: 2rem;
-    }
-
-    .standard-detail-page .grade-assignment-detail > div:first-child {
-        grid-row: auto;
     }
 
     .standard-detail-page .content-grid {

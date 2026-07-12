@@ -46,7 +46,6 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '', qui
         domain,
         subdomain,
         display_subcategory,
-        standard_title,
         grade_band,
         subject_slug,
         context,
@@ -54,16 +53,7 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '', qui
         teaching_tip,
         assessment_evidence_type,
         grade_assignment_type,
-        grade_assignment_confidence,
-        grade_assignment_rationale,
-        textbook_evidence_ids,
-        source_standard_scope,
         standard_variant_type,
-        evidence_granularity,
-        grade_specific_focus,
-        progression_delta,
-        progression_review_note,
-        requires_unit_level_evidence,
         review_status,
         ts_primary,
         ts_secondary
@@ -71,23 +61,10 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '', qui
 
     const h4gState = getH4GDifferentiationState(standard)
     const gradeBandInfo = GRADE_BANDS[grade_band] || {}
-    const evidenceIds = Array.isArray(textbook_evidence_ids) ? textbook_evidence_ids : []
     const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || String(review_status || '').includes('low_confidence')
     const needsGradeDifferentiation = !h4gState.isFinalReady &&
         (h4gState.needsDifferentiation || String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared')
-    const hasGradeAssignmentConfidence = grade_assignment_confidence !== null && grade_assignment_confidence !== undefined
-    const hasGradeAssignmentDetails = grade_assignment_rationale ||
-        hasGradeAssignmentConfidence ||
-        evidenceIds.length > 0 ||
-        source_standard_scope ||
-        standard_variant_type ||
-        evidence_granularity ||
-        grade_specific_focus ||
-        progression_delta ||
-        progression_review_note ||
-        requires_unit_level_evidence !== undefined ||
-        h4gState.isH4G
-    const hasDetails = context || practice || teaching_tip || assessment_evidence_type || hasGradeAssignmentDetails
+    const hasDetails = context || practice || teaching_tip || assessment_evidence_type
 
     // Get accent color from subject
     const accentColor = SUBJECT_COLORS[subject_slug] || 'var(--color-primary)'
@@ -225,7 +202,7 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '', qui
                     {needsGradeDifferentiation && (
                         <span className={`${styles['review-status-chip']} ${styles['needs-differentiation']}`}>待年级化细分</span>
                     )}
-                    {h4gState.statusLabel && (
+                    {h4gState.statusLabel && !h4gState.isSourceAlignedPublished && (
                         <span className={`${styles['review-status-chip']} ${styles[`h4g-status-${h4gState.isFinalReady ? 'ready' : h4gState.isCandidate ? 'candidate' : 'pending'}`]}`}>
                             {h4gState.statusLabel}
                         </span>
@@ -383,53 +360,6 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '', qui
                         <div className={styles['detail-section']}>
                             <h4 className={styles['detail-label']}><ChartBarIcon size={17} aria-hidden="true" />评价证据</h4>
                             <p className={styles['detail-text']}>{assessment_evidence_type}</p>
-                        </div>
-                    )}
-
-                    {hasGradeAssignmentDetails && (
-                        <div className={`${styles['detail-section']} ${styles['grade-assignment-section']}`}>
-                            <h4 className={styles['detail-label']}>年级归属依据（非课标原文）</h4>
-                            {grade_assignment_rationale && (
-                                <p className={styles['detail-text']}>{grade_assignment_rationale}</p>
-                            )}
-                            {standard_title && (
-                                <p className={styles['detail-text']}>标准名称：{standard_title}</p>
-                            )}
-                            {h4gState.isH4G && !h4gState.hasUsableGradeFocus && (
-                                <p className={styles['detail-text']}>{h4gState.statusMessage}</p>
-                            )}
-                            {h4gState.hasUsableGradeFocus && (
-                                <p className={styles['detail-text']}>{h4gState.gradeFocus}</p>
-                            )}
-                            {progression_review_note && (
-                                <p className={styles['detail-text']}>{progression_review_note}</p>
-                            )}
-                            <div className={styles['grade-assignment-meta']}>
-                                {grade_assignment_type && (
-                                    <span>{grade_assignment_type}</span>
-                                )}
-                                {hasGradeAssignmentConfidence && (
-                                    <span>置信度 {Math.round(Number(grade_assignment_confidence) * 100)}%</span>
-                                )}
-                                {evidenceIds.length > 0 && (
-                                    <span>教材证据 {evidenceIds.length} 条</span>
-                                )}
-                                {source_standard_scope && (
-                                    <span>{source_standard_scope}</span>
-                                )}
-                                {standard_variant_type && (
-                                    <span>{standard_variant_type}</span>
-                                )}
-                                {evidence_granularity && (
-                                    <span>{evidence_granularity}</span>
-                                )}
-                                {progression_delta && (
-                                    <span>{progression_delta}</span>
-                                )}
-                                {requires_unit_level_evidence && (
-                                    <span>需单元级证据</span>
-                                )}
-                            </div>
                         </div>
                     )}
 

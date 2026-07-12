@@ -235,18 +235,7 @@ function StandardDetailPage() {
         teaching_tip,
         assessment_evidence_type,
         grade_assignment_type,
-        grade_assignment_confidence,
-        grade_assignment_rationale,
-        textbook_evidence_ids,
-        progression_basis,
-        progression_role,
-        source_standard_scope,
         standard_variant_type,
-        evidence_granularity,
-        grade_specific_focus,
-        progression_delta,
-        progression_review_note,
-        requires_unit_level_evidence,
         review_status,
         ts_primary,
         ts_secondary,
@@ -261,21 +250,6 @@ function StandardDetailPage() {
     const gradeBandInfo = GRADE_BANDS[grade_band] || {}
     const subjectInfo = subjects.find(s => s.subject_slug === subject_slug)
     const shareURL = `${window.location.origin}/standards/${code}`
-    const evidenceIds = Array.isArray(textbook_evidence_ids) ? textbook_evidence_ids : []
-    const hasGradeAssignmentConfidence = grade_assignment_confidence !== null && grade_assignment_confidence !== undefined
-    const hasGradeAssignmentDetails = grade_assignment_rationale ||
-        hasGradeAssignmentConfidence ||
-        evidenceIds.length > 0 ||
-        progression_basis ||
-        progression_role ||
-        source_standard_scope ||
-        standard_variant_type ||
-        evidence_granularity ||
-        grade_specific_focus ||
-        progression_delta ||
-        progression_review_note ||
-        requires_unit_level_evidence !== undefined ||
-        h4gState.isH4G
     const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || String(review_status || '').includes('low_confidence')
     const needsGradeDifferentiation = !h4gState.isFinalReady &&
         (h4gState.needsDifferentiation || String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared')
@@ -416,9 +390,6 @@ function StandardDetailPage() {
                     <span className={styles['reading-nav-label']}>本页</span>
                     <ReadingNavLink sectionId="standard-skills" activeSection={activeSection}>相关能力</ReadingNavLink>
                     <ReadingNavLink sectionId="standard-content" activeSection={activeSection}>教学线索</ReadingNavLink>
-                    {hasGradeAssignmentDetails && (
-                        <ReadingNavLink sectionId="standard-evidence" activeSection={activeSection}>归属依据</ReadingNavLink>
-                    )}
                     <ReadingNavLink sectionId="standard-resources" activeSection={activeSection}>教学资源</ReadingNavLink>
                     {uiV2Enabled ? <button type="button" onClick={handleLocateGraph} data-kb-telemetry-task="graph_open">关系图谱</button> : null}
                 </div>
@@ -516,45 +487,6 @@ function StandardDetailPage() {
                     </div>
                 </div>
             </section>
-
-            {hasGradeAssignmentDetails && (
-                <section className={styles['grade-assignment-detail-section']} id="standard-evidence" data-reading-section="standard-evidence">
-                    <div className="container">
-                        <div className={styles['grade-assignment-detail']}>
-                            <div>
-                                <h2>年级归属依据</h2>
-                                <p className={styles['grade-assignment-note']}>以下内容用于说明 H4G 年级拆分，不属于课程标准原文。</p>
-                            </div>
-                            {grade_assignment_rationale && (
-                                <p className={styles['grade-assignment-rationale']}>{grade_assignment_rationale}</p>
-                            )}
-                            {h4gState.isH4G && !h4gState.hasUsableGradeFocus && (
-                                <p className={styles['grade-assignment-rationale']}>{h4gState.statusMessage}</p>
-                            )}
-                            {h4gState.hasUsableGradeFocus && (
-                                <p className={styles['grade-assignment-rationale']}>{h4gState.gradeFocus}</p>
-                            )}
-                            {progression_review_note && (
-                                <p className={styles['grade-assignment-rationale']}>{progression_review_note}</p>
-                            )}
-                            <div className={styles['grade-assignment-facts']}>
-                                {grade_assignment_type && <span>{grade_assignment_type}</span>}
-                                {hasGradeAssignmentConfidence && (
-                                    <span>置信度 {Math.round(Number(grade_assignment_confidence) * 100)}%</span>
-                                )}
-                                {progression_basis && <span>{progression_basis}</span>}
-                                {progression_role && <span>{progression_role}</span>}
-                                {evidenceIds.length > 0 && <span>教材证据 {evidenceIds.length} 条</span>}
-                                {source_standard_scope && <span>{source_standard_scope}</span>}
-                                {standard_variant_type && <span>{standard_variant_type}</span>}
-                                {evidence_granularity && <span>{evidence_granularity}</span>}
-                                {progression_delta && <span>{progression_delta}</span>}
-                                {requires_unit_level_evidence && <span>需单元级证据</span>}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            )}
 
             {/* P1: Resources Placeholder */}
             <section className={styles['resources-section']} id="standard-resources" data-reading-section="standard-resources">
