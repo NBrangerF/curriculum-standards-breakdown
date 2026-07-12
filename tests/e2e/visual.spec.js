@@ -38,8 +38,14 @@ test('standard sticky reading indicator visual baseline', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 })
     await page.goto('/standards/MA-D2-GE-003')
     const readingNav = page.getByRole('navigation', { name: '本页目录' })
+    await page.evaluate(() => new Promise(resolve => {
+        requestAnimationFrame(() => requestAnimationFrame(resolve))
+    }))
     await readingNav.getByRole('link', { name: '教学线索' }).click()
-    await page.locator('#standard-content').evaluate(element => element.scrollIntoView({ block: 'center' }))
+    await page.locator('#standard-content').evaluate(element => {
+        const documentTop = element.getBoundingClientRect().top + window.scrollY
+        window.scrollTo(0, documentTop - window.innerHeight * 0.18)
+    })
     await expect(readingNav.getByRole('link', { name: '教学线索' })).toHaveAttribute('aria-current', 'location')
     await waitForVisualStability(page)
     await expect(page).toHaveScreenshot('standard-reading-indicator-desktop.png', {
