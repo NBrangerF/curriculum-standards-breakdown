@@ -27,11 +27,13 @@ async function loadVerifiedManifest(directory) {
 
 const reference = await loadVerifiedManifest(REFERENCE_DIRECTORY)
 const candidate = await loadVerifiedManifest(CANDIDATE_DIRECTORY)
-assert.equal(reference.routeCount, candidate.routeCount)
 assert.equal(reference.viewportCount, candidate.viewportCount)
-assert.equal(reference.artifactCount, candidate.artifactCount)
 
 const candidateByKey = new Map(candidate.artifacts.map(artifact => [keyFor(artifact), artifact]))
+const referenceRouteIds = new Set(reference.artifacts.map(artifact => artifact.routeId))
+const extraCandidateRouteIds = [...new Set(candidate.artifacts
+    .map(artifact => artifact.routeId)
+    .filter(routeId => !referenceRouteIds.has(routeId)))]
 const comparisons = reference.artifacts.map(referenceArtifact => {
     const key = keyFor(referenceArtifact)
     const candidateArtifact = candidateByKey.get(key)
@@ -76,6 +78,7 @@ const perRoute = [...new Set(comparisons.map(item => item.routeId))].map(routeId
 
 const candidateMeetsV2Contract = (
     candidate.allRoutesCaptured &&
+    extraCandidateRouteIds.length === 0 &&
     candidate.allRoutesWithoutHorizontalOverflow &&
     candidate.allInventoryPresent &&
     candidate.inventoryFailureCount === 0 &&
@@ -98,7 +101,9 @@ const report = {
         type: candidate.baselineType,
         baseURL: candidate.baseURL,
         deployment: candidate.deployment,
-        generatedAt: candidate.generatedAt
+        generatedAt: candidate.generatedAt,
+        routeCount: candidate.routeCount,
+        extraRouteIds: extraCandidateRouteIds
     },
     routeCount: reference.routeCount,
     viewportCount: reference.viewportCount,
@@ -130,5 +135,6 @@ console.log(JSON.stringify({
     inventoryFailures: report.inventoryFailureCount,
     horizontalOverflowFailures: report.horizontalOverflowFailureCount,
     consoleErrors: report.consoleErrorCount,
-    pageErrors: report.pageErrorCount
+    pageErrors: report.pageErrorCount,
+    extraCandidateRoutes: report.candidate.extraRouteIds
 }, null, 2))
