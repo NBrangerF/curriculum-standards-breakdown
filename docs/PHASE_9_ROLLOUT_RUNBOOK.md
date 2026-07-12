@@ -2,7 +2,7 @@
 
 日期：2026-07-11
 
-当前执行状态（2026-07-12）：RC2 已冻结；Phase 9 安全部署控制已加入 `codex/kebiao-v2-rc2`。Preview 环境全量开启 V2，Production 未部署、未修改，仍为旧版。5% 生产阶段必须在启用观测能力并获得明确生产发布授权后开始。
+当前执行状态（2026-07-12）：同日加速 Phase 9 已执行到 100% cycle 2，生产域名已指向 V2。六次部署均为 READY，逐阶段 error-level Runtime Logs 为 0；完整证据见 `docs/releases/KEBIAO_V2_PHASE9_ACCELERATED_RELEASE.md`。
 
 产品方随后明确取消 48 小时等待并授权使用同日可完成方式继续。当前执行模式切换为 `docs/releases/KEBIAO_V2_PHASE9_ACCELERATED_PROTOCOL.md`；下列长窗口保留为标准模式参考，不再作为本次加速发布的完成条件。
 

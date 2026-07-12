@@ -1651,19 +1651,20 @@ Gate C：
 - 术语表索引连续性已落地：13 条术语获得稳定深链接，分类、搜索和当前术语由 URL 恢复；sticky 索引通过原生 IntersectionObserver 跟随阅读位置，Motion 只移动分类/术语指示器。相关 schema code 在确有目标定义时成为可访问链接，浏览器返回恢复原术语焦点；移动端索引转为横向轨道。证据见 `research/2026-07-12-glossary-index-continuity.md`。
 - 反馈页状态闭环已完成：补齐页面 URL 自定义校验、pending live status、可控网络失败保留输入、mailto 降级、真实成功确认与继续提交焦点恢复。Playwright 使用测试 key 和网络拦截验证 pending/503/success，不使用蜜罐路径伪造成功；成功页同时修复 sticky Header 遮挡聚焦标题。证据见 `research/2026-07-12-feedback-state-completion.md`。
 - H4G 390 组审核队列已使用 `@tanstack/react-virtual@3.14.5` 完成真实规模虚拟化：五档只挂载 9 至 13 项，支持方向键/Home/End、长距离焦点恢复和外层页面防跳动；五档全站触控候选由 10,910 降至 9,009。`react-resizable-panels` 因缺少用户收益证据暂不引入。证据见 `research/2026-07-12-h4g-virtual-queue.md`。
+- Phase 9 已依产品方“不等待 48 小时”的明确授权完成同日加速发布：冻结候选 `520f31c` 依次经历 production-default-off、5%、20%、50% 与两次连续 100% 生产部署，六次均为 Vercel READY，逐阶段 error-level Runtime Logs 为 0；5/20/50/100 四份机器报告均输出 `decision=advance`。该结论不声称完成长期真实流量观察，完整边界与部署证据见 `releases/KEBIAO_V2_PHASE9_ACCELERATED_RELEASE.md`。
 
 ### 当前 Gate 状态
 
 | Gate | 状态 | 证据 / 剩余 |
 | --- | --- | --- |
-| Gate 0 | 自动取证完成，产品签字待补 | 本地/生产各 65 张五档全路由截图与机器 comparison 完成；当前生产为旧版且不满足 V2 contract，仍需产品签字及后续 V2 发布 |
+| Gate 0 | 通过 | 冻结信息架构与五视口机器基线完成；产品方已确认无需继续保留单独人工审核页面，生产已发布 V2 |
 | Gate B1 | 通过 | `graph-data-readiness-audit.md` + 自动校验 |
 | Gate B2 engine decision | 通过 | benchmark + ADR-0001 + 40.51 KB gzip GraphCanvas lazy chunk |
 | Gate B2 Skills route integration | 通过 | history/share/unknown params、无重排 Inspector、WebGL fallback、桌面与移动验证 |
 | Phase 6 | 核心完成 | 标准局部图、Skills 全局图、Subject 图、Skill Detail 图、Path、Compare、progression 专用路径及 URL 恢复均已落地 |
 | Phase 7 | 完成 | ADR-0002；GSAP 独立延迟 chunk；桌面滚动 median 16.70ms / p95 17.70ms；移动与 reduced-motion 退化通过 |
-| Phase 8 | 自动化完成 | 最新 58 E2E、27 axe/辅助模式、21 visual；forced-colors、200% 显示缩放代理和五档 9,009 个默认态触控目标覆盖 13 路由，低于 44px 为 0；搜索展开态、清单选择态、移动术语索引与 H4G 虚拟队列亦有显式键盘/axe 契约；VoiceOver/NVDA 仍需人工验证 |
+| Phase 8 | 完成（自动化与 VoiceOver 结构任务流） | 发布候选本轮 55 E2E、25 axe/辅助模式、19 visual 与 60 份五视口基线通过；VoiceOver 结构/焦点任务流已执行，外部 NVDA 验收包已交接 |
 | Phase 4 supporting routes | 完成 | 清单、清单详情、术语、反馈、Print、H4G 与 Style Guide 已同步冷白课程坐标系与交互契约 |
 | Foundation Gate | 自动项通过 | canonical token、完整 Storybook primitive 状态矩阵、Stylelint、axe 与 Button/Checkbox/Tabs/Dialog/SearchField 键盘测试通过 |
-| Gate C | 自动门禁通过，人工/上线门禁待完成 | axe critical/serious 0；Lighthouse、视觉、E2E、bundle、回滚演练通过；仍需读屏人工任务流与真实小流量观察 |
-| Phase 9 | 回滚准备完成，灰度未开始 | ADR-0003、逐路由 flag、5 enhancement + 8 passthrough 机器契约与 `PHASE_9_ROLLOUT_RUNBOOK.md` 已落地；真实内部/小流量、指标观测和两个稳定发布周期未执行 |
+| Gate C | 同日加速生产验收通过 | axe critical/serious 0；Lighthouse、视觉、E2E、bundle、五档 production build、回滚探针、Production READY 与 Runtime Logs 门禁通过；不等同 48 小时真实流量稳定性 |
+| Phase 9 | 同日加速发布完成 | default-off → 5% → 20% → 50% → 100% cycle 1/2 全部执行；四份机器报告均为 `advance`，最终生产为 100% V2，路由级回滚仍保留 |
