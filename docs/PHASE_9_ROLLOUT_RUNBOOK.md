@@ -27,6 +27,7 @@
 - `npm run test:e2e`
 - `npm run validate:rollout-contract`
 - `npm run validate:observability-contract`
+- `npm run validate:phase9-observation-contract`
 - `npm run test:a11y`
 - `npm run test:visual`
 - `npm run validate:ui-baseline`
@@ -73,6 +74,14 @@
 - 200% 缩放、390px 宽度、reduced motion、强制高对比度抽检。
 - 运行 `npm run validate:ui-baseline`，确认两档移动视口 `mobileTouchTargetFailureCount` 为 0；面包屑文字例外逐项可追溯。
 - 产品负责人确认字段、顺序与来源与旧版一致。
+
+阶段结束时复制 `docs/releases/phase9-observation-template.machine.json`，填入真实数据并运行：
+
+```bash
+npm run validate:phase9-observation -- path/to/stage-report.json
+```
+
+只有输出 `decision=advance` 才能晋级；`hold` 延长观察，`rollback` 立即按本 Runbook 回滚。
 
 ## Legacy 删除条件
 
