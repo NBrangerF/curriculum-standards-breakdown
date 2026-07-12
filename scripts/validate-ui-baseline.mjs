@@ -50,6 +50,8 @@ assert.equal(manifest.artifacts.length, 60)
 assert.equal(manifest.allRoutesCaptured, true)
 assert.equal(manifest.allRoutesWithoutHorizontalOverflow, true)
 assert.equal(manifest.allInventoryPresent, true)
+assert.equal(manifest.allRouteReadinessSatisfied, true)
+assert.equal(manifest.routeReadinessFailureCount, 0)
 assert.equal(manifest.inventoryFailureCount, 0)
 assert.equal(manifest.touchTargetFailureCount, 0)
 assert.equal(manifest.mobileTouchTargetFailureCount, 0)
@@ -66,6 +68,7 @@ for (const artifact of manifest.artifacts) {
     assert.deepEqual(artifact.missingInventoryItems, [], `${key} is missing inventory`)
     assert.deepEqual(artifact.consoleErrors, [], `${key} has console errors`)
     assert.deepEqual(artifact.pageErrors, [], `${key} has page errors`)
+    assert.equal(artifact.routeReadinessSatisfied, true, `${key} did not satisfy its route readiness contract`)
     assert.deepEqual(artifact.touchTargetAudit.below44, [], `${key} has touch targets below 44px`)
 
     const path = resolve(artifact.file)
@@ -83,6 +86,7 @@ console.log(JSON.stringify({
     viewports: manifest.viewportCount,
     artifacts: manifest.artifactCount,
     inventoryFailures: manifest.inventoryFailureCount,
+    routeReadinessFailures: manifest.routeReadinessFailureCount,
     horizontalOverflowFailures: manifest.artifacts.filter(artifact => artifact.horizontalOverflowPx).length,
     mobileTouchTargetCandidates: manifest.mobileTouchTargetCandidateCount,
     mobileTouchTargetFailures: manifest.mobileTouchTargetFailureCount,

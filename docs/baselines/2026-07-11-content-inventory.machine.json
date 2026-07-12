@@ -34,7 +34,8 @@
       "routeKey": "skillDetail",
       "headings": ["批判性思维与问题解决", "技能定义", "子技能", "关联的课程标准"],
       "buttons": ["复制链接", "列表", "关系图谱"],
-      "links": ["← 返回技能列表"]
+      "links": ["← 返回技能列表"],
+      "readiness": { "selector": "[data-kb-component=\"standard-card\"]", "minimumCount": 1 }
     },
     {
       "id": "search",

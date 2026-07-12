@@ -18,6 +18,7 @@
 - 12 / 12 路由在 5 个视口都保留冻结 Content Inventory。
 - 横向溢出：0。
 - Content Inventory 缺失：0。
+- 异步路由 readiness contract 失败：0；Skill Detail 必须在关联标准卡片完成挂载后才允许捕获。
 - Console error：0。
 - Page error：0。
 - 两档移动视口触控候选：3,120；小于 44 × 44px：0。

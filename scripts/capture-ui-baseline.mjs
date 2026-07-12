@@ -191,6 +191,19 @@ async function capture() {
                         if (BASELINE_TYPE === 'local-preproduction') throw error
                     }
                 }
+                let routeReadinessSatisfied = true
+                if (route.readiness?.selector) {
+                    try {
+                        await page.waitForFunction(
+                            ({ selector, minimumCount }) => document.querySelectorAll(selector).length >= minimumCount,
+                            route.readiness,
+                            { timeout: BASELINE_TYPE === 'local-preproduction' ? 20_000 : 6_000 }
+                        )
+                    } catch (error) {
+                        routeReadinessSatisfied = false
+                        if (BASELINE_TYPE === 'local-preproduction') throw error
+                    }
+                }
                 await page.evaluate(async () => {
                     await document.fonts.ready
                     await new Promise(resolvePromise => requestAnimationFrame(() => requestAnimationFrame(resolvePromise)))
@@ -316,6 +329,7 @@ async function capture() {
                     documentHeight: layout.scrollHeight,
                     mainContentAnchorPresent,
                     readyHeadingFound,
+                    routeReadinessSatisfied,
                     missingInventoryItems,
                     touchTargetAudit,
                     consoleErrors: consoleErrors.slice(errorStart),
@@ -345,6 +359,8 @@ async function capture() {
             allRoutesCaptured: artifacts.length === inventory.routeCount * VIEWPORTS.length,
             allRoutesWithoutHorizontalOverflow: artifacts.every(artifact => artifact.horizontalOverflowPx === 0),
             allInventoryPresent: artifacts.every(artifact => artifact.missingInventoryItems.length === 0),
+            allRouteReadinessSatisfied: artifacts.every(artifact => artifact.routeReadinessSatisfied),
+            routeReadinessFailureCount: artifacts.filter(artifact => !artifact.routeReadinessSatisfied).length,
             inventoryFailureCount: artifacts.reduce((sum, artifact) => sum + artifact.missingInventoryItems.length, 0),
             touchTargetCandidateCount: artifacts.reduce((sum, artifact) => sum + artifact.touchTargetAudit.candidateCount, 0),
             touchTargetExemptionCount: artifacts.reduce((sum, artifact) => sum + artifact.touchTargetAudit.exemptionCount, 0),
@@ -365,6 +381,8 @@ async function capture() {
             allRoutesCaptured: manifest.allRoutesCaptured,
             allRoutesWithoutHorizontalOverflow: manifest.allRoutesWithoutHorizontalOverflow,
             allInventoryPresent: manifest.allInventoryPresent,
+            allRouteReadinessSatisfied: manifest.allRouteReadinessSatisfied,
+            routeReadinessFailureCount: manifest.routeReadinessFailureCount,
             inventoryFailureCount: manifest.inventoryFailureCount,
             touchTargetCandidateCount: manifest.touchTargetCandidateCount,
             touchTargetExemptionCount: manifest.touchTargetExemptionCount,
@@ -380,6 +398,7 @@ async function capture() {
             !manifest.allRoutesCaptured ||
             !manifest.allRoutesWithoutHorizontalOverflow ||
             !manifest.allInventoryPresent ||
+            !manifest.allRouteReadinessSatisfied ||
             manifest.consoleErrorCount ||
             manifest.pageErrorCount
         ) {
