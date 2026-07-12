@@ -7,7 +7,7 @@ const tokenPath = path.join(srcRoot, 'styles', 'design-tokens.css')
 const rollbackContractPath = path.join(root, 'docs', 'baselines', '2026-07-12-ui-rollback-contract.machine.json')
 const requiredRouteKeys = [
     'home', 'subject', 'skills', 'skillDetail', 'search', 'glossary', 'standard',
-    'collections', 'collectionDetail', 'print', 'styleguide', 'feedback', 'h4gReview'
+    'collections', 'collectionDetail', 'print', 'styleguide', 'feedback'
 ]
 const emojiPattern = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u
 const isolatedStyleOwners = [
@@ -32,7 +32,6 @@ const isolatedStyleOwners = [
     ['src/pages/GlossaryPage.jsx', './GlossaryPage.module.css', 'src/pages/GlossaryPage.css'],
     ['src/pages/FeedbackPage.jsx', './FeedbackPage.module.css', 'src/pages/FeedbackPage.css'],
     ['src/pages/HomePage.jsx', './HomePage.module.css', 'src/pages/HomePage.css'],
-    ['src/pages/H4GReviewPage.jsx', './H4GReviewPage.module.css', 'src/pages/H4GReviewPage.css'],
     ['src/pages/CollectionDetailPage.jsx', './CollectionDetailPage.module.css', 'src/pages/CollectionDetailPage.css'],
     ['src/pages/CollectionsPage.jsx', './CollectionsPage.module.css', 'src/pages/CollectionsPage.css'],
     ['src/pages/PrintPage.jsx', './PrintPage.module.css', 'src/pages/PrintPage.css'],

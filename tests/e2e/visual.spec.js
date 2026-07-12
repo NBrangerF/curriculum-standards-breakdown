@@ -39,6 +39,7 @@ test('standard sticky reading indicator visual baseline', async ({ page }) => {
     await page.goto('/standards/MA-D2-GE-003')
     const readingNav = page.getByRole('navigation', { name: '本页目录' })
     await readingNav.getByRole('link', { name: '教学线索' }).click()
+    await page.locator('#standard-content').evaluate(element => element.scrollIntoView({ block: 'center' }))
     await expect(readingNav.getByRole('link', { name: '教学线索' })).toHaveAttribute('aria-current', 'location')
     await waitForVisualStability(page)
     await expect(page).toHaveScreenshot('standard-reading-indicator-desktop.png', {
@@ -208,6 +209,7 @@ test('feedback retained-input service fallback visual baseline', async ({ page }
     await page.getByRole('textbox', { name: /详细说明/ }).fill('标准详情页面中的领域名称与来源文件不一致，请核对原文并修正。')
     await page.getByRole('button', { name: '提交反馈' }).click()
     await expect(page.getByRole('alert')).toContainText('在线提交失败')
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
     await waitForVisualStability(page)
     await expect(page).toHaveScreenshot('feedback-service-fallback-desktop.png', { animations: 'disabled', fullPage: false })
 })
@@ -235,23 +237,6 @@ test('print preview visual baseline', async ({ page }) => {
         fullPage: false,
         mask: [page.locator('[data-kb-field="print-date"]')]
     })
-})
-
-test('H4G review workbench visual baseline', async ({ page }) => {
-    await page.goto('/h4g-review')
-    await expect(page.getByRole('heading', { level: 1, name: 'H4G Source-Aligned 审核' })).toBeVisible({ timeout: 20_000 })
-    await expect(page).toHaveScreenshot('h4g-review-desktop.png', { animations: 'disabled', fullPage: false })
-})
-
-test('H4G virtual queue end state visual baseline', async ({ page }) => {
-    await page.goto('/h4g-review')
-    const queue = page.locator('[data-kb-component="h4g-virtual-queue"]')
-    const firstItem = queue.locator('[data-kb-h4g-queue-index="0"]')
-    await expect(firstItem).toBeVisible({ timeout: 20_000 })
-    await firstItem.focus()
-    await page.keyboard.press('End')
-    await expect(queue.locator('[data-kb-h4g-queue-index="389"]')).toBeFocused()
-    await expect(queue).toHaveScreenshot('h4g-virtual-queue-end-desktop.png', { animations: 'disabled' })
 })
 
 test('kebiao design system visual baseline', async ({ page }) => {

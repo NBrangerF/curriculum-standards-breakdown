@@ -515,57 +515,6 @@ test('print preview resolves URL codes and hides application chrome in print med
     await expect(page.getByRole('main', { name: '打印内容预览' })).toBeVisible()
 })
 
-test('H4G review decisions are keyboard operable and persist locally', async ({ page }) => {
-    await page.goto('/h4g-review')
-    await expect(page.getByRole('heading', { level: 1, name: 'H4G Source-Aligned 审核' })).toBeVisible({ timeout: 20_000 })
-    await expect(page.getByRole('region', { name: '审核工作台' })).toBeVisible()
-
-    const approveButton = page.getByRole('button', { name: '通过候选', exact: true })
-    await approveButton.focus()
-    await page.keyboard.press('Enter')
-    await expect(approveButton).toHaveAttribute('aria-pressed', 'true')
-
-    const issueCheckbox = page.getByRole('checkbox', { name: '候选文本不对' })
-    await issueCheckbox.focus()
-    await page.keyboard.press('Space')
-    await expect(issueCheckbox).toBeChecked()
-    await expect.poll(() => page.evaluate(() => localStorage.getItem('h4g-source-aligned-standard-review-v2'))).toContain('approved')
-
-    const clearButton = page.getByRole('button', { name: '清空本地' })
-    await clearButton.click()
-    await expect(page.getByRole('dialog', { name: '清空本地审核记录' })).toBeVisible()
-    await page.getByRole('button', { name: '取消' }).click()
-    await expect(clearButton).toBeFocused()
-})
-
-test('H4G review virtual queue keeps large datasets keyboard navigable', async ({ page }) => {
-    await page.goto('/h4g-review')
-    await expect(page.getByRole('heading', { level: 1, name: 'H4G Source-Aligned 审核' })).toBeVisible({ timeout: 20_000 })
-
-    const queue = page.locator('[data-kb-component="h4g-virtual-queue"]')
-    const renderedItems = queue.locator('[data-kb-h4g-queue-index]')
-    await expect(queue).toHaveAttribute('data-kb-total-count', '390')
-    await expect.poll(() => renderedItems.count()).toBeGreaterThan(0)
-    await expect.poll(() => renderedItems.count()).toBeLessThan(30)
-
-    const firstItem = queue.locator('[data-kb-h4g-queue-index="0"]')
-    await firstItem.focus()
-    await page.keyboard.press('ArrowDown')
-    await expect(queue.locator('[data-kb-h4g-queue-index="1"]')).toBeFocused()
-    await expect(queue.locator('[data-kb-h4g-queue-index="1"]')).toHaveAttribute('aria-pressed', 'true')
-
-    await page.keyboard.press('End')
-    const lastItem = queue.locator('[data-kb-h4g-queue-index="389"]')
-    await expect(lastItem).toBeFocused()
-    await expect(lastItem).toHaveAttribute('aria-pressed', 'true')
-    await expect.poll(() => queue.evaluate(element => element.scrollTop)).toBeGreaterThan(0)
-    await expect.poll(() => renderedItems.count()).toBeLessThan(30)
-
-    await page.keyboard.press('Home')
-    await expect(firstItem).toBeFocused()
-    await expect(firstItem).toHaveAttribute('aria-pressed', 'true')
-})
-
 test('design system primitives expose production keyboard states', async ({ page }) => {
     await page.goto('/styleguide')
     await expect(page.getByRole('heading', { level: 1, name: 'kebiao Design System' })).toBeVisible()

@@ -51,7 +51,7 @@ for (const route of inventory.routes) {
 }
 
 test('machine inventory covers every frozen production route exactly once', async () => {
-    expect(inventory.routeCount).toBe(13)
-    expect(inventory.routes).toHaveLength(13)
-    expect(new Set(inventory.routes.map(route => route.routeKey)).size).toBe(13)
+    expect(inventory.routeCount).toBe(12)
+    expect(inventory.routes).toHaveLength(12)
+    expect(new Set(inventory.routes.map(route => route.routeKey)).size).toBe(12)
 })

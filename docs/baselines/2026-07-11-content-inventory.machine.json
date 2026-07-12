@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "baselineCommit": "6d6d2f5b9263d07884e49854cfa3a98e38f7d9f7",
   "dataManifestGeneratedAt": "2026-07-01T07:46:17.346Z",
-  "routeCount": 13,
+  "routeCount": 12,
   "routes": [
     {
       "id": "home",
@@ -104,15 +104,6 @@
       "headings": ["反馈与纠错"],
       "buttons": ["内容纠错", "功能建议", "合作/联系", "提交反馈"],
       "links": ["返回首页"]
-    },
-    {
-      "id": "h4gReview",
-      "path": "/h4g-review",
-      "routeKey": "h4gReview",
-      "headings": ["H4G Source-Aligned 审核", "审核队列"],
-      "buttons": ["导出结果", "清空本地"],
-      "landmarks": [{ "role": "region", "name": "审核工作台" }],
-      "texts": ["Corrected Source", "Supporting Source", "Current Public Standard", "Source-Aligned Candidate"]
     }
   ]
 }

@@ -7,7 +7,7 @@ export default defineConfig({
     forbidOnly: Boolean(process.env.CI),
     retries: process.env.CI ? 1 : 0,
     // The suite mutates browser-local route flags and collection state; one worker keeps
-    // teardown deterministic across repeated 13-route audits on constrained CI machines.
+    // teardown deterministic across repeated 12-route audits on constrained CI machines.
     workers: 1,
     reporter: [['list'], ['html', { outputFolder: 'output/playwright-report', open: 'never' }]],
     use: {

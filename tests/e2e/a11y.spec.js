@@ -18,7 +18,6 @@ const routes = [
     ['glossary', '/glossary'],
     ['feedback', '/feedback'],
     ['print', '/print?codes=MA-D2-GE-003'],
-    ['h4g', '/h4g-review'],
     ['styleguide', '/styleguide']
 ]
 
@@ -128,23 +127,6 @@ test('feedback success state preserves focus and has no critical or serious WCAG
     const heading = page.getByRole('heading', { level: 1, name: '反馈已提交' })
     await expect(heading).toBeFocused()
     const results = await new AxeBuilder({ page })
-        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
-        .analyze()
-    const blocking = results.violations.filter(violation => ['critical', 'serious'].includes(violation.impact))
-    expect(summarizeViolations(blocking)).toEqual([])
-})
-
-test('H4G virtual queue remains accessible after long-distance keyboard navigation', async ({ page }) => {
-    await page.goto('/h4g-review')
-    const queue = page.locator('[data-kb-component="h4g-virtual-queue"]')
-    const firstItem = queue.locator('[data-kb-h4g-queue-index="0"]')
-    await expect(firstItem).toBeVisible({ timeout: 20_000 })
-    await firstItem.focus()
-    await page.keyboard.press('End')
-    await expect(queue.locator('[data-kb-h4g-queue-index="389"]')).toBeFocused()
-    await waitForMotionToSettle(page)
-    const results = await new AxeBuilder({ page })
-        .include('[data-kb-component="h4g-virtual-queue"]')
         .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
         .analyze()
     const blocking = results.violations.filter(violation => ['critical', 'serious'].includes(violation.impact))

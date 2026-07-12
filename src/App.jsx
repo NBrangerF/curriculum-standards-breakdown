@@ -18,7 +18,6 @@ const GlossaryPage = lazy(() => import('./pages/GlossaryPage'))
 const FeedbackPage = lazy(() => import('./pages/FeedbackPage'))
 const CollectionDetailPage = lazy(() => import('./pages/CollectionDetailPage'))
 const PrintPage = lazy(() => import('./pages/PrintPage'))
-const H4GReviewPage = lazy(() => import('./pages/H4GReviewPage'))
 const StyleGuidePage = lazy(() => import('./pages/StyleGuidePage'))
 
 function lazyPage(element, message) {
@@ -50,7 +49,6 @@ function App() {
                     <Route path="/print" element={route('print', lazyPage(<PrintPage />, '正在准备打印预览'))} />
                     <Route path="/styleguide" element={route('styleguide', lazyPage(<StyleGuidePage />, '正在打开设计系统'))} />
                     <Route path="/feedback" element={route('feedback', lazyPage(<FeedbackPage />, '正在打开反馈表单'))} />
-                    <Route path="/h4g-review" element={route('h4gReview', lazyPage(<H4GReviewPage />, '正在打开审核工作台'))} />
                 </Routes>
             </main>
             <Footer />

@@ -12,8 +12,7 @@ const ENV_DEFAULTS = {
     collectionDetail: import.meta.env.VITE_UI_V2_COLLECTION_DETAIL,
     print: import.meta.env.VITE_UI_V2_PRINT,
     styleguide: import.meta.env.VITE_UI_V2_STYLEGUIDE,
-    feedback: import.meta.env.VITE_UI_V2_FEEDBACK,
-    h4gReview: import.meta.env.VITE_UI_V2_H4G_REVIEW
+    feedback: import.meta.env.VITE_UI_V2_FEEDBACK
 }
 
 const FALSE_VALUES = new Set(['0', 'false', 'off', 'legacy'])

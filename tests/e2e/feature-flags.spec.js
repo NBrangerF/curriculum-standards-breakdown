@@ -64,7 +64,7 @@ test('standard rollback keeps reading and collection actions but removes graph e
     await expect(page.getByRole('button', { name: '收藏 MA-D2-GE-003' })).toBeVisible()
 })
 
-test('all 13 production routes resolve an independent rollback key', async ({ page }) => {
+test('all 12 production routes resolve an independent rollback key', async ({ page }) => {
     test.setTimeout(120_000)
     const routes = contentInventory.routes.map(route => [route.path, route.routeKey])
     const contractByRoute = new Map(rollbackContract.routes.map(route => [route.routeKey, route]))
@@ -101,6 +101,6 @@ test('all 13 production routes resolve an independent rollback key', async ({ pa
         }
     }
 
-    expect(rollbackContract.routeCount).toBe(13)
-    expect(contractByRoute.size).toBe(13)
+    expect(rollbackContract.routeCount).toBe(12)
+    expect(contractByRoute.size).toBe(12)
 })

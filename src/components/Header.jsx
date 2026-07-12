@@ -7,7 +7,6 @@ const NAV_ITEMS = [
     { path: '/', label: '首页' },
     { path: '/skills', label: '可迁移技能' },
     { path: '/search', label: '筛选搜索' },
-    { path: '/h4g-review', label: '人工审核' },
     { path: '/collections', label: '我的清单' }
 ]
 
