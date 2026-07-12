@@ -206,7 +206,7 @@ function CollectionsPage() {
                                                 </div>
                                                 <div className={styles.dialogActions}>
                                                     <AriaButton className="btn btn-ghost" onPress={close}>取消</AriaButton>
-                                                    <button type="submit" className="btn btn-primary" disabled={!newName.trim()}>创建清单</button>
+                                                    <button type="submit" className="btn btn-primary" disabled={!newName.trim()} data-kb-telemetry-task="collection_create">创建清单</button>
                                                 </div>
                                             </form>
                                         </>

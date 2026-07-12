@@ -83,6 +83,7 @@ function FavoriteButton({ code, showLabel = false, size = 'normal', onUpdate }) 
             <button
                 className={`${styles['favorite-button']} ${isFavorited ? styles.favorited : ''}`}
                 data-kb-action="favorite-toggle"
+                data-kb-telemetry-task="favorite_toggle"
                 onClick={handleToggle}
                 title={isFavorited ? '取消收藏' : '添加到收藏'}
                 aria-label={isFavorited ? `取消收藏 ${code}` : `收藏 ${code}`}

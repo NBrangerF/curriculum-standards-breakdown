@@ -244,6 +244,7 @@ function FilterBar({
                         className={`btn btn-primary btn-lg ${!isValid ? styles.disabled : ''}`}
                         onClick={handleSearch}
                         disabled={!isValid}
+                        data-kb-telemetry-task="search_results"
                     >
                         <ChartBarIcon size={19} aria-hidden="true" />
                         查看对比结果

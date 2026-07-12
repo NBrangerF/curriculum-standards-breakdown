@@ -356,6 +356,7 @@ function StandardDetailPage() {
                                 onClick={handleLocateGraph}
                                 aria-expanded={relationsExpanded}
                                 aria-controls="standard-relations"
+                                data-kb-telemetry-task="graph_open"
                             >
                                 <svg viewBox="0 0 20 20" aria-hidden="true">
                                     <circle cx="4" cy="10" r="2" />
@@ -419,7 +420,7 @@ function StandardDetailPage() {
                         <ReadingNavLink sectionId="standard-evidence" activeSection={activeSection}>归属依据</ReadingNavLink>
                     )}
                     <ReadingNavLink sectionId="standard-resources" activeSection={activeSection}>教学资源</ReadingNavLink>
-                    {uiV2Enabled ? <button type="button" onClick={handleLocateGraph}>关系图谱</button> : null}
+                    {uiV2Enabled ? <button type="button" onClick={handleLocateGraph} data-kb-telemetry-task="graph_open">关系图谱</button> : null}
                 </div>
             </nav>
 

@@ -102,6 +102,7 @@ function HomeHeroBanner({
                             className={`${styles['hero-btn']} ${styles['hero-btn-primary']}`}
                             onClick={handleStartFilter}
                             aria-label="开始筛选课程标准"
+                            data-kb-telemetry-task="search_start"
                         >
                             开始筛选
                         </button>

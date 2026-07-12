@@ -82,7 +82,7 @@ function SkillsOverviewPage() {
                         <Link to="/" className="back-link">返回首页</Link>
                         <div className={styles['skills-view-switch']} aria-label="技能浏览视图">
                             <button type="button" className={!graphActive ? styles['is-active'] : ''} aria-pressed={!graphActive} onClick={openList}>框架视图</button>
-                            {uiV2Enabled ? <button type="button" className={graphActive ? styles['is-active'] : ''} aria-pressed={graphActive} onClick={openGraph}>关系图谱</button> : null}
+                            {uiV2Enabled ? <button type="button" className={graphActive ? styles['is-active'] : ''} aria-pressed={graphActive} onClick={openGraph} data-kb-telemetry-task="graph_open">关系图谱</button> : null}
                         </div>
                     </div>
                     <div className={styles['skills-hero-content']}>

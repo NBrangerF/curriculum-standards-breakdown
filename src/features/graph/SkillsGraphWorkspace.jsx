@@ -282,7 +282,7 @@ export default function SkillsGraphWorkspace({
 
     if (loadError) {
         return (
-            <div className={styles['global-graph-state']} role="alert">
+            <div className={styles['global-graph-state']} role="alert" data-kb-telemetry-state="graph_fallback">
                 <h2>图谱数据加载失败</h2>
                 <p>{loadError.message}</p>
                 <button type="button" onClick={() => window.location.reload()}>重新加载</button>

@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
@@ -11,6 +12,7 @@ import SearchResultsPage from './pages/SearchResultsPage'
 import StandardDetailPage from './pages/StandardDetailPage'
 import RouteUiBoundary from './components/RouteUiBoundary'
 import { LoadingState } from './components/StateComponents'
+import UiTelemetryListener from './observability/UiTelemetryListener'
 import './App.css'
 
 const CollectionsPage = lazy(() => import('./pages/CollectionsPage'))
@@ -27,6 +29,7 @@ function lazyPage(element, message) {
 function App() {
     const route = (routeKey, element) => <RouteUiBoundary routeKey={routeKey}>{element}</RouteUiBoundary>
     const analyticsEnabled = import.meta.env.VITE_ENABLE_ANALYTICS === 'true'
+    const speedInsightsEnabled = import.meta.env.VITE_ENABLE_SPEED_INSIGHTS === 'true'
 
     return (
         <div className="app">
@@ -53,6 +56,8 @@ function App() {
             </main>
             <Footer />
             {analyticsEnabled ? <Analytics /> : null}
+            {analyticsEnabled ? <UiTelemetryListener /> : null}
+            {speedInsightsEnabled ? <SpeedInsights /> : null}
         </div>
     )
 }

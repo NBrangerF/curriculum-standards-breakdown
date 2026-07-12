@@ -236,6 +236,7 @@ function SubjectPage() {
                                 className={`${styles['view-toggle-btn']} ${viewMode === 'graph' ? styles.active : ''}`}
                                 aria-pressed={viewMode === 'graph'}
                                 onClick={() => setViewMode('graph')}
+                                data-kb-telemetry-task="graph_open"
                             >
                                 关系图谱
                             </button> : null}

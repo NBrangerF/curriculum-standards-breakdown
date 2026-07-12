@@ -151,7 +151,7 @@ export default function GraphCanvas({ model, controller, layoutMode = 'local', c
             <div className={styles['graph-canvas-surface']} ref={containerRef}></div>
             <div className={styles['graph-focus-pulse']} ref={focusPulseRef}><span></span></div>
             {renderError ? (
-                <div className={styles['graph-canvas-error']}>
+                <div className={styles['graph-canvas-error']} data-kb-telemetry-state="graph_fallback">
                     <strong>WebGL 图谱暂不可用</strong>
                     <span>请使用右侧等价关系列表继续浏览。</span>
                 </div>

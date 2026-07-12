@@ -24,6 +24,7 @@
 
 - `npm run test:e2e`
 - `npm run validate:rollout-contract`
+- `npm run validate:observability-contract`
 - `npm run test:a11y`
 - `npm run test:visual`
 - `npm run validate:ui-baseline`
