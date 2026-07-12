@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "mode": "accelerated",
+  "stage": 20,
+  "deploymentId": "dpl_26HB6zykoipZkc7xxrC1m3WYTG7A",
+  "gitSha": "520f31c",
+  "routes": ["subject", "standard", "skillDetail"],
+  "startedAt": "2026-07-12T12:43:44.000Z",
+  "endedAt": "2026-07-12T12:44:36.000Z",
+  "defects": { "p0": 0, "p1": 0, "p2": 0 },
+  "acceleratedEvidence": {
+    "cohortBuildMatrixPassed": true,
+    "fullQualityGatePassed": true,
+    "syntheticPerformanceGatePassed": true,
+    "productionReady": true,
+    "rollbackProbePassed": true,
+    "runtimeErrorCount": 0,
+    "acceleratedStableCycles": 0
+  },
+  "signedBy": "Codex automated release gate (product-authorized)",
+  "decisionNotes": "20% cumulative deterministic cohort; Vercel READY; error-level Runtime Logs empty; query rollback covered by the production build matrix."
+}

@@ -1,5 +1,5 @@
-import { useState, useEffect, useMemo } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { lazy, Suspense, useCallback, useState, useEffect, useMemo } from 'react'
+import { useParams, useSearchParams, Link } from 'react-router-dom'
 import {
     loadSkillsMeta,
     loadManifest,
@@ -7,18 +7,24 @@ import {
     getSkillByCode,
     getSubjectsFromManifest,
     filterStandards,
-    SKILL_COLORS,
-    GRADE_BANDS
+    SKILL_COLORS
 } from '../data/dataLoader'
 import GradeBandTabs from '../components/GradeBandTabs'
 import StandardCard from '../components/StandardCard'
 import TSHeroBanner from '../components/TSHeroBanner'
 import { LoadingState, ErrorState, EmptyState, ResultStats, CopyLinkButton } from '../components/StateComponents'
-import { buildShareableURL, serializeFiltersToURL } from '../data/query'
-import './SkillDetailPage.css'
+import { useUiV2 } from '../components/RouteUiBoundary.jsx'
+import { buildShareableURL, mergeGraphStateIntoURL, parseGraphStateFromURL } from '../data/query'
+import { runViewTransition } from '../utils/viewTransition.js'
+import styles from './SkillDetailPage.module.css'
+
+const SkillsGraphWorkspace = lazy(() => import('../features/graph/SkillsGraphWorkspace.jsx'))
+const GRAPH_RELATION_TYPES = Object.freeze(['contains', 'progression', 'skill_alignment'])
 
 function SkillDetailPage() {
+    const { enabled: uiV2Enabled } = useUiV2()
     const { code } = useParams()
+    const [searchParams, setSearchParams] = useSearchParams()
     const [loading, setLoading] = useState(true)
     const [standardsLoading, setStandardsLoading] = useState(false)
     const [error, setError] = useState(null)
@@ -28,6 +34,9 @@ function SkillDetailPage() {
     const [skill, setSkill] = useState(null)
     const [subjects, setSubjects] = useState([])
     const [allStandards, setAllStandards] = useState([])
+    const searchKey = searchParams.toString()
+    const graphState = useMemo(() => parseGraphStateFromURL(new URLSearchParams(searchKey)), [searchKey])
+    const graphActive = uiV2Enabled && graphState.view === 'graph'
 
     // Initial load - skill meta and manifest
     useEffect(() => {
@@ -90,6 +99,22 @@ function SkillDetailPage() {
         )
     }
 
+    const setViewMode = (mode) => {
+        runViewTransition(() => setSearchParams(mergeGraphStateIntoURL(searchParams, mode === 'graph' ? {
+            view: 'graph',
+            selectedNode: `skill:${code.toLowerCase()}`,
+            focusDepth: 1,
+            relationTypes: [...GRAPH_RELATION_TYPES],
+            compareSelection: []
+        } : {}), { replace: false }))
+    }
+
+    const updateGraphState = useCallback((partial, options = {}) => {
+        const current = parseGraphStateFromURL(new URLSearchParams(searchParams))
+        const next = { ...current, ...partial, view: 'graph' }
+        setSearchParams(mergeGraphStateIntoURL(searchParams, next), { replace: options.replace === true })
+    }, [searchParams, setSearchParams])
+
     // Build shareable URL for current filters
     const shareableURL = useMemo(() => {
         return buildShareableURL({
@@ -126,7 +151,7 @@ function SkillDetailPage() {
                     title="技能未找到"
                     message={`找不到代码为 ${code} 的技能信息`}
                 />
-                <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+                <div className={styles['not-found-actions']}>
                     <Link to="/skills" className="btn btn-primary">返回技能列表</Link>
                 </div>
             </div>
@@ -134,7 +159,7 @@ function SkillDetailPage() {
     }
 
     return (
-        <div className="skill-detail-page">
+        <div className={styles['skill-detail-page']} style={{ '--skill-color': skillColor }} data-kb-route="skill-detail">
             {/* Skill Hero Banner - New Component */}
             <TSHeroBanner
                 tsCode={skill.code}
@@ -146,18 +171,19 @@ function SkillDetailPage() {
                 backLabel="← 返回技能列表"
             />
 
-            {/* Skill Definition */}
-            <section className="skill-definition-section">
+            <section className={styles['skill-definition-section']}>
                 <div className="container">
-                    <div className="definition-content">
-                        <h2>📖 技能定义</h2>
-                        <p className="definition-text">{skill.definition_cn}</p>
+                    <div className={styles['definition-content']}>
+                        <span className={styles['skill-section-kicker']}>Definition</span>
+                        <h2>技能定义</h2>
+                        <p className={styles['definition-text']}>{skill.definition_cn}</p>
                     </div>
 
                     {skill.look_fors && skill.look_fors.length > 0 && (
-                        <div className="look-fors">
-                            <h3>👀 学生表现证据（Look-fors）</h3>
-                            <ul className="look-fors-list">
+                        <div className={styles['look-fors']}>
+                            <span className={styles['skill-section-index']}>01</span>
+                            <h3>学生表现证据 <small>Look-fors</small></h3>
+                            <ul className={styles['look-fors-list']}>
                                 {skill.look_fors.map((item, idx) => (
                                     <li key={idx}>{item}</li>
                                 ))}
@@ -166,9 +192,10 @@ function SkillDetailPage() {
                     )}
 
                     {skill.teacher_moves && skill.teacher_moves.length > 0 && (
-                        <div className="teacher-moves">
-                            <h3>🎓 教师策略（Teacher Moves）</h3>
-                            <ul className="teacher-moves-list">
+                        <div className={styles['teacher-moves']}>
+                            <span className={styles['skill-section-index']}>02</span>
+                            <h3>教师策略 <small>Teacher Moves</small></h3>
+                            <ul className={styles['teacher-moves-list']}>
                                 {skill.teacher_moves.map((item, idx) => (
                                     <li key={idx}>{item}</li>
                                 ))}
@@ -177,32 +204,35 @@ function SkillDetailPage() {
                     )}
 
                     {skill.progression_notes && (
-                        <div className="progression-notes">
-                            <h3>📈 进阶说明</h3>
+                        <div className={styles['progression-notes']}>
+                            <span className={styles['skill-section-index']}>03</span>
+                            <h3>进阶说明 <small>Progression</small></h3>
                             <p>{skill.progression_notes}</p>
                         </div>
                     )}
                 </div>
             </section>
 
-            {/* Subskills */}
             {skill.subskills && skill.subskills.length > 0 && (
-                <section className="subskills-section">
+                <section className={styles['subskills-section']}>
                     <div className="container">
-                        <h2>🔧 子技能</h2>
-                        <div className="subskills-grid">
+                        <div className={styles['skill-section-heading']}>
+                            <div><span className={styles['skill-section-kicker']}>Taxonomy</span><h2>子技能</h2></div>
+                            <p>{skill.subskills.length} 个可观察、可教学的能力分支</p>
+                        </div>
+                        <div className={styles['subskills-grid']}>
                             {skill.subskills.map(sub => (
-                                <div key={sub.code} className="subskill-card" style={{ '--skill-color': skillColor }}>
-                                    <div className="subskill-header">
-                                        <span className="subskill-code">{sub.code}</span>
-                                        <h4 className="subskill-name">{sub.name_cn}</h4>
-                                        <span className="subskill-name-en">{sub.name_en}</span>
+                                <div key={sub.code} className={styles['subskill-card']} style={{ '--skill-color': skillColor }}>
+                                    <div className={styles['subskill-header']}>
+                                        <span className={styles['subskill-code']}>{sub.code}</span>
+                                        <h4 className={styles['subskill-name']}>{sub.name_cn}</h4>
+                                        <span className={styles['subskill-name-en']}>{sub.name_en}</span>
                                     </div>
-                                    <p className="subskill-tagline">{sub.tagline_cn}</p>
-                                    <p className="subskill-definition">{sub.definition_cn}</p>
+                                    <p className={styles['subskill-tagline']}>{sub.tagline_cn}</p>
+                                    <p className={styles['subskill-definition']}>{sub.definition_cn}</p>
 
                                     {sub.look_fors && sub.look_fors.length > 0 && (
-                                        <div className="subskill-lookfors">
+                                        <div className={styles['subskill-lookfors']}>
                                             <strong>表现证据：</strong>
                                             <ul>
                                                 {sub.look_fors.map((item, idx) => (
@@ -218,22 +248,43 @@ function SkillDetailPage() {
                 </section>
             )}
 
-            {/* Related Standards */}
-            <section className="related-standards-section">
+            <section className={styles['related-standards-section']}>
                 <div className="container">
-                    <div className="section-header-row">
+                    <div className={styles['section-header-row']}>
                         <div>
-                            <h2>📋 关联的课程标准</h2>
-                            <p className="section-desc">
+                            <span className={styles['skill-section-kicker']}>Curriculum Index</span>
+                            <h2>关联的课程标准</h2>
+                            <p className={styles['section-desc']}>
                                 以下标准的主标签或次标签包含 <strong>{skill.code}</strong> 或其子技能
                             </p>
                         </div>
-                        <CopyLinkButton url={shareableURL} />
+                        <div className={styles['skill-standards-actions']}>
+                            {!graphActive ? <CopyLinkButton url={shareableURL} /> : null}
+                            <div className={styles['skill-view-switch']} aria-label="关联标准浏览视图">
+                                <button type="button" className={!graphActive ? styles['is-active'] : ''} aria-pressed={!graphActive} onClick={() => setViewMode('list')}>列表</button>
+                                {uiV2Enabled ? <button type="button" className={graphActive ? styles['is-active'] : ''} aria-pressed={graphActive} onClick={() => setViewMode('graph')}>关系图谱</button> : null}
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Filters */}
-                    <div className="standards-filters">
-                        <div className="filter-group">
+                    <div style={{ viewTransitionName: 'kb-view-surface' }}>
+                    {graphActive ? (
+                        <div className={styles['skill-detail-graph-shell']}>
+                            <Suspense fallback={(
+                                <div className={styles['skill-detail-graph-loading']} aria-live="polite"><span></span><p>正在加载技能关系图谱</p></div>
+                            )}>
+                                <SkillsGraphWorkspace
+                                    graphState={graphState}
+                                    onGraphStateChange={updateGraphState}
+                                    providedStandards={allStandards}
+                                    lockedSkillCode={skill.code}
+                                    lockedSkillLabel={`${skill.code} · ${skill.name_cn}`}
+                                />
+                            </Suspense>
+                        </div>
+                    ) : <>
+                    <div className={styles['standards-filters']}>
+                        <div className={styles['filter-group']}>
                             <h4>学段</h4>
                             <GradeBandTabs
                                 selected={selectedBands}
@@ -241,13 +292,13 @@ function SkillDetailPage() {
                             />
                         </div>
 
-                        <div className="filter-group">
+                        <div className={styles['filter-group']}>
                             <h4>学科</h4>
-                            <div className="subject-filters">
+                            <div className={styles['subject-filters']}>
                                 {subjects.map(subj => (
                                     <button
                                         key={subj.subject_slug}
-                                        className={`subject-filter-btn ${selectedSubjects.includes(subj.subject_slug) ? 'active' : ''}`}
+                                        className={`${styles['subject-filter-btn']} ${selectedSubjects.includes(subj.subject_slug) ? styles.active : ''}`}
                                         onClick={() => toggleSubject(subj.subject_slug)}
                                     >
                                         {subj.subject}
@@ -269,12 +320,12 @@ function SkillDetailPage() {
                     {standardsLoading ? (
                         <LoadingState message="加载标准数据..." size="small" />
                     ) : (
-                        <div className="standards-list">
+                        <div className={styles['standards-list']}>
                             {filteredStandards.slice(0, 50).map(std => (
                                 <StandardCard key={std.id} standard={std} />
                             ))}
                             {filteredStandards.length > 50 && (
-                                <div className="load-more-hint">
+                                <div className={styles['load-more-hint']}>
                                     显示前 50 条结果，请使用筛选缩小范围
                                 </div>
                             )}
@@ -289,6 +340,8 @@ function SkillDetailPage() {
                             actionLabel="清除筛选"
                         />
                     )}
+                    </>}
+                    </div>
                 </div>
             </section>
         </div>

@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "semantics": "enhancement-layer rollback",
+  "routeCount": 12,
+  "routes": [
+    {
+      "routeKey": "home",
+      "mode": "enhancement",
+      "disabledEnhancements": ["homeNarrative"],
+      "absentTexts": ["从课程目录，到可探索的知识坐标"]
+    },
+    {
+      "routeKey": "subject",
+      "mode": "enhancement",
+      "disabledEnhancements": ["subjectGraph"],
+      "omittedButtons": ["关系图谱"]
+    },
+    {
+      "routeKey": "skills",
+      "mode": "enhancement",
+      "disabledEnhancements": ["globalSkillsGraph"],
+      "omittedButtons": ["关系图谱"]
+    },
+    {
+      "routeKey": "skillDetail",
+      "mode": "enhancement",
+      "disabledEnhancements": ["skillScopeGraph"],
+      "omittedButtons": ["关系图谱"]
+    },
+    {
+      "routeKey": "search",
+      "mode": "passthrough",
+      "disabledEnhancements": []
+    },
+    {
+      "routeKey": "glossary",
+      "mode": "passthrough",
+      "disabledEnhancements": []
+    },
+    {
+      "routeKey": "standard",
+      "mode": "enhancement",
+      "disabledEnhancements": ["standardRelationGraph"],
+      "omittedButtons": ["在图谱中定位", "关系图谱"]
+    },
+    {
+      "routeKey": "collections",
+      "mode": "passthrough",
+      "disabledEnhancements": []
+    },
+    {
+      "routeKey": "collectionDetail",
+      "mode": "passthrough",
+      "disabledEnhancements": []
+    },
+    {
+      "routeKey": "print",
+      "mode": "passthrough",
+      "disabledEnhancements": []
+    },
+    {
+      "routeKey": "styleguide",
+      "mode": "passthrough",
+      "disabledEnhancements": []
+    },
+    {
+      "routeKey": "feedback",
+      "mode": "passthrough",
+      "disabledEnhancements": []
+    }
+  ]
+}

@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import {
     loadManifest,
     loadSubjectsMeta,
     loadSkillsMeta,
+    loadSkillToSubjectsIndex,
     getSubjectsFromManifest,
     getSkillsMeta,
     SUBJECT_COLORS,
@@ -25,15 +26,83 @@ import {
 import { LoadingState, ErrorState } from '../components/StateComponents'
 import TSBadge from '../components/TSBadge'
 import HomeHeroBanner from '../components/HomeHeroBanner'
-import './HomePage.css'
+import { useUiV2 } from '../components/RouteUiBoundary.jsx'
+import { Toast, useTransientToast } from '../ui/primitives/Toast'
+import { Disclosure, DisclosureIndicator } from '../ui/primitives/Disclosure'
+import styles from './HomePage.module.css'
+
+const HomeNarrativeSection = lazy(() => import('../components/HomeNarrativeSection.jsx'))
+
+function HomeNarrativePlaceholder() {
+    return (
+        <div
+            className={styles['home-narrative-placeholder']}
+            data-kb-component="home-narrative-placeholder"
+            aria-hidden="true"
+        >
+            <div className={`${styles['home-narrative-placeholder-stage']} container`}>
+                <div className={styles['home-narrative-placeholder-copy']}>
+                    <i></i>
+                    <b></b>
+                    <b></b>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div className={styles['home-narrative-placeholder-index']}>
+                    {Array.from({ length: 4 }, (_, index) => <i key={index}></i>)}
+                </div>
+                <div className={styles['home-narrative-placeholder-map']}>
+                    {Array.from({ length: 4 }, (_, index) => (
+                        <div key={index} style={{ '--placeholder-width': `${100 - index * 10}%` }}>
+                            <i></i>
+                            <span></span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+function HomeNarrativeGate(props) {
+    const gateRef = useRef(null)
+    const [enabled, setEnabled] = useState(false)
+
+    useEffect(() => {
+        if (!('IntersectionObserver' in window)) {
+            setEnabled(true)
+            return undefined
+        }
+        const observer = new IntersectionObserver(entries => {
+            if (entries.some(entry => entry.isIntersecting)) {
+                setEnabled(true)
+                observer.disconnect()
+            }
+        }, { rootMargin: '700px 0px' })
+        if (gateRef.current) observer.observe(gateRef.current)
+        return () => observer.disconnect()
+    }, [])
+
+    return (
+        <div className={styles['home-narrative-gate']} ref={gateRef} data-kb-component="home-narrative-gate">
+            {enabled ? (
+                <Suspense fallback={<HomeNarrativePlaceholder />}>
+                    <HomeNarrativeSection {...props} />
+                </Suspense>
+            ) : <HomeNarrativePlaceholder />}
+        </div>
+    )
+}
 
 function HomePage() {
+    const { enabled: uiV2Enabled } = useUiV2()
     const navigate = useNavigate()
     const [searchParams] = useSearchParams()
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [subjects, setSubjects] = useState([])
     const [skills, setSkills] = useState([])
+    const [skillSubjects, setSkillSubjects] = useState({})
 
     // Compare mode state
     const [filters, setFilters] = useState(() => {
@@ -52,8 +121,7 @@ function HomePage() {
         return { ...DEFAULT_COMPARE_STATE }
     })
 
-    // Toast message for constraint violations
-    const [toast, setToast] = useState(null)
+    const { toast, showToast, dismissToast } = useTransientToast()
 
     // Skills accordion state
     const [skillsExpanded, setSkillsExpanded] = useState(false)
@@ -62,11 +130,13 @@ function HomePage() {
         Promise.all([
             loadManifest(),
             loadSubjectsMeta(),
-            loadSkillsMeta()
+            loadSkillsMeta(),
+            loadSkillToSubjectsIndex()
         ])
-            .then(() => {
+            .then(([, , , skillSubjectIndex]) => {
                 setSubjects(getSubjectsFromManifest())
                 setSkills(getSkillsMeta())
+                setSkillSubjects(skillSubjectIndex || {})
                 setLoading(false)
             })
             .catch(err => {
@@ -74,12 +144,6 @@ function HomePage() {
                 setLoading(false)
             })
     }, [])
-
-    // Show toast with auto-dismiss
-    const showToast = (message) => {
-        setToast(message)
-        setTimeout(() => setToast(null), 3000)
-    }
 
     const handleSubjectToggle = (slug) => {
         const result = addSubject(
@@ -164,40 +228,35 @@ function HomePage() {
     }
 
     const gradeBands = getSelectableGradeBands()
+    const standardCount = subjects.reduce((total, subject) => total + Number(subject.record_count || 0), 0)
 
     return (
-        <div className="home-page">
-            {/* Toast notification */}
-            {toast && (
-                <div className="compare-toast">
-                    <span>{toast}</span>
-                </div>
-            )}
+        <div className={styles['home-page']} data-kb-route="home">
+            <Toast message={toast?.message} tone={toast?.tone} onDismiss={dismissToast} />
 
             {/* Hero Banner - New TS-style component */}
             <HomeHeroBanner
                 scrollTargetId="compare-filter"
-                themeColor="#0891b2"
             />
 
             {/* Compare Filter Section */}
-            <section className="filter-section" id="compare-filter">
+            <section className={styles['filter-section']} id="compare-filter">
                 <div className="container">
-                    <div className="section-header">
-                        <h2>📊 对比筛选</h2>
+                    <div className={styles['section-header']}>
+                        <h2>对比筛选</h2>
                         <p>选择学科和学段/年级进行对比，支持 1-3 学科对比同一单元，或同一学科跨 1-6 个学段/年级对比</p>
                     </div>
-                    <div className="filter-card card">
-                        <div className="card-body">
+                    <div className={`${styles['filter-card']} card`}>
+                        <div className={styles['card-body']}>
                             {/* Subjects - Most prominent */}
-                            <div className="filter-group filter-group-primary">
-                                <h4 className="filter-label filter-label-lg">学科</h4>
-                                <p className="filter-hint">选择 1-3 个学科进行对比</p>
-                                <div className="filter-options filter-options-primary">
+                            <div className={`${styles['filter-group']} ${styles['filter-group-primary']}`}>
+                                <h3 className={styles['filter-label']}>学科</h3>
+                                <p className={styles['filter-hint']}>选择 1-3 个学科进行对比</p>
+                                <div className={`${styles['filter-options']} ${styles['filter-options-primary']}`}>
                                     {subjects.map(subj => (
                                         <label
                                             key={subj.subject_slug}
-                                            className={`checkbox-item checkbox-item-lg ${filters.subjects.includes(subj.subject_slug) ? 'active' : ''}`}
+                                            className={`${styles['checkbox-item']} ${filters.subjects.includes(subj.subject_slug) ? styles.active : ''}`}
                                             style={{ '--subject-color': SUBJECT_COLORS[subj.subject_slug] }}
                                         >
                                             <input
@@ -205,85 +264,86 @@ function HomePage() {
                                                 checked={filters.subjects.includes(subj.subject_slug)}
                                                 onChange={() => handleSubjectToggle(subj.subject_slug)}
                                             />
-                                            <span className="checkbox-label">{subj.subject}</span>
+                                            <span>{subj.subject}</span>
                                         </label>
                                     ))}
                                 </div>
                             </div>
 
                             {/* Grade Bands - Second prominent */}
-                            <div className="filter-group filter-group-secondary">
-                                <h4 className="filter-label filter-label-md">学段</h4>
-                                <p className="filter-hint">
+                            <div className={`${styles['filter-group']} ${styles['filter-group-secondary']}`}>
+                                <h3 className={styles['filter-label']}>学段</h3>
+                                <p className={styles['filter-hint']}>
                                     {filters.subjects.length > 1
                                         ? '多学科对比时只能选择1个学段'
                                         : '选择 1-6 个学段/年级进行对比'}
                                 </p>
-                                <div className="filter-options filter-options-secondary">
+                                <div className={`${styles['filter-options']} ${styles['filter-options-secondary']}`}>
                                     {gradeBands.map(([key, info]) => (
                                         <label
                                             key={key}
-                                            className={`checkbox-item checkbox-item-md ${filters.gradeBands.includes(key) ? 'active' : ''}`}
+                                            className={`${styles['checkbox-item']} ${filters.gradeBands.includes(key) ? styles.active : ''}`}
                                         >
                                             <input
                                                 type="checkbox"
                                                 checked={filters.gradeBands.includes(key)}
                                                 onChange={() => handleBandToggle(key)}
                                             />
-                                            <span className="checkbox-label">{info.label}</span>
-                                            <span className="filter-badge">{info.range}</span>
+                                            <span>{info.label}</span>
+                                            <span className={styles['filter-badge']}>{info.range}</span>
                                         </label>
                                     ))}
                                 </div>
                             </div>
 
                             {/* Skills - Collapsible accordion */}
-                            <div className="filter-group filter-group-tertiary">
-                                <button
-                                    className="skills-accordion-header"
-                                    onClick={() => setSkillsExpanded(!skillsExpanded)}
-                                >
-                                    <span className="accordion-title">
-                                        <span className="accordion-icon">{skillsExpanded ? '▼' : '▶'}</span>
-                                        可迁移技能
-                                        <span className="optional-badge">可选</span>
-                                    </span>
-                                    {filters.skills.length > 0 && (
-                                        <span className="selected-count">{filters.skills.length} 个已选</span>
+                            <div className={`${styles['filter-group']} ${styles['filter-group-tertiary']}`}>
+                                <Disclosure
+                                    isExpanded={skillsExpanded}
+                                    onExpandedChange={setSkillsExpanded}
+                                    triggerClassName={styles['skills-accordion-header']}
+                                    panelClassName={`${styles['filter-options']} ${styles['filter-options-tertiary']}`}
+                                    panelId="home-skill-filter-options"
+                                    trigger={({ isExpanded }) => (
+                                        <>
+                                            <span className={styles['accordion-title']}>
+                                                <DisclosureIndicator isExpanded={isExpanded} className={styles['accordion-icon']} />
+                                                可迁移技能
+                                                <span className={styles['optional-badge']}>可选</span>
+                                            </span>
+                                            {filters.skills.length > 0 ? <span className={styles['selected-count']}>{filters.skills.length} 个已选</span> : null}
+                                        </>
                                     )}
-                                </button>
-                                {skillsExpanded && (
-                                    <div className="filter-options filter-options-tertiary">
-                                        {skills.map(skill => (
-                                            <label
-                                                key={skill.code}
-                                                className={`checkbox-item checkbox-item-sm skill-option ${filters.skills.includes(skill.code) ? 'active' : ''}`}
-                                            >
-                                                <input
-                                                    type="checkbox"
-                                                    checked={filters.skills.includes(skill.code)}
-                                                    onChange={() => handleSkillToggle(skill.code)}
-                                                />
-                                                <span className="skill-code-badge">{skill.code}</span>
-                                                <span className="checkbox-label">{skill.name_cn}</span>
-                                            </label>
-                                        ))}
-                                    </div>
-                                )}
+                                >
+                                    {skills.map(skill => (
+                                        <label
+                                            key={skill.code}
+                                            className={`${styles['checkbox-item']} ${styles['skill-option']} ${filters.skills.includes(skill.code) ? styles.active : ''}`}
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                checked={filters.skills.includes(skill.code)}
+                                                onChange={() => handleSkillToggle(skill.code)}
+                                            />
+                                            <span className={styles['skill-code-badge']}>{skill.code}</span>
+                                            <span>{skill.name_cn}</span>
+                                        </label>
+                                    ))}
+                                </Disclosure>
                             </div>
 
                             {/* Actions */}
-                            <div className="filter-actions">
-                                <div className="action-group">
+                            <div className={styles['filter-actions']}>
+                                <div className={styles['action-group']}>
                                     <button
-                                        className={`btn btn-primary btn-lg ${!isValid ? 'disabled' : ''}`}
+                                        className={`btn btn-primary btn-lg ${!isValid ? styles.disabled : ''}`}
                                         onClick={handleCompare}
                                         disabled={!isValid}
                                     >
-                                        📊 查看对比结果
+                                        查看对比结果
                                     </button>
                                     {!isValid && validationMessage && (
-                                        <span className="validation-hint">{validationMessage}</span>
+                                        <span className={styles['validation-hint']}>{validationMessage}</span>
                                     )}
                                 </div>
                                 <button className="btn btn-ghost" onClick={handleClear}>
@@ -296,87 +356,113 @@ function HomePage() {
             </section>
 
             {/* Subjects Grid */}
-            <section className="subjects-section" id="subjects-section">
+            <section className={styles['subjects-section']} id="subjects-section">
                 <div className="container">
-                    <div className="section-header">
-                        <h2>📚 学科入口</h2>
+                    <div className={styles['section-header']}>
+                        <h2>学科入口</h2>
                         <p>点击学科卡片，浏览该学科的所有课程标准</p>
                     </div>
-                    <div className="subjects-grid">
+                    <div className={styles['subjects-grid']}>
                         {subjects.map(subject => (
                             <Link
                                 key={subject.subject_slug}
                                 to={`/subjects/${subject.subject_slug}`}
-                                className="subject-card"
+                                className={styles['subject-card']}
                                 style={{ '--subject-color': SUBJECT_COLORS[subject.subject_slug] }}
+                                aria-label={subject.subject}
+                                aria-describedby={`subject-preview-${subject.subject_slug}`}
                             >
-                                <div className="subject-card-accent"></div>
-                                <div className="subject-card-content">
-                                    <h3 className="subject-name">{subject.subject}</h3>
+                                <div className={styles['subject-card-accent']}></div>
+                                <div className={styles['subject-card-copy']}>
+                                    <h3 className={styles['subject-name']}>{subject.subject}</h3>
+                                    <span className={styles['subject-preview']} id={`subject-preview-${subject.subject_slug}`}>
+                                        <span>{subject.record_count} 条标准 · {Object.keys(subject.domains || {}).length} 个领域</span>
+                                        <small>{Object.keys(subject.domains || {}).slice(0, 3).join(' · ')}</small>
+                                    </span>
                                 </div>
-                                <div className="subject-arrow">→</div>
+                                <svg className={styles['subject-arrow']} viewBox="0 0 20 20" aria-hidden="true">
+                                    <path d="M4 10h11M11 5l5 5-5 5" />
+                                </svg>
                             </Link>
                         ))}
                     </div>
                 </div>
             </section>
 
+            {uiV2Enabled ? (
+                <HomeNarrativeGate
+                    subjectCount={subjects.length}
+                    standardCount={standardCount}
+                    skillCount={skills.length}
+                />
+            ) : null}
+
             {/* Skills Section */}
-            <section className="skills-section">
+            <section className={styles['skills-section']}>
                 <div className="container">
-                    <div className="section-header">
-                        <h2>🎯 可迁移技能</h2>
+                    <div className={styles['section-header']}>
+                        <h2>可迁移技能</h2>
                         <p>学生能跨学科、跨情境迁移运用的能力与素养</p>
                     </div>
-                    <div className="skills-grid">
+                    <div className={styles['skills-grid']}>
                         {skills.map(skill => (
                             <Link
                                 key={skill.code}
                                 to={`/skills/${skill.code}`}
-                                className="skill-preview-card"
+                                className={styles['skill-preview-card']}
                                 style={{ '--skill-color': SKILL_COLORS[skill.code] }}
+                                aria-label={skill.name_cn}
+                                aria-describedby={`skill-preview-${skill.code}`}
                             >
-                                <div className="skill-card-header">
+                                <div className={styles['skill-card-header']}>
                                     <TSBadge tsId={skill.code} size="md" variant="solid" />
                                 </div>
-                                <h3 className="skill-name">{skill.name_cn}</h3>
-                                <p className="skill-tagline">{skill.tagline_cn}</p>
+                                <h3 className={styles['skill-name']}>{skill.name_cn}</h3>
+                                <p className={styles['skill-tagline']}>{skill.tagline_cn}</p>
+                                <span className={styles['skill-relation-hint']} id={`skill-preview-${skill.code}`}>
+                                    连接 {(skillSubjects[skill.code] || []).length} 个学科
+                                    <i aria-hidden="true"></i>
+                                    {skill.subskills?.length || 0} 项子技能
+                                </span>
                             </Link>
                         ))}
                     </div>
-                    <div className="skills-cta">
+                    <div className={styles['skills-cta']}>
                         <Link to="/skills" className="btn btn-secondary btn-lg">
-                            查看全部可迁移技能 →
+                            查看全部可迁移技能
+                            <svg className={styles['inline-arrow']} viewBox="0 0 20 20" aria-hidden="true">
+                                <path d="M4 10h11M11 5l5 5-5 5" />
+                            </svg>
                         </Link>
                     </div>
                 </div>
             </section>
 
             {/* How to Use Section */}
-            <section className="howto-section">
+            <section className={styles['howto-section']}>
                 <div className="container">
-                    <div className="section-header">
-                        <h2>💡 如何使用</h2>
+                    <div className={styles['section-header']}>
+                        <h2>如何使用</h2>
                     </div>
-                    <div className="howto-grid">
-                        <div className="howto-card">
-                            <div className="howto-icon">1</div>
-                            <h4>选择学科与学段</h4>
+                    <div className={styles['howto-grid']}>
+                        <div className={styles['howto-card']}>
+                            <div className={styles['howto-icon']}>1</div>
+                            <h3>选择学科与学段</h3>
                             <p>通过首页筛选或直接进入学科页面，选择你关注的学科和年级范围</p>
                         </div>
-                        <div className="howto-card">
-                            <div className="howto-icon">2</div>
-                            <h4>对比课程标准</h4>
+                        <div className={styles['howto-card']}>
+                            <div className={styles['howto-icon']}>2</div>
+                            <h3>对比课程标准</h3>
                             <p>选择多个学科或多个学段进行并列对比，快速发现跨学科/跨学段关联</p>
                         </div>
-                        <div className="howto-card">
-                            <div className="howto-icon">3</div>
-                            <h4>关注可迁移技能</h4>
+                        <div className={styles['howto-card']}>
+                            <div className={styles['howto-icon']}>3</div>
+                            <h3>关注可迁移技能</h3>
                             <p>查看每条标准关联的可迁移技能，设计跨学科整合的教学活动</p>
                         </div>
-                        <div className="howto-card">
-                            <div className="howto-icon">4</div>
-                            <h4>分享对比结果</h4>
+                        <div className={styles['howto-card']}>
+                            <div className={styles['howto-icon']}>4</div>
+                            <h3>分享对比结果</h3>
                             <p>对比状态保存在URL中，可直接分享链接给同事或学生</p>
                         </div>
                     </div>

@@ -1,25 +1,44 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { Link } from 'react-router-dom'
+import { CaretDownIcon } from '@phosphor-icons/react/dist/csr/CaretDown'
+import { CaretUpIcon } from '@phosphor-icons/react/dist/csr/CaretUp'
+import { ChartBarIcon } from '@phosphor-icons/react/dist/csr/ChartBar'
+import { CopyIcon } from '@phosphor-icons/react/dist/csr/Copy'
+import { FileTextIcon } from '@phosphor-icons/react/dist/csr/FileText'
+import { LightbulbIcon } from '@phosphor-icons/react/dist/csr/Lightbulb'
+import { MapPinLineIcon } from '@phosphor-icons/react/dist/csr/MapPinLine'
+import { PencilLineIcon } from '@phosphor-icons/react/dist/csr/PencilLine'
+import { DotsThreeIcon } from '@phosphor-icons/react/dist/csr/DotsThree'
 import { GRADE_BANDS, SUBJECT_COLORS } from '../data/dataLoader'
 import { getH4GDifferentiationState } from '../data/h4gDifferentiation'
 import TSBadge from './TSBadge'
 import FavoriteButton from './FavoriteButton'
-import './StandardCard.css'
+import { Toast, useTransientToast } from '../ui/primitives/Toast'
+import { Tooltip } from '../ui/primitives/Tooltip'
+import { useFloatingLayer } from '../ui/primitives/useFloatingLayer'
+import styles from './StandardCard.module.css'
 
 /**
  * StandardCard - Refined visual hierarchy with hover-reveal actions
  * 
  * Features:
  * - 4px left accent line (color from subject_slug)
- * - Primary action (⭐) always visible
+ * - Primary action is always visible
  * - Secondary actions (grade badge, expand) reveal on hover/focus
  * - Mobile: primary + menu always visible, others hidden
  */
-function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
+function StandardCard({ standard, highlightKeyword = '', highlightTerm = '', quickPreview = false, contextLabel = '' }) {
     const [isExpanded, setIsExpanded] = useState(false)
     const [showMenu, setShowMenu] = useState(false)
-    const [copyToast, setCopyToast] = useState(false)
-    const menuRef = useRef(null)
+    const { toast, showToast, dismissToast } = useTransientToast(2200)
+    const {
+        floatingRef: menuRef,
+        floatingStyle: menuStyle,
+        isPositioned: menuPositioned,
+        referenceRef: menuButtonRef,
+        resolvedPlacement: menuPlacement
+    } = useFloatingLayer({ isOpen: showMenu, placement: 'bottom-end', offsetPx: 6 })
 
     const {
         code,
@@ -79,7 +98,10 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
     // Close menu on outside click
     useEffect(() => {
         const handleClickOutside = (e) => {
-            if (menuRef.current && !menuRef.current.contains(e.target)) {
+            if (
+                !menuRef.current?.contains(e.target) &&
+                !menuButtonRef.current?.contains(e.target)
+            ) {
                 setShowMenu(false)
             }
         }
@@ -89,6 +111,35 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
         return () => document.removeEventListener('mousedown', handleClickOutside)
     }, [showMenu])
 
+    useEffect(() => {
+        if (!showMenu) return undefined
+        const firstItem = menuRef.current?.querySelector('[role="menuitem"]')
+        requestAnimationFrame(() => firstItem?.focus())
+        const handleKeyDown = event => {
+            if (event.key !== 'Escape') return
+            setShowMenu(false)
+            requestAnimationFrame(() => menuButtonRef.current?.focus())
+        }
+        document.addEventListener('keydown', handleKeyDown)
+        return () => document.removeEventListener('keydown', handleKeyDown)
+    }, [showMenu])
+
+    const handleMenuKeyDown = event => {
+        if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) return
+        event.preventDefault()
+        const items = [...(menuRef.current?.querySelectorAll('[role="menuitem"]') || [])]
+        if (!items.length) return
+        const currentIndex = items.indexOf(document.activeElement)
+        const nextIndex = event.key === 'Home'
+            ? 0
+            : event.key === 'End'
+                ? items.length - 1
+                : event.key === 'ArrowDown'
+                    ? (currentIndex + 1) % items.length
+                    : (currentIndex - 1 + items.length) % items.length
+        items[nextIndex]?.focus()
+    }
+
     // Highlight keyword in text
     const highlightText = (text) => {
         if (!searchTerm || !text) return text
@@ -96,7 +147,7 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
             const regex = new RegExp(`(${escapeRegex(searchTerm)})`, 'gi')
             const parts = text.split(regex)
             return parts.map((part, i) =>
-                regex.test(part) ? <mark key={i} className="keyword-highlight">{part}</mark> : part
+                regex.test(part) ? <mark key={i} className={styles['keyword-highlight']}>{part}</mark> : part
             )
         } catch {
             return text
@@ -121,56 +172,70 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
     const handleCopyCode = async () => {
         try {
             await navigator.clipboard.writeText(code)
-            setCopyToast(true)
-            setTimeout(() => setCopyToast(false), 2000)
+            showToast(`已复制 ${code}`, 'success')
             setShowMenu(false)
-        } catch (err) {
-            console.error('Failed to copy:', err)
+        } catch {
+            showToast('无法访问剪贴板，请手动复制标准编码', 'error')
         }
     }
 
     // Display public-facing subcategory, not the H4G standard title/topic.
     const primaryLabel = display_subcategory || subdomain || domain || ''
     const secondaryLabel = domain && primaryLabel !== domain ? domain : ''
+    const quickPreviewText = context || teaching_tip || practice || assessment_evidence_type
+    const standardTextLink = (
+        <Link to={`/standards/${code}`} className={styles['standard-text-link']}>
+            {h4gState.shouldLeadWithGradeFocus && (
+                <span className={styles['source-standard-label']}>{h4gState.sourceTextLabel}</span>
+            )}
+            <p className={`${styles['standard-text']} ${h4gState.shouldLeadWithGradeFocus ? styles['source-standard-text'] : ''}`}>
+                {highlightText(standardText)}
+            </p>
+        </Link>
+    )
 
     return (
         <div
-            className={`standard-card ${isExpanded ? 'expanded' : ''}`}
+            className={`${styles['standard-card']} ${isExpanded ? styles.expanded : ''}`}
             style={{ '--card-accent': accentColor }}
+            data-kb-component="standard-card"
         >
-            {/* Copy Toast */}
-            {copyToast && (
-                <div className="copy-toast">已复制 ID</div>
-            )}
+            <Toast message={toast?.message} tone={toast?.tone} onDismiss={dismissToast} />
 
             {/* Header Row */}
-            <div className="standard-card-header">
-                <div className="standard-card-labels">
+            <div className={styles['standard-card-header']}>
+                <div className={styles['standard-card-labels']}>
+                    <code className={styles['standard-code']}>{code}</code>
+                    {contextLabel ? (
+                        <span className={styles['comparison-context']} data-kb-comparison-context={contextLabel}>
+                            {contextLabel}
+                        </span>
+                    ) : null}
                     {/* Public subcategory as primary identifier */}
                     {primaryLabel && (
-                        <span className="subdomain-label">{primaryLabel}</span>
+                        <span className={styles['subdomain-label']}>{primaryLabel}</span>
                     )}
                     {/* Show domain as secondary when it adds information */}
                     {secondaryLabel && (
-                        <span className="domain-label">{secondaryLabel}</span>
+                        <span className={styles['domain-label']}>{secondaryLabel}</span>
                     )}
                     {isLowConfidence && (
-                        <span className="review-status-chip">低置信度</span>
+                        <span className={styles['review-status-chip']}>低置信度</span>
                     )}
                     {needsGradeDifferentiation && (
-                        <span className="review-status-chip needs-differentiation">待年级化细分</span>
+                        <span className={`${styles['review-status-chip']} ${styles['needs-differentiation']}`}>待年级化细分</span>
                     )}
                     {h4gState.statusLabel && (
-                        <span className={`review-status-chip h4g-status-${h4gState.isFinalReady ? 'ready' : h4gState.isCandidate ? 'candidate' : 'pending'}`}>
+                        <span className={`${styles['review-status-chip']} ${styles[`h4g-status-${h4gState.isFinalReady ? 'ready' : h4gState.isCandidate ? 'candidate' : 'pending'}`]}`}>
                             {h4gState.statusLabel}
                         </span>
                     )}
                 </div>
 
-                <div className="standard-card-actions">
+                <div className={styles['standard-card-actions']}>
                     {/* Grade band chip - secondary (hover reveal) */}
                     <span
-                        className="grade-band-chip action-secondary"
+                        className={`${styles['grade-band-chip']} ${styles['action-secondary']}`}
                         style={{
                             '--band-color': gradeBandInfo.color,
                             '--band-bg': gradeBandInfo.bgColor
@@ -180,76 +245,109 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                     </span>
 
                     {/* Favorite - primary (always visible) */}
-                    <div className="action-primary">
+                    <div className={styles['action-primary']}>
                         <FavoriteButton code={code} size="small" />
                     </div>
 
-                    {/* More menu - always visible */}
-                    <div className="menu-container" ref={menuRef}>
+                    <Tooltip content="复制标准 ID">
                         <button
-                            className="menu-btn"
+                            className={`${styles['action-btn']} ${styles['action-secondary']}`}
+                            onClick={handleCopyCode}
+                            aria-label="复制标准 ID"
+                        >
+                            <CopyIcon size={16} aria-hidden="true" />
+                        </button>
+                    </Tooltip>
+
+                    {/* More menu - always visible */}
+                    <div className={styles['menu-container']}>
+                        <button
+                            ref={menuButtonRef}
+                            className={styles['menu-btn']}
                             onClick={() => setShowMenu(!showMenu)}
                             aria-label="更多操作"
+                            aria-expanded={showMenu}
+                            aria-controls={`standard-actions-${code}`}
                         >
-                            ⋯
+                            <DotsThreeIcon size={20} weight="bold" aria-hidden="true" />
                         </button>
-                        {showMenu && (
-                            <div className="menu-dropdown">
-                                <button onClick={handleCopyCode} className="menu-item">
-                                    <span className="menu-icon">📋</span>
+                        {showMenu && createPortal(
+                            <div
+                                ref={menuRef}
+                                className={styles['menu-dropdown']}
+                                id={`standard-actions-${code}`}
+                                role="menu"
+                                aria-label={`${code} 操作`}
+                                style={menuStyle}
+                                data-ready={menuPositioned || undefined}
+                                data-placement={menuPlacement.split('-')[0]}
+                                onKeyDown={handleMenuKeyDown}
+                            >
+                                <button type="button" role="menuitem" onClick={handleCopyCode} className={styles['menu-item']}>
+                                    <CopyIcon className={styles['menu-icon']} size={17} aria-hidden="true" />
                                     复制 ID
                                 </button>
                                 <Link
                                     to={`/standards/${code}`}
-                                    className="menu-item"
+                                    className={styles['menu-item']}
+                                    role="menuitem"
                                     onClick={() => setShowMenu(false)}
                                 >
-                                    <span className="menu-icon">📄</span>
+                                    <FileTextIcon className={styles['menu-icon']} size={17} aria-hidden="true" />
                                     查看详情
                                 </Link>
-                            </div>
+                            </div>,
+                            document.body
                         )}
                     </div>
 
                     {/* Expand button - secondary (hover reveal) */}
                     {hasDetails && (
                         <button
-                            className="expand-btn action-secondary"
+                            className={`${styles['expand-btn']} ${styles['action-secondary']}`}
                             aria-label={isExpanded ? '收起' : '展开'}
                             onClick={() => setIsExpanded(!isExpanded)}
                         >
-                            <span className={`expand-icon ${isExpanded ? 'up' : 'down'}`}>▼</span>
+                            {isExpanded
+                                ? <CaretUpIcon className={styles['expand-icon']} size={16} aria-hidden="true" />
+                                : <CaretDownIcon className={styles['expand-icon']} size={16} aria-hidden="true" />}
                         </button>
                     )}
                 </div>
             </div>
 
             {/* Body - Standard Statement (Visual Focus) */}
-            <div className="standard-card-body">
+            <div className={styles['standard-card-body']}>
                 {h4gState.showGradeLens && (
-                    <div className={`h4g-grade-lens ${h4gState.shouldLeadWithGradeFocus ? 'has-focus' : 'pending'}`}>
-                        <span className="h4g-grade-lens-label">{h4gState.focusLabel}</span>
+                    <div className={`${styles['h4g-grade-lens']} ${h4gState.shouldLeadWithGradeFocus ? styles['has-focus'] : styles.pending}`}>
+                        <span className={styles['h4g-grade-lens-label']}>{h4gState.focusLabel}</span>
                         <p>{highlightText(h4gState.shouldLeadWithGradeFocus ? h4gState.gradeFocus : h4gState.statusMessage)}</p>
                     </div>
                 )}
-                <Link to={`/standards/${code}`} className="standard-text-link">
-                    {h4gState.shouldLeadWithGradeFocus && (
-                        <span className="source-standard-label">{h4gState.sourceTextLabel}</span>
-                    )}
-                    <p className={`standard-text ${h4gState.shouldLeadWithGradeFocus ? 'source-standard-text' : ''}`}>
-                        {highlightText(standardText)}
-                    </p>
-                </Link>
+                {quickPreview && quickPreviewText ? (
+                    <Tooltip
+                        placement="top-start"
+                        content={(
+                            <span className={styles['standard-quick-preview']} data-kb-standard-quick-preview={code}>
+                                <span>教学线索 · {code}</span>
+                                <strong>{quickPreviewText}</strong>
+                                {uniqueTSCodes.length > 0 ? <small>关联能力 {uniqueTSCodes.join(' · ')}</small> : null}
+                            </span>
+                        )}
+                    >
+                        {standardTextLink}
+                    </Tooltip>
+                ) : standardTextLink}
             </div>
 
             {/* TS Badges Row */}
             {uniqueTSCodes.length > 0 && (
-                <div className="standard-ts-row">
+                <div className={styles['standard-ts-row']}>
                     {uniqueTSCodes.map(tsCode => (
                         <Link
                             key={tsCode}
                             to={`/skills/${tsCode}`}
-                            className="ts-badge-link"
+                            className={styles['ts-badge-link']}
                         >
                             <TSBadge tsId={tsCode} size="sm" variant="soft" />
                         </Link>
@@ -257,72 +355,56 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                 </div>
             )}
 
-            {/* Footer - ID (hover reveal on desktop, hidden on mobile) */}
-            <div className="standard-card-footer-meta">
-                <span className="standard-id">ID: {code}</span>
-                <button
-                    className="copy-btn"
-                    onClick={handleCopyCode}
-                    aria-label="复制标准 ID"
-                    title="复制 ID"
-                >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                    </svg>
-                </button>
-            </div>
-
             {/* Expanded Details */}
             {isExpanded && hasDetails && (
-                <div className="standard-card-details animate-slide-up">
+                <div className={`${styles['standard-card-details']} animate-slide-up`}>
                     {context && (
-                        <div className="detail-section">
-                            <h4 className="detail-label">🎯 情境说明</h4>
-                            <p className="detail-text">{highlightText(context)}</p>
+                        <div className={styles['detail-section']}>
+                            <h4 className={styles['detail-label']}><MapPinLineIcon size={17} aria-hidden="true" />情境说明</h4>
+                            <p className={styles['detail-text']}>{highlightText(context)}</p>
                         </div>
                     )}
 
                     {practice && (
-                        <div className="detail-section">
-                            <h4 className="detail-label">📝 实践建议</h4>
-                            <p className="detail-text">{highlightText(practice)}</p>
+                        <div className={styles['detail-section']}>
+                            <h4 className={styles['detail-label']}><PencilLineIcon size={17} aria-hidden="true" />实践建议</h4>
+                            <p className={styles['detail-text']}>{highlightText(practice)}</p>
                         </div>
                     )}
 
                     {teaching_tip && (
-                        <div className="detail-section">
-                            <h4 className="detail-label">💡 教学提示</h4>
-                            <p className="detail-text">{highlightText(teaching_tip)}</p>
+                        <div className={styles['detail-section']}>
+                            <h4 className={styles['detail-label']}><LightbulbIcon size={17} aria-hidden="true" />教学提示</h4>
+                            <p className={styles['detail-text']}>{highlightText(teaching_tip)}</p>
                         </div>
                     )}
 
                     {assessment_evidence_type && (
-                        <div className="detail-section">
-                            <h4 className="detail-label">📊 评价证据</h4>
-                            <p className="detail-text">{assessment_evidence_type}</p>
+                        <div className={styles['detail-section']}>
+                            <h4 className={styles['detail-label']}><ChartBarIcon size={17} aria-hidden="true" />评价证据</h4>
+                            <p className={styles['detail-text']}>{assessment_evidence_type}</p>
                         </div>
                     )}
 
                     {hasGradeAssignmentDetails && (
-                        <div className="detail-section grade-assignment-section">
-                            <h4 className="detail-label">年级归属依据（非课标原文）</h4>
+                        <div className={`${styles['detail-section']} ${styles['grade-assignment-section']}`}>
+                            <h4 className={styles['detail-label']}>年级归属依据（非课标原文）</h4>
                             {grade_assignment_rationale && (
-                                <p className="detail-text">{grade_assignment_rationale}</p>
+                                <p className={styles['detail-text']}>{grade_assignment_rationale}</p>
                             )}
                             {standard_title && (
-                                <p className="detail-text">标准名称：{standard_title}</p>
+                                <p className={styles['detail-text']}>标准名称：{standard_title}</p>
                             )}
                             {h4gState.isH4G && !h4gState.hasUsableGradeFocus && (
-                                <p className="detail-text">{h4gState.statusMessage}</p>
+                                <p className={styles['detail-text']}>{h4gState.statusMessage}</p>
                             )}
                             {h4gState.hasUsableGradeFocus && (
-                                <p className="detail-text">{h4gState.gradeFocus}</p>
+                                <p className={styles['detail-text']}>{h4gState.gradeFocus}</p>
                             )}
                             {progression_review_note && (
-                                <p className="detail-text">{progression_review_note}</p>
+                                <p className={styles['detail-text']}>{progression_review_note}</p>
                             )}
-                            <div className="grade-assignment-meta">
+                            <div className={styles['grade-assignment-meta']}>
                                 {grade_assignment_type && (
                                     <span>{grade_assignment_type}</span>
                                 )}
@@ -351,8 +433,8 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '' }) {
                         </div>
                     )}
 
-                    <div className="detail-actions">
-                        <Link to={`/standards/${code}`} className="btn btn-sm btn-primary">
+                    <div className={styles['detail-actions']}>
+                        <Link to={`/standards/${code}`} className={`btn btn-primary ${styles['btn-sm']}`}>
                             查看详情 →
                         </Link>
                     </div>

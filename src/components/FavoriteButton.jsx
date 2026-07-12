@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import { CaretDownIcon } from '@phosphor-icons/react/dist/csr/CaretDown'
+import { StarIcon } from '@phosphor-icons/react/dist/csr/Star'
 import {
     isStandardFavorited,
     getCollectionList,
@@ -6,7 +8,9 @@ import {
     removeFromCollection,
     getCollectionsForStandard
 } from '../data/collections'
-import './FavoriteButton.css'
+import styles from './FavoriteButton.module.css'
+
+const FavoriteCollectionPopover = lazy(() => import('./FavoriteCollectionPopover'))
 
 /**
  * FavoriteButton - Add/remove standard from collections
@@ -16,6 +20,7 @@ function FavoriteButton({ code, showLabel = false, size = 'normal', onUpdate }) 
     const [showMenu, setShowMenu] = useState(false)
     const [collections, setCollections] = useState([])
     const [selectedCollections, setSelectedCollections] = useState([])
+    const menuTriggerRef = useRef(null)
 
     // Load state
     useEffect(() => {
@@ -45,12 +50,20 @@ function FavoriteButton({ code, showLabel = false, size = 'normal', onUpdate }) 
         onUpdate?.()
     }
 
-    const handleMenuToggle = (e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        setShowMenu(!showMenu)
+    const handleMenuOpenChange = (isOpen) => {
+        setShowMenu(isOpen)
+        if (!isOpen) {
+            menuTriggerRef.current?.focus()
+            return
+        }
         setCollections(getCollectionList())
         setSelectedCollections(getCollectionsForStandard(code))
+    }
+
+    const handleMenuToggle = (event) => {
+        event.preventDefault()
+        event.stopPropagation()
+        handleMenuOpenChange(!showMenu)
     }
 
     const handleCollectionToggle = (colId) => {
@@ -65,48 +78,46 @@ function FavoriteButton({ code, showLabel = false, size = 'normal', onUpdate }) 
         onUpdate?.()
     }
 
-    const handleCloseMenu = () => {
-        setShowMenu(false)
-    }
-
     return (
-        <div className={`favorite-button-wrapper ${size}`}>
+        <div className={`${styles['favorite-button-wrapper']} ${styles[size] || ''}`} data-kb-component="favorite-button">
             <button
-                className={`favorite-button ${isFavorited ? 'favorited' : ''}`}
+                className={`${styles['favorite-button']} ${isFavorited ? styles.favorited : ''}`}
+                data-kb-action="favorite-toggle"
+                data-kb-telemetry-task="favorite_toggle"
                 onClick={handleToggle}
                 title={isFavorited ? '取消收藏' : '添加到收藏'}
+                aria-label={isFavorited ? `取消收藏 ${code}` : `收藏 ${code}`}
+                aria-pressed={isFavorited}
+                type="button"
             >
-                <span className="star-icon">{isFavorited ? '★' : '☆'}</span>
-                {showLabel && <span className="label">{isFavorited ? '已收藏' : '收藏'}</span>}
+                <StarIcon className={styles['star-icon']} size={18} weight={isFavorited ? 'fill' : 'regular'} aria-hidden="true" />
+                {showLabel && <span>{isFavorited ? '已收藏' : '收藏'}</span>}
             </button>
 
             <button
-                className="collection-menu-btn"
-                onClick={handleMenuToggle}
+                ref={menuTriggerRef}
+                type="button"
+                className={styles['collection-menu-btn']}
+                data-kb-action="collection-menu"
                 title="选择清单"
+                aria-label={`选择 ${code} 所属清单`}
+                aria-expanded={showMenu}
+                onClick={handleMenuToggle}
             >
-                ▾
+                <CaretDownIcon size={14} aria-hidden="true" />
             </button>
-
-            {showMenu && (
-                <>
-                    <div className="menu-backdrop" onClick={handleCloseMenu}></div>
-                    <div className="collection-menu">
-                        <div className="menu-header">添加到清单</div>
-                        {collections.map(col => (
-                            <label key={col.id} className="menu-item">
-                                <input
-                                    type="checkbox"
-                                    checked={selectedCollections.includes(col.id)}
-                                    onChange={() => handleCollectionToggle(col.id)}
-                                />
-                                <span className="col-name">{col.name}</span>
-                                <span className="col-count">{col.standardCodes.length}</span>
-                            </label>
-                        ))}
-                    </div>
-                </>
-            )}
+            {showMenu ? (
+                <Suspense fallback={null}>
+                    <FavoriteCollectionPopover
+                        code={code}
+                        collections={collections}
+                        selectedCollections={selectedCollections}
+                        triggerRef={menuTriggerRef}
+                        onOpenChange={handleMenuOpenChange}
+                        onCollectionToggle={handleCollectionToggle}
+                    />
+                </Suspense>
+            ) : null}
         </div>
     )
 }

@@ -1,0 +1,2341 @@
+{
+  "schemaVersion": 1,
+  "baselineType": "deployed-environment",
+  "generatedAt": "2026-07-11T18:45:08.253Z",
+  "frozenApplicationTime": "2026-07-12T00:00:00.000Z",
+  "baseURL": "https://www.kebiao.org",
+  "gitSha": "6d6d2f5b9263d07884e49854cfa3a98e38f7d9f7",
+  "sourceFingerprintSha256": null,
+  "comparisonSourceFingerprintSha256": "098ae4db2895227bbdba4388504e67f663ce626902971ba9f677f02be7908bea",
+  "dataManifestGeneratedAt": "2026-07-01T07:46:17.346Z",
+  "deployment": {
+    "status": 200,
+    "etag": "W/\"e6729cd6bcc35b743ffb949bbbc36f81\"",
+    "lastModified": "Fri, 10 Jul 2026 12:36:14 GMT",
+    "vercelId": "hnd1::nhltc-1783795316015-e970da29320c",
+    "bodySha256": "bf419cbb2ed1164612cceecf1b275ee8731e9b5864aa1718e732888dc789b201"
+  },
+  "browser": {
+    "name": "Chromium",
+    "version": "150.0.7871.115"
+  },
+  "routeCount": 13,
+  "viewportCount": 5,
+  "artifactCount": 65,
+  "expectedArtifactCount": 65,
+  "allRoutesCaptured": true,
+  "allRoutesWithoutHorizontalOverflow": true,
+  "allInventoryPresent": false,
+  "inventoryFailureCount": 260,
+  "consoleErrorCount": 3,
+  "pageErrorCount": 0,
+  "viewports": [
+    {
+      "id": "desktop-1440x900",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "id": "tablet-1024x768",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "id": "tablet-768x1024",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "id": "mobile-390x844",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "id": "mobile-360x800",
+      "width": 360,
+      "height": 800
+    }
+  ],
+  "artifacts": [
+    {
+      "routeId": "home",
+      "routeKey": "home",
+      "path": "/?subjects=math&bands=H2",
+      "viewport": "desktop-1440x900",
+      "width": 1440,
+      "height": 900,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/desktop-1440x900/home.png",
+      "byteSize": 633557,
+      "sha256": "7b34aaed028808fd239264e90920fb157e0cd528245e162fa8601c21663c2126",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 2986,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "对比筛选"
+        },
+        {
+          "kind": "headings",
+          "name": "学科入口"
+        },
+        {
+          "kind": "headings",
+          "name": "可迁移技能"
+        },
+        {
+          "kind": "headings",
+          "name": "如何使用"
+        },
+        {
+          "kind": "buttons",
+          "name": "查看对比结果"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "subject",
+      "routeKey": "subject",
+      "path": "/subjects/math",
+      "viewport": "desktop-1440x900",
+      "width": 1440,
+      "height": 900,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/desktop-1440x900/subject.png",
+      "byteSize": 562585,
+      "sha256": "ac33b9633b69389a722c848a260cf9b00eaf821f8e0e1352c6fc81d5e9ea6f0b",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 32894,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "列表视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "学段对比"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "skills",
+      "routeKey": "skills",
+      "path": "/skills",
+      "viewport": "desktop-1440x900",
+      "width": 1440,
+      "height": 900,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/desktop-1440x900/skills.png",
+      "byteSize": 272744,
+      "sha256": "07c798d63ce56e677712e19071d4d02671abf29b79d5f406cd2d275f2a9d6098",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 4064,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "可迁移技能与课程关系"
+        },
+        {
+          "kind": "headings",
+          "name": "为什么重要"
+        },
+        {
+          "kind": "headings",
+          "name": "与标准的关系"
+        },
+        {
+          "kind": "headings",
+          "name": "如何使用"
+        },
+        {
+          "kind": "buttons",
+          "name": "框架视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "skillDetail",
+      "routeKey": "skillDetail",
+      "path": "/skills/TS1",
+      "viewport": "desktop-1440x900",
+      "width": 1440,
+      "height": 900,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/desktop-1440x900/skillDetail.png",
+      "byteSize": 530930,
+      "sha256": "7450315f533cf48ae792060d6c13781a41ac89f7efdcefda1536df402fdf03bb",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 3171,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "技能定义"
+        },
+        {
+          "kind": "headings",
+          "name": "子技能"
+        },
+        {
+          "kind": "headings",
+          "name": "关联的课程标准"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "列表"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "search",
+      "routeKey": "search",
+      "path": "/search?subjects=math&bands=H2",
+      "viewport": "desktop-1440x900",
+      "width": 1440,
+      "height": 900,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/desktop-1440x900/search.png",
+      "byteSize": 135529,
+      "sha256": "daef18f44af59dc70d2f04ff0d872109b11c5ff74d4022a1156d4d44f14d8326",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 3998,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "对比视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "数与代数"
+        },
+        {
+          "kind": "texts",
+          "name": "当前对比"
+        }
+      ],
+      "consoleErrors": [
+        "Failed to load standards: TypeError: Failed to fetch\n    at $l (https://www.kebiao.org/assets/index-DIwPVpi-.js:51:35933)\n    at El (https://www.kebiao.org/assets/index-DIwPVpi-.js:51:36990)\n    at https://www.kebiao.org/assets/index-DIwPVpi-.js:51:37201\n    at Array.map (<anonymous>)\n    at Xd (https://www.kebiao.org/assets/index-DIwPVpi-.js:51:37194)\n    at https://www.kebiao.org/assets/index-DIwPVpi-.js:51:92672\n    at rl (https://www.kebiao.org/assets/index-DIwPVpi-.js:40:24420)\n    at fr (https://www.kebiao.org/assets/index-DIwPVpi-.js:40:42708)\n    at https://www.kebiao.org/assets/index-DIwPVpi-.js:40:40986\n    at K (https://www.kebiao.org/assets/index-DIwPVpi-.js:25:1618)"
+      ],
+      "pageErrors": []
+    },
+    {
+      "routeId": "glossary",
+      "routeKey": "glossary",
+      "path": "/glossary",
+      "viewport": "desktop-1440x900",
+      "width": 1440,
+      "height": 900,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/desktop-1440x900/glossary.png",
+      "byteSize": 160975,
+      "sha256": "79f028d0e5c280e28258211c8d9b3eadfece22343dfcb36892b57a13f967c8f1",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 4344,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "术语表"
+        },
+        {
+          "kind": "headings",
+          "name": "全部术语"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "standard",
+      "routeKey": "standard",
+      "path": "/standards/MA-D2-GE-003",
+      "viewport": "desktop-1440x900",
+      "width": 1440,
+      "height": 900,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/desktop-1440x900/standard.png",
+      "byteSize": 229974,
+      "sha256": "2a5d8814e867dd163f6625427d422bc8c628f52ee2848173a5adc41297404473",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1785,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "会根据角的特征对三角形分类"
+        },
+        {
+          "kind": "buttons",
+          "name": "MA-D2-GE-003 复制编码"
+        },
+        {
+          "kind": "buttons",
+          "name": "在图谱中定位"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "collections",
+      "routeKey": "collections",
+      "path": "/collections",
+      "viewport": "desktop-1440x900",
+      "width": 1440,
+      "height": 900,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/desktop-1440x900/collections.png",
+      "byteSize": 140228,
+      "sha256": "96b0ea44c6ab5435339ce4ce0eb45ceb327a287fcce122dac01e19b384394418",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1068,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "全部清单"
+        },
+        {
+          "kind": "buttons",
+          "name": "新建清单"
+        },
+        {
+          "kind": "texts",
+          "name": "当前浏览器"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "collectionDetail",
+      "routeKey": "collectionDetail",
+      "path": "/collections/qa-collection",
+      "viewport": "desktop-1440x900",
+      "width": 1440,
+      "height": 900,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/desktop-1440x900/collectionDetail.png",
+      "byteSize": 161470,
+      "sha256": "8d70116eb3b79491fd9fc96af8eb8aac96fbc78be8e381a1f54f010437776eaa",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1156,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "编辑清单 几何单元研究"
+        },
+        {
+          "kind": "buttons",
+          "name": "导出 JSON"
+        },
+        {
+          "kind": "buttons",
+          "name": "打印"
+        },
+        {
+          "kind": "buttons",
+          "name": "从清单移除 MA-D2-GE-003"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "print",
+      "routeKey": "print",
+      "path": "/print?codes=MA-D2-GE-003",
+      "viewport": "desktop-1440x900",
+      "width": 1440,
+      "height": 900,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/desktop-1440x900/print.png",
+      "byteSize": 114649,
+      "sha256": "2a142e6b4c5750f8f718f3e88a36af78fc64f26b85a94ea95bc6a0fb91be15b8",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1520,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "打印 1 条标准"
+        },
+        {
+          "kind": "links",
+          "name": "返回清单"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "styleguide",
+      "routeKey": "styleguide",
+      "path": "/styleguide",
+      "viewport": "desktop-1440x900",
+      "width": 1440,
+      "height": 900,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/desktop-1440x900/styleguide.png",
+      "byteSize": 132687,
+      "sha256": "27a5b29efde14d4feb447588a813ccfdca764fadcd202d2d4eab55a912ef94bb",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 4725,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "kebiao Design System"
+        },
+        {
+          "kind": "headings",
+          "name": "Foundation"
+        },
+        {
+          "kind": "headings",
+          "name": "Primitives"
+        },
+        {
+          "kind": "headings",
+          "name": "Graph language"
+        },
+        {
+          "kind": "headings",
+          "name": "Brand"
+        },
+        {
+          "kind": "buttons",
+          "name": "主要操作"
+        },
+        {
+          "kind": "buttons",
+          "name": "次要操作"
+        }
+      ],
+      "consoleErrors": [
+        "Failed to load resource: net::ERR_SSL_PROTOCOL_ERROR",
+        "Failed to load resource: net::ERR_SSL_PROTOCOL_ERROR"
+      ],
+      "pageErrors": []
+    },
+    {
+      "routeId": "feedback",
+      "routeKey": "feedback",
+      "path": "/feedback",
+      "viewport": "desktop-1440x900",
+      "width": 1440,
+      "height": 900,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/desktop-1440x900/feedback.png",
+      "byteSize": 169871,
+      "sha256": "0c4763dcb43c228e465c01ff330eb38f0d2b08a577fb1bb9b1c94aa5f14bb883",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1332,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "内容纠错"
+        },
+        {
+          "kind": "buttons",
+          "name": "功能建议"
+        },
+        {
+          "kind": "buttons",
+          "name": "合作/联系"
+        },
+        {
+          "kind": "links",
+          "name": "返回首页"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "h4gReview",
+      "routeKey": "h4gReview",
+      "path": "/h4g-review",
+      "viewport": "desktop-1440x900",
+      "width": 1440,
+      "height": 900,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/desktop-1440x900/h4gReview.png",
+      "byteSize": 235873,
+      "sha256": "645e227c020b0f2cdab912ea697dc368faec6bd7c2ada010c3a84d199af582d2",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 2638,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "landmarks",
+          "name": "审核工作台"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "home",
+      "routeKey": "home",
+      "path": "/?subjects=math&bands=H2",
+      "viewport": "tablet-1024x768",
+      "width": 1024,
+      "height": 768,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-1024x768/home.png",
+      "byteSize": 469208,
+      "sha256": "cb1bba64e7422f6d8da140b9126502ba81d509a481efda802e380755d08e54cb",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 3634,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "对比筛选"
+        },
+        {
+          "kind": "headings",
+          "name": "学科入口"
+        },
+        {
+          "kind": "headings",
+          "name": "可迁移技能"
+        },
+        {
+          "kind": "headings",
+          "name": "如何使用"
+        },
+        {
+          "kind": "buttons",
+          "name": "查看对比结果"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "subject",
+      "routeKey": "subject",
+      "path": "/subjects/math",
+      "viewport": "tablet-1024x768",
+      "width": 1024,
+      "height": 768,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-1024x768/subject.png",
+      "byteSize": 416099,
+      "sha256": "015ab132312f13d79f8544a75adfb480b22f48d2e9d2564f6367e36e2714bea8",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 34379,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "列表视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "学段对比"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "skills",
+      "routeKey": "skills",
+      "path": "/skills",
+      "viewport": "tablet-1024x768",
+      "width": 1024,
+      "height": 768,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-1024x768/skills.png",
+      "byteSize": 220359,
+      "sha256": "bc5e2013e302f6672595b37581aa054be9c385f697509e98abc10e78405b128f",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 4402,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "可迁移技能与课程关系"
+        },
+        {
+          "kind": "headings",
+          "name": "为什么重要"
+        },
+        {
+          "kind": "headings",
+          "name": "与标准的关系"
+        },
+        {
+          "kind": "headings",
+          "name": "如何使用"
+        },
+        {
+          "kind": "buttons",
+          "name": "框架视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "skillDetail",
+      "routeKey": "skillDetail",
+      "path": "/skills/TS1",
+      "viewport": "tablet-1024x768",
+      "width": 1024,
+      "height": 768,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-1024x768/skillDetail.png",
+      "byteSize": 397839,
+      "sha256": "b1406d03e8ff7bd7703e08a0ff44e45ca5fa43af865fc3724c69a95aa1164add",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 3378,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "技能定义"
+        },
+        {
+          "kind": "headings",
+          "name": "子技能"
+        },
+        {
+          "kind": "headings",
+          "name": "关联的课程标准"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "列表"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "search",
+      "routeKey": "search",
+      "path": "/search?subjects=math&bands=H2",
+      "viewport": "tablet-1024x768",
+      "width": 1024,
+      "height": 768,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-1024x768/search.png",
+      "byteSize": 103863,
+      "sha256": "9648e8cc4601bc61cde19ea663f8f6f1f0aaad8f87dc23397f9a9f45ae5c2829",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 4212,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "对比视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "数与代数"
+        },
+        {
+          "kind": "texts",
+          "name": "当前对比"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "glossary",
+      "routeKey": "glossary",
+      "path": "/glossary",
+      "viewport": "tablet-1024x768",
+      "width": 1024,
+      "height": 768,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-1024x768/glossary.png",
+      "byteSize": 122544,
+      "sha256": "56205844d485c9df16eede8d15b761a18ea67b855343d4d503e04b46b32fa38f",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 4474,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "术语表"
+        },
+        {
+          "kind": "headings",
+          "name": "全部术语"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "standard",
+      "routeKey": "standard",
+      "path": "/standards/MA-D2-GE-003",
+      "viewport": "tablet-1024x768",
+      "width": 1024,
+      "height": 768,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-1024x768/standard.png",
+      "byteSize": 176103,
+      "sha256": "93184d10a7c50ed9156038f236c2ee68237b3bb733fb4c386d497567da322567",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1914,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "会根据角的特征对三角形分类"
+        },
+        {
+          "kind": "buttons",
+          "name": "MA-D2-GE-003 复制编码"
+        },
+        {
+          "kind": "buttons",
+          "name": "在图谱中定位"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "collections",
+      "routeKey": "collections",
+      "path": "/collections",
+      "viewport": "tablet-1024x768",
+      "width": 1024,
+      "height": 768,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-1024x768/collections.png",
+      "byteSize": 89652,
+      "sha256": "1868c9f5beb7f18b735499ee5b42022da659f9157023ec0945fb7a7cf60cfb19",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1132,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "全部清单"
+        },
+        {
+          "kind": "buttons",
+          "name": "新建清单"
+        },
+        {
+          "kind": "texts",
+          "name": "当前浏览器"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "collectionDetail",
+      "routeKey": "collectionDetail",
+      "path": "/collections/qa-collection",
+      "viewport": "tablet-1024x768",
+      "width": 1024,
+      "height": 768,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-1024x768/collectionDetail.png",
+      "byteSize": 128283,
+      "sha256": "c4db0a28911c4c78f65b7fbc0fa87c1a20c901f9f7cdce3a088e3cf1a62885e7",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1313,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "编辑清单 几何单元研究"
+        },
+        {
+          "kind": "buttons",
+          "name": "导出 JSON"
+        },
+        {
+          "kind": "buttons",
+          "name": "打印"
+        },
+        {
+          "kind": "buttons",
+          "name": "从清单移除 MA-D2-GE-003"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "print",
+      "routeKey": "print",
+      "path": "/print?codes=MA-D2-GE-003",
+      "viewport": "tablet-1024x768",
+      "width": 1024,
+      "height": 768,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-1024x768/print.png",
+      "byteSize": 93396,
+      "sha256": "059fc70345875a92a94908800fa9739f350955b442816ed307e06c380c1d162d",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1517,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "打印 1 条标准"
+        },
+        {
+          "kind": "links",
+          "name": "返回清单"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "styleguide",
+      "routeKey": "styleguide",
+      "path": "/styleguide",
+      "viewport": "tablet-1024x768",
+      "width": 1024,
+      "height": 768,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-1024x768/styleguide.png",
+      "byteSize": 107488,
+      "sha256": "a9c68d26c11f811e7a72cc2c1cfbdd6947c85e6dcfd0020cecce9b117e7d323a",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 4893,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "kebiao Design System"
+        },
+        {
+          "kind": "headings",
+          "name": "Foundation"
+        },
+        {
+          "kind": "headings",
+          "name": "Primitives"
+        },
+        {
+          "kind": "headings",
+          "name": "Graph language"
+        },
+        {
+          "kind": "headings",
+          "name": "Brand"
+        },
+        {
+          "kind": "buttons",
+          "name": "主要操作"
+        },
+        {
+          "kind": "buttons",
+          "name": "次要操作"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "feedback",
+      "routeKey": "feedback",
+      "path": "/feedback",
+      "viewport": "tablet-1024x768",
+      "width": 1024,
+      "height": 768,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-1024x768/feedback.png",
+      "byteSize": 113176,
+      "sha256": "26514d62229f002387ecf8bc3b91288e09cd0a2fe83dcdf97d94fdc121f4460d",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1462,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "内容纠错"
+        },
+        {
+          "kind": "buttons",
+          "name": "功能建议"
+        },
+        {
+          "kind": "buttons",
+          "name": "合作/联系"
+        },
+        {
+          "kind": "links",
+          "name": "返回首页"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "h4gReview",
+      "routeKey": "h4gReview",
+      "path": "/h4g-review",
+      "viewport": "tablet-1024x768",
+      "width": 1024,
+      "height": 768,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-1024x768/h4gReview.png",
+      "byteSize": 75276,
+      "sha256": "e2389fa0fd35cb120e959648416185897777ac0205b23ab5fd70a2068f8dd1bd",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 3377,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "landmarks",
+          "name": "审核工作台"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "home",
+      "routeKey": "home",
+      "path": "/?subjects=math&bands=H2",
+      "viewport": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-768x1024/home.png",
+      "byteSize": 405827,
+      "sha256": "2aa8a2e0a36a8d439b83a0d2e94d6197abf4fcf58c40e1cdc7a18dec5b661779",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 3867,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "对比筛选"
+        },
+        {
+          "kind": "headings",
+          "name": "学科入口"
+        },
+        {
+          "kind": "headings",
+          "name": "可迁移技能"
+        },
+        {
+          "kind": "headings",
+          "name": "如何使用"
+        },
+        {
+          "kind": "buttons",
+          "name": "查看对比结果"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "subject",
+      "routeKey": "subject",
+      "path": "/subjects/math",
+      "viewport": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-768x1024/subject.png",
+      "byteSize": 353981,
+      "sha256": "2457fc55f304359806315a04f7245a574f40d5c1b57c608bd7da34467e49a936",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 30094,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "列表视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "学段对比"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "skills",
+      "routeKey": "skills",
+      "path": "/skills",
+      "viewport": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-768x1024/skills.png",
+      "byteSize": 207942,
+      "sha256": "d34196bf4c7525d2e0fb4e44acb9ff14b8394b970962a9f66fbd0a963e763a5f",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 5853,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "可迁移技能与课程关系"
+        },
+        {
+          "kind": "headings",
+          "name": "为什么重要"
+        },
+        {
+          "kind": "headings",
+          "name": "与标准的关系"
+        },
+        {
+          "kind": "headings",
+          "name": "如何使用"
+        },
+        {
+          "kind": "buttons",
+          "name": "框架视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "skillDetail",
+      "routeKey": "skillDetail",
+      "path": "/skills/TS1",
+      "viewport": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-768x1024/skillDetail.png",
+      "byteSize": 348637,
+      "sha256": "76b4839eea9332964ac453c8c69211e2655da2a5e7fa0ccb2e26c38c78fb61a7",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 4005,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "技能定义"
+        },
+        {
+          "kind": "headings",
+          "name": "子技能"
+        },
+        {
+          "kind": "headings",
+          "name": "关联的课程标准"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "列表"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "search",
+      "routeKey": "search",
+      "path": "/search?subjects=math&bands=H2",
+      "viewport": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-768x1024/search.png",
+      "byteSize": 116195,
+      "sha256": "cd7483fc98bf38058c665b31464cb04a966d1b31647ef409853f3e586c383b21",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 3935,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "对比视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "数与代数"
+        },
+        {
+          "kind": "texts",
+          "name": "当前对比"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "glossary",
+      "routeKey": "glossary",
+      "path": "/glossary",
+      "viewport": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-768x1024/glossary.png",
+      "byteSize": 124402,
+      "sha256": "8983066df171297d783afc96e5f134e7e73629c32627528cfd8cc839aec29602",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 4952,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "术语表"
+        },
+        {
+          "kind": "headings",
+          "name": "全部术语"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "standard",
+      "routeKey": "standard",
+      "path": "/standards/MA-D2-GE-003",
+      "viewport": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-768x1024/standard.png",
+      "byteSize": 161989,
+      "sha256": "e0d8e0031fd66828be48c92a94e0cb2c3dcb995a0d0d6e0856c2f8a972a96e6f",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 2344,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "会根据角的特征对三角形分类"
+        },
+        {
+          "kind": "buttons",
+          "name": "MA-D2-GE-003 复制编码"
+        },
+        {
+          "kind": "buttons",
+          "name": "在图谱中定位"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "collections",
+      "routeKey": "collections",
+      "path": "/collections",
+      "viewport": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-768x1024/collections.png",
+      "byteSize": 89112,
+      "sha256": "6922be17311f474ddabb751f03971d5ece76d50ace89793332522badfbb6312a",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1267,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "全部清单"
+        },
+        {
+          "kind": "buttons",
+          "name": "新建清单"
+        },
+        {
+          "kind": "texts",
+          "name": "当前浏览器"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "collectionDetail",
+      "routeKey": "collectionDetail",
+      "path": "/collections/qa-collection",
+      "viewport": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-768x1024/collectionDetail.png",
+      "byteSize": 114722,
+      "sha256": "0a763d6222336f0f1f5f4999a88aa639fcff7ab6c95a71ba79db6b94a1d17e4a",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1386,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "编辑清单 几何单元研究"
+        },
+        {
+          "kind": "buttons",
+          "name": "导出 JSON"
+        },
+        {
+          "kind": "buttons",
+          "name": "打印"
+        },
+        {
+          "kind": "buttons",
+          "name": "从清单移除 MA-D2-GE-003"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "print",
+      "routeKey": "print",
+      "path": "/print?codes=MA-D2-GE-003",
+      "viewport": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-768x1024/print.png",
+      "byteSize": 104832,
+      "sha256": "11608d1e63e86d7bb688d20f56b6aa479c2c33aa5ef41add3fa009666a8fa251",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1781,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "打印 1 条标准"
+        },
+        {
+          "kind": "links",
+          "name": "返回清单"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "styleguide",
+      "routeKey": "styleguide",
+      "path": "/styleguide",
+      "viewport": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-768x1024/styleguide.png",
+      "byteSize": 116073,
+      "sha256": "579db864092b4fe312556364d422941439773d9a9c1d4fdffd61c9698040ac33",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 6315,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "kebiao Design System"
+        },
+        {
+          "kind": "headings",
+          "name": "Foundation"
+        },
+        {
+          "kind": "headings",
+          "name": "Primitives"
+        },
+        {
+          "kind": "headings",
+          "name": "Graph language"
+        },
+        {
+          "kind": "headings",
+          "name": "Brand"
+        },
+        {
+          "kind": "buttons",
+          "name": "主要操作"
+        },
+        {
+          "kind": "buttons",
+          "name": "次要操作"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "feedback",
+      "routeKey": "feedback",
+      "path": "/feedback",
+      "viewport": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-768x1024/feedback.png",
+      "byteSize": 114320,
+      "sha256": "52746d70a94cf0a9fcafdecbc8b5d951a08c0924cbac0629902ae31c0b759b65",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1531,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "内容纠错"
+        },
+        {
+          "kind": "buttons",
+          "name": "功能建议"
+        },
+        {
+          "kind": "buttons",
+          "name": "合作/联系"
+        },
+        {
+          "kind": "links",
+          "name": "返回首页"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "h4gReview",
+      "routeKey": "h4gReview",
+      "path": "/h4g-review",
+      "viewport": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/tablet-768x1024/h4gReview.png",
+      "byteSize": 55171,
+      "sha256": "abfc470ef080189346060ad474b8b553124607fc691665f33b44e8aa1fca0a64",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 5492,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "landmarks",
+          "name": "审核工作台"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "home",
+      "routeKey": "home",
+      "path": "/?subjects=math&bands=H2",
+      "viewport": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-390x844/home.png",
+      "byteSize": 218349,
+      "sha256": "be42e7b63749d96ca96560bfbecb251a1d5fae80449ef5746be17d8acdc82039",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 5782,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "对比筛选"
+        },
+        {
+          "kind": "headings",
+          "name": "学科入口"
+        },
+        {
+          "kind": "headings",
+          "name": "可迁移技能"
+        },
+        {
+          "kind": "headings",
+          "name": "如何使用"
+        },
+        {
+          "kind": "buttons",
+          "name": "查看对比结果"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "subject",
+      "routeKey": "subject",
+      "path": "/subjects/math",
+      "viewport": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-390x844/subject.png",
+      "byteSize": 206633,
+      "sha256": "10102e5405cc39c174f26417178a26ecc78d52f0ed9e42df6fa7feeedd50653c",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 37710,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "列表视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "学段对比"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "skills",
+      "routeKey": "skills",
+      "path": "/skills",
+      "viewport": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-390x844/skills.png",
+      "byteSize": 128518,
+      "sha256": "d2f918dae58ff3c9a9dfc9d4e0822cd67feaeedae19debb30f72032d8952b177",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 7849,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "可迁移技能与课程关系"
+        },
+        {
+          "kind": "headings",
+          "name": "为什么重要"
+        },
+        {
+          "kind": "headings",
+          "name": "与标准的关系"
+        },
+        {
+          "kind": "headings",
+          "name": "如何使用"
+        },
+        {
+          "kind": "buttons",
+          "name": "框架视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "skillDetail",
+      "routeKey": "skillDetail",
+      "path": "/skills/TS1",
+      "viewport": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-390x844/skillDetail.png",
+      "byteSize": 194459,
+      "sha256": "e54fbfdbc181a31a8d532f153598c6884e07723d78562db570a2794ac3e0ae73",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 4733,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "技能定义"
+        },
+        {
+          "kind": "headings",
+          "name": "子技能"
+        },
+        {
+          "kind": "headings",
+          "name": "关联的课程标准"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "列表"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "search",
+      "routeKey": "search",
+      "path": "/search?subjects=math&bands=H2",
+      "viewport": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-390x844/search.png",
+      "byteSize": 64819,
+      "sha256": "a55d63317013720b0ada78135ea2d348a286a7605345d2eb8904772c2a9e582b",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 4858,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "对比视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "数与代数"
+        },
+        {
+          "kind": "texts",
+          "name": "当前对比"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "glossary",
+      "routeKey": "glossary",
+      "path": "/glossary",
+      "viewport": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-390x844/glossary.png",
+      "byteSize": 82913,
+      "sha256": "d2d5fe348e8f654c5f8615eb71ed4babcbe294e3c9085296dc20ec4ae1570434",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 5850,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "术语表"
+        },
+        {
+          "kind": "headings",
+          "name": "全部术语"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "standard",
+      "routeKey": "standard",
+      "path": "/standards/MA-D2-GE-003",
+      "viewport": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-390x844/standard.png",
+      "byteSize": 99595,
+      "sha256": "92aa0825aa130c266cf35c9136cfdcc86e5b6485afbd0a1189934c8338a587b5",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 2831,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "会根据角的特征对三角形分类"
+        },
+        {
+          "kind": "buttons",
+          "name": "MA-D2-GE-003 复制编码"
+        },
+        {
+          "kind": "buttons",
+          "name": "在图谱中定位"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "collections",
+      "routeKey": "collections",
+      "path": "/collections",
+      "viewport": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-390x844/collections.png",
+      "byteSize": 59302,
+      "sha256": "e1382e08ac898aa1828203a2b58a8f2356b21be4373b8e2ebf7b98e4ab46a72e",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1405,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "全部清单"
+        },
+        {
+          "kind": "buttons",
+          "name": "新建清单"
+        },
+        {
+          "kind": "texts",
+          "name": "当前浏览器"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "collectionDetail",
+      "routeKey": "collectionDetail",
+      "path": "/collections/qa-collection",
+      "viewport": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-390x844/collectionDetail.png",
+      "byteSize": 59550,
+      "sha256": "e736a91d6cd424ee4c3358dfd12263e10b404a989b42a900b8a677d721e69bda",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1750,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "编辑清单 几何单元研究"
+        },
+        {
+          "kind": "buttons",
+          "name": "导出 JSON"
+        },
+        {
+          "kind": "buttons",
+          "name": "打印"
+        },
+        {
+          "kind": "buttons",
+          "name": "从清单移除 MA-D2-GE-003"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "print",
+      "routeKey": "print",
+      "path": "/print?codes=MA-D2-GE-003",
+      "viewport": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-390x844/print.png",
+      "byteSize": 74609,
+      "sha256": "9e6c88e4b0ab0e818fb4eaf4b3aaa5c00d6d93e507f36b7486b1d7f2a6b114ae",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1866,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "打印 1 条标准"
+        },
+        {
+          "kind": "links",
+          "name": "返回清单"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "styleguide",
+      "routeKey": "styleguide",
+      "path": "/styleguide",
+      "viewport": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-390x844/styleguide.png",
+      "byteSize": 71053,
+      "sha256": "294a395ee157bf69bc298534cf8fb7a5b3bd0522d708e932375c4e78114191fa",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 7992,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "kebiao Design System"
+        },
+        {
+          "kind": "headings",
+          "name": "Foundation"
+        },
+        {
+          "kind": "headings",
+          "name": "Primitives"
+        },
+        {
+          "kind": "headings",
+          "name": "Graph language"
+        },
+        {
+          "kind": "headings",
+          "name": "Brand"
+        },
+        {
+          "kind": "buttons",
+          "name": "主要操作"
+        },
+        {
+          "kind": "buttons",
+          "name": "次要操作"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "feedback",
+      "routeKey": "feedback",
+      "path": "/feedback",
+      "viewport": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-390x844/feedback.png",
+      "byteSize": 80757,
+      "sha256": "3f1533a2cb72209126d39aa4b4cf37b57ab8000cec4b431c70169b01d5e93232",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1793,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "内容纠错"
+        },
+        {
+          "kind": "buttons",
+          "name": "功能建议"
+        },
+        {
+          "kind": "buttons",
+          "name": "合作/联系"
+        },
+        {
+          "kind": "links",
+          "name": "返回首页"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "h4gReview",
+      "routeKey": "h4gReview",
+      "path": "/h4g-review",
+      "viewport": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-390x844/h4gReview.png",
+      "byteSize": 36520,
+      "sha256": "5bf7265a55f0ba8f62679f8fae630c4b7836f169f5e638df06b515caccfea077",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 7047,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "landmarks",
+          "name": "审核工作台"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "home",
+      "routeKey": "home",
+      "path": "/?subjects=math&bands=H2",
+      "viewport": "mobile-360x800",
+      "width": 360,
+      "height": 800,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-360x800/home.png",
+      "byteSize": 203116,
+      "sha256": "edbe6618474c6025dd8f3d527b4b4f321e7a80fd45e7517805111e3f549df380",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 5931,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "对比筛选"
+        },
+        {
+          "kind": "headings",
+          "name": "学科入口"
+        },
+        {
+          "kind": "headings",
+          "name": "可迁移技能"
+        },
+        {
+          "kind": "headings",
+          "name": "如何使用"
+        },
+        {
+          "kind": "buttons",
+          "name": "查看对比结果"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "subject",
+      "routeKey": "subject",
+      "path": "/subjects/math",
+      "viewport": "mobile-360x800",
+      "width": 360,
+      "height": 800,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-360x800/subject.png",
+      "byteSize": 204526,
+      "sha256": "367d95cda5d726241de9200f393cee6bf51bbadfcc5a48580864e8c8ff9908fa",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 39803,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "列表视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "学段对比"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "skills",
+      "routeKey": "skills",
+      "path": "/skills",
+      "viewport": "mobile-360x800",
+      "width": 360,
+      "height": 800,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-360x800/skills.png",
+      "byteSize": 122231,
+      "sha256": "17d51f87699a8bada2e272f8257c37851c0d30339282a63a4ae96f04c6d79913",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 8085,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "可迁移技能与课程关系"
+        },
+        {
+          "kind": "headings",
+          "name": "为什么重要"
+        },
+        {
+          "kind": "headings",
+          "name": "与标准的关系"
+        },
+        {
+          "kind": "headings",
+          "name": "如何使用"
+        },
+        {
+          "kind": "buttons",
+          "name": "框架视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "skillDetail",
+      "routeKey": "skillDetail",
+      "path": "/skills/TS1",
+      "viewport": "mobile-360x800",
+      "width": 360,
+      "height": 800,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-360x800/skillDetail.png",
+      "byteSize": 175932,
+      "sha256": "99ce13d5d3e6817950b0a8859d0f47ad5e1f1a5749348836dc74641cd06b938d",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 4835,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "技能定义"
+        },
+        {
+          "kind": "headings",
+          "name": "子技能"
+        },
+        {
+          "kind": "headings",
+          "name": "关联的课程标准"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "列表"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "search",
+      "routeKey": "search",
+      "path": "/search?subjects=math&bands=H2",
+      "viewport": "mobile-360x800",
+      "width": 360,
+      "height": 800,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-360x800/search.png",
+      "byteSize": 58422,
+      "sha256": "19ce9dcd7a07ec62f7be14fe66f255d0145b6396f0acb7b86e55731e1e4b8a45",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 4932,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "对比视图"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "数与代数"
+        },
+        {
+          "kind": "texts",
+          "name": "当前对比"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "glossary",
+      "routeKey": "glossary",
+      "path": "/glossary",
+      "viewport": "mobile-360x800",
+      "width": 360,
+      "height": 800,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-360x800/glossary.png",
+      "byteSize": 80465,
+      "sha256": "3d2402a1bb1ddb12a9aabd84b2281e82cf23b76ee11cef4c2c7f8958a5b3679e",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 6094,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "术语表"
+        },
+        {
+          "kind": "headings",
+          "name": "全部术语"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "standard",
+      "routeKey": "standard",
+      "path": "/standards/MA-D2-GE-003",
+      "viewport": "mobile-360x800",
+      "width": 360,
+      "height": 800,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-360x800/standard.png",
+      "byteSize": 98572,
+      "sha256": "38266688d07ee2c262a8ba856ef56fe9df26e2630670d937cbd6428a85528a33",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 2901,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "会根据角的特征对三角形分类"
+        },
+        {
+          "kind": "buttons",
+          "name": "MA-D2-GE-003 复制编码"
+        },
+        {
+          "kind": "buttons",
+          "name": "在图谱中定位"
+        },
+        {
+          "kind": "buttons",
+          "name": "复制链接"
+        },
+        {
+          "kind": "buttons",
+          "name": "关系图谱"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "collections",
+      "routeKey": "collections",
+      "path": "/collections",
+      "viewport": "mobile-360x800",
+      "width": 360,
+      "height": 800,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-360x800/collections.png",
+      "byteSize": 51456,
+      "sha256": "7c0d473b911ad9a6fd6d5fc49e8bb24a93da0cde7917a94ea7a44193107ac648",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1408,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "全部清单"
+        },
+        {
+          "kind": "buttons",
+          "name": "新建清单"
+        },
+        {
+          "kind": "texts",
+          "name": "当前浏览器"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "collectionDetail",
+      "routeKey": "collectionDetail",
+      "path": "/collections/qa-collection",
+      "viewport": "mobile-360x800",
+      "width": 360,
+      "height": 800,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-360x800/collectionDetail.png",
+      "byteSize": 55427,
+      "sha256": "3cebbdf78286580769728ee66723cab4e8fd9dc7a73b9d4724fd4db5be0cb3e4",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1799,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "编辑清单 几何单元研究"
+        },
+        {
+          "kind": "buttons",
+          "name": "导出 JSON"
+        },
+        {
+          "kind": "buttons",
+          "name": "打印"
+        },
+        {
+          "kind": "buttons",
+          "name": "从清单移除 MA-D2-GE-003"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "print",
+      "routeKey": "print",
+      "path": "/print?codes=MA-D2-GE-003",
+      "viewport": "mobile-360x800",
+      "width": 360,
+      "height": 800,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-360x800/print.png",
+      "byteSize": 69606,
+      "sha256": "01780ff1d96c7becd8bc44ffafd439d78f2a26cca0e17fe87428ffb083c7dffd",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1867,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "打印 1 条标准"
+        },
+        {
+          "kind": "links",
+          "name": "返回清单"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "styleguide",
+      "routeKey": "styleguide",
+      "path": "/styleguide",
+      "viewport": "mobile-360x800",
+      "width": 360,
+      "height": 800,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-360x800/styleguide.png",
+      "byteSize": 65463,
+      "sha256": "91f40464b80531fa768a828a29d4ddbafe3c59b44c293f4a421eddb3a94c30f1",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 8315,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": false,
+      "missingInventoryItems": [
+        {
+          "kind": "headings",
+          "name": "kebiao Design System"
+        },
+        {
+          "kind": "headings",
+          "name": "Foundation"
+        },
+        {
+          "kind": "headings",
+          "name": "Primitives"
+        },
+        {
+          "kind": "headings",
+          "name": "Graph language"
+        },
+        {
+          "kind": "headings",
+          "name": "Brand"
+        },
+        {
+          "kind": "buttons",
+          "name": "主要操作"
+        },
+        {
+          "kind": "buttons",
+          "name": "次要操作"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "feedback",
+      "routeKey": "feedback",
+      "path": "/feedback",
+      "viewport": "mobile-360x800",
+      "width": 360,
+      "height": 800,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-360x800/feedback.png",
+      "byteSize": 74499,
+      "sha256": "941247e283cec68781c0e3752c4797a89bcf26da8aacb48ab4d33470631e9d24",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 1818,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "buttons",
+          "name": "内容纠错"
+        },
+        {
+          "kind": "buttons",
+          "name": "功能建议"
+        },
+        {
+          "kind": "buttons",
+          "name": "合作/联系"
+        },
+        {
+          "kind": "links",
+          "name": "返回首页"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "routeId": "h4gReview",
+      "routeKey": "h4gReview",
+      "path": "/h4g-review",
+      "viewport": "mobile-360x800",
+      "width": 360,
+      "height": 800,
+      "file": "docs/baselines/2026-07-12-production-five-viewport/mobile-360x800/h4gReview.png",
+      "byteSize": 32507,
+      "sha256": "3425c0d96330fb715d642b3afef223fa06f51b8280b8abc0d560a6e21032b60f",
+      "horizontalOverflowPx": 0,
+      "documentHeight": 7349,
+      "mainContentAnchorPresent": false,
+      "readyHeadingFound": true,
+      "missingInventoryItems": [
+        {
+          "kind": "landmarks",
+          "name": "审核工作台"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    }
+  ]
+}

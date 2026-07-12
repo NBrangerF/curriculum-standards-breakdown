@@ -1,27 +1,27 @@
 import { useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import HeroBackground from './HeroBackground'
-import './HomeHeroBanner.css'
+import { m } from 'motion/react'
+import CurriculumCoordinateMap from './CurriculumCoordinateMap'
+import styles from './HomeHeroBanner.module.css'
 
-/**
- * Landing page abstract symbol - Knowledge Graph / Network
- * Used as decorative overlay (very faint)
- */
-const LANDING_SYMBOL = (
-    <>
-        {/* Central node */}
-        <circle cx="12" cy="12" r="2.5" strokeWidth="1.5" />
-        {/* Surrounding nodes */}
-        <circle cx="4" cy="6" r="1.5" strokeWidth="1.5" />
-        <circle cx="20" cy="6" r="1.5" strokeWidth="1.5" />
-        <circle cx="4" cy="18" r="1.5" strokeWidth="1.5" />
-        <circle cx="20" cy="18" r="1.5" strokeWidth="1.5" />
-        <circle cx="12" cy="2" r="1.5" strokeWidth="1.5" />
-        <circle cx="12" cy="22" r="1.5" strokeWidth="1.5" />
-        {/* Connecting lines */}
-        <path d="M5.5 7l4.5 3.5M14.5 9.5l4-2.5M5.5 17l4.5-3.5M14.5 14.5l4 2.5M12 4.5v5M12 14.5v5" strokeWidth="1" />
-    </>
-)
+const heroSequence = {
+    hidden: {},
+    visible: {
+        transition: {
+            delayChildren: 0.06,
+            staggerChildren: 0.065
+        }
+    }
+}
+
+const heroItem = {
+    hidden: { opacity: 0, y: 14 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.46, ease: [0.16, 1, 0.3, 1] }
+    }
+}
 
 /**
  * HomeHeroBanner - Landing page hero with tool-focused copy
@@ -31,15 +31,15 @@ const LANDING_SYMBOL = (
  * @param {string} themeColor - Primary brand color
  */
 function HomeHeroBanner({
-    scrollTargetId = 'compare-filter',
-    themeColor = '#0891b2'  // Cyan/Teal brand color
+    scrollTargetId = 'compare-filter'
 }) {
 
     // Smooth scroll to compare filter and focus first control
     const handleStartFilter = useCallback(() => {
         const target = document.getElementById(scrollTargetId)
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth' })
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' })
 
             // Focus first interactive element after scroll completes
             requestAnimationFrame(() => {
@@ -48,7 +48,7 @@ function HomeHeroBanner({
                     if (firstControl) {
                         firstControl.focus()
                     }
-                }, 500)
+                }, reducedMotion ? 0 : 500)
             })
         }
     }, [scrollTargetId])
@@ -57,7 +57,8 @@ function HomeHeroBanner({
     const handleBrowseSubjects = useCallback(() => {
         const target = document.getElementById('subjects-section')
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth' })
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' })
 
             requestAnimationFrame(() => {
                 setTimeout(() => {
@@ -65,66 +66,63 @@ function HomeHeroBanner({
                     if (firstCard) {
                         firstCard.focus()
                     }
-                }, 500)
+                }, reducedMotion ? 0 : 500)
             })
         }
     }, [])
 
     return (
         <section
-            className="home-hero-banner"
-            style={{ '--theme-color': themeColor }}
+            className={styles['home-hero-banner']}
+            data-kb-component="home-hero"
         >
-            {/* Shared TS-style background */}
-            <HeroBackground
-                themeColor={themeColor}
-                iconPath={LANDING_SYMBOL}
-                uniqueId="home-landing"
-            />
+            <div className={`${styles['hero-content']} container`}>
+                <m.div
+                    className={styles['hero-copy']}
+                    variants={heroSequence}
+                    initial="hidden"
+                    animate="visible"
+                >
+                    <m.span className={styles['hero-context']} variants={heroItem}>义务教育 · 2022年版</m.span>
 
-            {/* Content - Left Aligned */}
-            <div className="hero-content container">
-                {/* H2 - Version tag */}
-                <span className="hero-version-tag">2022年版</span>
+                    <m.h1 className={styles['hero-headline']} variants={heroItem}>
+                        3 秒定位课程标准
+                    </m.h1>
 
-                {/* H1 - Main headline (tool-focused) */}
-                <h1 className="hero-headline">
-                    3 秒定位课程标准
-                </h1>
+                    <m.p className={styles['hero-body']} variants={heroItem}>
+                        按学科、学段与领域快速筛选标准；一键对比差异，并关联可迁移能力，快速获得教学线索。
+                    </m.p>
 
-                {/* Body - Feature description */}
-                <p className="hero-body">
-                    按学科、学段与领域快速筛选标准；一键对比差异，并关联可迁移能力，快速获得教学线索。
-                </p>
+                    <m.p className={styles['hero-hint']} variants={heroItem}>
+                        从“开始筛选”进入对比模式，几秒钟出结果。
+                    </m.p>
 
-                {/* Micro hint */}
-                <p className="hero-hint">
-                    从"开始筛选"进入对比模式，几秒钟出结果。
-                </p>
+                    <m.div className={styles['hero-actions']} variants={heroItem}>
+                        <button
+                            className={`${styles['hero-btn']} ${styles['hero-btn-primary']}`}
+                            onClick={handleStartFilter}
+                            aria-label="开始筛选课程标准"
+                            data-kb-telemetry-task="search_start"
+                        >
+                            开始筛选
+                        </button>
+                        <button
+                            className={`${styles['hero-btn']} ${styles['hero-btn-secondary']}`}
+                            onClick={handleBrowseSubjects}
+                            aria-label="按学科浏览"
+                        >
+                            按学科浏览
+                        </button>
+                        <Link
+                            to="/skills"
+                            className={`${styles['hero-btn']} ${styles['hero-btn-tertiary']}`}
+                        >
+                            按可迁移能力浏览
+                        </Link>
+                    </m.div>
+                </m.div>
 
-                {/* Action buttons */}
-                <div className="hero-actions">
-                    <button
-                        className="hero-btn hero-btn-primary"
-                        onClick={handleStartFilter}
-                        aria-label="开始筛选课程标准"
-                    >
-                        开始筛选
-                    </button>
-                    <button
-                        className="hero-btn hero-btn-secondary"
-                        onClick={handleBrowseSubjects}
-                        aria-label="按学科浏览"
-                    >
-                        按学科浏览
-                    </button>
-                    <Link
-                        to="/skills"
-                        className="hero-btn hero-btn-secondary"
-                    >
-                        按可迁移能力浏览
-                    </Link>
-                </div>
+                <CurriculumCoordinateMap />
             </div>
         </section>
     )

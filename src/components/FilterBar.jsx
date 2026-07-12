@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { ChartBarIcon } from '@phosphor-icons/react/dist/csr/ChartBar'
 import {
     getSubjectsFromManifest,
     getSelectableGradeBands,
@@ -14,7 +15,9 @@ import {
     getValidationMessage,
     DEFAULT_COMPARE_STATE
 } from '../data/compareLogic'
-import './FilterBar.css'
+import { Toast, useTransientToast } from '../ui/primitives/Toast'
+import { Disclosure, DisclosureIndicator } from '../ui/primitives/Disclosure'
+import styles from './FilterBar.module.css'
 
 function FilterBar({
     showSubjects = true,
@@ -47,7 +50,7 @@ function FilterBar({
     const gradeBands = getSelectableGradeBands()
 
     const [keyword, setKeyword] = useState(filters.keyword || '')
-    const [toast, setToast] = useState(null)
+    const { toast, showToast, dismissToast } = useTransientToast()
     const [skillsExpanded, setSkillsExpanded] = useState(false)
 
     useEffect(() => {
@@ -55,11 +58,6 @@ function FilterBar({
             onFilterChange(filters)
         }
     }, [filters, onFilterChange])
-
-    const showToast = (message) => {
-        setToast(message)
-        setTimeout(() => setToast(null), 3000)
-    }
 
     const handleSubjectToggle = (slug) => {
         const result = addSubject(
@@ -138,19 +136,15 @@ function FilterBar({
     const hasFilters = filters.subjects.length > 0 || filters.gradeBands.length > 0 || filters.skills.length > 0 || filters.keyword
 
     return (
-        <div className="filter-bar">
-            {/* Toast */}
-            {toast && (
-                <div className="filter-toast">
-                    <span>{toast}</span>
-                </div>
-            )}
+        <div className={styles['filter-bar']} data-kb-component="filter-bar">
+            <Toast message={toast?.message} tone={toast?.tone} onDismiss={dismissToast} />
 
             {showKeyword && (
-                <form className="filter-section keyword-section" onSubmit={handleKeywordSubmit}>
+                <form className={`${styles['filter-section']} ${styles['keyword-section']}`} onSubmit={handleKeywordSubmit}>
                     <input
                         type="text"
-                        className="input keyword-input"
+                        className={`input ${styles['keyword-input']}`}
+                        aria-label="搜索课程标准关键词"
                         placeholder="输入关键词搜索标准..."
                         value={keyword}
                         onChange={handleKeywordChange}
@@ -159,14 +153,14 @@ function FilterBar({
             )}
 
             {showSubjects && (
-                <div className="filter-section filter-section-primary">
-                    <h4 className="filter-label filter-label-lg">学科</h4>
-                    <p className="filter-hint">选择 1-3 个学科</p>
-                    <div className="filter-options filter-options-primary">
+                <div className={`${styles['filter-section']} ${styles['filter-section-primary']}`}>
+                    <h4 className={`${styles['filter-label']} ${styles['filter-label-lg']}`}>学科</h4>
+                    <p className={styles['filter-hint']}>选择 1-3 个学科</p>
+                    <div className={`${styles['filter-options']} ${styles['filter-options-primary']}`}>
                         {subjects.map(subj => (
                             <label
                                 key={subj.subject_slug}
-                                className={`checkbox-item checkbox-item-lg ${filters.subjects?.includes(subj.subject_slug) ? 'active' : ''}`}
+                                className={`checkbox-item ${styles['checkbox-item-lg']} ${filters.subjects?.includes(subj.subject_slug) ? styles.active : ''}`}
                             >
                                 <input
                                     type="checkbox"
@@ -181,18 +175,18 @@ function FilterBar({
             )}
 
             {showGradeBands && (
-                <div className="filter-section filter-section-secondary">
-                    <h4 className="filter-label filter-label-md">学段</h4>
-                    <p className="filter-hint">
+                <div className={`${styles['filter-section']} ${styles['filter-section-secondary']}`}>
+                    <h4 className={`${styles['filter-label']} ${styles['filter-label-md']}`}>学段</h4>
+                    <p className={styles['filter-hint']}>
                         {filters.subjects?.length > 1
                             ? '多学科时只能选1个学段'
                             : '选择 1-6 个学段/年级'}
                     </p>
-                    <div className="filter-options filter-options-secondary">
+                    <div className={`${styles['filter-options']} ${styles['filter-options-secondary']}`}>
                         {gradeBands.map(([key, info]) => (
                             <label
                                 key={key}
-                                className={`checkbox-item checkbox-item-md ${filters.gradeBands?.includes(key) ? 'active' : ''}`}
+                                className={`checkbox-item ${styles['checkbox-item-md']} ${filters.gradeBands?.includes(key) ? styles.active : ''}`}
                             >
                                 <input
                                     type="checkbox"
@@ -200,7 +194,7 @@ function FilterBar({
                                     onChange={() => handleGradeBandToggle(key)}
                                 />
                                 <span>{info.label}</span>
-                                <span className="filter-badge">{info.range}</span>
+                                <span className={styles['filter-badge']}>{info.range}</span>
                             </label>
                         ))}
                     </div>
@@ -208,53 +202,55 @@ function FilterBar({
             )}
 
             {showSkills && (
-                <div className="filter-section filter-section-tertiary">
-                    <button
-                        className="skills-accordion-header"
-                        onClick={() => setSkillsExpanded(!skillsExpanded)}
-                        type="button"
-                    >
-                        <span className="accordion-title">
-                            <span className="accordion-icon">{skillsExpanded ? '▼' : '▶'}</span>
-                            可迁移技能
-                            <span className="optional-badge">可选</span>
-                        </span>
-                        {filters.skills?.length > 0 && (
-                            <span className="selected-count">{filters.skills.length} 个已选</span>
+                <div className={`${styles['filter-section']} ${styles['filter-section-tertiary']}`}>
+                    <Disclosure
+                        isExpanded={skillsExpanded}
+                        onExpandedChange={setSkillsExpanded}
+                        triggerClassName={styles['skills-accordion-header']}
+                        panelClassName={`${styles['filter-options']} ${styles['filter-options-tertiary']}`}
+                        panelId="filter-transferable-skills"
+                        trigger={({ isExpanded }) => (
+                            <>
+                                <span className={styles['accordion-title']}>
+                                    <DisclosureIndicator isExpanded={isExpanded} className={styles['accordion-icon']} />
+                                    可迁移技能
+                                    <span className={styles['optional-badge']}>可选</span>
+                                </span>
+                                {filters.skills?.length > 0 ? <span className={styles['selected-count']}>{filters.skills.length} 个已选</span> : null}
+                            </>
                         )}
-                    </button>
-                    {skillsExpanded && (
-                        <div className="filter-options filter-options-tertiary">
-                            {skills.map(skill => (
-                                <label
-                                    key={skill.code}
-                                    className={`checkbox-item checkbox-item-sm skill-option ${filters.skills?.includes(skill.code) ? 'active' : ''}`}
-                                >
-                                    <input
-                                        type="checkbox"
-                                        checked={filters.skills?.includes(skill.code) || false}
-                                        onChange={() => handleSkillToggle(skill.code)}
-                                    />
-                                    <span className="skill-code-badge">{skill.code}</span>
-                                    <span>{skill.name_cn}</span>
-                                </label>
-                            ))}
-                        </div>
-                    )}
+                    >
+                        {skills.map(skill => (
+                            <label
+                                key={skill.code}
+                                className={`checkbox-item ${styles['checkbox-item-sm']} ${styles['skill-option']} ${filters.skills?.includes(skill.code) ? styles.active : ''}`}
+                            >
+                                <input
+                                    type="checkbox"
+                                    checked={filters.skills?.includes(skill.code) || false}
+                                    onChange={() => handleSkillToggle(skill.code)}
+                                />
+                                <span className={styles['skill-code-badge']}>{skill.code}</span>
+                                <span>{skill.name_cn}</span>
+                            </label>
+                        ))}
+                    </Disclosure>
                 </div>
             )}
 
-            <div className="filter-actions">
-                <div className="action-group">
+            <div className={styles['filter-actions']}>
+                <div className={styles['action-group']}>
                     <button
-                        className={`btn btn-primary btn-lg ${!isValid ? 'disabled' : ''}`}
+                        className={`btn btn-primary btn-lg ${!isValid ? styles.disabled : ''}`}
                         onClick={handleSearch}
                         disabled={!isValid}
+                        data-kb-telemetry-task="search_results"
                     >
-                        📊 查看对比结果
+                        <ChartBarIcon size={19} aria-hidden="true" />
+                        查看对比结果
                     </button>
                     {!isValid && validationMessage && (
-                        <span className="validation-hint">{validationMessage}</span>
+                        <span className={styles['validation-hint']} role="status">{validationMessage}</span>
                     )}
                 </div>
                 {hasFilters && (

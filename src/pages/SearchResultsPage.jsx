@@ -1,5 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { useSearchParams, Link, useNavigate } from 'react-router-dom'
+import { ChartBarIcon } from '@phosphor-icons/react/dist/csr/ChartBar'
+import { WarningCircleIcon } from '@phosphor-icons/react/dist/csr/WarningCircle'
 import {
     loadManifest,
     loadMultipleSubjectStandards,
@@ -7,6 +9,7 @@ import {
     getSubjectsFromManifest,
     getSkillsMeta,
     filterStandards,
+    GRADE_BANDS,
     getSelectableGradeBands
 } from '../data/dataLoader'
 import { QUERY_PARAMS, buildShareableURL } from '../data/query'
@@ -22,7 +25,9 @@ import {
 } from '../data/compareLogic'
 import CompareView from '../components/CompareView'
 import { LoadingState, ErrorState, EmptyState, CopyLinkButton } from '../components/StateComponents'
-import './SearchResultsPage.css'
+import { Toast, useTransientToast } from '../ui/primitives/Toast'
+import { Disclosure, DisclosureIndicator } from '../ui/primitives/Disclosure'
+import styles from './SearchResultsPage.module.css'
 
 /**
  * Parse filters from URL with safe defaults
@@ -68,10 +73,11 @@ function SearchResultsPage() {
     const [draftFilters, setDraftFilters] = useState(() => ({ ...appliedFilters }))
 
     // UI state
-    const [toast, setToast] = useState(null)
+    const { toast, showToast, dismissToast } = useTransientToast()
     const [showFilterPanel, setShowFilterPanel] = useState(false)
     const [skillsExpanded, setSkillsExpanded] = useState(false)
     const [expandedDomains, setExpandedDomains] = useState({})
+    const [clearedDraft, setClearedDraft] = useState(null)
 
     // Has draft changed from applied?
     const draftChanged = useMemo(() =>
@@ -137,19 +143,11 @@ function SearchResultsPage() {
     }, [allStandards, appliedFilters])
 
     // ============================================
-    // TOAST
-    // ============================================
-    const showToast = useCallback((message) => {
-        if (!message) return
-        setToast(message)
-        setTimeout(() => setToast(null), 3000)
-    }, [])
-
-    // ============================================
     // DRAFT HANDLERS (Only update draft, not applied)
     // ============================================
 
     const handleSubjectToggle = useCallback((slug) => {
+        setClearedDraft(null)
         setDraftFilters(prev => {
             const safe = ensureSafeFilters(prev)
             const isSelected = safe.subjects.includes(slug)
@@ -179,6 +177,7 @@ function SearchResultsPage() {
     }, [showToast])
 
     const handleBandToggle = useCallback((band) => {
+        setClearedDraft(null)
         setDraftFilters(prev => {
             const safe = ensureSafeFilters(prev)
             const isSelected = safe.gradeBands.includes(band)
@@ -208,6 +207,7 @@ function SearchResultsPage() {
     }, [showToast])
 
     const handleSkillToggle = useCallback((code) => {
+        setClearedDraft(null)
         setDraftFilters(prev => {
             const safe = ensureSafeFilters(prev)
             return {
@@ -253,13 +253,39 @@ function SearchResultsPage() {
         // Apply to state
         setAppliedFilters(safe)
         setDraftFilters(safe)
+        setClearedDraft(null)
         setShowFilterPanel(false)
     }, [draftFilters, setSearchParams, showToast])
 
     const handleReset = useCallback(() => {
         // Reset draft to applied
         setDraftFilters({ ...appliedFilters })
-    }, [appliedFilters])
+        setClearedDraft(null)
+        showToast('已撤销未应用的筛选更改')
+    }, [appliedFilters, showToast])
+
+    const handleClearDraft = useCallback(() => {
+        const safeDraft = ensureSafeFilters(draftFilters)
+        if (!safeDraft.subjects.length && !safeDraft.gradeBands.length && !safeDraft.skills.length) return
+        setClearedDraft(safeDraft)
+        setDraftFilters({ subjects: [], gradeBands: [], skills: [] })
+        showToast('已批量清除筛选条件，可使用撤销恢复')
+    }, [draftFilters, showToast])
+
+    const handleUndoClear = useCallback(() => {
+        if (!clearedDraft) return
+        setDraftFilters(clearedDraft)
+        setClearedDraft(null)
+        showToast('已恢复清除前的筛选条件')
+    }, [clearedDraft, showToast])
+
+    const handleRemoveDraftFilter = useCallback((type, value) => {
+        setClearedDraft(null)
+        setDraftFilters(prev => ({
+            ...ensureSafeFilters(prev),
+            [type]: ensureSafeFilters(prev)[type].filter(item => item !== value)
+        }))
+    }, [])
 
     const handleToggleDomain = useCallback((domain) => {
         setExpandedDomains(prev => ({
@@ -309,25 +335,21 @@ function SearchResultsPage() {
     const appliedValid = isValidCompareSelection(safeApplied.subjects, safeApplied.gradeBands)
 
     return (
-        <div className="search-results-page">
-            {/* Toast */}
-            {toast && (
-                <div className="compare-toast">
-                    <span>{toast}</span>
-                </div>
-            )}
+        <div className={styles['search-results-page']} data-kb-route="search">
+            <Toast message={toast?.message} tone={toast?.tone} onDismiss={dismissToast} />
 
             {/* Header */}
-            <section className="search-header">
+            <section className={styles['search-header']}>
                 <div className="container">
-                    <Link to="/" className="back-link">← 返回首页</Link>
-                    <h1>📊 对比视图</h1>
-                    <div className="header-actions">
+                    <Link to="/" className={styles.backLink}>← 返回首页</Link>
+                    <h1><ChartBarIcon size="0.82em" weight="light" aria-hidden="true" />对比视图</h1>
+                    <div className={styles['header-actions']}>
                         <button
                             className="btn btn-secondary"
                             onClick={() => {
                                 // Open panel and reset draft to applied
                                 setDraftFilters({ ...appliedFilters })
+                                setClearedDraft(null)
                                 setShowFilterPanel(!showFilterPanel)
                             }}
                         >
@@ -340,26 +362,80 @@ function SearchResultsPage() {
 
             {/* Filter Panel (Draft Mode) */}
             {showFilterPanel && (
-                <section className="filter-section">
+                <section className={styles['filter-section']} data-kb-component="search-filter-panel">
                     <div className="container">
-                        <div className="filter-card card">
+                        <div className={`${styles['filter-card']} card`}>
                             <div className="card-body">
+                                <div className={styles['selection-toolbar']} aria-label="已选筛选条件" data-kb-component="search-filter-selection-toolbar">
+                                    <div className={styles['selection-summary']}>
+                                        <span className={styles['selection-label']}>已选条件</span>
+                                        <div className={styles['selection-chips']}>
+                                            {draftFilters.subjects.map(slug => (
+                                                <button
+                                                    type="button"
+                                                    key={`subject-${slug}`}
+                                                    onClick={() => handleRemoveDraftFilter('subjects', slug)}
+                                                    aria-label={`移除筛选条件 ${subjects.find(item => item.subject_slug === slug)?.subject || slug}`}
+                                                >
+                                                    {subjects.find(item => item.subject_slug === slug)?.subject || slug}<span aria-hidden="true">×</span>
+                                                </button>
+                                            ))}
+                                            {draftFilters.gradeBands.map(band => (
+                                                <button
+                                                    type="button"
+                                                    key={`band-${band}`}
+                                                    onClick={() => handleRemoveDraftFilter('gradeBands', band)}
+                                                    aria-label={`移除筛选条件 ${GRADE_BANDS[band]?.label || band}`}
+                                                >
+                                                    {GRADE_BANDS[band]?.label || band}<span aria-hidden="true">×</span>
+                                                </button>
+                                            ))}
+                                            {draftFilters.skills.map(code => (
+                                                <button
+                                                    type="button"
+                                                    key={`skill-${code}`}
+                                                    onClick={() => handleRemoveDraftFilter('skills', code)}
+                                                    aria-label={`移除筛选条件 ${code}`}
+                                                >
+                                                    {code}<span aria-hidden="true">×</span>
+                                                </button>
+                                            ))}
+                                            {!draftFilters.subjects.length && !draftFilters.gradeBands.length && !draftFilters.skills.length ? (
+                                                <span className={styles['selection-empty']}>尚未选择条件</span>
+                                            ) : null}
+                                        </div>
+                                    </div>
+                                    <div className={styles['selection-actions']}>
+                                        {clearedDraft ? (
+                                            <button type="button" className={styles['undo-clear-button']} onClick={handleUndoClear}>撤销清除</button>
+                                        ) : null}
+                                        <button
+                                            type="button"
+                                            className={styles['clear-all-button']}
+                                            onClick={handleClearDraft}
+                                            disabled={!draftFilters.subjects.length && !draftFilters.gradeBands.length && !draftFilters.skills.length}
+                                        >
+                                            批量清除
+                                        </button>
+                                    </div>
+                                </div>
+
                                 {/* Draft vs Applied indicator */}
                                 {draftChanged && (
-                                    <div className="draft-indicator">
-                                        <span>⚠️ 有未应用的更改</span>
+                                    <div className={styles['draft-indicator']}>
+                                        <span><WarningCircleIcon size={17} aria-hidden="true" />有未应用的更改</span>
                                     </div>
                                 )}
 
                                 {/* Subjects - Primary */}
-                                <div className="filter-group filter-group-primary">
-                                    <h4 className="filter-label filter-label-lg">学科</h4>
-                                    <p className="filter-hint">选择 1-3 个学科</p>
-                                    <div className="filter-options filter-options-primary">
+                                <div className={`${styles['filter-group']} ${styles['filter-group-primary']}`}>
+                                    <h4 className={`${styles['filter-label']} ${styles['filter-label-lg']}`}>学科</h4>
+                                    <p className={styles['filter-hint']}>选择 1-3 个学科</p>
+                                    <div className={`${styles['filter-options']} ${styles['filter-options-primary']}`}>
                                         {(subjects || []).map(subj => (
                                             <label
                                                 key={subj.subject_slug}
-                                                className={`checkbox-item checkbox-item-lg ${(draftFilters.subjects || []).includes(subj.subject_slug) ? 'active' : ''
+                                                className={`checkbox-item ${styles['checkbox-item-lg']} ${(draftFilters.subjects || []).includes(subj.subject_slug) ? styles.active : ''
                                                     }`}
                                             >
                                                 <input
@@ -374,18 +450,18 @@ function SearchResultsPage() {
                                 </div>
 
                                 {/* Grade Bands - Secondary */}
-                                <div className="filter-group filter-group-secondary">
-                                    <h4 className="filter-label filter-label-md">学段</h4>
-                                    <p className="filter-hint">
+                                <div className={`${styles['filter-group']} ${styles['filter-group-secondary']}`}>
+                                    <h4 className={`${styles['filter-label']} ${styles['filter-label-md']}`}>学段</h4>
+                                    <p className={styles['filter-hint']}>
                                         {(draftFilters.subjects || []).length > 1
                                             ? '多学科时只能选1个学段'
                                             : '选择 1-6 个学段/年级'}
                                     </p>
-                                    <div className="filter-options filter-options-secondary">
+                                    <div className={`${styles['filter-options']} ${styles['filter-options-secondary']}`}>
                                         {gradeBandsList.map(([key, info]) => (
                                             <label
                                                 key={key}
-                                                className={`checkbox-item checkbox-item-md ${(draftFilters.gradeBands || []).includes(key) ? 'active' : ''
+                                                className={`checkbox-item ${styles['checkbox-item-md']} ${(draftFilters.gradeBands || []).includes(key) ? styles.active : ''
                                                     }`}
                                             >
                                                 <input
@@ -394,64 +470,64 @@ function SearchResultsPage() {
                                                     onChange={() => handleBandToggle(key)}
                                                 />
                                                 <span>{info.label}</span>
-                                                <span className="filter-badge">{info.range}</span>
+                                                <span className={styles['filter-badge']}>{info.range}</span>
                                             </label>
                                         ))}
                                     </div>
                                 </div>
 
                                 {/* Skills - Tertiary accordion */}
-                                <div className="filter-group filter-group-tertiary">
-                                    <button
-                                        className="skills-accordion-header"
-                                        onClick={() => setSkillsExpanded(!skillsExpanded)}
-                                        type="button"
-                                    >
-                                        <span className="accordion-title">
-                                            <span className="accordion-icon">{skillsExpanded ? '▼' : '▶'}</span>
-                                            可迁移技能
-                                            <span className="optional-badge">可选</span>
-                                        </span>
-                                        {(draftFilters.skills || []).length > 0 && (
-                                            <span className="selected-count">{draftFilters.skills.length} 个已选</span>
+                                <div className={`${styles['filter-group']} ${styles['filter-group-tertiary']}`}>
+                                    <Disclosure
+                                        isExpanded={skillsExpanded}
+                                        onExpandedChange={setSkillsExpanded}
+                                        triggerClassName={styles['skills-accordion-header']}
+                                        panelClassName={`${styles['filter-options']} ${styles['filter-options-tertiary']}`}
+                                        panelId="search-skill-filter-options"
+                                        trigger={({ isExpanded }) => (
+                                            <>
+                                                <span className={styles['accordion-title']}>
+                                                    <DisclosureIndicator isExpanded={isExpanded} className={styles['accordion-icon']} />
+                                                    可迁移技能
+                                                    <span className={styles['optional-badge']}>可选</span>
+                                                </span>
+                                                {(draftFilters.skills || []).length > 0 ? <span className={styles['selected-count']}>{draftFilters.skills.length} 个已选</span> : null}
+                                            </>
                                         )}
-                                    </button>
-                                    {skillsExpanded && (
-                                        <div className="filter-options filter-options-tertiary">
-                                            {(skills || []).map(skill => (
-                                                <label
-                                                    key={skill.code}
-                                                    className={`checkbox-item checkbox-item-sm skill-option ${(draftFilters.skills || []).includes(skill.code) ? 'active' : ''
-                                                        }`}
-                                                >
-                                                    <input
-                                                        type="checkbox"
-                                                        checked={(draftFilters.skills || []).includes(skill.code)}
-                                                        onChange={() => handleSkillToggle(skill.code)}
-                                                    />
-                                                    <span className="skill-code-badge">{skill.code}</span>
-                                                    <span>{skill.name_cn}</span>
-                                                </label>
-                                            ))}
-                                        </div>
-                                    )}
+                                    >
+                                        {(skills || []).map(skill => (
+                                            <label
+                                                key={skill.code}
+                                                className={`checkbox-item ${styles['checkbox-item-sm']} ${styles['skill-option']} ${(draftFilters.skills || []).includes(skill.code) ? styles.active : ''
+                                                    }`}
+                                            >
+                                                <input
+                                                    type="checkbox"
+                                                    checked={(draftFilters.skills || []).includes(skill.code)}
+                                                    onChange={() => handleSkillToggle(skill.code)}
+                                                />
+                                                <span className={styles['skill-code-badge']}>{skill.code}</span>
+                                                <span>{skill.name_cn}</span>
+                                            </label>
+                                        ))}
+                                    </Disclosure>
                                 </div>
 
                                 {/* Actions */}
-                                <div className="filter-actions">
-                                    <div className="action-group">
+                                <div className={styles['filter-actions']}>
+                                    <div className={styles['action-group']}>
                                         <button
-                                            className={`btn btn-primary ${!draftValid || !draftChanged ? 'disabled' : ''}`}
+                                            className={`btn btn-primary ${!draftValid || !draftChanged ? styles.disabled : ''}`}
                                             onClick={handleApply}
                                             disabled={!draftValid || !draftChanged}
                                         >
                                             应用筛选
                                         </button>
                                         {!draftValid && draftValidationMessage && (
-                                            <span className="validation-hint">{draftValidationMessage}</span>
+                                            <span className={styles['validation-hint']}>{draftValidationMessage}</span>
                                         )}
                                         {draftValid && !draftChanged && (
-                                            <span className="validation-hint">当前无更改</span>
+                                            <span className={styles['validation-hint']}>当前无更改</span>
                                         )}
                                     </div>
                                     <button className="btn btn-ghost" onClick={handleReset}>
@@ -465,7 +541,7 @@ function SearchResultsPage() {
             )}
 
             {/* Compare View (Uses APPLIED filters only) */}
-            <section className="results-section">
+            <section className={styles['results-section']}>
                 <div className="container">
                     {standardsLoading ? (
                         <LoadingState message="加载标准数据..." />
@@ -484,6 +560,7 @@ function SearchResultsPage() {
                             onToggleDomain={handleToggleDomain}
                             onAdjustFilters={() => {
                                 setDraftFilters({ ...appliedFilters })
+                                setClearedDraft(null)
                                 setShowFilterPanel(true)
                             }}
                         />

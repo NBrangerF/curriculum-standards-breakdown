@@ -22,6 +22,104 @@ export const QUERY_PARAMS = {
 }
 
 /**
+ * Additive graph-view query contract. Existing filter parameters keep their
+ * current meaning; graph updates are always merged into the current URL so
+ * unknown parameters and campaign/share metadata survive round trips.
+ */
+export const GRAPH_QUERY_PARAMS = Object.freeze({
+    VIEW: 'view',
+    SUBJECT: 'subject',
+    GRADE_BAND: 'gradeBand',
+    DOMAIN: 'domain',
+    RELATION_TYPES: 'relationTypes',
+    SELECTED_NODE: 'selectedNode',
+    FOCUS_DEPTH: 'focusDepth',
+    COMPARE_SELECTION: 'compareSelection',
+    ANALYSIS: 'analysis'
+})
+
+export const GRAPH_VIEW_VALUES = Object.freeze(['list', 'compare', 'matrix', 'graph'])
+export const GRAPH_RELATION_VALUES = Object.freeze(['contains', 'progression', 'skill_alignment'])
+export const GRAPH_ANALYSIS_VALUES = Object.freeze(['compare', 'path', 'progression'])
+
+const splitUniqueValues = value => [...new Set(
+    String(value || '')
+        .split(',')
+        .map(item => item.trim())
+        .filter(Boolean)
+)]
+
+const cleanScalar = value => typeof value === 'string' && value.trim() ? value.trim() : undefined
+
+/**
+ * Parse only graph-owned state. Invalid values are ignored rather than
+ * silently changing the meaning of an old or externally shared URL.
+ */
+export function parseGraphStateFromURL(searchParams) {
+    const view = cleanScalar(searchParams.get(GRAPH_QUERY_PARAMS.VIEW))
+    const focusDepthValue = Number(searchParams.get(GRAPH_QUERY_PARAMS.FOCUS_DEPTH))
+    const relationTypes = splitUniqueValues(searchParams.get(GRAPH_QUERY_PARAMS.RELATION_TYPES))
+        .filter(type => GRAPH_RELATION_VALUES.includes(type))
+    const compareSelection = splitUniqueValues(searchParams.get(GRAPH_QUERY_PARAMS.COMPARE_SELECTION))
+
+    return {
+        ...(GRAPH_VIEW_VALUES.includes(view) ? { view } : {}),
+        ...(cleanScalar(searchParams.get(GRAPH_QUERY_PARAMS.SUBJECT)) ? { subject: searchParams.get(GRAPH_QUERY_PARAMS.SUBJECT).trim() } : {}),
+        ...(cleanScalar(searchParams.get(GRAPH_QUERY_PARAMS.GRADE_BAND)) ? { gradeBand: searchParams.get(GRAPH_QUERY_PARAMS.GRADE_BAND).trim().toUpperCase() } : {}),
+        ...(cleanScalar(searchParams.get(GRAPH_QUERY_PARAMS.DOMAIN)) ? { domain: searchParams.get(GRAPH_QUERY_PARAMS.DOMAIN).trim() } : {}),
+        ...(relationTypes.length ? { relationTypes } : {}),
+        ...(cleanScalar(searchParams.get(GRAPH_QUERY_PARAMS.SELECTED_NODE)) ? { selectedNode: searchParams.get(GRAPH_QUERY_PARAMS.SELECTED_NODE).trim() } : {}),
+        ...(Number.isInteger(focusDepthValue) && focusDepthValue >= 1 && focusDepthValue <= 3 ? { focusDepth: focusDepthValue } : {}),
+        ...(compareSelection.length ? { compareSelection } : {}),
+        ...(GRAPH_ANALYSIS_VALUES.includes(cleanScalar(searchParams.get(GRAPH_QUERY_PARAMS.ANALYSIS)))
+            ? { analysis: searchParams.get(GRAPH_QUERY_PARAMS.ANALYSIS).trim() }
+            : {})
+    }
+}
+
+/**
+ * Merge graph state into an existing URLSearchParams instance without
+ * dropping unknown or legacy parameters. Passing null/empty removes only the
+ * corresponding graph-owned parameter.
+ */
+export function mergeGraphStateIntoURL(searchParams, graphState = {}) {
+    const params = new URLSearchParams(searchParams)
+    const writeScalar = (key, value) => {
+        const cleanValue = cleanScalar(value)
+        if (cleanValue) params.set(key, cleanValue)
+        else params.delete(key)
+    }
+    const writeList = (key, values) => {
+        const cleanValues = splitUniqueValues(Array.isArray(values) ? values.join(',') : values)
+        if (cleanValues.length) params.set(key, cleanValues.join(','))
+        else params.delete(key)
+    }
+
+    writeScalar(GRAPH_QUERY_PARAMS.VIEW, GRAPH_VIEW_VALUES.includes(graphState.view) ? graphState.view : undefined)
+    writeScalar(GRAPH_QUERY_PARAMS.SUBJECT, graphState.subject)
+    writeScalar(GRAPH_QUERY_PARAMS.GRADE_BAND, graphState.gradeBand?.toUpperCase())
+    writeScalar(GRAPH_QUERY_PARAMS.DOMAIN, graphState.domain)
+    writeList(
+        GRAPH_QUERY_PARAMS.RELATION_TYPES,
+        (graphState.relationTypes || []).filter(type => GRAPH_RELATION_VALUES.includes(type))
+    )
+    writeScalar(GRAPH_QUERY_PARAMS.SELECTED_NODE, graphState.selectedNode)
+    writeScalar(
+        GRAPH_QUERY_PARAMS.FOCUS_DEPTH,
+        Number.isInteger(graphState.focusDepth) && graphState.focusDepth >= 1 && graphState.focusDepth <= 3
+            ? String(graphState.focusDepth)
+            : undefined
+    )
+    writeList(GRAPH_QUERY_PARAMS.COMPARE_SELECTION, graphState.compareSelection)
+    writeScalar(
+        GRAPH_QUERY_PARAMS.ANALYSIS,
+        GRAPH_ANALYSIS_VALUES.includes(graphState.analysis) ? graphState.analysis : undefined
+    )
+
+    return params
+}
+
+/**
  * Parse URL search params to filter object
  * @param {URLSearchParams} searchParams - URL search params
  * @returns {Object} Filter object
@@ -101,23 +199,32 @@ export function buildShareableURL(filters, basePath = '/search') {
  * @returns {Promise<boolean>} Success status
  */
 export async function copyToClipboard(text) {
-    try {
-        if (navigator.clipboard) {
-            await navigator.clipboard.writeText(text)
+    if (navigator.clipboard) {
+        try {
+            await Promise.race([
+                navigator.clipboard.writeText(text),
+                new Promise((_, reject) => {
+                    window.setTimeout(() => reject(new Error('clipboard_timeout')), 350)
+                })
+            ])
             return true
+        } catch {
+            // Continue to the selection-based fallback when permission is denied.
         }
-        // Fallback for older browsers
+    }
+
+    try {
         const textArea = document.createElement('textarea')
         textArea.value = text
         textArea.style.position = 'fixed'
+        textArea.style.pointerEvents = 'none'
         textArea.style.opacity = '0'
         document.body.appendChild(textArea)
         textArea.select()
-        document.execCommand('copy')
+        const copied = document.execCommand('copy')
         document.body.removeChild(textArea)
-        return true
-    } catch (err) {
-        console.error('Failed to copy:', err)
+        return copied
+    } catch {
         return false
     }
 }

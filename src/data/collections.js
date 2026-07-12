@@ -136,14 +136,55 @@ export function updateCollection(id, updates) {
  * Delete a collection (cannot delete default)
  */
 export function deleteCollection(id) {
-    if (id === 'default') return false
+    return deleteCollections([id]).length === 1
+}
+
+/**
+ * Delete multiple collections in one storage transaction.
+ * Returns snapshots that can be passed to restoreCollections for undo.
+ */
+export function deleteCollections(ids = []) {
+    const uniqueIds = [...new Set(ids)].filter(id => id && id !== 'default')
+    if (!uniqueIds.length) return []
 
     const data = getCollections()
-    if (!data.collections[id]) return false
+    const deleted = uniqueIds
+        .map(id => data.collections[id])
+        .filter(Boolean)
+        .map(collection => ({
+            ...collection,
+            standardCodes: [...(collection.standardCodes || [])]
+        }))
 
-    delete data.collections[id]
+    if (!deleted.length) return []
+
+    deleted.forEach(collection => {
+        delete data.collections[collection.id]
+    })
     saveCollections(data)
-    return true
+    return deleted
+}
+
+/**
+ * Restore previously deleted collection snapshots without changing their IDs.
+ * Existing IDs win so undo can never overwrite newer user data.
+ */
+export function restoreCollections(collections = []) {
+    const data = getCollections()
+    const restored = []
+
+    collections.forEach(collection => {
+        if (!collection?.id || collection.id === 'default' || data.collections[collection.id]) return
+        data.collections[collection.id] = {
+            ...collection,
+            id: collection.id,
+            standardCodes: [...(collection.standardCodes || [])]
+        }
+        restored.push(data.collections[collection.id])
+    })
+
+    if (restored.length) saveCollections(data)
+    return restored
 }
 
 // ============================================

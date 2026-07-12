@@ -1,0 +1,43 @@
+.popover {
+    z-index: var(--z-dropdown);
+    min-width: 200px;
+    background: var(--bg-primary);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    transform-origin: var(--trigger-anchor-point);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.popover[data-entering],
+.popover[data-exiting] {
+    opacity: 0;
+    transform: translateY(-0.25rem) scale(0.98);
+}
+
+.menu { padding: var(--space-2); outline: 0; }
+
+.header {
+    margin-bottom: var(--space-1);
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--color-gray-100);
+    color: var(--text-tertiary);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.item:hover { background: var(--bg-secondary); }
+.item input[type="checkbox"] { flex-shrink: 0; }
+.name { flex: 1; color: var(--text-primary); font-size: var(--font-size-sm); }
+.count { color: var(--text-tertiary); font-size: var(--font-size-xs); }

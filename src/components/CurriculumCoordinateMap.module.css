@@ -1,0 +1,159 @@
+.curriculum-coordinate {
+    position: relative;
+    min-width: 0;
+    min-height: 20rem;
+}
+
+.coordinate-surface {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border: 1px solid rgba(185, 194, 209, 0.72);
+    background:
+        linear-gradient(rgba(61, 90, 254, 0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(61, 90, 254, 0.028) 1px, transparent 1px),
+        radial-gradient(circle at 55% 48%, rgba(61, 90, 254, 0.07), transparent 42%),
+        rgba(255, 255, 255, 0.62);
+    background-size: 2.75rem 2.75rem, 2.75rem 2.75rem, auto, auto;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.96),
+        inset 0 0 4rem rgba(52, 69, 105, 0.035),
+        0 1.25rem 3rem rgba(32, 43, 69, 0.055);
+}
+
+.coordinate-axis,
+.coordinate-track {
+    position: absolute;
+    background: rgba(145, 157, 177, 0.56);
+}
+
+.coordinate-axis-y {
+    top: 1.75rem;
+    bottom: 2.65rem;
+    left: 3.6rem;
+    width: 1px;
+}
+
+.coordinate-axis-x {
+    right: 2rem;
+    bottom: 2.65rem;
+    left: 3.6rem;
+    height: 1px;
+}
+
+.coordinate-track {
+    right: 2rem;
+    left: 3.6rem;
+    height: 1px;
+}
+
+.coordinate-track span {
+    position: absolute;
+    top: -0.4rem;
+    left: -3.15rem;
+    width: 2.65rem;
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.04em;
+    text-align: right;
+}
+
+.track-one { top: 21%; }
+.track-two { top: 47%; }
+.track-three { top: 73%; }
+
+.coordinate-relations {
+    position: absolute;
+    inset: 1.4rem 1.8rem 2.6rem 3.4rem;
+    width: calc(100% - 5.2rem);
+    height: calc(100% - 4rem);
+    overflow: visible;
+    fill: none;
+    stroke: rgba(120, 136, 162, 0.72);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+}
+
+.coordinate-relations .relation-dashed {
+    stroke-dasharray: 4 5;
+}
+
+.coordinate-node {
+    position: absolute;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 6.4rem;
+    height: 2.35rem;
+    padding: 0 0.85rem;
+    border: 1px solid rgba(178, 188, 204, 0.9);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 560;
+    letter-spacing: -0.01em;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.96),
+        0 0.55rem 1.35rem rgba(31, 43, 67, 0.09);
+}
+
+.node-subject { top: 13%; left: 14%; }
+.node-stage { top: 13%; right: 11%; }
+.node-domain { top: 40%; left: 43%; }
+.node-standard { right: 14%; bottom: 19%; }
+
+.coordinate-node.is-standard {
+    min-width: 7.8rem;
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: white;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.28),
+        0 0 0 0.25rem rgba(61, 90, 254, 0.1),
+        0 0.85rem 1.8rem rgba(61, 90, 254, 0.24);
+}
+
+.coordinate-caption {
+    position: absolute;
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
+}
+
+.coordinate-caption-y {
+    top: 0.8rem;
+    left: 0.8rem;
+}
+
+.coordinate-caption-x {
+    right: 1rem;
+    bottom: 0.8rem;
+}
+
+@media (max-width: 900px) {
+    .curriculum-coordinate {
+        min-height: 17rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .curriculum-coordinate {
+        min-height: 14rem;
+    }
+
+    .coordinate-node {
+        min-width: 5.3rem;
+        height: 2rem;
+        padding: 0 0.55rem;
+        font-size: 0.58rem;
+    }
+
+    .coordinate-node.is-standard {
+        min-width: 6.5rem;
+    }
+}

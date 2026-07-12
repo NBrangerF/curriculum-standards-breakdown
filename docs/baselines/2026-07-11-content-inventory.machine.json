@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "6d6d2f5b9263d07884e49854cfa3a98e38f7d9f7",
+  "dataManifestGeneratedAt": "2026-07-01T07:46:17.346Z",
+  "routeCount": 12,
+  "routes": [
+    {
+      "id": "home",
+      "path": "/?subjects=math&bands=H2",
+      "routeKey": "home",
+      "headings": ["3 秒定位课程标准", "对比筛选", "学科入口", "可迁移技能", "如何使用"],
+      "buttons": ["开始筛选课程标准", "按学科浏览", "查看对比结果", "重置"],
+      "queryParams": ["subjects", "bands"]
+    },
+    {
+      "id": "subject",
+      "path": "/subjects/math",
+      "routeKey": "subject",
+      "headings": ["数学", "课程标准"],
+      "buttons": ["列表视图", "学段对比", "关系图谱", "展开全部", "收起全部"],
+      "links": ["← 返回首页"]
+    },
+    {
+      "id": "skills",
+      "path": "/skills",
+      "routeKey": "skills",
+      "headings": ["可迁移技能与课程关系", "为什么重要", "与标准的关系", "如何使用", "技能框架", "技能详情"],
+      "buttons": ["框架视图", "关系图谱"],
+      "links": ["返回首页"]
+    },
+    {
+      "id": "skillDetail",
+      "path": "/skills/TS1",
+      "routeKey": "skillDetail",
+      "headings": ["批判性思维与问题解决", "技能定义", "子技能", "关联的课程标准"],
+      "buttons": ["复制链接", "列表", "关系图谱"],
+      "links": ["← 返回技能列表"],
+      "readiness": { "selector": "[data-kb-component=\"standard-card\"]", "minimumCount": 1 }
+    },
+    {
+      "id": "search",
+      "path": "/search?subjects=math&bands=H2",
+      "routeKey": "search",
+      "headings": ["对比视图"],
+      "buttons": ["调整对比条件", "复制链接", "数与代数"],
+      "links": ["← 返回首页"],
+      "texts": ["当前对比", "数学 · 第二学段"],
+      "queryParams": ["subjects", "bands"]
+    },
+    {
+      "id": "glossary",
+      "path": "/glossary",
+      "routeKey": "glossary",
+      "headings": ["术语表", "全部术语"],
+      "buttons": ["全部", "核心概念", "结构概念", "教学字段", "能力概念", "标注概念"],
+      "links": ["返回首页"]
+    },
+    {
+      "id": "standard",
+      "path": "/standards/MA-D2-GE-003",
+      "routeKey": "standard",
+      "headings": ["会根据角的特征对三角形分类", "可迁移技能", "年级归属依据"],
+      "buttons": ["MA-D2-GE-003 复制编码", "在图谱中定位", "复制链接", "关系图谱"],
+      "texts": ["MA-D2-GE-003", "图形与几何"],
+      "links": ["首页", "数学"]
+    },
+    {
+      "id": "collections",
+      "path": "/collections",
+      "routeKey": "collections",
+      "headings": ["我的清单", "全部清单"],
+      "buttons": ["新建清单"],
+      "texts": ["当前浏览器"]
+    },
+    {
+      "id": "collectionDetail",
+      "path": "/collections/qa-collection",
+      "routeKey": "collectionDetail",
+      "seedCollection": true,
+      "headings": ["几何单元研究", "统计分析", "标准列表"],
+      "buttons": ["编辑清单 几何单元研究", "导出 JSON", "打印", "从清单移除 MA-D2-GE-003"],
+      "links": ["返回清单列表"]
+    },
+    {
+      "id": "print",
+      "path": "/print?codes=MA-D2-GE-003",
+      "routeKey": "print",
+      "headings": ["打印预览", "1 条课程标准"],
+      "buttons": ["打印 1 条标准"],
+      "links": ["返回清单"],
+      "texts": ["MA-D2-GE-003"],
+      "queryParams": ["codes"]
+    },
+    {
+      "id": "styleguide",
+      "path": "/styleguide",
+      "routeKey": "styleguide",
+      "headings": ["kebiao Design System", "Foundation", "Primitives", "States", "Graph language", "Brand"],
+      "buttons": ["紧凑", "舒适", "主要操作", "次要操作"]
+    },
+    {
+      "id": "feedback",
+      "path": "/feedback",
+      "routeKey": "feedback",
+      "headings": ["反馈与纠错"],
+      "buttons": ["内容纠错", "功能建议", "合作/联系", "提交反馈"],
+      "links": ["返回首页"]
+    }
+  ]
+}
