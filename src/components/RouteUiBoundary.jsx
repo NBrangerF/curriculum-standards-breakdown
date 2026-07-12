@@ -22,6 +22,8 @@ export default function RouteUiBoundary({ routeKey, children }) {
                 data-ui-route={routeKey}
                 data-ui-version={value.enabled ? 'v2' : 'legacy'}
                 data-ui-flag-source={value.source}
+                data-ui-rollout-percentage={value.rolloutPercentage ?? undefined}
+                data-ui-rollout-bucket={value.rolloutBucket ?? undefined}
             >
                 {children}
             </div>

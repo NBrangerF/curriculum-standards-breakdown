@@ -19,6 +19,7 @@
         "validate:graph-interaction": "node scripts/validate-graph-interaction-contract.mjs",
         "validate:motion-contract": "node scripts/validate-motion-contract.mjs",
         "validate:design-contract": "node scripts/validate-design-contract.mjs",
+        "validate:rollout-contract": "node scripts/validate-ui-rollout-contract.mjs",
         "storybook": "storybook dev -p 6006 --no-open",
         "build-storybook": "storybook build",
         "test:e2e": "playwright test tests/e2e/core-flows.spec.js tests/e2e/content-parity.spec.js tests/e2e/responsive.spec.js tests/e2e/feature-flags.spec.js",

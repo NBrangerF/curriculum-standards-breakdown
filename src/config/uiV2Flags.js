@@ -1,4 +1,7 @@
+import { isInRollout, parseRolloutPercentage, rolloutBucket } from './uiV2Rollout.js'
+
 const STORAGE_PREFIX = 'kebiao:ui-v2:'
+const ROLLOUT_SUBJECT_KEY = `${STORAGE_PREFIX}rollout-subject`
 
 const ENV_DEFAULTS = {
     home: import.meta.env.VITE_UI_V2_HOME,
@@ -17,12 +20,45 @@ const ENV_DEFAULTS = {
 
 const FALSE_VALUES = new Set(['0', 'false', 'off', 'legacy'])
 const TRUE_VALUES = new Set(['1', 'true', 'on', 'v2'])
+let ephemeralRolloutSubject
 
 function parseBoolean(value) {
     const normalized = String(value ?? '').trim().toLowerCase()
     if (FALSE_VALUES.has(normalized)) return false
     if (TRUE_VALUES.has(normalized)) return true
     return undefined
+}
+
+function createRolloutSubject() {
+    return globalThis.crypto?.randomUUID?.() || `anonymous-${Date.now()}-${Math.random().toString(36).slice(2)}`
+}
+
+function getRolloutSubject() {
+    try {
+        const existing = window.localStorage.getItem(ROLLOUT_SUBJECT_KEY)
+        if (existing) return existing
+        const created = createRolloutSubject()
+        window.localStorage.setItem(ROLLOUT_SUBJECT_KEY, created)
+        return created
+    } catch {
+        ephemeralRolloutSubject ||= createRolloutSubject()
+        return ephemeralRolloutSubject
+    }
+}
+
+function resolveEnvironmentSetting(value) {
+    const boolean = parseBoolean(value)
+    if (boolean !== undefined) return { enabled: boolean, source: 'environment' }
+
+    const percentage = parseRolloutPercentage(value)
+    if (percentage === undefined) return undefined
+    const subject = getRolloutSubject()
+    return {
+        enabled: isInRollout(subject, percentage),
+        source: 'environment-rollout',
+        rolloutPercentage: percentage,
+        rolloutBucket: rolloutBucket(subject)
+    }
 }
 
 export function resolveUiV2Flag(routeKey, search = '') {
@@ -37,9 +73,16 @@ export function resolveUiV2Flag(routeKey, search = '') {
         // Storage can be unavailable in privacy-restricted contexts.
     }
 
-    const environmentOverride = parseBoolean(ENV_DEFAULTS[routeKey])
-    if (environmentOverride !== undefined) return { enabled: environmentOverride, source: 'environment' }
-    return { enabled: true, source: 'default' }
+    const routeEnvironment = resolveEnvironmentSetting(ENV_DEFAULTS[routeKey])
+    if (routeEnvironment) return routeEnvironment
+
+    const globalEnvironment = resolveEnvironmentSetting(import.meta.env.VITE_UI_V2_DEFAULT)
+    if (globalEnvironment) return globalEnvironment
+
+    return {
+        enabled: import.meta.env.DEV,
+        source: import.meta.env.DEV ? 'development-default' : 'production-default'
+    }
 }
 
 export function persistUiV2Flag(routeKey, enabled) {

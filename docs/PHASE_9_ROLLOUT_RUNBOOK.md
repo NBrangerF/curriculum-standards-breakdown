@@ -6,6 +6,8 @@
 
 逐路由、可回滚、先内部再小流量。视觉升级不得改变正式内容、公开 URL 或图谱 provenance。旧 UI 至少保留两个稳定发布周期。
 
+生产构建 fail-closed：缺少 V2 环境配置时，所有增强默认关闭；开发环境默认开启。Preview 设置 `VITE_UI_V2_DEFAULT=true` 用于全量内部验收。Production 使用各路由 `VITE_UI_V2_*` 值控制，可取 `false`、`true` 或 `0`–`100` 的百分比；百分比分桶基于只保存在浏览器本地的匿名稳定 ID，不采集身份信息。同一使用者随百分比扩大保持在原有 cohort。
+
 ## 发布顺序
 
 1. 内部：`home`、`collections`、`glossary`、`feedback`、`print`、`styleguide`。
@@ -19,6 +21,7 @@
 发布前：
 
 - `npm run test:e2e`
+- `npm run validate:rollout-contract`
 - `npm run test:a11y`
 - `npm run test:visual`
 - `npm run validate:ui-baseline`
