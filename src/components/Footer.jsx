@@ -58,6 +58,7 @@ function Footer() {
                             <li><Link to="/skills">按可迁移能力浏览</Link></li>
                             <li><Link to="/search">对比筛选</Link></li>
                             <li><Link to="/collections">我的清单</Link></li>
+                            <li><Link to="/api">开发者 API</Link></li>
                         </ul>
                     </div>
 
@@ -78,6 +79,7 @@ function Footer() {
                         <ul className={styles.links}>
                             <li><Link to="/feedback">反馈与纠错</Link></li>
                             <li><Link to="/feedback">提交建议</Link></li>
+                            <li><Link to="/contact">联系我们</Link></li>
                         </ul>
                     </div>
                 </div>

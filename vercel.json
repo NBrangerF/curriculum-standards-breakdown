@@ -15,6 +15,10 @@
             "destination": "/api/v1/[...path]"
         },
         {
+            "source": "/api",
+            "destination": "/index.html"
+        },
+        {
             "source": "/((?!api|data|assets|.*\\..*).*)",
             "destination": "/index.html"
         }

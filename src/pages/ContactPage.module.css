@@ -1,0 +1,97 @@
+.page {
+    --contact-line: rgba(15, 22, 35, 0.12);
+    min-height: 100%;
+    background: #f8f9fb;
+    color: #101725;
+}
+
+.hero {
+    padding: clamp(4.5rem, 9vw, 9rem) 0 clamp(4rem, 8vw, 7rem);
+    border-bottom: 1px solid var(--contact-line);
+    background:
+        linear-gradient(rgba(61, 90, 254, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(61, 90, 254, 0.055) 1px, transparent 1px),
+        #fafbff;
+    background-size: 4.5rem 4.5rem;
+}
+
+.heroLayout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr); gap: clamp(3rem, 9vw, 9rem); align-items: end; }
+.eyebrow,
+.contactIntro > span,
+.wechatCopy > span,
+.scopeHeader > span { color: var(--color-primary); font: 650 0.68rem/1.2 var(--font-mono); letter-spacing: 0.14em; }
+.hero h1 { max-width: 10ch; margin: 1.2rem 0 0; color: inherit; font-size: clamp(3.4rem, 7vw, 7rem); font-weight: 670; letter-spacing: -0.08em; line-height: 0.94; animation: contact-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hero p { max-width: 34rem; margin: 0 0 0.35rem; color: #566274; font-size: clamp(1rem, 1.45vw, 1.18rem); line-height: 1.82; animation: contact-rise 700ms 100ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+.contactSection { padding: clamp(4.5rem, 8vw, 8rem) 0; background: #fff; }
+.contactLayout { display: grid; grid-template-columns: minmax(14rem, 0.32fr) minmax(0, 0.68fr); gap: clamp(3rem, 8vw, 8rem); align-items: start; }
+.contactIntro { position: sticky; top: 7rem; }
+.contactIntro h2,
+.wechatCopy h2,
+.scopeHeader h2 { margin: 0.9rem 0 0; color: inherit; font-size: clamp(2rem, 4vw, 3.7rem); letter-spacing: -0.06em; line-height: 1; }
+.contactIntro p { max-width: 27rem; margin: 1.2rem 0 0; color: #5b6676; font-size: 0.86rem; line-height: 1.75; }
+.contactList { border-top: 1px solid var(--contact-line); }
+.contactRow { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) auto; gap: clamp(1.2rem, 4vw, 3rem); align-items: center; min-height: 9rem; padding: 1.6rem 0; border-bottom: 1px solid var(--contact-line); color: inherit; text-decoration: none; transition: background-color var(--transition-normal), padding var(--transition-normal); }
+.contactRow:hover { padding-right: 1rem; padding-left: 1rem; background: rgba(61, 90, 254, 0.035); color: inherit; }
+.contactLabel { color: #7b8595; font: 580 0.66rem/1.2 var(--font-mono); text-transform: uppercase; }
+.contactRow h3 { margin: 0; color: inherit; font-size: clamp(1.1rem, 2vw, 1.5rem); letter-spacing: -0.035em; }
+.contactRow p { max-width: 39rem; margin: 0.55rem 0 0; color: #606b7c; font-size: 0.8rem; line-height: 1.62; }
+.contactAction { display: inline-flex; min-height: 44px; align-items: center; gap: 0.45rem; color: var(--color-primary-dark); font-size: 0.76rem; font-weight: 650; white-space: nowrap; }
+.contactAction svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; transition: transform var(--transition-fast); }
+.contactRow:hover .contactAction svg { transform: translate(0.16rem, -0.16rem); }
+
+.wechatSection { position: relative; overflow: hidden; padding: clamp(4.5rem, 8vw, 8rem) 0; background: #111722; color: #f5f7fb; }
+.wechatSection::before { content: ''; position: absolute; inset: 0; opacity: 0.22; background-image: linear-gradient(rgba(141, 156, 255, 0.13) 1px, transparent 1px), linear-gradient(90deg, rgba(141, 156, 255, 0.13) 1px, transparent 1px); background-size: 4.5rem 4.5rem; mask-image: linear-gradient(to right, black, transparent 72%); }
+.wechatLayout { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.65fr); gap: clamp(3rem, 9vw, 9rem); align-items: center; }
+.wechatCopy h2 { color: inherit; }
+.wechatCopy p { max-width: 38rem; margin: 1.35rem 0 0; color: #aab4c3; line-height: 1.78; }
+.wechatCopy small { display: block; margin-top: 2rem; color: #7f8b9e; font: 550 0.65rem/1.2 var(--font-mono); letter-spacing: 0.08em; }
+.qrFigure { justify-self: center; margin: 0; text-align: center; }
+.qrFrame { position: relative; width: clamp(15rem, 27vw, 20rem); padding: 1.1rem; border: 1px solid #3a4557; background: #fff; box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.25); }
+.qrFrame img { display: block; width: 100%; height: auto; }
+.scanLine { position: absolute; right: 1.1rem; left: 1.1rem; top: 50%; height: 1px; background: rgba(61, 90, 254, 0.55); box-shadow: 0 0 0.8rem rgba(61, 90, 254, 0.5); opacity: 0; transition: opacity var(--transition-normal); }
+.qrFrame:hover .scanLine { opacity: 1; }
+.qrFigure figcaption { margin-top: 1rem; color: #8f9bad; font: 550 0.64rem/1.2 var(--font-mono); letter-spacing: 0.08em; }
+
+.scopeSection { padding: clamp(4.5rem, 8vw, 7rem) 0; background: #f4f6f9; }
+.scopeHeader { display: grid; grid-template-columns: minmax(10rem, 0.3fr) minmax(0, 0.7fr); gap: clamp(2rem, 8vw, 8rem); align-items: start; margin-bottom: 3rem; }
+.scopeHeader h2 { margin: 0; }
+.scopeList { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--contact-line); }
+.scopeList > div { display: grid; align-content: start; min-height: 12rem; padding: 1.5rem clamp(1rem, 2.5vw, 2rem); border-right: 1px solid var(--contact-line); border-bottom: 1px solid var(--contact-line); }
+.scopeList > div:first-child { padding-left: 0; }
+.scopeList > div:last-child { border-right: 0; }
+.scopeList span { color: #7c8797; font: 550 0.66rem/1 var(--font-mono); }
+.scopeList strong { margin-top: 1.5rem; font-size: 1rem; }
+.scopeList p { margin: 0.7rem 0 0; color: #5c6879; font-size: 0.8rem; line-height: 1.68; }
+
+@keyframes contact-rise {
+    from { opacity: 0; transform: translateY(1.2rem); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+    .heroLayout,
+    .contactLayout,
+    .wechatLayout { grid-template-columns: 1fr; }
+    .contactIntro { position: static; }
+    .qrFigure { justify-self: start; }
+    .scopeHeader { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+@media (max-width: 680px) {
+    .hero { padding-top: 4rem; }
+    .hero h1 { font-size: clamp(3.15rem, 16vw, 5rem); }
+    .contactRow { grid-template-columns: 1fr auto; gap: 0.8rem 1rem; min-height: 0; }
+    .contactLabel { grid-column: 1 / -1; }
+    .contactAction { grid-column: 2; grid-row: 2; }
+    .contactRow p { grid-column: 1 / -1; }
+    .scopeList { grid-template-columns: 1fr; }
+    .scopeList > div,
+    .scopeList > div:first-child { min-height: 0; padding: 1.5rem 0; border-right: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero h1,
+    .hero p { animation: none; }
+    .scanLine { display: none; }
+}

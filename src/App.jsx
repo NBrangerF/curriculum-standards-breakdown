@@ -18,6 +18,8 @@ import './App.css'
 const CollectionsPage = lazy(() => import('./pages/CollectionsPage'))
 const GlossaryPage = lazy(() => import('./pages/GlossaryPage'))
 const FeedbackPage = lazy(() => import('./pages/FeedbackPage'))
+const ApiPage = lazy(() => import('./pages/ApiPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
 const CollectionDetailPage = lazy(() => import('./pages/CollectionDetailPage'))
 const PrintPage = lazy(() => import('./pages/PrintPage'))
 const StyleGuidePage = lazy(() => import('./pages/StyleGuidePage'))
@@ -52,6 +54,8 @@ function App() {
                     <Route path="/print" element={route('print', lazyPage(<PrintPage />, '正在准备打印预览'))} />
                     <Route path="/styleguide" element={route('styleguide', lazyPage(<StyleGuidePage />, '正在打开设计系统'))} />
                     <Route path="/feedback" element={route('feedback', lazyPage(<FeedbackPage />, '正在打开反馈表单'))} />
+                    <Route path="/api" element={route('api', lazyPage(<ApiPage />, '正在打开 API 页面'))} />
+                    <Route path="/contact" element={route('contact', lazyPage(<ContactPage />, '正在打开联系页面'))} />
                 </Routes>
             </main>
             <Footer />

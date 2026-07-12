@@ -397,6 +397,42 @@ function HomePage() {
                 />
             ) : null}
 
+            {/* Developer API */}
+            <section className={styles['api-section']} aria-labelledby="home-api-title">
+                <div className={`container ${styles['api-layout']}`}>
+                    <div className={styles['api-copy']}>
+                        <span className={styles['api-eyebrow']}>KEBIAO API · V1</span>
+                        <h2 id="home-api-title">课程标准，也可以成为你的产品能力</h2>
+                        <p>通过 API 检索 {standardCount.toLocaleString('zh-CN')} 条结构化标准、读取进阶关系，并将教学计划匹配到真实课程要求。</p>
+                        <div className={styles['api-actions']}>
+                            <Link to="/api" className="btn btn-primary btn-lg">
+                                查看 API
+                                <svg className={styles['inline-arrow']} viewBox="0 0 20 20" aria-hidden="true">
+                                    <path d="M4 10h11M11 5l5 5-5 5" />
+                                </svg>
+                            </Link>
+                            <a href="/api/v1/docs" className={styles['api-docs-link']}>完整接口文档</a>
+                        </div>
+                    </div>
+                    <div className={styles['api-console']} aria-label="API 能力示例">
+                        <div className={styles['api-console-header']}>
+                            <span>api.kebiao / v1</span>
+                            <i aria-hidden="true"></i>
+                        </div>
+                        <div className={styles['api-endpoints']}>
+                            <code><b>POST</b><span>/standards/search</span><small>检索标准</small></code>
+                            <code><b>GET</b><span>/standards/&#123;code&#125;/progression</span><small>读取进阶</small></code>
+                            <code><b>POST</b><span>/matching/plan-to-standards</span><small>匹配计划</small></code>
+                        </div>
+                        <div className={styles['api-console-meta']}>
+                            <span>{subjects.length} subjects</span>
+                            <span>{standardCount.toLocaleString('en-US')} standards</span>
+                            <span>OpenAPI 3.1</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Skills Section */}
             <section className={styles['skills-section']}>
                 <div className="container">

@@ -15,7 +15,9 @@ const ENV_DEFAULTS = {
     collectionDetail: import.meta.env.VITE_UI_V2_COLLECTION_DETAIL,
     print: import.meta.env.VITE_UI_V2_PRINT,
     styleguide: import.meta.env.VITE_UI_V2_STYLEGUIDE,
-    feedback: import.meta.env.VITE_UI_V2_FEEDBACK
+    feedback: import.meta.env.VITE_UI_V2_FEEDBACK,
+    api: import.meta.env.VITE_UI_V2_API,
+    contact: import.meta.env.VITE_UI_V2_CONTACT
 }
 
 const FALSE_VALUES = new Set(['0', 'false', 'off', 'legacy'])
