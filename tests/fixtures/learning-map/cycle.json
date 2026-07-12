@@ -1,0 +1,19 @@
+{
+  "knowledgePoints": [
+    { "id": "kp:a", "type": "knowledge_point", "label": "A", "subjectSlug": "math", "standardCodes": ["MA-A"], "dependencyCoverage": { "incoming": "reviewed", "outgoing": "reviewed" }, "reviewStatus": "approved" },
+    { "id": "kp:b", "type": "knowledge_point", "label": "B", "subjectSlug": "math", "standardCodes": ["MA-B"], "dependencyCoverage": { "incoming": "reviewed", "outgoing": "reviewed" }, "reviewStatus": "approved" },
+    { "id": "kp:c", "type": "knowledge_point", "label": "C", "subjectSlug": "math", "standardCodes": ["MA-C"], "dependencyCoverage": { "incoming": "reviewed", "outgoing": "reviewed" }, "reviewStatus": "approved" }
+  ],
+  "taxonomyNodes": [],
+  "prerequisites": [
+    { "id": "pre:a:b", "source": "kp:a", "target": "kp:b", "type": "prerequisite", "directed": true, "necessity": "required", "rationale": "A before B", "evidenceRefs": ["ev:a-b"], "confidence": "high", "reviewStatus": "approved", "reviewedByRole": "fixture", "reviewedAt": "2026-07-12", "version": "fixture" },
+    { "id": "pre:b:c", "source": "kp:b", "target": "kp:c", "type": "prerequisite", "directed": true, "necessity": "required", "rationale": "B before C", "evidenceRefs": ["ev:b-c"], "confidence": "high", "reviewStatus": "approved", "reviewedByRole": "fixture", "reviewedAt": "2026-07-12", "version": "fixture" },
+    { "id": "pre:c:a", "source": "kp:c", "target": "kp:a", "type": "prerequisite", "directed": true, "necessity": "required", "rationale": "C before A", "evidenceRefs": ["ev:c-a"], "confidence": "high", "reviewStatus": "approved", "reviewedByRole": "fixture", "reviewedAt": "2026-07-12", "version": "fixture" }
+  ],
+  "taxonomyEdges": [],
+  "evidence": [
+    { "id": "ev:a-b", "sourceType": "fixture", "sourceId": "fixture:cycle", "locator": "a-b", "statement": "A before B" },
+    { "id": "ev:b-c", "sourceType": "fixture", "sourceId": "fixture:cycle", "locator": "b-c", "statement": "B before C" },
+    { "id": "ev:c-a", "sourceType": "fixture", "sourceId": "fixture:cycle", "locator": "c-a", "statement": "C before A" }
+  ]
+}

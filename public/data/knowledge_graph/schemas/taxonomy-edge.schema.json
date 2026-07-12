@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "taxonomy-edge.schema.json",
+  "type": "object",
+  "required": ["id", "source", "target", "type", "taxonomyId", "directed", "order", "reviewStatus"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^tax:" },
+    "source": { "type": "string", "pattern": "^(topic|kp):" },
+    "target": { "type": "string", "pattern": "^(topic|kp):" },
+    "type": { "const": "taxonomy_parent" },
+    "taxonomyId": { "type": "string", "minLength": 1 },
+    "directed": { "const": true },
+    "order": { "type": "number" },
+    "reviewStatus": { "enum": ["candidate", "approved", "disputed", "retired"] }
+  }
+}

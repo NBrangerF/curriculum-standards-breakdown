@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "taxonomy-node.schema.json",
+  "type": "object",
+  "required": ["id", "type", "label", "taxonomyId", "subjectSlug", "order", "reviewStatus"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^topic:" },
+    "type": { "const": "taxonomy_node" },
+    "label": { "type": "string", "minLength": 1 },
+    "taxonomyId": { "type": "string", "minLength": 1 },
+    "subjectSlug": { "type": "string", "minLength": 1 },
+    "order": { "type": "number" },
+    "reviewStatus": { "enum": ["candidate", "approved", "disputed", "retired"] }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evidence.schema.json",
+  "type": "object",
+  "required": ["id", "sourceType", "sourceId", "locator", "statement"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^ev:" },
+    "sourceType": { "type": "string", "minLength": 1 },
+    "sourceId": { "type": "string", "minLength": 1 },
+    "locator": { "type": "string", "minLength": 1 },
+    "statement": { "type": "string", "minLength": 1 }
+  }
+}
