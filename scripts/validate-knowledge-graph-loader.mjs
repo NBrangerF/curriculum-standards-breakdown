@@ -44,6 +44,35 @@ payloadByURL.get('/learning-map-fixture/manifest.json').relationshipSemantics = 
 const preview = await loadKnowledgeGraph({ manifestUrl: '/learning-map-fixture/manifest.json' })
 assert.equal(preview.dataset.publicationStatus, 'public_preview')
 assert.equal(preview.dataset.knowledgePoints[0].reviewStatus, 'candidate')
+
+const subjectPayloadByURL = new Map([
+    ['/global-preview/manifest.json', {
+        publicationStatus: 'public_preview',
+        relationshipSemantics: 'curriculum_progression_candidate_not_verified_prerequisite',
+        subjects: [{
+            subject: '语文',
+            subjectSlug: 'chinese',
+            files: {
+                knowledgePoints: 'nodes_by_subject/chinese.json',
+                taxonomy: 'taxonomy_by_subject/chinese.json',
+                prerequisites: 'prerequisite_edges_by_subject/chinese.json',
+                evidence: 'evidence_by_subject/chinese.json'
+            }
+        }]
+    }],
+    ['/global-preview/nodes_by_subject/chinese.json', { knowledgePoints: [{ id: 'kp:chinese:ch-a', standardCodes: ['CH-A'], reviewStatus: 'candidate' }] }],
+    ['/global-preview/taxonomy_by_subject/chinese.json', { taxonomyNodes: [], taxonomyEdges: [] }],
+    ['/global-preview/prerequisite_edges_by_subject/chinese.json', { prerequisites: [] }],
+    ['/global-preview/evidence_by_subject/chinese.json', { evidence: [] }]
+])
+globalThis.fetch = async url => ({ ok: subjectPayloadByURL.has(url), status: subjectPayloadByURL.has(url) ? 200 : 404, statusText: subjectPayloadByURL.has(url) ? 'OK' : 'Not Found', json: async () => subjectPayloadByURL.get(url) })
+const chinesePreview = await loadKnowledgeGraph({ manifestUrl: '/global-preview/manifest.json', subjectSlug: 'chinese' })
+assert.equal(chinesePreview.dataset.knowledgePoints[0].id, 'kp:chinese:ch-a')
+assert.equal(chinesePreview.subject.subjectSlug, 'chinese')
+await assert.rejects(
+    () => loadKnowledgeGraph({ manifestUrl: '/global-preview/manifest.json', subjectSlug: 'science' }),
+    /has no subject: science/
+)
 globalThis.fetch = originalFetch
 
 console.log('Knowledge graph loader URL contract passed')
