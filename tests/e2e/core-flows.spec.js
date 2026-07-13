@@ -384,10 +384,9 @@ test('search filter conditions support batch clear, undo and reset feedback', as
 
     await expect(page.getByRole('button', { name: '移除筛选条件 数学' })).toBeVisible()
     await expect(page.getByRole('button', { name: '移除筛选条件 第二学段' })).toBeVisible()
-    const controlHeights = await page.locator('[data-kb-component="search-filter-selection-toolbar"] button').evaluateAll(
-        controls => controls.map(control => control.getBoundingClientRect().height)
-    )
-    expect(controlHeights.every(height => height >= 44)).toBe(true)
+    await expect.poll(async () => page.locator('[data-kb-component="search-filter-selection-toolbar"] button').evaluateAll(
+        controls => controls.every(control => control.getBoundingClientRect().height >= 44)
+    )).toBe(true)
     await page.getByRole('button', { name: '批量清除' }).click()
     await expect(page.getByText('尚未选择条件')).toBeVisible()
     await expect(page.getByRole('button', { name: '应用筛选' })).toBeDisabled()

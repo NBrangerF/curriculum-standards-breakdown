@@ -1,6 +1,7 @@
 export * from './constants.js'
 export * from './fieldsets.js'
 export * from './graph.js'
+export * from './knowledge-graph.js'
 export * from './meilisearch.js'
 export * from './normalize.js'
 export * from './planning.js'

@@ -16,6 +16,152 @@ export interface StandardRecord extends JsonObject {
     ts_secondary?: unknown
 }
 
+export type DependencyCoverageStatus = 'reviewed' | 'not_reviewed'
+export type KnowledgeReviewStatus = 'candidate' | 'approved' | 'disputed' | 'retired'
+export type PrerequisiteNecessity = 'required' | 'recommended'
+export type RelationshipConfidence = 'high' | 'medium' | 'low'
+
+export interface DependencyCoverage extends JsonObject {
+    incoming: DependencyCoverageStatus
+    outgoing: DependencyCoverageStatus
+}
+
+export interface KnowledgePoint extends JsonObject {
+    id: string
+    type: 'knowledge_point'
+    label: string
+    aliases?: string[]
+    summary?: string
+    subjectSlug: string
+    domain?: string
+    gradeBands?: string[]
+    standardCodes: string[]
+    masteryEvidence?: JsonObject[]
+    dependencyCoverage: DependencyCoverage
+    reviewStatus: KnowledgeReviewStatus
+    provenance?: JsonObject
+}
+
+export interface TaxonomyNode extends JsonObject {
+    id: string
+    type: 'taxonomy_node'
+    label: string
+    taxonomyId: string
+    subjectSlug: string
+    order: number
+    reviewStatus: KnowledgeReviewStatus
+}
+
+export interface PrerequisiteEdge extends JsonObject {
+    id: string
+    source: string
+    target: string
+    type: 'prerequisite'
+    directed: true
+    necessity: PrerequisiteNecessity
+    rationale: string
+    evidenceRefs: string[]
+    confidence: RelationshipConfidence
+    reviewStatus: KnowledgeReviewStatus
+    reviewedByRole: string
+    reviewedAt: string
+    version: string
+}
+
+export interface TaxonomyEdge extends JsonObject {
+    id: string
+    source: string
+    target: string
+    type: 'taxonomy_parent'
+    taxonomyId: string
+    directed: true
+    order: number
+    reviewStatus: KnowledgeReviewStatus
+}
+
+export interface LearningEvidence extends JsonObject {
+    id: string
+    sourceType: string
+    sourceId: string
+    locator: string
+    statement: string
+    license?: string
+}
+
+export interface KnowledgeGraphDataset extends JsonObject {
+    knowledgePoints: KnowledgePoint[]
+    taxonomyNodes: TaxonomyNode[]
+    prerequisites: PrerequisiteEdge[]
+    taxonomyEdges: TaxonomyEdge[]
+    evidence: LearningEvidence[]
+}
+
+export interface KnowledgeGraphIndex {
+    knowledgePointsById: Map<string, KnowledgePoint>
+    taxonomyNodesById: Map<string, TaxonomyNode>
+    evidenceById: Map<string, LearningEvidence>
+    prerequisitesById: Map<string, PrerequisiteEdge>
+    taxonomyEdgesById: Map<string, TaxonomyEdge>
+    incomingPrerequisitesByPoint: Map<string, PrerequisiteEdge[]>
+    outgoingPrerequisitesByPoint: Map<string, PrerequisiteEdge[]>
+    taxonomyParentsByNode: Map<string, TaxonomyEdge[]>
+    taxonomyChildrenByNode: Map<string, TaxonomyEdge[]>
+}
+
+export interface LearningContextOptions {
+    prerequisiteDepth?: number
+    unlockDepth?: number
+    contextPath?: string[]
+    necessity?: PrerequisiteNecessity[]
+    maxVisibleNodes?: number
+}
+
+export interface LearningDirectionContext extends JsonObject {
+    required: KnowledgePoint[]
+    recommended: KnowledgePoint[]
+    total: number
+    hidden: number
+}
+
+export interface LearningTaxonomyContext extends JsonObject {
+    activePath: Array<KnowledgePoint | TaxonomyNode>
+    alternativePaths: Array<Array<KnowledgePoint | TaxonomyNode>>
+    siblings: Array<KnowledgePoint | TaxonomyNode>
+    children: Array<KnowledgePoint | TaxonomyNode>
+}
+
+export interface LearningContext extends JsonObject {
+    focus: KnowledgePoint
+    prerequisites: LearningDirectionContext
+    unlocks: LearningDirectionContext
+    taxonomy: LearningTaxonomyContext
+    coverage: DependencyCoverage
+    warnings: string[]
+}
+
+export interface RelationshipInspectorSelection extends JsonObject {
+    kind: 'relationship'
+    edge: PrerequisiteEdge
+    source: KnowledgePoint
+    target: KnowledgePoint
+    evidence: LearningEvidence[]
+}
+
+export interface KnowledgePointInspectorSelection extends JsonObject {
+    kind: 'knowledge_point'
+    point: KnowledgePoint
+}
+
+export type LearningInspectorSelection = RelationshipInspectorSelection | KnowledgePointInspectorSelection
+
+export interface TopologicalLayers extends JsonObject {
+    prerequisiteLayers: KnowledgePoint[][]
+    unlockLayers: KnowledgePoint[][]
+    edges: PrerequisiteEdge[]
+    hiddenNodeCount: number
+    visibleNodeCount: number
+}
+
 export interface ManifestSubject {
     subject: string
     subject_slug: string

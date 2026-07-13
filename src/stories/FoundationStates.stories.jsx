@@ -6,6 +6,11 @@ import TSBadge, { TSBadgeGroup } from '../components/TSBadge.jsx'
 import { EmptyState, ErrorState, LoadingState, ResultStats } from '../components/StateComponents.jsx'
 import GraphLayerPanel from '../features/graph/GraphLayerPanel.jsx'
 import '../features/graph/SkillsGraphWorkspace.module.css'
+import LearningMapWorkspace from '../features/learning-map/LearningMapWorkspace.jsx'
+import diamond from '../../tests/fixtures/learning-map/diamond.json'
+import multiParent from '../../tests/fixtures/learning-map/multi-parent.json'
+import emptyReviewed from '../../tests/fixtures/learning-map/empty-reviewed.json'
+import emptyUnreviewed from '../../tests/fixtures/learning-map/empty-unreviewed.json'
 
 const meta = {
     title: 'Foundation/Production state matrix',
@@ -99,6 +104,24 @@ export const GraphLayerControls = {
                             setRelationTypes(['contains', 'progression', 'skill_alignment'])
                         }}
                     />
+                </div>
+            </StoryFrame>
+        )
+    }
+}
+
+export const LearningMapStates = {
+    render: function LearningMapStory() {
+        const [selection, setSelection] = useState('kp:d')
+        return (
+            <StoryFrame title="learning map / loading / error / reviewed / unreviewed / diamond / multi-parent">
+                <div style={{ display: 'grid', gap: 28 }}>
+                    <LearningMapWorkspace status="loading" />
+                    <LearningMapWorkspace status="error" error={new Error('fixture error')} onRetry={() => undefined} />
+                    <LearningMapWorkspace dataset={emptyReviewed} selectedNodeId="kp:root" />
+                    <LearningMapWorkspace dataset={emptyUnreviewed} selectedNodeId="kp:unknown" />
+                    <LearningMapWorkspace dataset={diamond} selectedNodeId={selection} onSelectionChange={snapshot => setSelection(snapshot.selectedNodeId)} />
+                    <LearningMapWorkspace dataset={multiParent} selectedNodeId="kp:shared" />
                 </div>
             </StoryFrame>
         )

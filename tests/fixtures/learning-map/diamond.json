@@ -1,0 +1,29 @@
+{
+  "knowledgePoints": [
+    { "id": "kp:a", "type": "knowledge_point", "label": "A", "subjectSlug": "math", "standardCodes": ["MA-A"], "dependencyCoverage": { "incoming": "reviewed", "outgoing": "reviewed" }, "reviewStatus": "approved" },
+    { "id": "kp:b", "type": "knowledge_point", "label": "B", "subjectSlug": "math", "standardCodes": ["MA-B"], "dependencyCoverage": { "incoming": "reviewed", "outgoing": "reviewed" }, "reviewStatus": "approved" },
+    { "id": "kp:c", "type": "knowledge_point", "label": "C", "subjectSlug": "math", "standardCodes": ["MA-C"], "dependencyCoverage": { "incoming": "reviewed", "outgoing": "reviewed" }, "reviewStatus": "approved" },
+    { "id": "kp:d", "type": "knowledge_point", "label": "D", "subjectSlug": "math", "standardCodes": ["MA-D"], "dependencyCoverage": { "incoming": "reviewed", "outgoing": "reviewed" }, "reviewStatus": "approved" }
+  ],
+  "taxonomyNodes": [
+    { "id": "topic:math", "type": "taxonomy_node", "label": "数学", "taxonomyId": "fixture", "subjectSlug": "math", "order": 1, "reviewStatus": "approved" }
+  ],
+  "prerequisites": [
+    { "id": "pre:a:b", "source": "kp:a", "target": "kp:b", "type": "prerequisite", "directed": true, "necessity": "required", "rationale": "A before B", "evidenceRefs": ["ev:a-b"], "confidence": "high", "reviewStatus": "approved", "reviewedByRole": "fixture", "reviewedAt": "2026-07-12", "version": "fixture" },
+    { "id": "pre:a:c", "source": "kp:a", "target": "kp:c", "type": "prerequisite", "directed": true, "necessity": "required", "rationale": "A before C", "evidenceRefs": ["ev:a-c"], "confidence": "high", "reviewStatus": "approved", "reviewedByRole": "fixture", "reviewedAt": "2026-07-12", "version": "fixture" },
+    { "id": "pre:b:d", "source": "kp:b", "target": "kp:d", "type": "prerequisite", "directed": true, "necessity": "required", "rationale": "B before D", "evidenceRefs": ["ev:b-d"], "confidence": "high", "reviewStatus": "approved", "reviewedByRole": "fixture", "reviewedAt": "2026-07-12", "version": "fixture" },
+    { "id": "pre:c:d", "source": "kp:c", "target": "kp:d", "type": "prerequisite", "directed": true, "necessity": "recommended", "rationale": "C helps with D", "evidenceRefs": ["ev:c-d"], "confidence": "medium", "reviewStatus": "approved", "reviewedByRole": "fixture", "reviewedAt": "2026-07-12", "version": "fixture" }
+  ],
+  "taxonomyEdges": [
+    { "id": "tax:math:a", "source": "topic:math", "target": "kp:a", "type": "taxonomy_parent", "taxonomyId": "fixture", "directed": true, "order": 1, "reviewStatus": "approved" },
+    { "id": "tax:math:b", "source": "topic:math", "target": "kp:b", "type": "taxonomy_parent", "taxonomyId": "fixture", "directed": true, "order": 2, "reviewStatus": "approved" },
+    { "id": "tax:math:c", "source": "topic:math", "target": "kp:c", "type": "taxonomy_parent", "taxonomyId": "fixture", "directed": true, "order": 3, "reviewStatus": "approved" },
+    { "id": "tax:math:d", "source": "topic:math", "target": "kp:d", "type": "taxonomy_parent", "taxonomyId": "fixture", "directed": true, "order": 4, "reviewStatus": "approved" }
+  ],
+  "evidence": [
+    { "id": "ev:a-b", "sourceType": "fixture", "sourceId": "fixture:diamond", "locator": "a-b", "statement": "A before B" },
+    { "id": "ev:a-c", "sourceType": "fixture", "sourceId": "fixture:diamond", "locator": "a-c", "statement": "A before C" },
+    { "id": "ev:b-d", "sourceType": "fixture", "sourceId": "fixture:diamond", "locator": "b-d", "statement": "B before D" },
+    { "id": "ev:c-d", "sourceType": "fixture", "sourceId": "fixture:diamond", "locator": "c-d", "statement": "C before D" }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "knowledge-point.schema.json",
+  "type": "object",
+  "required": ["id", "type", "label", "subjectSlug", "standardCodes", "dependencyCoverage", "reviewStatus"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^kp:" },
+    "type": { "const": "knowledge_point" },
+    "label": { "type": "string", "minLength": 1 },
+    "subjectSlug": { "type": "string", "minLength": 1 },
+    "standardCodes": { "type": "array", "items": { "type": "string" } },
+    "dependencyCoverage": {
+      "type": "object",
+      "required": ["incoming", "outgoing"],
+      "properties": {
+        "incoming": { "enum": ["reviewed", "not_reviewed"] },
+        "outgoing": { "enum": ["reviewed", "not_reviewed"] }
+      }
+    },
+    "reviewStatus": { "enum": ["candidate", "approved", "disputed", "retired"] }
+  }
+}

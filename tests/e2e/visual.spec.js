@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { installLearningMapFixtureRoutes } from './helpers/learningMapFixtureRoute.js'
 
 const waitForVisualStability = page => page.evaluate(async () => {
     await Promise.all(
@@ -7,6 +8,70 @@ const waitForVisualStability = page => page.evaluate(async () => {
             .map(animation => animation.finished.catch(() => undefined))
     )
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))
+})
+
+const learningMapRoute = ({ selectedNode = 'kp:d', contextPath } = {}) => {
+    const params = new URLSearchParams({ 'learning-map': '1', view: 'learning-map', selectedNode })
+    if (contextPath) params.set('contextPath', contextPath)
+    return `/standards/MA-D2-GE-003?${params}`
+}
+
+const openLearningMapFixture = async (page, fixtureName, selectedNode, contextPath) => {
+    await installLearningMapFixtureRoutes(page, {
+        fixture: fixtureName,
+        standardCode: 'MA-D2-GE-003',
+        selectedPointId: selectedNode
+    })
+    await page.goto(learningMapRoute({ selectedNode, contextPath }))
+    const semanticPath = page.getByRole('region', { name: '学习脉络的可访问关系列表' })
+    await expect(semanticPath).toBeVisible({ timeout: 20_000 })
+    await waitForVisualStability(page)
+    return semanticPath
+}
+
+test('learning map chain semantic visual baseline', async ({ page }) => {
+    const semanticPath = await openLearningMapFixture(page, 'chain', 'kp:b', 'topic:math,kp:b')
+    await expect(semanticPath).toHaveScreenshot('learning-map-chain-desktop.png', { animations: 'disabled', maxDiffPixels: 100 })
+})
+
+test('learning map diamond semantic visual baseline', async ({ page }) => {
+    const semanticPath = await openLearningMapFixture(page, 'diamond', 'kp:d', 'topic:math,kp:d')
+    await expect(semanticPath).toHaveScreenshot('learning-map-diamond-desktop.png', { animations: 'disabled', maxDiffPixels: 100 })
+})
+
+test('learning map multi-parent semantic visual baseline', async ({ page }) => {
+    const semanticPath = await openLearningMapFixture(page, 'multi-parent', 'kp:shared', 'topic:math:geometry,kp:shared')
+    await expect(semanticPath).toHaveScreenshot('learning-map-multi-parent-desktop.png', { animations: 'disabled', maxDiffPixels: 100 })
+})
+
+test('learning map reviewed empty semantic visual baseline', async ({ page }) => {
+    const semanticPath = await openLearningMapFixture(page, 'empty-reviewed', 'kp:root')
+    await expect(semanticPath).toHaveScreenshot('learning-map-empty-reviewed-desktop.png', { animations: 'disabled', maxDiffPixels: 100 })
+})
+
+test('learning map unreviewed empty semantic visual baseline', async ({ page }) => {
+    const semanticPath = await openLearningMapFixture(page, 'empty-unreviewed', 'kp:unknown')
+    await expect(semanticPath).toHaveScreenshot('learning-map-empty-unreviewed-desktop.png', { animations: 'disabled', maxDiffPixels: 100 })
+})
+
+test('learning map mobile semantic stack visual baseline', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 })
+    const semanticPath = await openLearningMapFixture(page, 'diamond', 'kp:d', 'topic:math,kp:d')
+    await expect(semanticPath).toHaveScreenshot('learning-map-mobile-stack.png', { animations: 'disabled', maxDiffPixels: 100 })
+})
+
+test('learning map inspector visual baseline', async ({ page }) => {
+    const semanticPath = await openLearningMapFixture(page, 'diamond', 'kp:d', 'topic:math,kp:d')
+    await semanticPath.getByRole('button', { name: '查看B与当前知识点的关系依据' }).click()
+    const inspector = page.getByRole('complementary', { name: '必要前置' })
+    const inspectorContent = inspector.locator(':scope > div')
+    await expect(inspector).toBeVisible()
+    await inspectorContent.evaluate(element => {
+        const top = element.getBoundingClientRect().top + window.scrollY
+        window.scrollTo({ top: Math.max(0, top - 96) })
+    })
+    await waitForVisualStability(page)
+    await expect(inspectorContent).toHaveScreenshot('learning-map-inspector-open-desktop.png', { animations: 'disabled', maxDiffPixels: 100 })
 })
 
 test('home first viewport visual baseline', async ({ page }) => {

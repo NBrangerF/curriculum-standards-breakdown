@@ -28,6 +28,25 @@ function writeJson(path, value) {
     writeFileSync(path, `${JSON.stringify(stable(value), null, 2)}\n`)
 }
 
+function snapshotDirectory(root, relativePath = '') {
+    const currentRoot = join(root, relativePath)
+    if (!existsSync(currentRoot)) return []
+    return readdirSync(currentRoot, { withFileTypes: true }).flatMap(entry => {
+        const entryPath = join(relativePath, entry.name)
+        return entry.isDirectory()
+            ? snapshotDirectory(root, entryPath)
+            : [{ path: entryPath, contents: readFileSync(join(root, entryPath)) }]
+    })
+}
+
+function restoreDirectory(root, snapshot) {
+    for (const file of snapshot) {
+        const destination = join(root, file.path)
+        mkdirSync(resolve(destination, '..'), { recursive: true })
+        writeFileSync(destination, file.contents)
+    }
+}
+
 function pickPublic(record) {
     return Object.fromEntries(PUBLIC_STANDARD_FIELDS.map(field => [field, record[field] ?? (field === 'ts_primary' || field === 'ts_secondary' ? [] : '')]))
 }
@@ -36,11 +55,13 @@ const args = parseArgs(process.argv.slice(2))
 const sourceRoot = resolve(args.source)
 const outputRoot = resolve(args.output)
 const sourceBySubject = join(sourceRoot, 'by_subject')
+const knowledgeGraphSnapshot = snapshotDirectory(join(outputRoot, 'knowledge_graph'))
 
 if (!existsSync(sourceBySubject)) throw new Error(`缺少内部数据目录：${sourceBySubject}`)
 rmSync(outputRoot, { recursive: true, force: true })
 mkdirSync(join(outputRoot, 'by_subject'), { recursive: true })
 mkdirSync(join(outputRoot, 'indexes'), { recursive: true })
+restoreDirectory(join(outputRoot, 'knowledge_graph'), knowledgeGraphSnapshot)
 
 const manifestSubjects = []
 const codeToSubject = {}

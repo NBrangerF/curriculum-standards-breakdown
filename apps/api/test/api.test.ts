@@ -8,6 +8,7 @@ import vercelHandler from '../../../api/v1/[...path].js'
 
 const dataRoot = resolve(process.cwd(), '../../data/internal')
 const app = createApp(new FileCurriculumRepository(dataRoot))
+const dataVersion = JSON.parse(await readFile(resolve(dataRoot, 'data_version.json'), 'utf8')).data_version
 
 async function json(response: Response) {
     return response.json() as Promise<Record<string, any>>
@@ -19,7 +20,7 @@ test('GET /api/v1/meta returns data summary', async () => {
     assert.ok(response.headers.get('x-ratelimit-limit'))
     const body = await json(response)
     assert.equal(body.data.standard_count, 2025)
-    assert.equal(body.meta.data_version, '2026.07.13-unified-progression-v1')
+    assert.equal(body.meta.data_version, dataVersion)
     assert.ok(body.meta.request_id)
 })
 
@@ -29,7 +30,7 @@ test('GET /api/v1/health returns service health', async () => {
     assert.equal(response.headers.get('x-content-type-options'), 'nosniff')
     const body = await json(response)
     assert.equal(body.data.status, 'ok')
-    assert.equal(body.data.data_version, '2026.07.13-unified-progression-v1')
+    assert.equal(body.data.data_version, dataVersion)
 })
 
 test('OPTIONS preflight returns CORS headers', async () => {

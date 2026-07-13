@@ -1,0 +1,15 @@
+{
+  "knowledgePoints": [
+    { "id": "kp:shared", "type": "knowledge_point", "label": "共享知识点", "subjectSlug": "math", "standardCodes": ["MA-SHARED"], "dependencyCoverage": { "incoming": "reviewed", "outgoing": "reviewed" }, "reviewStatus": "approved" }
+  ],
+  "taxonomyNodes": [
+    { "id": "topic:math:geometry", "type": "taxonomy_node", "label": "图形与几何", "taxonomyId": "fixture", "subjectSlug": "math", "order": 1, "reviewStatus": "approved" },
+    { "id": "topic:math:measurement", "type": "taxonomy_node", "label": "测量", "taxonomyId": "fixture", "subjectSlug": "math", "order": 2, "reviewStatus": "approved" }
+  ],
+  "prerequisites": [],
+  "taxonomyEdges": [
+    { "id": "tax:geometry:shared", "source": "topic:math:geometry", "target": "kp:shared", "type": "taxonomy_parent", "taxonomyId": "fixture", "directed": true, "order": 1, "reviewStatus": "approved" },
+    { "id": "tax:measurement:shared", "source": "topic:math:measurement", "target": "kp:shared", "type": "taxonomy_parent", "taxonomyId": "fixture", "directed": true, "order": 2, "reviewStatus": "approved" }
+  ],
+  "evidence": []
+}
