@@ -1,7 +1,7 @@
 import { CaretRightIcon } from '@phosphor-icons/react/dist/csr/CaretRight'
 import styles from './LearningMapWorkspace.module.css'
 
-export default function PersistentLocationBar({ context, onSwitchContext }) {
+export default function PersistentLocationBar({ context, contextSwitcher }) {
     const path = context.taxonomy.activePath || []
     const alternatives = context.taxonomy.alternativePaths || []
     return (
@@ -18,11 +18,7 @@ export default function PersistentLocationBar({ context, onSwitchContext }) {
                     </span>
                 ))}
             </nav>
-            {alternatives.length ? (
-                <button type="button" className={styles.contextButton} onClick={onSwitchContext}>
-                    切换位置 <span>{alternatives.length + 1}</span>
-                </button>
-            ) : null}
+            {alternatives.length ? <div className={styles.contextButton}>{contextSwitcher}</div> : null}
         </header>
     )
 }

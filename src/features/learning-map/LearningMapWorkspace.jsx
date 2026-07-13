@@ -4,6 +4,9 @@ import { ErrorState, LoadingState } from '../../components/StateComponents.jsx'
 import { LearningMapController } from './LearningMapController.js'
 import LearningMapFallbackList from './LearningMapFallbackList.jsx'
 import PersistentLocationBar from './PersistentLocationBar.jsx'
+import KnowledgePointSearch from './KnowledgePointSearch.jsx'
+import TaxonomyColumnNavigator from './TaxonomyColumnNavigator.jsx'
+import TaxonomyContextSwitcher from './TaxonomyContextSwitcher.jsx'
 import styles from './LearningMapWorkspace.module.css'
 
 const emptyState = (title, message) => (
@@ -33,13 +36,11 @@ export default function LearningMapWorkspace({ dataset, selectedNodeId, status =
     if (status === 'error') return <ErrorState title="学习脉络暂时无法加载" message={error?.message || '请检查数据版本后重试。'} onRetry={onRetry} />
     if (!snapshot) return emptyState('暂无可展示的学习脉络', '当前范围内还没有经审核的知识点。')
 
-    const selectNode = nodeId => {
-        if (controller.selectNode(nodeId)) onSelectionChange?.(controller.getSnapshot())
+    const selectNode = (nodeId, contextPath) => {
+        if (controller.selectNode(nodeId, { contextPath })) onSelectionChange?.(controller.getSnapshot())
     }
-    const switchContext = () => {
-        const alternative = snapshot.context.taxonomy.alternativePaths[0]
-        if (!alternative) return
-        controller.switchContextPath(alternative.map(item => item.id))
+    const switchContext = contextPath => {
+        if (!controller.switchContextPath(contextPath)) return
         onSelectionChange?.(controller.getSnapshot())
     }
 
@@ -52,19 +53,12 @@ export default function LearningMapWorkspace({ dataset, selectedNodeId, status =
             transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
         >
             <h1 id="learning-map-workspace-title" className="sr-only">学习脉络</h1>
-            <PersistentLocationBar context={snapshot.context} onSwitchContext={switchContext} />
+            <PersistentLocationBar context={snapshot.context} contextSwitcher={<TaxonomyContextSwitcher context={snapshot.context} onSelectPath={switchContext} />} />
             <div className={styles.workspaceGrid}>
                 <aside className={styles.taxonomyRail} aria-labelledby="learning-map-taxonomy-title">
-                    <div>
-                        <span>分类位置</span>
-                        <h2 id="learning-map-taxonomy-title">{snapshot.context.taxonomy.activePath.at(-2)?.label || '当前范围'}</h2>
-                    </div>
-                    <p>导航器会保留你的分类位置，并只在此范围内展开相邻知识点。</p>
-                    {snapshot.context.taxonomy.siblings.length ? (
-                        <ul>
-                            {snapshot.context.taxonomy.siblings.slice(0, 8).map(item => <li key={item.id}>{item.label}</li>)}
-                        </ul>
-                    ) : null}
+                    <h2 id="learning-map-taxonomy-title" className="sr-only">分类导航</h2>
+                    <KnowledgePointSearch controller={controller} onSelect={selectNode} />
+                    <TaxonomyColumnNavigator controller={controller} snapshot={snapshot} onSelect={selectNode} />
                 </aside>
                 <main className={styles.mapStage}>
                     <div className={styles.stageHeader}>

@@ -22,10 +22,21 @@ snapshot = controller.getSnapshot()
 assert.equal(snapshot.options.prerequisiteDepth, 2)
 assert.equal(snapshot.options.unlockDepth, 2)
 
+assert.deepEqual(controller.search('B').map(result => result.point.id), ['kp:b'])
+assert.deepEqual(controller.getTaxonomyColumns().map(column => column.items.map(item => item.id)), [['topic:math'], ['kp:a', 'kp:b', 'kp:c', 'kp:d']])
+
 assert.equal(controller.selectRelationship('pre:a:b'), true)
 snapshot = controller.getSnapshot()
 assert.equal(snapshot.selectedRelationship?.id, 'pre:a:b')
 assert.match(snapshot.announcement, /A/)
+
+const multiParentFixture = JSON.parse(await readFile(resolve('tests/fixtures/learning-map/multi-parent.json'), 'utf8'))
+const multiParentController = new LearningMapController({ dataset: multiParentFixture, selectedNodeId: 'kp:shared' })
+const initialMultiParent = multiParentController.getSnapshot()
+const alternatePath = initialMultiParent.context.taxonomy.alternativePaths[0].map(item => item.id)
+assert.equal(multiParentController.switchContextPath(alternatePath), true)
+assert.deepEqual(multiParentController.getSnapshot().context.taxonomy.activePath.map(item => item.id), alternatePath)
+assert.deepEqual(multiParentController.getTaxonomyColumns(alternatePath).map(column => column.items.map(item => item.id)), [['topic:math:geometry', 'topic:math:measurement'], ['kp:shared']])
 
 console.log(JSON.stringify({
     status: 'passed',

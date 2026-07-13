@@ -31,9 +31,7 @@
 .breadcrumb { display: flex; gap: 0.38rem; align-items: center; min-width: 0; color: var(--text-tertiary); font-size: 0.74rem; overflow-x: auto; }
 .breadcrumb span { display: inline-flex; gap: 0.38rem; align-items: center; white-space: nowrap; }
 .breadcrumb .currentCrumb { color: var(--kb-ink); font-weight: 650; }
-.contextButton { min-height: 2.35rem; padding: 0 0.7rem; border: 1px solid var(--border-default); border-radius: var(--radius-sm); background: #fff; color: var(--text-secondary); font: 600 0.7rem/1 var(--font-mono); }
-.contextButton:hover { border-color: var(--kb-accent); color: var(--kb-accent-hover); }
-.contextButton span { margin-left: 0.35rem; color: var(--kb-accent); }
+.contextButton { justify-self: end; }
 
 .workspaceGrid { display: grid; grid-template-columns: minmax(16.25rem, 0.8fr) minmax(32.5rem, 1.8fr) minmax(17.5rem, 0.9fr); min-height: 38rem; }
 .taxonomyRail, .inspector { padding: clamp(1.25rem, 2.5vw, 2rem); background: #fbfcfe; }

@@ -5,6 +5,14 @@ import {
 } from '../../graph/knowledge/knowledgeGraphBridge.js'
 
 const clampDepth = value => Math.max(1, Math.min(2, Number.isInteger(value) ? value : 1))
+const nodeFor = (index, id) => index.knowledgePointsById.get(id) || index.taxonomyNodesById.get(id)
+
+const descendantCount = (index, id, visited = new Set()) => {
+    if (visited.has(id)) return 0
+    const nextVisited = new Set(visited).add(id)
+    const children = index.taxonomyChildrenByNode.get(id) || []
+    return children.reduce((total, edge) => total + 1 + descendantCount(index, edge.target, nextVisited), 0)
+}
 
 export class LearningMapController {
     constructor({ dataset, selectedNodeId, options = {} }) {
@@ -42,6 +50,44 @@ export class LearningMapController {
             options: { ...this.options },
             announcement
         }
+    }
+
+    search(query, limit = 8) {
+        const normalized = String(query || '').trim().toLocaleLowerCase('zh-Hans-CN')
+        if (!normalized) return []
+        return [...this.index.knowledgePointsById.values()]
+            .filter(point => [point.label, ...point.standardCodes].some(value => value.toLocaleLowerCase('zh-Hans-CN').includes(normalized)))
+            .map(point => ({
+                point,
+                taxonomyPath: this.index.taxonomyParentsByNode.get(point.id) ? this.getTaxonomyPathFor(point.id) : [point],
+                relationshipCount: (this.index.incomingPrerequisitesByPoint.get(point.id) || []).length + (this.index.outgoingPrerequisitesByPoint.get(point.id) || []).length
+            }))
+            .sort((left, right) => left.point.label.localeCompare(right.point.label, 'zh-Hans-CN') || left.point.id.localeCompare(right.point.id))
+            .slice(0, Math.max(1, limit))
+    }
+
+    getTaxonomyPathFor(pointId) {
+        const context = getLearningContext(this.index, pointId)
+        return context.taxonomy.activePath
+    }
+
+    getTaxonomyColumns(contextPath = this.getSnapshot().context.taxonomy.activePath.map(item => item.id)) {
+        const roots = [...this.index.taxonomyNodesById.values()]
+            .filter(node => !(this.index.taxonomyParentsByNode.get(node.id) || []).length)
+            .sort((left, right) => left.order - right.order || left.label.localeCompare(right.label, 'zh-Hans-CN'))
+        const columns = [{ id: 'taxonomy-root', items: roots }]
+        for (let index = 0; index < contextPath.length; index += 1) {
+            const parentId = contextPath[index]
+            const children = (this.index.taxonomyChildrenByNode.get(parentId) || [])
+                .map(edge => nodeFor(this.index, edge.target))
+                .filter(Boolean)
+                .sort((left, right) => (left.order || 0) - (right.order || 0) || left.label.localeCompare(right.label, 'zh-Hans-CN'))
+            if (children.length) columns.push({ id: `taxonomy-${parentId}`, parentId, items: children })
+        }
+        return columns.map(column => ({
+            ...column,
+            items: column.items.map(item => ({ ...item, descendantCount: descendantCount(this.index, item.id) }))
+        }))
     }
 
     subscribe(listener) {
