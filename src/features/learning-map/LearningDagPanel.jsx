@@ -1,14 +1,27 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import styles from './LearningDagPanel.module.css'
 
 const SelectedDag = lazy(() => import('./learningDagRendererDecision.js').then(module => ({ default: module.SelectedLearningDag })))
 const MAX_NODES = 60
 const MAX_EDGES = 80
 
+function useDesktopDag() {
+    const [isDesktop, setIsDesktop] = useState(() => window.matchMedia('(min-width: 761px)').matches)
+    useEffect(() => {
+        const query = window.matchMedia('(min-width: 761px)')
+        const update = () => setIsDesktop(query.matches)
+        update()
+        query.addEventListener('change', update)
+        return () => query.removeEventListener('change', update)
+    }, [])
+    return isDesktop
+}
+
 export default function LearningDagPanel({ snapshot, controller, onSelectionChange }) {
     const { topology } = snapshot
+    const isDesktop = useDesktopDag()
     const nodeCount = topology.visibleNodeCount
-    const useVisualDag = nodeCount <= MAX_NODES && topology.edges.length <= MAX_EDGES
+    const useVisualDag = isDesktop && nodeCount <= MAX_NODES && topology.edges.length <= MAX_EDGES
     const selectNode = nodeId => {
         if (controller.selectNode(nodeId)) onSelectionChange?.(controller.getSnapshot(), { history: 'push' })
     }

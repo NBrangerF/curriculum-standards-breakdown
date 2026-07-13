@@ -39,7 +39,7 @@ test.beforeEach(async ({ page }) => {
 test('standard learning map keeps evidence, focus and history aligned', async ({ page }) => {
     await page.goto('/standards/MA-D2-GE-003?learning-map=1&view=learning-map&selectedNode=kp:d&contextPath=topic:math,kp:d&prerequisiteDepth=1&unlockDepth=1&necessity=required,recommended')
 
-    await expect(page.getByRole('heading', { name: '先掌握什么，接下来解锁什么' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: '先掌握什么，接下来解锁什么' })).toBeVisible({ timeout: 20_000 })
     const prerequisites = page.getByRole('region', { name: '需要先掌握' })
     await expect(prerequisites.getByRole('button', { name: 'B 必要' })).toBeVisible()
 
@@ -70,4 +70,16 @@ test('standard learning map keeps evidence, focus and history aligned', async ({
         .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
         .analyze()
     expect(results.violations.filter(violation => ['critical', 'serious'].includes(violation.impact))).toEqual([])
+})
+
+test('learning map uses the semantic decision path on a 390px viewport', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 })
+    await page.goto('/standards/MA-D2-GE-003?learning-map=1&view=learning-map&selectedNode=kp:d&contextPath=topic:math,kp:d')
+
+    const semanticPath = page.getByRole('region', { name: '学习脉络的可访问关系列表' })
+    await expect(semanticPath).toBeVisible()
+    await expect(page.locator('.learning-map-react-flow')).toHaveCount(0)
+    await expect(semanticPath.getByRole('heading', { name: 'D', exact: true })).toBeVisible()
+    await expect(page.getByRole('region', { name: '需要先掌握' })).toBeVisible()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true)
 })

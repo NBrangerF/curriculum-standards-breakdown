@@ -368,13 +368,13 @@ function StandardDetailPage() {
             {learningMapActive ? (
                 <section className={styles['learning-map-section']} aria-label="学习脉络" data-kb-feature="learning-map">
                     <div className="container">
+                        <Suspense fallback={<LoadingState message="正在加载学习脉络工作台…" />}>
+                            <LearningMapRoute standardCode={code} learningMapState={learningMapState} onStateChange={updateLearningMapState} />
+                        </Suspense>
                         <div className={styles['learning-map-route-actions']}>
                             <span>学习脉络</span>
                             <button type="button" onClick={closeLearningMap}>返回课程标准正文</button>
                         </div>
-                        <Suspense fallback={<LoadingState message="正在加载学习脉络工作台…" />}>
-                            <LearningMapRoute standardCode={code} learningMapState={learningMapState} onStateChange={updateLearningMapState} />
-                        </Suspense>
                     </div>
                 </section>
             ) : null}
