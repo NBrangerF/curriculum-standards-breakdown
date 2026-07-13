@@ -142,6 +142,7 @@ export interface LearningContext extends JsonObject {
 export interface TopologicalLayers extends JsonObject {
     prerequisiteLayers: KnowledgePoint[][]
     unlockLayers: KnowledgePoint[][]
+    edges: PrerequisiteEdge[]
 }
 
 export interface ManifestSubject {

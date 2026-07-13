@@ -168,7 +168,9 @@ test('Learning Map keeps prerequisite direction and all diamond branches', () =>
     const index = createKnowledgeGraphIndex(learningFixture)
     assert.deepEqual(getPrerequisites(index, 'kp:d').map(point => point.id), ['kp:b', 'kp:c'])
     assert.deepEqual(getUnlocks(index, 'kp:a').map(point => point.id), ['kp:b', 'kp:c'])
-    assert.deepEqual(buildTopologicalLayers(index, 'kp:d', { prerequisiteDepth: 2, unlockDepth: 1 }).prerequisiteLayers.map(layer => layer.map(point => point.id)), [['kp:b', 'kp:c'], ['kp:a']])
+    const topology = buildTopologicalLayers(index, 'kp:d', { prerequisiteDepth: 2, unlockDepth: 1 })
+    assert.deepEqual(topology.prerequisiteLayers.map(layer => layer.map(point => point.id)), [['kp:b', 'kp:c'], ['kp:a']])
+    assert.deepEqual(topology.edges.map(edge => edge.id), ['pre:a:b', 'pre:a:c', 'pre:b:d', 'pre:c:d'])
 })
 
 test('Learning Map restores a deterministic taxonomy context and honest coverage', () => {

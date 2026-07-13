@@ -22,6 +22,8 @@
         "validate:knowledge-graph-loader": "node scripts/validate-knowledge-graph-loader.mjs",
         "validate:learning-map-interaction": "tsx scripts/validate-learning-map-interaction-contract.mjs",
         "validate:learning-map-rollout": "node scripts/validate-learning-map-rollout-contract.mjs",
+        "validate:learning-map-layout": "node scripts/validate-learning-map-layout.mjs",
+        "benchmark:learning-map": "node scripts/benchmark-learning-map.mjs",
         "validate:motion-contract": "node scripts/validate-motion-contract.mjs",
         "validate:design-contract": "node scripts/validate-design-contract.mjs",
         "validate:rollout-contract": "node scripts/validate-ui-rollout-contract.mjs",
@@ -348,11 +350,13 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "@dagrejs/dagre": "^3.0.0",
         "@floating-ui/dom": "1.7.6",
         "@gsap/react": "2.1.2",
         "@phosphor-icons/react": "2.1.10",
         "@vercel/analytics": "^1.6.1",
         "@vercel/speed-insights": "^2.0.0",
+        "@xyflow/react": "^12.11.2",
         "graphology": "0.26.0",
         "gsap": "3.15.0",
         "motion": "12.42.2",

@@ -110,9 +110,20 @@ function collectLayers(index: KnowledgeGraphIndex, pointId: string, depth: numbe
 }
 
 export function buildTopologicalLayers(index: KnowledgeGraphIndex, pointId: string, options: LearningContextOptions = {}): TopologicalLayers {
+    const prerequisiteLayers = collectLayers(index, pointId, options.prerequisiteDepth ?? 1, 'incoming', options.necessity)
+    const unlockLayers = collectLayers(index, pointId, options.unlockDepth ?? 1, 'outgoing', options.necessity)
+    const pointIds = new Set([pointId, ...prerequisiteLayers.flat(1).map(point => point.id), ...unlockLayers.flat(1).map(point => point.id)])
+    const allowed = options.necessity ? new Set(options.necessity) : undefined
+
     return {
-        prerequisiteLayers: collectLayers(index, pointId, options.prerequisiteDepth ?? 1, 'incoming', options.necessity),
-        unlockLayers: collectLayers(index, pointId, options.unlockDepth ?? 1, 'outgoing', options.necessity)
+        prerequisiteLayers,
+        unlockLayers,
+        // Preserve only verified edges from the selected local context. Layer
+        // adjacency is not evidence of a prerequisite relationship.
+        edges: [...index.prerequisitesById.values()]
+            .filter(edge => pointIds.has(edge.source) && pointIds.has(edge.target))
+            .filter(edge => !allowed || allowed.has(edge.necessity))
+            .sort((left, right) => left.id.localeCompare(right.id))
     }
 }
 
