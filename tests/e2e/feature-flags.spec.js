@@ -9,6 +9,17 @@ const rollbackContract = JSON.parse(fs.readFileSync(
     new URL('../../docs/baselines/2026-07-12-ui-rollback-contract.machine.json', import.meta.url),
     'utf8'
 ))
+const learningMapSubjectSamples = [
+    ['艺术', 'AR-H4G8-AA-004'],
+    ['语文', 'CN-D2-CM-004'],
+    ['英语', 'EN-D2-CA-001'],
+    ['信息科技', 'IT-H4G8-CS-002'],
+    ['劳动', 'LA-D2-DL-001'],
+    ['数学', 'MA-D2-AL-001'],
+    ['道德与法治', 'ML-H4G8-LAW-002'],
+    ['体育', 'PE-D2-HB-001'],
+    ['科学', 'SC-D2-SC-010']
+]
 
 test.beforeEach(async ({ page }) => {
     await page.addInitScript(() => {
@@ -71,6 +82,20 @@ test('learning-map public preview is explicit and never claims expert approval',
     await expect(page.getByRole('heading', { name: '可能需要先了解，可能继续通往' })).toBeVisible()
     await expect(page.getByRole('heading', { level: 1, name: '会根据角的特征对三角形分类' })).toBeVisible()
     await expect(page.getByRole('heading', { name: '标准在课程结构中的位置' })).toHaveCount(0)
+})
+
+test('all nine subjects load their own local Learning Map bundle', async ({ page }) => {
+    test.setTimeout(120_000)
+    for (const [subject, standardCode] of learningMapSubjectSamples) {
+        await page.goto(`/standards/${standardCode}?view=learning-map`)
+        const map = page.locator('[data-kb-feature="learning-map"]')
+        await expect(map.getByRole('note'), `${subject} should show preview semantics`).toContainText('公开预览')
+        await expect(
+            map.getByRole('region', { name: '学习脉络的可访问关系列表' }).locator('code'),
+            `${standardCode} should resolve inside the ${subject} bundle`
+        ).toHaveText(standardCode)
+        await expect(map.getByRole('navigation', { name: '知识分类路径' }), `${subject} taxonomy root`).toContainText(subject)
+    }
 })
 
 test('learning-map stays unavailable when the outer UI route is rolled back', async ({ page }) => {

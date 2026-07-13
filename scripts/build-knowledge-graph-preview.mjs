@@ -1,181 +1,86 @@
-import { createHash } from 'node:crypto'
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
-import { buildReviewCandidates } from './build-knowledge-graph-review-packet.mjs'
+import {
+    buildGlobalPreviewData,
+    PUBLIC_PREVIEW_RELATIONSHIP_SEMANTICS
+} from './knowledgeGraphPreviewBuilder.mjs'
 import { validateKnowledgeGraph } from './knowledgeGraphValidation.mjs'
 
 const DATA_ROOT = resolve('public/data')
 const PUBLIC_ROOT = resolve(DATA_ROOT, 'knowledge_graph')
-const DOMAIN = '图形与几何'
-const TAXONOMY_ID = 'math-geometry-public-preview'
 const stable = value => JSON.stringify(value, null, 2) + '\n'
-const sha256 = value => createHash('sha256').update(typeof value === 'string' ? value : JSON.stringify(value)).digest('hex')
+const readJson = async path => JSON.parse(await readFile(path, 'utf8'))
 const writeJson = async (path, value) => {
     await mkdir(dirname(path), { recursive: true })
     await writeFile(path, stable(value))
 }
-const pointId = code => `kp:math:${code.toLowerCase()}`
-const compactId = value => sha256(String(value)).slice(0, 12)
-const taxonomyNode = (id, label, order, reviewStatus = 'approved') => ({
-    id,
-    type: 'taxonomy_node',
-    label,
-    taxonomyId: TAXONOMY_ID,
-    subjectSlug: 'math',
-    order,
-    reviewStatus
-})
-const taxonomyEdge = (id, source, target, order) => ({
-    id,
-    source,
-    target,
-    type: 'taxonomy_parent',
-    taxonomyId: TAXONOMY_ID,
-    directed: true,
-    order,
-    reviewStatus: 'approved'
-})
 
-const mathPayload = JSON.parse(await readFile(resolve(DATA_ROOT, 'by_subject/math.json'), 'utf8'))
-const standards = (mathPayload.standards || mathPayload)
-    .filter(record => record.domain === DOMAIN)
-    .sort((left, right) => left.code.localeCompare(right.code, 'zh-Hans-CN'))
-const standardByCode = new Map(standards.map(record => [record.code, record]))
-const candidates = buildReviewCandidates(mathPayload)
-const candidateById = new Map(candidates.nodes.map(candidate => [candidate.candidateId, candidate]))
-const packetSha256 = sha256({ nodes: candidates.nodes, edges: candidates.edges })
-const version = `preview-${packetSha256.slice(0, 12)}`
-
-const knowledgePoints = candidates.nodes.map(candidate => {
-    const code = candidate.relatedStandardCodes[0]
-    const record = standardByCode.get(code)
+const sourceManifest = await readJson(resolve(DATA_ROOT, 'manifest.json'))
+const subjectEntries = await Promise.all(sourceManifest.subjects.map(async subject => {
+    const payload = await readJson(resolve(DATA_ROOT, subject.file))
     return {
-        id: pointId(code),
-        type: 'knowledge_point',
-        label: candidate.suggestedName,
-        summary: record?.standard || '',
-        subjectSlug: 'math',
-        domain: record?.domain || DOMAIN,
-        gradeBands: record?.grade_band ? [record.grade_band] : [],
-        standardCodes: [code],
-        dependencyCoverage: { incoming: 'not_reviewed', outgoing: 'not_reviewed' },
-        reviewStatus: 'candidate',
-        provenance: {
-            source: 'public/data/by_subject/math.json',
-            sourceField: 'curriculum_standard_record',
-            publicationStatus: 'public_preview'
-        }
+        subject: subject.subject,
+        subjectSlug: subject.subject_slug,
+        sourceFile: subject.file,
+        records: payload.standards || payload
     }
-})
+}))
+const preview = buildGlobalPreviewData(subjectEntries)
 
-const evidence = []
-const prerequisites = candidates.edges.map(candidate => {
-    const sourceCode = candidateById.get(candidate.sourceCandidateId)?.relatedStandardCodes?.[0]
-    const targetCode = candidateById.get(candidate.targetCandidateId)?.relatedStandardCodes?.[0]
-    const source = pointId(sourceCode)
-    const target = pointId(targetCode)
-    const id = `pre:${source.slice(3)}:${target.slice(3)}`
-    const evidenceId = `ev:${id.slice(4)}`
-    evidence.push({
-        id: evidenceId,
-        sourceType: 'curriculum_progression_candidate',
-        sourceId: candidate.candidateId,
-        locator: candidate.sourceLocation,
-        statement: `${candidate.evidence}。该字段仅形成课程顺序候选线索，不代表课程专家确认的认知先修关系。`
-    })
-    return {
-        id,
-        source,
-        target,
-        type: 'prerequisite',
-        directed: true,
-        necessity: 'undetermined',
-        rationale: '课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。',
-        evidenceRefs: [evidenceId],
-        confidence: 'low',
-        reviewStatus: 'candidate',
-        version
-    }
-})
-
-const taxonomyNodes = [
-    taxonomyNode('topic:math', '数学', 1),
-    taxonomyNode('topic:math:geometry', DOMAIN, 1)
-]
-const taxonomyEdges = [taxonomyEdge('tax:math:geometry', 'topic:math', 'topic:math:geometry', 1)]
-const taxonomyNodeIds = new Set(taxonomyNodes.map(node => node.id))
-const subdomainOrder = new Map()
-const gradeOrderBySubdomain = new Map()
-
-for (const [index, point] of knowledgePoints.entries()) {
-    const record = standardByCode.get(point.standardCodes[0])
-    const subdomain = record?.subdomain || '未分类'
-    if (!subdomainOrder.has(subdomain)) subdomainOrder.set(subdomain, subdomainOrder.size + 1)
-    const subdomainId = `topic:math:geometry:subdomain:${compactId(subdomain)}`
-    if (!taxonomyNodeIds.has(subdomainId)) {
-        taxonomyNodes.push(taxonomyNode(subdomainId, subdomain, subdomainOrder.get(subdomain)))
-        taxonomyEdges.push(taxonomyEdge(`tax:geometry:subdomain:${compactId(subdomain)}`, 'topic:math:geometry', subdomainId, subdomainOrder.get(subdomain)))
-        taxonomyNodeIds.add(subdomainId)
-    }
-
-    const gradeLabel = record?.grade_range ? `${record.grade_range}年级` : (record?.grade_band || '未标注学段')
-    const gradeKey = `${subdomain}\u001f${record?.grade_band || gradeLabel}`
-    if (!gradeOrderBySubdomain.has(gradeKey)) gradeOrderBySubdomain.set(gradeKey, gradeOrderBySubdomain.size + 1)
-    const gradeId = `${subdomainId}:grade:${compactId(gradeKey)}`
-    if (!taxonomyNodeIds.has(gradeId)) {
-        taxonomyNodes.push(taxonomyNode(gradeId, gradeLabel, gradeOrderBySubdomain.get(gradeKey)))
-        taxonomyEdges.push(taxonomyEdge(`tax:subdomain:grade:${compactId(gradeKey)}`, subdomainId, gradeId, gradeOrderBySubdomain.get(gradeKey)))
-        taxonomyNodeIds.add(gradeId)
-    }
-    taxonomyEdges.push(taxonomyEdge(`tax:grade:point:${compactId(point.id)}`, gradeId, point.id, index + 1))
+for (const subject of preview.subjects) {
+    const validation = validateKnowledgeGraph(subject.dataset)
+    if (!validation.valid) throw new Error(`Knowledge Graph preview build failed for ${subject.subjectSlug}: ${validation.errors.join('; ')}`)
+}
+if (preview.counts.crossSubjectReferences) {
+    throw new Error(`Knowledge Graph preview build blocked: ${preview.counts.crossSubjectReferences} cross-subject sequence references require an explicit product policy`)
 }
 
-const dataset = {
-    publicationStatus: 'public_preview',
-    knowledgePoints,
-    taxonomyNodes,
-    prerequisites,
-    taxonomyEdges,
-    evidence
+for (const directory of ['nodes_by_subject', 'taxonomy_by_subject', 'prerequisite_edges_by_subject', 'evidence_by_subject', 'indexes', 'quality']) {
+    await rm(resolve(PUBLIC_ROOT, directory), { recursive: true, force: true })
 }
-const validation = validateKnowledgeGraph(dataset)
-if (!validation.valid) throw new Error(`Knowledge Graph preview build failed: ${validation.errors.join('; ')}`)
+for (const file of ['evidence.json', 'prerequisite_edges.json', 'taxonomy_edges.json', 'taxonomy_nodes.json']) {
+    await rm(resolve(PUBLIC_ROOT, file), { force: true })
+}
 
-await writeJson(resolve(PUBLIC_ROOT, 'nodes_by_subject/math.json'), { knowledgePoints })
-await writeJson(resolve(PUBLIC_ROOT, 'taxonomy_nodes.json'), { taxonomyNodes })
-await writeJson(resolve(PUBLIC_ROOT, 'prerequisite_edges.json'), { prerequisites })
-await writeJson(resolve(PUBLIC_ROOT, 'taxonomy_edges.json'), { taxonomyEdges })
-await writeJson(resolve(PUBLIC_ROOT, 'evidence.json'), { evidence })
+const byStandard = {}
+const unresolvedReferences = []
+for (const subject of preview.subjects) {
+    const { files } = subject.manifestEntry
+    await writeJson(resolve(PUBLIC_ROOT, files.knowledgePoints), { knowledgePoints: subject.dataset.knowledgePoints })
+    await writeJson(resolve(PUBLIC_ROOT, files.taxonomy), { taxonomyNodes: subject.dataset.taxonomyNodes, taxonomyEdges: subject.dataset.taxonomyEdges })
+    await writeJson(resolve(PUBLIC_ROOT, files.prerequisites), { prerequisites: subject.dataset.prerequisites })
+    await writeJson(resolve(PUBLIC_ROOT, files.evidence), { evidence: subject.dataset.evidence })
+    for (const point of subject.dataset.knowledgePoints) {
+        for (const code of point.standardCodes) byStandard[code] = { subjectSlug: subject.subjectSlug, pointId: point.id }
+    }
+    unresolvedReferences.push(...subject.quality.unresolvedReferences)
+}
+await writeJson(resolve(PUBLIC_ROOT, 'indexes/by_standard.json'), byStandard)
+await writeJson(resolve(PUBLIC_ROOT, 'quality/unresolved_references.json'), { unresolvedReferences })
 await writeJson(resolve(PUBLIC_ROOT, 'manifest.json'), {
-    version,
-    dataVersion: version,
+    version: preview.version,
+    dataVersion: preview.version,
     publicationStatus: 'public_preview',
-    relationshipSemantics: 'curriculum_progression_candidate_not_verified_prerequisite',
-    source: 'public/data/by_subject/math.json',
-    candidatePacketSha256: packetSha256,
+    relationshipSemantics: PUBLIC_PREVIEW_RELATIONSHIP_SEMANTICS,
+    source: 'public/data/manifest.json',
     notice: '公开预览：关系来自课程标准前后条目字段，尚未经过课程专家先修审核。',
+    subjects: preview.subjects.map(subject => subject.manifestEntry),
     files: {
-        knowledgePoints: 'nodes_by_subject/math.json',
-        taxonomyNodes: 'taxonomy_nodes.json',
-        prerequisites: 'prerequisite_edges.json',
-        taxonomyEdges: 'taxonomy_edges.json',
-        evidence: 'evidence.json'
+        byStandard: 'indexes/by_standard.json',
+        unresolvedReferences: 'quality/unresolved_references.json'
     },
-    counts: {
-        knowledgePoints: knowledgePoints.length,
-        prerequisites: prerequisites.length,
-        taxonomyNodes: taxonomyNodes.length,
-        taxonomyEdges: taxonomyEdges.length
-    }
+    counts: preview.counts
 })
 
 console.log(JSON.stringify({
-    status: 'public_preview_built',
-    version,
-    packetSha256,
-    knowledgePoints: knowledgePoints.length,
-    candidateRelationships: prerequisites.length,
-    taxonomyNodes: taxonomyNodes.length,
+    status: 'global_public_preview_built',
+    version: preview.version,
+    subjects: preview.subjects.map(subject => ({
+        subjectSlug: subject.subjectSlug,
+        ...subject.manifestEntry.counts,
+        ...subject.manifestEntry.quality
+    })),
+    counts: preview.counts,
     writesPublicData: true,
     expertSignoffClaimed: false
 }, null, 2))

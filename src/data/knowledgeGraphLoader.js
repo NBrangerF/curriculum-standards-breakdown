@@ -1,6 +1,6 @@
 const DEFAULT_MANIFEST_URL = '/data/knowledge_graph/manifest.json'
-let cachedGraph
-let loadingGraph
+const cachedGraphs = new Map()
+const loadingGraphs = new Map()
 
 export function resolveKnowledgeGraphFileURL(manifestUrl, file) {
     if (!file) throw new Error('Knowledge graph manifest file path is required')
@@ -16,6 +16,19 @@ async function fetchJson(url, signal) {
 }
 
 const toArray = (payload, key) => Array.isArray(payload) ? payload : (payload?.[key] || [])
+
+const normalizeSubjectSlug = value => String(value || '').trim()
+
+function resolveSubjectBundle(manifest, subjectSlug) {
+    if (!Array.isArray(manifest.subjects)) return undefined
+    const normalizedSlug = normalizeSubjectSlug(subjectSlug)
+    if (!normalizedSlug) throw new Error('Learning Map global manifest requires a subject slug')
+    const subject = manifest.subjects.find(entry => (
+        normalizeSubjectSlug(entry?.subjectSlug || entry?.subject_slug) === normalizedSlug
+    ))
+    if (!subject) throw new Error(`Learning Map manifest has no subject: ${normalizedSlug}`)
+    return subject
+}
 
 const assertPublishableCollection = (records, label, publicationStatus) => {
     const allowed = publicationStatus === 'public_preview'
@@ -44,29 +57,38 @@ export function findPublishableKnowledgePointsByStandard(knowledgePoints, standa
     ))
 }
 
-export async function loadKnowledgeGraph({ manifestUrl = DEFAULT_MANIFEST_URL, signal } = {}) {
-    if (manifestUrl === DEFAULT_MANIFEST_URL && cachedGraph) return cachedGraph
-    if (manifestUrl === DEFAULT_MANIFEST_URL && loadingGraph) return loadingGraph
+export async function loadKnowledgeGraph({ manifestUrl = DEFAULT_MANIFEST_URL, subjectSlug, signal } = {}) {
+    const normalizedSubjectSlug = normalizeSubjectSlug(subjectSlug)
+    const cacheKey = `${manifestUrl}\u001f${normalizedSubjectSlug}`
+    const shouldCache = manifestUrl === DEFAULT_MANIFEST_URL
+    if (shouldCache && cachedGraphs.has(cacheKey)) return cachedGraphs.get(cacheKey)
+    if (shouldCache && loadingGraphs.has(cacheKey)) return loadingGraphs.get(cacheKey)
 
     const request = (async () => {
         const manifest = await fetchJson(manifestUrl, signal)
-        const files = manifest.files || {}
-        const requiredFiles = ['knowledgePoints', 'taxonomyNodes', 'prerequisites', 'taxonomyEdges', 'evidence']
+        const subject = resolveSubjectBundle(manifest, normalizedSubjectSlug)
+        const files = subject?.files || manifest.files || {}
+        const isSubjectBundle = Boolean(subject)
+        const requiredFiles = isSubjectBundle
+            ? ['knowledgePoints', 'taxonomy', 'prerequisites', 'evidence']
+            : ['knowledgePoints', 'taxonomyNodes', 'prerequisites', 'taxonomyEdges', 'evidence']
         const missing = requiredFiles.filter(key => !files[key])
         if (missing.length) throw new Error(`Learning Map manifest is missing: ${missing.join(', ')}`)
-        const payloads = await Promise.all(requiredFiles.map(key => fetchJson(resolveKnowledgeGraphFileURL(manifestUrl, files[key]), signal)))
-        const [knowledgePoints, taxonomyNodes, prerequisites, taxonomyEdges, evidence] = payloads
+        const payloads = await Promise.all(requiredFiles.map(key => (
+            fetchJson(resolveKnowledgeGraphFileURL(manifestUrl, files[key]), signal)
+        )))
+        const payloadByKey = Object.fromEntries(requiredFiles.map((key, index) => [key, payloads[index]]))
         const publicationStatus = manifest.publicationStatus === 'public_preview' ? 'public_preview' : 'approved'
         if (publicationStatus === 'public_preview' && manifest.relationshipSemantics !== 'curriculum_progression_candidate_not_verified_prerequisite') {
             throw new Error('Learning Map public preview manifest has invalid relationship semantics')
         }
         const dataset = {
             publicationStatus,
-            knowledgePoints: toArray(knowledgePoints, 'knowledgePoints'),
-            taxonomyNodes: toArray(taxonomyNodes, 'taxonomyNodes'),
-            prerequisites: toArray(prerequisites, 'prerequisites'),
-            taxonomyEdges: toArray(taxonomyEdges, 'taxonomyEdges'),
-            evidence: toArray(evidence, 'evidence')
+            knowledgePoints: toArray(payloadByKey.knowledgePoints, 'knowledgePoints'),
+            taxonomyNodes: toArray(payloadByKey.taxonomy || payloadByKey.taxonomyNodes, 'taxonomyNodes'),
+            prerequisites: toArray(payloadByKey.prerequisites, 'prerequisites'),
+            taxonomyEdges: toArray(payloadByKey.taxonomy || payloadByKey.taxonomyEdges, 'taxonomyEdges'),
+            evidence: toArray(payloadByKey.evidence, 'evidence')
         }
         assertPublishableCollection(dataset.knowledgePoints, 'knowledge points', publicationStatus)
         assertPublishableCollection(dataset.taxonomyNodes, 'taxonomy nodes', publicationStatus)
@@ -75,23 +97,25 @@ export async function loadKnowledgeGraph({ manifestUrl = DEFAULT_MANIFEST_URL, s
         return {
             version: manifest.version || manifest.dataVersion || 'unknown',
             dataset,
-            manifest
+            manifest,
+            subject
         }
     })()
 
-    if (manifestUrl === DEFAULT_MANIFEST_URL) {
-        loadingGraph = request
+    if (shouldCache) {
+        loadingGraphs.set(cacheKey, request)
         try {
-            cachedGraph = await request
-            return cachedGraph
+            const graph = await request
+            cachedGraphs.set(cacheKey, graph)
+            return graph
         } finally {
-            loadingGraph = undefined
+            loadingGraphs.delete(cacheKey)
         }
     }
     return request
 }
 
 export function resetKnowledgeGraphLoaderCache() {
-    cachedGraph = undefined
-    loadingGraph = undefined
+    cachedGraphs.clear()
+    loadingGraphs.clear()
 }

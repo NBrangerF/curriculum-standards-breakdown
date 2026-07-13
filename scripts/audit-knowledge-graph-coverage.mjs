@@ -22,11 +22,47 @@ if (process.argv.includes('--fixtures')) {
 } else {
     const root = resolve('public/data/knowledge_graph')
     const manifest = await readJson(resolve(root, 'manifest.json'))
-    const files = manifest.files || {}
-    const [points, taxonomyNodes, prerequisites, taxonomyEdges, evidence] = await Promise.all([
-        readJson(resolve(root, files.knowledgePoints)), readJson(resolve(root, files.taxonomyNodes)), readJson(resolve(root, files.prerequisites)), readJson(resolve(root, files.taxonomyEdges)), readJson(resolve(root, files.evidence))
-    ])
-    const audit = await auditDataset({ knowledgePoints: points.knowledgePoints || points, taxonomyNodes: taxonomyNodes.taxonomyNodes || taxonomyNodes, prerequisites: prerequisites.prerequisites || prerequisites, taxonomyEdges: taxonomyEdges.taxonomyEdges || taxonomyEdges, evidence: evidence.evidence || evidence })
-    console.log(JSON.stringify({ status: audit.valid ? 'audited' : 'failed', ...audit }, null, 2))
-    if (!audit.valid) process.exitCode = 1
+    if (Array.isArray(manifest.subjects)) {
+        const subjects = await Promise.all(manifest.subjects.map(async subject => {
+            const files = subject.files || {}
+            const [points, taxonomy, prerequisites, evidence] = await Promise.all([
+                readJson(resolve(root, files.knowledgePoints)),
+                readJson(resolve(root, files.taxonomy)),
+                readJson(resolve(root, files.prerequisites)),
+                readJson(resolve(root, files.evidence))
+            ])
+            return {
+                subject: subject.subject,
+                subjectSlug: subject.subjectSlug,
+                ...(await auditDataset({
+                    publicationStatus: manifest.publicationStatus,
+                    knowledgePoints: points.knowledgePoints || points,
+                    taxonomyNodes: taxonomy.taxonomyNodes || [],
+                    prerequisites: prerequisites.prerequisites || prerequisites,
+                    taxonomyEdges: taxonomy.taxonomyEdges || [],
+                    evidence: evidence.evidence || evidence
+                }))
+            }
+        }))
+        const valid = subjects.every(subject => subject.valid)
+        console.log(JSON.stringify({
+            status: valid ? 'global_preview_audited' : 'failed',
+            version: manifest.version,
+            subjectCount: subjects.length,
+            totals: {
+                knowledgePoints: subjects.reduce((sum, subject) => sum + subject.knowledgePoints, 0),
+                prerequisites: subjects.reduce((sum, subject) => sum + subject.prerequisites, 0)
+            },
+            subjects
+        }, null, 2))
+        if (!valid) process.exitCode = 1
+    } else {
+        const files = manifest.files || {}
+        const [points, taxonomyNodes, prerequisites, taxonomyEdges, evidence] = await Promise.all([
+            readJson(resolve(root, files.knowledgePoints)), readJson(resolve(root, files.taxonomyNodes)), readJson(resolve(root, files.prerequisites)), readJson(resolve(root, files.taxonomyEdges)), readJson(resolve(root, files.evidence))
+        ])
+        const audit = await auditDataset({ knowledgePoints: points.knowledgePoints || points, taxonomyNodes: taxonomyNodes.taxonomyNodes || taxonomyNodes, prerequisites: prerequisites.prerequisites || prerequisites, taxonomyEdges: taxonomyEdges.taxonomyEdges || taxonomyEdges, evidence: evidence.evidence || evidence })
+        console.log(JSON.stringify({ status: audit.valid ? 'audited' : 'failed', ...audit }, null, 2))
+        if (!audit.valid) process.exitCode = 1
+    }
 }

@@ -1,22 +1,211 @@
 {
-  "version": "preview-96ec76f1fdff",
-  "dataVersion": "preview-96ec76f1fdff",
+  "version": "preview-global-04a5b1f19129",
+  "dataVersion": "preview-global-04a5b1f19129",
   "publicationStatus": "public_preview",
   "relationshipSemantics": "curriculum_progression_candidate_not_verified_prerequisite",
-  "source": "public/data/by_subject/math.json",
-  "candidatePacketSha256": "96ec76f1fdff589a3e4d4517731c21779b26fdeb8c0deb05f3b11118dd498f09",
+  "source": "public/data/manifest.json",
   "notice": "公开预览：关系来自课程标准前后条目字段，尚未经过课程专家先修审核。",
+  "subjects": [
+    {
+      "subject": "艺术",
+      "subjectSlug": "arts",
+      "sourceFile": "by_subject/arts.json",
+      "files": {
+        "knowledgePoints": "nodes_by_subject/arts.json",
+        "taxonomy": "taxonomy_by_subject/arts.json",
+        "prerequisites": "prerequisite_edges_by_subject/arts.json",
+        "evidence": "evidence_by_subject/arts.json"
+      },
+      "counts": {
+        "knowledgePoints": 322,
+        "candidateRelationships": 124,
+        "taxonomyNodes": 294,
+        "taxonomyEdges": 615
+      },
+      "quality": {
+        "unresolvedReferences": 160,
+        "crossSubjectReferences": 0
+      }
+    },
+    {
+      "subject": "语文",
+      "subjectSlug": "chinese",
+      "sourceFile": "by_subject/chinese.json",
+      "files": {
+        "knowledgePoints": "nodes_by_subject/chinese.json",
+        "taxonomy": "taxonomy_by_subject/chinese.json",
+        "prerequisites": "prerequisite_edges_by_subject/chinese.json",
+        "evidence": "evidence_by_subject/chinese.json"
+      },
+      "counts": {
+        "knowledgePoints": 225,
+        "candidateRelationships": 160,
+        "taxonomyNodes": 247,
+        "taxonomyEdges": 471
+      },
+      "quality": {
+        "unresolvedReferences": 0,
+        "crossSubjectReferences": 0
+      }
+    },
+    {
+      "subject": "英语",
+      "subjectSlug": "english",
+      "sourceFile": "by_subject/english.json",
+      "files": {
+        "knowledgePoints": "nodes_by_subject/english.json",
+        "taxonomy": "taxonomy_by_subject/english.json",
+        "prerequisites": "prerequisite_edges_by_subject/english.json",
+        "evidence": "evidence_by_subject/english.json"
+      },
+      "counts": {
+        "knowledgePoints": 236,
+        "candidateRelationships": 135,
+        "taxonomyNodes": 242,
+        "taxonomyEdges": 477
+      },
+      "quality": {
+        "unresolvedReferences": 0,
+        "crossSubjectReferences": 0
+      }
+    },
+    {
+      "subject": "信息科技",
+      "subjectSlug": "it",
+      "sourceFile": "by_subject/it.json",
+      "files": {
+        "knowledgePoints": "nodes_by_subject/it.json",
+        "taxonomy": "taxonomy_by_subject/it.json",
+        "prerequisites": "prerequisite_edges_by_subject/it.json",
+        "evidence": "evidence_by_subject/it.json"
+      },
+      "counts": {
+        "knowledgePoints": 116,
+        "candidateRelationships": 44,
+        "taxonomyNodes": 108,
+        "taxonomyEdges": 223
+      },
+      "quality": {
+        "unresolvedReferences": 0,
+        "crossSubjectReferences": 0
+      }
+    },
+    {
+      "subject": "劳动",
+      "subjectSlug": "labor",
+      "sourceFile": "by_subject/labor.json",
+      "files": {
+        "knowledgePoints": "nodes_by_subject/labor.json",
+        "taxonomy": "taxonomy_by_subject/labor.json",
+        "prerequisites": "prerequisite_edges_by_subject/labor.json",
+        "evidence": "evidence_by_subject/labor.json"
+      },
+      "counts": {
+        "knowledgePoints": 181,
+        "candidateRelationships": 107,
+        "taxonomyNodes": 131,
+        "taxonomyEdges": 311
+      },
+      "quality": {
+        "unresolvedReferences": 0,
+        "crossSubjectReferences": 0
+      }
+    },
+    {
+      "subject": "数学",
+      "subjectSlug": "math",
+      "sourceFile": "by_subject/math.json",
+      "files": {
+        "knowledgePoints": "nodes_by_subject/math.json",
+        "taxonomy": "taxonomy_by_subject/math.json",
+        "prerequisites": "prerequisite_edges_by_subject/math.json",
+        "evidence": "evidence_by_subject/math.json"
+      },
+      "counts": {
+        "knowledgePoints": 164,
+        "candidateRelationships": 107,
+        "taxonomyNodes": 172,
+        "taxonomyEdges": 335
+      },
+      "quality": {
+        "unresolvedReferences": 0,
+        "crossSubjectReferences": 0
+      }
+    },
+    {
+      "subject": "道德与法治",
+      "subjectSlug": "morality_law",
+      "sourceFile": "by_subject/morality_law.json",
+      "files": {
+        "knowledgePoints": "nodes_by_subject/morality_law.json",
+        "taxonomy": "taxonomy_by_subject/morality_law.json",
+        "prerequisites": "prerequisite_edges_by_subject/morality_law.json",
+        "evidence": "evidence_by_subject/morality_law.json"
+      },
+      "counts": {
+        "knowledgePoints": 221,
+        "candidateRelationships": 84,
+        "taxonomyNodes": 196,
+        "taxonomyEdges": 416
+      },
+      "quality": {
+        "unresolvedReferences": 110,
+        "crossSubjectReferences": 0
+      }
+    },
+    {
+      "subject": "体育",
+      "subjectSlug": "pe",
+      "sourceFile": "by_subject/pe.json",
+      "files": {
+        "knowledgePoints": "nodes_by_subject/pe.json",
+        "taxonomy": "taxonomy_by_subject/pe.json",
+        "prerequisites": "prerequisite_edges_by_subject/pe.json",
+        "evidence": "evidence_by_subject/pe.json"
+      },
+      "counts": {
+        "knowledgePoints": 211,
+        "candidateRelationships": 133,
+        "taxonomyNodes": 249,
+        "taxonomyEdges": 459
+      },
+      "quality": {
+        "unresolvedReferences": 0,
+        "crossSubjectReferences": 0
+      }
+    },
+    {
+      "subject": "科学",
+      "subjectSlug": "science",
+      "sourceFile": "by_subject/science.json",
+      "files": {
+        "knowledgePoints": "nodes_by_subject/science.json",
+        "taxonomy": "taxonomy_by_subject/science.json",
+        "prerequisites": "prerequisite_edges_by_subject/science.json",
+        "evidence": "evidence_by_subject/science.json"
+      },
+      "counts": {
+        "knowledgePoints": 349,
+        "candidateRelationships": 146,
+        "taxonomyNodes": 375,
+        "taxonomyEdges": 723
+      },
+      "quality": {
+        "unresolvedReferences": 0,
+        "crossSubjectReferences": 0
+      }
+    }
+  ],
   "files": {
-    "knowledgePoints": "nodes_by_subject/math.json",
-    "taxonomyNodes": "taxonomy_nodes.json",
-    "prerequisites": "prerequisite_edges.json",
-    "taxonomyEdges": "taxonomy_edges.json",
-    "evidence": "evidence.json"
+    "byStandard": "indexes/by_standard.json",
+    "unresolvedReferences": "quality/unresolved_references.json"
   },
   "counts": {
-    "knowledgePoints": 67,
-    "prerequisites": 44,
-    "taxonomyNodes": 61,
-    "taxonomyEdges": 127
+    "knowledgePoints": 2025,
+    "candidateRelationships": 1040,
+    "taxonomyNodes": 2014,
+    "taxonomyEdges": 4030,
+    "unresolvedReferences": 270,
+    "crossSubjectReferences": 0
   }
 }

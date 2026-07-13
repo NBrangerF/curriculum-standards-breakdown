@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
+import { splitRelationCodes } from './knowledgeGraphPreviewBuilder.mjs'
 
 const DEFAULT_DATA_ROOT = 'public/data'
 const DEFAULT_OUTPUT_ROOT = 'generated/knowledge_graph_candidates'
@@ -49,27 +50,29 @@ export function buildReviewCandidates(mathPayload) {
     const candidateByCode = new Map(nodes.map(node => [node.relatedStandardCodes[0], node]))
     const edgeByPair = new Map()
     for (const record of standards) {
-        for (const [direction, relatedCode] of [['previous_code', record.previous_code], ['next_code', record.next_code]]) {
-            if (!relatedCode || !candidateByCode.has(relatedCode)) continue
-            const sourceCode = direction === 'previous_code' ? relatedCode : record.code
-            const targetCode = direction === 'previous_code' ? record.code : relatedCode
-            const key = `${sourceCode}->${targetCode}`
-            if (edgeByPair.has(key)) continue
-            edgeByPair.set(key, {
-                candidateId: `candidate-edge:${safeId(sourceCode)}-to-${safeId(targetCode)}`,
-                candidateType: 'prerequisite_edge',
-                sourceCandidateId: candidateByCode.get(sourceCode).candidateId,
-                targetCandidateId: candidateByCode.get(targetCode).candidateId,
-                suggestedName: `${sourceCode} → ${targetCode}`,
-                relatedStandardCodes: [sourceCode, targetCode],
-                sourceLocation: `${sourceCode} ${direction} → ${targetCode}`,
-                suggestedTaxonomyPath: ['topic:math', 'topic:math:geometry'],
-                decision: 'pending_curriculum_review',
-                rationale: '标准记录中的前后条目字段只提供审核线索，不构成先修结论。',
-                evidence: `课程标准索引字段：${direction}`,
-                reviewerRole: '',
-                reviewDate: ''
-            })
+        for (const [direction, relationValue] of [['previous_code', record.previous_code], ['next_code', record.next_code]]) {
+            for (const relatedCode of splitRelationCodes(relationValue)) {
+                if (!candidateByCode.has(relatedCode)) continue
+                const sourceCode = direction === 'previous_code' ? relatedCode : record.code
+                const targetCode = direction === 'previous_code' ? record.code : relatedCode
+                const key = `${sourceCode}->${targetCode}`
+                if (edgeByPair.has(key)) continue
+                edgeByPair.set(key, {
+                    candidateId: `candidate-edge:${safeId(sourceCode)}-to-${safeId(targetCode)}`,
+                    candidateType: 'prerequisite_edge',
+                    sourceCandidateId: candidateByCode.get(sourceCode).candidateId,
+                    targetCandidateId: candidateByCode.get(targetCode).candidateId,
+                    suggestedName: `${sourceCode} → ${targetCode}`,
+                    relatedStandardCodes: [sourceCode, targetCode],
+                    sourceLocation: `${sourceCode} ${direction} → ${targetCode}`,
+                    suggestedTaxonomyPath: ['topic:math', 'topic:math:geometry'],
+                    decision: 'pending_curriculum_review',
+                    rationale: '标准记录中的前后条目字段只提供审核线索，不构成先修结论。',
+                    evidence: `课程标准索引字段：${direction}`,
+                    reviewerRole: '',
+                    reviewDate: ''
+                })
+            }
         }
     }
     return { nodes, edges: [...edgeByPair.values()].sort((left, right) => left.candidateId.localeCompare(right.candidateId)) }

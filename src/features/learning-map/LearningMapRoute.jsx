@@ -14,7 +14,7 @@ const normalizeNecessity = values => {
     return normalized.length ? normalized : DEFAULT_NECESSITY
 }
 
-export default function LearningMapRoute({ standardCode, learningMapState, onStateChange }) {
+export default function LearningMapRoute({ standardCode, subjectSlug, learningMapState, onStateChange }) {
     const [loadState, setLoadState] = useState({ status: 'loading' })
     const requestedNode = learningMapState.selectedNode
     // URL parsing creates fresh arrays and omits default options. Normalize both
@@ -32,7 +32,7 @@ export default function LearningMapRoute({ standardCode, learningMapState, onSta
     const load = useCallback(() => {
         let cancelled = false
         setLoadState({ status: 'loading' })
-        loadKnowledgeGraph()
+        loadKnowledgeGraph({ subjectSlug })
             .then(({ dataset, manifest }) => {
                 if (cancelled) return
                 const points = findPublishableKnowledgePointsByStandard(dataset.knowledgePoints, standardCode, dataset.publicationStatus)
@@ -42,7 +42,7 @@ export default function LearningMapRoute({ standardCode, learningMapState, onSta
                 if (!cancelled) setLoadState({ status: 'error', error })
             })
         return () => { cancelled = true }
-    }, [standardCode])
+    }, [standardCode, subjectSlug])
 
     useEffect(() => load(), [load])
 
