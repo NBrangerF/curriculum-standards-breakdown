@@ -109,9 +109,27 @@ function collectLayers(index: KnowledgeGraphIndex, pointId: string, depth: numbe
     return layers
 }
 
+function trimLayers(layers: KnowledgePoint[][], limit: number) {
+    let remaining = limit
+    return layers.map(layer => {
+        const visible = layer.slice(0, Math.max(0, remaining))
+        remaining -= visible.length
+        return visible
+    }).filter(layer => layer.length)
+}
+
 export function buildTopologicalLayers(index: KnowledgeGraphIndex, pointId: string, options: LearningContextOptions = {}): TopologicalLayers {
-    const prerequisiteLayers = collectLayers(index, pointId, options.prerequisiteDepth ?? 1, 'incoming', options.necessity)
-    const unlockLayers = collectLayers(index, pointId, options.unlockDepth ?? 1, 'outgoing', options.necessity)
+    const allPrerequisiteLayers = collectLayers(index, pointId, options.prerequisiteDepth ?? 1, 'incoming', options.necessity)
+    const allUnlockLayers = collectLayers(index, pointId, options.unlockDepth ?? 1, 'outgoing', options.necessity)
+    // The focus is always visible, so it consumes one slot from the visual budget.
+    const maxVisibleNodes = Math.max(1, options.maxVisibleNodes ?? 40)
+    const maxRelatedNodes = Math.max(0, maxVisibleNodes - 1)
+    const prerequisiteLayers = trimLayers(allPrerequisiteLayers, maxRelatedNodes)
+    const prerequisiteCount = prerequisiteLayers.flat(1).length
+    const unlockLayers = trimLayers(allUnlockLayers, Math.max(0, maxRelatedNodes - prerequisiteCount))
+    const totalRelatedNodeCount = allPrerequisiteLayers.flat(1).length + allUnlockLayers.flat(1).length
+    const visibleRelatedNodeCount = prerequisiteCount + unlockLayers.flat(1).length
+    const visibleNodeCount = 1 + visibleRelatedNodeCount
     const pointIds = new Set([pointId, ...prerequisiteLayers.flat(1).map(point => point.id), ...unlockLayers.flat(1).map(point => point.id)])
     const allowed = options.necessity ? new Set(options.necessity) : undefined
 
@@ -123,7 +141,9 @@ export function buildTopologicalLayers(index: KnowledgeGraphIndex, pointId: stri
         edges: [...index.prerequisitesById.values()]
             .filter(edge => pointIds.has(edge.source) && pointIds.has(edge.target))
             .filter(edge => !allowed || allowed.has(edge.necessity))
-            .sort((left, right) => left.id.localeCompare(right.id))
+            .sort((left, right) => left.id.localeCompare(right.id)),
+        visibleNodeCount,
+        hiddenNodeCount: Math.max(0, totalRelatedNodeCount - visibleRelatedNodeCount)
     }
 }
 

@@ -1,0 +1,29 @@
+.panel { display: grid; gap: 1rem; min-height: 29rem; }
+.panelHeader { display: flex; gap: 1rem; align-items: flex-start; justify-content: space-between; }
+.panelHeader > div:first-child > span { color: var(--color-primary); font: 650 0.6rem/1 var(--font-mono); letter-spacing: 0.09em; }
+.panelHeader h2 { margin-top: 0.45rem; font-size: 1.05rem; }
+.depthControls { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: end; }
+.depthControls button { min-height: 2.25rem; padding: 0 0.6rem; border: 1px solid var(--border-default); border-radius: var(--radius-sm); background: #fff; color: var(--text-secondary); font: 600 0.6rem/1 var(--font-mono); }
+.depthControls button[aria-pressed='true'] { border-color: var(--kb-accent); background: var(--kb-accent-soft); color: var(--kb-accent-hover); }
+.summaries { display: grid; grid-template-columns: repeat(3, 1fr); border-block: 1px solid var(--kb-hairline); }
+.directionSummary { display: grid; gap: 0.28rem; padding: 0.8rem; border-right: 1px solid var(--kb-hairline); }
+.directionSummary:last-child { border-right: 0; }
+.directionSummary span, .directionSummary small { color: var(--text-tertiary); font: 600 0.55rem/1.4 var(--font-mono); }
+.directionSummary strong { color: var(--kb-ink); font-size: 1.05rem; }
+:global(.learning-map-react-flow) { height: 24rem; min-height: 20rem; border: 1px solid var(--kb-hairline); background: radial-gradient(circle at 50% 50%, rgba(62, 91, 239, 0.06), transparent 54%), #fff; }
+:global(.learning-map-node) { display: grid; gap: 0.35rem; width: 10.5rem; min-height: 4.4rem; padding: 0.65rem 0.7rem; border: 1px solid #c8d0e7; border-radius: 0.45rem; background: #fff; color: var(--kb-ink); box-shadow: var(--shadow-sm); text-align: left; }
+:global(.learning-map-node.is-focus) { border-color: var(--kb-accent); box-shadow: 0 0 0 4px rgba(62, 91, 239, 0.1), var(--shadow-md); animation: learning-map-focus-pulse 420ms var(--easing-out) 1; }
+:global(.learning-map-node > span), :global(.learning-map-node small) { color: var(--text-tertiary); font: 600 0.52rem/1 var(--font-mono); }
+:global(.learning-map-node strong) { font-size: 0.76rem; }
+:global(.react-flow__handle) { opacity: 0; }
+:global(.react-flow__controls) { box-shadow: var(--shadow-sm); }
+.loading, .limitNotice { display: grid; min-height: 20rem; place-items: center; border: 1px dashed var(--border-strong); color: var(--text-secondary); font-size: 0.78rem; }
+.hiddenNotice { color: var(--color-warning); font: 600 0.61rem/1.45 var(--font-mono); }
+.semanticFallback { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.visibleFallback { margin-top: 0.5rem; }
+
+@keyframes learning-map-focus-pulse { 0% { transform: scale(0.98); } 60% { transform: scale(1.03); } 100% { transform: scale(1); } }
+
+@media (prefers-reduced-motion: reduce) { :global(.learning-map-node.is-focus) { animation: none; } }
+
+@media (max-width: 760px) { .panelHeader { display: grid; } .depthControls { justify-content: start; } .summaries { grid-template-columns: 1fr; } .directionSummary { border-right: 0; border-bottom: 1px solid var(--kb-hairline); } .directionSummary:last-child { border-bottom: 0; } :global(.learning-map-react-flow) { height: 20rem; } }

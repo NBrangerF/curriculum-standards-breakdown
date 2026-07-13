@@ -143,6 +143,8 @@ export interface TopologicalLayers extends JsonObject {
     prerequisiteLayers: KnowledgePoint[][]
     unlockLayers: KnowledgePoint[][]
     edges: PrerequisiteEdge[]
+    hiddenNodeCount: number
+    visibleNodeCount: number
 }
 
 export interface ManifestSubject {

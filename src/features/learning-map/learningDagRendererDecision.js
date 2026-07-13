@@ -1,3 +1,4 @@
-// This stays renderer-neutral at the controller boundary. React Flow is lazy
-// loaded only by the learning-map surface, keeping non-preview routes untouched.
+import ReactFlowLearningDag from './ReactFlowLearningDag.jsx'
+
 export const LEARNING_DAG_RENDERER = 'react-flow'
+export const SelectedLearningDag = ReactFlowLearningDag

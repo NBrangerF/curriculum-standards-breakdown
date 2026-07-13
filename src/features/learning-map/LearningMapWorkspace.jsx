@@ -2,11 +2,11 @@ import { useEffect, useMemo, useState } from 'react'
 import { m } from 'motion/react'
 import { ErrorState, LoadingState } from '../../components/StateComponents.jsx'
 import { LearningMapController } from './LearningMapController.js'
-import LearningMapFallbackList from './LearningMapFallbackList.jsx'
 import PersistentLocationBar from './PersistentLocationBar.jsx'
 import KnowledgePointSearch from './KnowledgePointSearch.jsx'
 import TaxonomyColumnNavigator from './TaxonomyColumnNavigator.jsx'
 import TaxonomyContextSwitcher from './TaxonomyContextSwitcher.jsx'
+import LearningDagPanel from './LearningDagPanel.jsx'
 import styles from './LearningMapWorkspace.module.css'
 
 const emptyState = (title, message) => (
@@ -65,7 +65,7 @@ export default function LearningMapWorkspace({ dataset, selectedNodeId, status =
                         <span>已验证的局部关系</span>
                         <p>只展示当前知识点的直接先修与直接解锁；不把学段进阶误作先修。</p>
                     </div>
-                    <LearningMapFallbackList snapshot={snapshot} onSelect={selectNode} />
+                    <LearningDagPanel snapshot={snapshot} controller={controller} onSelectionChange={onSelectionChange} />
                 </main>
                 <aside className={styles.inspector} aria-labelledby="learning-map-inspector-title">
                     <span>关系范围</span>
