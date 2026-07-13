@@ -101,13 +101,26 @@ test('standard learning map keeps evidence, focus and history aligned', async ({
     await expect(inspector).toContainText('B before D')
     await expect(inspector).toContainText('MA-B · MA-D2-GE-003')
 
+    await page.getByRole('button', { name: '前置 展开一层' }).click()
+    await expect(page).toHaveURL(/prerequisiteDepth=2/)
+    await expect(page.getByRole('button', { name: '前置 收起' })).toHaveAttribute('aria-pressed', 'true')
+    await expect(page.getByRole('region', { name: '学习脉络的可访问关系列表' }).getByRole('heading', { name: 'D', exact: true })).toBeVisible()
+
     await prerequisites.getByRole('button', { name: 'B 必要' }).click()
     await expect(page).toHaveURL(/selectedNode=kp%3Ab/)
+    await expect(page).toHaveURL(/prerequisiteDepth=2/)
     await expect(page.getByRole('region', { name: '学习脉络的可访问关系列表' }).getByRole('heading', { name: 'B', exact: true })).toBeVisible()
 
     await page.goBack()
     await expect(page).toHaveURL(/selectedNode=kp%3Ad/)
+    await expect(page).toHaveURL(/prerequisiteDepth=2/)
     await expect(page.getByRole('region', { name: '学习脉络的可访问关系列表' }).getByRole('heading', { name: 'D', exact: true })).toBeVisible()
+    await expect(page.getByRole('button', { name: '前置 收起' })).toHaveAttribute('aria-pressed', 'true')
+
+    await page.goForward()
+    await expect(page).toHaveURL(/selectedNode=kp%3Ab/)
+    await expect(page).toHaveURL(/prerequisiteDepth=2/)
+    await expect(page.getByRole('region', { name: '学习脉络的可访问关系列表' }).getByRole('heading', { name: 'B', exact: true })).toBeVisible()
 
     const results = await new AxeBuilder({ page })
         .include('[data-kb-feature="learning-map"]')

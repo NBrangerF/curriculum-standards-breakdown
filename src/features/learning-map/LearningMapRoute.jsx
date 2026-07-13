@@ -7,6 +7,11 @@ const LearningMapWorkspace = lazy(() => import('./LearningMapWorkspace.jsx'))
 export default function LearningMapRoute({ standardCode, learningMapState, onStateChange }) {
     const [loadState, setLoadState] = useState({ status: 'loading' })
     const requestedNode = learningMapState.selectedNode
+    // URL parsing creates fresh arrays on every navigation, including a replace that
+    // serializes exactly the same learning-map state. Depend on their semantic value
+    // so the workspace keeps its controller (and selected relationship) in that case.
+    const contextPathKey = learningMapState.contextPath?.join('\u001f') || ''
+    const necessityKey = learningMapState.necessity?.join('\u001f') || ''
 
     const load = useCallback(() => {
         let cancelled = false
@@ -37,8 +42,8 @@ export default function LearningMapRoute({ standardCode, learningMapState, onSta
         contextPath: learningMapState.contextPath,
         necessity: learningMapState.necessity
     }), [
-        learningMapState.contextPath,
-        learningMapState.necessity,
+        contextPathKey,
+        necessityKey,
         learningMapState.prerequisiteDepth,
         learningMapState.unlockDepth
     ])
