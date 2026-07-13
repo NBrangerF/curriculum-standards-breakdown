@@ -280,7 +280,14 @@ function StandardDetailPage() {
     const nextCodes = next_code ? next_code.split('\n').filter(Boolean) : []
 
     return (
-        <div className={styles['standard-detail-page']} data-kb-route="standard">
+        <div
+            className={styles['standard-detail-page']}
+            data-kb-route="standard"
+            data-learning-map-version={learningMapActive ? 'learning-map' : 'legacy'}
+            data-learning-map-flag-source={learningMapFlag.source}
+            data-learning-map-rollout-percentage={learningMapFlag.rolloutPercentage ?? undefined}
+            data-learning-map-rollout-bucket={learningMapFlag.rolloutBucket ?? undefined}
+        >
             {/* Breadcrumb */}
             <div className={styles['breadcrumb-bar']}>
                 <div className="container">
