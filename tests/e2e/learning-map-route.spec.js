@@ -13,6 +13,22 @@ const multiParentFixture = JSON.parse(fs.readFileSync(
 
 fixture.knowledgePoints.find(point => point.id === 'kp:d').standardCodes = ['MA-D2-GE-003']
 multiParentFixture.knowledgePoints.find(point => point.id === 'kp:shared').standardCodes = ['MA-D2-GE-003']
+multiParentFixture.knowledgePoints.push(
+    { id: 'kp:foundation', type: 'knowledge_point', label: '先备知识', subjectSlug: 'math', standardCodes: ['MA-FOUNDATION'], dependencyCoverage: { incoming: 'reviewed', outgoing: 'reviewed' }, reviewStatus: 'approved' },
+    { id: 'kp:extension', type: 'knowledge_point', label: '后续知识', subjectSlug: 'math', standardCodes: ['MA-EXTENSION'], dependencyCoverage: { incoming: 'reviewed', outgoing: 'reviewed' }, reviewStatus: 'approved' }
+)
+multiParentFixture.prerequisites.push(
+    { id: 'pre:foundation:shared', source: 'kp:foundation', target: 'kp:shared', type: 'prerequisite', directed: true, necessity: 'required', rationale: '先备知识是共享知识点的必要前置。', evidenceRefs: ['ev:foundation:shared'], confidence: 'high', reviewStatus: 'approved', reviewedByRole: 'fixture', reviewedAt: '2026-07-12', version: 'fixture' },
+    { id: 'pre:shared:extension', source: 'kp:shared', target: 'kp:extension', type: 'prerequisite', directed: true, necessity: 'recommended', rationale: '共享知识点可解锁后续知识。', evidenceRefs: ['ev:shared:extension'], confidence: 'medium', reviewStatus: 'approved', reviewedByRole: 'fixture', reviewedAt: '2026-07-12', version: 'fixture' }
+)
+multiParentFixture.taxonomyEdges.push(
+    { id: 'tax:geometry:foundation', source: 'topic:math:geometry', target: 'kp:foundation', type: 'taxonomy_parent', taxonomyId: 'fixture', directed: true, order: 2, reviewStatus: 'approved' },
+    { id: 'tax:measurement:extension', source: 'topic:math:measurement', target: 'kp:extension', type: 'taxonomy_parent', taxonomyId: 'fixture', directed: true, order: 2, reviewStatus: 'approved' }
+)
+multiParentFixture.evidence.push(
+    { id: 'ev:foundation:shared', sourceType: 'fixture', sourceId: 'fixture:multi-parent', locator: 'foundation-shared', statement: '先备知识是共享知识点的必要前置。' },
+    { id: 'ev:shared:extension', sourceType: 'fixture', sourceId: 'fixture:multi-parent', locator: 'shared-extension', statement: '共享知识点可解锁后续知识。' }
+)
 
 const payloadFor = dataset => ({
     '/data/knowledge_graph/manifest.json': {
@@ -51,6 +67,17 @@ async function expectSemanticPathPrimary(page, label) {
     await expect(semanticPath).toBeVisible()
     await expect(semanticPath.getByRole('heading', { name: label, exact: true })).toBeVisible()
     await expect(page.locator('.learning-map-react-flow')).toHaveAttribute('aria-hidden', 'true')
+}
+
+async function tabTo(page, target, { maxTabs = 48 } = {}) {
+    for (let index = 0; index < maxTabs; index += 1) {
+        await page.keyboard.press('Tab')
+        if (await target.evaluate(element => element === document.activeElement)) {
+            await expect(target).toBeFocused()
+            return
+        }
+    }
+    throw new Error(`Keyboard Tab did not reach ${await target.evaluate(element => element.outerHTML)}`)
 }
 
 test('standard learning map keeps evidence, focus and history aligned', async ({ page }) => {
@@ -106,11 +133,12 @@ test('keyboard search selects a knowledge point and updates its semantic locatio
 
     const search = page.getByRole('region', { name: '搜索知识点' })
     const input = search.getByRole('searchbox', { name: '搜索知识点' })
-    await input.focus()
+    await tabTo(page, input)
     await page.keyboard.type('MA-B')
     const result = search.getByRole('button', { name: /^B\s+数学 \/ B/ })
     await expect(result).toBeVisible()
-    await result.focus()
+    await page.keyboard.press('Tab')
+    await expect(result).toBeFocused()
     await page.keyboard.press('Enter')
 
     await expect(page).toHaveURL(/selectedNode=kp%3Ab/)
@@ -143,23 +171,41 @@ test('taxonomy keyboard entry and exit preserve the semantic task path before se
     await expectSemanticPathPrimary(page, 'B')
 })
 
-test('keyboard context switching chooses a multi-parent taxonomy location without changing the knowledge point', async ({ page }) => {
+test('keyboard context switching preserves reviewed prerequisite and unlock decisions across taxonomy locations', async ({ page }) => {
     await page.unroute('**/data/knowledge_graph/**')
     await installFixtureRoute(page, multiParentFixture)
     await page.goto('/standards/MA-D2-GE-003?learning-map=1&view=learning-map&selectedNode=kp:shared&contextPath=topic:math:geometry,kp:shared')
 
     const location = page.getByRole('navigation', { name: '知识分类路径' })
     await expect(location).toHaveText(/图形与几何.*共享知识点/)
+    const prerequisites = page.getByRole('region', { name: '需要先掌握' })
+    const unlocks = page.getByRole('region', { name: '将会解锁' })
+    await expect(prerequisites).toContainText('先备知识')
+    await expect(prerequisites).toContainText('1')
+    await expect(unlocks).toContainText('后续知识')
+    await expect(unlocks).toContainText('1')
+
     const switcher = page.locator('summary', { hasText: '切换位置' })
-    await switcher.focus()
+    await tabTo(page, switcher)
     await page.keyboard.press('Enter')
+    const geometry = page.getByRole('button', { name: '图形与几何 / 共享知识点' })
+    await page.keyboard.press('Tab')
+    await expect(geometry).toBeFocused()
     const measurement = page.getByRole('button', { name: '测量 / 共享知识点' })
-    await expect(measurement).toBeVisible()
-    await measurement.focus()
+    await page.keyboard.press('Tab')
+    await expect(measurement).toBeFocused()
     await page.keyboard.press('Enter')
 
     await expect(page).toHaveURL(/selectedNode=kp%3Ashared/)
     await expect(page).toHaveURL(/contextPath=topic%3Amath%3Ameasurement%2Ckp%3Ashared/)
     await expect(location).toHaveText(/测量.*共享知识点/)
+    await expect(prerequisites).toContainText('先备知识')
+    await expect(prerequisites).toContainText('1')
+    await expect(unlocks).toContainText('后续知识')
+    await expect(unlocks).toContainText('1')
+    await expect(prerequisites.getByRole('button', { name: '先备知识 必要' })).toBeVisible()
+    await expect(unlocks.getByRole('button', { name: '后续知识 建议' })).toBeVisible()
+    await prerequisites.getByRole('button', { name: '查看先备知识与当前知识点的关系依据' }).click()
+    await expect(page.getByRole('complementary', { name: '必要前置' })).toContainText('先备知识是共享知识点的必要前置。')
     await expectSemanticPathPrimary(page, '共享知识点')
 })
