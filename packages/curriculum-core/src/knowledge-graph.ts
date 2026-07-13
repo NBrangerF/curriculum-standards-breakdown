@@ -206,7 +206,7 @@ export function getLearningContext(index: KnowledgeGraphIndex, pointId: string, 
     const alternativePaths = allTaxonomyPaths(index, pointId)
         .filter(path => path.join('\u0000') !== activePathIds.join('\u0000'))
         .map(path => path.map(id => nodeFor(index, id)).filter((node): node is LearningNode => Boolean(node)))
-    const parentId = activePathIds.at(-2)
+    const parentId = activePathIds.length >= 2 ? activePathIds[activePathIds.length - 2] : undefined
     const siblings = parentId
         ? (index.taxonomyChildrenByNode.get(parentId) || [])
             .map(edge => nodeFor(index, edge.target))
