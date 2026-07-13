@@ -18,7 +18,7 @@ export interface StandardRecord extends JsonObject {
 
 export type DependencyCoverageStatus = 'reviewed' | 'not_reviewed'
 export type KnowledgeReviewStatus = 'candidate' | 'approved' | 'disputed' | 'retired'
-export type PrerequisiteNecessity = 'required' | 'recommended'
+export type PrerequisiteNecessity = 'required' | 'recommended' | 'undetermined'
 export type RelationshipConfidence = 'high' | 'medium' | 'low'
 
 export interface DependencyCoverage extends JsonObject {
@@ -63,8 +63,8 @@ export interface PrerequisiteEdge extends JsonObject {
     evidenceRefs: string[]
     confidence: RelationshipConfidence
     reviewStatus: KnowledgeReviewStatus
-    reviewedByRole: string
-    reviewedAt: string
+    reviewedByRole?: string
+    reviewedAt?: string
     version: string
 }
 
@@ -89,6 +89,7 @@ export interface LearningEvidence extends JsonObject {
 }
 
 export interface KnowledgeGraphDataset extends JsonObject {
+    publicationStatus?: 'approved' | 'public_preview'
     knowledgePoints: KnowledgePoint[]
     taxonomyNodes: TaxonomyNode[]
     prerequisites: PrerequisiteEdge[]
@@ -119,6 +120,7 @@ export interface LearningContextOptions {
 export interface LearningDirectionContext extends JsonObject {
     required: KnowledgePoint[]
     recommended: KnowledgePoint[]
+    undetermined: KnowledgePoint[]
     total: number
     hidden: number
 }

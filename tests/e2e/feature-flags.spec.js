@@ -58,16 +58,18 @@ test('route flags are independent and a query override wins', async ({ page }) =
 test('standard rollback keeps reading and collection actions but removes graph enhancement', async ({ page }) => {
     await page.goto('/standards/MA-D2-GE-003?ui-v2=0')
     await expect(page.locator('[data-ui-route="standard"]')).toHaveAttribute('data-ui-version', 'legacy')
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+    await expect(page.getByRole('heading', { level: 1, name: '会根据角的特征对三角形分类' })).toBeVisible()
     await expect(page.getByRole('button', { name: 'MA-D2-GE-003 复制编码' })).toBeVisible()
     await expect(page.getByRole('button', { name: '在图谱中定位' })).toHaveCount(0)
     await expect(page.getByRole('button', { name: '收藏 MA-D2-GE-003' })).toBeVisible()
 })
 
-test('learning-map query fails closed without an approved manifest', async ({ page }) => {
-    await page.goto('/standards/MA-D2-GE-003?learning-map=1&view=learning-map')
-    await expect(page.getByRole('heading', { name: '学习脉络暂时无法加载' })).toBeVisible()
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+test('learning-map public preview is explicit and never claims expert approval', async ({ page }) => {
+    await page.goto('/standards/MA-D2-GE-003?view=learning-map')
+    await expect(page.getByRole('note')).toContainText('公开预览')
+    await expect(page.getByRole('note')).toContainText('不代表课程专家确认的认知先修关系')
+    await expect(page.getByRole('heading', { name: '可能需要先了解，可能继续通往' })).toBeVisible()
+    await expect(page.getByRole('heading', { level: 1, name: '会根据角的特征对三角形分类' })).toBeVisible()
     await expect(page.getByRole('heading', { name: '标准在课程结构中的位置' })).toHaveCount(0)
 })
 

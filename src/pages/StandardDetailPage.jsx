@@ -186,7 +186,16 @@ function StandardDetailPage() {
         copyTimerRef.current = window.setTimeout(() => setCodeCopyStatus('idle'), 1800)
     }, [code])
 
+    const openLearningMap = useCallback(() => {
+        const current = parseLearningMapStateFromURL(new URLSearchParams(searchParams))
+        setSearchParams(mergeLearningMapStateIntoURL(searchParams, { ...current, view: 'learning-map' }), { replace: false })
+    }, [searchParams, setSearchParams])
+
     const handleLocateGraph = useCallback(() => {
+        if (learningMapFlag.enabled) {
+            openLearningMap()
+            return
+        }
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
         const scrollToGraph = () => requestAnimationFrame(() => {
             window.setTimeout(() => {
@@ -203,7 +212,7 @@ function StandardDetailPage() {
         const transition = runViewTransition(() => setRelationsExpanded(true))
         if (transition?.finished) transition.finished.finally(scrollToGraph)
         else scrollToGraph()
-    }, [relationsExpanded])
+    }, [learningMapFlag.enabled, openLearningMap, relationsExpanded])
 
     const updateLearningMapState = useCallback((partial, options = {}) => {
         const current = parseLearningMapStateFromURL(new URLSearchParams(searchParams))

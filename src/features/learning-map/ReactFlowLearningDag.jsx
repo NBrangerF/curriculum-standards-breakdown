@@ -13,22 +13,22 @@ export default function ReactFlowLearningDag({ snapshot, onSelectNode, onSelectR
     const layout = useMemo(() => layoutLearningDag({ focus: context.focus, topology }), [context.focus, topology])
     const nodes = useMemo(() => layout.nodes.map(node => ({
         ...node,
-        data: { ...node.data, isFocus: node.id === context.focus.id, onSelect: onSelectNode }
-    })), [context.focus.id, layout.nodes, onSelectNode])
+        data: { ...node.data, isFocus: node.id === context.focus.id, isPreview: snapshot.isPreview, onSelect: onSelectNode }
+    })), [context.focus.id, layout.nodes, onSelectNode, snapshot.isPreview])
     const edges = useMemo(() => layout.edges.map(edge => {
         const relation = edge.relationship
-        const necessity = relation?.necessity === 'recommended' ? '建议先修' : '必要先修'
+        const necessity = snapshot.isPreview ? '待验证顺序线索' : relation?.necessity === 'recommended' ? '建议先修' : '必要先修'
         const source = layout.nodes.find(node => node.id === edge.source)?.data.point.label || edge.source
         const target = layout.nodes.find(node => node.id === edge.target)?.data.point.label || edge.target
         return {
             ...edge,
             type: 'learning',
             data: { relationship: relation },
-            markerEnd: { type: MarkerType.ArrowClosed, color: relation?.necessity === 'recommended' ? '#8e9bbc' : '#506bdd' },
-            ariaLabel: `${necessity}：${source} → ${target}，已验证关系`,
+            markerEnd: { type: MarkerType.ArrowClosed, color: relation?.necessity === 'required' ? '#506bdd' : '#8e9bbc' },
+            ariaLabel: `${necessity}：${source} → ${target}${snapshot.isPreview ? '，尚未经过课程专家先修审核' : '，已验证关系'}`,
             focusable: false
         }
-    }), [layout.edges, layout.nodes])
+    }), [layout.edges, layout.nodes, snapshot.isPreview])
 
     return (
         <div className="learning-map-react-flow" aria-hidden="true">

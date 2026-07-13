@@ -35,7 +35,7 @@ export default function LearningMapWorkspace({ dataset, selectedNodeId, options,
 
     if (status === 'loading') return <LoadingState message="正在建立学习脉络…" />
     if (status === 'error') return <ErrorState title="学习脉络暂时无法加载" message={error?.message || '请检查数据版本后重试。'} onRetry={onRetry} />
-    if (!snapshot) return emptyState('暂无可展示的学习脉络', '当前范围内还没有经审核的知识点。')
+    if (!snapshot) return emptyState('暂无可展示的学习脉络', '当前范围内还没有可发布的知识点。')
 
     const selectNode = (nodeId, contextPath) => {
         if (controller.selectNode(nodeId, { contextPath })) onSelectionChange?.(controller.getSnapshot(), { history: 'push' })
@@ -54,6 +54,12 @@ export default function LearningMapWorkspace({ dataset, selectedNodeId, options,
             transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
         >
             <h1 id="learning-map-workspace-title" className="sr-only">学习脉络</h1>
+            {snapshot.isPreview ? (
+                <div className={styles.previewNotice} role="note" data-kb-learning-map-publication="public_preview">
+                    <strong>公开预览</strong>
+                    <span>节点来自课程标准；连线来自前后条目字段，是待验证的课程顺序线索，不代表课程专家确认的认知先修关系。</span>
+                </div>
+            ) : null}
             <PersistentLocationBar context={snapshot.context} contextSwitcher={<TaxonomyContextSwitcher context={snapshot.context} onSelectPath={switchContext} />} />
             <div className={styles.workspaceGrid}>
                 <aside className={styles.taxonomyRail} aria-labelledby="learning-map-taxonomy-title">
@@ -63,13 +69,15 @@ export default function LearningMapWorkspace({ dataset, selectedNodeId, options,
                 </aside>
                 <main className={styles.mapStage}>
                     <div className={styles.stageHeader}>
-                        <span>已验证的局部关系</span>
-                        <p>只展示当前知识点的直接先修与直接解锁；不把学段进阶误作先修。</p>
+                        <span>{snapshot.isPreview ? '公开预览 · 待验证关系' : '已验证的局部关系'}</span>
+                        <p>{snapshot.isPreview
+                            ? '展示课程标准中的直接顺序线索；它们用于预览信息结构与交互，不作为学习决策结论。'
+                            : '只展示当前知识点的直接先修与直接解锁；不把学段进阶误作先修。'}</p>
                     </div>
                     <LearningDecisionPanel snapshot={snapshot} controller={controller} onSelectionChange={onSelectionChange} />
                 </main>
                 <aside className={styles.inspector} aria-labelledby="learning-map-inspector-title">
-                    <RelationshipInspector selection={snapshot.inspectorSelection} />
+                    <RelationshipInspector selection={snapshot.inspectorSelection} isPreview={snapshot.isPreview} />
                 </aside>
             </div>
             <p className="sr-only" aria-live="polite">{snapshot.announcement}</p>

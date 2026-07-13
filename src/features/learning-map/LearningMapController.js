@@ -17,10 +17,11 @@ const descendantCount = (index, id, visited = new Set()) => {
 
 export class LearningMapController {
     constructor({ dataset, selectedNodeId, options = {} }) {
+        this.publicationStatus = dataset.publicationStatus || 'approved'
         this.index = createKnowledgeGraphIndex(dataset)
         this.selectedNodeId = selectedNodeId || this.index.knowledgePointsById.keys().next().value
         if (!this.selectedNodeId || !this.index.knowledgePointsById.has(this.selectedNodeId)) {
-            throw new Error('LearningMapController requires an approved knowledge point focus')
+            throw new Error('LearningMapController requires a publishable knowledge point focus')
         }
         this.options = {
             prerequisiteDepth: clampDepth(options.prerequisiteDepth),
@@ -34,6 +35,7 @@ export class LearningMapController {
     }
 
     getSnapshot() {
+        const isPreview = this.publicationStatus === 'public_preview'
         const context = getLearningContext(this.index, this.selectedNodeId, this.options)
         const selectedRelationship = this.selectedRelationshipId
             ? this.index.prerequisitesById.get(this.selectedRelationshipId)
@@ -41,8 +43,14 @@ export class LearningMapController {
         const topology = buildTopologicalLayers(this.index, this.selectedNodeId, this.options)
         const inspectorSelection = getInspectorSelection(this.index, this.selectedRelationshipId, this.selectedNodeId)
         const announcement = selectedRelationship
-            ? `${inspectorSelection?.kind === 'relationship' ? `${inspectorSelection.source.label} 是 ${inspectorSelection.target.label} 的${inspectorSelection.edge.necessity === 'required' ? '必要' : '建议'}前置` : '已验证关系'}。`
-            : `${context.focus.label}：${context.prerequisites.total} 个直接前置项，${context.unlocks.total} 个直接解锁项。`
+            ? `${inspectorSelection?.kind === 'relationship'
+                ? isPreview
+                    ? `${inspectorSelection.source.label} 到 ${inspectorSelection.target.label} 的课程顺序候选线索，尚未经过先修审核`
+                    : `${inspectorSelection.source.label} 是 ${inspectorSelection.target.label} 的${inspectorSelection.edge.necessity === 'required' ? '必要' : '建议'}前置`
+                : isPreview ? '待验证关系线索' : '已验证关系'}。`
+            : isPreview
+                ? `${context.focus.label}：${context.prerequisites.total} 个向前关系，${context.unlocks.total} 个向后关系，均为待验证候选线索。`
+                : `${context.focus.label}：${context.prerequisites.total} 个直接前置项，${context.unlocks.total} 个直接解锁项。`
 
         return {
             selectedNodeId: this.selectedNodeId,
@@ -50,6 +58,8 @@ export class LearningMapController {
             inspectorSelection,
             context,
             topology,
+            publicationStatus: this.publicationStatus,
+            isPreview,
             options: { ...this.options },
             announcement
         }

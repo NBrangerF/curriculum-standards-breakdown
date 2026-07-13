@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
+import { pathToFileURL } from 'node:url'
 
 const DEFAULT_DATA_ROOT = 'public/data'
 const DEFAULT_OUTPUT_ROOT = 'generated/knowledge_graph_candidates'
@@ -94,28 +95,30 @@ export function reviewCsv(candidates) {
     return `${header.join(',')}\n${rows.join('\n')}\n`
 }
 
-const args = parseArgs(process.argv.slice(2))
-const dataRoot = resolve(args.dataRoot)
-const outputRoot = resolve(args.outputRoot)
-const math = await readJson(resolve(dataRoot, 'by_subject/math.json'))
-const candidates = buildReviewCandidates(math)
-const packetHash = sha256({ nodes: candidates.nodes, edges: candidates.edges })
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+    const args = parseArgs(process.argv.slice(2))
+    const dataRoot = resolve(args.dataRoot)
+    const outputRoot = resolve(args.outputRoot)
+    const math = await readJson(resolve(dataRoot, 'by_subject/math.json'))
+    const candidates = buildReviewCandidates(math)
+    const packetHash = sha256({ nodes: candidates.nodes, edges: candidates.edges })
 
-await writeJson(resolve(outputRoot, 'math_geometry_nodes.json'), {
-    generatedAt: new Date().toISOString(), scope: 'math_geometry_candidate_only', packetSha256: packetHash, nodes: candidates.nodes
-})
-await writeJson(resolve(outputRoot, 'math_geometry_edges.json'), {
-    generatedAt: new Date().toISOString(), scope: 'math_geometry_candidate_only', packetSha256: packetHash, edges: candidates.edges
-})
-await mkdir(outputRoot, { recursive: true })
-await writeFile(resolve(outputRoot, 'math_geometry_review_packet.csv'), reviewCsv(candidates))
+    await writeJson(resolve(outputRoot, 'math_geometry_nodes.json'), {
+        generatedAt: new Date().toISOString(), scope: 'math_geometry_candidate_only', packetSha256: packetHash, nodes: candidates.nodes
+    })
+    await writeJson(resolve(outputRoot, 'math_geometry_edges.json'), {
+        generatedAt: new Date().toISOString(), scope: 'math_geometry_candidate_only', packetSha256: packetHash, edges: candidates.edges
+    })
+    await mkdir(outputRoot, { recursive: true })
+    await writeFile(resolve(outputRoot, 'math_geometry_review_packet.csv'), reviewCsv(candidates))
 
-console.log(JSON.stringify({
-    status: 'candidate_packet_written',
-    outputRoot,
-    packetSha256: packetHash,
-    nodes: candidates.nodes.length,
-    edgeCandidates: candidates.edges.length,
-    approvedEdges: 0,
-    writesPublicData: false
-}, null, 2))
+    console.log(JSON.stringify({
+        status: 'candidate_packet_written',
+        outputRoot,
+        packetSha256: packetHash,
+        nodes: candidates.nodes.length,
+        edgeCandidates: candidates.edges.length,
+        approvedEdges: 0,
+        writesPublicData: false
+    }, null, 2))
+}

@@ -53,7 +53,7 @@ export const LEARNING_MAP_QUERY_PARAMS = Object.freeze({
 })
 
 export const LEARNING_MAP_VIEW_VALUES = Object.freeze(['learning-map'])
-export const LEARNING_MAP_NECESSITY_VALUES = Object.freeze(['required', 'recommended'])
+export const LEARNING_MAP_NECESSITY_VALUES = Object.freeze(['required', 'recommended', 'undetermined'])
 
 const splitUniqueValues = value => [...new Set(
     String(value || '')

@@ -17,9 +17,12 @@ async function fetchJson(url, signal) {
 
 const toArray = (payload, key) => Array.isArray(payload) ? payload : (payload?.[key] || [])
 
-const assertApprovedCollection = (records, label) => {
-    const unapproved = records.find(record => record?.reviewStatus !== 'approved')
-    if (unapproved) throw new Error(`Learning Map ${label} contains non-approved record: ${unapproved.id || 'unknown'}`)
+const assertPublishableCollection = (records, label, publicationStatus) => {
+    const allowed = publicationStatus === 'public_preview'
+        ? new Set(['approved', 'candidate'])
+        : new Set(['approved'])
+    const unpublishable = records.find(record => !allowed.has(record?.reviewStatus))
+    if (unpublishable) throw new Error(`Learning Map ${label} contains non-publishable record: ${unpublishable.id || 'unknown'}`)
 }
 
 export function findApprovedKnowledgePointsByStandard(knowledgePoints, standardCode) {
@@ -27,6 +30,17 @@ export function findApprovedKnowledgePointsByStandard(knowledgePoints, standardC
     if (!normalizedCode) return []
     return (knowledgePoints || []).filter(point => (
         point?.reviewStatus === 'approved' && Array.isArray(point.standardCodes) && point.standardCodes.includes(normalizedCode)
+    ))
+}
+
+export function findPublishableKnowledgePointsByStandard(knowledgePoints, standardCode, publicationStatus = 'approved') {
+    const normalizedCode = String(standardCode || '').trim()
+    if (!normalizedCode) return []
+    const allowed = publicationStatus === 'public_preview'
+        ? new Set(['approved', 'candidate'])
+        : new Set(['approved'])
+    return (knowledgePoints || []).filter(point => (
+        allowed.has(point?.reviewStatus) && Array.isArray(point.standardCodes) && point.standardCodes.includes(normalizedCode)
     ))
 }
 
@@ -42,17 +56,22 @@ export async function loadKnowledgeGraph({ manifestUrl = DEFAULT_MANIFEST_URL, s
         if (missing.length) throw new Error(`Learning Map manifest is missing: ${missing.join(', ')}`)
         const payloads = await Promise.all(requiredFiles.map(key => fetchJson(resolveKnowledgeGraphFileURL(manifestUrl, files[key]), signal)))
         const [knowledgePoints, taxonomyNodes, prerequisites, taxonomyEdges, evidence] = payloads
+        const publicationStatus = manifest.publicationStatus === 'public_preview' ? 'public_preview' : 'approved'
+        if (publicationStatus === 'public_preview' && manifest.relationshipSemantics !== 'curriculum_progression_candidate_not_verified_prerequisite') {
+            throw new Error('Learning Map public preview manifest has invalid relationship semantics')
+        }
         const dataset = {
+            publicationStatus,
             knowledgePoints: toArray(knowledgePoints, 'knowledgePoints'),
             taxonomyNodes: toArray(taxonomyNodes, 'taxonomyNodes'),
             prerequisites: toArray(prerequisites, 'prerequisites'),
             taxonomyEdges: toArray(taxonomyEdges, 'taxonomyEdges'),
             evidence: toArray(evidence, 'evidence')
         }
-        assertApprovedCollection(dataset.knowledgePoints, 'knowledge points')
-        assertApprovedCollection(dataset.taxonomyNodes, 'taxonomy nodes')
-        assertApprovedCollection(dataset.prerequisites, 'prerequisites')
-        assertApprovedCollection(dataset.taxonomyEdges, 'taxonomy edges')
+        assertPublishableCollection(dataset.knowledgePoints, 'knowledge points', publicationStatus)
+        assertPublishableCollection(dataset.taxonomyNodes, 'taxonomy nodes', publicationStatus)
+        assertPublishableCollection(dataset.prerequisites, 'prerequisites', publicationStatus)
+        assertPublishableCollection(dataset.taxonomyEdges, 'taxonomy edges', publicationStatus)
         return {
             version: manifest.version || manifest.dataVersion || 'unknown',
             dataset,

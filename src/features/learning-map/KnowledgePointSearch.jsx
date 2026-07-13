@@ -6,6 +6,7 @@ export default function KnowledgePointSearch({ controller, onSelect }) {
     const [query, setQuery] = useState('')
     const deferredQuery = useDeferredValue(query)
     const results = useMemo(() => controller.search(deferredQuery), [controller, deferredQuery])
+    const isPreview = controller.publicationStatus === 'public_preview'
 
     return (
         <section className={styles.search} aria-label="搜索知识点">
@@ -20,10 +21,10 @@ export default function KnowledgePointSearch({ controller, onSelect }) {
                         <li key={point.id}>
                             <button type="button" onClick={() => { setQuery(''); onSelect(point.id, taxonomyPath.map(item => item.id)) }}>
                                 <strong>{point.label}</strong>
-                                <span>{taxonomyPath.map(item => item.label).join(' / ') || point.subjectSlug} · {relationshipCount} 条已验证关系</span>
+                                <span>{taxonomyPath.map(item => item.label).join(' / ') || point.subjectSlug} · {relationshipCount} 条{isPreview ? '候选线索' : '已验证关系'}</span>
                             </button>
                         </li>
-                    )) : <li className={styles.noResults}>没有匹配的已审核知识点。</li>}
+                    )) : <li className={styles.noResults}>没有匹配的{isPreview ? '预览知识点' : '已审核知识点'}。</li>}
                 </ul>
             ) : null}
         </section>

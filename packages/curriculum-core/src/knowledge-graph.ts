@@ -14,7 +14,9 @@ import type {
 
 type LearningNode = KnowledgePoint | TaxonomyNode
 
-const approved = <T extends { reviewStatus: string }>(item: T) => item.reviewStatus === 'approved'
+const visibleIn = (publicationStatus?: string) => <T extends { reviewStatus: string }>(item: T) => (
+    item.reviewStatus === 'approved' || (publicationStatus === 'public_preview' && item.reviewStatus === 'candidate')
+)
 const pointOrder = (left: KnowledgePoint, right: KnowledgePoint) => left.label.localeCompare(right.label, 'zh-CN') || left.id.localeCompare(right.id)
 const edgeOrder = (left: { order?: number, id: string }, right: { order?: number, id: string }) => (left.order || 0) - (right.order || 0) || left.id.localeCompare(right.id)
 
@@ -29,10 +31,11 @@ const sortIndex = <T>(index: Map<string, T[]>, compare: (left: T, right: T) => n
 }
 
 export function createKnowledgeGraphIndex(dataset: KnowledgeGraphDataset): KnowledgeGraphIndex {
-    const knowledgePoints = dataset.knowledgePoints.filter(approved)
-    const taxonomyNodes = dataset.taxonomyNodes.filter(approved)
-    const prerequisites = dataset.prerequisites.filter(approved)
-    const taxonomyEdges = dataset.taxonomyEdges.filter(approved)
+    const visible = visibleIn(dataset.publicationStatus)
+    const knowledgePoints = dataset.knowledgePoints.filter(visible)
+    const taxonomyNodes = dataset.taxonomyNodes.filter(visible)
+    const prerequisites = dataset.prerequisites.filter(visible)
+    const taxonomyEdges = dataset.taxonomyEdges.filter(visible)
     const evidence = dataset.evidence
 
     const incomingPrerequisitesByPoint = new Map<string, PrerequisiteEdge[]>()
@@ -193,6 +196,7 @@ const splitByNecessity = (index: KnowledgeGraphIndex, focusId: string, direction
     return {
         required: visible.filter(point => edgeForPoint.get(point.id)?.necessity === 'required'),
         recommended: visible.filter(point => edgeForPoint.get(point.id)?.necessity === 'recommended'),
+        undetermined: visible.filter(point => edgeForPoint.get(point.id)?.necessity === 'undetermined'),
         total: points.length,
         hidden: Math.max(0, points.length - visible.length)
     }

@@ -89,8 +89,9 @@ test('standard graph visual baseline', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 })
     await page.goto('/standards/MA-D2-GE-003')
     await page.getByRole('button', { name: '在图谱中定位' }).click()
-    await expect(page.getByRole('heading', { name: '标准在课程结构中的位置' })).toBeVisible()
-    await expect(page.locator('[data-kb-component="graph-canvas"]')).toHaveAttribute('data-kb-ready', 'true', { timeout: 20_000 })
+    await expect(page).toHaveURL(/view=learning-map/)
+    await expect(page.getByRole('heading', { name: '可能需要先了解，可能继续通往' })).toBeVisible({ timeout: 20_000 })
+    await expect(page.locator('[data-kb-learning-map-publication="public_preview"]')).toBeVisible()
     await waitForVisualStability(page)
     await expect(page).toHaveScreenshot('standard-graph-desktop.png', {
         animations: 'disabled',

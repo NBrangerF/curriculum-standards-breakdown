@@ -1,6 +1,6 @@
 import styles from './LearningMapWorkspace.module.css'
 
-function RelationList({ heading, points, emptyMessage, onSelect, onSelectRelationship, kind, focusId, edges }) {
+function RelationList({ heading, points, emptyMessage, onSelect, onSelectRelationship, kind, focusId, edges, isPreview }) {
     return (
         <section className={`${styles.relationGroup} ${styles[kind]}`} aria-labelledby={`${kind}-heading`}>
             <div className={styles.relationGroupHeading}>
@@ -9,7 +9,7 @@ function RelationList({ heading, points, emptyMessage, onSelect, onSelectRelatio
             </div>
             {points.total ? (
                 <ul>
-                    {[...points.required, ...points.recommended].map(point => {
+                    {[...points.required, ...points.recommended, ...(points.undetermined || [])].map(point => {
                         const relationship = edges.find(edge => kind === 'prerequisite'
                             ? edge.source === point.id && edge.target === focusId
                             : edge.source === focusId && edge.target === point.id)
@@ -18,7 +18,7 @@ function RelationList({ heading, points, emptyMessage, onSelect, onSelectRelatio
                             <div className={styles.relationItem}>
                                 <button type="button" onClick={() => onSelect(point.id)}>
                                     <span>{point.label}</span>
-                                    <small>{points.required.some(item => item.id === point.id) ? '必要' : '建议'}</small>
+                                    <small>{isPreview ? '待验证' : points.required.some(item => item.id === point.id) ? '必要' : '建议'}</small>
                                 </button>
                                 {relationship ? <button type="button" className={styles.relationEvidenceButton} onClick={() => onSelectRelationship?.(relationship.id)} aria-label={`查看${point.label}与当前知识点的关系依据`}>依据</button> : null}
                             </div>
@@ -34,10 +34,14 @@ function RelationList({ heading, points, emptyMessage, onSelect, onSelectRelatio
 
 export default function LearningMapFallbackList({ snapshot, onSelect, onSelectRelationship }) {
     const { context, topology } = snapshot
-    const prerequisiteEmpty = context.coverage.incoming === 'reviewed'
+    const prerequisiteEmpty = snapshot.isPreview
+        ? '当前没有向前的课程顺序候选线索。'
+        : context.coverage.incoming === 'reviewed'
         ? '这是当前已审核学习范围内的起点。'
         : '当前尚无经证实的先修关系。'
-    const unlockEmpty = context.coverage.outgoing === 'reviewed'
+    const unlockEmpty = snapshot.isPreview
+        ? '当前没有向后的课程顺序候选线索。'
+        : context.coverage.outgoing === 'reviewed'
         ? '这是当前已审核学习范围内的终点。'
         : '当前尚无经证实的后续解锁。'
     return (
@@ -47,8 +51,8 @@ export default function LearningMapFallbackList({ snapshot, onSelect, onSelectRe
                 <h2 id="current-knowledge-heading" aria-current="true">{context.focus.label}</h2>
                 <code>{context.focus.standardCodes.join(' · ')}</code>
             </section>
-            <RelationList kind="prerequisite" heading="需要先掌握" points={context.prerequisites} emptyMessage={prerequisiteEmpty} onSelect={onSelect} onSelectRelationship={onSelectRelationship} focusId={context.focus.id} edges={topology.edges} />
-            <RelationList kind="unlock" heading="将会解锁" points={context.unlocks} emptyMessage={unlockEmpty} onSelect={onSelect} onSelectRelationship={onSelectRelationship} focusId={context.focus.id} edges={topology.edges} />
+            <RelationList kind="prerequisite" heading={snapshot.isPreview ? '可能需要先了解' : '需要先掌握'} points={context.prerequisites} emptyMessage={prerequisiteEmpty} onSelect={onSelect} onSelectRelationship={onSelectRelationship} focusId={context.focus.id} edges={topology.edges} isPreview={snapshot.isPreview} />
+            <RelationList kind="unlock" heading={snapshot.isPreview ? '可能继续通往' : '将会解锁'} points={context.unlocks} emptyMessage={unlockEmpty} onSelect={onSelect} onSelectRelationship={onSelectRelationship} focusId={context.focus.id} edges={topology.edges} isPreview={snapshot.isPreview} />
         </section>
     )
 }

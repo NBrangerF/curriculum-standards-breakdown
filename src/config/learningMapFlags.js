@@ -63,6 +63,7 @@ export function resolveLearningMapFlag(surface, search = '') {
     if (surfaceSetting) return surfaceSetting
     const defaultSetting = resolveEnvironmentSetting(env.VITE_LEARNING_MAP_DEFAULT)
     if (defaultSetting) return defaultSetting
+    if (surface === 'standard') return { enabled: true, source: env.DEV ? 'development-default' : 'production-default' }
     return { enabled: Boolean(env.DEV), source: env.DEV ? 'development-default' : 'production-default' }
 }
 

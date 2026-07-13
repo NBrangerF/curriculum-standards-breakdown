@@ -32,8 +32,18 @@ const originalFetch = globalThis.fetch
 globalThis.fetch = async url => ({ ok: true, json: async () => payloadByURL.get(url) })
 await assert.rejects(
     () => loadKnowledgeGraph({ manifestUrl: '/learning-map-fixture/manifest.json' }),
-    /contains non-approved record: kp:unapproved/
+    /contains non-publishable record: kp:unapproved/
 )
+
+payloadByURL.get('/learning-map-fixture/manifest.json').publicationStatus = 'public_preview'
+await assert.rejects(
+    () => loadKnowledgeGraph({ manifestUrl: '/learning-map-fixture/manifest.json' }),
+    /public preview manifest has invalid relationship semantics/
+)
+payloadByURL.get('/learning-map-fixture/manifest.json').relationshipSemantics = 'curriculum_progression_candidate_not_verified_prerequisite'
+const preview = await loadKnowledgeGraph({ manifestUrl: '/learning-map-fixture/manifest.json' })
+assert.equal(preview.dataset.publicationStatus, 'public_preview')
+assert.equal(preview.dataset.knowledgePoints[0].reviewStatus, 'candidate')
 globalThis.fetch = originalFetch
 
 console.log('Knowledge graph loader URL contract passed')

@@ -194,9 +194,11 @@ test('standard detail locates the same standard in its real graph', async ({ pag
     await expect(page.getByRole('button', { name: 'MA-D2-GE-003 复制编码' })).toBeVisible()
     await page.getByRole('button', { name: '在图谱中定位' }).click()
 
-    await expect(page.getByRole('heading', { level: 2, name: '标准在课程结构中的位置' })).toBeVisible()
+    await expect(page).toHaveURL(/view=learning-map/)
+    await expect(page.getByRole('note')).toContainText('公开预览')
+    await expect(page.getByRole('heading', { level: 2, name: '可能需要先了解，可能继续通往' })).toBeVisible({ timeout: 20_000 })
     await expect(page.getByText('MA-D2-GE-003', { exact: true }).last()).toBeVisible()
-    await expect(page.getByRole('heading', { name: '图谱等价关系列表' })).toBeVisible()
+    await expect(page.getByRole('region', { name: '学习脉络的可访问关系列表' })).toBeVisible()
 })
 
 test('standard sequence links reveal a data-backed preview on keyboard focus', async ({ page }) => {

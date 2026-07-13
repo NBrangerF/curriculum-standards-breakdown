@@ -1,7 +1,7 @@
 import { Handle, Position } from '@xyflow/react'
 
 export default function LearningNode({ data }) {
-    const { point, isFocus, onSelect } = data
+    const { point, isFocus, isPreview, onSelect } = data
     return (
         <button
             type="button"
@@ -11,7 +11,7 @@ export default function LearningNode({ data }) {
             onClick={() => onSelect?.(point.id)}
         >
             <Handle type="target" position={Position.Left} aria-hidden="true" />
-            <span>{isFocus ? '当前知识点' : '已验证关系'}</span>
+            <span>{isFocus ? '当前知识点' : isPreview ? '待验证线索' : '已验证关系'}</span>
             <strong>{point.label}</strong>
             <small>{point.standardCodes?.join(' · ')}</small>
             <Handle type="source" position={Position.Right} aria-hidden="true" />

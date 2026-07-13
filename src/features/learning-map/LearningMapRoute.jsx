@@ -1,10 +1,10 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react'
 import { EmptyState, ErrorState, LoadingState } from '../../components/StateComponents.jsx'
-import { findApprovedKnowledgePointsByStandard, loadKnowledgeGraph } from '../../data/knowledgeGraphLoader.js'
+import { findPublishableKnowledgePointsByStandard, loadKnowledgeGraph } from '../../data/knowledgeGraphLoader.js'
 
 const LearningMapWorkspace = lazy(() => import('./LearningMapWorkspace.jsx'))
 const DEFAULT_DEPTH = 1
-const DEFAULT_NECESSITY = Object.freeze(['required', 'recommended'])
+const DEFAULT_NECESSITY = Object.freeze(['required', 'recommended', 'undetermined'])
 const EMPTY_CONTEXT_PATH = Object.freeze([])
 
 const normalizeDepth = value => value === 2 ? 2 : DEFAULT_DEPTH
@@ -35,7 +35,7 @@ export default function LearningMapRoute({ standardCode, learningMapState, onSta
         loadKnowledgeGraph()
             .then(({ dataset, manifest }) => {
                 if (cancelled) return
-                const points = findApprovedKnowledgePointsByStandard(dataset.knowledgePoints, standardCode)
+                const points = findPublishableKnowledgePointsByStandard(dataset.knowledgePoints, standardCode, dataset.publicationStatus)
                 setLoadState({ status: points.length ? 'ready' : 'empty', dataset, manifest, points })
             })
             .catch(error => {
@@ -69,7 +69,7 @@ export default function LearningMapRoute({ standardCode, learningMapState, onSta
         return <ErrorState title="学习脉络暂时无法加载" message={loadState.error.message} onRetry={load} />
     }
     if (loadState.status === 'empty') {
-        return <EmptyState title="暂无经审核学习脉络" message="此课程标准暂未对齐到经审核的知识点，因此不会推断先修或解锁关系。" />
+        return <EmptyState title="暂无学习脉络" message="此课程标准暂未对齐到可发布的知识点，因此不会展示先修或解锁关系。" />
     }
 
     return (
