@@ -136,7 +136,7 @@ API 本地地址: http://localhost:8787
 
 - 运维 API: `/api/v1/health`, `/api/v1/openapi.yaml`, `/api/v1/docs`, `/api/v1/metrics`
 - 数据 API: `/api/v1/meta`, `/api/v1/data-version`, `/api/v1/subjects`, `/api/v1/skills`, `/api/v1/standards/search`
-- 关系图谱 API: `/api/v1/standards/{code}/progression`, `/api/v1/standards/{code}/neighbors`, `/api/v1/standards/compare`
+- 关系图谱 API: `/api/v1/standards/{code}/progression`, `/api/v1/standards/{code}/neighbors`, `/api/v1/standards/compare`。`progression` 已贯通 D1–D3 与 G7–G9；H3→G7 为带置信度的同学科同领域推断桥，不作为官方先修关系。
 
 证据链与教学规划相关接口仍在开发中，当前不对外开放。
 

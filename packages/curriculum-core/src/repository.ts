@@ -3,7 +3,7 @@ import { join } from 'path'
 import { normalizeFieldsets, projectStandard } from './fieldsets.js'
 import { buildStandardEvidenceSummary, buildStandardNeighbors, compareStandardRecords } from './graph.js'
 import { normalizeSkill, normalizeSubjectMeta } from './normalize.js'
-import { createStandardResolver, type StandardResolution } from './references.js'
+import { createStandardResolver, parseCodeReferences, type StandardResolution } from './references.js'
 import {
     analyzeCoverage,
     generateWeeklySchedule,
@@ -224,39 +224,117 @@ export class FileCurriculumRepository {
         const resolved = await this.resolveStandard(code)
         if (resolved.status !== 'found' || !resolved.record) return null
         const standard = resolved.record
-        const groupId = String(standard.progression_group_id || '')
-        if (!groupId) {
-            return {
-                status: 'not_available',
-                semantic: 'grade_progression_group',
-                progression_group_id: null,
-                anchor_code: standard.code,
-                edges: [],
-                warnings: ['该标准尚未建立按年级划分的进阶分组。'],
-                standards: [projectStandard(standard, include)]
+        const all = await this.loadAllStandards([String(standard.subject_slug || '')])
+        const resolve = createStandardResolver(all)
+        const recordByCode = new Map(all.map(record => [record.code, record]))
+        const edgeMap = new Map<string, JsonObject>()
+        const addEdge = (from: string, to: string, edge: JsonObject) => {
+            if (!from || !to || from === to) return
+            edgeMap.set(`${from}->${to}`, { from, to, ...edge })
+        }
+
+        for (const record of all) {
+            for (const reference of parseCodeReferences(record.next_code)) {
+                const target = resolve(reference)
+                if (target.status === 'found' && target.record) {
+                    const relation = String(record.grade_band).startsWith('H4') && String(target.record.grade_band).startsWith('H4')
+                        ? 'grade_progression'
+                        : 'stage_progression'
+                    addEdge(record.code, target.record.code, { relation, confidence: 'declared' })
+                }
+            }
+            for (const reference of parseCodeReferences(record.previous_code)) {
+                const source = resolve(reference)
+                if (source.status === 'found' && source.record) {
+                    const relation = String(source.record.grade_band).startsWith('H4') && String(record.grade_band).startsWith('H4')
+                        ? 'grade_progression'
+                        : 'stage_progression'
+                    addEdge(source.record.code, record.code, { relation, confidence: 'declared' })
+                }
+            }
+            const bridgeCandidates = Array.isArray(record.progression_bridge_candidates)
+                ? record.progression_bridge_candidates as JsonObject[]
+                : record.progression_bridge_h3_code
+                    ? [{
+                        h3_code: record.progression_bridge_h3_code,
+                        confidence: record.progression_bridge_confidence,
+                        score: record.progression_bridge_score,
+                        margin: record.progression_bridge_margin
+                    }]
+                    : []
+            if (record.grade_band === 'H4G7') {
+                for (const bridge of bridgeCandidates) {
+                    const source = resolve(bridge.h3_code)
+                    if (source.status !== 'found' || !source.record) continue
+                    addEdge(source.record.code, record.code, {
+                        relation: 'inferred_stage_bridge',
+                        confidence: bridge.confidence || 'low',
+                        score: bridge.score || 0,
+                        margin: bridge.margin || 0,
+                        basis: record.progression_bridge_method || 'same_subject_domain_text_skill_overlap_v1',
+                        reason: bridge.reason || 'h4_group_best'
+                    })
+                }
             }
         }
-        const all = await this.loadAllStandards([String(standard.subject_slug || '')])
-        const group = sortStandards(all.filter(record => record.progression_group_id === groupId))
-        const byGrade = new Map(group.map(record => [String(record.grade_band || ''), record]))
-        const links = [['H4G7', 'H4G8'], ['H4G8', 'H4G9']] as const
-        const edges = links.flatMap(([from, to]) => {
-            const source = byGrade.get(from)
-            const target = byGrade.get(to)
-            if (!source || !target) return []
-            const supported = String(source.progression_next_grade_band || '') === to ||
-                String(target.progression_previous_grade_band || '') === from
-            return supported ? [{ from: source.code, to: target.code, relation: 'grade_progression' }] : []
-        })
-        const complete = edges.length === links.length
+
+        const outgoing = new Map<string, string[]>()
+        const incoming = new Map<string, string[]>()
+        for (const edge of edgeMap.values()) {
+            const from = String(edge.from)
+            const to = String(edge.to)
+            outgoing.set(from, [...(outgoing.get(from) || []), to])
+            incoming.set(to, [...(incoming.get(to) || []), from])
+        }
+        const visited = new Set<string>([standard.code])
+        const queue = [standard.code]
+        while (queue.length) {
+            const current = queue.shift()!
+            for (const neighbor of [...(outgoing.get(current) || []), ...(incoming.get(current) || [])]) {
+                if (!visited.has(neighbor)) {
+                    visited.add(neighbor)
+                    queue.push(neighbor)
+                }
+            }
+        }
+
+        const edges = [...edgeMap.values()].filter(edge => visited.has(String(edge.from)) && visited.has(String(edge.to)))
+        const nodes = sortStandards(
+            [...visited].map(item => recordByCode.get(item)).filter((item): item is StandardRecord => Boolean(item))
+        )
+        const gradeOrder = ['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9']
+        const coverage = Object.fromEntries(gradeOrder.map(band => [band, nodes.filter(record => record.grade_band === band).length]))
+        const bridgeEdges = edges.filter(edge => edge.relation === 'inferred_stage_bridge')
+        const confidence = bridgeEdges.reduce<Record<string, number>>((counts, edge) => {
+            const key = String(edge.confidence || 'low')
+            counts[key] = (counts[key] || 0) + 1
+            return counts
+        }, {})
+        const warnings: string[] = []
+        if (!edges.length) warnings.push('该标准尚未建立可遍历的进阶关系。')
+        if ((confidence.low || 0) > 0) warnings.push(`当前连通分量包含 ${confidence.low} 条低置信度 H3→G7 推断桥，使用时应人工复核。`)
+        else if (bridgeEdges.length) warnings.push('当前连通分量包含 H3→G7 推断桥，不应解释为官方声明的先修关系。')
+        const hasH3 = nodes.some(record => record.grade_band === 'H3')
+        const hasH4 = nodes.some(record => String(record.grade_band).startsWith('H4'))
+        const subjectHasH4 = all.some(record => String(record.grade_band).startsWith('H4'))
+        if (hasH3 && !hasH4 && subjectHasH4) {
+            warnings.push('该进阶分支尚未找到同领域的 H3→G7 桥接关系。')
+        }
         return {
-            status: complete ? 'available' : 'partial',
-            semantic: 'grade_progression_group',
-            progression_group_id: groupId,
+            status: edges.length ? (bridgeEdges.length ? 'partial' : 'available') : 'not_available',
+            semantic: 'curriculum_progression_graph',
+            progression_group_id: standard.progression_group_id || null,
             anchor_code: standard.code,
+            grade_bands: gradeOrder.filter(band => coverage[band] > 0),
+            coverage,
             edges,
-            warnings: complete ? [] : ['该进阶分组缺少完整的连续年级关系。'],
-            standards: group.map(record => projectStandard(record, include || ['public', 'evidence']))
+            bridge: {
+                status: bridgeEdges.length ? 'inferred' : 'not_available',
+                total: bridgeEdges.length,
+                confidence
+            },
+            warnings,
+            standards: nodes.map(record => projectStandard(record, include || ['public']))
         }
     }
 

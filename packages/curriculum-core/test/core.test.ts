@@ -104,7 +104,9 @@ test('FileCurriculumRepository resolves unique aliases exactly and exposes progr
     assert.equal((await repository.resolveStandard('AR-H4-DA-001')).status, 'ambiguous')
 
     const progression = await repository.getProgressionForCode('SC-D2-SC-010')
-    assert.equal(progression?.status, 'not_available')
+    assert.equal(progression?.semantic, 'curriculum_progression_graph')
+    assert.deepEqual(progression?.grade_bands, ['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9'])
+    assert.ok((progression?.edges as Record<string, unknown>[]).some(edge => edge.relation === 'inferred_stage_bridge'))
 })
 
 test('FileCurriculumRepository matches plans to real standards with explanations', async () => {

@@ -271,8 +271,8 @@ paths:
     get:
       tags: [关系图谱]
       operationId: getStandardProgression
-      summary: 获取某条标准所在的进阶组
-      description: 返回按年级组织的进阶组，不等同于完整先修图。`status` 为 `available`、`partial` 或 `not_available`；目前 H4G7–H4G9 是主要覆盖范围。受限字段集遵循 `include` 权限规则。
+      summary: 获取某条标准所在的课程进阶图
+      description: 返回该标准所在的连通进阶图，覆盖 D1–D3 的已声明学段关系、G7→G8→G9 的确定年级关系，以及 H3→G7 的同学科同领域推断桥。推断桥会明确返回置信度、评分与警告，不应解释为官方先修关系。`status` 为 `available`、`partial` 或 `not_available`；受限字段集遵循 `include` 权限规则。
       security:
         - ApiKeyAuth: []
         - {}
@@ -281,11 +281,16 @@ paths:
         - $ref: "#/components/parameters/Include"
       responses:
         "200":
-          description: 进阶组
+          description: 课程进阶图
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApiResponse"
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/ProgressionGraph"
         "403":
           $ref: "#/components/responses/Forbidden"
         "404":
@@ -818,11 +823,11 @@ components:
         data_version:
           description: 当前使用的数据版本。
           type: string
-          example: "2026.07.13-code-taxonomy-v2"
+          example: "2026.07.13-unified-progression-v1"
         schema_version:
           description: 当前 API 数据结构版本。
           type: string
-          example: "1.3.0"
+          example: "1.4.0"
         warnings:
           description: 非阻断提示，例如解析不完整或需要人工复核。
           type: array
@@ -915,6 +920,87 @@ components:
           type: integer
           example: 2025
       required: [data_version, schema_version, validated, subjects_covered, standard_count]
+    ProgressionEdge:
+      title: 课程进阶关系边
+      description: 两条课程标准之间的有向进阶关系。`inferred_stage_bridge` 是数据推断，不是官方声明的先修关系。
+      type: object
+      properties:
+        from:
+          type: string
+          example: SC-D3-SC-001
+        to:
+          type: string
+          example: SC-H4G7-SC-001
+        relation:
+          type: string
+          enum: [stage_progression, grade_progression, inferred_stage_bridge]
+        confidence:
+          description: 已声明关系返回 `declared`；推断桥返回 `high`、`medium` 或 `low`。
+          type: string
+          enum: [declared, high, medium, low]
+        score:
+          description: 推断桥的文本、技能与子领域综合匹配分；已声明关系不返回。
+          type: number
+          minimum: 0
+          maximum: 1
+        margin:
+          description: 推断桥相对次优候选的分差；已声明关系不返回。
+          type: number
+        basis:
+          type: string
+        reason:
+          type: string
+      required: [from, to, relation, confidence]
+    ProgressionGraph:
+      title: 课程进阶图
+      description: 以请求标准为锚点的完整连通分量，包含确定关系和显式标注的推断桥。
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [available, partial, not_available]
+        semantic:
+          type: string
+          const: curriculum_progression_graph
+        progression_group_id:
+          type: [string, "null"]
+        anchor_code:
+          type: string
+        grade_bands:
+          type: array
+          items:
+            type: string
+            enum: [H1, H2, H3, H4G7, H4G8, H4G9]
+        coverage:
+          type: object
+          additionalProperties:
+            type: integer
+        edges:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProgressionEdge"
+        bridge:
+          type: object
+          properties:
+            status:
+              type: string
+              enum: [inferred, not_available]
+            total:
+              type: integer
+            confidence:
+              type: object
+              additionalProperties:
+                type: integer
+          required: [status, total, confidence]
+        warnings:
+          type: array
+          items:
+            type: string
+        standards:
+          type: array
+          items:
+            $ref: "#/components/schemas/StandardPublic"
+      required: [status, semantic, anchor_code, grade_bands, coverage, edges, bridge, warnings, standards]
     StandardPublic:
       title: 课程标准公开字段
       description: public 字段集下可匿名访问的课程标准字段。

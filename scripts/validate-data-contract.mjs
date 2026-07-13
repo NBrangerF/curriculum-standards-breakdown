@@ -106,6 +106,9 @@ for (const record of records.filter(item => item.progression_group_id)) {
     progressionGroups.set(record.progression_group_id, group)
 }
 let partialProgressionGroups = 0
+let progressionBridges = 0
+const progressionBridgeConfidence = { high: 0, medium: 0, low: 0 }
+const bridgedH3 = new Set()
 for (const [groupId, group] of progressionGroups) {
     const bands = new Set(group.map(record => record.grade_band))
     if (group.length !== 3 || !['H4G7', 'H4G8', 'H4G9'].every(band => bands.has(band))) {
@@ -115,10 +118,47 @@ for (const [groupId, group] of progressionGroups) {
     const g7 = group.find(record => record.grade_band === 'H4G7')
     const g8 = group.find(record => record.grade_band === 'H4G8')
     const g9 = group.find(record => record.grade_band === 'H4G9')
-    const first = g7.progression_next_grade_band === 'H4G8' || g8.progression_previous_grade_band === 'H4G7'
-    const second = g8.progression_next_grade_band === 'H4G9' || g9.progression_previous_grade_band === 'H4G8'
+    const first = g7.progression_next_grade_band === 'H4G8' && g8.progression_previous_grade_band === 'H4G7'
+        && g7.next_code === g8.code && g8.previous_code === g7.code
+    const second = g8.progression_next_grade_band === 'H4G9' && g9.progression_previous_grade_band === 'H4G8'
+        && g8.next_code === g9.code && g9.previous_code === g8.code
     if (!first || !second) partialProgressionGroups += 1
+    if (g7.previous_code) errors.push(`${groupId}: G7 previous_code 必须为空，H3 桥接应保存在推断关系字段中`)
+    if (g7.progression_previous_grade_band) errors.push(`${groupId}: G7 progression_previous_grade_band 必须为空，H3 桥接不能伪装为确定关系`)
+    if (g9.next_code) errors.push(`${groupId}: G9 next_code 必须为空`)
+
+    const bridgeCandidates = Array.isArray(g7.progression_bridge_candidates) ? g7.progression_bridge_candidates : []
+    if (!bridgeCandidates.length) errors.push(`${groupId}: 缺少 H3→G7 progression bridge candidate`)
+    for (const bridge of bridgeCandidates) {
+        progressionBridges += 1
+        const h3 = byCode.get(bridge.h3_code)
+        if (!h3) {
+            errors.push(`${groupId}: bridge 无法解析 H3 code ${bridge.h3_code || '(empty)'}`)
+            continue
+        }
+        if (h3.grade_band !== 'H3') errors.push(`${groupId}: bridge 来源 ${h3.code} 必须属于 H3`)
+        if (h3.subject_slug !== g7.subject_slug || h3.domain !== g7.domain) {
+            errors.push(`${groupId}: bridge ${h3.code}→${g7.code} 必须保持同学科同领域`)
+        }
+        if (!['high', 'medium', 'low'].includes(bridge.confidence)) {
+            errors.push(`${groupId}: bridge ${h3.code} confidence 非法`)
+        } else progressionBridgeConfidence[bridge.confidence] += 1
+        if (!Number.isFinite(bridge.score) || bridge.score < 0 || bridge.score > 1) {
+            errors.push(`${groupId}: bridge ${h3.code} score 必须在 0..1`)
+        }
+        bridgedH3.add(h3.code)
+    }
 }
+
+const h3Records = records.filter(record => record.grade_band === 'H3')
+const unbridgedH3 = h3Records.filter(record => !bridgedH3.has(record.code))
+const unbridgedH3WithSameDomainSuccessor = unbridgedH3.filter(h3 => records.some(record =>
+    record.grade_band === 'H4G7' && record.subject_slug === h3.subject_slug && record.domain === h3.domain
+))
+if (unbridgedH3WithSameDomainSuccessor.length) {
+    errors.push(`${unbridgedH3WithSameDomainSuccessor.length} 条 H3 标准存在同领域 G7 候选但未建立桥接`)
+}
+if (unbridgedH3.length) warnings.push(`${unbridgedH3.length} 条 H3 标准因第四学段缺少同领域后继而未桥接：${unbridgedH3.map(record => record.code).join(', ')}`)
 
 const untagged = records.filter(record => !record.ts_primary.length && !record.ts_secondary.length).length
 const multiPrimary = records.filter(record => record.ts_primary.length > 1).length
@@ -138,6 +178,9 @@ const result = {
     data_root: dataRoot,
     records: records.length,
     progression_groups: progressionGroups.size,
+    progression_bridges: progressionBridges,
+    progression_bridge_confidence: progressionBridgeConfidence,
+    unbridged_h3: unbridgedH3.length,
     unresolved_references: unresolvedReferences,
     partial_progression_groups: partialProgressionGroups,
     ambiguous_aliases: ambiguousAliases,

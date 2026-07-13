@@ -19,7 +19,7 @@ test('GET /api/v1/meta returns data summary', async () => {
     assert.ok(response.headers.get('x-ratelimit-limit'))
     const body = await json(response)
     assert.equal(body.data.standard_count, 2025)
-    assert.equal(body.meta.data_version, '2026.07.13-code-taxonomy-v2')
+    assert.equal(body.meta.data_version, '2026.07.13-unified-progression-v1')
     assert.ok(body.meta.request_id)
 })
 
@@ -29,7 +29,7 @@ test('GET /api/v1/health returns service health', async () => {
     assert.equal(response.headers.get('x-content-type-options'), 'nosniff')
     const body = await json(response)
     assert.equal(body.data.status, 'ok')
-    assert.equal(body.data.data_version, '2026.07.13-code-taxonomy-v2')
+    assert.equal(body.data.data_version, '2026.07.13-unified-progression-v1')
 })
 
 test('OPTIONS preflight returns CORS headers', async () => {
@@ -364,21 +364,39 @@ test('GET /api/v1/standards/:code/neighbors returns adjacent standards', async (
     assert.equal(body.data.relationships.next_all.total, 1)
 })
 
-test('GET /api/v1/standards/:code/progression remains publicly available', async () => {
+test('GET /api/v1/standards/:code/progression exposes exact G7-G9 edges and an explicit inferred bridge', async () => {
     const response = await app.request('/api/v1/standards/SC-H4G7-AR-001/progression')
     assert.equal(response.status, 200)
     const body = await json(response)
     assert.equal(body.data.anchor_code, 'SC-H4G7-AR-001')
-    assert.equal(body.data.standards.length, 3)
-    assert.equal(body.data.status, 'available')
+    assert.deepEqual(body.data.grade_bands, ['H3', 'H4G7', 'H4G8', 'H4G9'])
+    assert.equal(body.data.status, 'partial')
+    assert.ok(body.data.edges.some((edge: any) => edge.from === 'SC-H4G7-AR-001'
+        && edge.to === 'SC-H4G8-AR-002' && edge.relation === 'grade_progression'))
+    assert.ok(body.data.edges.some((edge: any) => edge.from === 'SC-H4G8-AR-002'
+        && edge.to === 'SC-H4G9-AR-003' && edge.relation === 'grade_progression'))
+    assert.ok(body.data.edges.some((edge: any) => edge.relation === 'inferred_stage_bridge'))
 })
 
-test('GET /api/v1/standards/:code/progression describes non-H4 groups as unavailable', async () => {
+test('GET /api/v1/standards/:code/progression connects D1-D3 with G7-G9', async () => {
     const response = await app.request('/api/v1/standards/SC-D2-SC-010/progression')
     assert.equal(response.status, 200)
     const body = await json(response)
-    assert.equal(body.data.status, 'not_available')
-    assert.equal(body.data.semantic, 'grade_progression_group')
+    assert.equal(body.data.status, 'partial')
+    assert.equal(body.data.semantic, 'curriculum_progression_graph')
+    assert.deepEqual(body.data.grade_bands, ['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9'])
+    assert.ok(body.data.edges.some((edge: any) => edge.relation === 'stage_progression'))
+    assert.ok(body.data.edges.some((edge: any) => edge.relation === 'inferred_stage_bridge'))
+    assert.ok(body.data.edges.some((edge: any) => edge.relation === 'grade_progression'))
+})
+
+test('GET /api/v1/standards/:code/progression reports a real H3-H4 domain gap without fabricating an edge', async () => {
+    const response = await app.request('/api/v1/standards/ML-D3-MOR-001/progression')
+    assert.equal(response.status, 200)
+    const body = await json(response)
+    assert.deepEqual(body.data.grade_bands, ['H1', 'H2', 'H3'])
+    assert.equal(body.data.bridge.status, 'not_available')
+    assert.ok(body.data.warnings.some((warning: string) => warning.includes('尚未找到同领域')))
 })
 
 test('POST /api/v1/standards/compare returns common and different fields', async () => {
