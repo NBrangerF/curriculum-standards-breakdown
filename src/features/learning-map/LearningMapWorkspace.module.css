@@ -13,8 +13,8 @@
     border-bottom: 1px solid color-mix(in srgb, var(--color-warning) 30%, white);
     background: color-mix(in srgb, var(--color-warning) 8%, white);
     color: var(--text-secondary);
-    font-size: 0.72rem;
-    line-height: 1.55;
+    font-size: 0.82rem;
+    line-height: 1.6;
 }
 
 .previewNotice strong {
@@ -50,28 +50,28 @@
     letter-spacing: 0.09em;
 }
 .locationTitle strong { color: var(--kb-ink); font-size: 0.84rem; font-weight: 650; }
-.breadcrumb { display: flex; gap: 0.38rem; align-items: center; min-width: 0; color: var(--text-tertiary); font-size: 0.74rem; overflow-x: auto; }
+.breadcrumb { display: flex; gap: 0.38rem; align-items: center; min-width: 0; color: var(--text-tertiary); font-size: 0.82rem; line-height: 1.5; overflow-x: auto; }
 .breadcrumb span { display: inline-flex; gap: 0.38rem; align-items: center; white-space: nowrap; }
 .breadcrumb .currentCrumb { color: var(--kb-ink); font-weight: 650; }
 .contextButton { justify-self: end; }
 
-.workspaceGrid { display: grid; grid-template-columns: minmax(16.25rem, 0.8fr) minmax(32.5rem, 1.8fr) minmax(17.5rem, 0.9fr); min-height: 38rem; }
-.taxonomyRail, .inspector { padding: clamp(1.25rem, 2.5vw, 2rem); background: #fbfcfe; }
+.workspaceGrid { display: grid; grid-template-columns: 17rem minmax(0, 1fr) 19rem; min-height: 35rem; }
+.taxonomyRail, .inspector { padding: clamp(1.25rem, 1.8vw, 1.6rem); background: #fbfcfe; }
 .taxonomyRail { border-right: 1px solid var(--kb-hairline); }
 .inspector { border-left: 1px solid var(--kb-hairline); }
 .taxonomyRail h2, .inspector h2 { margin-top: 0.5rem; font-size: 1.02rem; }
-.taxonomyRail p, .inspector p { margin-top: 1rem; color: var(--text-secondary); font-size: 0.77rem; line-height: 1.65; }
+.taxonomyRail p, .inspector p { margin-top: 1rem; color: var(--text-secondary); font-size: 0.84rem; line-height: 1.7; }
 .taxonomyRail ul { display: grid; gap: 0.25rem; margin-top: 1.5rem; padding: 0; border-top: 1px solid var(--kb-hairline); list-style: none; }
-.taxonomyRail li { padding: 0.7rem 0; border-bottom: 1px solid var(--kb-hairline); color: var(--text-secondary); font-size: 0.76rem; }
+.taxonomyRail li { padding: 0.7rem 0; border-bottom: 1px solid var(--kb-hairline); color: var(--text-secondary); font-size: 0.82rem; }
 
-.mapStage { min-width: 0; padding: clamp(1.25rem, 2.5vw, 2.25rem); background: radial-gradient(circle at 54% 42%, rgba(62, 91, 239, 0.075), transparent 42%), #fff; }
+.mapStage { min-width: 0; padding: clamp(1.35rem, 2.4vw, 2.5rem); background: radial-gradient(circle at 54% 42%, rgba(62, 91, 239, 0.075), transparent 42%), #fff; }
 .stageHeader { display: flex; gap: 1rem; align-items: baseline; justify-content: space-between; padding-bottom: 1.25rem; border-bottom: 1px solid var(--kb-hairline); }
-.stageHeader p { max-width: 28rem; color: var(--text-secondary); font-size: 0.76rem; line-height: 1.55; text-align: right; }
+.stageHeader p { max-width: 38rem; color: var(--text-secondary); font-size: 0.84rem; line-height: 1.65; text-align: right; }
 
-.fallbackList { display: grid; grid-template-columns: 1fr minmax(12rem, 1.1fr) 1fr; gap: clamp(0.85rem, 2.2vw, 1.6rem); align-items: center; min-height: 29rem; padding: 2.3rem 0 1rem; }
-.currentKnowledge { grid-column: 2; grid-row: 1; z-index: 1; display: grid; gap: 0.65rem; place-items: center; padding: 2rem 1.25rem; border: 1px solid color-mix(in srgb, var(--kb-accent) 38%, white); border-radius: 0.7rem; background: #fff; box-shadow: 0 1rem 2.6rem rgba(61, 90, 254, 0.13); text-align: center; }
-.currentKnowledge h2 { font-size: clamp(1.35rem, 2.2vw, 1.9rem); letter-spacing: -0.04em; }
-.currentKnowledge code { color: var(--text-tertiary); font: 550 0.64rem/1.5 var(--font-mono); }
+.fallbackList { display: grid; grid-template-columns: minmax(15rem, 1fr) minmax(20rem, 1.2fr) minmax(15rem, 1fr); gap: clamp(1rem, 2vw, 2rem); align-items: center; min-height: 24rem; padding: 1.75rem 0 1rem; }
+.currentKnowledge { grid-column: 2; grid-row: 1; z-index: 1; display: grid; gap: 0.75rem; place-items: center; justify-self: center; width: min(100%, 28rem); min-height: 13rem; padding: 1.5rem 1.75rem; border: 1px solid color-mix(in srgb, var(--kb-accent) 38%, white); border-radius: 0.75rem; background: #fff; box-shadow: 0 1rem 2.6rem rgba(61, 90, 254, 0.13); text-align: center; }
+.currentKnowledge h2 { max-width: 18ch; font-size: clamp(1.3rem, 1.6vw, 1.65rem); line-height: 1.3; letter-spacing: -0.035em; text-wrap: balance; }
+.currentKnowledge code { color: var(--text-tertiary); font: 550 0.7rem/1.5 var(--font-mono); }
 .relationGroup { position: relative; display: grid; gap: 0.8rem; min-width: 0; }
 .relationGroup::after { position: absolute; top: 50%; width: 1.25rem; border-top: 1px solid #aab7ef; content: ''; }
 .prerequisite { grid-column: 1; grid-row: 1; }
@@ -79,43 +79,51 @@
 .unlock { grid-column: 3; grid-row: 1; }
 .unlock::after { left: -1.25rem; }
 .relationGroupHeading { display: flex; gap: 0.5rem; align-items: center; justify-content: space-between; }
-.relationGroup h3 { font-size: 0.8rem; font-weight: 650; }
+.relationGroup h3 { font-size: 0.88rem; font-weight: 650; }
 .relationGroup ul { display: grid; gap: 0.55rem; margin: 0; padding: 0; list-style: none; }
 .relationItem { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.35rem; }
-.relationGroup button { display: flex; gap: 0.6rem; align-items: center; justify-content: space-between; width: 100%; min-height: 3.45rem; padding: 0.65rem 0.75rem; border: 1px solid var(--kb-hairline); border-radius: 0.45rem; background: rgba(255, 255, 255, 0.86); color: var(--kb-ink); font-size: 0.74rem; text-align: left; transition: transform 180ms var(--easing-out), border-color 180ms var(--easing-out), box-shadow 180ms var(--easing-out); }
+.relationGroup button { display: flex; gap: 0.7rem; align-items: center; justify-content: space-between; width: 100%; min-height: 4.25rem; padding: 0.8rem 0.9rem; border: 1px solid var(--kb-hairline); border-radius: 0.5rem; background: rgba(255, 255, 255, 0.9); color: var(--kb-ink); font-size: 0.86rem; line-height: 1.55; text-align: left; text-wrap: pretty; transition: transform 180ms var(--easing-out), border-color 180ms var(--easing-out), box-shadow 180ms var(--easing-out); }
 .relationGroup button:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--kb-accent) 38%, white); box-shadow: var(--shadow-sm); }
-.relationGroup button small { flex: none; color: var(--text-tertiary); font: 600 0.56rem/1 var(--font-mono); }
-.relationGroup .relationEvidenceButton { width: auto; min-width: 3.2rem; padding: 0 0.58rem; color: var(--kb-accent-hover); font: 650 0.58rem/1 var(--font-mono); text-align: center; }
-.relationGroup > p { color: var(--text-secondary); font-size: 0.75rem; line-height: 1.6; }
+.relationGroup button small { flex: none; color: var(--text-tertiary); font: 600 0.62rem/1 var(--font-mono); }
+.relationGroup .relationEvidenceButton { width: auto; min-width: 3.2rem; min-height: 2.75rem; padding: 0 0.65rem; color: var(--kb-accent-hover); font: 650 0.62rem/1 var(--font-mono); text-align: center; }
+.relationGroup > p { color: var(--text-secondary); font-size: 0.84rem; line-height: 1.65; }
 .hiddenCount { color: var(--color-warning) !important; font: 600 0.62rem/1.4 var(--font-mono) !important; }
 
 .inspector dl { display: grid; gap: 0.8rem; margin-top: 1.5rem; }
 .inspector dl > div { display: grid; gap: 0.4rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--kb-hairline); }
-.inspector dt { color: var(--text-tertiary); font: 600 0.59rem/1 var(--font-mono); }
-.inspector dd { margin: 0; color: var(--kb-ink); font-size: 0.78rem; font-weight: 600; }
+.inspector dt { color: var(--text-tertiary); font: 600 0.64rem/1 var(--font-mono); }
+.inspector dd { margin: 0; color: var(--kb-ink); font-size: 0.84rem; font-weight: 600; line-height: 1.55; }
 .emptyWorkspace { display: grid; gap: 0.65rem; min-height: 20rem; place-content: center; padding: 2rem; border: 1px dashed var(--border-strong); background: #fff; text-align: center; }
 .emptyWorkspace p { color: var(--text-secondary); }
 
-@media (max-width: 1100px) {
-    .workspaceGrid { grid-template-columns: minmax(14rem, 0.75fr) minmax(0, 1.7fr); }
-    .inspector { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; border-top: 1px solid var(--kb-hairline); border-left: 0; }
-    .inspector > span, .inspector h2, .inspector p { grid-column: 1; }
-    .inspector dl { grid-column: 2; grid-row: 1 / span 3; margin: 0; }
+@media (max-width: 1599px) {
+    .workspaceGrid { grid-template-columns: 16rem minmax(0, 1fr); }
+    .inspector { grid-column: 1 / -1; display: block; border-top: 1px solid var(--kb-hairline); border-left: 0; }
+    .inspector > div { max-width: 76rem; }
 }
 
-@media (max-width: 760px) {
-    .previewNotice { align-items: flex-start; }
-    .locationBar { grid-template-columns: 1fr auto; gap: 0.75rem; }
-    .breadcrumb { grid-column: 1 / -1; grid-row: 2; }
-    .workspaceGrid { grid-template-columns: 1fr; min-height: 0; }
-    .taxonomyRail, .inspector { display: none; }
-    .mapStage { padding: 1.1rem; }
-    .stageHeader { display: grid; gap: 0.55rem; }
-    .stageHeader p { text-align: left; }
-    .fallbackList { grid-template-columns: 1fr; min-height: 0; padding-top: 1.25rem; }
+@media (max-width: 1199px) {
+    .fallbackList { grid-template-columns: 1fr; min-height: 0; padding-top: 1.5rem; }
     .currentKnowledge, .prerequisite, .unlock { grid-column: 1; grid-row: auto; }
     .currentKnowledge { order: 0; }
     .prerequisite { order: 1; }
     .unlock { order: 2; }
     .relationGroup::after { display: none; }
+}
+
+@media (max-width: 900px) {
+    .locationBar { grid-template-columns: 1fr auto; gap: 0.75rem; }
+    .breadcrumb { grid-column: 1 / -1; grid-row: 2; }
+    .workspaceGrid { grid-template-columns: 1fr; min-height: 0; }
+    .taxonomyRail { border-right: 0; border-bottom: 1px solid var(--kb-hairline); }
+    .mapStage { padding: 1.25rem; }
+}
+
+@media (max-width: 760px) {
+    .previewNotice { align-items: flex-start; }
+    .taxonomyRail, .inspector { display: none; }
+    .mapStage { padding: 1.1rem; }
+    .stageHeader { display: grid; gap: 0.55rem; }
+    .stageHeader p { text-align: left; }
+    .fallbackList { padding-top: 1.25rem; }
 }

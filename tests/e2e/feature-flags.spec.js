@@ -84,6 +84,19 @@ test('learning-map public preview is explicit and never claims expert approval',
     await expect(page.getByRole('heading', { name: '标准在课程结构中的位置' })).toHaveCount(0)
 })
 
+test('public preview keeps relationship evidence open while canonicalizing a minimal URL', async ({ page }) => {
+    await page.goto('/standards/CN-D2-CM-004?view=learning-map')
+    const map = page.locator('[data-kb-feature="learning-map"]')
+    await expect(map.locator('[data-kb-learning-map-publication="public_preview"]')).toBeVisible()
+    const evidenceButtons = map.getByRole('button', { name: /关系依据$/ })
+    expect(await evidenceButtons.count()).toBeGreaterThan(0)
+    await evidenceButtons.first().click()
+
+    await expect(page).toHaveURL(/contextPath=/)
+    await expect(map.getByRole('heading', { name: '课程顺序候选线索' })).toBeVisible()
+    await expect(map.getByRole('heading', { name: '证据来源' })).toBeVisible()
+})
+
 test('all nine subjects load their own local Learning Map bundle', async ({ page }) => {
     test.setTimeout(120_000)
     for (const [subject, standardCode] of learningMapSubjectSamples) {

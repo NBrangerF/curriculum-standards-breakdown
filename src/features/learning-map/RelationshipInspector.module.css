@@ -1,16 +1,16 @@
 .inspector { display: grid; align-content: start; gap: 1rem; min-width: 0; }
 .inspector > span { color: var(--color-primary); font: 650 0.62rem/1 var(--font-mono); letter-spacing: 0.09em; }
-.inspector h2 { font-size: 1.02rem; }
-.inspector h3 { font-size: 0.75rem; font-weight: 700; }
-.inspector p { color: var(--text-secondary); font-size: 0.77rem; line-height: 1.65; }
+.inspector h2 { font-size: 1.12rem; line-height: 1.35; text-wrap: balance; }
+.inspector h3 { font-size: 0.84rem; font-weight: 700; }
+.inspector p { max-width: 68ch; color: var(--text-secondary); font-size: 0.86rem; line-height: 1.7; }
 .relationshipTitle { display: flex; gap: 0.52rem; align-items: center; color: var(--kb-ink) !important; font-size: 0.92rem !important; }
 .relationshipTitle b { color: var(--kb-accent); font-size: 1.1rem; }
 .inspector section { display: grid; gap: 0.58rem; padding-top: 1rem; border-top: 1px solid var(--kb-hairline); }
 .inspector ul { display: grid; gap: 0.55rem; margin: 0; padding: 0; list-style: none; }
 .inspector li { display: grid; gap: 0.32rem; padding: 0.68rem 0.72rem; border: 1px solid var(--kb-hairline); background: rgba(255, 255, 255, 0.7); }
-.inspector li strong { font-size: 0.71rem; font-weight: 600; line-height: 1.55; }
-.inspector li small { color: var(--text-tertiary); font: 600 0.55rem/1.35 var(--font-mono); }
+.inspector li strong { font-size: 0.82rem; font-weight: 600; line-height: 1.6; }
+.inspector li small { color: var(--text-tertiary); font: 600 0.6rem/1.4 var(--font-mono); }
 .inspector dl { display: grid; gap: 0.8rem; margin: 0; }
 .inspector dl > div { display: grid; gap: 0.4rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--kb-hairline); }
-.inspector dt { color: var(--text-tertiary); font: 600 0.59rem/1 var(--font-mono); }
-.inspector dd { margin: 0; color: var(--kb-ink); font-size: 0.75rem; font-weight: 600; line-height: 1.55; }
+.inspector dt { color: var(--text-tertiary); font: 600 0.64rem/1 var(--font-mono); }
+.inspector dd { margin: 0; color: var(--kb-ink); font-size: 0.84rem; font-weight: 600; line-height: 1.6; }

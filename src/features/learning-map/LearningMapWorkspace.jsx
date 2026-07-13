@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { m } from 'motion/react'
 import { ErrorState, LoadingState } from '../../components/StateComponents.jsx'
 import { LearningMapController } from './LearningMapController.js'
@@ -18,15 +18,22 @@ const emptyState = (title, message) => (
 )
 
 export default function LearningMapWorkspace({ dataset, selectedNodeId, options, status = 'ready', error, onRetry, onSelectionChange }) {
-    const controller = useMemo(() => (
-        dataset ? new LearningMapController({ dataset, selectedNodeId, options }) : null
-    ), [dataset, options, selectedNodeId])
+    const selectedRelationshipRef = useRef()
+    const controller = useMemo(() => {
+        if (!dataset) return null
+        const nextController = new LearningMapController({ dataset, selectedNodeId, options })
+        if (selectedRelationshipRef.current) nextController.selectRelationship(selectedRelationshipRef.current)
+        return nextController
+    }, [dataset, options, selectedNodeId])
     const [snapshot, setSnapshot] = useState(() => controller?.getSnapshot())
 
     useEffect(() => {
         if (!controller) return undefined
         setSnapshot(controller.getSnapshot())
-        return controller.subscribe(setSnapshot)
+        return controller.subscribe(nextSnapshot => {
+            selectedRelationshipRef.current = nextSnapshot.selectedRelationship?.id
+            setSnapshot(nextSnapshot)
+        })
     }, [controller])
 
     useEffect(() => {

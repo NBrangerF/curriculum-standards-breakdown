@@ -47,7 +47,7 @@ export default function ReactFlowLearningDag({ snapshot, onSelectNode, onSelectR
                 onNodeClick={(_event, node) => onSelectNode(node.id)}
                 onEdgeClick={(_event, edge) => onSelectRelationship(edge.id)}
                 fitView
-                fitViewOptions={{ padding: 0.24, maxZoom: 1.05 }}
+                fitViewOptions={{ padding: 0.12, maxZoom: 1 }}
                 proOptions={{ hideAttribution: true }}
             >
                 <Background gap={18} size={1} color="rgba(63, 82, 140, 0.12)" />

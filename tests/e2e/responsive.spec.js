@@ -120,6 +120,44 @@ test('learning map keeps location, taxonomy, semantic relations, graph and inspe
     await expect(inspector).toContainText('B before D')
 })
 
+test('learning map uses the available ultrawide canvas without shrinking reading content', async ({ page }) => {
+    await page.setViewportSize({ width: 2560, height: 1440 })
+    await page.goto('/standards/CN-D2-CM-004?view=learning-map')
+    const map = page.locator('[data-kb-feature="learning-map"]')
+    await expect(map.locator('[data-kb-learning-map-publication="public_preview"]')).toBeVisible({ timeout: 20_000 })
+
+    const proportions = await map.evaluate(element => {
+        const box = selector => element.querySelector(selector)?.getBoundingClientRect()
+        const container = element.querySelector(':scope > .container')?.getBoundingClientRect()
+        const stage = box('main')
+        const current = box('[aria-labelledby="current-knowledge-heading"]')
+        const currentHeading = element.querySelector('#current-knowledge-heading')
+        const dagNode = box('.learning-map-node')
+        const dagNodeElement = element.querySelector('.learning-map-node')
+        return {
+            viewportWidth: document.documentElement.clientWidth,
+            containerWidth: container?.width,
+            stageWidth: stage?.width,
+            currentWidth: current?.width,
+            currentHeight: current?.height,
+            currentFontSize: currentHeading ? Number.parseFloat(getComputedStyle(currentHeading).fontSize) : 0,
+            dagNodeWidth: dagNode?.width,
+            dagNodeScale: dagNodeElement && dagNode ? dagNode.width / Number.parseFloat(getComputedStyle(dagNodeElement).width) : 0,
+            overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth
+        }
+    })
+
+    expect(proportions.containerWidth / proportions.viewportWidth).toBeGreaterThanOrEqual(0.72)
+    expect(proportions.stageWidth).toBeGreaterThanOrEqual(1050)
+    expect(proportions.currentWidth).toBeGreaterThanOrEqual(300)
+    expect(proportions.currentHeight).toBeLessThanOrEqual(240)
+    expect(proportions.currentFontSize).toBeGreaterThanOrEqual(20)
+    expect(proportions.currentFontSize).toBeLessThanOrEqual(28)
+    expect(proportions.dagNodeWidth).toBeGreaterThanOrEqual(190)
+    expect(proportions.dagNodeScale).toBeGreaterThanOrEqual(0.9)
+    expect(proportions.overflow).toBe(0)
+})
+
 test('learning map uses an ordered semantic stack with 44px controls on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 })
     await installLearningMapFixtureRoutes(page, { fixture: 'diamond', standardCode: 'MA-D2-GE-003', selectedPointId: 'kp:d' })

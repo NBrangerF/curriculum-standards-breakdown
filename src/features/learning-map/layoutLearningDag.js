@@ -1,7 +1,7 @@
 import dagre from '@dagrejs/dagre'
 
-const NODE_WIDTH = 176
-const NODE_HEIGHT = 72
+const NODE_WIDTH = 208
+const NODE_HEIGHT = 96
 
 const pointComparator = (left, right) => left.id.localeCompare(right.id, 'zh-Hans-CN')
 
@@ -41,7 +41,7 @@ export const layoutLearningDag = context => {
     const edges = buildEdges(context.topology || {}, new Set(points.map(point => point.id)))
     const graph = new dagre.graphlib.Graph({ multigraph: true })
 
-    graph.setGraph({ rankdir: 'LR', align: 'UL', nodesep: 28, ranksep: 72, marginx: 24, marginy: 24 })
+    graph.setGraph({ rankdir: 'LR', align: 'UL', nodesep: 36, ranksep: 88, marginx: 32, marginy: 32 })
     graph.setDefaultEdgeLabel(() => ({}))
     points.forEach(point => graph.setNode(point.id, { width: NODE_WIDTH, height: NODE_HEIGHT }))
     edges.forEach(edge => graph.setEdge(edge.source, edge.target, { id: edge.id }, edge.id))

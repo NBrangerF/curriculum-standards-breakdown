@@ -12,6 +12,7 @@ export default function TaxonomyColumnNavigator({ controller, snapshot, onSelect
     const [rovingIds, setRovingIds] = useState({})
     const [pendingFocus, setPendingFocus] = useState()
     const buttonRefs = useRef(new Map())
+    const columnsRef = useRef(null)
     useEffect(() => {
         setTrail(initialPath)
         setRovingIds(Object.fromEntries(initialPath.map((id, index) => [index, id])))
@@ -26,6 +27,11 @@ export default function TaxonomyColumnNavigator({ controller, snapshot, onSelect
         if (button) button.focus()
         setPendingFocus(undefined)
     }, [columnsKey, pendingFocus])
+
+    useEffect(() => {
+        const element = columnsRef.current
+        if (element) element.scrollLeft = element.scrollWidth
+    }, [columnsKey])
 
     const moveFocus = (columnIndex, itemIndex) => {
         const item = columns[columnIndex]?.items[itemIndex]
@@ -82,7 +88,7 @@ export default function TaxonomyColumnNavigator({ controller, snapshot, onSelect
                 <h2 id="taxonomy-navigator-title">持续定位</h2>
             </div>
             <p id="taxonomy-navigation-instructions" className="sr-only">使用上下方向键在当前分类列中移动，右方向键进入子级，左方向键返回父级。</p>
-            <div className={styles.columns} role="group" aria-label="Miller Columns 分类导航" aria-describedby="taxonomy-navigation-instructions">
+            <div ref={columnsRef} className={styles.columns} role="group" aria-label="Miller Columns 分类导航" aria-describedby="taxonomy-navigation-instructions">
                 {columns.map((column, columnIndex) => (
                     <m.div className={styles.column} key={column.id} layout initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}>
                         <ul>

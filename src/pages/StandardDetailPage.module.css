@@ -745,6 +745,7 @@
 }
 
 .learning-map-section { padding: clamp(1.5rem, 4vw, 3.25rem) 0; border-bottom: 1px solid var(--border-subtle); background: #f8faff; }
+.learning-map-section :global(.container) { max-width: 135rem; }
 .learning-map-route-actions { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1rem; }
 .learning-map-route-actions > span { color: var(--text-tertiary); font: 650 0.6rem/1 var(--font-mono); letter-spacing: 0.09em; }
 .learning-map-route-actions button { min-height: 2.75rem; padding: 0 0.65rem; border: 1px solid var(--border-default); border-radius: var(--radius-sm); background: #fff; color: var(--text-secondary); font: 600 0.64rem/1 var(--font-mono); }
