@@ -17,6 +17,7 @@
         "validate:json": "node scripts/validate-public-json.js --data-root data/internal && node scripts/validate-public-json.js --data-root public/data",
     "validate:data-contract": "node scripts/validate-data-contract.mjs --data-root data/internal",
     "validate:public-data": "node scripts/validate-public-data.mjs --data-root public/data",
+    "build:data-review-worklist": "node scripts/build-data-review-worklist.mjs --data-root data/internal",
         "validate:graph-model": "node scripts/validate-standard-graph-model.mjs",
         "audit:graph-data": "node scripts/audit-graph-data-readiness.mjs --data-root data/internal",
         "build:graph-samples": "node scripts/build-graph-benchmark-samples.mjs",

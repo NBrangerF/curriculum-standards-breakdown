@@ -121,6 +121,9 @@ npm run test:api
 npm run typecheck
 npm run eval:matching
 
+# 生成待人工复核的数据质量工作队列（写入 generated/，不进入发布数据）
+npm run build:data-review-worklist
+
 # Meilisearch dry run
 npm run search:index-meilisearch
 ```
@@ -152,7 +155,7 @@ API_BASE=https://www.kebiao.org npm run smoke:api
 
 | 变量 | 说明 |
 |------|------|
-| `CURRICULUM_DATA_ROOT` | 指定 API 读取的数据目录，默认 `../../public/data` |
+| `CURRICULUM_DATA_ROOT` | 指定 API 读取的内部数据目录，默认 `../../data/internal` |
 | `CURRICULUM_OPENAPI_PATH` | 指定 API 文档 YAML 路径，默认 `../../docs/api/openapi.yaml` |
 | `CURRICULUM_ENABLE_REQUEST_LOGS` | 设为 `true` 时输出不含请求体的结构化请求日志 |
 | `CURRICULUM_ALLOWED_ORIGINS` | CORS 允许来源，生产建议设置为正式域名 |
