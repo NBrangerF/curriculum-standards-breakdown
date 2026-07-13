@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import { expect, test } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
+import { installLearningMapFixtureRoutes } from './helpers/learningMapFixtureRoute.js'
 
 const contentInventory = JSON.parse(fs.readFileSync(
     new URL('../../docs/baselines/2026-07-11-content-inventory.machine.json', import.meta.url),
@@ -37,6 +38,12 @@ const waitForMotionToSettle = page => page.evaluate(async () => {
             .map(animation => animation.finished.catch(() => undefined))
     )
 })
+
+const learningMapRoute = ({ selectedNode = 'kp:d', contextPath } = {}) => {
+    const params = new URLSearchParams({ 'learning-map': '1', view: 'learning-map', selectedNode })
+    if (contextPath) params.set('contextPath', contextPath)
+    return `/standards/MA-D2-GE-003?${params}`
+}
 
 for (const [name, route] of routes) {
     test(`${name} has no critical or serious WCAG violations`, async ({ page }) => {
@@ -336,6 +343,59 @@ test('all production routes reflow at a 200 percent display-scaling proxy', asyn
             const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
             expect(overflow, `${route.routeKey} 200% scaling proxy overflow`).toBe(0)
         }
+    } finally {
+        await context.close()
+    }
+})
+
+test('learning map keeps a semantic, keyboard-operable path in forced colors', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 })
+    await page.emulateMedia({ forcedColors: 'active', reducedMotion: 'reduce' })
+    await installLearningMapFixtureRoutes(page, { fixture: 'diamond', standardCode: 'MA-D2-GE-003', selectedPointId: 'kp:d' })
+    await page.goto(learningMapRoute({ selectedNode: 'kp:d', contextPath: 'topic:math,kp:d' }))
+
+    const semanticPath = page.getByRole('region', { name: '学习脉络的可访问关系列表' })
+    await expect(semanticPath).toBeVisible({ timeout: 20_000 })
+    await expect(page.locator('.learning-map-react-flow')).toHaveAttribute('aria-hidden', 'true')
+
+    const taxonomyRoot = page.getByRole('button', { name: '分类 数学' })
+    await taxonomyRoot.focus()
+    await taxonomyRoot.press('ArrowRight')
+    await expect(page.getByRole('button', { name: '知识点 A' })).toBeFocused()
+    await page.keyboard.press('ArrowDown')
+    await expect(page.getByRole('button', { name: '知识点 B' })).toBeFocused()
+    await page.keyboard.press('Enter')
+
+    const liveRegion = page.locator('[data-kb-feature="learning-map"] p[aria-live="polite"]')
+    await expect(liveRegion).toHaveText('B：1 个直接前置项，1 个直接解锁项。')
+    await expect(page.getByRole('region', { name: '学习脉络的可访问关系列表' }).getByRole('heading', { name: 'B', exact: true })).toBeVisible()
+
+    const results = await new AxeBuilder({ page })
+        .include('[data-kb-feature="learning-map"]')
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
+        .analyze()
+    const blocking = results.violations.filter(violation => ['critical', 'serious'].includes(violation.impact))
+    expect(summarizeViolations(blocking)).toEqual([])
+})
+
+test('learning map reflows at a 200 percent display-scaling proxy', async ({ browser }) => {
+    const context = await browser.newContext({
+        viewport: { width: 720, height: 450 },
+        deviceScaleFactor: 2,
+        reducedMotion: 'reduce',
+        colorScheme: 'light'
+    })
+    const page = await context.newPage()
+    try {
+        await installLearningMapFixtureRoutes(page, { fixture: 'diamond', standardCode: 'MA-D2-GE-003', selectedPointId: 'kp:d' })
+        await page.goto(learningMapRoute({ selectedNode: 'kp:d', contextPath: 'topic:math,kp:d' }))
+        await expect(page.getByRole('region', { name: '学习脉络的可访问关系列表' })).toBeVisible({ timeout: 20_000 })
+        expect(await page.evaluate(() => window.devicePixelRatio)).toBe(2)
+        const overflow = await page.evaluate(() => ({
+            document: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+            body: document.body.scrollWidth - document.body.clientWidth
+        }))
+        expect(overflow).toEqual({ document: 0, body: 0 })
     } finally {
         await context.close()
     }
