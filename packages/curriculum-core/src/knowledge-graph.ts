@@ -1,6 +1,7 @@
 import type {
     KnowledgeGraphDataset,
     KnowledgeGraphIndex,
+    LearningInspectorSelection,
     KnowledgePoint,
     LearningContext,
     LearningContextOptions,
@@ -84,6 +85,24 @@ export function getUnlocks(index: KnowledgeGraphIndex, pointId: string, necessit
         .map(edge => pointFor(index, edge.target))
         .filter((point): point is KnowledgePoint => Boolean(point))
         .sort(pointOrder)
+}
+
+export function getInspectorSelection(index: KnowledgeGraphIndex, selectedRelationshipId?: string, selectedNodeId?: string): LearningInspectorSelection | undefined {
+    if (selectedRelationshipId) {
+        const edge = index.prerequisitesById.get(selectedRelationshipId)
+        const source = edge ? pointFor(index, edge.source) : undefined
+        const target = edge ? pointFor(index, edge.target) : undefined
+        if (!edge || !source || !target) return undefined
+        const evidence = edge.evidenceRefs.map(reference => {
+            const item = index.evidenceById.get(reference)
+            if (!item) throw new Error(`Missing evidence ${reference} for prerequisite ${edge.id}`)
+            return item
+        })
+        return { kind: 'relationship', edge, source, target, evidence }
+    }
+
+    const point = selectedNodeId ? pointFor(index, selectedNodeId) : undefined
+    return point ? { kind: 'knowledge_point', point } : undefined
 }
 
 function collectLayers(index: KnowledgeGraphIndex, pointId: string, depth: number, direction: 'incoming' | 'outgoing', necessity?: PrerequisiteNecessity[]) {

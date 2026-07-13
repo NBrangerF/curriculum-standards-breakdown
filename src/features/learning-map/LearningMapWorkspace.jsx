@@ -6,7 +6,8 @@ import PersistentLocationBar from './PersistentLocationBar.jsx'
 import KnowledgePointSearch from './KnowledgePointSearch.jsx'
 import TaxonomyColumnNavigator from './TaxonomyColumnNavigator.jsx'
 import TaxonomyContextSwitcher from './TaxonomyContextSwitcher.jsx'
-import LearningDagPanel from './LearningDagPanel.jsx'
+import LearningDecisionPanel from './LearningDecisionPanel.jsx'
+import RelationshipInspector from './RelationshipInspector.jsx'
 import styles from './LearningMapWorkspace.module.css'
 
 const emptyState = (title, message) => (
@@ -65,17 +66,10 @@ export default function LearningMapWorkspace({ dataset, selectedNodeId, status =
                         <span>已验证的局部关系</span>
                         <p>只展示当前知识点的直接先修与直接解锁；不把学段进阶误作先修。</p>
                     </div>
-                    <LearningDagPanel snapshot={snapshot} controller={controller} onSelectionChange={onSelectionChange} />
+                    <LearningDecisionPanel snapshot={snapshot} controller={controller} onSelectionChange={onSelectionChange} />
                 </main>
                 <aside className={styles.inspector} aria-labelledby="learning-map-inspector-title">
-                    <span>关系范围</span>
-                    <h2 id="learning-map-inspector-title">审核状态</h2>
-                    <dl>
-                        <div><dt>先修关系</dt><dd>{snapshot.context.coverage.incoming === 'reviewed' ? '已审核' : '待审核'}</dd></div>
-                        <div><dt>解锁关系</dt><dd>{snapshot.context.coverage.outgoing === 'reviewed' ? '已审核' : '待审核'}</dd></div>
-                        <div><dt>当前焦点</dt><dd>{snapshot.context.focus.label}</dd></div>
-                    </dl>
-                    <p>证据与关系详情将在选择连线后显示。当前不会从课程顺序自动推断先修关系。</p>
+                    <RelationshipInspector selection={snapshot.inspectorSelection} />
                 </aside>
             </div>
             <p className="sr-only" aria-live="polite">{snapshot.announcement}</p>

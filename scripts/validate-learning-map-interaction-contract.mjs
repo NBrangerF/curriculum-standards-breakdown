@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { LearningMapController } from '../src/features/learning-map/LearningMapController.js'
+import { getInspectorSelection } from '../src/graph/knowledge/knowledgeGraphBridge.js'
 
 const fixture = JSON.parse(await readFile(resolve('tests/fixtures/learning-map/diamond.json'), 'utf8'))
 const controller = new LearningMapController({ dataset: fixture, selectedNodeId: 'kp:d' })
@@ -11,6 +12,18 @@ assert.equal(snapshot.selectedNodeId, 'kp:d')
 assert.deepEqual(snapshot.context.prerequisites.required.map(point => point.id), ['kp:b'])
 assert.deepEqual(snapshot.context.prerequisites.recommended.map(point => point.id), ['kp:c'])
 assert.equal(snapshot.context.coverage.incoming, 'reviewed')
+
+const relationshipInspector = getInspectorSelection(controller.index, 'pre:b:d')
+assert.equal(relationshipInspector?.kind, 'relationship')
+assert.equal(relationshipInspector?.source.label, 'B')
+assert.equal(relationshipInspector?.target.label, 'D')
+assert.equal(relationshipInspector?.edge.rationale, 'B before D')
+assert.deepEqual(relationshipInspector?.evidence.map(item => item.id), ['ev:b-d'])
+assert.equal(controller.selectRelationship('pre:b:d'), true)
+snapshot = controller.getSnapshot()
+assert.equal(snapshot.inspectorSelection?.kind, 'relationship')
+assert.equal(snapshot.inspectorSelection?.edge.id, 'pre:b:d')
+assert.equal(controller.selectRelationship('pre:a:b'), false)
 
 assert.equal(controller.selectNode('kp:b'), true)
 snapshot = controller.getSnapshot()

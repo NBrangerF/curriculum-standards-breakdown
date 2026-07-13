@@ -1,6 +1,6 @@
 import styles from './LearningMapWorkspace.module.css'
 
-function RelationList({ heading, points, emptyMessage, onSelect, kind }) {
+function RelationList({ heading, points, emptyMessage, onSelect, onSelectRelationship, kind, focusId, edges }) {
     return (
         <section className={`${styles.relationGroup} ${styles[kind]}`} aria-labelledby={`${kind}-heading`}>
             <div className={styles.relationGroupHeading}>
@@ -9,14 +9,22 @@ function RelationList({ heading, points, emptyMessage, onSelect, kind }) {
             </div>
             {points.total ? (
                 <ul>
-                    {[...points.required, ...points.recommended].map(point => (
+                    {[...points.required, ...points.recommended].map(point => {
+                        const relationship = edges.find(edge => kind === 'prerequisite'
+                            ? edge.source === point.id && edge.target === focusId
+                            : edge.source === focusId && edge.target === point.id)
+                        return (
                         <li key={point.id}>
-                            <button type="button" onClick={() => onSelect(point.id)}>
-                                <span>{point.label}</span>
-                                <small>{points.required.some(item => item.id === point.id) ? '必要' : '建议'}</small>
-                            </button>
+                            <div className={styles.relationItem}>
+                                <button type="button" onClick={() => onSelect(point.id)}>
+                                    <span>{point.label}</span>
+                                    <small>{points.required.some(item => item.id === point.id) ? '必要' : '建议'}</small>
+                                </button>
+                                {relationship ? <button type="button" className={styles.relationEvidenceButton} onClick={() => onSelectRelationship?.(relationship.id)} aria-label={`查看${point.label}与当前知识点的关系依据`}>依据</button> : null}
+                            </div>
                         </li>
-                    ))}
+                        )
+                    })}
                 </ul>
             ) : <p>{emptyMessage}</p>}
             {points.hidden ? <p className={styles.hiddenCount}>还有 {points.hidden} 项未在画布展开</p> : null}
@@ -24,8 +32,8 @@ function RelationList({ heading, points, emptyMessage, onSelect, kind }) {
     )
 }
 
-export default function LearningMapFallbackList({ snapshot, onSelect }) {
-    const { context } = snapshot
+export default function LearningMapFallbackList({ snapshot, onSelect, onSelectRelationship }) {
+    const { context, topology } = snapshot
     const prerequisiteEmpty = context.coverage.incoming === 'reviewed'
         ? '这是当前已审核学习范围内的起点。'
         : '当前尚无经证实的先修关系。'
@@ -39,8 +47,8 @@ export default function LearningMapFallbackList({ snapshot, onSelect }) {
                 <h2 id="current-knowledge-heading" aria-current="true">{context.focus.label}</h2>
                 <code>{context.focus.standardCodes.join(' · ')}</code>
             </section>
-            <RelationList kind="prerequisite" heading="需要先掌握" points={context.prerequisites} emptyMessage={prerequisiteEmpty} onSelect={onSelect} />
-            <RelationList kind="unlock" heading="将会解锁" points={context.unlocks} emptyMessage={unlockEmpty} onSelect={onSelect} />
+            <RelationList kind="prerequisite" heading="需要先掌握" points={context.prerequisites} emptyMessage={prerequisiteEmpty} onSelect={onSelect} onSelectRelationship={onSelectRelationship} focusId={context.focus.id} edges={topology.edges} />
+            <RelationList kind="unlock" heading="将会解锁" points={context.unlocks} emptyMessage={unlockEmpty} onSelect={onSelect} onSelectRelationship={onSelectRelationship} focusId={context.focus.id} edges={topology.edges} />
         </section>
     )
 }

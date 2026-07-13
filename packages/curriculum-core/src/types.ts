@@ -139,6 +139,21 @@ export interface LearningContext extends JsonObject {
     warnings: string[]
 }
 
+export interface RelationshipInspectorSelection extends JsonObject {
+    kind: 'relationship'
+    edge: PrerequisiteEdge
+    source: KnowledgePoint
+    target: KnowledgePoint
+    evidence: LearningEvidence[]
+}
+
+export interface KnowledgePointInspectorSelection extends JsonObject {
+    kind: 'knowledge_point'
+    point: KnowledgePoint
+}
+
+export type LearningInspectorSelection = RelationshipInspectorSelection | KnowledgePointInspectorSelection
+
 export interface TopologicalLayers extends JsonObject {
     prerequisiteLayers: KnowledgePoint[][]
     unlockLayers: KnowledgePoint[][]

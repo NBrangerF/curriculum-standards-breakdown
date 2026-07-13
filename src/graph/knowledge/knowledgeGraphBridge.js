@@ -1,6 +1,7 @@
 export {
     buildTopologicalLayers,
     createKnowledgeGraphIndex,
+    getInspectorSelection,
     getLearningContext,
     getPrerequisites,
     getUnlocks,

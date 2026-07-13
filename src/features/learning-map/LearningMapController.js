@@ -1,6 +1,7 @@
 import {
     buildTopologicalLayers,
     createKnowledgeGraphIndex,
+    getInspectorSelection,
     getLearningContext
 } from '../../graph/knowledge/knowledgeGraphBridge.js'
 
@@ -38,13 +39,15 @@ export class LearningMapController {
             ? this.index.prerequisitesById.get(this.selectedRelationshipId)
             : undefined
         const topology = buildTopologicalLayers(this.index, this.selectedNodeId, this.options)
+        const inspectorSelection = getInspectorSelection(this.index, this.selectedRelationshipId, this.selectedNodeId)
         const announcement = selectedRelationship
-            ? `${context.focus.label} 与 ${this.index.knowledgePointsById.get(selectedRelationship.target)?.label || selectedRelationship.target} 的关系已选中。`
+            ? `${inspectorSelection?.kind === 'relationship' ? `${inspectorSelection.source.label} 是 ${inspectorSelection.target.label} 的${inspectorSelection.edge.necessity === 'required' ? '必要' : '建议'}前置` : '已验证关系'}。`
             : `${context.focus.label}：${context.prerequisites.total} 个直接前置项，${context.unlocks.total} 个直接解锁项。`
 
         return {
             selectedNodeId: this.selectedNodeId,
             selectedRelationship,
+            inspectorSelection,
             context,
             topology,
             options: { ...this.options },
@@ -116,7 +119,8 @@ export class LearningMapController {
     }
 
     selectRelationship(edgeId) {
-        if (!this.index.prerequisitesById.has(edgeId)) return false
+        const visibleEdgeIds = new Set(buildTopologicalLayers(this.index, this.selectedNodeId, this.options).edges.map(edge => edge.id))
+        if (!visibleEdgeIds.has(edgeId)) return false
         this.selectedRelationshipId = edgeId
         this.emit()
         return true
