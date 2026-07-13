@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Background, Controls, MarkerType, ReactFlow } from '@xyflow/react'
+import { Background, MarkerType, ReactFlow } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
 import { layoutLearningDag } from './layoutLearningDag.js'
 import LearningEdge from './LearningEdge.jsx'
@@ -26,7 +26,7 @@ export default function ReactFlowLearningDag({ snapshot, onSelectNode, onSelectR
             data: { relationship: relation },
             markerEnd: { type: MarkerType.ArrowClosed, color: relation?.necessity === 'recommended' ? '#8e9bbc' : '#506bdd' },
             ariaLabel: `${necessity}：${source} → ${target}，已验证关系`,
-            focusable: true
+            focusable: false
         }
     }), [layout.edges, layout.nodes])
 
@@ -39,9 +39,9 @@ export default function ReactFlowLearningDag({ snapshot, onSelectNode, onSelectR
                 edgeTypes={edgeTypes}
                 nodesDraggable={false}
                 nodesConnectable={false}
-                elementsSelectable
-                nodesFocusable
-                edgesFocusable
+                elementsSelectable={false}
+                nodesFocusable={false}
+                edgesFocusable={false}
                 panOnScroll={false}
                 zoomOnDoubleClick={false}
                 onNodeClick={(_event, node) => onSelectNode(node.id)}
@@ -51,7 +51,6 @@ export default function ReactFlowLearningDag({ snapshot, onSelectNode, onSelectR
                 proOptions={{ hideAttribution: true }}
             >
                 <Background gap={18} size={1} color="rgba(63, 82, 140, 0.12)" />
-                <Controls showInteractive={false} />
             </ReactFlow>
         </div>
     )

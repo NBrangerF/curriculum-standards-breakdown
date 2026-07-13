@@ -5,6 +5,7 @@ export default function LearningNode({ data }) {
     return (
         <button
             type="button"
+            tabIndex={-1}
             className={`learning-map-node ${isFocus ? 'is-focus' : ''}`}
             aria-current={isFocus ? 'true' : undefined}
             onClick={() => onSelect?.(point.id)}

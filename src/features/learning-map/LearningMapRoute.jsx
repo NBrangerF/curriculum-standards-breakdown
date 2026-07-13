@@ -27,7 +27,7 @@ export default function LearningMapRoute({ standardCode, learningMapState, onSta
 
     const selectedNodeId = useMemo(() => {
         if (loadState.status !== 'ready') return undefined
-        return loadState.points.some(point => point.id === requestedNode)
+        return loadState.dataset.knowledgePoints.some(point => point.id === requestedNode)
             ? requestedNode
             : loadState.points[0].id
     }, [loadState, requestedNode])

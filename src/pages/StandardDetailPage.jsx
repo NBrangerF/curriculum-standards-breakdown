@@ -366,7 +366,7 @@ function StandardDetailPage() {
             </section>
 
             {learningMapActive ? (
-                <section className={styles['learning-map-section']} aria-label="学习脉络">
+                <section className={styles['learning-map-section']} aria-label="学习脉络" data-kb-feature="learning-map">
                     <div className="container">
                         <div className={styles['learning-map-route-actions']}>
                             <span>学习脉络</span>
