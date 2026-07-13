@@ -12,6 +12,6 @@ assert.equal(copyModule.LEARNING_MAP_COPY.unreviewedPrerequisites, '当前尚无
 assert.equal(copyModule.LEARNING_MAP_COPY.unreviewedUnlocks, '当前尚无经证实的后续解锁。')
 assert.match(progressionSource, /学段进阶/)
 assert.match(graphModelSource, /PROGRESSION:\s*'progression'/)
-assert.doesNotMatch(curriculumAdapterSource, /type:\s*['"]knowledge_point['"]/) 
+assert.doesNotMatch(curriculumAdapterSource, /type:\s*['"]knowledge_point['"]/)
 
 console.log('Learning Map copy contract passed')
