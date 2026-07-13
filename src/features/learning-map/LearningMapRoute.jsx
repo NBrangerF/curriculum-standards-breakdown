@@ -31,6 +31,17 @@ export default function LearningMapRoute({ standardCode, learningMapState, onSta
             ? requestedNode
             : loadState.points[0].id
     }, [loadState, requestedNode])
+    const workspaceOptions = useMemo(() => ({
+        prerequisiteDepth: learningMapState.prerequisiteDepth,
+        unlockDepth: learningMapState.unlockDepth,
+        contextPath: learningMapState.contextPath,
+        necessity: learningMapState.necessity
+    }), [
+        learningMapState.contextPath,
+        learningMapState.necessity,
+        learningMapState.prerequisiteDepth,
+        learningMapState.unlockDepth
+    ])
 
     if (loadState.status === 'loading') return <LoadingState message="正在建立学习脉络…" />
     if (loadState.status === 'error') {
@@ -45,6 +56,7 @@ export default function LearningMapRoute({ standardCode, learningMapState, onSta
             <LearningMapWorkspace
                 dataset={loadState.dataset}
                 selectedNodeId={selectedNodeId}
+                options={workspaceOptions}
                 onSelectionChange={(snapshot, options) => onStateChange?.({
                     selectedNode: snapshot.selectedNodeId,
                     taxonomy: snapshot.context.taxonomy.activePath.find(item => item.type === 'taxonomy_node')?.taxonomyId,

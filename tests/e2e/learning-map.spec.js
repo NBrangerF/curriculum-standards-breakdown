@@ -97,6 +97,41 @@ test.describe('学习脉络端到端用户流', () => {
         await expect(page.getByRole('navigation', { name: '知识分类路径' })).toContainText('图形与几何')
     })
 
+    test('同一分类下的兄弟知识点可在不离开当前 taxonomy 分支时持续定位', async ({ page }) => {
+        await installLearningMapFixtureRoutes(page, {
+            fixture: 'siblings',
+            standardCode,
+            selectedPointId: 'kp:triangle'
+        })
+        await page.goto(learningMapURL({
+            selectedNode: 'kp:triangle',
+            contextPath: 'topic:math,topic:math:plane-figures,kp:triangle'
+        }))
+
+        await expectFocusedPoint(page, '三角形')
+        const taxonomy = page.getByRole('group', { name: 'Miller Columns 分类导航' })
+        await taxonomy.getByRole('button', { name: /矩形/ }).click()
+        await expectFocusedPoint(page, '矩形')
+        await expect(page.getByRole('navigation', { name: '知识分类路径' })).toContainText('数学')
+        await expect(page.getByRole('navigation', { name: '知识分类路径' })).toContainText('平面图形')
+        await expect(page).toHaveURL(/selectedNode=kp%3Arectangle/)
+        await expect(page).toHaveURL(/contextPath=topic%3Amath%2Ctopic%3Amath%3Aplane-figures%2Ckp%3Arectangle/)
+    })
+
+    test('视觉 DAG 的 lazy renderer 失败时，语义决策路径与关系依据仍可完成任务', async ({ page }) => {
+        await installLearningMapFixtureRoutes(page, { fixture: 'diamond', standardCode, selectedPointId: 'kp:d' })
+        await page.route('**/learningDagRendererDecision.js*', route => route.abort('failed'))
+        await page.goto(learningMapURL({ selectedNode: 'kp:d', contextPath: 'topic:math,kp:d' }))
+
+        await expect(page.locator('[data-kb-learning-dag-renderer="unavailable"]')).toBeVisible()
+        const prerequisites = page.getByRole('region', { name: '需要先掌握' })
+        await prerequisites.getByRole('button', { name: '查看B与当前知识点的关系依据' }).click()
+        await expect(page.getByRole('complementary', { name: '必要前置' })).toContainText('B before D')
+        await prerequisites.getByRole('button', { name: 'B 必要' }).click()
+        await expectFocusedPoint(page, 'B')
+        await expect(page.getByRole('region', { name: '将会解锁' })).toContainText('D')
+    })
+
     test('已审核空关系明确说明当前审核范围内的起点和终点', async ({ page }) => {
         await installLearningMapFixtureRoutes(page, { fixture: 'empty-reviewed', standardCode, selectedPointId: 'kp:root' })
         await page.goto(learningMapURL({ selectedNode: 'kp:root' }))

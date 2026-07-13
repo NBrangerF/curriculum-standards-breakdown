@@ -17,10 +17,10 @@ const emptyState = (title, message) => (
     </section>
 )
 
-export default function LearningMapWorkspace({ dataset, selectedNodeId, status = 'ready', error, onRetry, onSelectionChange }) {
+export default function LearningMapWorkspace({ dataset, selectedNodeId, options, status = 'ready', error, onRetry, onSelectionChange }) {
     const controller = useMemo(() => (
-        dataset ? new LearningMapController({ dataset, selectedNodeId }) : null
-    ), [dataset])
+        dataset ? new LearningMapController({ dataset, selectedNodeId, options }) : null
+    ), [dataset, options, selectedNodeId])
     const [snapshot, setSnapshot] = useState(() => controller?.getSnapshot())
 
     useEffect(() => {

@@ -15,7 +15,7 @@ async function auditDataset(dataset) {
 }
 
 if (process.argv.includes('--fixtures')) {
-    const names = ['chain.json', 'diamond.json', 'multi-parent.json', 'empty-reviewed.json', 'empty-unreviewed.json', 'high-degree.json']
+    const names = ['chain.json', 'diamond.json', 'multi-parent.json', 'siblings.json', 'empty-reviewed.json', 'empty-unreviewed.json', 'high-degree.json']
     const audits = await Promise.all(names.map(async name => ({ name, ...(await auditDataset(await readJson(resolve('tests/fixtures/learning-map', name)))) })))
     if (audits.some(audit => !audit.valid)) throw new Error(audits.flatMap(audit => audit.errors).join('; '))
     console.log(JSON.stringify({ status: 'fixtures_audited', audits }, null, 2))

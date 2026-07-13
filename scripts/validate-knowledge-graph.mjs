@@ -6,7 +6,7 @@ import { validateKnowledgeGraph } from './knowledgeGraphValidation.mjs'
 const fixtureDirectory = resolve('tests/fixtures/learning-map')
 const loadFixture = async name => JSON.parse(await readFile(resolve(fixtureDirectory, name), 'utf8'))
 
-const validFixtures = ['chain.json', 'diamond.json', 'multi-parent.json', 'empty-reviewed.json', 'empty-unreviewed.json', 'high-degree.json']
+const validFixtures = ['chain.json', 'diamond.json', 'multi-parent.json', 'siblings.json', 'empty-reviewed.json', 'empty-unreviewed.json', 'high-degree.json']
 for (const name of validFixtures) {
     const result = validateKnowledgeGraph(await loadFixture(name))
     assert.equal(result.valid, true, `${name}: ${result.errors.join('; ')}`)

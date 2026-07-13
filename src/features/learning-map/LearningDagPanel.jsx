@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import styles from './LearningDagPanel.module.css'
+import LearningDagRendererBoundary from './LearningDagRendererBoundary.jsx'
 
 const SelectedDag = lazy(() => import('./learningDagRendererDecision.js').then(module => ({ default: module.SelectedLearningDag })))
 const MAX_NODES = 60
@@ -37,9 +38,15 @@ export default function LearningDagPanel({ snapshot, controller, onSelectionChan
                 </div>
             </div>
             {useVisualDag ? (
-                <Suspense fallback={<div className={styles.loading}>正在加载局部关系图…</div>}>
-                    <SelectedDag snapshot={snapshot} onSelectNode={selectNode} onSelectRelationship={selectRelationship} />
-                </Suspense>
+                <LearningDagRendererBoundary fallback={(
+                    <div className={styles.limitNotice} role="status" data-kb-learning-dag-renderer="unavailable">
+                        局部关系图暂时不可用，关系已保留在上方的学习决策列表中。
+                    </div>
+                )}>
+                    <Suspense fallback={<div className={styles.loading}>正在加载局部关系图…</div>}>
+                        <SelectedDag snapshot={snapshot} onSelectNode={selectNode} onSelectRelationship={selectRelationship} />
+                    </Suspense>
+                </LearningDagRendererBoundary>
             ) : (
                 <div className={styles.limitNotice} role="status">当前范围超过 {MAX_NODES} 个节点或 {MAX_EDGES} 条边，已切换到关系列表。</div>
             )}

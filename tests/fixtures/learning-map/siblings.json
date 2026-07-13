@@ -1,0 +1,17 @@
+{
+  "knowledgePoints": [
+    { "id": "kp:triangle", "type": "knowledge_point", "label": "三角形", "subjectSlug": "math", "standardCodes": ["MA-TRIANGLE"], "dependencyCoverage": { "incoming": "reviewed", "outgoing": "reviewed" }, "reviewStatus": "approved" },
+    { "id": "kp:rectangle", "type": "knowledge_point", "label": "矩形", "subjectSlug": "math", "standardCodes": ["MA-RECTANGLE"], "dependencyCoverage": { "incoming": "reviewed", "outgoing": "reviewed" }, "reviewStatus": "approved" }
+  ],
+  "taxonomyNodes": [
+    { "id": "topic:math", "type": "taxonomy_node", "label": "数学", "taxonomyId": "fixture", "subjectSlug": "math", "order": 1, "reviewStatus": "approved" },
+    { "id": "topic:math:plane-figures", "type": "taxonomy_node", "label": "平面图形", "taxonomyId": "fixture", "subjectSlug": "math", "order": 1, "reviewStatus": "approved" }
+  ],
+  "prerequisites": [],
+  "taxonomyEdges": [
+    { "id": "tax:math:plane-figures", "source": "topic:math", "target": "topic:math:plane-figures", "type": "taxonomy_parent", "taxonomyId": "fixture", "directed": true, "order": 1, "reviewStatus": "approved" },
+    { "id": "tax:plane-figures:triangle", "source": "topic:math:plane-figures", "target": "kp:triangle", "type": "taxonomy_parent", "taxonomyId": "fixture", "directed": true, "order": 1, "reviewStatus": "approved" },
+    { "id": "tax:plane-figures:rectangle", "source": "topic:math:plane-figures", "target": "kp:rectangle", "type": "taxonomy_parent", "taxonomyId": "fixture", "directed": true, "order": 2, "reviewStatus": "approved" }
+  ],
+  "evidence": []
+}
