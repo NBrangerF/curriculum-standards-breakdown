@@ -17,4 +17,9 @@
 
 @media (prefers-reduced-motion: reduce) { :global(.learning-map-node.is-focus) { animation: none; } }
 
+@media (max-width: 1199px) {
+    .panel { min-height: 0; }
+    .limitNotice { min-height: 0; place-items: start; padding: 1rem 1.1rem; font-size: 0.84rem; line-height: 1.6; }
+}
+
 @media (max-width: 900px) { .panelHeader { display: grid; } :global(.learning-map-react-flow) { height: 23rem; min-height: 20rem; } }
