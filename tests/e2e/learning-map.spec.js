@@ -76,6 +76,26 @@ test.describe('学习脉络端到端用户流', () => {
         await expect(page.getByRole('region', { name: '需要先掌握' })).toContainText('B')
     })
 
+    test('最小学习脉络 URL 在依据检查后规范化默认值，并保持关系检查器', async ({ page }) => {
+        await installLearningMapFixtureRoutes(page, { fixture: 'diamond', standardCode, selectedPointId: 'kp:d' })
+        await page.goto(learningMapURL({ selectedNode: 'kp:d', contextPath: 'topic:math,kp:d' }))
+
+        const initialURL = new URL(page.url())
+        expect(initialURL.searchParams.has('prerequisiteDepth')).toBe(false)
+        expect(initialURL.searchParams.has('unlockDepth')).toBe(false)
+        expect(initialURL.searchParams.has('necessity')).toBe(false)
+
+        const prerequisites = page.getByRole('region', { name: '需要先掌握' })
+        await prerequisites.getByRole('button', { name: '查看B与当前知识点的关系依据' }).click()
+
+        await expect(page).toHaveURL(/prerequisiteDepth=1/)
+        await expect(page).toHaveURL(/unlockDepth=1/)
+        await expect(page).toHaveURL(/necessity=required%2Crecommended/)
+        const inspector = page.getByRole('complementary', { name: '必要前置' })
+        await expect(inspector).toContainText('B before D')
+        await expect(inspector).toContainText('MA-B · MA-D · MA-D2-GE-003')
+    })
+
     test('多父分类只在用户切换后改变 context，并可由历史记录恢复', async ({ page }) => {
         await installLearningMapFixtureRoutes(page, {
             fixture: 'multi-parent',
