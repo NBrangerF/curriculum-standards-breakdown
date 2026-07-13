@@ -16,7 +16,6 @@ import FavoriteButton from '../components/FavoriteButton'
 import StandardRelationPanel from '../components/StandardRelationPanel'
 import { useUiV2 } from '../components/RouteUiBoundary.jsx'
 import { Tooltip } from '../ui/primitives/Tooltip.jsx'
-import { getH4GDifferentiationState } from '../data/h4gDifferentiation'
 import { copyToClipboard } from '../data/query'
 import { runViewTransition } from '../utils/viewTransition.js'
 import { buildStandardGraphModel } from '../graph/adapters/standardGraphAdapter'
@@ -234,9 +233,6 @@ function StandardDetailPage() {
         practice,
         teaching_tip,
         assessment_evidence_type,
-        grade_assignment_type,
-        standard_variant_type,
-        review_status,
         ts_primary,
         ts_secondary,
         ts_rationale,
@@ -245,21 +241,16 @@ function StandardDetailPage() {
         resources = []
     } = standard
 
-    const h4gState = getH4GDifferentiationState(standard)
     const subjectColor = SUBJECT_COLORS[subject_slug]
     const gradeBandInfo = GRADE_BANDS[grade_band] || {}
     const subjectInfo = subjects.find(s => s.subject_slug === subject_slug)
     const shareURL = `${window.location.origin}/standards/${code}`
-    const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || String(review_status || '').includes('low_confidence')
-    const needsGradeDifferentiation = !h4gState.isFinalReady &&
-        (h4gState.needsDifferentiation || String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared')
-    const titleSource = h4gState.shouldLeadWithGradeFocus ? h4gState.gradeFocus : standardText
-    const pageTitle = getDisplayTitle(titleSource, standard_title)
-    const standardLead = titleSource !== pageTitle ? titleSource : ''
+    const pageTitle = getDisplayTitle(standardText, standard_title)
+    const standardLead = standardText !== pageTitle ? standardText : ''
 
     // Parse navigation codes (may be multiple, separated by \n)
-    const prevCodes = previous_code ? previous_code.split('\n').filter(Boolean) : []
-    const nextCodes = next_code ? next_code.split('\n').filter(Boolean) : []
+    const prevCodes = previous_code ? previous_code.split(/[\n|]/).map(value => value.trim()).filter(Boolean) : []
+    const nextCodes = next_code ? next_code.split(/[\n|]/).map(value => value.trim()).filter(Boolean) : []
 
     return (
         <div className={styles['standard-detail-page']} data-kb-route="standard">
@@ -301,27 +292,10 @@ function StandardDetailPage() {
                             <span className={styles['grade-band-badge']}>
                                 {gradeBandInfo.label} ({grade_range})
                             </span>
-                            {isLowConfidence && (
-                                <span className={styles['low-confidence-badge']}>低置信度</span>
-                            )}
-                            {needsGradeDifferentiation && (
-                                <span className={styles['grade-differentiation-badge']}>待年级化细分</span>
-                            )}
-                            {h4gState.statusLabel && (
-                                <span className={`${styles['grade-differentiation-badge']} ${styles[`h4g-status-${h4gState.isFinalReady ? 'ready' : h4gState.isCandidate ? 'candidate' : 'pending'}`]}`}>
-                                    {h4gState.statusLabel}
-                                </span>
-                            )}
                         </div>
                         <h1 className={styles['standard-title']} style={{ viewTransitionName: relationsExpanded ? 'none' : 'kb-standard-title' }}>{pageTitle}</h1>
                         {standardLead && (
                             <p className={styles['standard-lead']}>{standardLead}</p>
-                        )}
-                        {h4gState.showGradeLens && (
-                            <div className={`${styles['h4g-detail-summary']} ${h4gState.shouldLeadWithGradeFocus ? styles['has-focus'] : styles.pending}`}>
-                                <span>{h4gState.shouldLeadWithGradeFocus ? h4gState.sourceTextLabel : h4gState.focusLabel}</span>
-                                <p>{h4gState.shouldLeadWithGradeFocus ? standardText : h4gState.statusMessage}</p>
-                            </div>
                         )}
                         <div className={styles['header-actions']}>
                             {uiV2Enabled ? <button

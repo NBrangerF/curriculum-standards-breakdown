@@ -2,9 +2,11 @@ openapi: 3.1.0
 info:
   title: 课程智能 API
   version: 0.2.0
-  summary: 面向教育产品的结构化课程标准与教学规划能力
+  summary: 面向教育产品的结构化课程标准检索与关系查询能力
   description: |
-    课程智能 API 提供课程标准检索、能力与进阶关系查询、教学计划解析、标准匹配、覆盖分析和周进度生成。
+    课程智能 API 当前公开课程标准检索、批量读取、详情查询，以及已建立的进阶与相邻关系查询。
+
+    证据链、教学计划解析、课标匹配、覆盖分析和周进度生成仍在开发中，暂不提供公开 API。
 
     所有成功响应统一返回 `data` 和 `meta`；错误响应统一返回 `error` 和 `meta.request_id`。匿名请求可访问 `public` 字段集；如需来源、证据、教材或管理字段，请在请求头中提供 `x-api-key`。
 servers:
@@ -22,9 +24,7 @@ tags:
   - name: 课程标准
     description: 课程标准检索、批量读取、详情查询和标准对比。
   - name: 关系图谱
-    description: 标准进阶、前后关系、同领域、同能力和证据摘要。
-  - name: 教学规划
-    description: 教学计划解析、校验、标准匹配、覆盖分析和周进度生成。
+    description: 已建立的标准进阶分组，以及同领域、同能力的相邻关系。
 paths:
   /api/v1/health:
     get:
@@ -242,7 +242,7 @@ paths:
       tags: [课程标准]
       operationId: getStandard
       summary: 按 code 获取单条课程标准
-      description: 获取一条课程标准的结构化详情。匿名请求返回 `public` 字段；通过 `include` 请求受限字段集时需要对应权限的 API Key。
+      description: 获取一条课程标准的结构化详情。`code` 必须精确且区分大小写；旧编码仅在唯一映射时兼容，并会在 `meta.resolved_from` 标明。匿名请求返回 `public` 字段；通过 `include` 请求受限字段集时需要对应权限的 API Key。
       security:
         - ApiKeyAuth: []
         - {}
@@ -265,12 +265,14 @@ paths:
           $ref: "#/components/responses/Forbidden"
         "404":
           $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
   /api/v1/standards/{code}/progression:
     get:
       tags: [关系图谱]
       operationId: getStandardProgression
       summary: 获取某条标准所在的进阶组
-      description: 返回锚点标准及其同一进阶组中的其他学段或年级标准，用于纵向课程衔接。受限字段集遵循 `include` 权限规则。
+      description: 返回按年级组织的进阶组，不等同于完整先修图。`status` 为 `available`、`partial` 或 `not_available`；目前 H4G7–H4G9 是主要覆盖范围。受限字段集遵循 `include` 权限规则。
       security:
         - ApiKeyAuth: []
         - {}
@@ -288,12 +290,14 @@ paths:
           $ref: "#/components/responses/Forbidden"
         "404":
           $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
   /api/v1/standards/{code}/neighbors:
     get:
       tags: [关系图谱]
       operationId: getStandardNeighbors
       summary: 获取前后、同领域、同能力和进阶相邻标准
-      description: 以一条标准为锚点，一次返回前置、后续、同领域、同能力和进阶关系。受限字段集遵循 `include` 权限规则。
+      description: 以一条标准为锚点，一次返回已有的前后、同领域、同能力和进阶关系。`previous`/`next` 保持单条兼容；多值关系请使用 `previous_all`/`next_all`。部分历史关系仍可能在 `unresolved` 中列出。受限字段集遵循 `include` 权限规则。
       security:
         - ApiKeyAuth: []
         - {}
@@ -316,6 +320,8 @@ paths:
           $ref: "#/components/responses/Forbidden"
         "404":
           $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
   /api/v1/standards/{code}/evidence:
     get:
       tags: [关系图谱]
@@ -345,7 +351,7 @@ paths:
       operationId: searchStandards
       summary: 搜索课程标准
       description: |
-        按学科、学段、领域、能力或关键词组合检索课程标准。请求体可省略；默认返回第一页和 `public` 字段集。
+        按学科、学段、领域、能力或关键词组合筛选课程标准。关键词是标准正文、标题、领域、情境与教学提示中的字面包含匹配，不是语义或相关性搜索。请求体可省略；默认返回第一页和 `public` 字段集。
 
         分页时把上一页 `meta.next_cursor` 原样传入 `cursor`。请求 `source`、`evidence`、`textbook` 或 `admin` 字段集时需要对应权限的 API Key。
       security:
@@ -386,7 +392,7 @@ paths:
       tags: [课程标准]
       operationId: batchGetStandards
       summary: 按 code 批量获取课程标准
-      description: 一次获取 1 至 100 条课程标准。不存在的 code 不会使整个请求失败，而是返回在 `meta.missing` 中。受限字段集需要对应权限的 API Key。
+      description: 一次获取 1 至 100 条课程标准。不存在的 code 不会使整个请求失败，而是返回在 `meta.missing` 中；重复输入会列在 `meta.duplicates`，唯一旧编码映射列在 `meta.resolved`，歧义旧编码列在 `meta.ambiguous`。受限字段集需要对应权限的 API Key。
       security:
         - ApiKeyAuth: []
         - {}
@@ -692,7 +698,7 @@ components:
       name: code
       in: path
       required: true
-      description: 全局唯一的课程标准 code，例如 `SC-D2-SC-010`。
+      description: 全局唯一的课程标准 code，例如 `SC-D2-SC-010`。查询时必须精确且区分大小写；旧编码仅在唯一映射时兼容。
       schema:
         type: string
         example: SC-D2-SC-010
@@ -749,6 +755,21 @@ components:
               details: []
             meta:
               request_id: req_4c32e2a1
+    Conflict:
+      description: 请求的旧编码映射到多个课程标准，需要改用精确 code。
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ApiError"
+          example:
+            error:
+              code: ambiguous_standard_code
+              message: 标准编码存在多个候选：AR-H4-DA-001
+              details:
+                - code: AR-H4G7-DA-001
+                  grade_band: H4G7
+            meta:
+              request_id: req_4c32e2a1
     TooManyRequests:
       description: 超出当前 tier 的限流
       content:
@@ -797,11 +818,11 @@ components:
         data_version:
           description: 当前使用的数据版本。
           type: string
-          example: "2026.07.09"
+          example: "2026.07.13"
         schema_version:
           description: 当前 API 数据结构版本。
           type: string
-          example: "1.0.0"
+          example: "1.1.0"
         warnings:
           description: 非阻断提示，例如解析不完整或需要人工复核。
           type: array
@@ -1179,6 +1200,10 @@ components:
               anyOf:
                 - $ref: "#/components/schemas/StandardPublic"
                 - type: "null"
+            previous_all:
+              $ref: "#/components/schemas/ReferenceResolution"
+            next_all:
+              $ref: "#/components/schemas/ReferenceResolution"
             same_domain:
               description: 同学科、同领域的相关标准。
               $ref: "#/components/schemas/RelatedStandards"
@@ -1224,6 +1249,21 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/StandardPublic"
+    ReferenceResolution:
+      title: 前后关系解析结果
+      type: object
+      properties:
+        total:
+          type: integer
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/StandardPublic"
+        unresolved:
+          description: 原始关系中无法解析或存在歧义的 code。
+          type: array
+          items:
+            type: string
     StandardEvidenceSummary:
       title: 标准证据摘要
       description: 某条课程标准的来源、证据数量和 evidence id 摘要。

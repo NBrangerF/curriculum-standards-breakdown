@@ -269,7 +269,7 @@ function CompareView({
                                                     <div className={styles['standards-column-list']}>
                                                         {domainStandards.map(std => (
                                                             <StandardCard
-                                                                key={std.id}
+                                                                key={std.code}
                                                                 standard={std}
                                                                 quickPreview={true}
                                                                 contextLabel={`${col.title}${col.subtitle ? ` · ${col.subtitle}` : ''}`}

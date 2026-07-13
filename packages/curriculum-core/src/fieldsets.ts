@@ -3,7 +3,6 @@ import type { Fieldset, JsonObject, StandardRecord } from './types.js'
 
 export const FIELDSETS: Record<Fieldset, string[]> = {
     public: [
-        'id',
         'code',
         'subject',
         'subject_slug',
@@ -42,9 +41,6 @@ export const FIELDSETS: Record<Fieldset, string[]> = {
         'standard_source_alignment_status'
     ],
     evidence: [
-        'grade_assignment_type',
-        'grade_assignment_confidence',
-        'grade_assignment_rationale',
         'evidence_granularity',
         'requires_unit_level_evidence',
         'grade_specific_focus',

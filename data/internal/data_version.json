@@ -1,0 +1,28 @@
+{
+  "data_version": "2026.07.13",
+  "schema_version": "1.1.0",
+  "source_standard": "义务教育课程方案和课程标准（2022年版）",
+  "source_commit": "fa175f9aa0f1e623383b81a37660289b3eb6207e",
+  "generated_at": "2026-07-13T00:00:00.000+08:00",
+  "data_source_generated_at": "2026-07-01T07:46:17.346Z",
+  "data_scope": "grade7_9_grade_level_candidate_h4g7_h4g8_h4g9",
+  "validated": true,
+  "subjects_covered": 9,
+  "standard_count": 2025,
+  "transferable_skill_count": 7,
+  "progression_group_count": 390,
+  "grade_band_policy": {
+    "H1": "1-2",
+    "H2": "3-4",
+    "H3": "5-6",
+    "H4G7": "7",
+    "H4G8": "8",
+    "H4G9": "9"
+  },
+  "source_of_truth": {
+    "standards": "data/internal/by_subject/*.json",
+    "manifest": "data/internal/manifest.json",
+    "indexes": "data/internal/indexes/*.json"
+  },
+  "public_projection": "public/data/by_subject/*.json"
+}

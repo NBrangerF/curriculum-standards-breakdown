@@ -322,7 +322,7 @@ function SkillDetailPage() {
                     ) : (
                         <div className={styles['standards-list']}>
                             {filteredStandards.slice(0, 50).map(std => (
-                                <StandardCard key={std.id} standard={std} />
+                                <StandardCard key={std.code} standard={std} />
                             ))}
                             {filteredStandards.length > 50 && (
                                 <div className={styles['load-more-hint']}>

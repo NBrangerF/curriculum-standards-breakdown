@@ -317,7 +317,7 @@ function SubjectPage() {
                                             {isExpanded && (
                                                 <div className={`${styles['standards-list']} animate-fade-in`}>
                                                     {domainStandards.map(std => (
-                                                        <StandardCard key={std.id} standard={std} />
+                                                        <StandardCard key={std.code} standard={std} />
                                                     ))}
                                                 </div>
                                             )}

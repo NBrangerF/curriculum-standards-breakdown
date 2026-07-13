@@ -29,6 +29,37 @@ import {
 import { resolveOpenApiPath, resolveSwaggerUiAssetPath } from './config.js'
 import { renderApiDocsPage } from './docs-page.js'
 
+const DEVELOPMENT_API_ROUTES = [
+    '/api/v1/standards/:code/evidence',
+    '/api/v1/plans/parse',
+    '/api/v1/plans/validate',
+    '/api/v1/matching/plan-to-standards',
+    '/api/v1/coverage/analyze',
+    '/api/v1/schedules/weekly'
+]
+
+const DEVELOPMENT_OPENAPI_PATHS = new Set([
+    '/api/v1/standards/{code}/evidence',
+    '/api/v1/plans/parse',
+    '/api/v1/plans/validate',
+    '/api/v1/matching/plan-to-standards',
+    '/api/v1/coverage/analyze',
+    '/api/v1/schedules/weekly'
+])
+
+function publicOpenApiDocument(source: string) {
+    let omit = false
+    return source
+        .split('\n')
+        .filter(line => {
+            const path = line.match(/^  (\/api\/v1\/[^:]+):\s*$/)?.[1]
+            if (path) omit = DEVELOPMENT_OPENAPI_PATHS.has(path)
+            else if (line === 'components:') omit = false
+            return !omit
+        })
+        .join('\n')
+}
+
 export function createApp(repository: FileCurriculumRepository) {
     const app = new Hono<ApiBindings>()
 
@@ -38,8 +69,35 @@ export function createApp(repository: FileCurriculumRepository) {
     app.use('*', rateLimitMiddleware)
     app.use('*', observabilityMiddleware)
 
+    for (const path of DEVELOPMENT_API_ROUTES) {
+        app.all(path, c => apiError(c, 404, 'not_found', '未找到接口。'))
+    }
+
     async function parseJson(c: Context<ApiBindings>) {
         return c.req.json().catch(() => null)
+    }
+
+    async function resolveStandardOrError(c: Context<ApiBindings>, code: string) {
+        const resolved = await repository.resolveStandard(code)
+        if (resolved.status === 'ambiguous') {
+            return {
+                resolved: null,
+                response: apiError(
+                    c,
+                    409,
+                    'ambiguous_standard_code',
+                    `标准编码存在多个候选：${code}`,
+                    (resolved.candidates || []).map(candidate => ({ code: candidate.code, grade_band: candidate.grade_band }))
+                )
+            }
+        }
+        if (resolved.status === 'missing' || !resolved.record) {
+            return {
+                resolved: null,
+                response: apiError(c, 404, 'not_found', `未找到课程标准：${code}`)
+            }
+        }
+        return { resolved, response: null }
     }
 
     app.get('/api/v1/health', async c => {
@@ -52,7 +110,7 @@ export function createApp(repository: FileCurriculumRepository) {
     })
 
     app.get('/api/v1/openapi.yaml', async c => {
-        const yaml = await readFile(resolveOpenApiPath(), 'utf8')
+        const yaml = publicOpenApiDocument(await readFile(resolveOpenApiPath(), 'utf8'))
         c.header('content-type', 'application/yaml; charset=utf-8')
         return c.body(yaml)
     })
@@ -193,9 +251,10 @@ export function createApp(repository: FileCurriculumRepository) {
         const include = parseInclude(c.req.query('include') || null) as never
         const blocked = ensureFieldsetAccess(c, include)
         if (blocked) return blocked
-        const result = await repository.getProgressionForCode(code, include || ['public'])
-        if (!result) return apiError(c, 404, 'not_found', `未找到课程标准：${code}`)
-        return ok(c, version, result)
+        const lookup = await resolveStandardOrError(c, code)
+        if (lookup.response) return lookup.response
+        const result = await repository.getProgressionForCode(lookup.resolved!.record!.code, include || ['public'])
+        return ok(c, version, result, lookup.resolved!.resolved_from ? { resolved_from: lookup.resolved!.resolved_from } : {})
     })
 
     app.get('/api/v1/standards/:code/neighbors', async c => {
@@ -204,9 +263,10 @@ export function createApp(repository: FileCurriculumRepository) {
         const include = parseInclude(c.req.query('include') || null) as never
         const blocked = ensureFieldsetAccess(c, include)
         if (blocked) return blocked
-        const result = await repository.getStandardNeighbors(code, include || ['public'])
-        if (!result) return apiError(c, 404, 'not_found', `未找到课程标准：${code}`)
-        return ok(c, version, result)
+        const lookup = await resolveStandardOrError(c, code)
+        if (lookup.response) return lookup.response
+        const result = await repository.getStandardNeighbors(lookup.resolved!.record!.code, include || ['public'])
+        return ok(c, version, result, lookup.resolved!.resolved_from ? { resolved_from: lookup.resolved!.resolved_from } : {})
     })
 
     app.get('/api/v1/standards/:code/evidence', async c => {
@@ -223,9 +283,14 @@ export function createApp(repository: FileCurriculumRepository) {
         const include = parseInclude(c.req.query('include') || null) as never
         const blocked = ensureFieldsetAccess(c, include)
         if (blocked) return blocked
-        const standard = await repository.findStandardByCode(code)
-        if (!standard) return apiError(c, 404, 'not_found', `未找到课程标准：${code}`)
-        return ok(c, version, projectStandard(standard, include))
+        const lookup = await resolveStandardOrError(c, code)
+        if (lookup.response) return lookup.response
+        return ok(
+            c,
+            version,
+            projectStandard(lookup.resolved!.record!, include),
+            lookup.resolved!.resolved_from ? { resolved_from: lookup.resolved!.resolved_from } : {}
+        )
     })
 
     app.post('/api/v1/standards/search', async c => {
@@ -237,6 +302,10 @@ export function createApp(repository: FileCurriculumRepository) {
         }
         const blocked = ensureFieldsetAccess(c, parsed.data.include)
         if (blocked) return blocked
+        const filterErrors = await repository.validateSearchFilters(parsed.data)
+        if (filterErrors.length) {
+            return apiError(c, 422, 'validation_error', '筛选条件不在当前公开数据契约中。', filterErrors)
+        }
         const result = await repository.searchStandards(parsed.data)
         return ok(c, version, result.items, {
             total: result.total,
@@ -257,7 +326,10 @@ export function createApp(repository: FileCurriculumRepository) {
         const result = await repository.batchStandards(parsed.data.codes, parsed.data.include)
         return ok(c, version, result.items, {
             total: result.items.length,
-            missing: result.missing
+            missing: result.missing,
+            resolved: result.resolved,
+            ambiguous: result.ambiguous,
+            duplicates: result.duplicates
         })
     })
 

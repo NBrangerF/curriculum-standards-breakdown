@@ -142,32 +142,37 @@ const checks: SmokeCheck[] = [
         }
     },
     {
-        name: 'plan matching',
+        name: 'standard batch',
         method: 'POST',
-        path: '/api/v1/matching/plan-to-standards',
+        path: '/api/v1/standards/batch',
         body: {
-            plan: {
-                title: '三年级科学植物观察单元',
-                subject_slug: 'science',
-                grade: '三年级',
-                units: [
-                    {
-                        title: '植物生命周期观察',
-                        learning_goals: ['观察植物结构', '记录数据并交流发现'],
-                        keywords: ['植物', '观察', '数据']
-                    }
-                ]
-            },
-            top_k_per_unit: 2,
-            min_score: 0.2
+            codes: ['SC-D2-SC-010', 'NOPE-404']
         },
         expect(response, payload) {
             expectEnvelope(response, payload)
-            const data = expectObject(getData(payload), 'Expected matching result object')
-            const units = expectArray(data.units, 'Expected matched units array')
-            const firstUnit = expectObject(units[0], 'Expected first matched unit')
-            const matches = expectArray(firstUnit.matches, 'Expected unit matches array')
-            assert(matches.length >= 1, 'Expected at least one plan match')
+            const data = expectArray(getData(payload), 'Expected batch result array')
+            assert(data.length === 1, 'Expected one found standard')
+            const meta = getMeta(payload)
+            assert(Array.isArray(meta.missing), 'Expected batch missing list')
+        }
+    },
+    {
+        name: 'standard progression',
+        path: '/api/v1/standards/SC-H4G7-AR-001/progression',
+        expect(response, payload) {
+            expectEnvelope(response, payload)
+            const data = expectObject(getData(payload), 'Expected progression result')
+            assert(data.status === 'available' || data.status === 'partial', 'Expected declared progression status')
+        }
+    },
+    {
+        name: 'standard neighbors',
+        path: '/api/v1/standards/SC-D2-SC-010/neighbors',
+        expect(response, payload) {
+            expectEnvelope(response, payload)
+            const data = expectObject(getData(payload), 'Expected neighbor result')
+            const relationships = expectObject(data.relationships, 'Expected relationships')
+            assert(typeof relationships.previous_all === 'object', 'Expected multi-value previous relation')
         }
     },
     {

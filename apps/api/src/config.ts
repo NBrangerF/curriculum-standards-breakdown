@@ -14,9 +14,9 @@ export function resolveDataRoot(): string {
         return resolve(process.env.CURRICULUM_DATA_ROOT)
     }
     return resolveFirstExisting([
-        'public/data',
-        '../../public/data'
-    ], '../../public/data')
+        'data/internal',
+        '../../data/internal'
+    ], '../../data/internal')
 }
 
 export function resolvePort(): number {

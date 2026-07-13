@@ -133,8 +133,9 @@ API 本地地址: http://localhost:8787
 
 - 运维 API: `/api/v1/health`, `/api/v1/openapi.yaml`, `/api/v1/docs`, `/api/v1/metrics`
 - 数据 API: `/api/v1/meta`, `/api/v1/data-version`, `/api/v1/subjects`, `/api/v1/skills`, `/api/v1/standards/search`
-- 关系图谱 API: `/api/v1/standards/{code}/progression`, `/api/v1/standards/{code}/neighbors`, `/api/v1/standards/{code}/evidence`, `/api/v1/standards/compare`
-- 教学规划 API: `/api/v1/plans/parse`, `/api/v1/plans/validate`, `/api/v1/matching/plan-to-standards`, `/api/v1/coverage/analyze`, `/api/v1/schedules/weekly`
+- 关系图谱 API: `/api/v1/standards/{code}/progression`, `/api/v1/standards/{code}/neighbors`, `/api/v1/standards/compare`
+
+证据链与教学规划相关接口仍在开发中，当前不对外开放。
 
 中文 OpenAPI 契约见：`docs/api/openapi.yaml`
 API 快速开始见：`docs/API_QUICKSTART.md`

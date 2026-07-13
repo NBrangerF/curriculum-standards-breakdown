@@ -3,6 +3,7 @@ import { join } from 'path'
 import { normalizeFieldsets, projectStandard } from './fieldsets.js'
 import { buildStandardEvidenceSummary, buildStandardNeighbors, compareStandardRecords } from './graph.js'
 import { normalizeSkill, normalizeSubjectMeta } from './normalize.js'
+import { createStandardResolver, type StandardResolution } from './references.js'
 import {
     analyzeCoverage,
     generateWeeklySchedule,
@@ -12,6 +13,7 @@ import {
     validateParsedPlan
 } from './planning.js'
 import { filterStandards, paginate, sortStandards } from './search.js'
+import { isKnownDomain, isKnownGradeBand, isKnownSkillCode, isKnownSubjectSlug } from './taxonomy.js'
 import type {
     CoverageAnalysis,
     DataVersion,
@@ -45,6 +47,8 @@ export class FileCurriculumRepository {
     private codeToSubject?: Record<string, string>
     private skillToSubjects?: Record<string, string[]>
     private subjectStats?: JsonObject
+    private allStandards?: StandardRecord[]
+    private standardResolver?: ReturnType<typeof createStandardResolver>
 
     constructor(private readonly dataRoot: string) {}
 
@@ -101,6 +105,7 @@ export class FileCurriculumRepository {
     }
 
     async loadSubjectStandards(subjectSlug: string): Promise<StandardRecord[]> {
+        if (!isKnownSubjectSlug(subjectSlug)) return []
         if (this.subjectStandards.has(subjectSlug)) return this.subjectStandards.get(subjectSlug) || []
         const payload = await this.readJson<SubjectPayload>(`by_subject/${subjectSlug}.json`)
         const standards = payload.standards || []
@@ -111,8 +116,11 @@ export class FileCurriculumRepository {
     async loadAllStandards(subjects?: string[]): Promise<StandardRecord[]> {
         const manifest = await this.loadManifest()
         const targetSubjects = subjects?.length ? subjects : manifest.subjects.map(subject => subject.subject_slug)
+        if (!subjects?.length && this.allStandards) return this.allStandards
         const groups = await Promise.all(targetSubjects.map(subject => this.loadSubjectStandards(subject)))
-        return groups.flat()
+        const records = groups.flat()
+        if (!subjects?.length) this.allStandards = records
+        return records
     }
 
     async loadCodeToSubject(): Promise<Record<string, string>> {
@@ -130,27 +138,43 @@ export class FileCurriculumRepository {
         return this.subjectStats
     }
 
-    async findStandardByCode(code: string): Promise<StandardRecord | null> {
-        const index = await this.loadCodeToSubject()
-        const subject = index[code]
-        if (subject) {
-            const standards = await this.loadSubjectStandards(subject)
-            return standards.find(record => record.code === code) || null
-        }
+    async resolveStandard(code: string): Promise<StandardResolution> {
         const all = await this.loadAllStandards()
-        return all.find(record => record.code === code) || null
+        if (!this.standardResolver) this.standardResolver = createStandardResolver(all)
+        return this.standardResolver(code)
     }
 
-    async batchStandards(codes: string[], include?: Fieldset[]): Promise<{ items: JsonObject[]; missing: string[] }> {
+    async findStandardByCode(code: string): Promise<StandardRecord | null> {
+        const resolved = await this.resolveStandard(code)
+        return resolved.status === 'found' ? resolved.record || null : null
+    }
+
+    async batchStandards(codes: string[], include?: Fieldset[]): Promise<{ items: JsonObject[]; missing: string[]; resolved: Record<string, string>; ambiguous: Record<string, string[]>; duplicates: string[] }> {
         const fieldsets = normalizeFieldsets(include)
         const items: JsonObject[] = []
         const missing: string[] = []
-        for (const code of codes) {
-            const standard = await this.findStandardByCode(code)
-            if (standard) items.push(projectStandard(standard, fieldsets))
-            else missing.push(code)
+        const resolved: Record<string, string> = {}
+        const ambiguous: Record<string, string[]> = {}
+        const duplicates: string[] = []
+        const seen = new Set<string>()
+        for (const rawCode of codes) {
+            const code = rawCode.trim()
+            if (seen.has(code)) {
+                duplicates.push(rawCode)
+                continue
+            }
+            seen.add(code)
+            const result = await this.resolveStandard(code)
+            if (result.status === 'found' && result.record) {
+                items.push(projectStandard(result.record, fieldsets))
+                if (result.resolved_from) resolved[rawCode] = result.record.code
+            } else if (result.status === 'ambiguous') {
+                ambiguous[rawCode] = (result.candidates || []).map(candidate => String(candidate.code || ''))
+            } else {
+                missing.push(rawCode)
+            }
         }
-        return { items, missing }
+        return { items, missing, resolved, ambiguous, duplicates }
     }
 
     private async candidateSubjects(request: StandardSearchRequest): Promise<string[] | undefined> {
@@ -163,6 +187,25 @@ export class FileCurriculumRepository {
             for (const subject of index[main] || []) subjects.add(subject)
         }
         return subjects.size ? [...subjects] : undefined
+    }
+
+    async validateSearchFilters(request: StandardSearchRequest): Promise<string[]> {
+        const errors: string[] = []
+        for (const subject of request.subjects || []) {
+            if (!isKnownSubjectSlug(subject)) errors.push(`未知学科：${subject}`)
+        }
+        for (const gradeBand of request.grade_bands || []) {
+            if (!isKnownGradeBand(gradeBand)) errors.push(`未知学段：${gradeBand}`)
+        }
+        for (const skill of request.skills || []) {
+            if (!isKnownSkillCode(skill)) errors.push(`未知可迁移技能：${skill}`)
+        }
+        for (const domain of request.domains || []) {
+            if (!isKnownDomain(domain, request.subjects?.length ? request.subjects : undefined)) {
+                errors.push(`未知或不属于当前学科范围的领域：${domain}`)
+            }
+        }
+        return errors
     }
 
     async searchStandards(request: StandardSearchRequest = {}): Promise<StandardSearchResult<JsonObject>> {
@@ -178,21 +221,41 @@ export class FileCurriculumRepository {
     }
 
     async getProgressionForCode(code: string, include?: Fieldset[]): Promise<JsonObject | null> {
-        const standard = await this.findStandardByCode(code)
-        if (!standard) return null
+        const resolved = await this.resolveStandard(code)
+        if (resolved.status !== 'found' || !resolved.record) return null
+        const standard = resolved.record
         const groupId = String(standard.progression_group_id || '')
         if (!groupId) {
             return {
+                status: 'not_available',
+                semantic: 'grade_progression_group',
                 progression_group_id: null,
-                anchor_code: code,
+                anchor_code: standard.code,
+                edges: [],
+                warnings: ['该标准尚未建立按年级划分的进阶分组。'],
                 standards: [projectStandard(standard, include)]
             }
         }
         const all = await this.loadAllStandards([String(standard.subject_slug || '')])
         const group = sortStandards(all.filter(record => record.progression_group_id === groupId))
+        const byGrade = new Map(group.map(record => [String(record.grade_band || ''), record]))
+        const links = [['H4G7', 'H4G8'], ['H4G8', 'H4G9']] as const
+        const edges = links.flatMap(([from, to]) => {
+            const source = byGrade.get(from)
+            const target = byGrade.get(to)
+            if (!source || !target) return []
+            const supported = String(source.progression_next_grade_band || '') === to ||
+                String(target.progression_previous_grade_band || '') === from
+            return supported ? [{ from: source.code, to: target.code, relation: 'grade_progression' }] : []
+        })
+        const complete = edges.length === links.length
         return {
+            status: complete ? 'available' : 'partial',
+            semantic: 'grade_progression_group',
             progression_group_id: groupId,
-            anchor_code: code,
+            anchor_code: standard.code,
+            edges,
+            warnings: complete ? [] : ['该进阶分组缺少完整的连续年级关系。'],
             standards: group.map(record => projectStandard(record, include || ['public', 'evidence']))
         }
     }
@@ -225,8 +288,9 @@ export class FileCurriculumRepository {
     }
 
     async getStandardNeighbors(code: string, include?: Fieldset[]): Promise<StandardNeighbors | null> {
-        const standard = await this.findStandardByCode(code)
-        if (!standard) return null
+        const resolved = await this.resolveStandard(code)
+        if (resolved.status !== 'found' || !resolved.record) return null
+        const standard = resolved.record
         const subjectSlug = String(standard.subject_slug || '')
         const subjectRecords = await this.loadSubjectStandards(subjectSlug)
         return buildStandardNeighbors(standard, subjectRecords, include)

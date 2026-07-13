@@ -1,5 +1,6 @@
 import { normalizeFieldsets, projectStandard } from './fieldsets.js'
 import { ensureArray, normalizeStandard } from './normalize.js'
+import { createStandardResolver, parseCodeReferences } from './references.js'
 import { sortStandards } from './search.js'
 import type {
     Fieldset,
@@ -88,12 +89,20 @@ export function buildStandardNeighbors(
 ): StandardNeighbors {
     const fieldsets = normalizeFieldsets(include)
     const normalizedAnchor = normalizeStandard(anchor)
-    const previous = normalizedAnchor.previous_code
-        ? subjectRecords.find(record => record.code === normalizedAnchor.previous_code) || null
-        : null
-    const next = normalizedAnchor.next_code
-        ? subjectRecords.find(record => record.code === normalizedAnchor.next_code) || null
-        : null
+    const resolve = createStandardResolver(subjectRecords)
+    const resolveReferences = (value: unknown) => {
+        const resolved = parseCodeReferences(value).map(reference => ({ reference, result: resolve(reference) }))
+        return {
+            items: resolved
+                .filter((entry): entry is typeof entry & { result: { record: StandardRecord } } => entry.result.status === 'found' && Boolean(entry.result.record))
+                .map(entry => projectStandard(entry.result.record, fieldsets)),
+            unresolved: resolved
+                .filter(entry => entry.result.status !== 'found')
+                .map(entry => entry.reference)
+        }
+    }
+    const previousReferences = resolveReferences(normalizedAnchor.previous_code)
+    const nextReferences = resolveReferences(normalizedAnchor.next_code)
 
     const sameDomain = subjectRecords.filter(record => (
         record.code !== normalizedAnchor.code &&
@@ -117,8 +126,19 @@ export function buildStandardNeighbors(
     return {
         anchor: projectStandard(normalizedAnchor, fieldsets),
         relationships: {
-            previous: previous ? projectStandard(previous, fieldsets) : null,
-            next: next ? projectStandard(next, fieldsets) : null,
+            // Keep singular fields for v1 clients; use *_all for one-to-many navigation.
+            previous: previousReferences.items[0] || null,
+            next: nextReferences.items[0] || null,
+            previous_all: {
+                total: previousReferences.items.length,
+                items: previousReferences.items,
+                unresolved: previousReferences.unresolved
+            },
+            next_all: {
+                total: nextReferences.items.length,
+                items: nextReferences.items,
+                unresolved: nextReferences.unresolved
+            },
             same_domain: {
                 total: sameDomain.length,
                 items: pickRecords(sameDomain, fieldsets)

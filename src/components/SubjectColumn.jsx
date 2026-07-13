@@ -213,7 +213,7 @@ function SubjectColumn({
                                                     <div className={styles['standards-list']}>
                                                         {stds.map(std => (
                                                             <StandardCard
-                                                                key={std.id}
+                                                                key={std.code}
                                                                 standard={std}
                                                                 highlightTerm={searchTerm}
                                                                 quickPreview={quickPreview}

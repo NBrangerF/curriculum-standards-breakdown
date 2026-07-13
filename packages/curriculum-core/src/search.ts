@@ -26,6 +26,9 @@ function matchesKeyword(record: StandardRecord, keyword?: string): boolean {
     if (!kw) return true
     const normalized = normalizeStandard(record)
     const fields = [
+        normalized.code,
+        normalized.standard_title,
+        normalized.display_subcategory,
         normalized.standard,
         normalized.context,
         normalized.practice,

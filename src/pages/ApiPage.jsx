@@ -11,16 +11,15 @@ const CAPABILITIES = [
     },
     {
         index: '02',
-        title: '理解标准之间的关系',
-        description: '查询前后进阶、相邻标准和证据摘要，让课程图谱与学习路径拥有可追溯的数据基础。',
-        endpoints: ['GET /standards/{code}/progression', 'GET /standards/{code}/neighbors', 'GET /standards/{code}/evidence']
-    },
-    {
-        index: '03',
-        title: '把教学计划连接到课标',
-        description: '解析与校验教学计划、匹配相关标准、分析覆盖情况，并生成按周教学安排。',
-        endpoints: ['POST /matching/plan-to-standards', 'POST /coverage/analyze', 'POST /schedules/weekly']
+        title: '浏览标准之间的关系',
+        description: '查询已建立的年级进阶分组，以及同领域、同技能的相邻标准。关系数据仍在持续校正，不代表严格的先修关系。',
+        endpoints: ['GET /standards/{code}/progression', 'GET /standards/{code}/neighbors']
     }
+]
+
+const IN_DEVELOPMENT = [
+    ['证据链与来源追溯', '证据摘要、教材证据和来源解析仍在完善，暂不提供公开 API。'],
+    ['教学计划智能工作流', '计划解析、课标匹配、覆盖分析和周计划生成仍在验证，暂不提供公开 API。']
 ]
 
 const ACCESS_LEVELS = [
@@ -58,7 +57,7 @@ function ApiPage() {
                     <div className={styles.heroCopy}>
                         <span className={styles.eyebrow}>KEBIAO API · V1</span>
                         <h1>把课程标准接入你的教育产品</h1>
-                        <p>通过稳定、版本化的接口检索中国课程标准，理解标准关系，并把教学计划连接到真实、可追溯的数据。</p>
+                        <p>通过稳定、版本化的接口检索中国课程标准，批量读取标准数据，并浏览已经建立的年级进阶与相邻关系。</p>
                         <div className={styles.heroActions}>
                             <a className="btn btn-primary btn-lg" href="/api/v1/docs">打开完整 API 文档</a>
                             <Link className="btn btn-secondary btn-lg" to="/contact">联系我们</Link>
@@ -98,6 +97,22 @@ function ApiPage() {
                             </article>
                         ))}
                     </div>
+                    <div className={styles.developmentBlock}>
+                        <div>
+                            <span>IN DEVELOPMENT</span>
+                            <h3>正在开发中的能力</h3>
+                            <p>以下能力尚未达到公开 API 的质量标准。页面仅用于说明研发方向，不提供接口调用。</p>
+                        </div>
+                        <div className={styles.developmentList}>
+                            {IN_DEVELOPMENT.map(([title, description]) => (
+                                <div key={title}>
+                                    <strong>{title}</strong>
+                                    <p>{description}</p>
+                                    <span>暂未开放</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -128,7 +143,7 @@ function ApiPage() {
                     <div>
                         <span className={styles.sectionLabel}>RESPONSE CONTRACT</span>
                         <h2 id="response-contract-title">可预测的响应，便于长期集成</h2>
-                        <p>所有接口都返回数据版本与请求 ID。请求失败时使用正确的 HTTP 状态码，并提供稳定的英文错误代码，方便程序处理与问题排查。</p>
+                        <p>成功响应返回数据版本与请求 ID。请求失败时使用正确的 HTTP 状态码，并提供稳定的英文错误代码和请求 ID，方便程序处理与问题排查。</p>
                         <a href="/api/v1/openapi.yaml">查看 OpenAPI 3.1 契约 →</a>
                     </div>
                     <pre className={styles.responseExample}><code>{`{

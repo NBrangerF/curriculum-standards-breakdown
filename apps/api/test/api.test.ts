@@ -6,7 +6,7 @@ import { FileCurriculumRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
 import vercelHandler from '../../../api/v1/[...path].js'
 
-const dataRoot = resolve(process.cwd(), '../../public/data')
+const dataRoot = resolve(process.cwd(), '../../data/internal')
 const app = createApp(new FileCurriculumRepository(dataRoot))
 
 async function json(response: Response) {
@@ -19,7 +19,7 @@ test('GET /api/v1/meta returns data summary', async () => {
     assert.ok(response.headers.get('x-ratelimit-limit'))
     const body = await json(response)
     assert.equal(body.data.standard_count, 2025)
-    assert.equal(body.meta.data_version, '2026.07.09')
+    assert.equal(body.meta.data_version, '2026.07.13')
     assert.ok(body.meta.request_id)
 })
 
@@ -29,7 +29,7 @@ test('GET /api/v1/health returns service health', async () => {
     assert.equal(response.headers.get('x-content-type-options'), 'nosniff')
     const body = await json(response)
     assert.equal(body.data.status, 'ok')
-    assert.equal(body.data.data_version, '2026.07.09')
+    assert.equal(body.data.data_version, '2026.07.13')
 })
 
 test('OPTIONS preflight returns CORS headers', async () => {
@@ -50,8 +50,13 @@ test('GET /api/v1/openapi.yaml and /api/v1/docs expose API documentation', async
     assert.match(spec, /url: https:\/\/www\.kebiao\.org/)
     assert.match(spec, /operationId: searchStandards/)
     assert.match(spec, /summary: 搜索科学学科中与观察有关的标准/)
-    assert.match(spec, /title: 课程标准覆盖分析结果/)
     assert.match(spec, /materials_tools:/)
+    assert.doesNotMatch(spec, /\/api\/v1\/standards\/\{code\}\/evidence:/)
+    assert.doesNotMatch(spec, /\/api\/v1\/plans\/parse:/)
+    assert.doesNotMatch(spec, /\/api\/v1\/plans\/validate:/)
+    assert.doesNotMatch(spec, /\/api\/v1\/matching\/plan-to-standards:/)
+    assert.doesNotMatch(spec, /\/api\/v1\/coverage\/analyze:/)
+    assert.doesNotMatch(spec, /\/api\/v1\/schedules\/weekly:/)
 
     const docsResponse = await app.request('/api/v1/docs')
     assert.equal(docsResponse.status, 200)
@@ -60,6 +65,9 @@ test('GET /api/v1/openapi.yaml and /api/v1/docs expose API documentation', async
     assert.match(docsHtml, /课程智能 API 中文开发者文档/)
     assert.match(docsHtml, /三步完成第一次调用/)
     assert.match(docsHtml, /设置 API Key/)
+    assert.match(docsHtml, /教学规划能力仍在开发中，暂不提供公开 API/)
+    assert.doesNotMatch(docsHtml, /data-operation-id="matchPlanToStandards"/)
+    assert.doesNotMatch(docsHtml, /data-operation-id="analyzePlanCoverage"/)
     assert.match(docsHtml, /docExpansion: 'none'/)
     assert.match(docsHtml, /filter: true/)
     assert.match(docsHtml, /persistAuthorization: false/)
@@ -233,12 +241,31 @@ test('GET /api/v1/standards/:code returns public standard without admin fields',
     assert.equal('review_status' in body.data, false)
 })
 
+test('GET /api/v1/standards/:code resolves a unique legacy alias and rejects an ambiguous alias', async () => {
+    const legacy = await app.request('/api/v1/standards/AR-H1-AA-MU-007')
+    assert.equal(legacy.status, 200)
+    const legacyBody = await json(legacy)
+    assert.equal(legacyBody.data.code, 'AR-D1-AA-MU-007')
+    assert.equal(legacyBody.meta.resolved_from, 'AR-H1-AA-MU-007')
+
+    const ambiguous = await app.request('/api/v1/standards/AR-H4-DA-001')
+    assert.equal(ambiguous.status, 409)
+    const ambiguousBody = await json(ambiguous)
+    assert.equal(ambiguousBody.error.code, 'ambiguous_standard_code')
+    assert.equal(ambiguousBody.error.details.length, 3)
+})
+
 test('GET /api/v1/standards/:code returns 404 for missing code', async () => {
     const response = await app.request('/api/v1/standards/NOPE-404')
     assert.equal(response.status, 404)
     const body = await json(response)
     assert.equal(body.error.code, 'not_found')
     assert.equal(body.error.message, '未找到课程标准：NOPE-404')
+})
+
+test('GET /api/v1/standards/:code requires an exact, case-sensitive code', async () => {
+    const response = await app.request('/api/v1/standards/ar-d1-aa-mu-007')
+    assert.equal(response.status, 404)
 })
 
 test('POST /api/v1/standards/search filters by subject and keyword', async () => {
@@ -258,18 +285,45 @@ test('POST /api/v1/standards/search filters by subject and keyword', async () =>
     assert.equal(body.data[0].subject_slug, 'science')
 })
 
+test('POST /api/v1/standards/search validates filters and searches standard titles', async () => {
+    const invalidSubject = await app.request('/api/v1/standards/search', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ subjects: ['not-a-subject'] })
+    })
+    assert.equal(invalidSubject.status, 422)
+
+    const invalidCursor = await app.request('/api/v1/standards/search', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ cursor: 'not-a-cursor' })
+    })
+    assert.equal(invalidCursor.status, 422)
+
+    const titleSearch = await app.request('/api/v1/standards/search', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ keyword: '常见材料', limit: 10 })
+    })
+    assert.equal(titleSearch.status, 200)
+    const titleBody = await json(titleSearch)
+    assert.ok(titleBody.data.some((item: Record<string, unknown>) => String(item.standard_title).includes('常见材料')))
+})
+
 test('POST /api/v1/standards/batch returns found items and missing codes', async () => {
     const response = await app.request('/api/v1/standards/batch', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
-            codes: ['AR-D1-AA-MU-007', 'NOPE-404']
+            codes: ['AR-D1-AA-MU-007', 'AR-H1-AA-MU-007', 'NOPE-404', 'AR-D1-AA-MU-007']
         })
     })
     assert.equal(response.status, 200)
     const body = await json(response)
-    assert.equal(body.data.length, 1)
+    assert.equal(body.data.length, 2)
     assert.deepEqual(body.meta.missing, ['NOPE-404'])
+    assert.deepEqual(body.meta.resolved, { 'AR-H1-AA-MU-007': 'AR-D1-AA-MU-007' })
+    assert.deepEqual(body.meta.duplicates, ['AR-D1-AA-MU-007'])
 })
 
 test('GET /api/v1/subjects/:subject_slug/domains returns taxonomy', async () => {
@@ -286,14 +340,25 @@ test('GET /api/v1/standards/:code/neighbors returns adjacent standards', async (
     const body = await json(response)
     assert.equal(body.data.relationships.previous.code, 'SC-D1-SC-014')
     assert.equal(body.data.relationships.next.code, 'SC-D3-SC-010')
+    assert.equal(body.data.relationships.previous_all.total, 1)
+    assert.equal(body.data.relationships.next_all.total, 1)
 })
 
-test('GET /api/v1/standards/:code/evidence returns bounded evidence summary', async () => {
-    const response = await app.request('/api/v1/standards/SC-H4G7-AR-001/evidence')
+test('GET /api/v1/standards/:code/progression remains publicly available', async () => {
+    const response = await app.request('/api/v1/standards/SC-H4G7-AR-001/progression')
     assert.equal(response.status, 200)
     const body = await json(response)
-    assert.equal(body.data.code, 'SC-H4G7-AR-001')
-    assert.ok(body.data.evidence_counts.textbook > 0)
+    assert.equal(body.data.anchor_code, 'SC-H4G7-AR-001')
+    assert.equal(body.data.standards.length, 3)
+    assert.equal(body.data.status, 'available')
+})
+
+test('GET /api/v1/standards/:code/progression describes non-H4 groups as unavailable', async () => {
+    const response = await app.request('/api/v1/standards/SC-D2-SC-010/progression')
+    assert.equal(response.status, 200)
+    const body = await json(response)
+    assert.equal(body.data.status, 'not_available')
+    assert.equal(body.data.semantic, 'grade_progression_group')
 })
 
 test('POST /api/v1/standards/compare returns common and different fields', async () => {
@@ -317,82 +382,26 @@ test('fieldsets above public require API tier access', async () => {
     assert.equal(body.error.code, 'forbidden_fieldset')
 })
 
-test('POST /api/v1/plans/parse parses plain text conservatively', async () => {
-    const response = await app.request('/api/v1/plans/parse', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-            text: '三年级科学植物观察计划\n学科：科学\n年级：三年级\n单元一：植物生命周期观察'
-        })
-    })
-    assert.equal(response.status, 200)
-    const body = await json(response)
-    assert.equal(body.data.plan.subject_slug, 'science')
-    assert.equal(body.data.plan.grade_band, 'H2')
-    assert.equal(body.data.source, 'text')
-    assert.match(body.data.warnings[0], /纯文本解析采用确定性保守策略/)
-})
+test('development API routes are not publicly available', async () => {
+    const requests = [
+        ['/api/v1/standards/SC-H4G7-AR-001/evidence', 'GET'],
+        ['/api/v1/plans/parse', 'POST'],
+        ['/api/v1/plans/validate', 'POST'],
+        ['/api/v1/matching/plan-to-standards', 'POST'],
+        ['/api/v1/coverage/analyze', 'POST'],
+        ['/api/v1/schedules/weekly', 'POST']
+    ] as const
 
-test('POST /api/v1/matching/plan-to-standards returns explainable real-code matches', async () => {
-    const response = await app.request('/api/v1/matching/plan-to-standards', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-            plan: {
-                title: '三年级科学植物观察单元',
-                subject_slug: 'science',
-                grade: '三年级',
-                units: [
-                    {
-                        title: '植物生命周期观察',
-                        learning_goals: ['观察植物结构', '记录数据并交流发现'],
-                        keywords: ['植物', '观察', '数据']
-                    }
-                ]
-            },
-            top_k_per_unit: 3,
-            min_score: 0.2
+    for (const [path, method] of requests) {
+        const response = await app.request(path, {
+            method,
+            headers: { 'content-type': 'application/json' },
+            body: method === 'POST' ? '{}' : undefined
         })
-    })
-    assert.equal(response.status, 200)
-    const body = await json(response)
-    assert.equal(body.data.units.length, 1)
-    assert.ok(body.data.units[0].matches.length > 0)
-    assert.match(body.data.units[0].matches[0].code, /^SC-/)
-    assert.ok(body.data.units[0].matches[0].matched_fields.length > 0)
-    assert.match(body.data.units[0].matches[0].rationale, /教学单元关键词/)
-})
-
-test('POST /api/v1/coverage/analyze and /api/v1/schedules/weekly support planning workflows', async () => {
-    const plan = {
-        title: '三年级科学植物观察单元',
-        subject_slug: 'science',
-        grade: '三年级',
-        units: [
-            {
-                title: '植物生命周期观察',
-                learning_goals: ['观察植物结构', '记录数据并交流发现'],
-                keywords: ['植物', '观察', '数据']
-            }
-        ]
+        assert.ok(response.status === 404 || response.status === 429, `${method} ${path} should not be public`)
+        if (response.status === 404) {
+            const body = await json(response)
+            assert.equal(body.error.code, 'not_found')
+        }
     }
-
-    const coverageResponse = await app.request('/api/v1/coverage/analyze', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ plan, top_k_per_unit: 3, min_score: 0.2 })
-    })
-    assert.equal(coverageResponse.status, 200)
-    const coverage = await json(coverageResponse)
-    assert.ok(coverage.data.covered_standard_codes.length > 0)
-
-    const scheduleResponse = await app.request('/api/v1/schedules/weekly', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ plan, teaching_weeks: 2, lessons_per_week: 2, top_k_per_unit: 3, min_score: 0.2 })
-    })
-    assert.equal(scheduleResponse.status, 200)
-    const schedule = await json(scheduleResponse)
-    assert.equal(schedule.data.length, 2)
-    assert.ok(schedule.data[0].standard_codes.length > 0)
 })

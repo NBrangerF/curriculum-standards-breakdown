@@ -3,18 +3,18 @@ import { z } from 'zod'
 export const FieldsetSchema = z.enum(['public', 'source', 'evidence', 'textbook', 'admin'])
 
 export const StandardSearchRequestSchema = z.object({
-    subjects: z.array(z.string()).optional(),
-    grade_bands: z.array(z.string()).optional(),
-    domains: z.array(z.string()).optional(),
-    skills: z.array(z.string()).optional(),
-    keyword: z.string().optional(),
+    subjects: z.array(z.string().trim().min(1).max(64)).max(20).optional(),
+    grade_bands: z.array(z.string().trim().min(1).max(16)).max(6).optional(),
+    domains: z.array(z.string().trim().min(1).max(64)).max(40).optional(),
+    skills: z.array(z.string().trim().min(1).max(16)).max(7).optional(),
+    keyword: z.string().trim().max(120).optional(),
     include: z.array(FieldsetSchema).optional(),
     limit: z.number().int().min(1).max(100).optional(),
-    cursor: z.string().nullable().optional()
+    cursor: z.string().regex(/^\d+$/).max(12).nullable().optional()
 })
 
 export const StandardBatchRequestSchema = z.object({
-    codes: z.array(z.string()).min(1).max(100),
+    codes: z.array(z.string().trim().min(1).max(160)).min(1).max(100),
     include: z.array(FieldsetSchema).optional()
 })
 

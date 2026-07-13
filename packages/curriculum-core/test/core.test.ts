@@ -10,7 +10,7 @@ import {
 } from '../src/index.js'
 import type { StandardRecord } from '../src/index.js'
 
-const dataRoot = resolve(process.cwd(), '../../public/data')
+const dataRoot = resolve(process.cwd(), '../../data/internal')
 
 test('filterStandards matches skills across primary and secondary tags', () => {
     const standards: StandardRecord[] = [
@@ -34,6 +34,7 @@ test('projectStandard hides admin fields by default', () => {
     assert.equal(projected.code, 'X')
     assert.equal('review_status' in projected, false)
     assert.equal('source_standard_original' in projected, false)
+    assert.equal('grade_assignment_type' in projected, false)
 })
 
 test('Meilisearch adapter builds bounded public/evidence documents and filters', () => {
@@ -92,6 +93,18 @@ test('FileCurriculumRepository exposes graph relationships and evidence summarie
     assert.equal(comparison.missing.length, 0)
     assert.equal(comparison.standards.length, 2)
     assert.ok('grade_band' in comparison.different_fields)
+})
+
+test('FileCurriculumRepository resolves unique aliases exactly and exposes progression availability', async () => {
+    const repository = new FileCurriculumRepository(dataRoot)
+    const alias = await repository.resolveStandard('AR-H1-AA-MU-007')
+    assert.equal(alias.status, 'found')
+    assert.equal(alias.record?.code, 'AR-D1-AA-MU-007')
+    assert.equal((await repository.resolveStandard('ar-h1-aa-mu-007')).status, 'missing')
+    assert.equal((await repository.resolveStandard('AR-H4-DA-001')).status, 'ambiguous')
+
+    const progression = await repository.getProgressionForCode('SC-D2-SC-010')
+    assert.equal(progression?.status, 'not_available')
 })
 
 test('FileCurriculumRepository matches plans to real standards with explanations', async () => {

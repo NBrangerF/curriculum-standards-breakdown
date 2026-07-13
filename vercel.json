@@ -6,7 +6,7 @@
     "functions": {
         "api/v1/[...path].ts": {
             "maxDuration": 10,
-            "includeFiles": "{public/data/**,docs/api/**,node_modules/swagger-ui-dist/swagger-ui.css,node_modules/swagger-ui-dist/swagger-ui-bundle.js}"
+            "includeFiles": "{data/internal/**,docs/api/**,node_modules/swagger-ui-dist/swagger-ui.css,node_modules/swagger-ui-dist/swagger-ui-bundle.js}"
         }
     },
     "rewrites": [

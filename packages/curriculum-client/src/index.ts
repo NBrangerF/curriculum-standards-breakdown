@@ -153,10 +153,6 @@ export class CurriculumClient {
         return this.request<JsonObject>(`/api/v1/standards/${encodeURIComponent(code)}/neighbors${query}`)
     }
 
-    getStandardEvidence(code: string) {
-        return this.request<JsonObject>(`/api/v1/standards/${encodeURIComponent(code)}/evidence`)
-    }
-
     searchStandards(body: JsonObject) {
         return this.request<JsonObject[]>('/api/v1/standards/search', {
             method: 'POST',
@@ -178,38 +174,4 @@ export class CurriculumClient {
         })
     }
 
-    parsePlan(body: JsonObject) {
-        return this.request<JsonObject>('/api/v1/plans/parse', {
-            method: 'POST',
-            body: JSON.stringify(body)
-        })
-    }
-
-    validatePlan(body: JsonObject) {
-        return this.request<JsonObject>('/api/v1/plans/validate', {
-            method: 'POST',
-            body: JSON.stringify(body)
-        })
-    }
-
-    matchPlanToStandards(body: JsonObject) {
-        return this.request<JsonObject>('/api/v1/matching/plan-to-standards', {
-            method: 'POST',
-            body: JSON.stringify(body)
-        })
-    }
-
-    analyzeCoverage(body: JsonObject) {
-        return this.request<JsonObject>('/api/v1/coverage/analyze', {
-            method: 'POST',
-            body: JSON.stringify(body)
-        })
-    }
-
-    generateWeeklySchedule(body: JsonObject) {
-        return this.request<JsonObject[]>('/api/v1/schedules/weekly', {
-            method: 'POST',
-            body: JSON.stringify(body)
-        })
-    }
 }

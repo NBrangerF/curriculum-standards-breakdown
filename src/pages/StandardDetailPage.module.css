@@ -80,8 +80,7 @@
 
 .standard-detail-page .header-meta,
 .standard-detail-page .standard-title,
-.standard-detail-page .standard-lead,
-.standard-detail-page .h4g-detail-summary {
+.standard-detail-page .standard-lead {
     grid-column: 1;
 }
 
@@ -134,9 +133,7 @@
 }
 
 .standard-detail-page .subject-badge,
-.standard-detail-page .grade-band-badge,
-.standard-detail-page .low-confidence-badge,
-.standard-detail-page .grade-differentiation-badge {
+.standard-detail-page .grade-band-badge {
     display: inline-flex;
     align-items: center;
     min-height: 2.75rem;
@@ -153,26 +150,6 @@
 .standard-detail-page .subject-badge:hover {
     border-color: var(--color-primary);
     color: var(--color-primary-dark);
-}
-
-.standard-detail-page .low-confidence-badge,
-.standard-detail-page .h4g-status-candidate {
-    border-color: #d9c491;
-    background: #fff9e8;
-    color: #6f5524;
-}
-
-.standard-detail-page .h4g-status-ready {
-    border-color: #a9c6b6;
-    background: #f0f8f3;
-    color: #365f4b;
-}
-
-.standard-detail-page .h4g-status-pending,
-.standard-detail-page .grade-differentiation-badge {
-    border-color: #bcc6eb;
-    background: #f1f4ff;
-    color: #34438d;
 }
 
 .standard-detail-page .standard-title {
@@ -193,29 +170,6 @@
     font-size: clamp(0.9rem, 1.2vw, 1.05rem);
     line-height: 1.82;
     text-wrap: pretty;
-}
-
-.standard-detail-page .h4g-detail-summary {
-    max-width: 54rem;
-    margin-top: 1.45rem;
-    padding: 1rem 1.1rem;
-    border-left: 2px solid var(--color-primary);
-    background: rgba(242, 245, 252, 0.82);
-}
-
-.standard-detail-page .h4g-detail-summary span {
-    display: block;
-    margin-bottom: 0.45rem;
-    color: var(--text-tertiary);
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-}
-
-.standard-detail-page .h4g-detail-summary p {
-    margin: 0;
-    color: var(--text-secondary);
-    font-size: 0.82rem;
-    line-height: 1.7;
 }
 
 .standard-detail-page .header-actions {

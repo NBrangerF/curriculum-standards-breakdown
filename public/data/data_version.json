@@ -1,16 +1,8 @@
 {
-  "data_version": "2026.07.09",
-  "schema_version": "1.0.0",
-  "source_standard": "义务教育课程方案和课程标准（2022年版）",
-  "source_commit": "fa175f9aa0f1e623383b81a37660289b3eb6207e",
-  "generated_at": "2026-07-09T00:00:00.000+08:00",
-  "data_source_generated_at": "2026-07-01T07:46:17.346Z",
   "data_scope": "grade7_9_grade_level_candidate_h4g7_h4g8_h4g9",
-  "validated": true,
-  "subjects_covered": 9,
-  "standard_count": 2025,
-  "transferable_skill_count": 7,
-  "progression_group_count": 390,
+  "data_source_generated_at": "2026-07-01T07:46:17.346Z",
+  "data_version": "2026.07.13",
+  "generated_at": "2026-07-13T00:00:00.000+08:00",
   "grade_band_policy": {
     "H1": "1-2",
     "H2": "3-4",
@@ -19,9 +11,18 @@
     "H4G8": "8",
     "H4G9": "9"
   },
+  "progression_group_count": 390,
+  "public_projection": "public_v1",
+  "schema_version": "1.1.0",
+  "source_commit": "fa175f9aa0f1e623383b81a37660289b3eb6207e",
   "source_of_truth": {
-    "standards": "public/data/by_subject/*.json",
-    "manifest": "public/data/manifest.json",
-    "indexes": "public/data/indexes/*.json"
-  }
+    "canonical_records": "data/internal/by_subject/*.json",
+    "public_indexes": "public/data/indexes/*.json",
+    "public_projection": "public/data/by_subject/*.json"
+  },
+  "source_standard": "义务教育课程方案和课程标准（2022年版）",
+  "standard_count": 2025,
+  "subjects_covered": 9,
+  "transferable_skill_count": 7,
+  "validated": true
 }

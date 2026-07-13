@@ -96,6 +96,16 @@ export interface StandardNeighbors extends JsonObject {
     relationships: {
         previous: JsonObject | null
         next: JsonObject | null
+        previous_all: {
+            total: number
+            items: JsonObject[]
+            unresolved: string[]
+        }
+        next_all: {
+            total: number
+            items: JsonObject[]
+            unresolved: string[]
+        }
         same_domain: {
             total: number
             items: JsonObject[]

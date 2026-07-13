@@ -28,7 +28,8 @@ const cache = {
     // Index caches
     skillToSubjects: null,
     subjectStats: null,
-    codeToSubjectMap: new Map() // built dynamically from loaded standards
+    codeToSubjectMap: null,
+    codeAliases: null
 }
 
 // ============================================
@@ -381,6 +382,21 @@ export async function loadSubjectStatsIndex() {
 }
 
 /**
+ * Load the canonical code index used for direct links and saved collections.
+ */
+export async function loadCodeToSubjectIndex() {
+    if (cache.codeToSubjectMap) return cache.codeToSubjectMap
+    cache.codeToSubjectMap = await fetchJSON('/indexes/code_to_subject.json')
+    return cache.codeToSubjectMap
+}
+
+async function loadCodeAliasesIndex() {
+    if (cache.codeAliases) return cache.codeAliases
+    cache.codeAliases = await fetchJSON('/indexes/code_aliases.json')
+    return cache.codeAliases
+}
+
+/**
  * Get subjects for a skill (uses index)
  * Only loads subjects that actually contain the skill
  */
@@ -414,49 +430,33 @@ export async function loadStandardsForSkill(skillCode, additionalFilters = {}) {
 export async function loadStandardByCode(code) {
     // Check if already in cache
     for (const [slug, standards] of cache.subjectStandards.entries()) {
-        const found = standards.find(s => s.code === code)
+        const found = standards.find(s => s.code === code || s.id === code || s.legacy_code === code)
         if (found) return found
     }
 
-    // Try to infer subject from code prefix
-    const subjectSlug = inferSubjectFromCode(code)
+    // The generated index is the source of truth. Code prefixes are not
+    // consistent across the historical data, so parsing a prefix is unsafe.
+    const codeIndex = await loadCodeToSubjectIndex()
+    const aliases = await loadCodeAliasesIndex()
+    const requested = String(code || '').trim()
+    const aliasMatches = aliases[requested.toUpperCase()] || []
+    const canonicalCode = aliasMatches.length === 1 ? aliasMatches[0] : requested
+    const subjectSlug = codeIndex[canonicalCode]
     if (subjectSlug) {
         const standards = await loadSubjectStandards(subjectSlug)
-        return standards.find(s => s.code === code) || null
+        const found = standards.find(s => s.code === canonicalCode)
+        if (found) return found
     }
 
     // Fallback: search all (expensive)
     const manifest = await loadManifest()
     for (const subj of manifest.subjects) {
         const standards = await loadSubjectStandards(subj.subject_slug)
-        const found = standards.find(s => s.code === code)
+        const found = standards.find(s => s.code === code || s.id === code || s.legacy_code === code)
         if (found) return found
     }
 
     return null
-}
-
-/**
- * Infer subject slug from standard code prefix
- * e.g., "CNC-D1-LI01" -> "chinese", "ML-H2-DSJ-005" -> "math"
- */
-function inferSubjectFromCode(code) {
-    if (!code) return null
-    const prefix = code.split('-')[0]?.toUpperCase()
-
-    const prefixMap = {
-        'CNC': 'chinese',
-        'ML': 'math',
-        'ENG': 'english',
-        'SCI': 'science',
-        'IT': 'it',
-        'MLW': 'morality_law',
-        'ART': 'arts',
-        'LAB': 'labor',
-        'PE': 'pe'
-    }
-
-    return prefixMap[prefix] || null
 }
 
 /**

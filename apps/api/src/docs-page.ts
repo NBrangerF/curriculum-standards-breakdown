@@ -4,7 +4,7 @@ export function renderApiDocsPage() {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="课程智能 API 中文开发者文档：课程标准检索、关系图谱、教学计划匹配与覆盖分析。" />
+  <meta name="description" content="课程智能 API 中文开发者文档：课程标准检索、批量读取与标准关系查询。" />
   <title>课程智能 API 中文开发者文档</title>
   <link rel="icon" href="data:," />
   <link rel="stylesheet" href="/api/v1/docs/assets/swagger-ui.css?v=5.32.8" onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.32.8/swagger-ui.css'" />
@@ -355,7 +355,7 @@ export function renderApiDocsPage() {
 
     .docs-scenarios .docs-shell {
       display: grid;
-      grid-template-columns: 180px repeat(4, minmax(0, 1fr));
+      grid-template-columns: 180px repeat(2, minmax(0, 1fr));
       gap: 0;
       padding-top: 0;
       padding-bottom: 0;
@@ -543,7 +543,7 @@ export function renderApiDocsPage() {
           <span class="docs-badge">OpenAPI 3.1</span>
         </div>
         <h1 id="docs-title">把课程标准数据接入你的教育产品</h1>
-        <p class="docs-lead">查询结构化课程标准，理解标准之间的进阶与能力关系，并将教学计划匹配到可追溯的真实标准。接口路径、JSON 字段名和枚举值保留英文，所有使用说明均以中文呈现。</p>
+        <p class="docs-lead">检索结构化课程标准，按 code 批量读取标准，并浏览已建立的年级进阶与相邻关系。证据链和教学规划能力仍在开发中，暂不提供公开 API。</p>
         <div class="docs-actions">
           <a class="docs-button docs-button--primary" href="#api-reference">浏览接口</a>
           <button class="docs-button" id="open-auth" type="button">设置 API Key</button>
@@ -622,9 +622,7 @@ payload = response.json()</code></pre>
       <div class="docs-shell">
         <div class="scenario-label"><strong>按场景开始</strong><span>直接定位常用接口</span></div>
         <a class="scenario-link" href="#/课程标准/searchStandards" data-api-tag="课程标准" data-operation-id="searchStandards"><strong>查找课程标准</strong><span>按学科、学段、领域、能力或关键词检索</span></a>
-        <a class="scenario-link" href="#/关系图谱/getStandardNeighbors" data-api-tag="关系图谱" data-operation-id="getStandardNeighbors"><strong>查看标准关系</strong><span>获取前后、同领域、同能力和进阶标准</span></a>
-        <a class="scenario-link" href="#/教学规划/matchPlanToStandards" data-api-tag="教学规划" data-operation-id="matchPlanToStandards"><strong>匹配教学计划</strong><span>返回真实标准 code、匹配分数与理由</span></a>
-        <a class="scenario-link" href="#/教学规划/analyzePlanCoverage" data-api-tag="教学规划" data-operation-id="analyzePlanCoverage"><strong>分析课程覆盖</strong><span>识别已覆盖标准、覆盖领域和待复核项</span></a>
+        <a class="scenario-link" href="#/关系图谱/getStandardNeighbors" data-api-tag="关系图谱" data-operation-id="getStandardNeighbors"><strong>查看标准关系</strong><span>浏览同领域、同能力和已建立的进阶标准</span></a>
       </div>
     </section>
 

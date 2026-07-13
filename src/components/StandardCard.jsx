@@ -11,7 +11,6 @@ import { MapPinLineIcon } from '@phosphor-icons/react/dist/csr/MapPinLine'
 import { PencilLineIcon } from '@phosphor-icons/react/dist/csr/PencilLine'
 import { DotsThreeIcon } from '@phosphor-icons/react/dist/csr/DotsThree'
 import { GRADE_BANDS, SUBJECT_COLORS } from '../data/dataLoader'
-import { getH4GDifferentiationState } from '../data/h4gDifferentiation'
 import TSBadge from './TSBadge'
 import FavoriteButton from './FavoriteButton'
 import { Toast, useTransientToast } from '../ui/primitives/Toast'
@@ -52,18 +51,11 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '', qui
         practice,
         teaching_tip,
         assessment_evidence_type,
-        grade_assignment_type,
-        standard_variant_type,
-        review_status,
         ts_primary,
         ts_secondary
     } = standard
 
-    const h4gState = getH4GDifferentiationState(standard)
     const gradeBandInfo = GRADE_BANDS[grade_band] || {}
-    const isLowConfidence = grade_assignment_type === 'auto_judged_low_confidence' || String(review_status || '').includes('low_confidence')
-    const needsGradeDifferentiation = !h4gState.isFinalReady &&
-        (h4gState.needsDifferentiation || String(review_status || '').includes('needs_grade_differentiation') || standard_variant_type === 'same_source_shared')
     const hasDetails = context || practice || teaching_tip || assessment_evidence_type
 
     // Get accent color from subject
@@ -162,10 +154,7 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '', qui
     const quickPreviewText = context || teaching_tip || practice || assessment_evidence_type
     const standardTextLink = (
         <Link to={`/standards/${code}`} className={styles['standard-text-link']}>
-            {h4gState.shouldLeadWithGradeFocus && (
-                <span className={styles['source-standard-label']}>{h4gState.sourceTextLabel}</span>
-            )}
-            <p className={`${styles['standard-text']} ${h4gState.shouldLeadWithGradeFocus ? styles['source-standard-text'] : ''}`}>
+            <p className={styles['standard-text']}>
                 {highlightText(standardText)}
             </p>
         </Link>
@@ -195,17 +184,6 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '', qui
                     {/* Show domain as secondary when it adds information */}
                     {secondaryLabel && (
                         <span className={styles['domain-label']}>{secondaryLabel}</span>
-                    )}
-                    {isLowConfidence && (
-                        <span className={styles['review-status-chip']}>低置信度</span>
-                    )}
-                    {needsGradeDifferentiation && (
-                        <span className={`${styles['review-status-chip']} ${styles['needs-differentiation']}`}>待年级化细分</span>
-                    )}
-                    {h4gState.statusLabel && !h4gState.isSourceAlignedPublished && (
-                        <span className={`${styles['review-status-chip']} ${styles[`h4g-status-${h4gState.isFinalReady ? 'ready' : h4gState.isCandidate ? 'candidate' : 'pending'}`]}`}>
-                            {h4gState.statusLabel}
-                        </span>
                     )}
                 </div>
 
@@ -295,12 +273,6 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '', qui
 
             {/* Body - Standard Statement (Visual Focus) */}
             <div className={styles['standard-card-body']}>
-                {h4gState.showGradeLens && (
-                    <div className={`${styles['h4g-grade-lens']} ${h4gState.shouldLeadWithGradeFocus ? styles['has-focus'] : styles.pending}`}>
-                        <span className={styles['h4g-grade-lens-label']}>{h4gState.focusLabel}</span>
-                        <p>{highlightText(h4gState.shouldLeadWithGradeFocus ? h4gState.gradeFocus : h4gState.statusMessage)}</p>
-                    </div>
-                )}
                 {quickPreview && quickPreviewText ? (
                     <Tooltip
                         placement="top-start"

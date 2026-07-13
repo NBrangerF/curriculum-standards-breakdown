@@ -403,7 +403,7 @@ function HomePage() {
                     <div className={styles['api-copy']}>
                         <span className={styles['api-eyebrow']}>KEBIAO API · V1</span>
                         <h2 id="home-api-title">课程标准，也可以成为你的产品能力</h2>
-                        <p>通过 API 检索 {standardCount.toLocaleString('zh-CN')} 条结构化标准、读取进阶关系，并将教学计划匹配到真实课程要求。</p>
+                        <p>通过 API 检索 {standardCount.toLocaleString('zh-CN')} 条结构化标准、批量读取指定标准，并浏览已建立的年级进阶与相邻关系。</p>
                         <div className={styles['api-actions']}>
                             <Link to="/api" className="btn btn-primary btn-lg">
                                 查看 API
@@ -422,7 +422,7 @@ function HomePage() {
                         <div className={styles['api-endpoints']}>
                             <code><b>POST</b><span>/standards/search</span><small>检索标准</small></code>
                             <code><b>GET</b><span>/standards/&#123;code&#125;/progression</span><small>读取进阶</small></code>
-                            <code><b>POST</b><span>/matching/plan-to-standards</span><small>匹配计划</small></code>
+                            <code><b>POST</b><span>/standards/batch</span><small>批量读取</small></code>
                         </div>
                         <div className={styles['api-console-meta']}>
                             <span>{subjects.length} subjects</span>

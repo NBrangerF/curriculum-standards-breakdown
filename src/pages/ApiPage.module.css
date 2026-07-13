@@ -115,6 +115,29 @@
 .endpointList { display: grid; align-content: start; gap: 0.45rem; }
 .endpointList code { min-width: 0; overflow: hidden; padding: 0.65rem 0.8rem; border-left: 2px solid rgba(61, 90, 254, 0.38); background: rgba(61, 90, 254, 0.04); color: #38445a; font: 520 0.69rem/1.4 var(--font-mono); text-overflow: ellipsis; white-space: nowrap; }
 
+.developmentBlock {
+    display: grid;
+    grid-template-columns: minmax(14rem, 0.38fr) minmax(0, 0.62fr);
+    gap: clamp(2rem, 7vw, 7rem);
+    margin-top: clamp(4rem, 7vw, 6.5rem);
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    border-top: 1px solid var(--api-line);
+}
+
+.developmentBlock > div:first-child > span {
+    color: #8a6570;
+    font: 650 0.66rem/1.2 var(--font-mono);
+    letter-spacing: 0.14em;
+}
+
+.developmentBlock h3 { margin: 0.9rem 0 0; font-size: clamp(1.6rem, 3vw, 2.5rem); letter-spacing: -0.045em; }
+.developmentBlock > div:first-child > p { max-width: 31rem; margin: 1rem 0 0; color: #697383; font-size: 0.82rem; line-height: 1.72; }
+.developmentList { border-top: 1px solid var(--api-line); }
+.developmentList > div { display: grid; grid-template-columns: minmax(9rem, 0.3fr) minmax(0, 1fr) auto; gap: 1.5rem; align-items: center; min-height: 6.5rem; padding: 1rem 0; border-bottom: 1px solid var(--api-line); }
+.developmentList strong { font-size: 0.86rem; }
+.developmentList p { margin: 0; color: #697383; font-size: 0.78rem; line-height: 1.62; }
+.developmentList span { padding: 0.35rem 0.5rem; border: 1px solid #d7c9cd; border-radius: var(--radius-xs); color: #795963; font: 580 0.6rem/1.2 var(--font-mono); white-space: nowrap; }
+
 .quickStart { padding: clamp(4.5rem, 8vw, 8rem) 0; background: #111722; color: #f5f7fb; }
 .quickStartLayout { display: grid; grid-template-columns: minmax(18rem, 0.8fr) minmax(0, 1.2fr); gap: clamp(3rem, 8vw, 8rem); align-items: center; }
 .quickStart h2 { margin-top: 1rem; color: inherit; }
@@ -170,6 +193,7 @@
     .endpointPanel { width: min(100%, 35rem); }
     .capability { grid-template-columns: 2.5rem minmax(0, 1fr); }
     .endpointList { grid-column: 2; }
+    .developmentBlock { grid-template-columns: 1fr; }
     .codeExample pre { min-height: 19rem; }
 }
 
@@ -182,6 +206,8 @@
     .sectionIntro { grid-template-columns: 1fr; gap: 1rem; }
     .capability { grid-template-columns: 2rem minmax(0, 1fr); gap: 1rem; }
     .endpointList { grid-column: 1 / -1; }
+    .developmentList > div { grid-template-columns: 1fr auto; gap: 0.55rem 1rem; padding: 1.2rem 0; }
+    .developmentList p { grid-column: 1 / -1; }
     .codeExample pre { min-height: 0; padding: 1.1rem; }
     .codeExample code { font-size: 0.68rem; }
     .accessRow { grid-template-columns: 1fr auto; gap: 0.55rem 1rem; padding: 1.2rem 0; }
