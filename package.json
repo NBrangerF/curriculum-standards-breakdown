@@ -10,7 +10,8 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "normalize:data": "node scripts/normalize-runtime-data.mjs --data-root data/internal",
+    "normalize:data": "node scripts/normalize-runtime-data.mjs --data-root data/internal",
+    "migrate:code-taxonomy": "tsx scripts/migrate-code-taxonomy.ts --data-root data/internal --apply",
         "build:public-data": "node scripts/build-public-data.mjs --source data/internal --output public/data",
         "build:indexes": "node scripts/build-indexes.js --data-root data/internal && npm run build:public-data",
         "validate:indexes": "node scripts/validate-data-indexes.js --data-root data/internal && node scripts/validate-data-indexes.js --data-root public/data",

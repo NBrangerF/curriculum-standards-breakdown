@@ -140,6 +140,8 @@ API 本地地址: http://localhost:8787
 
 证据链与教学规划相关接口仍在开发中，当前不对外开放。
 
+课程标准 code 的第三段已按“学科 + 学段/年级 + 领域”统一；H4 原有主题 token 已移出主干。旧 code 仍作为兼容别名可查询，响应会在 `meta.resolved_from` 标明重定向来源。可用 `npm run migrate:code-taxonomy` 重新执行迁移并通过数据契约校验。
+
 中文 OpenAPI 契约见：`docs/api/openapi.yaml`
 API 快速开始见：`docs/API_QUICKSTART.md`
 TypeScript client 见：`packages/curriculum-client`

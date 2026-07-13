@@ -40,6 +40,9 @@ export function createStandardResolver(records: StandardRecord[]) {
     for (const record of records) {
         addAlias(record.id, record)
         addAlias(record.legacy_code, record)
+        for (const legacyCode of Array.isArray(record.legacy_codes) ? record.legacy_codes : []) {
+            addAlias(legacyCode, record)
+        }
     }
 
     return (value: unknown): StandardResolution => {

@@ -19,7 +19,7 @@ test('GET /api/v1/meta returns data summary', async () => {
     assert.ok(response.headers.get('x-ratelimit-limit'))
     const body = await json(response)
     assert.equal(body.data.standard_count, 2025)
-    assert.equal(body.meta.data_version, '2026.07.13')
+    assert.equal(body.meta.data_version, '2026.07.13-code-taxonomy-v1')
     assert.ok(body.meta.request_id)
 })
 
@@ -29,7 +29,7 @@ test('GET /api/v1/health returns service health', async () => {
     assert.equal(response.headers.get('x-content-type-options'), 'nosniff')
     const body = await json(response)
     assert.equal(body.data.status, 'ok')
-    assert.equal(body.data.data_version, '2026.07.13')
+    assert.equal(body.data.data_version, '2026.07.13-code-taxonomy-v1')
 })
 
 test('OPTIONS preflight returns CORS headers', async () => {
@@ -247,6 +247,12 @@ test('GET /api/v1/standards/:code resolves a unique legacy alias and rejects an 
     const legacyBody = await json(legacy)
     assert.equal(legacyBody.data.code, 'AR-D1-AA-MU-007')
     assert.equal(legacyBody.meta.resolved_from, 'AR-H1-AA-MU-007')
+
+    const migratedH4 = await app.request('/api/v1/standards/CN-H4G7-COMM-001')
+    assert.equal(migratedH4.status, 200)
+    const migratedH4Body = await json(migratedH4)
+    assert.equal(migratedH4Body.data.code, 'CN-H4G7-CM-001')
+    assert.equal(migratedH4Body.meta.resolved_from, 'CN-H4G7-COMM-001')
 
     const ambiguous = await app.request('/api/v1/standards/AR-H4-DA-001')
     assert.equal(ambiguous.status, 409)

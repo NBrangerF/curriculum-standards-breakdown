@@ -68,8 +68,10 @@ for (const file of readdirSync(sourceBySubject).filter(name => name.endsWith('.j
 
     for (const record of standards) {
         codeToSubject[record.code] = subjectSlug
-        addAlias((source.standards || []).find(item => item.code === record.code)?.id, record.code)
-        addAlias((source.standards || []).find(item => item.code === record.code)?.legacy_code, record.code)
+        const internalRecord = (source.standards || []).find(item => item.code === record.code)
+        addAlias(internalRecord?.id, record.code)
+        addAlias(internalRecord?.legacy_code, record.code)
+        for (const legacyCode of internalRecord?.legacy_codes || []) addAlias(legacyCode, record.code)
         domains[record.domain] = (domains[record.domain] || 0) + 1
         gradeBands[record.grade_band] = (gradeBands[record.grade_band] || 0) + 1
         grades[record.grade] = (grades[record.grade] || 0) + 1

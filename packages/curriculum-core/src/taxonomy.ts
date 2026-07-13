@@ -8,11 +8,11 @@ export const SUBJECT_TAXONOMY = {
     },
     chinese: {
         code: 'CN',
-        domains: { '识字与写字': 'LI', '阅读与鉴赏': 'READ', '表达与交流': 'COMM', '梳理与探究': 'INQ' }
+        domains: { '识字与写字': 'LI', '阅读与鉴赏': 'RE', '表达与交流': 'CM', '梳理与探究': 'IN' }
     },
     english: {
         code: 'EN',
-        domains: { '语言能力': 'LANG', '文化意识': 'CUL', '思维品质': 'THINK', '学习能力': 'LEARN' }
+        domains: { '语言能力': 'LA', '文化意识': 'CA', '思维品质': 'TP', '学习能力': 'SA' }
     },
     it: {
         code: 'IT',
@@ -24,7 +24,7 @@ export const SUBJECT_TAXONOMY = {
     },
     math: {
         code: 'MA',
-        domains: { '数与代数': 'ALG', '图形与几何': 'GEO', '统计与概率': 'STA', '综合与实践': 'PRJ' }
+        domains: { '数与代数': 'AL', '图形与几何': 'GE', '统计与概率': 'ST', '综合与实践': 'PR' }
     },
     morality_law: {
         code: 'ML',
@@ -32,14 +32,14 @@ export const SUBJECT_TAXONOMY = {
             '道德教育': 'MOR',
             '法治教育': 'LAW',
             '国情教育': 'NAT',
-            '生命安全与健康教育': 'SAFE',
-            '中华优秀传统文化与革命传统教育': 'CUL',
+            '生命安全与健康教育': 'SAF',
+            '中华优秀传统文化与革命传统教育': 'TCR',
             '入学教育': 'ENR'
         }
     },
     pe: {
         code: 'PE',
-        domains: { '运动技能': 'SK', '健康教育': 'HE', '体育品德': 'MO', '体能': 'FIT' }
+        domains: { '运动技能': 'LM', '健康教育': 'HB', '体育品德': 'SD', '体能': 'PF' }
     },
     science: {
         code: 'SC',
