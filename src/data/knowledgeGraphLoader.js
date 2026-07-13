@@ -17,6 +17,19 @@ async function fetchJson(url, signal) {
 
 const toArray = (payload, key) => Array.isArray(payload) ? payload : (payload?.[key] || [])
 
+const assertApprovedCollection = (records, label) => {
+    const unapproved = records.find(record => record?.reviewStatus !== 'approved')
+    if (unapproved) throw new Error(`Learning Map ${label} contains non-approved record: ${unapproved.id || 'unknown'}`)
+}
+
+export function findApprovedKnowledgePointsByStandard(knowledgePoints, standardCode) {
+    const normalizedCode = String(standardCode || '').trim()
+    if (!normalizedCode) return []
+    return (knowledgePoints || []).filter(point => (
+        point?.reviewStatus === 'approved' && Array.isArray(point.standardCodes) && point.standardCodes.includes(normalizedCode)
+    ))
+}
+
 export async function loadKnowledgeGraph({ manifestUrl = DEFAULT_MANIFEST_URL, signal } = {}) {
     if (manifestUrl === DEFAULT_MANIFEST_URL && cachedGraph) return cachedGraph
     if (manifestUrl === DEFAULT_MANIFEST_URL && loadingGraph) return loadingGraph
@@ -29,15 +42,20 @@ export async function loadKnowledgeGraph({ manifestUrl = DEFAULT_MANIFEST_URL, s
         if (missing.length) throw new Error(`Learning Map manifest is missing: ${missing.join(', ')}`)
         const payloads = await Promise.all(requiredFiles.map(key => fetchJson(resolveKnowledgeGraphFileURL(manifestUrl, files[key]), signal)))
         const [knowledgePoints, taxonomyNodes, prerequisites, taxonomyEdges, evidence] = payloads
+        const dataset = {
+            knowledgePoints: toArray(knowledgePoints, 'knowledgePoints'),
+            taxonomyNodes: toArray(taxonomyNodes, 'taxonomyNodes'),
+            prerequisites: toArray(prerequisites, 'prerequisites'),
+            taxonomyEdges: toArray(taxonomyEdges, 'taxonomyEdges'),
+            evidence: toArray(evidence, 'evidence')
+        }
+        assertApprovedCollection(dataset.knowledgePoints, 'knowledge points')
+        assertApprovedCollection(dataset.taxonomyNodes, 'taxonomy nodes')
+        assertApprovedCollection(dataset.prerequisites, 'prerequisites')
+        assertApprovedCollection(dataset.taxonomyEdges, 'taxonomy edges')
         return {
             version: manifest.version || manifest.dataVersion || 'unknown',
-            dataset: {
-                knowledgePoints: toArray(knowledgePoints, 'knowledgePoints'),
-                taxonomyNodes: toArray(taxonomyNodes, 'taxonomyNodes'),
-                prerequisites: toArray(prerequisites, 'prerequisites'),
-                taxonomyEdges: toArray(taxonomyEdges, 'taxonomyEdges'),
-                evidence: toArray(evidence, 'evidence')
-            },
+            dataset,
             manifest
         }
     })()

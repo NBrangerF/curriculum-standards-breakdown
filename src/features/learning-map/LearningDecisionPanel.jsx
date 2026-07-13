@@ -3,12 +3,15 @@ import LearningMapFallbackList from './LearningMapFallbackList.jsx'
 import styles from './LearningDecisionPanel.module.css'
 
 export default function LearningDecisionPanel({ snapshot, controller, onSelectionChange }) {
-    const setDepth = field => controller.setDepths({ [field]: snapshot.options[field] === 1 ? 2 : 1 })
+    const setDepth = field => {
+        controller.setDepths({ [field]: snapshot.options[field] === 1 ? 2 : 1 })
+        onSelectionChange?.(controller.getSnapshot(), { history: 'replace' })
+    }
     const selectNode = nodeId => {
-        if (controller.selectNode(nodeId)) onSelectionChange?.(controller.getSnapshot())
+        if (controller.selectNode(nodeId)) onSelectionChange?.(controller.getSnapshot(), { history: 'push' })
     }
     const selectRelationship = edgeId => {
-        if (controller.selectRelationship(edgeId)) onSelectionChange?.(controller.getSnapshot())
+        if (controller.selectRelationship(edgeId)) onSelectionChange?.(controller.getSnapshot(), { history: 'replace' })
     }
 
     return (

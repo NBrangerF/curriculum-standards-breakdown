@@ -1,5 +1,5 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { lazy, Suspense, useState, useEffect, useMemo, useRef, useCallback } from 'react'
+import { useParams, Link, useSearchParams } from 'react-router-dom'
 import { AnimatePresence, m } from 'motion/react'
 import {
     loadStandardByCode,
@@ -17,10 +17,13 @@ import StandardRelationPanel from '../components/StandardRelationPanel'
 import { useUiV2 } from '../components/RouteUiBoundary.jsx'
 import { Tooltip } from '../ui/primitives/Tooltip.jsx'
 import { getH4GDifferentiationState } from '../data/h4gDifferentiation'
-import { copyToClipboard } from '../data/query'
+import { copyToClipboard, mergeLearningMapStateIntoURL, parseLearningMapStateFromURL } from '../data/query'
+import { resolveLearningMapFlag } from '../config/learningMapFlags.js'
 import { runViewTransition } from '../utils/viewTransition.js'
 import { buildStandardGraphModel } from '../graph/adapters/standardGraphAdapter'
 import styles from './StandardDetailPage.module.css'
+
+const LearningMapRoute = lazy(() => import('../features/learning-map/LearningMapRoute.jsx'))
 
 function getDisplayTitle(sourceText, fallbackTitle = '') {
     const cleanFallback = String(fallbackTitle || '').replace(/[.…]+$/u, '').trim()
@@ -102,6 +105,7 @@ function ReadingNavLink({ sectionId, activeSection, children }) {
 function StandardDetailPage() {
     const { enabled: uiV2Enabled } = useUiV2()
     const { code } = useParams()
+    const [searchParams, setSearchParams] = useSearchParams()
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [standard, setStandard] = useState(null)
@@ -113,6 +117,10 @@ function StandardDetailPage() {
     const [codeCopyStatus, setCodeCopyStatus] = useState('idle')
     const relationHeadingRef = useRef(null)
     const copyTimerRef = useRef(null)
+    const searchKey = searchParams.toString()
+    const learningMapState = useMemo(() => parseLearningMapStateFromURL(new URLSearchParams(searchKey)), [searchKey])
+    const learningMapFlag = useMemo(() => resolveLearningMapFlag('standard', `?${searchKey}`), [searchKey])
+    const learningMapActive = uiV2Enabled && learningMapFlag.enabled && learningMapState.view === 'learning-map'
 
     const graphModel = useMemo(
         () => (standard ? buildStandardGraphModel(standard, { skills }) : null),
@@ -197,6 +205,16 @@ function StandardDetailPage() {
         if (transition?.finished) transition.finished.finally(scrollToGraph)
         else scrollToGraph()
     }, [relationsExpanded])
+
+    const updateLearningMapState = useCallback((partial, options = {}) => {
+        const current = parseLearningMapStateFromURL(new URLSearchParams(searchParams))
+        const next = { ...current, ...partial, view: 'learning-map' }
+        setSearchParams(mergeLearningMapStateIntoURL(searchParams, next), { replace: options.history !== 'push' })
+    }, [searchParams, setSearchParams])
+
+    const closeLearningMap = useCallback(() => {
+        setSearchParams(mergeLearningMapStateIntoURL(searchParams, {}), { replace: false })
+    }, [searchParams, setSearchParams])
 
     if (loading) {
         return (
@@ -346,6 +364,20 @@ function StandardDetailPage() {
                     </div>
                 </div>
             </section>
+
+            {learningMapActive ? (
+                <section className={styles['learning-map-section']} aria-label="学习脉络">
+                    <div className="container">
+                        <div className={styles['learning-map-route-actions']}>
+                            <span>学习脉络</span>
+                            <button type="button" onClick={closeLearningMap}>返回课程标准正文</button>
+                        </div>
+                        <Suspense fallback={<LoadingState message="正在加载学习脉络工作台…" />}>
+                            <LearningMapRoute standardCode={code} learningMapState={learningMapState} onStateChange={updateLearningMapState} />
+                        </Suspense>
+                    </div>
+                </section>
+            ) : null}
 
             {/* Classification */}
             <section className={styles['classification-section']}>

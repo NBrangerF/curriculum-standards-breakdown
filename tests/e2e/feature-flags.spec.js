@@ -64,6 +64,19 @@ test('standard rollback keeps reading and collection actions but removes graph e
     await expect(page.getByRole('button', { name: '收藏 MA-D2-GE-003' })).toBeVisible()
 })
 
+test('learning-map query fails closed without an approved manifest', async ({ page }) => {
+    await page.goto('/standards/MA-D2-GE-003?learning-map=1&view=learning-map')
+    await expect(page.getByRole('heading', { name: '学习脉络暂时无法加载' })).toBeVisible()
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+    await expect(page.getByRole('heading', { name: '标准在课程结构中的位置' })).toHaveCount(0)
+})
+
+test('learning-map stays unavailable when the outer UI route is rolled back', async ({ page }) => {
+    await page.goto('/standards/MA-D2-GE-003?ui-v2=0&learning-map=1&view=learning-map')
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+    await expect(page.getByRole('heading', { name: '学习脉络暂时无法加载' })).toHaveCount(0)
+})
+
 test('all 12 production routes resolve an independent rollback key', async ({ page }) => {
     test.setTimeout(120_000)
     const routes = contentInventory.routes.map(route => [route.path, route.routeKey])

@@ -38,11 +38,11 @@ export default function LearningMapWorkspace({ dataset, selectedNodeId, status =
     if (!snapshot) return emptyState('暂无可展示的学习脉络', '当前范围内还没有经审核的知识点。')
 
     const selectNode = (nodeId, contextPath) => {
-        if (controller.selectNode(nodeId, { contextPath })) onSelectionChange?.(controller.getSnapshot())
+        if (controller.selectNode(nodeId, { contextPath })) onSelectionChange?.(controller.getSnapshot(), { history: 'push' })
     }
     const switchContext = contextPath => {
         if (!controller.switchContextPath(contextPath)) return
-        onSelectionChange?.(controller.getSnapshot())
+        onSelectionChange?.(controller.getSnapshot(), { history: 'push' })
     }
 
     return (

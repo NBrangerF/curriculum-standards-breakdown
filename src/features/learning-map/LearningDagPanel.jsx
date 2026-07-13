@@ -10,10 +10,10 @@ export default function LearningDagPanel({ snapshot, controller, onSelectionChan
     const nodeCount = topology.visibleNodeCount
     const useVisualDag = nodeCount <= MAX_NODES && topology.edges.length <= MAX_EDGES
     const selectNode = nodeId => {
-        if (controller.selectNode(nodeId)) onSelectionChange?.(controller.getSnapshot())
+        if (controller.selectNode(nodeId)) onSelectionChange?.(controller.getSnapshot(), { history: 'push' })
     }
     const selectRelationship = edgeId => {
-        if (controller.selectRelationship(edgeId)) onSelectionChange?.(controller.getSnapshot())
+        if (controller.selectRelationship(edgeId)) onSelectionChange?.(controller.getSnapshot(), { history: 'replace' })
     }
     return (
         <section className={styles.panel} aria-labelledby="learning-dag-title">
