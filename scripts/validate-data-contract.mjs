@@ -18,6 +18,7 @@ const DOMAIN_TOKENS = {
     pe: { '运动技能': 'LM', '健康教育': 'HB', '体育品德': 'SD', '体能': 'PF' },
     science: { '科学观念': 'SC', '科学思维': 'TH', '探究实践': 'PR', '态度责任': 'AR' }
 }
+const SUBJECT_PREFIXES = { arts: 'AR', chinese: 'CN', english: 'EN', it: 'IT', labor: 'LA', math: 'MA', morality_law: 'ML', pe: 'PE', science: 'SC' }
 const REFERENCE_DELIMITER = /[\n|]+/
 
 function parseArgs(argv) {
@@ -50,10 +51,13 @@ for (const file of readdirSync(bySubject).filter(name => name.endsWith('.json'))
         if (!String(record.domain || '').trim()) errors.push(`${record.code}: 缺少 domain`)
         if (!String(record.subdomain || '').trim()) errors.push(`${record.code}: 缺少 subdomain`)
         if (!String(record.standard || '').trim()) errors.push(`${record.code}: 缺少 standard`)
-        const codeDomainToken = String(record.code || '').split('-')[2]
+        const codeParts = String(record.code || '').split('-')
+        const codeDomainToken = codeParts[2]
         const expectedDomainToken = DOMAIN_TOKENS[record.subject_slug]?.[record.domain]
         if (!expectedDomainToken) errors.push(`${record.code}: 缺少 ${record.subject_slug}/${record.domain} 的 canonical domain token`)
         else if (codeDomainToken !== expectedDomainToken) errors.push(`${record.code}: code 的领域 token 应为 ${expectedDomainToken}，实际为 ${codeDomainToken}`)
+        if (codeParts[0] !== SUBJECT_PREFIXES[record.subject_slug]) errors.push(`${record.code}: code 的学科前缀应为 ${SUBJECT_PREFIXES[record.subject_slug]}`)
+        if (codeParts.length !== 4 || !/^\d{3}$/.test(codeParts[3] || '')) errors.push(`${record.code}: code 必须符合 SUBJECT-STAGE-DOMAIN-SEQ 四段格式`)
         if (GRADE_RANGES[record.grade_band] !== record.grade_range) errors.push(`${record.code}: grade_range 与 grade_band 不一致`)
         if (GRADE_LABELS[record.grade_band] !== record.grade) errors.push(`${record.code}: grade 展示标签未规范化`)
         if (!Array.isArray(record.ts_primary) || !Array.isArray(record.ts_secondary)) errors.push(`${record.code}: TS 字段必须是数组`)

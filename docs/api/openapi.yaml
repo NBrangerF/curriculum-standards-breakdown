@@ -698,7 +698,7 @@ components:
       name: code
       in: path
       required: true
-      description: 全局唯一的课程标准 code，例如 `SC-D2-SC-010`。查询时必须精确且区分大小写；旧编码仅在唯一映射时兼容。
+      description: 全局唯一的四段课程标准 code，格式为 `{SUBJECT}-{STAGE_OR_GRADE}-{DOMAIN}-{SEQ}`，例如 `SC-D2-SC-010`。查询时必须精确且区分大小写；旧编码仅在唯一映射时兼容。
       schema:
         type: string
         example: SC-D2-SC-010
@@ -818,11 +818,11 @@ components:
         data_version:
           description: 当前使用的数据版本。
           type: string
-          example: "2026.07.13-code-taxonomy-v1"
+          example: "2026.07.13-code-taxonomy-v2"
         schema_version:
           description: 当前 API 数据结构版本。
           type: string
-          example: "1.2.0"
+          example: "1.3.0"
         warnings:
           description: 非阻断提示，例如解析不完整或需要人工复核。
           type: array

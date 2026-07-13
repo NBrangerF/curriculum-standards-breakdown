@@ -10,25 +10,17 @@ const bySubject = join(dataRoot, 'by_subject')
 
 type Standard = Record<string, unknown> & { code: string; subject_slug: string; domain: string; grade_band: string }
 
-function candidateParts(record: Standard) {
+function codeParts(record: Standard) {
     const parts = String(record.code).split('-')
     const taxonomy = SUBJECT_TAXONOMY[record.subject_slug as keyof typeof SUBJECT_TAXONOMY]
     const domainToken = taxonomy?.domains[record.domain as never]
     if (!domainToken || !parts[2]) throw new Error(`${record.code}: 无法确定 ${record.subject_slug}/${record.domain} 的领域 token`)
-    const isH4 = String(record.grade_band).startsWith('H4')
-    if (!isH4) return { base: [parts[0], parts[1], domainToken, ...parts.slice(3)].join('-'), sourceToken: null }
-
-    const legacyH4Code = [record.code, ...(Array.isArray(record.legacy_codes) ? record.legacy_codes : []), record.id, record.legacy_code]
-        .map(value => String(value || '').trim())
-        .find(value => {
-            const legacyParts = value.split('-')
-            return legacyParts[1] === parts[1] && legacyParts[2] && legacyParts[2] !== domainToken
-        })
-    const suffix = (legacyH4Code || record.code).split('-').slice(3)
-    const sourceToken = (legacyH4Code || record.code).split('-')[2]
     return {
-        base: [parts[0], parts[1], domainToken, ...suffix].join('-'),
-        sourceToken: sourceToken === domainToken ? null : sourceToken
+        prefix: taxonomy.code,
+        stageToken: parts[1],
+        domainToken,
+        preferredSequence: /^\d{3}$/.test(parts.at(-1) || '') ? parts.at(-1)! : null,
+        canonical: parts.length === 4 && parts[0] === taxonomy.code && parts[2] === domainToken && /^\d{3}$/.test(parts[3])
     }
 }
 
@@ -57,17 +49,36 @@ const payloads = readdirSync(bySubject).filter(file => file.endsWith('.json')).s
     payload: JSON.parse(readFileSync(join(bySubject, file), 'utf8')) as { standards?: Standard[] }
 }))
 const records = payloads.flatMap(item => item.payload.standards || [])
-const candidates = new Map(records.map(record => [record.code, candidateParts(record)]))
-const baseGroups = new Map<string, string[]>()
-for (const [oldCode, candidate] of candidates) baseGroups.set(candidate.base, [...(baseGroups.get(candidate.base) || []), oldCode])
-const codeMap = new Map(records.map(record => {
+const candidates = new Map(records.map(record => [record.code, codeParts(record)]))
+const recordGroups = new Map<string, Standard[]>()
+for (const record of records) {
     const candidate = candidates.get(record.code)!
-    const requiresSubtype = (baseGroups.get(candidate.base) || []).length > 1
-    const code = requiresSubtype && candidate.sourceToken
-        ? [candidate.base.split('-').slice(0, 3).join('-'), candidate.sourceToken, ...candidate.base.split('-').slice(3)].join('-')
-        : candidate.base
-    return [record.code, code]
-}))
+    const key = `${record.subject_slug}|${candidate.stageToken}|${record.domain}`
+    recordGroups.set(key, [...(recordGroups.get(key) || []), record])
+}
+
+const codeMap = new Map<string, string>()
+for (const group of recordGroups.values()) {
+    const used = new Set<number>()
+    for (const record of group) {
+        const candidate = candidates.get(record.code)!
+        if (candidate.canonical) used.add(Number(candidate.preferredSequence))
+    }
+    let nextAvailable = 1
+    for (const record of group) {
+        const candidate = candidates.get(record.code)!
+        if (candidate.canonical) {
+            codeMap.set(record.code, record.code)
+            continue
+        }
+        const preferred = candidate.preferredSequence ? Number(candidate.preferredSequence) : null
+        let sequence = preferred && !used.has(preferred) ? preferred : null
+        while (sequence === null && used.has(nextAvailable)) nextAvailable += 1
+        if (sequence === null) sequence = nextAvailable
+        used.add(sequence)
+        codeMap.set(record.code, `${candidate.prefix}-${candidate.stageToken}-${candidate.domainToken}-${String(sequence).padStart(3, '0')}`)
+    }
+}
 const collisions = new Map<string, string[]>()
 for (const [oldCode, newCode] of codeMap) collisions.set(newCode, [...(collisions.get(newCode) || []), oldCode])
 const duplicates = [...collisions.entries()].filter(([, values]) => values.length > 1)

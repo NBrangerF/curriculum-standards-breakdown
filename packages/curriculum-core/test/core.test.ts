@@ -99,7 +99,7 @@ test('FileCurriculumRepository resolves unique aliases exactly and exposes progr
     const repository = new FileCurriculumRepository(dataRoot)
     const alias = await repository.resolveStandard('AR-H1-AA-MU-007')
     assert.equal(alias.status, 'found')
-    assert.equal(alias.record?.code, 'AR-D1-AA-MU-007')
+    assert.equal(alias.record?.code, 'AR-D1-AA-007')
     assert.equal((await repository.resolveStandard('ar-h1-aa-mu-007')).status, 'missing')
     assert.equal((await repository.resolveStandard('AR-H4-DA-001')).status, 'ambiguous')
 

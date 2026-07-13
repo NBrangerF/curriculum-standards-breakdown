@@ -13,6 +13,7 @@ const DOMAIN_TOKENS = {
     pe: { '运动技能': 'LM', '健康教育': 'HB', '体育品德': 'SD', '体能': 'PF' },
     science: { '科学观念': 'SC', '科学思维': 'TH', '探究实践': 'PR', '态度责任': 'AR' }
 }
+const SUBJECT_PREFIXES = { arts: 'AR', chinese: 'CN', english: 'EN', it: 'IT', labor: 'LA', math: 'MA', morality_law: 'ML', pe: 'PE', science: 'SC' }
 
 function argument(name, fallback) {
     const index = process.argv.indexOf(name)
@@ -36,7 +37,7 @@ const records = readdirSync(join(dataRoot, 'by_subject'))
 
 const aliases = new Map()
 for (const record of records) {
-    for (const value of [record.id, record.legacy_code]) {
+    for (const value of [record.id, record.legacy_code, ...(Array.isArray(record.legacy_codes) ? record.legacy_codes : [])]) {
         const key = String(value || '').trim()
         if (!key || key === record.code) continue
         const candidates = aliases.get(key) || new Set()
@@ -90,6 +91,13 @@ const codeHarmonization = [...legacyDomainTokens].map(([key, tokens]) => {
         current_code_tokens: [...tokens].sort()
     }
 }).filter(item => item.current_code_tokens.some(token => token !== item.canonical_domain_token))
+const codeFormatIssues = records.flatMap(record => {
+    const parts = String(record.code || '').split('-')
+    const reasons = []
+    if (parts[0] !== SUBJECT_PREFIXES[record.subject_slug]) reasons.push(`学科前缀应为 ${SUBJECT_PREFIXES[record.subject_slug]}`)
+    if (parts.length !== 4 || !/^\d{3}$/.test(parts[3] || '')) reasons.push('必须使用 SUBJECT-STAGE-DOMAIN-SEQ 四段格式')
+    return reasons.length ? [{ code: record.code, subject_slug: record.subject_slug, grade_band: record.grade_band, domain: record.domain, reasons }] : []
+})
 
 const report = {
     generated_at: new Date().toISOString(),
@@ -101,7 +109,8 @@ const report = {
         ambiguous_legacy_aliases: [...aliases.values()].filter(candidates => candidates.size > 1).length,
         multi_value_relationships: multiValueRelationships.length,
         partial_progression_groups: partialProgression.length,
-        code_harmonization_groups: codeHarmonization.length
+        code_harmonization_groups: codeHarmonization.length,
+        code_format_issues: codeFormatIssues.length
     },
     worklists: {
         missing_transferable_skills: sortByCode(records.filter(record => !record.ts_primary?.length && !record.ts_secondary?.length).map(record => ({ code: record.code, subject_slug: record.subject_slug, grade_band: record.grade_band, domain: record.domain, standard: record.standard }))),
@@ -109,7 +118,8 @@ const report = {
         ambiguous_legacy_aliases: [...aliases.entries()].filter(([, candidates]) => candidates.size > 1).map(([alias, candidates]) => ({ alias, candidates: [...candidates].sort() })).sort((left, right) => left.alias.localeCompare(right.alias)),
         multi_value_relationships: sortByCode(multiValueRelationships),
         partial_progression_groups: partialProgression.sort((left, right) => left.progression_group_id.localeCompare(right.progression_group_id)),
-        code_harmonization: codeHarmonization.sort((left, right) => left.subject_slug.localeCompare(right.subject_slug) || left.domain.localeCompare(right.domain))
+        code_harmonization: codeHarmonization.sort((left, right) => left.subject_slug.localeCompare(right.subject_slug) || left.domain.localeCompare(right.domain)),
+        code_format_issues: sortByCode(codeFormatIssues)
     },
     next_actions: [
         '先人工确认可迁移技能和多主技能的主次；不得用模型推断结果直接写入正式数据。',

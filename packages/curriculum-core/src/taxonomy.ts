@@ -70,4 +70,4 @@ export function isKnownDomain(domain: string, subjectSlugs: string[] = Object.ke
     return subjectSlugs.some(subjectSlug => hasKnownDomain(subjectSlug, domain))
 }
 
-export const CANONICAL_CODE_DESCRIPTION = '{SUBJECT}-{GRADE_BAND}-{PUBLIC_DOMAIN}[{-SUBTYPE}]-{SEQ}'
+export const CANONICAL_CODE_DESCRIPTION = '{SUBJECT}-{STAGE_OR_GRADE}-{DOMAIN}-{SEQ}'

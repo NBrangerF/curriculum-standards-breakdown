@@ -19,7 +19,7 @@ test('GET /api/v1/meta returns data summary', async () => {
     assert.ok(response.headers.get('x-ratelimit-limit'))
     const body = await json(response)
     assert.equal(body.data.standard_count, 2025)
-    assert.equal(body.meta.data_version, '2026.07.13-code-taxonomy-v1')
+    assert.equal(body.meta.data_version, '2026.07.13-code-taxonomy-v2')
     assert.ok(body.meta.request_id)
 })
 
@@ -29,7 +29,7 @@ test('GET /api/v1/health returns service health', async () => {
     assert.equal(response.headers.get('x-content-type-options'), 'nosniff')
     const body = await json(response)
     assert.equal(body.data.status, 'ok')
-    assert.equal(body.data.data_version, '2026.07.13-code-taxonomy-v1')
+    assert.equal(body.data.data_version, '2026.07.13-code-taxonomy-v2')
 })
 
 test('OPTIONS preflight returns CORS headers', async () => {
@@ -236,7 +236,7 @@ test('GET /api/v1/standards/:code returns public standard without admin fields',
     const response = await app.request('/api/v1/standards/AR-D1-AA-MU-007')
     assert.equal(response.status, 200)
     const body = await json(response)
-    assert.equal(body.data.code, 'AR-D1-AA-MU-007')
+    assert.equal(body.data.code, 'AR-D1-AA-007')
     assert.equal('materials_tools' in body.data, true)
     assert.equal('review_status' in body.data, false)
 })
@@ -245,7 +245,7 @@ test('GET /api/v1/standards/:code resolves a unique legacy alias and rejects an 
     const legacy = await app.request('/api/v1/standards/AR-H1-AA-MU-007')
     assert.equal(legacy.status, 200)
     const legacyBody = await json(legacy)
-    assert.equal(legacyBody.data.code, 'AR-D1-AA-MU-007')
+    assert.equal(legacyBody.data.code, 'AR-D1-AA-007')
     assert.equal(legacyBody.meta.resolved_from, 'AR-H1-AA-MU-007')
 
     const migratedH4 = await app.request('/api/v1/standards/CN-H4G7-COMM-001')
@@ -253,6 +253,17 @@ test('GET /api/v1/standards/:code resolves a unique legacy alias and rejects an 
     const migratedH4Body = await json(migratedH4)
     assert.equal(migratedH4Body.data.code, 'CN-H4G7-CM-001')
     assert.equal(migratedH4Body.meta.resolved_from, 'CN-H4G7-COMM-001')
+
+    const migratedEnglish = await app.request('/api/v1/standards/ENG-H4G7-CA-CUL-001')
+    assert.equal(migratedEnglish.status, 200)
+    const migratedEnglishBody = await json(migratedEnglish)
+    assert.equal(migratedEnglishBody.data.code, 'EN-H4G7-CA-001')
+    assert.equal(migratedEnglishBody.meta.resolved_from, 'ENG-H4G7-CA-CUL-001')
+
+    const migratedMath = await app.request('/api/v1/standards/MA-H4G7-AL-ALG-001')
+    assert.equal(migratedMath.status, 200)
+    const migratedMathBody = await json(migratedMath)
+    assert.equal(migratedMathBody.data.code, 'MA-H4G7-AL-001')
 
     const ambiguous = await app.request('/api/v1/standards/AR-H4-DA-001')
     assert.equal(ambiguous.status, 409)
@@ -328,7 +339,10 @@ test('POST /api/v1/standards/batch returns found items and missing codes', async
     const body = await json(response)
     assert.equal(body.data.length, 2)
     assert.deepEqual(body.meta.missing, ['NOPE-404'])
-    assert.deepEqual(body.meta.resolved, { 'AR-H1-AA-MU-007': 'AR-D1-AA-MU-007' })
+    assert.deepEqual(body.meta.resolved, {
+        'AR-D1-AA-MU-007': 'AR-D1-AA-007',
+        'AR-H1-AA-MU-007': 'AR-D1-AA-007'
+    })
     assert.deepEqual(body.meta.duplicates, ['AR-D1-AA-MU-007'])
 })
 
