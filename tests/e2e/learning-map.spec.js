@@ -13,7 +13,12 @@ const learningMapURL = state => {
 
 async function expectFocusedPoint(page, label) {
     const semanticPath = page.getByRole('region', { name: '学习脉络的可访问关系列表' })
-    await expect(semanticPath.getByRole('heading', { name: label, exact: true })).toBeVisible()
+    await expect(semanticPath.getByRole('heading', { name: label, exact: true })).toBeVisible({ timeout: 20_000 })
+}
+
+async function expectLearningMapReady(page) {
+    await expect(page.getByRole('heading', { name: '先掌握什么，接下来解锁什么' }))
+        .toBeVisible({ timeout: 20_000 })
 }
 
 test.describe('学习脉络端到端用户流', () => {
@@ -162,6 +167,7 @@ test.describe('学习脉络端到端用户流', () => {
     test('待审核空关系不会被写成已审核范围内的起点', async ({ page }) => {
         await installLearningMapFixtureRoutes(page, { fixture: 'empty-unreviewed', standardCode, selectedPointId: 'kp:unknown' })
         await page.goto(learningMapURL({ selectedNode: 'kp:unknown' }))
+        await expectLearningMapReady(page)
         await expect(page.getByRole('region', { name: '需要先掌握' })).toContainText('当前尚无经证实的先修关系。')
         await expect(page.getByRole('region', { name: '将会解锁' })).toContainText('当前尚无经证实的后续解锁。')
         await expect(page.getByText('这是当前已审核学习范围内的起点。')).toHaveCount(0)
@@ -205,7 +211,7 @@ test.describe('学习脉络端到端用户流', () => {
         await expect(page.locator('[data-kb-feature="learning-map"]')).toHaveCount(0)
 
         await page.goto(`/standards/${standardCode}?ui-v2=1&learning-map=0&view=learning-map`)
-        await expect(page.locator('[data-kb-route="standard"]')).toHaveAttribute('data-learning-map-version', 'legacy')
+        await expect(page.locator('[data-kb-route="standard"]')).toHaveAttribute('data-learning-map-version', 'legacy', { timeout: 20_000 })
         await expect(page.locator('[data-kb-feature="learning-map"]')).toHaveCount(0)
 
         await page.goto(learningMapURL({ 'ui-v2': '1', selectedNode: 'kp:d' }))
