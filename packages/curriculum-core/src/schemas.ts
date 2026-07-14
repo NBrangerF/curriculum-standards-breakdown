@@ -109,6 +109,11 @@ export const CoverageAnalyzeRequestSchema = z.object({
 export const WeeklyScheduleRequestSchema = z.object({
     plan: ParsedPlanSchema,
     matches: z.unknown().optional(),
+    review_decisions: z.array(z.object({
+        unit_id: z.string().trim().min(1).max(120),
+        code: z.string().trim().min(1).max(160),
+        decision: z.enum(['accepted', 'rejected'])
+    })).min(1).max(500),
     teaching_weeks: z.number().int().min(1).max(60).optional(),
     lessons_per_week: z.number().int().min(1).max(20).optional(),
     review_weeks: z.array(z.number().int().min(1).max(60)).optional(),

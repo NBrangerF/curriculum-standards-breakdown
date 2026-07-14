@@ -6,6 +6,7 @@ import { FileCurriculumRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
 import { interpretSearchQueryWithLlm, resolveLlmConfig } from '../src/llm.js'
 import { redactSensitiveText } from '../src/ai-privacy.js'
+import { parsePlanWithLlm } from '../src/plan-llm.js'
 import vercelHandler from '../../../api/v1/[...path].js'
 
 const dataRoot = resolve(process.cwd(), '../../data/internal')
@@ -145,6 +146,64 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
         }) })
     })
     assert.equal(invalidShape.status, 'invalid_response')
+})
+
+test('LLM plan parser applies only fields with locatable evidence', async () => {
+    const input = '三年级科学植物观察计划\n学科：科学\n年级：三年级\n共 4 周，每周 2 课时\n单元一：观察植物生长\n学习目标：记录植物结构变化'
+    const fallback = {
+        title: '三年级科学植物观察计划',
+        subject_slug: 'science',
+        grade: '三年级',
+        grade_band: 'H2',
+        units: [{ unit_id: 'U1', title: '规则解析单元', learning_goals: [], keywords: [] }]
+    }
+    const result = await parsePlanWithLlm(input, fallback, {
+        env: {
+            KEBIAO_LLM_API_KEY: 'test-secret',
+            KEBIAO_LLM_BASE_URL: 'https://llm.example.test/v1',
+            KEBIAO_LLM_MODEL: 'gpt-5-mini'
+        },
+        fetchImpl: async (_input, init) => {
+            const request = JSON.parse(String(init?.body))
+            assert.equal(request.text.format.name, 'kebiao_plan_parsing')
+            return Response.json({
+                usage: { input_tokens: 120, output_tokens: 180, total_tokens: 300 },
+                output_text: JSON.stringify({
+                    title: '三年级科学植物观察计划',
+                    subject_slug: 'science',
+                    grade: '三年级',
+                    grade_band: 'H2',
+                    duration_weeks: 4,
+                    lessons_per_week: 2,
+                    units: [{
+                        title: '观察植物生长', week_start: 0, week_end: 0, lesson_count: 3,
+                        learning_goals: ['记录植物结构变化'], keywords: ['植物观察']
+                    }],
+                    field_evidence: [
+                        { path: 'title', confidence: 0.99, source_excerpt: '三年级科学植物观察计划', inferred: false },
+                        { path: 'subject_slug', confidence: 0.9, source_excerpt: '学科：科学', inferred: true },
+                        { path: 'grade', confidence: 0.96, source_excerpt: '年级：三年级', inferred: false },
+                        { path: 'grade_band', confidence: 0.9, source_excerpt: '年级：三年级', inferred: true },
+                        { path: 'duration_weeks', confidence: 0.95, source_excerpt: '共 4 周', inferred: false },
+                        { path: 'lessons_per_week', confidence: 0.95, source_excerpt: '每周 2 课时', inferred: false },
+                        { path: 'units.0.title', confidence: 0.96, source_excerpt: '单元一：观察植物生长', inferred: false },
+                        { path: 'units.0.learning_goals.0', confidence: 0.96, source_excerpt: '学习目标：记录植物结构变化', inferred: false },
+                        { path: 'units.0.lesson_count', confidence: 0.99, source_excerpt: '', inferred: true },
+                        { path: 'units.0.keywords.0', confidence: 0.7, source_excerpt: '不存在的片段', inferred: false }
+                    ],
+                    warnings: []
+                })
+            })
+        }
+    })
+    assert.equal(result.status, 'ok')
+    assert.equal(result.applied, true)
+    assert.equal(result.plan.duration_weeks, 4)
+    assert.equal(result.plan.units?.[0].title, '观察植物生长')
+    assert.equal(result.plan.units?.[0].lesson_count, undefined)
+    assert.deepEqual(result.plan.units?.[0].keywords, [])
+    assert.ok(result.warnings.some(warning => warning.includes('无法在输入文本中定位')))
+    assert.equal(result.field_evidence.some(evidence => evidence.source_excerpt === '不存在的片段'), false)
 })
 
 test('GET /api/v1/meta returns data summary', async () => {
@@ -551,6 +610,8 @@ test('plan alignment APIs require teacher decisions before coverage', async () =
     assert.equal(parsedResponse.status, 200)
     const parsedBody = await json(parsedResponse)
     const plan = parsedBody.data.plan
+    assert.equal(parsedBody.data.parse_interpretation.status, 'disabled')
+    assert.equal(parsedResponse.headers.get('x-ratelimit-policy'), 'ai-per-minute')
 
     const matchResponse = await app.request('/api/v1/plans/match-standards', {
         method: 'POST',
@@ -584,6 +645,35 @@ test('plan alignment APIs require teacher decisions before coverage', async () =
     assert.equal(reviewedResponse.status, 200)
     const reviewed = await json(reviewedResponse)
     assert.deepEqual(reviewed.data.covered_standard_codes, [first.code])
+
+    const scheduleResponse = await app.request('/api/v1/plans/generate-weekly-schedule', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-schedule-test' },
+        body: JSON.stringify({
+            plan,
+            review_decisions: [{ unit_id: matchBody.data.units[0].unit_id, code: first.code, decision: 'accepted' }],
+            teaching_weeks: 2,
+            lessons_per_week: 2
+        })
+    })
+    assert.equal(scheduleResponse.status, 200)
+    const schedule = await json(scheduleResponse)
+    assert.equal(schedule.data.generation_method, 'deterministic_confirmed_alignment_v1')
+    assert.deepEqual(schedule.data.accepted_standard_codes, [first.code])
+    assert.equal(schedule.data.schedule.length, 2)
+    assert.ok(schedule.data.schedule.every((week: any) => week.standard_codes.every((code: string) => code === first.code)))
+
+    const unverifiedScheduleResponse = await app.request('/api/v1/plans/generate-weekly-schedule', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-schedule-forged-test' },
+        body: JSON.stringify({
+            plan,
+            review_decisions: [{ unit_id: matchBody.data.units[0].unit_id, code: 'FAKE-D2-XX-999', decision: 'accepted' }]
+        })
+    })
+    assert.equal(unverifiedScheduleResponse.status, 422)
+    const unverifiedSchedule = await json(unverifiedScheduleResponse)
+    assert.equal(unverifiedSchedule.error.code, 'no_verified_accepted_standards')
 
     const forgedResponse = await app.request('/api/v1/plans/analyze-coverage', {
         method: 'POST',

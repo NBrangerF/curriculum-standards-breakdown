@@ -426,6 +426,7 @@ export function generateWeeklySchedule(
         lessons_per_week?: number
         review_weeks?: number[]
         exam_weeks?: number[]
+        review_confirmed?: boolean
     } = {}
 ): WeeklySchedule[] {
     const normalizedPlan = normalizeParsedPlan(plan)
@@ -488,9 +489,11 @@ export function generateWeeklySchedule(
             lesson_count: unit.lesson_count || lessonsPerWeek,
             standard_codes: standardCodes,
             assessment_focus: compact(firstMatch?.assessment_evidence_type) || null,
-            warnings: unitMatches.some(match => match.requires_human_review)
-                ? ['本周包含低置信度的课程标准匹配，需要人工复核。']
-                : []
+            warnings: !standardCodes.length
+                ? ['本周尚无教师确认的课程标准，请补充确认或手动调整。']
+                : !options.review_confirmed && unitMatches.some(match => match.requires_human_review)
+                    ? ['本周包含尚未确认的课程标准匹配，需要人工复核。']
+                    : []
         })
     }
 

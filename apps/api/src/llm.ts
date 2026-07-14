@@ -2,8 +2,8 @@ const SUBJECTS = ['chinese', 'math', 'english', 'science', 'morality_law', 'pe',
 const GRADE_BANDS = ['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9'] as const
 const SKILLS = ['TS1', 'TS2', 'TS3', 'TS4', 'TS5', 'TS6', 'TS7'] as const
 
-type LlmProtocol = 'responses' | 'chat_completions'
-type LlmStatus = 'ok' | 'disabled' | 'timeout' | 'invalid_config' | 'invalid_response' | 'provider_error'
+export type LlmProtocol = 'responses' | 'chat_completions'
+export type LlmStatus = 'ok' | 'disabled' | 'timeout' | 'invalid_config' | 'invalid_response' | 'provider_error'
 
 export interface LlmQueryInterpretation {
     subjects: string[]
@@ -28,6 +28,25 @@ export interface LlmUsage {
     input_tokens: number
     output_tokens: number
     total_tokens: number
+}
+
+export interface StructuredLlmResult<T> {
+    used: boolean
+    status: LlmStatus
+    model: string | null
+    protocol: LlmProtocol | null
+    latency_ms: number
+    output: T | null
+    usage: LlmUsage | null
+}
+
+export interface StructuredLlmAdapter<T> {
+    name: string
+    schema: Record<string, unknown>
+    instructions: string
+    chatInstructions: string
+    maxCompletionTokens: number
+    validate: (value: unknown) => T | null
 }
 
 interface LlmConfig {
@@ -191,45 +210,46 @@ function parseJsonText(text: string | null): unknown {
     }
 }
 
-function requestBody(protocol: LlmProtocol, model: string, query: string) {
+function requestBody<T>(protocol: LlmProtocol, model: string, input: string, adapter: StructuredLlmAdapter<T>) {
     const format = {
         type: 'json_schema',
-        name: 'kebiao_query_interpretation',
+        name: adapter.name,
         strict: true,
-        schema: OUTPUT_SCHEMA
+        schema: adapter.schema
     }
     if (protocol === 'chat_completions') {
         return {
             model,
             reasoning_effort: 'minimal',
             verbosity: 'low',
-            max_completion_tokens: 400,
+            max_completion_tokens: adapter.maxCompletionTokens,
             messages: [
-                { role: 'system', content: CHAT_JSON_INSTRUCTIONS },
-                { role: 'user', content: query }
+                { role: 'system', content: adapter.chatInstructions },
+                { role: 'user', content: input }
             ],
             response_format: { type: 'json_object' }
         }
     }
     return {
         model,
-        instructions: INSTRUCTIONS,
-        input: query,
+        instructions: adapter.instructions,
+        input,
         text: { format }
     }
 }
 
-export async function interpretSearchQueryWithLlm(
-    query: string,
+export async function runStructuredLlm<T>(
+    input: string,
+    adapter: StructuredLlmAdapter<T>,
     options: { env?: NodeJS.ProcessEnv, fetchImpl?: typeof fetch } = {}
-): Promise<LlmInterpretationResult> {
+): Promise<StructuredLlmResult<T>> {
     const started = performance.now()
     const config = resolveLlmConfig(options.env)
     const base = {
         used: false,
         model: config.enabled ? config.model : null,
         protocol: null,
-        interpretation: null,
+        output: null,
         usage: null,
         latency_ms: 0
     } as const
@@ -255,7 +275,7 @@ export async function interpretSearchQueryWithLlm(
                     authorization: `Bearer ${config.apiKey}`,
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(requestBody(protocol, config.model, query)),
+                body: JSON.stringify(requestBody(protocol, config.model, input, adapter)),
                 signal: controller.signal
             })
             if (!response.ok) {
@@ -272,8 +292,8 @@ export async function interpretSearchQueryWithLlm(
                 }
             }
             const payload = await response.json().catch(() => null)
-            const interpretation = validateInterpretation(parseJsonText(extractResponseText(payload, protocol)))
-            if (!interpretation) {
+            const output = adapter.validate(parseJsonText(extractResponseText(payload, protocol)))
+            if (!output) {
                 return {
                     ...base,
                     status: 'invalid_response',
@@ -288,7 +308,7 @@ export async function interpretSearchQueryWithLlm(
                 model: config.model,
                 protocol,
                 latency_ms: Math.round((performance.now() - started) * 100) / 100,
-                interpretation,
+                output,
                 usage: extractUsage(payload)
             }
         }
@@ -308,5 +328,30 @@ export async function interpretSearchQueryWithLlm(
         }
     } finally {
         clearTimeout(timeout)
+    }
+}
+
+const QUERY_INTERPRETATION_ADAPTER: StructuredLlmAdapter<LlmQueryInterpretation> = {
+    name: 'kebiao_query_interpretation',
+    schema: OUTPUT_SCHEMA,
+    instructions: INSTRUCTIONS,
+    chatInstructions: CHAT_JSON_INSTRUCTIONS,
+    maxCompletionTokens: 400,
+    validate: validateInterpretation
+}
+
+export async function interpretSearchQueryWithLlm(
+    query: string,
+    options: { env?: NodeJS.ProcessEnv, fetchImpl?: typeof fetch } = {}
+): Promise<LlmInterpretationResult> {
+    const result = await runStructuredLlm(query, QUERY_INTERPRETATION_ADAPTER, options)
+    return {
+        used: result.used,
+        status: result.status,
+        model: result.model,
+        protocol: result.protocol,
+        latency_ms: result.latency_ms,
+        interpretation: result.output,
+        usage: result.usage
     }
 }

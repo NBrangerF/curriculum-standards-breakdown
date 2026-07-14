@@ -69,12 +69,17 @@ test('CurriculumClient exposes trusted search and stable plan alignment routes',
     await client.validatePlan({ plan: { title: '计划', units: [] } })
     await client.matchPlanStandards({ plan: { title: '计划', units: [] } })
     await client.analyzePlanCoverage({ plan: { title: '计划', units: [] }, review_decisions: [] })
+    await client.generateWeeklySchedule({
+        plan: { title: '计划', units: [] },
+        review_decisions: [{ unit_id: 'U1', code: 'SC-D2-SC-010', decision: 'accepted' }]
+    })
 
     assert.deepEqual(calls, [
         'https://api.example.com/api/v1/standards/semantic-search',
         'https://api.example.com/api/v1/plans/parse',
         'https://api.example.com/api/v1/plans/validate',
         'https://api.example.com/api/v1/plans/match-standards',
-        'https://api.example.com/api/v1/plans/analyze-coverage'
+        'https://api.example.com/api/v1/plans/analyze-coverage',
+        'https://api.example.com/api/v1/plans/generate-weekly-schedule'
     ])
 })

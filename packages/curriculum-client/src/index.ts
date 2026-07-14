@@ -195,6 +195,13 @@ export class CurriculumClient {
         })
     }
 
+    generateWeeklySchedule(body: JsonObject) {
+        return this.request<JsonObject>('/api/v1/plans/generate-weekly-schedule', {
+            method: 'POST',
+            body: JSON.stringify(body)
+        })
+    }
+
     batchStandards(body: JsonObject) {
         return this.request<JsonObject[]>('/api/v1/standards/batch', {
             method: 'POST',

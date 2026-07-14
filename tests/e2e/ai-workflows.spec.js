@@ -79,7 +79,13 @@ test('smart search discloses privacy redaction and deterministic fallback', asyn
 })
 
 test('alignment workbench counts only teacher-accepted candidates', async ({ page }) => {
-    await page.route('**/api/v1/plans/parse', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ plan, source: 'text', warnings: ['请复核'] })) }))
+    await page.route('**/api/v1/plans/parse', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({
+        plan,
+        source: 'text',
+        warnings: ['请复核'],
+        field_evidence: [{ path: 'units.0.title', confidence: 0.94, source_excerpt: '植物生命周期观察', inferred: false, method: 'model', review_status: 'unreviewed' }],
+        parse_interpretation: { used: true, applied: true, status: 'ok', model: 'gpt-5-mini', protocol: 'responses', latency_ms: 120, usage: null, privacy: { redacted: false, redaction_count: 0, categories: [] } }
+    })) }))
     await page.route('**/api/v1/plans/validate', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ valid: true, errors: [], warnings: [], normalized_plan: plan })) }))
     await page.route('**/api/v1/plans/match-standards', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ plan, units: [{ unit_id: 'U1', unit_title: '植物生命周期观察', matches: [candidate], warnings: [] }], warnings: [] })) }))
     await page.route('**/api/v1/plans/analyze-coverage', route => {
@@ -88,10 +94,26 @@ test('alignment workbench counts only teacher-accepted candidates', async ({ pag
         expect(request.reference_scope_codes).toEqual(['SC-D2-SC-010'])
         return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ covered_standard_codes: ['SC-D2-SC-010'], candidate_standard_codes: ['SC-D2-SC-010'], rejected_standard_codes: [], unreviewed_standard_codes: [], reference_scope_codes: ['SC-D2-SC-010'], gap_standard_codes: [], unmatched_units: [], duplicate_standards: [], standards_by_domain: { 科学观念: 1 }, standards_by_skill: {}, units: [], warnings: [] })) })
     })
+    await page.route('**/api/v1/plans/generate-weekly-schedule', route => {
+        const request = route.request().postDataJSON()
+        expect(request.matches).toBeUndefined()
+        expect(request.review_decisions).toContainEqual({ unit_id: 'U1', code: 'SC-D2-SC-010', decision: 'accepted' })
+        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({
+            schedule: [{ week: 1, type: 'teaching', unit_id: 'U1', unit_title: '植物生命周期观察', focus: '观察植物结构', lesson_count: 2, standard_codes: ['SC-D2-SC-010'], assessment_focus: '观察记录', warnings: [] }],
+            accepted_standard_codes: ['SC-D2-SC-010'],
+            ignored_decision_count: 0,
+            generation_method: 'deterministic_confirmed_alignment_v1',
+            requires_human_review: true,
+            warnings: ['仍需教师复核']
+        })) })
+    })
 
     await page.goto('/alignment-workbench')
     await page.getByRole('button', { name: '解析计划' }).click()
     await expect(page.getByRole('heading', { name: '结构化计划' })).toBeVisible()
+    await expect(page.getByText('AI 辅助提取已完成')).toBeVisible()
+    await page.getByText('查看 AI 字段证据').click()
+    await expect(page.getByText('植物生命周期观察', { exact: true })).toBeVisible()
     await page.getByRole('button', { name: '查找候选标准' }).click()
     await expect(page.getByText('待复核')).toBeVisible()
     await page.getByRole('button', { name: '接受' }).click()
@@ -101,6 +123,10 @@ test('alignment workbench counts only teacher-accepted candidates', async ({ pag
     await expect(page.getByText('教师确认后的覆盖')).toBeVisible()
     await expect(page.getByText('已确认标准').locator('..').getByText('1', { exact: true })).toBeVisible()
     await expect(page.getByText('参考范围', { exact: true }).locator('..').locator('strong')).toHaveText('1')
+    await page.getByRole('button', { name: '生成周计划' }).click()
+    await expect(page.getByRole('heading', { name: '周计划草案' })).toBeVisible()
+    await expect(page.getByText('第 1 周')).toBeVisible()
+    await expect(page.getByRole('link', { name: 'SC-D2-SC-010' })).toBeVisible()
     await page.getByLabel('计划标题').fill('修改后的计划')
     await expect(page.getByRole('heading', { name: '候选标准' })).toHaveCount(0)
     await expect(page.getByText('旧候选已失效')).toBeVisible()

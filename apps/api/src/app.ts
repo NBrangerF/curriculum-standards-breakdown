@@ -31,6 +31,7 @@ import { resolveOpenApiPath, resolveSwaggerUiAssetPath } from './config.js'
 import { renderApiDocsPage } from './docs-page.js'
 import { interpretSearchQueryWithLlm } from './llm.js'
 import { redactSensitiveText } from './ai-privacy.js'
+import { parsePlanWithLlm } from './plan-llm.js'
 
 const DEVELOPMENT_API_ROUTES = [
     '/api/v1/standards/:code/evidence',
@@ -423,8 +424,73 @@ export function createApp(repository: FileCurriculumRepository) {
         if (!parsed.success) {
             return apiError(c, 422, 'validation_error', '请求参数或请求体校验失败。', parsed.error.issues)
         }
-        const result = repository.parsePlan(parsed.data)
-        return ok(c, version, result, { warnings: result.warnings })
+        const deterministic = repository.parsePlan(parsed.data)
+        if (!parsed.data.text) {
+            return ok(c, version, {
+                ...deterministic,
+                field_evidence: [],
+                parse_interpretation: {
+                    used: false,
+                    applied: false,
+                    status: 'not_applicable',
+                    model: null,
+                    protocol: null,
+                    latency_ms: 0,
+                    usage: null,
+                    privacy: { redacted: false, redaction_count: 0, categories: [] }
+                }
+            }, { warnings: deterministic.warnings })
+        }
+
+        const privacy = redactSensitiveText(parsed.data.text)
+        const interpretation = await parsePlanWithLlm(privacy.text, deterministic.plan)
+        c.set('aiMetrics', {
+            feature: 'plan_parsing',
+            used: interpretation.used,
+            status: interpretation.status,
+            model: interpretation.model,
+            protocol: interpretation.protocol,
+            latency_ms: interpretation.latency_ms,
+            redaction_count: privacy.redaction_count,
+            input_tokens: interpretation.usage?.input_tokens || 0,
+            output_tokens: interpretation.usage?.output_tokens || 0,
+            total_tokens: interpretation.usage?.total_tokens || 0
+        })
+        const normalized = interpretation.applied
+            ? repository.parsePlan({ plan: interpretation.plan })
+            : deterministic
+        const warnings = [...new Set([
+            ...deterministic.warnings,
+            ...interpretation.warnings,
+            ...(privacy.redacted ? ['发送到模型服务前已移除教学计划中的可识别个人信息。'] : []),
+            ...(interpretation.status !== 'ok' && interpretation.status !== 'disabled'
+                ? ['AI 计划解析暂不可用或未应用，已保留确定性规则解析结果。'] : [])
+        ])]
+        const result = {
+            ...normalized,
+            source: 'text',
+            warnings,
+            field_evidence: interpretation.field_evidence,
+            parse_interpretation: {
+                used: interpretation.used,
+                applied: interpretation.applied,
+                status: interpretation.status,
+                model: interpretation.model,
+                protocol: interpretation.protocol,
+                latency_ms: interpretation.latency_ms,
+                usage: interpretation.usage,
+                privacy: {
+                    redacted: privacy.redacted,
+                    redaction_count: privacy.redaction_count,
+                    categories: privacy.categories
+                }
+            }
+        }
+        return ok(c, version, result, {
+            parser: interpretation.applied ? 'ai_assisted_with_verified_evidence' : 'deterministic_fallback',
+            review_required: true,
+            warnings
+        })
     })
 
     app.post('/api/v1/plans/validate', async c => {
@@ -514,6 +580,94 @@ export function createApp(repository: FileCurriculumRepository) {
             covered_standard_count: result.covered_standard_codes.length,
             review_required: true,
             warnings: result.warnings
+        })
+    })
+
+    app.post('/api/v1/plans/generate-weekly-schedule', async c => {
+        const version = await repository.loadDataVersion()
+        const body = await parseJson(c)
+        const parsed = WeeklyScheduleRequestSchema.safeParse(body)
+        if (!parsed.success) {
+            return apiError(c, 422, 'validation_error', '请求参数或请求体校验失败。', parsed.error.issues)
+        }
+        const blocked = ensureFieldsetAccess(c, parsed.data.include)
+        if (blocked) return blocked
+
+        const decisionStates = new Map<string, Set<string>>()
+        for (const decision of parsed.data.review_decisions) {
+            const key = `${decision.unit_id}::${decision.code}`
+            const states = decisionStates.get(key) || new Set<string>()
+            states.add(decision.decision)
+            decisionStates.set(key, states)
+        }
+        const conflicts = [...decisionStates.entries()].filter(([, states]) => states.size > 1)
+        if (conflicts.length) {
+            return apiError(c, 422, 'conflicting_review_decisions', '同一单元和标准存在相互冲突的教师决定。', (
+                conflicts.map(([pair]) => ({ pair }))
+            ))
+        }
+
+        const teachingWeeks = parsed.data.teaching_weeks
+            || parsed.data.plan.duration_weeks
+            || parsed.data.plan.units?.length
+            || 1
+        const reviewWeeks = new Set(parsed.data.review_weeks || [])
+        const examWeeks = new Set(parsed.data.exam_weeks || [])
+        const invalidWeeks = [...new Set([...reviewWeeks, ...examWeeks])].filter(week => week > teachingWeeks)
+        const overlaps = [...reviewWeeks].filter(week => examWeeks.has(week))
+        if (invalidWeeks.length || overlaps.length) {
+            return apiError(c, 422, 'invalid_schedule_weeks', '复习周或评价周超出教学周范围，或彼此重叠。', [
+                ...invalidWeeks.map(week => ({ week, reason: 'out_of_range' })),
+                ...overlaps.map(week => ({ week, reason: 'review_exam_overlap' }))
+            ])
+        }
+
+        const currentMatching = await repository.matchPlan(parsed.data.plan, parsed.data)
+        const candidatePairs = new Set(currentMatching.units.flatMap(unit => (
+            unit.matches.map(match => `${unit.unit_id}::${match.code}`)
+        )))
+        const acceptedPairs = new Set(parsed.data.review_decisions
+            .filter(decision => decision.decision === 'accepted')
+            .map(decision => `${decision.unit_id}::${decision.code}`)
+            .filter(pair => candidatePairs.has(pair)))
+        const ignoredDecisions = parsed.data.review_decisions.filter(decision => (
+            !candidatePairs.has(`${decision.unit_id}::${decision.code}`)
+        ))
+        if (!acceptedPairs.size) {
+            return apiError(c, 422, 'no_verified_accepted_standards', '至少需要一条属于当前重新计算候选的教师接受决定，才能生成周计划。')
+        }
+
+        const confirmedMatching = {
+            ...currentMatching,
+            units: currentMatching.units.map(unit => ({
+                ...unit,
+                matches: unit.matches.filter(match => acceptedPairs.has(`${unit.unit_id}::${match.code}`))
+            }))
+        }
+        const schedule = await repository.generateWeeklySchedule(parsed.data.plan, confirmedMatching, {
+            ...parsed.data,
+            teaching_weeks: teachingWeeks,
+            review_confirmed: true
+        })
+        const acceptedStandardCodes = [...new Set(confirmedMatching.units.flatMap(unit => (
+            unit.matches.map(match => match.code)
+        )))].sort()
+        const warnings = [
+            ...(ignoredDecisions.length ? [`${ignoredDecisions.length} 条教师决定不属于当前候选，未进入周计划。`] : []),
+            '周计划是基于教师确认标准的确定性草案；课时、顺序与评价安排仍需教师复核。'
+        ]
+        return ok(c, version, {
+            schedule,
+            accepted_standard_codes: acceptedStandardCodes,
+            ignored_decision_count: ignoredDecisions.length,
+            generation_method: 'deterministic_confirmed_alignment_v1',
+            requires_human_review: true,
+            warnings
+        }, {
+            total_weeks: schedule.length,
+            accepted_standard_count: acceptedStandardCodes.length,
+            review_required: true,
+            warnings
         })
     })
 

@@ -14,7 +14,7 @@ export type ApiBindings = {
 }
 
 export interface AiMetrics {
-    feature: 'query_interpretation'
+    feature: 'query_interpretation' | 'plan_parsing'
     used: boolean
     status: string
     model: string | null
@@ -39,6 +39,11 @@ const AI_TIER_LIMITS: Record<AccessTier, number> = {
     partner: 600,
     admin: 2000
 }
+
+const AI_ROUTES = new Set([
+    '/api/v1/standards/semantic-search',
+    '/api/v1/plans/parse'
+])
 
 const TIER_ORDER: Record<AccessTier, number> = {
     anonymous: 0,
@@ -217,7 +222,7 @@ export const apiAccessMiddleware: MiddlewareHandler<ApiBindings> = async (c, nex
 
 export const rateLimitMiddleware: MiddlewareHandler<ApiBindings> = async (c, next) => {
     const tier = c.get('accessTier') || 'anonymous'
-    const isAiRoute = c.req.path === '/api/v1/standards/semantic-search'
+    const isAiRoute = AI_ROUTES.has(c.req.path)
     const limit = isAiRoute ? AI_TIER_LIMITS[tier] : TIER_LIMITS[tier]
     const now = Date.now()
     const resetAt = Math.ceil(now / 60000) * 60000
@@ -550,7 +555,7 @@ function isDurableMetricsEvent(value: unknown): value is DurableMetricsEvent {
 function isAiMetrics(value: unknown): value is AiMetrics {
     if (!value || typeof value !== 'object') return false
     const metrics = value as Record<string, unknown>
-    return metrics.feature === 'query_interpretation'
+    return (metrics.feature === 'query_interpretation' || metrics.feature === 'plan_parsing')
         && typeof metrics.used === 'boolean'
         && typeof metrics.status === 'string'
         && (metrics.model === null || typeof metrics.model === 'string')

@@ -488,7 +488,7 @@ paths:
       tags: [教学规划]
       operationId: parsePlan
       summary: 将结构化或纯文本教学计划解析为 ParsedPlan
-      description: 接收中文纯文本教学计划或已结构化对象，保守地提取学科、年级、学段和单元。解析提示会写入响应，匿名可调用。
+      description: 接收中文纯文本教学计划或已结构化对象。纯文本会先移除可识别个人信息，再由受 JSON Schema 约束的模型提取字段；只有能在原输入中定位的证据（或明确允许推断的学科、年级、学段、关键词）才会采用。模型不可用、超时、超长或证据无效时自动回退到确定性解析。返回模型状态、字段证据和人工复核要求，匿名可调用。
       security: []
       requestBody:
         required: true
@@ -654,12 +654,12 @@ paths:
           $ref: "#/components/responses/Forbidden"
         "422":
           $ref: "#/components/responses/ValidationError"
-  /api/v1/schedules/weekly:
+  /api/v1/plans/generate-weekly-schedule:
     post:
       tags: [教学规划]
       operationId: generateWeeklySchedule
-      summary: 根据教学计划和标准匹配结果生成确定性的周进度安排
-      description: 把教学单元和匹配到的标准确定性地分配到教学周。相同输入会得到相同结果，便于审计和二次编辑。
+      summary: 根据教师确认的标准生成确定性的周进度草案
+      description: 服务端会基于当前数据版本重新匹配，只采用属于当前候选且被教师明确接受的单元—标准组合。浏览器回传的匹配对象不会被信任；没有已验证接受决定时返回 422。相同输入会得到相同结果，所有安排仍需教师复核。
       security:
         - ApiKeyAuth: []
         - {}
@@ -683,6 +683,10 @@ paths:
               lessons_per_week: 2
               top_k_per_unit: 3
               min_score: 0.2
+              review_decisions:
+                - unit_id: U1
+                  code: SC-D2-SC-010
+                  decision: accepted
       responses:
         "200":
           description: 周进度安排
@@ -694,9 +698,7 @@ paths:
                   - type: object
                     properties:
                       data:
-                        type: array
-                        items:
-                          $ref: "#/components/schemas/WeeklyScheduleItem"
+                        $ref: "#/components/schemas/WeeklyScheduleResult"
         "403":
           $ref: "#/components/responses/Forbidden"
         "422":
@@ -1807,7 +1809,7 @@ components:
             type: string
     PlanParseResult:
       title: 教学计划解析结果
-      description: 规范化后的教学计划、输入来源和需要复核的提示。
+      description: 规范化后的教学计划、输入来源、可定位字段证据、模型状态和需要复核的提示。
       type: object
       properties:
         plan:
@@ -1823,7 +1825,61 @@ components:
           items:
             type: string
           example: [纯文本解析采用确定性保守策略；正式使用匹配结果前，请先复核结构化教学计划。]
-      required: [plan, source, warnings]
+        field_evidence:
+          description: 模型提取字段的逐项证据；每条均未经教师复核。结构化输入和确定性回退可能为空。
+          type: array
+          items:
+            $ref: "#/components/schemas/PlanFieldEvidence"
+        parse_interpretation:
+          $ref: "#/components/schemas/PlanParseInterpretation"
+      required: [plan, source, warnings, field_evidence, parse_interpretation]
+    PlanFieldEvidence:
+      title: 计划字段证据
+      type: object
+      properties:
+        path:
+          type: string
+          example: units.0.title
+        confidence:
+          type: number
+          minimum: 0
+          maximum: 1
+          example: 0.93
+        source_excerpt:
+          description: 能在脱敏后的原始输入中逐字定位的摘录；允许推断的字段可能为空。
+          type: string
+        inferred:
+          type: boolean
+        method:
+          type: string
+          const: model
+        review_status:
+          type: string
+          const: unreviewed
+      required: [path, confidence, source_excerpt, inferred, method, review_status]
+    PlanParseInterpretation:
+      title: AI 计划解析状态
+      type: object
+      properties:
+        used: { type: boolean }
+        applied: { type: boolean }
+        status:
+          type: string
+          enum: [ok, disabled, timeout, invalid_config, invalid_response, provider_error, skipped_length, not_applicable]
+        model: { type: [string, "null"] }
+        protocol: { type: [string, "null"], enum: [responses, chat_completions, null] }
+        latency_ms: { type: number, minimum: 0 }
+        usage:
+          type: [object, "null"]
+          additionalProperties: true
+        privacy:
+          type: object
+          properties:
+            redacted: { type: boolean }
+            redaction_count: { type: integer, minimum: 0 }
+            categories: { type: array, items: { type: string } }
+          required: [redacted, redaction_count, categories]
+      required: [used, applied, status, model, protocol, latency_ms, usage, privacy]
     PlanValidationResult:
       title: 教学计划校验结果
       description: 教学计划是否有效，以及错误、提示和规范化后的计划。
@@ -2003,14 +2059,27 @@ components:
               items: { type: string }
     WeeklyScheduleRequest:
       title: 周进度请求
-      description: 基于教学计划、匹配结果和周次配置生成确定性周进度。
+      description: 基于教学计划、教师接受决定和周次配置生成确定性周进度。服务端会重新匹配，`matches` 仅为兼容字段且不会作为可信事实。
       allOf:
         - $ref: "#/components/schemas/PlanToStandardsRequest"
         - type: object
           properties:
             matches:
-              description: 可选的既有匹配结果；省略时服务端会先执行标准匹配。
+              deprecated: true
+              description: 仅为旧客户端兼容；服务端始终忽略并重新匹配。
               $ref: "#/components/schemas/PlanMatchingResult"
+            review_decisions:
+              description: 教师对候选作出的接受或拒绝决定；至少一条，且至少一个 accepted 组合必须属于服务端当前重新计算的候选。
+              type: array
+              minItems: 1
+              maxItems: 500
+              items:
+                type: object
+                required: [unit_id, code, decision]
+                properties:
+                  unit_id: { type: string }
+                  code: { type: string }
+                  decision: { type: string, enum: [accepted, rejected] }
             teaching_weeks:
               description: 需要生成的教学周总数；省略时优先使用计划中的 `duration_weeks`。
               type: integer
@@ -2035,3 +2104,28 @@ components:
               items:
                 type: integer
               example: []
+          required: [review_decisions]
+    WeeklyScheduleResult:
+      title: 教师确认后的周进度结果
+      type: object
+      properties:
+        schedule:
+          type: array
+          items:
+            $ref: "#/components/schemas/WeeklyScheduleItem"
+        accepted_standard_codes:
+          type: array
+          items: { type: string }
+        ignored_decision_count:
+          type: integer
+          minimum: 0
+        generation_method:
+          type: string
+          const: deterministic_confirmed_alignment_v1
+        requires_human_review:
+          type: boolean
+          const: true
+        warnings:
+          type: array
+          items: { type: string }
+      required: [schedule, accepted_standard_codes, ignored_decision_count, generation_method, requires_human_review, warnings]

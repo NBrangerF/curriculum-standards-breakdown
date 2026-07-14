@@ -441,6 +441,7 @@ export class FileCurriculumRepository {
             lessons_per_week?: number
             review_weeks?: number[]
             exam_weeks?: number[]
+            review_confirmed?: boolean
             top_k_per_unit?: number
             min_score?: number
             include?: Fieldset[]

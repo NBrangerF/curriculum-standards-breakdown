@@ -4,7 +4,7 @@
 .hero > div > p:last-child { max-width: 46rem; color: var(--text-secondary); font-size: 1.08rem; line-height: 1.75; }
 .eyebrow { margin: 0 0 .55rem; color: var(--color-primary); font: 700 .7rem/1.2 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
 .workspace { max-width: 72rem; padding-top: 1.5rem; padding-bottom: 6rem; }
-.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; overflow: hidden; margin-bottom: 1rem; border: 1px solid var(--border-default); border-radius: .65rem; background: var(--border-default); }
+.steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; overflow: hidden; margin-bottom: 1rem; border: 1px solid var(--border-default); border-radius: .65rem; background: var(--border-default); }
 .steps span { padding: .8rem; background: #fff; color: var(--text-tertiary); font-size: .75rem; text-align: center; }
 .steps span[data-active="true"] { background: #edf0ff; color: #243dac; font-weight: 700; }
 .panel { margin-top: 1rem; padding: clamp(1.2rem, 3vw, 2.2rem); border: 1px solid var(--border-default); border-radius: .8rem; background: #fff; box-shadow: 0 .8rem 2.5rem rgba(27,39,72,.04); }
@@ -15,6 +15,19 @@
 .panel textarea, .panel input, .panel select { width: 100%; border: 1px solid var(--border-default); border-radius: .5rem; padding: .75rem; background: #fbfcff; color: inherit; font: inherit; line-height: 1.55; }
 .panel > textarea { resize: vertical; }
 .privacy { margin: .8rem 0 0; color: var(--text-tertiary); font-size: .78rem; line-height: 1.6; }
+.trustSummary { display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 1rem; border: 1px solid var(--border-default); border-radius: .6rem; background: #f8faff; }
+.trustSummary div { display: grid; gap: .3rem; padding: .9rem 1rem; border-right: 1px solid var(--border-default); }
+.trustSummary div:last-child { border-right: 0; }
+.trustSummary span { color: var(--text-tertiary); font-size: .7rem; }
+.trustSummary strong { font-size: .82rem; line-height: 1.45; }
+.evidencePanel { margin: 0 0 1.2rem; border: 1px solid #cfd6f5; border-radius: .6rem; background: #f8f9ff; }
+.evidencePanel summary { padding: .85rem 1rem; color: #243dac; font-size: .82rem; font-weight: 700; cursor: pointer; }
+.evidencePanel > p { margin: 0; padding: 0 1rem .8rem; color: var(--text-secondary); font-size: .76rem; line-height: 1.6; }
+.evidencePanel > div { display: grid; gap: 1px; border-top: 1px solid #dce1f7; background: #dce1f7; }
+.evidencePanel article { display: grid; grid-template-columns: minmax(8rem, 1fr) auto auto; gap: .5rem; padding: .8rem 1rem; background: #fff; font-size: .72rem; }
+.evidencePanel article > span:nth-child(2) { color: #4c5db4; }
+.evidencePanel blockquote { grid-column: 1 / -1; margin: .2rem 0 0; padding-left: .7rem; border-left: 2px solid #aab5ef; color: var(--text-secondary); line-height: 1.55; }
+.evidenceEmpty { margin: 0 0 1.2rem; padding: .75rem .9rem; border-left: 2px solid #8790a5; background: #f6f7f9; color: var(--text-secondary); font-size: .78rem; line-height: 1.55; }
 .formGrid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: .8rem; }
 .formGrid label, .units label { display: grid; gap: .4rem; color: var(--text-secondary); font-size: .78rem; font-weight: 650; }
 .units { display: grid; gap: .8rem; margin-top: 1rem; }
@@ -43,5 +56,19 @@
 .status, .error { padding: .8rem 1rem; border-left: 3px solid var(--color-primary); background: #fff; color: var(--text-secondary); }
 .error { border-left-color: #b93f3f; color: #842d2d; }
 .coverageWarning { margin: .7rem 0 0; padding: .7rem .8rem; border-left: 2px solid #d58c14; background: #fff8e9; color: #6b4a11; font-size: .78rem; line-height: 1.55; }
+.sectionIntro { max-width: 52rem; margin: -.3rem 0 1.2rem; color: var(--text-secondary); font-size: .84rem; line-height: 1.7; }
+.scheduleControls { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; }
+.scheduleControls label { display: grid; gap: .4rem; color: var(--text-secondary); font-size: .76rem; font-weight: 650; }
+.reviewBadge { align-self: center; border: 1px solid #d9a44c; border-radius: 999px; padding: .4rem .7rem; background: #fff8e9; color: #6b4a11; font-size: .72rem; font-weight: 700; }
+.scheduleGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+.scheduleGrid article { padding: 1rem; border: 1px solid var(--border-default); border-top: 3px solid #5369e8; border-radius: .55rem; background: #fcfdff; }
+.scheduleGrid article[data-type="review"] { border-top-color: #d58c14; }
+.scheduleGrid article[data-type="exam"] { border-top-color: #9d4a68; }
+.scheduleGrid article > div:first-child { display: flex; justify-content: space-between; color: var(--text-tertiary); font: 650 .7rem var(--font-mono); }
+.scheduleGrid h3 { margin: .65rem 0 .35rem; font-size: 1rem; line-height: 1.45; }
+.scheduleGrid p { margin: .35rem 0; color: var(--text-secondary); font-size: .78rem; line-height: 1.55; }
+.scheduleGrid small { display: block; margin-top: .5rem; color: #6b4a11; line-height: 1.5; }
+.codeList { display: flex; flex-wrap: wrap; gap: .35rem; margin: .65rem 0; }
+.codeList a { border-radius: .3rem; padding: .25rem .4rem; background: #edf0ff; color: #243dac; font: 650 .68rem var(--font-mono); text-decoration: none; }
 
-@media (max-width: 760px) { .steps { grid-template-columns: 1fr 1fr; } .panelHead { align-items: stretch; flex-direction: column; } .formGrid, .units fieldset { grid-template-columns: 1fr; } .metrics { grid-template-columns: 1fr; } .metrics div { border-right: 0; border-bottom: 1px solid var(--border-default); } }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr 1fr; } .panelHead { align-items: stretch; flex-direction: column; } .formGrid, .units fieldset, .trustSummary, .scheduleControls, .scheduleGrid { grid-template-columns: 1fr; } .trustSummary div { border-right: 0; border-bottom: 1px solid var(--border-default); } .trustSummary div:last-child { border-bottom: 0; } .metrics { grid-template-columns: 1fr; } .metrics div { border-right: 0; border-bottom: 1px solid var(--border-default); } }

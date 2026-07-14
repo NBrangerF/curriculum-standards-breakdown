@@ -178,6 +178,67 @@ const checks: SmokeCheck[] = [
         }
     },
     {
+        name: 'trusted plan parsing',
+        method: 'POST',
+        path: '/api/v1/plans/parse',
+        body: {
+            text: '三年级科学计划\n学科：科学\n年级：三年级\n单元一：观察植物生长'
+        },
+        expect(response, payload) {
+            expectEnvelope(response, payload)
+            const data = expectObject(getData(payload), 'Expected parsed plan result')
+            const plan = expectObject(data.plan, 'Expected parsed plan')
+            assert(plan.subject_slug === 'science', 'Expected science plan')
+            assert(Array.isArray(data.field_evidence), 'Expected field evidence array')
+            const interpretation = expectObject(data.parse_interpretation, 'Expected parse interpretation metadata')
+            assert(
+                interpretation.status === 'ok' || interpretation.status === 'disabled'
+                    || interpretation.status === 'timeout' || interpretation.status === 'invalid_config'
+                    || interpretation.status === 'invalid_response' || interpretation.status === 'provider_error'
+                    || interpretation.status === 'skipped_length',
+                'Expected an explicit plan parser status'
+            )
+            if (interpretation.used === true) {
+                assert(interpretation.model === 'gpt-5-mini', 'Expected configured gpt-5-mini plan parser')
+            }
+            const meta = getMeta(payload)
+            assert(meta.review_required === true, 'Expected plan review requirement')
+        }
+    },
+    {
+        name: 'confirmed weekly schedule',
+        method: 'POST',
+        path: '/api/v1/plans/generate-weekly-schedule',
+        body: {
+            plan: {
+                title: '三年级科学计划',
+                subject_slug: 'science',
+                grade: '三年级',
+                grade_band: 'H2',
+                units: [{
+                    unit_id: 'U1',
+                    title: '观察植物生长',
+                    learning_goals: [],
+                    keywords: ['观察植物生长', '观察', '植物', '生长']
+                }]
+            },
+            review_decisions: [{ unit_id: 'U1', code: 'SC-D2-SC-002', decision: 'accepted' }],
+            teaching_weeks: 2,
+            lessons_per_week: 2,
+            top_k_per_unit: 3
+        },
+        expect(response, payload) {
+            expectEnvelope(response, payload)
+            const data = expectObject(getData(payload), 'Expected weekly schedule result')
+            assert(data.generation_method === 'deterministic_confirmed_alignment_v1', 'Expected confirmed deterministic schedule')
+            assert(data.requires_human_review === true, 'Expected schedule review requirement')
+            const accepted = expectArray(data.accepted_standard_codes, 'Expected accepted standard codes')
+            assert(accepted.includes('SC-D2-SC-002'), 'Expected server-verified accepted standard')
+            const schedule = expectArray(data.schedule, 'Expected schedule array')
+            assert(schedule.length === 2, 'Expected two schedule weeks')
+        }
+    },
+    {
         name: 'standard batch',
         method: 'POST',
         path: '/api/v1/standards/batch',
