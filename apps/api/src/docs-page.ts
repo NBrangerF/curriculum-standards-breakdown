@@ -543,7 +543,7 @@ export function renderApiDocsPage() {
           <span class="docs-badge">OpenAPI 3.1</span>
         </div>
         <h1 id="docs-title">把课程标准数据接入你的教育产品</h1>
-        <p class="docs-lead">检索结构化课程标准，按 code 批量读取标准，并浏览已建立的年级进阶与相邻关系。证据链和教学规划能力仍在开发中，暂不提供公开 API。</p>
+        <p class="docs-lead">检索结构化课程标准，按 code 批量读取标准，并浏览已建立的年级进阶与相邻关系。智能检索可使用 AI 扩展查询，再由可追溯字段验证候选；模型失败时自动回退。请勿在查询中提交学生个人信息，所有机器匹配仍需教师确认。</p>
         <div class="docs-actions">
           <a class="docs-button docs-button--primary" href="#api-reference">浏览接口</a>
           <button class="docs-button" id="open-auth" type="button">设置 API Key</button>
@@ -622,6 +622,8 @@ payload = response.json()</code></pre>
       <div class="docs-shell">
         <div class="scenario-label"><strong>按场景开始</strong><span>直接定位常用接口</span></div>
         <a class="scenario-link" href="#/课程标准/searchStandards" data-api-tag="课程标准" data-operation-id="searchStandards"><strong>查找课程标准</strong><span>按学科、学段、领域、能力或关键词检索</span></a>
+        <a class="scenario-link" href="#/课程标准/smartSearchStandards" data-api-tag="课程标准" data-operation-id="smartSearchStandards"><strong>自然语言智能检索</strong><span>返回查询理解、可信命中字段与待复核候选</span></a>
+        <a class="scenario-link" href="#/教学规划/matchPlanToStandards" data-api-tag="教学规划" data-operation-id="matchPlanToStandards"><strong>对齐教学计划</strong><span>按单元审核候选标准，再分析确认后的覆盖</span></a>
         <a class="scenario-link" href="#/关系图谱/getStandardNeighbors" data-api-tag="关系图谱" data-operation-id="getStandardNeighbors"><strong>查看标准关系</strong><span>浏览同领域、同能力和已建立的进阶标准</span></a>
       </div>
     </section>

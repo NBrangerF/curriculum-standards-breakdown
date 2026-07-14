@@ -84,6 +84,46 @@
     grid-column: 1;
 }
 
+.standard-detail-page .header-provenance {
+    grid-column: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+    margin-top: 1rem;
+    color: var(--text-tertiary);
+    font-size: 0.68rem;
+    line-height: 1.55;
+}
+
+.standard-detail-page .provenance-badge {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    min-height: 1.55rem;
+    padding: 0.2rem 0.45rem;
+    border: 1px solid var(--border-default);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    color: var(--text-secondary);
+    font: 600 0.58rem/1.2 var(--font-mono);
+}
+
+.standard-detail-page .provenance-badge.official {
+    border-color: #9ab4a6;
+    background: #f0f7f3;
+    color: #315f4a;
+}
+
+.standard-detail-page .provenance-badge.editorial { color: #5b4e84; }
+.standard-detail-page .provenance-badge.rule_generated { color: #79561d; }
+.standard-detail-page .provenance-badge.ai_generated { color: #7e3b66; }
+.standard-detail-page .provenance-badge.quality-risk {
+    border-color: #d8a29a;
+    background: #fff5f3;
+    color: #8a3d32;
+}
+
 .standard-detail-page .header-meta {
     display: flex;
     flex-wrap: wrap;
@@ -376,6 +416,21 @@
     letter-spacing: -0.045em;
 }
 
+.standard-detail-page .section-title-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    align-items: flex-start;
+}
+
+.standard-detail-page .candidate-notice {
+    max-width: 26rem;
+    margin: 0.35rem 0 0;
+    color: var(--text-tertiary);
+    font-size: 0.72rem;
+    line-height: 1.7;
+}
+
 .standard-detail-page .skills-container {
     display: grid;
     gap: 1.7rem;
@@ -413,6 +468,14 @@
     color: var(--text-primary);
     font: 580 0.68rem/1 var(--font-mono);
     text-decoration: none;
+}
+
+.standard-detail-page .skill-tag small {
+    margin-left: 0.55rem;
+    padding-left: 0.55rem;
+    border-left: 1px solid currentColor;
+    opacity: 0.62;
+    font-size: 0.52rem;
 }
 
 .standard-detail-page .skill-tag.primary {
@@ -458,6 +521,30 @@
     row-gap: 4.4rem;
 }
 
+.standard-detail-page .official-source-card {
+    max-width: 76rem;
+    margin: 0 0 4.6rem;
+    padding: clamp(1.4rem, 3vw, 2.3rem);
+    border: 1px solid #b7c9bf;
+    background: rgba(247, 252, 249, 0.86);
+}
+
+.standard-detail-page .official-source-card h2,
+.standard-detail-page .official-source-card p { margin: 0; }
+.standard-detail-page .official-source-card p {
+    margin-top: 1.25rem;
+    color: var(--text-primary);
+    font-family: var(--font-serif, var(--font-sans));
+    font-size: clamp(1rem, 1.45vw, 1.2rem);
+    line-height: 1.95;
+}
+.standard-detail-page .official-source-card > small {
+    display: block;
+    margin-top: 1.2rem;
+    color: var(--text-tertiary);
+    font: 0.6rem/1.5 var(--font-mono);
+}
+
 .standard-detail-page .content-card {
     position: relative;
     min-width: 0;
@@ -467,11 +554,38 @@
     background: transparent;
 }
 
+.standard-detail-page .content-card-heading {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.standard-detail-page .content-card.quarantined {
+    border-top-color: #c88478;
+}
+
 .standard-detail-page .content-card h3 {
     margin: 0 0 1.1rem;
     font-size: 1rem;
     font-weight: 620;
     letter-spacing: -0.025em;
+}
+
+.standard-detail-page .content-card-heading h3 {
+    margin-bottom: 1.1rem;
+}
+
+.standard-detail-page .quality-warning {
+    display: grid;
+    gap: 0.4rem;
+    padding: 1rem;
+    border-left: 2px solid #b85f52;
+    background: rgba(255, 245, 243, 0.88);
+    color: #713c35;
+    font-size: 0.75rem;
+    line-height: 1.6;
 }
 
 .standard-detail-page .content-card p {

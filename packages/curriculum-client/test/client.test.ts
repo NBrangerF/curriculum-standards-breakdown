@@ -50,3 +50,31 @@ test('CurriculumClient builds query strings and raises API errors', async () => 
     )
     assert.equal(calls[0], 'https://api.example.com/api/v1/standards/SC-D2-SC-010?include=admin')
 })
+
+test('CurriculumClient exposes trusted search and stable plan alignment routes', async () => {
+    const calls: string[] = []
+    const client = new CurriculumClient({
+        baseUrl: 'https://api.example.com',
+        fetch: async (url) => {
+            calls.push(String(url))
+            return new Response(JSON.stringify({ data: {}, meta: { request_id: 'req_plan' } }), {
+                status: 200,
+                headers: { 'content-type': 'application/json' }
+            })
+        }
+    })
+
+    await client.smartSearchStandards({ query: '三四年级科学观察' })
+    await client.parsePlan({ text: '三年级科学计划' })
+    await client.validatePlan({ plan: { title: '计划', units: [] } })
+    await client.matchPlanStandards({ plan: { title: '计划', units: [] } })
+    await client.analyzePlanCoverage({ plan: { title: '计划', units: [] }, review_decisions: [] })
+
+    assert.deepEqual(calls, [
+        'https://api.example.com/api/v1/standards/semantic-search',
+        'https://api.example.com/api/v1/plans/parse',
+        'https://api.example.com/api/v1/plans/validate',
+        'https://api.example.com/api/v1/plans/match-standards',
+        'https://api.example.com/api/v1/plans/analyze-coverage'
+    ])
+})

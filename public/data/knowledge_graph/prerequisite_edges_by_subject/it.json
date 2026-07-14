@@ -1,7 +1,615 @@
 {
   "prerequisites": [
     {
-      "id": "pre:it:it-h4g7-cs-001:it-h4g8-cs-002",
+      "id": "pre:it:bridge:it-h3-cs-001:it-h4g7-cs-002",
+      "source": "kp:it:it-h3-cs-001",
+      "target": "kp:it:it-h4g7-cs-002",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-cs-001:it-h4g7-cs-002"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0269,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-cs-002:it-h4g7-cs-001",
+      "source": "kp:it:it-h3-cs-002",
+      "target": "kp:it:it-h4g7-cs-001",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-cs-002:it-h4g7-cs-001"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0631,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-cs-002:it-h4g7-cs-002",
+      "source": "kp:it:it-h3-cs-002",
+      "target": "kp:it:it-h4g7-cs-002",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-cs-002:it-h4g7-cs-002"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0543,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-cs-002:it-h4g7-cs-003",
+      "source": "kp:it:it-h3-cs-002",
+      "target": "kp:it:it-h4g7-cs-003",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-cs-002:it-h4g7-cs-003"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0398,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-cs-002:it-h4g7-cs-004",
+      "source": "kp:it:it-h3-cs-002",
+      "target": "kp:it:it-h4g7-cs-004",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-cs-002:it-h4g7-cs-004"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0307,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-cs-002:it-h4g7-cs-005",
+      "source": "kp:it:it-h3-cs-002",
+      "target": "kp:it:it-h4g7-cs-005",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-cs-002:it-h4g7-cs-005"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0535,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-cs-003:it-h4g7-cs-005",
+      "source": "kp:it:it-h3-cs-003",
+      "target": "kp:it:it-h4g7-cs-005",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-cs-003:it-h4g7-cs-005"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0398,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-cs-004:it-h4g7-cs-002",
+      "source": "kp:it:it-h3-cs-004",
+      "target": "kp:it:it-h4g7-cs-002",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-cs-004:it-h4g7-cs-002"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0501,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-cs-005:it-h4g7-cs-001",
+      "source": "kp:it:it-h3-cs-005",
+      "target": "kp:it:it-h4g7-cs-001",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-cs-005:it-h4g7-cs-001"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0488,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-cs-006:it-h4g7-cs-002",
+      "source": "kp:it:it-h3-cs-006",
+      "target": "kp:it:it-h4g7-cs-002",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-cs-006:it-h4g7-cs-002"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0525,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-cs-007:it-h4g7-cs-002",
+      "source": "kp:it:it-h3-cs-007",
+      "target": "kp:it:it-h4g7-cs-002",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-cs-007:it-h4g7-cs-002"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0254,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-cs-008:it-h4g7-cs-004",
+      "source": "kp:it:it-h3-cs-008",
+      "target": "kp:it:it-h4g7-cs-004",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-cs-008:it-h4g7-cs-004"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0139,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-dl-001:it-h4g7-dl-003",
+      "source": "kp:it:it-h3-dl-001",
+      "target": "kp:it:it-h4g7-dl-003",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-dl-001:it-h4g7-dl-003"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0603,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-dl-002:it-h4g7-dl-001",
+      "source": "kp:it:it-h3-dl-002",
+      "target": "kp:it:it-h4g7-dl-001",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-dl-002:it-h4g7-dl-001"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0565,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-dl-002:it-h4g7-dl-002",
+      "source": "kp:it:it-h3-dl-002",
+      "target": "kp:it:it-h4g7-dl-002",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-dl-002:it-h4g7-dl-002"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0729,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-dl-002:it-h4g7-dl-003",
+      "source": "kp:it:it-h3-dl-002",
+      "target": "kp:it:it-h4g7-dl-003",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-dl-002:it-h4g7-dl-003"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0725,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-dl-002:it-h4g7-dl-004",
+      "source": "kp:it:it-h3-dl-002",
+      "target": "kp:it:it-h4g7-dl-004",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-dl-002:it-h4g7-dl-004"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0646,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-dl-002:it-h4g7-dl-005",
+      "source": "kp:it:it-h3-dl-002",
+      "target": "kp:it:it-h4g7-dl-005",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-dl-002:it-h4g7-dl-005"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0603,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-dl-002:it-h4g7-dl-006",
+      "source": "kp:it:it-h3-dl-002",
+      "target": "kp:it:it-h4g7-dl-006",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-dl-002:it-h4g7-dl-006"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0309,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-dl-003:it-h4g7-dl-002",
+      "source": "kp:it:it-h3-dl-003",
+      "target": "kp:it:it-h4g7-dl-002",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-dl-003:it-h4g7-dl-002"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0505,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-ic-001:it-h4g7-ic-001",
+      "source": "kp:it:it-h3-ic-001",
+      "target": "kp:it:it-h4g7-ic-001",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-ic-001:it-h4g7-ic-001"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.1207,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-ic-001:it-h4g7-ic-004",
+      "source": "kp:it:it-h3-ic-001",
+      "target": "kp:it:it-h4g7-ic-004",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-ic-001:it-h4g7-ic-004"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.049,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-ic-002:it-h4g7-ic-001",
+      "source": "kp:it:it-h3-ic-002",
+      "target": "kp:it:it-h4g7-ic-001",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-ic-002:it-h4g7-ic-001"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0945,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-sr-001:it-h4g7-sr-002",
+      "source": "kp:it:it-h3-sr-001",
+      "target": "kp:it:it-h4g7-sr-002",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-sr-001:it-h4g7-sr-002"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0874,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-sr-001:it-h4g7-sr-003",
+      "source": "kp:it:it-h3-sr-001",
+      "target": "kp:it:it-h4g7-sr-003",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-sr-001:it-h4g7-sr-003"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.1074,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-sr-001:it-h4g7-sr-004",
+      "source": "kp:it:it-h3-sr-001",
+      "target": "kp:it:it-h4g7-sr-004",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-sr-001:it-h4g7-sr-004"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.108,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-sr-001:it-h4g7-sr-006",
+      "source": "kp:it:it-h3-sr-001",
+      "target": "kp:it:it-h4g7-sr-006",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-sr-001:it-h4g7-sr-006"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.096,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-sr-001:it-h4g7-sr-007",
+      "source": "kp:it:it-h3-sr-001",
+      "target": "kp:it:it-h4g7-sr-007",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-sr-001:it-h4g7-sr-007"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0815,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-sr-002:it-h4g7-sr-001",
+      "source": "kp:it:it-h3-sr-002",
+      "target": "kp:it:it-h4g7-sr-001",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-sr-002:it-h4g7-sr-001"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.122,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-sr-002:it-h4g7-sr-005",
+      "source": "kp:it:it-h3-sr-002",
+      "target": "kp:it:it-h4g7-sr-005",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-sr-002:it-h4g7-sr-005"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.0823,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-sr-002:it-h4g7-sr-008",
+      "source": "kp:it:it-h3-sr-002",
+      "target": "kp:it:it-h4g7-sr-008",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-sr-002:it-h4g7-sr-008"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.1183,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:bridge:it-h3-sr-002:it-h4g7-sr-010",
+      "source": "kp:it:it-h3-sr-002",
+      "target": "kp:it:it-h4g7-sr-010",
+      "type": "prerequisite",
+      "directed": true,
+      "necessity": "undetermined",
+      "rationale": "基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。",
+      "evidenceRefs": [
+        "ev:it:bridge:it-h3-sr-002:it-h4g7-sr-010"
+      ],
+      "confidence": "low",
+      "confidenceScore": 0.1183,
+      "relationType": "grade_band_bridge_candidate",
+      "method": "same_subject_domain_text_skill_overlap_v1",
+      "provenance": "rule_generated",
+      "reviewStatus": "candidate",
+      "version": "preview-global-8ce708f60dbd"
+    },
+    {
+      "id": "pre:it:sequence:it-h4g7-cs-001:it-h4g8-cs-002",
       "source": "kp:it:it-h4g7-cs-001",
       "target": "kp:it:it-h4g8-cs-002",
       "type": "prerequisite",
@@ -9,14 +617,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-cs-001:it-h4g8-cs-002"
+        "ev:it:sequence:it-h4g7-cs-001:it-h4g8-cs-002"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-cs-002:it-h4g8-cs-001",
+      "id": "pre:it:sequence:it-h4g7-cs-002:it-h4g8-cs-001",
       "source": "kp:it:it-h4g7-cs-002",
       "target": "kp:it:it-h4g8-cs-001",
       "type": "prerequisite",
@@ -24,14 +636,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-cs-002:it-h4g8-cs-001"
+        "ev:it:sequence:it-h4g7-cs-002:it-h4g8-cs-001"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-cs-003:it-h4g8-cs-003",
+      "id": "pre:it:sequence:it-h4g7-cs-003:it-h4g8-cs-003",
       "source": "kp:it:it-h4g7-cs-003",
       "target": "kp:it:it-h4g8-cs-003",
       "type": "prerequisite",
@@ -39,14 +655,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-cs-003:it-h4g8-cs-003"
+        "ev:it:sequence:it-h4g7-cs-003:it-h4g8-cs-003"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-cs-004:it-h4g8-cs-005",
+      "id": "pre:it:sequence:it-h4g7-cs-004:it-h4g8-cs-005",
       "source": "kp:it:it-h4g7-cs-004",
       "target": "kp:it:it-h4g8-cs-005",
       "type": "prerequisite",
@@ -54,14 +674,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-cs-004:it-h4g8-cs-005"
+        "ev:it:sequence:it-h4g7-cs-004:it-h4g8-cs-005"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-cs-005:it-h4g8-cs-004",
+      "id": "pre:it:sequence:it-h4g7-cs-005:it-h4g8-cs-004",
       "source": "kp:it:it-h4g7-cs-005",
       "target": "kp:it:it-h4g8-cs-004",
       "type": "prerequisite",
@@ -69,14 +693,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-cs-005:it-h4g8-cs-004"
+        "ev:it:sequence:it-h4g7-cs-005:it-h4g8-cs-004"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-dl-001:it-h4g8-dl-002",
+      "id": "pre:it:sequence:it-h4g7-dl-001:it-h4g8-dl-002",
       "source": "kp:it:it-h4g7-dl-001",
       "target": "kp:it:it-h4g8-dl-002",
       "type": "prerequisite",
@@ -84,14 +712,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-dl-001:it-h4g8-dl-002"
+        "ev:it:sequence:it-h4g7-dl-001:it-h4g8-dl-002"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-dl-002:it-h4g8-dl-001",
+      "id": "pre:it:sequence:it-h4g7-dl-002:it-h4g8-dl-001",
       "source": "kp:it:it-h4g7-dl-002",
       "target": "kp:it:it-h4g8-dl-001",
       "type": "prerequisite",
@@ -99,14 +731,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-dl-002:it-h4g8-dl-001"
+        "ev:it:sequence:it-h4g7-dl-002:it-h4g8-dl-001"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-dl-003:it-h4g8-dl-003",
+      "id": "pre:it:sequence:it-h4g7-dl-003:it-h4g8-dl-003",
       "source": "kp:it:it-h4g7-dl-003",
       "target": "kp:it:it-h4g8-dl-003",
       "type": "prerequisite",
@@ -114,14 +750,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-dl-003:it-h4g8-dl-003"
+        "ev:it:sequence:it-h4g7-dl-003:it-h4g8-dl-003"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-dl-004:it-h4g8-dl-005",
+      "id": "pre:it:sequence:it-h4g7-dl-004:it-h4g8-dl-005",
       "source": "kp:it:it-h4g7-dl-004",
       "target": "kp:it:it-h4g8-dl-005",
       "type": "prerequisite",
@@ -129,14 +769,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-dl-004:it-h4g8-dl-005"
+        "ev:it:sequence:it-h4g7-dl-004:it-h4g8-dl-005"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-dl-005:it-h4g8-dl-004",
+      "id": "pre:it:sequence:it-h4g7-dl-005:it-h4g8-dl-004",
       "source": "kp:it:it-h4g7-dl-005",
       "target": "kp:it:it-h4g8-dl-004",
       "type": "prerequisite",
@@ -144,14 +788,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-dl-005:it-h4g8-dl-004"
+        "ev:it:sequence:it-h4g7-dl-005:it-h4g8-dl-004"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-dl-006:it-h4g8-dl-006",
+      "id": "pre:it:sequence:it-h4g7-dl-006:it-h4g8-dl-006",
       "source": "kp:it:it-h4g7-dl-006",
       "target": "kp:it:it-h4g8-dl-006",
       "type": "prerequisite",
@@ -159,14 +807,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-dl-006:it-h4g8-dl-006"
+        "ev:it:sequence:it-h4g7-dl-006:it-h4g8-dl-006"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-ic-001:it-h4g8-ic-002",
+      "id": "pre:it:sequence:it-h4g7-ic-001:it-h4g8-ic-002",
       "source": "kp:it:it-h4g7-ic-001",
       "target": "kp:it:it-h4g8-ic-002",
       "type": "prerequisite",
@@ -174,14 +826,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-ic-001:it-h4g8-ic-002"
+        "ev:it:sequence:it-h4g7-ic-001:it-h4g8-ic-002"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-ic-004:it-h4g8-ic-005",
+      "id": "pre:it:sequence:it-h4g7-ic-004:it-h4g8-ic-005",
       "source": "kp:it:it-h4g7-ic-004",
       "target": "kp:it:it-h4g8-ic-005",
       "type": "prerequisite",
@@ -189,14 +845,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-ic-004:it-h4g8-ic-005"
+        "ev:it:sequence:it-h4g7-ic-004:it-h4g8-ic-005"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-sr-001:it-h4g8-sr-001",
+      "id": "pre:it:sequence:it-h4g7-sr-001:it-h4g8-sr-001",
       "source": "kp:it:it-h4g7-sr-001",
       "target": "kp:it:it-h4g8-sr-001",
       "type": "prerequisite",
@@ -204,14 +864,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-sr-001:it-h4g8-sr-001"
+        "ev:it:sequence:it-h4g7-sr-001:it-h4g8-sr-001"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-sr-002:it-h4g8-sr-002",
+      "id": "pre:it:sequence:it-h4g7-sr-002:it-h4g8-sr-002",
       "source": "kp:it:it-h4g7-sr-002",
       "target": "kp:it:it-h4g8-sr-002",
       "type": "prerequisite",
@@ -219,14 +883,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-sr-002:it-h4g8-sr-002"
+        "ev:it:sequence:it-h4g7-sr-002:it-h4g8-sr-002"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-sr-003:it-h4g8-sr-003",
+      "id": "pre:it:sequence:it-h4g7-sr-003:it-h4g8-sr-003",
       "source": "kp:it:it-h4g7-sr-003",
       "target": "kp:it:it-h4g8-sr-003",
       "type": "prerequisite",
@@ -234,14 +902,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-sr-003:it-h4g8-sr-003"
+        "ev:it:sequence:it-h4g7-sr-003:it-h4g8-sr-003"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-sr-004:it-h4g8-sr-005",
+      "id": "pre:it:sequence:it-h4g7-sr-004:it-h4g8-sr-005",
       "source": "kp:it:it-h4g7-sr-004",
       "target": "kp:it:it-h4g8-sr-005",
       "type": "prerequisite",
@@ -249,14 +921,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-sr-004:it-h4g8-sr-005"
+        "ev:it:sequence:it-h4g7-sr-004:it-h4g8-sr-005"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-sr-005:it-h4g8-sr-004",
+      "id": "pre:it:sequence:it-h4g7-sr-005:it-h4g8-sr-004",
       "source": "kp:it:it-h4g7-sr-005",
       "target": "kp:it:it-h4g8-sr-004",
       "type": "prerequisite",
@@ -264,14 +940,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-sr-005:it-h4g8-sr-004"
+        "ev:it:sequence:it-h4g7-sr-005:it-h4g8-sr-004"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-sr-006:it-h4g8-sr-006",
+      "id": "pre:it:sequence:it-h4g7-sr-006:it-h4g8-sr-006",
       "source": "kp:it:it-h4g7-sr-006",
       "target": "kp:it:it-h4g8-sr-006",
       "type": "prerequisite",
@@ -279,14 +959,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-sr-006:it-h4g8-sr-006"
+        "ev:it:sequence:it-h4g7-sr-006:it-h4g8-sr-006"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-sr-007:it-h4g8-sr-008",
+      "id": "pre:it:sequence:it-h4g7-sr-007:it-h4g8-sr-008",
       "source": "kp:it:it-h4g7-sr-007",
       "target": "kp:it:it-h4g8-sr-008",
       "type": "prerequisite",
@@ -294,14 +978,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-sr-007:it-h4g8-sr-008"
+        "ev:it:sequence:it-h4g7-sr-007:it-h4g8-sr-008"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-sr-008:it-h4g8-sr-007",
+      "id": "pre:it:sequence:it-h4g7-sr-008:it-h4g8-sr-007",
       "source": "kp:it:it-h4g7-sr-008",
       "target": "kp:it:it-h4g8-sr-007",
       "type": "prerequisite",
@@ -309,14 +997,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-sr-008:it-h4g8-sr-007"
+        "ev:it:sequence:it-h4g7-sr-008:it-h4g8-sr-007"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g7-sr-010:it-h4g8-sr-011",
+      "id": "pre:it:sequence:it-h4g7-sr-010:it-h4g8-sr-011",
       "source": "kp:it:it-h4g7-sr-010",
       "target": "kp:it:it-h4g8-sr-011",
       "type": "prerequisite",
@@ -324,14 +1016,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g7-sr-010:it-h4g8-sr-011"
+        "ev:it:sequence:it-h4g7-sr-010:it-h4g8-sr-011"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-cs-001:it-h4g9-cs-001",
+      "id": "pre:it:sequence:it-h4g8-cs-001:it-h4g9-cs-001",
       "source": "kp:it:it-h4g8-cs-001",
       "target": "kp:it:it-h4g9-cs-001",
       "type": "prerequisite",
@@ -339,14 +1035,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-cs-001:it-h4g9-cs-001"
+        "ev:it:sequence:it-h4g8-cs-001:it-h4g9-cs-001"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-cs-002:it-h4g9-cs-003",
+      "id": "pre:it:sequence:it-h4g8-cs-002:it-h4g9-cs-003",
       "source": "kp:it:it-h4g8-cs-002",
       "target": "kp:it:it-h4g9-cs-003",
       "type": "prerequisite",
@@ -354,14 +1054,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-cs-002:it-h4g9-cs-003"
+        "ev:it:sequence:it-h4g8-cs-002:it-h4g9-cs-003"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-cs-003:it-h4g9-cs-002",
+      "id": "pre:it:sequence:it-h4g8-cs-003:it-h4g9-cs-002",
       "source": "kp:it:it-h4g8-cs-003",
       "target": "kp:it:it-h4g9-cs-002",
       "type": "prerequisite",
@@ -369,14 +1073,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-cs-003:it-h4g9-cs-002"
+        "ev:it:sequence:it-h4g8-cs-003:it-h4g9-cs-002"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-cs-004:it-h4g9-cs-004",
+      "id": "pre:it:sequence:it-h4g8-cs-004:it-h4g9-cs-004",
       "source": "kp:it:it-h4g8-cs-004",
       "target": "kp:it:it-h4g9-cs-004",
       "type": "prerequisite",
@@ -384,14 +1092,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-cs-004:it-h4g9-cs-004"
+        "ev:it:sequence:it-h4g8-cs-004:it-h4g9-cs-004"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-cs-005:it-h4g9-cs-006",
+      "id": "pre:it:sequence:it-h4g8-cs-005:it-h4g9-cs-006",
       "source": "kp:it:it-h4g8-cs-005",
       "target": "kp:it:it-h4g9-cs-006",
       "type": "prerequisite",
@@ -399,14 +1111,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-cs-005:it-h4g9-cs-006"
+        "ev:it:sequence:it-h4g8-cs-005:it-h4g9-cs-006"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-dl-001:it-h4g9-dl-001",
+      "id": "pre:it:sequence:it-h4g8-dl-001:it-h4g9-dl-001",
       "source": "kp:it:it-h4g8-dl-001",
       "target": "kp:it:it-h4g9-dl-001",
       "type": "prerequisite",
@@ -414,14 +1130,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-dl-001:it-h4g9-dl-001"
+        "ev:it:sequence:it-h4g8-dl-001:it-h4g9-dl-001"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-dl-002:it-h4g9-dl-003",
+      "id": "pre:it:sequence:it-h4g8-dl-002:it-h4g9-dl-003",
       "source": "kp:it:it-h4g8-dl-002",
       "target": "kp:it:it-h4g9-dl-003",
       "type": "prerequisite",
@@ -429,14 +1149,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-dl-002:it-h4g9-dl-003"
+        "ev:it:sequence:it-h4g8-dl-002:it-h4g9-dl-003"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-dl-003:it-h4g9-dl-002",
+      "id": "pre:it:sequence:it-h4g8-dl-003:it-h4g9-dl-002",
       "source": "kp:it:it-h4g8-dl-003",
       "target": "kp:it:it-h4g9-dl-002",
       "type": "prerequisite",
@@ -444,14 +1168,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-dl-003:it-h4g9-dl-002"
+        "ev:it:sequence:it-h4g8-dl-003:it-h4g9-dl-002"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-dl-004:it-h4g9-dl-004",
+      "id": "pre:it:sequence:it-h4g8-dl-004:it-h4g9-dl-004",
       "source": "kp:it:it-h4g8-dl-004",
       "target": "kp:it:it-h4g9-dl-004",
       "type": "prerequisite",
@@ -459,14 +1187,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-dl-004:it-h4g9-dl-004"
+        "ev:it:sequence:it-h4g8-dl-004:it-h4g9-dl-004"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-dl-005:it-h4g9-dl-006",
+      "id": "pre:it:sequence:it-h4g8-dl-005:it-h4g9-dl-006",
       "source": "kp:it:it-h4g8-dl-005",
       "target": "kp:it:it-h4g9-dl-006",
       "type": "prerequisite",
@@ -474,14 +1206,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-dl-005:it-h4g9-dl-006"
+        "ev:it:sequence:it-h4g8-dl-005:it-h4g9-dl-006"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-dl-006:it-h4g9-dl-005",
+      "id": "pre:it:sequence:it-h4g8-dl-006:it-h4g9-dl-005",
       "source": "kp:it:it-h4g8-dl-006",
       "target": "kp:it:it-h4g9-dl-005",
       "type": "prerequisite",
@@ -489,14 +1225,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-dl-006:it-h4g9-dl-005"
+        "ev:it:sequence:it-h4g8-dl-006:it-h4g9-dl-005"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-ic-002:it-h4g9-ic-003",
+      "id": "pre:it:sequence:it-h4g8-ic-002:it-h4g9-ic-003",
       "source": "kp:it:it-h4g8-ic-002",
       "target": "kp:it:it-h4g9-ic-003",
       "type": "prerequisite",
@@ -504,14 +1244,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-ic-002:it-h4g9-ic-003"
+        "ev:it:sequence:it-h4g8-ic-002:it-h4g9-ic-003"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-ic-005:it-h4g9-ic-006",
+      "id": "pre:it:sequence:it-h4g8-ic-005:it-h4g9-ic-006",
       "source": "kp:it:it-h4g8-ic-005",
       "target": "kp:it:it-h4g9-ic-006",
       "type": "prerequisite",
@@ -519,14 +1263,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-ic-005:it-h4g9-ic-006"
+        "ev:it:sequence:it-h4g8-ic-005:it-h4g9-ic-006"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-sr-001:it-h4g9-sr-001",
+      "id": "pre:it:sequence:it-h4g8-sr-001:it-h4g9-sr-001",
       "source": "kp:it:it-h4g8-sr-001",
       "target": "kp:it:it-h4g9-sr-001",
       "type": "prerequisite",
@@ -534,14 +1282,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-sr-001:it-h4g9-sr-001"
+        "ev:it:sequence:it-h4g8-sr-001:it-h4g9-sr-001"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-sr-002:it-h4g9-sr-003",
+      "id": "pre:it:sequence:it-h4g8-sr-002:it-h4g9-sr-003",
       "source": "kp:it:it-h4g8-sr-002",
       "target": "kp:it:it-h4g9-sr-003",
       "type": "prerequisite",
@@ -549,14 +1301,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-sr-002:it-h4g9-sr-003"
+        "ev:it:sequence:it-h4g8-sr-002:it-h4g9-sr-003"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-sr-003:it-h4g9-sr-002",
+      "id": "pre:it:sequence:it-h4g8-sr-003:it-h4g9-sr-002",
       "source": "kp:it:it-h4g8-sr-003",
       "target": "kp:it:it-h4g9-sr-002",
       "type": "prerequisite",
@@ -564,14 +1320,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-sr-003:it-h4g9-sr-002"
+        "ev:it:sequence:it-h4g8-sr-003:it-h4g9-sr-002"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-sr-004:it-h4g9-sr-004",
+      "id": "pre:it:sequence:it-h4g8-sr-004:it-h4g9-sr-004",
       "source": "kp:it:it-h4g8-sr-004",
       "target": "kp:it:it-h4g9-sr-004",
       "type": "prerequisite",
@@ -579,14 +1339,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-sr-004:it-h4g9-sr-004"
+        "ev:it:sequence:it-h4g8-sr-004:it-h4g9-sr-004"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-sr-005:it-h4g9-sr-006",
+      "id": "pre:it:sequence:it-h4g8-sr-005:it-h4g9-sr-006",
       "source": "kp:it:it-h4g8-sr-005",
       "target": "kp:it:it-h4g9-sr-006",
       "type": "prerequisite",
@@ -594,14 +1358,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-sr-005:it-h4g9-sr-006"
+        "ev:it:sequence:it-h4g8-sr-005:it-h4g9-sr-006"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-sr-006:it-h4g9-sr-005",
+      "id": "pre:it:sequence:it-h4g8-sr-006:it-h4g9-sr-005",
       "source": "kp:it:it-h4g8-sr-006",
       "target": "kp:it:it-h4g9-sr-005",
       "type": "prerequisite",
@@ -609,14 +1377,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-sr-006:it-h4g9-sr-005"
+        "ev:it:sequence:it-h4g8-sr-006:it-h4g9-sr-005"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-sr-007:it-h4g9-sr-007",
+      "id": "pre:it:sequence:it-h4g8-sr-007:it-h4g9-sr-007",
       "source": "kp:it:it-h4g8-sr-007",
       "target": "kp:it:it-h4g9-sr-007",
       "type": "prerequisite",
@@ -624,14 +1396,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-sr-007:it-h4g9-sr-007"
+        "ev:it:sequence:it-h4g8-sr-007:it-h4g9-sr-007"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-sr-008:it-h4g9-sr-009",
+      "id": "pre:it:sequence:it-h4g8-sr-008:it-h4g9-sr-009",
       "source": "kp:it:it-h4g8-sr-008",
       "target": "kp:it:it-h4g9-sr-009",
       "type": "prerequisite",
@@ -639,14 +1415,18 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-sr-008:it-h4g9-sr-009"
+        "ev:it:sequence:it-h4g8-sr-008:it-h4g9-sr-009"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     },
     {
-      "id": "pre:it:it-h4g8-sr-011:it-h4g9-sr-012",
+      "id": "pre:it:sequence:it-h4g8-sr-011:it-h4g9-sr-012",
       "source": "kp:it:it-h4g8-sr-011",
       "target": "kp:it:it-h4g9-sr-012",
       "type": "prerequisite",
@@ -654,11 +1434,15 @@
       "necessity": "undetermined",
       "rationale": "课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。",
       "evidenceRefs": [
-        "ev:it:it-h4g8-sr-011:it-h4g9-sr-012"
+        "ev:it:sequence:it-h4g8-sr-011:it-h4g9-sr-012"
       ],
-      "confidence": "low",
+      "confidence": "medium",
+      "confidenceScore": 0.72,
+      "relationType": "curriculum_sequence_candidate",
+      "method": "bidirectional_source_fields",
+      "provenance": "extracted",
       "reviewStatus": "candidate",
-      "version": "preview-global-04a5b1f19129"
+      "version": "preview-global-8ce708f60dbd"
     }
   ]
 }

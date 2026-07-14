@@ -1,7 +1,7 @@
 import { GRADE_BANDS } from './constants.js'
-import { projectStandard } from './fieldsets.js'
-import { ensureArray, normalizeStandard } from './normalize.js'
+import { ensureArray } from './normalize.js'
 import { sortStandards } from './search.js'
+import { smartSearchStandards } from './smart-search.js'
 import type {
     Fieldset,
     JsonObject,
@@ -15,6 +15,7 @@ import type {
     PlanValidationResult,
     StandardRecord,
     CoverageAnalysis,
+    CoverageReviewDecision,
     WeeklySchedule
 } from './types.js'
 
@@ -51,16 +52,6 @@ const STOP_WORDS = new Set([
     '教学',
     '以及'
 ])
-
-const TS_KEYWORDS: Record<string, string[]> = {
-    TS1: ['观察', '实验', '探究', '调查', '问题', '证据'],
-    TS2: ['推理', '模型', '解释', '分析', '判断', '思维'],
-    TS3: ['创意', '创造', '设计', '表达', '作品'],
-    TS4: ['合作', '小组', '协作', '共同', '交流'],
-    TS5: ['数据', '图表', '统计', '测量', '信息'],
-    TS6: ['反思', '评价', '改进', '复盘'],
-    TS7: ['综合', '跨学科', '项目', '真实情境']
-}
 
 function compact(value: unknown): string {
     return String(value || '').trim()
@@ -281,114 +272,18 @@ export function validateParsedPlan(plan: ParsedPlan, manifest: Manifest): PlanVa
     }
 }
 
-function scoreField(field: string, value: unknown, keywords: string[], weight: number): {
-    score: number
-    matched?: { field: string; matched_keywords: string[]; value: unknown }
-} {
-    const text = compact(value).toLowerCase()
-    if (!text) return { score: 0 }
-    const matched = keywords.filter(keyword => keyword.length >= 2 && text.includes(keyword.toLowerCase()))
-    if (!matched.length) return { score: 0 }
-    const unique = [...new Set(matched)].slice(0, 8)
-    return {
-        score: Math.min(weight, unique.length * 0.05),
-        matched: {
-            field,
-            matched_keywords: unique,
-            value
-        }
-    }
-}
-
-function inferSkillsFromKeywords(keywords: string[]): string[] {
-    const skills: string[] = []
-    for (const [skill, terms] of Object.entries(TS_KEYWORDS)) {
-        if (terms.some(term => keywords.some(keyword => keyword.includes(term) || term.includes(keyword)))) {
-            skills.push(skill)
-        }
-    }
-    return skills
-}
-
 function mainSkill(value: string): string {
     return value.split('.')[0].toUpperCase()
-}
-
-function scoreStandardForUnit(
-    plan: ParsedPlan,
-    unit: PlanUnit,
-    record: StandardRecord,
-    include?: Fieldset[],
-    reviewThreshold = 0.8
-): PlanStandardMatch {
-    const standard = normalizeStandard(record)
-    const keywords = [
-        ...unit.keywords,
-        ...extractPlanKeywords([unit.title, ...unit.learning_goals].join(' '))
-    ].map(keyword => keyword.toLowerCase())
-    const matchedFields: PlanStandardMatch['matched_fields'] = []
-    let score = 0
-
-    if (plan.subject_slug && standard.subject_slug === plan.subject_slug) score += 0.15
-    if (plan.grade_band && standard.grade_band === plan.grade_band) score += 0.15
-
-    for (const [field, weight] of [
-        ['domain', 0.15],
-        ['subdomain', 0.15],
-        ['display_subcategory', 0.1],
-        ['standard_title', 0.2],
-        ['standard', 0.25],
-        ['context', 0.1],
-        ['practice', 0.1],
-        ['teaching_tip', 0.08],
-        ['assessment_evidence_type', 0.06]
-    ] as const) {
-        const fieldScore = scoreField(field, standard[field], keywords, weight)
-        score += fieldScore.score
-        if (fieldScore.matched) matchedFields.push(fieldScore.matched)
-    }
-
-    const inferredSkills = inferSkillsFromKeywords(keywords)
-    const recordSkills = [
-        ...ensureArray<string>(standard.ts_primary),
-        ...ensureArray<string>(standard.ts_secondary)
-    ].map(mainSkill)
-    const skillMatches = inferredSkills.filter(skill => recordSkills.includes(skill))
-    if (skillMatches.length) {
-        score += Math.min(0.12, skillMatches.length * 0.06)
-        matchedFields.push({
-            field: 'transferable_skills',
-            matched_keywords: skillMatches,
-            value: recordSkills
-        })
-    }
-
-    const normalizedScore = Math.min(1, Number(score.toFixed(3)))
-    const topFields = matchedFields.map(field => field.field).slice(0, 4)
-    const rationale = matchedFields.length
-        ? `教学单元关键词与以下标准字段存在重合：${topFields.join('、')}。`
-        : '该结果仅由学科和学段候选范围筛出，未发现较强的文本重合。'
-
-    return {
-        code: standard.code,
-        score: normalizedScore,
-        match_type: 'deterministic_field_overlap',
-        matched_fields: matchedFields,
-        rationale,
-        requires_human_review: normalizedScore < reviewThreshold,
-        standard: projectStandard(standard, include || ['public'])
-    }
 }
 
 export function matchPlanToStandards(
     plan: ParsedPlan,
     standards: StandardRecord[],
-    options: { top_k_per_unit?: number; min_score?: number; review_threshold?: number; include?: Fieldset[] } = {}
+    options: { top_k_per_unit?: number; min_score?: number; include?: Fieldset[] } = {}
 ): PlanMatchingResult {
     const normalizedPlan = normalizeParsedPlan(plan)
-    const minScore = options.min_score ?? 0.2
+    const minScore = options.min_score ?? 0.08
     const topK = Math.min(Math.max(options.top_k_per_unit || 5, 1), 20)
-    const reviewThreshold = options.review_threshold ?? 0.8
     const warnings: string[] = []
     const candidateStandards = sortStandards(standards).filter(record => {
         if (normalizedPlan.subject_slug && record.subject_slug !== normalizedPlan.subject_slug) return false
@@ -401,16 +296,35 @@ export function matchPlanToStandards(
     }
 
     const units: PlanUnitMatches[] = normalizedPlan.units.map(unit => {
-        const matches = candidateStandards
-            .map(record => scoreStandardForUnit(normalizedPlan, unit, record, options.include, reviewThreshold))
-            .filter(match => match.score >= minScore)
-            .sort((a, b) => b.score - a.score || a.code.localeCompare(b.code))
-            .slice(0, topK)
+        const retrieval = smartSearchStandards(candidateStandards, {
+            query: [unit.title, ...unit.learning_goals, ...unit.keywords].join(' '),
+            subjects: normalizedPlan.subject_slug ? [normalizedPlan.subject_slug] : undefined,
+            grade_bands: normalizedPlan.grade_band ? [normalizedPlan.grade_band] : undefined,
+            limit: topK,
+            min_score: minScore,
+            include: options.include
+        })
+        const matches: PlanStandardMatch[] = retrieval.results.map(result => ({
+            code: result.code,
+            score: result.score,
+            match_type: result.match_type,
+            matched_fields: result.matched_fields.map(field => ({
+                field: field.field,
+                matched_keywords: field.matched_terms,
+                value: field.excerpt,
+                provenance: field.provenance,
+                review_status: field.review_status,
+                confidence: field.confidence,
+                quality_flags: field.quality_flags
+            })),
+            rationale: result.rationale,
+            requires_human_review: true,
+            standard: result.standard,
+            score_breakdown: result.score_breakdown
+        }))
         const unitWarnings: string[] = []
         if (!matches.length) unitWarnings.push('没有课程标准达到该教学单元的最低确定性匹配分数。')
-        if (matches.some(match => match.requires_human_review)) {
-            unitWarnings.push('一条或多条匹配结果低于复核阈值，需要人工确认。')
-        }
+        if (matches.length) unitWarnings.push('所有机器匹配均为候选，必须由教师接受或拒绝后才能计入覆盖分析。')
         return {
             unit_id: unit.unit_id,
             unit_title: unit.title,
@@ -426,15 +340,31 @@ export function matchPlanToStandards(
     }
 }
 
-export function analyzeCoverage(plan: ParsedPlan, matching: PlanMatchingResult): CoverageAnalysis {
+export function analyzeCoverage(
+    plan: ParsedPlan,
+    matching: PlanMatchingResult,
+    reviewDecisions: CoverageReviewDecision[] = [],
+    referenceScopeCodes: string[] = []
+): CoverageAnalysis {
     const codeCounts = new Map<string, number>()
     const standardsByDomain: Record<string, number> = {}
     const standardsBySkill: Record<string, number> = {}
     const unmatchedUnits: string[] = []
+    const decisionByUnitAndCode = new Map(reviewDecisions.map(item => [`${item.unit_id}:${item.code}`, item.decision]))
+    const candidateCodes = new Set<string>()
+    const acceptedCodes = new Set<string>()
+    const rejectedCodes = new Set<string>()
+    const unreviewedCodes = new Set<string>()
 
     for (const unit of matching.units) {
         if (!unit.matches.length) unmatchedUnits.push(unit.unit_id)
         for (const match of unit.matches) {
+            candidateCodes.add(match.code)
+            const decision = decisionByUnitAndCode.get(`${unit.unit_id}:${match.code}`)
+            if (decision === 'accepted') acceptedCodes.add(match.code)
+            else if (decision === 'rejected') rejectedCodes.add(match.code)
+            else unreviewedCodes.add(match.code)
+            if (decision !== 'accepted') continue
             codeCounts.set(match.code, (codeCounts.get(match.code) || 0) + 1)
             const standard = match.standard as JsonObject
             const domain = compact(standard.domain) || 'unknown'
@@ -454,6 +384,13 @@ export function analyzeCoverage(plan: ParsedPlan, matching: PlanMatchingResult):
 
     return {
         covered_standard_codes: [...codeCounts.keys()].sort(),
+        candidate_standard_codes: [...candidateCodes].sort(),
+        rejected_standard_codes: [...rejectedCodes].sort(),
+        unreviewed_standard_codes: [...unreviewedCodes].sort(),
+        reference_scope_codes: uniqueStrings(referenceScopeCodes),
+        gap_standard_codes: referenceScopeCodes.length
+            ? uniqueStrings(referenceScopeCodes).filter(code => !acceptedCodes.has(code))
+            : [],
         unmatched_units: unmatchedUnits,
         duplicate_standards: duplicateStandards,
         standards_by_domain: standardsByDomain,
@@ -461,15 +398,24 @@ export function analyzeCoverage(plan: ParsedPlan, matching: PlanMatchingResult):
         units: matching.units.map(unit => ({
             unit_id: unit.unit_id,
             unit_title: unit.unit_title,
-            matched_standard_codes: unit.matches.map(match => match.code),
-            low_confidence_match_count: unit.matches.filter(match => match.requires_human_review).length
+            candidate_standard_codes: unit.matches.map(match => match.code),
+            matched_standard_codes: unit.matches
+                .filter(match => decisionByUnitAndCode.get(`${unit.unit_id}:${match.code}`) === 'accepted')
+                .map(match => match.code),
+            unreviewed_match_count: unit.matches.filter(match => !decisionByUnitAndCode.has(`${unit.unit_id}:${match.code}`)).length
         })),
         warnings: [
             ...matching.warnings,
+            ...(!reviewDecisions.length ? ['尚未提供教师复核决定；机器候选不会计入已覆盖标准。'] : []),
+            ...(!referenceScopeCodes.length ? ['未提供参考标准范围，因此不生成“缺口”结论。'] : []),
             ...(duplicateStandards.length ? ['部分课程标准被多个教学单元重复匹配；请确认这是有意的螺旋式覆盖，还是需要去重。'] : []),
             ...(unmatchedUnits.length ? ['部分教学单元没有达到确定性匹配阈值的课程标准。'] : [])
         ]
     }
+}
+
+function uniqueStrings(values: string[]): string[] {
+    return [...new Set(values.map(String).filter(Boolean))].sort()
 }
 
 export function generateWeeklySchedule(

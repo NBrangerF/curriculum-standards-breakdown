@@ -26,7 +26,12 @@ export const FIELDSETS: Record<Fieldset, string[]> = {
         'materials_tools',
         'safety_notes',
         'previous_code',
-        'next_code'
+        'next_code',
+        'provenance',
+        'official_text',
+        'field_provenance',
+        'relations',
+        'skill_alignments'
     ],
     source: [
         'source_standard_original',

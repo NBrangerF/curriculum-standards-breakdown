@@ -64,7 +64,7 @@ export default function LearningMapWorkspace({ dataset, selectedNodeId, options,
             {snapshot.isPreview ? (
                 <div className={styles.previewNotice} role="note" data-kb-learning-map-publication="public_preview">
                     <strong>公开预览</strong>
-                    <span>节点来自课程标准；连线来自前后条目字段，是待验证的课程顺序线索，不代表课程专家确认的认知先修关系。</span>
+                    <span>节点来自课程标准；连线区分课程顺序线索与 H3→G7 规则桥接候选，均不代表课程专家确认的认知先修关系。</span>
                 </div>
             ) : null}
             <PersistentLocationBar context={snapshot.context} contextSwitcher={<TaxonomyContextSwitcher context={snapshot.context} onSelectPath={switchContext} />} />
@@ -78,7 +78,7 @@ export default function LearningMapWorkspace({ dataset, selectedNodeId, options,
                     <div className={styles.stageHeader}>
                         <span>{snapshot.isPreview ? '公开预览 · 待验证关系' : '已验证的局部关系'}</span>
                         <p>{snapshot.isPreview
-                            ? '展示课程标准中的直接顺序线索；它们用于预览信息结构与交互，不作为学习决策结论。'
+                            ? '展示可解析的直接顺序线索与单独标记的跨学段桥接候选；它们不作为学习决策结论。'
                             : '只展示当前知识点的直接先修与直接解锁；不把学段进阶误作先修。'}</p>
                     </div>
                     <LearningDecisionPanel snapshot={snapshot} controller={controller} onSelectionChange={onSelectionChange} />

@@ -7,6 +7,7 @@ const NAV_ITEMS = [
     { path: '/', label: '首页' },
     { path: '/skills', label: '可迁移技能' },
     { path: '/search', label: '筛选搜索' },
+    { path: '/smart-search', label: 'AI 检索' },
     { path: '/collections', label: '我的清单' },
     { path: '/api', label: 'API' }
 ]

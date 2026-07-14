@@ -160,6 +160,41 @@ export class CurriculumClient {
         })
     }
 
+    smartSearchStandards(body: JsonObject) {
+        return this.request<JsonObject>('/api/v1/standards/semantic-search', {
+            method: 'POST',
+            body: JSON.stringify(body)
+        })
+    }
+
+    parsePlan(body: JsonObject) {
+        return this.request<JsonObject>('/api/v1/plans/parse', {
+            method: 'POST',
+            body: JSON.stringify(body)
+        })
+    }
+
+    validatePlan(body: JsonObject) {
+        return this.request<JsonObject>('/api/v1/plans/validate', {
+            method: 'POST',
+            body: JSON.stringify(body)
+        })
+    }
+
+    matchPlanStandards(body: JsonObject) {
+        return this.request<JsonObject>('/api/v1/plans/match-standards', {
+            method: 'POST',
+            body: JSON.stringify(body)
+        })
+    }
+
+    analyzePlanCoverage(body: JsonObject) {
+        return this.request<JsonObject>('/api/v1/plans/analyze-coverage', {
+            method: 'POST',
+            body: JSON.stringify(body)
+        })
+    }
+
     batchStandards(body: JsonObject) {
         return this.request<JsonObject[]>('/api/v1/standards/batch', {
             method: 'POST',

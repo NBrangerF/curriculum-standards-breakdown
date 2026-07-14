@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
+import { buildTrustProjection, projectTrustedRecord } from './lib/trust-metadata.mjs'
 
 const PUBLIC_STANDARD_FIELDS = [
     'code', 'subject', 'subject_slug', 'domain', 'subdomain', 'display_subcategory', 'standard_title',
@@ -8,6 +9,7 @@ const PUBLIC_STANDARD_FIELDS = [
     'teaching_tip', 'assessment_evidence_type', 'ts_primary', 'ts_secondary', 'ts_rationale',
     'materials_tools', 'safety_notes', 'previous_code', 'next_code'
 ]
+const PUBLIC_TRUST_FIELDS = ['provenance', 'official_text', 'field_provenance', 'relations', 'skill_alignments']
 
 function parseArgs(argv) {
     const args = { source: 'data/internal', output: 'public/data' }
@@ -47,8 +49,9 @@ function restoreDirectory(root, snapshot) {
     }
 }
 
-function pickPublic(record) {
-    return Object.fromEntries(PUBLIC_STANDARD_FIELDS.map(field => [field, record[field] ?? (field === 'ts_primary' || field === 'ts_secondary' ? [] : '')]))
+function pickPublic(record, metadata) {
+    const publicRecord = Object.fromEntries(PUBLIC_STANDARD_FIELDS.map(field => [field, record[field] ?? (field === 'ts_primary' || field === 'ts_secondary' ? [] : '')]))
+    return projectTrustedRecord(publicRecord, metadata)
 }
 
 const args = parseArgs(process.argv.slice(2))
@@ -68,7 +71,12 @@ const codeToSubject = {}
 const aliasCandidates = new Map()
 const skillToSubjects = new Map()
 const subjectStats = {}
-const publicColumns = new Set(PUBLIC_STANDARD_FIELDS)
+const publicColumns = new Set([...PUBLIC_STANDARD_FIELDS, ...PUBLIC_TRUST_FIELDS])
+
+const sourceFiles = readdirSync(sourceBySubject).filter(name => name.endsWith('.json')).sort()
+const sourcesByFile = new Map(sourceFiles.map(file => [file, JSON.parse(readFileSync(join(sourceBySubject, file), 'utf8'))]))
+const sourceRecords = [...sourcesByFile.values()].flatMap(source => source.standards || [])
+const trustProjection = buildTrustProjection(sourceRecords)
 
 function addAlias(value, code) {
     const key = String(value || '').trim().toUpperCase()
@@ -78,9 +86,9 @@ function addAlias(value, code) {
     aliasCandidates.set(key, codes)
 }
 
-for (const file of readdirSync(sourceBySubject).filter(name => name.endsWith('.json')).sort()) {
-    const source = JSON.parse(readFileSync(join(sourceBySubject, file), 'utf8'))
-    const standards = (source.standards || []).map(pickPublic)
+for (const file of sourceFiles) {
+    const source = sourcesByFile.get(file)
+    const standards = (source.standards || []).map(record => pickPublic(record, trustProjection.metadataByCode.get(record.code)))
     const subjectSlug = source.subject_slug || file.replace(/\.json$/, '')
     const domains = {}
     const gradeBands = {}
@@ -145,6 +153,12 @@ writeJson(join(outputRoot, 'indexes', 'skill_to_subjects.json'), Object.fromEntr
     [...skillToSubjects].sort(([left], [right]) => left.localeCompare(right)).map(([skill, subjects]) => [skill, [...subjects].sort()])
 ))
 writeJson(join(outputRoot, 'indexes', 'subject_stats.json'), subjectStats)
+mkdirSync(join(outputRoot, 'quality'), { recursive: true })
+writeJson(join(outputRoot, 'quality', 'trust_report.json'), {
+    generated_at: new Date().toISOString(),
+    ...trustProjection.summary,
+    rejected_reference_details: trustProjection.rejectedReferences
+})
 
 for (const file of ['subjects_meta.json', 'skills_meta.json', 'glossary.json']) {
     const source = join(sourceRoot, file)
@@ -164,6 +178,7 @@ console.log(JSON.stringify({
     source: sourceRoot,
     output: outputRoot,
     records: Object.keys(codeToSubject).length,
-    public_fields: PUBLIC_STANDARD_FIELDS.length,
-    aliases: aliasCandidates.size
+    public_fields: publicColumns.size,
+    aliases: aliasCandidates.size,
+    trust: trustProjection.summary
 }, null, 2))

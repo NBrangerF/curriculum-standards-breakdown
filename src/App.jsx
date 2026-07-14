@@ -23,6 +23,8 @@ const ContactPage = lazy(() => import('./pages/ContactPage'))
 const CollectionDetailPage = lazy(() => import('./pages/CollectionDetailPage'))
 const PrintPage = lazy(() => import('./pages/PrintPage'))
 const StyleGuidePage = lazy(() => import('./pages/StyleGuidePage'))
+const SmartSearchPage = lazy(() => import('./pages/SmartSearchPage'))
+const AlignmentWorkbenchPage = lazy(() => import('./pages/AlignmentWorkbenchPage'))
 
 function lazyPage(element, message) {
     return <Suspense fallback={<LoadingState message={message} />}>{element}</Suspense>
@@ -44,6 +46,8 @@ function App() {
                     <Route path="/skills" element={route('skills', <SkillsOverviewPage />)} />
                     <Route path="/skills/:code" element={route('skillDetail', <SkillDetailPage />)} />
                     <Route path="/search" element={route('search', <SearchResultsPage />)} />
+                    <Route path="/smart-search" element={route('smartSearch', lazyPage(<SmartSearchPage />, '正在打开智能检索'))} />
+                    <Route path="/alignment-workbench" element={route('alignmentWorkbench', lazyPage(<AlignmentWorkbenchPage />, '正在打开对齐工作台'))} />
                     <Route path="/glossary" element={route('glossary', lazyPage(<GlossaryPage />, '正在打开术语表'))} />
                     <Route path="/standards/:code" element={route('standard', <StandardDetailPage />)} />
                     <Route

@@ -53,12 +53,21 @@ const globalPreview = buildGlobalPreviewData(subjectEntries)
 
 assert.equal(globalPreview.subjects.length, 9)
 assert.equal(globalPreview.counts.knowledgePoints, 2025)
-assert.equal(globalPreview.counts.candidateRelationships, 1040)
-assert.equal(globalPreview.counts.unresolvedReferences, 270)
+assert.equal(globalPreview.counts.candidateRelationships, 1719)
+assert.equal(globalPreview.counts.unresolvedReferences, 0)
 assert.equal(globalPreview.counts.crossSubjectReferences, 0)
-assert.equal(globalPreview.subjects.find(subject => subject.subjectSlug === 'arts').quality.unresolvedReferences.length, 160)
-assert.equal(globalPreview.subjects.find(subject => subject.subjectSlug === 'morality_law').quality.unresolvedReferences.length, 110)
-assert.ok(globalPreview.subjects.filter(subject => !['arts', 'morality_law'].includes(subject.subjectSlug)).every(subject => subject.quality.unresolvedReferences.length === 0))
+assert.ok(globalPreview.subjects.every(subject => subject.quality.unresolvedReferences.length === 0))
+
+const candidateEdges = globalPreview.subjects.flatMap(subject => subject.dataset.prerequisites)
+assert.equal(candidateEdges.filter(edge => edge.relationType === 'curriculum_sequence_candidate').length, 1175)
+assert.equal(candidateEdges.filter(edge => edge.relationType === 'grade_band_bridge_candidate').length, 544)
+assert.ok(candidateEdges.every(edge => (
+    Number.isFinite(edge.confidenceScore)
+    && edge.confidenceScore >= 0
+    && edge.confidenceScore <= 1
+    && Boolean(edge.method)
+    && ['extracted', 'rule_generated'].includes(edge.provenance)
+)))
 
 const allStandardCodes = globalPreview.subjects.flatMap(subject => subject.dataset.knowledgePoints.flatMap(point => point.standardCodes))
 assert.equal(new Set(allStandardCodes).size, 2025)

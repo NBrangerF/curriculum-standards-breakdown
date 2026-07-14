@@ -15,6 +15,8 @@ const routes = [
     ['subject', '/subjects/math'],
     ['standard', '/standards/MA-D2-GE-003'],
     ['search', '/search'],
+    ['smartSearch', '/smart-search'],
+    ['alignmentWorkbench', '/alignment-workbench'],
     ['collections', '/collections'],
     ['glossary', '/glossary'],
     ['feedback', '/feedback'],

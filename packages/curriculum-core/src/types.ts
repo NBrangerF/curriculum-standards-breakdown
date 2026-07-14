@@ -14,7 +14,17 @@ export interface StandardRecord extends JsonObject {
     standard?: string
     ts_primary?: unknown
     ts_secondary?: unknown
+    provenance?: JsonObject
+    official_text?: string
+    field_provenance?: JsonObject
+    relations?: unknown
+    skill_alignments?: unknown
 }
+
+export type ContentProvenance = 'official' | 'extracted' | 'editorial' | 'rule_generated' | 'ai_generated'
+export type ContentReviewStatus = 'unreviewed' | 'machine_checked' | 'human_reviewed'
+export type SkillAlignmentStrength = 'direct' | 'supporting' | 'incidental'
+export type AlignmentMethod = 'human' | 'rule' | 'model'
 
 export type DependencyCoverageStatus = 'reviewed' | 'not_reviewed'
 export type KnowledgeReviewStatus = 'candidate' | 'approved' | 'disputed' | 'retired'
@@ -62,6 +72,10 @@ export interface PrerequisiteEdge extends JsonObject {
     rationale: string
     evidenceRefs: string[]
     confidence: RelationshipConfidence
+    confidenceScore?: number
+    relationType?: 'curriculum_sequence_candidate' | 'grade_band_bridge_candidate'
+    method?: string
+    provenance?: ContentProvenance
     reviewStatus: KnowledgeReviewStatus
     reviewedByRole?: string
     reviewedAt?: string
@@ -220,6 +234,53 @@ export interface StandardSearchResult<T = JsonObject> {
     next_cursor: string | null
 }
 
+export interface SmartSearchRequest extends StandardFilters {
+    query: string
+    query_expansion_terms?: string[]
+    include?: Fieldset[]
+    limit?: number
+    min_score?: number
+}
+
+export interface SmartSearchMatchedField extends JsonObject {
+    field: string
+    matched_terms: string[]
+    excerpt: string
+    provenance: string
+    review_status: string
+    confidence: number
+    quality_flags: string[]
+}
+
+export interface SmartSearchResult extends JsonObject {
+    code: string
+    score: number
+    score_breakdown: {
+        lexical: number
+        structural: number
+        skill: number
+        source_quality: number
+        semantic: number
+    }
+    match_type: 'trusted_hybrid_deterministic_v1'
+    matched_fields: SmartSearchMatchedField[]
+    rationale: string
+    requires_human_review: true
+    standard: JsonObject
+}
+
+export interface SmartSearchResponse extends JsonObject {
+    query: string
+    parsed_query: JsonObject
+    applied_filters: JsonObject
+    results: SmartSearchResult[]
+    total_candidates: number
+    retrieval_version: 'trusted-hybrid-v1'
+    semantic_provider: 'none'
+    query_interpretation?: JsonObject
+    warnings: string[]
+}
+
 export interface StandardEvidenceSummary extends JsonObject {
     code: string
     subject_slug: string
@@ -319,7 +380,7 @@ export interface MatchedField extends JsonObject {
 export interface PlanStandardMatch extends JsonObject {
     code: string
     score: number
-    match_type: 'deterministic_field_overlap'
+    match_type: 'trusted_hybrid_deterministic_v1'
     matched_fields: MatchedField[]
     rationale: string
     requires_human_review: boolean
@@ -341,12 +402,23 @@ export interface PlanMatchingResult extends JsonObject {
 
 export interface CoverageAnalysis extends JsonObject {
     covered_standard_codes: string[]
+    candidate_standard_codes: string[]
+    rejected_standard_codes: string[]
+    unreviewed_standard_codes: string[]
+    reference_scope_codes: string[]
+    gap_standard_codes: string[]
     unmatched_units: string[]
     duplicate_standards: string[]
     standards_by_domain: Record<string, number>
     standards_by_skill: Record<string, number>
     units: JsonObject[]
     warnings: string[]
+}
+
+export interface CoverageReviewDecision extends JsonObject {
+    unit_id: string
+    code: string
+    decision: 'accepted' | 'rejected'
 }
 
 export interface WeeklySchedule extends JsonObject {

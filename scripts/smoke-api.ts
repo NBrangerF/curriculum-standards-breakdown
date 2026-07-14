@@ -142,6 +142,42 @@ const checks: SmokeCheck[] = [
         }
     },
     {
+        name: 'trusted smart search',
+        method: 'POST',
+        path: '/api/v1/standards/semantic-search',
+        body: {
+            query: '三四年级科学中观察材料并用证据解释变化',
+            subjects: ['science'],
+            grade_bands: ['H2'],
+            limit: 3
+        },
+        expect(response, payload) {
+            expectEnvelope(response, payload)
+            const data = expectObject(getData(payload), 'Expected smart search object')
+            assert(data.retrieval_version === 'trusted-hybrid-v1', 'Expected trusted-hybrid-v1')
+            assert(data.semantic_provider === 'none', 'Expected deterministic provider declaration')
+            const interpretation = expectObject(data.query_interpretation, 'Expected query interpretation metadata')
+            assert(
+                interpretation.status === 'ok' || interpretation.status === 'disabled'
+                    || interpretation.status === 'timeout' || interpretation.status === 'invalid_config'
+                    || interpretation.status === 'invalid_response' || interpretation.status === 'provider_error',
+                'Expected an explicit query interpreter status'
+            )
+            if (interpretation.used === true) {
+                assert(interpretation.model === 'gpt-5-mini', 'Expected configured gpt-5-mini query interpreter')
+            }
+            const results = expectArray(data.results, 'Expected smart search results')
+            assert(results.length >= 1, 'Expected at least one smart search candidate')
+            for (const result of results) {
+                const candidate = expectObject(result, 'Expected smart search candidate object')
+                const standard = expectObject(candidate.standard, 'Expected candidate standard object')
+                assert(standard.subject_slug === 'science', 'Smart search violated subject hard filter')
+                assert(standard.grade_band === 'H2', 'Smart search violated grade hard filter')
+                assert(candidate.requires_human_review === true, 'Expected human review requirement')
+            }
+        }
+    },
+    {
         name: 'standard batch',
         method: 'POST',
         path: '/api/v1/standards/batch',

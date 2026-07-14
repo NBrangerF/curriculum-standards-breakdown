@@ -104,7 +104,7 @@ function buildSubjectPreviewData(entry, globalCodeOwners, version) {
     const unresolvedReferences = []
     const crossSubjectReferences = []
     const relationshipCandidates = new Map()
-    const addRelationship = ({ sourceCode, targetCode, recordCode, field, relatedCode }) => {
+    const addRelationship = ({ sourceCode, targetCode, recordCode, field, relatedCode, relation }) => {
         const owner = globalCodeOwners.get(relatedCode)
         if (!owner) {
             unresolvedReferences.push({ subjectSlug, recordCode, field, relatedCode })
@@ -115,18 +115,32 @@ function buildSubjectPreviewData(entry, globalCodeOwners, version) {
             return
         }
         if (sourceCode === targetCode) return
-        const key = `${sourceCode}->${targetCode}`
-        const candidate = relationshipCandidates.get(key) || { sourceCode, targetCode, sources: [] }
-        candidate.sources.push({ recordCode, field, relatedCode })
+        const relationType = relation?.relation_type || 'curriculum_sequence_candidate'
+        const key = `${relationType}:${sourceCode}->${targetCode}`
+        const candidate = relationshipCandidates.get(key) || { sourceCode, targetCode, relationType, sources: [], relation }
+        candidate.sources.push({ recordCode, field, relatedCode, evidence: relation?.evidence || [] })
         relationshipCandidates.set(key, candidate)
     }
 
     for (const record of records) {
-        for (const relatedCode of splitRelationCodes(record.previous_code)) {
-            addRelationship({ sourceCode: relatedCode, targetCode: record.code, recordCode: record.code, field: 'previous_code', relatedCode })
-        }
-        for (const relatedCode of splitRelationCodes(record.next_code)) {
-            addRelationship({ sourceCode: record.code, targetCode: relatedCode, recordCode: record.code, field: 'next_code', relatedCode })
+        if (Array.isArray(record.relations)) {
+            for (const relation of record.relations.filter(item => item.direction === 'next' && item.source_code === record.code)) {
+                addRelationship({
+                    sourceCode: relation.source_code,
+                    targetCode: relation.target_code,
+                    recordCode: record.code,
+                    field: relation.relation_type,
+                    relatedCode: relation.target_code,
+                    relation
+                })
+            }
+        } else {
+            for (const relatedCode of splitRelationCodes(record.previous_code)) {
+                addRelationship({ sourceCode: relatedCode, targetCode: record.code, recordCode: record.code, field: 'previous_code', relatedCode })
+            }
+            for (const relatedCode of splitRelationCodes(record.next_code)) {
+                addRelationship({ sourceCode: record.code, targetCode: relatedCode, recordCode: record.code, field: 'next_code', relatedCode })
+            }
         }
     }
 
@@ -136,15 +150,21 @@ function buildSubjectPreviewData(entry, globalCodeOwners, version) {
         .map(candidate => {
             const source = pointId(subjectSlug, candidate.sourceCode)
             const target = pointId(subjectSlug, candidate.targetCode)
-            const id = `pre:${subjectSlug}:${candidate.sourceCode.toLowerCase()}:${candidate.targetCode.toLowerCase()}`
-            const evidenceId = `ev:${subjectSlug}:${candidate.sourceCode.toLowerCase()}:${candidate.targetCode.toLowerCase()}`
+            const relationToken = candidate.relationType === 'grade_band_bridge_candidate' ? 'bridge' : 'sequence'
+            const id = `pre:${subjectSlug}:${relationToken}:${candidate.sourceCode.toLowerCase()}:${candidate.targetCode.toLowerCase()}`
+            const evidenceId = `ev:${subjectSlug}:${relationToken}:${candidate.sourceCode.toLowerCase()}:${candidate.targetCode.toLowerCase()}`
             const sourceFields = [...new Set(candidate.sources.map(sourceItem => `${sourceItem.recordCode}.${sourceItem.field}`))]
+            const confidenceScore = Number(candidate.relation?.confidence ?? 0.5)
+            const confidence = confidenceScore >= 0.8 ? 'high' : confidenceScore >= 0.6 ? 'medium' : 'low'
+            const isBridge = candidate.relationType === 'grade_band_bridge_candidate'
             evidence.push({
                 id: evidenceId,
-                sourceType: 'curriculum_progression_candidate',
-                sourceId: `sequence-candidate:${candidate.sourceCode}->${candidate.targetCode}`,
+                sourceType: isBridge ? 'grade_band_bridge_candidate' : 'curriculum_progression_candidate',
+                sourceId: `${relationToken}-candidate:${candidate.sourceCode}->${candidate.targetCode}`,
                 locator: sourceFields.join(' | '),
-                statement: `课程标准索引字段形成 ${candidate.sourceCode} → ${candidate.targetCode} 的顺序候选线索；它不代表课程专家确认的认知先修关系。`
+                statement: isBridge
+                    ? `规则生成 ${candidate.sourceCode} → ${candidate.targetCode} 的跨学段桥接候选；它未经过课程专家审核。`
+                    : `课程标准索引字段形成 ${candidate.sourceCode} → ${candidate.targetCode} 的顺序候选线索；它不代表课程专家确认的认知先修关系。`
             })
             return {
                 id,
@@ -153,9 +173,15 @@ function buildSubjectPreviewData(entry, globalCodeOwners, version) {
                 type: 'prerequisite',
                 directed: true,
                 necessity: 'undetermined',
-                rationale: '课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。',
+                rationale: isBridge
+                    ? '基于同学科、同领域、文本与技能重合度生成的跨学段桥接候选；不得作为确定先修关系。'
+                    : '课程标准索引中的前后条目字段表明两项内容存在顺序关联；其认知先修方向和必要程度仍待课程专家验证。',
                 evidenceRefs: [evidenceId],
-                confidence: 'low',
+                confidence,
+                confidenceScore,
+                relationType: candidate.relationType,
+                method: candidate.relation?.method || 'legacy_sequence_fields',
+                provenance: candidate.relation?.provenance || 'extracted',
                 reviewStatus: 'candidate',
                 version
             }

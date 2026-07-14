@@ -19,6 +19,7 @@
         "validate:json": "node scripts/validate-public-json.js --data-root data/internal && node scripts/validate-public-json.js --data-root public/data",
     "validate:data-contract": "node scripts/validate-data-contract.mjs --data-root data/internal",
     "validate:public-data": "node scripts/validate-public-data.mjs --data-root public/data",
+    "validate:data-trust": "node scripts/validate-public-data.mjs --data-root public/data",
     "build:data-review-worklist": "node scripts/build-data-review-worklist.mjs --data-root data/internal",
         "validate:graph-model": "node scripts/validate-standard-graph-model.mjs",
         "audit:graph-data": "node scripts/audit-graph-data-readiness.mjs --data-root data/internal",
@@ -46,7 +47,7 @@
         "validate:phase9-observation": "node scripts/validate-phase9-observation.mjs",
         "storybook": "storybook dev -p 6006 --no-open",
         "build-storybook": "storybook build",
-        "test:e2e": "playwright test tests/e2e/core-flows.spec.js tests/e2e/content-parity.spec.js tests/e2e/responsive.spec.js tests/e2e/feature-flags.spec.js tests/e2e/learning-map-route.spec.js tests/e2e/learning-map.spec.js",
+        "test:e2e": "playwright test tests/e2e/core-flows.spec.js tests/e2e/content-parity.spec.js tests/e2e/responsive.spec.js tests/e2e/feature-flags.spec.js tests/e2e/learning-map-route.spec.js tests/e2e/learning-map.spec.js tests/e2e/ai-workflows.spec.js",
         "test:a11y": "playwright test tests/e2e/a11y.spec.js tests/e2e/learning-map-route.spec.js",
         "test:learning-map": "playwright test tests/e2e/learning-map.spec.js",
         "test:visual": "playwright test tests/e2e/visual.spec.js",
@@ -65,6 +66,7 @@
         "typecheck": "npm --workspace @curriculum/core run typecheck && npm --workspace @curriculum/client run typecheck && npm --workspace @curriculum/api run typecheck && tsc -p tsconfig.vercel.json --noEmit",
         "lint:styles": "stylelint 'src/**/*.css'",
         "eval:matching": "tsx scripts/evaluate-plan-matching.ts",
+        "eval:smart-search": "tsx scripts/evaluate-smart-search.ts",
         "search:index-meilisearch": "tsx scripts/index-meilisearch.ts",
         "deploy:vercel": "npx vercel --prod",
         "deploy:vercel:checked": "npm run deploy:vercel && npm run smoke:api:prod",
@@ -362,7 +364,7 @@
         "grade7_9:check-release-candidate": "node scripts/grade7_9/check_release_candidate_ui_compat.js",
         "grade7_9:validate": "node scripts/grade7_9/validate_schema.js",
         "grade7_9:manifest": "node scripts/grade7_9/generate_manifest.js",
-    "prebuild": "npm run validate:data-contract && npm run build:indexes && npm run validate:public-data",
+    "prebuild": "npm run validate:data-contract && npm run build:indexes && npm run validate:data-trust && npm run build:knowledge-graph-preview && npm run validate:knowledge-graph-preview",
         "preview": "vite preview"
     },
     "dependencies": {

@@ -43,6 +43,9 @@ export function normalizeStandard(raw) {
         practice: raw.practice || '',
         teaching_tip: raw.teaching_tip || '',
         assessment_evidence_type: raw.assessment_evidence_type || '',
+        provenance: raw.provenance || {},
+        official_text: raw.official_text || '',
+        field_provenance: raw.field_provenance || {},
 
         // Navigation
         previous_code: raw.previous_code || '',
@@ -112,6 +115,8 @@ export function normalizeStandard(raw) {
         ts_primary: ensureArray(raw.ts_primary),
         ts_secondary: ensureArray(raw.ts_secondary),
         ts_rationale: raw.ts_rationale || '',
+        relations: ensureArray(raw.relations),
+        skill_alignments: ensureArray(raw.skill_alignments),
         ts_confidence: raw.ts_confidence || '',
         ts_tag_source: raw.ts_tag_source || '',
 

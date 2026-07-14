@@ -9,6 +9,7 @@ import {
     StandardBatchRequestSchema,
     StandardCompareRequestSchema,
     StandardSearchRequestSchema,
+    SmartSearchRequestSchema,
     WeeklyScheduleRequestSchema,
     projectStandard
 } from '../../../packages/curriculum-core/src/index.js'
@@ -28,11 +29,10 @@ import {
 } from './http.js'
 import { resolveOpenApiPath, resolveSwaggerUiAssetPath } from './config.js'
 import { renderApiDocsPage } from './docs-page.js'
+import { interpretSearchQueryWithLlm } from './llm.js'
 
 const DEVELOPMENT_API_ROUTES = [
     '/api/v1/standards/:code/evidence',
-    '/api/v1/plans/parse',
-    '/api/v1/plans/validate',
     '/api/v1/matching/plan-to-standards',
     '/api/v1/coverage/analyze',
     '/api/v1/schedules/weekly'
@@ -40,8 +40,6 @@ const DEVELOPMENT_API_ROUTES = [
 
 const DEVELOPMENT_OPENAPI_PATHS = new Set([
     '/api/v1/standards/{code}/evidence',
-    '/api/v1/plans/parse',
-    '/api/v1/plans/validate',
     '/api/v1/matching/plan-to-standards',
     '/api/v1/coverage/analyze',
     '/api/v1/schedules/weekly'
@@ -314,6 +312,49 @@ export function createApp(repository: FileCurriculumRepository) {
         })
     })
 
+    app.post('/api/v1/standards/semantic-search', async c => {
+        const started = performance.now()
+        const version = await repository.loadDataVersion()
+        const body = await parseJson(c)
+        const parsed = SmartSearchRequestSchema.safeParse(body)
+        if (!parsed.success) {
+            return apiError(c, 422, 'validation_error', '请求参数或请求体校验失败。', parsed.error.issues)
+        }
+        const blocked = ensureFieldsetAccess(c, parsed.data.include)
+        if (blocked) return blocked
+        const filterErrors = await repository.validateSearchFilters(parsed.data)
+        if (filterErrors.length) {
+            return apiError(c, 422, 'validation_error', '筛选条件不在当前公开数据契约中。', filterErrors)
+        }
+        const interpretation = await interpretSearchQueryWithLlm(parsed.data.query)
+        const result = await repository.smartSearchStandards({
+            ...parsed.data,
+            query_expansion_terms: interpretation.interpretation?.expanded_terms || []
+        })
+        result.query_interpretation = {
+            used: interpretation.used,
+            status: interpretation.status,
+            model: interpretation.model,
+            protocol: interpretation.protocol,
+            latency_ms: interpretation.latency_ms,
+            subjects: interpretation.interpretation?.subjects || [],
+            grade_bands: interpretation.interpretation?.grade_bands || [],
+            skills: interpretation.interpretation?.skills || [],
+            expanded_terms: interpretation.interpretation?.expanded_terms || [],
+            intent_summary: interpretation.interpretation?.intent_summary || '',
+            warnings: interpretation.interpretation?.warnings || []
+        }
+        return ok(c, version, result, {
+            retrieval_version: result.retrieval_version,
+            semantic_provider: result.semantic_provider,
+            query_interpreter: interpretation.used ? 'llm' : 'deterministic_fallback',
+            query_interpreter_model: interpretation.model,
+            query_interpreter_status: interpretation.status,
+            latency_ms: Math.round((performance.now() - started) * 100) / 100,
+            warnings: result.warnings
+        })
+    })
+
     app.post('/api/v1/standards/batch', async c => {
         const version = await repository.loadDataVersion()
         const body = await parseJson(c)
@@ -383,6 +424,44 @@ export function createApp(repository: FileCurriculumRepository) {
         const result = await repository.matchPlan(parsed.data.plan, parsed.data)
         return ok(c, version, result, {
             total_units: result.units.length,
+            warnings: result.warnings
+        })
+    })
+
+    app.post('/api/v1/plans/match-standards', async c => {
+        const version = await repository.loadDataVersion()
+        const body = await parseJson(c)
+        const parsed = PlanToStandardsRequestSchema.safeParse(body)
+        if (!parsed.success) {
+            return apiError(c, 422, 'validation_error', '请求参数或请求体校验失败。', parsed.error.issues)
+        }
+        const blocked = ensureFieldsetAccess(c, parsed.data.include)
+        if (blocked) return blocked
+        const result = await repository.matchPlan(parsed.data.plan, parsed.data)
+        return ok(c, version, result, {
+            total_units: result.units.length,
+            retrieval_version: 'trusted-hybrid-v1',
+            review_required: true,
+            warnings: result.warnings
+        })
+    })
+
+    app.post('/api/v1/plans/analyze-coverage', async c => {
+        const version = await repository.loadDataVersion()
+        const body = await parseJson(c)
+        const parsed = CoverageAnalyzeRequestSchema.safeParse(body)
+        if (!parsed.success) {
+            return apiError(c, 422, 'validation_error', '请求参数或请求体校验失败。', parsed.error.issues)
+        }
+        const blocked = ensureFieldsetAccess(c, parsed.data.include)
+        if (blocked) return blocked
+        const matching = parsed.data.matches && typeof parsed.data.matches === 'object'
+            ? parsed.data.matches as Awaited<ReturnType<typeof repository.matchPlan>>
+            : undefined
+        const result = await repository.analyzePlanCoverage(parsed.data.plan, matching, parsed.data)
+        return ok(c, version, result, {
+            covered_standard_count: result.covered_standard_codes.length,
+            review_required: true,
             warnings: result.warnings
         })
     })

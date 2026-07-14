@@ -166,8 +166,16 @@ API_BASE=https://www.kebiao.org npm run smoke:api
 | `PORT` | API 端口，默认 `8787` |
 | `CURRICULUM_API_KEYS` | 逗号分隔的 key registry；推荐 `key_id:key:developer` |
 | `CURRICULUM_ADMIN_API_KEYS` | 逗号分隔的 admin registry；推荐 `key_id:key` |
+| `KEBIAO_LLM_API_KEY` | 查询理解模型的服务端密钥；只配置在部署平台 Secret 中，绝不写入仓库或前端变量 |
+| `KEBIAO_LLM_BASE_URL` | OpenAI-compatible API 根地址；默认 `https://www.openai-labs.com/v1` |
+| `KEBIAO_LLM_MODEL` | 查询理解模型；默认 `gpt-5-mini` |
+| `KEBIAO_LLM_API_STYLE` | `auto`（默认）、`responses` 或 `chat_completions`；`auto` 优先 Responses API |
+| `KEBIAO_LLM_TIMEOUT_MS` | 模型请求超时；默认 3500ms，限制在 500–7000ms |
+| `KEBIAO_LLM_ENABLED` | 设为 `false` 可强制关闭模型；无密钥时始终使用确定性回退 |
 
 持久化指标与 API Key 签发/轮换见：`docs/API_OPERATIONS.md`
+
+LLM 只扩展智能搜索的查询词，不生成课程标准、code、匹配理由或硬筛选。模型超时、鉴权失败或返回结构异常时，API 仍返回确定性可信检索结果。查询文本会发送到所配置的模型服务，请勿提交学生个人信息或其他敏感内容。
 
 ---
 

@@ -1,0 +1,42 @@
+.root { min-height: 70vh; background: var(--kb-canvas, #f5f7fb); color: var(--text-primary); }
+.hero { padding: clamp(3.5rem, 8vw, 7rem) 0 3rem; border-bottom: 1px solid var(--border-default); background: radial-gradient(circle at 72% 20%, rgba(61,90,254,.12), transparent 32rem), #fff; }
+.hero :global(.container), .results :global(.container) { max-width: 78rem; }
+.eyebrow { margin: 0 0 .8rem; color: var(--color-primary); font: 700 .72rem/1.2 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.hero h1 { max-width: 16ch; margin: 0; font-size: clamp(2.4rem, 5vw, 5rem); line-height: .98; letter-spacing: -.065em; }
+.lead { max-width: 46rem; margin: 1.4rem 0 2rem; color: var(--text-secondary); font-size: clamp(1rem, 1.4vw, 1.18rem); line-height: 1.75; }
+.searchForm { max-width: 60rem; }
+.searchForm label { display: block; margin-bottom: .6rem; font-weight: 650; }
+.searchForm > div { display: grid; grid-template-columns: 1fr auto; gap: .65rem; padding: .55rem; border: 1px solid var(--border-strong); border-radius: .9rem; background: #fff; box-shadow: 0 1.2rem 4rem rgba(25,39,78,.1); }
+.searchForm textarea { min-height: 5rem; resize: vertical; border: 0; padding: .8rem; background: transparent; color: inherit; font: inherit; line-height: 1.55; }
+.searchForm textarea:focus { outline: 0; }
+.searchForm button, .actions button { min-height: 2.75rem; border: 0; border-radius: .55rem; padding: 0 1.2rem; background: var(--color-primary); color: #fff; font-weight: 700; cursor: pointer; }
+.searchForm button:disabled, .actions button:disabled { opacity: .55; cursor: default; }
+.examples { display: flex; flex-wrap: wrap; gap: .5rem; max-width: 60rem; margin-top: 1rem; }
+.examples button { min-height: 2.5rem; border: 1px solid var(--border-default); border-radius: 999px; padding: 0 .9rem; background: rgba(255,255,255,.7); color: var(--text-secondary); cursor: pointer; }
+.results { padding: 3rem 0 6rem; }
+.summary { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
+.summary h2 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.5rem); letter-spacing: -.04em; }
+.chips { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .4rem; }
+.chips span, .cardMeta span, .evidence span { border: 1px solid rgba(61,90,254,.18); border-radius: 999px; padding: .3rem .55rem; background: rgba(61,90,254,.06); color: #3347a8; font-size: .7rem; }
+.notice, .error { padding: .9rem 1rem; border-left: 3px solid #d58c14; background: #fff8e9; color: #6b4a11; }
+.interpretation { margin: 0 0 1rem; padding: .8rem 1rem; border: 1px solid rgba(61,90,254,.16); border-radius: .65rem; background: rgba(61,90,254,.045); color: var(--text-secondary); line-height: 1.65; }
+.interpretation strong { color: var(--text-primary); }
+.interpretation span { display: block; margin-top: .2rem; font-size: .82rem; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+.card { min-width: 0; padding: clamp(1.2rem, 2vw, 1.8rem); border: 1px solid var(--border-default); border-radius: .8rem; background: #fff; box-shadow: 0 .6rem 2rem rgba(25,39,78,.045); }
+.cardMeta { display: flex; flex-wrap: wrap; gap: .35rem; }
+.card h3 { margin: 1rem 0 .5rem; font-size: 1.25rem; line-height: 1.45; }
+.card h3 a { color: inherit; text-decoration: none; }
+.card > p { color: var(--text-secondary); line-height: 1.7; }
+.code { font: 600 .72rem/1.5 var(--font-mono); }
+.evidence { display: grid; gap: .65rem; margin-top: 1rem; }
+.evidence > div { padding: .75rem; border: 1px solid var(--border-default); border-radius: .5rem; background: #fafbfe; }
+.evidence strong { margin-left: .5rem; font-size: .75rem; }
+.evidence p { margin: .5rem 0 0; color: var(--text-secondary); font-size: .82rem; line-height: 1.55; }
+.actions { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: 1rem; }
+.actions a { color: var(--color-primary); font-weight: 650; }
+.empty { min-height: 20rem; display: grid; place-items: center; color: var(--text-secondary); }
+
+@media (max-width: 760px) { .searchForm > div { grid-template-columns: 1fr; } .searchForm button { min-height: 3.1rem; } .grid { grid-template-columns: 1fr; } .summary { align-items: flex-start; flex-direction: column; } .chips { justify-content: flex-start; } }
+
+@media (prefers-reduced-motion: reduce) { .card, .searchForm > div { box-shadow: none; } }

@@ -1,12 +1,12 @@
 openapi: 3.1.0
 info:
   title: 课程智能 API
-  version: 0.2.0
-  summary: 面向教育产品的结构化课程标准检索与关系查询能力
+  version: 0.3.0
+  summary: 面向教育产品的可信课程标准检索、关系查询与计划对齐能力
   description: |
-    课程智能 API 当前公开课程标准检索、批量读取、详情查询，以及已建立的进阶与相邻关系查询。
+    课程智能 API 当前公开课程标准检索、批量读取、详情查询、进阶与相邻关系，以及可信智能检索和纯文本教学计划对齐预览。
 
-    证据链、教学计划解析、课标匹配、覆盖分析和周进度生成仍在开发中，暂不提供公开 API。
+    智能检索和计划匹配结果均为待复核候选；未被教师接受的候选不会计入覆盖。证据链、文件上传和周进度生成仍在开发中。
 
     所有成功响应统一返回 `data` 和 `meta`；错误响应统一返回 `error` 和 `meta.request_id`。匿名请求可访问 `public` 字段集；如需来源、证据、教材或管理字段，请在请求头中提供 `x-api-key`。
 servers:
@@ -25,6 +25,8 @@ tags:
     description: 课程标准检索、批量读取、详情查询和标准对比。
   - name: 关系图谱
     description: 已建立的标准进阶分组，以及同领域、同能力的相邻关系。
+  - name: 教学规划
+    description: 非持久化的纯文本计划解析、校验、候选匹配和确认后覆盖分析。
 paths:
   /api/v1/health:
     get:
@@ -392,6 +394,37 @@ paths:
           $ref: "#/components/responses/Forbidden"
         "422":
           $ref: "#/components/responses/ValidationError"
+  /api/v1/standards/semantic-search:
+    post:
+      tags: [课程标准]
+      operationId: smartSearchStandards
+      summary: 用自然语言检索可信课程标准候选
+      description: 可使用 gpt-5-mini 的 Structured Outputs 理解并扩展查询词，再由确定性可信检索从允许检索的可追溯字段中返回真实标准 code、命中证据和归一化检索分。模型不会决定硬筛选、code、来源或匹配理由；不可用时自动回退，不导致检索失败。查询文本可能发送到所配置的模型服务，请勿提交学生个人信息。所有结果必须人工复核。
+      security:
+        - ApiKeyAuth: []
+        - {}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SmartSearchRequest"
+            example:
+              query: 三四年级科学中适合培养证据推理的观察活动
+              subjects: [science]
+              grade_bands: [H2]
+              limit: 8
+      responses:
+        "200":
+          description: 查询理解、待复核候选与可信命中证据
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "422":
+          $ref: "#/components/responses/ValidationError"
   /api/v1/standards/batch:
     post:
       tags: [课程标准]
@@ -535,12 +568,12 @@ paths:
                         $ref: "#/components/schemas/PlanValidationResult"
         "422":
           $ref: "#/components/responses/ValidationError"
-  /api/v1/matching/plan-to-standards:
+  /api/v1/plans/match-standards:
     post:
       tags: [教学规划]
       operationId: matchPlanToStandards
       summary: 将教学计划单元匹配到真实课程标准，并返回分数和理由
-      description: 对每个教学单元检索真实课程标准 code，并返回匹配分数、命中字段、中文理由和人工复核标记。请求受限字段集时需要对应权限的 API Key。
+      description: 对每个教学单元检索真实课程标准 code，并返回检索分、命中字段、中文理由和人工复核标记。所有结果均为候选，必须由教师接受或拒绝。
       security:
         - ApiKeyAuth: []
         - {}
@@ -560,8 +593,7 @@ paths:
                     learning_goals: [观察植物结构, 记录数据并交流发现]
                     keywords: [植物, 观察, 数据]
               top_k_per_unit: 3
-              min_score: 0.2
-              review_threshold: 0.45
+              min_score: 0.08
       responses:
         "200":
           description: 可解释的匹配结果
@@ -578,12 +610,12 @@ paths:
           $ref: "#/components/responses/Forbidden"
         "422":
           $ref: "#/components/responses/ValidationError"
-  /api/v1/coverage/analyze:
+  /api/v1/plans/analyze-coverage:
     post:
       tags: [教学规划]
       operationId: analyzePlanCoverage
       summary: 分析教学计划对课程标准的覆盖情况
-      description: 基于教学计划和可选的既有匹配结果，汇总已覆盖标准、领域分布、未匹配单元和需要人工复核的结果。
+      description: 基于教学计划、候选匹配和教师接受/拒绝决定汇总覆盖。未接受候选不会计入覆盖；没有参考标准范围时不会生成缺口结论。
       security:
         - ApiKeyAuth: []
         - {}
@@ -1059,7 +1091,7 @@ components:
           type: string
           example: H2
         standard:
-          description: 可用于教学规划和课程对齐的课程标准正文。
+          description: kebiao 的结构化标准文本；是否为课标原文必须结合 `field_provenance.standard` 判断。
           type: string
           example: 认识常见物体的某些特征和常见材料的某些性能。
         context:
@@ -1103,13 +1135,33 @@ components:
           type: string
           example: 实验前说明材料使用规范，并在教师指导下操作。
         previous_code:
-          description: 明确关联的前置课程标准 code；不存在时为空字符串。
+          description: 可解析且已完成双向一致性检查的前序课程标准候选 code；不表示认知先修结论。
           type: string
           example: SC-D1-SC-014
         next_code:
-          description: 明确关联的后续课程标准 code；不存在时为空字符串。
+          description: 可解析且已完成双向一致性检查的后序课程标准候选 code；不表示认知先修结论。
           type: string
           example: SC-D3-SC-010
+        official_text:
+          description: 可追溯到课标章节的原文摘录；当前无可靠原文锚点时为空字符串。
+          type: string
+        provenance:
+          $ref: '#/components/schemas/ContentFieldProvenance'
+        field_provenance:
+          description: 按内容字段记录来源、审核状态、置信度、质量标记和 RAG 可用性。
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ContentFieldProvenance'
+        relations:
+          type: array
+          description: 课程顺序与跨学段桥接候选；所有关系均包含类型、方法和置信度，且不会冒充专家确认的先修关系。
+          items:
+            $ref: '#/components/schemas/StandardRelationCandidate'
+        skill_alignments:
+          type: array
+          description: 可迁移技能映射候选；规则或模型结果不得自动覆盖正式数据。
+          items:
+            $ref: '#/components/schemas/SkillAlignmentCandidate'
       required: [id, code, subject, subject_slug, grade_band, standard]
       example:
         id: SC-D2-SC-010
@@ -1137,6 +1189,71 @@ components:
         safety_notes: 实验前说明材料使用规范，并在教师指导下操作。
         previous_code: SC-D1-SC-014
         next_code: SC-D3-SC-010
+    ContentFieldProvenance:
+      type: object
+      required: [provenance, source_ref, review_status, confidence, quality_flags, rag_eligible]
+      properties:
+        provenance:
+          type: string
+          enum: [official, extracted, editorial, rule_generated, ai_generated]
+        source_ref:
+          type: object
+          required: [document, page, section, excerpt_hash]
+          properties:
+            document: { type: string }
+            page: { type: [integer, "null"] }
+            section: { type: string }
+            excerpt_hash: { type: string }
+        review_status:
+          type: string
+          enum: [unreviewed, machine_checked, human_reviewed]
+        confidence: { type: number, minimum: 0, maximum: 1 }
+        quality_flags:
+          type: array
+          items: { type: string }
+        rag_eligible:
+          type: boolean
+          description: false 时 AI 检索和生成链路必须默认排除该字段。
+    StandardRelationCandidate:
+      type: object
+      required: [relation_type, source_code, target_code, direction, confidence, method, provenance, review_status, publication_status]
+      properties:
+        relation_type:
+          type: string
+          enum: [curriculum_sequence_candidate, grade_band_bridge_candidate]
+        source_code: { type: string }
+        target_code: { type: string }
+        direction: { type: string, enum: [previous, next] }
+        confidence: { type: number, minimum: 0, maximum: 1 }
+        method: { type: string }
+        provenance:
+          type: string
+          enum: [official, extracted, editorial, rule_generated, ai_generated]
+        review_status:
+          type: string
+          enum: [unreviewed, machine_checked, human_reviewed]
+        publication_status: { type: string, enum: [candidate] }
+        evidence:
+          type: array
+          items: { type: object, additionalProperties: true }
+    SkillAlignmentCandidate:
+      type: object
+      required: [skill_code, alignment_strength, method, matched_evidence, confidence, review_status, publication_status]
+      properties:
+        skill_code: { type: string }
+        alignment_strength: { type: string, enum: [direct, supporting, incidental] }
+        method: { type: string, enum: [human, rule, model] }
+        matched_evidence:
+          type: array
+          items: { type: string }
+        confidence: { type: number, minimum: 0, maximum: 1 }
+        review_status:
+          type: string
+          enum: [unreviewed, machine_checked, human_reviewed]
+        publication_status: { type: string, enum: [candidate] }
+        quality_flags:
+          type: array
+          items: { type: string }
     StandardSearchRequest:
       title: 标准搜索请求
       description: 按学科、年级段、领域、能力或关键词搜索课程标准。
@@ -1192,6 +1309,47 @@ components:
         keyword: 观察
         include: [public]
         limit: 3
+    SmartSearchRequest:
+      title: 可信智能检索请求
+      description: 自然语言查询与可选硬筛选；显式筛选优先于查询自动识别结果。
+      type: object
+      required: [query]
+      properties:
+        query:
+          type: string
+          minLength: 2
+          maxLength: 500
+        subjects:
+          type: array
+          maxItems: 20
+          items: { type: string }
+        grade_bands:
+          type: array
+          maxItems: 6
+          items: { type: string }
+        domains:
+          type: array
+          maxItems: 40
+          items: { type: string }
+        skills:
+          type: array
+          maxItems: 7
+          items: { type: string }
+        include:
+          type: array
+          items:
+            $ref: "#/components/schemas/Fieldset"
+        limit:
+          type: integer
+          minimum: 1
+          maximum: 50
+          default: 12
+        min_score:
+          description: 排序检索分下限，不代表正确概率。
+          type: number
+          minimum: 0
+          maximum: 1
+          default: 0.08
     StandardBatchRequest:
       title: 批量标准请求
       description: 通过多个标准 code 批量获取课程标准。
@@ -1533,7 +1691,7 @@ components:
           单元一：植物生命周期观察
     PlanToStandardsRequest:
       title: 计划匹配标准请求
-      description: 将教学计划中的单元匹配到真实课程标准，并控制返回数量、最低分和复核阈值。
+      description: 将教学计划中的单元匹配到真实课程标准，并控制返回数量和最低检索分。所有候选均需人工复核。
       type: object
       properties:
         plan:
@@ -1550,15 +1708,8 @@ components:
           type: number
           minimum: 0
           maximum: 1
-          default: 0.2
-          example: 0.2
-        review_threshold:
-          description: 人工复核阈值；低于该值的结果会标记 `requires_human_review=true`。
-          type: number
-          minimum: 0
-          maximum: 1
-          default: 0.45
-          example: 0.45
+          default: 0.08
+          example: 0.08
         include:
           description: 匹配结果中课程标准需要包含的字段集。
           type: array
@@ -1601,7 +1752,7 @@ components:
         match_type:
           description: 当前匹配算法类型。
           type: string
-          enum: [deterministic_field_overlap]
+          enum: [trusted_hybrid_deterministic_v1]
         matched_fields:
           description: 支撑该匹配结果的字段与关键词证据。
           type: array
@@ -1612,9 +1763,9 @@ components:
           type: string
           example: 教学单元中的“观察”和“数据”与标准正文及实践字段一致。
         requires_human_review:
-          description: 该匹配是否低于复核阈值，或存在证据不足等风险。
+          description: 机器候选是否必须人工复核；当前版本恒为 true。
           type: boolean
-          example: false
+          const: true
         standard:
           $ref: "#/components/schemas/StandardPublic"
       required: [code, score, match_type, matched_fields, rationale, requires_human_review, standard]
@@ -1701,11 +1852,31 @@ components:
       type: object
       properties:
         covered_standard_codes:
-          description: 去重并排序后的已覆盖课程标准 code。
+          description: 教师明确接受后，去重并排序的课程标准 code。
           type: array
           items:
             type: string
           example: [SC-D2-SC-010]
+        candidate_standard_codes:
+          description: 检索返回的全部候选 code。
+          type: array
+          items: { type: string }
+        rejected_standard_codes:
+          description: 教师明确拒绝的候选 code。
+          type: array
+          items: { type: string }
+        unreviewed_standard_codes:
+          description: 尚未作出接受或拒绝决定的候选 code。
+          type: array
+          items: { type: string }
+        reference_scope_codes:
+          description: 本次覆盖分析使用的参考标准范围；为空时不生成缺口。
+          type: array
+          items: { type: string }
+        gap_standard_codes:
+          description: 参考范围中尚未被教师接受的 code；仅在提供参考范围时有意义。
+          type: array
+          items: { type: string }
         unmatched_units:
           description: 没有任何标准达到最低匹配分数的教学单元 ID。
           type: array
@@ -1746,14 +1917,14 @@ components:
                 type: array
                 items:
                   type: string
-              low_confidence_match_count:
+              unreviewed_match_count:
                 type: integer
         warnings:
           description: 覆盖重复、覆盖缺口或低置信度结果的中文提示。
           type: array
           items:
             type: string
-      required: [covered_standard_codes, unmatched_units, duplicate_standards, standards_by_domain, standards_by_skill, units, warnings]
+      required: [covered_standard_codes, candidate_standard_codes, rejected_standard_codes, unreviewed_standard_codes, reference_scope_codes, gap_standard_codes, unmatched_units, duplicate_standards, standards_by_domain, standards_by_skill, units, warnings]
     WeeklyScheduleItem:
       title: 单周教学进度
       description: 一周的教学、复习或考试安排，以及关联课程标准。
@@ -1811,6 +1982,22 @@ components:
             matches:
               description: 可选的既有匹配结果；省略时服务端会先执行标准匹配。
               $ref: "#/components/schemas/PlanMatchingResult"
+            review_decisions:
+              description: 教师对单元内候选作出的接受或拒绝决定。没有决定的候选不会计入覆盖。
+              type: array
+              maxItems: 500
+              items:
+                type: object
+                required: [unit_id, code, decision]
+                properties:
+                  unit_id: { type: string }
+                  code: { type: string }
+                  decision: { type: string, enum: [accepted, rejected] }
+            reference_scope_codes:
+              description: 可选的参考标准 code 范围；只有提供该范围时才计算缺口。
+              type: array
+              maxItems: 2500
+              items: { type: string }
     WeeklyScheduleRequest:
       title: 周进度请求
       description: 基于教学计划、匹配结果和周次配置生成确定性周进度。

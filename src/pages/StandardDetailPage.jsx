@@ -24,6 +24,47 @@ import styles from './StandardDetailPage.module.css'
 
 const LearningMapRoute = lazy(() => import('../features/learning-map/LearningMapRoute.jsx'))
 
+const PROVENANCE_LABELS = {
+    official: '课标原文',
+    extracted: '课标章节抽取',
+    editorial: 'kebiao 结构化整理',
+    rule_generated: '规则生成',
+    ai_generated: 'AI 生成'
+}
+
+function ProvenanceBadge({ metadata, compact = false }) {
+    if (!metadata) return null
+    const hasQualityRisk = metadata.quality_flags?.length > 0
+    return (
+        <span
+            className={`${styles['provenance-badge']} ${styles[metadata.provenance] || ''} ${hasQualityRisk ? styles['quality-risk'] : ''}`}
+            title={`${metadata.source_ref?.document || ''}${metadata.source_ref?.section ? ` · ${metadata.source_ref.section}` : ''}`}
+        >
+            {PROVENANCE_LABELS[metadata.provenance] || '来源待确认'}
+            {!compact && metadata.review_status !== 'human_reviewed' ? ' · 未经人工复核' : ''}
+        </span>
+    )
+}
+
+function TrustedContentCard({ title, value, metadata }) {
+    if (!value) return null
+    const quarantined = metadata?.quality_flags?.length > 0
+    return (
+        <div className={`${styles['content-card']} ${quarantined ? styles.quarantined : ''}`}>
+            <div className={styles['content-card-heading']}>
+                <h3>{title}</h3>
+                <ProvenanceBadge metadata={metadata} compact />
+            </div>
+            {quarantined ? (
+                <div className={styles['quality-warning']} role="note">
+                    <strong>内容暂缓展示</strong>
+                    <span>检测到文本截断或残片，已排除出 AI 检索，等待人工复核。</span>
+                </div>
+            ) : <p>{value}</p>}
+        </div>
+    )
+}
+
 function getDisplayTitle(sourceText, fallbackTitle = '') {
     const cleanFallback = String(fallbackTitle || '').replace(/[.…]+$/u, '').trim()
     if (cleanFallback && cleanFallback.length <= 32 && !String(fallbackTitle).includes('...')) {
@@ -265,6 +306,10 @@ function StandardDetailPage() {
         ts_rationale,
         previous_code,
         next_code,
+        provenance,
+        official_text,
+        field_provenance = {},
+        skill_alignments = [],
         resources = []
     } = standard
 
@@ -328,6 +373,10 @@ function StandardDetailPage() {
                             </span>
                         </div>
                         <h1 className={styles['standard-title']} style={{ viewTransitionName: relationsExpanded ? 'none' : 'kb-standard-title' }}>{pageTitle}</h1>
+                        <div className={styles['header-provenance']}>
+                            <ProvenanceBadge metadata={field_provenance.standard || provenance} />
+                            <span>页面标题与摘要为结构化索引内容；原文可用时在正文单独列出。</span>
+                        </div>
                         {standardLead && (
                             <p className={styles['standard-lead']}>{standardLead}</p>
                         )}
@@ -420,7 +469,11 @@ function StandardDetailPage() {
             {/* Skills */}
             <section className={styles['skills-section']} id="standard-skills" data-reading-section="standard-skills">
                 <div className="container">
-                    <h2>可迁移技能</h2>
+                    <div className={styles['section-title-row']}>
+                        <h2>可迁移技能</h2>
+                        <ProvenanceBadge metadata={field_provenance.ts_rationale} compact />
+                        <p className={styles['candidate-notice']}>当前技能关系为候选映射，不会自动覆盖正式数据；请结合命中的标准原文证据判断。</p>
+                    </div>
                     <div className={styles['skills-container']}>
                         {ts_primary.length > 0 && (
                             <div className={styles['skill-group']}>
@@ -435,7 +488,7 @@ function StandardDetailPage() {
                                                 className={`${styles['skill-tag']} ${styles.primary}`}
                                                 style={{ '--skill-color': SKILL_COLORS[mainSkill] }}
                                             >
-                                                {ts}
+                                                {ts}<small>{skill_alignments.find(item => item.skill_code === ts)?.method === 'rule' ? '规则候选' : '候选'}</small>
                                             </Link>
                                         )
                                     })}
@@ -455,7 +508,7 @@ function StandardDetailPage() {
                                                 className={`${styles['skill-tag']} ${styles.secondary}`}
                                                 style={{ '--skill-color': SKILL_COLORS[mainSkill] }}
                                             >
-                                                {ts}
+                                                {ts}<small>{skill_alignments.find(item => item.skill_code === ts)?.method === 'rule' ? '规则候选' : '候选'}</small>
                                             </Link>
                                         )
                                     })}
@@ -478,34 +531,21 @@ function StandardDetailPage() {
             {/* Content Details */}
             <section className={styles['content-section']} id="standard-content" data-reading-section="standard-content">
                 <div className="container">
+                    {official_text ? (
+                        <article className={styles['official-source-card']}>
+                            <div className={styles['content-card-heading']}>
+                                <h2>课标原文</h2>
+                                <span className={`${styles['provenance-badge']} ${styles.official}`}>课标原文</span>
+                            </div>
+                            <p>{official_text}</p>
+                            <small>{field_provenance.standard?.source_ref?.document} · {field_provenance.standard?.source_ref?.section}</small>
+                        </article>
+                    ) : null}
                     <div className={styles['content-grid']}>
-                        {context && (
-                            <div className={styles['content-card']}>
-                                <h3>情境说明</h3>
-                                <p>{context}</p>
-                            </div>
-                        )}
-
-                        {practice && (
-                            <div className={styles['content-card']}>
-                                <h3>实践建议</h3>
-                                <p>{practice}</p>
-                            </div>
-                        )}
-
-                        {teaching_tip && (
-                            <div className={styles['content-card']}>
-                                <h3>教学提示</h3>
-                                <p>{teaching_tip}</p>
-                            </div>
-                        )}
-
-                        {assessment_evidence_type && (
-                            <div className={styles['content-card']}>
-                                <h3>评价证据</h3>
-                                <p>{assessment_evidence_type}</p>
-                            </div>
-                        )}
+                        <TrustedContentCard title="情境说明" value={context} metadata={field_provenance.context} />
+                        <TrustedContentCard title="实践建议" value={practice} metadata={field_provenance.practice} />
+                        <TrustedContentCard title="教学提示" value={teaching_tip} metadata={field_provenance.teaching_tip} />
+                        <TrustedContentCard title="评价证据" value={assessment_evidence_type} metadata={field_provenance.assessment_evidence_type} />
                     </div>
                 </div>
             </section>

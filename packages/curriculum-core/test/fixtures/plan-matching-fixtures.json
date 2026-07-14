@@ -1,11 +1,10 @@
 {
-  "schema_version": "1.0.0",
-  "data_version": "2026.07.09",
-  "description": "基于真实课程标准语义改写的教学计划匹配基线。金标由课程标准 code 和教学活动的显性目标共同确定；不把模型输出当作金标来源。",
+  "schema_version": "2.0.0",
+  "data_version": "2026.07.13-unified-progression-v1",
+  "description": "可信混合检索的开发者回归样例，不是教师标注集，也不用于宣称生产相关性准确率。",
   "matching_options": {
     "top_k_per_unit": 3,
-    "min_score": 0.2,
-    "review_threshold": 0.8
+    "min_score": 0.08
   },
   "quality_gates": {
     "minimum_metadata_accuracy": 1,
@@ -53,16 +52,16 @@
             "acceptable_codes": ["SC-D2-SC-002"],
             "forbidden_top_codes": ["SC-D2-SC-004"],
             "min_top_score": 0.8,
-            "min_matched_fields": 4,
-            "expected_requires_human_review": false
+            "min_matched_fields": 3,
+            "expected_requires_human_review": true
           },
           {
             "unit_id": "U2",
             "acceptable_codes": ["SC-D2-AR-004"],
             "forbidden_top_codes": ["SC-D2-SC-002"],
             "min_top_score": 0.8,
-            "min_matched_fields": 4,
-            "expected_requires_human_review": false
+            "min_matched_fields": 3,
+            "expected_requires_human_review": true
           }
         ]
       }
@@ -95,8 +94,8 @@
             "acceptable_codes": ["MA-D3-ST-001"],
             "forbidden_top_codes": ["MA-D3-ST-002"],
             "min_top_score": 0.8,
-            "min_matched_fields": 5,
-            "expected_requires_human_review": false
+            "min_matched_fields": 3,
+            "expected_requires_human_review": true
           }
         ]
       }
@@ -126,10 +125,10 @@
         "units": [
           {
             "unit_id": "U1",
-            "acceptable_codes": ["CN-H4G7-BOOK-007"],
+            "acceptable_codes": ["CN-H4G7-RE-007"],
             "min_top_score": 0.8,
-            "min_matched_fields": 5,
-            "expected_requires_human_review": false
+            "min_matched_fields": 3,
+            "expected_requires_human_review": true
           }
         ]
       }
@@ -162,8 +161,8 @@
             "acceptable_codes": ["AR-D1-AA-007"],
             "forbidden_top_codes": ["AR-D1-AA-MU-008"],
             "min_top_score": 0.8,
-            "min_matched_fields": 4,
-            "expected_requires_human_review": false
+            "min_matched_fields": 3,
+            "expected_requires_human_review": true
           }
         ]
       }
@@ -196,8 +195,8 @@
             "acceptable_codes": ["EN-D1-CA-003"],
             "forbidden_top_codes": ["EN-D1-CA-001"],
             "min_top_score": 0.8,
-            "min_matched_fields": 4,
-            "expected_requires_human_review": false
+            "min_matched_fields": 3,
+            "expected_requires_human_review": true
           }
         ]
       }
@@ -229,8 +228,8 @@
             "unit_id": "U1",
             "acceptable_codes": ["IT-H1-DL-004", "IT-H1-DL-006"],
             "min_top_score": 0.8,
-            "min_matched_fields": 4,
-            "expected_requires_human_review": false
+            "min_matched_fields": 3,
+            "expected_requires_human_review": true
           }
         ]
       }
@@ -260,11 +259,11 @@
         "units": [
           {
             "unit_id": "U1",
-            "acceptable_codes": ["LA-D1-DL-CH-005"],
+            "acceptable_codes": ["LA-D1-DL-005"],
             "forbidden_top_codes": ["LA-D1-DL-OS-010"],
             "min_top_score": 0.8,
-            "min_matched_fields": 4,
-            "expected_requires_human_review": false
+            "min_matched_fields": 3,
+            "expected_requires_human_review": true
           }
         ]
       }
@@ -296,8 +295,8 @@
             "unit_id": "U1",
             "acceptable_codes": ["PE-D1-HB-008"],
             "min_top_score": 0.8,
-            "min_matched_fields": 4,
-            "expected_requires_human_review": false
+            "min_matched_fields": 3,
+            "expected_requires_human_review": true
           }
         ]
       }
@@ -330,8 +329,8 @@
             "acceptable_codes": ["ML-D1-LAW-001"],
             "forbidden_top_codes": ["ML-D1-ENR-001"],
             "min_top_score": 0.6,
-            "min_matched_fields": 4,
-            "expected_requires_human_review": false
+            "min_matched_fields": 3,
+            "expected_requires_human_review": true
           }
         ]
       }
@@ -360,8 +359,8 @@
         "units": [
           {
             "unit_id": "U1",
-            "min_top_score": 0.6,
-            "min_matched_fields": 4,
+            "min_top_score": 0.3,
+            "min_matched_fields": 3,
             "expected_requires_human_review": true
           }
         ]

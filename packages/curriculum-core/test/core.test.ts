@@ -3,6 +3,7 @@ import { test } from 'node:test'
 import { resolve } from 'node:path'
 import {
     buildMeilisearchFilter,
+    buildGroundedStandardContext,
     buildTopologicalLayers,
     createKnowledgeGraphIndex,
     createMeilisearchDocuments,
@@ -11,7 +12,9 @@ import {
     getLearningContext,
     getPrerequisites,
     getUnlocks,
-    projectStandard
+    projectStandard,
+    parseSmartSearchQuery,
+    smartSearchStandards
 } from '../src/index.js'
 import type { KnowledgeGraphDataset, StandardRecord } from '../src/index.js'
 
@@ -40,6 +43,22 @@ test('projectStandard hides admin fields by default', () => {
     assert.equal('review_status' in projected, false)
     assert.equal('source_standard_original' in projected, false)
     assert.equal('grade_assignment_type' in projected, false)
+})
+
+test('buildGroundedStandardContext separates sources and quarantines flagged content', () => {
+    const context = buildGroundedStandardContext({
+        code: 'SC-D2-SC-010',
+        standard: '认识常见材料的某些性能。',
+        context: '截断内容；',
+        official_text: '课标原始章节摘录。',
+        field_provenance: {
+            standard: { provenance: 'extracted', rag_eligible: true, quality_flags: [], source_ref: { document: '科学课标' } },
+            context: { provenance: 'extracted', rag_eligible: false, quality_flags: ['possible_truncation'], source_ref: { document: '科学课标' } }
+        }
+    }) as Record<string, unknown>
+    assert.equal((context.official as unknown[]).length, 1)
+    assert.equal((context.structured as unknown[]).length, 1)
+    assert.deepEqual((context.excluded as Array<Record<string, unknown>>)[0].quality_flags, ['possible_truncation'])
 })
 
 test('Meilisearch adapter builds bounded public/evidence documents and filters', () => {
@@ -82,6 +101,42 @@ test('FileCurriculumRepository loads public data and searches standards', async 
     })
     assert.ok(result.total > 0)
     assert.ok(result.items.length <= 5)
+})
+
+test('smart search parses constraints and never violates explicit hard filters', async () => {
+    const parsed = parseSmartSearchQuery('三四年级科学中适合证据推理的活动')
+    assert.deepEqual(parsed.subjects, ['science'])
+    assert.deepEqual(parsed.grade_bands, ['H2'])
+    assert.ok(parsed.skills.includes('TS1'))
+
+    const repository = new FileCurriculumRepository(dataRoot)
+    const result = await repository.smartSearchStandards({
+        query: '观察材料并用证据解释变化',
+        subjects: ['science'],
+        grade_bands: ['H2'],
+        limit: 8
+    })
+    assert.ok(result.results.length > 0)
+    assert.ok(result.results.every(item => item.standard.subject_slug === 'science'))
+    assert.ok(result.results.every(item => item.standard.grade_band === 'H2'))
+    assert.ok(result.results.every(item => item.requires_human_review === true))
+    assert.equal(result.semantic_provider, 'none')
+})
+
+test('smart search excludes fields quarantined from RAG evidence', () => {
+    const response = smartSearchStandards([{
+        code: 'SC-TEST-001',
+        subject_slug: 'science',
+        grade_band: 'H2',
+        standard: '观察植物生长',
+        context: '绝密候选词',
+        field_provenance: {
+            standard: { rag_eligible: true, provenance: 'extracted', confidence: 0.8 },
+            context: { rag_eligible: false, provenance: 'ai_generated', confidence: 0.2, quality_flags: ['possible_truncation'] }
+        }
+    }], { query: '绝密候选词', subjects: ['science'], grade_bands: ['H2'], min_score: 0 })
+    assert.ok(response.results.length === 1)
+    assert.ok(response.results[0].matched_fields.every(field => field.field !== 'context'))
 })
 
 test('FileCurriculumRepository exposes graph relationships and evidence summaries', async () => {
@@ -141,7 +196,14 @@ test('FileCurriculumRepository matches plans to real standards with explanations
     assert.match(matching.units[0].matches[0].code, /^SC-/)
     assert.ok(matching.units[0].matches[0].matched_fields.length > 0)
 
-    const coverage = await repository.analyzePlanCoverage(parsed.plan, matching)
+    const firstMatch = matching.units[0].matches[0]
+    const unreviewedCoverage = await repository.analyzePlanCoverage(parsed.plan, matching)
+    assert.equal(unreviewedCoverage.covered_standard_codes.length, 0)
+    assert.ok(unreviewedCoverage.unreviewed_standard_codes.length > 0)
+
+    const coverage = await repository.analyzePlanCoverage(parsed.plan, matching, {
+        review_decisions: [{ unit_id: matching.units[0].unit_id, code: firstMatch.code, decision: 'accepted' }]
+    })
     assert.ok(coverage.covered_standard_codes.length > 0)
 
     const schedule = await repository.generateWeeklySchedule(parsed.plan, matching, { teaching_weeks: 2, lessons_per_week: 2 })

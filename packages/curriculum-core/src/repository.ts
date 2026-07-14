@@ -13,9 +13,11 @@ import {
     validateParsedPlan
 } from './planning.js'
 import { filterStandards, paginate, sortStandards } from './search.js'
+import { smartSearchStandards } from './smart-search.js'
 import { isKnownDomain, isKnownGradeBand, isKnownSkillCode, isKnownSubjectSlug } from './taxonomy.js'
 import type {
     CoverageAnalysis,
+    CoverageReviewDecision,
     DataVersion,
     Fieldset,
     JsonObject,
@@ -29,6 +31,8 @@ import type {
     StandardNeighbors,
     StandardSearchRequest,
     StandardSearchResult,
+    SmartSearchRequest,
+    SmartSearchResponse,
     WeeklySchedule
 } from './types.js'
 
@@ -220,6 +224,12 @@ export class FileCurriculumRepository {
         }
     }
 
+    async smartSearchStandards(request: SmartSearchRequest): Promise<SmartSearchResponse> {
+        const subjects = request.subjects?.length ? request.subjects : undefined
+        const all = await this.loadAllStandards(subjects)
+        return smartSearchStandards(all, request)
+    }
+
     async getProgressionForCode(code: string, include?: Fieldset[]): Promise<JsonObject | null> {
         const resolved = await this.resolveStandard(code)
         if (resolved.status !== 'found' || !resolved.record) return null
@@ -405,7 +415,7 @@ export class FileCurriculumRepository {
 
     async matchPlan(
         plan: ParsedPlanInput,
-        options: { top_k_per_unit?: number; min_score?: number; review_threshold?: number; include?: Fieldset[] } = {}
+        options: { top_k_per_unit?: number; min_score?: number; include?: Fieldset[] } = {}
     ): Promise<PlanMatchingResult> {
         const normalized = normalizeParsedPlan(plan)
         const subjects = normalized.subject_slug ? [normalized.subject_slug] : undefined
@@ -416,11 +426,11 @@ export class FileCurriculumRepository {
     async analyzePlanCoverage(
         plan: ParsedPlanInput,
         matching?: PlanMatchingResult,
-        options: { top_k_per_unit?: number; min_score?: number; review_threshold?: number; include?: Fieldset[] } = {}
+        options: { top_k_per_unit?: number; min_score?: number; include?: Fieldset[]; review_decisions?: CoverageReviewDecision[]; reference_scope_codes?: string[] } = {}
     ): Promise<CoverageAnalysis> {
         const normalized = normalizeParsedPlan(plan)
         const resolvedMatching = matching || await this.matchPlan(normalized, options)
-        return analyzeCoverage(normalized, resolvedMatching)
+        return analyzeCoverage(normalized, resolvedMatching, options.review_decisions, options.reference_scope_codes)
     }
 
     async generateWeeklySchedule(
@@ -433,7 +443,6 @@ export class FileCurriculumRepository {
             exam_weeks?: number[]
             top_k_per_unit?: number
             min_score?: number
-            review_threshold?: number
             include?: Fieldset[]
         } = {}
     ): Promise<WeeklySchedule[]> {

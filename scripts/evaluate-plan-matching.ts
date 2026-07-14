@@ -39,7 +39,6 @@ interface FixtureSet {
     matching_options: {
         top_k_per_unit: number
         min_score: number
-        review_threshold: number
     }
     quality_gates: QualityGates
     fixtures: Fixture[]
@@ -169,7 +168,7 @@ const metrics = {
     forbidden_top_match_count: forbiddenTopMatchCount,
     fixture_count: fixtureSet.fixtures.length,
     evaluated_unit_count: explainabilityExpected,
-    gold_unit_count: goldUnitCount
+    developer_expected_unit_count: goldUnitCount
 }
 
 const gates = fixtureSet.quality_gates
@@ -193,6 +192,8 @@ if (metrics.forbidden_top_match_count > gates.maximum_forbidden_top_match_count)
 
 console.log(JSON.stringify({
     valid: failures.length === 0,
+    benchmark_class: 'developer_regression_not_teacher_validated',
+    interpretation_note: '这些指标只用于固定开发者样例的回归检查，不代表教师评审后的生产准确率。',
     fixture_schema_version: fixtureSet.schema_version,
     fixture_data_version: fixtureSet.data_version,
     repository_data_version: dataVersion.data_version,

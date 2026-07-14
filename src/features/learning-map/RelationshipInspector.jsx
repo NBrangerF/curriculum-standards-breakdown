@@ -19,10 +19,11 @@ function KnowledgePointInspector({ point }) {
 
 function RelationshipEvidenceInspector({ selection, isPreview }) {
     const { edge, source, target, evidence } = selection
+    const isBridge = edge.relationType === 'grade_band_bridge_candidate'
     return (
         <>
             <span>{isPreview ? '待验证关系' : '已验证关系'}</span>
-            <h2 id="learning-map-inspector-title">{isPreview ? '课程顺序候选线索' : necessityLabel(edge.necessity)}</h2>
+            <h2 id="learning-map-inspector-title">{isPreview ? (isBridge ? '跨学段桥接候选' : '课程顺序候选线索') : necessityLabel(edge.necessity)}</h2>
             <p className={styles.relationshipTitle}><strong>{source.label}</strong><b aria-hidden="true">→</b><strong>{target.label}</strong></p>
             <section aria-labelledby="relationship-rationale-title">
                 <h3 id="relationship-rationale-title">为什么相关</h3>
@@ -36,6 +37,8 @@ function RelationshipEvidenceInspector({ selection, isPreview }) {
             </section>
             <dl>
                 <div><dt>对齐课程标准</dt><dd>{[...new Set([...source.standardCodes, ...target.standardCodes])].join(' · ')}</dd></div>
+                {isPreview ? <div><dt>生成方式</dt><dd>{edge.method || '来源字段抽取'}</dd></div> : null}
+                {isPreview ? <div><dt>候选置信度</dt><dd>{Number.isFinite(edge.confidenceScore) ? `${Math.round(edge.confidenceScore * 100)}%` : '未标注'}</dd></div> : null}
                 <div><dt>{isPreview ? '审核状态' : '关系确定程度'}</dt><dd>{isPreview ? '待课程专家验证' : edge.confidence === 'high' ? '高' : edge.confidence === 'medium' ? '中' : '低'}</dd></div>
             </dl>
         </>

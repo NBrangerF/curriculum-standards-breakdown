@@ -4,6 +4,7 @@ import { resolve } from 'node:path'
 import { readFile, rm } from 'node:fs/promises'
 import { FileCurriculumRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
+import { interpretSearchQueryWithLlm, resolveLlmConfig } from '../src/llm.js'
 import vercelHandler from '../../../api/v1/[...path].js'
 
 const dataRoot = resolve(process.cwd(), '../../data/internal')
@@ -13,6 +14,94 @@ const dataVersion = JSON.parse(await readFile(resolve(dataRoot, 'data_version.js
 async function json(response: Response) {
     return response.json() as Promise<Record<string, any>>
 }
+
+test('LLM query interpreter is disabled without a secret and keeps safe defaults', async () => {
+    const config = resolveLlmConfig({})
+    assert.equal(config.enabled, false)
+    assert.equal(config.model, 'gpt-5-mini')
+    assert.equal(config.baseUrl, 'https://www.openai-labs.com/v1')
+
+    const result = await interpretSearchQueryWithLlm('三四年级科学观察', { env: {} })
+    assert.equal(result.status, 'disabled')
+    assert.equal(result.used, false)
+    assert.equal(result.interpretation, null)
+})
+
+test('LLM query interpreter accepts a schema-constrained Responses API payload', async () => {
+    let endpoint = ''
+    const result = await interpretSearchQueryWithLlm('三四年级科学观察材料', {
+        env: {
+            KEBIAO_LLM_API_KEY: 'test-secret',
+            KEBIAO_LLM_BASE_URL: 'https://llm.example.test/v1',
+            KEBIAO_LLM_MODEL: 'gpt-5-mini'
+        },
+        fetchImpl: async (input, init) => {
+            endpoint = String(input)
+            assert.equal(new Headers(init?.headers).get('authorization'), 'Bearer test-secret')
+            const request = JSON.parse(String(init?.body))
+            assert.equal(request.model, 'gpt-5-mini')
+            assert.equal(request.text.format.type, 'json_schema')
+            return Response.json({
+                output: [{
+                    type: 'message',
+                    content: [{
+                        type: 'output_text',
+                        text: JSON.stringify({
+                            subjects: ['science'],
+                            grade_bands: ['H2'],
+                            skills: ['TS1'],
+                            expanded_terms: ['观察记录', '材料变化', '证据解释'],
+                            intent_summary: '查找第二学段科学观察与证据解释相关标准',
+                            warnings: []
+                        })
+                    }]
+                }]
+            })
+        }
+    })
+    assert.equal(endpoint, 'https://llm.example.test/v1/responses')
+    assert.equal(result.status, 'ok')
+    assert.equal(result.used, true)
+    assert.equal(result.protocol, 'responses')
+    assert.deepEqual(result.interpretation?.expanded_terms, ['观察记录', '材料变化', '证据解释'])
+})
+
+test('LLM query interpreter falls back to Chat Completions and rejects malformed output', async () => {
+    const endpoints: string[] = []
+    const fallback = await interpretSearchQueryWithLlm('语文跨媒介表达', {
+        env: {
+            KEBIAO_LLM_API_KEY: 'test-secret',
+            KEBIAO_LLM_BASE_URL: 'https://llm.example.test/v1'
+        },
+        fetchImpl: async input => {
+            endpoints.push(String(input))
+            if (String(input).endsWith('/responses')) return new Response(null, { status: 404 })
+            return Response.json({
+                choices: [{ message: { content: JSON.stringify({
+                    subjects: ['chinese'],
+                    grade_bands: [],
+                    skills: ['TS5'],
+                    expanded_terms: ['跨媒介阅读', '沟通表达'],
+                    intent_summary: '查找语文跨媒介表达标准',
+                    warnings: []
+                }) } }]
+            })
+        }
+    })
+    assert.deepEqual(endpoints, [
+        'https://llm.example.test/v1/responses',
+        'https://llm.example.test/v1/chat/completions'
+    ])
+    assert.equal(fallback.status, 'ok')
+    assert.equal(fallback.protocol, 'chat_completions')
+
+    const malformed = await interpretSearchQueryWithLlm('科学观察', {
+        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        fetchImpl: async () => Response.json({ output_text: 'not json' })
+    })
+    assert.equal(malformed.status, 'invalid_response')
+    assert.equal(malformed.used, false)
+})
 
 test('GET /api/v1/meta returns data summary', async () => {
     const response = await app.request('/api/v1/meta')
@@ -53,8 +142,11 @@ test('GET /api/v1/openapi.yaml and /api/v1/docs expose API documentation', async
     assert.match(spec, /summary: 搜索科学学科中与观察有关的标准/)
     assert.match(spec, /materials_tools:/)
     assert.doesNotMatch(spec, /\/api\/v1\/standards\/\{code\}\/evidence:/)
-    assert.doesNotMatch(spec, /\/api\/v1\/plans\/parse:/)
-    assert.doesNotMatch(spec, /\/api\/v1\/plans\/validate:/)
+    assert.match(spec, /\/api\/v1\/standards\/semantic-search:/)
+    assert.match(spec, /\/api\/v1\/plans\/parse:/)
+    assert.match(spec, /\/api\/v1\/plans\/validate:/)
+    assert.match(spec, /\/api\/v1\/plans\/match-standards:/)
+    assert.match(spec, /\/api\/v1\/plans\/analyze-coverage:/)
     assert.doesNotMatch(spec, /\/api\/v1\/matching\/plan-to-standards:/)
     assert.doesNotMatch(spec, /\/api\/v1\/coverage\/analyze:/)
     assert.doesNotMatch(spec, /\/api\/v1\/schedules\/weekly:/)
@@ -66,9 +158,8 @@ test('GET /api/v1/openapi.yaml and /api/v1/docs expose API documentation', async
     assert.match(docsHtml, /课程智能 API 中文开发者文档/)
     assert.match(docsHtml, /三步完成第一次调用/)
     assert.match(docsHtml, /设置 API Key/)
-    assert.match(docsHtml, /教学规划能力仍在开发中，暂不提供公开 API/)
-    assert.doesNotMatch(docsHtml, /data-operation-id="matchPlanToStandards"/)
-    assert.doesNotMatch(docsHtml, /data-operation-id="analyzePlanCoverage"/)
+    assert.match(docsHtml, /智能检索可使用 AI 扩展查询/)
+    assert.match(docsHtml, /data-operation-id="matchPlanToStandards"/)
     assert.match(docsHtml, /docExpansion: 'none'/)
     assert.match(docsHtml, /filter: true/)
     assert.match(docsHtml, /persistAuthorization: false/)
@@ -98,7 +189,7 @@ test('Vercel rewrite forwards nested API paths to the Hono function', async () =
 test('Vercel web handler preserves POST JSON request bodies', async () => {
     const response = await vercelHandler.fetch(new Request('http://localhost/api/v1/standards/search', {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'smart-search-test' },
         body: JSON.stringify({ subjects: ['science'], keyword: '观察', limit: 1 })
     }))
     assert.equal(response.status, 200)
@@ -289,7 +380,7 @@ test('GET /api/v1/standards/:code requires an exact, case-sensitive code', async
 test('POST /api/v1/standards/search filters by subject and keyword', async () => {
     const response = await app.request('/api/v1/standards/search', {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-alignment-test' },
         body: JSON.stringify({
             subjects: ['science'],
             keyword: '观察',
@@ -306,26 +397,93 @@ test('POST /api/v1/standards/search filters by subject and keyword', async () =>
 test('POST /api/v1/standards/search validates filters and searches standard titles', async () => {
     const invalidSubject = await app.request('/api/v1/standards/search', {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-alignment-test' },
         body: JSON.stringify({ subjects: ['not-a-subject'] })
     })
     assert.equal(invalidSubject.status, 422)
 
     const invalidCursor = await app.request('/api/v1/standards/search', {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-alignment-test' },
         body: JSON.stringify({ cursor: 'not-a-cursor' })
     })
     assert.equal(invalidCursor.status, 422)
 
     const titleSearch = await app.request('/api/v1/standards/search', {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-alignment-test' },
         body: JSON.stringify({ keyword: '常见材料', limit: 10 })
     })
     assert.equal(titleSearch.status, 200)
     const titleBody = await json(titleSearch)
     assert.ok(titleBody.data.some((item: Record<string, unknown>) => String(item.standard_title).includes('常见材料')))
+})
+
+test('POST /api/v1/standards/semantic-search returns trusted explainable candidates', async () => {
+    const response = await app.request('/api/v1/standards/semantic-search', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'smart-search-test' },
+        body: JSON.stringify({
+            query: '三四年级科学中观察材料并用证据解释变化',
+            subjects: ['science'],
+            grade_bands: ['H2'],
+            limit: 5
+        })
+    })
+    assert.equal(response.status, 200)
+    const body = await json(response)
+    assert.equal(body.data.retrieval_version, 'trusted-hybrid-v1')
+    assert.equal(body.data.semantic_provider, 'none')
+    assert.equal(body.data.query_interpretation.status, 'disabled')
+    assert.equal(body.meta.query_interpreter, 'deterministic_fallback')
+    assert.ok(body.data.results.length > 0)
+    assert.ok(body.data.results.every((item: any) => item.standard.subject_slug === 'science'))
+    assert.ok(body.data.results.every((item: any) => item.standard.grade_band === 'H2'))
+    assert.ok(body.data.results.every((item: any) => item.requires_human_review === true))
+})
+
+test('plan alignment APIs require teacher decisions before coverage', async () => {
+    const parsedResponse = await app.request('/api/v1/plans/parse', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-api-test' },
+        body: JSON.stringify({ text: '三年级科学计划\n学科：科学\n年级：三年级\n单元一：观察植物生长' })
+    })
+    assert.equal(parsedResponse.status, 200)
+    const parsedBody = await json(parsedResponse)
+    const plan = parsedBody.data.plan
+
+    const matchResponse = await app.request('/api/v1/plans/match-standards', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-api-test' },
+        body: JSON.stringify({ plan, top_k_per_unit: 3 })
+    })
+    assert.equal(matchResponse.status, 200)
+    const matchBody = await json(matchResponse)
+    const first = matchBody.data.units[0].matches[0]
+    assert.ok(first)
+
+    const unreviewedResponse = await app.request('/api/v1/plans/analyze-coverage', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-api-test' },
+        body: JSON.stringify({ plan, matches: matchBody.data })
+    })
+    assert.equal(unreviewedResponse.status, 200)
+    const unreviewed = await json(unreviewedResponse)
+    assert.equal(unreviewed.data.covered_standard_codes.length, 0)
+    assert.equal(unreviewed.data.gap_standard_codes.length, 0)
+
+    const reviewedResponse = await app.request('/api/v1/plans/analyze-coverage', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-api-test' },
+        body: JSON.stringify({
+            plan,
+            matches: matchBody.data,
+            review_decisions: [{ unit_id: matchBody.data.units[0].unit_id, code: first.code, decision: 'accepted' }]
+        })
+    })
+    assert.equal(reviewedResponse.status, 200)
+    const reviewed = await json(reviewedResponse)
+    assert.deepEqual(reviewed.data.covered_standard_codes, [first.code])
 })
 
 test('POST /api/v1/standards/batch returns found items and missing codes', async () => {
@@ -424,8 +582,6 @@ test('fieldsets above public require API tier access', async () => {
 test('development API routes are not publicly available', async () => {
     const requests = [
         ['/api/v1/standards/SC-H4G7-AR-001/evidence', 'GET'],
-        ['/api/v1/plans/parse', 'POST'],
-        ['/api/v1/plans/validate', 'POST'],
         ['/api/v1/matching/plan-to-standards', 'POST'],
         ['/api/v1/coverage/analyze', 'POST'],
         ['/api/v1/schedules/weekly', 'POST']
