@@ -169,7 +169,7 @@ API_BASE=https://www.kebiao.org npm run smoke:api
 | `KEBIAO_LLM_API_KEY` | 查询理解模型的服务端密钥；只配置在部署平台 Secret 中，绝不写入仓库或前端变量 |
 | `KEBIAO_LLM_BASE_URL` | OpenAI-compatible API 根地址；默认 `https://www.openai-labs.com/v1` |
 | `KEBIAO_LLM_MODEL` | 查询理解模型；默认 `gpt-5-mini` |
-| `KEBIAO_LLM_API_STYLE` | `auto`（默认）、`responses` 或 `chat_completions`；`auto` 优先 Responses API |
+| `KEBIAO_LLM_API_STYLE` | `auto`（默认）、`responses` 或 `chat_completions`；Responses 使用 Structured Outputs，兼容 Chat 路径使用 JSON mode 并由服务端再次校验 |
 | `KEBIAO_LLM_TIMEOUT_MS` | 模型请求超时；默认 3500ms，限制在 500–7000ms |
 | `KEBIAO_LLM_ENABLED` | 设为 `false` 可强制关闭模型；无密钥时始终使用确定性回退 |
 

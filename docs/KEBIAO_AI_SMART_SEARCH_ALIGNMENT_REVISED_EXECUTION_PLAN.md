@@ -109,7 +109,7 @@ flowchart LR
 
 - 用离线评测对比 OpenAI embeddings 与 M1 baseline，只有显著提升才启用。
 - `gpt-5-mini` 仅用于查询结构化和检索词扩展，不生成或覆盖课标事实，不决定硬筛选、code、来源与匹配理由。
-- Responses API Structured Outputs 校验 query interpretation；兼容端点可回退 Chat Completions，任一路径失败都回退 M1。
+- Responses API 使用 Structured Outputs；兼容 Chat Completions 路径使用 JSON mode 并在服务端执行同一字段白名单与结构校验，任一路径失败都回退 M1。
 - 服务端密钥、HTTPS base URL、3.5 秒超时、禁记请求正文和前端隐私提示已经纳入实现。
 - DOCX/PDF 前置：文件大小/类型限制、恶意文档扫描、临时存储、删除 SLA、PII 声明、失败恢复。
 - 账户与团队工作流前置：权限模型、数据保留策略、导出与删除能力。

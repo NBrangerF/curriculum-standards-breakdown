@@ -73,9 +73,11 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
             KEBIAO_LLM_API_KEY: 'test-secret',
             KEBIAO_LLM_BASE_URL: 'https://llm.example.test/v1'
         },
-        fetchImpl: async input => {
+        fetchImpl: async (input, init) => {
             endpoints.push(String(input))
             if (String(input).endsWith('/responses')) return new Response(null, { status: 404 })
+            const request = JSON.parse(String(init?.body))
+            assert.equal(request.response_format.type, 'json_object')
             return Response.json({
                 choices: [{ message: { content: JSON.stringify({
                     subjects: ['chinese'],

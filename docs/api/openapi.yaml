@@ -399,7 +399,7 @@ paths:
       tags: [课程标准]
       operationId: smartSearchStandards
       summary: 用自然语言检索可信课程标准候选
-      description: 可使用 gpt-5-mini 的 Structured Outputs 理解并扩展查询词，再由确定性可信检索从允许检索的可追溯字段中返回真实标准 code、命中证据和归一化检索分。模型不会决定硬筛选、code、来源或匹配理由；不可用时自动回退，不导致检索失败。查询文本可能发送到所配置的模型服务，请勿提交学生个人信息。所有结果必须人工复核。
+      description: 可使用 gpt-5-mini 理解并扩展查询词；Responses API 使用 Structured Outputs，兼容 Chat Completions 路径使用 JSON mode 并由服务端执行同一白名单与结构校验。随后由确定性可信检索从允许检索的可追溯字段中返回真实标准 code、命中证据和归一化检索分。模型不会决定硬筛选、code、来源或匹配理由；不可用时自动回退，不导致检索失败。查询文本可能发送到所配置的模型服务，请勿提交学生个人信息。所有结果必须人工复核。
       security:
         - ApiKeyAuth: []
         - {}
