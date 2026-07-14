@@ -118,7 +118,7 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
     assert.equal(malformed.status, 'invalid_response')
     assert.equal(malformed.used, false)
 
-    const invalidEnum = await interpretSearchQueryWithLlm('历史课程', {
+    const filteredEnum = await interpretSearchQueryWithLlm('历史课程', {
         env: { KEBIAO_LLM_API_KEY: 'test-secret' },
         fetchImpl: async () => Response.json({ output_text: JSON.stringify({
             subjects: ['history'],
@@ -129,7 +129,22 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
             warnings: []
         }) })
     })
-    assert.equal(invalidEnum.status, 'invalid_response')
+    assert.equal(filteredEnum.status, 'ok')
+    assert.deepEqual(filteredEnum.interpretation?.subjects, [])
+    assert.ok(filteredEnum.interpretation?.warnings.some(warning => warning.includes('公开枚举')))
+
+    const invalidShape = await interpretSearchQueryWithLlm('科学观察', {
+        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        fetchImpl: async () => Response.json({ output_text: JSON.stringify({
+            subjects: [42],
+            grade_bands: [],
+            skills: [],
+            expanded_terms: ['科学观察'],
+            intent_summary: '科学观察',
+            warnings: []
+        }) })
+    })
+    assert.equal(invalidShape.status, 'invalid_response')
 })
 
 test('GET /api/v1/meta returns data summary', async () => {

@@ -99,33 +99,41 @@ function uniqueStrings(value: unknown, allowed?: readonly string[], limit = 12, 
         .slice(0, limit)
 }
 
-function isValidStringArray(value: unknown, allowed?: readonly string[], limit = 12, maxLength = 160): value is string[] {
+function isValidStringArray(value: unknown, limit = 12, maxLength = 160): value is string[] {
     return Array.isArray(value)
         && value.length <= limit
         && value.every(item => typeof item === 'string'
             && item.trim().length > 0
-            && item.trim().length <= maxLength
-            && (!allowed || allowed.includes(item.trim())))
+            && item.trim().length <= maxLength)
 }
 
 function validateInterpretation(value: unknown): LlmQueryInterpretation | null {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null
     const record = value as Record<string, unknown>
-    if (!isValidStringArray(record.subjects, SUBJECTS, 3)
-        || !isValidStringArray(record.grade_bands, GRADE_BANDS, 3)
-        || !isValidStringArray(record.skills, SKILLS, 4)
-        || !isValidStringArray(record.expanded_terms, undefined, 12, 40)
-        || !isValidStringArray(record.warnings, undefined, 4, 120)
+    if (!isValidStringArray(record.subjects, 3)
+        || !isValidStringArray(record.grade_bands, 3)
+        || !isValidStringArray(record.skills, 4)
+        || !isValidStringArray(record.expanded_terms, 12, 40)
+        || !isValidStringArray(record.warnings, 4, 120)
         || typeof record.intent_summary !== 'string') return null
     const intentSummary = typeof record.intent_summary === 'string' ? record.intent_summary.trim() : ''
     if (intentSummary.length > 160) return null
+    const subjects = uniqueStrings(record.subjects, SUBJECTS, 3)
+    const gradeBands = uniqueStrings(record.grade_bands, GRADE_BANDS, 3)
+    const skills = uniqueStrings(record.skills, SKILLS, 4)
+    const removedUnsupportedValue = subjects.length !== record.subjects.length
+        || gradeBands.length !== record.grade_bands.length
+        || skills.length !== record.skills.length
     return {
-        subjects: uniqueStrings(record.subjects, SUBJECTS, 3),
-        grade_bands: uniqueStrings(record.grade_bands, GRADE_BANDS, 3),
-        skills: uniqueStrings(record.skills, SKILLS, 4),
+        subjects,
+        grade_bands: gradeBands,
+        skills,
         expanded_terms: uniqueStrings(record.expanded_terms, undefined, 12, 40),
         intent_summary: intentSummary,
-        warnings: uniqueStrings(record.warnings, undefined, 4, 120)
+        warnings: uniqueStrings([
+            ...record.warnings,
+            ...(removedUnsupportedValue ? ['模型返回的部分筛选值不在公开枚举中，已忽略。'] : [])
+        ], undefined, 4, 120)
     }
 }
 
