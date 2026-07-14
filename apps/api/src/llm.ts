@@ -158,6 +158,9 @@ function requestBody(protocol: LlmProtocol, model: string, query: string) {
     if (protocol === 'chat_completions') {
         return {
             model,
+            reasoning_effort: 'minimal',
+            verbosity: 'low',
+            max_completion_tokens: 400,
             messages: [
                 { role: 'system', content: CHAT_JSON_INSTRUCTIONS },
                 { role: 'user', content: query }

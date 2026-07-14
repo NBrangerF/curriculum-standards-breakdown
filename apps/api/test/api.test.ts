@@ -78,6 +78,8 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
             if (String(input).endsWith('/responses')) return new Response(null, { status: 404 })
             const request = JSON.parse(String(init?.body))
             assert.equal(request.response_format.type, 'json_object')
+            assert.equal(request.reasoning_effort, 'minimal')
+            assert.equal(request.max_completion_tokens, 400)
             return Response.json({
                 choices: [{ message: { content: JSON.stringify({
                     subjects: ['chinese'],
