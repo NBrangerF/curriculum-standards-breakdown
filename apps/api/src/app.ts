@@ -348,6 +348,7 @@ export function createApp(repository: FileCurriculumRepository) {
             inferred_subjects: aiInterpretation?.subjects,
             inferred_excluded_subjects: aiInterpretation?.excluded_subjects,
             inferred_grade_bands: aiInterpretation?.grade_bands,
+            inferred_core_terms: aiInterpretation?.core_terms,
             query_expansion_terms: aiInterpretation?.expanded_terms || []
         })
         result.query_interpretation = {
@@ -360,6 +361,7 @@ export function createApp(repository: FileCurriculumRepository) {
             excluded_subjects: aiInterpretation?.excluded_subjects || [],
             grade_bands: aiInterpretation?.grade_bands || [],
             skills: aiInterpretation?.skills || [],
+            core_terms: aiInterpretation?.core_terms || [],
             expanded_terms: aiInterpretation?.expanded_terms || [],
             intent_summary: aiInterpretation?.intent_summary || '',
             warnings: aiInterpretation?.warnings || [],

@@ -6,10 +6,13 @@ type EvalCase = {
     id: string
     query: string
     subjects: string[]
+    excluded_subjects?: string[]
     grade_bands: string[]
     min_score?: number
     expect_empty?: boolean
     forbidden_codes?: string[]
+    expected_codes?: string[]
+    expected_only?: boolean
 }
 
 const root = process.cwd()
@@ -27,11 +30,16 @@ let unexpectedEmptyCases = 0
 let unexpectedNonemptyCases = 0
 let forbiddenCodesReturned = 0
 let nondeterministicCases = 0
+let missingExpectedCodes = 0
+let unexpectedExpectedOnlyCodes = 0
+let resultsWithoutTopicEvidence = 0
+let invalidMatchStrength = 0
 
 for (const fixture of cases) {
     const request = {
         query: fixture.query,
         subjects: fixture.subjects,
+        excluded_subjects: fixture.excluded_subjects,
         grade_bands: fixture.grade_bands,
         limit: 5,
         min_score: fixture.min_score ?? 0
@@ -43,15 +51,23 @@ for (const fixture of cases) {
     }
     if (fixture.expect_empty === true && response.results.length) unexpectedNonemptyCases += 1
     if (fixture.expect_empty !== true && !response.results.length) unexpectedEmptyCases += 1
+    const resultCodes = response.results.map(result => result.code)
+    const expectedCodes = fixture.expected_codes || []
+    missingExpectedCodes += expectedCodes.filter(code => !resultCodes.includes(code)).length
+    if (fixture.expected_only) unexpectedExpectedOnlyCodes += resultCodes.filter(code => !expectedCodes.includes(code)).length
     returned += response.results.length
     for (const result of response.results) {
         const standard = result.standard as Record<string, unknown>
-        if (!fixture.subjects.includes(String(standard.subject_slug)) || !fixture.grade_bands.includes(String(standard.grade_band))) {
+        if ((fixture.subjects.length && !fixture.subjects.includes(String(standard.subject_slug)))
+            || (fixture.excluded_subjects || []).includes(String(standard.subject_slug))
+            || !fixture.grade_bands.includes(String(standard.grade_band))) {
             hardFilterViolations += 1
         }
         if (!canonicalCodes.has(result.code)) hallucinatedCodes += 1
         if (result.requires_human_review !== true) missingReviewFlags += 1
         if ((fixture.forbidden_codes || []).includes(result.code)) forbiddenCodesReturned += 1
+        if (!result.matched_concepts.length || !result.matched_fields.length) resultsWithoutTopicEvidence += 1
+        if (result.match_strength !== 'direct' && result.match_strength !== 'supporting') invalidMatchStrength += 1
         if (!result.matched_fields.every(field => (
             typeof field.provenance === 'string'
             && typeof field.review_status === 'string'
@@ -62,7 +78,7 @@ for (const fixture of cases) {
 }
 
 const report = {
-    evaluation: 'smart-search-contract-v1',
+    evaluation: 'smart-search-relevance-contract-v2',
     cases: cases.length,
     returned,
     unexpected_empty_cases: unexpectedEmptyCases,
@@ -73,7 +89,11 @@ const report = {
     missing_evidence_metadata: missingEvidenceMetadata,
     forbidden_codes_returned: forbiddenCodesReturned,
     nondeterministic_cases: nondeterministicCases,
-    note: 'This is a contract evaluation, not a relevance benchmark. Teacher-labelled Recall@K/MRR comes later.'
+    missing_expected_codes: missingExpectedCodes,
+    unexpected_expected_only_codes: unexpectedExpectedOnlyCodes,
+    results_without_topic_evidence: resultsWithoutTopicEvidence,
+    invalid_match_strength: invalidMatchStrength,
+    note: 'Contract, safety, topic-evidence and labelled regression checks. Expand teacher-labelled Precision@K/NDCG coverage as review decisions accumulate.'
 }
 
 console.log(JSON.stringify(report, null, 2))
@@ -86,4 +106,8 @@ if (
     || missingEvidenceMetadata
     || forbiddenCodesReturned
     || nondeterministicCases
+    || missingExpectedCodes
+    || unexpectedExpectedOnlyCodes
+    || resultsWithoutTopicEvidence
+    || invalidMatchStrength
 ) process.exitCode = 1

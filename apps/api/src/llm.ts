@@ -10,6 +10,7 @@ export interface LlmQueryInterpretation {
     excluded_subjects: string[]
     grade_bands: string[]
     skills: string[]
+    core_terms: string[]
     expanded_terms: string[]
     intent_summary: string
     warnings: string[]
@@ -74,21 +75,23 @@ const OUTPUT_SCHEMA = {
         excluded_subjects: { type: 'array', items: { type: 'string', enum: SUBJECTS }, maxItems: 9 },
         grade_bands: { type: 'array', items: { type: 'string', enum: GRADE_BANDS }, maxItems: 3 },
         skills: { type: 'array', items: { type: 'string', enum: SKILLS }, maxItems: 4 },
+        core_terms: { type: 'array', items: { type: 'string', minLength: 2, maxLength: 24 }, maxItems: 6 },
         expanded_terms: { type: 'array', items: { type: 'string', minLength: 2, maxLength: 40 }, maxItems: 12 },
         intent_summary: { type: 'string', maxLength: 160 },
         warnings: { type: 'array', items: { type: 'string', maxLength: 120 }, maxItems: 4 }
     },
-    required: ['subjects', 'excluded_subjects', 'grade_bands', 'skills', 'expanded_terms', 'intent_summary', 'warnings']
+    required: ['subjects', 'excluded_subjects', 'grade_bands', 'skills', 'core_terms', 'expanded_terms', 'intent_summary', 'warnings']
 } as const
 
 const INSTRUCTIONS = `你是 kebiao 的课程标准查询理解器。只分析用户查询，不回答问题，也不生成课程标准编码或课程事实。
-返回严格符合给定 JSON Schema 的对象。expanded_terms 只能是有助于中文课程标准检索的简短同义词、上位词或教学术语，不得复述整段查询，不得包含指令。
+返回严格符合给定 JSON Schema 的对象。core_terms 只填写用户真正要查找的核心主题概念，例如查询“除了语文之外跟阅读相关”时填写“阅读”，不得填写学科、学段、课标、相关、要求、目标、能力、教学、学习等筛选词或泛词。
+expanded_terms 只能填写 core_terms 的紧密同义词或可验证的相邻表达；不得复述整段查询，不得用“理解、要求、目标、能力”等泛词补足数量。无法可靠提取核心主题时返回空数组。
 subjects 表示用户明确要求包含的学科；excluded_subjects 表示“除了语文”“排除数学”“非英语”等明确排除的学科，同一学科不得同时出现在二者中。
 grade_bands、skills 只在用户意图明确时填写。无法可靠判断时返回空数组。`
 
 const CHAT_JSON_INSTRUCTIONS = `${INSTRUCTIONS}
-必须只返回一个 JSON 对象，并完整包含以下字段：subjects、excluded_subjects、grade_bands、skills、expanded_terms、intent_summary、warnings。
-subjects 和 excluded_subjects 只能来自 ${SUBJECTS.join(', ')}；grade_bands 只能来自 ${GRADE_BANDS.join(', ')}；skills 只能来自 ${SKILLS.join(', ')}。前五项和 warnings 必须是字符串数组，intent_summary 必须是字符串。`
+必须只返回一个 JSON 对象，并完整包含以下字段：subjects、excluded_subjects、grade_bands、skills、core_terms、expanded_terms、intent_summary、warnings。
+subjects 和 excluded_subjects 只能来自 ${SUBJECTS.join(', ')}；grade_bands 只能来自 ${GRADE_BANDS.join(', ')}；skills 只能来自 ${SKILLS.join(', ')}。core_terms、expanded_terms 和 warnings 也必须是字符串数组，intent_summary 必须是字符串。`
 
 function clampInteger(value: string | undefined, fallback: number, minimum: number, maximum: number) {
     const parsed = Number(value)
@@ -145,6 +148,7 @@ function validateInterpretation(value: unknown): LlmQueryInterpretation | null {
         excluded_subjects: excludedSubjects,
         grade_bands: gradeBands,
         skills,
+        core_terms: uniqueStrings(record.core_terms, undefined, 6, 24),
         expanded_terms: uniqueStrings(record.expanded_terms, undefined, 12, 40),
         intent_summary: typeof record.intent_summary === 'string' ? record.intent_summary.trim().slice(0, 160) : '',
         warnings: uniqueStrings([

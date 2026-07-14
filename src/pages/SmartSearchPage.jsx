@@ -82,7 +82,11 @@ function SmartSearchPage() {
     }
 
     const interpretation = result?.query_interpretation || {}
+    const parsed = result?.parsed_query || {}
     const applied = result?.applied_filters || {}
+    const relevance = result?.relevance_summary || {}
+    const directCount = relevance.direct ?? result?.results?.filter(item => item.match_strength === 'direct').length ?? 0
+    const supportingCount = relevance.supporting ?? result?.results?.filter(item => item.match_strength === 'supporting').length ?? 0
     const visibleWarnings = (result?.warnings || []).filter(warning => !warning.includes('AI 查询理解暂不可用'))
 
     return (
@@ -122,7 +126,8 @@ function SmartSearchPage() {
                             <div className={styles.summary}>
                                 <div>
                                     <p className={styles.eyebrow}>查询理解</p>
-                                    <h2>{result.results.length} 条待复核候选</h2>
+                                    <h2>{result.results.length} 条具备主题证据的候选</h2>
+                                    <p className={styles.relevanceCount}>{directCount} 条直接匹配 · {supportingCount} 条延伸关联</p>
                                 </div>
                                 <div className={styles.summaryActions}>
                                     <div className={styles.chips}>
@@ -130,6 +135,7 @@ function SmartSearchPage() {
                                         {(applied.excluded_subjects || []).map(value => <span key={`excluded-${value}`}>排除：{FILTER_LABELS[value] || value}</span>)}
                                         {(applied.grade_bands || []).map(value => <span key={`grade-${value}`}>学段：{FILTER_LABELS[value] || value}</span>)}
                                         {(applied.skills || []).map(value => <span key={`skill-${value}`}>技能：{FILTER_LABELS[value] || value}</span>)}
+                                        {(parsed.core_terms || []).slice(0, 3).map(value => <span key={`core-${value}`}>核心概念：{value}</span>)}
                                         <span>{interpretation.used ? 'AI 查询理解' : '确定性查询理解'}</span>
                                         <span>可信检索 v1</span>
                                     </div>
@@ -139,26 +145,29 @@ function SmartSearchPage() {
                             {interpretation.used ? (
                                 <div className={styles.interpretation}>
                                     <p><strong>AI 查询意图：</strong>{interpretation.intent_summary || '已完成结构化查询理解。'}</p>
-                                    {interpretation.expanded_terms?.length ? <p><strong>扩展词：</strong>{interpretation.expanded_terms.join(' · ')}</p> : null}
-                                    <span>AI 只负责理解意图和扩展召回；候选内容、来源与理由仍来自可追溯的课程标准字段。</span>
+                                    {(interpretation.core_terms?.length || parsed.core_terms?.length) ? <p><strong>主题闸门：</strong>{(interpretation.core_terms?.length ? interpretation.core_terms : parsed.core_terms).join(' · ')}</p> : null}
+                                    {parsed.effective_expansion_terms?.length ? <p><strong>用于召回的紧密扩展：</strong>{parsed.effective_expansion_terms.join(' · ')}</p> : null}
+                                    <span>候选必须在可追溯字段中命中核心概念或紧密扩展词；系统不会仅因学段、学科符合而补足数量。</span>
                                 </div>
                             ) : null}
                             {!interpretation.used && interpretation.status && interpretation.status !== 'disabled' ? (
                                 <p className={styles.notice}>AI 查询理解暂不可用，已自动使用确定性检索，不影响标准数据与来源判断。</p>
                             ) : null}
                             {interpretation.privacy?.redacted ? <p className={styles.notice}>发送到模型服务前已自动移除 {interpretation.privacy.redaction_count} 处可识别信息；原始查询不会写入 API 指标。</p> : null}
+                            {result.coverage_note ? <p className={styles.coverageNote}>{result.coverage_note}</p> : null}
                             {visibleWarnings.map(warning => <p className={styles.notice} key={warning}>{warning}</p>)}
+                            {!result.results.length ? <div className={styles.noRelevantResults}><p>没有找到足够可信的主题匹配。可以尝试更换核心概念，或放宽学段和学科范围。</p></div> : null}
                             <div className={styles.grid}>
                                 {result.results.map(item => {
                                     const standard = item.standard || {}
                                     return (
                                         <article className={styles.card} key={item.code}>
                                             <div className={styles.cardMeta}>
-                                                <span>{standard.subject}</span><span>{standard.grade}</span><span>{Math.round(item.score * 100)} 检索分</span>
+                                                <span>{standard.subject}</span><span>{standard.grade}</span><span data-strength={item.match_strength}>{item.match_strength === 'direct' ? '直接匹配' : '延伸关联'}</span>
                                             </div>
                                             <h3><Link to={`/standards/${item.code}`}>{standard.standard_title || standard.standard}</Link></h3>
                                             <p className={styles.code}>{item.code} · {standard.domain} / {standard.subdomain}</p>
-                                            <p>{item.rationale}</p>
+                                            <p>{item.relevance_reason || item.rationale}</p>
                                             <div className={styles.evidence}>
                                                 {item.matched_fields.map(field => (
                                                     <div key={field.field}>

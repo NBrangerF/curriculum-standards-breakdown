@@ -11,6 +11,9 @@ const plan = {
 const candidate = {
     code: 'SC-D2-SC-010',
     score: 0.72,
+    match_strength: 'direct',
+    matched_concepts: ['观察'],
+    relevance_reason: '核心概念“观察”直接出现在标准正文中。',
     match_type: 'trusted_hybrid_deterministic_v1',
     matched_fields: [{ field: 'standard', matched_keywords: ['观察'], value: '观察植物结构', provenance: 'extracted' }],
     rationale: '候选依据：standard 命中“观察”。',
@@ -32,10 +35,15 @@ test('smart search exposes editable hard filters, trusted evidence and collectio
             contentType: 'application/json',
             body: JSON.stringify(envelope({
             query: '三四年级科学观察',
-            parsed_query: { subjects: ['science'], grade_bands: ['H2'], skills: ['TS1'] },
+            parsed_query: { subjects: ['science'], grade_bands: ['H2'], skills: ['TS1'], core_terms: ['观察'] },
             applied_filters: { subjects: ['science'], grade_bands: ['H2'], skills: [] },
             results: [{ ...candidate, matched_fields: [{ field: 'standard', matched_terms: ['观察'], excerpt: '观察植物的结构与生长变化。', provenance: 'extracted', review_status: 'machine_checked', confidence: 0.82, quality_flags: [] }] }],
             total_candidates: 12,
+            relevant_candidates: 1,
+            omitted_low_relevance: 11,
+            relevance_summary: { direct: 1, supporting: 0 },
+            coverage_note: '当前公开可检索字段仅发现 1 条具备主题证据的候选；系统没有用低相关记录补足 12 条。',
+            relevance_version: 'topic-evidence-v1',
             retrieval_version: 'trusted-hybrid-v1',
             semantic_provider: 'none',
             query_interpretation: { used: false, status: 'disabled', privacy: { redacted: false, redaction_count: 0, categories: [] } },
@@ -49,7 +57,8 @@ test('smart search exposes editable hard filters, trusted evidence and collectio
     await page.getByLabel('学段').selectOption('H2')
     await page.getByLabel('技能').selectOption('TS1')
     await page.getByRole('button', { name: '智能检索' }).click()
-    await expect(page.getByText('1 条待复核候选')).toBeVisible()
+    await expect(page.getByRole('heading', { level: 2, name: '1 条具备主题证据的候选' })).toBeVisible()
+    await expect(page.getByText('1 条直接匹配 · 0 条延伸关联')).toBeVisible()
     await expect(page.getByText('课标章节抽取')).toBeVisible()
     await page.getByRole('button', { name: '加入清单' }).click()
     await expect(page.getByRole('button', { name: '已加入清单' })).toBeDisabled()
@@ -65,10 +74,21 @@ test('smart search applies AI exclusion intent and explains it once', async ({ p
             contentType: 'application/json',
             body: JSON.stringify(envelope({
                 query: '第一学段，除了语文学科之外，跟阅读相关的课标',
-                parsed_query: { subjects: [], excluded_subjects: ['chinese'], grade_bands: ['H1'], skills: [] },
+                parsed_query: { subjects: [], excluded_subjects: ['chinese'], grade_bands: ['H1'], skills: [], core_terms: ['阅读'] },
                 applied_filters: { subjects: [], excluded_subjects: ['chinese'], grade_bands: ['H1'], skills: [] },
-                results: [{ ...candidate, standard: { ...candidate.standard, subject: '科学', subject_slug: 'science', grade: '第一学段', grade_band: 'H1' } }],
-                total_candidates: 20,
+                results: [{
+                    ...candidate,
+                    code: 'IT-H1-DL-001',
+                    matched_concepts: ['阅读'],
+                    relevance_reason: '核心概念“阅读”直接出现在标准正文中。',
+                    standard: { ...candidate.standard, code: 'IT-H1-DL-001', subject: '信息科技', subject_slug: 'it', grade: '第一学段', grade_band: 'H1', standard_title: '使用数字资源开展识字、朗读、阅读活动' }
+                }],
+                total_candidates: 222,
+                relevant_candidates: 1,
+                omitted_low_relevance: 221,
+                relevance_summary: { direct: 1, supporting: 0 },
+                coverage_note: '当前公开可检索字段仅发现 1 条具备主题证据的候选；系统没有用低相关记录补足 12 条。',
+                relevance_version: 'topic-evidence-v1',
                 retrieval_version: 'trusted-hybrid-v1',
                 semantic_provider: 'none',
                 query_interpretation: {
@@ -76,6 +96,7 @@ test('smart search applies AI exclusion intent and explains it once', async ({ p
                     status: 'ok',
                     model: 'gpt-5-mini',
                     excluded_subjects: ['chinese'],
+                    core_terms: ['阅读'],
                     expanded_terms: ['阅读理解', '信息获取'],
                     intent_summary: '查找第一学段中除语文以外涉及阅读能力的课程标准。',
                     privacy: { redacted: false, redaction_count: 0, categories: [] }
@@ -89,6 +110,12 @@ test('smart search applies AI exclusion intent and explains it once', async ({ p
     await page.getByRole('button', { name: '智能检索' }).click()
     await expect(page.getByText('排除：语文')).toBeVisible()
     await expect(page.getByText('学段：第一学段（1–2 年级）')).toBeVisible()
+    await expect(page.getByText('核心概念：阅读')).toBeVisible()
+    await expect(page.getByRole('heading', { level: 2, name: '1 条具备主题证据的候选' })).toBeVisible()
+    await expect(page.getByText('1 条直接匹配 · 0 条延伸关联')).toBeVisible()
+    await expect(page.getByText(/系统没有用低相关记录补足 12 条/)).toBeVisible()
+    await expect(page.getByText('使用数字资源开展识字、朗读、阅读活动')).toBeVisible()
+    await expect(page.getByText(/用科学的方法洗手/)).toHaveCount(0)
     await expect(page.getByText('查找第一学段中除语文以外涉及阅读能力的课程标准。')).toBeVisible()
     await expect(page.getByText('AI 查询理解暂不可用')).toHaveCount(0)
 })
@@ -102,6 +129,11 @@ test('smart search discloses privacy redaction and deterministic fallback', asyn
             applied_filters: { subjects: ['science'], grade_bands: ['H2'], skills: [] },
             results: [candidate],
             total_candidates: 1,
+            relevant_candidates: 1,
+            omitted_low_relevance: 0,
+            relevance_summary: { direct: 1, supporting: 0 },
+            coverage_note: '共发现 1 条具备主题证据的候选。',
+            relevance_version: 'topic-evidence-v1',
             retrieval_version: 'trusted-hybrid-v1',
             semantic_provider: 'none',
             query_interpretation: { used: false, status: 'timeout', privacy: { redacted: true, redaction_count: 1, categories: ['named_identifier'] } },

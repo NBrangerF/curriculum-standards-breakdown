@@ -399,7 +399,7 @@ paths:
       tags: [课程标准]
       operationId: smartSearchStandards
       summary: 用自然语言检索可信课程标准候选
-      description: 可使用 gpt-5-mini 理解查询意图并扩展检索词；Responses API 使用 Structured Outputs，兼容 Chat Completions 路径使用 JSON mode 并由服务端执行同一白名单与结构校验。发送给模型前，服务端会去除可识别的邮箱、手机号、身份证号及带标签的姓名/学校/班级信息，并在 `query_interpretation.privacy` 中只披露类别和数量；原始查询仍仅在进程内用于确定性检索，不写入指标。用户没有显式选择筛选项时，经过白名单校验的 AI 学科包含、学科排除和学段理解会参与确定性筛选；用户显式筛选始终优先。随后由确定性可信检索从允许检索的可追溯字段中返回真实标准 code、命中证据和归一化检索分。模型不会生成或决定标准 code、来源、标准内容和匹配理由；不可用时由具备基础包含、排除与学段语义的确定性解析器回退，不导致检索失败。该端点使用独立的 AI 每分钟限流。请勿主动提交个人信息，所有结果必须人工复核。
+      description: 可使用 gpt-5-mini 将查询拆分为核心主题、紧密扩展词、包含/排除学科与学段；Responses API 使用 Structured Outputs，兼容 Chat Completions 路径使用 JSON mode 并由服务端执行同一白名单与结构校验。发送给模型前，服务端会去除可识别的邮箱、手机号、身份证号及带标签的姓名/学校/班级信息，并在 `query_interpretation.privacy` 中只披露类别和数量；原始查询仍仅在进程内用于确定性检索，不写入指标。用户没有显式选择筛选项时，经过白名单校验的 AI 学科包含、学科排除和学段理解会参与确定性筛选；用户显式筛选始终优先。结构化筛选本身不贡献相关性；候选必须在允许检索的可追溯字段中命中核心主题或紧密扩展词，并以 `direct` 或 `supporting` 返回。结果不足 `limit` 时不会用低相关记录补足，`coverage_note` 会解释当前覆盖。模型不会生成或决定标准 code、来源、标准内容和匹配理由；不可用时由确定性核心概念解析器回退。该端点使用独立的 AI 每分钟限流。请勿主动提交个人信息，所有结果必须人工复核。
       security:
         - ApiKeyAuth: []
         - {}
@@ -420,7 +420,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApiResponse"
+                $ref: "#/components/schemas/SmartSearchResponse"
         "403":
           $ref: "#/components/responses/Forbidden"
         "422":
@@ -1313,6 +1313,107 @@ components:
         keyword: 观察
         include: [public]
         limit: 3
+    SmartSearchMatchedField:
+      title: 智能检索命中证据
+      type: object
+      properties:
+        field: { type: string }
+        matched_terms:
+          type: array
+          items: { type: string }
+        matched_core_terms:
+          type: array
+          items: { type: string }
+        matched_expansion_terms:
+          type: array
+          items: { type: string }
+        excerpt: { type: string }
+        provenance: { type: string }
+        review_status: { type: string }
+        confidence: { type: number, minimum: 0, maximum: 1 }
+        quality_flags:
+          type: array
+          items: { type: string }
+      required: [field, matched_terms, matched_core_terms, matched_expansion_terms, excerpt, provenance, review_status, confidence, quality_flags]
+    SmartSearchResult:
+      title: 具备主题证据的课程标准候选
+      type: object
+      properties:
+        code: { type: string }
+        score:
+          description: 仅用于候选排序，不是正确概率。
+          type: number
+          minimum: 0
+          maximum: 1
+        match_strength:
+          type: string
+          enum: [direct, supporting]
+        matched_concepts:
+          type: array
+          minItems: 1
+          items: { type: string }
+        relevance_reason: { type: string }
+        match_type:
+          type: string
+          enum: [trusted_hybrid_deterministic_v1]
+        matched_fields:
+          type: array
+          minItems: 1
+          items:
+            $ref: "#/components/schemas/SmartSearchMatchedField"
+        rationale: { type: string }
+        requires_human_review:
+          type: boolean
+          enum: [true]
+        standard:
+          $ref: "#/components/schemas/StandardPublic"
+      required: [code, score, match_strength, matched_concepts, relevance_reason, match_type, matched_fields, rationale, requires_human_review, standard]
+    SmartSearchResponse:
+      title: 可信智能检索响应
+      allOf:
+        - $ref: "#/components/schemas/ApiResponse"
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                query: { type: string }
+                parsed_query: { type: object }
+                applied_filters: { type: object }
+                results:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/SmartSearchResult"
+                total_candidates:
+                  description: 仅满足硬筛选的记录数量。
+                  type: integer
+                relevant_candidates:
+                  description: 通过主题证据闸门和最低排序分的候选数量。
+                  type: integer
+                omitted_low_relevance:
+                  description: 因缺少主题证据或未达到最低排序分而省略的数量。
+                  type: integer
+                relevance_summary:
+                  type: object
+                  properties:
+                    direct: { type: integer }
+                    supporting: { type: integer }
+                  required: [direct, supporting]
+                coverage_note: { type: string }
+                relevance_version:
+                  type: string
+                  enum: [topic-evidence-v1]
+                retrieval_version:
+                  type: string
+                  enum: [trusted-hybrid-v1]
+                semantic_provider:
+                  type: string
+                  enum: [none]
+                query_interpretation: { type: object }
+                warnings:
+                  type: array
+                  items: { type: string }
+              required: [query, parsed_query, applied_filters, results, total_candidates, relevant_candidates, omitted_low_relevance, relevance_summary, coverage_note, relevance_version, retrieval_version, semantic_provider, warnings]
     SmartSearchRequest:
       title: 可信智能检索请求
       description: 自然语言查询与可选硬筛选；显式筛选优先于查询自动识别结果。
@@ -1354,11 +1455,11 @@ components:
           maximum: 50
           default: 12
         min_score:
-          description: 排序检索分下限，不代表正确概率。
+          description: 主题证据候选的排序分下限，不代表正确概率；即使设为 0，无主题证据的记录仍不会返回。
           type: number
           minimum: 0
           maximum: 1
-          default: 0.08
+          default: 0.12
     StandardBatchRequest:
       title: 批量标准请求
       description: 通过多个标准 code 批量获取课程标准。

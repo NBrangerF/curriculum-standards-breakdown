@@ -129,13 +129,28 @@ test('smart search understands subject exclusions and lets explicit filters corr
     assert.deepEqual(parsed.subjects, [])
     assert.deepEqual(parsed.excluded_subjects, ['chinese'])
     assert.deepEqual(parsed.grade_bands, ['H1'])
+    assert.deepEqual(parsed.core_terms, ['阅读'])
+    assert.ok(!parsed.terms.some(term => ['语文', '相关', '课标', '段除'].includes(term)))
 
     const repository = new FileCurriculumRepository(dataRoot)
-    const excluded = await repository.smartSearchStandards({ query, min_score: 0, limit: 20 })
+    const excluded = await repository.smartSearchStandards({
+        query,
+        inferred_core_terms: ['阅读'],
+        query_expansion_terms: ['识字与阅读', '阅读理解', '课标阅读要求', '低年级阅读能力', '阅读教学目标', '信息获取'],
+        min_score: 0,
+        limit: 20
+    })
     assert.deepEqual(excluded.applied_filters.excluded_subjects, ['chinese'])
-    assert.ok(excluded.results.length > 0)
+    assert.deepEqual(excluded.results.map(item => item.code), ['IT-H1-DL-001'])
     assert.ok(excluded.results.every(item => item.standard.subject_slug !== 'chinese'))
     assert.ok(excluded.results.every(item => item.standard.grade_band === 'H1'))
+    assert.equal(excluded.results[0].match_strength, 'direct')
+    assert.ok(excluded.results[0].matched_concepts.includes('阅读'))
+    assert.ok(!(excluded.parsed_query.effective_expansion_terms as string[]).includes('信息获取'))
+    assert.deepEqual(excluded.relevance_summary, { direct: 1, supporting: 0 })
+    assert.equal(excluded.relevant_candidates, 1)
+    assert.ok(excluded.omitted_low_relevance > 0)
+    assert.match(excluded.coverage_note, /仅发现 1 条/)
 
     const conflictingInference = await repository.smartSearchStandards({
         query,
@@ -146,7 +161,7 @@ test('smart search understands subject exclusions and lets explicit filters corr
     })
     assert.deepEqual(conflictingInference.applied_filters.subjects, [])
     assert.deepEqual(conflictingInference.applied_filters.excluded_subjects, ['chinese'])
-    assert.ok(conflictingInference.results.every(item => item.standard.subject_slug !== 'chinese'))
+    assert.deepEqual(conflictingInference.results.map(item => item.code), ['IT-H1-DL-001'])
 
     const explicitOverride = await repository.smartSearchStandards({
         query,
@@ -171,8 +186,9 @@ test('smart search excludes fields quarantined from RAG evidence', () => {
             context: { rag_eligible: false, provenance: 'ai_generated', confidence: 0.2, quality_flags: ['possible_truncation'] }
         }
     }], { query: '绝密候选词', subjects: ['science'], grade_bands: ['H2'], min_score: 0 })
-    assert.ok(response.results.length === 1)
-    assert.ok(response.results[0].matched_fields.every(field => field.field !== 'context'))
+    assert.equal(response.results.length, 0)
+    assert.equal(response.relevant_candidates, 0)
+    assert.match(response.coverage_note, /没有发现具备主题证据/)
 })
 
 test('FileCurriculumRepository exposes graph relationships and evidence summaries', async () => {

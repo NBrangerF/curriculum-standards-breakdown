@@ -237,6 +237,7 @@ export interface StandardSearchResult<T = JsonObject> {
 export interface SmartSearchRequest extends StandardFilters {
     query: string
     query_expansion_terms?: string[]
+    inferred_core_terms?: string[]
     excluded_subjects?: string[]
     inferred_subjects?: string[]
     inferred_excluded_subjects?: string[]
@@ -246,9 +247,11 @@ export interface SmartSearchRequest extends StandardFilters {
     min_score?: number
 }
 
-export interface SmartSearchMatchedField extends JsonObject {
+export interface SmartSearchMatchedField {
     field: string
     matched_terms: string[]
+    matched_core_terms: string[]
+    matched_expansion_terms: string[]
     excerpt: string
     provenance: string
     review_status: string
@@ -256,10 +259,14 @@ export interface SmartSearchMatchedField extends JsonObject {
     quality_flags: string[]
 }
 
-export interface SmartSearchResult extends JsonObject {
+export interface SmartSearchResult {
     code: string
     score: number
+    match_strength: 'direct' | 'supporting'
+    matched_concepts: string[]
+    relevance_reason: string
     score_breakdown: {
+        topic_coverage: number
         lexical: number
         structural: number
         skill: number
@@ -279,6 +286,14 @@ export interface SmartSearchResponse extends JsonObject {
     applied_filters: JsonObject
     results: SmartSearchResult[]
     total_candidates: number
+    relevant_candidates: number
+    omitted_low_relevance: number
+    relevance_summary: {
+        direct: number
+        supporting: number
+    }
+    coverage_note: string
+    relevance_version: 'topic-evidence-v1'
     retrieval_version: 'trusted-hybrid-v1'
     semantic_provider: 'none'
     query_interpretation?: JsonObject

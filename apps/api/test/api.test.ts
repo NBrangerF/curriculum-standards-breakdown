@@ -53,6 +53,7 @@ test('LLM query interpreter accepts a schema-constrained Responses API payload',
             assert.equal(request.model, 'gpt-5-mini')
             assert.equal(request.text.format.type, 'json_schema')
             assert.ok(request.text.format.schema.required.includes('excluded_subjects'))
+            assert.ok(request.text.format.schema.required.includes('core_terms'))
             return Response.json({
                 usage: { input_tokens: 81, output_tokens: 35, total_tokens: 116 },
                 output: [{
@@ -64,6 +65,7 @@ test('LLM query interpreter accepts a schema-constrained Responses API payload',
                             excluded_subjects: [],
                             grade_bands: ['H2'],
                             skills: ['TS1'],
+                            core_terms: ['观察', '证据解释'],
                             expanded_terms: ['观察记录', '材料变化', '证据解释'],
                             intent_summary: '查找第二学段科学观察与证据解释相关标准',
                             warnings: []
@@ -78,6 +80,7 @@ test('LLM query interpreter accepts a schema-constrained Responses API payload',
     assert.equal(result.used, true)
     assert.equal(result.protocol, 'responses')
     assert.deepEqual(result.usage, { input_tokens: 81, output_tokens: 35, total_tokens: 116 })
+    assert.deepEqual(result.interpretation?.core_terms, ['观察', '证据解释'])
     assert.deepEqual(result.interpretation?.expanded_terms, ['观察记录', '材料变化', '证据解释'])
 })
 
@@ -101,6 +104,7 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
                     excluded_subjects: [],
                     grade_bands: [],
                     skills: ['TS5'],
+                    core_terms: ['跨媒介表达'],
                     expanded_terms: ['跨媒介阅读', '沟通表达'],
                     intent_summary: '查找语文跨媒介表达标准',
                     warnings: []
@@ -129,6 +133,7 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
             excluded_subjects: [],
             grade_bands: [],
             skills: [],
+            core_terms: ['历史'],
             expanded_terms: ['历史课程'],
             intent_summary: '历史课程',
             warnings: []
@@ -145,6 +150,7 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
             excluded_subjects: ['chinese'],
             grade_bands: [],
             skills: [],
+            core_terms: ['观察'],
             expanded_terms: ['科学观察'],
             intent_summary: '科学观察',
             warnings: []
@@ -603,6 +609,9 @@ test('POST /api/v1/standards/semantic-search returns trusted explainable candida
     assert.ok(body.data.results.every((item: any) => item.standard.subject_slug === 'science'))
     assert.ok(body.data.results.every((item: any) => item.standard.grade_band === 'H2'))
     assert.ok(body.data.results.every((item: any) => item.requires_human_review === true))
+    assert.ok(body.data.results.every((item: any) => ['direct', 'supporting'].includes(item.match_strength)))
+    assert.ok(body.data.results.every((item: any) => item.matched_concepts.length > 0))
+    assert.equal(body.data.relevance_version, 'topic-evidence-v1')
     assert.equal(response.headers.get('x-ratelimit-policy'), 'ai-per-minute')
 })
 
@@ -622,8 +631,14 @@ test('semantic search preserves exclusion intent when AI falls back', async () =
     assert.deepEqual(body.data.parsed_query.excluded_subjects, ['chinese'])
     assert.deepEqual(body.data.applied_filters.excluded_subjects, ['chinese'])
     assert.deepEqual(body.data.applied_filters.grade_bands, ['H1'])
-    assert.ok(body.data.results.length > 0)
-    assert.ok(body.data.results.every((item: any) => item.standard.subject_slug !== 'chinese'))
+    assert.deepEqual(body.data.parsed_query.core_terms, ['阅读'])
+    assert.deepEqual(body.data.results.map((item: any) => item.code), ['IT-H1-DL-001'])
+    assert.equal(body.data.results[0].match_strength, 'direct')
+    assert.ok(body.data.results[0].matched_concepts.includes('阅读'))
+    assert.deepEqual(body.data.relevance_summary, { direct: 1, supporting: 0 })
+    assert.equal(body.data.relevant_candidates, 1)
+    assert.ok(body.data.omitted_low_relevance > 0)
+    assert.match(body.data.coverage_note, /没有用低相关记录补足 12 条/)
 })
 
 test('semantic search redacts identifiers and uses a stricter anonymous rate limit', async () => {
