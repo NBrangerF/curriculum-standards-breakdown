@@ -116,77 +116,69 @@ const CHAT_INSTRUCTIONS = `${INSTRUCTIONS}
 const EVIDENCE_PATH = /^(?:title|subject_slug|grade|grade_band|duration_weeks|lessons_per_week|units\.\d+\.(?:title|week_start|week_end|lesson_count|learning_goals\.\d+|keywords\.\d+))$/u
 const INFERABLE_EVIDENCE_PATH = /^(?:subject_slug|grade|grade_band|units\.\d+\.keywords\.\d+)$/u
 
-function isStringArray(value: unknown, limit: number, maxLength: number): value is string[] {
-    return Array.isArray(value)
-        && value.length <= limit
-        && value.every(item => typeof item === 'string' && item.length <= maxLength)
+function cleanText(value: unknown, maxLength: number): string {
+    return typeof value === 'string' ? value.trim().slice(0, maxLength) : ''
 }
 
-function boundedInteger(value: unknown, maximum: number): value is number {
-    return Number.isInteger(value) && Number(value) >= 0 && Number(value) <= maximum
+function cleanStringArray(value: unknown, limit: number, maxLength: number): string[] {
+    if (!Array.isArray(value)) return []
+    return [...new Set(value
+        .filter(item => typeof item === 'string')
+        .map(item => item.trim().slice(0, maxLength))
+        .filter(Boolean))]
+        .slice(0, limit)
+}
+
+function cleanInteger(value: unknown, maximum: number): number {
+    return Number.isInteger(value) && Number(value) >= 0 && Number(value) <= maximum ? Number(value) : 0
 }
 
 function validateRawPlan(value: unknown): RawPlanInterpretation | null {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null
     const record = value as Record<string, unknown>
-    if (typeof record.title !== 'string' || record.title.length > 300
-        || typeof record.subject_slug !== 'string'
-        || typeof record.grade !== 'string' || record.grade.length > 64
-        || typeof record.grade_band !== 'string'
-        || !boundedInteger(record.duration_weeks, 60)
-        || !boundedInteger(record.lessons_per_week, 20)
-        || !Array.isArray(record.units) || record.units.length > 30
-        || !Array.isArray(record.field_evidence) || record.field_evidence.length > 200
-        || !isStringArray(record.warnings, 10, 200)) return null
-    if (record.subject_slug && !SUBJECTS.includes(record.subject_slug as typeof SUBJECTS[number])) return null
-    if (record.grade_band && !GRADE_BANDS.includes(record.grade_band as typeof GRADE_BANDS[number])) return null
+    const subject = cleanText(record.subject_slug, 64)
+    const gradeBand = cleanText(record.grade_band, 16)
 
     const units: RawPlanUnit[] = []
-    for (const value of record.units) {
-        if (!value || typeof value !== 'object' || Array.isArray(value)) return null
+    for (const value of (Array.isArray(record.units) ? record.units : []).slice(0, 30)) {
+        if (!value || typeof value !== 'object' || Array.isArray(value)) continue
         const unit = value as Record<string, unknown>
-        if (typeof unit.title !== 'string' || unit.title.length > 300
-            || !boundedInteger(unit.week_start, 60)
-            || !boundedInteger(unit.week_end, 60)
-            || !boundedInteger(unit.lesson_count, 200)
-            || !isStringArray(unit.learning_goals, 30, 1000)
-            || !isStringArray(unit.keywords, 30, 120)) return null
         units.push({
-            title: unit.title.trim(),
-            week_start: unit.week_start,
-            week_end: unit.week_end,
-            lesson_count: unit.lesson_count,
-            learning_goals: [...new Set(unit.learning_goals.map(item => item.trim()).filter(Boolean))],
-            keywords: [...new Set(unit.keywords.map(item => item.trim()).filter(Boolean))]
+            title: cleanText(unit.title, 300),
+            week_start: cleanInteger(unit.week_start, 60),
+            week_end: cleanInteger(unit.week_end, 60),
+            lesson_count: cleanInteger(unit.lesson_count, 200),
+            learning_goals: cleanStringArray(unit.learning_goals, 30, 1000),
+            keywords: cleanStringArray(unit.keywords, 30, 120)
         })
     }
 
     const fieldEvidence: RawPlanInterpretation['field_evidence'] = []
-    for (const value of record.field_evidence) {
-        if (!value || typeof value !== 'object' || Array.isArray(value)) return null
+    for (const value of (Array.isArray(record.field_evidence) ? record.field_evidence : []).slice(0, 200)) {
+        if (!value || typeof value !== 'object' || Array.isArray(value)) continue
         const evidence = value as Record<string, unknown>
-        if (typeof evidence.path !== 'string' || !EVIDENCE_PATH.test(evidence.path)
+        const path = cleanText(evidence.path, 120).replace(/\[(\d+)\]/gu, '.$1')
+        if (!EVIDENCE_PATH.test(path)
             || typeof evidence.confidence !== 'number' || evidence.confidence < 0 || evidence.confidence > 1
-            || typeof evidence.source_excerpt !== 'string' || evidence.source_excerpt.length > 300
-            || typeof evidence.inferred !== 'boolean') return null
+            || typeof evidence.source_excerpt !== 'string') continue
         fieldEvidence.push({
-            path: evidence.path,
+            path,
             confidence: Math.round(evidence.confidence * 1000) / 1000,
-            source_excerpt: evidence.source_excerpt.trim(),
-            inferred: evidence.inferred
+            source_excerpt: cleanText(evidence.source_excerpt, 300),
+            inferred: evidence.inferred === true
         })
     }
 
     return {
-        title: record.title.trim(),
-        subject_slug: record.subject_slug.trim(),
-        grade: record.grade.trim(),
-        grade_band: record.grade_band.trim(),
-        duration_weeks: record.duration_weeks,
-        lessons_per_week: record.lessons_per_week,
+        title: cleanText(record.title, 300),
+        subject_slug: SUBJECTS.includes(subject as typeof SUBJECTS[number]) ? subject : '',
+        grade: cleanText(record.grade, 64),
+        grade_band: GRADE_BANDS.includes(gradeBand as typeof GRADE_BANDS[number]) ? gradeBand : '',
+        duration_weeks: cleanInteger(record.duration_weeks, 60),
+        lessons_per_week: cleanInteger(record.lessons_per_week, 20),
         units,
         field_evidence: fieldEvidence,
-        warnings: [...new Set(record.warnings.map(item => item.trim()).filter(Boolean))]
+        warnings: cleanStringArray(record.warnings, 10, 200)
     }
 }
 

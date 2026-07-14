@@ -206,6 +206,35 @@ test('LLM plan parser applies only fields with locatable evidence', async () => 
     assert.equal(result.field_evidence.some(evidence => evidence.source_excerpt === '不存在的片段'), false)
 })
 
+test('LLM plan parser salvages individually valid chat fields', async () => {
+    const input = '单元一：观察植物生长'
+    const fallback = {
+        title: '科学计划', subject_slug: 'science', grade: '三年级', grade_band: 'H2',
+        units: [{ unit_id: 'U1', title: '规则解析单元', learning_goals: [], keywords: [] }]
+    }
+    const result = await parsePlanWithLlm(input, fallback, {
+        env: { KEBIAO_LLM_API_KEY: 'test-secret', KEBIAO_LLM_API_STYLE: 'chat_completions' },
+        fetchImpl: async () => Response.json({
+            choices: [{ message: { content: JSON.stringify({
+                title: null,
+                subject_slug: '科学',
+                grade: '三年级',
+                grade_band: 'H2',
+                duration_weeks: null,
+                lessons_per_week: null,
+                units: [{ title: '观察植物生长', week_start: null, week_end: null, lesson_count: null, learning_goals: null, keywords: [] }],
+                field_evidence: [{ path: 'units[0].title', confidence: 0.94, source_excerpt: '单元一：观察植物生长', inferred: false }],
+                warnings: '请复核'
+            }) } }]
+        })
+    })
+    assert.equal(result.status, 'ok')
+    assert.equal(result.applied, true)
+    assert.equal(result.plan.units?.[0].title, '观察植物生长')
+    assert.equal(result.plan.subject_slug, 'science')
+    assert.equal(result.field_evidence[0]?.path, 'units.0.title')
+})
+
 test('GET /api/v1/meta returns data summary', async () => {
     const response = await app.request('/api/v1/meta')
     assert.equal(response.status, 200)
