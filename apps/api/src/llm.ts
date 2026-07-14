@@ -49,6 +49,12 @@ export interface StructuredLlmAdapter<T> {
     validate: (value: unknown) => T | null
 }
 
+export interface StructuredLlmOptions {
+    env?: NodeJS.ProcessEnv
+    fetchImpl?: typeof fetch
+    timeoutMs?: number
+}
+
 interface LlmConfig {
     enabled: boolean
     apiKey: string
@@ -241,7 +247,7 @@ function requestBody<T>(protocol: LlmProtocol, model: string, input: string, ada
 export async function runStructuredLlm<T>(
     input: string,
     adapter: StructuredLlmAdapter<T>,
-    options: { env?: NodeJS.ProcessEnv, fetchImpl?: typeof fetch } = {}
+    options: StructuredLlmOptions = {}
 ): Promise<StructuredLlmResult<T>> {
     const started = performance.now()
     const config = resolveLlmConfig(options.env)
@@ -258,7 +264,10 @@ export async function runStructuredLlm<T>(
 
     const fetchImpl = options.fetchImpl || fetch
     const controller = new AbortController()
-    const timeout = setTimeout(() => controller.abort(), config.timeoutMs)
+    const timeoutMs = typeof options.timeoutMs === 'number' && Number.isInteger(options.timeoutMs)
+        ? Math.max(500, Math.min(20000, options.timeoutMs))
+        : config.timeoutMs
+    const timeout = setTimeout(() => controller.abort(), timeoutMs)
     const protocols: LlmProtocol[] = config.style === 'auto'
         ? ['responses', 'chat_completions']
         : [config.style]

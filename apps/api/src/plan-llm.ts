@@ -187,6 +187,11 @@ function readPlanMaxChars(env: NodeJS.ProcessEnv): number {
     return Number.isInteger(parsed) ? Math.max(2000, Math.min(20000, parsed)) : 12000
 }
 
+function readPlanTimeoutMs(env: NodeJS.ProcessEnv): number {
+    const parsed = Number(env.KEBIAO_LLM_PLAN_TIMEOUT_MS)
+    return Number.isInteger(parsed) ? Math.max(3000, Math.min(20000, parsed)) : 12000
+}
+
 function supportedEvidence(
     evidenceByPath: Map<string, PlanFieldEvidence>,
     path: string,
@@ -295,7 +300,10 @@ export async function parsePlanWithLlm(
         maxCompletionTokens: 2400,
         validate: validateRawPlan
     }
-    const result = await runStructuredLlm(input, adapter, options)
+    const result = await runStructuredLlm(input, adapter, {
+        ...options,
+        timeoutMs: readPlanTimeoutMs(env)
+    })
     if (!result.output) {
         return {
             ...result,

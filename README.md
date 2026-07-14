@@ -173,6 +173,7 @@ API_BASE=https://www.kebiao.org npm run smoke:api
 | `KEBIAO_LLM_TIMEOUT_MS` | 模型请求超时；默认 3500ms，限制在 500–7000ms |
 | `KEBIAO_LLM_ENABLED` | 设为 `false` 可强制关闭模型；无密钥时始终使用确定性回退 |
 | `KEBIAO_LLM_PLAN_MAX_CHARS` | AI 计划解析允许的最大纯文本长度；默认 12000，限制在 2000–20000 字符，超限自动使用确定性解析 |
+| `KEBIAO_LLM_PLAN_TIMEOUT_MS` | AI 计划解析单独的超时预算；默认 12000ms，限制在 3000–20000ms，不影响查询理解的短超时 |
 
 持久化指标与 API Key 签发/轮换见：`docs/API_OPERATIONS.md`
 
