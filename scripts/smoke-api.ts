@@ -178,6 +178,37 @@ const checks: SmokeCheck[] = [
         }
     },
     {
+        name: 'smart search subject exclusion intent',
+        method: 'POST',
+        path: '/api/v1/standards/semantic-search',
+        body: {
+            query: '第一学段，除了语文学科之外，跟阅读相关的课标',
+            limit: 6,
+            min_score: 0
+        },
+        expect(response, payload) {
+            expectEnvelope(response, payload)
+            const data = expectObject(getData(payload), 'Expected exclusion smart search object')
+            const interpretation = expectObject(data.query_interpretation, 'Expected query interpretation metadata')
+            assert(interpretation.status === 'ok', 'Expected production AI query interpretation to be available')
+            assert(interpretation.used === true, 'Expected production query to use AI interpretation')
+            assert(interpretation.model === 'gpt-5-mini', 'Expected configured gpt-5-mini query interpreter')
+            const filters = expectObject(data.applied_filters, 'Expected applied smart search filters')
+            const excludedSubjects = expectArray(filters.excluded_subjects, 'Expected excluded subjects')
+            const gradeBands = expectArray(filters.grade_bands, 'Expected grade bands')
+            assert(excludedSubjects.includes('chinese'), 'Expected query to exclude Chinese')
+            assert(gradeBands.includes('H1'), 'Expected query to constrain the first learning stage')
+            const results = expectArray(data.results, 'Expected exclusion smart search results')
+            assert(results.length >= 1, 'Expected at least one non-Chinese first-stage result')
+            for (const result of results) {
+                const candidate = expectObject(result, 'Expected smart search candidate object')
+                const standard = expectObject(candidate.standard, 'Expected candidate standard object')
+                assert(standard.subject_slug !== 'chinese', 'Excluded Chinese result leaked into candidates')
+                assert(standard.grade_band === 'H1', 'Result violated first-stage query intent')
+            }
+        }
+    },
+    {
         name: 'trusted plan parsing',
         method: 'POST',
         path: '/api/v1/plans/parse',

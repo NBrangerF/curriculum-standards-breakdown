@@ -16,6 +16,7 @@ export const StandardSearchRequestSchema = z.object({
 export const SmartSearchRequestSchema = z.object({
     query: z.string().trim().min(2).max(500),
     subjects: z.array(z.string().trim().min(1).max(64)).max(20).optional(),
+    excluded_subjects: z.array(z.string().trim().min(1).max(64)).max(20).optional(),
     grade_bands: z.array(z.string().trim().min(1).max(16)).max(6).optional(),
     domains: z.array(z.string().trim().min(1).max(64)).max(40).optional(),
     skills: z.array(z.string().trim().min(1).max(16)).max(7).optional(),

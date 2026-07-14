@@ -123,6 +123,42 @@ test('smart search parses constraints and never violates explicit hard filters',
     assert.equal(result.semantic_provider, 'none')
 })
 
+test('smart search understands subject exclusions and lets explicit filters correct them', async () => {
+    const query = '第一学段，除了语文学科之外，跟阅读相关的课标'
+    const parsed = parseSmartSearchQuery(query)
+    assert.deepEqual(parsed.subjects, [])
+    assert.deepEqual(parsed.excluded_subjects, ['chinese'])
+    assert.deepEqual(parsed.grade_bands, ['H1'])
+
+    const repository = new FileCurriculumRepository(dataRoot)
+    const excluded = await repository.smartSearchStandards({ query, min_score: 0, limit: 20 })
+    assert.deepEqual(excluded.applied_filters.excluded_subjects, ['chinese'])
+    assert.ok(excluded.results.length > 0)
+    assert.ok(excluded.results.every(item => item.standard.subject_slug !== 'chinese'))
+    assert.ok(excluded.results.every(item => item.standard.grade_band === 'H1'))
+
+    const conflictingInference = await repository.smartSearchStandards({
+        query,
+        inferred_subjects: ['chinese'],
+        inferred_grade_bands: ['H1'],
+        min_score: 0,
+        limit: 6
+    })
+    assert.deepEqual(conflictingInference.applied_filters.subjects, [])
+    assert.deepEqual(conflictingInference.applied_filters.excluded_subjects, ['chinese'])
+    assert.ok(conflictingInference.results.every(item => item.standard.subject_slug !== 'chinese'))
+
+    const explicitOverride = await repository.smartSearchStandards({
+        query,
+        subjects: ['chinese'],
+        grade_bands: ['H1'],
+        min_score: 0,
+        limit: 3
+    })
+    assert.deepEqual(explicitOverride.applied_filters.excluded_subjects, [])
+    assert.ok(explicitOverride.results.every(item => item.standard.subject_slug === 'chinese'))
+})
+
 test('smart search excludes fields quarantined from RAG evidence', () => {
     const response = smartSearchStandards([{
         code: 'SC-TEST-001',

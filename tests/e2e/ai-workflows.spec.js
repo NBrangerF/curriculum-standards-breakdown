@@ -56,6 +56,43 @@ test('smart search exposes editable hard filters, trusted evidence and collectio
     await expect(page.getByRole('button', { name: '批量加入当前候选' })).toBeDisabled()
 })
 
+test('smart search applies AI exclusion intent and explains it once', async ({ page }) => {
+    await page.route('**/api/v1/standards/semantic-search', route => {
+        const request = route.request().postDataJSON()
+        expect(request.subjects).toBeUndefined()
+        expect(request.grade_bands).toBeUndefined()
+        return route.fulfill({
+            contentType: 'application/json',
+            body: JSON.stringify(envelope({
+                query: '第一学段，除了语文学科之外，跟阅读相关的课标',
+                parsed_query: { subjects: [], excluded_subjects: ['chinese'], grade_bands: ['H1'], skills: [] },
+                applied_filters: { subjects: [], excluded_subjects: ['chinese'], grade_bands: ['H1'], skills: [] },
+                results: [{ ...candidate, standard: { ...candidate.standard, subject: '科学', subject_slug: 'science', grade: '第一学段', grade_band: 'H1' } }],
+                total_candidates: 20,
+                retrieval_version: 'trusted-hybrid-v1',
+                semantic_provider: 'none',
+                query_interpretation: {
+                    used: true,
+                    status: 'ok',
+                    model: 'gpt-5-mini',
+                    excluded_subjects: ['chinese'],
+                    expanded_terms: ['阅读理解', '信息获取'],
+                    intent_summary: '查找第一学段中除语文以外涉及阅读能力的课程标准。',
+                    privacy: { redacted: false, redaction_count: 0, categories: [] }
+                },
+                warnings: []
+            }))
+        })
+    })
+    await page.goto('/smart-search')
+    await page.getByLabel('描述你的教学目标或使用情境').fill('第一学段，除了语文学科之外，跟阅读相关的课标')
+    await page.getByRole('button', { name: '智能检索' }).click()
+    await expect(page.getByText('排除：语文')).toBeVisible()
+    await expect(page.getByText('学段：第一学段（1–2 年级）')).toBeVisible()
+    await expect(page.getByText('查找第一学段中除语文以外涉及阅读能力的课程标准。')).toBeVisible()
+    await expect(page.getByText('AI 查询理解暂不可用')).toHaveCount(0)
+})
+
 test('smart search discloses privacy redaction and deterministic fallback', async ({ page }) => {
     await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({
         contentType: 'application/json',

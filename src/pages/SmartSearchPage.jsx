@@ -26,6 +26,8 @@ const SKILLS = [
     ['TS6', 'TS6 数字、信息与媒介素养'], ['TS7', 'TS7 全球公民与可持续发展']
 ]
 
+const FILTER_LABELS = Object.fromEntries([...SUBJECTS, ...GRADE_BANDS, ...SKILLS].filter(([value]) => value))
+
 const PROVENANCE_LABELS = {
     official: '课标原文',
     extracted: '课标章节抽取',
@@ -79,8 +81,9 @@ function SmartSearchPage() {
         setBatchMessage(`已将 ${new Set(codes).size} 条当前候选加入“我的清单”，请在使用前继续复核标准原文。`)
     }
 
-    const parsed = result?.parsed_query || {}
     const interpretation = result?.query_interpretation || {}
+    const applied = result?.applied_filters || {}
+    const visibleWarnings = (result?.warnings || []).filter(warning => !warning.includes('AI 查询理解暂不可用'))
 
     return (
         <div className={styles.root} data-kb-route="smart-search">
@@ -123,21 +126,28 @@ function SmartSearchPage() {
                                 </div>
                                 <div className={styles.summaryActions}>
                                     <div className={styles.chips}>
-                                        {[...new Set([...(result.applied_filters?.subjects || []), ...(result.applied_filters?.grade_bands || []), ...(result.applied_filters?.skills || []), ...(parsed.skills || [])])].map(value => <span key={value}>{value}</span>)}
+                                        {(applied.subjects || []).map(value => <span key={`subject-${value}`}>学科：{FILTER_LABELS[value] || value}</span>)}
+                                        {(applied.excluded_subjects || []).map(value => <span key={`excluded-${value}`}>排除：{FILTER_LABELS[value] || value}</span>)}
+                                        {(applied.grade_bands || []).map(value => <span key={`grade-${value}`}>学段：{FILTER_LABELS[value] || value}</span>)}
+                                        {(applied.skills || []).map(value => <span key={`skill-${value}`}>技能：{FILTER_LABELS[value] || value}</span>)}
                                         <span>{interpretation.used ? 'AI 查询理解' : '确定性查询理解'}</span>
                                         <span>可信检索 v1</span>
                                     </div>
                                     <button type="button" onClick={saveAll} disabled={!result.results.length || result.results.every(item => saved.has(item.code))}>批量加入当前候选</button>
                                 </div>
                             </div>
-                            {interpretation.used && interpretation.expanded_terms?.length ? (
-                                <p className={styles.interpretation}><strong>AI 扩展词：</strong>{interpretation.expanded_terms.join(' · ')} <span>仅用于召回，结果与理由仍由可追溯字段生成。</span></p>
+                            {interpretation.used ? (
+                                <div className={styles.interpretation}>
+                                    <p><strong>AI 查询意图：</strong>{interpretation.intent_summary || '已完成结构化查询理解。'}</p>
+                                    {interpretation.expanded_terms?.length ? <p><strong>扩展词：</strong>{interpretation.expanded_terms.join(' · ')}</p> : null}
+                                    <span>AI 只负责理解意图和扩展召回；候选内容、来源与理由仍来自可追溯的课程标准字段。</span>
+                                </div>
                             ) : null}
                             {!interpretation.used && interpretation.status && interpretation.status !== 'disabled' ? (
                                 <p className={styles.notice}>AI 查询理解暂不可用，已自动使用确定性检索，不影响标准数据与来源判断。</p>
                             ) : null}
                             {interpretation.privacy?.redacted ? <p className={styles.notice}>发送到模型服务前已自动移除 {interpretation.privacy.redaction_count} 处可识别信息；原始查询不会写入 API 指标。</p> : null}
-                            {result.warnings?.map(warning => <p className={styles.notice} key={warning}>{warning}</p>)}
+                            {visibleWarnings.map(warning => <p className={styles.notice} key={warning}>{warning}</p>)}
                             <div className={styles.grid}>
                                 {result.results.map(item => {
                                     const standard = item.standard || {}

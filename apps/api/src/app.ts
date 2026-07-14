@@ -342,9 +342,13 @@ export function createApp(repository: FileCurriculumRepository) {
             output_tokens: interpretation.usage?.output_tokens || 0,
             total_tokens: interpretation.usage?.total_tokens || 0
         })
+        const aiInterpretation = interpretation.interpretation
         const result = await repository.smartSearchStandards({
             ...parsed.data,
-            query_expansion_terms: interpretation.interpretation?.expanded_terms || []
+            inferred_subjects: aiInterpretation?.subjects,
+            inferred_excluded_subjects: aiInterpretation?.excluded_subjects,
+            inferred_grade_bands: aiInterpretation?.grade_bands,
+            query_expansion_terms: aiInterpretation?.expanded_terms || []
         })
         result.query_interpretation = {
             used: interpretation.used,
@@ -352,12 +356,13 @@ export function createApp(repository: FileCurriculumRepository) {
             model: interpretation.model,
             protocol: interpretation.protocol,
             latency_ms: interpretation.latency_ms,
-            subjects: interpretation.interpretation?.subjects || [],
-            grade_bands: interpretation.interpretation?.grade_bands || [],
-            skills: interpretation.interpretation?.skills || [],
-            expanded_terms: interpretation.interpretation?.expanded_terms || [],
-            intent_summary: interpretation.interpretation?.intent_summary || '',
-            warnings: interpretation.interpretation?.warnings || [],
+            subjects: aiInterpretation?.subjects || [],
+            excluded_subjects: aiInterpretation?.excluded_subjects || [],
+            grade_bands: aiInterpretation?.grade_bands || [],
+            skills: aiInterpretation?.skills || [],
+            expanded_terms: aiInterpretation?.expanded_terms || [],
+            intent_summary: aiInterpretation?.intent_summary || '',
+            warnings: aiInterpretation?.warnings || [],
             usage: interpretation.usage,
             privacy: {
                 redacted: privacy.redacted,

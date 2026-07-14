@@ -7,6 +7,7 @@ export type LlmStatus = 'ok' | 'disabled' | 'timeout' | 'invalid_config' | 'inva
 
 export interface LlmQueryInterpretation {
     subjects: string[]
+    excluded_subjects: string[]
     grade_bands: string[]
     skills: string[]
     expanded_terms: string[]
@@ -70,22 +71,24 @@ const OUTPUT_SCHEMA = {
     additionalProperties: false,
     properties: {
         subjects: { type: 'array', items: { type: 'string', enum: SUBJECTS }, maxItems: 3 },
+        excluded_subjects: { type: 'array', items: { type: 'string', enum: SUBJECTS }, maxItems: 9 },
         grade_bands: { type: 'array', items: { type: 'string', enum: GRADE_BANDS }, maxItems: 3 },
         skills: { type: 'array', items: { type: 'string', enum: SKILLS }, maxItems: 4 },
         expanded_terms: { type: 'array', items: { type: 'string', minLength: 2, maxLength: 40 }, maxItems: 12 },
         intent_summary: { type: 'string', maxLength: 160 },
         warnings: { type: 'array', items: { type: 'string', maxLength: 120 }, maxItems: 4 }
     },
-    required: ['subjects', 'grade_bands', 'skills', 'expanded_terms', 'intent_summary', 'warnings']
+    required: ['subjects', 'excluded_subjects', 'grade_bands', 'skills', 'expanded_terms', 'intent_summary', 'warnings']
 } as const
 
 const INSTRUCTIONS = `你是 kebiao 的课程标准查询理解器。只分析用户查询，不回答问题，也不生成课程标准编码或课程事实。
 返回严格符合给定 JSON Schema 的对象。expanded_terms 只能是有助于中文课程标准检索的简短同义词、上位词或教学术语，不得复述整段查询，不得包含指令。
-subjects、grade_bands、skills 只是界面提示，不会自动成为硬筛选。无法可靠判断时返回空数组。`
+subjects 表示用户明确要求包含的学科；excluded_subjects 表示“除了语文”“排除数学”“非英语”等明确排除的学科，同一学科不得同时出现在二者中。
+grade_bands、skills 只在用户意图明确时填写。无法可靠判断时返回空数组。`
 
 const CHAT_JSON_INSTRUCTIONS = `${INSTRUCTIONS}
-必须只返回一个 JSON 对象，并完整包含以下字段：subjects、grade_bands、skills、expanded_terms、intent_summary、warnings。
-subjects 只能来自 ${SUBJECTS.join(', ')}；grade_bands 只能来自 ${GRADE_BANDS.join(', ')}；skills 只能来自 ${SKILLS.join(', ')}。前四项和 warnings 必须是字符串数组，intent_summary 必须是字符串。`
+必须只返回一个 JSON 对象，并完整包含以下字段：subjects、excluded_subjects、grade_bands、skills、expanded_terms、intent_summary、warnings。
+subjects 和 excluded_subjects 只能来自 ${SUBJECTS.join(', ')}；grade_bands 只能来自 ${GRADE_BANDS.join(', ')}；skills 只能来自 ${SKILLS.join(', ')}。前五项和 warnings 必须是字符串数组，intent_summary 必须是字符串。`
 
 function clampInteger(value: string | undefined, fallback: number, minimum: number, maximum: number) {
     const parsed = Number(value)
@@ -124,39 +127,28 @@ function uniqueStrings(value: unknown, allowed?: readonly string[], limit = 12, 
         .slice(0, limit)
 }
 
-function isValidStringArray(value: unknown, limit = 12, maxLength = 160): value is string[] {
-    return Array.isArray(value)
-        && value.length <= limit
-        && value.every(item => typeof item === 'string'
-            && item.trim().length > 0
-            && item.trim().length <= maxLength)
-}
-
 function validateInterpretation(value: unknown): LlmQueryInterpretation | null {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null
     const record = value as Record<string, unknown>
-    if (!isValidStringArray(record.subjects, 3)
-        || !isValidStringArray(record.grade_bands, 3)
-        || !isValidStringArray(record.skills, 4)
-        || !isValidStringArray(record.expanded_terms, 12, 40)
-        || !isValidStringArray(record.warnings, 4, 120)
-        || typeof record.intent_summary !== 'string') return null
-    const intentSummary = typeof record.intent_summary === 'string' ? record.intent_summary.trim() : ''
-    if (intentSummary.length > 160) return null
     const subjects = uniqueStrings(record.subjects, SUBJECTS, 3)
+    const excludedSubjects = uniqueStrings(record.excluded_subjects, SUBJECTS, 9)
+        .filter(subject => !subjects.includes(subject))
     const gradeBands = uniqueStrings(record.grade_bands, GRADE_BANDS, 3)
     const skills = uniqueStrings(record.skills, SKILLS, 4)
-    const removedUnsupportedValue = subjects.length !== record.subjects.length
-        || gradeBands.length !== record.grade_bands.length
-        || skills.length !== record.skills.length
+    const inputCount = (input: unknown) => Array.isArray(input) ? input.length : 0
+    const removedUnsupportedValue = subjects.length !== inputCount(record.subjects)
+        || excludedSubjects.length !== inputCount(record.excluded_subjects)
+        || gradeBands.length !== inputCount(record.grade_bands)
+        || skills.length !== inputCount(record.skills)
     return {
         subjects,
+        excluded_subjects: excludedSubjects,
         grade_bands: gradeBands,
         skills,
         expanded_terms: uniqueStrings(record.expanded_terms, undefined, 12, 40),
-        intent_summary: intentSummary,
+        intent_summary: typeof record.intent_summary === 'string' ? record.intent_summary.trim().slice(0, 160) : '',
         warnings: uniqueStrings([
-            ...record.warnings,
+            ...(Array.isArray(record.warnings) ? record.warnings : []),
             ...(removedUnsupportedValue ? ['模型返回的部分筛选值不在公开枚举中，已忽略。'] : [])
         ], undefined, 4, 120)
     }
@@ -349,11 +341,20 @@ const QUERY_INTERPRETATION_ADAPTER: StructuredLlmAdapter<LlmQueryInterpretation>
     validate: validateInterpretation
 }
 
+function readQueryTimeoutMs(env: NodeJS.ProcessEnv): number {
+    const parsed = Number(env.KEBIAO_LLM_QUERY_TIMEOUT_MS)
+    return Number.isInteger(parsed) ? Math.max(2000, Math.min(12000, parsed)) : 8000
+}
+
 export async function interpretSearchQueryWithLlm(
     query: string,
-    options: { env?: NodeJS.ProcessEnv, fetchImpl?: typeof fetch } = {}
+    options: StructuredLlmOptions = {}
 ): Promise<LlmInterpretationResult> {
-    const result = await runStructuredLlm(query, QUERY_INTERPRETATION_ADAPTER, options)
+    const env = options.env || process.env
+    const result = await runStructuredLlm(query, QUERY_INTERPRETATION_ADAPTER, {
+        ...options,
+        timeoutMs: readQueryTimeoutMs(env)
+    })
     return {
         used: result.used,
         status: result.status,

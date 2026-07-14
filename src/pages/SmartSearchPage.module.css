@@ -27,6 +27,8 @@
 .chips span, .cardMeta span, .evidence span { border: 1px solid rgba(61,90,254,.18); border-radius: 999px; padding: .3rem .55rem; background: rgba(61,90,254,.06); color: #3347a8; font-size: .7rem; }
 .notice, .error { padding: .9rem 1rem; border-left: 3px solid #d58c14; background: #fff8e9; color: #6b4a11; }
 .interpretation { margin: 0 0 1rem; padding: .8rem 1rem; border: 1px solid rgba(61,90,254,.16); border-radius: .65rem; background: rgba(61,90,254,.045); color: var(--text-secondary); line-height: 1.65; }
+.interpretation p { margin: 0; }
+.interpretation p + p { margin-top: .35rem; }
 .interpretation strong { color: var(--text-primary); }
 .interpretation span { display: block; margin-top: .2rem; font-size: .82rem; }
 .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }

@@ -52,6 +52,7 @@ test('LLM query interpreter accepts a schema-constrained Responses API payload',
             const request = JSON.parse(String(init?.body))
             assert.equal(request.model, 'gpt-5-mini')
             assert.equal(request.text.format.type, 'json_schema')
+            assert.ok(request.text.format.schema.required.includes('excluded_subjects'))
             return Response.json({
                 usage: { input_tokens: 81, output_tokens: 35, total_tokens: 116 },
                 output: [{
@@ -60,6 +61,7 @@ test('LLM query interpreter accepts a schema-constrained Responses API payload',
                         type: 'output_text',
                         text: JSON.stringify({
                             subjects: ['science'],
+                            excluded_subjects: [],
                             grade_bands: ['H2'],
                             skills: ['TS1'],
                             expanded_terms: ['观察记录', '材料变化', '证据解释'],
@@ -96,6 +98,7 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
             return Response.json({
                 choices: [{ message: { content: JSON.stringify({
                     subjects: ['chinese'],
+                    excluded_subjects: [],
                     grade_bands: [],
                     skills: ['TS5'],
                     expanded_terms: ['跨媒介阅读', '沟通表达'],
@@ -123,6 +126,7 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
         env: { KEBIAO_LLM_API_KEY: 'test-secret' },
         fetchImpl: async () => Response.json({ output_text: JSON.stringify({
             subjects: ['history'],
+            excluded_subjects: [],
             grade_bands: [],
             skills: [],
             expanded_terms: ['历史课程'],
@@ -138,6 +142,7 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
         env: { KEBIAO_LLM_API_KEY: 'test-secret' },
         fetchImpl: async () => Response.json({ output_text: JSON.stringify({
             subjects: [42],
+            excluded_subjects: ['chinese'],
             grade_bands: [],
             skills: [],
             expanded_terms: ['科学观察'],
@@ -145,7 +150,9 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
             warnings: []
         }) })
     })
-    assert.equal(invalidShape.status, 'invalid_response')
+    assert.equal(invalidShape.status, 'ok')
+    assert.deepEqual(invalidShape.interpretation?.subjects, [])
+    assert.deepEqual(invalidShape.interpretation?.excluded_subjects, ['chinese'])
 })
 
 test('LLM plan parser applies only fields with locatable evidence', async () => {
@@ -597,6 +604,26 @@ test('POST /api/v1/standards/semantic-search returns trusted explainable candida
     assert.ok(body.data.results.every((item: any) => item.standard.grade_band === 'H2'))
     assert.ok(body.data.results.every((item: any) => item.requires_human_review === true))
     assert.equal(response.headers.get('x-ratelimit-policy'), 'ai-per-minute')
+})
+
+test('semantic search preserves exclusion intent when AI falls back', async () => {
+    const response = await app.request('/api/v1/standards/semantic-search', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'smart-search-exclusion-test' },
+        body: JSON.stringify({
+            query: '第一学段，除了语文学科之外，跟阅读相关的课标',
+            limit: 12,
+            min_score: 0
+        })
+    })
+    assert.equal(response.status, 200)
+    const body = await json(response)
+    assert.deepEqual(body.data.parsed_query.subjects, [])
+    assert.deepEqual(body.data.parsed_query.excluded_subjects, ['chinese'])
+    assert.deepEqual(body.data.applied_filters.excluded_subjects, ['chinese'])
+    assert.deepEqual(body.data.applied_filters.grade_bands, ['H1'])
+    assert.ok(body.data.results.length > 0)
+    assert.ok(body.data.results.every((item: any) => item.standard.subject_slug !== 'chinese'))
 })
 
 test('semantic search redacts identifiers and uses a stricter anonymous rate limit', async () => {

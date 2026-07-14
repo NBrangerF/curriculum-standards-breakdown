@@ -237,6 +237,10 @@ export interface StandardSearchResult<T = JsonObject> {
 export interface SmartSearchRequest extends StandardFilters {
     query: string
     query_expansion_terms?: string[]
+    excluded_subjects?: string[]
+    inferred_subjects?: string[]
+    inferred_excluded_subjects?: string[]
+    inferred_grade_bands?: string[]
     include?: Fieldset[]
     limit?: number
     min_score?: number

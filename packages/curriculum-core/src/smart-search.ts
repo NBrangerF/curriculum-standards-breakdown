@@ -80,6 +80,30 @@ function detectAliases(text: string, aliases: Record<string, string[]>): string[
         .map(([key]) => key)
 }
 
+function escapeRegExp(value: string): string {
+    return value.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&')
+}
+
+function isExcludedAlias(text: string, alias: string): boolean {
+    const escaped = escapeRegExp(alias)
+    return [
+        new RegExp(`(?:除了?|排除|不含|不要|剔除|不是|非)\\s*[^，。；;]{0,12}${escaped}(?:[^，。；;]{0,12}(?:之外|以外|外))?`, 'iu'),
+        new RegExp(`${escaped}\\s*[^，。；;]{0,8}(?:除外|排除|不包含|不要)`, 'iu')
+    ].some(pattern => pattern.test(text))
+}
+
+function detectSubjectIntent(text: string) {
+    const included: string[] = []
+    const excluded: string[] = []
+    for (const [subject, aliases] of Object.entries(SUBJECT_ALIASES)) {
+        const matches = aliases.filter(alias => text.toLowerCase().includes(alias.toLowerCase()))
+        if (!matches.length) continue
+        if (matches.some(alias => isExcludedAlias(text, alias))) excluded.push(subject)
+        else included.push(subject)
+    }
+    return { included: unique(included), excluded: unique(excluded) }
+}
+
 function fieldTrust(record: StandardRecord, field: string) {
     const metadata = ensureObject(ensureObject(record.field_provenance)[field])
     return {
@@ -94,9 +118,11 @@ function fieldTrust(record: StandardRecord, field: string) {
 export function parseSmartSearchQuery(query: string) {
     const text = String(query || '').trim()
     const gradeBands = GRADE_PATTERNS.filter(([pattern]) => pattern.test(text)).map(([, band]) => band)
+    const subjectIntent = detectSubjectIntent(text)
     return {
         original: text,
-        subjects: detectAliases(text, SUBJECT_ALIASES),
+        subjects: subjectIntent.included,
+        excluded_subjects: subjectIntent.excluded,
         grade_bands: unique(gradeBands),
         skills: detectAliases(text, SKILL_ALIASES),
         terms: textTokens(text)
@@ -112,10 +138,24 @@ function mergeFilters(request: SmartSearchRequest, parsed: ReturnType<typeof par
         }
         return unique(explicit)
     }
+    const explicitSubjects = unique(request.subjects || [])
+    const inferredSubjects = request.inferred_subjects?.length
+        ? unique(request.inferred_subjects)
+        : parsed.subjects
+    const inferredGradeBands = request.inferred_grade_bands?.length
+        ? unique(request.inferred_grade_bands)
+        : parsed.grade_bands
+    const excludedSubjects = unique([
+        ...(request.excluded_subjects || []),
+        ...(request.inferred_excluded_subjects || []),
+        ...parsed.excluded_subjects
+    ]).filter(subject => !explicitSubjects.includes(subject))
+    const allowedInferredSubjects = inferredSubjects.filter(subject => !excludedSubjects.includes(subject))
     return {
         filters: {
-            subjects: merge(request.subjects, parsed.subjects, '学科'),
-            grade_bands: merge(request.grade_bands, parsed.grade_bands, '学段'),
+            subjects: merge(request.subjects, allowedInferredSubjects, '学科'),
+            excluded_subjects: excludedSubjects,
+            grade_bands: merge(request.grade_bands, inferredGradeBands, '学段'),
             domains: unique(request.domains || []),
             // Skill language is broad and polysemous (for example “信息”); inferred
             // skills remain a ranking signal. Only an explicit skill filter is hard.
@@ -134,6 +174,7 @@ function mainSkills(record: StandardRecord): string[] {
 
 function matchesHardFilters(record: StandardRecord, filters: ReturnType<typeof mergeFilters>['filters']): boolean {
     if (filters.subjects.length && !filters.subjects.includes(String(record.subject_slug))) return false
+    if (filters.excluded_subjects.includes(String(record.subject_slug))) return false
     if (filters.grade_bands.length && !filters.grade_bands.includes(String(record.grade_band))) return false
     if (filters.domains.length && !filters.domains.includes(String(record.domain))) return false
     if (filters.skills.length && !filters.skills.some(skill => mainSkills(record).includes(skill))) return false

@@ -193,10 +193,13 @@ export class FileCurriculumRepository {
         return subjects.size ? [...subjects] : undefined
     }
 
-    async validateSearchFilters(request: StandardSearchRequest): Promise<string[]> {
+    async validateSearchFilters(request: StandardSearchRequest & { excluded_subjects?: string[] }): Promise<string[]> {
         const errors: string[] = []
         for (const subject of request.subjects || []) {
             if (!isKnownSubjectSlug(subject)) errors.push(`未知学科：${subject}`)
+        }
+        for (const subject of request.excluded_subjects || []) {
+            if (!isKnownSubjectSlug(subject)) errors.push(`未知排除学科：${subject}`)
         }
         for (const gradeBand of request.grade_bands || []) {
             if (!isKnownGradeBand(gradeBand)) errors.push(`未知学段：${gradeBand}`)
