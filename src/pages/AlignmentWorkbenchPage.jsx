@@ -21,6 +21,7 @@ function AlignmentWorkbenchPage() {
     const [matches, setMatches] = useState(null)
     const [decisions, setDecisions] = useState({})
     const [coverage, setCoverage] = useState(null)
+    const [referenceCodesText, setReferenceCodesText] = useState('')
     const [status, setStatus] = useState('')
     const [error, setError] = useState('')
 
@@ -39,7 +40,17 @@ function AlignmentWorkbenchPage() {
         } catch (requestError) { setError(requestError.message); setStatus('') }
     }
 
-    function updatePlan(field, value) { setPlan(previous => ({ ...previous, [field]: value })) }
+    function invalidateMatches() {
+        if (matches) setStatus('计划结构已修改，旧候选已失效；请重新查找候选标准。')
+        setMatches(null)
+        setDecisions({})
+        setCoverage(null)
+    }
+
+    function updatePlan(field, value) {
+        setPlan(previous => ({ ...previous, [field]: value }))
+        invalidateMatches()
+    }
     function updateUnit(index, field, value) {
         setPlan(previous => ({
             ...previous,
@@ -47,6 +58,7 @@ function AlignmentWorkbenchPage() {
                 ? { ...unit, [field]: field === 'learning_goals' ? value.split('\n').map(item => item.trim()).filter(Boolean) : value }
                 : unit)
         }))
+        invalidateMatches()
     }
 
     async function match() {
@@ -67,13 +79,17 @@ function AlignmentWorkbenchPage() {
         if (!plan || !matches) return
         setStatus('正在根据教师决定计算覆盖…'); setError('')
         try {
+            const referenceScopeCodes = referenceCodesText.split(/[\s,，;；]+/u).map(code => code.trim()).filter(Boolean)
             const payload = await postApi('/api/v1/plans/analyze-coverage', {
                 plan,
-                matches,
-                review_decisions: decisionList
+                top_k_per_unit: 5,
+                review_decisions: decisionList,
+                reference_scope_codes: referenceScopeCodes.length ? referenceScopeCodes : undefined
             })
             setCoverage(payload.data)
-            setStatus('覆盖只统计已接受候选；未设置参考标准范围，因此不会生成“缺口”结论。')
+            setStatus(referenceScopeCodes.length
+                ? '覆盖只统计已接受候选；缺口仅相对于你提供的参考标准范围计算。'
+                : '覆盖只统计已接受候选；未设置参考标准范围，因此不会生成“缺口”结论。')
         } catch (requestError) { setError(requestError.message); setStatus('') }
     }
 
@@ -122,6 +138,7 @@ function AlignmentWorkbenchPage() {
 
                 {matches ? <section className={styles.panel} aria-labelledby="candidate-title">
                     <div className={styles.panelHead}><div><p className={styles.eyebrow}>03 / 教师审核</p><h2 id="candidate-title">候选标准</h2></div><button type="button" onClick={analyze}>分析已确认覆盖</button></div>
+                    <label className={styles.referenceScope}>可选参考标准范围（用空格或逗号分隔 code）<textarea rows={2} value={referenceCodesText} onChange={event => { setReferenceCodesText(event.target.value); setCoverage(null) }} placeholder="例如 SC-D2-SC-010, SC-D2-PR-001；留空时不生成缺口结论" /><span>只有提供明确参照集合时，系统才会计算“未覆盖参考标准”。</span></label>
                     {matches.units.map(unit => <div className={styles.matchUnit} key={unit.unit_id}><h3>{unit.unit_title}</h3><div className={styles.candidates}>{unit.matches.map(match => {
                         const decision = decisions[`${unit.unit_id}::${match.code}`]
                         return <article key={match.code} data-decision={decision || 'unreviewed'}><div><span>{match.code}</span><span>{Math.round(match.score * 100)} 检索分</span><span>{decision === 'accepted' ? '已接受' : decision === 'rejected' ? '已拒绝' : '待复核'}</span></div><h4><Link to={`/standards/${match.code}`}>{match.standard.standard_title || match.standard.standard}</Link></h4><p>{match.rationale}</p><div className={styles.decisionButtons}><button type="button" onClick={() => decide(unit.unit_id, match.code, 'accepted')} aria-pressed={decision === 'accepted'}>接受</button><button type="button" onClick={() => decide(unit.unit_id, match.code, 'rejected')} aria-pressed={decision === 'rejected'}>拒绝</button></div></article>
@@ -130,8 +147,9 @@ function AlignmentWorkbenchPage() {
 
                 {coverage ? <section className={styles.panel} aria-labelledby="coverage-title">
                     <div className={styles.panelHead}><div><p className={styles.eyebrow}>04 / 覆盖</p><h2 id="coverage-title">教师确认后的覆盖</h2></div><button type="button" onClick={saveAccepted} disabled={!acceptedCodes.length}>加入我的清单</button></div>
-                    <div className={styles.metrics}><div><strong>{coverage.covered_standard_codes.length}</strong><span>已确认标准</span></div><div><strong>{coverage.unreviewed_standard_codes.length}</strong><span>未复核候选</span></div><div><strong>{coverage.rejected_standard_codes.length}</strong><span>已拒绝候选</span></div></div>
-                    <p className={styles.privacy}>只有“已接受”会计入覆盖。“缺口”需要明确参考范围，本次未提供，因此系统不会制造缺口结论。</p>
+                    <div className={styles.metrics}><div><strong>{coverage.covered_standard_codes.length}</strong><span>已确认标准</span></div><div><strong>{coverage.unreviewed_standard_codes.length}</strong><span>未复核候选</span></div><div><strong>{coverage.rejected_standard_codes.length}</strong><span>已拒绝候选</span></div><div><strong>{coverage.reference_scope_codes.length}</strong><span>参考范围</span></div><div><strong>{coverage.gap_standard_codes.length}</strong><span>参照范围内未覆盖</span></div></div>
+                    <p className={styles.privacy}>只有“已接受”会计入覆盖；未提供参考范围时不会生成缺口结论。覆盖 API 会在当前数据版本上重新计算候选，不信任浏览器回传的匹配对象。</p>
+                    {coverage.warnings?.map(warning => <p className={styles.coverageWarning} key={warning}>{warning}</p>)}
                 </section> : null}
             </main>
         </div>

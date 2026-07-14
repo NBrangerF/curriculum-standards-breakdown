@@ -11,12 +11,19 @@
 .searchForm textarea:focus { outline: 0; }
 .searchForm button, .actions button { min-height: 2.75rem; border: 0; border-radius: .55rem; padding: 0 1.2rem; background: var(--color-primary); color: #fff; font-weight: 700; cursor: pointer; }
 .searchForm button:disabled, .actions button:disabled { opacity: .55; cursor: default; }
+.filters { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .65rem; margin: 1rem 0 0; border: 0; padding: 0; }
+.filters legend { margin-bottom: .6rem; color: var(--text-secondary); font-size: .78rem; font-weight: 650; }
+.filters label { display: grid; gap: .35rem; color: var(--text-secondary); font-size: .72rem; }
+.filters select { min-width: 0; min-height: 2.75rem; border: 1px solid var(--border-default); border-radius: .55rem; padding: 0 .65rem; background: rgba(255,255,255,.88); color: var(--text-primary); }
 .examples { display: flex; flex-wrap: wrap; gap: .5rem; max-width: 60rem; margin-top: 1rem; }
 .examples button { min-height: 2.5rem; border: 1px solid var(--border-default); border-radius: 999px; padding: 0 .9rem; background: rgba(255,255,255,.7); color: var(--text-secondary); cursor: pointer; }
 .results { padding: 3rem 0 6rem; }
 .summary { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
 .summary h2 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.5rem); letter-spacing: -.04em; }
 .chips { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .4rem; }
+.summaryActions { display: grid; justify-items: end; gap: .7rem; }
+.summaryActions > button { min-height: 2.6rem; border: 1px solid var(--border-default); border-radius: .55rem; padding: 0 .85rem; background: #fff; color: var(--color-primary); font-weight: 700; cursor: pointer; }
+.summaryActions > button:disabled { opacity: .5; cursor: default; }
 .chips span, .cardMeta span, .evidence span { border: 1px solid rgba(61,90,254,.18); border-radius: 999px; padding: .3rem .55rem; background: rgba(61,90,254,.06); color: #3347a8; font-size: .7rem; }
 .notice, .error { padding: .9rem 1rem; border-left: 3px solid #d58c14; background: #fff8e9; color: #6b4a11; }
 .interpretation { margin: 0 0 1rem; padding: .8rem 1rem; border: 1px solid rgba(61,90,254,.16); border-radius: .65rem; background: rgba(61,90,254,.045); color: var(--text-secondary); line-height: 1.65; }
@@ -36,7 +43,11 @@
 .actions { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: 1rem; }
 .actions a { color: var(--color-primary); font-weight: 650; }
 .empty { min-height: 20rem; display: grid; place-items: center; color: var(--text-secondary); }
+.loadingState { display: flex; align-items: center; gap: .7rem; min-height: 4rem; margin-bottom: 1rem; color: var(--text-secondary); }
+.loadingState span { width: 1rem; height: 1rem; border: 2px solid rgba(61,90,254,.2); border-top-color: var(--color-primary); border-radius: 50%; animation: search-spin .8s linear infinite; }
 
-@media (max-width: 760px) { .searchForm > div { grid-template-columns: 1fr; } .searchForm button { min-height: 3.1rem; } .grid { grid-template-columns: 1fr; } .summary { align-items: flex-start; flex-direction: column; } .chips { justify-content: flex-start; } }
+@keyframes search-spin { to { transform: rotate(360deg); } }
 
-@media (prefers-reduced-motion: reduce) { .card, .searchForm > div { box-shadow: none; } }
+@media (max-width: 760px) { .searchForm > div { grid-template-columns: 1fr; } .searchForm button { min-height: 3.1rem; } .filters { grid-template-columns: 1fr 1fr; } .grid { grid-template-columns: 1fr; } .summary { align-items: flex-start; flex-direction: column; } .summaryActions { justify-items: start; } .chips { justify-content: flex-start; } }
+
+@media (prefers-reduced-motion: reduce) { .card, .searchForm > div { box-shadow: none; } .loadingState span { animation: none; } }

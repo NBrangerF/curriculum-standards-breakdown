@@ -5,6 +5,7 @@ import { readFile, rm } from 'node:fs/promises'
 import { FileCurriculumRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
 import { interpretSearchQueryWithLlm, resolveLlmConfig } from '../src/llm.js'
+import { redactSensitiveText } from '../src/ai-privacy.js'
 import vercelHandler from '../../../api/v1/[...path].js'
 
 const dataRoot = resolve(process.cwd(), '../../data/internal')
@@ -27,6 +28,15 @@ test('LLM query interpreter is disabled without a secret and keeps safe defaults
     assert.equal(result.interpretation, null)
 })
 
+test('AI privacy filter removes direct identifiers before provider calls', () => {
+    const result = redactSensitiveText('学校：示例小学，学生姓名：张三，电话 13800138000，邮箱 teacher@example.com，身份证 11010519491231002X；查找三年级科学观察。')
+    assert.equal(result.redacted, true)
+    assert.equal(result.redaction_count, 5)
+    assert.deepEqual(new Set(result.categories), new Set(['named_identifier', 'phone', 'email', 'national_id']))
+    assert.doesNotMatch(result.text, /示例小学|张三|13800138000|teacher@example\.com|11010519491231002X/)
+    assert.match(result.text, /三年级科学观察/)
+})
+
 test('LLM query interpreter accepts a schema-constrained Responses API payload', async () => {
     let endpoint = ''
     const result = await interpretSearchQueryWithLlm('三四年级科学观察材料', {
@@ -42,6 +52,7 @@ test('LLM query interpreter accepts a schema-constrained Responses API payload',
             assert.equal(request.model, 'gpt-5-mini')
             assert.equal(request.text.format.type, 'json_schema')
             return Response.json({
+                usage: { input_tokens: 81, output_tokens: 35, total_tokens: 116 },
                 output: [{
                     type: 'message',
                     content: [{
@@ -63,6 +74,7 @@ test('LLM query interpreter accepts a schema-constrained Responses API payload',
     assert.equal(result.status, 'ok')
     assert.equal(result.used, true)
     assert.equal(result.protocol, 'responses')
+    assert.deepEqual(result.usage, { input_tokens: 81, output_tokens: 35, total_tokens: 116 })
     assert.deepEqual(result.interpretation?.expanded_terms, ['观察记录', '材料变化', '证据解释'])
 })
 
@@ -105,6 +117,19 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
     })
     assert.equal(malformed.status, 'invalid_response')
     assert.equal(malformed.used, false)
+
+    const invalidEnum = await interpretSearchQueryWithLlm('历史课程', {
+        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        fetchImpl: async () => Response.json({ output_text: JSON.stringify({
+            subjects: ['history'],
+            grade_bands: [],
+            skills: [],
+            expanded_terms: ['历史课程'],
+            intent_summary: '历史课程',
+            warnings: []
+        }) })
+    })
+    assert.equal(invalidEnum.status, 'invalid_response')
 })
 
 test('GET /api/v1/meta returns data summary', async () => {
@@ -234,6 +259,30 @@ test('metrics can persist sanitized request events to file', async () => {
     assert.equal(body.data.sink, 'file')
     assert.ok(body.data.persistent.total_requests >= 1)
     assert.equal('body' in body.data.persistent, false)
+})
+
+test('AI metrics persist status and redaction counts without query contents', async () => {
+    const metricsFile = '/tmp/curriculum-api-ai-metrics.ndjson'
+    await rm(metricsFile, { force: true })
+    process.env.CURRICULUM_METRICS_FILE = metricsFile
+    await app.request('/api/v1/standards/semantic-search', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'ai-metrics-test' },
+        body: JSON.stringify({
+            query: '教师姓名：张三 科学观察',
+            subjects: ['science'],
+            grade_bands: ['H2'],
+            limit: 1
+        })
+    })
+    delete process.env.CURRICULUM_METRICS_FILE
+    const persisted = await readFile(metricsFile, 'utf8')
+    await rm(metricsFile, { force: true })
+    const event = JSON.parse(persisted.trim().split('\n').at(-1) || '{}')
+    assert.equal(event.ai.feature, 'query_interpretation')
+    assert.equal(event.ai.status, 'disabled')
+    assert.equal(event.ai.redaction_count, 1)
+    assert.doesNotMatch(persisted, /张三|科学观察/)
 })
 
 test('metrics can persist sanitized events to Upstash Redis REST', async () => {
@@ -444,6 +493,38 @@ test('POST /api/v1/standards/semantic-search returns trusted explainable candida
     assert.ok(body.data.results.every((item: any) => item.standard.subject_slug === 'science'))
     assert.ok(body.data.results.every((item: any) => item.standard.grade_band === 'H2'))
     assert.ok(body.data.results.every((item: any) => item.requires_human_review === true))
+    assert.equal(response.headers.get('x-ratelimit-policy'), 'ai-per-minute')
+})
+
+test('semantic search redacts identifiers and uses a stricter anonymous rate limit', async () => {
+    const privacyResponse = await app.request('/api/v1/standards/semantic-search', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'smart-search-privacy-test' },
+        body: JSON.stringify({
+            query: '学生姓名：张三，邮箱 teacher@example.com，查找三四年级科学观察',
+            subjects: ['science'],
+            grade_bands: ['H2'],
+            limit: 1,
+            min_score: 0
+        })
+    })
+    assert.equal(privacyResponse.status, 200)
+    const privacyBody = await json(privacyResponse)
+    assert.equal(privacyBody.data.query_interpretation.privacy.redacted, true)
+    assert.equal(privacyBody.data.query_interpretation.privacy.redaction_count, 2)
+    assert.ok(privacyBody.data.warnings.some((warning: string) => warning.includes('可识别个人信息')))
+
+    const statuses: number[] = []
+    for (let index = 0; index < 11; index += 1) {
+        const response = await app.request('/api/v1/standards/semantic-search', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json', 'x-forwarded-for': 'smart-search-rate-limit-test' },
+            body: JSON.stringify({ query: '科学观察', limit: 1, min_score: 0 })
+        })
+        statuses.push(response.status)
+    }
+    assert.deepEqual(statuses.slice(0, 10), Array(10).fill(200))
+    assert.equal(statuses[10], 429)
 })
 
 test('plan alignment APIs require teacher decisions before coverage', async () => {
@@ -488,6 +569,45 @@ test('plan alignment APIs require teacher decisions before coverage', async () =
     assert.equal(reviewedResponse.status, 200)
     const reviewed = await json(reviewedResponse)
     assert.deepEqual(reviewed.data.covered_standard_codes, [first.code])
+
+    const forgedResponse = await app.request('/api/v1/plans/analyze-coverage', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-forgery-test' },
+        body: JSON.stringify({
+            plan,
+            matches: {
+                plan,
+                units: [{
+                    unit_id: matchBody.data.units[0].unit_id,
+                    unit_title: '伪造单元',
+                    matches: [{
+                        code: 'FAKE-D2-XX-999',
+                        score: 1,
+                        match_type: 'trusted_hybrid_deterministic_v1',
+                        matched_fields: [],
+                        rationale: '伪造',
+                        requires_human_review: true,
+                        standard: { code: 'FAKE-D2-XX-999', domain: '伪造领域' }
+                    }]
+                }],
+                warnings: []
+            },
+            review_decisions: [{ unit_id: matchBody.data.units[0].unit_id, code: 'FAKE-D2-XX-999', decision: 'accepted' }]
+        })
+    })
+    assert.equal(forgedResponse.status, 200)
+    const forged = await json(forgedResponse)
+    assert.equal(forged.data.covered_standard_codes.includes('FAKE-D2-XX-999'), false)
+    assert.ok(forged.data.warnings.some((warning: string) => warning.includes('客户端回传的匹配对象不作为可信事实')))
+
+    const invalidScopeResponse = await app.request('/api/v1/plans/analyze-coverage', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-scope-test' },
+        body: JSON.stringify({ plan, reference_scope_codes: ['FAKE-D2-XX-999'] })
+    })
+    assert.equal(invalidScopeResponse.status, 422)
+    const invalidScope = await json(invalidScopeResponse)
+    assert.equal(invalidScope.error.code, 'invalid_reference_scope')
 })
 
 test('POST /api/v1/standards/batch returns found items and missing codes', async () => {

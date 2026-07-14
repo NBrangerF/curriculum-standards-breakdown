@@ -21,6 +21,13 @@ export interface LlmInterpretationResult {
     protocol: LlmProtocol | null
     latency_ms: number
     interpretation: LlmQueryInterpretation | null
+    usage: LlmUsage | null
+}
+
+export interface LlmUsage {
+    input_tokens: number
+    output_tokens: number
+    total_tokens: number
 }
 
 interface LlmConfig {
@@ -92,12 +99,24 @@ function uniqueStrings(value: unknown, allowed?: readonly string[], limit = 12, 
         .slice(0, limit)
 }
 
+function isValidStringArray(value: unknown, allowed?: readonly string[], limit = 12, maxLength = 160): value is string[] {
+    return Array.isArray(value)
+        && value.length <= limit
+        && value.every(item => typeof item === 'string'
+            && item.trim().length > 0
+            && item.trim().length <= maxLength
+            && (!allowed || allowed.includes(item.trim())))
+}
+
 function validateInterpretation(value: unknown): LlmQueryInterpretation | null {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null
     const record = value as Record<string, unknown>
-    if (!Array.isArray(record.subjects) || !Array.isArray(record.grade_bands)
-        || !Array.isArray(record.skills) || !Array.isArray(record.expanded_terms)
-        || !Array.isArray(record.warnings) || typeof record.intent_summary !== 'string') return null
+    if (!isValidStringArray(record.subjects, SUBJECTS, 3)
+        || !isValidStringArray(record.grade_bands, GRADE_BANDS, 3)
+        || !isValidStringArray(record.skills, SKILLS, 4)
+        || !isValidStringArray(record.expanded_terms, undefined, 12, 40)
+        || !isValidStringArray(record.warnings, undefined, 4, 120)
+        || typeof record.intent_summary !== 'string') return null
     const intentSummary = typeof record.intent_summary === 'string' ? record.intent_summary.trim() : ''
     if (intentSummary.length > 160) return null
     return {
@@ -107,6 +126,22 @@ function validateInterpretation(value: unknown): LlmQueryInterpretation | null {
         expanded_terms: uniqueStrings(record.expanded_terms, undefined, 12, 40),
         intent_summary: intentSummary,
         warnings: uniqueStrings(record.warnings, undefined, 4, 120)
+    }
+}
+
+function extractUsage(payload: unknown): LlmUsage | null {
+    if (!payload || typeof payload !== 'object') return null
+    const usage = (payload as Record<string, unknown>).usage
+    if (!usage || typeof usage !== 'object') return null
+    const record = usage as Record<string, unknown>
+    const input = Number(record.input_tokens ?? record.prompt_tokens ?? 0)
+    const output = Number(record.output_tokens ?? record.completion_tokens ?? 0)
+    const total = Number(record.total_tokens ?? input + output)
+    if (![input, output, total].every(value => Number.isFinite(value) && value >= 0)) return null
+    return {
+        input_tokens: Math.floor(input),
+        output_tokens: Math.floor(output),
+        total_tokens: Math.floor(total)
     }
 }
 
@@ -187,6 +222,7 @@ export async function interpretSearchQueryWithLlm(
         model: config.enabled ? config.model : null,
         protocol: null,
         interpretation: null,
+        usage: null,
         latency_ms: 0
     } as const
     if (!config.enabled) return { ...base, status: 'disabled' }
@@ -199,9 +235,11 @@ export async function interpretSearchQueryWithLlm(
         ? ['responses', 'chat_completions']
         : [config.style]
 
+    let activeProtocol: LlmProtocol | null = null
     try {
         for (let index = 0; index < protocols.length; index += 1) {
             const protocol = protocols[index]
+            activeProtocol = protocol
             const endpoint = protocol === 'responses' ? '/responses' : '/chat/completions'
             const response = await fetchImpl(`${config.baseUrl}${endpoint}`, {
                 method: 'POST',
@@ -242,7 +280,8 @@ export async function interpretSearchQueryWithLlm(
                 model: config.model,
                 protocol,
                 latency_ms: Math.round((performance.now() - started) * 100) / 100,
-                interpretation
+                interpretation,
+                usage: extractUsage(payload)
             }
         }
         return {
@@ -256,6 +295,7 @@ export async function interpretSearchQueryWithLlm(
             ...base,
             status: error instanceof Error && error.name === 'AbortError' ? 'timeout' : 'provider_error',
             model: config.model,
+            protocol: activeProtocol,
             latency_ms: Math.round((performance.now() - started) * 100) / 100
         }
     } finally {

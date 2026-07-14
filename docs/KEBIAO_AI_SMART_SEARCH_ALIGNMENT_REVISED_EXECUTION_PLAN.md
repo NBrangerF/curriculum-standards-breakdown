@@ -1,6 +1,6 @@
 # kebiao AI 智能检索与课程对齐工作台：评审、修订与执行计划
 
-状态：实施中（M1–M3 已形成端到端切片；M4 查询理解 adapter 已接入）
+状态：当前 MVP 已实现，持续以自动门禁和生产 smoke 验证（M1–M3 端到端；M4 查询理解 adapter 已接入）
 
 日期：2026-07-14
 评审对象：`kebiao-ai-smart-search-alignment-workbench-codex-brief.md`
@@ -110,7 +110,7 @@ flowchart LR
 - 用离线评测对比 OpenAI embeddings 与 M1 baseline，只有显著提升才启用。
 - `gpt-5-mini` 仅用于查询结构化和检索词扩展，不生成或覆盖课标事实，不决定硬筛选、code、来源与匹配理由。
 - Responses API 使用 Structured Outputs；兼容 Chat Completions 路径使用 JSON mode 并在服务端执行同一字段白名单与结构校验，任一路径失败都回退 M1。
-- 服务端密钥、HTTPS base URL、3.5 秒超时、禁记请求正文和前端隐私提示已经纳入实现。
+- 服务端密钥、HTTPS base URL、500–7000ms 有界超时、禁记请求正文、模型调用前去标识化和前端隐私提示已经纳入实现。
 - DOCX/PDF 前置：文件大小/类型限制、恶意文档扫描、临时存储、删除 SLA、PII 声明、失败恢复。
 - 账户与团队工作流前置：权限模型、数据保留策略、导出与删除能力。
 
@@ -144,8 +144,8 @@ flowchart LR
 - 公开端点沿用 API 分层限流、CORS、安全响应头和 request_id。
 - 不记录请求正文；指标只记录路径、状态、延迟、层级和匿名 key id。
 - 页面不把教学计划写入 localStorage；只有教师接受的标准 code 可进入现有清单。
-- 未来外部模型请求必须先去标识化，并在 UI 明示数据处理边界。
+- 外部模型请求先执行可审计的去标识化，并在 UI 明示数据处理边界；指标只记录去标识化类别数量，不记录原文。
 
 ## 10. 本轮完成定义
 
-本轮完成需同时满足：核心/API/client typecheck；核心/API/client 单测；前端 build；新增检索与对齐 E2E；OpenAPI 与 smoke 同步；现有核心 E2E/A11y 不回退。部署、合并与生产密钥配置不包含在本次本地实现授权内。
+本轮完成需同时满足：核心/API/client typecheck；核心/API/client 单测；前端 build；新增检索与对齐 E2E；OpenAPI 与 smoke 同步；现有核心 E2E/A11y 不回退；主分支质量门禁与生产部署后 smoke 自动执行。生产密钥仅保存在部署平台 Secret 中，不进入仓库或前端变量。

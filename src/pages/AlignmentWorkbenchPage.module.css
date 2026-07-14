@@ -21,6 +21,8 @@
 .units fieldset { display: grid; grid-template-columns: 1fr 2fr; gap: .8rem; border: 1px solid var(--border-default); border-radius: .55rem; padding: 1rem; }
 .units legend { padding: 0 .4rem; font: 700 .72rem var(--font-mono); }
 .matchUnit + .matchUnit { margin-top: 2rem; }
+.referenceScope { display: grid; gap: .45rem; margin: 0 0 1.4rem; color: var(--text-secondary); font-size: .78rem; font-weight: 650; }
+.referenceScope span { color: var(--text-tertiary); font-size: .72rem; font-weight: 400; }
 .matchUnit h3 { padding-bottom: .7rem; border-bottom: 1px solid var(--border-default); }
 .candidates { display: grid; gap: .7rem; }
 .candidates article { padding: 1rem; border: 1px solid var(--border-default); border-left: 3px solid #aab2c5; border-radius: .55rem; }
@@ -33,12 +35,13 @@
 .decisionButtons { display: flex; gap: .45rem; margin-top: .8rem; }
 .decisionButtons button { min-height: 2.5rem; border: 1px solid var(--border-default); border-radius: .45rem; padding: 0 .9rem; background: #fff; cursor: pointer; }
 .decisionButtons button[aria-pressed="true"] { border-color: var(--color-primary); background: #edf0ff; color: #243dac; font-weight: 700; }
-.metrics { display: grid; grid-template-columns: repeat(3, 1fr); border-block: 1px solid var(--border-default); }
+.metrics { display: grid; grid-template-columns: repeat(5, 1fr); border-block: 1px solid var(--border-default); }
 .metrics div { display: grid; gap: .35rem; padding: 1.4rem; border-right: 1px solid var(--border-default); }
 .metrics div:last-child { border-right: 0; }
 .metrics strong { font-size: 2rem; }
 .metrics span { color: var(--text-secondary); font-size: .78rem; }
 .status, .error { padding: .8rem 1rem; border-left: 3px solid var(--color-primary); background: #fff; color: var(--text-secondary); }
 .error { border-left-color: #b93f3f; color: #842d2d; }
+.coverageWarning { margin: .7rem 0 0; padding: .7rem .8rem; border-left: 2px solid #d58c14; background: #fff8e9; color: #6b4a11; font-size: .78rem; line-height: 1.55; }
 
 @media (max-width: 760px) { .steps { grid-template-columns: 1fr 1fr; } .panelHead { align-items: stretch; flex-direction: column; } .formGrid, .units fieldset { grid-template-columns: 1fr; } .metrics { grid-template-columns: 1fr; } .metrics div { border-right: 0; border-bottom: 1px solid var(--border-default); } }

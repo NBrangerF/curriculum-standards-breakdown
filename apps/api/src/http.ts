@@ -9,7 +9,21 @@ export type ApiBindings = {
         requestId: string
         accessTier: AccessTier
         apiKeyId: string
+        aiMetrics?: AiMetrics
     }
+}
+
+export interface AiMetrics {
+    feature: 'query_interpretation'
+    used: boolean
+    status: string
+    model: string | null
+    protocol: string | null
+    latency_ms: number
+    redaction_count: number
+    input_tokens: number
+    output_tokens: number
+    total_tokens: number
 }
 
 const TIER_LIMITS: Record<AccessTier, number> = {
@@ -17,6 +31,13 @@ const TIER_LIMITS: Record<AccessTier, number> = {
     developer: 300,
     partner: 3000,
     admin: 10000
+}
+
+const AI_TIER_LIMITS: Record<AccessTier, number> = {
+    anonymous: 10,
+    developer: 60,
+    partner: 600,
+    admin: 2000
 }
 
 const TIER_ORDER: Record<AccessTier, number> = {
@@ -44,6 +65,7 @@ interface MetricsEvent {
     duration_ms: number
     tier: AccessTier
     api_key_id: string
+    ai?: AiMetrics
 }
 
 type DurableMetricsEvent = Omit<MetricsEvent, 'request_id'>
@@ -59,6 +81,20 @@ interface MetricsSummary {
         sum_ms: number
         max_ms: number
     }
+    ai: {
+        total_requests: number
+        used_requests: number
+        by_status: Map<string, number>
+        latency: {
+            count: number
+            sum_ms: number
+            max_ms: number
+        }
+        input_tokens: number
+        output_tokens: number
+        total_tokens: number
+        redaction_count: number
+    }
 }
 
 const memoryMetrics: MetricsSummary & { started_at: string } = {
@@ -72,6 +108,16 @@ const memoryMetrics: MetricsSummary & { started_at: string } = {
         count: 0,
         sum_ms: 0,
         max_ms: 0
+    },
+    ai: {
+        total_requests: 0,
+        used_requests: 0,
+        by_status: new Map(),
+        latency: { count: 0, sum_ms: 0, max_ms: 0 },
+        input_tokens: 0,
+        output_tokens: 0,
+        total_tokens: 0,
+        redaction_count: 0
     }
 }
 
@@ -171,11 +217,12 @@ export const apiAccessMiddleware: MiddlewareHandler<ApiBindings> = async (c, nex
 
 export const rateLimitMiddleware: MiddlewareHandler<ApiBindings> = async (c, next) => {
     const tier = c.get('accessTier') || 'anonymous'
-    const limit = TIER_LIMITS[tier]
+    const isAiRoute = c.req.path === '/api/v1/standards/semantic-search'
+    const limit = isAiRoute ? AI_TIER_LIMITS[tier] : TIER_LIMITS[tier]
     const now = Date.now()
     const resetAt = Math.ceil(now / 60000) * 60000
     const clientId = c.req.header('x-forwarded-for') || c.req.header('cf-connecting-ip') || 'local'
-    const bucketKey = `${tier}:${c.get('apiKeyId')}:${clientId}`
+    const bucketKey = `${isAiRoute ? 'ai' : 'general'}:${tier}:${c.get('apiKeyId')}:${clientId}`
     const bucket = rateBuckets.get(bucketKey)
     const current = bucket && bucket.resetAt > now ? bucket : { count: 0, resetAt }
     current.count += 1
@@ -185,6 +232,7 @@ export const rateLimitMiddleware: MiddlewareHandler<ApiBindings> = async (c, nex
     c.header('x-ratelimit-limit', String(limit))
     c.header('x-ratelimit-remaining', String(remaining))
     c.header('x-ratelimit-reset', String(Math.ceil(current.resetAt / 1000)))
+    c.header('x-ratelimit-policy', isAiRoute ? 'ai-per-minute' : 'general-per-minute')
 
     if (current.count > limit) {
         c.header('retry-after', String(Math.max(1, Math.ceil((current.resetAt - now) / 1000))))
@@ -210,6 +258,8 @@ export const observabilityMiddleware: MiddlewareHandler<ApiBindings> = async (c,
         tier: c.get('accessTier') || 'anonymous',
         api_key_id: c.get('apiKeyId') || 'anonymous'
     }
+    const aiMetrics = c.get('aiMetrics')
+    if (aiMetrics) event.ai = aiMetrics
     await recordMetricsEvent(event)
 
     if (process.env.CURRICULUM_ENABLE_REQUEST_LOGS === 'true') {
@@ -298,6 +348,18 @@ function applyMetricsEvent(summary: MetricsSummary, event: MetricsEvent) {
     summary.latency.count += 1
     summary.latency.sum_ms += event.duration_ms
     summary.latency.max_ms = Math.max(summary.latency.max_ms, event.duration_ms)
+    if (event.ai) {
+        summary.ai.total_requests += 1
+        if (event.ai.used) summary.ai.used_requests += 1
+        summary.ai.by_status.set(event.ai.status, (summary.ai.by_status.get(event.ai.status) || 0) + 1)
+        summary.ai.latency.count += 1
+        summary.ai.latency.sum_ms += event.ai.latency_ms
+        summary.ai.latency.max_ms = Math.max(summary.ai.latency.max_ms, event.ai.latency_ms)
+        summary.ai.input_tokens += event.ai.input_tokens
+        summary.ai.output_tokens += event.ai.output_tokens
+        summary.ai.total_tokens += event.ai.total_tokens
+        summary.ai.redaction_count += event.ai.redaction_count
+    }
 }
 
 async function recordMetricsEvent(event: MetricsEvent) {
@@ -377,7 +439,8 @@ async function persistRedisMetricsEvent(config: RedisMetricsConfig, event: Metri
         status: event.status,
         duration_ms: event.duration_ms,
         tier: event.tier,
-        api_key_id: event.api_key_id
+        api_key_id: event.api_key_id,
+        ...(event.ai ? { ai: event.ai } : {})
     }
     await redisPipeline(config, [
         ['lpush', config.key, JSON.stringify(durableEvent)],
@@ -396,6 +459,22 @@ function serializeSummary(summary: MetricsSummary) {
         latency_ms: {
             average: summary.latency.count ? Math.round((summary.latency.sum_ms / summary.latency.count) * 100) / 100 : 0,
             max: summary.latency.max_ms
+        },
+        ai: {
+            total_requests: summary.ai.total_requests,
+            used_requests: summary.ai.used_requests,
+            fallback_requests: summary.ai.total_requests - summary.ai.used_requests,
+            by_status: Object.fromEntries(summary.ai.by_status.entries()),
+            latency_ms: {
+                average: summary.ai.latency.count
+                    ? Math.round((summary.ai.latency.sum_ms / summary.ai.latency.count) * 100) / 100
+                    : 0,
+                max: summary.ai.latency.max_ms
+            },
+            input_tokens: summary.ai.input_tokens,
+            output_tokens: summary.ai.output_tokens,
+            total_tokens: summary.ai.total_tokens,
+            redaction_count: summary.ai.redaction_count
         }
     }
 }
@@ -407,7 +486,17 @@ function createMetricsSummary(): MetricsSummary {
         by_route: new Map(),
         by_tier: new Map(),
         by_api_key_id: new Map(),
-        latency: { count: 0, sum_ms: 0, max_ms: 0 }
+        latency: { count: 0, sum_ms: 0, max_ms: 0 },
+        ai: {
+            total_requests: 0,
+            used_requests: 0,
+            by_status: new Map(),
+            latency: { count: 0, sum_ms: 0, max_ms: 0 },
+            input_tokens: 0,
+            output_tokens: 0,
+            total_tokens: 0,
+            redaction_count: 0
+        }
     }
 }
 
@@ -453,8 +542,21 @@ function isDurableMetricsEvent(value: unknown): value is DurableMetricsEvent {
         && typeof event.status === 'number'
         && typeof event.duration_ms === 'number'
         && typeof event.api_key_id === 'string'
+        && (event.ai === undefined || isAiMetrics(event.ai))
         && (event.tier === 'anonymous' || event.tier === 'developer' || event.tier === 'partner' || event.tier === 'admin')
     )
+}
+
+function isAiMetrics(value: unknown): value is AiMetrics {
+    if (!value || typeof value !== 'object') return false
+    const metrics = value as Record<string, unknown>
+    return metrics.feature === 'query_interpretation'
+        && typeof metrics.used === 'boolean'
+        && typeof metrics.status === 'string'
+        && (metrics.model === null || typeof metrics.model === 'string')
+        && (metrics.protocol === null || typeof metrics.protocol === 'string')
+        && ['latency_ms', 'redaction_count', 'input_tokens', 'output_tokens', 'total_tokens']
+            .every(key => typeof metrics[key] === 'number' && Number.isFinite(metrics[key]) && Number(metrics[key]) >= 0)
 }
 
 async function loadRedisMetrics(config: RedisMetricsConfig): Promise<JsonObject> {

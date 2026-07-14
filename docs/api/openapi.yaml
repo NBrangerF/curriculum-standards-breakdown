@@ -399,7 +399,7 @@ paths:
       tags: [课程标准]
       operationId: smartSearchStandards
       summary: 用自然语言检索可信课程标准候选
-      description: 可使用 gpt-5-mini 理解并扩展查询词；Responses API 使用 Structured Outputs，兼容 Chat Completions 路径使用 JSON mode 并由服务端执行同一白名单与结构校验。随后由确定性可信检索从允许检索的可追溯字段中返回真实标准 code、命中证据和归一化检索分。模型不会决定硬筛选、code、来源或匹配理由；不可用时自动回退，不导致检索失败。查询文本可能发送到所配置的模型服务，请勿提交学生个人信息。所有结果必须人工复核。
+      description: 可使用 gpt-5-mini 理解并扩展查询词；Responses API 使用 Structured Outputs，兼容 Chat Completions 路径使用 JSON mode 并由服务端执行同一白名单与结构校验。发送给模型前，服务端会去除可识别的邮箱、手机号、身份证号及带标签的姓名/学校/班级信息，并在 `query_interpretation.privacy` 中只披露类别和数量；原始查询仍仅在进程内用于确定性检索，不写入指标。随后由确定性可信检索从允许检索的可追溯字段中返回真实标准 code、命中证据和归一化检索分。模型不会决定硬筛选、code、来源或匹配理由；不可用时自动回退，不导致检索失败。该端点使用独立的 AI 每分钟限流。请勿主动提交个人信息，所有结果必须人工复核。
       security:
         - ApiKeyAuth: []
         - {}
@@ -425,6 +425,8 @@ paths:
           $ref: "#/components/responses/Forbidden"
         "422":
           $ref: "#/components/responses/ValidationError"
+        "429":
+          $ref: "#/components/responses/TooManyRequests"
   /api/v1/standards/batch:
     post:
       tags: [课程标准]
@@ -615,7 +617,7 @@ paths:
       tags: [教学规划]
       operationId: analyzePlanCoverage
       summary: 分析教学计划对课程标准的覆盖情况
-      description: 基于教学计划、候选匹配和教师接受/拒绝决定汇总覆盖。未接受候选不会计入覆盖；没有参考标准范围时不会生成缺口结论。
+      description: 服务端基于当前数据版本重新执行候选匹配，再结合教师接受/拒绝决定汇总覆盖。客户端提交的旧 `matches` 仅为兼容字段且会被忽略，不能注入或固定候选。参考范围中的 code 必须能解析到当前标准，否则返回 422；未接受候选不会计入覆盖，没有参考标准范围时不会生成缺口结论。
       security:
         - ApiKeyAuth: []
         - {}
@@ -1974,13 +1976,14 @@ components:
       required: [week, type, unit_id, unit_title, focus, lesson_count, standard_codes, assessment_focus, warnings]
     CoverageAnalyzeRequest:
       title: 覆盖分析请求
-      description: 基于教学计划和可选匹配结果分析课程标准覆盖情况。
+      description: 基于当前数据版本重新匹配教学计划，并结合教师决定分析课程标准覆盖情况。
       allOf:
         - $ref: "#/components/schemas/PlanToStandardsRequest"
         - type: object
           properties:
             matches:
-              description: 可选的既有匹配结果；省略时服务端会先执行标准匹配。
+              deprecated: true
+              description: 仅为旧客户端保留；服务端始终忽略该对象并从当前数据版本重新匹配，客户端不得依赖它固定覆盖结果。
               $ref: "#/components/schemas/PlanMatchingResult"
             review_decisions:
               description: 教师对单元内候选作出的接受或拒绝决定。没有决定的候选不会计入覆盖。
@@ -1994,7 +1997,7 @@ components:
                   code: { type: string }
                   decision: { type: string, enum: [accepted, rejected] }
             reference_scope_codes:
-              description: 可选的参考标准 code 范围；只有提供该范围时才计算缺口。
+              description: 可选的参考标准 code 范围；每个 code 都必须能唯一解析到当前数据版本，只有提供该范围时才计算缺口。
               type: array
               maxItems: 2500
               items: { type: string }

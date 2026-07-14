@@ -7,6 +7,9 @@ type EvalCase = {
     query: string
     subjects: string[]
     grade_bands: string[]
+    min_score?: number
+    expect_empty?: boolean
+    forbidden_codes?: string[]
 }
 
 const root = process.cwd()
@@ -19,11 +22,27 @@ let returned = 0
 let hardFilterViolations = 0
 let hallucinatedCodes = 0
 let missingReviewFlags = 0
-let emptyCases = 0
+let missingEvidenceMetadata = 0
+let unexpectedEmptyCases = 0
+let unexpectedNonemptyCases = 0
+let forbiddenCodesReturned = 0
+let nondeterministicCases = 0
 
 for (const fixture of cases) {
-    const response = await repository.smartSearchStandards({ ...fixture, limit: 5, min_score: 0 })
-    if (!response.results.length) emptyCases += 1
+    const request = {
+        query: fixture.query,
+        subjects: fixture.subjects,
+        grade_bands: fixture.grade_bands,
+        limit: 5,
+        min_score: fixture.min_score ?? 0
+    }
+    const response = await repository.smartSearchStandards(request)
+    const repeated = await repository.smartSearchStandards(request)
+    if (response.results.map(result => result.code).join('|') !== repeated.results.map(result => result.code).join('|')) {
+        nondeterministicCases += 1
+    }
+    if (fixture.expect_empty === true && response.results.length) unexpectedNonemptyCases += 1
+    if (fixture.expect_empty !== true && !response.results.length) unexpectedEmptyCases += 1
     returned += response.results.length
     for (const result of response.results) {
         const standard = result.standard as Record<string, unknown>
@@ -32,6 +51,13 @@ for (const fixture of cases) {
         }
         if (!canonicalCodes.has(result.code)) hallucinatedCodes += 1
         if (result.requires_human_review !== true) missingReviewFlags += 1
+        if ((fixture.forbidden_codes || []).includes(result.code)) forbiddenCodesReturned += 1
+        if (!result.matched_fields.every(field => (
+            typeof field.provenance === 'string'
+            && typeof field.review_status === 'string'
+            && typeof field.confidence === 'number'
+            && Array.isArray(field.quality_flags)
+        ))) missingEvidenceMetadata += 1
     }
 }
 
@@ -39,12 +65,25 @@ const report = {
     evaluation: 'smart-search-contract-v1',
     cases: cases.length,
     returned,
-    empty_cases: emptyCases,
+    unexpected_empty_cases: unexpectedEmptyCases,
+    unexpected_nonempty_cases: unexpectedNonemptyCases,
     hard_filter_violations: hardFilterViolations,
     hallucinated_codes: hallucinatedCodes,
     missing_review_flags: missingReviewFlags,
+    missing_evidence_metadata: missingEvidenceMetadata,
+    forbidden_codes_returned: forbiddenCodesReturned,
+    nondeterministic_cases: nondeterministicCases,
     note: 'This is a contract evaluation, not a relevance benchmark. Teacher-labelled Recall@K/MRR comes later.'
 }
 
 console.log(JSON.stringify(report, null, 2))
-if (emptyCases || hardFilterViolations || hallucinatedCodes || missingReviewFlags) process.exitCode = 1
+if (
+    unexpectedEmptyCases
+    || unexpectedNonemptyCases
+    || hardFilterViolations
+    || hallucinatedCodes
+    || missingReviewFlags
+    || missingEvidenceMetadata
+    || forbiddenCodesReturned
+    || nondeterministicCases
+) process.exitCode = 1

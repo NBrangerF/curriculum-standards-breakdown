@@ -30,6 +30,7 @@ import {
 import { resolveOpenApiPath, resolveSwaggerUiAssetPath } from './config.js'
 import { renderApiDocsPage } from './docs-page.js'
 import { interpretSearchQueryWithLlm } from './llm.js'
+import { redactSensitiveText } from './ai-privacy.js'
 
 const DEVELOPMENT_API_ROUTES = [
     '/api/v1/standards/:code/evidence',
@@ -326,7 +327,20 @@ export function createApp(repository: FileCurriculumRepository) {
         if (filterErrors.length) {
             return apiError(c, 422, 'validation_error', '筛选条件不在当前公开数据契约中。', filterErrors)
         }
-        const interpretation = await interpretSearchQueryWithLlm(parsed.data.query)
+        const privacy = redactSensitiveText(parsed.data.query)
+        const interpretation = await interpretSearchQueryWithLlm(privacy.text)
+        c.set('aiMetrics', {
+            feature: 'query_interpretation',
+            used: interpretation.used,
+            status: interpretation.status,
+            model: interpretation.model,
+            protocol: interpretation.protocol,
+            latency_ms: interpretation.latency_ms,
+            redaction_count: privacy.redaction_count,
+            input_tokens: interpretation.usage?.input_tokens || 0,
+            output_tokens: interpretation.usage?.output_tokens || 0,
+            total_tokens: interpretation.usage?.total_tokens || 0
+        })
         const result = await repository.smartSearchStandards({
             ...parsed.data,
             query_expansion_terms: interpretation.interpretation?.expanded_terms || []
@@ -342,7 +356,19 @@ export function createApp(repository: FileCurriculumRepository) {
             skills: interpretation.interpretation?.skills || [],
             expanded_terms: interpretation.interpretation?.expanded_terms || [],
             intent_summary: interpretation.interpretation?.intent_summary || '',
-            warnings: interpretation.interpretation?.warnings || []
+            warnings: interpretation.interpretation?.warnings || [],
+            usage: interpretation.usage,
+            privacy: {
+                redacted: privacy.redacted,
+                redaction_count: privacy.redaction_count,
+                categories: privacy.categories
+            }
+        }
+        if (privacy.redacted) {
+            result.warnings = [...new Set([...result.warnings, '发送到模型服务前已移除查询中的可识别个人信息；本地检索仍使用原始查询。'])]
+        }
+        if (interpretation.status !== 'ok' && interpretation.status !== 'disabled') {
+            result.warnings = [...new Set([...result.warnings, 'AI 查询理解暂不可用，已自动使用确定性可信检索。'])]
         }
         return ok(c, version, result, {
             retrieval_version: result.retrieval_version,
@@ -455,10 +481,35 @@ export function createApp(repository: FileCurriculumRepository) {
         }
         const blocked = ensureFieldsetAccess(c, parsed.data.include)
         if (blocked) return blocked
-        const matching = parsed.data.matches && typeof parsed.data.matches === 'object'
-            ? parsed.data.matches as Awaited<ReturnType<typeof repository.matchPlan>>
-            : undefined
-        const result = await repository.analyzePlanCoverage(parsed.data.plan, matching, parsed.data)
+        let canonicalReferenceScope: string[] = []
+        if (parsed.data.reference_scope_codes?.length) {
+            const scope = await repository.batchStandards(parsed.data.reference_scope_codes, ['public'])
+            if (scope.missing.length || Object.keys(scope.ambiguous).length) {
+                return apiError(c, 422, 'invalid_reference_scope', '参考标准范围包含不存在或存在歧义的 code。', [
+                    ...scope.missing.map(code => ({ code, reason: 'missing' })),
+                    ...Object.entries(scope.ambiguous).map(([code, candidates]) => ({ code, reason: 'ambiguous', candidates }))
+                ])
+            }
+            canonicalReferenceScope = scope.items.map(item => String(item.code))
+        }
+        // Never trust hydrated matches returned by a browser. Recompute candidates
+        // against the current data version, then apply only the teacher's decisions.
+        const currentMatching = await repository.matchPlan(parsed.data.plan, parsed.data)
+        const result = await repository.analyzePlanCoverage(parsed.data.plan, currentMatching, {
+            ...parsed.data,
+            reference_scope_codes: canonicalReferenceScope
+        })
+        const candidatePairs = new Set(currentMatching.units.flatMap(unit => (
+            unit.matches.map(match => `${unit.unit_id}::${match.code}`)
+        )))
+        const ignoredDecisions = (parsed.data.review_decisions || [])
+            .filter(decision => !candidatePairs.has(`${decision.unit_id}::${decision.code}`))
+        if (parsed.data.matches) {
+            result.warnings = [...new Set([...result.warnings, '覆盖分析已基于当前数据版本重新计算候选；客户端回传的匹配对象不作为可信事实。'])]
+        }
+        if (ignoredDecisions.length) {
+            result.warnings = [...new Set([...result.warnings, `${ignoredDecisions.length} 条复核决定不属于当前重新计算的候选，已忽略。`])]
+        }
         return ok(c, version, result, {
             covered_standard_count: result.covered_standard_codes.length,
             review_required: true,
