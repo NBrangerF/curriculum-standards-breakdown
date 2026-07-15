@@ -183,14 +183,11 @@ const checks: SmokeCheck[] = [
         }
     },
     {
-        name: 'trusted smart search',
+        name: 'natural-language query plan regression',
         method: 'POST',
         path: '/api/v1/standards/semantic-search',
         body: {
-            query: '三四年级科学中观察材料并用证据解释变化',
-            subjects: ['science'],
-            grade_bands: ['H2'],
-            limit: 3
+            query: '第二学段 G3-4，和阅读相关的标准，但不是语文学科中的'
         },
         expect(response, payload) {
             expectEnvelope(response, payload)
@@ -208,13 +205,24 @@ const checks: SmokeCheck[] = [
             if (interpretation.used === true) {
                 assert(interpretation.model === 'gpt-5-mini', 'Expected configured gpt-5-mini query interpreter')
             }
+            const plan = expectObject(data.query_plan, 'Expected nlq-v2 query plan')
+            assert(plan.version === 'nlq-v2', 'Expected nlq-v2 query plan')
+            const constraints = expectObject(plan.resolved_constraints, 'Expected resolved natural-language constraints')
+            const excludedSubjects = expectArray(constraints.excluded_subjects, 'Expected excluded subject constraints')
+            const gradeBands = expectArray(constraints.grade_bands, 'Expected grade constraints')
+            assert(excludedSubjects.length === 1 && excludedSubjects[0] === 'chinese', 'Expected natural-language Chinese exclusion')
+            assert(gradeBands.length === 1 && gradeBands[0] === 'H2', 'Expected G3-4 to resolve only to H2')
+            const parsed = expectObject(data.parsed_query, 'Expected deterministic parsed query')
+            const coreTerms = expectArray(parsed.core_terms, 'Expected normalized core terms')
+            assert(coreTerms.length === 1 && coreTerms[0] === '阅读', 'Expected only reading as the core topic')
+            assert(!coreTerms.includes('g3') && !coreTerms.includes('但不是'), 'Query scaffolding leaked into core topics')
             const results = expectArray(data.results, 'Expected smart search results')
             assert(results.length >= 1, 'Expected at least one smart search candidate')
             for (const result of results) {
                 const candidate = expectObject(result, 'Expected smart search candidate object')
                 const standard = expectObject(candidate.standard, 'Expected candidate standard object')
-                assert(standard.subject_slug === 'science', 'Smart search violated subject hard filter')
-                assert(standard.grade_band === 'H2', 'Smart search violated grade hard filter')
+                assert(standard.subject_slug !== 'chinese', 'Smart search violated natural-language subject exclusion')
+                assert(standard.grade_band === 'H2', 'Smart search violated natural-language grade constraint')
                 assert(candidate.requires_human_review === true, 'Expected human review requirement')
             }
         }
