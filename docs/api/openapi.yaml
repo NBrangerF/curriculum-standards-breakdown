@@ -399,7 +399,7 @@ paths:
       tags: [课程标准]
       operationId: smartSearchStandards
       summary: 用自然语言检索可信课程标准候选
-      description: 可使用 gpt-5-mini 将查询拆分为核心主题、紧密扩展词、包含/排除学科与学段；Responses API 使用 Structured Outputs，兼容 Chat Completions 路径使用 JSON mode 并由服务端执行同一白名单与结构校验。发送给模型前，服务端会去除可识别的邮箱、手机号、身份证号及带标签的姓名/学校/班级信息，并在 `query_interpretation.privacy` 中只披露类别和数量；原始查询仍仅在进程内用于确定性检索，不写入指标。用户没有显式选择筛选项时，经过白名单校验的 AI 学科包含、学科排除和学段理解会参与确定性筛选；用户显式筛选始终优先。结构化筛选本身不贡献相关性；候选必须在允许检索的可追溯字段中命中核心主题或紧密扩展词，并以 `direct` 或 `supporting` 返回。结果不足 `limit` 时不会用低相关记录补足，`coverage_note` 会解释当前覆盖。模型不会生成或决定标准 code、来源、标准内容和匹配理由；不可用时由确定性核心概念解析器回退。该端点使用独立的 AI 每分钟限流。请勿主动提交个人信息，所有结果必须人工复核。
+      description: 以用户的完整自然语言为唯一必填输入。服务端先生成 `nlq-v2` Query Plan，再执行确定性检索。gpt-5-mini 只能提交带原句证据片段的主题、紧密扩展词、包含/排除学科与学段候选；无法回指到用户原句的硬约束会被丢弃。规则解析与模型矛盾时，用户原话优先并记入 `query_plan.conflicts`。Responses API 使用 Structured Outputs，兼容 Chat Completions 路径使用 JSON mode 并执行同一白名单与结构校验。发送给模型前，服务端会去除邮箱、手机号、身份证号及带标签的姓名/学校/班级信息。候选必须在允许检索的可追溯字段中命中主题；课标正文、标题与分类命中返回 `direct`，编辑整理字段命中只返回 `supporting`。结果不足 `limit` 时不会用低相关记录补足。模型不生成标准 code、来源、标准内容或匹配理由；不可用时回退到确定性解析。所有结果均为待复核候选。
       security:
         - ApiKeyAuth: []
         - {}
@@ -410,10 +410,7 @@ paths:
             schema:
               $ref: "#/components/schemas/SmartSearchRequest"
             example:
-              query: 三四年级科学中适合培养证据推理的观察活动
-              subjects: [science]
-              grade_bands: [H2]
-              limit: 8
+              query: 第二学段 G3-4，和阅读相关的标准，但不是语文学科中的
       responses:
         "200":
           description: 查询理解、待复核候选与可信命中证据
@@ -1368,6 +1365,49 @@ components:
         standard:
           $ref: "#/components/schemas/StandardPublic"
       required: [code, score, match_strength, matched_concepts, relevance_reason, match_type, matched_fields, rationale, requires_human_review, standard]
+    SmartSearchQueryPlan:
+      title: 自然语言查询执行计划
+      description: 由用户原句、确定性规则与带证据的模型候选合并而成；它是可审计的检索输入，不是模型自由生成的答案。
+      type: object
+      properties:
+        version:
+          type: string
+          enum: [nlq-v2]
+        normalized_query: { type: string }
+        topics:
+          type: array
+          items:
+            type: object
+            properties:
+              value: { type: string }
+              source:
+                type: string
+                enum: [explicit_text, model_supported]
+              confidence: { type: number, minimum: 0, maximum: 1 }
+            required: [value, source, confidence]
+        resolved_constraints:
+          type: object
+          properties:
+            subjects: { type: array, items: { type: string } }
+            excluded_subjects: { type: array, items: { type: string } }
+            grade_bands: { type: array, items: { type: string } }
+            domains: { type: array, items: { type: string } }
+            skills: { type: array, items: { type: string } }
+          required: [subjects, excluded_subjects, grade_bands, domains, skills]
+        conflicts:
+          type: array
+          items:
+            type: object
+            properties:
+              kind: { type: string, enum: [subject, grade_band] }
+              explicit_values: { type: array, items: { type: string } }
+              discarded_inferred_values: { type: array, items: { type: string } }
+              resolution: { type: string, enum: [explicit_query_wins, explicit_request_wins] }
+            required: [kind, explicit_values, discarded_inferred_values, resolution]
+        ambiguities: { type: array, items: { type: string } }
+        needs_clarification: { type: boolean }
+        clarification_question: { type: [string, "null"] }
+      required: [version, normalized_query, topics, resolved_constraints, conflicts, ambiguities, needs_clarification, clarification_question]
     SmartSearchResponse:
       title: 可信智能检索响应
       allOf:
@@ -1380,6 +1420,11 @@ components:
                 query: { type: string }
                 parsed_query: { type: object }
                 applied_filters: { type: object }
+                query_plan:
+                  $ref: "#/components/schemas/SmartSearchQueryPlan"
+                understanding_summary:
+                  description: 面向用户的 Query Plan 摘要，用于在结果之前核对系统理解。
+                  type: string
                 results:
                   type: array
                   items:
@@ -1413,10 +1458,10 @@ components:
                 warnings:
                   type: array
                   items: { type: string }
-              required: [query, parsed_query, applied_filters, results, total_candidates, relevant_candidates, omitted_low_relevance, relevance_summary, coverage_note, relevance_version, retrieval_version, semantic_provider, warnings]
+              required: [query, parsed_query, applied_filters, query_plan, understanding_summary, results, total_candidates, relevant_candidates, omitted_low_relevance, relevance_summary, coverage_note, relevance_version, retrieval_version, semantic_provider, warnings]
     SmartSearchRequest:
       title: 可信智能检索请求
-      description: 自然语言查询与可选硬筛选；显式筛选优先于查询自动识别结果。
+      description: 网站界面只提交 `query`；学科、学段、排除条件和主题均从自然语言中解析。其余字段仅为程序化 API 客户端保留，不在用户界面暴露；程序化显式约束优先于自动识别结果。
       type: object
       required: [query]
       properties:
