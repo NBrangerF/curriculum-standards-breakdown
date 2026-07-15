@@ -161,6 +161,51 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
     assert.deepEqual(invalidShape.interpretation?.excluded_subjects, ['chinese'])
 })
 
+test('LLM query interpreter accepts only hard constraints backed by source spans', async () => {
+    const unsupported = await interpretSearchQueryWithLlm('第二学段 G3-4，和阅读相关，但不是语文', {
+        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        fetchImpl: async () => Response.json({ output_text: JSON.stringify({
+            subjects: [],
+            excluded_subjects: ['chinese'],
+            grade_bands: ['H4G7', 'H4G8', 'H4G9'],
+            skills: [],
+            core_terms: ['阅读'],
+            expanded_terms: ['阅读理解'],
+            constraint_evidence: [],
+            ambiguities: [],
+            clarification_question: '',
+            intent_summary: '错误地把 G3-4 理解为七至九年级',
+            warnings: []
+        }) })
+    })
+    assert.deepEqual(unsupported.interpretation?.grade_bands, [])
+    assert.deepEqual(unsupported.interpretation?.excluded_subjects, [])
+    assert.ok(unsupported.interpretation?.warnings.some(warning => warning.includes('原文证据')))
+
+    const supported = await interpretSearchQueryWithLlm('第二学段 G3-4，和阅读相关，但不是语文', {
+        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        fetchImpl: async () => Response.json({ output_text: JSON.stringify({
+            subjects: [],
+            excluded_subjects: ['chinese'],
+            grade_bands: ['H2'],
+            skills: [],
+            core_terms: ['阅读'],
+            expanded_terms: ['阅读理解'],
+            constraint_evidence: [
+                { kind: 'grade_band', value: 'H2', evidence_span: '第二学段 G3-4' },
+                { kind: 'excluded_subject', value: 'chinese', evidence_span: '不是语文' }
+            ],
+            ambiguities: [],
+            clarification_question: '',
+            intent_summary: '小学三至四年级，排除语文，查找阅读标准',
+            warnings: []
+        }) })
+    })
+    assert.deepEqual(supported.interpretation?.grade_bands, ['H2'])
+    assert.deepEqual(supported.interpretation?.excluded_subjects, ['chinese'])
+    assert.equal(supported.interpretation?.constraint_evidence.length, 2)
+})
+
 test('LLM plan parser applies only fields with locatable evidence', async () => {
     const input = '三年级科学植物观察计划\n学科：科学\n年级：三年级\n共 4 周，每周 2 课时\n单元一：观察植物生长\n学习目标：记录植物结构变化'
     const fallback = {
