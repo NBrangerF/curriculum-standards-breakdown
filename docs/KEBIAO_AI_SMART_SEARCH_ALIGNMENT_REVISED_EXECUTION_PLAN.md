@@ -1,8 +1,8 @@
 # kebiao AI 智能检索与课程对齐工作台：评审、修订与执行计划
 
-状态：当前 MVP 已实现，持续以自动门禁和生产 smoke 验证（M1–M3 端到端；M4 查询理解 adapter 已接入）
+状态：当前 MVP 已实现，自然语言检索已升级到 `nlq-v2`（M1–M4 查询理解链路端到端）
 
-日期：2026-07-14
+日期：2026-07-15
 评审对象：`kebiao-ai-smart-search-alignment-workbench-codex-brief.md`
 
 ## 1. 结论
@@ -54,7 +54,10 @@
 ```mermaid
 flowchart LR
     Q["自然语言查询 / 教学计划单元"] --> P["确定性查询解析"]
-    P --> H["学科、学段、领域、技能硬约束"]
+    Q --> L["gpt-5-mini 带原句证据的候选解释"]
+    P --> V["nlq-v2 Query Plan 与冲突裁决"]
+    L --> V
+    V --> H["学科、学段、排除条件和主题"]
     H --> R["可信混合检索核心"]
     D["2,025 条标准 + provenance + quality flags"] --> R
     E["可选 semantic adapter"] -. 后续增强 .-> R
@@ -91,11 +94,14 @@ flowchart LR
 - 受信字段检索、来源质量参与排序、真实 code 校验。
 - `trusted-hybrid-v1` 响应契约与核心测试。
 - 计划匹配移除旧 TS 语义并复用相同检索内核。
+- `nlq-v2` 明确区分原句主题、模型支持扩展、最终约束与被丢弃的冲突解释。
+- 已覆盖“第二学段 / G3-4 / 小学三年级”和“语文以外 / 但不是语文”等自然表达。
 
 ### M2 API 与智能搜索 UI（已实现首版）
 
 - `POST /api/v1/standards/semantic-search`。
-- `/smart-search`：示例查询、查询理解 chips、来源证据、分数、标准详情与加入清单。
+- `/smart-search`：只保留一个自然语言输入，不暴露学科/学段/技能硬筛选。结果前展示“我理解为”、冲突/澄清状态和覆盖说明。
+- 课标正文/标题/分类命中的 `direct` 候选先展示；编辑加工字段命中的 `supporting` 候选收起在延伸关联中。
 - 确定性 fallback 是正式运行模式，不依赖付费模型或密钥。
 - 部署后 smoke 增加智能检索的真实 code 与契约检查。
 
@@ -108,7 +114,7 @@ flowchart LR
 ### M4 外部 AI 与文件处理（查询理解已实现；其余后续独立验收）
 
 - 用离线评测对比 OpenAI embeddings 与 M1 baseline，只有显著提升才启用。
-- `gpt-5-mini` 仅用于查询结构化和检索词扩展，不生成或覆盖课标事实，不决定硬筛选、code、来源与匹配理由。
+- `gpt-5-mini` 仅用于查询结构化和检索词扩展，不生成或覆盖课标事实、code、来源或匹配理由。它可以提交硬约束候选，但必须附带能在用户原句中定位的证据；无证据候选被拒绝，与规则解析冲突时原话优先。
 - Responses API 使用 Structured Outputs；兼容 Chat Completions 路径使用 JSON mode 并在服务端执行同一字段白名单与结构校验，任一路径失败都回退 M1。
 - 服务端密钥、HTTPS base URL、500–7000ms 有界超时、禁记请求正文、模型调用前去标识化和前端隐私提示已经纳入实现。
 - DOCX/PDF 前置：文件大小/类型限制、恶意文档扫描、临时存储、删除 SLA、PII 声明、失败恢复。
@@ -127,12 +133,16 @@ flowchart LR
 - 无参考范围时不生成缺口；
 - API 422/429/500 与超时状态可观察；
 - 键盘、焦点、移动端和 reduced-motion 通过现有 E2E/A11y 门槛。
+- 自然语言回归中 Query Plan 约束违规、主题词污染、直接候选越界均必须为 0。
 
 教师标注集形成后，再报告 Recall@K、MRR、nDCG、学科/学段解析准确率和接受率，并以 baseline 的置信区间决定是否引入 embedding。
 
 ## 8. 外部项目与能力边界
 
 - **OpenAI Responses API / Structured Outputs（M4）**：只做结构化查询解析和可选解释；不作为首版依赖。
+- **Promptfoo（M4 模型回归）**：部署后调用完整 semantic-search API，验证真实模型可用性、Query Plan 约束忠实度和结果越界；不取代每次 PR 的确定性评测。
+- **Meilisearch adapter（可选召回层）**：索引权重先课标正文/标题/领域，后情境/实践/教学提示；不改变 Query Plan 和证据闸门。
+- **GSAP + `useGSAP`（UI 状态动效）**：只用于查询理解与结果状态过渡，并尊重 reduced-motion；不用动效遮盖等待、错误或降级状态。
 - **OpenAI embeddings（M4）**：作为可插拔排序信号；不绕过硬约束和 provenance。
 - **pgvector（规模化候选）**：当账户、持久化和向量检索共同需要数据库时再引入。
 - **现有 React / Hono / Vercel 架构（M1–M3）**：继续作为交付基础，避免为 2,025 条记录新增常驻服务。
