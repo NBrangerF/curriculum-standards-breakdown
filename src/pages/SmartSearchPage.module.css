@@ -52,7 +52,9 @@
 .cardMeta span[data-strength="direct"] { border-color: rgba(25,132,83,.22); background: rgba(25,132,83,.08); color: #176b46; }
 .cardMeta span[data-strength="supporting"] { border-color: rgba(213,140,20,.25); background: rgba(213,140,20,.09); color: #77500f; }
 .card h3 { margin: 1rem 0 .5rem; font-size: 1.25rem; line-height: 1.45; }
-.card h3 a { color: inherit; text-decoration: none; }
+.previewTrigger { border: 0; padding: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.previewTrigger:hover, .previewTrigger:focus-visible { color: var(--color-primary); }
+.previewTrigger:focus-visible { border-radius: .2rem; outline: 3px solid rgba(61,90,254,.18); outline-offset: .22rem; }
 .card > p { color: var(--text-secondary); line-height: 1.7; }
 .code { font: 600 .72rem/1.5 var(--font-mono); }
 .evidence { display: grid; gap: .65rem; margin-top: 1rem; }
@@ -60,7 +62,9 @@
 .evidence strong { margin-left: .5rem; font-size: .75rem; }
 .evidence p { margin: .5rem 0 0; color: var(--text-secondary); font-size: .82rem; line-height: 1.55; }
 .actions { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: 1rem; }
-.actions a { color: var(--color-primary); font-weight: 650; }
+.previewLink { border: 0; padding: 0; background: transparent; color: var(--color-primary); font: inherit; font-weight: 650; cursor: pointer; }
+.previewLink:hover { text-decoration: underline; text-underline-offset: .22rem; }
+.previewLink:focus-visible { border-radius: .2rem; outline: 3px solid rgba(61,90,254,.18); outline-offset: .22rem; }
 .noRelevantResults { min-height: 11rem; display: grid; place-items: center; border: 1px dashed var(--border-default); border-radius: .85rem; background: rgba(255,255,255,.58); color: var(--text-secondary); text-align: center; }
 .empty { min-height: 18rem; display: grid; place-items: center; color: var(--text-secondary); }
 .loadingState { display: flex; align-items: center; gap: .7rem; min-height: 4rem; margin-bottom: 1rem; color: var(--text-secondary); }

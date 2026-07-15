@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import SmartSearchStandardPreview, { prefetchStandardPreview } from '../components/SmartSearchStandardPreview.jsx'
 import { addToCollection } from '../data/collections'
 import { postApi } from '../data/api'
 import {
@@ -30,13 +31,13 @@ const PROVENANCE_LABELS = {
     ai_generated: 'AI 生成'
 }
 
-function ResultCard({ item, rank, saved, onSave }) {
+function prefetchPreview(code) {
+    prefetchStandardPreview(code)
+}
+
+function ResultCard({ item, rank, saved, onSave, onPreview }) {
     const standard = item.standard || {}
-    const openResult = () => trackUmamiEvent('smart_search_result_open', {
-        rank_bucket: rankBucket(rank),
-        match_strength: item.match_strength,
-        subject: standard.subject
-    })
+    const openPreview = () => onPreview(item, rank)
     return (
         <article className={styles.card} data-search-result={item.match_strength}>
             <div className={styles.cardMeta}>
@@ -44,7 +45,18 @@ function ResultCard({ item, rank, saved, onSave }) {
                 <span>{standard.grade}</span>
                 <span data-strength={item.match_strength}>{item.match_strength === 'direct' ? '直接对应' : '教学延伸'}</span>
             </div>
-            <h3><Link to={`/standards/${item.code}`} onClick={openResult}>{standard.standard_title || standard.standard}</Link></h3>
+            <h3>
+                <button
+                    type="button"
+                    className={styles.previewTrigger}
+                    aria-haspopup="dialog"
+                    onClick={openPreview}
+                    onPointerEnter={() => prefetchPreview(item.code)}
+                    onFocus={() => prefetchPreview(item.code)}
+                >
+                    {standard.standard_title || standard.standard}
+                </button>
+            </h3>
             <p className={styles.code}>{item.code} · {standard.domain} / {standard.subdomain}</p>
             <p>{item.relevance_reason || item.rationale}</p>
             <div className={styles.evidence}>
@@ -57,7 +69,7 @@ function ResultCard({ item, rank, saved, onSave }) {
                 ))}
             </div>
             <div className={styles.actions}>
-                <Link to={`/standards/${item.code}`} onClick={openResult}>查看标准与来源</Link>
+                <button type="button" className={styles.previewLink} aria-haspopup="dialog" onClick={openPreview} onPointerEnter={() => prefetchPreview(item.code)}>查看标准与来源</button>
                 <button type="button" onClick={() => onSave(item.code)} disabled={saved.has(item.code)}>{saved.has(item.code) ? '已加入清单' : '加入清单'}</button>
             </div>
         </article>
@@ -71,6 +83,7 @@ function SmartSearchPage() {
     const [error, setError] = useState('')
     const [saved, setSaved] = useState(new Set())
     const [batchMessage, setBatchMessage] = useState('')
+    const [preview, setPreview] = useState(null)
     const controllerRef = useRef(null)
     const rootRef = useRef(null)
 
@@ -96,6 +109,7 @@ function SmartSearchPage() {
         setLoading(true)
         setError('')
         setBatchMessage('')
+        setPreview(null)
         trackUmamiEvent('smart_search_submit', { query_length_bucket: queryLengthBucket(query) })
         try {
             const payload = await postApi('/api/v1/standards/semantic-search', { query }, controller.signal)
@@ -119,6 +133,15 @@ function SmartSearchPage() {
             setSaved(previous => new Set([...previous, code]))
             trackUmamiEvent('collection_add', { surface: 'smart_search' })
         }
+    }
+
+    function openPreview(item, rank) {
+        setPreview({ item, rank })
+        trackUmamiEvent('smart_search_result_open', {
+            rank_bucket: rankBucket(rank),
+            match_strength: item.match_strength,
+            subject: item.standard?.subject
+        })
     }
 
     function saveDirectResults() {
@@ -205,14 +228,14 @@ function SmartSearchPage() {
                                     {directResults.length ? (
                                         <section className={styles.resultGroup} aria-labelledby="direct-results-title">
                                             <header><h2 id="direct-results-title">{directResults.length} 条直接对应课标</h2><p>主题出现在标准正文、标题或课程分类中。</p></header>
-                                            <div className={styles.grid}>{directResults.map((item, index) => <ResultCard key={item.code} item={item} rank={index + 1} saved={saved} onSave={save} />)}</div>
+                                            <div className={styles.grid}>{directResults.map((item, index) => <ResultCard key={item.code} item={item} rank={index + 1} saved={saved} onSave={save} onPreview={openPreview} />)}</div>
                                         </section>
                                     ) : null}
 
                                     {supportingResults.length ? (
                                         <details className={`${styles.resultGroup} ${styles.supportingGroup}`}>
                                             <summary><strong>{supportingCount} 条教学情境延伸</strong><span>只在情境、实践建议或教学提示中发现相关表达</span></summary>
-                                            <div className={styles.grid}>{supportingResults.map((item, index) => <ResultCard key={item.code} item={item} rank={directResults.length + index + 1} saved={saved} onSave={save} />)}</div>
+                                            <div className={styles.grid}>{supportingResults.map((item, index) => <ResultCard key={item.code} item={item} rank={directResults.length + index + 1} saved={saved} onSave={save} onPreview={openPreview} />)}</div>
                                         </details>
                                     ) : null}
 
@@ -223,6 +246,14 @@ function SmartSearchPage() {
                     ) : <div className={styles.empty}><p>输入教学目标后开始检索。系统会说明它如何理解你的问题，并展示每条结果的命中证据。</p></div>}
                 </div>
             </section>
+            {preview ? (
+                <SmartSearchStandardPreview
+                    item={preview.item}
+                    saved={saved.has(preview.item.code)}
+                    onSave={save}
+                    onClose={() => setPreview(null)}
+                />
+            ) : null}
         </div>
     )
 }

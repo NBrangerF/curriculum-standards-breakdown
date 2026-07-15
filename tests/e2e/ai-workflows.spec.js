@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import AxeBuilder from '@axe-core/playwright'
 
 const plan = {
     title: '三年级科学植物观察计划',
@@ -67,6 +68,23 @@ test('smart search uses natural language only, separates evidence tiers and supp
     await page.getByText('1 条教学情境延伸', { exact: true }).click()
     await expect(page.getByText('教学情境中的观察活动')).toBeVisible()
     await expect(page.getByText('课标章节抽取')).toBeVisible()
+    const previewTrigger = page.locator('[data-search-result="direct"]').getByRole('button', { name: '观察植物的结构与生长变化' })
+    await previewTrigger.click()
+    const preview = page.getByRole('dialog')
+    await expect(preview).toBeVisible()
+    await expect(page).toHaveURL(/\/smart-search$/)
+    await expect(preview.getByRole('link', { name: '打开完整标准页面' })).toHaveAttribute('href', '/standards/SC-D2-SC-010')
+    await expect(preview.getByRole('button', { name: '关闭标准预览' })).toBeFocused()
+    const accessibility = await new AxeBuilder({ page })
+        .include('[data-standard-preview="SC-D2-SC-010"]')
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
+        .analyze()
+    expect(accessibility.violations.filter(violation => ['critical', 'serious'].includes(violation.impact)).map(violation => violation.id)).toEqual([])
+    await page.keyboard.press('Escape')
+    await expect(preview).toBeHidden()
+    await expect(previewTrigger).toBeFocused()
+    await expect(page.getByLabel('描述你的教学目标或使用情境')).toHaveValue('三四年级科学观察')
+    await expect(page.getByRole('heading', { level: 2, name: '1 条直接对应课标' })).toBeVisible()
     await page.locator('[data-search-result="direct"]').getByRole('button', { name: '加入清单' }).click()
     await expect(page.getByRole('button', { name: '已加入清单' })).toHaveCount(1)
 })
