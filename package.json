@@ -67,6 +67,7 @@
         "lint:styles": "stylelint 'src/**/*.css'",
         "eval:matching": "tsx scripts/evaluate-plan-matching.ts",
         "eval:smart-search": "tsx scripts/evaluate-smart-search.ts",
+        "eval:smart-search:llm": "npx --yes promptfoo@0.121.19 eval -c evals/smart-search/promptfooconfig.yaml --no-cache",
         "search:index-meilisearch": "tsx scripts/index-meilisearch.ts",
         "deploy:vercel": "npx vercel --prod",
         "deploy:vercel:checked": "npm run deploy:vercel && npm run smoke:api:prod",

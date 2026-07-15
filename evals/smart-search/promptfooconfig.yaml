@@ -1,0 +1,111 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+description: kebiao natural-language smart-search contract (nlq-v2)
+
+sharing: false
+prompts:
+  - "{{query}}"
+
+providers:
+  - id: https
+    label: kebiao-smart-search
+    config:
+      url: '{{env.SMART_SEARCH_EVAL_BASE_URL | default("https://www.kebiao.org")}}/api/v1/standards/semantic-search'
+      method: POST
+      headers:
+        Content-Type: application/json
+      body:
+        query: "{{prompt}}"
+      transformResponse: 'JSON.stringify(json.data)'
+      maxRetries: 1
+
+defaultTest:
+  assert:
+    - type: is-json
+    - type: javascript
+      metric: QueryPlanVersion
+      value: |
+        const data = JSON.parse(output);
+        return data.query_plan?.version === 'nlq-v2';
+    - type: javascript
+      metric: ModelAvailable
+      value: |
+        const data = JSON.parse(output);
+        return data.query_interpretation?.status === 'ok' && data.query_interpretation?.used === true;
+    - type: javascript
+      metric: NoHallucinatedResults
+      value: |
+        const data = JSON.parse(output);
+        return Array.isArray(data.results)
+          && data.results.every((item) => item.requires_human_review === true && item.standard?.code === item.code);
+
+tests:
+  - description: screenshot regression — H2 reading outside Chinese
+    vars:
+      query: 第二学段 G3-4，和阅读相关的标准，但不是语文学科中的
+    assert:
+      - type: javascript
+        metric: ExplicitConstraintFidelity
+        value: |
+          const data = JSON.parse(output);
+          const c = data.query_plan.resolved_constraints;
+          return c.grade_bands.length === 1 && c.grade_bands[0] === 'H2'
+            && c.excluded_subjects.length === 1 && c.excluded_subjects[0] === 'chinese';
+      - type: javascript
+        metric: CoreTopicPurity
+        value: |
+          const data = JSON.parse(output);
+          return JSON.stringify(data.parsed_query.core_terms) === JSON.stringify(['阅读']);
+      - type: javascript
+        metric: ResultConstraintSafety
+        value: |
+          const data = JSON.parse(output);
+          return data.results.length > 0 && data.results.every((item) =>
+            item.standard.subject_slug !== 'chinese' && item.standard.grade_band === 'H2');
+
+  - description: first learning stage reading outside Chinese
+    vars:
+      query: 第一学段，除了语文学科之外，跟阅读相关的课标
+    assert:
+      - type: javascript
+        metric: ExplicitConstraintFidelity
+        value: |
+          const data = JSON.parse(output);
+          const c = data.query_plan.resolved_constraints;
+          return c.grade_bands.includes('H1') && c.excluded_subjects.includes('chinese');
+      - type: javascript
+        metric: ResultConstraintSafety
+        value: |
+          const data = JSON.parse(output);
+          return data.results.length > 0 && data.results.every((item) =>
+            item.standard.subject_slug !== 'chinese' && item.standard.grade_band === 'H1');
+
+  - description: individual elementary grade normalization
+    vars:
+      query: 小学三年级，找语文以外和阅读有关的课程标准
+    assert:
+      - type: javascript
+        metric: ExplicitConstraintFidelity
+        value: |
+          const data = JSON.parse(output);
+          const c = data.query_plan.resolved_constraints;
+          return JSON.stringify(c.grade_bands) === JSON.stringify(['H2'])
+            && c.excluded_subjects.includes('chinese');
+
+  - description: middle-school grade and subject fidelity
+    vars:
+      query: 七年级数学里和数据分析与表达有关的标准
+    assert:
+      - type: javascript
+        metric: ExplicitConstraintFidelity
+        value: |
+          const data = JSON.parse(output);
+          const c = data.query_plan.resolved_constraints;
+          return JSON.stringify(c.grade_bands) === JSON.stringify(['H4G7'])
+            && JSON.stringify(c.subjects) === JSON.stringify(['math']);
+      - type: javascript
+        metric: ResultConstraintSafety
+        value: |
+          const data = JSON.parse(output);
+          return data.results.length > 0 && data.results.every((item) =>
+            item.standard.subject_slug === 'math' && item.standard.grade_band === 'H4G7');
+
