@@ -136,7 +136,7 @@ test('smart search understands subject exclusions and lets explicit filters corr
     const excluded = await repository.smartSearchStandards({
         query,
         inferred_core_terms: ['阅读'],
-        query_expansion_terms: ['识字与阅读', '阅读理解', '课标阅读要求', '低年级阅读能力', '阅读教学目标', '信息获取'],
+        query_expansion_terms: ['识字与阅读', '阅读理解', '课标阅读要求', '低年级阅读能力', '阅读教学目标', '信息获取', '读写结合'],
         min_score: 0,
         limit: 20
     })
@@ -147,6 +147,7 @@ test('smart search understands subject exclusions and lets explicit filters corr
     assert.equal(excluded.results[0].match_strength, 'direct')
     assert.ok(excluded.results[0].matched_concepts.includes('阅读'))
     assert.ok(!(excluded.parsed_query.effective_expansion_terms as string[]).includes('信息获取'))
+    assert.ok(!(excluded.parsed_query.effective_expansion_terms as string[]).includes('读写'))
     assert.deepEqual(excluded.relevance_summary, { direct: 1, supporting: 0 })
     assert.equal(excluded.relevant_candidates, 1)
     assert.ok(excluded.omitted_low_relevance > 0)

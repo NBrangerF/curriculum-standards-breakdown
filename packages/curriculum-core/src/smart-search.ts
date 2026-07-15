@@ -137,12 +137,10 @@ function extractCoreTerms(query: string): string[] {
 
 function sharesTopicAnchor(term: string, coreTerms: string[]): boolean {
     if (!coreTerms.length) return false
-    return coreTerms.some(core => {
-        if (term.includes(core) || core.includes(term)) return true
-        const coreCjk = new Set([...core].filter(character => /[\u4e00-\u9fff]/u.test(character)))
-        const termCjk = [...term].filter(character => /[\u4e00-\u9fff]/u.test(character))
-        return coreCjk.size > 0 && termCjk.some(character => coreCjk.has(character))
-    })
+    // A single shared Han character is too weak: 阅读 -> 读写 would otherwise
+    // retrieve health standards about writing posture. Model expansions must keep
+    // the complete deterministic core concept; precision is preferred over recall.
+    return coreTerms.some(core => term.includes(core) || core.includes(term))
 }
 
 function detectAliases(text: string, aliases: Record<string, string[]>): string[] {
