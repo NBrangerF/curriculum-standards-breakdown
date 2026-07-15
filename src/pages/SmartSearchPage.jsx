@@ -4,6 +4,14 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { addToCollection } from '../data/collections'
 import { postApi } from '../data/api'
+import {
+    classifySearchError,
+    countBucket,
+    normalizeInterpreterStatus,
+    queryLengthBucket,
+    rankBucket,
+    trackUmamiEvent
+} from '../observability/umamiTelemetry.js'
 import styles from './SmartSearchPage.module.css'
 
 gsap.registerPlugin(useGSAP)
@@ -22,8 +30,13 @@ const PROVENANCE_LABELS = {
     ai_generated: 'AI 生成'
 }
 
-function ResultCard({ item, saved, onSave }) {
+function ResultCard({ item, rank, saved, onSave }) {
     const standard = item.standard || {}
+    const openResult = () => trackUmamiEvent('smart_search_result_open', {
+        rank_bucket: rankBucket(rank),
+        match_strength: item.match_strength,
+        subject: standard.subject
+    })
     return (
         <article className={styles.card} data-search-result={item.match_strength}>
             <div className={styles.cardMeta}>
@@ -31,7 +44,7 @@ function ResultCard({ item, saved, onSave }) {
                 <span>{standard.grade}</span>
                 <span data-strength={item.match_strength}>{item.match_strength === 'direct' ? '直接对应' : '教学延伸'}</span>
             </div>
-            <h3><Link to={`/standards/${item.code}`}>{standard.standard_title || standard.standard}</Link></h3>
+            <h3><Link to={`/standards/${item.code}`} onClick={openResult}>{standard.standard_title || standard.standard}</Link></h3>
             <p className={styles.code}>{item.code} · {standard.domain} / {standard.subdomain}</p>
             <p>{item.relevance_reason || item.rationale}</p>
             <div className={styles.evidence}>
@@ -44,7 +57,7 @@ function ResultCard({ item, saved, onSave }) {
                 ))}
             </div>
             <div className={styles.actions}>
-                <Link to={`/standards/${item.code}`}>查看标准与来源</Link>
+                <Link to={`/standards/${item.code}`} onClick={openResult}>查看标准与来源</Link>
                 <button type="button" onClick={() => onSave(item.code)} disabled={saved.has(item.code)}>{saved.has(item.code) ? '已加入清单' : '加入清单'}</button>
             </div>
         </article>
@@ -83,18 +96,29 @@ function SmartSearchPage() {
         setLoading(true)
         setError('')
         setBatchMessage('')
+        trackUmamiEvent('smart_search_submit', { query_length_bucket: queryLengthBucket(query) })
         try {
             const payload = await postApi('/api/v1/standards/semantic-search', { query }, controller.signal)
             setResult(payload.data)
+            trackUmamiEvent('smart_search_results', {
+                result_count_bucket: countBucket(payload.data?.results?.length),
+                interpreter_status: normalizeInterpreterStatus(payload.data?.query_interpretation?.status)
+            })
         } catch (searchError) {
-            if (searchError.name !== 'AbortError') setError(searchError.message)
+            if (searchError.name !== 'AbortError') {
+                setError(searchError.message)
+                trackUmamiEvent('smart_search_error', { error_kind: classifySearchError(searchError) })
+            }
         } finally {
             if (controllerRef.current === controller) setLoading(false)
         }
     }
 
     function save(code) {
-        if (addToCollection(code)) setSaved(previous => new Set([...previous, code]))
+        if (addToCollection(code)) {
+            setSaved(previous => new Set([...previous, code]))
+            trackUmamiEvent('collection_add', { surface: 'smart_search' })
+        }
     }
 
     function saveDirectResults() {
@@ -102,6 +126,10 @@ function SmartSearchPage() {
         codes.forEach(code => addToCollection(code))
         setSaved(previous => new Set([...previous, ...codes]))
         setBatchMessage(`已将 ${new Set(codes).size} 条直接对应的标准加入“我的清单”，请在使用前继续复核标准原文。`)
+        trackUmamiEvent('collection_batch_add', {
+            surface: 'smart_search',
+            count_bucket: countBucket(new Set(codes).size)
+        })
     }
 
     const interpretation = result?.query_interpretation || {}
@@ -177,14 +205,14 @@ function SmartSearchPage() {
                                     {directResults.length ? (
                                         <section className={styles.resultGroup} aria-labelledby="direct-results-title">
                                             <header><h2 id="direct-results-title">{directResults.length} 条直接对应课标</h2><p>主题出现在标准正文、标题或课程分类中。</p></header>
-                                            <div className={styles.grid}>{directResults.map(item => <ResultCard key={item.code} item={item} saved={saved} onSave={save} />)}</div>
+                                            <div className={styles.grid}>{directResults.map((item, index) => <ResultCard key={item.code} item={item} rank={index + 1} saved={saved} onSave={save} />)}</div>
                                         </section>
                                     ) : null}
 
                                     {supportingResults.length ? (
                                         <details className={`${styles.resultGroup} ${styles.supportingGroup}`}>
                                             <summary><strong>{supportingCount} 条教学情境延伸</strong><span>只在情境、实践建议或教学提示中发现相关表达</span></summary>
-                                            <div className={styles.grid}>{supportingResults.map(item => <ResultCard key={item.code} item={item} saved={saved} onSave={save} />)}</div>
+                                            <div className={styles.grid}>{supportingResults.map((item, index) => <ResultCard key={item.code} item={item} rank={directResults.length + index + 1} saved={saved} onSave={save} />)}</div>
                                         </details>
                                     ) : null}
 

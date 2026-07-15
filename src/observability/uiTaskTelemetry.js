@@ -1,3 +1,5 @@
+import { trackUmamiEvent } from './umamiTelemetry.js'
+
 export const UI_TASKS = Object.freeze([
     'search_start',
     'search_results',
@@ -29,9 +31,10 @@ export function buildUiTaskProperties(task, element) {
 }
 
 export async function trackUiTask(task, element) {
-    if (!ANALYTICS_ENABLED) return false
     const properties = buildUiTaskProperties(task, element)
     if (!properties) return false
+    const umamiTracked = trackUmamiEvent(`ui_${properties.task}`, { variant: properties.variant })
+    if (!ANALYTICS_ENABLED) return umamiTracked
     const { track } = await import('@vercel/analytics')
     track('kebiao_task', properties)
     return true

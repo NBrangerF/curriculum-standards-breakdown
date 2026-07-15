@@ -13,6 +13,8 @@ import StandardDetailPage from './pages/StandardDetailPage'
 import RouteUiBoundary from './components/RouteUiBoundary'
 import { LoadingState } from './components/StateComponents'
 import UiTelemetryListener from './observability/UiTelemetryListener'
+import UmamiRouteTelemetry from './observability/UmamiRouteTelemetry'
+import { isKebiaoProductionHost } from './observability/umamiTelemetry.js'
 import './App.css'
 
 const CollectionsPage = lazy(() => import('./pages/CollectionsPage'))
@@ -34,6 +36,7 @@ function App() {
     const route = (routeKey, element) => <RouteUiBoundary routeKey={routeKey}>{element}</RouteUiBoundary>
     const analyticsEnabled = import.meta.env.VITE_ENABLE_ANALYTICS === 'true'
     const speedInsightsEnabled = import.meta.env.VITE_ENABLE_SPEED_INSIGHTS === 'true'
+    const umamiEnabled = isKebiaoProductionHost()
 
     return (
         <div className="app">
@@ -64,7 +67,8 @@ function App() {
             </main>
             <Footer />
             {analyticsEnabled ? <Analytics /> : null}
-            {analyticsEnabled ? <UiTelemetryListener /> : null}
+            {analyticsEnabled || umamiEnabled ? <UiTelemetryListener /> : null}
+            {umamiEnabled ? <UmamiRouteTelemetry /> : null}
             {speedInsightsEnabled ? <SpeedInsights /> : null}
         </div>
     )
