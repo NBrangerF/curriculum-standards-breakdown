@@ -158,7 +158,8 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
     })
     assert.equal(invalidShape.status, 'ok')
     assert.deepEqual(invalidShape.interpretation?.subjects, [])
-    assert.deepEqual(invalidShape.interpretation?.excluded_subjects, ['chinese'])
+    assert.deepEqual(invalidShape.interpretation?.excluded_subjects, [])
+    assert.ok(invalidShape.interpretation?.warnings.some(warning => warning.includes('原文证据')))
 })
 
 test('LLM query interpreter accepts only hard constraints backed by source spans', async () => {
