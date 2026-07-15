@@ -5,9 +5,17 @@ import { FileCurriculumRepository } from '../packages/curriculum-core/src/index.
 type EvalCase = {
     id: string
     query: string
-    subjects: string[]
+    subjects?: string[]
     excluded_subjects?: string[]
-    grade_bands: string[]
+    grade_bands?: string[]
+    natural_only?: boolean
+    expected_subjects?: string[]
+    expected_excluded_subjects?: string[]
+    expected_grade_bands?: string[]
+    expected_core_terms?: string[]
+    forbidden_core_terms?: string[]
+    forbidden_grade_bands?: string[]
+    forbidden_direct_codes?: string[]
     min_score?: number
     expect_empty?: boolean
     forbidden_codes?: string[]
@@ -34,13 +42,16 @@ let missingExpectedCodes = 0
 let unexpectedExpectedOnlyCodes = 0
 let resultsWithoutTopicEvidence = 0
 let invalidMatchStrength = 0
+let queryPlanViolations = 0
+let coreTermContamination = 0
+let forbiddenDirectCodesReturned = 0
 
 for (const fixture of cases) {
     const request = {
         query: fixture.query,
-        subjects: fixture.subjects,
-        excluded_subjects: fixture.excluded_subjects,
-        grade_bands: fixture.grade_bands,
+        subjects: fixture.natural_only ? undefined : fixture.subjects,
+        excluded_subjects: fixture.natural_only ? undefined : fixture.excluded_subjects,
+        grade_bands: fixture.natural_only ? undefined : fixture.grade_bands,
         limit: 5,
         min_score: fixture.min_score ?? 0
     }
@@ -56,11 +67,29 @@ for (const fixture of cases) {
     missingExpectedCodes += expectedCodes.filter(code => !resultCodes.includes(code)).length
     if (fixture.expected_only) unexpectedExpectedOnlyCodes += resultCodes.filter(code => !expectedCodes.includes(code)).length
     returned += response.results.length
+    const expectedSubjects = fixture.expected_subjects || fixture.subjects || []
+    const expectedExcludedSubjects = fixture.expected_excluded_subjects || fixture.excluded_subjects || []
+    const expectedGradeBands = fixture.expected_grade_bands || fixture.grade_bands || []
+    const resolved = response.query_plan.resolved_constraints
+    if (expectedSubjects.join('|') !== resolved.subjects.join('|')
+        || expectedExcludedSubjects.join('|') !== resolved.excluded_subjects.join('|')
+        || expectedGradeBands.join('|') !== resolved.grade_bands.join('|')
+        || (fixture.forbidden_grade_bands || []).some(value => resolved.grade_bands.includes(value))) {
+        queryPlanViolations += 1
+    }
+    const coreTerms = response.parsed_query.core_terms as string[]
+    if ((fixture.expected_core_terms && fixture.expected_core_terms.join('|') !== coreTerms.join('|'))
+        || (fixture.forbidden_core_terms || []).some(value => coreTerms.includes(value))) {
+        coreTermContamination += 1
+    }
+    forbiddenDirectCodesReturned += response.results.filter(result => (
+        result.match_strength === 'direct' && (fixture.forbidden_direct_codes || []).includes(result.code)
+    )).length
     for (const result of response.results) {
         const standard = result.standard as Record<string, unknown>
-        if ((fixture.subjects.length && !fixture.subjects.includes(String(standard.subject_slug)))
-            || (fixture.excluded_subjects || []).includes(String(standard.subject_slug))
-            || !fixture.grade_bands.includes(String(standard.grade_band))) {
+        if ((expectedSubjects.length && !expectedSubjects.includes(String(standard.subject_slug)))
+            || expectedExcludedSubjects.includes(String(standard.subject_slug))
+            || (expectedGradeBands.length && !expectedGradeBands.includes(String(standard.grade_band)))) {
             hardFilterViolations += 1
         }
         if (!canonicalCodes.has(result.code)) hallucinatedCodes += 1
@@ -93,6 +122,9 @@ const report = {
     unexpected_expected_only_codes: unexpectedExpectedOnlyCodes,
     results_without_topic_evidence: resultsWithoutTopicEvidence,
     invalid_match_strength: invalidMatchStrength,
+    query_plan_violations: queryPlanViolations,
+    core_term_contamination: coreTermContamination,
+    forbidden_direct_codes_returned: forbiddenDirectCodesReturned,
     note: 'Contract, safety, topic-evidence and labelled regression checks. Expand teacher-labelled Precision@K/NDCG coverage as review decisions accumulate.'
 }
 
@@ -109,5 +141,8 @@ if (
     || missingExpectedCodes
     || unexpectedExpectedOnlyCodes
     || resultsWithoutTopicEvidence
-    || invalidMatchStrength
-) process.exitCode = 1
+        || invalidMatchStrength
+        || queryPlanViolations
+        || coreTermContamination
+        || forbiddenDirectCodesReturned
+    ) process.exitCode = 1
