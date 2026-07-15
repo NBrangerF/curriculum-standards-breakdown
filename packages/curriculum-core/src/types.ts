@@ -236,6 +236,7 @@ export interface StandardSearchResult<T = JsonObject> {
 
 export interface SmartSearchRequest extends StandardFilters {
     query: string
+    ranking_profile?: 'topic_evidence_v1' | 'plan_alignment_v1'
     query_expansion_terms?: string[]
     inferred_core_terms?: string[]
     excluded_subjects?: string[]

@@ -9,6 +9,8 @@ import type {
     StandardRecord
 } from './types.js'
 
+export const SMART_SEARCH_RELEVANCE_VERSION = 'topic-evidence-v1' as const
+
 const SUBJECT_ALIASES: Record<string, string[]> = {
     chinese: ['语文', '中文', 'chinese'],
     math: ['数学', 'math', 'mathematics'],
@@ -48,6 +50,10 @@ const TOPIC_STOP_WORDS = new Set([
     '学生', '学习', '课程', '标准', '课标', '教学', '相关', '有关', '要求', '目标', '能力',
     '能够', '通过', '进行', '一个', '一些', '如何', '需要', '适合', '内容', '活动', '任务',
     '学科', '学段', '年级', '理解', '掌握', '培养', '查找', '寻找', '检索'
+])
+const PLAN_ALIGNMENT_STOP_WORDS = new Set([
+    '学生', '学习', '课程', '标准', '课标', '教学', '相关', '能够', '通过', '进行',
+    '一个', '一些', '如何', '需要', '适合', '内容', '活动'
 ])
 const QUERY_SCAFFOLDING = [
     '课程标准', '小学低年级', '低年级', '年级', '除了', '排除', '不包含', '不包括', '不含', '不要', '剔除', '之外', '以外',
@@ -90,6 +96,18 @@ function topicTokens(value: unknown): string[] {
         }
     }
     return unique(tokens.filter(term => term.length >= 2 && !TOPIC_STOP_WORDS.has(term))).slice(0, 80)
+}
+
+function planAlignmentTokens(value: unknown): string[] {
+    const text = String(value || '').toLowerCase().trim()
+    if (!text) return []
+    const tokens = text
+        .split(/[\s,，.。;；:：、/|()[\]{}"'“”‘’<>《》!?！？\n\r\t—-]+/u)
+        .map(item => item.trim())
+        .filter(item => item.length >= 2 && !PLAN_ALIGNMENT_STOP_WORDS.has(item))
+    const cjk = text.replace(/[^\u4e00-\u9fff]/gu, '')
+    for (let index = 0; index < cjk.length - 1; index += 1) tokens.push(cjk.slice(index, index + 2))
+    return unique(tokens).slice(0, 160)
 }
 
 function replaceGlobally(text: string, pattern: RegExp): string {
@@ -239,12 +257,14 @@ function matchesHardFilters(record: StandardRecord, filters: ReturnType<typeof m
 
 type CandidateMatchStrength = SmartSearchResult['match_strength'] | 'irrelevant'
 type ScoredCandidate = Omit<SmartSearchResult, 'match_strength'> & { match_strength: CandidateMatchStrength }
+type RankingProfile = NonNullable<SmartSearchRequest['ranking_profile']>
 
 function scoreRecord(
     recordInput: StandardRecord,
     coreTerms: string[],
     expansionTerms: string[],
     filters: ReturnType<typeof mergeFilters>['filters'],
+    rankingProfile: RankingProfile,
     include?: Fieldset[]
 ): ScoredCandidate {
     const record = normalizeStandard(recordInput)
@@ -263,7 +283,7 @@ function scoreRecord(
         const trust = fieldTrust(record, field)
         if (!value || !trust.eligible) continue
         const lower = String(value).toLowerCase()
-        const matchedCore = coreTerms.filter(term => lower.includes(term)).slice(0, 8)
+        const matchedCore = coreTerms.filter(term => lower.includes(term)).slice(0, rankingProfile === 'plan_alignment_v1' ? 10 : 8)
         const matchedExpansion = expansionTerms.filter(term => lower.includes(term)).slice(0, 8)
         const matched = unique([...matchedCore, ...matchedExpansion]).slice(0, 10)
         availableWeight += weight
@@ -273,7 +293,9 @@ function scoreRecord(
         matchedCoreConcepts.push(...matchedCore)
         matchedExpansionConcepts.push(...matchedExpansion)
         if (matchedCore.length && PRIMARY_TOPIC_FIELDS.has(field)) coreMatchInPrimaryField = true
-        const coverage = Math.min(1, (matchedCore.length + matchedExpansion.length * 0.45) / weightedTermCount)
+        const coverage = rankingProfile === 'plan_alignment_v1'
+            ? Math.min(1, matched.length / Math.max(2, Math.min(coreTerms.length + expansionTerms.length, 8)))
+            : Math.min(1, (matchedCore.length + matchedExpansion.length * 0.45) / weightedTermCount)
         weightedOverlap += coverage * weight
         matchedFields.push({
             field,
@@ -314,7 +336,10 @@ function scoreRecord(
     const conceptCoverage = coreCoverage
         ? Math.min(1, coreCoverage + expansionCoverage * 0.15)
         : expansionCoverage * 0.35
-    const score = Number((conceptCoverage * 0.45 + lexical * 0.3 + topicStrength * 0.18 + skill * 0.04 + quality * 0.03).toFixed(4))
+    const score = Number((rankingProfile === 'plan_alignment_v1'
+        ? lexical * 0.62 + structural * 0.16 + skill * 0.12 + quality * 0.1
+        : conceptCoverage * 0.45 + lexical * 0.3 + topicStrength * 0.18 + skill * 0.04 + quality * 0.03
+    ).toFixed(4))
     const topEvidence = matchedFields.slice(0, 3)
     const matchedConcepts = unique([...uniqueCoreMatches, ...uniqueExpansionMatches])
     const relevanceReason = matchStrength === 'direct'
@@ -360,18 +385,25 @@ export function smartSearchStandards(
     request: SmartSearchRequest
 ): SmartSearchResponse {
     const parsedQuery = parseSmartSearchQuery(request.query)
-    const inferredCoreTerms = unique((request.inferred_core_terms || []).flatMap(extractCoreTerms))
-    const coreTerms = unique([...parsedQuery.core_terms, ...inferredCoreTerms]).slice(0, 24)
-    const expansionTerms = unique((request.query_expansion_terms || []).flatMap(extractCoreTerms))
-        .filter(term => !coreTerms.includes(term))
-        .filter(term => sharesTopicAnchor(term, coreTerms))
-        .slice(0, 60)
+    const rankingProfile: RankingProfile = request.ranking_profile || 'topic_evidence_v1'
+    const inferredCoreTerms = rankingProfile === 'plan_alignment_v1'
+        ? []
+        : unique((request.inferred_core_terms || []).flatMap(extractCoreTerms))
+    const coreTerms = rankingProfile === 'plan_alignment_v1'
+        ? planAlignmentTokens(request.query)
+        : unique([...parsedQuery.core_terms, ...inferredCoreTerms]).slice(0, 24)
+    const expansionTerms = rankingProfile === 'plan_alignment_v1'
+        ? unique((request.query_expansion_terms || []).flatMap(planAlignmentTokens)).slice(0, 80)
+        : unique((request.query_expansion_terms || []).flatMap(extractCoreTerms))
+            .filter(term => !coreTerms.includes(term))
+            .filter(term => sharesTopicAnchor(term, coreTerms))
+            .slice(0, 60)
     const { filters, warnings } = mergeFilters(request, parsedQuery)
     const limit = Math.min(Math.max(request.limit || 12, 1), 50)
-    const minScore = request.min_score ?? 0.12
+    const minScore = request.min_score ?? (rankingProfile === 'plan_alignment_v1' ? 0.08 : 0.12)
     const candidates = standards.filter(record => matchesHardFilters(record, filters))
     const relevant = candidates
-        .map(record => scoreRecord(record, coreTerms, expansionTerms, filters, request.include))
+        .map(record => scoreRecord(record, coreTerms, expansionTerms, filters, rankingProfile, request.include))
         .filter(result => result.match_strength !== 'irrelevant' && result.score >= minScore)
         .sort((left, right) => right.score - left.score || left.code.localeCompare(right.code))
     const relevanceSummary = {
@@ -409,7 +441,7 @@ export function smartSearchStandards(
         omitted_low_relevance: omittedLowRelevance,
         relevance_summary: relevanceSummary,
         coverage_note: coverageNote,
-        relevance_version: 'topic-evidence-v1',
+        relevance_version: SMART_SEARCH_RELEVANCE_VERSION,
         retrieval_version: 'trusted-hybrid-v1',
         semantic_provider: 'none',
         warnings: unique(warnings)

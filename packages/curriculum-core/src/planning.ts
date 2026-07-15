@@ -298,6 +298,7 @@ export function matchPlanToStandards(
     const units: PlanUnitMatches[] = normalizedPlan.units.map(unit => {
         const retrieval = smartSearchStandards(candidateStandards, {
             query: [unit.title, ...unit.learning_goals, ...unit.keywords].join(' '),
+            ranking_profile: 'plan_alignment_v1',
             subjects: normalizedPlan.subject_slug ? [normalizedPlan.subject_slug] : undefined,
             grade_bands: normalizedPlan.grade_band ? [normalizedPlan.grade_band] : undefined,
             limit: topK,

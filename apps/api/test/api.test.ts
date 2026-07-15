@@ -265,6 +265,7 @@ test('GET /api/v1/health returns service health', async () => {
     const body = await json(response)
     assert.equal(body.data.status, 'ok')
     assert.equal(body.data.data_version, dataVersion)
+    assert.equal(body.data.smart_search_relevance_version, 'topic-evidence-v1')
 })
 
 test('OPTIONS preflight returns CORS headers', async () => {

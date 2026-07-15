@@ -10,6 +10,7 @@ import {
     StandardCompareRequestSchema,
     StandardSearchRequestSchema,
     SmartSearchRequestSchema,
+    SMART_SEARCH_RELEVANCE_VERSION,
     WeeklyScheduleRequestSchema,
     projectStandard
 } from '../../../packages/curriculum-core/src/index.js'
@@ -105,7 +106,8 @@ export function createApp(repository: FileCurriculumRepository) {
         return ok(c, version, {
             status: 'ok',
             data_version: version.data_version,
-            schema_version: version.schema_version
+            schema_version: version.schema_version,
+            smart_search_relevance_version: SMART_SEARCH_RELEVANCE_VERSION
         })
     })
 

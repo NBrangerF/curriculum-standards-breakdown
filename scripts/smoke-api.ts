@@ -18,9 +18,18 @@ const baseUrl = normalizeBaseUrl(
 
 const apiKey = process.env.CURRICULUM_SMOKE_API_KEY || process.env.CURRICULUM_API_KEY || ''
 const adminKey = process.env.CURRICULUM_SMOKE_ADMIN_API_KEY || process.env.CURRICULUM_ADMIN_API_KEY || ''
+const expectedRelevanceVersion = process.env.SMOKE_EXPECTED_RELEVANCE_VERSION || 'topic-evidence-v1'
+const readinessAttempts = clampInteger(process.env.SMOKE_READINESS_ATTEMPTS, 1, 1, 30)
+const readinessIntervalMs = clampInteger(process.env.SMOKE_READINESS_INTERVAL_MS, 5_000, 250, 30_000)
 
 function normalizeBaseUrl(value: string): string {
     return value.replace(/\/+$/, '')
+}
+
+function clampInteger(value: string | undefined, fallback: number, minimum: number, maximum: number): number {
+    const parsed = Number(value)
+    if (!Number.isFinite(parsed)) return fallback
+    return Math.min(maximum, Math.max(minimum, Math.trunc(parsed)))
 }
 
 function assert(condition: unknown, message: string): asserts condition {
@@ -68,6 +77,37 @@ async function readResponse(response: Response) {
     return { payload: JSON.parse(text) as unknown, text }
 }
 
+async function waitForDeploymentReadiness() {
+    let lastObserved = 'unavailable'
+    for (let attempt = 1; attempt <= readinessAttempts; attempt += 1) {
+        try {
+            const response = await fetch(`${baseUrl}/api/v1/health?readiness=${Date.now()}`, {
+                cache: 'no-store',
+                headers: { 'cache-control': 'no-cache' }
+            })
+            const { payload } = await readResponse(response)
+            if (response.ok && payload) {
+                const data = expectObject(getData(payload), 'Expected readiness health object')
+                lastObserved = String(data.smart_search_relevance_version || 'missing')
+                if (lastObserved === expectedRelevanceVersion) {
+                    console.log(`ready deployment contract ${lastObserved} on attempt ${attempt}/${readinessAttempts}`)
+                    return
+                }
+            } else {
+                lastObserved = `HTTP ${response.status}`
+            }
+        } catch (error) {
+            lastObserved = error instanceof Error ? error.message : String(error)
+        }
+
+        console.log(`wait deployment contract attempt ${attempt}/${readinessAttempts}: ${lastObserved}`)
+        if (attempt < readinessAttempts) {
+            await new Promise(resolve => setTimeout(resolve, readinessIntervalMs))
+        }
+    }
+    throw new Error(`Expected deployed smart-search contract ${expectedRelevanceVersion}, observed ${lastObserved}`)
+}
+
 async function runCheck(check: SmokeCheck) {
     const method = check.method || 'GET'
     const response = await fetch(`${baseUrl}${check.path}`, {
@@ -96,6 +136,7 @@ const checks: SmokeCheck[] = [
             expectEnvelope(response, payload)
             const data = expectObject(getData(payload), 'Expected health object')
             assert(data.status === 'ok', 'Expected health status ok')
+            assert(data.smart_search_relevance_version === expectedRelevanceVersion, 'Expected current smart-search relevance contract')
         }
     },
     {
@@ -365,6 +406,8 @@ console.log(JSON.stringify({
     developer_key_present: Boolean(apiKey),
     admin_key_present: Boolean(adminKey)
 }, null, 2))
+
+await waitForDeploymentReadiness()
 
 const results = []
 

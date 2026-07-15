@@ -31,3 +31,6 @@ jobs:
         run: npm run smoke:api
         env:
           API_BASE: https://www.kebiao.org
+          SMOKE_EXPECTED_RELEVANCE_VERSION: topic-evidence-v1
+          SMOKE_READINESS_ATTEMPTS: 15
+          SMOKE_READINESS_INTERVAL_MS: 10000
