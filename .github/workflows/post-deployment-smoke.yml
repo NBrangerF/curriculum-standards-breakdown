@@ -34,3 +34,8 @@ jobs:
           SMOKE_EXPECTED_RELEVANCE_VERSION: topic-evidence-v1
           SMOKE_READINESS_ATTEMPTS: 15
           SMOKE_READINESS_INTERVAL_MS: 10000
+      - name: Verify natural-language model and retrieval pipeline
+        run: npm run eval:smart-search:llm
+        env:
+          SMART_SEARCH_EVAL_BASE_URL: https://www.kebiao.org
+          PROMPTFOO_DISABLE_UPDATE: "true"

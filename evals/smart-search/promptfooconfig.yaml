@@ -2,6 +2,9 @@
 description: kebiao natural-language smart-search contract (nlq-v2)
 
 sharing: false
+commandLineOptions:
+  maxConcurrency: 1
+  delay: 250
 prompts:
   - "{{query}}"
 
@@ -108,4 +111,3 @@ tests:
           const data = JSON.parse(output);
           return data.results.length > 0 && data.results.every((item) =>
             item.standard.subject_slug === 'math' && item.standard.grade_band === 'H4G7');
-
