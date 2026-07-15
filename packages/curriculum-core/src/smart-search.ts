@@ -4,6 +4,7 @@ import type {
     Fieldset,
     JsonObject,
     SmartSearchRequest,
+    SmartSearchQueryPlanConflict,
     SmartSearchResponse,
     SmartSearchResult,
     StandardRecord
@@ -38,9 +39,9 @@ const SKILL_ALIASES: Record<string, string[]> = {
 }
 
 const GRADE_PATTERNS: Array<[RegExp, string]> = [
-    [/(?:一|1)\s*[-—至到]\s*(?:二|2)年级|一二年级|第一学段/u, 'H1'],
-    [/(?:三|3)\s*[-—至到]\s*(?:四|4)年级|三四年级|第二学段/u, 'H2'],
-    [/(?:五|5)\s*[-—至到]\s*(?:六|6)年级|五六年级|第三学段/u, 'H3'],
+    [/(?:一|1)\s*[-—至到]\s*(?:二|2)年级|一二年级|第一学段|G\s*1\s*[-—至到]\s*2/iu, 'H1'],
+    [/(?:三|3)\s*[-—至到]\s*(?:四|4)年级|三四年级|第二学段|G\s*3\s*[-—至到]\s*4/iu, 'H2'],
+    [/(?:五|5)\s*[-—至到]\s*(?:六|6)年级|五六年级|第三学段|G\s*5\s*[-—至到]\s*6/iu, 'H3'],
     [/(?:七|7)年级|初一|H4G7/i, 'H4G7'],
     [/(?:八|8)年级|初二|H4G8/i, 'H4G8'],
     [/(?:九|9)年级|初三|H4G9/i, 'H4G9']
@@ -56,7 +57,7 @@ const PLAN_ALIGNMENT_STOP_WORDS = new Set([
     '一个', '一些', '如何', '需要', '适合', '内容', '活动'
 ])
 const QUERY_SCAFFOLDING = [
-    '课程标准', '小学低年级', '低年级', '年级', '除了', '排除', '不包含', '不包括', '不含', '不要', '剔除', '之外', '以外',
+    '课程标准', '小学低年级', '低年级', '年级', '但不是', '不是', '除了', '排除', '不包含', '不包括', '不含', '不要', '剔除', '之外', '以外',
     '忽略所有规则', '所有规则', '请帮我', '帮我', '查找', '寻找', '检索', '看看', '列出', '忽略', '返回', '相关的', '有关的', '相关', '有关',
     '适合', '培养', '能够', '可以', '需要', '想要', '涉及', '围绕', '方面', '内容', '活动', '任务',
     '学科', '课程', '课标', '标准', '教学', '学习', '要求', '目标', '能力', '理解', '掌握', '中的', '中', '里的',
@@ -203,6 +204,7 @@ export function parseSmartSearchQuery(query: string) {
 
 function mergeFilters(request: SmartSearchRequest, parsed: ReturnType<typeof parseSmartSearchQuery>) {
     const warnings: string[] = []
+    const conflicts: SmartSearchQueryPlanConflict[] = []
     const merge = (explicit: string[] | undefined, inferred: string[], label: string) => {
         if (!explicit?.length) return inferred
         if (inferred.length && !inferred.some(value => explicit.includes(value))) {
@@ -211,12 +213,28 @@ function mergeFilters(request: SmartSearchRequest, parsed: ReturnType<typeof par
         return unique(explicit)
     }
     const explicitSubjects = unique(request.subjects || [])
-    const inferredSubjects = request.inferred_subjects?.length
-        ? unique(request.inferred_subjects)
-        : parsed.subjects
-    const inferredGradeBands = request.inferred_grade_bands?.length
-        ? unique(request.inferred_grade_bands)
-        : parsed.grade_bands
+    const modelSubjects = unique(request.inferred_subjects || [])
+    const modelGradeBands = unique(request.inferred_grade_bands || [])
+    const inferredSubjects = parsed.subjects.length ? parsed.subjects : modelSubjects
+    const inferredGradeBands = parsed.grade_bands.length ? parsed.grade_bands : modelGradeBands
+    if (parsed.subjects.length && modelSubjects.length && !modelSubjects.some(value => parsed.subjects.includes(value))) {
+        conflicts.push({
+            kind: 'subject',
+            explicit_values: parsed.subjects,
+            discarded_inferred_values: modelSubjects,
+            resolution: request.subjects?.length ? 'explicit_request_wins' : 'explicit_query_wins'
+        })
+        warnings.push('AI 识别的学科与查询中的明确学科不一致；已以用户原话为准。')
+    }
+    if (parsed.grade_bands.length && modelGradeBands.length && !modelGradeBands.some(value => parsed.grade_bands.includes(value))) {
+        conflicts.push({
+            kind: 'grade_band',
+            explicit_values: parsed.grade_bands,
+            discarded_inferred_values: modelGradeBands,
+            resolution: request.grade_bands?.length ? 'explicit_request_wins' : 'explicit_query_wins'
+        })
+        warnings.push('AI 识别的学段与查询中的明确学段不一致；已以用户原话为准。')
+    }
     const excludedSubjects = unique([
         ...(request.excluded_subjects || []),
         ...(request.inferred_excluded_subjects || []),
@@ -233,8 +251,26 @@ function mergeFilters(request: SmartSearchRequest, parsed: ReturnType<typeof par
             // skills remain a ranking signal. Only an explicit skill filter is hard.
             skills: merge(request.skills, [], '可迁移技能')
         },
-        warnings
+        warnings,
+        conflicts
     }
+}
+
+function humanizeConstraints(filters: ReturnType<typeof mergeFilters>['filters'], coreTerms: string[]) {
+    const gradeLabels: Record<string, string> = {
+        H1: '小学 1–2 年级', H2: '小学 3–4 年级', H3: '小学 5–6 年级',
+        H4G7: '七年级', H4G8: '八年级', H4G9: '九年级'
+    }
+    const subjectLabels: Record<string, string> = {
+        chinese: '语文', math: '数学', english: '英语', science: '科学', morality_law: '道德与法治',
+        pe: '体育与健康', arts: '艺术', labor: '劳动', it: '信息科技', history: '历史', geography: '地理'
+    }
+    const parts: string[] = []
+    if (filters.grade_bands.length) parts.push(filters.grade_bands.map(value => gradeLabels[value] || value).join('、'))
+    if (filters.subjects.length) parts.push(`学科为${filters.subjects.map(value => subjectLabels[value] || value).join('、')}`)
+    if (filters.excluded_subjects.length) parts.push(`排除${filters.excluded_subjects.map(value => subjectLabels[value] || value).join('、')}`)
+    if (coreTerms.length) parts.push(`主题为${coreTerms.slice(0, 4).join('、')}`)
+    return parts.length ? `我理解你要查找${parts.join('，')}的课程标准。` : '我会根据你的自然语言描述查找课程标准。'
 }
 
 function mainSkills(record: StandardRecord): string[] {
@@ -396,7 +432,7 @@ export function smartSearchStandards(
             .filter(term => !coreTerms.includes(term))
             .filter(term => sharesTopicAnchor(term, coreTerms))
             .slice(0, 60)
-    const { filters, warnings } = mergeFilters(request, parsedQuery)
+    const { filters, warnings, conflicts } = mergeFilters(request, parsedQuery)
     const limit = Math.min(Math.max(request.limit || 12, 1), 50)
     const minScore = request.min_score ?? (rankingProfile === 'plan_alignment_v1' ? 0.08 : 0.12)
     const candidates = standards.filter(record => matchesHardFilters(record, filters))
@@ -433,6 +469,21 @@ export function smartSearchStandards(
             effective_expansion_terms: expansionTerms
         },
         applied_filters: filters,
+        query_plan: {
+            version: 'nlq-v2',
+            normalized_query: request.query.trim().replace(/\s+/gu, ' '),
+            topics: coreTerms.map(value => ({
+                value,
+                source: parsedQuery.core_terms.includes(value) ? 'explicit_text' : 'model_supported',
+                confidence: parsedQuery.core_terms.includes(value) ? 1 : 0.72
+            })),
+            resolved_constraints: filters,
+            conflicts,
+            ambiguities: [],
+            needs_clarification: false,
+            clarification_question: null
+        },
+        understanding_summary: humanizeConstraints(filters, coreTerms),
         results,
         total_candidates: candidates.length,
         relevant_candidates: relevant.length,

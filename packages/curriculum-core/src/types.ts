@@ -281,10 +281,42 @@ export interface SmartSearchResult {
     standard: JsonObject
 }
 
+export interface SmartSearchQueryPlanConflict extends JsonObject {
+    kind: 'subject' | 'grade_band'
+    explicit_values: string[]
+    discarded_inferred_values: string[]
+    resolution: 'explicit_query_wins' | 'explicit_request_wins'
+}
+
+export interface SmartSearchResolvedConstraints extends JsonObject {
+    subjects: string[]
+    excluded_subjects: string[]
+    grade_bands: string[]
+    domains: string[]
+    skills: string[]
+}
+
+export interface SmartSearchQueryPlan extends JsonObject {
+    version: 'nlq-v2'
+    normalized_query: string
+    topics: Array<{
+        value: string
+        source: 'explicit_text' | 'model_supported'
+        confidence: number
+    }>
+    resolved_constraints: SmartSearchResolvedConstraints
+    conflicts: SmartSearchQueryPlanConflict[]
+    ambiguities: string[]
+    needs_clarification: boolean
+    clarification_question: string | null
+}
+
 export interface SmartSearchResponse extends JsonObject {
     query: string
     parsed_query: JsonObject
     applied_filters: JsonObject
+    query_plan: SmartSearchQueryPlan
+    understanding_summary: string
     results: SmartSearchResult[]
     total_candidates: number
     relevant_candidates: number
