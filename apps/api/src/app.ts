@@ -353,6 +353,16 @@ export function createApp(repository: FileCurriculumRepository) {
             inferred_core_terms: aiInterpretation?.core_terms,
             query_expansion_terms: aiInterpretation?.expanded_terms || []
         })
+        const ambiguities = aiInterpretation?.ambiguities || []
+        const clarificationQuestion = aiInterpretation?.clarification_question || ''
+        if (ambiguities.length && clarificationQuestion) {
+            result.query_plan = {
+                ...result.query_plan,
+                ambiguities,
+                needs_clarification: true,
+                clarification_question: clarificationQuestion
+            }
+        }
         result.query_interpretation = {
             used: interpretation.used,
             status: interpretation.status,
@@ -365,6 +375,9 @@ export function createApp(repository: FileCurriculumRepository) {
             skills: aiInterpretation?.skills || [],
             core_terms: aiInterpretation?.core_terms || [],
             expanded_terms: aiInterpretation?.expanded_terms || [],
+            constraint_evidence: aiInterpretation?.constraint_evidence || [],
+            ambiguities,
+            clarification_question: clarificationQuestion,
             intent_summary: aiInterpretation?.intent_summary || '',
             warnings: aiInterpretation?.warnings || [],
             usage: interpretation.usage,
