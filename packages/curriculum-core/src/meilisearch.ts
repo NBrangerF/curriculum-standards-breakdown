@@ -37,12 +37,14 @@ const SEARCHABLE_ATTRIBUTES = [
     'code',
     'standard_title',
     'standard',
+    'domain',
+    'subdomain',
+    'searchable_text_primary',
     'context',
     'practice',
     'teaching_tip',
     'assessment_evidence_type',
-    'domain',
-    'subdomain'
+    'searchable_text_supporting'
 ]
 
 function cleanHost(host: string): string {
@@ -84,18 +86,26 @@ export function buildMeilisearchFilter(filters: StandardFilters = {}): string | 
 export function createMeilisearchDocuments(records: StandardRecord[]): JsonObject[] {
     return records.map(record => {
         const normalized = normalizeStandard(record)
+        const primaryText = [
+            normalized.standard_title,
+            normalized.standard,
+            normalized.domain,
+            normalized.subdomain
+        ].filter(Boolean).join('\n')
+        const supportingText = [
+            normalized.context,
+            normalized.practice,
+            normalized.teaching_tip,
+            normalized.assessment_evidence_type
+        ].filter(Boolean).join('\n')
         return {
             ...projectStandard(normalized, ['public', 'evidence']),
-            searchable_text: [
-                normalized.standard_title,
-                normalized.standard,
-                normalized.context,
-                normalized.practice,
-                normalized.teaching_tip,
-                normalized.assessment_evidence_type,
-                normalized.domain,
-                normalized.subdomain
-            ].filter(Boolean).join('\n')
+            searchable_text_primary: primaryText,
+            searchable_text_supporting: supportingText,
+            // Kept for index consumers that still read the v1 aggregate. It is no
+            // longer a searchable attribute because primary and supporting evidence
+            // must have different ranking weight.
+            searchable_text: [primaryText, supportingText].filter(Boolean).join('\n')
         }
     })
 }
