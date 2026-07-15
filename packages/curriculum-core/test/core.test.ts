@@ -175,6 +175,34 @@ test('smart search understands subject exclusions and lets explicit filters corr
     assert.ok(explicitOverride.results.every(item => item.standard.subject_slug === 'chinese'))
 })
 
+test('natural-language query plan preserves explicit grade and exclusion constraints over model inference', async () => {
+    const query = '第二学段 G3-4，和阅读相关的标准，但不是语文学科中的'
+    const parsed = parseSmartSearchQuery(query)
+
+    assert.deepEqual(parsed.grade_bands, ['H2'])
+    assert.deepEqual(parsed.excluded_subjects, ['chinese'])
+    assert.deepEqual(parsed.core_terms, ['阅读'])
+
+    const repository = new FileCurriculumRepository(dataRoot)
+    const result = await repository.smartSearchStandards({
+        query,
+        inferred_grade_bands: ['H4G7', 'H4G8', 'H4G9'],
+        inferred_excluded_subjects: ['chinese'],
+        inferred_core_terms: ['阅读'],
+        limit: 12
+    })
+
+    assert.deepEqual(result.applied_filters.grade_bands, ['H2'])
+    assert.deepEqual(result.applied_filters.excluded_subjects, ['chinese'])
+    assert.deepEqual(result.parsed_query.core_terms, ['阅读'])
+    assert.deepEqual(result.query_plan.resolved_constraints.grade_bands, ['H2'])
+    assert.deepEqual(result.query_plan.resolved_constraints.excluded_subjects, ['chinese'])
+    assert.equal(result.query_plan.needs_clarification, false)
+    assert.ok(result.query_plan.conflicts.some(conflict => conflict.kind === 'grade_band'))
+    assert.ok(result.results.every(item => item.standard.grade_band === 'H2'))
+    assert.ok(result.results.every(item => item.standard.subject_slug !== 'chinese'))
+})
+
 test('smart search excludes fields quarantined from RAG evidence', () => {
     const response = smartSearchStandards([{
         code: 'SC-TEST-001',
