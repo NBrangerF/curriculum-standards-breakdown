@@ -5,6 +5,7 @@ import {
     buildMeilisearchFilter,
     buildGroundedStandardContext,
     buildTopologicalLayers,
+    configureMeilisearchIndex,
     createKnowledgeGraphIndex,
     createMeilisearchDocuments,
     FileCurriculumRepository,
@@ -79,6 +80,8 @@ test('Meilisearch adapter builds bounded public/evidence documents and filters',
     assert.equal(documents[0].code, 'SC-D2-SC-010')
     assert.equal('review_status' in documents[0], false)
     assert.match(String(documents[0].searchable_text), /观察物质变化/)
+    assert.match(String(documents[0].searchable_text_primary), /观察物质变化/)
+    assert.equal(String(documents[0].searchable_text_supporting), '')
 
     const filter = buildMeilisearchFilter({
         subjects: ['science'],
@@ -86,6 +89,23 @@ test('Meilisearch adapter builds bounded public/evidence documents and filters',
         skills: ['TS1']
     })
     assert.equal(filter, '(subject_slug = "science") AND (grade_band = "H2") AND (ts_primary = "TS1" OR ts_secondary = "TS1")')
+})
+
+test('Meilisearch ranks official topic fields before editorial supporting fields', async () => {
+    let settings: Record<string, unknown> = {}
+    const fetch = async (_input: string | URL | Request, init?: RequestInit) => {
+        settings = JSON.parse(String(init?.body || '{}')) as Record<string, unknown>
+        return new Response(JSON.stringify({ taskUid: 1 }), {
+            status: 200,
+            headers: { 'content-type': 'application/json' }
+        })
+    }
+
+    await configureMeilisearchIndex({ host: 'http://search.test', fetch })
+    const attributes = settings.searchableAttributes as string[]
+    assert.ok(attributes.indexOf('standard') < attributes.indexOf('context'))
+    assert.ok(attributes.indexOf('domain') < attributes.indexOf('practice'))
+    assert.ok(attributes.indexOf('searchable_text_primary') < attributes.indexOf('searchable_text_supporting'))
 })
 
 test('FileCurriculumRepository loads public data and searches standards', async () => {
