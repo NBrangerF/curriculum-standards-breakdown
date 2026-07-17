@@ -5,8 +5,8 @@
     "outputDirectory": "dist",
     "functions": {
         "api/v1/[...path].ts": {
-            "maxDuration": 10,
-            "includeFiles": "{public/data/**,docs/api/**,node_modules/swagger-ui-dist/swagger-ui.css,node_modules/swagger-ui-dist/swagger-ui-bundle.js}"
+            "maxDuration": 60,
+            "includeFiles": "{public/data/**,data/textbooks/library-state/**,docs/api/**,node_modules/swagger-ui-dist/swagger-ui.css,node_modules/swagger-ui-dist/swagger-ui-bundle.js}"
         }
     },
     "rewrites": [

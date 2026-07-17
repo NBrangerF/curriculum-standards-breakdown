@@ -279,7 +279,7 @@ paths:
       tags: [教材]
       operationId: createTextbookViewerSession
       summary: 创建教材阅读会话
-      description: X9 Pro 在线时返回受控的本地 Range 地址；配置对象存储源站后返回远端资源地址。客户端不能提交任意文件路径。
+      description: X9 Pro 在线时返回受控的本地 Range 地址；配置对象存储源站后，仍返回 kebiao.org 同源代理地址，由服务端转发 Range 请求。客户端不能提交任意文件路径。
       security: []
       parameters:
         - { name: edition_id, in: path, required: true, schema: { type: string } }
@@ -301,7 +301,7 @@ paths:
       tags: [教材]
       operationId: readTextbookAsset
       summary: 按字节范围读取已注册 PDF
-      description: 只允许读取私有资源注册表中的教材文件。支持标准 `Range` 请求，便于 PDF.js 按需加载；不接受文件路径参数。
+      description: 只允许读取私有资源注册表中的教材文件。本地模式从 X9 Pro 读取，生产模式同源代理对象存储；两种模式都支持标准 `Range` 请求，便于 PDF.js 按需加载，且不接受文件路径参数。
       security: []
       parameters:
         - { name: asset_id, in: path, required: true, schema: { type: string } }

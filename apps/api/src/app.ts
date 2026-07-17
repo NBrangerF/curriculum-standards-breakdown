@@ -241,7 +241,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         return ok(c, version, session)
     })
 
-    app.get('/api/v1/textbook-assets/:asset_id', c => textbookAssetService.respond(c, c.req.param('asset_id')))
+    app.on(['GET', 'HEAD'], '/api/v1/textbook-assets/:asset_id', c => textbookAssetService.respond(c, c.req.param('asset_id')))
 
     app.get('/api/v1/units/:unit_id', async c => {
         const version = await repository.loadDataVersion()

@@ -348,7 +348,7 @@ test('textbook asset service honors byte ranges without exposing arbitrary files
     const generationId = 'fixture-generation'
     const assetId = 'asset_fixture_range'
     const editionId = 'ed_fixture_range'
-    const objectPath = 'objects/sha256/aa/fixture.pdf'
+    const objectPath = `objects/sha256/aa/${'a'.repeat(64)}.pdf`
     const bytes = Buffer.from('%PDF-1.7\nfixture textbook range payload\n%%EOF')
     try {
         await mkdir(resolve(privateRoot, `library-state/generations/${generationId}`), { recursive: true })
@@ -374,6 +374,45 @@ test('textbook asset service honors byte ranges without exposing arbitrary files
         assert.equal(Buffer.from(await response.arrayBuffer()).toString(), bytes.subarray(0, 8).toString())
         const missing = await rangeApp.request('/api/v1/textbook-assets/asset_not_registered')
         assert.equal(missing.status, 404)
+
+        const requests: Array<{ url: string; range: string | null }> = []
+        const remoteService = new TextbookAssetService(privateRoot, null, 'https://assets.example.test/library', async (input, init) => {
+            const headers = new Headers(init?.headers)
+            requests.push({ url: String(input), range: headers.get('range') })
+            return new Response(bytes.subarray(2, 6), {
+                status: 206,
+                headers: {
+                    'accept-ranges': 'bytes',
+                    'content-length': '4',
+                    'content-range': `bytes 2-5/${bytes.length}`,
+                    'content-type': 'application/pdf',
+                    etag: '"fixture-etag"'
+                }
+            })
+        })
+        assert.deepEqual(remoteService.createViewerSession(editionId), {
+            edition_id: editionId,
+            asset_id: assetId,
+            url: `/api/v1/textbook-assets/${assetId}`,
+            expires_at: null,
+            delivery: 'object_storage_proxy',
+            supports_range: true
+        })
+        const remoteApp = createApp(new FileCurriculumRepository(dataRoot), {
+            textbookRepository: new FileTextbookRepository(resolve(process.cwd(), '../../public/data')),
+            textbookAssetService: remoteService
+        })
+        const proxied = await remoteApp.request(`/api/v1/textbook-assets/${assetId}`, {
+            headers: { range: 'bytes=2-5', 'x-forwarded-for': '198.51.100.77' }
+        })
+        assert.equal(proxied.status, 206)
+        assert.equal(proxied.headers.get('content-range'), `bytes 2-5/${bytes.length}`)
+        assert.equal(proxied.headers.get('etag'), '"fixture-etag"')
+        assert.equal(Buffer.from(await proxied.arrayBuffer()).toString(), bytes.subarray(2, 6).toString())
+        assert.deepEqual(requests, [{
+            url: `https://assets.example.test/library/${objectPath}`,
+            range: 'bytes=2-5'
+        }])
     } finally {
         await rm(fixtureRoot, { recursive: true, force: true })
     }
