@@ -27,6 +27,10 @@ const PrintPage = lazy(() => import('./pages/PrintPage'))
 const StyleGuidePage = lazy(() => import('./pages/StyleGuidePage'))
 const SmartSearchPage = lazy(() => import('./pages/SmartSearchPage'))
 const AlignmentWorkbenchPage = lazy(() => import('./pages/AlignmentWorkbenchPage'))
+const TextbookLibraryPage = lazy(() => import('./pages/TextbookLibraryPage'))
+const TextbookDetailPage = lazy(() => import('./pages/TextbookDetailPage'))
+const TextbookReaderPage = lazy(() => import('./pages/TextbookReaderPage'))
+const TextbookUnitPage = lazy(() => import('./pages/TextbookUnitPage'))
 
 function lazyPage(element, message) {
     return <Suspense fallback={<LoadingState message={message} />}>{element}</Suspense>
@@ -49,6 +53,10 @@ function App() {
                     <Route path="/skills" element={route('skills', <SkillsOverviewPage />)} />
                     <Route path="/skills/:code" element={route('skillDetail', <SkillDetailPage />)} />
                     <Route path="/search" element={route('search', <SearchResultsPage />)} />
+                    <Route path="/textbooks" element={route('textbooks', lazyPage(<TextbookLibraryPage />, '正在打开教材馆'))} />
+                    <Route path="/textbooks/:editionId/read" element={route('textbookReader', lazyPage(<TextbookReaderPage />, '正在打开教材阅读器'))} />
+                    <Route path="/textbooks/:editionId" element={route('textbookDetail', lazyPage(<TextbookDetailPage />, '正在打开教材详情'))} />
+                    <Route path="/textbook-units/:unitId" element={route('textbookUnit', lazyPage(<TextbookUnitPage />, '正在整理教材单元'))} />
                     <Route path="/smart-search" element={route('smartSearch', lazyPage(<SmartSearchPage />, '正在打开智能检索'))} />
                     <Route path="/alignment-workbench" element={route('alignmentWorkbench', lazyPage(<AlignmentWorkbenchPage />, '正在打开对齐工作台'))} />
                     <Route path="/glossary" element={route('glossary', lazyPage(<GlossaryPage />, '正在打开术语表'))} />

@@ -1,10 +1,10 @@
 openapi: 3.1.0
 info:
   title: 课程智能 API
-  version: 0.3.0
-  summary: 面向教育产品的可信课程标准检索、关系查询与计划对齐能力
+  version: 0.4.0
+  summary: 面向教育产品的可信课程标准、教材定位、关系查询与计划对齐能力
   description: |
-    课程智能 API 当前公开课程标准检索、批量读取、详情查询、进阶与相邻关系，以及可信智能检索和纯文本教学计划对齐预览。
+    课程智能 API 当前公开课程标准检索、教材目录与双页码定位、课标教材双向关联、进阶与相邻关系，以及可信智能检索和纯文本教学计划对齐预览。
 
     智能检索和计划匹配结果均为待复核候选；未被教师接受的候选不会计入覆盖。证据链、文件上传和周进度生成仍在开发中。
 
@@ -23,6 +23,8 @@ tags:
     description: 跨学科可迁移能力及其关联课程标准。
   - name: 课程标准
     description: 课程标准检索、批量读取、详情查询和标准对比。
+  - name: 教材
+    description: 教材馆、结构化目录、印刷页映射、配套资源、阅读会话和课标双向关联。
   - name: 关系图谱
     description: 已建立的标准进阶分组，以及同领域、同能力的相邻关系。
   - name: 教学规划
@@ -182,6 +184,213 @@ paths:
                 $ref: "#/components/schemas/ApiResponse"
         "404":
           $ref: "#/components/responses/NotFound"
+  /api/v1/textbooks:
+    get:
+      tags: [教材]
+      operationId: listTextbooks
+      summary: 检索教材馆
+      description: 返回可公开展示的教材书目。支持按学段、学科、年级、册次、资源类型和关键词筛选；不暴露本地文件路径与来源仓库信息。
+      security: []
+      parameters:
+        - { name: stage, in: query, schema: { type: string, enum: [primary, junior] } }
+        - { name: subject, in: query, schema: { type: string } }
+        - { name: grade, in: query, schema: { type: integer, minimum: 1, maximum: 9 } }
+        - { name: volume, in: query, schema: { type: string } }
+        - { name: q, in: query, schema: { type: string } }
+        - { name: resource_type, in: query, schema: { type: string, default: student_textbook } }
+        - { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 200, default: 50 } }
+        - { name: offset, in: query, schema: { type: integer, minimum: 0, default: 0 } }
+      responses:
+        "200":
+          description: 教材列表和分页元信息
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "422":
+          $ref: "#/components/responses/ValidationError"
+  /api/v1/textbooks/{edition_id}:
+    get:
+      tags: [教材]
+      operationId: getTextbook
+      summary: 获取教材详情
+      description: 返回教材书目、文本质量、已复核目录、PDF/印刷页映射、课标关联和配套资料。
+      security: []
+      parameters:
+        - { name: edition_id, in: path, required: true, schema: { type: string, pattern: "^ed_[a-z0-9]+$" } }
+      responses:
+        "200":
+          description: 教材详情
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/textbooks/{edition_id}/toc:
+    get:
+      tags: [教材]
+      operationId: getTextbookToc
+      summary: 获取已复核教材目录
+      security: []
+      parameters:
+        - { name: edition_id, in: path, required: true, schema: { type: string } }
+      responses:
+        "200":
+          description: 带 PDF 页和印刷页定位的目录
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/textbooks/{edition_id}/page-map:
+    get:
+      tags: [教材]
+      operationId: getTextbookPageMap
+      summary: 获取 PDF 页与印刷页映射
+      security: []
+      parameters:
+        - { name: edition_id, in: path, required: true, schema: { type: string } }
+      responses:
+        "200":
+          description: 已审核双页码映射
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/textbooks/{edition_id}/resources:
+    get:
+      tags: [教材]
+      operationId: getTextbookResources
+      summary: 获取教师用书和辅助材料关联
+      description: 仅返回已经入库并配对的资源；没有可靠文件时返回空列表。
+      security: []
+      parameters:
+        - { name: edition_id, in: path, required: true, schema: { type: string } }
+      responses:
+        "200":
+          description: 教材配套资源
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/textbooks/{edition_id}/viewer-session:
+    post:
+      tags: [教材]
+      operationId: createTextbookViewerSession
+      summary: 创建教材阅读会话
+      description: X9 Pro 在线时返回受控的本地 Range 地址；配置对象存储源站后返回远端资源地址。客户端不能提交任意文件路径。
+      security: []
+      parameters:
+        - { name: edition_id, in: path, required: true, schema: { type: string } }
+      responses:
+        "200":
+          description: PDF 阅读会话
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "503":
+          description: 外部磁盘未连接且未配置对象存储
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiError" }
+  /api/v1/textbook-assets/{asset_id}:
+    get:
+      tags: [教材]
+      operationId: readTextbookAsset
+      summary: 按字节范围读取已注册 PDF
+      description: 只允许读取私有资源注册表中的教材文件。支持标准 `Range` 请求，便于 PDF.js 按需加载；不接受文件路径参数。
+      security: []
+      parameters:
+        - { name: asset_id, in: path, required: true, schema: { type: string } }
+        - { name: Range, in: header, required: false, schema: { type: string, example: "bytes=0-1023" } }
+      responses:
+        "200":
+          description: 完整 PDF
+          content:
+            application/pdf:
+              schema: { type: string, format: binary }
+        "206":
+          description: PDF 字节范围，响应包含 Content-Range
+          headers:
+            Content-Range: { schema: { type: string } }
+            Accept-Ranges: { schema: { type: string, const: bytes } }
+          content:
+            application/pdf:
+              schema: { type: string, format: binary }
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "416":
+          description: 请求的字节范围无效
+  /api/v1/units/{unit_id}:
+    get:
+      tags: [教材]
+      operationId: getTextbookUnit
+      summary: 获取教材单元及其定位和关联
+      security: []
+      parameters:
+        - { name: unit_id, in: path, required: true, schema: { type: string } }
+      responses:
+        "200":
+          description: 教材单元详情
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/units/{unit_id}/standards:
+    get:
+      tags: [教材]
+      operationId: getTextbookUnitStandards
+      summary: 获取教材单元关联的已复核课标
+      security: []
+      parameters:
+        - { name: unit_id, in: path, required: true, schema: { type: string } }
+      responses:
+        "200":
+          description: 已复核课标关联
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/units/{unit_id}/resources:
+    get:
+      tags: [教材]
+      operationId: getTextbookUnitResources
+      summary: 获取教材单元的辅助材料
+      security: []
+      parameters:
+        - { name: unit_id, in: path, required: true, schema: { type: string } }
+      responses:
+        "200":
+          description: 单元配套资源
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/standards/{code}/textbooks:
+    get:
+      tags: [教材, 课程标准]
+      operationId: getStandardTextbooks
+      summary: 从课标反查教材原文位置
+      description: 返回已复核的教材、单元、PDF 页与印刷页；候选关系不会进入公开结果。
+      security: []
+      parameters:
+        - $ref: "#/components/parameters/StandardCode"
+      responses:
+        "200":
+          description: 课标关联的教材位置
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
   /api/v1/skills:
     get:
       tags: [能力]

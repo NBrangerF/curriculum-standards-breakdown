@@ -1,300 +1,229 @@
 #!/usr/bin/env node
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
-import { dirname } from 'node:path'
+import { existsSync } from 'node:fs'
+import { parseArgs, writeJson, writeFileDurable } from './library_common.js'
 
 const DEFAULT_REPO_DIR = 'generated/external/ChinaTextbook'
 const DEFAULT_REF = 'HEAD'
-const DEFAULT_STAGE = '初中'
-const DEFAULT_OUT = 'generated/textbook_evidence/china_textbook_index.json'
-const DEFAULT_SUMMARY_OUT = 'generated/textbook_evidence/china_textbook_index_summary.md'
+const DEFAULT_OUT = 'generated/textbook_library/china_textbook_source_index.json'
+const DEFAULT_SUMMARY_OUT = 'generated/textbook_library/china_textbook_source_index_summary.md'
 
-const GRADE_LABELS = {
-  七年级: 7,
-  八年级: 8,
-  九年级: 9
-}
-
-const TEXTBOOK_SUBJECT_MAP = {
-  语文: [{ subject_slug: 'chinese', evidence_role: 'direct_textbook' }],
-  数学: [{ subject_slug: 'math', evidence_role: 'direct_textbook' }],
-  英语: [{ subject_slug: 'english', evidence_role: 'direct_textbook' }],
-  体育与健康: [{ subject_slug: 'pe', evidence_role: 'direct_textbook' }],
-  道德与法治: [{ subject_slug: 'morality_law', evidence_role: 'direct_textbook' }],
-  科学: [{ subject_slug: 'science', evidence_role: 'direct_textbook' }],
-  艺术: [{ subject_slug: 'arts', evidence_role: 'direct_textbook' }],
-  音乐: [{ subject_slug: 'arts', evidence_role: 'discipline_textbook' }],
-  美术: [{ subject_slug: 'arts', evidence_role: 'discipline_textbook' }],
-  物理: [{ subject_slug: 'science', evidence_role: 'discipline_textbook' }],
-  化学: [{ subject_slug: 'science', evidence_role: 'discipline_textbook' }],
-  生物学: [{ subject_slug: 'science', evidence_role: 'discipline_textbook' }],
-  地理: [{ subject_slug: 'science', evidence_role: 'adjacent_discipline_textbook' }],
-  人文地理: [{ subject_slug: 'science', evidence_role: 'adjacent_discipline_textbook' }],
-  历史: [{ subject_slug: 'morality_law', evidence_role: 'adjacent_discipline_textbook' }]
-}
-
-const TARGET_STANDARD_SUBJECTS = [
-  'arts',
-  'chinese',
-  'english',
-  'it',
-  'labor',
-  'math',
-  'morality_law',
-  'pe',
-  'science'
-]
-
-function parseArgs(argv) {
-  const args = {
-    repoDir: DEFAULT_REPO_DIR,
-    ref: DEFAULT_REF,
-    stage: DEFAULT_STAGE,
-    out: DEFAULT_OUT,
-    summaryOut: DEFAULT_SUMMARY_OUT,
-    includeFragments: false
-  }
-  for (let i = 0; i < argv.length; i += 1) {
-    const item = argv[i]
-    if (item === '--repo-dir') args.repoDir = argv[++i]
-    else if (item === '--ref') args.ref = argv[++i]
-    else if (item === '--stage') args.stage = argv[++i]
-    else if (item === '--out') args.out = argv[++i]
-    else if (item === '--summary-out') args.summaryOut = argv[++i]
-    else if (item === '--include-fragments') args.includeFragments = true
-    else if (item === '--help') args.help = true
-  }
-  return args
+const STAGE_MAP = { 小学: 'primary', 初中: 'junior' }
+const CHINESE_GRADES = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9 }
+const SUBJECT_SLUGS = {
+  语文: 'chinese', 数学: 'math', 英语: 'english', 体育与健康: 'pe', 道德与法治: 'morality_law',
+  科学: 'science', 艺术: 'arts', 音乐: 'music', 美术: 'art', 物理: 'physics', 化学: 'chemistry',
+  生物学: 'biology', 地理: 'geography', 地理图册: 'geography_atlas', 人文地理: 'human_geography', 历史: 'history'
 }
 
 function usage() {
   console.log(`Usage:
 node scripts/textbooks/index_china_textbook.js \\
+  --stages 小学,初中 \\
   --repo-dir generated/external/ChinaTextbook \\
-  --out generated/textbook_evidence/china_textbook_index.json
+  --include-fragments
 
-The repo directory should be a local clone of TapXWorld/ChinaTextbook. A blobless,
-no-checkout clone is enough because this script reads only the Git tree.`)
+The clone may be blobless/no-checkout. This command reads Git tree metadata only.`)
 }
 
 function git(repoDir, args) {
-  return execFileSync('git', ['-C', repoDir, '-c', 'core.quotePath=false', ...args], {
-    encoding: 'utf8',
-    maxBuffer: 1024 * 1024 * 32
-  })
+  return execFileSync('git', ['-C', repoDir, '-c', 'core.quotePath=false', ...args], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
 }
 
 function listTree(repoDir, ref) {
-  // Do not use `git ls-tree -l` with a partial clone: asking for blob sizes can
-  // cause Git to lazily fetch large textbook PDFs. The path and object id are
-  // enough for reproducible evidence indexing.
-  const raw = git(repoDir, ['ls-tree', '-r', '-z', ref])
-  return raw
-    .split('\0')
-    .filter(Boolean)
-    .map(line => {
-      const match = line.match(/^(\d+)\s+(\w+)\s+([0-9a-f]+)\t(.+)$/s)
-      if (!match) return null
-      return {
-        mode: match[1],
-        type: match[2],
-        object: match[3],
-        size: null,
-        path: match[4]
-      }
-    })
-    .filter(Boolean)
+  return git(repoDir, ['ls-tree', '-r', '-z', ref]).split('\0').filter(Boolean).map(line => {
+    const match = line.match(/^(\d+)\s+(\w+)\s+([0-9a-f]+)\t(.+)$/s)
+    return match ? { mode: match[1], type: match[2], object: match[3], path: match[4], size: null } : null
+  }).filter(Boolean)
 }
 
-function parseGrade(label, fileName) {
-  const text = `${label || ''}/${fileName || ''}`
-  for (const [gradeLabel, grade] of Object.entries(GRADE_LABELS)) {
-    if (text.includes(gradeLabel)) return { grade, grade_label: gradeLabel }
+function gradeNumber(token) {
+  if (!token) return null
+  if (/^[1-9]$/.test(token)) return Number(token)
+  return CHINESE_GRADES[token] || null
+}
+
+function parseGrade(...parts) {
+  const text = parts.filter(Boolean).join('/')
+  const span = text.match(/([一二三四五六七八九1-9])\s*(?:至|到|－|—|-)\s*([一二三四五六七八九1-9])\s*年级/)
+  if (span) {
+    const gradeStart = gradeNumber(span[1])
+    const gradeEnd = gradeNumber(span[2])
+    return { grade: gradeStart === gradeEnd ? gradeStart : null, grade_start: gradeStart, grade_end: gradeEnd, grade_label: `${gradeStart}至${gradeEnd}年级` }
   }
-  return { grade: null, grade_label: label || null }
+  const exactMatches = [...text.matchAll(/([一二三四五六七八九1-9])\s*年级(?!\s*起点)/g)]
+  const exact = exactMatches.at(-1)
+  if (exact) {
+    const grade = gradeNumber(exact[1])
+    return { grade, grade_start: grade, grade_end: grade, grade_label: `${grade}年级` }
+  }
+  const level = text.match(/水平\s*([一二三1-3])/)
+  if (level) {
+    const number = gradeNumber(level[1])
+    const gradeStart = number * 2 - 1
+    return { grade: null, grade_start: gradeStart, grade_end: gradeStart + 1, grade_label: `水平${number}` }
+  }
+  return { grade: null, grade_start: null, grade_end: null, grade_label: null }
 }
 
 function parseVolume(fileName) {
   if (fileName.includes('上册')) return '上册'
   if (fileName.includes('下册')) return '下册'
-  if (fileName.includes('全一册')) return '全一册'
+  if (fileName.includes('全一册') || fileName.includes('全册')) return '全一册'
   return null
 }
 
-function parseEntry(entry, stage) {
+function resourceType(subject, fileName) {
+  if (/教师(?:教学)?用书|教学参考|教师参考/.test(fileName)) return 'teacher_guide'
+  if (subject === '地理图册' || /地图册|地理图册|填充图册/.test(fileName)) return 'student_companion'
+  if (/活动手册|练习册|作业本|学习手册/.test(fileName)) return 'student_companion'
+  if (/教科书/.test(fileName) && !/教师/.test(fileName)) return 'student_textbook'
+  if (/\.pdf(?:\.\d+)?$/i.test(fileName)) return 'student_textbook'
+  return 'unknown'
+}
+
+function logicalPath(path) {
+  const mergeIndex = path.indexOf('.pdf_merge_folder/')
+  if (mergeIndex >= 0) return path.slice(0, mergeIndex + 4)
+  return path.replace(/\.pdf\.\d+$/i, '.pdf')
+}
+
+function fragmentNumber(fileName) {
+  const match = fileName.match(/\.pdf\.(\d+)$/i)
+  return match ? Number(match[1]) : null
+}
+
+function parseEntry(entry, allowedStages, commit) {
   const parts = entry.path.split('/')
-  if (parts[0] !== stage || parts.length < 5) return null
-  const [stageLabel, textbookSubject, edition, gradeDir, ...rest] = parts
-  const fileName = rest.at(-1) || ''
-  const isFragment = entry.path.includes('_merge_folder/') || /\.pdf\.\d+$/.test(fileName)
+  const stageLabel = parts[0]
+  if (!allowedStages.includes(stageLabel) || !STAGE_MAP[stageLabel]) return null
+  if (parts.length < 4) return null
+  const subject = parts[1]
+  const edition = parts[2]
+  const fileName = parts.at(-1) || ''
+  const gradeDir = parts.length >= 5 && !parts[3].includes('.pdf') ? parts[3] : ''
+  const isFragment = entry.path.includes('_merge_folder/') || /\.pdf\.\d+$/i.test(fileName)
+  const logicalSourcePath = logicalPath(entry.path)
   const extensionMatch = fileName.match(/\.([A-Za-z0-9]+)(?:\.\d+)?$/)
-  const extension = extensionMatch ? extensionMatch[1].toLowerCase() : ''
-  const { grade, grade_label: gradeLabel } = parseGrade(gradeDir, fileName)
+  const grade = parseGrade(gradeDir, fileName)
   const evidenceId = `ctb_${createHash('sha1').update(`${entry.object}:${entry.path}`).digest('hex').slice(0, 12)}`
+  const sourceId = `ctbs_${createHash('sha1').update(`${commit}:${logicalSourcePath}`).digest('hex').slice(0, 16)}`
   return {
     evidence_id: evidenceId,
+    source_id: sourceId,
     repository_path: entry.path,
+    logical_source_path: logicalSourcePath,
     git_object: entry.object,
-    byte_size: entry.size,
+    byte_size: null,
     stage: stageLabel,
-    textbook_subject: textbookSubject,
-    standard_subject_mappings: TEXTBOOK_SUBJECT_MAP[textbookSubject] || [],
+    stage_slug: STAGE_MAP[stageLabel],
+    textbook_subject: subject,
+    subject_slug: SUBJECT_SLUGS[subject] || 'unknown',
     edition,
-    grade,
-    grade_label: gradeLabel,
+    ...grade,
     volume: parseVolume(fileName),
+    resource_type: resourceType(subject, fileName),
     file_name: fileName,
-    extension,
+    extension: extensionMatch ? extensionMatch[1].toLowerCase() : '',
     is_fragment: isFragment,
-    evidence_url: `https://github.com/TapXWorld/ChinaTextbook/blob/master/${encodeURI(entry.path).replace(/#/g, '%23')}`
+    fragment_number: isFragment ? fragmentNumber(fileName) : null,
+    evidence_url: `https://github.com/TapXWorld/ChinaTextbook/blob/${commit}/${entry.path.split('/').map(encodeURIComponent).join('/')}`
   }
 }
 
-function inc(object, key, amount = 1) {
-  const normalized = key || '未识别'
-  object[normalized] = (object[normalized] || 0) + amount
-}
-
-function addNestedCount(root, keys, amount = 1) {
-  let cursor = root
-  keys.forEach((key, index) => {
-    const normalized = String(key || '未识别')
-    if (index === keys.length - 1) cursor[normalized] = (cursor[normalized] || 0) + amount
-    else {
-      cursor[normalized] ||= {}
-      cursor = cursor[normalized]
-    }
-  })
-}
-
-function buildSummary(records, commit) {
-  const canonical = records.filter(record => !record.is_fragment)
-  const byTextbookSubject = {}
-  const byStandardSubject = {}
-  const byGrade = {}
-  const byStandardSubjectGrade = {}
-  const roleCounts = {}
-  const unknownTextbookSubjects = {}
-
-  for (const record of canonical) {
-    inc(byTextbookSubject, record.textbook_subject)
-    inc(byGrade, record.grade_label)
-    if (!record.standard_subject_mappings.length) inc(unknownTextbookSubjects, record.textbook_subject)
-    for (const mapping of record.standard_subject_mappings) {
-      inc(byStandardSubject, mapping.subject_slug)
-      inc(roleCounts, mapping.evidence_role)
-      addNestedCount(byStandardSubjectGrade, [mapping.subject_slug, record.grade_label])
-    }
+function buildGroups(records) {
+  const bySource = new Map()
+  for (const record of records) {
+    if (!bySource.has(record.source_id)) bySource.set(record.source_id, [])
+    bySource.get(record.source_id).push(record)
   }
+  return [...bySource].map(([sourceId, members]) => {
+    const direct = members.find(item => !item.is_fragment)
+    const fragments = members.filter(item => item.is_fragment).sort((a, b) => (a.fragment_number || 0) - (b.fragment_number || 0))
+    const base = direct || fragments[0]
+    const fragmentNumbers = fragments.map(item => item.fragment_number)
+    const continuous = fragmentNumbers.length === 0 || fragmentNumbers.every((number, index) => number === index + 1)
+    return {
+      source_id: sourceId,
+      logical_source_path: base.logical_source_path,
+      stage: base.stage,
+      stage_slug: base.stage_slug,
+      textbook_subject: base.textbook_subject,
+      subject_slug: base.subject_slug,
+      edition: base.edition,
+      grade: base.grade,
+      grade_start: base.grade_start,
+      grade_end: base.grade_end,
+      grade_label: base.grade_label,
+      volume: base.volume,
+      resource_type: base.resource_type,
+      direct_record: direct || null,
+      fragments,
+      fragment_numbers_continuous: continuous,
+      preferred_source_kind: direct ? 'direct_pdf' : 'fragment_group',
+      downloadable: Boolean(direct || fragments.length && continuous)
+    }
+  }).sort((a, b) => a.logical_source_path.localeCompare(b.logical_source_path))
+}
 
-  const missingTargetSubjects = TARGET_STANDARD_SUBJECTS.filter(subject => !byStandardSubject[subject])
-
+function buildSummary(records, groups, commit, stages) {
+  const countBy = (rows, key) => Object.fromEntries([...new Set(rows.map(row => row[key] || '未识别'))].sort().map(value => [value, rows.filter(row => (row[key] || '未识别') === value).length]))
   return {
     source_repo: 'https://github.com/TapXWorld/ChinaTextbook',
     source_commit: commit,
-    stage: records[0]?.stage || DEFAULT_STAGE,
-    total_tree_records: records.length,
-    canonical_records: canonical.length,
-    fragment_records: records.length - canonical.length,
-    by_textbook_subject: Object.fromEntries(Object.entries(byTextbookSubject).sort(([a], [b]) => a.localeCompare(b))),
-    by_standard_subject: Object.fromEntries(Object.entries(byStandardSubject).sort(([a], [b]) => a.localeCompare(b))),
-    by_grade: Object.fromEntries(Object.entries(byGrade).sort(([a], [b]) => a.localeCompare(b))),
-    by_standard_subject_grade: Object.fromEntries(Object.entries(byStandardSubjectGrade).sort(([a], [b]) => a.localeCompare(b))),
-    evidence_role_counts: Object.fromEntries(Object.entries(roleCounts).sort(([a], [b]) => a.localeCompare(b))),
-    unknown_textbook_subjects: Object.fromEntries(Object.entries(unknownTextbookSubjects).sort(([a], [b]) => a.localeCompare(b))),
-    missing_target_standard_subjects: missingTargetSubjects
+    stages,
+    tree_records: records.length,
+    logical_source_groups: groups.length,
+    direct_pdf_records: records.filter(row => !row.is_fragment && row.extension === 'pdf').length,
+    fragment_records: records.filter(row => row.is_fragment).length,
+    incomplete_fragment_groups: groups.filter(group => group.fragments.length && !group.fragment_numbers_continuous).length,
+    by_stage: countBy(groups, 'stage'),
+    by_resource_type: countBy(groups, 'resource_type'),
+    by_subject: countBy(groups, 'textbook_subject')
   }
 }
 
 function markdownSummary(summary) {
-  const subjectRows = Object.entries(summary.by_textbook_subject)
-    .map(([subject, count]) => `| ${subject} | ${count} |`)
-    .join('\n')
-  const standardRows = Object.entries(summary.by_standard_subject)
-    .map(([subject, count]) => `| ${subject} | ${count} |`)
-    .join('\n')
-  const missing = summary.missing_target_standard_subjects.length
-    ? summary.missing_target_standard_subjects.join(', ')
-    : '无'
-  return `# ChinaTextbook 初中教材索引摘要
-
-来源仓库：TapXWorld/ChinaTextbook
+  return `# ChinaTextbook 小学/初中来源索引摘要
 
 固定 commit：\`${summary.source_commit}\`
 
-## 规模
+学段：${summary.stages.join('、')}
 
 | 指标 | 数量 |
 | --- | ---: |
-| 初中 tree records | ${summary.total_tree_records} |
-| 正常教材文件 | ${summary.canonical_records} |
-| merge/pdf 分片文件 | ${summary.fragment_records} |
+| Git tree records | ${summary.tree_records} |
+| 逻辑来源组 | ${summary.logical_source_groups} |
+| 直接 PDF | ${summary.direct_pdf_records} |
+| 分片记录 | ${summary.fragment_records} |
+| 缺片组 | ${summary.incomplete_fragment_groups} |
 
-## 教材学科
+## 资源类型
 
-| 教材目录学科 | 文件数 |
-| --- | ---: |
-${subjectRows}
-
-## 映射到本站学科
-
-| subject_slug | 文件数 |
-| --- | ---: |
-${standardRows}
-
-未覆盖本站目标学科：${missing}
+${Object.entries(summary.by_resource_type).map(([key, value]) => `- ${key}: ${value}`).join('\n')}
 `
 }
 
 function main() {
   const args = parseArgs(process.argv.slice(2))
-  if (args.help) {
-    usage()
-    process.exit(0)
-  }
-  if (!existsSync(args.repoDir)) {
-    throw new Error(`ChinaTextbook repo not found: ${args.repoDir}. Clone it first, for example: git clone --filter=blob:none --no-checkout https://github.com/TapXWorld/ChinaTextbook.git ${args.repoDir}`)
-  }
-
-  const commit = git(args.repoDir, ['rev-parse', args.ref]).trim()
-  const tree = listTree(args.repoDir, args.ref)
-  const records = tree
-    .filter(entry => entry.type === 'blob')
-    .map(entry => parseEntry(entry, args.stage))
-    .filter(Boolean)
-    .filter(record => args.includeFragments || !record.is_fragment)
-  const allRecords = tree
-    .filter(entry => entry.type === 'blob')
-    .map(entry => parseEntry(entry, args.stage))
-    .filter(Boolean)
-  const summary = buildSummary(allRecords, commit)
-
-  const payload = {
-    source_repo: 'https://github.com/TapXWorld/ChinaTextbook',
-    source_commit: commit,
-    generated_at: new Date().toISOString(),
-    stage: args.stage,
-    include_fragments: args.includeFragments,
-    records,
-    summary
-  }
-
-  mkdirSync(dirname(args.out), { recursive: true })
-  writeFileSync(args.out, `${JSON.stringify(payload, null, 2)}\n`)
-  if (args.summaryOut) {
-    mkdirSync(dirname(args.summaryOut), { recursive: true })
-    writeFileSync(args.summaryOut, markdownSummary(summary))
-  }
-  console.log(JSON.stringify({
-    wrote: args.out,
-    summary_out: args.summaryOut || null,
-    source_commit: commit,
-    records: records.length,
-    canonical_records: summary.canonical_records,
-    fragment_records: summary.fragment_records,
-    missing_target_standard_subjects: summary.missing_target_standard_subjects
-  }, null, 2))
+  if (args.help) return usage()
+  const repoDir = args.repoDir || DEFAULT_REPO_DIR
+  if (!existsSync(repoDir)) throw new Error(`ChinaTextbook repo not found: ${repoDir}`)
+  const ref = args.ref || DEFAULT_REF
+  const stages = String(args.stages || args.stage || '初中').split(',').map(item => item.trim()).filter(Boolean)
+  for (const stage of stages) if (!STAGE_MAP[stage]) throw new Error(`Unsupported stage: ${stage}`)
+  const commit = git(repoDir, ['rev-parse', ref]).trim()
+  const allRecords = listTree(repoDir, ref).filter(entry => entry.type === 'blob').map(entry => parseEntry(entry, stages, commit)).filter(Boolean)
+  const groups = buildGroups(allRecords)
+  const includeFragments = Boolean(args.includeFragments)
+  const records = includeFragments ? allRecords : allRecords.filter(record => !record.is_fragment)
+  const summary = buildSummary(allRecords, groups, commit, stages)
+  const out = args.out || DEFAULT_OUT
+  const summaryOut = args.summaryOut === false ? null : args.summaryOut || DEFAULT_SUMMARY_OUT
+  writeJson(out, { schema_version: 2, source_repo: summary.source_repo, source_commit: commit, generated_at: new Date().toISOString(), stages, include_fragments: includeFragments, records, source_groups: groups, summary })
+  if (summaryOut) writeFileDurable(summaryOut, markdownSummary(summary))
+  console.log(JSON.stringify({ valid: true, wrote: out, summary_out: summaryOut, ...summary }, null, 2))
 }
 
 main()

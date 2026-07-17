@@ -1,0 +1,55 @@
+.cover {
+    --book-color: var(--kb-accent);
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    min-width: 0;
+    aspect-ratio: 0.72;
+    padding: 1rem;
+    border: 1px solid color-mix(in srgb, var(--book-color) 45%, #fff);
+    border-radius: var(--radius-lg);
+    background:
+        linear-gradient(145deg, color-mix(in srgb, var(--book-color) 92%, #101521), color-mix(in srgb, var(--book-color) 52%, #fff));
+    color: #fff;
+    box-shadow: 0 16px 32px color-mix(in srgb, var(--book-color) 18%, transparent);
+    isolation: isolate;
+}
+
+.cover::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(255,255,255,.18), transparent 9%, transparent 92%, rgba(0,0,0,.14)),
+        repeating-linear-gradient(125deg, transparent 0 24px, rgba(255,255,255,.055) 25px 26px);
+    content: '';
+}
+
+.card { width: 100%; }
+.hero { width: min(15rem, 38vw); }
+
+.edition,
+.type,
+.mark {
+    font: 600 .58rem/1.35 var(--font-mono);
+    letter-spacing: .04em;
+    opacity: .82;
+}
+
+.type { margin-top: 1.5rem; }
+
+.cover strong {
+    margin-top: auto;
+    font-size: clamp(1.8rem, 5vw, 3.15rem);
+    line-height: .95;
+    letter-spacing: -.06em;
+}
+
+.grade { margin-top: .75rem; font-size: .95rem; font-weight: 650; }
+.volume { font-size: .78rem; opacity: .86; }
+.mark { margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.3); }
+
+@media (max-width: 560px) {
+    .hero { width: 10.5rem; }
+}

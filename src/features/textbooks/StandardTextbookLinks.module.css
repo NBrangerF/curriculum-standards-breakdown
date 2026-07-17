@@ -1,0 +1,32 @@
+.panel { margin-bottom: 2.2rem; border: 1px solid var(--border-default); background: #fff; }
+.heading { display: flex; gap: 1.5rem; align-items: end; justify-content: space-between; padding: 1.4rem 1.5rem; border-bottom: 1px solid var(--border-default); }
+.heading span { color: var(--color-primary); font: 650 .56rem/1 var(--font-mono); letter-spacing: .12em; }
+.heading h2 { margin: .5rem 0 0; font-size: clamp(1.1rem, 2vw, 1.55rem); letter-spacing: -.035em; }
+.heading strong { flex: none; color: var(--text-tertiary); font: 600 .62rem/1.4 var(--font-mono); }
+.list { display: grid; }
+.item { display: grid; grid-template-columns: 3rem minmax(0, 1fr) auto auto; gap: 1.25rem; align-items: center; min-width: 0; padding: 1.2rem 1.5rem; border-top: 1px solid var(--border-subtle); }
+.item:first-child { border-top: 0; }
+.index { display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid var(--color-primary); color: var(--color-primary); font: 650 .65rem/1 var(--font-mono); }
+.copy { min-width: 0; }
+.copy > a { color: var(--text-primary); font-size: .88rem; font-weight: 650; text-decoration: none; }
+.copy > a:hover { color: var(--color-primary); }
+.copy p { margin: .25rem 0 0; color: var(--text-secondary); font-size: .76rem; }
+.copy small { display: block; max-width: 70ch; margin-top: .45rem; color: var(--text-tertiary); font-size: .64rem; line-height: 1.55; }
+.location { display: grid; gap: .3rem; min-width: 5.8rem; color: var(--text-tertiary); font: .6rem/1.25 var(--font-mono); }
+.actions { display: flex; flex-wrap: wrap; gap: .45rem; justify-content: flex-end; }
+.actions a { display: inline-flex; align-items: center; min-height: 2.4rem; padding: 0 .7rem; border: 1px solid var(--border-default); color: var(--text-primary); font-size: .66rem; font-weight: 600; text-decoration: none; }
+.actions a:last-child { border-color: var(--color-primary); background: var(--color-primary); color: #fff; }
+.actions a:focus-visible { outline: 2px solid color-mix(in srgb, var(--color-primary) 35%, transparent); outline-offset: 2px; }
+.loading { margin: 0 0 1.5rem; color: var(--text-tertiary); font: .65rem/1.5 var(--font-mono); }
+
+@media (max-width: 820px) {
+    .item { grid-template-columns: 2.5rem minmax(0, 1fr); }
+    .location, .actions { grid-column: 2; }
+    .actions { justify-content: flex-start; }
+}
+
+@media (max-width: 520px) {
+    .heading { align-items: flex-start; flex-direction: column; }
+    .item { gap: .85rem; padding: 1rem; }
+    .location { grid-template-columns: repeat(2, auto); justify-content: start; }
+}

@@ -1,0 +1,19 @@
+.status {
+    display: inline-flex;
+    min-height: 1.75rem;
+    align-items: center;
+    padding: 0 .55rem;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-full);
+    background: var(--kb-surface);
+    color: var(--text-secondary);
+    font: 600 .68rem/1 var(--font-mono);
+}
+
+.approved,
+.native_text { border-color: color-mix(in srgb, var(--color-success) 28%, white); background: var(--color-success-light); color: var(--color-success-dark); }
+.candidate,
+.partial_text { border-color: color-mix(in srgb, var(--color-warning) 30%, white); background: var(--color-warning-light); color: var(--color-warning-dark); }
+.scan_only,
+.unavailable,
+.unknown { background: var(--kb-surface-muted); }

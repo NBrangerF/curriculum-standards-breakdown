@@ -5,6 +5,7 @@ import styles from './Header.module.css'
 
 const NAV_ITEMS = [
     { path: '/', label: '首页' },
+    { path: '/textbooks', label: '教材馆' },
     { path: '/skills', label: '可迁移技能' },
     { path: '/search', label: '筛选搜索' },
     { path: '/smart-search', label: 'AI 检索' },

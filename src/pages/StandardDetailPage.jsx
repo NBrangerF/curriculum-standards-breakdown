@@ -14,6 +14,7 @@ import {
 import { LoadingState, ErrorState, CopyLinkButton } from '../components/StateComponents'
 import FavoriteButton from '../components/FavoriteButton'
 import StandardRelationPanel from '../components/StandardRelationPanel'
+import StandardTextbookLinks from '../features/textbooks/StandardTextbookLinks'
 import { useUiV2 } from '../components/RouteUiBoundary.jsx'
 import { Tooltip } from '../ui/primitives/Tooltip.jsx'
 import { copyToClipboard, mergeLearningMapStateIntoURL, parseLearningMapStateFromURL } from '../data/query'
@@ -553,6 +554,7 @@ function StandardDetailPage() {
             {/* P1: Resources Placeholder */}
             <section className={styles['resources-section']} id="standard-resources" data-reading-section="standard-resources">
                 <div className="container">
+                    <StandardTextbookLinks standardCode={code} />
                     <button
                         className={`${styles['resources-header-btn']} ${resourcesExpanded ? styles.expanded : ''}`}
                         onClick={() => setResourcesExpanded(!resourcesExpanded)}

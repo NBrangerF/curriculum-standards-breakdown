@@ -3,6 +3,7 @@ import { Hono, type Context } from 'hono'
 import {
     CoverageAnalyzeRequestSchema,
     FileCurriculumRepository,
+    FileTextbookRepository,
     PlanParseRequestSchema,
     PlanToStandardsRequestSchema,
     PlanValidateRequestSchema,
@@ -33,6 +34,8 @@ import { renderApiDocsPage } from './docs-page.js'
 import { interpretSearchQueryWithLlm } from './llm.js'
 import { redactSensitiveText } from './ai-privacy.js'
 import { parsePlanWithLlm } from './plan-llm.js'
+import { resolveDataRoot } from './config.js'
+import { TextbookAssetService } from './textbook-assets.js'
 
 const DEVELOPMENT_API_ROUTES = [
     '/api/v1/standards/:code/evidence',
@@ -61,8 +64,15 @@ function publicOpenApiDocument(source: string) {
         .join('\n')
 }
 
-export function createApp(repository: FileCurriculumRepository) {
+export interface CurriculumAppOptions {
+    textbookRepository?: FileTextbookRepository
+    textbookAssetService?: TextbookAssetService
+}
+
+export function createApp(repository: FileCurriculumRepository, options: CurriculumAppOptions = {}) {
     const app = new Hono<ApiBindings>()
+    const textbookRepository = options.textbookRepository || new FileTextbookRepository(resolveDataRoot())
+    const textbookAssetService = options.textbookAssetService || new TextbookAssetService()
 
     app.use('*', requestIdMiddleware)
     app.use('*', securityHeadersMiddleware)
@@ -166,6 +176,103 @@ export function createApp(repository: FileCurriculumRepository) {
                 skills: ['TS1', 'TS2', 'TS3', 'TS4', 'TS5', 'TS6', 'TS7']
             }
         })
+    })
+
+    app.get('/api/v1/textbooks', async c => {
+        const version = await repository.loadDataVersion()
+        const rawGrade = c.req.query('grade')
+        const grade = rawGrade ? Number(rawGrade) : undefined
+        if (rawGrade && (!Number.isInteger(grade) || Number(grade) < 1 || Number(grade) > 9)) {
+            return apiError(c, 422, 'validation_error', '年级必须是 1–9 的整数。')
+        }
+        const items = await textbookRepository.search({
+            stage: c.req.query('stage') as never,
+            subject: c.req.query('subject'),
+            grade,
+            volume: c.req.query('volume') as never,
+            query: c.req.query('q'),
+            resource_type: c.req.query('resource_type') || 'student_textbook'
+        })
+        const limit = Math.min(200, Math.max(1, Number(c.req.query('limit') || 50)))
+        const offset = Math.max(0, Number(c.req.query('offset') || 0))
+        return ok(c, version, items.slice(offset, offset + limit), {
+            total: items.length,
+            limit,
+            offset
+        })
+    })
+
+    app.get('/api/v1/textbooks/:edition_id', async c => {
+        const version = await repository.loadDataVersion()
+        const detail = await textbookRepository.get(c.req.param('edition_id'))
+        if (!detail) return apiError(c, 404, 'not_found', '未找到教材。')
+        return ok(c, version, detail)
+    })
+
+    app.get('/api/v1/textbooks/:edition_id/toc', async c => {
+        const version = await repository.loadDataVersion()
+        const detail = await textbookRepository.get(c.req.param('edition_id'))
+        if (!detail) return apiError(c, 404, 'not_found', '未找到教材。')
+        return ok(c, version, detail.toc, { total: detail.toc.length, status: detail.toc_status })
+    })
+
+    app.get('/api/v1/textbooks/:edition_id/page-map', async c => {
+        const version = await repository.loadDataVersion()
+        const detail = await textbookRepository.get(c.req.param('edition_id'))
+        if (!detail) return apiError(c, 404, 'not_found', '未找到教材。')
+        return ok(c, version, detail.page_map, { total: detail.page_map.length, status: detail.page_map_status })
+    })
+
+    app.get('/api/v1/textbooks/:edition_id/resources', async c => {
+        const version = await repository.loadDataVersion()
+        const detail = await textbookRepository.get(c.req.param('edition_id'))
+        if (!detail) return apiError(c, 404, 'not_found', '未找到教材。')
+        return ok(c, version, detail.related_resources, { total: detail.related_resources.length })
+    })
+
+    app.post('/api/v1/textbooks/:edition_id/viewer-session', async c => {
+        const version = await repository.loadDataVersion()
+        const detail = await textbookRepository.get(c.req.param('edition_id'))
+        if (!detail) return apiError(c, 404, 'not_found', '未找到教材。')
+        const session = textbookAssetService.createViewerSession(detail.edition_id)
+        if (!session) {
+            return apiError(c, 503, 'viewer_unavailable', '教材文件当前不在线：请连接 X9 Pro，或配置对象存储地址。')
+        }
+        return ok(c, version, session)
+    })
+
+    app.get('/api/v1/textbook-assets/:asset_id', c => textbookAssetService.respond(c, c.req.param('asset_id')))
+
+    app.get('/api/v1/units/:unit_id', async c => {
+        const version = await repository.loadDataVersion()
+        const unit = await textbookRepository.getUnit(c.req.param('unit_id'))
+        if (!unit) return apiError(c, 404, 'not_found', '未找到教材单元。')
+        return ok(c, version, unit)
+    })
+
+    app.get('/api/v1/units/:unit_id/standards', async c => {
+        const version = await repository.loadDataVersion()
+        const unit = await textbookRepository.getUnit(c.req.param('unit_id'))
+        if (!unit) return apiError(c, 404, 'not_found', '未找到教材单元。')
+        const alignments = Array.isArray(unit.alignments) ? unit.alignments : []
+        return ok(c, version, alignments, { total: alignments.length })
+    })
+
+    app.get('/api/v1/units/:unit_id/resources', async c => {
+        const version = await repository.loadDataVersion()
+        const unit = await textbookRepository.getUnit(c.req.param('unit_id'))
+        if (!unit) return apiError(c, 404, 'not_found', '未找到教材单元。')
+        const resources = Array.isArray(unit.related_resources) ? unit.related_resources : []
+        return ok(c, version, resources, { total: resources.length })
+    })
+
+    app.get('/api/v1/standards/:code/textbooks', async c => {
+        const version = await repository.loadDataVersion()
+        const lookup = await resolveStandardOrError(c, c.req.param('code'))
+        if (lookup.response) return lookup.response
+        const code = lookup.resolved!.record!.code
+        const textbooks = await textbookRepository.getTextbooksForStandard(code)
+        return ok(c, version, textbooks, { total: textbooks.length })
     })
 
     app.get('/api/v1/subjects', async c => {

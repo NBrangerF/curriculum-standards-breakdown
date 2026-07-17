@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { resolve } from 'node:path'
-import { readFile, rm } from 'node:fs/promises'
-import { FileCurriculumRepository } from '@curriculum/core'
+import { tmpdir } from 'node:os'
+import { readFile, rm, mkdtemp, mkdir, writeFile } from 'node:fs/promises'
+import { FileCurriculumRepository, FileTextbookRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
+import { TextbookAssetService } from '../src/textbook-assets.js'
 import { interpretSearchQueryWithLlm, resolveLlmConfig } from '../src/llm.js'
 import { redactSensitiveText } from '../src/ai-privacy.js'
 import { parsePlanWithLlm } from '../src/plan-llm.js'
@@ -11,6 +13,9 @@ import vercelHandler from '../../../api/v1/[...path].js'
 
 const dataRoot = resolve(process.cwd(), '../../data/internal')
 const app = createApp(new FileCurriculumRepository(dataRoot))
+const textbookApp = createApp(new FileCurriculumRepository(dataRoot), {
+    textbookRepository: new FileTextbookRepository(resolve(process.cwd(), '../../public/data'))
+})
 const dataVersion = JSON.parse(await readFile(resolve(dataRoot, 'data_version.json'), 'utf8')).data_version
 
 async function json(response: Response) {
@@ -312,6 +317,66 @@ test('GET /api/v1/health returns service health', async () => {
     assert.equal(body.data.status, 'ok')
     assert.equal(body.data.data_version, dataVersion)
     assert.equal(body.data.smart_search_relevance_version, 'topic-evidence-v1')
+})
+
+test('textbook API lists catalog records, exposes detail, and resolves standards in reverse', async () => {
+    const catalogResponse = await textbookApp.request('/api/v1/textbooks?subject=math&grade=7&limit=20')
+    assert.equal(catalogResponse.status, 200)
+    const catalogPayload = await json(catalogResponse)
+    assert.ok(catalogPayload.data.length >= 2)
+    assert.ok(catalogPayload.data.every((item: Record<string, any>) => item.subject_slug === 'math' && item.grade === 7))
+    assert.ok(catalogPayload.data.every((item: Record<string, any>) => !('object_path' in item)))
+
+    const editionId = catalogPayload.data[0].edition_id
+    const detailResponse = await textbookApp.request(`/api/v1/textbooks/${editionId}`)
+    assert.equal(detailResponse.status, 200)
+    const detailPayload = await json(detailResponse)
+    assert.equal(detailPayload.data.edition_id, editionId)
+    assert.ok(Array.isArray(detailPayload.data.toc))
+    assert.ok(Array.isArray(detailPayload.data.page_map))
+
+    const reverseResponse = await textbookApp.request('/api/v1/standards/MA-H4G7-AL-004/textbooks')
+    assert.equal(reverseResponse.status, 200)
+    const reversePayload = await json(reverseResponse)
+    assert.ok(reversePayload.data.some((item: Record<string, any>) => item.edition_id === 'ed_006d5ed61c055eb63857'))
+})
+
+test('textbook asset service honors byte ranges without exposing arbitrary files', async () => {
+    const fixtureRoot = await mkdtemp(resolve(tmpdir(), 'kebiao-textbook-range-'))
+    const privateRoot = resolve(fixtureRoot, 'private')
+    const libraryRoot = resolve(fixtureRoot, 'library')
+    const generationId = 'fixture-generation'
+    const assetId = 'asset_fixture_range'
+    const editionId = 'ed_fixture_range'
+    const objectPath = 'objects/sha256/aa/fixture.pdf'
+    const bytes = Buffer.from('%PDF-1.7\nfixture textbook range payload\n%%EOF')
+    try {
+        await mkdir(resolve(privateRoot, `library-state/generations/${generationId}`), { recursive: true })
+        await mkdir(resolve(libraryRoot, 'objects/sha256/aa'), { recursive: true })
+        await writeFile(resolve(privateRoot, 'library-state/CURRENT.json'), JSON.stringify({ generation_id: generationId }))
+        await writeFile(resolve(privateRoot, `library-state/generations/${generationId}/asset_registry.lock.jsonl`), `${JSON.stringify({
+            asset_id: assetId,
+            edition_id: editionId,
+            object_path: objectPath,
+            bytes: bytes.length,
+            transfer_verified: true,
+            pdf_structural_verified: true
+        })}\n`)
+        await writeFile(resolve(libraryRoot, objectPath), bytes)
+        const rangeApp = createApp(new FileCurriculumRepository(dataRoot), {
+            textbookRepository: new FileTextbookRepository(resolve(process.cwd(), '../../public/data')),
+            textbookAssetService: new TextbookAssetService(privateRoot, libraryRoot, null)
+        })
+        const response = await rangeApp.request(`/api/v1/textbook-assets/${assetId}`, { headers: { range: 'bytes=0-7' } })
+        assert.equal(response.status, 206)
+        assert.equal(response.headers.get('accept-ranges'), 'bytes')
+        assert.equal(response.headers.get('content-range'), `bytes 0-7/${bytes.length}`)
+        assert.equal(Buffer.from(await response.arrayBuffer()).toString(), bytes.subarray(0, 8).toString())
+        const missing = await rangeApp.request('/api/v1/textbook-assets/asset_not_registered')
+        assert.equal(missing.status, 404)
+    } finally {
+        await rm(fixtureRoot, { recursive: true, force: true })
+    }
 })
 
 test('OPTIONS preflight returns CORS headers', async () => {

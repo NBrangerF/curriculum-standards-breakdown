@@ -294,7 +294,7 @@ export function ok(c: Context<ApiBindings>, dataVersion: DataVersion, data: unkn
 
 export function apiError(
     c: Context<ApiBindings>,
-    status: 400 | 401 | 403 | 404 | 409 | 422 | 429 | 500,
+    status: 400 | 401 | 403 | 404 | 409 | 422 | 429 | 500 | 503,
     code: string,
     message: string,
     details: unknown[] = []

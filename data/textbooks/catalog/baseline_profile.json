@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "profile_id": "cn-primary-junior-mainstream-2022-v1",
+  "curriculum_system": "six_three",
+  "target_curriculum_revision": "2022",
+  "official_catalog_ref": "https://www.moe.gov.cn/srcsite/A26/s8001/202408/W020250418502592948423.pdf",
+  "source_repository": "TapXWorld/ChinaTextbook",
+  "source_commit": "5a80345f2043ba6f8db8d7be9cf3db82725ff1f7",
+  "series": [
+    { "stage": "primary", "subject": "语文", "subject_slug": "chinese", "edition_name": "统编版", "source_edition": "统编版", "publisher": "人民教育出版社", "selection_class": "national_unified", "grade_start": 1, "grade_end": 6, "volume_mode": "semesters" },
+    { "stage": "primary", "subject": "道德与法治", "subject_slug": "morality_law", "edition_name": "统编版", "source_edition": "统编版", "publisher": "人民教育出版社", "selection_class": "national_unified", "grade_start": 1, "grade_end": 6, "volume_mode": "semesters" },
+    { "stage": "primary", "subject": "数学", "subject_slug": "math", "edition_name": "人教版", "source_edition": "人教版", "publisher": "人民教育出版社", "selection_class": "project_baseline", "grade_start": 1, "grade_end": 6, "volume_mode": "semesters" },
+    { "stage": "primary", "subject": "英语", "subject_slug": "english", "edition_name": "人教版 PEP（三年级起点）", "source_edition": "人教版（PEP）（三年级起点）（主编：吴欣）", "publisher": "人民教育出版社", "selection_class": "project_baseline", "grade_start": 3, "grade_end": 6, "volume_mode": "semesters", "start_grade": 3 },
+    { "stage": "primary", "subject": "科学", "subject_slug": "science", "edition_name": "教科版", "source_edition": "教科版", "publisher": "教育科学出版社", "selection_class": "project_baseline", "grade_start": 1, "grade_end": 6, "volume_mode": "semesters" },
+    { "stage": "primary", "subject": "体育与健康", "subject_slug": "pe", "edition_name": "人教版（2022课标学生用书）", "source_edition": "人教版", "publisher": "人民教育出版社", "selection_class": "project_baseline", "start_grade": 1, "custom_volumes": [
+      { "grade": 1, "volume": "全一册", "availability_status": "published_official_smartedu", "source_revision_expectation": "current_2022_revision" },
+      { "grade": 2, "volume": "全一册", "availability_status": "published_official_smartedu", "source_revision_expectation": "current_2022_revision" },
+      { "grade": 3, "volume": "全一册", "availability_status": "published_official_smartedu", "source_revision_expectation": "current_2022_revision" },
+      { "grade": 4, "volume": "全一册", "expected_status": "scheduled_release", "availability_status": "not_released_as_of_2026-07-17", "not_released_checked_at": "2026-07-17", "source_revision_expectation": "await_official_release" },
+      { "grade": 5, "volume": "全一册", "expected_status": "scheduled_release", "availability_status": "not_released_as_of_2026-07-17", "not_released_checked_at": "2026-07-17", "source_revision_expectation": "await_official_release" },
+      { "grade": 6, "volume": "全一册", "expected_status": "scheduled_release", "availability_status": "not_released_as_of_2026-07-17", "not_released_checked_at": "2026-07-17", "source_revision_expectation": "await_official_release" }
+    ] },
+    { "stage": "primary", "subject": "音乐", "subject_slug": "music", "edition_name": "人音版（简谱，吴斌）", "source_edition": "人音版（简谱）（主编：吴斌）", "publisher": "人民音乐出版社", "selection_class": "project_baseline", "grade_start": 1, "grade_end": 6, "volume_mode": "semesters" },
+    { "stage": "primary", "subject": "美术", "subject_slug": "art", "edition_name": "人美版（常锐伦、欧京海）", "source_edition": "人美版（主编：常锐伦&欧京海）", "publisher": "人民美术出版社", "selection_class": "project_baseline", "grade_start": 1, "grade_end": 6, "volume_mode": "semesters" },
+
+    { "stage": "junior", "subject": "语文", "subject_slug": "chinese", "edition_name": "统编版", "source_edition": "统编版-人民教育出版社", "publisher": "人民教育出版社", "selection_class": "national_unified", "grade_start": 7, "grade_end": 9, "volume_mode": "semesters" },
+    { "stage": "junior", "subject": "道德与法治", "subject_slug": "morality_law", "edition_name": "统编版", "source_edition": "统编版-人民教育出版社", "publisher": "人民教育出版社", "selection_class": "national_unified", "grade_start": 7, "grade_end": 9, "volume_mode": "semesters" },
+    { "stage": "junior", "subject": "历史", "subject_slug": "history", "edition_name": "统编版", "source_edition": "统编版-人民教育出版社", "publisher": "人民教育出版社", "selection_class": "national_unified", "grade_start": 7, "grade_end": 9, "volume_mode": "semesters" },
+    { "stage": "junior", "subject": "数学", "subject_slug": "math", "edition_name": "人教版", "source_edition": "人教版-人民教育出版社", "publisher": "人民教育出版社", "selection_class": "project_baseline", "grade_start": 7, "grade_end": 9, "volume_mode": "semesters" },
+    { "stage": "junior", "subject": "英语", "subject_slug": "english", "edition_name": "人教版", "source_edition": "人教版-人民教育出版社", "publisher": "人民教育出版社", "selection_class": "project_baseline", "start_grade": 7, "custom_volumes": [
+      { "grade": 7, "volume": "上册" }, { "grade": 7, "volume": "下册" },
+      { "grade": 8, "volume": "上册" }, { "grade": 8, "volume": "下册" },
+      { "grade": 9, "volume": "上册", "availability_status": "published_2026_autumn_candidate", "release_term": "2026秋", "source_revision_expectation": "verify_2026_autumn_new_revision" },
+      { "grade": 9, "volume": "下册", "expected_status": "scheduled_release", "availability_status": "not_released_as_of_2026-07-17", "release_term": "2027春", "not_released_checked_at": "2026-07-17", "source_revision_expectation": "await_2027_spring_official_release" }
+    ] },
+    { "stage": "junior", "subject": "地理", "subject_slug": "geography", "edition_name": "人教版", "source_edition": "人教版-人民教育出版社", "publisher": "人民教育出版社", "selection_class": "project_baseline", "grade_start": 7, "grade_end": 8, "volume_mode": "semesters" },
+    { "stage": "junior", "subject": "生物学", "subject_slug": "biology", "edition_name": "人教版", "source_edition": "人教版-人民教育出版社", "publisher": "人民教育出版社", "selection_class": "project_baseline", "grade_start": 7, "grade_end": 8, "volume_mode": "semesters" },
+    { "stage": "junior", "subject": "物理", "subject_slug": "physics", "edition_name": "人教版", "source_edition": "人教版-人民教育出版社", "publisher": "人民教育出版社", "selection_class": "project_baseline", "custom_volumes": [{"grade":8,"volume":"上册"},{"grade":8,"volume":"下册"},{"grade":9,"volume":"全一册"}] },
+    { "stage": "junior", "subject": "化学", "subject_slug": "chemistry", "edition_name": "人教版", "source_edition": "人教版-人民教育出版社", "publisher": "人民教育出版社", "selection_class": "project_baseline", "custom_volumes": [{"grade":9,"volume":"上册"},{"grade":9,"volume":"下册"}] },
+    { "stage": "junior", "subject": "体育与健康", "subject_slug": "pe", "edition_name": "人教版", "source_edition": "人教版-人民教育出版社", "publisher": "人民教育出版社", "selection_class": "project_baseline", "grade_start": 7, "grade_end": 9, "volume_mode": "full_year" },
+    { "stage": "junior", "subject": "音乐", "subject_slug": "music", "edition_name": "人音版（简谱，吴斌）", "source_edition": "人音版（简谱）（主编：吴斌）-人民音乐出版社", "publisher": "人民音乐出版社", "selection_class": "project_baseline", "grade_start": 7, "grade_end": 9, "volume_mode": "semesters" },
+    { "stage": "junior", "subject": "美术", "subject_slug": "art", "edition_name": "人美版（常锐伦、欧京海）", "source_edition": "人美版（主编：常锐伦&欧京海）-人民美术出版社", "publisher": "人民美术出版社", "selection_class": "project_baseline", "grade_start": 7, "grade_end": 9, "volume_mode": "semesters" }
+  ],
+  "companions": [
+    { "stage": "junior", "subject": "地理图册", "subject_slug": "geography_atlas", "edition_name": "配套人教版", "source_edition": "配套人教版-中国地图出版社", "publisher": "中国地图出版社", "selection_class": "student_companion", "grade_start": 7, "grade_end": 8, "volume_mode": "semesters" }
+  ],
+  "scope_decisions": [
+    { "scope_id": "information_technology", "subject": "信息科技", "grades": [3,4,5,6,7,8], "status": "decision_required", "reason": "无国家统编或可靠全国份额数据；需先核对一套完整六三制当前系列" },
+    { "scope_id": "labor", "subject": "劳动", "grades": [1,2,3,4,5,6,7,8,9], "status": "decision_required", "reason": "地区实施差异大；不得混合多个省级系列" },
+    { "scope_id": "comprehensive_practice", "subject": "综合实践活动", "grades": [1,2,3,4,5,6,7,8,9], "status": "non_textbook_course", "reason": "不设全国统一学生教材基准；地区材料按需加入" }
+  ]
+}
