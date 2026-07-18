@@ -64,7 +64,10 @@ export class FileTextbookRepository {
         let pending = this.detailPromises.get(editionId)
         if (!pending) {
             pending = readFile(resolve(this.dataRoot, `textbooks/by-edition/${editionId}.json`), 'utf8')
-                .then(source => TextbookDetailRecordSchema.parse(JSON.parse(source)))
+                // The runtime schema is the source of truth. Keep the explicit output
+                // type because Vercel compiles each API entrypoint in isolation and can
+                // otherwise widen nullable object fields to optional properties.
+                .then(source => TextbookDetailRecordSchema.parse(JSON.parse(source)) as TextbookDetailRecord)
                 .catch(error => {
                     this.detailPromises.delete(editionId)
                     if ((error as NodeJS.ErrnoException).code === 'ENOENT') return null as never
