@@ -2,10 +2,22 @@
   "alignments": [],
   "audit": {
     "approved_page_map_count": 122,
-    "approved_toc_entry_count": 0,
+    "approved_toc_entry_count": 9,
     "candidate_toc_entry_count": 0,
     "numeric_page_offset": 5,
     "numeric_page_offset_confidence": 0.99,
+    "ocr": {
+      "candidate_count": 9,
+      "estimated_printed_page_offset": 6,
+      "pages_ocrd": 18,
+      "status": "ocr_toc_extracted",
+      "toc_pages": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
     "pdf_page_count": 127,
     "toc_candidate_page_count": 0
   },
@@ -13,10 +25,11 @@
   "evidence_id": "ctb_30d8b43d1a90",
   "extraction": {
     "average_characters_per_page": 373.7,
-    "extracted_at": "2026-07-17T09:42:14.165878Z",
+    "extracted_at": "2026-07-18T07:23:05.039177Z",
     "notes": [
       "数字印刷页与 PDF 页偏移 5，由 84 页重复证据支持。",
-      "只有在正文页面直接回查到的标题才自动进入已核对目录。"
+      "OCR 在 PDF 页 [3, 4, 5, 6] 恢复了 9 个课/节目录条目。",
+      "目录条目只有在正文页面直接回查，或通过保守的扫描目录识别门槛后，才进入已核对目录。"
     ],
     "page_count_checked": 127,
     "pages_with_text": 126
@@ -878,6 +891,171 @@
     }
   ],
   "schema_version": 1,
+  "standard_scopes": [
+    {
+      "scope_id": "tcs_34780c76f0a86661",
+      "edition_id": "ed_b6fd1fcab83cfe42492b",
+      "standard_subject_slug": "chinese",
+      "grade_band": "H1",
+      "evidence_role": "direct_textbook",
+      "relation_type": "curriculum_scope",
+      "review_status": "machine_checked",
+      "algorithm_version": "full-alignment-v1",
+      "standard_codes": [
+        "CN-D1-CM-001",
+        "CN-D1-CM-002",
+        "CN-D1-CM-003",
+        "CN-D1-CM-004",
+        "CN-D1-IN-001",
+        "CN-D1-LI-001",
+        "CN-D1-LI-002",
+        "CN-D1-LI-003",
+        "CN-D1-LI-004",
+        "CN-D1-LI-005",
+        "CN-D1-RE-001",
+        "CN-D1-RE-002",
+        "CN-D1-RE-003",
+        "CN-D1-RE-004",
+        "CN-D1-RE-005"
+      ]
+    }
+  ],
   "text_quality": "native_text",
-  "toc": []
+  "toc": [
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 113,
+      "entry_id": "tcu_7f106376d43b2837",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": 12,
+      "printed_page": "6",
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 1,
+      "title": "植物妈妈有办法",
+      "toc_pdf_page": 4
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 116,
+      "entry_id": "tcu_e80bb419adb7551f",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": 114,
+      "printed_page": "108",
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 7,
+      "title": "语文园地八",
+      "toc_pdf_page": 5
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 127,
+      "entry_id": "tcu_ddc7996746166925",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": 117,
+      "printed_page": "111",
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 9,
+      "title": "识字表",
+      "toc_pdf_page": 5
+    },
+    {
+      "confidence": 0.84,
+      "end_pdf_page": null,
+      "entry_id": "tcu_8ba512068309ae18",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": null,
+      "printed_page": null,
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 2,
+      "title": "坐井观天",
+      "toc_pdf_page": 5
+    },
+    {
+      "confidence": 0.84,
+      "end_pdf_page": null,
+      "entry_id": "tcu_303358856ca62465",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": null,
+      "printed_page": null,
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 4,
+      "title": "我要的是葫芦",
+      "toc_pdf_page": 5
+    },
+    {
+      "confidence": 0.84,
+      "end_pdf_page": null,
+      "entry_id": "tcu_ad7d0008cfcc5d37",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": null,
+      "printed_page": null,
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 6,
+      "title": "朱德的扁担",
+      "toc_pdf_page": 5
+    },
+    {
+      "confidence": 0.84,
+      "end_pdf_page": null,
+      "entry_id": "tcu_f531d7ab0b68aad5",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": null,
+      "printed_page": null,
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 5,
+      "title": "语文园地七",
+      "toc_pdf_page": 5
+    },
+    {
+      "confidence": 0.84,
+      "end_pdf_page": null,
+      "entry_id": "tcu_d1299a94f7043d2e",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": null,
+      "printed_page": null,
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 8,
+      "title": "难忘的泼水节",
+      "toc_pdf_page": 5
+    },
+    {
+      "confidence": 0.84,
+      "end_pdf_page": null,
+      "entry_id": "tcu_c8d07c82d694287f",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": null,
+      "printed_page": null,
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 3,
+      "title": "雾在哪里",
+      "toc_pdf_page": 5
+    }
+  ]
 }

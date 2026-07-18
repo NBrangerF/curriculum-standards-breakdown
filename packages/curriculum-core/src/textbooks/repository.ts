@@ -25,7 +25,10 @@ export class FileTextbookRepository {
     private catalogPromise: Promise<TextbookCatalogDataset> | null = null
     private detailPromises = new Map<string, Promise<TextbookDetailRecord>>()
     private unitsPromise: Promise<Array<Record<string, unknown>>> | null = null
-    private reversePromise: Promise<Record<string, Array<Record<string, unknown>>>> | null = null
+    private reversePromise: Promise<{
+        items: Record<string, Array<Record<string, unknown>>>
+        scopes: Record<string, Array<Record<string, unknown>>>
+    }> | null = null
 
     constructor(private readonly dataRoot: string) {}
 
@@ -87,10 +90,17 @@ export class FileTextbookRepository {
         if (!this.reversePromise) {
             this.reversePromise = readFile(resolve(this.dataRoot, 'textbooks/standards-to-textbooks.json'), 'utf8')
                 .then(source => {
-                    const payload = JSON.parse(source) as { items?: Record<string, Array<Record<string, unknown>>> }
-                    return payload.items || {}
+                    const payload = JSON.parse(source) as {
+                        items?: Record<string, Array<Record<string, unknown>>>
+                        scopes?: Record<string, Array<Record<string, unknown>>>
+                    }
+                    return { items: payload.items || {}, scopes: payload.scopes || {} }
                 })
         }
-        return (await this.reversePromise)[code] || []
+        const reverse = await this.reversePromise
+        const specific = reverse.items[code] || []
+        const specificEditions = new Set(specific.map(item => item.edition_id))
+        const scopes = (reverse.scopes[code] || []).filter(item => !specificEditions.has(item.edition_id))
+        return [...specific, ...scopes]
     }
 }

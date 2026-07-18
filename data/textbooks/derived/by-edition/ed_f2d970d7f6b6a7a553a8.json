@@ -2,10 +2,19 @@
   "alignments": [],
   "audit": {
     "approved_page_map_count": 46,
-    "approved_toc_entry_count": 0,
+    "approved_toc_entry_count": 3,
     "candidate_toc_entry_count": 0,
     "numeric_page_offset": 4,
     "numeric_page_offset_confidence": 0.99,
+    "ocr": {
+      "candidate_count": 3,
+      "estimated_printed_page_offset": 2,
+      "pages_ocrd": 18,
+      "status": "ocr_toc_extracted",
+      "toc_pages": [
+        2
+      ]
+    },
     "pdf_page_count": 50,
     "toc_candidate_page_count": 0
   },
@@ -13,10 +22,11 @@
   "evidence_id": "ctb_f5a55ad6fbfb",
   "extraction": {
     "average_characters_per_page": 158.3,
-    "extracted_at": "2026-07-17T09:42:14.165878Z",
+    "extracted_at": "2026-07-18T07:23:05.039177Z",
     "notes": [
       "数字印刷页与 PDF 页偏移 4，由 33 页重复证据支持。",
-      "只有在正文页面直接回查到的标题才自动进入已核对目录。"
+      "OCR 在 PDF 页 [2] 恢复了 3 个课/节目录条目。",
+      "目录条目只有在正文页面直接回查，或通过保守的扫描目录识别门槛后，才进入已核对目录。"
     ],
     "page_count_checked": 50,
     "pages_with_text": 48
@@ -346,6 +356,108 @@
     }
   ],
   "schema_version": 1,
+  "standard_scopes": [
+    {
+      "scope_id": "tcs_038dd968b19a0b50",
+      "edition_id": "ed_f2d970d7f6b6a7a553a8",
+      "standard_subject_slug": "arts",
+      "grade_band": "H1",
+      "evidence_role": "discipline_textbook",
+      "relation_type": "curriculum_scope",
+      "review_status": "machine_checked",
+      "algorithm_version": "full-alignment-v1",
+      "standard_codes": [
+        "AR-D1-AA-001",
+        "AR-D1-AA-002",
+        "AR-D1-AA-004",
+        "AR-D1-AA-005",
+        "AR-D1-AA-006",
+        "AR-D1-AA-007",
+        "AR-D1-AA-008",
+        "AR-D1-AA-009",
+        "AR-D1-AA-014",
+        "AR-D1-AA-018",
+        "AR-D1-AE-001",
+        "AR-D1-AE-002",
+        "AR-D1-AE-003",
+        "AR-D1-AE-004",
+        "AR-D1-AE-005",
+        "AR-D1-AE-006",
+        "AR-D1-AE-007",
+        "AR-D1-AE-008",
+        "AR-D1-AE-009",
+        "AR-D1-AE-010",
+        "AR-D1-AE-011",
+        "AR-D1-AE-012",
+        "AR-D1-AE-013",
+        "AR-D1-AE-014",
+        "AR-D1-AE-015",
+        "AR-D1-AE-016",
+        "AR-D1-AE-017",
+        "AR-D1-AE-019",
+        "AR-D1-AE-024",
+        "AR-D1-AE-025",
+        "AR-D1-AE-026",
+        "AR-D1-CP-009",
+        "AR-D1-CP-015",
+        "AR-D1-CP-016",
+        "AR-D1-CP-017",
+        "AR-D1-CP-021",
+        "AR-D1-CP-022",
+        "AR-D1-CP-027",
+        "AR-D1-CU-012",
+        "AR-D1-CU-020",
+        "AR-D1-CU-023",
+        "AR-D1-CU-028"
+      ]
+    }
+  ],
   "text_quality": "native_text",
-  "toc": []
+  "toc": [
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 27,
+      "entry_id": "tcu_a501fcc489759f92",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": 25,
+      "printed_page": "23",
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 1,
+      "title": "杯子的设计",
+      "toc_pdf_page": 2
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 29,
+      "entry_id": "tcu_014f6d3d70861665",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": 28,
+      "printed_page": "26",
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 2,
+      "title": "绘画中的节日",
+      "toc_pdf_page": 2
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 50,
+      "entry_id": "tcu_d6e1a44600c558b5",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": 30,
+      "printed_page": "28",
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 3,
+      "title": "好吃的水果",
+      "toc_pdf_page": 2
+    }
+  ]
 }

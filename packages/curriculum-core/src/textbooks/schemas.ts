@@ -17,7 +17,7 @@ export const TextbookRevisionStatusSchema = z.enum([
 ])
 export const TextbookStructureStatusSchema = z.enum(['approved', 'candidate', 'unavailable'])
 export const TextbookTextQualitySchema = z.enum(['native_text', 'partial_text', 'scan_only', 'unknown'])
-export const TextbookRelationStatusSchema = z.enum(['approved', 'candidate', 'unavailable'])
+export const TextbookRelationStatusSchema = z.enum(['approved', 'machine_checked', 'candidate', 'unavailable'])
 
 export const TextbookCatalogRecordSchema = z.object({
     edition_id: z.string().min(1),
@@ -48,6 +48,9 @@ export const TextbookCatalogRecordSchema = z.object({
     toc_entry_count: z.number().int().nonnegative(),
     unit_count: z.number().int().nonnegative(),
     approved_alignment_count: z.number().int().nonnegative(),
+    machine_checked_alignment_count: z.number().int().nonnegative(),
+    published_alignment_count: z.number().int().nonnegative(),
+    standard_scope_count: z.number().int().nonnegative(),
     related_resource_count: z.number().int().nonnegative(),
     generated_at: z.string().min(1)
 }).strict()
@@ -63,7 +66,7 @@ export const TextbookTocEntrySchema = z.object({
     end_pdf_page: z.number().int().positive().nullable(),
     confidence: z.number().min(0).max(1),
     review_status: z.enum(['approved', 'machine_checked', 'needs_review']),
-    source: z.enum(['pdf_outline', 'toc_text', 'heading_match', 'manual', 'legacy_unit_evidence'])
+    source: z.enum(['pdf_outline', 'toc_text', 'ocr_toc', 'heading_match', 'manual', 'legacy_unit_evidence'])
 }).strict()
 
 export const TextbookPageMapEntrySchema = z.object({
@@ -76,16 +79,41 @@ export const TextbookPageMapEntrySchema = z.object({
 
 export const TextbookStandardAlignmentSchema = z.object({
     alignment_id: z.string().min(1),
+    edition_id: z.string().min(1).optional(),
     unit_id: z.string().min(1),
+    unit_title: z.string().min(1).optional(),
     standard_code: z.string().min(1),
     standard_text: z.string(),
     subject_slug: z.string().min(1),
     grade_band: z.string(),
-    relation_type: z.enum(['teaches', 'supports', 'mentions']),
+    relation_type: z.enum(['teaches', 'supports', 'mentions', 'contextualizes']),
+    evidence_role: z.string().min(1).optional(),
     confidence: z.number().min(0).max(1),
+    score: z.number().min(0).max(1).optional(),
+    matched_keywords: z.array(z.string().min(1)).optional(),
+    matched_fields: z.array(z.string().min(1)).optional(),
+    modifier_conflicts: z.array(z.string().min(1)).optional(),
+    longest_match_length: z.number().int().nonnegative().optional(),
+    alignment_method: z.string().min(1).optional(),
+    algorithm_version: z.string().min(1).optional(),
     rationale: z.string(),
-    review_status: z.enum(['approved', 'candidate']),
-    evidence_id: z.string().nullable()
+    review_status: z.enum(['approved', 'machine_checked', 'candidate']),
+    publication_status: z.enum(['published', 'review_queue']).optional(),
+    evidence_id: z.string().nullable().optional(),
+    pdf_page: z.number().int().positive().nullable().optional(),
+    printed_page: z.string().nullable().optional()
+}).strict()
+
+export const TextbookStandardScopeSchema = z.object({
+    scope_id: z.string().min(1),
+    edition_id: z.string().min(1),
+    standard_subject_slug: z.string().min(1),
+    grade_band: z.string().min(1),
+    evidence_role: z.string().min(1),
+    relation_type: z.enum(['curriculum_scope', 'adjacent_curriculum_scope']),
+    review_status: z.enum(['approved', 'machine_checked']),
+    algorithm_version: z.string().min(1),
+    standard_codes: z.array(z.string().min(1))
 }).strict()
 
 export const TextbookRelatedResourceSchema = z.object({
@@ -102,6 +130,7 @@ export const TextbookDetailRecordSchema = TextbookCatalogRecordSchema.extend({
     toc: z.array(TextbookTocEntrySchema),
     page_map: z.array(TextbookPageMapEntrySchema),
     alignments: z.array(TextbookStandardAlignmentSchema),
+    standard_scopes: z.array(TextbookStandardScopeSchema),
     related_resources: z.array(TextbookRelatedResourceSchema),
     extraction: z.object({
         extracted_at: z.string().nullable(),

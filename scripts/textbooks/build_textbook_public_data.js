@@ -83,16 +83,35 @@ function relatedResources(asset, allAssets) {
 }
 
 function normalizeStructure(structure, pageCount) {
-  const toc = Array.isArray(structure?.toc) ? structure.toc : []
+  const toc = Array.isArray(structure?.toc) ? structure.toc.map(entry => ({
+    entry_id: entry.entry_id,
+    parent_id: entry.parent_id ?? null,
+    level: entry.level,
+    kind: entry.kind,
+    title: entry.title,
+    printed_page: entry.printed_page ?? null,
+    pdf_page: entry.pdf_page ?? null,
+    end_pdf_page: entry.end_pdf_page ?? null,
+    confidence: entry.confidence,
+    review_status: entry.review_status,
+    source: entry.source
+  })) : []
   const pageMap = Array.isArray(structure?.page_map) ? structure.page_map : []
   const alignments = Array.isArray(structure?.alignments) ? structure.alignments : []
+  const standardScopes = Array.isArray(structure?.standard_scopes) ? structure.standard_scopes : []
   const approvedToc = toc.filter(entry => entry.review_status === 'approved')
   const approvedPageMap = pageMap.filter(entry => entry.review_status === 'approved')
   const approvedAlignments = alignments.filter(entry => entry.review_status === 'approved')
+  const publishedAlignments = alignments.filter(entry =>
+    ['approved', 'machine_checked'].includes(entry.review_status)
+    && entry.publication_status !== 'review_queue'
+  )
+  const publishedScopes = standardScopes.filter(entry => ['approved', 'machine_checked'].includes(entry.review_status))
   return {
     toc: approvedToc,
     page_map: approvedPageMap,
-    alignments: approvedAlignments,
+    alignments: publishedAlignments,
+    standard_scopes: publishedScopes,
     extraction: structure?.extraction || {
       extracted_at: null,
       page_count_checked: 0,
@@ -103,10 +122,13 @@ function normalizeStructure(structure, pageCount) {
     text_quality: structure?.text_quality || 'unknown',
     toc_status: approvedToc.length ? 'approved' : toc.length ? 'candidate' : 'unavailable',
     page_map_status: approvedPageMap.length ? 'approved' : pageMap.length ? 'candidate' : 'unavailable',
-    relation_status: approvedAlignments.length ? 'approved' : alignments.length ? 'candidate' : 'unavailable',
+    relation_status: approvedAlignments.length ? 'approved' : publishedAlignments.length || publishedScopes.length ? 'machine_checked' : alignments.length ? 'candidate' : 'unavailable',
     toc_entry_count: approvedToc.length,
     unit_count: approvedToc.filter(entry => ['part', 'unit', 'chapter'].includes(entry.kind)).length,
-    approved_alignment_count: approvedAlignments.length
+    approved_alignment_count: approvedAlignments.length,
+    machine_checked_alignment_count: publishedAlignments.filter(entry => entry.review_status === 'machine_checked').length,
+    published_alignment_count: publishedAlignments.length,
+    standard_scope_count: publishedScopes.reduce((sum, scope) => sum + (scope.standard_codes || []).length, 0)
   }
 }
 
@@ -141,6 +163,9 @@ function publicBase(asset, structure, generatedAt) {
     toc_entry_count: structure.toc_entry_count,
     unit_count: structure.unit_count,
     approved_alignment_count: structure.approved_alignment_count,
+    machine_checked_alignment_count: structure.machine_checked_alignment_count,
+    published_alignment_count: structure.published_alignment_count,
+    standard_scope_count: structure.standard_scope_count,
     related_resource_count: 0,
     generated_at: generatedAt
   }
@@ -162,6 +187,7 @@ function main() {
   const catalogItems = []
   const units = []
   const standardsToTextbooks = {}
+  const standardScopesToTextbooks = {}
   for (const asset of assets) {
     const structure = normalizeStructure(loadStructure(asset.edition_id), asset.pages)
     const resources = relatedResources(asset, assets)
@@ -172,8 +198,33 @@ function main() {
       toc: structure.toc,
       page_map: structure.page_map,
       alignments: structure.alignments,
+      standard_scopes: structure.standard_scopes,
       related_resources: resources,
       extraction: structure.extraction
+    }
+    for (const scope of detail.standard_scopes) {
+      for (const standardCode of scope.standard_codes || []) {
+        const reverseScope = {
+          alignment_id: `${scope.scope_id}:${standardCode}`,
+          scope_id: scope.scope_id,
+          edition_id: asset.edition_id,
+          textbook_title: base.title,
+          unit_id: null,
+          unit_title: `${scope.grade_band} 教材范围`,
+          pdf_page: null,
+          printed_page: null,
+          confidence: scope.evidence_role === 'adjacent_discipline_textbook' ? 0.6 : 0.78,
+          relation_type: scope.relation_type,
+          evidence_role: scope.evidence_role,
+          review_status: scope.review_status,
+          evidence_granularity: 'textbook_grade_band_scope',
+          rationale: scope.evidence_role === 'adjacent_discipline_textbook'
+            ? `该教材属于 ${scope.grade_band} 相邻学科材料，仅作为课程主题范围线索，不等同于具体单元证据。`
+            : `该教材与 ${scope.grade_band} 课标处于同一学科和年级范围；具体单元证据单独列出。`
+        }
+        if (!standardScopesToTextbooks[standardCode]) standardScopesToTextbooks[standardCode] = []
+        standardScopesToTextbooks[standardCode].push(reverseScope)
+      }
     }
     writeJson(join(OUTPUT_ROOT, 'by-edition', `${asset.edition_id}.json`), detail)
     for (const entry of detail.toc) {
@@ -200,7 +251,13 @@ function main() {
           pdf_page: entry.pdf_page,
           printed_page: entry.printed_page,
           confidence: alignment.confidence,
-          rationale: alignment.rationale
+          rationale: alignment.rationale,
+          relation_type: alignment.relation_type,
+          evidence_role: alignment.evidence_role,
+          review_status: alignment.review_status,
+          evidence_granularity: 'textbook_toc_entry',
+          matched_keywords: alignment.matched_keywords || [],
+          matched_fields: alignment.matched_fields || []
         }
         if (!standardsToTextbooks[alignment.standard_code]) standardsToTextbooks[alignment.standard_code] = []
         standardsToTextbooks[alignment.standard_code].push(reverse)
@@ -231,7 +288,11 @@ function main() {
   writeJson(join(OUTPUT_ROOT, 'index.json'), { manifest, items: catalogItems })
   writeJson(join(OUTPUT_ROOT, 'manifest.json'), manifest)
   writeJson(join(OUTPUT_ROOT, 'units.json'), { generated_at: generatedAt, items: units })
-  writeJson(join(OUTPUT_ROOT, 'standards-to-textbooks.json'), { generated_at: generatedAt, items: standardsToTextbooks })
+  writeJson(join(OUTPUT_ROOT, 'standards-to-textbooks.json'), {
+    generated_at: generatedAt,
+    items: standardsToTextbooks,
+    scopes: standardScopesToTextbooks
+  })
   console.log(JSON.stringify({ output_root: OUTPUT_ROOT, catalog_count: catalogItems.length, detail_count: assets.length, generated_at: generatedAt }, null, 2))
 }
 

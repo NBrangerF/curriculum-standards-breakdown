@@ -8,10 +8,14 @@ are approved automatically. Table-of-contents-only discoveries remain candidates
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import hashlib
 import json
 import re
+import shutil
 import statistics
+import subprocess
+import tempfile
 import unicodedata
 from collections import Counter
 from datetime import datetime, timezone
@@ -48,6 +52,31 @@ TOC_LINE_PATTERN = re.compile(
     rf'((?:第[{CHINESE_NUMBER}0-9]+[章单元课]|第\s*[0-9]+节|[0-9]+(?:\.[0-9]+){{1,2}}|(?:STARTER\s+)?UNIT\s+[0-9]+)\s*.{{0,62}}?)\s+([SIVX]*[0-9]+)\s*$',
     re.I,
 )
+OCR_NUMBERED_MARKER = re.compile(
+    r'(?<!\d)([1-9]\d?)\s*(?:[.．、]\s*|(?=[A-Za-z\u3400-\u9fff]))'
+)
+OCR_TRAILING_PAGE = re.compile(r'\s+([0-9]{1,3})\s*[，,。．.]?\s*$')
+OCR_COLOPHON_PATTERN = re.compile(
+    r'(?:ISBN|CIP|邮编|印张|印刷|出版|定价|责任编辑|号院|号楼|月第|版\s*[”"“]?\s*20\d{2}年)',
+    re.I,
+)
+OCR_BODY_SENTENCE_PATTERN = re.compile(r'(?:是多少|是多(?:少)?|可以帮助你|体积为|^不是)')
+OCR_TITLE_CORRECTIONS = {
+    '添百人像': '添画人像',
+    '弹筑测力计': '弹簧测力计',
+    '人金属的物理性质': '金属的物理性质',
+    '旅行困的标志和旗帜': '旅行团的标志和旗帜',
+    '如何欣赏雕塑作品挺修)': '如何欣赏雕塑作品（选修）',
+    '如何欣赏书法作品斤修)': '如何欣赏书法作品（选修）',
+    '网的作用': '风的作用',
+    '语文国地八': '语文园地八',
+    '坐并观天': '坐井观天',
+    '我要的是戎斯': '我要的是葫芦',
+    '三次根式的乘除': '二次根式的乘除',
+    '三次根式的加减': '二次根式的加减',
+    '义股定理的逆定理': '勾股定理的逆定理',
+    '出过了': '出壳了',
+}
 
 
 def read_json(path: Path) -> Any:
@@ -226,6 +255,216 @@ def toc_candidates(toc_pages: list[tuple[int, list[str]]], edition_id: str) -> l
     return results
 
 
+def readable_ocr_title(value: str) -> bool:
+    value = clean_heading(value)
+    if len(value) < 2 or len(value) > 64:
+        return False
+    if value in {'目录', '前言', '后记', '附录'}:
+        return False
+    han_count = len(re.findall(r'[\u3400-\u9fff]', value))
+    if han_count and han_count < 2:
+        return False
+    if not han_count and not re.search(r'[A-Za-z]{3,}', value):
+        return False
+    return True
+
+
+def numbered_ocr_segments(line: str) -> list[tuple[str, str | None]]:
+    """Return explicit numbered lesson titles from one OCR line.
+
+    Multi-column textbook TOCs are often flattened into one line. Splitting on
+    explicit ``1.``/``2、`` markers is conservative and avoids treating body
+    question numbering as structure unless the containing page is TOC-like.
+    """
+    normalized = normalize_text(line)
+    markers = list(OCR_NUMBERED_MARKER.finditer(normalized))
+    results: list[tuple[str, str | None]] = []
+    for index, marker in enumerate(markers):
+        end = markers[index + 1].start() if index + 1 < len(markers) else len(normalized)
+        segment = normalized[marker.end():end].strip(' ·•_|-')
+        page_match = OCR_TRAILING_PAGE.search(segment)
+        printed = page_match.group(1) if page_match else None
+        if page_match:
+            segment = segment[:page_match.start()].strip()
+        title = clean_heading(segment)
+        title = re.sub(r'\s*(?:p{2,}|e{2,}|\.{2,}|…+)\s*$', '', title, flags=re.I).strip()
+        if readable_ocr_title(title):
+            results.append((title, printed))
+    return results
+
+
+def sanitize_ocr_title(value: str, allow_english: bool) -> str | None:
+    title = clean_heading(value)
+    if OCR_COLOPHON_PATTERN.search(title) or OCR_BODY_SENTENCE_PATTERN.search(title):
+        return None
+    if '?' in title or '？' in title:
+        return None
+    han_count = len(re.findall(r'[\u3400-\u9fff]', title))
+    if not allow_english and han_count < 2:
+        return None
+    if han_count:
+        title = re.sub(r'^[^\u3400-\u9fff]{2,}(?=[\u3400-\u9fff])', '', title).strip()
+        title = re.sub(r'\s+[A-Za-z][A-Za-z0-9]{1,}\s*$', '', title).strip()
+        title = re.sub(r'^\d+\s*[”"“‘\']*\s*(?=[\u3400-\u9fff])', '', title).strip()
+        title = re.sub(r'^节\s*[,，:：”"“‘\']*\s*', '', title).strip()
+        title = re.sub(r'(?<=[\u3400-\u9fff)）])\s*[”"“]?\s*\d{1,3}[^\u3400-\u9fff]*$', '', title).strip()
+        title = re.sub(r'\s+[”"“]\s*', ' ', title).strip()
+    title = title.strip(' ·•_|—–')
+    title = OCR_TITLE_CORRECTIONS.get(title, title)
+    if title == '刷下' or re.fullmatch(r'[一二三四五六七八九十百0-9\s—–_-]+', title):
+        return None
+    return title if readable_ocr_title(title) else None
+
+
+def ocr_page_is_toc(lines: list[str], pdf_page: int) -> bool:
+    compact = ''.join(lines[:16]).replace(' ', '')
+    segments = [segment for line in lines for segment in numbered_ocr_segments(line)]
+    printed_pages = sorted({int(printed) for _, printed in segments if printed and printed.isdigit()})
+    explicit_toc = '目录' in compact and len(segments) >= 2
+    implicit_toc = (
+        pdf_page <= 10
+        and len(segments) >= 3
+        and len(printed_pages) >= 2
+        and printed_pages[-1] - printed_pages[0] >= 5
+        and len(printed_pages) / len(segments) >= 0.3
+    )
+    return explicit_toc or implicit_toc
+
+
+def run_tesseract(image: Path, workdir: Path) -> tuple[int, list[str], str | None]:
+    command = shutil.which('tesseract')
+    if not command:
+        return 0, [], 'tesseract_not_found'
+    result = subprocess.run(
+        [command, image.name, 'stdout', '-l', 'chi_sim+eng', '--psm', '3'],
+        cwd=workdir,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        timeout=90,
+        check=False,
+    )
+    if result.returncode != 0:
+        return 0, [], normalize_text(result.stderr) or f'tesseract_exit_{result.returncode}'
+    lines = [normalize_text(line) for line in result.stdout.splitlines() if normalize_text(line)]
+    page_match = re.search(r'(\d+)$', image.stem)
+    return int(page_match.group(1)) if page_match else 0, lines, None
+
+
+def ocr_toc_candidates(
+    pdf_path: Path,
+    edition_id: str,
+    page_count: int,
+    max_pages: int,
+    dpi: int,
+    workers: int,
+    allow_english: bool,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    pdftoppm = shutil.which('pdftoppm')
+    if not pdftoppm:
+        return [], {'status': 'pdftoppm_not_found', 'pages_ocrd': 0, 'toc_pages': []}
+    last_page = min(page_count, max(1, max_pages))
+    with tempfile.TemporaryDirectory(prefix='kebiao-structure-ocr-') as temp:
+        workdir = Path(temp)
+        rendered = subprocess.run(
+            [
+                pdftoppm, '-f', '1', '-l', str(last_page), '-r', str(dpi),
+                '-jpeg', '-gray', str(pdf_path), 'page',
+            ],
+            cwd=workdir,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            timeout=max(120, last_page * 15),
+            check=False,
+        )
+        if rendered.returncode != 0:
+            return [], {
+                'status': 'render_failed',
+                'pages_ocrd': 0,
+                'toc_pages': [],
+                'error': normalize_text(rendered.stderr),
+            }
+        images = sorted(workdir.glob('page-*.jpg'))
+        rows: list[tuple[int, list[str], str | None]] = []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, workers)) as executor:
+            futures = [executor.submit(run_tesseract, image, workdir) for image in images]
+            for future in concurrent.futures.as_completed(futures):
+                rows.append(future.result())
+        rows.sort(key=lambda item: item[0])
+
+    toc_page_numbers = {
+        pdf_page
+        for pdf_page, lines, error in rows
+        if not error and ocr_page_is_toc(lines, pdf_page)
+    }
+    # Multi-page TOCs can have one sparse continuation page that omits the
+    # literal “目录” heading. Include only an adjacent early page with at least
+    # two explicit numbered entries; this does not pull ordinary body pages in.
+    for pdf_page, lines, error in rows:
+        if error or pdf_page > 10 or pdf_page in toc_page_numbers:
+            continue
+        segment_count = sum(len(numbered_ocr_segments(line)) for line in lines)
+        if segment_count >= 2 and ({pdf_page - 1, pdf_page + 1} & toc_page_numbers):
+            toc_page_numbers.add(pdf_page)
+    toc_pages = [
+        (pdf_page, lines)
+        for pdf_page, lines, error in rows
+        if not error and pdf_page in toc_page_numbers
+    ]
+    if not toc_pages:
+        errors = [error for _, _, error in rows if error]
+        return [], {
+            'status': 'no_toc_detected',
+            'pages_ocrd': len(rows),
+            'toc_pages': [],
+            'errors': errors[:5],
+        }
+
+    estimated_offset = max(pdf_page for pdf_page, _ in toc_pages)
+    candidates: list[dict[str, Any]] = []
+    seen: set[tuple[str, str | None]] = set()
+    source_order = 0
+    for toc_pdf_page, lines in toc_pages:
+        for line in lines:
+            for raw_title, printed in numbered_ocr_segments(line):
+                title = sanitize_ocr_title(raw_title, allow_english)
+                if not title:
+                    continue
+                key = (re.sub(r'\s+', '', title).lower(), printed)
+                if key in seen:
+                    continue
+                seen.add(key)
+                source_order += 1
+                pdf_page = None
+                if printed and printed.isdigit():
+                    inferred = int(printed) + estimated_offset
+                    if 1 <= inferred <= page_count:
+                        pdf_page = inferred
+                candidates.append({
+                    'entry_id': stable_id('tcu', edition_id, 'ocr_toc', title, printed or source_order),
+                    'parent_id': None,
+                    'level': 2,
+                    'kind': 'section',
+                    'title': title,
+                    'printed_page': printed,
+                    'pdf_page': pdf_page,
+                    'end_pdf_page': None,
+                    'confidence': 0.9 if printed else 0.84,
+                    'review_status': 'approved',
+                    'source': 'ocr_toc',
+                    'source_order': source_order,
+                    'toc_pdf_page': toc_pdf_page,
+                })
+    return candidates, {
+        'status': 'ocr_toc_extracted' if candidates else 'toc_page_without_numbered_entries',
+        'pages_ocrd': len(rows),
+        'toc_pages': [pdf_page for pdf_page, _ in toc_pages],
+        'estimated_printed_page_offset': estimated_offset,
+        'candidate_count': len(candidates),
+    }
+
+
 def assign_hierarchy(entries: list[dict[str, Any]], page_count: int) -> list[dict[str, Any]]:
     entries.sort(key=lambda item: (item['pdf_page'] or page_count + 1, item['level'], item['title']))
     current_parent: str | None = None
@@ -247,7 +486,16 @@ def assign_hierarchy(entries: list[dict[str, Any]], page_count: int) -> list[dic
     return entries
 
 
-def extract_asset(asset: dict[str, Any], library_root: Path, generated_at: str) -> dict[str, Any]:
+def extract_asset(
+    asset: dict[str, Any],
+    library_root: Path,
+    generated_at: str,
+    *,
+    ocr_fallback: bool = False,
+    ocr_max_pages: int = 18,
+    ocr_dpi: int = 150,
+    ocr_workers: int = 4,
+) -> dict[str, Any]:
     pdf_path = (library_root / asset['object_path']).resolve()
     if library_root.resolve() not in pdf_path.parents or not pdf_path.exists():
         raise FileNotFoundError(f"Missing verified asset for {asset['edition_id']}")
@@ -398,6 +646,19 @@ def extract_asset(asset: dict[str, Any], library_root: Path, generated_at: str) 
                 approved_title_keys.add(title_key)
         candidates.append(item)
     toc = assign_hierarchy(headings + candidates, len(reader.pages))
+    ocr_audit = {'status': 'not_requested', 'pages_ocrd': 0, 'toc_pages': []}
+    if ocr_fallback and not any(item['review_status'] == 'approved' for item in toc):
+        ocr_candidates, ocr_audit = ocr_toc_candidates(
+            pdf_path,
+            asset['edition_id'],
+            len(reader.pages),
+            ocr_max_pages,
+            ocr_dpi,
+            ocr_workers,
+            asset.get('subject_slug') == 'english',
+        )
+        if ocr_candidates:
+            toc = assign_hierarchy(ocr_candidates, len(reader.pages))
     notes = []
     if offset is not None:
         notes.append(f'数字印刷页与 PDF 页偏移 {offset}，由 {offset_evidence} 页重复证据支持。')
@@ -405,7 +666,9 @@ def extract_asset(asset: dict[str, Any], library_root: Path, generated_at: str) 
         notes.append('未形成足够稳定的数字印刷页偏移，仅保留逐页候选。')
     if text_quality == 'scan_only':
         notes.append('文字层不足，需要 OCR 后才能继续目录与搜索处理。')
-    notes.append('只有在正文页面直接回查到的标题才自动进入已核对目录。')
+    if ocr_audit['status'] == 'ocr_toc_extracted':
+        notes.append(f"OCR 在 PDF 页 {ocr_audit['toc_pages']} 恢复了 {ocr_audit['candidate_count']} 个课/节目录条目。")
+    notes.append('目录条目只有在正文页面直接回查，或通过保守的扫描目录识别门槛后，才进入已核对目录。')
     return {
         'schema_version': 1,
         'edition_id': asset['edition_id'],
@@ -429,6 +692,7 @@ def extract_asset(asset: dict[str, Any], library_root: Path, generated_at: str) 
             'approved_page_map_count': sum(1 for item in page_map if item['review_status'] == 'approved'),
             'numeric_page_offset': offset,
             'numeric_page_offset_confidence': round(offset_confidence, 3),
+            'ocr': ocr_audit,
         },
     }
 
@@ -438,6 +702,13 @@ def main() -> None:
     scope = parser.add_mutually_exclusive_group()
     scope.add_argument('--all', action='store_true')
     scope.add_argument('--edition-id', action='append', default=[])
+    parser.add_argument('--only-missing-toc', action='store_true')
+    parser.add_argument('--refresh-ocr-derived', action='store_true')
+    parser.add_argument('--only-ocr-derived', action='store_true')
+    parser.add_argument('--ocr-fallback', action='store_true')
+    parser.add_argument('--ocr-max-pages', type=int, default=18)
+    parser.add_argument('--ocr-dpi', type=int, default=150)
+    parser.add_argument('--ocr-workers', type=int, default=4)
     parser.add_argument('--library-root', type=Path, default=DEFAULT_LIBRARY_ROOT)
     args = parser.parse_args()
 
@@ -450,13 +721,59 @@ def main() -> None:
         selected = assets
     else:
         selected = [asset for asset in assets if (asset['subject_slug'], asset['grade'], asset['volume']) in PILOT_KEYS]
+    if args.only_missing_toc:
+        selected = [
+            asset for asset in selected
+            if not (OUTPUT_ROOT / f"{asset['edition_id']}.json").exists()
+            or not any(
+                item.get('review_status') == 'approved'
+                for item in read_json(OUTPUT_ROOT / f"{asset['edition_id']}.json").get('toc', [])
+            )
+        ]
+    if args.refresh_ocr_derived:
+        selected = [
+            asset for asset in selected
+            if not (OUTPUT_ROOT / f"{asset['edition_id']}.json").exists()
+            or not any(
+                item.get('review_status') == 'approved'
+                for item in read_json(OUTPUT_ROOT / f"{asset['edition_id']}.json").get('toc', [])
+            )
+            or any(
+                item.get('source') == 'ocr_toc'
+                for item in read_json(OUTPUT_ROOT / f"{asset['edition_id']}.json").get('toc', [])
+            )
+        ]
+    if args.only_ocr_derived:
+        selected = [
+            asset for asset in selected
+            if (OUTPUT_ROOT / f"{asset['edition_id']}.json").exists()
+            and any(
+                item.get('source') == 'ocr_toc'
+                for item in read_json(OUTPUT_ROOT / f"{asset['edition_id']}.json").get('toc', [])
+            )
+        ]
 
     generated_at = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
     failures: list[dict[str, str]] = []
     summaries = []
     for index, asset in enumerate(selected, start=1):
         try:
-            result = extract_asset(asset, args.library_root, generated_at)
+            existing_path = OUTPUT_ROOT / f"{asset['edition_id']}.json"
+            existing = read_json(existing_path) if existing_path.exists() else {}
+            existing_alignments = existing.get('alignments', [])
+            existing_standard_scopes = existing.get('standard_scopes', [])
+            result = extract_asset(
+                asset,
+                args.library_root,
+                generated_at,
+                ocr_fallback=args.ocr_fallback,
+                ocr_max_pages=args.ocr_max_pages,
+                ocr_dpi=args.ocr_dpi,
+                ocr_workers=args.ocr_workers,
+            )
+            result['alignments'] = existing_alignments
+            if existing_standard_scopes:
+                result['standard_scopes'] = existing_standard_scopes
             write_json(OUTPUT_ROOT / f"{asset['edition_id']}.json", result)
             summaries.append({
                 'edition_id': asset['edition_id'],

@@ -36,7 +36,10 @@ export async function loadTextbookUnit(unitId) {
 
 export async function loadTextbooksForStandard(standardCode) {
     const payload = await fetchJson(`${PUBLIC_ROOT}/standards-to-textbooks.json`)
-    return payload.items?.[standardCode] || []
+    const specific = payload.items?.[standardCode] || []
+    const scopes = payload.scopes?.[standardCode] || []
+    const specificEditions = new Set(specific.map(item => item.edition_id))
+    return [...specific, ...scopes.filter(item => !specificEditions.has(item.edition_id))]
 }
 
 export function filterTextbooks(items, filters) {

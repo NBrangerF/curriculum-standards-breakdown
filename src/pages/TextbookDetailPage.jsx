@@ -64,7 +64,7 @@ export default function TextbookDetailPage() {
                     <dl className={styles.facts}>
                         <div><dt>PDF 页数</dt><dd>{book.page_count}</dd></div>
                         <div><dt>可定位目录</dt><dd>{book.toc_entry_count}</dd></div>
-                        <div><dt>课标关联</dt><dd>{book.approved_alignment_count}</dd></div>
+                        <div><dt>具体课标关联</dt><dd>{book.published_alignment_count}</dd></div>
                         <div><dt>配套资源</dt><dd>{book.related_resource_count}</dd></div>
                     </dl>
                 </div>
@@ -93,10 +93,10 @@ export default function TextbookDetailPage() {
                     </section>
 
                     <section className={styles.section}>
-                        <div className={styles.sectionHeading}><div><span>ALIGN</span><h2>课标与教材关联</h2></div><p>只展示已核对关系，候选匹配不直接发布。</p></div>
+                        <div className={styles.sectionHeading}><div><span>ALIGN</span><h2>课标与教材关联</h2></div><p>展示人工批准与达到保守门槛的可解释智能匹配。</p></div>
                         {book.alignments.length ? (
                             <div className={styles.alignmentList}>{book.alignments.map(item => <article key={item.alignment_id}><LinkSimpleIcon size={18} aria-hidden="true" /><div><Link to={`/standards/${encodeURIComponent(item.standard_code)}`}>{item.standard_code}</Link><p>{item.standard_text}</p><small>{item.rationale}</small></div></article>)}</div>
-                        ) : <EmptyState title="还没有已发布的课标关联" description="目录定位是课标关联的前置条件；完成双向复核后会在这里出现。" />}
+                        ) : <EmptyState title="暂无可靠的单元级关联" description={`已建立 ${book.standard_scope_count || 0} 条同学科、同年级带课标范围关系；具体单元证据仍需增强。`} />}
                     </section>
                 </main>
 

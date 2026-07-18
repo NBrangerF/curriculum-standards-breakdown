@@ -101,6 +101,8 @@
         "textbooks:audit-unit-index": "node scripts/textbooks/audit_textbook_unit_index.js",
         "textbooks:match-units": "node scripts/textbooks/match_standards_to_textbook_units.js",
         "textbooks:audit-unit-matches": "node scripts/textbooks/audit_textbook_standard_matches.js",
+        "textbooks:align-all": "node scripts/textbooks/build_full_textbook_standard_alignments.js",
+        "textbooks:audit-align-all": "node scripts/textbooks/audit_full_textbook_standard_alignments.js --strict",
         "textbooks:h4g-unit-candidates": "node scripts/textbooks/build_h4g_unit_evidence_candidate.js",
         "textbooks:audit-h4g-unit-candidates": "node scripts/textbooks/audit_h4g_unit_evidence_candidate.js",
         "textbooks:audit-h4g-unit-consistency": "node scripts/textbooks/audit_h4g_unit_evidence_consistency.js",
@@ -387,7 +389,7 @@
         "grade7_9:check-release-candidate": "node scripts/grade7_9/check_release_candidate_ui_compat.js",
         "grade7_9:validate": "node scripts/grade7_9/validate_schema.js",
         "grade7_9:manifest": "node scripts/grade7_9/generate_manifest.js",
-    "prebuild": "npm run validate:data-contract && npm run build:indexes && npm run textbooks:relations:build && npm run textbooks:public:build && npm run textbooks:public:audit && npm run prepare:pdfjs && npm run validate:data-trust && npm run build:knowledge-graph-preview && npm run validate:knowledge-graph-preview",
+        "prebuild": "npm run validate:data-contract && npm run build:indexes && npm run textbooks:relations:build && npm run textbooks:align-all && npm run textbooks:audit-align-all && npm run textbooks:public:build && npm run textbooks:public:audit && npm run prepare:pdfjs && npm run validate:data-trust && npm run build:knowledge-graph-preview && npm run validate:knowledge-graph-preview",
         "preview": "vite preview"
     },
     "dependencies": {

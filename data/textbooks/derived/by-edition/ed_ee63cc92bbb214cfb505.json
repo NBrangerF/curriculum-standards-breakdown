@@ -2,10 +2,19 @@
   "alignments": [],
   "audit": {
     "approved_page_map_count": 0,
-    "approved_toc_entry_count": 0,
+    "approved_toc_entry_count": 3,
     "candidate_toc_entry_count": 0,
     "numeric_page_offset": null,
     "numeric_page_offset_confidence": 0,
+    "ocr": {
+      "candidate_count": 3,
+      "estimated_printed_page_offset": 2,
+      "pages_ocrd": 18,
+      "status": "ocr_toc_extracted",
+      "toc_pages": [
+        2
+      ]
+    },
     "pdf_page_count": 50,
     "toc_candidate_page_count": 0
   },
@@ -13,17 +22,120 @@
   "evidence_id": "ctb_1295fe66588a",
   "extraction": {
     "average_characters_per_page": 20.8,
-    "extracted_at": "2026-07-17T09:42:14.165878Z",
+    "extracted_at": "2026-07-18T07:23:05.039177Z",
     "notes": [
       "未形成足够稳定的数字印刷页偏移，仅保留逐页候选。",
       "文字层不足，需要 OCR 后才能继续目录与搜索处理。",
-      "只有在正文页面直接回查到的标题才自动进入已核对目录。"
+      "OCR 在 PDF 页 [2] 恢复了 3 个课/节目录条目。",
+      "目录条目只有在正文页面直接回查，或通过保守的扫描目录识别门槛后，才进入已核对目录。"
     ],
     "page_count_checked": 50,
     "pages_with_text": 2
   },
   "page_map": [],
   "schema_version": 1,
+  "standard_scopes": [
+    {
+      "scope_id": "tcs_f9d43da1be80535c",
+      "edition_id": "ed_ee63cc92bbb214cfb505",
+      "standard_subject_slug": "arts",
+      "grade_band": "H1",
+      "evidence_role": "discipline_textbook",
+      "relation_type": "curriculum_scope",
+      "review_status": "machine_checked",
+      "algorithm_version": "full-alignment-v1",
+      "standard_codes": [
+        "AR-D1-AA-001",
+        "AR-D1-AA-002",
+        "AR-D1-AA-004",
+        "AR-D1-AA-005",
+        "AR-D1-AA-006",
+        "AR-D1-AA-007",
+        "AR-D1-AA-008",
+        "AR-D1-AA-009",
+        "AR-D1-AA-014",
+        "AR-D1-AA-018",
+        "AR-D1-AE-001",
+        "AR-D1-AE-002",
+        "AR-D1-AE-003",
+        "AR-D1-AE-004",
+        "AR-D1-AE-005",
+        "AR-D1-AE-006",
+        "AR-D1-AE-007",
+        "AR-D1-AE-008",
+        "AR-D1-AE-009",
+        "AR-D1-AE-010",
+        "AR-D1-AE-011",
+        "AR-D1-AE-012",
+        "AR-D1-AE-013",
+        "AR-D1-AE-014",
+        "AR-D1-AE-015",
+        "AR-D1-AE-016",
+        "AR-D1-AE-017",
+        "AR-D1-AE-019",
+        "AR-D1-AE-024",
+        "AR-D1-AE-025",
+        "AR-D1-AE-026",
+        "AR-D1-CP-009",
+        "AR-D1-CP-015",
+        "AR-D1-CP-016",
+        "AR-D1-CP-017",
+        "AR-D1-CP-021",
+        "AR-D1-CP-022",
+        "AR-D1-CP-027",
+        "AR-D1-CU-012",
+        "AR-D1-CU-020",
+        "AR-D1-CU-023",
+        "AR-D1-CU-028"
+      ]
+    }
+  ],
   "text_quality": "scan_only",
-  "toc": []
+  "toc": [
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 23,
+      "entry_id": "tcu_17cd7a3540631ed3",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": 8,
+      "printed_page": "6",
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 2,
+      "title": "出壳了",
+      "toc_pdf_page": 2
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 50,
+      "entry_id": "tcu_02453f414d11c428",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": 24,
+      "printed_page": "22",
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 3,
+      "title": "我和昆虫",
+      "toc_pdf_page": 2
+    },
+    {
+      "confidence": 0.84,
+      "end_pdf_page": null,
+      "entry_id": "tcu_5281796219789fde",
+      "kind": "section",
+      "level": 2,
+      "parent_id": null,
+      "pdf_page": null,
+      "printed_page": null,
+      "review_status": "approved",
+      "source": "ocr_toc",
+      "source_order": 1,
+      "title": "长呀长",
+      "toc_pdf_page": 2
+    }
+  ]
 }

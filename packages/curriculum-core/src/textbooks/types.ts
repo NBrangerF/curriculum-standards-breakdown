@@ -15,7 +15,7 @@ export type TextbookRevisionStatus =
 
 export type TextbookStructureStatus = 'approved' | 'candidate' | 'unavailable'
 export type TextbookTextQuality = 'native_text' | 'partial_text' | 'scan_only' | 'unknown'
-export type TextbookRelationStatus = 'approved' | 'candidate' | 'unavailable'
+export type TextbookRelationStatus = 'approved' | 'machine_checked' | 'candidate' | 'unavailable'
 
 export interface TextbookCatalogRecord {
     edition_id: string
@@ -46,6 +46,9 @@ export interface TextbookCatalogRecord {
     toc_entry_count: number
     unit_count: number
     approved_alignment_count: number
+    machine_checked_alignment_count: number
+    published_alignment_count: number
+    standard_scope_count: number
     related_resource_count: number
     generated_at: string
 }
@@ -61,7 +64,7 @@ export interface TextbookTocEntry {
     end_pdf_page: number | null
     confidence: number
     review_status: 'approved' | 'machine_checked' | 'needs_review'
-    source: 'pdf_outline' | 'toc_text' | 'heading_match' | 'manual' | 'legacy_unit_evidence'
+    source: 'pdf_outline' | 'toc_text' | 'ocr_toc' | 'heading_match' | 'manual' | 'legacy_unit_evidence'
 }
 
 export interface TextbookPageMapEntry {
@@ -74,16 +77,41 @@ export interface TextbookPageMapEntry {
 
 export interface TextbookStandardAlignment {
     alignment_id: string
+    edition_id?: string
     unit_id: string
+    unit_title?: string
     standard_code: string
     standard_text: string
     subject_slug: string
     grade_band: string
-    relation_type: 'teaches' | 'supports' | 'mentions'
+    relation_type: 'teaches' | 'supports' | 'mentions' | 'contextualizes'
+    evidence_role?: string
     confidence: number
+    score?: number
+    matched_keywords?: string[]
+    matched_fields?: string[]
+    modifier_conflicts?: string[]
+    longest_match_length?: number
+    alignment_method?: string
+    algorithm_version?: string
     rationale: string
-    review_status: 'approved' | 'candidate'
-    evidence_id: string | null
+    review_status: 'approved' | 'machine_checked' | 'candidate'
+    publication_status?: 'published' | 'review_queue'
+    evidence_id?: string | null
+    pdf_page?: number | null
+    printed_page?: string | null
+}
+
+export interface TextbookStandardScope {
+    scope_id: string
+    edition_id: string
+    standard_subject_slug: string
+    grade_band: string
+    evidence_role: string
+    relation_type: 'curriculum_scope' | 'adjacent_curriculum_scope'
+    review_status: 'approved' | 'machine_checked'
+    algorithm_version: string
+    standard_codes: string[]
 }
 
 export interface TextbookRelatedResource {
@@ -100,6 +128,7 @@ export interface TextbookDetailRecord extends TextbookCatalogRecord {
     toc: TextbookTocEntry[]
     page_map: TextbookPageMapEntry[]
     alignments: TextbookStandardAlignment[]
+    standard_scopes: TextbookStandardScope[]
     related_resources: TextbookRelatedResource[]
     extraction: {
         extracted_at: string | null

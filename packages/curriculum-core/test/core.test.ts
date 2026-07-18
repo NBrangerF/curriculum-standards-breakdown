@@ -9,6 +9,7 @@ import {
     createKnowledgeGraphIndex,
     createMeilisearchDocuments,
     FileCurriculumRepository,
+    FileTextbookRepository,
     filterStandards,
     getLearningContext,
     getPrerequisites,
@@ -20,6 +21,7 @@ import {
 import type { KnowledgeGraphDataset, StandardRecord } from '../src/index.js'
 
 const dataRoot = resolve(process.cwd(), '../../data/internal')
+const publicDataRoot = resolve(process.cwd(), '../../public/data')
 
 test('filterStandards matches skills across primary and secondary tags', () => {
     const standards: StandardRecord[] = [
@@ -310,6 +312,23 @@ test('FileCurriculumRepository matches plans to real standards with explanations
     const schedule = await repository.generateWeeklySchedule(parsed.plan, matching, { teaching_weeks: 2, lessons_per_week: 2 })
     assert.equal(schedule.length, 2)
     assert.ok(schedule[0].standard_codes.length > 0)
+})
+
+test('FileTextbookRepository exposes specific evidence and deduplicated curriculum scopes', async () => {
+    const repository = new FileTextbookRepository(publicDataRoot)
+    const catalog = await repository.loadCatalog()
+    assert.equal(catalog.items.length, 141)
+
+    const detail = await repository.get('ed_f8159854e52a9dd85942')
+    assert.ok(detail)
+    assert.ok(detail.standard_scopes.length > 0)
+    assert.ok(detail.alignments.some(alignment => alignment.review_status === 'machine_checked'))
+
+    const links = await repository.getTextbooksForStandard('MA-H4G7-AL-003')
+    assert.ok(links.some(link => link.evidence_granularity === 'textbook_toc_entry'))
+    assert.ok(links.some(link => link.evidence_granularity === 'textbook_grade_band_scope'))
+    const scopeEditions = new Set(links.filter(link => link.evidence_granularity === 'textbook_grade_band_scope').map(link => link.edition_id))
+    assert.ok(links.filter(link => link.evidence_granularity === 'textbook_toc_entry').every(link => !scopeEditions.has(link.edition_id)))
 })
 
 const learningFixture: KnowledgeGraphDataset = {
