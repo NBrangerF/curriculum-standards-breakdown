@@ -1,0 +1,296 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_64f460ed1e1b78b7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出青春期及其特征的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_750c1c9619824035",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_19422aacf4a45bfb"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出青春期及其特征的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出青春期及其特征的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识青春期及其特征，关注青春期保健。",
+          "excerpt_hash": "b7e3d1d2b9abdf94405f3c47cf6e0fbce89f468d34d8f65575f95cf60414fe2c",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-015:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“创设真实情境，或者利用信息技术创设虚拟情境，让学生体会动植物、微生物的繁殖。”",
+          "excerpt_hash": "50474597afd5d04b89a59245cde6fdcd8f564bf996a4597c142aecd2489fb52e",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-SC-015:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出青春期及其特征的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出青春期及其特征的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：““创设真实情境，或者利用信息技术创设虚拟情境，让学生体会动植物、微生物的繁殖。””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e67faa9d7a03119a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5d8c5902b781b5de5f03",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d39057261769"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c22c450af4b9046",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_82335c500ed346b2",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e1c8e586d87fc9",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a29c03a89e1fa39a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7c85e6846ee2baf665b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b6340ce96157"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_208d54146f4a9b68",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_95effb78f6919528",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a04b8a546cf314368898",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6a5186074181"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_426c7beba471c1cd",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0631,
+      "connection_id": "fc_01ba612e964302ce",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-008:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-015",
+      "target_code": "SC-H4G7-SC-008",
+      "target_label": "能举例说明气候对生产和生活的影响；能知道世界主要气候类型及其分布；能区别天气和气候；能用观察证据说明基本科学概念。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_19422aacf4a45bfb",
+      "component_ids": [
+        "lc_64f460ed1e1b78b7",
+        "lc_5812208914a23c1d"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出青春期及其特征的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出青春期及其特征的关键特征；优先采集：口头/书面汇报、讨论记录。",
+        "学生能够持续收集并说明青春期保健的关键信息；优先采集：口头/书面汇报、讨论记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识青春期及其特征，关注青春期保健。",
+          "excerpt_hash": "b7e3d1d2b9abdf94405f3c47cf6e0fbce89f468d34d8f65575f95cf60414fe2c",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "识别并说出青春期及其特征的关键特征；持续收集并说明青春期保健的关键信息",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_64f460ed1e1b78b7",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出青春期及其特征的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出青春期及其特征的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出青春期及其特征的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出青春期及其特征的关键特征；优先采集：口头/书面汇报、讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识青春期及其特征",
+          "excerpt_hash": "e9b850a33d2a6d7efe97c6693610ae465ed12f631f9a19ec6feb536bc337c25d",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认识青春期及其特征"
+    },
+    {
+      "component_id": "lc_5812208914a23c1d",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够持续收集并说明青春期保健的关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生持续收集并说明青春期保健的关键信息，并保留可回查的口头、书面或操作过程证据。",
+      "label": "持续收集并说明青春期保健的关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够持续收集并说明青春期保健的关键信息；优先采集：口头/书面汇报、讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "关注青春期保健",
+          "excerpt_hash": "f0ea2c5cbc4993f16399db657e91d78c1f88113775ccdb4531dd045f277f8f1b",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "关注青春期保健"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b7e3d1d2b9abdf94405f3c47cf6e0fbce89f468d34d8f65575f95cf60414fe2c",
+  "standard_code": "SC-D3-SC-015",
+  "verified_prerequisites": []
+}

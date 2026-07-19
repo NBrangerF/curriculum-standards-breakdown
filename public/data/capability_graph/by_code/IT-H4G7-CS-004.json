@@ -1,0 +1,235 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_06d4e2295fa44689"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明数字工具或数据过程的基本做法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_dc5d17eecbacdfa5",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_787dfc877342c438"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明数字工具或数据过程的基本做法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明数字工具或数据过程的基本做法”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "f8285b699b65822782f1a7f0657dfe8b35b4331b34660147aa84a2a5587f53df",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用可观察的数据流和项目成果帮助学生理解抽象的网络传输机制。",
+          "excerpt_hash": "a5d01d48e2c851cb9d5f9dc74a507d9cf27bce27774e41fc2f13b1fcacd8b578",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G7-CS-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明数字工具或数据过程的基本做法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明数字工具或数据过程的基本做法”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用可观察的数据流和项目成果帮助学生理解抽象的网络传输机制。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_2a61f31edec893e3",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-004:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H4G7-CS-004",
+      "target_code": "IT-H4G8-CS-005",
+      "target_label": "知道网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能分析系统关系并完成有步骤的数字作品。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_787dfc877342c438",
+      "component_ids": [
+        "lc_06d4e2295fa44689"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明数字工具或数据过程的基本做法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明数字工具或数据过程的基本做法；优先采集：数据采集表、可视化成果、过程说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "f8285b699b65822782f1a7f0657dfe8b35b4331b34660147aa84a2a5587f53df",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_812ecda3401224ff",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出网络中信息编码、传输和呈现的原理",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出网络中信息编码、传输和呈现的原理，并说明关键步骤、特征或依据。",
+      "label": "准确说出网络中信息编码、传输和呈现的原理",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出网络中信息编码、传输和呈现的原理；优先采集：数据采集表、可视化成果、过程说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道网络中信息编码、传输和呈现的原理",
+          "excerpt_hash": "514e210108d67c92debdb2b6156103dc138900bb672682189df36bb5325e6379",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道网络中信息编码、传输和呈现的原理"
+    },
+    {
+      "component_id": "lc_272b7759e64ec3fb",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过软件与硬件结合的项目活动采集、分析和呈现数据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过软件与硬件结合的项目活动采集、分析和呈现数据，并说明关键步骤、特征或依据。",
+      "label": "通过软件与硬件结合的项目活动采集、分析和呈现数据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过软件与硬件结合的项目活动采集、分析和呈现数据；优先采集：数据采集表、可视化成果、过程说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过软件与硬件结合的项目活动采集、分析和呈现数据",
+          "excerpt_hash": "47a0956b894ae322a9bf56522d4061aeb08500a2e13a265006bd157d0f7e2342",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过软件与硬件结合的项目活动采集、分析和呈现数据"
+    },
+    {
+      "component_id": "lc_06d4e2295fa44689",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明数字工具或数据过程的基本做法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明数字工具或数据过程的基本做法，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明数字工具或数据过程的基本做法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明数字工具或数据过程的基本做法；优先采集：数据采集表、可视化成果、过程说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明数字工具或数据过程的基本做法",
+          "excerpt_hash": "a578d2fb17bbdec79eedf1635ae20493e83ea3c2f80eabfea02a716484d85a53",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明数字工具或数据过程的基本做法"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0307,
+      "edge_id": "pc_ebceec80c290bbfa",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H3-CS-002",
+      "source_label": "能在具体问题情境中识别并运用顺序、分支、循环三种基本控制结构（及其组合），并能根据给定输入分析简单算法的执行过程与输出结果。",
+      "target_code": "IT-H4G7-CS-004",
+      "target_label": "知道网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能说明数字工具或数据过程的基本做法。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0139,
+      "edge_id": "pc_bb5efe9b03ed29ba",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H3-CS-008",
+      "source_label": "能在汉诺塔等益智玩具问题中将抽象问题具体化，能用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一），并能迁移该思路解释其他类似“分解…",
+      "target_code": "IT-H4G7-CS-004",
+      "target_label": "知道网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能说明数字工具或数据过程的基本做法。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f8285b699b65822782f1a7f0657dfe8b35b4331b34660147aa84a2a5587f53df",
+  "standard_code": "IT-H4G7-CS-004",
+  "verified_prerequisites": []
+}

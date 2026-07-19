@@ -1,0 +1,556 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_7df75b8b7c08cea1",
+        "lc_3c28c3169fcfc977",
+        "lc_44f7b9c0364f1cbb"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9521b4466a5e64f3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_64d2cbbbef11b3e1",
+        "hc_e9899bb43861eefb",
+        "hc_a19749e013e1d0cd",
+        "hc_14ead356175c7e90",
+        "hc_2c0f3eb9776bf6c1"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明理由”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明理由”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价语篇内容和作者观点并说明理由；能针对语篇内容或观点进行合理质疑；能依据不同信息独立思考；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "5781d17e65ff934855a695b7255c8ec3c8e62db794ecd249640fc909abd56f8e",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把质疑、评价和创编建立在理解语篇主旨和证据的基础上。",
+          "excerpt_hash": "e603abb60dd60afd4461fb11553018060b84cba0c828733f9df00ef5102106d7",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G9-TP-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明理由，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明理由”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把质疑、评价和创编建立在理解语篇主旨和证据的基础上。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_7df75b8b7c08cea1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_67fcd2878854506b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_64d2cbbbef11b3e1",
+        "hc_e9899bb43861eefb"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“说明理由”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明理由”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价语篇内容和作者观点并说明理由；能针对语篇内容或观点进行合理质疑；能依据不同信息独立思考；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "5781d17e65ff934855a695b7255c8ec3c8e62db794ecd249640fc909abd56f8e",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把质疑、评价和创编建立在理解语篇主旨和证据的基础上。",
+          "excerpt_hash": "e603abb60dd60afd4461fb11553018060b84cba0c828733f9df00ef5102106d7",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G9-TP-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明理由，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明理由”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把质疑、评价和创编建立在理解语篇主旨和证据的基础上。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_44f7b9c0364f1cbb"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在任务中表现出连贯表达并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6236f7db9147f634",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_64d2cbbbef11b3e1",
+        "hc_2c0f3eb9776bf6c1"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“在任务中表现出连贯表达并说明选择理由”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在任务中表现出连贯表达并说明选择理由”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价语篇内容和作者观点并说明理由；能针对语篇内容或观点进行合理质疑；能依据不同信息独立思考；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "5781d17e65ff934855a695b7255c8ec3c8e62db794ecd249640fc909abd56f8e",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把质疑、评价和创编建立在理解语篇主旨和证据的基础上。",
+          "excerpt_hash": "e603abb60dd60afd4461fb11553018060b84cba0c828733f9df00ef5102106d7",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G9-TP-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在任务中表现出连贯表达并说明选择理由，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在任务中表现出连贯表达并说明选择理由”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把质疑、评价和创编建立在理解语篇主旨和证据的基础上。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4424c2d5c135476a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ca2005df136f696b98af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_quark_2027_spring_pep_english_grade_9_lower"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "future_candidate",
+      "scope_id": "tcs_54cfcfb15b205d2b",
+      "textbook_grade": 9,
+      "textbook_subject": "英语",
+      "textbook_title": "英语9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f482e7069f6c6957",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e0fadc639066b4710fce",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_quark_2026_autumn_pep_english_grade_9_upper"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_likely",
+      "scope_id": "tcs_08aabfe850665d80",
+      "textbook_grade": 9,
+      "textbook_subject": "英语",
+      "textbook_title": "英语9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_64d2cbbbef11b3e1",
+      "component_ids": [
+        "lc_7df75b8b7c08cea1",
+        "lc_3c28c3169fcfc977",
+        "lc_44f7b9c0364f1cbb"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "理由",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明理由。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明理由；优先采集：质疑问题单、评价短文、改编或创编作品。",
+        "学生能够依据不同信息独立思考；优先采集：质疑问题单、评价短文、改编或创编作品。",
+        "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：质疑问题单、评价短文、改编或创编作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价语篇内容和作者观点并说明理由；能针对语篇内容或观点进行合理质疑；能依据不同信息独立思考；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "5781d17e65ff934855a695b7255c8ec3c8e62db794ecd249640fc909abd56f8e",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、理由、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_e9899bb43861eefb",
+      "component_ids": [
+        "lc_6f8c97475bfc64b1",
+        "lc_7df75b8b7c08cea1",
+        "lc_241b4dbdcd30482b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生评价语篇内容和作者观点。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够评价语篇内容和作者观点；优先采集：质疑问题单、评价短文、改编或创编作品。",
+        "学生能够说明理由；优先采集：质疑问题单、评价短文、改编或创编作品。",
+        "学生能够针对语篇内容或观点进行合理质疑；优先采集：质疑问题单、评价短文、改编或创编作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价语篇内容和作者观点并说明理由；能针对语篇内容或观点进行合理质疑；能依据不同信息独立思考；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "5781d17e65ff934855a695b7255c8ec3c8e62db794ecd249640fc909abd56f8e",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_a19749e013e1d0cd",
+      "component_ids": [
+        "lc_3c28c3169fcfc977"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "独立"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生依据不同信息独立思考。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够依据不同信息独立思考；优先采集：质疑问题单、评价短文、改编或创编作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价语篇内容和作者观点并说明理由；能针对语篇内容或观点进行合理质疑；能依据不同信息独立思考；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "5781d17e65ff934855a695b7255c8ec3c8e62db794ecd249640fc909abd56f8e",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（独立）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_14ead356175c7e90",
+      "component_ids": [
+        "lc_3c28c3169fcfc977"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生依据不同信息独立思考。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够依据不同信息独立思考；优先采集：质疑问题单、评价短文、改编或创编作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价语篇内容和作者观点并说明理由；能针对语篇内容或观点进行合理质疑；能依据不同信息独立思考；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "5781d17e65ff934855a695b7255c8ec3c8e62db794ecd249640fc909abd56f8e",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_2c0f3eb9776bf6c1",
+      "component_ids": [
+        "lc_241b4dbdcd30482b",
+        "lc_44f7b9c0364f1cbb"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理",
+        "连贯"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生针对语篇内容或观点进行合理质疑。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够针对语篇内容或观点进行合理质疑；优先采集：质疑问题单、评价短文、改编或创编作品。",
+        "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：质疑问题单、评价短文、改编或创编作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价语篇内容和作者观点并说明理由；能针对语篇内容或观点进行合理质疑；能依据不同信息独立思考；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "5781d17e65ff934855a695b7255c8ec3c8e62db794ecd249640fc909abd56f8e",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理、连贯）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_6f8c97475bfc64b1",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价语篇内容和作者观点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价语篇内容和作者观点，并说明关键步骤、特征或依据。",
+      "label": "评价语篇内容和作者观点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价语篇内容和作者观点；优先采集：质疑问题单、评价短文、改编或创编作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价语篇内容和作者观点",
+          "excerpt_hash": "5938c8877161408e58d81afce149730c644e7eff72da9eada238b08a96b4bf87",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价语篇内容和作者观点"
+    },
+    {
+      "component_id": "lc_7df75b8b7c08cea1",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明理由；优先采集：质疑问题单、评价短文、改编或创编作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明理由",
+          "excerpt_hash": "30a51f6226b6e4bed7de01914fb25a6eaa9c4d10c968532467e32186d094a293",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明理由"
+    },
+    {
+      "component_id": "lc_241b4dbdcd30482b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够针对语篇内容或观点进行合理质疑",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生针对语篇内容或观点进行合理质疑，并说明关键步骤、特征或依据。",
+      "label": "针对语篇内容或观点进行合理质疑",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够针对语篇内容或观点进行合理质疑；优先采集：质疑问题单、评价短文、改编或创编作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "针对语篇内容或观点进行合理质疑",
+          "excerpt_hash": "e327a52ef10a9bbc9e2a7dbe31376c5bfe2244cc2816f600edbb3e61e10e9e64",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "针对语篇内容或观点进行合理质疑"
+    },
+    {
+      "component_id": "lc_3c28c3169fcfc977",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够依据不同信息独立思考",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生依据不同信息独立思考，并保留可回查的口头、书面或操作过程证据。",
+      "label": "依据不同信息独立思考",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够依据不同信息独立思考；优先采集：质疑问题单、评价短文、改编或创编作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "依据不同信息独立思考",
+          "excerpt_hash": "883ef208e3f57e895782a5b826e4dfa75325bd55188ee15f1c6e41a7fc04731c",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "依据不同信息独立思考"
+    },
+    {
+      "component_id": "lc_44f7b9c0364f1cbb",
+      "component_type": "language",
+      "condition": "在真实交际中",
+      "confidence": 0.72,
+      "description": "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在真实交际中”的诊断任务，要求学生在任务中表现出连贯表达并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出连贯表达并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：质疑问题单、评价短文、改编或创编作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价语篇内容和作者观点并说明理由；能针对语篇内容或观点进行合理质疑；能依据不同信息独立思考；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "5781d17e65ff934855a695b7255c8ec3c8e62db794ecd249640fc909abd56f8e",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成连贯表达"
+    },
+    {
+      "component_id": "lc_7b59b6600b149cc9",
+      "component_type": "metacognitive",
+      "condition": "在真实交际中",
+      "confidence": 0.72,
+      "description": "学生在真实交际中，能够反思策略",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在真实交际中”的诊断任务，要求学生反思策略，并说明关键步骤、特征或依据。",
+      "label": "反思策略",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在真实交际中，能够反思策略；优先采集：质疑问题单、评价短文、改编或创编作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价语篇内容和作者观点并说明理由；能针对语篇内容或观点进行合理质疑；能依据不同信息独立思考；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "5781d17e65ff934855a695b7255c8ec3c8e62db794ecd249640fc909abd56f8e",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-TP-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思策略"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_22f88acf6a9a2b1d",
+      "evidence_refs": [
+        "standard:EN-H4G9-TP-009:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-H4G8-TP-008",
+      "source_label": "分析并判断语篇内容和作者观点并说明理由；能针对语篇内容或观点进行合理质疑；能根据语篇内容或所给条件进行改编或创编；能整合语篇信息并说明观点或文…",
+      "target_code": "EN-H4G9-TP-009",
+      "target_label": "评价语篇内容和作者观点并说明理由；能针对语篇内容或观点进行合理质疑；能依据不同信息独立思考；能在真实交际中形成连贯表达并反思策略。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5781d17e65ff934855a695b7255c8ec3c8e62db794ecd249640fc909abd56f8e",
+  "standard_code": "EN-H4G9-TP-009",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,365 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_4cf029e9362e85cd"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生实现从封建专制政治向人民民主的伟大飞跃的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9c543234983302c3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_be299ae0466c021e"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“实现从封建专制政治向人民民主的伟大飞跃”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能实现从封建专制政治向人民民主的伟大飞跃；能创造新民主主义革命伟大成就；了解中国共产党领导人民浴血奋战、百折不挠；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "621618d0a5be92c95e0f19437ba1fdb5c6d739f63763ccf12a557a1bfef916ce",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生理解中国人民从此站起来了、中国发展开启新纪元的历史意义。",
+          "excerpt_hash": "4bb34443b125e32e311ca8bb7df93d485f5e6f9e52fb7adbc5e334d9339dac65",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G8-TCR-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后实现从封建专制政治向人民民主的伟大飞跃，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“实现从封建专制政治向人民民主的伟大飞跃”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“引导学生理解中国人民从此站起来了、中国发展开启新纪元的历史意义。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4885821f33c58b9f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2860489fc83ddeb6cec5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_76fc538dd0d1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_262756ea29a61d32",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1213da4a64b7e60c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d8429e42f96b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9eb2e2a90a705049",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e62622ea1cb72c89",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b28ec1f6b081b602",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b1c59537487d1ec7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_05dbe85802ac"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c23f52c4ba953c6f",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_21fc9afd8a153527",
+      "evidence_refs": [
+        "standard:ML-H4G8-TCR-004:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-H4G8-TCR-004",
+      "target_code": "ML-H4G9-TCR-004",
+      "target_label": "能创造新民主主义革命伟大成就；分析中国共产党领导人民浴血奋战、百折不挠；能实现从封建专制政治向人民民主的伟大飞跃；能依据规则、价值和证据作出判…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_be299ae0466c021e",
+      "component_ids": [
+        "lc_4cf029e9362e85cd",
+        "lc_b55ea82660a0ba77",
+        "lc_6def76636fb21a11"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生实现从封建专制政治向人民民主的伟大飞跃。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够实现从封建专制政治向人民民主的伟大飞跃；优先采集：史实材料分析、党史讲述、学习反思。",
+        "学生能够创造新民主主义革命伟大成就；优先采集：史实材料分析、党史讲述、学习反思。",
+        "学生能够识别并说出中国共产党领导人民浴血奋战、百折不挠的关键特征；优先采集：史实材料分析、党史讲述、学习反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能实现从封建专制政治向人民民主的伟大飞跃；能创造新民主主义革命伟大成就；了解中国共产党领导人民浴血奋战、百折不挠；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "621618d0a5be92c95e0f19437ba1fdb5c6d739f63763ccf12a557a1bfef916ce",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "实现从封建专制政治向人民民主的伟大飞跃；创造新民主主义革命伟大成就；识别并说出中国共产党领导人民浴血奋战、百折不挠的关键特征",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_4cf029e9362e85cd",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够实现从封建专制政治向人民民主的伟大飞跃",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生实现从封建专制政治向人民民主的伟大飞跃，并说明关键步骤、特征或依据。",
+      "label": "实现从封建专制政治向人民民主的伟大飞跃",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够实现从封建专制政治向人民民主的伟大飞跃；优先采集：史实材料分析、党史讲述、学习反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "实现从封建专制政治向人民民主的伟大飞跃",
+          "excerpt_hash": "370ecc47c4965723aee8efd790f7ccbfc26481f87d0547bf67048f0da7ff390d",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "实现从封建专制政治向人民民主的伟大飞跃"
+    },
+    {
+      "component_id": "lc_b55ea82660a0ba77",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够创造新民主主义革命伟大成就",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生创造新民主主义革命伟大成就，并说明关键步骤、特征或依据。",
+      "label": "创造新民主主义革命伟大成就",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够创造新民主主义革命伟大成就；优先采集：史实材料分析、党史讲述、学习反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "创造新民主主义革命伟大成就",
+          "excerpt_hash": "a51f0c384b1cd7b5a8de8395f09991a4d70706c567f2ae5b7307e4a7b0f41e9e",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "创造新民主主义革命伟大成就"
+    },
+    {
+      "component_id": "lc_6def76636fb21a11",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出中国共产党领导人民浴血奋战、百折不挠的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出中国共产党领导人民浴血奋战、百折不挠的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出中国共产党领导人民浴血奋战、百折不挠的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出中国共产党领导人民浴血奋战、百折不挠的关键特征；优先采集：史实材料分析、党史讲述、学习反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解中国共产党领导人民浴血奋战、百折不挠",
+          "excerpt_hash": "27298d9bda9a8e8b3ef3b743e0f85250b4339104d54607f4909346d616cb34c4",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解中国共产党领导人民浴血奋战、百折不挠"
+    },
+    {
+      "component_id": "lc_67052c8bccdd597a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够结合家庭、学校或社会案例分析问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合家庭、学校或社会案例分析问题，并说明关键步骤、特征或依据。",
+      "label": "结合家庭、学校或社会案例分析问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够结合家庭、学校或社会案例分析问题；优先采集：史实材料分析、党史讲述、学习反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "结合家庭、学校或社会案例分析问题",
+          "excerpt_hash": "9f011217b5939392cbd181d22775f8f11d41c522438ab487610a73e9e02bbda8",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "结合家庭、学校或社会案例分析问题"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_f2bdcf31f43a3860",
+      "evidence_refs": [
+        "standard:ML-H4G8-TCR-004:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-H4G7-TCR-005",
+      "source_label": "了解中国共产党领导人民浴血奋战、百折不挠；能创造新民主主义革命伟大成就；能实现从封建专制政治向人民民主的伟大飞跃；能联系个人和校园生活说明基本…",
+      "target_code": "ML-H4G8-TCR-004",
+      "target_label": "能实现从封建专制政治向人民民主的伟大飞跃；能创造新民主主义革命伟大成就；了解中国共产党领导人民浴血奋战、百折不挠；能结合家庭、学校或社会案例分…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "621618d0a5be92c95e0f19437ba1fdb5c6d739f63763ccf12a557a1bfef916ce",
+  "standard_code": "ML-H4G8-TCR-004",
+  "verified_prerequisites": []
+}

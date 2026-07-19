@@ -1,0 +1,508 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_39e401d0c68e07b3"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1b2a59f4b759bec0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_84adbcd113245eae"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能观察周边自然物与人造物，运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理，发现并欣赏其中的美。",
+          "excerpt_hash": "a0a893bb8ee71ae6c1c4af4f49c1553797e6a035fe59d29dcaeb5b403c4494a8",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "组织“美在哪里”观察行走：每人带一张发现卡（线条/形状/色彩/肌理）；回到教室用“我看到…我喜欢…因为…”表达，并由教师补充造型词汇与形式原理示例。",
+          "excerpt_hash": "c880208bc2a300474a4a098ecfd62a599f5d7ccfe119b6619cdaa00491a4c71b",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D1-AA-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“组织“美在哪里”观察行走：每人带一张发现卡（线条/形状/色彩/肌理）”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_b892f10b31eeae6d",
+        "lc_5b5e975a466955f6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生观察周边自然物与人造物的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b081902ededccd06",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_84adbcd113245eae"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“观察周边自然物与人造物”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“观察周边自然物与人造物”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能观察周边自然物与人造物，运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理，发现并欣赏其中的美。",
+          "excerpt_hash": "a0a893bb8ee71ae6c1c4af4f49c1553797e6a035fe59d29dcaeb5b403c4494a8",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "组织“美在哪里”观察行走：每人带一张发现卡（线条/形状/色彩/肌理）；回到教室用“我看到…我喜欢…因为…”表达，并由教师补充造型词汇与形式原理示例。",
+          "excerpt_hash": "c880208bc2a300474a4a098ecfd62a599f5d7ccfe119b6619cdaa00491a4c71b",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D1-AA-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后观察周边自然物与人造物，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“观察周边自然物与人造物”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“组织“美在哪里”观察行走：每人带一张发现卡（线条/形状/色彩/肌理）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8474a4aa4b1d1707",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_08ce261085ef1c1fe6ef",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8209ad04b47d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0a7833eb0eca0e83",
+      "textbook_grade": 2,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3f575f57f16ae150",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2622f7b8f7ae819655aa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_51ecddc37440"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1dc5a976932b360a",
+      "textbook_grade": 1,
+      "textbook_subject": "美术",
+      "textbook_title": "美术1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_66249678e76ceda3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5119efddbaf1d245bdbd",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5a22ce498b9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c1c61f1e18f1f1fd",
+      "textbook_grade": 2,
+      "textbook_subject": "美术",
+      "textbook_title": "美术2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_be198b83634de4c4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9388d4c7d11c755fa6d1",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ff2c02949c7"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ccea29ff50daf60d",
+      "textbook_grade": 1,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4872a23cced24a53",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ad1a73f100e4c37bdf97",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_061b98e9e3e0"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_daf0df4eff446a59",
+      "textbook_grade": 1,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_86f3896892b52c34",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bd2b80ffa90783d7b872",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_04dc110988f2"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_76531f87e68b0f54",
+      "textbook_grade": 2,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ef3e38ceb4bde68f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ee63cc92bbb214cfb505",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_1295fe66588a"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f9d43da1be80535c",
+      "textbook_grade": 1,
+      "textbook_subject": "美术",
+      "textbook_title": "美术1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_cfbc6690e47d8276",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f2d970d7f6b6a7a553a8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f5a55ad6fbfb"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_038dd968b19a0b50",
+      "textbook_grade": 2,
+      "textbook_subject": "美术",
+      "textbook_title": "美术2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_e636e017e8224429",
+      "evidence_refs": [
+        "standard:AR-D1-AA-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D1-AA-001",
+      "target_code": "AR-D2-AA-002",
+      "target_label": "能欣赏与评述中外美术作品，能运用感悟、讨论、比较等方法描述作品主要内容与特点，并表达自己的审美体验。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_84adbcd113245eae",
+      "component_ids": [
+        "lc_b892f10b31eeae6d",
+        "lc_39e401d0c68e07b3",
+        "lc_5b5e975a466955f6"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生观察周边自然物与人造物。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够观察周边自然物与人造物；优先采集：/记录单、口头分享、教师提问记录。",
+        "学生能够运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理；优先采集：/记录单、口头分享、教师提问记录。",
+        "学生能够发现其中的美；优先采集：/记录单、口头分享、教师提问记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能观察周边自然物与人造物，运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理，发现并欣赏其中的美。",
+          "excerpt_hash": "a0a893bb8ee71ae6c1c4af4f49c1553797e6a035fe59d29dcaeb5b403c4494a8",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "观察周边自然物与人造物；运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理；发现其中的美",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b892f10b31eeae6d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够观察周边自然物与人造物",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生观察周边自然物与人造物，并说明关键步骤、特征或依据。",
+      "label": "观察周边自然物与人造物",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够观察周边自然物与人造物；优先采集：/记录单、口头分享、教师提问记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "观察周边自然物与人造物",
+          "excerpt_hash": "5850b0f12617d94d1a24daa3f4813f8bb82cffbc38f4f09a038078ce51856306",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "观察周边自然物与人造物"
+    },
+    {
+      "component_id": "lc_39e401d0c68e07b3",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理，并说明关键步骤、特征或依据。",
+      "label": "运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理；优先采集：/记录单、口头分享、教师提问记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理",
+          "excerpt_hash": "c376ec3833c765f543dcd53b223158fd86e383deeba5e38ff661885d5edee741",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理"
+    },
+    {
+      "component_id": "lc_5b5e975a466955f6",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够发现其中的美",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生发现其中的美，并说明关键步骤、特征或依据。",
+      "label": "发现其中的美",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够发现其中的美；优先采集：/记录单、口头分享、教师提问记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "发现并欣赏其中的美",
+          "excerpt_hash": "2830248543077668e145d721006083ed1d9fec110d13c3c0d5c0a2a66d535674",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "发现其中的美"
+    },
+    {
+      "component_id": "lc_45eb23628438af5c",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够欣赏其中的美",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生欣赏其中的美，并说明关键步骤、特征或依据。",
+      "label": "欣赏其中的美",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够欣赏其中的美；优先采集：/记录单、口头分享、教师提问记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "欣赏其中的美",
+          "excerpt_hash": "76926b4f107cf28031e12a1ad02d6e828ccc614d50c3f1d8b989aaba76fb14ec",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "欣赏其中的美"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a0a893bb8ee71ae6c1c4af4f49c1553797e6a035fe59d29dcaeb5b403c4494a8",
+  "standard_code": "AR-D1-AA-001",
+  "verified_prerequisites": []
+}

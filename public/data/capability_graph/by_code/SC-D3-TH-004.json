@@ -1,0 +1,296 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_076e4d0cb18d9870"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别变量并尝试用对照方法验证猜想的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_88db2e04d4c63140",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b8b90b5a9cfb56d2"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别变量并尝试用对照方法验证猜想”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别变量并尝试用对照方法验证猜想”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能提出更具体的问题，识别变量并尝试用对照方法验证猜想。",
+          "excerpt_hash": "9e700c936e36df3cd1c6cf42def068faf77faa3b983116e3c1790820fca3b1d5",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-TH-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“建议：以真实情境/数据为载体，鼓励学生提出问题、收集证据并表达观点。”",
+          "excerpt_hash": "d13f6e87a9275a1581aca1c8e74e3ffb4a42e22f40c064b903274e6b1a065f6a",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-TH-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别变量并尝试用对照方法验证猜想，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别变量并尝试用对照方法验证猜想”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：““建议：以真实情境/数据为载体，鼓励学生提出问题、收集证据并表达观点。””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_730d988a03e99f6b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5d8c5902b781b5de5f03",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d39057261769"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c22c450af4b9046",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e9d2b2b73ebf2952",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e1c8e586d87fc9",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_db2408e9d542ef62",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7c85e6846ee2baf665b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b6340ce96157"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_208d54146f4a9b68",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_09785f140789e89a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a04b8a546cf314368898",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6a5186074181"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_426c7beba471c1cd",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1134,
+      "connection_id": "fc_13f43826d5af8456",
+      "evidence_refs": [
+        "standard:SC-H4G7-TH-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-TH-004",
+      "target_code": "SC-H4G7-TH-001",
+      "target_label": "运用模型解释科学现象和过程；能分析和解释模型的要素及结构；掌握分析与综合、比较与分类、抽象与概括、归纳与演绎、联想与想象等思维方法；能用观察证…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b8b90b5a9cfb56d2",
+      "component_ids": [
+        "lc_c8d2c9707615fcbb",
+        "lc_076e4d0cb18d9870"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提出更具体的问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够提出更具体的问题；优先采集：实验设计稿、推理解释、讨论记录。",
+        "学生能够识别变量并尝试用对照方法验证猜想；优先采集：实验设计稿、推理解释、讨论记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能提出更具体的问题，识别变量并尝试用对照方法验证猜想。",
+          "excerpt_hash": "9e700c936e36df3cd1c6cf42def068faf77faa3b983116e3c1790820fca3b1d5",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-TH-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "提出更具体的问题；识别变量并尝试用对照方法验证猜想",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c8d2c9707615fcbb",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提出更具体的问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提出更具体的问题，并说明关键步骤、特征或依据。",
+      "label": "提出更具体的问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提出更具体的问题；优先采集：实验设计稿、推理解释、讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提出更具体的问题",
+          "excerpt_hash": "50f76382abc0c3e5ed87ff36905d17ccb5cbe6463d34d6bc64c68dd3cbac6062",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-TH-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出更具体的问题"
+    },
+    {
+      "component_id": "lc_076e4d0cb18d9870",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别变量并尝试用对照方法验证猜想",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别变量并尝试用对照方法验证猜想，并说明关键步骤、特征或依据。",
+      "label": "识别变量并尝试用对照方法验证猜想",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别变量并尝试用对照方法验证猜想；优先采集：实验设计稿、推理解释、讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别变量并尝试用对照方法验证猜想",
+          "excerpt_hash": "38ff37139bfe5c5afd658ef35f58fd348123ae2e089f97b6415bd9b3e36b5f16",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-TH-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别变量并尝试用对照方法验证猜想"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "9e700c936e36df3cd1c6cf42def068faf77faa3b983116e3c1790820fca3b1d5",
+  "standard_code": "SC-D3-TH-004",
+  "verified_prerequisites": []
+}

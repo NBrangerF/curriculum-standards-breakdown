@@ -1,0 +1,403 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_563b5249fa0c8c11"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_28e819ac8d1e89d5",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_067591d16faca4a4"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道空气质量对健康的影响和空气污染主要原因及防治措施；能知道化石能源开发利用对全球气候变化的影响；能知道自然环境的人口承载量；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "a8033efa44b03495403c1ada4aec437e6ae3ea4947a5db97bf74546ba5f2d5ff",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生融合多学科知识分析问题原因、结果和对策，形成生态文明责任感。",
+          "excerpt_hash": "1a8fba07a44608d48b0d5f3547245165a54a58902f36068f8dba84e574208bfc",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-AR-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用观察证据说明基本科学概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生融合多学科知识分析问题原因、结果和对策，形成生态文明责任感。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_563b5249fa0c8c11"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2fc703b4049291b1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_067591d16faca4a4"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道空气质量对健康的影响和空气污染主要原因及防治措施；能知道化石能源开发利用对全球气候变化的影响；能知道自然环境的人口承载量；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "a8033efa44b03495403c1ada4aec437e6ae3ea4947a5db97bf74546ba5f2d5ff",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生融合多学科知识分析问题原因、结果和对策，形成生态文明责任感。",
+          "excerpt_hash": "1a8fba07a44608d48b0d5f3547245165a54a58902f36068f8dba84e574208bfc",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-AR-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用观察证据说明基本科学概念”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生融合多学科知识分析问题原因、结果和对策，形成生态文明责任感。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c05b037772f63100",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_21164b69894834d04f84",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7070ee669923"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ba775a07035c65ee",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f442a63d71ef8d38",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b2901b9e06df"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3daf5000bc9191a7",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7f823b16dfe24b41",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_92369ed68f9321363e22",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae920aee077f"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_94dc3a2f9a671969",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_263399912632aefc",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fc41327ff0651b269c88",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae5d3f924fb1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4604008cfd618f79",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_1ce51b29138c596a",
+      "evidence_refs": [
+        "standard:SC-H4G7-AR-005:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G7-AR-005",
+      "target_code": "SC-H4G8-AR-004",
+      "target_label": "能知道空气质量对健康的影响和空气污染主要原因及防治措施；能知道化石能源开发利用对全球气候变化的影响；能关注水环境问题并说明水污染原因和防治措施…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_067591d16faca4a4",
+      "component_ids": [
+        "lc_563b5249fa0c8c11"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用观察证据说明基本科学概念。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用观察证据说明基本科学概念；优先采集：项目研究报告、环保演讲、行动倡议。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道空气质量对健康的影响和空气污染主要原因及防治措施；能知道化石能源开发利用对全球气候变化的影响；能知道自然环境的人口承载量；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "a8033efa44b03495403c1ada4aec437e6ae3ea4947a5db97bf74546ba5f2d5ff",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_5a5a32500d6d4d21",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出空气质量对健康的影响和空气污染主要原因及防治措施",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出空气质量对健康的影响和空气污染主要原因及防治措施，并说明关键步骤、特征或依据。",
+      "label": "准确说出空气质量对健康的影响和空气污染主要原因及防治措施",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出空气质量对健康的影响和空气污染主要原因及防治措施；优先采集：项目研究报告、环保演讲、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道空气质量对健康的影响和空气污染主要原因及防治措施",
+          "excerpt_hash": "782ff7efc1e6d2def32cf095e58185bbc63172c43aa24a009ec3182eaa4d02ef",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道空气质量对健康的影响和空气污染主要原因及防治措施"
+    },
+    {
+      "component_id": "lc_186b23fc629e21bd",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出化石能源开发利用对全球气候变化的影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出化石能源开发利用对全球气候变化的影响，并说明关键步骤、特征或依据。",
+      "label": "准确说出化石能源开发利用对全球气候变化的影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出化石能源开发利用对全球气候变化的影响；优先采集：项目研究报告、环保演讲、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道化石能源开发利用对全球气候变化的影响",
+          "excerpt_hash": "3e04561252dd8324eaa449f1dc91813a89267a9f9864a0d1042a1807ec6979de",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道化石能源开发利用对全球气候变化的影响"
+    },
+    {
+      "component_id": "lc_545a57e182f6ebd0",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出自然环境的人口承载量",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出自然环境的人口承载量，并说明关键步骤、特征或依据。",
+      "label": "准确说出自然环境的人口承载量",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出自然环境的人口承载量；优先采集：项目研究报告、环保演讲、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道自然环境的人口承载量",
+          "excerpt_hash": "ef49b138d4e3cb907a7e0bba4c44f550126471eaa153c4870bc5489d93881b6b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道自然环境的人口承载量"
+    },
+    {
+      "component_id": "lc_563b5249fa0c8c11",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用观察证据说明基本科学概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用观察证据说明基本科学概念",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：项目研究报告、环保演讲、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用观察证据说明基本科学概念",
+          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用观察证据说明基本科学概念"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1477,
+      "edge_id": "pc_1c7bc2f02a23381e",
+      "evidence_refs": [
+        "standard:SC-H4G7-AR-005:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-AR-002",
+      "source_label": "正确认识经济发展和生态环境保护的关系，结合实例，说明人类不合理的开发活动对环境的影响，提出保护环境的建议，参与保护环境的行动。",
+      "target_code": "SC-H4G7-AR-005",
+      "target_label": "能知道空气质量对健康的影响和空气污染主要原因及防治措施；能知道化石能源开发利用对全球气候变化的影响；能知道自然环境的人口承载量；能用观察证据说…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a8033efa44b03495403c1ada4aec437e6ae3ea4947a5db97bf74546ba5f2d5ff",
+  "standard_code": "SC-H4G7-AR-005",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,354 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_3eadc8b7fc37bc97"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_79c4523308543e38",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c945b1f4476a0e85",
+        "hc_5734ac985de9ea66",
+        "hc_d95cd89b6d9feefc"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个。",
+          "excerpt_hash": "e567986a7a6cc9ba0d90177e28215007193ab1beda25bc83c9f4644f12fa6c62",
+          "field": "standard",
+          "ref_id": "standard:CN-D1-LI-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n在课堂或家庭延伸任务中，教师可通过日常生活中的标牌、书籍和标签帮助学生学习汉字，鼓励学生主动认读周围的文字。\n可以组织校园/社区观察活动（或布置家庭延伸任务），观察路标、商店名字或其他公共标识，帮助学生识字并讨论字词的意思。",
+          "excerpt_hash": "217da4226cba50f52b1021c6ba2942bd3f01c87e9551e8e8d2ef73eca8043ddd",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D1-LI-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“在课堂或家庭延伸任务中，教师可通过日常生活中的标牌、书籍和标签帮助学生学习汉字，鼓励学生主动认读周围的文字。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_725d5fc14ae82674",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0a6e1c6b5a1b0a6964d7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_33cef677757e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_04e1395c0e29a494",
+      "textbook_grade": 1,
+      "textbook_subject": "语文",
+      "textbook_title": "语文1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f722b6605f1242d9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4a114a6b7c341f1d8ddf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2afda12f52bd"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_bdc09ddd418917fe",
+      "textbook_grade": 2,
+      "textbook_subject": "语文",
+      "textbook_title": "语文2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7a9f0f836b70d698",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6f5882dc3ce287c83613",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_06a995aeed6e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7394cdfe08adf2a1",
+      "textbook_grade": 1,
+      "textbook_subject": "语文",
+      "textbook_title": "语文1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_05a339e315c9e7b0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b6fd1fcab83cfe42492b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_30d8b43d1a90"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_34780c76f0a86661",
+      "textbook_grade": 2,
+      "textbook_subject": "语文",
+      "textbook_title": "语文2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_c29af3e2f822c614",
+      "evidence_refs": [
+        "standard:CN-D1-LI-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D1-LI-001",
+      "target_code": "CN-D2-LI-001",
+      "target_label": "在阅读中借助拼音或工具书独立认读生字。"
+    },
+    {
+      "confidence": "medium",
+      "connection_id": "fc_f41f7297fafa1dc5",
+      "evidence_refs": [
+        "standard:CN-D1-LI-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D1-LI-001",
+      "target_code": "CN-D2-LI-004",
+      "target_label": "累计认识常用汉字约 2500 个。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_c945b1f4476a0e85",
+      "component_ids": [
+        "lc_3eadc8b7fc37bc97"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个；优先采集：情境识字/认读。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个。",
+          "excerpt_hash": "e567986a7a6cc9ba0d90177e28215007193ab1beda25bc83c9f4644f12fa6c62",
+          "field": "standard",
+          "ref_id": "standard:CN-D1-LI-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_5734ac985de9ea66",
+      "component_ids": [
+        "lc_3eadc8b7fc37bc97"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个；优先采集：情境识字/认读。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个。",
+          "excerpt_hash": "e567986a7a6cc9ba0d90177e28215007193ab1beda25bc83c9f4644f12fa6c62",
+          "field": "standard",
+          "ref_id": "standard:CN-D1-LI-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_d95cd89b6d9feefc",
+      "component_ids": [
+        "lc_3eadc8b7fc37bc97"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不少于"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个；优先采集：情境识字/认读。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个。",
+          "excerpt_hash": "e567986a7a6cc9ba0d90177e28215007193ab1beda25bc83c9f4644f12fa6c62",
+          "field": "standard",
+          "ref_id": "standard:CN-D1-LI-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（不少于）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3eadc8b7fc37bc97",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个，并说明关键步骤、特征或依据。",
+      "label": "在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个；优先采集：情境识字/认读。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个",
+          "excerpt_hash": "0d19d462e72ef12f75e2092369efab7a10ed2887caecde86da79a5ee6f859a75",
+          "field": "standard",
+          "ref_id": "standard:CN-D1-LI-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在真实语境（如校园、社区标牌）中正确认读常用汉字不少于 1600 个"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e567986a7a6cc9ba0d90177e28215007193ab1beda25bc83c9f4644f12fa6c62",
+  "standard_code": "CN-D1-LI-001",
+  "verified_prerequisites": []
+}

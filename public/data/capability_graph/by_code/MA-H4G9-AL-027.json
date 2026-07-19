@@ -1,0 +1,639 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_c3b3247105e3f89a",
+        "lc_3de888c725458fda"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生阐释二次函数与一元二次方程关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_290f8602945c3642",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_911bf2e96b17a196",
+        "hc_6d2cf8b691ab1b76"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“阐释二次函数与一元二次方程关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“阐释二次函数与一元二次方程关系”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释二次函数与一元二次方程关系并能利用图象求一元二次方程近似解；能通过实际问题分析体会二次函数意义；能画二次函数图象并了解性质；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "67a610a757fea94ec216626bd430e093c97f3d22af3a4065b2a20215617b5be0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-AL-027:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把配方、顶点、对称轴、最值和实际问题中的优化意义联系起来。",
+          "excerpt_hash": "43527c0ce0a226b8028a95ae25aa68ea79a488ba14b5399be148ca94a499ef48",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G9-AL-027:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后阐释二次函数与一元二次方程关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“阐释二次函数与一元二次方程关系”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把配方、顶点、对称轴、最值和实际问题中的优化意义联系起来。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_9f43d9a623ddfa36"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过实际问题分析体会二次函数意义的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a5e7d93f6336a5f1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8eb1ba303d076c38"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“通过实际问题分析体会二次函数意义”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过实际问题分析体会二次函数意义”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释二次函数与一元二次方程关系并能利用图象求一元二次方程近似解；能通过实际问题分析体会二次函数意义；能画二次函数图象并了解性质；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "67a610a757fea94ec216626bd430e093c97f3d22af3a4065b2a20215617b5be0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-AL-027:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把配方、顶点、对称轴、最值和实际问题中的优化意义联系起来。",
+          "excerpt_hash": "43527c0ce0a226b8028a95ae25aa68ea79a488ba14b5399be148ca94a499ef48",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G9-AL-027:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过实际问题分析体会二次函数意义，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过实际问题分析体会二次函数意义”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把配方、顶点、对称轴、最值和实际问题中的优化意义联系起来。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_2653bbdbe21a0419",
+        "lc_263d6b71f1128af1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生利用图象求一元二次方程近似解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ce33f6e456bd4f23",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ce33f6e456bd4f23"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“利用图象求一元二次方程近似解”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“利用图象求一元二次方程近似解”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释二次函数与一元二次方程关系并能利用图象求一元二次方程近似解；能通过实际问题分析体会二次函数意义；能画二次函数图象并了解性质；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "67a610a757fea94ec216626bd430e093c97f3d22af3a4065b2a20215617b5be0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-AL-027:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把配方、顶点、对称轴、最值和实际问题中的优化意义联系起来。",
+          "excerpt_hash": "43527c0ce0a226b8028a95ae25aa68ea79a488ba14b5399be148ca94a499ef48",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G9-AL-027:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后利用图象求一元二次方程近似解，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“利用图象求一元二次方程近似解”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“把配方、顶点、对称轴、最值和实际问题中的优化意义联系起来。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 2,
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "gap_reason": null,
+    "highest_evidence_level": "L2_topic",
+    "scope_count": 2,
+    "specific_count": 4,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "tca_a390f9de53f11dae",
+      "alignment_type": "supports",
+      "confidence": 0.6677,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "textbook-unit:tcu_7a71404dfe4a50f8"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "unit",
+      "method": "constrained_concept_idf",
+      "pdf_page": 12,
+      "printed_page": "5",
+      "publication_status": "published",
+      "rationale": "教材条目“21.2 解一元二次方程”与课标 MA-H4G9-AL-027 在standard字段命中概念：一元二次方程。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_7a71404dfe4a50f8",
+      "unit_title": "21.2 解一元二次方程"
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "tca_4ed59398afa30067",
+      "alignment_type": "supports",
+      "confidence": 0.9124,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "textbook-unit:tcu_a9838fd16093181e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "unit",
+      "method": "constrained_concept_idf",
+      "pdf_page": 8,
+      "printed_page": "1",
+      "publication_status": "published",
+      "rationale": "教材条目“第二十一章 一元二次方程”与课标 MA-H4G9-AL-027 在standard字段命中概念：一元二次方程。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_a9838fd16093181e",
+      "unit_title": "第二十一章 一元二次方程"
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "tca_f293e76f8af5447e",
+      "alignment_type": "supports",
+      "confidence": 1,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "textbook-unit:tcu_bb18186ac36fbff6"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "unit",
+      "method": "constrained_concept_idf",
+      "pdf_page": 34,
+      "printed_page": "27",
+      "publication_status": "published",
+      "rationale": "教材条目“第二十二章 二次函数”与课标 MA-H4G9-AL-027 在assessment_evidence_type、context、practice、standard、subdomain字段命中概念：二次函数。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bb18186ac36fbff6",
+      "unit_title": "第二十二章 二次函数"
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "tca_3f448a7e8f33b6ce",
+      "alignment_type": "supports",
+      "confidence": 0.9124,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "textbook-unit:tcu_cd5459115808204f"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "unit",
+      "method": "constrained_concept_idf",
+      "pdf_page": 9,
+      "printed_page": "2",
+      "publication_status": "published",
+      "rationale": "教材条目“21.1 一元二次方程”与课标 MA-H4G9-AL-027 在standard字段命中概念：一元二次方程。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_cd5459115808204f",
+      "unit_title": "21.1 一元二次方程"
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bbe363093b90fff9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_045c4e32dda3"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d4d9b4cbf0f4520f",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_99c1d2e989938307",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1e968d721145a524c670",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_286bc7db0209"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3e651d0e242caded",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_911bf2e96b17a196",
+      "component_ids": [
+        "lc_c3b3247105e3f89a",
+        "lc_3de888c725458fda"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "阐释",
+        "推理"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阐释二次函数与一元二次方程关系。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够阐释二次函数与一元二次方程关系；优先采集：二次函数图象、最值计算、实际问题解释。",
+        "学生能够建模、推理并检验结论的合理性；优先采集：二次函数图象、最值计算、实际问题解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释二次函数与一元二次方程关系并能利用图象求一元二次方程近似解；能通过实际问题分析体会二次函数意义；能画二次函数图象并了解性质；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "67a610a757fea94ec216626bd430e093c97f3d22af3a4065b2a20215617b5be0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-AL-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（阐释、推理）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_8eb1ba303d076c38",
+      "component_ids": [
+        "lc_9f43d9a623ddfa36"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "实际"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生通过实际问题分析体会二次函数意义。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够通过实际问题分析体会二次函数意义；优先采集：二次函数图象、最值计算、实际问题解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释二次函数与一元二次方程关系并能利用图象求一元二次方程近似解；能通过实际问题分析体会二次函数意义；能画二次函数图象并了解性质；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "67a610a757fea94ec216626bd430e093c97f3d22af3a4065b2a20215617b5be0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-AL-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（实际）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_ce33f6e456bd4f23",
+      "component_ids": [
+        "lc_2653bbdbe21a0419",
+        "lc_263d6b71f1128af1"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "图象"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生利用图象求一元二次方程近似解。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够利用图象求一元二次方程近似解；优先采集：二次函数图象、最值计算、实际问题解释。",
+        "学生能够画二次函数图象；优先采集：二次函数图象、最值计算、实际问题解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释二次函数与一元二次方程关系并能利用图象求一元二次方程近似解；能通过实际问题分析体会二次函数意义；能画二次函数图象并了解性质；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "67a610a757fea94ec216626bd430e093c97f3d22af3a4065b2a20215617b5be0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-AL-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（图象）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_6d2cf8b691ab1b76",
+      "component_ids": [
+        "lc_3de888c725458fda"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生建模、推理并检验结论的合理性。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够建模、推理并检验结论的合理性；优先采集：二次函数图象、最值计算、实际问题解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释二次函数与一元二次方程关系并能利用图象求一元二次方程近似解；能通过实际问题分析体会二次函数意义；能画二次函数图象并了解性质；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "67a610a757fea94ec216626bd430e093c97f3d22af3a4065b2a20215617b5be0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-AL-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c3b3247105e3f89a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够阐释二次函数与一元二次方程关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释二次函数与一元二次方程关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "阐释二次函数与一元二次方程关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够阐释二次函数与一元二次方程关系；优先采集：二次函数图象、最值计算、实际问题解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释二次函数与一元二次方程关系",
+          "excerpt_hash": "71d4154d0c5b459a9ab59afd5e7198bdb5c0d6e2e971f024b0b3491ef639a3de",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-AL-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "阐释二次函数与一元二次方程关系"
+    },
+    {
+      "component_id": "lc_2653bbdbe21a0419",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够利用图象求一元二次方程近似解",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生利用图象求一元二次方程近似解，并说明关键步骤、特征或依据。",
+      "label": "利用图象求一元二次方程近似解",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够利用图象求一元二次方程近似解；优先采集：二次函数图象、最值计算、实际问题解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用图象求一元二次方程近似解",
+          "excerpt_hash": "4531c7e08c0489d1df5e4ab6e510dc04aed4fdb6cfe41e2d115f269cd7770fe4",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-AL-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "利用图象求一元二次方程近似解"
+    },
+    {
+      "component_id": "lc_9f43d9a623ddfa36",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过实际问题分析体会二次函数意义",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过实际问题分析体会二次函数意义，并说明关键步骤、特征或依据。",
+      "label": "通过实际问题分析体会二次函数意义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过实际问题分析体会二次函数意义；优先采集：二次函数图象、最值计算、实际问题解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过实际问题分析体会二次函数意义",
+          "excerpt_hash": "cf01a440628a94918d646209e0bdfa0a1055948716f61ede371074bb13a222b3",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-AL-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过实际问题分析体会二次函数意义"
+    },
+    {
+      "component_id": "lc_263d6b71f1128af1",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够画二次函数图象",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生画二次函数图象，并说明关键步骤、特征或依据。",
+      "label": "画二次函数图象",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够画二次函数图象；优先采集：二次函数图象、最值计算、实际问题解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "画二次函数图象",
+          "excerpt_hash": "50b5e821d690c58d0b0a8545e30eaaf251b5943b5e1a4eb1553a39750e3252dc",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-AL-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "画二次函数图象"
+    },
+    {
+      "component_id": "lc_569805eb33cbdc89",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出性质的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出性质的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出性质的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出性质的关键特征；优先采集：二次函数图象、最值计算、实际问题解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解性质",
+          "excerpt_hash": "aa2229a59a3f28749c692864d08c8419b0b92f63db1af2be2fbff32745a597d9",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-AL-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解性质"
+    },
+    {
+      "component_id": "lc_3de888c725458fda",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、推理并检验结论的合理性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、推理并检验结论的合理性，并说明关键步骤、特征或依据。",
+      "label": "建模、推理并检验结论的合理性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、推理并检验结论的合理性；优先采集：二次函数图象、最值计算、实际问题解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、推理并检验结论的合理性",
+          "excerpt_hash": "b52727f75af831b3e75e1ca5dabdf7c86123edea8c71f6f98dcbf5b28a377c73",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-AL-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、推理并检验结论的合理性"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_2bc088ae5691860d",
+      "evidence_refs": [
+        "standard:MA-H4G9-AL-027:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-H4G8-AL-026",
+      "source_label": "能知道二次函数与一元二次方程关系并能利用图象求一元二次方程近似解；能通过实际问题分析体会二次函数意义；能画二次函数图象并了解性质；能比较方法并…",
+      "target_code": "MA-H4G9-AL-027",
+      "target_label": "阐释二次函数与一元二次方程关系并能利用图象求一元二次方程近似解；能通过实际问题分析体会二次函数意义；能画二次函数图象并了解性质；能建模、推理并…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "67a610a757fea94ec216626bd430e093c97f3d22af3a4065b2a20215617b5be0",
+  "standard_code": "MA-H4G9-AL-027",
+  "verified_prerequisites": []
+}

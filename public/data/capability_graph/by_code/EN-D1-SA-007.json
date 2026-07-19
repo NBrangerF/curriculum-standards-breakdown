@@ -1,0 +1,271 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_6eaa0cc301f84a85"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生借助多种渠道学习英语的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b9dab3f334d8b75e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9392b08e18c14cb2"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“借助多种渠道学习英语”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能尝试借助多种渠道学习英语",
+          "excerpt_hash": "a8af398b4b67bfe59cb2dca5de6d6ff0b466b5a9b369980b440e458d5910f9d7",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-SA-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "明确学习目标与成功标准；安排自评互评（2 stars and a wish）记录改进点。",
+          "excerpt_hash": "ad3e606d8a9c3d371428eeb5aa3018c364bbda07d75a8aff8bf430ac2877fc30",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-D1-SA-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后借助多种渠道学习英语，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“借助多种渠道学习英语”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“明确学习目标与成功标准”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_62a8677b1f884835",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_14d3051be175a07856d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_96fe1cf7a088"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4c0b84e107cb3acc",
+      "textbook_grade": 4,
+      "textbook_subject": "英语",
+      "textbook_title": "英语4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_97c90fbe4a54ebff",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_33e1117f4e3b64658cf7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2da7a165ff23"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_736b449efa98c23e",
+      "textbook_grade": 4,
+      "textbook_subject": "英语",
+      "textbook_title": "英语4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_311c54982e943246",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_97b9c1a173bf9c3f5fea",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_94ad37d595c7"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c71decfe6366ff07",
+      "textbook_grade": 3,
+      "textbook_subject": "英语",
+      "textbook_title": "英语3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_04a1fffe25f64f3e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bd2c45b5e8fc08bf234e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9ccd4f4ff8e3"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_623deee3782f3fb1",
+      "textbook_grade": 3,
+      "textbook_subject": "英语",
+      "textbook_title": "英语3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_5c579eb084723e1a",
+      "evidence_refs": [
+        "standard:EN-D1-SA-007:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-D1-SA-007",
+      "target_code": "EN-D2-SA-007",
+      "target_label": "能在教师指导下，初步找到适合自己的英语学习方法。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_9392b08e18c14cb2",
+      "component_ids": [
+        "lc_6eaa0cc301f84a85"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "多种"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生借助多种渠道学习英语。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够借助多种渠道学习英语；优先采集：有学习计划与记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能尝试借助多种渠道学习英语",
+          "excerpt_hash": "a8af398b4b67bfe59cb2dca5de6d6ff0b466b5a9b369980b440e458d5910f9d7",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-SA-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（多种）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_6eaa0cc301f84a85",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够借助多种渠道学习英语",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生借助多种渠道学习英语，并说明关键步骤、特征或依据。",
+      "label": "借助多种渠道学习英语",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够借助多种渠道学习英语；优先采集：有学习计划与记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "借助多种渠道学习英语",
+          "excerpt_hash": "09d63401dd2106ff13ed1ac010a98725e1b2abb9cbebdcfb382403b7a781b6ff",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-SA-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "借助多种渠道学习英语"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a8af398b4b67bfe59cb2dca5de6d6ff0b466b5a9b369980b440e458d5910f9d7",
+  "standard_code": "EN-D1-SA-007",
+  "verified_prerequisites": []
+}

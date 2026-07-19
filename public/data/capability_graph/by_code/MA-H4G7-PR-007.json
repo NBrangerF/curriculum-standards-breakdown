@@ -1,0 +1,516 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_8f81fd761862eca1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明解题步骤和基本依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_7d6bc906129f68c2",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_225189a5552c5f82",
+        "hc_ed1f12099f310695"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明解题步骤和基本依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明解题步骤和基本依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能经历分工合作、试验调查、建立模型、计算反思和解决问题的过程；运用数学思维方法以及数学和其他相关学科知识；能综合、有逻辑地分析问题；能说明解题步骤和基本依据。",
+          "excerpt_hash": "bb25bc6328af6d724ade4791b3b7f1374df2f9506e5fdcfea85e752426b586b0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把合作分工、模型假设、数据计算和反思修正作为项目评价重点。",
+          "excerpt_hash": "ef51d6e2995cccf20a96d8f58f5313f72caa236ea8084a82767a4d64fae914d1",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-PR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明解题步骤和基本依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明解题步骤和基本依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把合作分工、模型假设、数据计算和反思修正作为项目评价重点。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_8f81fd761862eca1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明解题步骤和基本依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2d58d30173bf5fa6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_225189a5552c5f82",
+        "hc_ed1f12099f310695"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“说明解题步骤和基本依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明解题步骤和基本依据”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能经历分工合作、试验调查、建立模型、计算反思和解决问题的过程；运用数学思维方法以及数学和其他相关学科知识；能综合、有逻辑地分析问题；能说明解题步骤和基本依据。",
+          "excerpt_hash": "bb25bc6328af6d724ade4791b3b7f1374df2f9506e5fdcfea85e752426b586b0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把合作分工、模型假设、数据计算和反思修正作为项目评价重点。",
+          "excerpt_hash": "ef51d6e2995cccf20a96d8f58f5313f72caa236ea8084a82767a4d64fae914d1",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-PR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明解题步骤和基本依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明解题步骤和基本依据”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“把合作分工、模型假设、数据计算和反思修正作为项目评价重点。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_0704f9822e06a500",
+        "lc_a93defe1bbdc7a0c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生经历分工合作、试验调查、建立模型、计算反思和解决问题的过程的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2037e2f6921f7c0c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d84002f73cec507a"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“经历分工合作、试验调查、建立模型、计算反思和解决问题的过程”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“经历分工合作、试验调查、建立模型、计算反思和解决问题的过程”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能经历分工合作、试验调查、建立模型、计算反思和解决问题的过程；运用数学思维方法以及数学和其他相关学科知识；能综合、有逻辑地分析问题；能说明解题步骤和基本依据。",
+          "excerpt_hash": "bb25bc6328af6d724ade4791b3b7f1374df2f9506e5fdcfea85e752426b586b0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把合作分工、模型假设、数据计算和反思修正作为项目评价重点。",
+          "excerpt_hash": "ef51d6e2995cccf20a96d8f58f5313f72caa236ea8084a82767a4d64fae914d1",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-PR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后经历分工合作、试验调查、建立模型、计算反思和解决问题的过程，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“经历分工合作、试验调查、建立模型、计算反思和解决问题的过程”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把合作分工、模型假设、数据计算和反思修正作为项目评价重点。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_0704f9822e06a500"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生经历分工合作、试验调查、建立模型、计算反思和解决问题的过程的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d84002f73cec507a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d84002f73cec507a"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“经历分工合作、试验调查、建立模型、计算反思和解决问题的过程”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“经历分工合作、试验调查、建立模型、计算反思和解决问题的过程”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能经历分工合作、试验调查、建立模型、计算反思和解决问题的过程；运用数学思维方法以及数学和其他相关学科知识；能综合、有逻辑地分析问题；能说明解题步骤和基本依据。",
+          "excerpt_hash": "bb25bc6328af6d724ade4791b3b7f1374df2f9506e5fdcfea85e752426b586b0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把合作分工、模型假设、数据计算和反思修正作为项目评价重点。",
+          "excerpt_hash": "ef51d6e2995cccf20a96d8f58f5313f72caa236ea8084a82767a4d64fae914d1",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-PR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后经历分工合作、试验调查、建立模型、计算反思和解决问题的过程，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“经历分工合作、试验调查、建立模型、计算反思和解决问题的过程”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“把合作分工、模型假设、数据计算和反思修正作为项目评价重点。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a0138b5389f28259",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_48072359f7df"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d6ebc3492905c591",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e1f07fbf39094e84",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5fa3c0e2226"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_05b1d5ed90d78b81",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_4f2ca3ca9e2b2abf",
+      "evidence_refs": [
+        "standard:MA-H4G7-PR-007:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-H4G7-PR-007",
+      "target_code": "MA-H4G8-PR-008",
+      "target_label": "能经历分工合作、试验调查、建立模型、计算反思和解决问题的过程；运用数学思维方法以及数学和其他相关学科知识；能综合、有逻辑地分析问题；能比较方法…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_225189a5552c5f82",
+      "component_ids": [
+        "lc_8f81fd761862eca1"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明解题步骤和基本依据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明解题步骤和基本依据；优先采集：项目分工表、数学模型、计算记录、反思修正说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能经历分工合作、试验调查、建立模型、计算反思和解决问题的过程；运用数学思维方法以及数学和其他相关学科知识；能综合、有逻辑地分析问题；能说明解题步骤和基本依据。",
+          "excerpt_hash": "bb25bc6328af6d724ade4791b3b7f1374df2f9506e5fdcfea85e752426b586b0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_7f037bbbf2a8673f",
+      "component_ids": [
+        "lc_ac2f47e4bfca5221"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "综合"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生综合、有逻辑地分析问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够综合、有逻辑地分析问题；优先采集：项目分工表、数学模型、计算记录、反思修正说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能经历分工合作、试验调查、建立模型、计算反思和解决问题的过程；运用数学思维方法以及数学和其他相关学科知识；能综合、有逻辑地分析问题；能说明解题步骤和基本依据。",
+          "excerpt_hash": "bb25bc6328af6d724ade4791b3b7f1374df2f9506e5fdcfea85e752426b586b0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（综合）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_ed1f12099f310695",
+      "component_ids": [
+        "lc_8f81fd761862eca1"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "步骤"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明解题步骤和基本依据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明解题步骤和基本依据；优先采集：项目分工表、数学模型、计算记录、反思修正说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能经历分工合作、试验调查、建立模型、计算反思和解决问题的过程；运用数学思维方法以及数学和其他相关学科知识；能综合、有逻辑地分析问题；能说明解题步骤和基本依据。",
+          "excerpt_hash": "bb25bc6328af6d724ade4791b3b7f1374df2f9506e5fdcfea85e752426b586b0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（步骤）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    },
+    {
+      "case_id": "hc_d84002f73cec507a",
+      "component_ids": [
+        "lc_0704f9822e06a500"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "模型"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生经历分工合作、试验调查、建立模型、计算反思和解决问题的过程。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够经历分工合作、试验调查、建立模型、计算反思和解决问题的过程；优先采集：项目分工表、数学模型、计算记录、反思修正说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能经历分工合作、试验调查、建立模型、计算反思和解决问题的过程；运用数学思维方法以及数学和其他相关学科知识；能综合、有逻辑地分析问题；能说明解题步骤和基本依据。",
+          "excerpt_hash": "bb25bc6328af6d724ade4791b3b7f1374df2f9506e5fdcfea85e752426b586b0",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（模型）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_0704f9822e06a500",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够经历分工合作、试验调查、建立模型、计算反思和解决问题的过程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生经历分工合作、试验调查、建立模型、计算反思和解决问题的过程，并说明关键步骤、特征或依据。",
+      "label": "经历分工合作、试验调查、建立模型、计算反思和解决问题的过程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够经历分工合作、试验调查、建立模型、计算反思和解决问题的过程；优先采集：项目分工表、数学模型、计算记录、反思修正说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "经历分工合作、试验调查、建立模型、计算反思和解决问题的过程",
+          "excerpt_hash": "0eb82e9d69140f20d201c2892aa8b6906cb8a90978902d0e1f60d39a17333195",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "经历分工合作、试验调查、建立模型、计算反思和解决问题的过程"
+    },
+    {
+      "component_id": "lc_a93defe1bbdc7a0c",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用数学思维方法以及数学和其他相关学科知识",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用数学思维方法以及数学和其他相关学科知识，并说明关键步骤、特征或依据。",
+      "label": "运用数学思维方法以及数学和其他相关学科知识",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用数学思维方法以及数学和其他相关学科知识；优先采集：项目分工表、数学模型、计算记录、反思修正说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用数学思维方法以及数学和其他相关学科知识",
+          "excerpt_hash": "5726e36f467801ee9b5d09bcc207986c58aa5dec792962ce9a2788ac00e81d2e",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用数学思维方法以及数学和其他相关学科知识"
+    },
+    {
+      "component_id": "lc_ac2f47e4bfca5221",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够综合、有逻辑地分析问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生综合、有逻辑地分析问题，并说明关键步骤、特征或依据。",
+      "label": "综合、有逻辑地分析问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够综合、有逻辑地分析问题；优先采集：项目分工表、数学模型、计算记录、反思修正说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "综合、有逻辑地分析问题",
+          "excerpt_hash": "08ce8df429d6321a4ea695a142d6a1ae986c2771183f5c592be232bd800ca1e4",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "综合、有逻辑地分析问题"
+    },
+    {
+      "component_id": "lc_8f81fd761862eca1",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明解题步骤和基本依据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明解题步骤和基本依据，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明解题步骤和基本依据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明解题步骤和基本依据；优先采集：项目分工表、数学模型、计算记录、反思修正说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明解题步骤和基本依据",
+          "excerpt_hash": "d00757cae74b1459bbcf36ec8c31849ae0007a290e5019ba4e746f5676a42251",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明解题步骤和基本依据"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2032,
+      "edge_id": "pc_e401a8c52136eea9",
+      "evidence_refs": [
+        "standard:MA-H4G7-PR-007:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D3-PR-001",
+      "source_label": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计…",
+      "target_code": "MA-H4G7-PR-007",
+      "target_label": "能经历分工合作、试验调查、建立模型、计算反思和解决问题的过程；运用数学思维方法以及数学和其他相关学科知识；能综合、有逻辑地分析问题；能说明解题…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "bb25bc6328af6d724ade4791b3b7f1374df2f9506e5fdcfea85e752426b586b0",
+  "standard_code": "MA-H4G7-PR-007",
+  "verified_prerequisites": []
+}

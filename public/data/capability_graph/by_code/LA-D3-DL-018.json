@@ -1,0 +1,249 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_e59f8e49decd5d33"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解释理由，做到行李整洁、安全、便于取用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bbfb9494a108312e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1701bf4652cdfbff",
+        "hc_c125ca6fe40463dd"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“解释理由，做到行李整洁、安全、便于取用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解释理由，做到行李整洁、安全、便于取用”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能为一次研学或家庭出行制定打包清单与简单预算，能进行取舍并解释理由，做到行李整洁、安全、便于取用。",
+          "excerpt_hash": "975404fa1927c2b6ce946a1c233ca69a79e04532598fece3101f52713e279152",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-018:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引入预算上限与优先级；讲“安全物品禁带”；使用“分袋+压缩”提高空间利用。",
+          "excerpt_hash": "30c6f0aaa5c9a53804d2cac8ba913964a3eca065a0882a656c5eb62a491992d3",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-DL-018:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解释理由，做到行李整洁、安全、便于取用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解释理由，做到行李整洁、安全、便于取用”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引入预算上限与优先级”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1672,
+      "connection_id": "fc_348f860db06cb267",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-DL-018",
+      "target_code": "LA-H4G7-DL-004",
+      "target_label": "能灵活运用整理与收纳方法；能整体完成家庭居室和教室物品整理；能在支架下完成远行行李整理；能按规范完成任务并说明工具、材料或安全要求。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_1701bf4652cdfbff",
+      "component_ids": [
+        "lc_e59f8e49decd5d33"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "理由",
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生解释理由，做到行李整洁、安全、便于取用。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够解释理由，做到行李整洁、安全、便于取用；优先采集：清单、预算表、打包照片、复盘改进。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能为一次研学或家庭出行制定打包清单与简单预算，能进行取舍并解释理由，做到行李整洁、安全、便于取用。",
+          "excerpt_hash": "975404fa1927c2b6ce946a1c233ca69a79e04532598fece3101f52713e279152",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（理由、解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_c125ca6fe40463dd",
+      "component_ids": [
+        "lc_e59f8e49decd5d33"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生解释理由，做到行李整洁、安全、便于取用。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够解释理由，做到行李整洁、安全、便于取用；优先采集：清单、预算表、打包照片、复盘改进。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能为一次研学或家庭出行制定打包清单与简单预算，能进行取舍并解释理由，做到行李整洁、安全、便于取用。",
+          "excerpt_hash": "975404fa1927c2b6ce946a1c233ca69a79e04532598fece3101f52713e279152",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_4213c2eeac84483f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够为一次研学或家庭出行制定打包清单与简单预算",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生为一次研学或家庭出行制定打包清单与简单预算，并说明关键步骤、特征或依据。",
+      "label": "为一次研学或家庭出行制定打包清单与简单预算",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够为一次研学或家庭出行制定打包清单与简单预算；优先采集：清单、预算表、打包照片、复盘改进。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "为一次研学或家庭出行制定打包清单与简单预算",
+          "excerpt_hash": "31560fd78f2370608600ac5d6242b71c57e047c2ec2fdd719e31c247e09cd74c",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "为一次研学或家庭出行制定打包清单与简单预算"
+    },
+    {
+      "component_id": "lc_168de8a20f2b04ef",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够进行取舍",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生进行取舍，并说明关键步骤、特征或依据。",
+      "label": "进行取舍",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够进行取舍；优先采集：清单、预算表、打包照片、复盘改进。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "进行取舍",
+          "excerpt_hash": "20ca1882034df9cdda24204b3d1cde9efbd5f238332042455f9d9cc481c5a76c",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "进行取舍"
+    },
+    {
+      "component_id": "lc_e59f8e49decd5d33",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释理由，做到行李整洁、安全、便于取用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释理由，做到行李整洁、安全、便于取用，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释理由，做到行李整洁、安全、便于取用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释理由，做到行李整洁、安全、便于取用；优先采集：清单、预算表、打包照片、复盘改进。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释理由，做到行李整洁、安全、便于取用",
+          "excerpt_hash": "35ef73a1f1f39adf265338f04a4830f3f7e9234cd1331d5e9f9bf18e8726f98d",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释理由，做到行李整洁、安全、便于取用"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_e6076f8f6aefd0cd",
+      "evidence_refs": [
+        "standard:LA-D3-DL-018:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-DL-018",
+      "source_label": "能根据出行时长与天气制作打包清单，按类别打包并检查遗漏，能做到合理取舍与自我负责。",
+      "target_code": "LA-D3-DL-018",
+      "target_label": "能为一次研学或家庭出行制定打包清单与简单预算，能进行取舍并解释理由，做到行李整洁、安全、便于取用。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "975404fa1927c2b6ce946a1c233ca69a79e04532598fece3101f52713e279152",
+  "standard_code": "LA-D3-DL-018",
+  "verified_prerequisites": []
+}

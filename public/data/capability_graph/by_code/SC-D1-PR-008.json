@@ -1,0 +1,439 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_731f3f637ad9eae4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用口述或画图表达与科技产品和生活联系相关的设计或探究想法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_96a49adb4f684229",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ec9facddaf461437",
+        "hc_00a7a3b02cb89ab0",
+        "hc_78274d4737faafda"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“用口述或画图表达与科技产品和生活联系相关的设计或探究想法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用口述或画图表达与科技产品和生活联系相关的设计或探究想法”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用口述或画图表达与科技产品和生活联系相关的设计或探究想法。",
+          "excerpt_hash": "221062b46da5fe355b8bdf51caa455238860ee4a4a330d2e60c7fd0d3da15ec2",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-PR-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生“自己设计制作工具解决简单问题”。",
+          "excerpt_hash": "ef54a41fb55e902346d8a86963b1ef21d0c74bc952b6e327ecf60114f0c8a719",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D1-PR-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用口述或画图表达与科技产品和生活联系相关的设计或探究想法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用口述或画图表达与科技产品和生活联系相关的设计或探究想法”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“鼓励学生“自己设计制作工具解决简单问题”。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_731f3f637ad9eae4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用口述或画图表达与科技产品和生活联系相关的设计或探究想法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_00a7a3b02cb89ab0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ec9facddaf461437",
+        "hc_00a7a3b02cb89ab0",
+        "hc_78274d4737faafda"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“用口述或画图表达与科技产品和生活联系相关的设计或探究想法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用口述或画图表达与科技产品和生活联系相关的设计或探究想法”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用口述或画图表达与科技产品和生活联系相关的设计或探究想法。",
+          "excerpt_hash": "221062b46da5fe355b8bdf51caa455238860ee4a4a330d2e60c7fd0d3da15ec2",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-PR-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生“自己设计制作工具解决简单问题”。",
+          "excerpt_hash": "ef54a41fb55e902346d8a86963b1ef21d0c74bc952b6e327ecf60114f0c8a719",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D1-PR-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用口述或画图表达与科技产品和生活联系相关的设计或探究想法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用口述或画图表达与科技产品和生活联系相关的设计或探究想法”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“鼓励学生“自己设计制作工具解决简单问题”。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_731f3f637ad9eae4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用口述或画图表达与科技产品和生活联系相关的设计或探究想法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_919a20a41d33cb42",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ec9facddaf461437",
+        "hc_00a7a3b02cb89ab0",
+        "hc_78274d4737faafda"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“用口述或画图表达与科技产品和生活联系相关的设计或探究想法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用口述或画图表达与科技产品和生活联系相关的设计或探究想法”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用口述或画图表达与科技产品和生活联系相关的设计或探究想法。",
+          "excerpt_hash": "221062b46da5fe355b8bdf51caa455238860ee4a4a330d2e60c7fd0d3da15ec2",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-PR-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生“自己设计制作工具解决简单问题”。",
+          "excerpt_hash": "ef54a41fb55e902346d8a86963b1ef21d0c74bc952b6e327ecf60114f0c8a719",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D1-PR-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用口述或画图表达与科技产品和生活联系相关的设计或探究想法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用口述或画图表达与科技产品和生活联系相关的设计或探究想法”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“鼓励学生“自己设计制作工具解决简单问题”。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_731f3f637ad9eae4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用口述或画图表达与科技产品和生活联系相关的设计或探究想法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6e5e10ff8b606788",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ec9facddaf461437",
+        "hc_00a7a3b02cb89ab0",
+        "hc_78274d4737faafda"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“用口述或画图表达与科技产品和生活联系相关的设计或探究想法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用口述或画图表达与科技产品和生活联系相关的设计或探究想法”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用口述或画图表达与科技产品和生活联系相关的设计或探究想法。",
+          "excerpt_hash": "221062b46da5fe355b8bdf51caa455238860ee4a4a330d2e60c7fd0d3da15ec2",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-PR-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生“自己设计制作工具解决简单问题”。",
+          "excerpt_hash": "ef54a41fb55e902346d8a86963b1ef21d0c74bc952b6e327ecf60114f0c8a719",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D1-PR-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用口述或画图表达与科技产品和生活联系相关的设计或探究想法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用口述或画图表达与科技产品和生活联系相关的设计或探究想法”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“鼓励学生“自己设计制作工具解决简单问题”。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_591220f49e874570",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_235f10f3b881f14da2dd",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9c1922580c51"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_98253eda762d4fe7",
+      "textbook_grade": 2,
+      "textbook_subject": "科学",
+      "textbook_title": "科学2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6b8935255716c996",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_39bf03d33b98808ec109",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_61cdf9935943"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_6aeaa064abb4b45c",
+      "textbook_grade": 1,
+      "textbook_subject": "科学",
+      "textbook_title": "科学1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fb54d604b14d7e88",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_39fb4fecf2598e480a00",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c6a468571ede"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5cc75a528e5eb12b",
+      "textbook_grade": 1,
+      "textbook_subject": "科学",
+      "textbook_title": "科学1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_935c3183a25f3401",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_49615055e95c20adfa72",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_692fcc11ce5e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ae5e5b53fbbeef83",
+      "textbook_grade": 2,
+      "textbook_subject": "科学",
+      "textbook_title": "科学2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ec9facddaf461437",
+      "component_ids": [
+        "lc_731f3f637ad9eae4"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用口述或画图表达与科技产品和生活联系相关的设计或探究想法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用口述或画图表达与科技产品和生活联系相关的设计或探究想法；优先采集：实验/探究记录、模型/作品、口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用口述或画图表达与科技产品和生活联系相关的设计或探究想法。",
+          "excerpt_hash": "221062b46da5fe355b8bdf51caa455238860ee4a4a330d2e60c7fd0d3da15ec2",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-PR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_00a7a3b02cb89ab0",
+      "component_ids": [
+        "lc_731f3f637ad9eae4"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "图表"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用口述或画图表达与科技产品和生活联系相关的设计或探究想法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用口述或画图表达与科技产品和生活联系相关的设计或探究想法；优先采集：实验/探究记录、模型/作品、口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用口述或画图表达与科技产品和生活联系相关的设计或探究想法。",
+          "excerpt_hash": "221062b46da5fe355b8bdf51caa455238860ee4a4a330d2e60c7fd0d3da15ec2",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-PR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（图表）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_78274d4737faafda",
+      "component_ids": [
+        "lc_731f3f637ad9eae4"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用口述或画图表达与科技产品和生活联系相关的设计或探究想法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用口述或画图表达与科技产品和生活联系相关的设计或探究想法；优先采集：实验/探究记录、模型/作品、口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用口述或画图表达与科技产品和生活联系相关的设计或探究想法。",
+          "excerpt_hash": "221062b46da5fe355b8bdf51caa455238860ee4a4a330d2e60c7fd0d3da15ec2",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-PR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_731f3f637ad9eae4",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用口述或画图表达与科技产品和生活联系相关的设计或探究想法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用口述或画图表达与科技产品和生活联系相关的设计或探究想法，并说明关键步骤、特征或依据。",
+      "label": "用口述或画图表达与科技产品和生活联系相关的设计或探究想法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用口述或画图表达与科技产品和生活联系相关的设计或探究想法；优先采集：实验/探究记录、模型/作品、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用口述或画图表达与科技产品和生活联系相关的设计或探究想法",
+          "excerpt_hash": "02f592a0986d40000a926ccf1366bc10244f8948153a4d44cbabf3ca1883ef00",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-PR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用口述或画图表达与科技产品和生活联系相关的设计或探究想法"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "221062b46da5fe355b8bdf51caa455238860ee4a4a330d2e60c7fd0d3da15ec2",
+  "standard_code": "SC-D1-PR-008",
+  "verified_prerequisites": []
+}

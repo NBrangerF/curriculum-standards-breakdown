@@ -1,0 +1,422 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_560541aa6f32cf48",
+        "lc_33da33876b05e410"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用具体事例说明数据随机性以及概率与统计的关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2b1b6883f2595196",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b308360e981f8fe9"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用具体事例说明数据随机性以及概率与统计的关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用具体事例说明数据随机性以及概率与统计的关系”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体会数据随机性以及概率与统计的关系；了解并计算简单随机事件的概率；能用频率估计概率；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "0580908afc54319760f048dcaa007e7cb74a932df842adebcea9dd9fb2c4a077",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-014:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "从定性可能性过渡到定量概率，突出试验频率稳定性的经验基础。",
+          "excerpt_hash": "7af0a2399fadf2dfcfdd340e1b0e15be9fbf32e90d26bae2fdb76f9692319a94",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-ST-014:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用具体事例说明数据随机性以及概率与统计的关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用具体事例说明数据随机性以及概率与统计的关系”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“从定性可能性过渡到定量概率，突出试验频率稳定性的经验基础。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_5b3823d701dea029"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d7b290bc1c1f62e5",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_434ae81937c9f7d4"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较方法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较方法”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体会数据随机性以及概率与统计的关系；了解并计算简单随机事件的概率；能用频率估计概率；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "0580908afc54319760f048dcaa007e7cb74a932df842adebcea9dd9fb2c4a077",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-014:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "从定性可能性过渡到定量概率，突出试验频率稳定性的经验基础。",
+          "excerpt_hash": "7af0a2399fadf2dfcfdd340e1b0e15be9fbf32e90d26bae2fdb76f9692319a94",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-ST-014:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较方法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较方法”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“从定性可能性过渡到定量概率，突出试验频率稳定性的经验基础。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_81624e8deef21987",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d79076db84511d8a",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_efeb02100f951fcf",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_485165afa9c8"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_8684cc79506c65f5",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_c7fb0ad342de0a53",
+      "evidence_refs": [
+        "standard:MA-H4G8-ST-014:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-H4G8-ST-014",
+      "target_code": "MA-H4G9-ST-015",
+      "target_label": "能体会数据随机性以及概率与统计的关系；分析并计算简单随机事件的概率；能用频率估计概率；能建模、推理并检验结论的合理性。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b308360e981f8fe9",
+      "component_ids": [
+        "lc_560541aa6f32cf48",
+        "lc_33da33876b05e410"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用具体事例说明数据随机性以及概率与统计的关系。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用具体事例说明数据随机性以及概率与统计的关系；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。",
+        "学生能够解释数量、图形或数据关系；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体会数据随机性以及概率与统计的关系；了解并计算简单随机事件的概率；能用频率估计概率；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "0580908afc54319760f048dcaa007e7cb74a932df842adebcea9dd9fb2c4a077",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_434ae81937c9f7d4",
+      "component_ids": [
+        "lc_5b3823d701dea029"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较方法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较方法；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体会数据随机性以及概率与统计的关系；了解并计算简单随机事件的概率；能用频率估计概率；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "0580908afc54319760f048dcaa007e7cb74a932df842adebcea9dd9fb2c4a077",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_560541aa6f32cf48",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用具体事例说明数据随机性以及概率与统计的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用具体事例说明数据随机性以及概率与统计的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用具体事例说明数据随机性以及概率与统计的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用具体事例说明数据随机性以及概率与统计的关系；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "体会数据随机性以及概率与统计的关系",
+          "excerpt_hash": "5d84ee5549ccb8a9a44f1b2d4e5f2613a188fc4c63106b66d94a412863f24af2",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体会数据随机性以及概率与统计的关系"
+    },
+    {
+      "component_id": "lc_7a51b8ec1495bf7b",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出简单随机事件的概率的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出简单随机事件的概率的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出简单随机事件的概率的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出简单随机事件的概率的关键特征；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解并计算简单随机事件的概率",
+          "excerpt_hash": "69af89df8a1d20ca7af71d0b3b593204d423805ac61ff1e7335ab1d5397b64d3",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解简单随机事件的概率"
+    },
+    {
+      "component_id": "lc_a10c1eda02b0595c",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够计算简单随机事件的概率",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生计算简单随机事件的概率，并说明关键步骤、特征或依据。",
+      "label": "计算简单随机事件的概率",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够计算简单随机事件的概率；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "计算简单随机事件的概率",
+          "excerpt_hash": "dea614d02b0337178352333840dde5fd9316f4258b4b49130e56492c0c74b5e8",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "计算简单随机事件的概率"
+    },
+    {
+      "component_id": "lc_26ffb7c67b4ce1e7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用频率估计概率",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用频率估计概率，并说明关键步骤、特征或依据。",
+      "label": "用频率估计概率",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用频率估计概率；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用频率估计概率",
+          "excerpt_hash": "f9f8c70a77cb0bb82bf19b7842d8c7036b5b49adc73121dbc007df31acdad08b",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用频率估计概率"
+    },
+    {
+      "component_id": "lc_5b3823d701dea029",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较方法，并说明关键步骤、特征或依据。",
+      "label": "比较方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较方法；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较方法",
+          "excerpt_hash": "7889e4fffed9604deef84a0784668b8242973dd9c5af85496f69faa8f645a0b9",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较方法"
+    },
+    {
+      "component_id": "lc_33da33876b05e410",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释数量、图形或数据关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释数量、图形或数据关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释数量、图形或数据关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释数量、图形或数据关系；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释数量、图形或数据关系",
+          "excerpt_hash": "21c5b567c1ef612a5b98a5a459ca76600a99e5cd95a345b6856579018adee66e",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释数量、图形或数据关系"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_c906dddb85b36e1d",
+      "evidence_refs": [
+        "standard:MA-H4G8-ST-014:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-H4G7-ST-013",
+      "source_label": "了解并计算简单随机事件的概率；能体会数据随机性以及概率与统计的关系；能用频率估计概率；能说明解题步骤和基本依据。",
+      "target_code": "MA-H4G8-ST-014",
+      "target_label": "能体会数据随机性以及概率与统计的关系；了解并计算简单随机事件的概率；能用频率估计概率；能比较方法并解释数量、图形或数据关系。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "0580908afc54319760f048dcaa007e7cb74a932df842adebcea9dd9fb2c4a077",
+  "standard_code": "MA-H4G8-ST-014",
+  "verified_prerequisites": []
+}

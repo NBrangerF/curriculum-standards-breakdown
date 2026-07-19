@@ -1,0 +1,191 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_4221059c6d769a2f"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生使用表格工具对劳动项目进行任务分解、分工与进度追踪的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ab7bccaa6b8541ee",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a7836a4c813b6280"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“使用表格工具对劳动项目进行任务分解、分工与进度追踪”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能使用表格工具对劳动项目进行任务分解、分工与进度追踪，能基于数据调整计划，提高执行效率。",
+          "excerpt_hash": "b9cf0dbcc8b0dcc25ce460630dd810cde3188188714c4be5ef08a18427ee1aab",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-011:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "提供表格字段模板（任务/负责人/截止/状态/问题）；每次课末更新；用颜色或状态标签可视化。",
+          "excerpt_hash": "eadce114d0386d1222d3942c265ec803a49171e81f199457c8c87cecbc2a82ab",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-PL-011:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后使用表格工具对劳动项目进行任务分解、分工与进度追踪，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“使用表格工具对劳动项目进行任务分解、分工与进度追踪”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“提供表格字段模板（任务/负责人/截止/状态/问题）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.185,
+      "connection_id": "fc_e8e5fdcb27c877a1",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-013:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-PL-011",
+      "target_code": "LA-H4G7-PL-013",
+      "target_label": "能选择一至两项新技术进行劳动体验与应用；了解其基本过程、参数和材料范围；能依据设计要求制订方案并完成加工、组装、测试和改进；能按规范完成任务并…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a7836a4c813b6280",
+      "component_ids": [
+        "lc_4221059c6d769a2f",
+        "lc_24390794da3623f1"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用表格工具对劳动项目进行任务分解、分工与进度追踪。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够使用表格工具对劳动项目进行任务分解、分工与进度追踪；优先采集：表格记录、调整说明、执行效果对比。",
+        "学生能够基于数据调整计划，提高执行效率；优先采集：表格记录、调整说明、执行效果对比。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能使用表格工具对劳动项目进行任务分解、分工与进度追踪，能基于数据调整计划，提高执行效率。",
+          "excerpt_hash": "b9cf0dbcc8b0dcc25ce460630dd810cde3188188714c4be5ef08a18427ee1aab",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "使用表格工具对劳动项目进行任务分解、分工与进度追踪；基于数据调整计划，提高执行效率",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_4221059c6d769a2f",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够使用表格工具对劳动项目进行任务分解、分工与进度追踪",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生使用表格工具对劳动项目进行任务分解、分工与进度追踪，并说明关键步骤、特征或依据。",
+      "label": "使用表格工具对劳动项目进行任务分解、分工与进度追踪",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够使用表格工具对劳动项目进行任务分解、分工与进度追踪；优先采集：表格记录、调整说明、执行效果对比。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "使用表格工具对劳动项目进行任务分解、分工与进度追踪",
+          "excerpt_hash": "9f6aed1c52005a2941e01865354e69d30f09038a04a469dba6c2368a5af4bab4",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用表格工具对劳动项目进行任务分解、分工与进度追踪"
+    },
+    {
+      "component_id": "lc_24390794da3623f1",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够基于数据调整计划，提高执行效率",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生基于数据调整计划，提高执行效率，并说明关键步骤、特征或依据。",
+      "label": "基于数据调整计划，提高执行效率",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够基于数据调整计划，提高执行效率；优先采集：表格记录、调整说明、执行效果对比。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "基于数据调整计划，提高执行效率",
+          "excerpt_hash": "9b1d80f6c7445751e9ed16a3d478fddeb24729f4e152d64a9383946b81034af7",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "基于数据调整计划，提高执行效率"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_5f75a119954e2db6",
+      "evidence_refs": [
+        "standard:LA-D3-PL-011:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-PL-010",
+      "source_label": "能举例说明生活中常见的新技术应用场景（智能配送、无人售卖、智能家居等），能理解背后依然需要人的劳动与分工协作。",
+      "target_code": "LA-D3-PL-011",
+      "target_label": "能使用表格工具对劳动项目进行任务分解、分工与进度追踪，能基于数据调整计划，提高执行效率。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b9cf0dbcc8b0dcc25ce460630dd810cde3188188714c4be5ef08a18427ee1aab",
+  "standard_code": "LA-D3-PL-011",
+  "verified_prerequisites": []
+}

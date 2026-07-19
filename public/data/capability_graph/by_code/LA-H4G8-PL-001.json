@@ -1,0 +1,357 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_0fc73078989f7748",
+        "lc_4baa9eee04fccb23"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生整合工具、材料、设备和技能解决问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b94556aaac27adf7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a6807d639a761d49"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“整合工具、材料、设备和技能解决问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“整合工具、材料、设备和技能解决问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能规划生产劳动方案并整合工具、材料、设备和技能解决问题；能组织实施服务性劳动；能在具有挑战性的劳动中熟练运用家政技能；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "0a1fee93c597f255a3ea8e90c3a097107e634ba270984048f75509df7c42e94d",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价重点放在学生能否独立或协作完成复杂劳动任务并根据实施情况改进方案。",
+          "excerpt_hash": "bc87d63571a0f66982ec2a56b459191838e53decc60b19427c5f49002195ef79",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G8-PL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后整合工具、材料、设备和技能解决问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“整合工具、材料、设备和技能解决问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“评价重点放在学生能否独立或协作完成复杂劳动任务并根据实施情况改进方案。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_e9c9160fd0f494cc"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生规划生产劳动方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_005b34f86bbfa1b7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a9f98f90d36b178c"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“规划生产劳动方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“规划生产劳动方案”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能规划生产劳动方案并整合工具、材料、设备和技能解决问题；能组织实施服务性劳动；能在具有挑战性的劳动中熟练运用家政技能；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "0a1fee93c597f255a3ea8e90c3a097107e634ba270984048f75509df7c42e94d",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价重点放在学生能否独立或协作完成复杂劳动任务并根据实施情况改进方案。",
+          "excerpt_hash": "bc87d63571a0f66982ec2a56b459191838e53decc60b19427c5f49002195ef79",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G8-PL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后规划生产劳动方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“规划生产劳动方案”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“评价重点放在学生能否独立或协作完成复杂劳动任务并根据实施情况改进方案。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_41b01e9d06453f15",
+      "evidence_refs": [
+        "standard:LA-H4G8-PL-001:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-H4G8-PL-001",
+      "target_code": "LA-H4G9-PL-001",
+      "target_label": "能规划生产劳动方案并运用工具、材料、设备和技能解决问题；能组织实施服务性劳动；能在具有挑战性的劳动中熟练运用家政技能；能面向真实需求改进方案并…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a9f98f90d36b178c",
+      "component_ids": [
+        "lc_e9c9160fd0f494cc"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生规划生产劳动方案。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够规划生产劳动方案；优先采集：综合项目成果、方案迭代记录、操作表现观察表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能规划生产劳动方案并整合工具、材料、设备和技能解决问题；能组织实施服务性劳动；能在具有挑战性的劳动中熟练运用家政技能；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "0a1fee93c597f255a3ea8e90c3a097107e634ba270984048f75509df7c42e94d",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_a6807d639a761d49",
+      "component_ids": [
+        "lc_4baa9eee04fccb23"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "熟练"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生熟练运用家政技能。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在具有挑战性的劳动中，能够熟练运用家政技能；优先采集：综合项目成果、方案迭代记录、操作表现观察表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能规划生产劳动方案并整合工具、材料、设备和技能解决问题；能组织实施服务性劳动；能在具有挑战性的劳动中熟练运用家政技能；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "0a1fee93c597f255a3ea8e90c3a097107e634ba270984048f75509df7c42e94d",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（熟练）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_e9c9160fd0f494cc",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够规划生产劳动方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生规划生产劳动方案，并说明关键步骤、特征或依据。",
+      "label": "规划生产劳动方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够规划生产劳动方案；优先采集：综合项目成果、方案迭代记录、操作表现观察表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "规划生产劳动方案",
+          "excerpt_hash": "3afe714bb640f0a437018c485f220247af5729670d3d1610162de9f02c9672ce",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "规划生产劳动方案"
+    },
+    {
+      "component_id": "lc_0fc73078989f7748",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够整合工具、材料、设备和技能解决问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合工具、材料、设备和技能解决问题，并说明关键步骤、特征或依据。",
+      "label": "整合工具、材料、设备和技能解决问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够整合工具、材料、设备和技能解决问题；优先采集：综合项目成果、方案迭代记录、操作表现观察表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "整合工具、材料、设备和技能解决问题",
+          "excerpt_hash": "3523a6e39488d0b2a2dd54e9aac786fd481723fccbce5b7423fc176add59855c",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "整合工具、材料、设备和技能解决问题"
+    },
+    {
+      "component_id": "lc_735c7ff06972bcd1",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够组织实施服务性劳动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生组织实施服务性劳动，并说明关键步骤、特征或依据。",
+      "label": "组织实施服务性劳动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够组织实施服务性劳动；优先采集：综合项目成果、方案迭代记录、操作表现观察表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "组织实施服务性劳动",
+          "excerpt_hash": "817450c2a958a4519beb88c11d9a32e09a35a91fbe192bd98688ccee818d009d",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "组织实施服务性劳动"
+    },
+    {
+      "component_id": "lc_4baa9eee04fccb23",
+      "component_type": "conceptual",
+      "condition": "在具有挑战性的劳动中",
+      "confidence": 0.72,
+      "description": "学生在具有挑战性的劳动中，能够熟练运用家政技能",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在具有挑战性的劳动中”的诊断任务，要求学生熟练运用家政技能，并说明关键步骤、特征或依据。",
+      "label": "熟练运用家政技能",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在具有挑战性的劳动中，能够熟练运用家政技能；优先采集：综合项目成果、方案迭代记录、操作表现观察表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能规划生产劳动方案并整合工具、材料、设备和技能解决问题；能组织实施服务性劳动；能在具有挑战性的劳动中熟练运用家政技能；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "0a1fee93c597f255a3ea8e90c3a097107e634ba270984048f75509df7c42e94d",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "熟练运用家政技能"
+    },
+    {
+      "component_id": "lc_4d67b28976fbd321",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够规划协作流程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生规划协作流程，并说明关键步骤、特征或依据。",
+      "label": "规划协作流程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够规划协作流程；优先采集：综合项目成果、方案迭代记录、操作表现观察表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "规划协作流程",
+          "excerpt_hash": "4a84ad92a900406a3d30c00b32a9c485273924f5ccc4aa2724f26c9011663634",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "规划协作流程"
+    },
+    {
+      "component_id": "lc_63e29f76a524c915",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够反思劳动质量",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生反思劳动质量，并说明关键步骤、特征或依据。",
+      "label": "反思劳动质量",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够反思劳动质量；优先采集：综合项目成果、方案迭代记录、操作表现观察表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "反思劳动质量",
+          "excerpt_hash": "7183a8fbee03b379e048527278d4ed6578fdbd0c6cd3aa63470c31916e9cbe23",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思劳动质量"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_e6bfffd0284b8a74",
+      "evidence_refs": [
+        "standard:LA-H4G8-PL-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-H4G7-PL-002",
+      "source_label": "能规划生产劳动方案并尝试运用工具、材料、设备和技能解决问题；能组织实施服务性劳动；能在具有挑战性的劳动中熟练运用家政技能；能按规范完成任务并说…",
+      "target_code": "LA-H4G8-PL-001",
+      "target_label": "能规划生产劳动方案并整合工具、材料、设备和技能解决问题；能组织实施服务性劳动；能在具有挑战性的劳动中熟练运用家政技能；能规划协作流程并反思劳动…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "0a1fee93c597f255a3ea8e90c3a097107e634ba270984048f75509df7c42e94d",
+  "standard_code": "LA-H4G8-PL-001",
+  "verified_prerequisites": []
+}

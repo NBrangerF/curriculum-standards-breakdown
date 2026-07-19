@@ -1,0 +1,437 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_94ba720728e1c687"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在陌生情境中做到谨慎、会拒绝与求助的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9aad1043b31874e6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_bc0e43954463d65a"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“在陌生情境中做到谨慎、会拒绝与求助”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在陌生情境中做到谨慎、会拒绝与求助”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见安全风险与不良诱惑，能在陌生情境中做到谨慎、会拒绝与求助；能采取保护隐私的具体做法，并能正确应对校园欺凌。",
+          "excerpt_hash": "81373d92d927eab3498c886c3a43199c90b6cb6df537bb7704994686979c0b6e",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用生活案例讲清安全风险；通过角色扮演学习拒绝与求助；情境表演训练应对校园欺凌；同时强调信息与隐私保护（不随意透露个人信息）。",
+          "excerpt_hash": "31f59c4bb0735dbb676948bf8ef32a25b5eed835b4279b55cc068787e3bb4054",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-SAF-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在陌生情境中做到谨慎、会拒绝与求助，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在陌生情境中做到谨慎、会拒绝与求助”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用生活案例讲清安全风险”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_e82deb9dfc2c42b5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别常见安全风险与不良诱惑的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_466ca03458c854d8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_99672bf096377d71"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别常见安全风险与不良诱惑”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别常见安全风险与不良诱惑”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见安全风险与不良诱惑，能在陌生情境中做到谨慎、会拒绝与求助；能采取保护隐私的具体做法，并能正确应对校园欺凌。",
+          "excerpt_hash": "81373d92d927eab3498c886c3a43199c90b6cb6df537bb7704994686979c0b6e",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用生活案例讲清安全风险；通过角色扮演学习拒绝与求助；情境表演训练应对校园欺凌；同时强调信息与隐私保护（不随意透露个人信息）。",
+          "excerpt_hash": "31f59c4bb0735dbb676948bf8ef32a25b5eed835b4279b55cc068787e3bb4054",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-SAF-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别常见安全风险与不良诱惑，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别常见安全风险与不良诱惑”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用生活案例讲清安全风险”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6d211b65be067379",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_49c68a8031fd5b545d9f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c4a8334099f0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4eabffd55a81e2eb",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_df2e7395fe39fc51",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7751decca7f37a1d323e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2d734af455c0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4fcca84971a83ec4",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8e50e6026e535a3b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_abbd5db6223f36ab3c5c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9d06bc550436"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_bcb8fe719c29a97c",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_662b341a3c0865d0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b23dbf8aedd84cd3888f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6d8e93064e1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_85e4b38d814a5d4c",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_b1f48f222a4c2343",
+      "evidence_refs": [
+        "standard:ML-D2-SAF-005:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D2-SAF-005",
+      "target_code": "ML-D3-SAF-002",
+      "target_label": "能识别性侵害、欺凌与拐骗的常见信号与危害，能在风险情境中做到拒绝、脱离、保存证据并向可信成年人/机构求助，能尊重同伴边界并反对欺凌。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_bc0e43954463d65a",
+      "component_ids": [
+        "lc_94ba720728e1c687"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "情境",
+        "陌生"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在陌生情境中做到谨慎、会拒绝与求助。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在陌生情境中做到谨慎、会拒绝与求助；优先采集：情境表演、求助卡/海报、教师观察（识别/拒绝/求助）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见安全风险与不良诱惑，能在陌生情境中做到谨慎、会拒绝与求助；能采取保护隐私的具体做法，并能正确应对校园欺凌。",
+          "excerpt_hash": "81373d92d927eab3498c886c3a43199c90b6cb6df537bb7704994686979c0b6e",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（情境、陌生）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_99672bf096377d71",
+      "component_ids": [
+        "lc_e82deb9dfc2c42b5",
+        "lc_ec7c6941cea7b9d7"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确",
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别常见安全风险与不良诱惑。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别常见安全风险与不良诱惑；优先采集：情境表演、求助卡/海报、教师观察（识别/拒绝/求助）。",
+        "学生能够正确应对校园欺凌；优先采集：情境表演、求助卡/海报、教师观察（识别/拒绝/求助）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见安全风险与不良诱惑，能在陌生情境中做到谨慎、会拒绝与求助；能采取保护隐私的具体做法，并能正确应对校园欺凌。",
+          "excerpt_hash": "81373d92d927eab3498c886c3a43199c90b6cb6df537bb7704994686979c0b6e",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确、安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_e82deb9dfc2c42b5",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别常见安全风险与不良诱惑",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别常见安全风险与不良诱惑，并说明关键步骤、特征或依据。",
+      "label": "识别常见安全风险与不良诱惑",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别常见安全风险与不良诱惑；优先采集：情境表演、求助卡/海报、教师观察（识别/拒绝/求助）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别常见安全风险与不良诱惑",
+          "excerpt_hash": "dbc5f77e1a3fc0b0a31e314e4c44be317e4ad2d22aa352cb865edf7e8fe8e0aa",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别常见安全风险与不良诱惑"
+    },
+    {
+      "component_id": "lc_94ba720728e1c687",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在陌生情境中做到谨慎、会拒绝与求助",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在陌生情境中做到谨慎、会拒绝与求助，并说明关键步骤、特征或依据。",
+      "label": "在陌生情境中做到谨慎、会拒绝与求助",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在陌生情境中做到谨慎、会拒绝与求助；优先采集：情境表演、求助卡/海报、教师观察（识别/拒绝/求助）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在陌生情境中做到谨慎、会拒绝与求助",
+          "excerpt_hash": "e660f09622893fb2a834169d21620a4086ecb0133b5e9b687ae6ddcc930d6636",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在陌生情境中做到谨慎、会拒绝与求助"
+    },
+    {
+      "component_id": "lc_a4c23b7dd6723683",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够采取保护隐私的具体做法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生采取保护隐私的具体做法，并说明关键步骤、特征或依据。",
+      "label": "采取保护隐私的具体做法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够采取保护隐私的具体做法；优先采集：情境表演、求助卡/海报、教师观察（识别/拒绝/求助）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "采取保护隐私的具体做法",
+          "excerpt_hash": "75754ca055f7529cd70a06329baaf2a8e06d96c90d561285be3da9271bed8c05",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "采取保护隐私的具体做法"
+    },
+    {
+      "component_id": "lc_ec7c6941cea7b9d7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够正确应对校园欺凌",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生正确应对校园欺凌，并说明关键步骤、特征或依据。",
+      "label": "正确应对校园欺凌",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够正确应对校园欺凌；优先采集：情境表演、求助卡/海报、教师观察（识别/拒绝/求助）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "正确应对校园欺凌",
+          "excerpt_hash": "6d70b965183e8bbd64dde103972dafa4b5535aca2a122d966fcfb4dac2e54047",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "正确应对校园欺凌"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_497a2b3b4e849438",
+      "evidence_refs": [
+        "standard:ML-D2-SAF-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-D1-SAF-003",
+      "source_label": "能在校园与家庭环境中发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等），并能说出相应的自我保护做法与求助方式。",
+      "target_code": "ML-D2-SAF-005",
+      "target_label": "能识别常见安全风险与不良诱惑，能在陌生情境中做到谨慎、会拒绝与求助；能采取保护隐私的具体做法，并能正确应对校园欺凌。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "81373d92d927eab3498c886c3a43199c90b6cb6df537bb7704994686979c0b6e",
+  "standard_code": "ML-D2-SAF-005",
+  "verified_prerequisites": []
+}

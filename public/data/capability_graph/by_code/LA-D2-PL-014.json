@@ -1,0 +1,241 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_e18acfd1ff79f6ec"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出作品所表达的祝福或寓意的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4d82980430c98bfd",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出作品所表达的祝福或寓意”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出作品所表达的祝福或寓意”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整，并能说出作品所表达的祝福或寓意。",
+          "excerpt_hash": "f160f6d03f6f3783b23c7b80553fa18aac8e984ed79bd18e476365acd2fc336c",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先练“折线对齐”；用模板到半模板逐步放开；引导学生在剪纸中体验“留桥位”避免断裂。",
+          "excerpt_hash": "0fa8e8bf8007cf0679014d91393a13589e8e05bd46e07d75acae2c2eef37a938",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-PL-014:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出作品所表达的祝福或寓意，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出作品所表达的祝福或寓意”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“先练“折线对齐””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_2ad9816bf7f3303f",
+      "evidence_refs": [
+        "standard:LA-D2-PL-014:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-PL-014",
+      "target_code": "LA-D3-PL-016",
+      "target_label": "能在教师指导下完成基础缝合与锁边，制作一个简单布袋/笔袋等实用品，针脚较均匀、结构牢固，并能规范收纳针线工具。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_49911ac6ec61347d",
+      "component_ids": [
+        "lc_5b0c1ad7d6f59f04"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "准确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整；优先采集：成品、过程观察、口头说明寓意。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整，并能说出作品所表达的祝福或寓意。",
+          "excerpt_hash": "f160f6d03f6f3783b23c7b80553fa18aac8e984ed79bd18e476365acd2fc336c",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（准确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_720436b4494d3244",
+      "component_ids": [
+        "lc_5b0c1ad7d6f59f04"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "完整",
+        "连贯",
+        "完整"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整；优先采集：成品、过程观察、口头说明寓意。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整，并能说出作品所表达的祝福或寓意。",
+          "excerpt_hash": "f160f6d03f6f3783b23c7b80553fa18aac8e984ed79bd18e476365acd2fc336c",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（完整、连贯、完整）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_5b0c1ad7d6f59f04",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整，并说明关键步骤、特征或依据。",
+      "label": "完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整；优先采集：成品、过程观察、口头说明寓意。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整",
+          "excerpt_hash": "1301838cc506884df1aa6967d4f72907f4dcc45223992f9081be32546e575157",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整"
+    },
+    {
+      "component_id": "lc_e18acfd1ff79f6ec",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出作品所表达的祝福或寓意",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出作品所表达的祝福或寓意，并说明关键步骤、特征或依据。",
+      "label": "说出作品所表达的祝福或寓意",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出作品所表达的祝福或寓意；优先采集：成品、过程观察、口头说明寓意。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出作品所表达的祝福或寓意",
+          "excerpt_hash": "ee44514b9d857c43e8167d62c4562c0a378c9975c046c8d679880c2496232046",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出作品所表达的祝福或寓意"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_dfe7c2960fa07563",
+      "evidence_refs": [
+        "standard:LA-D2-PL-014:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D1-PL-022",
+      "source_label": "能识读简单示意图或步骤图，按顺序完成折、剪、捏、编等基本操作，作品结构基本完整。",
+      "target_code": "LA-D2-PL-014",
+      "target_label": "能完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整，并能说出作品所表达的祝福或寓意。"
+    },
+    {
+      "confidence": "medium",
+      "edge_id": "pc_7aa9f8cb6a8e302a",
+      "evidence_refs": [
+        "standard:LA-D2-PL-014:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D1-PL-023",
+      "source_label": "能在教师指导下完成1件简单传统工艺作品（如纸工、泥工、编织等），在制作中表现出专注、耐心与不怕失败的态度。",
+      "target_code": "LA-D2-PL-014",
+      "target_label": "能完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整，并能说出作品所表达的祝福或寓意。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f160f6d03f6f3783b23c7b80553fa18aac8e984ed79bd18e476365acd2fc336c",
+  "standard_code": "LA-D2-PL-014",
+  "verified_prerequisites": []
+}

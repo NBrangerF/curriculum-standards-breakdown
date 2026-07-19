@@ -1,0 +1,377 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_8b023dd758fe8190"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明预测依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4e07823702232718",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a88d693654ba5bcc"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明预测依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明预测依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习与生活中用数据记录并描述规律性事件，能基于数据做出简单的趋势判断或预测，并能说明预测依据。",
+          "excerpt_hash": "caf2c5a30ab0183d0c40b48712866ed69adb4e9f08251a5d8258a7d9b5a88579",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【培养“用数据说话”的习惯】\n(1) 选择规律性事件进行连续记录（如一周气温、作业完成时间、步数、饮水量等），强调记录一致性。\n(2) 引导学生观察趋势与异常点，尝试提出解释（天气变化、作息变化等）。\n(3) 让学生用一句话给出预测，并说明“依据是哪几个数据”。\n(4) 结合德育与健康教育：用数据帮助自我管理（睡眠、运动、用屏时间等）。",
+          "excerpt_hash": "5a1598f8b422cb0defe92ca82a8f5306bad5f5949618fa361dd5647ebf0bac95",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-CS-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明预测依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明预测依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“【培养“用数据说话”的习惯】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_440bdefa24a93748"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生基于数据做出简单的趋势判断或预测的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9cb7d20528eaccd4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_687737a19a44278a"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“基于数据做出简单的趋势判断或预测”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“基于数据做出简单的趋势判断或预测”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习与生活中用数据记录并描述规律性事件，能基于数据做出简单的趋势判断或预测，并能说明预测依据。",
+          "excerpt_hash": "caf2c5a30ab0183d0c40b48712866ed69adb4e9f08251a5d8258a7d9b5a88579",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【培养“用数据说话”的习惯】\n(1) 选择规律性事件进行连续记录（如一周气温、作业完成时间、步数、饮水量等），强调记录一致性。\n(2) 引导学生观察趋势与异常点，尝试提出解释（天气变化、作息变化等）。\n(3) 让学生用一句话给出预测，并说明“依据是哪几个数据”。\n(4) 结合德育与健康教育：用数据帮助自我管理（睡眠、运动、用屏时间等）。",
+          "excerpt_hash": "5a1598f8b422cb0defe92ca82a8f5306bad5f5949618fa361dd5647ebf0bac95",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-CS-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后基于数据做出简单的趋势判断或预测，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“基于数据做出简单的趋势判断或预测”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“【培养“用数据说话”的习惯】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_46de8edc5a93c070"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在学习与生活中用数据记录的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fcd14b6201df9bed",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b2a8103b18ff2c5b"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“在学习与生活中用数据记录”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在学习与生活中用数据记录”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习与生活中用数据记录并描述规律性事件，能基于数据做出简单的趋势判断或预测，并能说明预测依据。",
+          "excerpt_hash": "caf2c5a30ab0183d0c40b48712866ed69adb4e9f08251a5d8258a7d9b5a88579",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【培养“用数据说话”的习惯】\n(1) 选择规律性事件进行连续记录（如一周气温、作业完成时间、步数、饮水量等），强调记录一致性。\n(2) 引导学生观察趋势与异常点，尝试提出解释（天气变化、作息变化等）。\n(3) 让学生用一句话给出预测，并说明“依据是哪几个数据”。\n(4) 结合德育与健康教育：用数据帮助自我管理（睡眠、运动、用屏时间等）。",
+          "excerpt_hash": "5a1598f8b422cb0defe92ca82a8f5306bad5f5949618fa361dd5647ebf0bac95",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-CS-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在学习与生活中用数据记录，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在学习与生活中用数据记录”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“【培养“用数据说话”的习惯】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_7349d3ae02818fca"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述规律性事件的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_25f4087b8d1c3203",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述规律性事件”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述规律性事件”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习与生活中用数据记录并描述规律性事件，能基于数据做出简单的趋势判断或预测，并能说明预测依据。",
+          "excerpt_hash": "caf2c5a30ab0183d0c40b48712866ed69adb4e9f08251a5d8258a7d9b5a88579",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【培养“用数据说话”的习惯】\n(1) 选择规律性事件进行连续记录（如一周气温、作业完成时间、步数、饮水量等），强调记录一致性。\n(2) 引导学生观察趋势与异常点，尝试提出解释（天气变化、作息变化等）。\n(3) 让学生用一句话给出预测，并说明“依据是哪几个数据”。\n(4) 结合德育与健康教育：用数据帮助自我管理（睡眠、运动、用屏时间等）。",
+          "excerpt_hash": "5a1598f8b422cb0defe92ca82a8f5306bad5f5949618fa361dd5647ebf0bac95",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-CS-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述规律性事件，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述规律性事件”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“【培养“用数据说话”的习惯】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a88d693654ba5bcc",
+      "component_ids": [
+        "lc_8b023dd758fe8190"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明预测依据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明预测依据；优先采集：过程性记录、作品展示、自我反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习与生活中用数据记录并描述规律性事件，能基于数据做出简单的趋势判断或预测，并能说明预测依据。",
+          "excerpt_hash": "caf2c5a30ab0183d0c40b48712866ed69adb4e9f08251a5d8258a7d9b5a88579",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_b2a8103b18ff2c5b",
+      "component_ids": [
+        "lc_46de8edc5a93c070"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在学习与生活中用数据记录。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在学习与生活中用数据记录；优先采集：过程性记录、作品展示、自我反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习与生活中用数据记录并描述规律性事件，能基于数据做出简单的趋势判断或预测，并能说明预测依据。",
+          "excerpt_hash": "caf2c5a30ab0183d0c40b48712866ed69adb4e9f08251a5d8258a7d9b5a88579",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_687737a19a44278a",
+      "component_ids": [
+        "lc_440bdefa24a93748"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生基于数据做出简单的趋势判断或预测。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够基于数据做出简单的趋势判断或预测；优先采集：过程性记录、作品展示、自我反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习与生活中用数据记录并描述规律性事件，能基于数据做出简单的趋势判断或预测，并能说明预测依据。",
+          "excerpt_hash": "caf2c5a30ab0183d0c40b48712866ed69adb4e9f08251a5d8258a7d9b5a88579",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_46de8edc5a93c070",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在学习与生活中用数据记录",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在学习与生活中用数据记录，并说明关键步骤、特征或依据。",
+      "label": "在学习与生活中用数据记录",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在学习与生活中用数据记录；优先采集：过程性记录、作品展示、自我反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在学习与生活中用数据记录",
+          "excerpt_hash": "a5c75e9c173ae8af94982e5dd3d7c969d4d7eafa3b53afc8f6f0019970de70e9",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在学习与生活中用数据记录"
+    },
+    {
+      "component_id": "lc_7349d3ae02818fca",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述规律性事件",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述规律性事件，并说明关键步骤、特征或依据。",
+      "label": "描述规律性事件",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述规律性事件；优先采集：过程性记录、作品展示、自我反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述规律性事件",
+          "excerpt_hash": "9ce16a90889ff715575b8d926a98c6456c8c7024ed4c82a98f8c8f0295f8622b",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述规律性事件"
+    },
+    {
+      "component_id": "lc_440bdefa24a93748",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够基于数据做出简单的趋势判断或预测",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生基于数据做出简单的趋势判断或预测，并说明关键步骤、特征或依据。",
+      "label": "基于数据做出简单的趋势判断或预测",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够基于数据做出简单的趋势判断或预测；优先采集：过程性记录、作品展示、自我反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "基于数据做出简单的趋势判断或预测",
+          "excerpt_hash": "a7a33273d480aa9b2ca81fd1fec8e19fcae0230c2d7e7897f4371f80ff8d4272",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "基于数据做出简单的趋势判断或预测"
+    },
+    {
+      "component_id": "lc_8b023dd758fe8190",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明预测依据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明预测依据，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明预测依据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明预测依据；优先采集：过程性记录、作品展示、自我反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明预测依据",
+          "excerpt_hash": "3526b6686e5690a9189731d2861474df5fe09e0ace33ee977e7aa4faf325373f",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明预测依据"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "caf2c5a30ab0183d0c40b48712866ed69adb4e9f08251a5d8258a7d9b5a88579",
+  "standard_code": "IT-H2-CS-004",
+  "verified_prerequisites": []
+}

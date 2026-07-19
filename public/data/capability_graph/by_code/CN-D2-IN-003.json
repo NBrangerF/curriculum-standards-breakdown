@@ -1,0 +1,286 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_0c4150af5bbd550d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生参与小组学习计划或活动的简单策划与分工，并进行交流反馈的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2b1431973d571845",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a8d113395a440320"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“参与小组学习计划或活动的简单策划与分工，并进行交流反馈”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“参与小组学习计划或活动的简单策划与分工，并进行交流反馈”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "参与小组学习计划或活动的简单策划与分工，并进行交流反馈。",
+          "excerpt_hash": "dda4082f5d6f9c9e7ce0b6395ab42e4a17696a202ef1e579331f07e8ce532e5e",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-IN-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n开家庭会议，轮流述职和给队友点赞 + 提1改进点。",
+          "excerpt_hash": "5370f7c4460d62e8418c3dd996f38df11f6b93d1addc07b5b868d9e4b21ccbb4",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D2-IN-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后参与小组学习计划或活动的简单策划与分工，并进行交流反馈，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“参与小组学习计划或活动的简单策划与分工，并进行交流反馈”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“开家庭会议，轮流述职和给队友点赞 + 提1改进点。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d20380ac943bdc24",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6679839735c5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a9aaea7b7d7bee10",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_14ecf74d2058d01a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_334af6341558"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ae7100fbda14f7bd",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e9f1e2029a82cc27",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_97b49cd39424"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f1323e17e6058c4c",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_29eba21aab56c498",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_61d9923f1ed0457b",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_297e00f5bafb8a5a",
+      "evidence_refs": [
+        "standard:CN-D2-IN-003:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D2-IN-003",
+      "target_code": "CN-D3-IN-003",
+      "target_label": "组织讨论或专题演讲，发表观点，在交流反思中辨别是非、善恶、美丑。"
+    },
+    {
+      "confidence": "medium",
+      "connection_id": "fc_c3f7d26e6714c266",
+      "evidence_refs": [
+        "standard:CN-D2-IN-003:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D2-IN-003",
+      "target_code": "CN-D3-IN-004",
+      "target_label": "撰写校园或社会活动的计划、实施方案或活动总结，条理清晰。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a8d113395a440320",
+      "component_ids": [
+        "lc_0c4150af5bbd550d"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生参与小组学习计划或活动的简单策划与分工，并进行交流反馈。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够参与小组学习计划或活动的简单策划与分工，并进行交流反馈；优先采集：项目作品：探究报告/展示。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "参与小组学习计划或活动的简单策划与分工，并进行交流反馈。",
+          "excerpt_hash": "dda4082f5d6f9c9e7ce0b6395ab42e4a17696a202ef1e579331f07e8ce532e5e",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-IN-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "参与小组学习计划或活动的简单策划与分工，并进行交流反馈",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_0c4150af5bbd550d",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与小组学习计划或活动的简单策划与分工，并进行交流反馈",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与小组学习计划或活动的简单策划与分工，并进行交流反馈，并说明关键步骤、特征或依据。",
+      "label": "参与小组学习计划或活动的简单策划与分工，并进行交流反馈",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与小组学习计划或活动的简单策划与分工，并进行交流反馈；优先采集：项目作品：探究报告/展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "参与小组学习计划或活动的简单策划与分工，并进行交流反馈",
+          "excerpt_hash": "10193d8598c5438ba9a5d3d3c166e80cee69de24bed80e799838b1e380a71c89",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-IN-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参与小组学习计划或活动的简单策划与分工，并进行交流反馈"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "dda4082f5d6f9c9e7ce0b6395ab42e4a17696a202ef1e579331f07e8ce532e5e",
+  "standard_code": "CN-D2-IN-003",
+  "verified_prerequisites": []
+}

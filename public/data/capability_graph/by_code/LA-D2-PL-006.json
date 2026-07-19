@@ -1,0 +1,267 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_28eb5f76c9e7fc2f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出至少3个关键环节的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_28932de3a9f0f4bd",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0a2200f9927c12f3",
+        "hc_ed90a93bc8356174"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出至少3个关键环节”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出至少3个关键环节”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过参观、视频或模拟活动了解一种日用品从原料到成品的基本流程，能说出至少3个关键环节并理解分工协作的重要性。",
+          "excerpt_hash": "73fd71e7ed1667ce9bf37cb567feacf9d8acbda3ce2e4f1162cc3b4eb19eac36",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用流程图串联（原料—加工—装配—检验—包装）；让学生角色扮演不同岗位；强调“每一步都影响质量”。",
+          "excerpt_hash": "739347ea303e316fd200c7961a908251689e674fd561b7dc55346e44808fd4f6",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-PL-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出至少3个关键环节，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出至少3个关键环节”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用流程图串联（原料—加工—装配—检验—包装）”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_28eb5f76c9e7fc2f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出至少3个关键环节的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c3fdfe97f6604407",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0a2200f9927c12f3",
+        "hc_ed90a93bc8356174"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“说出至少3个关键环节”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出至少3个关键环节”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过参观、视频或模拟活动了解一种日用品从原料到成品的基本流程，能说出至少3个关键环节并理解分工协作的重要性。",
+          "excerpt_hash": "73fd71e7ed1667ce9bf37cb567feacf9d8acbda3ce2e4f1162cc3b4eb19eac36",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用流程图串联（原料—加工—装配—检验—包装）；让学生角色扮演不同岗位；强调“每一步都影响质量”。",
+          "excerpt_hash": "739347ea303e316fd200c7961a908251689e674fd561b7dc55346e44808fd4f6",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-PL-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出至少3个关键环节，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出至少3个关键环节”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用流程图串联（原料—加工—装配—检验—包装）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_c0b8ae86372e123d",
+      "evidence_refs": [
+        "standard:LA-D2-PL-006:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-PL-006",
+      "target_code": "LA-D3-PL-006",
+      "target_label": "能围绕真实需求提出产品改进点，能画出方案草图并制作低保真原型，能基于测试反馈进行迭代。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_0a2200f9927c12f3",
+      "component_ids": [
+        "lc_28eb5f76c9e7fc2f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说出至少3个关键环节。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说出至少3个关键环节；优先采集：流程图作品、口头讲述、同伴提问。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过参观、视频或模拟活动了解一种日用品从原料到成品的基本流程，能说出至少3个关键环节并理解分工协作的重要性。",
+          "excerpt_hash": "73fd71e7ed1667ce9bf37cb567feacf9d8acbda3ce2e4f1162cc3b4eb19eac36",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（至少）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_ed90a93bc8356174",
+      "component_ids": [
+        "lc_28eb5f76c9e7fc2f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少",
+        "3个"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说出至少3个关键环节。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说出至少3个关键环节；优先采集：流程图作品、口头讲述、同伴提问。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过参观、视频或模拟活动了解一种日用品从原料到成品的基本流程，能说出至少3个关键环节并理解分工协作的重要性。",
+          "excerpt_hash": "73fd71e7ed1667ce9bf37cb567feacf9d8acbda3ce2e4f1162cc3b4eb19eac36",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（至少、3个）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_824177d56f6648e4",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过参观、视频或模拟活动了解一种日用品从原料到成品的基本流程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过参观、视频或模拟活动了解一种日用品从原料到成品的基本流程，并说明关键步骤、特征或依据。",
+      "label": "通过参观、视频或模拟活动了解一种日用品从原料到成品的基本流程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过参观、视频或模拟活动了解一种日用品从原料到成品的基本流程；优先采集：流程图作品、口头讲述、同伴提问。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过参观、视频或模拟活动了解一种日用品从原料到成品的基本流程",
+          "excerpt_hash": "c4d962b997c5bcc822458d4c97fc3127128bdd86f21a852138729ec054f2bc94",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过参观、视频或模拟活动了解一种日用品从原料到成品的基本流程"
+    },
+    {
+      "component_id": "lc_28eb5f76c9e7fc2f",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出至少3个关键环节",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出至少3个关键环节，并说明关键步骤、特征或依据。",
+      "label": "说出至少3个关键环节",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出至少3个关键环节；优先采集：流程图作品、口头讲述、同伴提问。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出至少3个关键环节",
+          "excerpt_hash": "ac80ebcae7d0c6fe0ae3ae09b2a50cbdd1c23b82c919092baa3e8e63d645463a",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出至少3个关键环节"
+    },
+    {
+      "component_id": "lc_e7aec46d39d327fe",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释分工协作的重要性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释分工协作的重要性，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释分工协作的重要性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释分工协作的重要性；优先采集：流程图作品、口头讲述、同伴提问。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解分工协作的重要性",
+          "excerpt_hash": "48fffea883eecaf690bf3439cb6e8198b87b82000cbaa1f70410f2c032dfad00",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解分工协作的重要性"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "73fd71e7ed1667ce9bf37cb567feacf9d8acbda3ce2e4f1162cc3b4eb19eac36",
+  "standard_code": "LA-D2-PL-006",
+  "verified_prerequisites": []
+}

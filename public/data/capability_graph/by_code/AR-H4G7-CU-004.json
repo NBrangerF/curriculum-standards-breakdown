@@ -1,0 +1,461 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_b268a9b353c5950c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生完成基础表现或创作的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b77a0a48656f9db0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b036cee0c192cf47"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“完成基础表现或创作”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“完成基础表现或创作”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能加深对音乐感性特征和审美特质的感知、体验与理解；能在音乐表现、编创和文化理解中表达情感、增强合作与文化自信；能领悟音乐的思想感情和内涵意蕴；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "0267d60233bcd6d4edb21db0b3a4d46dce1565c7a23737b6e26456d141262ca1",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把听赏、表现、编创和文化理解放在同一主题任务中组织，避免只做单一技能训练。",
+          "excerpt_hash": "e1c93736a98558d1721b0454077c5ea595c3fbd0669a4adc3350c3e222630a9a",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-CU-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后完成基础表现或创作，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“完成基础表现或创作”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“把听赏、表现、编创和文化理解放在同一主题任务中组织，避免只做单一技能训练。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_20beb63d6de74df4",
+        "lc_a8e227b271dc28f7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生表达情感、增强合作与文化自信的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d3e2897a3a08c9e6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“表达情感、增强合作与文化自信”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“表达情感、增强合作与文化自信”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能加深对音乐感性特征和审美特质的感知、体验与理解；能在音乐表现、编创和文化理解中表达情感、增强合作与文化自信；能领悟音乐的思想感情和内涵意蕴；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "0267d60233bcd6d4edb21db0b3a4d46dce1565c7a23737b6e26456d141262ca1",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把听赏、表现、编创和文化理解放在同一主题任务中组织，避免只做单一技能训练。",
+          "excerpt_hash": "e1c93736a98558d1721b0454077c5ea595c3fbd0669a4adc3350c3e222630a9a",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-CU-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后表达情感、增强合作与文化自信，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“表达情感、增强合作与文化自信”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把听赏、表现、编创和文化理解放在同一主题任务中组织，避免只做单一技能训练。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_694fc1a1d0dc82d2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生加深对音乐感性特征和审美特质的感知、体验与理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_12c99efad461c5e4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“加深对音乐感性特征和审美特质的感知、体验与理解”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“加深对音乐感性特征和审美特质的感知、体验与理解”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能加深对音乐感性特征和审美特质的感知、体验与理解；能在音乐表现、编创和文化理解中表达情感、增强合作与文化自信；能领悟音乐的思想感情和内涵意蕴；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "0267d60233bcd6d4edb21db0b3a4d46dce1565c7a23737b6e26456d141262ca1",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把听赏、表现、编创和文化理解放在同一主题任务中组织，避免只做单一技能训练。",
+          "excerpt_hash": "e1c93736a98558d1721b0454077c5ea595c3fbd0669a4adc3350c3e222630a9a",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-CU-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后加深对音乐感性特征和审美特质的感知、体验与理解，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“加深对音乐感性特征和审美特质的感知、体验与理解”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把听赏、表现、编创和文化理解放在同一主题任务中组织，避免只做单一技能训练。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8edbe06ac4ae6836",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_010c1e047f00dd19a403",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a98e81d5ea76"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5c9c27ac05203638",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6da0d10d0b3c405f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2efa5fc22fa7520b01b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_86eb84faa252"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0805abf2f5db09ed",
+      "textbook_grade": 7,
+      "textbook_subject": "美术",
+      "textbook_title": "美术7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e9143c529603a1ea",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4e29c3897ac01b25a084",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d35e7be5354c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a883040b0334e9a7",
+      "textbook_grade": 7,
+      "textbook_subject": "美术",
+      "textbook_title": "美术7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_148fa37990875b10",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a89e5efa283f5034b420",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a99675852c59"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b3fadfb25eca49fe",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_3c908485cf5d393d",
+      "evidence_refs": [
+        "standard:AR-H4G7-CU-004:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-H4G7-CU-004",
+      "target_code": "AR-H4G8-CU-006",
+      "target_label": "能在音乐表现、编创和文化理解中表达情感、增强合作与文化自信；能加深对音乐感性特征和审美特质的感知、体验与理解；能领悟音乐的思想感情和内涵意蕴；…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b036cee0c192cf47",
+      "component_ids": [
+        "lc_b268a9b353c5950c"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "创作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成基础表现或创作。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够完成基础表现或创作；优先采集：听赏评述、表演展示、编创说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能加深对音乐感性特征和审美特质的感知、体验与理解；能在音乐表现、编创和文化理解中表达情感、增强合作与文化自信；能领悟音乐的思想感情和内涵意蕴；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "0267d60233bcd6d4edb21db0b3a4d46dce1565c7a23737b6e26456d141262ca1",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（创作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_694fc1a1d0dc82d2",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够加深对音乐感性特征和审美特质的感知、体验与理解",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生加深对音乐感性特征和审美特质的感知、体验与理解，并说明关键步骤、特征或依据。",
+      "label": "加深对音乐感性特征和审美特质的感知、体验与理解",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够加深对音乐感性特征和审美特质的感知、体验与理解；优先采集：听赏评述、表演展示、编创说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "加深对音乐感性特征和审美特质的感知、体验与理解",
+          "excerpt_hash": "78642a58cdabbbd177dcacb87dea996f62a091f904e305669a4ef5f4a426f34e",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "加深对音乐感性特征和审美特质的感知、体验与理解"
+    },
+    {
+      "component_id": "lc_20beb63d6de74df4",
+      "component_type": "disposition",
+      "condition": "在音乐表现、编创和文化理解中",
+      "confidence": 0.72,
+      "description": "学生在音乐表现、编创和文化理解中，能够表达情感、增强合作与文化自信",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在音乐表现、编创和文化理解中”的诊断任务，要求学生表达情感、增强合作与文化自信，并说明关键步骤、特征或依据。",
+      "label": "表达情感、增强合作与文化自信",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在音乐表现、编创和文化理解中，能够表达情感、增强合作与文化自信；优先采集：听赏评述、表演展示、编创说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能加深对音乐感性特征和审美特质的感知、体验与理解；能在音乐表现、编创和文化理解中表达情感、增强合作与文化自信；能领悟音乐的思想感情和内涵意蕴；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "0267d60233bcd6d4edb21db0b3a4d46dce1565c7a23737b6e26456d141262ca1",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表达情感、增强合作与文化自信"
+    },
+    {
+      "component_id": "lc_7492c516f0c7f0a9",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用具体事例解释音乐的思想感情和内涵意蕴",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用具体事例解释音乐的思想感情和内涵意蕴，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用具体事例解释音乐的思想感情和内涵意蕴",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用具体事例解释音乐的思想感情和内涵意蕴；优先采集：听赏评述、表演展示、编创说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "领悟音乐的思想感情和内涵意蕴",
+          "excerpt_hash": "cd612e6ccf5c8aa90477d61246e0c1848777b734d32d0c75706d0dd2d497d9ed",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "领悟音乐的思想感情和内涵意蕴"
+    },
+    {
+      "component_id": "lc_a8e227b271dc28f7",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述艺术要素",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述艺术要素，并说明关键步骤、特征或依据。",
+      "label": "描述艺术要素",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述艺术要素；优先采集：听赏评述、表演展示、编创说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述艺术要素",
+          "excerpt_hash": "710935e4df1532334f250c3d052674e266294edd15da0e6096f7bc2137ca8425",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述艺术要素"
+    },
+    {
+      "component_id": "lc_b268a9b353c5950c",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成基础表现或创作",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成基础表现或创作，并说明关键步骤、特征或依据。",
+      "label": "完成基础表现或创作",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成基础表现或创作；优先采集：听赏评述、表演展示、编创说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成基础表现或创作",
+          "excerpt_hash": "c6c7aa6f0fcb88782073b2bfe6ef8341b9660a99662a1a2b49152a8e04a101f6",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成基础表现或创作"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1099,
+      "edge_id": "pc_c56eaaea57a09f75",
+      "evidence_refs": [
+        "standard:AR-H4G7-CU-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D3-CU-005",
+      "source_label": "能区分音乐体裁、形式、类别与表现方式（含演唱形式），运用所学分析其特征与作用；能了解中国民族音乐与世界民族民间音乐的体裁、风格与审美特征，作出…",
+      "target_code": "AR-H4G7-CU-004",
+      "target_label": "能加深对音乐感性特征和审美特质的感知、体验与理解；能在音乐表现、编创和文化理解中表达情感、增强合作与文化自信；能领悟音乐的思想感情和内涵意蕴；…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "0267d60233bcd6d4edb21db0b3a4d46dce1565c7a23737b6e26456d141262ca1",
+  "standard_code": "AR-H4G7-CU-004",
+  "verified_prerequisites": []
+}

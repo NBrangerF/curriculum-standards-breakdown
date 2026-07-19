@@ -29,7 +29,8 @@ const cache = {
     skillToSubjects: null,
     subjectStats: null,
     codeToSubjectMap: null,
-    codeAliases: null
+    codeAliases: null,
+    capabilityGraphs: new Map()
 }
 
 // ============================================
@@ -40,7 +41,8 @@ const loadingState = {
     manifest: null,
     subjectsMeta: null,
     skillsMeta: null,
-    subjectStandards: new Map()
+    subjectStandards: new Map(),
+    capabilityGraphs: new Map()
 }
 
 // ============================================
@@ -457,6 +459,60 @@ export async function loadStandardByCode(code) {
     }
 
     return null
+}
+
+/**
+ * Load the heavy teachable-capability payload only for a standard detail view.
+ * Subject lists and cross-subject search stay on the lightweight base records.
+ */
+export async function loadStandardCapabilityGraph(codeOrStandard) {
+    const standard = typeof codeOrStandard === 'object' && codeOrStandard
+        ? codeOrStandard
+        : await loadStandardByCode(codeOrStandard)
+    if (!standard?.code) return null
+    if (Array.isArray(standard.learning_components) && standard.learning_components.length > 0) {
+        return standard
+    }
+    if (cache.capabilityGraphs.has(standard.code)) return cache.capabilityGraphs.get(standard.code)
+    if (loadingState.capabilityGraphs.has(standard.code)) return loadingState.capabilityGraphs.get(standard.code)
+
+    const manifest = await loadManifest()
+    const pathTemplate = manifest.capability_graph?.path_template || 'capability_graph/by_code/{code}.json'
+    const graphPath = pathTemplate.replace('{code}', encodeURIComponent(standard.code))
+    const promise = fetchJSON(`/${graphPath.replace(/^\/+/, '')}`)
+        .then(graph => {
+            if (!graph || typeof graph !== 'object' || graph.standard_code !== standard.code) {
+                throw new Error('能力图谱与当前课标编码不一致')
+            }
+            for (const field of ['capability_graph_schema_version', 'capability_graph_method', 'source_standard_hash']) {
+                if (standard[field] && graph[field] !== standard[field]) {
+                    throw new Error('能力图谱版本与当前课标正文不一致')
+                }
+            }
+            cache.capabilityGraphs.set(standard.code, graph)
+            loadingState.capabilityGraphs.delete(standard.code)
+            return graph
+        })
+        .catch(error => {
+            loadingState.capabilityGraphs.delete(standard.code)
+            throw error
+        })
+    loadingState.capabilityGraphs.set(standard.code, promise)
+    return promise
+}
+
+export async function loadStandardWithCapabilityGraph(code) {
+    const standard = await loadStandardByCode(code)
+    if (!standard) return null
+    try {
+        const graph = await loadStandardCapabilityGraph(standard)
+        return { ...standard, ...(graph || {}) }
+    } catch (error) {
+        return {
+            ...standard,
+            capability_graph_load_error: error instanceof Error ? error.message : '能力图谱暂时无法加载'
+        }
+    }
 }
 
 /**

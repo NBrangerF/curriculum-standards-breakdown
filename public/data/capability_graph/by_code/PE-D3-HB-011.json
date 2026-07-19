@@ -1,0 +1,210 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_32dec45acf64719a",
+        "lc_0d4c2c3bda4f4a05"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述青春期生理与心理变化的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_da39f1ef6c50758f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_72e2f0a23851e48f"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述青春期生理与心理变化”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述青春期生理与心理变化”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述青春期生理与心理变化，尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助。",
+          "excerpt_hash": "012c150b78f1d78c13e0ea17df7eb41171c931165d31aa6997d70cee849f8a2e",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-011:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "采用匿名提问箱+科学解答，提供可靠信息来源；通过情境讨论（同伴玩笑/身体评价/困惑焦虑）练习表达边界与求助：说“不”、离开、向老师/家长/校医求助。强调尊重与隐私保护，杜绝羞辱与标签化。",
+          "excerpt_hash": "691982bcdef05a8e7d5cebe04f0db312617d789128fc24a196dfd85a29273fc2",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-HB-011:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述青春期生理与心理变化，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述青春期生理与心理变化”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“采用匿名提问箱+科学解答，提供可靠信息来源”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1136,
+      "connection_id": "fc_13704a22ddd6cadf",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-003:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-HB-011",
+      "target_code": "PE-H4G7-HB-003",
+      "target_label": "能描述溺水自救、止血；表现出积极应对挫折的能力；能以及减轻压力、缓解焦虑、预防抑郁等方法；能完成基础练习并记录身体反应。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1103,
+      "connection_id": "fc_b18eb073bb962a54",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-010:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-HB-011",
+      "target_code": "PE-H4G7-HB-010",
+      "target_label": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法；能完成基础练习并记录身体…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_72e2f0a23851e48f",
+      "component_ids": [
+        "lc_0d4c2c3bda4f4a05"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "恰当"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助；优先采集：课堂讨论表现。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述青春期生理与心理变化，尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助。",
+          "excerpt_hash": "012c150b78f1d78c13e0ea17df7eb41171c931165d31aa6997d70cee849f8a2e",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（恰当）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_32dec45acf64719a",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述青春期生理与心理变化",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述青春期生理与心理变化，并说明关键步骤、特征或依据。",
+      "label": "描述青春期生理与心理变化",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述青春期生理与心理变化；优先采集：课堂讨论表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述青春期生理与心理变化",
+          "excerpt_hash": "5ea3d5d663dcb144cd4360d277f40224f2fc48f50a95788e3fd792cb57e63609",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述青春期生理与心理变化"
+    },
+    {
+      "component_id": "lc_0d4c2c3bda4f4a05",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助，并说明关键步骤、特征或依据。",
+      "label": "尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助；优先采集：课堂讨论表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助",
+          "excerpt_hash": "2cf21551ed67e16a44c5cff1d25cebbca35992107320f2f6a01cfc5eda52f7c2",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_87d0e96988eb375c",
+      "evidence_refs": [
+        "standard:PE-D3-HB-011:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-HB-011",
+      "source_label": "了解个人卫生保健方法并在日常生活中实践（如运动前后清洁）。",
+      "target_code": "PE-D3-HB-011",
+      "target_label": "能描述青春期生理与心理变化，尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "012c150b78f1d78c13e0ea17df7eb41171c931165d31aa6997d70cee849f8a2e",
+  "standard_code": "PE-D3-HB-011",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,223 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_b8d4fc0bd19edcf1",
+        "lc_84533c8f3864e8ad"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出青春期的身心变化的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_11cdd722d02593c2",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0546b0021234e254"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“识别并说出青春期的身心变化的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出青春期的身心变化的关键特征”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解青春期的身心变化，能用恰当方式表达困惑并寻求帮助。",
+          "excerpt_hash": "0f9e00109786a9b1c099437b8f2b2047d88f74a5ad110f31c6ec1f8b55a210c5",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“我的餐盘/食物卡”进行分类与比例讲解（主食、蔬果、蛋白、奶豆等），结合运动与生长需求讨论均衡饮食。引导学生识别含糖饮料与高盐高油零食，学习阅读配料表与营养成分表。",
+          "excerpt_hash": "7183315156228be99ba564c04fb52550cefbc58e513682c94cf2b725d5bcaf7e",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D2-HB-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出青春期的身心变化的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出青春期的身心变化的关键特征”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用“我的餐盘/食物卡”进行分类与比例讲解（主食、蔬果、蛋白、奶豆等），结合运动与生长需求讨论均衡饮食。引导学生识别含糖饮料与高盐高油零食，学习阅读配料表与营养成分表。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_28579688ef7e048a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_032926ad81d86eb77eb2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_3_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_58c66aa4067b40f9",
+      "textbook_grade": 3,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康3年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_153c7ed6f897404e",
+      "evidence_refs": [
+        "standard:PE-D2-HB-009:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D2-HB-009",
+      "target_code": "PE-D3-HB-009",
+      "target_label": "了解保持正常体重的方法，能用“运动+饮食+作息”策略进行2周自我管理并复盘效果。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_0546b0021234e254",
+      "component_ids": [
+        "lc_84533c8f3864e8ad"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "恰当"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用恰当方式表达困惑并寻求帮助。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用恰当方式表达困惑并寻求帮助；优先采集：学习单、教师反馈。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解青春期的身心变化，能用恰当方式表达困惑并寻求帮助。",
+          "excerpt_hash": "0f9e00109786a9b1c099437b8f2b2047d88f74a5ad110f31c6ec1f8b55a210c5",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（恰当）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b8d4fc0bd19edcf1",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出青春期的身心变化的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出青春期的身心变化的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出青春期的身心变化的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出青春期的身心变化的关键特征；优先采集：学习单、教师反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解青春期的身心变化",
+          "excerpt_hash": "7de58e4d2ea0947499209509fb394f9718117861b747a3b7552311106d46d0b9",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解青春期的身心变化"
+    },
+    {
+      "component_id": "lc_84533c8f3864e8ad",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用恰当方式表达困惑并寻求帮助",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用恰当方式表达困惑并寻求帮助，并说明关键步骤、特征或依据。",
+      "label": "用恰当方式表达困惑并寻求帮助",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用恰当方式表达困惑并寻求帮助；优先采集：学习单、教师反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用恰当方式表达困惑并寻求帮助",
+          "excerpt_hash": "558f6ec226b491af6cd81c1e5b9ea360a94e8e8e8059e72f87ac153a965c3129",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用恰当方式表达困惑并寻求帮助"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_511b5ef46547b541",
+      "evidence_refs": [
+        "standard:PE-D2-HB-009:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D1-HB-009",
+      "source_label": "知道生命孕育过程和人体主要器官。",
+      "target_code": "PE-D2-HB-009",
+      "target_label": "了解青春期的身心变化，能用恰当方式表达困惑并寻求帮助。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "0f9e00109786a9b1c099437b8f2b2047d88f74a5ad110f31c6ec1f8b55a210c5",
+  "standard_code": "PE-D2-HB-009",
+  "verified_prerequisites": []
+}

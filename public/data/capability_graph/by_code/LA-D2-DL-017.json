@@ -1,0 +1,233 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_b9d094ca345df2dc"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生使用文件夹、分类袋对学习资料进行整理的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_90632a2e873bfa17",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_7f0a09f593663c51"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“使用文件夹、分类袋对学习资料进行整理”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“使用文件夹、分类袋对学习资料进行整理”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能使用文件夹、分类袋对学习资料进行整理，能建立“主题/日期”基本索引方式，提升查找效率并保持桌面整洁。",
+          "excerpt_hash": "5fe48ef5019558cd8df1d76fdcfbe91c1db4848291361a000cdb36e44d67e15c",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-017:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "示范“同一主题放同一袋”；用颜色区分学科；每周固定一次“资料整理时间”。",
+          "excerpt_hash": "65db56786263d5dc5d312fb82c12d20dca8a10372c4e57ece63cf9e33a1f7c04",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-DL-017:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后使用文件夹、分类袋对学习资料进行整理，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“使用文件夹、分类袋对学习资料进行整理”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“示范“同一主题放同一袋””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_7124f7716a118207",
+      "evidence_refs": [
+        "standard:LA-D2-DL-017:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-DL-017",
+      "target_code": "LA-D3-DL-017",
+      "target_label": "能建立个人学习资料归档规则与任务清单管理方式，能按周进行整理复盘，提高学习效率与持续性。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_7f0a09f593663c51",
+      "component_ids": [
+        "lc_b9d094ca345df2dc"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用文件夹、分类袋对学习资料进行整理。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够使用文件夹、分类袋对学习资料进行整理；优先采集：查找任务测试、整理照片、教师检查。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能使用文件夹、分类袋对学习资料进行整理，能建立“主题/日期”基本索引方式，提升查找效率并保持桌面整洁。",
+          "excerpt_hash": "5fe48ef5019558cd8df1d76fdcfbe91c1db4848291361a000cdb36e44d67e15c",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b9d094ca345df2dc",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够使用文件夹、分类袋对学习资料进行整理",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生使用文件夹、分类袋对学习资料进行整理，并说明关键步骤、特征或依据。",
+      "label": "使用文件夹、分类袋对学习资料进行整理",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够使用文件夹、分类袋对学习资料进行整理；优先采集：查找任务测试、整理照片、教师检查。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "使用文件夹、分类袋对学习资料进行整理",
+          "excerpt_hash": "2e0dad2130982aa8a9f38f5afa02ae09744dad51bc0241b68a402783513584e8",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用文件夹、分类袋对学习资料进行整理"
+    },
+    {
+      "component_id": "lc_dfc8aaa195c4d8f7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建立“主题/日期”基本索引方式，提升查找效率",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建立“主题/日期”基本索引方式，提升查找效率，并说明关键步骤、特征或依据。",
+      "label": "建立“主题/日期”基本索引方式，提升查找效率",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建立“主题/日期”基本索引方式，提升查找效率；优先采集：查找任务测试、整理照片、教师检查。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建立“主题/日期”基本索引方式，提升查找效率",
+          "excerpt_hash": "a799697afaf72b241f7b6d081326aecefe7870c27e93443e9a27eddb9138117a",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建立“主题/日期”基本索引方式，提升查找效率"
+    },
+    {
+      "component_id": "lc_e75ac367f5621dc5",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够保持桌面整洁",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生保持桌面整洁，并说明关键步骤、特征或依据。",
+      "label": "保持桌面整洁",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够保持桌面整洁；优先采集：查找任务测试、整理照片、教师检查。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "保持桌面整洁",
+          "excerpt_hash": "7bc4c830ef77e227c52e1d4f592b708bb4942a6f5b2234e0ec6c5cf7f7fb660b",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "保持桌面整洁"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_37440dcb4f47ffeb",
+      "evidence_refs": [
+        "standard:LA-D2-DL-017:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D1-DL-008",
+      "source_label": "能整理书本、文具等学习用品，做到按类别或大小摆放整齐，保持桌面清爽，提升学习环境的整洁度。",
+      "target_code": "LA-D2-DL-017",
+      "target_label": "能使用文件夹、分类袋对学习资料进行整理，能建立“主题/日期”基本索引方式，提升查找效率并保持桌面整洁。"
+    },
+    {
+      "confidence": "medium",
+      "edge_id": "pc_08ca44744a4295cb",
+      "evidence_refs": [
+        "standard:LA-D2-DL-017:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D1-DL-009",
+      "source_label": "能整理书包与课桌，做到物品有序、便于取用，并能坚持在固定时间完成整理，养成“自己的事情自己做”的习惯。",
+      "target_code": "LA-D2-DL-017",
+      "target_label": "能使用文件夹、分类袋对学习资料进行整理，能建立“主题/日期”基本索引方式，提升查找效率并保持桌面整洁。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5fe48ef5019558cd8df1d76fdcfbe91c1db4848291361a000cdb36e44d67e15c",
+  "standard_code": "LA-D2-DL-017",
+  "verified_prerequisites": []
+}

@@ -1,8 +1,30 @@
 {
+  "capability_graph": {
+    "fields": [
+      "capability_graph_schema_version",
+      "capability_graph_method",
+      "source_standard_hash",
+      "learning_components",
+      "verified_prerequisites",
+      "prerequisite_candidates",
+      "prerequisite_review_coverage",
+      "hardest_cases",
+      "common_difficulties",
+      "curriculum_alignments",
+      "curriculum_alignment_summary",
+      "forward_connections"
+    ],
+    "path_template": "capability_graph/by_code/{code}.json",
+    "projection": "by_code_sidecar_v1",
+    "record_count": 2025
+  },
   "columns": [
     "assessment_evidence_type",
+    "capability_graph_method",
+    "capability_graph_schema_version",
     "code",
     "context",
+    "curriculum_alignment_summary",
     "display_subcategory",
     "domain",
     "field_provenance",
@@ -14,11 +36,13 @@
     "next_code",
     "official_text",
     "practice",
+    "prerequisite_review_coverage",
     "previous_code",
     "provenance",
     "relations",
     "safety_notes",
     "skill_alignments",
+    "source_standard_hash",
     "stage_band",
     "standard",
     "standard_title",
@@ -31,8 +55,8 @@
     "ts_secondary"
   ],
   "data_scope": "grade7_9_grade_level_candidate_h4g7_h4g8_h4g9",
-  "generated_at": "2026-07-17T10:28:45.366Z",
-  "projection": "public_v1",
+  "generated_at": "2026-07-19T05:11:19.766Z",
+  "projection": "public_v2_capability_graph_sidecar",
   "subjects": [
     {
       "domains": {

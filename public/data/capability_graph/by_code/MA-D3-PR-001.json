@@ -1,0 +1,709 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_3c4e55f8eab8d620"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生综合运用所列知识解决真实或跨学科问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_09b26096b634d249",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b24c16ecee0a0ac8",
+        "hc_ab13e72c5b80fcea",
+        "hc_ebe6bd91ec7c1577",
+        "hc_214f94ce4389b037"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“综合运用所列知识解决真实或跨学科问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“综合运用所列知识解决真实或跨学科问题”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计与概率等知识解决问题，发展模型意识、数据意识和应用意识。",
+          "excerpt_hash": "3d5c1ed22ce8864f122b35135a7220187e79181b5ca40108ef198fa8e6c6141c",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "重在引导学生把方案、数据、模型和结论建立对应关系，能说明假设、依据和改进方向。",
+          "excerpt_hash": "22ebb231b1bccb32738269ea807f32635f8fa53ae30aa79239bf7c76fad3afc5",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后综合运用所列知识解决真实或跨学科问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“综合运用所列知识解决真实或跨学科问题”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“重在引导学生把方案、数据、模型和结论建立对应关系，能说明假设、依据和改进方向。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_3c4e55f8eab8d620",
+        "lc_aad1deae80e3ec0b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生综合运用所列知识解决真实或跨学科问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_aff4b00458cfb465",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b24c16ecee0a0ac8",
+        "hc_ab13e72c5b80fcea",
+        "hc_ebe6bd91ec7c1577",
+        "hc_25655d3cd426c4a9",
+        "hc_214f94ce4389b037"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“综合运用所列知识解决真实或跨学科问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“综合运用所列知识解决真实或跨学科问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计与概率等知识解决问题，发展模型意识、数据意识和应用意识。",
+          "excerpt_hash": "3d5c1ed22ce8864f122b35135a7220187e79181b5ca40108ef198fa8e6c6141c",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "重在引导学生把方案、数据、模型和结论建立对应关系，能说明假设、依据和改进方向。",
+          "excerpt_hash": "22ebb231b1bccb32738269ea807f32635f8fa53ae30aa79239bf7c76fad3afc5",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后综合运用所列知识解决真实或跨学科问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“综合运用所列知识解决真实或跨学科问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“重在引导学生把方案、数据、模型和结论建立对应关系，能说明假设、依据和改进方向。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_aad1deae80e3ec0b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在任务中运用模型意识、数据意识和应用意识并根据反馈调整的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_891aaf33b556b25b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b24c16ecee0a0ac8",
+        "hc_25655d3cd426c4a9",
+        "hc_214f94ce4389b037"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“在任务中运用模型意识、数据意识和应用意识并根据反馈调整”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在任务中运用模型意识、数据意识和应用意识并根据反馈调整”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计与概率等知识解决问题，发展模型意识、数据意识和应用意识。",
+          "excerpt_hash": "3d5c1ed22ce8864f122b35135a7220187e79181b5ca40108ef198fa8e6c6141c",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "重在引导学生把方案、数据、模型和结论建立对应关系，能说明假设、依据和改进方向。",
+          "excerpt_hash": "22ebb231b1bccb32738269ea807f32635f8fa53ae30aa79239bf7c76fad3afc5",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在任务中运用模型意识、数据意识和应用意识并根据反馈调整，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在任务中运用模型意识、数据意识和应用意识并根据反馈调整”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“重在引导学生把方案、数据、模型和结论建立对应关系，能说明假设、依据和改进方向。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_aad1deae80e3ec0b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在任务中运用模型意识、数据意识和应用意识并根据反馈调整的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b04564558255f855",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b24c16ecee0a0ac8",
+        "hc_25655d3cd426c4a9",
+        "hc_214f94ce4389b037"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“在任务中运用模型意识、数据意识和应用意识并根据反馈调整”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在任务中运用模型意识、数据意识和应用意识并根据反馈调整”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计与概率等知识解决问题，发展模型意识、数据意识和应用意识。",
+          "excerpt_hash": "3d5c1ed22ce8864f122b35135a7220187e79181b5ca40108ef198fa8e6c6141c",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "重在引导学生把方案、数据、模型和结论建立对应关系，能说明假设、依据和改进方向。",
+          "excerpt_hash": "22ebb231b1bccb32738269ea807f32635f8fa53ae30aa79239bf7c76fad3afc5",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在任务中运用模型意识、数据意识和应用意识并根据反馈调整，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在任务中运用模型意识、数据意识和应用意识并根据反馈调整”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“重在引导学生把方案、数据、模型和结论建立对应关系，能说明假设、依据和改进方向。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_aad1deae80e3ec0b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在任务中运用模型意识、数据意识和应用意识并根据反馈调整的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0ac7cf170673d01f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b24c16ecee0a0ac8",
+        "hc_25655d3cd426c4a9",
+        "hc_214f94ce4389b037"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“在任务中运用模型意识、数据意识和应用意识并根据反馈调整”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在任务中运用模型意识、数据意识和应用意识并根据反馈调整”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计与概率等知识解决问题，发展模型意识、数据意识和应用意识。",
+          "excerpt_hash": "3d5c1ed22ce8864f122b35135a7220187e79181b5ca40108ef198fa8e6c6141c",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "重在引导学生把方案、数据、模型和结论建立对应关系，能说明假设、依据和改进方向。",
+          "excerpt_hash": "22ebb231b1bccb32738269ea807f32635f8fa53ae30aa79239bf7c76fad3afc5",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在任务中运用模型意识、数据意识和应用意识并根据反馈调整，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在任务中运用模型意识、数据意识和应用意识并根据反馈调整”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“重在引导学生把方案、数据、模型和结论建立对应关系，能说明假设、依据和改进方向。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_aad1deae80e3ec0b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在任务中运用模型意识、数据意识和应用意识并根据反馈调整的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_de3b4be856534cf4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b24c16ecee0a0ac8",
+        "hc_25655d3cd426c4a9",
+        "hc_214f94ce4389b037"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“在任务中运用模型意识、数据意识和应用意识并根据反馈调整”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在任务中运用模型意识、数据意识和应用意识并根据反馈调整”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计与概率等知识解决问题，发展模型意识、数据意识和应用意识。",
+          "excerpt_hash": "3d5c1ed22ce8864f122b35135a7220187e79181b5ca40108ef198fa8e6c6141c",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "重在引导学生把方案、数据、模型和结论建立对应关系，能说明假设、依据和改进方向。",
+          "excerpt_hash": "22ebb231b1bccb32738269ea807f32635f8fa53ae30aa79239bf7c76fad3afc5",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在任务中运用模型意识、数据意识和应用意识并根据反馈调整，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在任务中运用模型意识、数据意识和应用意识并根据反馈调整”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“重在引导学生把方案、数据、模型和结论建立对应关系，能说明假设、依据和改进方向。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a012baedb71d9346",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_10296c173573f69db498",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e5b0376a10bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e2243ea8644ffb3f",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c1fabe2930609614",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1ba8117dec0624e11c0e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b06437a92308"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_52ef62335b18e7df",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9748ccab21fe50e6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b1f651484391fce9",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_15aa517141af6d98",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6f696b62cd631c35e5d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_98536ea16bbc"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e1c2312794f3e566",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2098,
+      "connection_id": "fc_5334e994ebf81f9e",
+      "evidence_refs": [
+        "standard:MA-H4G7-PR-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-PR-001",
+      "target_code": "MA-H4G7-PR-001",
+      "target_label": "形成模型观念和数据观念；能在合作交流中严谨、准确表达观点、理解他人思考方法和结论；尝试运用数学知识、几何直观、逻辑推理等方法分析和解决问题；能…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2333,
+      "connection_id": "fc_13916374ee717316",
+      "evidence_refs": [
+        "standard:MA-H4G7-PR-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-PR-001",
+      "target_code": "MA-H4G7-PR-004",
+      "target_label": "能结合方程与不等式、函数、图形变化、图形与坐标、抽样与数据分析等内容；能在社会生活和科学技术真实情境中；能经历现实情境数学化；能说明解题步骤和…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2032,
+      "connection_id": "fc_e401a8c52136eea9",
+      "evidence_refs": [
+        "standard:MA-H4G7-PR-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-PR-001",
+      "target_code": "MA-H4G7-PR-007",
+      "target_label": "能经历分工合作、试验调查、建立模型、计算反思和解决问题的过程；运用数学思维方法以及数学和其他相关学科知识；能综合、有逻辑地分析问题；能说明解题…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1543,
+      "connection_id": "fc_7f4cc6c4b71093dc",
+      "evidence_refs": [
+        "standard:MA-H4G7-PR-010:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-PR-001",
+      "target_code": "MA-H4G7-PR-010",
+      "target_label": "能通过项目式学习形成符合问题背景的模型解答；能感受数学与其他学科融合的功效；能撰写研究报告、进行语言表达；能说明解题步骤和基本依据。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b24c16ecee0a0ac8",
+      "component_ids": [
+        "lc_3c4e55f8eab8d620",
+        "lc_aad1deae80e3ec0b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生综合运用所列知识解决真实或跨学科问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程；使用数与代数、图形与几何、统计与概率等等知识时，能够综合运用所列知识解决真实或跨学科问题；优先采集：项目方案、调查实验记录、模型或数据解释、反思汇报。",
+        "学生能够在任务中运用模型意识、数据意识和应用意识并根据反馈调整；优先采集：项目方案、调查实验记录、模型或数据解释、反思汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计与概率等知识解决问题，发展模型意识、数据意识和应用意识。",
+          "excerpt_hash": "3d5c1ed22ce8864f122b35135a7220187e79181b5ca40108ef198fa8e6c6141c",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_ab13e72c5b80fcea",
+      "component_ids": [
+        "lc_3c4e55f8eab8d620"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实",
+        "情境",
+        "综合"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生综合运用所列知识解决真实或跨学科问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程；使用数与代数、图形与几何、统计与概率等等知识时，能够综合运用所列知识解决真实或跨学科问题；优先采集：项目方案、调查实验记录、模型或数据解释、反思汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计与概率等知识解决问题，发展模型意识、数据意识和应用意识。",
+          "excerpt_hash": "3d5c1ed22ce8864f122b35135a7220187e79181b5ca40108ef198fa8e6c6141c",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实、情境、综合）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_ebe6bd91ec7c1577",
+      "component_ids": [
+        "lc_3c4e55f8eab8d620"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生综合运用所列知识解决真实或跨学科问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程；使用数与代数、图形与几何、统计与概率等等知识时，能够综合运用所列知识解决真实或跨学科问题；优先采集：项目方案、调查实验记录、模型或数据解释、反思汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计与概率等知识解决问题，发展模型意识、数据意识和应用意识。",
+          "excerpt_hash": "3d5c1ed22ce8864f122b35135a7220187e79181b5ca40108ef198fa8e6c6141c",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "综合运用所列知识解决真实或跨学科问题；在任务中运用模型意识、数据意识和应用意识并根据反馈调整",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    },
+    {
+      "case_id": "hc_25655d3cd426c4a9",
+      "component_ids": [
+        "lc_aad1deae80e3ec0b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "模型"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在任务中运用模型意识、数据意识和应用意识并根据反馈调整。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在任务中运用模型意识、数据意识和应用意识并根据反馈调整；优先采集：项目方案、调查实验记录、模型或数据解释、反思汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计与概率等知识解决问题，发展模型意识、数据意识和应用意识。",
+          "excerpt_hash": "3d5c1ed22ce8864f122b35135a7220187e79181b5ca40108ef198fa8e6c6141c",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（模型）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_214f94ce4389b037",
+      "component_ids": [
+        "lc_3c4e55f8eab8d620",
+        "lc_aad1deae80e3ec0b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生综合运用所列知识解决真实或跨学科问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程；使用数与代数、图形与几何、统计与概率等等知识时，能够综合运用所列知识解决真实或跨学科问题；优先采集：项目方案、调查实验记录、模型或数据解释、反思汇报。",
+        "学生能够在任务中运用模型意识、数据意识和应用意识并根据反馈调整；优先采集：项目方案、调查实验记录、模型或数据解释、反思汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计与概率等知识解决问题，发展模型意识、数据意识和应用意识。",
+          "excerpt_hash": "3d5c1ed22ce8864f122b35135a7220187e79181b5ca40108ef198fa8e6c6141c",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3c4e55f8eab8d620",
+      "component_type": "procedural",
+      "condition": "在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程；使用数与代数、图形与几何、统计与概率等等知识时",
+      "confidence": 0.72,
+      "description": "学生在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程；使用数与代数、图形与几何、统计与概率等等知识时，能够综合运用所列知识解决真实或跨学科问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程；使用数与代数、图形与几何、统计与概率等等知识时”的诊断任务，要求学生综合运用所列知识解决真实或跨学科问题，并说明关键步骤、特征或依据。",
+      "label": "综合运用所列知识解决真实或跨学科问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程；使用数与代数、图形与几何、统计与概率等等知识时，能够综合运用所列知识解决真实或跨学科问题；优先采集：项目方案、调查实验记录、模型或数据解释、反思汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计与概率等知识解决问题",
+          "excerpt_hash": "2cf8680eb853eb447c52780053d2259e4b68a8459149068aee5e49ec49e5bdd5",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计与概率等知识解决问题"
+    },
+    {
+      "component_id": "lc_aad1deae80e3ec0b",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中运用模型意识、数据意识和应用意识并根据反馈调整",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中运用模型意识、数据意识和应用意识并根据反馈调整，并说明关键步骤、特征或依据。",
+      "label": "在任务中运用模型意识、数据意识和应用意识并根据反馈调整",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中运用模型意识、数据意识和应用意识并根据反馈调整；优先采集：项目方案、调查实验记录、模型或数据解释、反思汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "发展模型意识、数据意识和应用意识",
+          "excerpt_hash": "2a94f91d9bf780f5cfff2783b45b656e4308a1144fc743f656f693567399ca46",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "发展模型意识、数据意识和应用意识"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_5f327a9385271121",
+      "evidence_refs": [
+        "standard:MA-D3-PR-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D2-PR-001",
+      "source_label": "能围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程，综合运用数与运算、图形测量、数据整理等知识…",
+      "target_code": "MA-D3-PR-001",
+      "target_label": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "3d5c1ed22ce8864f122b35135a7220187e79181b5ca40108ef198fa8e6c6141c",
+  "standard_code": "MA-D3-PR-001",
+  "verified_prerequisites": []
+}

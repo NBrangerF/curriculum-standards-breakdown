@@ -1,0 +1,341 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_427bcf2fc645bbc2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出主要国家机关的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fd6db332a31e92d1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_79d9fd422c5b503c"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出主要国家机关的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出主要国家机关的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "59639244232d736c1ab9065d8324abc22e98f742644600175e9aad1f20ecd538",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-029:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用具体国家机关职权帮助学生理解权力来源、权力运行和法律约束。",
+          "excerpt_hash": "105f69cdfd56ce0033c62d459b23db194947059f3d5daf270e1e9da7473a3c09",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G8-LAW-029:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出主要国家机关的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出主要国家机关的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用具体国家机关职权帮助学生理解权力来源、权力运行和法律约束。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 2,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_641a3d2f5d3639c0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2860489fc83ddeb6cec5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_76fc538dd0d1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_262756ea29a61d32",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b3bf08dd5b50cc6c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d8429e42f96b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9eb2e2a90a705049",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_92865ac5c7210341",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b28ec1f6b081b602",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c273538b2d8a4bc3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_05dbe85802ac"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c23f52c4ba953c6f",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_9a0c95e06dfbe661",
+      "evidence_refs": [
+        "standard:ML-H4G8-LAW-029:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-H4G8-LAW-029",
+      "target_code": "ML-H4G9-LAW-030",
+      "target_label": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能依据规则、价值和证据作出判断并提出行动建议。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_79d9fd422c5b503c",
+      "component_ids": [
+        "lc_427bcf2fc645bbc2",
+        "lc_8b43a4831f4b8a75",
+        "lc_d7a4a91d5bd2aa2f"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出主要国家机关的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出主要国家机关的关键特征；优先采集：国家机关职权图、案例分析、权力约束说明。",
+        "学生能够用自己的话解释权力是由人民授予的，行使权力必须受法律约束；优先采集：国家机关职权图、案例分析、权力约束说明。",
+        "学生能够结合家庭、学校或社会案例分析问题；优先采集：国家机关职权图、案例分析、权力约束说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "59639244232d736c1ab9065d8324abc22e98f742644600175e9aad1f20ecd538",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-029:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "识别并说出主要国家机关的关键特征；用自己的话解释权力是由人民授予的，行使权力必须受法律约束；结合家庭、学校或社会案例分析问题",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_427bcf2fc645bbc2",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出主要国家机关的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出主要国家机关的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出主要国家机关的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出主要国家机关的关键特征；优先采集：国家机关职权图、案例分析、权力约束说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识主要国家机关",
+          "excerpt_hash": "53b182cafca3afe2a070d02b3d14a67c58ad5bcea2fe814c3e1fffbcb4bf263d",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-029:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认识主要国家机关"
+    },
+    {
+      "component_id": "lc_8b43a4831f4b8a75",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释权力是由人民授予的，行使权力必须受法律约束",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释权力是由人民授予的，行使权力必须受法律约束，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释权力是由人民授予的，行使权力必须受法律约束",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释权力是由人民授予的，行使权力必须受法律约束；优先采集：国家机关职权图、案例分析、权力约束说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解权力是由人民授予的，行使权力必须受法律约束",
+          "excerpt_hash": "5d749d6be92ce54189793916649b2462f58634e3d43eb15ac08b5d7ab238ae31",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-029:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解权力是由人民授予的，行使权力必须受法律约束"
+    },
+    {
+      "component_id": "lc_d7a4a91d5bd2aa2f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够结合家庭、学校或社会案例分析问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合家庭、学校或社会案例分析问题，并说明关键步骤、特征或依据。",
+      "label": "结合家庭、学校或社会案例分析问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够结合家庭、学校或社会案例分析问题；优先采集：国家机关职权图、案例分析、权力约束说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "结合家庭、学校或社会案例分析问题",
+          "excerpt_hash": "9f011217b5939392cbd181d22775f8f11d41c522438ab487610a73e9e02bbda8",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-029:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "结合家庭、学校或社会案例分析问题"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_42fb514d4c4a993d",
+      "evidence_refs": [
+        "standard:ML-H4G8-LAW-029:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-H4G7-LAW-028",
+      "source_label": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能联系个人和校园生活说明基本判断。",
+      "target_code": "ML-H4G8-LAW-029",
+      "target_label": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能结合家庭、学校或社会案例分析问题。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "59639244232d736c1ab9065d8324abc22e98f742644600175e9aad1f20ecd538",
+  "standard_code": "ML-H4G8-LAW-029",
+  "verified_prerequisites": []
+}

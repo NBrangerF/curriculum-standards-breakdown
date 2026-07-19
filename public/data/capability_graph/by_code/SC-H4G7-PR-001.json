@@ -1,0 +1,621 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_65f3110cf8fe2863"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ddbc19457325bc30",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8d88399b8e842687"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用观察、实验等方法获取和整理数据；能把科学原理转化为简单装置，进行模型设计、测试与迭代改进；能从真实情境中识别可探究的科学问题和研究变量；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "a1b3b17411ac3f4cd758f7884089e3ba642c32a99df67877da0fa7869e907a19",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把探究过程、数据处理、报告写作和工程迭代作为同一类实践能力培养。",
+          "excerpt_hash": "f3f42ab7e44a3f96887987751064dedd9334c6970e09c92ac6a8642e948a61c5",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用观察证据说明基本科学概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把探究过程、数据处理、报告写作和工程迭代作为同一类实践能力培养。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_240f388366b4f87c",
+        "lc_5fe44ade4be3bbba"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用观察、实验等方法获取和整理数据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_13e5f0e223ffff8e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_bb05dfe2daa11c62"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用观察、实验等方法获取和整理数据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用观察、实验等方法获取和整理数据”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用观察、实验等方法获取和整理数据；能把科学原理转化为简单装置，进行模型设计、测试与迭代改进；能从真实情境中识别可探究的科学问题和研究变量；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "a1b3b17411ac3f4cd758f7884089e3ba642c32a99df67877da0fa7869e907a19",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把探究过程、数据处理、报告写作和工程迭代作为同一类实践能力培养。",
+          "excerpt_hash": "f3f42ab7e44a3f96887987751064dedd9334c6970e09c92ac6a8642e948a61c5",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用观察、实验等方法获取和整理数据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用观察、实验等方法获取和整理数据”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把探究过程、数据处理、报告写作和工程迭代作为同一类实践能力培养。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_3e8fc0735b80f334"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生把科学原理转化为简单装置，进行模型设计、测试与迭代改进的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4b0e86428a2d4820",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4b0e86428a2d4820",
+        "hc_7ec475e5dc839ad5"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“把科学原理转化为简单装置，进行模型设计、测试与迭代改进”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“把科学原理转化为简单装置，进行模型设计、测试与迭代改进”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用观察、实验等方法获取和整理数据；能把科学原理转化为简单装置，进行模型设计、测试与迭代改进；能从真实情境中识别可探究的科学问题和研究变量；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "a1b3b17411ac3f4cd758f7884089e3ba642c32a99df67877da0fa7869e907a19",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把探究过程、数据处理、报告写作和工程迭代作为同一类实践能力培养。",
+          "excerpt_hash": "f3f42ab7e44a3f96887987751064dedd9334c6970e09c92ac6a8642e948a61c5",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后把科学原理转化为简单装置，进行模型设计、测试与迭代改进，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“把科学原理转化为简单装置，进行模型设计、测试与迭代改进”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“把探究过程、数据处理、报告写作和工程迭代作为同一类实践能力培养。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_3e8fc0735b80f334"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生把科学原理转化为简单装置，进行模型设计、测试与迭代改进的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8728b5057c3a59b0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4b0e86428a2d4820",
+        "hc_7ec475e5dc839ad5"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“把科学原理转化为简单装置，进行模型设计、测试与迭代改进”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“把科学原理转化为简单装置，进行模型设计、测试与迭代改进”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用观察、实验等方法获取和整理数据；能把科学原理转化为简单装置，进行模型设计、测试与迭代改进；能从真实情境中识别可探究的科学问题和研究变量；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "a1b3b17411ac3f4cd758f7884089e3ba642c32a99df67877da0fa7869e907a19",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把探究过程、数据处理、报告写作和工程迭代作为同一类实践能力培养。",
+          "excerpt_hash": "f3f42ab7e44a3f96887987751064dedd9334c6970e09c92ac6a8642e948a61c5",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后把科学原理转化为简单装置，进行模型设计、测试与迭代改进，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“把科学原理转化为简单装置，进行模型设计、测试与迭代改进”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“把探究过程、数据处理、报告写作和工程迭代作为同一类实践能力培养。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_240f388366b4f87c",
+        "lc_5fe44ade4be3bbba",
+        "lc_65f3110cf8fe2863"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用观察、实验等方法获取和整理数据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_df727b7b50dbca54",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8d88399b8e842687",
+        "hc_bb05dfe2daa11c62"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“运用观察、实验等方法获取和整理数据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用观察、实验等方法获取和整理数据”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用观察、实验等方法获取和整理数据；能把科学原理转化为简单装置，进行模型设计、测试与迭代改进；能从真实情境中识别可探究的科学问题和研究变量；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "a1b3b17411ac3f4cd758f7884089e3ba642c32a99df67877da0fa7869e907a19",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把探究过程、数据处理、报告写作和工程迭代作为同一类实践能力培养。",
+          "excerpt_hash": "f3f42ab7e44a3f96887987751064dedd9334c6970e09c92ac6a8642e948a61c5",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用观察、实验等方法获取和整理数据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用观察、实验等方法获取和整理数据”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把探究过程、数据处理、报告写作和工程迭代作为同一类实践能力培养。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b9ff49ac980ef992",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_21164b69894834d04f84",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7070ee669923"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ba775a07035c65ee",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1c13dac69d2b5652",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b2901b9e06df"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3daf5000bc9191a7",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_666898a922c7f6e8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_92369ed68f9321363e22",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae920aee077f"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_94dc3a2f9a671969",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9bc7e9b06f152dbb",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fc41327ff0651b269c88",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae5d3f924fb1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4604008cfd618f79",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_4fb066291f10e292",
+      "evidence_refs": [
+        "standard:SC-H4G7-PR-001:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G7-PR-001",
+      "target_code": "SC-H4G8-PR-002",
+      "target_label": "运用观察、实验等方法获取和整理数据；应用控制变量方法设计实验方案；能把科学原理转化为简单装置，进行模型设计、测试与迭代改进；能比较证据并解释概…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_8d88399b8e842687",
+      "component_ids": [
+        "lc_65f3110cf8fe2863"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用观察证据说明基本科学概念。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用观察证据说明基本科学概念；优先采集：探究报告、实验数据表、模型迭代记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用观察、实验等方法获取和整理数据；能把科学原理转化为简单装置，进行模型设计、测试与迭代改进；能从真实情境中识别可探究的科学问题和研究变量；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "a1b3b17411ac3f4cd758f7884089e3ba642c32a99df67877da0fa7869e907a19",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_bb05dfe2daa11c62",
+      "component_ids": [
+        "lc_5fe44ade4be3bbba"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实",
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生从真实情境中识别可探究的科学问题和研究变量。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够从真实情境中识别可探究的科学问题和研究变量；优先采集：探究报告、实验数据表、模型迭代记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用观察、实验等方法获取和整理数据；能把科学原理转化为简单装置，进行模型设计、测试与迭代改进；能从真实情境中识别可探究的科学问题和研究变量；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "a1b3b17411ac3f4cd758f7884089e3ba642c32a99df67877da0fa7869e907a19",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实、情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_4b0e86428a2d4820",
+      "component_ids": [
+        "lc_3e8fc0735b80f334"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "模型"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生把科学原理转化为简单装置，进行模型设计、测试与迭代改进。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够把科学原理转化为简单装置，进行模型设计、测试与迭代改进；优先采集：探究报告、实验数据表、模型迭代记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用观察、实验等方法获取和整理数据；能把科学原理转化为简单装置，进行模型设计、测试与迭代改进；能从真实情境中识别可探究的科学问题和研究变量；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "a1b3b17411ac3f4cd758f7884089e3ba642c32a99df67877da0fa7869e907a19",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（模型）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_7ec475e5dc839ad5",
+      "component_ids": [
+        "lc_3e8fc0735b80f334"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "改进"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生把科学原理转化为简单装置，进行模型设计、测试与迭代改进。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够把科学原理转化为简单装置，进行模型设计、测试与迭代改进；优先采集：探究报告、实验数据表、模型迭代记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用观察、实验等方法获取和整理数据；能把科学原理转化为简单装置，进行模型设计、测试与迭代改进；能从真实情境中识别可探究的科学问题和研究变量；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "a1b3b17411ac3f4cd758f7884089e3ba642c32a99df67877da0fa7869e907a19",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、改进）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_240f388366b4f87c",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用观察、实验等方法获取和整理数据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用观察、实验等方法获取和整理数据，并说明关键步骤、特征或依据。",
+      "label": "运用观察、实验等方法获取和整理数据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用观察、实验等方法获取和整理数据；优先采集：探究报告、实验数据表、模型迭代记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用观察、实验等方法获取和整理数据",
+          "excerpt_hash": "c148480e49e9c4dca22d44e9944b6943eef36aa69f365cecdad38cdcf9f91e58",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用观察、实验等方法获取和整理数据"
+    },
+    {
+      "component_id": "lc_3e8fc0735b80f334",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够把科学原理转化为简单装置，进行模型设计、测试与迭代改进",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生把科学原理转化为简单装置，进行模型设计、测试与迭代改进，并说明关键步骤、特征或依据。",
+      "label": "把科学原理转化为简单装置，进行模型设计、测试与迭代改进",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够把科学原理转化为简单装置，进行模型设计、测试与迭代改进；优先采集：探究报告、实验数据表、模型迭代记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "把科学原理转化为简单装置，进行模型设计、测试与迭代改进",
+          "excerpt_hash": "d215db2b082e09d77407db4b06e03565d68f27e957582be59179c15d9f60599b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "把科学原理转化为简单装置，进行模型设计、测试与迭代改进"
+    },
+    {
+      "component_id": "lc_5fe44ade4be3bbba",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够从真实情境中识别可探究的科学问题和研究变量",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生从真实情境中识别可探究的科学问题和研究变量，并说明关键步骤、特征或依据。",
+      "label": "从真实情境中识别可探究的科学问题和研究变量",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够从真实情境中识别可探究的科学问题和研究变量；优先采集：探究报告、实验数据表、模型迭代记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "从真实情境中识别可探究的科学问题和研究变量",
+          "excerpt_hash": "0ad6e3e3212e1e578aae8ac6ff60c6d1d903cbd5840326003140c34a299a9f0c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "从真实情境中识别可探究的科学问题和研究变量"
+    },
+    {
+      "component_id": "lc_65f3110cf8fe2863",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用观察证据说明基本科学概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用观察证据说明基本科学概念",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：探究报告、实验数据表、模型迭代记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用观察证据说明基本科学概念",
+          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用观察证据说明基本科学概念"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1251,
+      "edge_id": "pc_9ddbc82e9b029e50",
+      "evidence_refs": [
+        "standard:SC-H4G7-PR-001:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-PR-003",
+      "source_label": "利用示意图、影像、文字或实物等多种方式，阐明自己的创意，初步认识设计方案中各影响因素间的关系。",
+      "target_code": "SC-H4G7-PR-001",
+      "target_label": "运用观察、实验等方法获取和整理数据；能把科学原理转化为简单装置，进行模型设计、测试与迭代改进；能从真实情境中识别可探究的科学问题和研究变量；能…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a1b3b17411ac3f4cd758f7884089e3ba642c32a99df67877da0fa7869e907a19",
+  "standard_code": "SC-H4G7-PR-001",
+  "verified_prerequisites": []
+}

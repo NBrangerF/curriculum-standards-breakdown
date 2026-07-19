@@ -1,0 +1,298 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_59766babf32cc7d3",
+        "lc_9eb98375aca1c27b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出可求助的对象与方式（老师/家长/同学/求助电话）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_22a6f80a44420c41",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ba714d1db82d1973"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出可求助的对象与方式（老师/家长/同学/求助电话）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出可求助的对象与方式（老师/家长/同学/求助电话）”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在遇到困难或不安全情况时说出可求助的对象与方式（老师/家长/同学/求助电话），并能对获得的帮助表达感谢，愿意在力所能及范围内帮助他人。",
+          "excerpt_hash": "bf19caa34ae8a670dc22b1f2504af7c90e18e3722b66ac7a9187babaef77029f",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-MOR-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“求助清单”明确对象与话术；通过角色扮演练习求助与拒绝；把感恩落到行动（帮忙收拾/写感谢卡）。",
+          "excerpt_hash": "8c6c7dd324f32708cd4ab263f325797645740a5ae199829a3ca8b6247d8610cf",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D1-MOR-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出可求助的对象与方式（老师/家长/同学/求助电话），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出可求助的对象与方式（老师/家长/同学/求助电话）”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用“求助清单”明确对象与话术”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_26e40651ec08f500",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7ac003a6d2fbc0550980",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_565199064cf5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a8cd1c06fc4166b4",
+      "textbook_grade": 2,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_306cd13664d1393c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_cfcb4ce7864d417c80b2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_17b846efdf7a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f9d3a9d4795fb2cf",
+      "textbook_grade": 1,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8eb15a07c4ae2e39",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e0415d58f2a7c2ec1a23",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_88807fd2045b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b0742e693a9d96bc",
+      "textbook_grade": 2,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b69024417c6b9db4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f7992bf9ce09b3760ce8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_50dfe7e5b313"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_33531b3889df7060",
+      "textbook_grade": 1,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_2dd370b5d1967146",
+      "evidence_refs": [
+        "standard:ML-D1-MOR-005:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D1-MOR-005",
+      "target_code": "ML-D2-MOR-005",
+      "target_label": "能在集体活动中承担角色并与同伴合作完成任务，愿意关心与帮助他人，能用行动维护班级与集体的共同利益。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ba714d1db82d1973",
+      "component_ids": [
+        "lc_59766babf32cc7d3",
+        "lc_9eb98375aca1c27b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说出可求助的对象与方式（老师/家长/同学/求助电话）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在遇到困难或不安全情况时，能够说出可求助的对象与方式（老师/家长/同学/求助电话）；优先采集：情境表演、教师提问（会找谁/怎么说）、作品（感谢卡/求助清单）。",
+        "学生在遇到困难或不安全情况时，能够对获得的帮助表达感谢，愿意在力所能及范围内帮助他人；优先采集：情境表演、教师提问（会找谁/怎么说）、作品（感谢卡/求助清单）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在遇到困难或不安全情况时说出可求助的对象与方式（老师/家长/同学/求助电话），并能对获得的帮助表达感谢，愿意在力所能及范围内帮助他人。",
+          "excerpt_hash": "bf19caa34ae8a670dc22b1f2504af7c90e18e3722b66ac7a9187babaef77029f",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-MOR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_59766babf32cc7d3",
+      "component_type": "language",
+      "condition": "在遇到困难或不安全情况时",
+      "confidence": 0.72,
+      "description": "学生在遇到困难或不安全情况时，能够说出可求助的对象与方式（老师/家长/同学/求助电话）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在遇到困难或不安全情况时”的诊断任务，要求学生说出可求助的对象与方式（老师/家长/同学/求助电话），并说明关键步骤、特征或依据。",
+      "label": "说出可求助的对象与方式（老师/家长/同学/求助电话）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在遇到困难或不安全情况时，能够说出可求助的对象与方式（老师/家长/同学/求助电话）；优先采集：情境表演、教师提问（会找谁/怎么说）、作品（感谢卡/求助清单）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在遇到困难或不安全情况时说出可求助的对象与方式（老师/家长/同学/求助电话），并能对获得的帮助表达感谢，愿意在力所能及范围内帮助他人。",
+          "excerpt_hash": "bf19caa34ae8a670dc22b1f2504af7c90e18e3722b66ac7a9187babaef77029f",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-MOR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出可求助的对象与方式（老师/家长/同学/求助电话）"
+    },
+    {
+      "component_id": "lc_9eb98375aca1c27b",
+      "component_type": "language",
+      "condition": "在遇到困难或不安全情况时",
+      "confidence": 0.72,
+      "description": "学生在遇到困难或不安全情况时，能够对获得的帮助表达感谢，愿意在力所能及范围内帮助他人",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在遇到困难或不安全情况时”的诊断任务，要求学生对获得的帮助表达感谢，愿意在力所能及范围内帮助他人，并说明关键步骤、特征或依据。",
+      "label": "对获得的帮助表达感谢，愿意在力所能及范围内帮助他人",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在遇到困难或不安全情况时，能够对获得的帮助表达感谢，愿意在力所能及范围内帮助他人；优先采集：情境表演、教师提问（会找谁/怎么说）、作品（感谢卡/求助清单）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在遇到困难或不安全情况时说出可求助的对象与方式（老师/家长/同学/求助电话），并能对获得的帮助表达感谢，愿意在力所能及范围内帮助他人。",
+          "excerpt_hash": "bf19caa34ae8a670dc22b1f2504af7c90e18e3722b66ac7a9187babaef77029f",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-MOR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "对获得的帮助表达感谢，愿意在力所能及范围内帮助他人"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "bf19caa34ae8a670dc22b1f2504af7c90e18e3722b66ac7a9187babaef77029f",
+  "standard_code": "ML-D1-MOR-005",
+  "verified_prerequisites": []
+}

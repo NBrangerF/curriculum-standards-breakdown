@@ -1,0 +1,359 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_6fc843becbd2935e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生选择合适单位描述实际问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_425e24b26a22dca6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_45c314e525b38908"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“选择合适单位描述实际问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“选择合适单位描述实际问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出面积单位“公顷”、体积单位“升、毫升”，能进行单位换算，能选择合适单位描述实际问题。",
+          "excerpt_hash": "36d70ea222271b7959b1386b21a2c41f5df52667986a47f09b555cce98ac2115",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "图形的面积教学要让学生在熟悉的情境中直观感知面积的概念，经历选择面积单位进行测量的过程，理解面积的意义，形成量感。",
+          "excerpt_hash": "17e33ac7af89d03a3749c15f876f7fec41dd71290e30d942cf5729fee5ba71ba",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-GE-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后选择合适单位描述实际问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“选择合适单位描述实际问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“图形的面积教学要让学生在熟悉的情境中直观感知面积的概念，经历选择面积单位进行测量的过程，理解面积的意义，形成量感。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_4f662445e8ab28be",
+        "lc_6fc843becbd2935e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出面积单位“公顷”、体积单位“升、毫升”的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9233ee3b0c5f44eb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_45c314e525b38908"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出面积单位“公顷”、体积单位“升、毫升””中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出面积单位“公顷”、体积单位“升、毫升””时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出面积单位“公顷”、体积单位“升、毫升”，能进行单位换算，能选择合适单位描述实际问题。",
+          "excerpt_hash": "36d70ea222271b7959b1386b21a2c41f5df52667986a47f09b555cce98ac2115",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "图形的面积教学要让学生在熟悉的情境中直观感知面积的概念，经历选择面积单位进行测量的过程，理解面积的意义，形成量感。",
+          "excerpt_hash": "17e33ac7af89d03a3749c15f876f7fec41dd71290e30d942cf5729fee5ba71ba",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-GE-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出面积单位“公顷”、体积单位“升、毫升”，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出面积单位“公顷”、体积单位“升、毫升””，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“图形的面积教学要让学生在熟悉的情境中直观感知面积的概念，经历选择面积单位进行测量的过程，理解面积的意义，形成量感。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a1a35c8443651a47",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_10296c173573f69db498",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e5b0376a10bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e2243ea8644ffb3f",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ee96b4ba85a5246e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1ba8117dec0624e11c0e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b06437a92308"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_52ef62335b18e7df",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e08d23f63397c2c8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b1f651484391fce9",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_eecd6bcbd0e50900",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6f696b62cd631c35e5d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_98536ea16bbc"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e1c2312794f3e566",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1203,
+      "connection_id": "fc_c266de80802d1e0d",
+      "evidence_refs": [
+        "standard:MA-H4G7-GE-037:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-GE-004",
+      "target_code": "MA-H4G7-GE-037",
+      "target_label": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；理解平面直角坐标系概念；能说明解题步骤和基本依据。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_45c314e525b38908",
+      "component_ids": [
+        "lc_6fc843becbd2935e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "实际"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生选择合适单位描述实际问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够选择合适单位描述实际问题；优先采集：作图/测量作品、解题过程记录、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出面积单位“公顷”、体积单位“升、毫升”，能进行单位换算，能选择合适单位描述实际问题。",
+          "excerpt_hash": "36d70ea222271b7959b1386b21a2c41f5df52667986a47f09b555cce98ac2115",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（实际）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_4f662445e8ab28be",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出面积单位“公顷”、体积单位“升、毫升”",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出面积单位“公顷”、体积单位“升、毫升”，并说明关键步骤、特征或依据。",
+      "label": "说出面积单位“公顷”、体积单位“升、毫升”",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出面积单位“公顷”、体积单位“升、毫升”；优先采集：作图/测量作品、解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出面积单位“公顷”、体积单位“升、毫升”",
+          "excerpt_hash": "a7f744ae085a00e396b969ecc3c50213f4f0d780245cebc424e55811f5866a31",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出面积单位“公顷”、体积单位“升、毫升”"
+    },
+    {
+      "component_id": "lc_cd484e1ab4ca3e78",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够进行单位换算",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生进行单位换算，并说明关键步骤、特征或依据。",
+      "label": "进行单位换算",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够进行单位换算；优先采集：作图/测量作品、解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "进行单位换算",
+          "excerpt_hash": "67a106d030b4feff56195efebd6ca31c9b3bba6b73487e4b6d0906e603280caf",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "进行单位换算"
+    },
+    {
+      "component_id": "lc_6fc843becbd2935e",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择合适单位描述实际问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择合适单位描述实际问题，并说明关键步骤、特征或依据。",
+      "label": "选择合适单位描述实际问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择合适单位描述实际问题；优先采集：作图/测量作品、解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择合适单位描述实际问题",
+          "excerpt_hash": "59f44d90694db00639771e473286ff731fe72121090b446efcf40d39c2cfba5d",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择合适单位描述实际问题"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "36d70ea222271b7959b1386b21a2c41f5df52667986a47f09b555cce98ac2115",
+  "standard_code": "MA-D3-GE-004",
+  "verified_prerequisites": []
+}

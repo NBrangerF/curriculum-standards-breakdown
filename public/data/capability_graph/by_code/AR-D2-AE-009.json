@@ -1,0 +1,439 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生使用多种工具、材料与媒介进行造型表现的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fd760546ac3b54ae",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9c2070f7d8f2f9db"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“使用多种工具、材料与媒介进行造型表现”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能使用多种工具、材料与媒介进行造型表现，能在作品中体现对形状、空间与构图的基本把握。",
+          "excerpt_hash": "5cfdf12f459d06212b942b154e76d32788eed546e4914edbab05b9449c95a94e",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "提供“材料站”（纸、布、自然物、可回收材料等）；教学中明确1个构图点（主体位置/前后关系/大小对比）；鼓励试错与改动。",
+          "excerpt_hash": "918c8eba5ee6cd1089a16df6d1567975d0c5826d1fc110120cb197be4c1afdc2",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-AE-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后使用多种工具、材料与媒介进行造型表现，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“使用多种工具、材料与媒介进行造型表现”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“提供“材料站”（纸、布、自然物、可回收材料等）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_44888d3565ff7170",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_25cc2de0079d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fbf879fc86b8f9dd",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_729d56807bf3e7bc",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5257fc4696e"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5773d3c34b5fac1a",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3e04e25bf4f8b710",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7f08a79245a04bd51982",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_66a45d74ea83"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_70c6b45240660bc3",
+      "textbook_grade": 4,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7ba2c1504de2ba10",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9056a7a14a02606cf0cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c7075fcbe13b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1d7f26ff680d57af",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a8c5f76d3f16d72c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b0ba55d2d28575d0ba65",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_aa7ce1e8a37f"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4a0a538012d57261",
+      "textbook_grade": 3,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9982a5254e36dd62",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b99acd98774d0dc454da",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_572122ddff26"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9a72f44c9f0c7435",
+      "textbook_grade": 3,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e5fa54c8aabfbdb1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_edc22a9a708956d31cdc",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a83a27f3607b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3637c861f3728bf7",
+      "textbook_grade": 4,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_12e38219b2a0d28e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_aa3aaa5d9032"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_19c3fbbc0c7e7882",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_d0b6afa92dc28263",
+      "evidence_refs": [
+        "standard:AR-D2-AE-009:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D2-AE-009",
+      "target_code": "AR-D3-AA-009",
+      "target_label": "能依据作品主题与表达需要，对自己和他人的作品进行基本分析与评价，说明理由并提出改进建议。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_9c2070f7d8f2f9db",
+      "component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "多种"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用多种工具、材料与媒介进行造型表现。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够使用多种工具、材料与媒介进行造型表现；优先采集：构图自评单、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能使用多种工具、材料与媒介进行造型表现，能在作品中体现对形状、空间与构图的基本把握。",
+          "excerpt_hash": "5cfdf12f459d06212b942b154e76d32788eed546e4914edbab05b9449c95a94e",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（多种）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_9fb5e59d16f6bbd5",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够使用多种工具、材料与媒介进行造型表现",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生使用多种工具、材料与媒介进行造型表现，并说明关键步骤、特征或依据。",
+      "label": "使用多种工具、材料与媒介进行造型表现",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够使用多种工具、材料与媒介进行造型表现；优先采集：构图自评单、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "使用多种工具、材料与媒介进行造型表现",
+          "excerpt_hash": "e8af053d17018e67b5d12e4098dfd12c8d3c992869aa512fcc3dd9c6e347e1f0",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用多种工具、材料与媒介进行造型表现"
+    },
+    {
+      "component_id": "lc_99e8810990810657",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在作品中体现对形状、空间与构图的基本把握",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在作品中体现对形状、空间与构图的基本把握，并说明关键步骤、特征或依据。",
+      "label": "在作品中体现对形状、空间与构图的基本把握",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在作品中体现对形状、空间与构图的基本把握；优先采集：构图自评单、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在作品中体现对形状、空间与构图的基本把握",
+          "excerpt_hash": "540c3c6c054d2ae06222714cd815f1af67c1daede4736f75671ff3fcf8f215b0",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在作品中体现对形状、空间与构图的基本把握"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a180b013aae7ef99",
+      "evidence_refs": [
+        "standard:AR-D2-AE-009:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D1-CP-009",
+      "source_label": "能选择喜欢的玩具或泥塑作品，尝试用数码相机/摄像设备拍摄并制作简单定格动画作品，体验“连续画面形成运动”的原理。",
+      "target_code": "AR-D2-AE-009",
+      "target_label": "能使用多种工具、材料与媒介进行造型表现，能在作品中体现对形状、空间与构图的基本把握。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5cfdf12f459d06212b942b154e76d32788eed546e4914edbab05b9449c95a94e",
+  "standard_code": "AR-D2-AE-009",
+  "verified_prerequisites": []
+}

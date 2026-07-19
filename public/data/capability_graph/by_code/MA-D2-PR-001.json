@@ -1,0 +1,384 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_72de996b66053595",
+        "lc_9ec1282d911542f9"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生综合运用所列知识解决真实或跨学科问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_91a42f1f0167b1bb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8f6f0aae05b8f1ed",
+        "hc_582305c7768933e9"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“综合运用所列知识解决真实或跨学科问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“综合运用所列知识解决真实或跨学科问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程，综合运用数与运算、图形测量、数据整理等知识解决问题，形成初步应用意识。",
+          "excerpt_hash": "b3276ffd271d52bfbfe37f6e90b8366b5adafa4bed0edbd46cce69dcfa40946f",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "重在把单项知识放入完整活动流程，关注问题提出、方法选择、合作分工和结果说明。",
+          "excerpt_hash": "67b575a9585373b22ba7933678971371cce0aa7ac07a27f47ce53f762bb4d793",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后综合运用所列知识解决真实或跨学科问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“综合运用所列知识解决真实或跨学科问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“重在把单项知识放入完整活动流程，关注问题提出、方法选择、合作分工和结果说明。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_9ec1282d911542f9"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在任务中表现出初步应用意识并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bbb02a2dc9f39a69",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“在任务中表现出初步应用意识并说明选择理由”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在任务中表现出初步应用意识并说明选择理由”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程，综合运用数与运算、图形测量、数据整理等知识解决问题，形成初步应用意识。",
+          "excerpt_hash": "b3276ffd271d52bfbfe37f6e90b8366b5adafa4bed0edbd46cce69dcfa40946f",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "重在把单项知识放入完整活动流程，关注问题提出、方法选择、合作分工和结果说明。",
+          "excerpt_hash": "67b575a9585373b22ba7933678971371cce0aa7ac07a27f47ce53f762bb4d793",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在任务中表现出初步应用意识并说明选择理由，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在任务中表现出初步应用意识并说明选择理由”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“重在把单项知识放入完整活动流程，关注问题提出、方法选择、合作分工和结果说明。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_45c3a3f370169334",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_833ce42b24662dbd40af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ec280d20713"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_96d95cbb27d9412e",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_85b17a058689e97d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f61cbfb4e176d8e2",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_52a674dfa86fe6ae",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e8d4a6502261fd8416ff",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_19111441ff11"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_056cb0cc3385568d",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e8afee091dc19350",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f7680a7d4b92"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7b7248af637aca0a",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_5f327a9385271121",
+      "evidence_refs": [
+        "standard:MA-D2-PR-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D2-PR-001",
+      "target_code": "MA-D3-PR-001",
+      "target_label": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_8f6f0aae05b8f1ed",
+      "component_ids": [
+        "lc_72de996b66053595"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实",
+        "综合"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生综合运用所列知识解决真实或跨学科问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程；使用数与运算、图形测量、数据整理等等知识时，能够综合运用所列知识解决真实或跨学科问题；优先采集：项目过程记录、数据或图示成果、小组汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程，综合运用数与运算、图形测量、数据整理等知识解决问题，形成初步应用意识。",
+          "excerpt_hash": "b3276ffd271d52bfbfe37f6e90b8366b5adafa4bed0edbd46cce69dcfa40946f",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实、综合）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_582305c7768933e9",
+      "component_ids": [
+        "lc_72de996b66053595"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生综合运用所列知识解决真实或跨学科问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程；使用数与运算、图形测量、数据整理等等知识时，能够综合运用所列知识解决真实或跨学科问题；优先采集：项目过程记录、数据或图示成果、小组汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程，综合运用数与运算、图形测量、数据整理等知识解决问题，形成初步应用意识。",
+          "excerpt_hash": "b3276ffd271d52bfbfe37f6e90b8366b5adafa4bed0edbd46cce69dcfa40946f",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "综合运用所列知识解决真实或跨学科问题；在任务中表现出初步应用意识并说明选择理由",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_72de996b66053595",
+      "component_type": "procedural",
+      "condition": "围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程；使用数与运算、图形测量、数据整理等等知识时",
+      "confidence": 0.72,
+      "description": "学生围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程；使用数与运算、图形测量、数据整理等等知识时，能够综合运用所列知识解决真实或跨学科问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程；使用数与运算、图形测量、数据整理等等知识时”的诊断任务，要求学生综合运用所列知识解决真实或跨学科问题，并说明关键步骤、特征或依据。",
+      "label": "综合运用所列知识解决真实或跨学科问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程；使用数与运算、图形测量、数据整理等等知识时，能够综合运用所列知识解决真实或跨学科问题；优先采集：项目过程记录、数据或图示成果、小组汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程，综合运用数与运算、图形测量、数据整理等知识解决问题",
+          "excerpt_hash": "1d1318d3c238801e3ab7146696339b4bdd550e347200cd71994ae4504435078f",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程，综合运用数与运算、图形测量、数据整理等知识解决问题"
+    },
+    {
+      "component_id": "lc_9ec1282d911542f9",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出初步应用意识并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出初步应用意识并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出初步应用意识并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出初步应用意识并说明选择理由；优先采集：项目过程记录、数据或图示成果、小组汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成初步应用意识",
+          "excerpt_hash": "cd723953b3a1505cbdf4781308f7154ae9e3c76efb2648f5da3f3dc60660e030",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成初步应用意识"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_4067c3101cbb66cc",
+      "evidence_refs": [
+        "standard:MA-D2-PR-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D1-PR-001",
+      "source_label": "能在熟悉的生活情境或数学游戏中，经历观察、操作、记录、交流等活动，综合运用数与运算、图形认识和数据分类等知识发现并解决简单问题，感受数学与生活…",
+      "target_code": "MA-D2-PR-001",
+      "target_label": "能围绕校园、家庭或社区中的简单真实问题，经历提出问题、收集信息、选择方法、合作解决和表达交流的过程，综合运用数与运算、图形测量、数据整理等知识…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b3276ffd271d52bfbfe37f6e90b8366b5adafa4bed0edbd46cce69dcfa40946f",
+  "standard_code": "MA-D2-PR-001",
+  "verified_prerequisites": []
+}

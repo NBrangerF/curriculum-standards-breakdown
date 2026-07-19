@@ -1,0 +1,543 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_ccdc620c6f9477a4",
+        "lc_670a1c19c5da2689"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生把握戏剧情境、结构、事件等概念进行创作和文本呈现的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_09fc72286366f12b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_373d42ab56b924d6",
+        "hc_8f1a95aff9e567a4"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“把握戏剧情境、结构、事件等概念进行创作和文本呈现”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“把握戏剧情境、结构、事件等概念进行创作和文本呈现”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在理解作品主题基础上形成舞台剧目演出构想；能把握戏剧情境、结构、事件等概念进行创作和文本呈现；能运用教育戏剧和教育剧场方法设计学习或主题活动；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "ec46129768d88acd42904f7d309ef028b79c2735181a6eea9dcc85234f82cec7",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-011:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用表演、创作、欣赏和应用四条证据线评价戏剧学习。",
+          "excerpt_hash": "c60bb250e9bec3774ffcaf7bda10de3069ae24b0259455be3b8ea06068510b5d",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-CU-011:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后把握戏剧情境、结构、事件等概念进行创作和文本呈现，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“把握戏剧情境、结构、事件等概念进行创作和文本呈现”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用表演、创作、欣赏和应用四条证据线评价戏剧学习。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_ccdc620c6f9477a4",
+        "lc_670a1c19c5da2689",
+        "lc_3e11da13bd2ecb7f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生把握戏剧情境、结构、事件等概念进行创作和文本呈现的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ca8f339bc17b639e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_373d42ab56b924d6",
+        "hc_8f1a95aff9e567a4"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“把握戏剧情境、结构、事件等概念进行创作和文本呈现”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“把握戏剧情境、结构、事件等概念进行创作和文本呈现”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在理解作品主题基础上形成舞台剧目演出构想；能把握戏剧情境、结构、事件等概念进行创作和文本呈现；能运用教育戏剧和教育剧场方法设计学习或主题活动；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "ec46129768d88acd42904f7d309ef028b79c2735181a6eea9dcc85234f82cec7",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-011:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用表演、创作、欣赏和应用四条证据线评价戏剧学习。",
+          "excerpt_hash": "c60bb250e9bec3774ffcaf7bda10de3069ae24b0259455be3b8ea06068510b5d",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-CU-011:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后把握戏剧情境、结构、事件等概念进行创作和文本呈现，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“把握戏剧情境、结构、事件等概念进行创作和文本呈现”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“用表演、创作、欣赏和应用四条证据线评价戏剧学习。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_8aa417c6bb9c4571"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述艺术要素的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_04ea65d49afa9daa",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述艺术要素”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述艺术要素”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在理解作品主题基础上形成舞台剧目演出构想；能把握戏剧情境、结构、事件等概念进行创作和文本呈现；能运用教育戏剧和教育剧场方法设计学习或主题活动；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "ec46129768d88acd42904f7d309ef028b79c2735181a6eea9dcc85234f82cec7",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-011:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用表演、创作、欣赏和应用四条证据线评价戏剧学习。",
+          "excerpt_hash": "c60bb250e9bec3774ffcaf7bda10de3069ae24b0259455be3b8ea06068510b5d",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-CU-011:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述艺术要素，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述艺术要素”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用表演、创作、欣赏和应用四条证据线评价戏剧学习。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_ccdc620c6f9477a4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生把握戏剧情境、结构、事件等概念进行创作和文本呈现的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ef6a7abe746837e8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_373d42ab56b924d6",
+        "hc_8f1a95aff9e567a4"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“把握戏剧情境、结构、事件等概念进行创作和文本呈现”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“把握戏剧情境、结构、事件等概念进行创作和文本呈现”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在理解作品主题基础上形成舞台剧目演出构想；能把握戏剧情境、结构、事件等概念进行创作和文本呈现；能运用教育戏剧和教育剧场方法设计学习或主题活动；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "ec46129768d88acd42904f7d309ef028b79c2735181a6eea9dcc85234f82cec7",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-011:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用表演、创作、欣赏和应用四条证据线评价戏剧学习。",
+          "excerpt_hash": "c60bb250e9bec3774ffcaf7bda10de3069ae24b0259455be3b8ea06068510b5d",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-CU-011:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后把握戏剧情境、结构、事件等概念进行创作和文本呈现，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“把握戏剧情境、结构、事件等概念进行创作和文本呈现”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用表演、创作、欣赏和应用四条证据线评价戏剧学习。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d3461b92864adb0e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_010c1e047f00dd19a403",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a98e81d5ea76"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5c9c27ac05203638",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b0b04685666c51fa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2efa5fc22fa7520b01b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_86eb84faa252"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0805abf2f5db09ed",
+      "textbook_grade": 7,
+      "textbook_subject": "美术",
+      "textbook_title": "美术7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_07296e4e468e5842",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4e29c3897ac01b25a084",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d35e7be5354c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a883040b0334e9a7",
+      "textbook_grade": 7,
+      "textbook_subject": "美术",
+      "textbook_title": "美术7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_92974746f63d011b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a89e5efa283f5034b420",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a99675852c59"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b3fadfb25eca49fe",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_6feeef9da7ae8fb4",
+      "evidence_refs": [
+        "standard:AR-H4G7-CU-011:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-H4G7-CU-011",
+      "target_code": "AR-H4G8-CU-009",
+      "target_label": "能运用教育戏剧和教育剧场方法设计学习或主题活动；能分析观赏作品特色与文化背景，条理表达观剧见解；能把握戏剧情境、结构、事件等概念进行创作和文本…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_373d42ab56b924d6",
+      "component_ids": [
+        "lc_ccdc620c6f9477a4"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生把握戏剧情境、结构、事件等概念进行创作和文本呈现。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够把握戏剧情境、结构、事件等概念进行创作和文本呈现；优先采集：演出记录、脚本文本、观剧心得、活动方案。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在理解作品主题基础上形成舞台剧目演出构想；能把握戏剧情境、结构、事件等概念进行创作和文本呈现；能运用教育戏剧和教育剧场方法设计学习或主题活动；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "ec46129768d88acd42904f7d309ef028b79c2735181a6eea9dcc85234f82cec7",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_8f1a95aff9e567a4",
+      "component_ids": [
+        "lc_ccdc620c6f9477a4",
+        "lc_670a1c19c5da2689",
+        "lc_3e11da13bd2ecb7f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "创作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生把握戏剧情境、结构、事件等概念进行创作和文本呈现。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够把握戏剧情境、结构、事件等概念进行创作和文本呈现；优先采集：演出记录、脚本文本、观剧心得、活动方案。",
+        "学生能够运用教育戏剧和教育剧场方法设计学习或主题活动；优先采集：演出记录、脚本文本、观剧心得、活动方案。",
+        "学生能够完成基础表现或创作；优先采集：演出记录、脚本文本、观剧心得、活动方案。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在理解作品主题基础上形成舞台剧目演出构想；能把握戏剧情境、结构、事件等概念进行创作和文本呈现；能运用教育戏剧和教育剧场方法设计学习或主题活动；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "ec46129768d88acd42904f7d309ef028b79c2735181a6eea9dcc85234f82cec7",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、创作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_207864631adc70b7",
+      "component_type": "language",
+      "condition": "在理解作品主题基础上",
+      "confidence": 0.72,
+      "description": "学生在理解作品主题基础上，能够在任务中表现出舞台剧目演出构想并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在理解作品主题基础上”的诊断任务，要求学生在任务中表现出舞台剧目演出构想并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出舞台剧目演出构想并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在理解作品主题基础上，能够在任务中表现出舞台剧目演出构想并说明选择理由；优先采集：演出记录、脚本文本、观剧心得、活动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在理解作品主题基础上形成舞台剧目演出构想；能把握戏剧情境、结构、事件等概念进行创作和文本呈现；能运用教育戏剧和教育剧场方法设计学习或主题活动；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "ec46129768d88acd42904f7d309ef028b79c2735181a6eea9dcc85234f82cec7",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成舞台剧目演出构想"
+    },
+    {
+      "component_id": "lc_ccdc620c6f9477a4",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够把握戏剧情境、结构、事件等概念进行创作和文本呈现",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生把握戏剧情境、结构、事件等概念进行创作和文本呈现，并说明关键步骤、特征或依据。",
+      "label": "把握戏剧情境、结构、事件等概念进行创作和文本呈现",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够把握戏剧情境、结构、事件等概念进行创作和文本呈现；优先采集：演出记录、脚本文本、观剧心得、活动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "把握戏剧情境、结构、事件等概念进行创作和文本呈现",
+          "excerpt_hash": "50a7e4245f8980c6f2cdb3ae6c1c487b7b43a161a553dfdca55335a51add82d0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "把握戏剧情境、结构、事件等概念进行创作和文本呈现"
+    },
+    {
+      "component_id": "lc_670a1c19c5da2689",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用教育戏剧和教育剧场方法设计学习或主题活动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用教育戏剧和教育剧场方法设计学习或主题活动，并说明关键步骤、特征或依据。",
+      "label": "运用教育戏剧和教育剧场方法设计学习或主题活动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用教育戏剧和教育剧场方法设计学习或主题活动；优先采集：演出记录、脚本文本、观剧心得、活动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用教育戏剧和教育剧场方法设计学习或主题活动",
+          "excerpt_hash": "eb2c0f0b4885f5dab8d31e68a8135d645915d163cdbe833d8ffa9b94eed38824",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用教育戏剧和教育剧场方法设计学习或主题活动"
+    },
+    {
+      "component_id": "lc_8aa417c6bb9c4571",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述艺术要素",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述艺术要素，并说明关键步骤、特征或依据。",
+      "label": "描述艺术要素",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述艺术要素；优先采集：演出记录、脚本文本、观剧心得、活动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述艺术要素",
+          "excerpt_hash": "710935e4df1532334f250c3d052674e266294edd15da0e6096f7bc2137ca8425",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述艺术要素"
+    },
+    {
+      "component_id": "lc_3e11da13bd2ecb7f",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成基础表现或创作",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成基础表现或创作，并说明关键步骤、特征或依据。",
+      "label": "完成基础表现或创作",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成基础表现或创作；优先采集：演出记录、脚本文本、观剧心得、活动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成基础表现或创作",
+          "excerpt_hash": "c6c7aa6f0fcb88782073b2bfe6ef8341b9660a99662a1a2b49152a8e04a101f6",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CU-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成基础表现或创作"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1153,
+      "edge_id": "pc_3f856aa014a5fb73",
+      "evidence_refs": [
+        "standard:AR-H4G7-CU-011:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D3-CU-008",
+      "source_label": "能有表现力地演唱富含中华优秀传统文化特色的民歌、戏曲唱段及中外优秀歌曲，理解作品主题与文化内涵，并进行恰当的情感表达与个性化诠释。",
+      "target_code": "AR-H4G7-CU-011",
+      "target_label": "能在理解作品主题基础上形成舞台剧目演出构想；能把握戏剧情境、结构、事件等概念进行创作和文本呈现；能运用教育戏剧和教育剧场方法设计学习或主题活动…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ec46129768d88acd42904f7d309ef028b79c2735181a6eea9dcc85234f82cec7",
+  "standard_code": "AR-H4G7-CU-011",
+  "verified_prerequisites": []
+}

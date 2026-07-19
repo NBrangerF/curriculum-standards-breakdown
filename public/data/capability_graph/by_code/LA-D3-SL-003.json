@@ -1,0 +1,191 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_9bd933caa01acd6c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8883310f12446bc7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a37b40e5c01c3e51"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览）”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览），能完成分工、物资准备、现场执行与总结。",
+          "excerpt_hash": "e0777f5bf0cdc552e4061b64f25d0c311b67e6d2535841481430c7b3cd94c9e7",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-SL-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“目标—对象—流程—物资—风险—总结”六要素；现场设置安全员；活动后收集数据并复盘。",
+          "excerpt_hash": "7ddbf8fae721c67a53819775127955780813c2996c1799bc34679f13a1c72822",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-SL-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览）”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用“目标—对象—流程—物资—风险—总结”六要素”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1077,
+      "connection_id": "fc_9d2d29bc7d7af5a5",
+      "evidence_refs": [
+        "standard:LA-H4G7-SL-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-SL-003",
+      "target_code": "LA-H4G7-SL-004",
+      "target_label": "能选择一至两项现代服务业劳动项目参与体验；能根据服务业劳动特征和过程发现有价值的问题；设计合理且有创意的解决方案；能按规范完成任务并说明工具、…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a37b40e5c01c3e51",
+      "component_ids": [
+        "lc_9bd933caa01acd6c",
+        "lc_761cef4e710e14e2"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览）；优先采集：策划书、现场记录、总结报告。",
+        "学生能够完成分工、物资准备、现场执行与总结；优先采集：策划书、现场记录、总结报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览），能完成分工、物资准备、现场执行与总结。",
+          "excerpt_hash": "e0777f5bf0cdc552e4061b64f25d0c311b67e6d2535841481430c7b3cd94c9e7",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-SL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览）；完成分工、物资准备、现场执行与总结",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_9bd933caa01acd6c",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览），并说明关键步骤、特征或依据。",
+      "label": "策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览）；优先采集：策划书、现场记录、总结报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览）",
+          "excerpt_hash": "c49de14fd54710d2cd395437aba0fffd05be40b363a77776c7c595b0a5c41d90",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-SL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览）"
+    },
+    {
+      "component_id": "lc_761cef4e710e14e2",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成分工、物资准备、现场执行与总结",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成分工、物资准备、现场执行与总结，并说明关键步骤、特征或依据。",
+      "label": "完成分工、物资准备、现场执行与总结",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成分工、物资准备、现场执行与总结；优先采集：策划书、现场记录、总结报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成分工、物资准备、现场执行与总结",
+          "excerpt_hash": "a9281ac32fbca763766be6e83d02447b701292b39451adbae03a3a60c4137a5a",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-SL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成分工、物资准备、现场执行与总结"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_c4050001eb69e632",
+      "evidence_refs": [
+        "standard:LA-D3-SL-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-SL-003",
+      "source_label": "能在模拟或真实场景中完成物品分拣、打包与贴签，能按规则分类并保证信息清晰，体验服务业的细致与责任。",
+      "target_code": "LA-D3-SL-003",
+      "target_label": "能策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览），能完成分工、物资准备、现场执行与总结。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e0777f5bf0cdc552e4061b64f25d0c311b67e6d2535841481430c7b3cd94c9e7",
+  "standard_code": "LA-D3-SL-003",
+  "verified_prerequisites": []
+}

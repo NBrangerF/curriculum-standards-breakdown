@@ -1,0 +1,307 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_c0aa4bacaa414bcf"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生按要求饮水、饮食的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a4869b6c1d9d4abc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“按要求饮水、饮食”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能按要求饮水、饮食，保持个人卫生；知道生命孕育过程和人体主要器官；知道视力异常的症状，能定期检查视力，正确配戴眼镜。",
+          "excerpt_hash": "7f8879041e7f1d74a81ba00d269217c7e0b08a8f9bf30865fe5386187c2c6595",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "（健康教育教学提示）1) 创设生活化情境，把健康教育与学生真实生活链接；2) 指导学生在锻炼中体验运动乐趣，参与户外游戏/身体活动，形成锻炼习惯；3) 用学习单/任务单/实践活动帮助掌握健康知识与技能；4) 结合体育活动与日常生活，培养安全意识与自我保护能力。",
+          "excerpt_hash": "712acf24ab220ab0065215191471a11c5a7bd014940d474767bb959a3a776fc8",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D1-HB-013:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后按要求饮水、饮食，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“按要求饮水、饮食”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“（健康教育教学提示）1) 创设生活化情境，把健康教育与学生真实生活链接”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b14f43b48bf15669",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_729e6607eab953ee2165",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_1_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_ee2b7c40f4dccca4",
+      "textbook_grade": 1,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康1年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5de4acaa0d3cb476",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c6389a9109e39310cf86",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_2_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_73d28c16a2eec793",
+      "textbook_grade": 2,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康2年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_744153b5a654c112",
+      "evidence_refs": [
+        "standard:PE-D1-HB-013:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D1-HB-013",
+      "target_code": "PE-D2-HB-013",
+      "target_label": "了解运动伤病的预防与简单处理方法（热身、放松、扭伤处理等）。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_c2dafae00536896f",
+      "component_ids": [
+        "lc_c59a43fa33bda721",
+        "lc_9d5e7c6c2fc4d84f",
+        "lc_e6f183035677b4c1"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出生命孕育过程和人体主要器官。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出生命孕育过程和人体主要器官；优先采集：任务包作品、家校记录。",
+        "学生能够准确说出视力异常的症状；优先采集：任务包作品、家校记录。",
+        "学生能够定期检查视力，正确配戴眼镜；优先采集：任务包作品、家校记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能按要求饮水、饮食，保持个人卫生；知道生命孕育过程和人体主要器官；知道视力异常的症状，能定期检查视力，正确配戴眼镜。",
+          "excerpt_hash": "7f8879041e7f1d74a81ba00d269217c7e0b08a8f9bf30865fe5386187c2c6595",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c0aa4bacaa414bcf",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够按要求饮水、饮食",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生按要求饮水、饮食，并说明关键步骤、特征或依据。",
+      "label": "按要求饮水、饮食",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够按要求饮水、饮食；优先采集：任务包作品、家校记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "按要求饮水、饮食",
+          "excerpt_hash": "cb81aaea42f65e0a3d506d9e6d6e61a716403be0c2224629207c03679abffe4a",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按要求饮水、饮食"
+    },
+    {
+      "component_id": "lc_b3239d7d87df20e1",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够保持个人卫生",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生保持个人卫生，并说明关键步骤、特征或依据。",
+      "label": "保持个人卫生",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够保持个人卫生；优先采集：任务包作品、家校记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "保持个人卫生",
+          "excerpt_hash": "92e645fe65f421702a117c0705a97035e8ddd2c8f99621c386d3a92a46a1ab7b",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "保持个人卫生"
+    },
+    {
+      "component_id": "lc_c59a43fa33bda721",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出生命孕育过程和人体主要器官",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出生命孕育过程和人体主要器官，并说明关键步骤、特征或依据。",
+      "label": "准确说出生命孕育过程和人体主要器官",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出生命孕育过程和人体主要器官；优先采集：任务包作品、家校记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道生命孕育过程和人体主要器官",
+          "excerpt_hash": "6574c1a24735a0a6cafae6fbcc1911091b5af34e8804350ba3f9d5d746da5b82",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道生命孕育过程和人体主要器官"
+    },
+    {
+      "component_id": "lc_9d5e7c6c2fc4d84f",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出视力异常的症状",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出视力异常的症状，并说明关键步骤、特征或依据。",
+      "label": "准确说出视力异常的症状",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出视力异常的症状；优先采集：任务包作品、家校记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道视力异常的症状",
+          "excerpt_hash": "43d28bfc1bd5300b9599557b60459df1ef301caabfecd67173cee3303785b905",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道视力异常的症状"
+    },
+    {
+      "component_id": "lc_e6f183035677b4c1",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够定期检查视力，正确配戴眼镜",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生定期检查视力，正确配戴眼镜，并说明关键步骤、特征或依据。",
+      "label": "定期检查视力，正确配戴眼镜",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够定期检查视力，正确配戴眼镜；优先采集：任务包作品、家校记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "定期检查视力，正确配戴眼镜",
+          "excerpt_hash": "521c4728292be1c156365b5e81f2ac96a1c61ee1842600b8c4afffd093622dfd",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "定期检查视力，正确配戴眼镜"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "7f8879041e7f1d74a81ba00d269217c7e0b08a8f9bf30865fe5386187c2c6595",
+  "standard_code": "PE-D1-HB-013",
+  "verified_prerequisites": []
+}

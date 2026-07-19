@@ -1,0 +1,335 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_05b127a8a22e24fe"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_15de6c18d98f6fca",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5da8236bad42907b"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在具体情境中辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉并提出改正办法，逐步形成诚实守信与知错就改的品质。",
+          "excerpt_hash": "e1da45b89cb3ba61e3b1265eebcb9ca6107ddefb3ae0670671a75d84da0e4543",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-MOR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用故事与生活案例引导“为什么不对”；引导学生用“事实—感受—改正”三步表达；对承认错误给予安全感（不羞辱、重在改正）。",
+          "excerpt_hash": "5214e2a5875592a92776f34005061ee2c4908b42c136a89f19029532ff14be84",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D1-MOR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用故事与生活案例引导“为什么不对””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_05b127a8a22e24fe"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4a779806f305f3ed",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5da8236bad42907b"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在具体情境中辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉并提出改正办法，逐步形成诚实守信与知错就改的品质。",
+          "excerpt_hash": "e1da45b89cb3ba61e3b1265eebcb9ca6107ddefb3ae0670671a75d84da0e4543",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-MOR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用故事与生活案例引导“为什么不对”；引导学生用“事实—感受—改正”三步表达；对承认错误给予安全感（不羞辱、重在改正）。",
+          "excerpt_hash": "5214e2a5875592a92776f34005061ee2c4908b42c136a89f19029532ff14be84",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D1-MOR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用故事与生活案例引导“为什么不对””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_71eeae33d143876c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7ac003a6d2fbc0550980",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_565199064cf5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a8cd1c06fc4166b4",
+      "textbook_grade": 2,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8d04ae8ec4010f69",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_cfcb4ce7864d417c80b2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_17b846efdf7a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f9d3a9d4795fb2cf",
+      "textbook_grade": 1,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_be1b963e4783a45e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e0415d58f2a7c2ec1a23",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_88807fd2045b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b0742e693a9d96bc",
+      "textbook_grade": 2,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c9f40e0add41e217",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f7992bf9ce09b3760ce8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_50dfe7e5b313"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_33531b3889df7060",
+      "textbook_grade": 1,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_5e05cbff6d9d4a96",
+      "evidence_refs": [
+        "standard:ML-D1-MOR-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D1-MOR-001",
+      "target_code": "ML-D2-MOR-011",
+      "target_label": "能用生活例子解释社会主义核心价值观中的若干关键词，并在班级与日常生活中完成至少1项对应的实际行动（如友善互助、诚信守约）。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_5da8236bad42907b",
+      "component_ids": [
+        "lc_05b127a8a22e24fe",
+        "lc_eb3e1fe51f0ed109"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在具体情境中，能够辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉；优先采集：情境讨论表现、教师观察清单（诚实表达/改正行动）、学生自评。",
+        "学生在具体情境中，能够提出改正办法，逐步形成诚实守信与知错就改的品质；优先采集：情境讨论表现、教师观察清单（诚实表达/改正行动）、学生自评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在具体情境中辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉并提出改正办法，逐步形成诚实守信与知错就改的品质。",
+          "excerpt_hash": "e1da45b89cb3ba61e3b1265eebcb9ca6107ddefb3ae0670671a75d84da0e4543",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-MOR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_05b127a8a22e24fe",
+      "component_type": "language",
+      "condition": "在具体情境中",
+      "confidence": 0.72,
+      "description": "学生在具体情境中，能够辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在具体情境中”的诊断任务，要求学生辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉，并说明关键步骤、特征或依据。",
+      "label": "辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在具体情境中，能够辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉；优先采集：情境讨论表现、教师观察清单（诚实表达/改正行动）、学生自评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在具体情境中辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉并提出改正办法，逐步形成诚实守信与知错就改的品质。",
+          "excerpt_hash": "e1da45b89cb3ba61e3b1265eebcb9ca6107ddefb3ae0670671a75d84da0e4543",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-MOR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉"
+    },
+    {
+      "component_id": "lc_eb3e1fe51f0ed109",
+      "component_type": "conceptual",
+      "condition": "在具体情境中",
+      "confidence": 0.72,
+      "description": "学生在具体情境中，能够提出改正办法，逐步形成诚实守信与知错就改的品质",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在具体情境中”的诊断任务，要求学生提出改正办法，逐步形成诚实守信与知错就改的品质，并说明关键步骤、特征或依据。",
+      "label": "提出改正办法，逐步形成诚实守信与知错就改的品质",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在具体情境中，能够提出改正办法，逐步形成诚实守信与知错就改的品质；优先采集：情境讨论表现、教师观察清单（诚实表达/改正行动）、学生自评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在具体情境中辨别“对/不对”“该/不该”，做错事后能如实表达、愿意道歉并提出改正办法，逐步形成诚实守信与知错就改的品质。",
+          "excerpt_hash": "e1da45b89cb3ba61e3b1265eebcb9ca6107ddefb3ae0670671a75d84da0e4543",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-MOR-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出改正办法，逐步形成诚实守信与知错就改的品质"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e1da45b89cb3ba61e3b1265eebcb9ca6107ddefb3ae0670671a75d84da0e4543",
+  "standard_code": "ML-D1-MOR-001",
+  "verified_prerequisites": []
+}

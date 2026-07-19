@@ -1,0 +1,503 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_b3b97fca73082201"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明观点、方法或表达选择的依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_410d669266357383",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_56935f2f87f24c20"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点、方法或表达选择的依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明观点、方法或表达选择的依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在语言文字运用情境中发现、感受和表现语言文字的魅力；能围绕汉字、书法、成语典故、对联、诗文等内容策划并开展语文学习、展示和交流活动；能加深对语言文字及其文化内涵的认识和理解；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "e3a5429efe48a111323a2c6130b98d6d2686f9d0d349fc6af1a281f79019ff7a",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-LI-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将语言文字积累、文化内涵理解和展示交流整合为一个真实任务。",
+          "excerpt_hash": "bdff1d18d5a2646ea306400e9fa0d2780ece570c497f837b801ebfb016d5e5b9",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-LI-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明观点、方法或表达选择的依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明观点、方法或表达选择的依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“将语言文字积累、文化内涵理解和展示交流整合为一个真实任务。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_d365f4f18b00a5ca"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生围绕汉字、书法、成语典故、对联、诗文等内容策划的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_db52ca0d6cd98b65",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_bffcecac607dcea3"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“围绕汉字、书法、成语典故、对联、诗文等内容策划”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“围绕汉字、书法、成语典故、对联、诗文等内容策划”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在语言文字运用情境中发现、感受和表现语言文字的魅力；能围绕汉字、书法、成语典故、对联、诗文等内容策划并开展语文学习、展示和交流活动；能加深对语言文字及其文化内涵的认识和理解；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "e3a5429efe48a111323a2c6130b98d6d2686f9d0d349fc6af1a281f79019ff7a",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-LI-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将语言文字积累、文化内涵理解和展示交流整合为一个真实任务。",
+          "excerpt_hash": "bdff1d18d5a2646ea306400e9fa0d2780ece570c497f837b801ebfb016d5e5b9",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-LI-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后围绕汉字、书法、成语典故、对联、诗文等内容策划，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“围绕汉字、书法、成语典故、对联、诗文等内容策划”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“将语言文字积累、文化内涵理解和展示交流整合为一个真实任务。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_c549dfe2e02f835d",
+        "lc_b3b97fca73082201"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生开展语文学习、展示和交流活动的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ad7daaceb54eeb3c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_56935f2f87f24c20",
+        "hc_bffcecac607dcea3"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“开展语文学习、展示和交流活动”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“开展语文学习、展示和交流活动”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在语言文字运用情境中发现、感受和表现语言文字的魅力；能围绕汉字、书法、成语典故、对联、诗文等内容策划并开展语文学习、展示和交流活动；能加深对语言文字及其文化内涵的认识和理解；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "e3a5429efe48a111323a2c6130b98d6d2686f9d0d349fc6af1a281f79019ff7a",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-LI-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将语言文字积累、文化内涵理解和展示交流整合为一个真实任务。",
+          "excerpt_hash": "bdff1d18d5a2646ea306400e9fa0d2780ece570c497f837b801ebfb016d5e5b9",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-LI-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后开展语文学习、展示和交流活动，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“开展语文学习、展示和交流活动”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“将语言文字积累、文化内涵理解和展示交流整合为一个真实任务。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_25122342ec9ba615",
+        "lc_eb70aa37effc6544"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生发现、感受和表现语言文字的魅力的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_09345ca67f30079f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_bffcecac607dcea3"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“发现、感受和表现语言文字的魅力”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“发现、感受和表现语言文字的魅力”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在语言文字运用情境中发现、感受和表现语言文字的魅力；能围绕汉字、书法、成语典故、对联、诗文等内容策划并开展语文学习、展示和交流活动；能加深对语言文字及其文化内涵的认识和理解；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "e3a5429efe48a111323a2c6130b98d6d2686f9d0d349fc6af1a281f79019ff7a",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-LI-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将语言文字积累、文化内涵理解和展示交流整合为一个真实任务。",
+          "excerpt_hash": "bdff1d18d5a2646ea306400e9fa0d2780ece570c497f837b801ebfb016d5e5b9",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-LI-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后发现、感受和表现语言文字的魅力，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“发现、感受和表现语言文字的魅力”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“将语言文字积累、文化内涵理解和展示交流整合为一个真实任务。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9f82fcd1d1f2b260",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f4fb0c2a21f9"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0fb7983518710ace",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_29dc35bf2acca6ec",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_be04d8b55a4f"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d5058d79ff37d1bb",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_5b859cd6b428ba7a",
+      "evidence_refs": [
+        "standard:CN-H4G8-LI-008:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-H4G8-LI-008",
+      "target_code": "CN-H4G9-LI-009",
+      "target_label": "能围绕汉字、书法、成语典故、对联、诗文等内容策划并开展语文学习、展示和交流活动；能在语言文字运用情境中发现、感受和表现语言文字的魅力；能加深对…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_56935f2f87f24c20",
+      "component_ids": [
+        "lc_b3b97fca73082201"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点、方法或表达选择的依据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明观点、方法或表达选择的依据；优先采集：活动方案、展示作品、交流记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在语言文字运用情境中发现、感受和表现语言文字的魅力；能围绕汉字、书法、成语典故、对联、诗文等内容策划并开展语文学习、展示和交流活动；能加深对语言文字及其文化内涵的认识和理解；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "e3a5429efe48a111323a2c6130b98d6d2686f9d0d349fc6af1a281f79019ff7a",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-LI-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_bffcecac607dcea3",
+      "component_ids": [
+        "lc_25122342ec9ba615",
+        "lc_d365f4f18b00a5ca",
+        "lc_c549dfe2e02f835d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生发现、感受和表现语言文字的魅力。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在语言文字运用情境中，能够发现、感受和表现语言文字的魅力；优先采集：活动方案、展示作品、交流记录。",
+        "学生能够围绕汉字、书法、成语典故、对联、诗文等内容策划；优先采集：活动方案、展示作品、交流记录。",
+        "学生能够开展语文学习、展示和交流活动；优先采集：活动方案、展示作品、交流记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在语言文字运用情境中发现、感受和表现语言文字的魅力；能围绕汉字、书法、成语典故、对联、诗文等内容策划并开展语文学习、展示和交流活动；能加深对语言文字及其文化内涵的认识和理解；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "e3a5429efe48a111323a2c6130b98d6d2686f9d0d349fc6af1a281f79019ff7a",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-LI-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_25122342ec9ba615",
+      "component_type": "language",
+      "condition": "在语言文字运用情境中",
+      "confidence": 0.72,
+      "description": "学生在语言文字运用情境中，能够发现、感受和表现语言文字的魅力",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在语言文字运用情境中”的诊断任务，要求学生发现、感受和表现语言文字的魅力，并说明关键步骤、特征或依据。",
+      "label": "发现、感受和表现语言文字的魅力",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在语言文字运用情境中，能够发现、感受和表现语言文字的魅力；优先采集：活动方案、展示作品、交流记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在语言文字运用情境中发现、感受和表现语言文字的魅力；能围绕汉字、书法、成语典故、对联、诗文等内容策划并开展语文学习、展示和交流活动；能加深对语言文字及其文化内涵的认识和理解；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "e3a5429efe48a111323a2c6130b98d6d2686f9d0d349fc6af1a281f79019ff7a",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-LI-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "发现、感受和表现语言文字的魅力"
+    },
+    {
+      "component_id": "lc_d365f4f18b00a5ca",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够围绕汉字、书法、成语典故、对联、诗文等内容策划",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生围绕汉字、书法、成语典故、对联、诗文等内容策划，并说明关键步骤、特征或依据。",
+      "label": "围绕汉字、书法、成语典故、对联、诗文等内容策划",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够围绕汉字、书法、成语典故、对联、诗文等内容策划；优先采集：活动方案、展示作品、交流记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "围绕汉字、书法、成语典故、对联、诗文等内容策划",
+          "excerpt_hash": "286ad63e54681d81421e352ec4c324153274ea7674d373ca8cbbf5cc407d0e0d",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-LI-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "围绕汉字、书法、成语典故、对联、诗文等内容策划"
+    },
+    {
+      "component_id": "lc_c549dfe2e02f835d",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够开展语文学习、展示和交流活动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生开展语文学习、展示和交流活动，并说明关键步骤、特征或依据。",
+      "label": "开展语文学习、展示和交流活动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够开展语文学习、展示和交流活动；优先采集：活动方案、展示作品、交流记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "开展语文学习、展示和交流活动",
+          "excerpt_hash": "8260741184f109601cc0554bf5a543850be229a46982315ce15135a9984735b0",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-LI-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "开展语文学习、展示和交流活动"
+    },
+    {
+      "component_id": "lc_eb70aa37effc6544",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够加深对语言文字及其文化内涵的认识和理解",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生加深对语言文字及其文化内涵的认识和理解，并说明关键步骤、特征或依据。",
+      "label": "加深对语言文字及其文化内涵的认识和理解",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够加深对语言文字及其文化内涵的认识和理解；优先采集：活动方案、展示作品、交流记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "加深对语言文字及其文化内涵的认识和理解",
+          "excerpt_hash": "82f065d3ca5253a7fcd49decbdeba13f15f27528a540a8e2a681d26607392de1",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-LI-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "加深对语言文字及其文化内涵的认识和理解"
+    },
+    {
+      "component_id": "lc_c0e36e7715651203",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够整合材料",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合材料，并说明关键步骤、特征或依据。",
+      "label": "整合材料",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够整合材料；优先采集：活动方案、展示作品、交流记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "整合材料",
+          "excerpt_hash": "c6c8b0ffb05ba398d2a4a4fb4f067efe130af369012aceee836b9c0c870e2710",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-LI-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "整合材料"
+    },
+    {
+      "component_id": "lc_b3b97fca73082201",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明观点、方法或表达选择的依据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点、方法或表达选择的依据，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明观点、方法或表达选择的依据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明观点、方法或表达选择的依据；优先采集：活动方案、展示作品、交流记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明观点、方法或表达选择的依据",
+          "excerpt_hash": "04a7ab3f43a7836e4d3a1304eb39d0a43cdf66ecd30248e80d1cdebbd172b84a",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-LI-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明观点、方法或表达选择的依据"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a96f75eb9f40e18d",
+      "evidence_refs": [
+        "standard:CN-H4G8-LI-008:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-H4G7-LI-007",
+      "source_label": "能在语言文字运用情境中发现、感受和表现语言文字的魅力；能加深对语言文字及其文化内涵的认识和理解；能围绕汉字、书法、成语典故、对联、诗文等内容策…",
+      "target_code": "CN-H4G8-LI-008",
+      "target_label": "能在语言文字运用情境中发现、感受和表现语言文字的魅力；能围绕汉字、书法、成语典故、对联、诗文等内容策划并开展语文学习、展示和交流活动；能加深对…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e3a5429efe48a111323a2c6130b98d6d2686f9d0d349fc6af1a281f79019ff7a",
+  "standard_code": "CN-H4G8-LI-008",
+  "verified_prerequisites": []
+}

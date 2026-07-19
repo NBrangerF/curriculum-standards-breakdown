@@ -1,0 +1,144 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_3cd05b382e017330"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0441c2a47dd51c3e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_49655e0271ad8496"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位。",
+          "excerpt_hash": "993f9fe246da0d59acc31bb4b5b20d1b9eebb9d33f51acd7ab3bc13a3ec12918",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把“干擦/湿擦”区分清楚：先干擦浮灰再湿擦污渍；给学生一张“哪里容易漏擦”的提示卡（桌角/椅背/边缘）。",
+          "excerpt_hash": "8e4b0b851c801a1f32ec07d32042b1336c24697e451d7dca02ddb7f03c157c45",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-DL-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“把“干擦/湿擦”区分清楚：先干擦浮灰再湿擦污渍”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_397ebbea2447e43b",
+      "evidence_refs": [
+        "standard:LA-D1-DL-002:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D1-DL-002",
+      "target_code": "LA-D2-DL-002",
+      "target_label": "能对衣物进行基本分类（深浅色/内外衣/脏污程度），完成小件衣物手洗或在成人指导下使用洗衣机进行洗涤与晾晒，能保持过程卫生并节约用水用电。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_49655e0271ad8496",
+      "component_ids": [
+        "lc_3cd05b382e017330"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位；优先采集：同伴互查单、教师观察、前后对比照片（可选）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位。",
+          "excerpt_hash": "993f9fe246da0d59acc31bb4b5b20d1b9eebb9d33f51acd7ab3bc13a3ec12918",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3cd05b382e017330",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位，并说明关键步骤、特征或依据。",
+      "label": "使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位；优先采集：同伴互查单、教师观察、前后对比照片（可选）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位",
+          "excerpt_hash": "8e13c55ee0f51620dc7a3177397b1e0c01f70747e14c973afdf6a600328e89ce",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "993f9fe246da0d59acc31bb4b5b20d1b9eebb9d33f51acd7ab3bc13a3ec12918",
+  "standard_code": "LA-D1-DL-002",
+  "verified_prerequisites": []
+}

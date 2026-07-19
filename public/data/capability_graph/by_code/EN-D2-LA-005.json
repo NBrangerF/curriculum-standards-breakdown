@@ -1,0 +1,290 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_3cd719de2cae5dec"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别常见语篇类型及其结构的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_aded6f028a59e656",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_69d1115af9d52a0e"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别常见语篇类型及其结构”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别常见语篇类型及其结构”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见语篇类型及其结构。",
+          "excerpt_hash": "55266acd0c6c1095bcb362705395a2ad9ced8b37f6149c1edb8c9fc2d3980b9f",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用「输入→支架→输出」：多模态输入（音频/文本/视频）+句型框架+循环复述；关注语音语调与信息提取。",
+          "excerpt_hash": "6011060fe5696295b2b9368f84ce29e8a069c7c1b5dd5334272fa3d3f4e41c32",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-D2-LA-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别常见语篇类型及其结构，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别常见语篇类型及其结构”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用「输入→支架→输出」：多模态输入（音频/文本/视频）+句型框架+循环复述”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f64746e9c72c1659",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4fea6fca40d21be4914c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8503084b398b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a63e35ef97657837",
+      "textbook_grade": 6,
+      "textbook_subject": "英语",
+      "textbook_title": "英语6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b3e55fcc4e2ff492",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_78c753ec351358d87f55",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_fadca434d3be"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a1294cf3237c4d38",
+      "textbook_grade": 5,
+      "textbook_subject": "英语",
+      "textbook_title": "英语5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6ec5c1a15b6a80d0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_90f2374ef0262b495d15",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9f8ea42bc1d5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c16212957329215",
+      "textbook_grade": 5,
+      "textbook_subject": "英语",
+      "textbook_title": "英语5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8b8c070229b4599c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_dfebe6a6e8107355cb57",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_4a785804f12e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_45945c79ea7a51bc",
+      "textbook_grade": 6,
+      "textbook_subject": "英语",
+      "textbook_title": "英语6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1079,
+      "connection_id": "fc_3cbb4af776793591",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-019:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-D2-LA-005",
+      "target_code": "EN-H4G7-LA-019",
+      "target_label": "能理解记叙文、说明文、常见应用文和其他常见语篇类型的主要写作目的、结构特征、基本语言特点和信息组织方式；能用以描述经历、说明事物、阐释事理或传…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_69d1115af9d52a0e",
+      "component_ids": [
+        "lc_3cd719de2cae5dec"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别常见语篇类型及其结构。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别常见语篇类型及其结构；优先采集：可观察证据：任务单/阅读卡/写作稿/录音或视频。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见语篇类型及其结构。",
+          "excerpt_hash": "55266acd0c6c1095bcb362705395a2ad9ced8b37f6149c1edb8c9fc2d3980b9f",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "识别常见语篇类型及其结构",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3cd719de2cae5dec",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别常见语篇类型及其结构",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别常见语篇类型及其结构，并说明关键步骤、特征或依据。",
+      "label": "识别常见语篇类型及其结构",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别常见语篇类型及其结构；优先采集：可观察证据：任务单/阅读卡/写作稿/录音或视频。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别常见语篇类型及其结构",
+          "excerpt_hash": "c9906a141e4c8d6c629b122a2935b045a88fca6026b57dc6e927b4925383fd87",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别常见语篇类型及其结构"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_c406b7ae1835c70d",
+      "evidence_refs": [
+        "standard:EN-D2-LA-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D1-LA-005",
+      "source_label": "能理解基本的日常问候、感谢和请求用语，听懂日常指令等",
+      "target_code": "EN-D2-LA-005",
+      "target_label": "能识别常见语篇类型及其结构。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "55266acd0c6c1095bcb362705395a2ad9ced8b37f6149c1edb8c9fc2d3980b9f",
+  "standard_code": "EN-D2-LA-005",
+  "verified_prerequisites": []
+}

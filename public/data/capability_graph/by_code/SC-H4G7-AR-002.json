@@ -1,0 +1,626 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_67b9e7588412eb7d",
+        "lc_b99ea5be88d214ea"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释合理利用水资源的重要性的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_26b8e43aa7e0c71a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b30aa879fc77f50f",
+        "hc_b95ffb31d13bd9ee"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释合理利用水资源的重要性”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释合理利用水资源的重要性”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识淡水资源有限性并理解合理利用水资源的重要性；能知道地球上不同类型水体所占比重；能基于数据和图像资料分析人口、资源和环境问题并提出解决建议；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "b36b9cc5168fdfdab5a936a7e985d2dc9dde0ba2c4082d6b3448f998636c4d1c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生用数据、案例和本地调查支撑资源利用建议。",
+          "excerpt_hash": "7031c1e6c68898d6e23966ff9f0d2c7510435455893890fbb16e57f10111f0bb",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-AR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释合理利用水资源的重要性，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释合理利用水资源的重要性”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“指导学生用数据、案例和本地调查支撑资源利用建议。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_635b76b3ad27afe1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生提出解决建议的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b431e249c4466b06",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“提出解决建议”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“提出解决建议”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识淡水资源有限性并理解合理利用水资源的重要性；能知道地球上不同类型水体所占比重；能基于数据和图像资料分析人口、资源和环境问题并提出解决建议；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "b36b9cc5168fdfdab5a936a7e985d2dc9dde0ba2c4082d6b3448f998636c4d1c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生用数据、案例和本地调查支撑资源利用建议。",
+          "excerpt_hash": "7031c1e6c68898d6e23966ff9f0d2c7510435455893890fbb16e57f10111f0bb",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-AR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后提出解决建议，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“提出解决建议”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“指导学生用数据、案例和本地调查支撑资源利用建议。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_3ac20e02ad4da76f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生基于数据和图像资料分析人口、资源和环境问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0a2fd426d35b1ce8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e91e92c8c2d7dabb"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“基于数据和图像资料分析人口、资源和环境问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“基于数据和图像资料分析人口、资源和环境问题”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识淡水资源有限性并理解合理利用水资源的重要性；能知道地球上不同类型水体所占比重；能基于数据和图像资料分析人口、资源和环境问题并提出解决建议；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "b36b9cc5168fdfdab5a936a7e985d2dc9dde0ba2c4082d6b3448f998636c4d1c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生用数据、案例和本地调查支撑资源利用建议。",
+          "excerpt_hash": "7031c1e6c68898d6e23966ff9f0d2c7510435455893890fbb16e57f10111f0bb",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-AR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后基于数据和图像资料分析人口、资源和环境问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“基于数据和图像资料分析人口、资源和环境问题”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“指导学生用数据、案例和本地调查支撑资源利用建议。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_7a5f1c5e360426b2",
+        "lc_b99ea5be88d214ea"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出淡水资源有限性的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2b567c914232082d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b30aa879fc77f50f"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出淡水资源有限性的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出淡水资源有限性的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识淡水资源有限性并理解合理利用水资源的重要性；能知道地球上不同类型水体所占比重；能基于数据和图像资料分析人口、资源和环境问题并提出解决建议；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "b36b9cc5168fdfdab5a936a7e985d2dc9dde0ba2c4082d6b3448f998636c4d1c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生用数据、案例和本地调查支撑资源利用建议。",
+          "excerpt_hash": "7031c1e6c68898d6e23966ff9f0d2c7510435455893890fbb16e57f10111f0bb",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-AR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出淡水资源有限性的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出淡水资源有限性的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“指导学生用数据、案例和本地调查支撑资源利用建议。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_07a9694721a0571a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_21164b69894834d04f84",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7070ee669923"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ba775a07035c65ee",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a46cadf7137e2ae1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b2901b9e06df"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3daf5000bc9191a7",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_75fd5ba4b17e60c9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_92369ed68f9321363e22",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae920aee077f"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_94dc3a2f9a671969",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0de26262d2048b23",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fc41327ff0651b269c88",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae5d3f924fb1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4604008cfd618f79",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_b52d11444ecc44c4",
+      "evidence_refs": [
+        "standard:SC-H4G7-AR-002:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G7-AR-002",
+      "target_code": "SC-H4G8-AR-001",
+      "target_label": "能基于数据和图像资料分析人口、资源和环境问题并提出解决建议；能结合实例分析我国面临的资源短缺问题；认识淡水资源有限性并理解合理利用水资源的重要…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b30aa879fc77f50f",
+      "component_ids": [
+        "lc_67b9e7588412eb7d",
+        "lc_b99ea5be88d214ea"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释合理利用水资源的重要性。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释合理利用水资源的重要性；优先采集：资源调查报告、数据图表、节水建议。",
+        "学生能够用观察证据说明基本科学概念；优先采集：资源调查报告、数据图表、节水建议。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识淡水资源有限性并理解合理利用水资源的重要性；能知道地球上不同类型水体所占比重；能基于数据和图像资料分析人口、资源和环境问题并提出解决建议；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "b36b9cc5168fdfdab5a936a7e985d2dc9dde0ba2c4082d6b3448f998636c4d1c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_e91e92c8c2d7dabb",
+      "component_ids": [
+        "lc_3ac20e02ad4da76f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "图像"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生基于数据和图像资料分析人口、资源和环境问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够基于数据和图像资料分析人口、资源和环境问题；优先采集：资源调查报告、数据图表、节水建议。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识淡水资源有限性并理解合理利用水资源的重要性；能知道地球上不同类型水体所占比重；能基于数据和图像资料分析人口、资源和环境问题并提出解决建议；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "b36b9cc5168fdfdab5a936a7e985d2dc9dde0ba2c4082d6b3448f998636c4d1c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（图像）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_a979d67fa8b5eaaa",
+      "component_ids": [
+        "lc_f0a621e9855e171f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出地球上不同类型水体所占比重。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出地球上不同类型水体所占比重；优先采集：资源调查报告、数据图表、节水建议。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识淡水资源有限性并理解合理利用水资源的重要性；能知道地球上不同类型水体所占比重；能基于数据和图像资料分析人口、资源和环境问题并提出解决建议；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "b36b9cc5168fdfdab5a936a7e985d2dc9dde0ba2c4082d6b3448f998636c4d1c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_b95ffb31d13bd9ee",
+      "component_ids": [
+        "lc_67b9e7588412eb7d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释合理利用水资源的重要性。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释合理利用水资源的重要性；优先采集：资源调查报告、数据图表、节水建议。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识淡水资源有限性并理解合理利用水资源的重要性；能知道地球上不同类型水体所占比重；能基于数据和图像资料分析人口、资源和环境问题并提出解决建议；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "b36b9cc5168fdfdab5a936a7e985d2dc9dde0ba2c4082d6b3448f998636c4d1c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_7a5f1c5e360426b2",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出淡水资源有限性的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出淡水资源有限性的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出淡水资源有限性的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出淡水资源有限性的关键特征；优先采集：资源调查报告、数据图表、节水建议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识淡水资源有限性",
+          "excerpt_hash": "d74e23a4e37af56806540e46a3944bacdcf3508e8b95307420612a809911c6a4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认识淡水资源有限性"
+    },
+    {
+      "component_id": "lc_67b9e7588412eb7d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释合理利用水资源的重要性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释合理利用水资源的重要性，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释合理利用水资源的重要性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释合理利用水资源的重要性；优先采集：资源调查报告、数据图表、节水建议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解合理利用水资源的重要性",
+          "excerpt_hash": "cd2c3582d1b65fde4ab1740c342094c228fc19c4945ece3d0b931b558b1d4ecf",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解合理利用水资源的重要性"
+    },
+    {
+      "component_id": "lc_f0a621e9855e171f",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出地球上不同类型水体所占比重",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出地球上不同类型水体所占比重，并说明关键步骤、特征或依据。",
+      "label": "准确说出地球上不同类型水体所占比重",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出地球上不同类型水体所占比重；优先采集：资源调查报告、数据图表、节水建议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道地球上不同类型水体所占比重",
+          "excerpt_hash": "817f21cd0a72013b92aefd1570882d94ba0a413a14401d64b9fe703762271b09",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道地球上不同类型水体所占比重"
+    },
+    {
+      "component_id": "lc_3ac20e02ad4da76f",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够基于数据和图像资料分析人口、资源和环境问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生基于数据和图像资料分析人口、资源和环境问题，并说明关键步骤、特征或依据。",
+      "label": "基于数据和图像资料分析人口、资源和环境问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够基于数据和图像资料分析人口、资源和环境问题；优先采集：资源调查报告、数据图表、节水建议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "基于数据和图像资料分析人口、资源和环境问题",
+          "excerpt_hash": "2c1b478bb63e3503250342b6460759ee3f7adbc3a66a5e4e92c1819bb9f5ae15",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "基于数据和图像资料分析人口、资源和环境问题"
+    },
+    {
+      "component_id": "lc_635b76b3ad27afe1",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提出解决建议",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提出解决建议，并说明关键步骤、特征或依据。",
+      "label": "提出解决建议",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提出解决建议；优先采集：资源调查报告、数据图表、节水建议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提出解决建议",
+          "excerpt_hash": "1218c2b5ee88b9fa83f0000e4bcfeeb050aa5bc6446ac9fb93d19d9dd792a306",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出解决建议"
+    },
+    {
+      "component_id": "lc_b99ea5be88d214ea",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用观察证据说明基本科学概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用观察证据说明基本科学概念",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：资源调查报告、数据图表、节水建议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用观察证据说明基本科学概念",
+          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用观察证据说明基本科学概念"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0857,
+      "edge_id": "pc_e32a9bdce269e856",
+      "evidence_refs": [
+        "standard:SC-H4G7-AR-002:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-AR-002",
+      "source_label": "正确认识经济发展和生态环境保护的关系，结合实例，说明人类不合理的开发活动对环境的影响，提出保护环境的建议，参与保护环境的行动。",
+      "target_code": "SC-H4G7-AR-002",
+      "target_label": "认识淡水资源有限性并理解合理利用水资源的重要性；能知道地球上不同类型水体所占比重；能基于数据和图像资料分析人口、资源和环境问题并提出解决建议；…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b36b9cc5168fdfdab5a936a7e985d2dc9dde0ba2c4082d6b3448f998636c4d1c",
+  "standard_code": "SC-H4G7-AR-002",
+  "verified_prerequisites": []
+}

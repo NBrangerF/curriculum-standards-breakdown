@@ -1,0 +1,217 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_e3a57dc39c0bf817"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_964e33e1957e7adb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_83d2663b9a9991c0"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护，能记录维护时间与效果，形成定期保养习惯。",
+          "excerpt_hash": "859c6b72713ad5a029e50dfa396c34e11f9b21704c5d1f46229dc45dd245e20d",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调“断电+冷却”；维护记录包含日期/方法/效果；讨论“不维护会怎样”（能耗上升/卫生风险）。",
+          "excerpt_hash": "a0f559c12b7fbe364c2a09ebd0d4699e88beda58e9f5a456246c75dde96b573e",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-DL-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“强调“断电+冷却””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1403,
+      "connection_id": "fc_00edad692885168c",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-010:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-DL-012",
+      "target_code": "LA-H4G7-DL-010",
+      "target_label": "能通过阅读产品说明书了解家庭常用电器的基本结构、工作原理和保养方法；能使用工具进行简单拆卸、清理、维护或小故障判断；能按规范完成任务并说明工具…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_83d2663b9a9991c0",
+      "component_ids": [
+        "lc_e3a57dc39c0bf817",
+        "lc_4ef181eb8d0bef1e",
+        "lc_e008bde8626d93d6"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护；优先采集：维护记录、计划表、前后对比说明。",
+        "学生能够记录维护时间与效果；优先采集：维护记录、计划表、前后对比说明。",
+        "学生能够在任务中表现出定期保养习惯并说明选择理由；优先采集：维护记录、计划表、前后对比说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护，能记录维护时间与效果，形成定期保养习惯。",
+          "excerpt_hash": "859c6b72713ad5a029e50dfa396c34e11f9b21704c5d1f46229dc45dd245e20d",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护；记录维护时间与效果；在任务中表现出定期保养习惯并说明选择理由",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_e3a57dc39c0bf817",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护，并说明关键步骤、特征或依据。",
+      "label": "在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护；优先采集：维护记录、计划表、前后对比说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护",
+          "excerpt_hash": "b04286eb04892777ee9acff7bcbb0101f1510bb6e53706fa11c24592244161a0",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护"
+    },
+    {
+      "component_id": "lc_4ef181eb8d0bef1e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够记录维护时间与效果",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生记录维护时间与效果，并说明关键步骤、特征或依据。",
+      "label": "记录维护时间与效果",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够记录维护时间与效果；优先采集：维护记录、计划表、前后对比说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "记录维护时间与效果",
+          "excerpt_hash": "a3886a84e9f930831b73cc38c6890441219c36ebd2d238c1be485257f4ed0e98",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "记录维护时间与效果"
+    },
+    {
+      "component_id": "lc_e008bde8626d93d6",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出定期保养习惯并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出定期保养习惯并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出定期保养习惯并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出定期保养习惯并说明选择理由；优先采集：维护记录、计划表、前后对比说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成定期保养习惯",
+          "excerpt_hash": "12d25768c42bb201b0f29e8ac7665fe56b2a40059533b61297091e6662d7cda7",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成定期保养习惯"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_1d41da9e26e6e260",
+      "evidence_refs": [
+        "standard:LA-D3-DL-012:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-DL-012",
+      "source_label": "能在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线，形成用电安全习惯。",
+      "target_code": "LA-D3-DL-012",
+      "target_label": "能在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护，能记录维护时间与效果，形成定期保养习惯。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "859c6b72713ad5a029e50dfa396c34e11f9b21704c5d1f46229dc45dd245e20d",
+  "standard_code": "LA-D3-DL-012",
+  "verified_prerequisites": []
+}

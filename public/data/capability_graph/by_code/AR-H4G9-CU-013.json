@@ -1,0 +1,514 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_45fae73ec1d4bc68"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生评价作品效果并完善展演、创作或文化阐释的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d1d2ba8564fe8bc3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ffa519c4cfd92179",
+        "hc_b0221a0e70b34e0a"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“评价作品效果并完善展演、创作或文化阐释”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“评价作品效果并完善展演、创作或文化阐释”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能反思作品并倾听建议加以改进；能安全使用工具材料；能借鉴不同地域中华优秀传统文化特色设计文创产品；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "a8616934abb03888f3a32c761b3bb31781825aee3cee064b8f43c83198c599ef",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CU-013:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生理解中华优秀传统文化需要创造性转化、创新性发展。",
+          "excerpt_hash": "8b74740fdae3229568ffb3c4033af4e8a8f579705ec29f8e8a44f3f185d0dc11",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G9-CU-013:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后评价作品效果并完善展演、创作或文化阐释，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“评价作品效果并完善展演、创作或文化阐释”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生理解中华优秀传统文化需要创造性转化、创新性发展。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_37f30f2f91bb6b22",
+        "lc_73ddbef66ff79ad2",
+        "lc_45fae73ec1d4bc68"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生倾听建议加以改进的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bf13decc5a409d6e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ffa519c4cfd92179",
+        "hc_b0221a0e70b34e0a",
+        "hc_810a3a26989fd95d"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“倾听建议加以改进”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“倾听建议加以改进”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能反思作品并倾听建议加以改进；能安全使用工具材料；能借鉴不同地域中华优秀传统文化特色设计文创产品；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "a8616934abb03888f3a32c761b3bb31781825aee3cee064b8f43c83198c599ef",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CU-013:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生理解中华优秀传统文化需要创造性转化、创新性发展。",
+          "excerpt_hash": "8b74740fdae3229568ffb3c4033af4e8a8f579705ec29f8e8a44f3f185d0dc11",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G9-CU-013:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后倾听建议加以改进，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“倾听建议加以改进”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“引导学生理解中华优秀传统文化需要创造性转化、创新性发展。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9d387aff9cf28095",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_3b89d00b60db4e36ca94",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_bf23ec4c6df8"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_eda06d45d819f009",
+      "textbook_grade": 9,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e0402be34fe7b78e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_787571113b5e3afdcb08",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_be6c940b05af"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_412bfc529670f62b",
+      "textbook_grade": 9,
+      "textbook_subject": "美术",
+      "textbook_title": "美术9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_17ead098c1a2bdf9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a7ca146a2d967d30165f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_bc115e35d9a0"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f08bc8c50fb8301a",
+      "textbook_grade": 9,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_efb8feefb8e6f6f1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f38852db089654f91a93",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a5e1ff65cd5c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a819193a176652df",
+      "textbook_grade": 9,
+      "textbook_subject": "美术",
+      "textbook_title": "美术9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ffa519c4cfd92179",
+      "component_ids": [
+        "lc_45fae73ec1d4bc68"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "阐释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生评价作品效果并完善展演、创作或文化阐释。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够评价作品效果并完善展演、创作或文化阐释；优先采集：文创产品、工艺作品、反思说明、改进记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能反思作品并倾听建议加以改进；能安全使用工具材料；能借鉴不同地域中华优秀传统文化特色设计文创产品；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "a8616934abb03888f3a32c761b3bb31781825aee3cee064b8f43c83198c599ef",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CU-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（阐释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_b0221a0e70b34e0a",
+      "component_ids": [
+        "lc_37f30f2f91bb6b22",
+        "lc_73ddbef66ff79ad2",
+        "lc_45fae73ec1d4bc68"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "创作",
+        "改进"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生倾听建议加以改进。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够倾听建议加以改进；优先采集：文创产品、工艺作品、反思说明、改进记录。",
+        "学生能够借鉴不同地域中华优秀传统文化特色设计文创产品；优先采集：文创产品、工艺作品、反思说明、改进记录。",
+        "学生能够评价作品效果并完善展演、创作或文化阐释；优先采集：文创产品、工艺作品、反思说明、改进记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能反思作品并倾听建议加以改进；能安全使用工具材料；能借鉴不同地域中华优秀传统文化特色设计文创产品；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "a8616934abb03888f3a32c761b3bb31781825aee3cee064b8f43c83198c599ef",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CU-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、创作、改进）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_71e9a3a57ffe8707",
+      "component_ids": [
+        "lc_caa06fd3f25f22e5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生安全使用工具材料。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够安全使用工具材料；优先采集：文创产品、工艺作品、反思说明、改进记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能反思作品并倾听建议加以改进；能安全使用工具材料；能借鉴不同地域中华优秀传统文化特色设计文创产品；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "a8616934abb03888f3a32c761b3bb31781825aee3cee064b8f43c83198c599ef",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CU-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_810a3a26989fd95d",
+      "component_ids": [
+        "lc_73ddbef66ff79ad2"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生借鉴不同地域中华优秀传统文化特色设计文创产品。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够借鉴不同地域中华优秀传统文化特色设计文创产品；优先采集：文创产品、工艺作品、反思说明、改进记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能反思作品并倾听建议加以改进；能安全使用工具材料；能借鉴不同地域中华优秀传统文化特色设计文创产品；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "a8616934abb03888f3a32c761b3bb31781825aee3cee064b8f43c83198c599ef",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CU-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_60d5f832b3b5702d",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够反思作品",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生反思作品，并说明关键步骤、特征或依据。",
+      "label": "反思作品",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够反思作品；优先采集：文创产品、工艺作品、反思说明、改进记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "反思作品",
+          "excerpt_hash": "1e2b2974f18403c0afcea4af12425ee7cc6c0034ac34c1cab0f5e56eee0c284b",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CU-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思作品"
+    },
+    {
+      "component_id": "lc_37f30f2f91bb6b22",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够倾听建议加以改进",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生倾听建议加以改进，并说明关键步骤、特征或依据。",
+      "label": "倾听建议加以改进",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够倾听建议加以改进；优先采集：文创产品、工艺作品、反思说明、改进记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "倾听建议加以改进",
+          "excerpt_hash": "6fcf0b317a7021054e419839cb7e3f7ef3987a1134fa4d5c9c6c3f0845a94a6a",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CU-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "倾听建议加以改进"
+    },
+    {
+      "component_id": "lc_caa06fd3f25f22e5",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够安全使用工具材料",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生安全使用工具材料，并说明关键步骤、特征或依据。",
+      "label": "安全使用工具材料",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够安全使用工具材料；优先采集：文创产品、工艺作品、反思说明、改进记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "安全使用工具材料",
+          "excerpt_hash": "43fc40e2d64fd660846613f8d67a37f7cf2dea24c0007b6a1172dd507a5a2622",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CU-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "安全使用工具材料"
+    },
+    {
+      "component_id": "lc_73ddbef66ff79ad2",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够借鉴不同地域中华优秀传统文化特色设计文创产品",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生借鉴不同地域中华优秀传统文化特色设计文创产品，并说明关键步骤、特征或依据。",
+      "label": "借鉴不同地域中华优秀传统文化特色设计文创产品",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够借鉴不同地域中华优秀传统文化特色设计文创产品；优先采集：文创产品、工艺作品、反思说明、改进记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "借鉴不同地域中华优秀传统文化特色设计文创产品",
+          "excerpt_hash": "3fa65ff48e48daac1070c0295df90b6cbc6ce05b1f04a19c1f758726cdf69806",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CU-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "借鉴不同地域中华优秀传统文化特色设计文创产品"
+    },
+    {
+      "component_id": "lc_45fae73ec1d4bc68",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价作品效果并完善展演、创作或文化阐释",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价作品效果并完善展演、创作或文化阐释，并保留可回查的口头、书面或操作过程证据。",
+      "label": "评价作品效果并完善展演、创作或文化阐释",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价作品效果并完善展演、创作或文化阐释；优先采集：文创产品、工艺作品、反思说明、改进记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价作品效果并完善展演、创作或文化阐释",
+          "excerpt_hash": "6687cd8df12e7718634d4db0ed8816d1665ffdbe2a1bae1cbf4b85d0268e9a39",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CU-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价作品效果并完善展演、创作或文化阐释"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_564c3ce4fc03f5ab",
+      "evidence_refs": [
+        "standard:AR-H4G9-CU-013:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-H4G8-CU-012",
+      "source_label": "能借鉴不同地域中华优秀传统文化特色设计文创产品；运用传统工艺制作方法制作工艺品；能安全使用工具材料；能调整表现方法并说明作品意图或效果。",
+      "target_code": "AR-H4G9-CU-013",
+      "target_label": "能反思作品并倾听建议加以改进；能安全使用工具材料；能借鉴不同地域中华优秀传统文化特色设计文创产品；能评价作品效果并完善展演、创作或文化阐释。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a8616934abb03888f3a32c761b3bb31781825aee3cee064b8f43c83198c599ef",
+  "standard_code": "AR-H4G9-CU-013",
+  "verified_prerequisites": []
+}

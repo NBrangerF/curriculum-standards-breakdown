@@ -1,0 +1,480 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_18212573525de9c4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生积累日常生活中常用的习惯用语、交流表达和常用词语搭配的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_93bd70e36269a385",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_873d210db356b657"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“积累日常生活中常用的习惯用语、交流表达和常用词语搭配”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“积累日常生活中常用的习惯用语、交流表达和常用词语搭配”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "e310c49a8dec4e219c724d35dd5120a1c259b6739caf4c336fb1cf41aaf342a7",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合真实语境示范重音、意群、语调和节奏的表意功能，避免只做脱离意义的发音操练。",
+          "excerpt_hash": "c298f7c425e5176163883d63c2cc47223273aa3ccdc3d0fb16d7191a297c42d9",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G9-LA-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后积累日常生活中常用的习惯用语、交流表达和常用词语搭配，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“积累日常生活中常用的习惯用语、交流表达和常用词语搭配”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“结合真实语境示范重音、意群、语调和节奏的表意功能，避免只做脱离意义的发音操练。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_6e17552c2ab85f72",
+        "lc_18212573525de9c4",
+        "lc_79e4630b875ef62e",
+        "lc_1d95034e86b73a62"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别不同语调与节奏等语音特征所表达的意义的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9b1f2e8b327c3701",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_873d210db356b657",
+        "hc_9957c45f835f8917",
+        "hc_810ce88dde236598"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“识别不同语调与节奏等语音特征所表达的意义”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别不同语调与节奏等语音特征所表达的意义”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "e310c49a8dec4e219c724d35dd5120a1c259b6739caf4c336fb1cf41aaf342a7",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合真实语境示范重音、意群、语调和节奏的表意功能，避免只做脱离意义的发音操练。",
+          "excerpt_hash": "c298f7c425e5176163883d63c2cc47223273aa3ccdc3d0fb16d7191a297c42d9",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G9-LA-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别不同语调与节奏等语音特征所表达的意义，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别不同语调与节奏等语音特征所表达的意义”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“结合真实语境示范重音、意群、语调和节奏的表意功能，避免只做脱离意义的发音操练。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_6e17552c2ab85f72"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别不同语调与节奏等语音特征所表达的意义的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4d7eb08cc0b4792e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9957c45f835f8917"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别不同语调与节奏等语音特征所表达的意义”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别不同语调与节奏等语音特征所表达的意义”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "e310c49a8dec4e219c724d35dd5120a1c259b6739caf4c336fb1cf41aaf342a7",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合真实语境示范重音、意群、语调和节奏的表意功能，避免只做脱离意义的发音操练。",
+          "excerpt_hash": "c298f7c425e5176163883d63c2cc47223273aa3ccdc3d0fb16d7191a297c42d9",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G9-LA-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别不同语调与节奏等语音特征所表达的意义，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别不同语调与节奏等语音特征所表达的意义”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“结合真实语境示范重音、意群、语调和节奏的表意功能，避免只做脱离意义的发音操练。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0aceb65bc4189d2f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ca2005df136f696b98af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_quark_2027_spring_pep_english_grade_9_lower"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "future_candidate",
+      "scope_id": "tcs_54cfcfb15b205d2b",
+      "textbook_grade": 9,
+      "textbook_subject": "英语",
+      "textbook_title": "英语9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8377da170e57e8cb",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e0fadc639066b4710fce",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_quark_2026_autumn_pep_english_grade_9_upper"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_likely",
+      "scope_id": "tcs_08aabfe850665d80",
+      "textbook_grade": 9,
+      "textbook_subject": "英语",
+      "textbook_title": "英语9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_873d210db356b657",
+      "component_ids": [
+        "lc_18212573525de9c4"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实",
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生积累日常生活中常用的习惯用语、交流表达和常用词语搭配。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够积累日常生活中常用的习惯用语、交流表达和常用词语搭配；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "e310c49a8dec4e219c724d35dd5120a1c259b6739caf4c336fb1cf41aaf342a7",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实、生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_9957c45f835f8917",
+      "component_ids": [
+        "lc_6e17552c2ab85f72"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别不同语调与节奏等语音特征所表达的意义。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别不同语调与节奏等语音特征所表达的意义；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "e310c49a8dec4e219c724d35dd5120a1c259b6739caf4c336fb1cf41aaf342a7",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_810ce88dde236598",
+      "component_ids": [
+        "lc_79e4630b875ef62e",
+        "lc_1d95034e86b73a62"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "清晰",
+        "连贯"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生听懂发音清晰、语速较慢的简短口头表达。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够听懂发音清晰、语速较慢的简短口头表达；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。",
+        "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "e310c49a8dec4e219c724d35dd5120a1c259b6739caf4c336fb1cf41aaf342a7",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（清晰、连贯）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_6e17552c2ab85f72",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别不同语调与节奏等语音特征所表达的意义",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别不同语调与节奏等语音特征所表达的意义，并说明关键步骤、特征或依据。",
+      "label": "识别不同语调与节奏等语音特征所表达的意义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别不同语调与节奏等语音特征所表达的意义；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别不同语调与节奏等语音特征所表达的意义",
+          "excerpt_hash": "2dae9607c9151425a5392d0cb1e0d3d86e40057eaef842701087be2d8f3222bd",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别不同语调与节奏等语音特征所表达的意义"
+    },
+    {
+      "component_id": "lc_18212573525de9c4",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够积累日常生活中常用的习惯用语、交流表达和常用词语搭配",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生积累日常生活中常用的习惯用语、交流表达和常用词语搭配，并说明关键步骤、特征或依据。",
+      "label": "积累日常生活中常用的习惯用语、交流表达和常用词语搭配",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够积累日常生活中常用的习惯用语、交流表达和常用词语搭配；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "积累日常生活中常用的习惯用语、交流表达和常用词语搭配",
+          "excerpt_hash": "9e4c529b1d6f6b2236980bc00edd42bacd1146e48e00c125935610aad0ef7348",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "积累日常生活中常用的习惯用语、交流表达和常用词语搭配"
+    },
+    {
+      "component_id": "lc_79e4630b875ef62e",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够听懂发音清晰、语速较慢的简短口头表达",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生听懂发音清晰、语速较慢的简短口头表达，并说明关键步骤、特征或依据。",
+      "label": "听懂发音清晰、语速较慢的简短口头表达",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够听懂发音清晰、语速较慢的简短口头表达；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "听懂发音清晰、语速较慢的简短口头表达",
+          "excerpt_hash": "7377bb1743d65c8aed4d8354bd274ae6aeed91be81100ea652f0badb7bbd7a8e",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "听懂发音清晰、语速较慢的简短口头表达"
+    },
+    {
+      "component_id": "lc_b5d2f3fbd7656711",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够获取关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
+      "label": "获取关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够获取关键信息；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "获取关键信息",
+          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "获取关键信息"
+    },
+    {
+      "component_id": "lc_1d95034e86b73a62",
+      "component_type": "language",
+      "condition": "在真实交际中",
+      "confidence": 0.72,
+      "description": "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在真实交际中”的诊断任务，要求学生在任务中表现出连贯表达并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出连贯表达并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "e310c49a8dec4e219c724d35dd5120a1c259b6739caf4c336fb1cf41aaf342a7",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成连贯表达"
+    },
+    {
+      "component_id": "lc_c473a2f3b89483f9",
+      "component_type": "metacognitive",
+      "condition": "在真实交际中",
+      "confidence": 0.72,
+      "description": "学生在真实交际中，能够反思策略",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在真实交际中”的诊断任务，要求学生反思策略，并说明关键步骤、特征或依据。",
+      "label": "反思策略",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在真实交际中，能够反思策略；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "e310c49a8dec4e219c724d35dd5120a1c259b6739caf4c336fb1cf41aaf342a7",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思策略"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_0f1943a1ea41ee88",
+      "evidence_refs": [
+        "standard:EN-H4G9-LA-004:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-H4G8-LA-004",
+      "source_label": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获…",
+      "target_code": "EN-H4G9-LA-004",
+      "target_label": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e310c49a8dec4e219c724d35dd5120a1c259b6739caf4c336fb1cf41aaf342a7",
+  "standard_code": "EN-H4G9-LA-004",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,332 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_8cbcdf18eb18f4c2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d303dd1f5ff54d49",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f4f288bd4c490747"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体，描述太阳系八颗行星在太阳系中的相对位置。",
+          "excerpt_hash": "b377a24ade4e8f6bbcba74545b75d3ec0653ed9461fe9f2a15261e5f32706db6",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-TH-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“借助信息技术手段，让学生通过观看动画演示或纪录片，加深对天体系统的大小、相对位置、层次等概念的认识。”",
+          "excerpt_hash": "0327e762023d8954100138ea129ed20cdd35c1a676e5e8e286af2244352eda13",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-TH-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：““借助信息技术手段，让学生通过观看动画演示或纪录片，加深对天体系统的大小、相对位置、层次等概念的认识。””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_1d4c1a6bb9a7a047"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述太阳系八颗行星在太阳系中的相对位置的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_882e3650207b53cb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述太阳系八颗行星在太阳系中的相对位置”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述太阳系八颗行星在太阳系中的相对位置”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体，描述太阳系八颗行星在太阳系中的相对位置。",
+          "excerpt_hash": "b377a24ade4e8f6bbcba74545b75d3ec0653ed9461fe9f2a15261e5f32706db6",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-TH-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“借助信息技术手段，让学生通过观看动画演示或纪录片，加深对天体系统的大小、相对位置、层次等概念的认识。”",
+          "excerpt_hash": "0327e762023d8954100138ea129ed20cdd35c1a676e5e8e286af2244352eda13",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-TH-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述太阳系八颗行星在太阳系中的相对位置，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述太阳系八颗行星在太阳系中的相对位置”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：““借助信息技术手段，让学生通过观看动画演示或纪录片，加深对天体系统的大小、相对位置、层次等概念的认识。””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e455304e4ab1260c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5d8c5902b781b5de5f03",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d39057261769"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c22c450af4b9046",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c7da540c2f2e8659",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e1c8e586d87fc9",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_37ac5703cf2df7ad",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7c85e6846ee2baf665b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b6340ce96157"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_208d54146f4a9b68",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e05a3c53ebe2498c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a04b8a546cf314368898",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6a5186074181"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_426c7beba471c1cd",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0433,
+      "connection_id": "fc_25fd4c7b63302db4",
+      "evidence_refs": [
+        "standard:SC-H4G7-TH-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-TH-001",
+      "target_code": "SC-H4G7-TH-004",
+      "target_label": "能提出科学假设和观点；能基于证据与逻辑检验假设并开展基于证据的反驳；能分析和解释模型的要素及结构；能用观察证据说明基本科学概念。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_f4f288bd4c490747",
+      "component_ids": [
+        "lc_8cbcdf18eb18f4c2"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体；优先采集：模型/作品、口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体，描述太阳系八颗行星在太阳系中的相对位置。",
+          "excerpt_hash": "b377a24ade4e8f6bbcba74545b75d3ec0653ed9461fe9f2a15261e5f32706db6",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-TH-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_8cbcdf18eb18f4c2",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体，并说明关键步骤、特征或依据。",
+      "label": "比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体；优先采集：模型/作品、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体",
+          "excerpt_hash": "cc58c1fe2d463f1ccbe54c27f9b7c9584cef86c37089f25d699148acbfb84797",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-TH-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较太阳、地球、月球的相对大小，知道太阳是一颗恒星，是太阳系的中心天体"
+    },
+    {
+      "component_id": "lc_1d4c1a6bb9a7a047",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述太阳系八颗行星在太阳系中的相对位置",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述太阳系八颗行星在太阳系中的相对位置，并说明关键步骤、特征或依据。",
+      "label": "描述太阳系八颗行星在太阳系中的相对位置",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述太阳系八颗行星在太阳系中的相对位置；优先采集：模型/作品、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述太阳系八颗行星在太阳系中的相对位置",
+          "excerpt_hash": "33a58a6b49dcaa4fa6d86bbb78de05237bd3b18b06c62ea1ea6df4e8b88de411",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-TH-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述太阳系八颗行星在太阳系中的相对位置"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b377a24ade4e8f6bbcba74545b75d3ec0653ed9461fe9f2a15261e5f32706db6",
+  "standard_code": "SC-D3-TH-001",
+  "verified_prerequisites": []
+}

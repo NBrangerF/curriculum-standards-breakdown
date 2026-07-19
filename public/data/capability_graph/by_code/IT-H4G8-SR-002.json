@@ -1,0 +1,392 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_cdf0df2b07ccf35d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生完成有步骤的数字作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9223e89d6176c4c3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2ab2598aa8d5c237"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“完成有步骤的数字作品”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“完成有步骤的数字作品”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能通过在线活动分析互联网应用特征；能使用互联网搜索、遴选、管理并贡献有价值的数据和资源；能分析系统关系并完成有步骤的数字作品。",
+          "excerpt_hash": "2f29d50c048f5f9edfa63697ccf8fd52972a2fb7ff14fde1410247e600fadafe",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生把互联网作为数据、资源和协作环境，而不仅是搜索入口。",
+          "excerpt_hash": "1f2fba13b35dcc7001d23eb5415455ac353ab74412e7c6c3d9bd35d349da7844",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G8-SR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后完成有步骤的数字作品，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“完成有步骤的数字作品”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“引导学生把互联网作为数据、资源和协作环境，而不仅是搜索入口。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_ce3af2afc5cb2a5b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过在线活动分析互联网应用特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6ec753ec931b8bb1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“通过在线活动分析互联网应用特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过在线活动分析互联网应用特征”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能通过在线活动分析互联网应用特征；能使用互联网搜索、遴选、管理并贡献有价值的数据和资源；能分析系统关系并完成有步骤的数字作品。",
+          "excerpt_hash": "2f29d50c048f5f9edfa63697ccf8fd52972a2fb7ff14fde1410247e600fadafe",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生把互联网作为数据、资源和协作环境，而不仅是搜索入口。",
+          "excerpt_hash": "1f2fba13b35dcc7001d23eb5415455ac353ab74412e7c6c3d9bd35d349da7844",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G8-SR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过在线活动分析互联网应用特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过在线活动分析互联网应用特征”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“引导学生把互联网作为数据、资源和协作环境，而不仅是搜索入口。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_ce3af2afc5cb2a5b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过在线活动分析互联网应用特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a95c7cb7f2ad93b6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“通过在线活动分析互联网应用特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过在线活动分析互联网应用特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能通过在线活动分析互联网应用特征；能使用互联网搜索、遴选、管理并贡献有价值的数据和资源；能分析系统关系并完成有步骤的数字作品。",
+          "excerpt_hash": "2f29d50c048f5f9edfa63697ccf8fd52972a2fb7ff14fde1410247e600fadafe",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生把互联网作为数据、资源和协作环境，而不仅是搜索入口。",
+          "excerpt_hash": "1f2fba13b35dcc7001d23eb5415455ac353ab74412e7c6c3d9bd35d349da7844",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G8-SR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过在线活动分析互联网应用特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过在线活动分析互联网应用特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生把互联网作为数据、资源和协作环境，而不仅是搜索入口。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_d8824b06201e8181",
+      "evidence_refs": [
+        "standard:IT-H4G8-SR-002:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H4G8-SR-002",
+      "target_code": "IT-H4G9-SR-003",
+      "target_label": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能使用互联网搜索、遴选、管理并贡献有价值的数…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_2ab2598aa8d5c237",
+      "component_ids": [
+        "lc_cdf0df2b07ccf35d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "步骤"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成有步骤的数字作品。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够完成有步骤的数字作品；优先采集：资源管理表、共享作品、价值说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能通过在线活动分析互联网应用特征；能使用互联网搜索、遴选、管理并贡献有价值的数据和资源；能分析系统关系并完成有步骤的数字作品。",
+          "excerpt_hash": "2f29d50c048f5f9edfa63697ccf8fd52972a2fb7ff14fde1410247e600fadafe",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（步骤）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    },
+    {
+      "case_id": "hc_9a04d31151e9237c",
+      "component_ids": [
+        "lc_ea29d07653b312eb",
+        "lc_6edee9bccb5026c2"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生主动学习互联网知识，增强数据安全意识。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够主动学习互联网知识，增强数据安全意识；优先采集：资源管理表、共享作品、价值说明。",
+        "学生在互联网应用中，能够使用身份验证、加密和备份等措施进行安全防护；优先采集：资源管理表、共享作品、价值说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能通过在线活动分析互联网应用特征；能使用互联网搜索、遴选、管理并贡献有价值的数据和资源；能分析系统关系并完成有步骤的数字作品。",
+          "excerpt_hash": "2f29d50c048f5f9edfa63697ccf8fd52972a2fb7ff14fde1410247e600fadafe",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ea29d07653b312eb",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够主动学习互联网知识，增强数据安全意识",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生主动学习互联网知识，增强数据安全意识，并说明关键步骤、特征或依据。",
+      "label": "主动学习互联网知识，增强数据安全意识",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够主动学习互联网知识，增强数据安全意识；优先采集：资源管理表、共享作品、价值说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "主动学习互联网知识，增强数据安全意识",
+          "excerpt_hash": "6066f23f5024137bab660e7e10580eb1f40729c44451841c036dad4789d40a76",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "主动学习互联网知识，增强数据安全意识"
+    },
+    {
+      "component_id": "lc_6edee9bccb5026c2",
+      "component_type": "procedural",
+      "condition": "在互联网应用中",
+      "confidence": 0.72,
+      "description": "学生在互联网应用中，能够使用身份验证、加密和备份等措施进行安全防护",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在互联网应用中”的诊断任务，要求学生使用身份验证、加密和备份等措施进行安全防护，并说明关键步骤、特征或依据。",
+      "label": "使用身份验证、加密和备份等措施进行安全防护",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在互联网应用中，能够使用身份验证、加密和备份等措施进行安全防护；优先采集：资源管理表、共享作品、价值说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能通过在线活动分析互联网应用特征；能使用互联网搜索、遴选、管理并贡献有价值的数据和资源；能分析系统关系并完成有步骤的数字作品。",
+          "excerpt_hash": "2f29d50c048f5f9edfa63697ccf8fd52972a2fb7ff14fde1410247e600fadafe",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用身份验证、加密和备份等措施进行安全防护"
+    },
+    {
+      "component_id": "lc_ce3af2afc5cb2a5b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过在线活动分析互联网应用特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过在线活动分析互联网应用特征，并说明关键步骤、特征或依据。",
+      "label": "通过在线活动分析互联网应用特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过在线活动分析互联网应用特征；优先采集：资源管理表、共享作品、价值说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过在线活动分析互联网应用特征",
+          "excerpt_hash": "3ff07a01287aff42ef44cc8ae401a85237f8a908eb0947e8faff09fd72c8a6c8",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过在线活动分析互联网应用特征"
+    },
+    {
+      "component_id": "lc_4d1e9c0494ddec6d",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够使用互联网搜索、遴选、管理并贡献有价值的数据和资源",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生使用互联网搜索、遴选、管理并贡献有价值的数据和资源，并说明关键步骤、特征或依据。",
+      "label": "使用互联网搜索、遴选、管理并贡献有价值的数据和资源",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够使用互联网搜索、遴选、管理并贡献有价值的数据和资源；优先采集：资源管理表、共享作品、价值说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "使用互联网搜索、遴选、管理并贡献有价值的数据和资源",
+          "excerpt_hash": "62a4ab492c1d673011ee7d14bac1b92e68444b636d7acb084e82ea95405e2b1f",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用互联网搜索、遴选、管理并贡献有价值的数据和资源"
+    },
+    {
+      "component_id": "lc_fbbb0532637b6665",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析系统关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析系统关系，并说明关键步骤、特征或依据。",
+      "label": "分析系统关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析系统关系；优先采集：资源管理表、共享作品、价值说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析系统关系",
+          "excerpt_hash": "ebac474de7322e39b3ec0dc7ec33a2102e19e5fe5b414c4ba8c39244053f052c",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析系统关系"
+    },
+    {
+      "component_id": "lc_cdf0df2b07ccf35d",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成有步骤的数字作品",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成有步骤的数字作品，并说明关键步骤、特征或依据。",
+      "label": "完成有步骤的数字作品",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成有步骤的数字作品；优先采集：资源管理表、共享作品、价值说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成有步骤的数字作品",
+          "excerpt_hash": "dbbbd54f76d7834a2c97c486813f724ab7884056c98d6fe13349aba505702adb",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成有步骤的数字作品"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_574c58470497b4c5",
+      "evidence_refs": [
+        "standard:IT-H4G8-SR-002:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H4G7-SR-002",
+      "source_label": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能使用互联网搜索、遴选、管理并贡献有价值的数…",
+      "target_code": "IT-H4G8-SR-002",
+      "target_label": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能通过在线活动分析互联网应用特征；能使用互联…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "2f29d50c048f5f9edfa63697ccf8fd52972a2fb7ff14fde1410247e600fadafe",
+  "standard_code": "IT-H4G8-SR-002",
+  "verified_prerequisites": []
+}

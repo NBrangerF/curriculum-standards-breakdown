@@ -1,0 +1,397 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_85f18ab8dfdc1f26"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出相应的自我保护做法与求助方式的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_db93c84b3c5d6030",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出相应的自我保护做法与求助方式”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出相应的自我保护做法与求助方式”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在校园与家庭环境中发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等），并能说出相应的自我保护做法与求助方式。",
+          "excerpt_hash": "85f94814471daa310e171becf85b1ade0874b1a5ef96fab27f3aa2cd2b24573c",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“隐患照片/示意图”进行对比；强调先远离再报告；训练“看到隐患我会……”的行动链。",
+          "excerpt_hash": "486fd7944fe2216690bcdaec13d5d0b43f507b47d4609df5d9c163e3d0c2cd0b",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D1-SAF-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出相应的自我保护做法与求助方式，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出相应的自我保护做法与求助方式”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用“隐患照片/示意图”进行对比”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_ac99681742b55b64"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_661e5cf72130cb8a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_570c1e5913b3ed64",
+        "hc_de0b9f3c19ed7689",
+        "hc_a681be044becaf5f"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在校园与家庭环境中发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等），并能说出相应的自我保护做法与求助方式。",
+          "excerpt_hash": "85f94814471daa310e171becf85b1ade0874b1a5ef96fab27f3aa2cd2b24573c",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“隐患照片/示意图”进行对比；强调先远离再报告；训练“看到隐患我会……”的行动链。",
+          "excerpt_hash": "486fd7944fe2216690bcdaec13d5d0b43f507b47d4609df5d9c163e3d0c2cd0b",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D1-SAF-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用“隐患照片/示意图”进行对比”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5832f2060908308f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7ac003a6d2fbc0550980",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_565199064cf5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a8cd1c06fc4166b4",
+      "textbook_grade": 2,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_dcbde96d87cd0ef2",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_cfcb4ce7864d417c80b2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_17b846efdf7a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f9d3a9d4795fb2cf",
+      "textbook_grade": 1,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_51d9ae0331448993",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e0415d58f2a7c2ec1a23",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_88807fd2045b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b0742e693a9d96bc",
+      "textbook_grade": 2,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fb1388f8ad7b4826",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f7992bf9ce09b3760ce8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_50dfe7e5b313"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_33531b3889df7060",
+      "textbook_grade": 1,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_497a2b3b4e849438",
+      "evidence_refs": [
+        "standard:ML-D1-SAF-003:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D1-SAF-003",
+      "target_code": "ML-D2-SAF-005",
+      "target_label": "能识别常见安全风险与不良诱惑，能在陌生情境中做到谨慎、会拒绝与求助；能采取保护隐私的具体做法，并能正确应对校园欺凌。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_570c1e5913b3ed64",
+      "component_ids": [
+        "lc_ac99681742b55b64"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在校园与家庭环境中，能够发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）；优先采集：隐患清单作品、情境表演、教师提问。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在校园与家庭环境中发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等），并能说出相应的自我保护做法与求助方式。",
+          "excerpt_hash": "85f94814471daa310e171becf85b1ade0874b1a5ef96fab27f3aa2cd2b24573c",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_de0b9f3c19ed7689",
+      "component_ids": [
+        "lc_ac99681742b55b64"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在校园与家庭环境中，能够发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）；优先采集：隐患清单作品、情境表演、教师提问。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在校园与家庭环境中发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等），并能说出相应的自我保护做法与求助方式。",
+          "excerpt_hash": "85f94814471daa310e171becf85b1ade0874b1a5ef96fab27f3aa2cd2b24573c",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（至少）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_a681be044becaf5f",
+      "component_ids": [
+        "lc_ac99681742b55b64"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在校园与家庭环境中，能够发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）；优先采集：隐患清单作品、情境表演、教师提问。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在校园与家庭环境中发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等），并能说出相应的自我保护做法与求助方式。",
+          "excerpt_hash": "85f94814471daa310e171becf85b1ade0874b1a5ef96fab27f3aa2cd2b24573c",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（至少）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ac99681742b55b64",
+      "component_type": "conceptual",
+      "condition": "在校园与家庭环境中",
+      "confidence": 0.72,
+      "description": "学生在校园与家庭环境中，能够发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在校园与家庭环境中”的诊断任务，要求学生发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等），并说明关键步骤、特征或依据。",
+      "label": "发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在校园与家庭环境中，能够发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）；优先采集：隐患清单作品、情境表演、教师提问。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在校园与家庭环境中发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等），并能说出相应的自我保护做法与求助方式。",
+          "excerpt_hash": "85f94814471daa310e171becf85b1ade0874b1a5ef96fab27f3aa2cd2b24573c",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等）"
+    },
+    {
+      "component_id": "lc_85f18ab8dfdc1f26",
+      "component_type": "language",
+      "condition": "在校园与家庭环境中",
+      "confidence": 0.72,
+      "description": "学生在校园与家庭环境中，能够说出相应的自我保护做法与求助方式",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在校园与家庭环境中”的诊断任务，要求学生说出相应的自我保护做法与求助方式，并说明关键步骤、特征或依据。",
+      "label": "说出相应的自我保护做法与求助方式",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在校园与家庭环境中，能够说出相应的自我保护做法与求助方式；优先采集：隐患清单作品、情境表演、教师提问。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在校园与家庭环境中发现至少3类常见安全隐患（湿滑地面/插座电线/尖锐物等），并能说出相应的自我保护做法与求助方式。",
+          "excerpt_hash": "85f94814471daa310e171becf85b1ade0874b1a5ef96fab27f3aa2cd2b24573c",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出相应的自我保护做法与求助方式"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "85f94814471daa310e171becf85b1ade0874b1a5ef96fab27f3aa2cd2b24573c",
+  "standard_code": "ML-D1-SAF-003",
+  "verified_prerequisites": []
+}

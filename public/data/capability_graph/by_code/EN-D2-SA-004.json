@@ -1,0 +1,290 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_1575ada046809c0b"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生根据学习进展调整学习计划和策略的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_30ecf88122e3c173",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_17d46c848f428d7d"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“根据学习进展调整学习计划和策略”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尝试根据学习进展调整学习计划和策略。",
+          "excerpt_hash": "f7e5887488735d1fc6d836b992c7e55e368232361b2060f24c926db3851b3840",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-SA-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用「策略显性化」：示范查词、做笔记、复盘清单；用学习日志与同伴协作分工，促进自主与反思。",
+          "excerpt_hash": "160f919484e02e885d6fe27527e168ca09e9c14faa2f8ca301d8e2fb8c233aed",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-D2-SA-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据学习进展调整学习计划和策略，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据学习进展调整学习计划和策略”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“用「策略显性化」：示范查词、做笔记、复盘清单”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d2798f1b7bb7c46e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4fea6fca40d21be4914c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8503084b398b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a63e35ef97657837",
+      "textbook_grade": 6,
+      "textbook_subject": "英语",
+      "textbook_title": "英语6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5f570990707ba005",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_78c753ec351358d87f55",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_fadca434d3be"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a1294cf3237c4d38",
+      "textbook_grade": 5,
+      "textbook_subject": "英语",
+      "textbook_title": "英语5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_cbcdb1a08b7b2bd5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_90f2374ef0262b495d15",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9f8ea42bc1d5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c16212957329215",
+      "textbook_grade": 5,
+      "textbook_subject": "英语",
+      "textbook_title": "英语5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_40a1f7293d0105dc",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_dfebe6a6e8107355cb57",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_4a785804f12e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_45945c79ea7a51bc",
+      "textbook_grade": 6,
+      "textbook_subject": "英语",
+      "textbook_title": "英语6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2028,
+      "connection_id": "fc_ab2e4e3321352c0d",
+      "evidence_refs": [
+        "standard:EN-H4G7-SA-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-D2-SA-004",
+      "target_code": "EN-H4G7-SA-004",
+      "target_label": "能根据目标和进展合理调整学习计划和策略；能制订明确的英语学习目标和计划；能主动反思学习进步与不足；能获取关键信息并完成简短交流。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_17d46c848f428d7d",
+      "component_ids": [
+        "lc_1575ada046809c0b"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据学习进展调整学习计划和策略。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据学习进展调整学习计划和策略；优先采集：可观察证据：任务单/阅读卡/写作稿/录音或视频。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尝试根据学习进展调整学习计划和策略。",
+          "excerpt_hash": "f7e5887488735d1fc6d836b992c7e55e368232361b2060f24c926db3851b3840",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-SA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "根据学习进展调整学习计划和策略",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_1575ada046809c0b",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据学习进展调整学习计划和策略",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据学习进展调整学习计划和策略，并说明关键步骤、特征或依据。",
+      "label": "根据学习进展调整学习计划和策略",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据学习进展调整学习计划和策略；优先采集：可观察证据：任务单/阅读卡/写作稿/录音或视频。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据学习进展调整学习计划和策略",
+          "excerpt_hash": "89d10bbd7830ed3aa9fa9d8e4a3b1f80490530866aeafae5334601a351fd99be",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-SA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据学习进展调整学习计划和策略"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_10b8e86932dc1505",
+      "evidence_refs": [
+        "standard:EN-D2-SA-004:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D1-SA-004",
+      "source_label": "乐于参与课堂活动，遇到困难能大胆求助",
+      "target_code": "EN-D2-SA-004",
+      "target_label": "尝试根据学习进展调整学习计划和策略。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f7e5887488735d1fc6d836b992c7e55e368232361b2060f24c926db3851b3840",
+  "standard_code": "EN-D2-SA-004",
+  "verified_prerequisites": []
+}

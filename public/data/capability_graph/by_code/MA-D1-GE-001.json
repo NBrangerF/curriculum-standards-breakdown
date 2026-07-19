@@ -1,0 +1,373 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_0b6197703ef28407"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e5d187009269a543",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a00cce8fec586bae"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征；辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类",
+          "excerpt_hash": "62861d705b6f9e364fb46c6158825bd5abb3e40d5bc8454b3ee9b51908e2a1c3",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "图形认识教学选用学生熟悉素材，鼓励学生动手操作，感知立体与平面图形特点及其关联，引导学生经历图形抽象过程，形成初步空间观念",
+          "excerpt_hash": "9bc9864145c34354f11b5f7098a44e1b09c6051e8d706400939a4dfe21ebbaf3",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D1-GE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“图形认识教学选用学生熟悉素材，鼓励学生动手操作，感知立体与平面图形特点及其关联，引导学生经历图形抽象过程，形成初步空间观念”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_f58e9455d92a761b",
+        "lc_0b6197703ef28407"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_35089963d3bd4c28",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a00cce8fec586bae"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征；辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类",
+          "excerpt_hash": "62861d705b6f9e364fb46c6158825bd5abb3e40d5bc8454b3ee9b51908e2a1c3",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "图形认识教学选用学生熟悉素材，鼓励学生动手操作，感知立体与平面图形特点及其关联，引导学生经历图形抽象过程，形成初步空间观念",
+          "excerpt_hash": "9bc9864145c34354f11b5f7098a44e1b09c6051e8d706400939a4dfe21ebbaf3",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D1-GE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“图形认识教学选用学生熟悉素材，鼓励学生动手操作，感知立体与平面图形特点及其关联，引导学生经历图形抽象过程，形成初步空间观念”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_f58e9455d92a761b",
+        "lc_0b6197703ef28407"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1391188aea1759d4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a00cce8fec586bae"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征；辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类",
+          "excerpt_hash": "62861d705b6f9e364fb46c6158825bd5abb3e40d5bc8454b3ee9b51908e2a1c3",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "图形认识教学选用学生熟悉素材，鼓励学生动手操作，感知立体与平面图形特点及其关联，引导学生经历图形抽象过程，形成初步空间观念",
+          "excerpt_hash": "9bc9864145c34354f11b5f7098a44e1b09c6051e8d706400939a4dfe21ebbaf3",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D1-GE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“图形认识教学选用学生熟悉素材，鼓励学生动手操作，感知立体与平面图形特点及其关联，引导学生经历图形抽象过程，形成初步空间观念”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a379623e105a6614",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0104742f3f9d88bc5c04",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_1e657bea201b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b5e621d13fc27a93",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e60e6a8a6c0fe08e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_17c68dba255a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d087e833a9603dd8",
+      "textbook_grade": 2,
+      "textbook_subject": "数学",
+      "textbook_title": "数学2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7da8e56ae062dbdd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_390c425094d7420b8aec",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_584787a24f66"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0092f57d8acf1e62",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2f79edc5a02ee4f8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_53a4df4ad1d6428c5988",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9af3fe885fc8"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_2f6e825185227a9e",
+      "textbook_grade": 2,
+      "textbook_subject": "数学",
+      "textbook_title": "数学2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_3765c70d91a1d9a6",
+      "evidence_refs": [
+        "standard:MA-D1-GE-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D1-GE-001",
+      "target_code": "MA-D2-GE-001",
+      "target_label": "能说出线段、射线和直线的共性与区别；知道两点间所有连线中线段最短，能在具体情境中运用“两点之间线段最短”解决简单问题；能辨认同一平面内两条直线…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a00cce8fec586bae",
+      "component_ids": [
+        "lc_0b6197703ef28407"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类；优先采集：作图/测量作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征；辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类",
+          "excerpt_hash": "62861d705b6f9e364fb46c6158825bd5abb3e40d5bc8454b3ee9b51908e2a1c3",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_f58e9455d92a761b",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征，并说明关键步骤、特征或依据。",
+      "label": "辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征；优先采集：作图/测量作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征",
+          "excerpt_hash": "c03e344017d7475773496541cc73bd50a17561d38fc929121f8e8ee554bc7a1b",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征"
+    },
+    {
+      "component_id": "lc_0b6197703ef28407",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类，并说明关键步骤、特征或依据。",
+      "label": "辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类；优先采集：作图/测量作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类",
+          "excerpt_hash": "7d8fa17d71aea80c5025c7c0fa9df3392bad774e39536ac0013f51b70a2d3699",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "62861d705b6f9e364fb46c6158825bd5abb3e40d5bc8454b3ee9b51908e2a1c3",
+  "standard_code": "MA-D1-GE-001",
+  "verified_prerequisites": []
+}

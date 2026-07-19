@@ -1,0 +1,290 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_da9c100f8721cd82",
+        "lc_193a6ffda298fc66"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生参与相关活动并描述数据处理和应用过程的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4294ef4531b47f5d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_664121986991ff13"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“参与相关活动并描述数据处理和应用过程”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“参与相关活动并描述数据处理和应用过程”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能根据需求设计并搭建简单物联系统原型；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "cf70f6ef37403ddb40679b128fb068c477dbc599b1458c3cf3dc07163d8426af",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生用可获得的硬件或模拟平台完成系统原型，并解释输入、处理、输出关系。",
+          "excerpt_hash": "aba0f0fa64a7b910fa26eeff3f0a416634ca2cf06e0fe86ada2eed57d7d89375",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-CS-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后参与相关活动并描述数据处理和应用过程，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“参与相关活动并描述数据处理和应用过程”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“鼓励学生用可获得的硬件或模拟平台完成系统原型，并解释输入、处理、输出关系。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_1795a46356657a60",
+        "lc_54ca5e5786dcb33d",
+        "lc_193a6ffda298fc66"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据需求设计并搭建简单物联系统原型的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0272d6e7746b21b7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_664121986991ff13"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“根据需求设计并搭建简单物联系统原型”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据需求设计并搭建简单物联系统原型”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能根据需求设计并搭建简单物联系统原型；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "cf70f6ef37403ddb40679b128fb068c477dbc599b1458c3cf3dc07163d8426af",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生用可获得的硬件或模拟平台完成系统原型，并解释输入、处理、输出关系。",
+          "excerpt_hash": "aba0f0fa64a7b910fa26eeff3f0a416634ca2cf06e0fe86ada2eed57d7d89375",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-CS-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据需求设计并搭建简单物联系统原型，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据需求设计并搭建简单物联系统原型”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“鼓励学生用可获得的硬件或模拟平台完成系统原型，并解释输入、处理、输出关系。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_664121986991ff13",
+      "component_ids": [
+        "lc_1795a46356657a60",
+        "lc_54ca5e5786dcb33d",
+        "lc_193a6ffda298fc66"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据需求设计并搭建简单物联系统原型。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据需求设计并搭建简单物联系统原型；优先采集：系统原型、数据流程图、演示记录。",
+        "学生能够设计、测试；优先采集：系统原型、数据流程图、演示记录。",
+        "学生能够评价数字化解决方案；优先采集：系统原型、数据流程图、演示记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能根据需求设计并搭建简单物联系统原型；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "cf70f6ef37403ddb40679b128fb068c477dbc599b1458c3cf3dc07163d8426af",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_2407bb0304d09f6e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够熟悉网络平台中的技术工具和软件系统功能",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生熟悉网络平台中的技术工具和软件系统功能，并说明关键步骤、特征或依据。",
+      "label": "熟悉网络平台中的技术工具和软件系统功能",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够熟悉网络平台中的技术工具和软件系统功能；优先采集：系统原型、数据流程图、演示记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "熟悉网络平台中的技术工具和软件系统功能",
+          "excerpt_hash": "f17856c091a189bc7217edd03f43a469eb4f46703768adeee457f6ced5682900",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "熟悉网络平台中的技术工具和软件系统功能"
+    },
+    {
+      "component_id": "lc_da9c100f8721cd82",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与相关活动并描述数据处理和应用过程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与相关活动并描述数据处理和应用过程，并说明关键步骤、特征或依据。",
+      "label": "参与相关活动并描述数据处理和应用过程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与相关活动并描述数据处理和应用过程；优先采集：系统原型、数据流程图、演示记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "体验数据处理和应用过程",
+          "excerpt_hash": "b7b1518cc0fcce8fb3f277f7b89e542d50eb14b8a650a9e12fafd1fb2e918498",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体验数据处理和应用过程"
+    },
+    {
+      "component_id": "lc_1795a46356657a60",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据需求设计并搭建简单物联系统原型",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据需求设计并搭建简单物联系统原型，并说明关键步骤、特征或依据。",
+      "label": "根据需求设计并搭建简单物联系统原型",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据需求设计并搭建简单物联系统原型；优先采集：系统原型、数据流程图、演示记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据需求设计并搭建简单物联系统原型",
+          "excerpt_hash": "2f3db1d98cd1220b10ab64f371f794237937b1c2e8a737ff194160629d084b2b",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据需求设计并搭建简单物联系统原型"
+    },
+    {
+      "component_id": "lc_54ca5e5786dcb33d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够设计、测试",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生设计、测试，并说明关键步骤、特征或依据。",
+      "label": "设计、测试",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够设计、测试；优先采集：系统原型、数据流程图、演示记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "设计、测试",
+          "excerpt_hash": "f34282be97ea5b848e2f067f5e47b2decd09f4cc25efac7d5f22df8430dcc747",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "设计、测试"
+    },
+    {
+      "component_id": "lc_193a6ffda298fc66",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价数字化解决方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价数字化解决方案，并说明关键步骤、特征或依据。",
+      "label": "评价数字化解决方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价数字化解决方案；优先采集：系统原型、数据流程图、演示记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价数字化解决方案",
+          "excerpt_hash": "3afa3da53a717451ad84e66bce8f0eaff2303dc576fceb8d0d1592cbd9ce2132",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价数字化解决方案"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_32c3fa36279a8fa9",
+      "evidence_refs": [
+        "standard:IT-H4G9-CS-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H4G8-CS-001",
+      "source_label": "能体验数据处理和应用过程；能熟悉网络平台中的技术工具和软件系统功能；能根据需求设计并搭建简单物联系统原型；能分析系统关系并完成有步骤的数字作品。",
+      "target_code": "IT-H4G9-CS-001",
+      "target_label": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能根据需求设计并搭建简单物联系统原型；能设计、测试并评价数字化解决方案。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "cf70f6ef37403ddb40679b128fb068c477dbc599b1458c3cf3dc07163d8426af",
+  "standard_code": "IT-H4G9-CS-001",
+  "verified_prerequisites": []
+}

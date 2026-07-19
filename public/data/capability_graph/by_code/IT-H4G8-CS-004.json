@@ -1,0 +1,368 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_a54786c4fe9f1c4f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生完成有步骤的数字作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f6eb6d682401f5e7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a3ded1b57edd1b98"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“完成有步骤的数字作品”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“完成有步骤的数字作品”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解物联网、大数据与人工智能之间的关系；能够设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统；能处理物联设备数据；能分析系统关系并完成有步骤的数字作品。",
+          "excerpt_hash": "01b27baeec549fe11a7bc32fadaecb0741516d62a83530ebc51645dae91a0bff",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价时同时关注系统功能、数据处理过程和关系解释。",
+          "excerpt_hash": "8ea170a811205b8eab37ea8bb618ef5a27e5fedfcd29285c641802c1d741a96e",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G8-CS-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后完成有步骤的数字作品，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“完成有步骤的数字作品”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“评价时同时关注系统功能、数据处理过程和关系解释。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_599802a24e780dcd"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bb5d6839370b36c2",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2afc8a052d3d50a9"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解物联网、大数据与人工智能之间的关系；能够设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统；能处理物联设备数据；能分析系统关系并完成有步骤的数字作品。",
+          "excerpt_hash": "01b27baeec549fe11a7bc32fadaecb0741516d62a83530ebc51645dae91a0bff",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价时同时关注系统功能、数据处理过程和关系解释。",
+          "excerpt_hash": "8ea170a811205b8eab37ea8bb618ef5a27e5fedfcd29285c641802c1d741a96e",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G8-CS-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“评价时同时关注系统功能、数据处理过程和关系解释。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_652caed7a578dc7d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生处理物联设备数据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4d543b893cdcadcb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“处理物联设备数据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“处理物联设备数据”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解物联网、大数据与人工智能之间的关系；能够设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统；能处理物联设备数据；能分析系统关系并完成有步骤的数字作品。",
+          "excerpt_hash": "01b27baeec549fe11a7bc32fadaecb0741516d62a83530ebc51645dae91a0bff",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价时同时关注系统功能、数据处理过程和关系解释。",
+          "excerpt_hash": "8ea170a811205b8eab37ea8bb618ef5a27e5fedfcd29285c641802c1d741a96e",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G8-CS-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后处理物联设备数据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“处理物联设备数据”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“评价时同时关注系统功能、数据处理过程和关系解释。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_d9424f3ccf17e0cb",
+      "evidence_refs": [
+        "standard:IT-H4G8-CS-004:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H4G8-CS-004",
+      "target_code": "IT-H4G9-CS-004",
+      "target_label": "理解物联网、大数据与人工智能之间的关系；能够设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统；能处理物联设备数据；能设计、测试并评…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a3ded1b57edd1b98",
+      "component_ids": [
+        "lc_a54786c4fe9f1c4f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "步骤"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成有步骤的数字作品。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够完成有步骤的数字作品；优先采集：物联系统原型、数据处理记录、关系说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解物联网、大数据与人工智能之间的关系；能够设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统；能处理物联设备数据；能分析系统关系并完成有步骤的数字作品。",
+          "excerpt_hash": "01b27baeec549fe11a7bc32fadaecb0741516d62a83530ebc51645dae91a0bff",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（步骤）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    },
+    {
+      "case_id": "hc_2afc8a052d3d50a9",
+      "component_ids": [
+        "lc_599802a24e780dcd"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统；优先采集：物联系统原型、数据处理记录、关系说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解物联网、大数据与人工智能之间的关系；能够设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统；能处理物联设备数据；能分析系统关系并完成有步骤的数字作品。",
+          "excerpt_hash": "01b27baeec549fe11a7bc32fadaecb0741516d62a83530ebc51645dae91a0bff",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_6019a7b7a1e3ba7f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释物联网、大数据与人工智能之间的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释物联网、大数据与人工智能之间的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释物联网、大数据与人工智能之间的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释物联网、大数据与人工智能之间的关系；优先采集：物联系统原型、数据处理记录、关系说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解物联网、大数据与人工智能之间的关系",
+          "excerpt_hash": "22fe8596781a32a42da3a4ce91d203a3fb2ad492a4d5164e210c616bb54a276e",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解物联网、大数据与人工智能之间的关系"
+    },
+    {
+      "component_id": "lc_599802a24e780dcd",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统，并说明关键步骤、特征或依据。",
+      "label": "设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统；优先采集：物联系统原型、数据处理记录、关系说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统",
+          "excerpt_hash": "d863e79c8eb8241cc772306ff7943eb111f7793fbdfbd0a38ce2ae855d6b5589",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统"
+    },
+    {
+      "component_id": "lc_652caed7a578dc7d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够处理物联设备数据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生处理物联设备数据，并说明关键步骤、特征或依据。",
+      "label": "处理物联设备数据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够处理物联设备数据；优先采集：物联系统原型、数据处理记录、关系说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "处理物联设备数据",
+          "excerpt_hash": "d61f4271200be1ce42a73a1ee27d09045dbdf77991d699f55d8e4e275a123080",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "处理物联设备数据"
+    },
+    {
+      "component_id": "lc_d219769cc8e4269c",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析系统关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析系统关系，并说明关键步骤、特征或依据。",
+      "label": "分析系统关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析系统关系；优先采集：物联系统原型、数据处理记录、关系说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析系统关系",
+          "excerpt_hash": "ebac474de7322e39b3ec0dc7ec33a2102e19e5fe5b414c4ba8c39244053f052c",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析系统关系"
+    },
+    {
+      "component_id": "lc_a54786c4fe9f1c4f",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成有步骤的数字作品",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成有步骤的数字作品，并说明关键步骤、特征或依据。",
+      "label": "完成有步骤的数字作品",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成有步骤的数字作品；优先采集：物联系统原型、数据处理记录、关系说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成有步骤的数字作品",
+          "excerpt_hash": "dbbbd54f76d7834a2c97c486813f724ab7884056c98d6fe13349aba505702adb",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成有步骤的数字作品"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_1c9b22daa27f4dfa",
+      "evidence_refs": [
+        "standard:IT-H4G8-CS-004:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H4G7-CS-005",
+      "source_label": "理解物联网、大数据与人工智能之间的关系；能够设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统；能处理物联设备数据；能说明数字工具或…",
+      "target_code": "IT-H4G8-CS-004",
+      "target_label": "理解物联网、大数据与人工智能之间的关系；能够设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统；能处理物联设备数据；能分析系统关系并…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "01b27baeec549fe11a7bc32fadaecb0741516d62a83530ebc51645dae91a0bff",
+  "standard_code": "IT-H4G8-CS-004",
+  "verified_prerequisites": []
+}

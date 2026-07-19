@@ -1,0 +1,217 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_5c4503cdade5ae1d"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生参与班级公共物品资产盘点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0453f8e3af3c6109",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_30bcf376accc311e"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“参与班级公共物品资产盘点”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能参与班级公共物品资产盘点，能记录数量、状态与维护需求，能提出维护或补充建议并推动落实。",
+          "excerpt_hash": "7775a04790290cff8947675fc10451fdaac4da9d5f377b5eb9d34fbb04547708",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "提供盘点表字段（名称/数量/状态/负责人/建议）；盘点后做“维修/补充”任务分配；让学生体验“责任到人”。",
+          "excerpt_hash": "20c475921f18b277e19011753e226f0a9673f101aedd98bab0d0a355cf11e0a8",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-DL-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后参与班级公共物品资产盘点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“参与班级公共物品资产盘点”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“提供盘点表字段（名称/数量/状态/负责人/建议）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0895,
+      "connection_id": "fc_d2a24c822871fb71",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-005:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-DL-019",
+      "target_code": "LA-H4G7-DL-005",
+      "target_label": "理解劳动创造人的道理，认识劳动推动社会进步的作用，领会劳动创造幸福和托起中国梦的重要意义；能通过持续参与日常生活劳动、生产劳动和服务性劳动；理…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_30bcf376accc311e",
+      "component_ids": [
+        "lc_5c4503cdade5ae1d",
+        "lc_956d45cafb8742f5",
+        "lc_d248755da9ec872f"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生参与班级公共物品资产盘点。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够参与班级公共物品资产盘点；优先采集：盘点表、问题清单、改进建议。",
+        "学生能够记录数量、状态与维护需求；优先采集：盘点表、问题清单、改进建议。",
+        "学生能够提出维护或补充建议并推动落实；优先采集：盘点表、问题清单、改进建议。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能参与班级公共物品资产盘点，能记录数量、状态与维护需求，能提出维护或补充建议并推动落实。",
+          "excerpt_hash": "7775a04790290cff8947675fc10451fdaac4da9d5f377b5eb9d34fbb04547708",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "参与班级公共物品资产盘点；记录数量、状态与维护需求；提出维护或补充建议并推动落实",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_5c4503cdade5ae1d",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与班级公共物品资产盘点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与班级公共物品资产盘点，并说明关键步骤、特征或依据。",
+      "label": "参与班级公共物品资产盘点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与班级公共物品资产盘点；优先采集：盘点表、问题清单、改进建议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "参与班级公共物品资产盘点",
+          "excerpt_hash": "8bdd721ca684f634ec3ba33725f71364484dfb54bc903ab79dfe38ca8787679a",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参与班级公共物品资产盘点"
+    },
+    {
+      "component_id": "lc_956d45cafb8742f5",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够记录数量、状态与维护需求",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生记录数量、状态与维护需求，并说明关键步骤、特征或依据。",
+      "label": "记录数量、状态与维护需求",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够记录数量、状态与维护需求；优先采集：盘点表、问题清单、改进建议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "记录数量、状态与维护需求",
+          "excerpt_hash": "f722f0c5b70eb68fca7a35b72faceb76b6a000c4e34435bf2cf916280b3cd630",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "记录数量、状态与维护需求"
+    },
+    {
+      "component_id": "lc_d248755da9ec872f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提出维护或补充建议并推动落实",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提出维护或补充建议并推动落实，并说明关键步骤、特征或依据。",
+      "label": "提出维护或补充建议并推动落实",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提出维护或补充建议并推动落实；优先采集：盘点表、问题清单、改进建议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提出维护或补充建议并推动落实",
+          "excerpt_hash": "4f142704acd00840777f769d7572c9125037e3c5fef95cee7d2866237d697944",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出维护或补充建议并推动落实"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_e5fcfaec51e55ee1",
+      "evidence_refs": [
+        "standard:LA-D3-DL-019:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-DL-019",
+      "source_label": "能参与班级公共物品的整理、借还登记与维护，能按轮值完成职责并尊重他人使用需求。",
+      "target_code": "LA-D3-DL-019",
+      "target_label": "能参与班级公共物品资产盘点，能记录数量、状态与维护需求，能提出维护或补充建议并推动落实。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "7775a04790290cff8947675fc10451fdaac4da9d5f377b5eb9d34fbb04547708",
+  "standard_code": "LA-D3-DL-019",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,206 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_4922ef6cc3f46c63"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2a0154d93f185eb4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_cd93095ad783e6d5"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护，能说出植物生长需要的基本条件（如水、光、土）。",
+          "excerpt_hash": "6ee0489ba17f47a2cdc0814f14e6e28a6a74afde4ac6561f1ad99b1deb679124",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "从“容易成功”的植物开始（绿萝/豆芽等）；把养护条件做成“日历提醒”；引导学生用语言解释“我今天为什么要浇水/挪光”。",
+          "excerpt_hash": "6fcfe4940368102a3150e97f86b65c7a2ea74aec9464f20dafe8e85dc5eb837e",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-PL-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“从“容易成功”的植物开始（绿萝/豆芽等）”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_3dc1180ac5fee6a5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出植物生长需要的基本条件（如水、光、土）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e81cdc2dd8b33f05",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出植物生长需要的基本条件（如水、光、土）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出植物生长需要的基本条件（如水、光、土）”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护，能说出植物生长需要的基本条件（如水、光、土）。",
+          "excerpt_hash": "6ee0489ba17f47a2cdc0814f14e6e28a6a74afde4ac6561f1ad99b1deb679124",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "从“容易成功”的植物开始（绿萝/豆芽等）；把养护条件做成“日历提醒”；引导学生用语言解释“我今天为什么要浇水/挪光”。",
+          "excerpt_hash": "6fcfe4940368102a3150e97f86b65c7a2ea74aec9464f20dafe8e85dc5eb837e",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-PL-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出植物生长需要的基本条件（如水、光、土），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出植物生长需要的基本条件（如水、光、土）”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“从“容易成功”的植物开始（绿萝/豆芽等）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_3f8b5e98922a0700",
+      "evidence_refs": [
+        "standard:LA-D1-PL-016:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D1-PL-016",
+      "target_code": "LA-D2-PL-001",
+      "target_label": "能在教师指导下完成播种、移栽或间苗等基础田园操作，能遵守操作顺序并保持耐心细致，减少对植物的损伤。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_cd93095ad783e6d5",
+      "component_ids": [
+        "lc_4922ef6cc3f46c63"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "实际"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护；优先采集：种植记录单、照片对比、口头说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护，能说出植物生长需要的基本条件（如水、光、土）。",
+          "excerpt_hash": "6ee0489ba17f47a2cdc0814f14e6e28a6a74afde4ac6561f1ad99b1deb679124",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（实际）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_4922ef6cc3f46c63",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护，并说明关键步骤、特征或依据。",
+      "label": "根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护；优先采集：种植记录单、照片对比、口头说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护",
+          "excerpt_hash": "644f2e2e28cef5ec159854c9107e6679523c125c10bf920b8a9d16c4efa1bc01",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据实际情况选择1–2种当地常见水培或土培植物进行种植与养护"
+    },
+    {
+      "component_id": "lc_3dc1180ac5fee6a5",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出植物生长需要的基本条件（如水、光、土）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出植物生长需要的基本条件（如水、光、土），并说明关键步骤、特征或依据。",
+      "label": "说出植物生长需要的基本条件（如水、光、土）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出植物生长需要的基本条件（如水、光、土）；优先采集：种植记录单、照片对比、口头说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出植物生长需要的基本条件（如水、光、土）",
+          "excerpt_hash": "79c913f8ce646700c89a912da612d302bc80c1b4c18688a9d9d2efe21b616a61",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出植物生长需要的基本条件（如水、光、土）"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "6ee0489ba17f47a2cdc0814f14e6e28a6a74afde4ac6561f1ad99b1deb679124",
+  "standard_code": "LA-D1-PL-016",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,540 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_1633dd8b457d7d45"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用感悟、讨论、比较等方法描述作品主要内容与特点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_72242b90b77c7cf3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_af2fafa34bf084e4"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“运用感悟、讨论、比较等方法描述作品主要内容与特点”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用感悟、讨论、比较等方法描述作品主要内容与特点”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能欣赏与评述中外美术作品，能运用感悟、讨论、比较等方法描述作品主要内容与特点，并表达自己的审美体验。",
+          "excerpt_hash": "6dbb9f2310caac7c6aebcbd01f32963a72531603e488d564a25408471c889586",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“看三次”策略：第一次说感受，第二次找造型证据（线条/色彩/构图），第三次联系背景；提供评价句式“我注意到…这让我觉得…”。",
+          "excerpt_hash": "06039881888d1cb8cb923520e333da4905ded21d885b9ebbcdb4924c23d5fbb7",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-AA-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用感悟、讨论、比较等方法描述作品主要内容与特点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用感悟、讨论、比较等方法描述作品主要内容与特点”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“用“看三次”策略：第一次说感受，第二次找造型证据（线条/色彩/构图），第三次联系背景”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_1633dd8b457d7d45"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用感悟、讨论、比较等方法描述作品主要内容与特点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e76756f98a12d3f6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_af2fafa34bf084e4"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用感悟、讨论、比较等方法描述作品主要内容与特点”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用感悟、讨论、比较等方法描述作品主要内容与特点”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能欣赏与评述中外美术作品，能运用感悟、讨论、比较等方法描述作品主要内容与特点，并表达自己的审美体验。",
+          "excerpt_hash": "6dbb9f2310caac7c6aebcbd01f32963a72531603e488d564a25408471c889586",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“看三次”策略：第一次说感受，第二次找造型证据（线条/色彩/构图），第三次联系背景；提供评价句式“我注意到…这让我觉得…”。",
+          "excerpt_hash": "06039881888d1cb8cb923520e333da4905ded21d885b9ebbcdb4924c23d5fbb7",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-AA-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用感悟、讨论、比较等方法描述作品主要内容与特点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用感悟、讨论、比较等方法描述作品主要内容与特点”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用“看三次”策略：第一次说感受，第二次找造型证据（线条/色彩/构图），第三次联系背景”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_1633dd8b457d7d45",
+        "lc_417120218b23190a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用感悟、讨论、比较等方法描述作品主要内容与特点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_972be56179bcead0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_af2fafa34bf084e4"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“运用感悟、讨论、比较等方法描述作品主要内容与特点”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用感悟、讨论、比较等方法描述作品主要内容与特点”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能欣赏与评述中外美术作品，能运用感悟、讨论、比较等方法描述作品主要内容与特点，并表达自己的审美体验。",
+          "excerpt_hash": "6dbb9f2310caac7c6aebcbd01f32963a72531603e488d564a25408471c889586",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“看三次”策略：第一次说感受，第二次找造型证据（线条/色彩/构图），第三次联系背景；提供评价句式“我注意到…这让我觉得…”。",
+          "excerpt_hash": "06039881888d1cb8cb923520e333da4905ded21d885b9ebbcdb4924c23d5fbb7",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-AA-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用感悟、讨论、比较等方法描述作品主要内容与特点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用感悟、讨论、比较等方法描述作品主要内容与特点”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用“看三次”策略：第一次说感受，第二次找造型证据（线条/色彩/构图），第三次联系背景”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_82779c15b45563d1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_25cc2de0079d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fbf879fc86b8f9dd",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_52731e5af182e921",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5257fc4696e"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5773d3c34b5fac1a",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ceba863e3afc5b1a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7f08a79245a04bd51982",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_66a45d74ea83"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_70c6b45240660bc3",
+      "textbook_grade": 4,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_61f15bcc6fed78e0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9056a7a14a02606cf0cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c7075fcbe13b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1d7f26ff680d57af",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_de922cdd1391872f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b0ba55d2d28575d0ba65",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_aa7ce1e8a37f"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4a0a538012d57261",
+      "textbook_grade": 3,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6e664319ef8517a7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b99acd98774d0dc454da",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_572122ddff26"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9a72f44c9f0c7435",
+      "textbook_grade": 3,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ee966f006867b7e9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_edc22a9a708956d31cdc",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a83a27f3607b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3637c861f3728bf7",
+      "textbook_grade": 4,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2f5c0fc1a2b572a6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_aa3aaa5d9032"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_19c3fbbc0c7e7882",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_8b359509593ad3a7",
+      "evidence_refs": [
+        "standard:AR-D2-AA-002:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D2-AA-002",
+      "target_code": "AR-D3-AA-002",
+      "target_label": "能运用美术语言与感悟、讨论、分析、比较等方法欣赏与评述外国美术作品，领略世界美术的多样性，并能表达自己的审美判断。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_af2fafa34bf084e4",
+      "component_ids": [
+        "lc_1633dd8b457d7d45"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生运用感悟、讨论、比较等方法描述作品主要内容与特点。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够运用感悟、讨论、比较等方法描述作品主要内容与特点；优先采集：评述单、口头分享、教师追问记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能欣赏与评述中外美术作品，能运用感悟、讨论、比较等方法描述作品主要内容与特点，并表达自己的审美体验。",
+          "excerpt_hash": "6dbb9f2310caac7c6aebcbd01f32963a72531603e488d564a25408471c889586",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_07549cbc334a2362",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够欣赏与评述中外美术作品",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生欣赏与评述中外美术作品，并说明关键步骤、特征或依据。",
+      "label": "欣赏与评述中外美术作品",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够欣赏与评述中外美术作品；优先采集：评述单、口头分享、教师追问记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "欣赏与评述中外美术作品",
+          "excerpt_hash": "80643fc3a4a2f339c6e96c7ad756cd3ea0186d30a0d2c151c7f8e7a7f52bd3ac",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "欣赏与评述中外美术作品"
+    },
+    {
+      "component_id": "lc_1633dd8b457d7d45",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用感悟、讨论、比较等方法描述作品主要内容与特点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用感悟、讨论、比较等方法描述作品主要内容与特点，并说明关键步骤、特征或依据。",
+      "label": "运用感悟、讨论、比较等方法描述作品主要内容与特点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用感悟、讨论、比较等方法描述作品主要内容与特点；优先采集：评述单、口头分享、教师追问记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用感悟、讨论、比较等方法描述作品主要内容与特点",
+          "excerpt_hash": "d72536684d70426a6ea01078e9697445f8fc9ad90ef9ae2ce94254915d171db0",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用感悟、讨论、比较等方法描述作品主要内容与特点"
+    },
+    {
+      "component_id": "lc_417120218b23190a",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够表达自己的审美体验",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生表达自己的审美体验，并说明关键步骤、特征或依据。",
+      "label": "表达自己的审美体验",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够表达自己的审美体验；优先采集：评述单、口头分享、教师追问记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "表达自己的审美体验",
+          "excerpt_hash": "0d120f6a5887dcc2522911df9c66f772414a5e2b976bdd95a5e634aa22fc19ea",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表达自己的审美体验"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_e636e017e8224429",
+      "evidence_refs": [
+        "standard:AR-D2-AA-002:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D1-AA-001",
+      "source_label": "能观察周边自然物与人造物，运用线条、形状、色彩、肌理等造型元素以及对称、重复等形式原理，发现并欣赏其中的美。",
+      "target_code": "AR-D2-AA-002",
+      "target_label": "能欣赏与评述中外美术作品，能运用感悟、讨论、比较等方法描述作品主要内容与特点，并表达自己的审美体验。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "6dbb9f2310caac7c6aebcbd01f32963a72531603e488d564a25408471c889586",
+  "standard_code": "AR-D2-AA-002",
+  "verified_prerequisites": []
+}

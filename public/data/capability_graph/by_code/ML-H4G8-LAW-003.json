@@ -1,0 +1,497 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_ca20f1810feb9bfc"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生判断社会生活现象，用法律维护自己作为未成年人的权益的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_cfd9ecf5c758eae0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d19e00a68e542e59",
+        "hc_462b851aea87feff"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“判断社会生活现象，用法律维护自己作为未成年人的权益”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“判断社会生活现象，用法律维护自己作为未成年人的权益”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能辨别媒体中的不良信息，了解网络环境中如何保护未成年人隐私等合法权益；能运用所了解的法律知识认识和分析并判断社会生活现象，用法律维护自己作为未成年人的权益；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "3eed81d12db9ba8cedfe0bfb4ad5000501d8c4cc513f119a6a0f40f6c1e7ee9a",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调法律知识的生活运用和合法、理性、有效的维权路径。",
+          "excerpt_hash": "5bc47d79a6a98c8ffe734c171412949d9570b855884c52d7498924f10496c1a0",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G8-LAW-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后判断社会生活现象，用法律维护自己作为未成年人的权益，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“判断社会生活现象，用法律维护自己作为未成年人的权益”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“强调法律知识的生活运用和合法、理性、有效的维权路径。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_7dee2161c54cae1a",
+        "lc_ca20f1810feb9bfc"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用所了解的法律知识认识和分析的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_77ea50cda79920cd",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d19e00a68e542e59",
+        "hc_462b851aea87feff"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用所了解的法律知识认识和分析”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用所了解的法律知识认识和分析”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能辨别媒体中的不良信息，了解网络环境中如何保护未成年人隐私等合法权益；能运用所了解的法律知识认识和分析并判断社会生活现象，用法律维护自己作为未成年人的权益；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "3eed81d12db9ba8cedfe0bfb4ad5000501d8c4cc513f119a6a0f40f6c1e7ee9a",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调法律知识的生活运用和合法、理性、有效的维权路径。",
+          "excerpt_hash": "5bc47d79a6a98c8ffe734c171412949d9570b855884c52d7498924f10496c1a0",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G8-LAW-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用所了解的法律知识认识和分析，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用所了解的法律知识认识和分析”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“强调法律知识的生活运用和合法、理性、有效的维权路径。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_5f3105804d3209bf",
+        "lc_7dee2161c54cae1a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2a68006c7edf4022",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能辨别媒体中的不良信息，了解网络环境中如何保护未成年人隐私等合法权益；能运用所了解的法律知识认识和分析并判断社会生活现象，用法律维护自己作为未成年人的权益；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "3eed81d12db9ba8cedfe0bfb4ad5000501d8c4cc513f119a6a0f40f6c1e7ee9a",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调法律知识的生活运用和合法、理性、有效的维权路径。",
+          "excerpt_hash": "5bc47d79a6a98c8ffe734c171412949d9570b855884c52d7498924f10496c1a0",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G8-LAW-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“强调法律知识的生活运用和合法、理性、有效的维权路径。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_33305a24ca42f1fd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2860489fc83ddeb6cec5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_76fc538dd0d1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_262756ea29a61d32",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_75c71c98af5e0222",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d8429e42f96b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9eb2e2a90a705049",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_932b94ebaa015baa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b28ec1f6b081b602",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0338677347595ee9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_05dbe85802ac"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c23f52c4ba953c6f",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_0f3877b268ac6e65",
+      "evidence_refs": [
+        "standard:ML-H4G8-LAW-003:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-H4G8-LAW-003",
+      "target_code": "ML-H4G9-LAW-002",
+      "target_label": "能辨别媒体中的不良信息，了解网络环境中如何保护未成年人隐私等合法权益；能运用所了解的法律知识认识和评价社会生活现象，用法律维护自己作为未成年人…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_d19e00a68e542e59",
+      "component_ids": [
+        "lc_ca20f1810feb9bfc"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断社会生活现象，用法律维护自己作为未成年人的权益。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够判断社会生活现象，用法律维护自己作为未成年人的权益；优先采集：依法维权方案、案例评价、风险辨析。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能辨别媒体中的不良信息，了解网络环境中如何保护未成年人隐私等合法权益；能运用所了解的法律知识认识和分析并判断社会生活现象，用法律维护自己作为未成年人的权益；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "3eed81d12db9ba8cedfe0bfb4ad5000501d8c4cc513f119a6a0f40f6c1e7ee9a",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_462b851aea87feff",
+      "component_ids": [
+        "lc_ca20f1810feb9bfc"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断社会生活现象，用法律维护自己作为未成年人的权益。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够判断社会生活现象，用法律维护自己作为未成年人的权益；优先采集：依法维权方案、案例评价、风险辨析。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能辨别媒体中的不良信息，了解网络环境中如何保护未成年人隐私等合法权益；能运用所了解的法律知识认识和分析并判断社会生活现象，用法律维护自己作为未成年人的权益；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "3eed81d12db9ba8cedfe0bfb4ad5000501d8c4cc513f119a6a0f40f6c1e7ee9a",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3e0d42b1fbefba41",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够辨别媒体中的不良信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生辨别媒体中的不良信息，并说明关键步骤、特征或依据。",
+      "label": "辨别媒体中的不良信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够辨别媒体中的不良信息；优先采集：依法维权方案、案例评价、风险辨析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨别媒体中的不良信息",
+          "excerpt_hash": "70aa1a5403a183df9fa4e547245e2a85208093eb8a2af437f837c354cb242b89",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "辨别媒体中的不良信息"
+    },
+    {
+      "component_id": "lc_5f3105804d3209bf",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征；优先采集：依法维权方案、案例评价、风险辨析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解网络环境中如何保护未成年人隐私等合法权益",
+          "excerpt_hash": "50cc852319067a90ca617dfeb950743ab5f8c8360d3f3501c9522e3db4e38f57",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解网络环境中如何保护未成年人隐私等合法权益"
+    },
+    {
+      "component_id": "lc_7dee2161c54cae1a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用所了解的法律知识认识和分析",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用所了解的法律知识认识和分析，并说明关键步骤、特征或依据。",
+      "label": "运用所了解的法律知识认识和分析",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用所了解的法律知识认识和分析；优先采集：依法维权方案、案例评价、风险辨析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用所了解的法律知识认识和分析",
+          "excerpt_hash": "1db8b6338ef09cf72fee3bceeced846e1ce416d71e0a9f7816154590fd317ab5",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用所了解的法律知识认识和分析"
+    },
+    {
+      "component_id": "lc_ca20f1810feb9bfc",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够判断社会生活现象，用法律维护自己作为未成年人的权益",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生判断社会生活现象，用法律维护自己作为未成年人的权益，并说明关键步骤、特征或依据。",
+      "label": "判断社会生活现象，用法律维护自己作为未成年人的权益",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够判断社会生活现象，用法律维护自己作为未成年人的权益；优先采集：依法维权方案、案例评价、风险辨析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "判断社会生活现象，用法律维护自己作为未成年人的权益",
+          "excerpt_hash": "b4f7e511de348fb21e24ae3c3e5454994967f26d25af6498e310c374eead5a3f",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "判断社会生活现象，用法律维护自己作为未成年人的权益"
+    },
+    {
+      "component_id": "lc_0719a4d4efd0a40d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够结合家庭、学校或社会案例分析问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合家庭、学校或社会案例分析问题，并说明关键步骤、特征或依据。",
+      "label": "结合家庭、学校或社会案例分析问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够结合家庭、学校或社会案例分析问题；优先采集：依法维权方案、案例评价、风险辨析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "结合家庭、学校或社会案例分析问题",
+          "excerpt_hash": "9f011217b5939392cbd181d22775f8f11d41c522438ab487610a73e9e02bbda8",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "结合家庭、学校或社会案例分析问题"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_88bdffab4ea9b360",
+      "evidence_refs": [
+        "standard:ML-H4G8-LAW-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-H4G7-LAW-003",
+      "source_label": "能辨别媒体中的不良信息，了解网络环境中如何保护未成年人隐私等合法权益；能运用所了解的法律知识认识和初步判断社会生活现象，用法律维护自己作为未成…",
+      "target_code": "ML-H4G8-LAW-003",
+      "target_label": "能辨别媒体中的不良信息，了解网络环境中如何保护未成年人隐私等合法权益；能运用所了解的法律知识认识和分析并判断社会生活现象，用法律维护自己作为未…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "3eed81d12db9ba8cedfe0bfb4ad5000501d8c4cc513f119a6a0f40f6c1e7ee9a",
+  "standard_code": "ML-H4G8-LAW-003",
+  "verified_prerequisites": []
+}

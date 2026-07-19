@@ -42,6 +42,13 @@ interface SubjectPayload {
     standards?: StandardRecord[]
 }
 
+const CAPABILITY_GRAPH_FIELDS = [
+    'capability_graph_schema_version', 'capability_graph_method', 'source_standard_hash',
+    'learning_components', 'verified_prerequisites', 'prerequisite_candidates', 'prerequisite_review_coverage',
+    'hardest_cases', 'common_difficulties', 'curriculum_alignments', 'curriculum_alignment_summary',
+    'forward_connections'
+] as const
+
 export class FileCurriculumRepository {
     private manifest?: Manifest
     private dataVersion?: DataVersion
@@ -49,10 +56,12 @@ export class FileCurriculumRepository {
     private skillsMeta?: JsonObject
     private subjectStandards = new Map<string, StandardRecord[]>()
     private codeToSubject?: Record<string, string>
+    private codeAliases?: Record<string, string[]>
     private skillToSubjects?: Record<string, string[]>
     private subjectStats?: JsonObject
     private allStandards?: StandardRecord[]
     private standardResolver?: ReturnType<typeof createStandardResolver>
+    private capabilityGraphs = new Map<string, JsonObject>()
 
     constructor(private readonly dataRoot: string) {}
 
@@ -132,6 +141,16 @@ export class FileCurriculumRepository {
         return this.codeToSubject
     }
 
+    async loadCodeAliases(): Promise<Record<string, string[]>> {
+        if (this.codeAliases) return this.codeAliases
+        try {
+            this.codeAliases = await this.readJson<Record<string, string[]>>('indexes/code_aliases.json')
+        } catch {
+            this.codeAliases = {}
+        }
+        return this.codeAliases
+    }
+
     async loadSkillToSubjects(): Promise<Record<string, string[]>> {
         if (!this.skillToSubjects) this.skillToSubjects = await this.readJson<Record<string, string[]>>('indexes/skill_to_subjects.json')
         return this.skillToSubjects
@@ -143,9 +162,65 @@ export class FileCurriculumRepository {
     }
 
     async resolveStandard(code: string): Promise<StandardResolution> {
+        const requested = String(code || '').trim()
+        if (!requested) return { status: 'missing' }
+        try {
+            const codeIndex = await this.loadCodeToSubject()
+            const directCode = codeIndex[requested] ? requested : codeIndex[requested.toUpperCase()] ? requested.toUpperCase() : ''
+            if (directCode) {
+                const standards = await this.loadSubjectStandards(codeIndex[directCode])
+                const record = standards.find(item => item.code === directCode)
+                if (record) return { status: 'found', record, resolved_from: requested === record.code ? undefined : requested }
+            }
+
+            const aliasIndex = await this.loadCodeAliases()
+            const aliasCodes = aliasIndex[requested.toUpperCase()] || []
+            if (aliasCodes.length) {
+                const subjectSlugs = [...new Set(aliasCodes.map(item => codeIndex[item]).filter(Boolean))]
+                const groups = await Promise.all(subjectSlugs.map(subject => this.loadSubjectStandards(subject)))
+                const recordsByCode = new Map(groups.flat().map(record => [record.code, record]))
+                const candidates = aliasCodes.map(item => recordsByCode.get(item)).filter((item): item is StandardRecord => Boolean(item))
+                if (candidates.length === 1) return { status: 'found', record: candidates[0], resolved_from: requested }
+                if (candidates.length > 1) return { status: 'ambiguous', candidates }
+            }
+        } catch {
+            // Older/internal datasets may not have the public alias index. The
+            // full resolver remains a compatibility fallback in that case.
+        }
+
         const all = await this.loadAllStandards()
         if (!this.standardResolver) this.standardResolver = createStandardResolver(all)
-        return this.standardResolver(code)
+        return this.standardResolver(requested)
+    }
+
+    async loadCapabilityGraphForCode(code: string): Promise<JsonObject | null> {
+        const resolved = await this.resolveStandard(code)
+        if (resolved.status !== 'found' || !resolved.record) return null
+        const record = resolved.record
+        const canonicalCode = String(record.code)
+        if (this.capabilityGraphs.has(canonicalCode)) return this.capabilityGraphs.get(canonicalCode) || null
+
+        const hasEmbeddedGraph = Array.isArray(record.learning_components) && record.learning_components.length > 0
+        if (hasEmbeddedGraph) {
+            const graph = {
+                standard_code: canonicalCode,
+                ...Object.fromEntries(CAPABILITY_GRAPH_FIELDS.map(field => [field, record[field]]))
+            }
+            this.capabilityGraphs.set(canonicalCode, graph)
+            return graph
+        }
+
+        try {
+            const graph = await this.readJson<JsonObject>(`capability_graph/by_code/${canonicalCode}.json`)
+            if (graph.standard_code !== canonicalCode) return null
+            for (const field of ['capability_graph_schema_version', 'capability_graph_method', 'source_standard_hash'] as const) {
+                if (record[field] && graph[field] !== record[field]) return null
+            }
+            this.capabilityGraphs.set(canonicalCode, graph)
+            return graph
+        } catch {
+            return null
+        }
     }
 
     async findStandardByCode(code: string): Promise<StandardRecord | null> {

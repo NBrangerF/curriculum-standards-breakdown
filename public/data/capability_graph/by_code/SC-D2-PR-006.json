@@ -1,0 +1,465 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_76c89e16f2fc56ff"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生利用常用工具加工材料，按顺序制作实物模型的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fb1ab8adf0a70f12",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4c7e137a11dd9563",
+        "hc_db05cda8852ed5ae",
+        "hc_5482f779be7e67bb"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“利用常用工具加工材料，按顺序制作实物模型”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“利用常用工具加工材料，按顺序制作实物模型”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用常用工具加工材料，按顺序制作实物模型；能发现不足并进行改进与展示。",
+          "excerpt_hash": "1fb355dc1a62fce6724026bf451e479c67fa6f57835ca4c6397164c84af89a03",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“关注过程与迭代：制作—测试—发现问题—改进—再测试，鼓励用“改进记录单”留下证据。；重视安全与规范操作：工具使用、材料加工与收纳有明确规则”",
+          "excerpt_hash": "d577a29a23d6982cb65c5c26de08836ed587d0b0772512d30ef653c3a70ac424",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D2-PR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后利用常用工具加工材料，按顺序制作实物模型，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“利用常用工具加工材料，按顺序制作实物模型”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：““关注过程与迭代：制作—测试—发现问题—改进—再测试，鼓励用“改进记录单”留下证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_76c89e16f2fc56ff"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生利用常用工具加工材料，按顺序制作实物模型的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_db05cda8852ed5ae",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4c7e137a11dd9563",
+        "hc_db05cda8852ed5ae",
+        "hc_5482f779be7e67bb"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“利用常用工具加工材料，按顺序制作实物模型”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“利用常用工具加工材料，按顺序制作实物模型”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用常用工具加工材料，按顺序制作实物模型；能发现不足并进行改进与展示。",
+          "excerpt_hash": "1fb355dc1a62fce6724026bf451e479c67fa6f57835ca4c6397164c84af89a03",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“关注过程与迭代：制作—测试—发现问题—改进—再测试，鼓励用“改进记录单”留下证据。；重视安全与规范操作：工具使用、材料加工与收纳有明确规则”",
+          "excerpt_hash": "d577a29a23d6982cb65c5c26de08836ed587d0b0772512d30ef653c3a70ac424",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D2-PR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后利用常用工具加工材料，按顺序制作实物模型，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“利用常用工具加工材料，按顺序制作实物模型”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：““关注过程与迭代：制作—测试—发现问题—改进—再测试，鼓励用“改进记录单”留下证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_76c89e16f2fc56ff",
+        "lc_fec1387f3cfab33a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生利用常用工具加工材料，按顺序制作实物模型的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_554193f9086ccb6a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4c7e137a11dd9563",
+        "hc_db05cda8852ed5ae",
+        "hc_5482f779be7e67bb"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“利用常用工具加工材料，按顺序制作实物模型”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“利用常用工具加工材料，按顺序制作实物模型”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用常用工具加工材料，按顺序制作实物模型；能发现不足并进行改进与展示。",
+          "excerpt_hash": "1fb355dc1a62fce6724026bf451e479c67fa6f57835ca4c6397164c84af89a03",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“关注过程与迭代：制作—测试—发现问题—改进—再测试，鼓励用“改进记录单”留下证据。；重视安全与规范操作：工具使用、材料加工与收纳有明确规则”",
+          "excerpt_hash": "d577a29a23d6982cb65c5c26de08836ed587d0b0772512d30ef653c3a70ac424",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D2-PR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后利用常用工具加工材料，按顺序制作实物模型，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“利用常用工具加工材料，按顺序制作实物模型”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：““关注过程与迭代：制作—测试—发现问题—改进—再测试，鼓励用“改进记录单”留下证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_fec1387f3cfab33a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生发现不足并进行改进与展示的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_671a75e702fe4c4f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5482f779be7e67bb"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“发现不足并进行改进与展示”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“发现不足并进行改进与展示”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用常用工具加工材料，按顺序制作实物模型；能发现不足并进行改进与展示。",
+          "excerpt_hash": "1fb355dc1a62fce6724026bf451e479c67fa6f57835ca4c6397164c84af89a03",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“关注过程与迭代：制作—测试—发现问题—改进—再测试，鼓励用“改进记录单”留下证据。；重视安全与规范操作：工具使用、材料加工与收纳有明确规则”",
+          "excerpt_hash": "d577a29a23d6982cb65c5c26de08836ed587d0b0772512d30ef653c3a70ac424",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D2-PR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后发现不足并进行改进与展示，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“发现不足并进行改进与展示”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：““关注过程与迭代：制作—测试—发现问题—改进—再测试，鼓励用“改进记录单”留下证据。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_56e0e40f74189f65",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0757779aa18e19943225",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d4496c65db0c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b9eb991027ffeda8",
+      "textbook_grade": 4,
+      "textbook_subject": "科学",
+      "textbook_title": "科学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_87eb90e11261b846",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_8f339370bc6f93bec508",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_081c8aedb59a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7c169a53d2e5e61f",
+      "textbook_grade": 3,
+      "textbook_subject": "科学",
+      "textbook_title": "科学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f5d05f56eec4e434",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b38444051a56cb65e2a2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e406900c980e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_cdcafe0767eae425",
+      "textbook_grade": 3,
+      "textbook_subject": "科学",
+      "textbook_title": "科学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6f31abe890f04cf6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fdd69e27f13a56c2ba4c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d37bf862517c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_cd997a8f1d41e32e",
+      "textbook_grade": 4,
+      "textbook_subject": "科学",
+      "textbook_title": "科学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_4c7e137a11dd9563",
+      "component_ids": [
+        "lc_76c89e16f2fc56ff"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "顺序"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生利用常用工具加工材料，按顺序制作实物模型。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够利用常用工具加工材料，按顺序制作实物模型；优先采集：模型/作品、口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用常用工具加工材料，按顺序制作实物模型；能发现不足并进行改进与展示。",
+          "excerpt_hash": "1fb355dc1a62fce6724026bf451e479c67fa6f57835ca4c6397164c84af89a03",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（顺序）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    },
+    {
+      "case_id": "hc_db05cda8852ed5ae",
+      "component_ids": [
+        "lc_76c89e16f2fc56ff"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "模型"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生利用常用工具加工材料，按顺序制作实物模型。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够利用常用工具加工材料，按顺序制作实物模型；优先采集：模型/作品、口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用常用工具加工材料，按顺序制作实物模型；能发现不足并进行改进与展示。",
+          "excerpt_hash": "1fb355dc1a62fce6724026bf451e479c67fa6f57835ca4c6397164c84af89a03",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（模型）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_5482f779be7e67bb",
+      "component_ids": [
+        "lc_76c89e16f2fc56ff",
+        "lc_fec1387f3cfab33a"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "改进",
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生利用常用工具加工材料，按顺序制作实物模型。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够利用常用工具加工材料，按顺序制作实物模型；优先采集：模型/作品、口头/书面汇报。",
+        "学生能够发现不足并进行改进与展示；优先采集：模型/作品、口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用常用工具加工材料，按顺序制作实物模型；能发现不足并进行改进与展示。",
+          "excerpt_hash": "1fb355dc1a62fce6724026bf451e479c67fa6f57835ca4c6397164c84af89a03",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（改进、制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_76c89e16f2fc56ff",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够利用常用工具加工材料，按顺序制作实物模型",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生利用常用工具加工材料，按顺序制作实物模型，并说明关键步骤、特征或依据。",
+      "label": "利用常用工具加工材料，按顺序制作实物模型",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够利用常用工具加工材料，按顺序制作实物模型；优先采集：模型/作品、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用常用工具加工材料，按顺序制作实物模型",
+          "excerpt_hash": "ca062824c2f7534aafc14c43374c958a1d5d6713ae2bb6ab495b40767d4c9ff8",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "利用常用工具加工材料，按顺序制作实物模型"
+    },
+    {
+      "component_id": "lc_fec1387f3cfab33a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够发现不足并进行改进与展示",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生发现不足并进行改进与展示，并说明关键步骤、特征或依据。",
+      "label": "发现不足并进行改进与展示",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够发现不足并进行改进与展示；优先采集：模型/作品、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "发现不足并进行改进与展示",
+          "excerpt_hash": "ed7ea113eec3c62ec2f4e3ee76b97794a21f5d04945545084f87e741d5a1f24d",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "发现不足并进行改进与展示"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "1fb355dc1a62fce6724026bf451e479c67fa6f57835ca4c6397164c84af89a03",
+  "standard_code": "SC-D2-PR-006",
+  "verified_prerequisites": []
+}

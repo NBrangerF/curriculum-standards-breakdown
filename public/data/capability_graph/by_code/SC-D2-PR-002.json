@@ -1,0 +1,409 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_16d1f1e192d1c3da"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生区分天然材料与人造材料的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_dce1d9bb9b6257e9",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_dc04e168534b2e89"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“区分天然材料与人造材料”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“区分天然材料与人造材料”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能区分天然材料与人造材料，理解发明与工程建造创造了人造物；知道工具能让生产生活更便利、快捷和精确。",
+          "excerpt_hash": "47a294f2c9f8a0015eadb517c0716753c87b7dbfb30275e023eaa682a3356e67",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“从真实问题情境出发：围绕“怎样更方便/更安全/更省力”提出改进点，引导学生体验—分析—改进。”",
+          "excerpt_hash": "5e69d0bcc1cd16841e955fd31f3bba472466971368d7474aec69063b17f333d7",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D2-PR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后区分天然材料与人造材料，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“区分天然材料与人造材料”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：““从真实问题情境出发：围绕“怎样更方便/更安全/更省力”提出改进点，引导学生体验—分析—改进。””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_c5d8d21ba37194e6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生准确说出工具能让生产生活更便利、快捷和精确的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3b6ce5434b374565",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_fb2f0356a23a8553"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“准确说出工具能让生产生活更便利、快捷和精确”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“准确说出工具能让生产生活更便利、快捷和精确”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能区分天然材料与人造材料，理解发明与工程建造创造了人造物；知道工具能让生产生活更便利、快捷和精确。",
+          "excerpt_hash": "47a294f2c9f8a0015eadb517c0716753c87b7dbfb30275e023eaa682a3356e67",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“从真实问题情境出发：围绕“怎样更方便/更安全/更省力”提出改进点，引导学生体验—分析—改进。”",
+          "excerpt_hash": "5e69d0bcc1cd16841e955fd31f3bba472466971368d7474aec69063b17f333d7",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D2-PR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后准确说出工具能让生产生活更便利、快捷和精确，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出工具能让生产生活更便利、快捷和精确”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：““从真实问题情境出发：围绕“怎样更方便/更安全/更省力”提出改进点，引导学生体验—分析—改进。””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_c5d8d21ba37194e6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生准确说出工具能让生产生活更便利、快捷和精确的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f4b5300ee780d6d7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_fb2f0356a23a8553"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“准确说出工具能让生产生活更便利、快捷和精确”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“准确说出工具能让生产生活更便利、快捷和精确”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能区分天然材料与人造材料，理解发明与工程建造创造了人造物；知道工具能让生产生活更便利、快捷和精确。",
+          "excerpt_hash": "47a294f2c9f8a0015eadb517c0716753c87b7dbfb30275e023eaa682a3356e67",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“从真实问题情境出发：围绕“怎样更方便/更安全/更省力”提出改进点，引导学生体验—分析—改进。”",
+          "excerpt_hash": "5e69d0bcc1cd16841e955fd31f3bba472466971368d7474aec69063b17f333d7",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D2-PR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后准确说出工具能让生产生活更便利、快捷和精确，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出工具能让生产生活更便利、快捷和精确”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：““从真实问题情境出发：围绕“怎样更方便/更安全/更省力”提出改进点，引导学生体验—分析—改进。””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2937fbe2c327bebb",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0757779aa18e19943225",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d4496c65db0c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b9eb991027ffeda8",
+      "textbook_grade": 4,
+      "textbook_subject": "科学",
+      "textbook_title": "科学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_59da0fc54cee0469",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_8f339370bc6f93bec508",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_081c8aedb59a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7c169a53d2e5e61f",
+      "textbook_grade": 3,
+      "textbook_subject": "科学",
+      "textbook_title": "科学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c7ddeb5636484e31",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b38444051a56cb65e2a2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e406900c980e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_cdcafe0767eae425",
+      "textbook_grade": 3,
+      "textbook_subject": "科学",
+      "textbook_title": "科学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9d7dc2403703fb52",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fdd69e27f13a56c2ba4c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d37bf862517c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_cd997a8f1d41e32e",
+      "textbook_grade": 4,
+      "textbook_subject": "科学",
+      "textbook_title": "科学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_fb2f0356a23a8553",
+      "component_ids": [
+        "lc_c5d8d21ba37194e6"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出工具能让生产生活更便利、快捷和精确。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出工具能让生产生活更便利、快捷和精确；优先采集：模型/作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能区分天然材料与人造材料，理解发明与工程建造创造了人造物；知道工具能让生产生活更便利、快捷和精确。",
+          "excerpt_hash": "47a294f2c9f8a0015eadb517c0716753c87b7dbfb30275e023eaa682a3356e67",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_dc04e168534b2e89",
+      "component_ids": [
+        "lc_16d1f1e192d1c3da"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "区分"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生区分天然材料与人造材料。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够区分天然材料与人造材料；优先采集：模型/作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能区分天然材料与人造材料，理解发明与工程建造创造了人造物；知道工具能让生产生活更便利、快捷和精确。",
+          "excerpt_hash": "47a294f2c9f8a0015eadb517c0716753c87b7dbfb30275e023eaa682a3356e67",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（区分）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_16d1f1e192d1c3da",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够区分天然材料与人造材料",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生区分天然材料与人造材料，并说明关键步骤、特征或依据。",
+      "label": "区分天然材料与人造材料",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够区分天然材料与人造材料；优先采集：模型/作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "区分天然材料与人造材料",
+          "excerpt_hash": "b2660864dcb07a81e0f42224d7b5eeca1f8fcbea504e6380c613c757dd5d6d25",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "区分天然材料与人造材料"
+    },
+    {
+      "component_id": "lc_ae13831d847e515f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释发明与工程建造创造了人造物",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释发明与工程建造创造了人造物，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释发明与工程建造创造了人造物",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释发明与工程建造创造了人造物；优先采集：模型/作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解发明与工程建造创造了人造物",
+          "excerpt_hash": "1542f2173d9c1fb057c0397e2dd2436d2cede08cfea14cc76ee5e14f8ba22c42",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解发明与工程建造创造了人造物"
+    },
+    {
+      "component_id": "lc_c5d8d21ba37194e6",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出工具能让生产生活更便利、快捷和精确",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出工具能让生产生活更便利、快捷和精确，并说明关键步骤、特征或依据。",
+      "label": "准确说出工具能让生产生活更便利、快捷和精确",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出工具能让生产生活更便利、快捷和精确；优先采集：模型/作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道工具能让生产生活更便利、快捷和精确",
+          "excerpt_hash": "274e9eb43934d299431c21890a5ba02dbfdec8f44f46b39afaf1c74c99e0571e",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道工具能让生产生活更便利、快捷和精确"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "47a294f2c9f8a0015eadb517c0716753c87b7dbfb30275e023eaa682a3356e67",
+  "standard_code": "SC-D2-PR-002",
+  "verified_prerequisites": []
+}

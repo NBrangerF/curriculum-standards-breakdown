@@ -1,0 +1,659 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_ffd793b754554669",
+        "lc_368fe1ad84122ae5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解释二者联系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_785e27e8f95deb8f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_30f122ec7bfca237"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“解释二者联系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解释二者联系”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读简单议论性文章，能区分观点与材料并解释二者联系，能运用实证材料对他人观点作出价值判断；能用多种媒介交流沟通；能条理清楚地表达感受和认识；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "4ae860b0f974ef657427c44648f572421a1eb2d428fe5e2d02dbc916480a49ca",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "同时关注议论阅读中的证据判断和写作中的结构、详略、媒介选择。",
+          "excerpt_hash": "fd98d04f06b4131596603c95343478d9bdac23c394c2fc0e2f9e22106700b9ea",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-IN-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解释二者联系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解释二者联系”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“同时关注议论阅读中的证据判断和写作中的结构、详略、媒介选择。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_5babbbbf006a266d",
+        "lc_cd13e5b10c90f1f5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生区分观点与材料的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b91cbc18e5f02f0e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9a2950cd7e856bc4"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“区分观点与材料”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“区分观点与材料”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读简单议论性文章，能区分观点与材料并解释二者联系，能运用实证材料对他人观点作出价值判断；能用多种媒介交流沟通；能条理清楚地表达感受和认识；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "4ae860b0f974ef657427c44648f572421a1eb2d428fe5e2d02dbc916480a49ca",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "同时关注议论阅读中的证据判断和写作中的结构、详略、媒介选择。",
+          "excerpt_hash": "fd98d04f06b4131596603c95343478d9bdac23c394c2fc0e2f9e22106700b9ea",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-IN-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后区分观点与材料，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“区分观点与材料”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“同时关注议论阅读中的证据判断和写作中的结构、详略、媒介选择。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_cd13e5b10c90f1f5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用实证材料对他人观点作出价值判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9a84f08624556b90",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9a2950cd7e856bc4"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用实证材料对他人观点作出价值判断”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用实证材料对他人观点作出价值判断”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读简单议论性文章，能区分观点与材料并解释二者联系，能运用实证材料对他人观点作出价值判断；能用多种媒介交流沟通；能条理清楚地表达感受和认识；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "4ae860b0f974ef657427c44648f572421a1eb2d428fe5e2d02dbc916480a49ca",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "同时关注议论阅读中的证据判断和写作中的结构、详略、媒介选择。",
+          "excerpt_hash": "fd98d04f06b4131596603c95343478d9bdac23c394c2fc0e2f9e22106700b9ea",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-IN-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用实证材料对他人观点作出价值判断，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用实证材料对他人观点作出价值判断”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“同时关注议论阅读中的证据判断和写作中的结构、详略、媒介选择。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_6067e4461b0059a6",
+        "lc_516b0d062ae8fe64",
+        "lc_f25c29ee7cf95afd",
+        "lc_368fe1ad84122ae5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生阅读简单议论性文章的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b5c1f531ffde8ab7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_30f122ec7bfca237",
+        "hc_7cef3475fdd3287e",
+        "hc_d142eeb90f49c167"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“阅读简单议论性文章”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“阅读简单议论性文章”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读简单议论性文章，能区分观点与材料并解释二者联系，能运用实证材料对他人观点作出价值判断；能用多种媒介交流沟通；能条理清楚地表达感受和认识；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "4ae860b0f974ef657427c44648f572421a1eb2d428fe5e2d02dbc916480a49ca",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "同时关注议论阅读中的证据判断和写作中的结构、详略、媒介选择。",
+          "excerpt_hash": "fd98d04f06b4131596603c95343478d9bdac23c394c2fc0e2f9e22106700b9ea",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-IN-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后阅读简单议论性文章，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“阅读简单议论性文章”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“同时关注议论阅读中的证据判断和写作中的结构、详略、媒介选择。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_f25c29ee7cf95afd"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生条理清楚地表达感受和认识的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_17ba3774c53d1efd",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d142eeb90f49c167"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“条理清楚地表达感受和认识”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“条理清楚地表达感受和认识”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读简单议论性文章，能区分观点与材料并解释二者联系，能运用实证材料对他人观点作出价值判断；能用多种媒介交流沟通；能条理清楚地表达感受和认识；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "4ae860b0f974ef657427c44648f572421a1eb2d428fe5e2d02dbc916480a49ca",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "同时关注议论阅读中的证据判断和写作中的结构、详略、媒介选择。",
+          "excerpt_hash": "fd98d04f06b4131596603c95343478d9bdac23c394c2fc0e2f9e22106700b9ea",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-IN-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后条理清楚地表达感受和认识，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“条理清楚地表达感受和认识”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“同时关注议论阅读中的证据判断和写作中的结构、详略、媒介选择。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8e2ca32aa9a123f5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f4fb0c2a21f9"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0fb7983518710ace",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_95dc6b2fb8f343e8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_be04d8b55a4f"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d5058d79ff37d1bb",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_d8586fb5034f5471",
+      "evidence_refs": [
+        "standard:CN-H4G8-IN-004:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-H4G8-IN-004",
+      "target_code": "CN-H4G9-IN-004",
+      "target_label": "阅读简单议论性文章，能区分观点与材料并解释二者联系，能运用实证材料对他人观点作出价值判断；能用多种媒介交流沟通；能条理清楚地表达感受和认识；能…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_30f122ec7bfca237",
+      "component_ids": [
+        "lc_ffd793b754554669",
+        "lc_368fe1ad84122ae5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "解释",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生解释二者联系。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够解释二者联系；优先采集：观点材料分析、生活观察习作、多媒介表达作品。",
+        "学生能够说明观点、方法或表达选择的依据；优先采集：观点材料分析、生活观察习作、多媒介表达作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读简单议论性文章，能区分观点与材料并解释二者联系，能运用实证材料对他人观点作出价值判断；能用多种媒介交流沟通；能条理清楚地表达感受和认识；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "4ae860b0f974ef657427c44648f572421a1eb2d428fe5e2d02dbc916480a49ca",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、解释、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_9a2950cd7e856bc4",
+      "component_ids": [
+        "lc_5babbbbf006a266d",
+        "lc_cd13e5b10c90f1f5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "区分",
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生区分观点与材料。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够区分观点与材料；优先采集：观点材料分析、生活观察习作、多媒介表达作品。",
+        "学生能够运用实证材料对他人观点作出价值判断；优先采集：观点材料分析、生活观察习作、多媒介表达作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读简单议论性文章，能区分观点与材料并解释二者联系，能运用实证材料对他人观点作出价值判断；能用多种媒介交流沟通；能条理清楚地表达感受和认识；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "4ae860b0f974ef657427c44648f572421a1eb2d428fe5e2d02dbc916480a49ca",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（区分、判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_7cef3475fdd3287e",
+      "component_ids": [
+        "lc_516b0d062ae8fe64"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "多种"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用多种媒介交流沟通。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用多种媒介交流沟通；优先采集：观点材料分析、生活观察习作、多媒介表达作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读简单议论性文章，能区分观点与材料并解释二者联系，能运用实证材料对他人观点作出价值判断；能用多种媒介交流沟通；能条理清楚地表达感受和认识；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "4ae860b0f974ef657427c44648f572421a1eb2d428fe5e2d02dbc916480a49ca",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（多种）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_d142eeb90f49c167",
+      "component_ids": [
+        "lc_f25c29ee7cf95afd"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "清楚"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生条理清楚地表达感受和认识。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够条理清楚地表达感受和认识；优先采集：观点材料分析、生活观察习作、多媒介表达作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读简单议论性文章，能区分观点与材料并解释二者联系，能运用实证材料对他人观点作出价值判断；能用多种媒介交流沟通；能条理清楚地表达感受和认识；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "4ae860b0f974ef657427c44648f572421a1eb2d428fe5e2d02dbc916480a49ca",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（清楚）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_6067e4461b0059a6",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够阅读简单议论性文章",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阅读简单议论性文章，并说明关键步骤、特征或依据。",
+      "label": "阅读简单议论性文章",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够阅读简单议论性文章；优先采集：观点材料分析、生活观察习作、多媒介表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读简单议论性文章",
+          "excerpt_hash": "1a4ec47b907ac5878c2931141f379be34d8897b83dc1b9b6d492ca73f1285789",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "阅读简单议论性文章"
+    },
+    {
+      "component_id": "lc_5babbbbf006a266d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够区分观点与材料",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生区分观点与材料，并说明关键步骤、特征或依据。",
+      "label": "区分观点与材料",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够区分观点与材料；优先采集：观点材料分析、生活观察习作、多媒介表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "区分观点与材料",
+          "excerpt_hash": "0c836bb5cac28d143455ac9be27beee17a976a45345c30f9e12c91c89af8a86f",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "区分观点与材料"
+    },
+    {
+      "component_id": "lc_ffd793b754554669",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释二者联系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释二者联系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释二者联系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释二者联系；优先采集：观点材料分析、生活观察习作、多媒介表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释二者联系",
+          "excerpt_hash": "333c57788c2154ddfb519f6be2394839e4cbc7d40b5a98f64c8491ef26a307a3",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释二者联系"
+    },
+    {
+      "component_id": "lc_cd13e5b10c90f1f5",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用实证材料对他人观点作出价值判断",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用实证材料对他人观点作出价值判断，并说明关键步骤、特征或依据。",
+      "label": "运用实证材料对他人观点作出价值判断",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用实证材料对他人观点作出价值判断；优先采集：观点材料分析、生活观察习作、多媒介表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用实证材料对他人观点作出价值判断",
+          "excerpt_hash": "4794e59c420e9eaf0918d510b31db5e606243c84ee9a154d8524645f49c9b553",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用实证材料对他人观点作出价值判断"
+    },
+    {
+      "component_id": "lc_516b0d062ae8fe64",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用多种媒介交流沟通",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用多种媒介交流沟通，并说明关键步骤、特征或依据。",
+      "label": "用多种媒介交流沟通",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用多种媒介交流沟通；优先采集：观点材料分析、生活观察习作、多媒介表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用多种媒介交流沟通",
+          "excerpt_hash": "28f44eb2d1dd25b4094f530d8bc2585efe45cf1f60a18ec8b6000160b42d8edb",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用多种媒介交流沟通"
+    },
+    {
+      "component_id": "lc_f25c29ee7cf95afd",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够条理清楚地表达感受和认识",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生条理清楚地表达感受和认识，并说明关键步骤、特征或依据。",
+      "label": "条理清楚地表达感受和认识",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够条理清楚地表达感受和认识；优先采集：观点材料分析、生活观察习作、多媒介表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "条理清楚地表达感受和认识",
+          "excerpt_hash": "783b21ec972ec7b9799bdab2e8b61ee595ec17b46859f61a2acdf13856eb9248",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "条理清楚地表达感受和认识"
+    },
+    {
+      "component_id": "lc_b186a86d2e6bf4ec",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够整合材料",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合材料，并说明关键步骤、特征或依据。",
+      "label": "整合材料",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够整合材料；优先采集：观点材料分析、生活观察习作、多媒介表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "整合材料",
+          "excerpt_hash": "c6c8b0ffb05ba398d2a4a4fb4f067efe130af369012aceee836b9c0c870e2710",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "整合材料"
+    },
+    {
+      "component_id": "lc_368fe1ad84122ae5",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明观点、方法或表达选择的依据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点、方法或表达选择的依据，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明观点、方法或表达选择的依据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明观点、方法或表达选择的依据；优先采集：观点材料分析、生活观察习作、多媒介表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明观点、方法或表达选择的依据",
+          "excerpt_hash": "04a7ab3f43a7836e4d3a1304eb39d0a43cdf66ecd30248e80d1cdebbd172b84a",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明观点、方法或表达选择的依据"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_6437f93200e9d540",
+      "evidence_refs": [
+        "standard:CN-H4G8-IN-004:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-H4G7-IN-005",
+      "source_label": "阅读简单议论性文章，能区分观点与材料并解释二者联系，能运用实证材料对他人观点作出有依据地说明自己的判断；能条理清楚地表达感受和认识；能用多种媒…",
+      "target_code": "CN-H4G8-IN-004",
+      "target_label": "阅读简单议论性文章，能区分观点与材料并解释二者联系，能运用实证材料对他人观点作出价值判断；能用多种媒介交流沟通；能条理清楚地表达感受和认识；能…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4ae860b0f974ef657427c44648f572421a1eb2d428fe5e2d02dbc916480a49ca",
+  "standard_code": "CN-H4G8-IN-004",
+  "verified_prerequisites": []
+}

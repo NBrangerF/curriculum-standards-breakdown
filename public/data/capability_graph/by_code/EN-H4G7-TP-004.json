@@ -1,0 +1,398 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_87cda16c3489778f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生围绕所列主题完成理解与表达任务的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bda9996c6bc3c74a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b5c7eb3328f0de13",
+        "hc_c6019af0c65bcaf7"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“围绕所列主题完成理解与表达任务”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“围绕所列主题完成理解与表达任务”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能围绕丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践等主题开展理解与表达；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "b3110c5bafdc26898afeab7efa6aedbdeb7d180eb7262dce7f7a4636a3ef45bb",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把主题内容与学生真实成长经验连接，支持学生表达个人观点和行动计划。",
+          "excerpt_hash": "06b443de3db76373731db4c19b5da3bc53e402f96b70ac9753ac9156971a82bf",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-TP-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后围绕所列主题完成理解与表达任务，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“围绕所列主题完成理解与表达任务”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把主题内容与学生真实成长经验连接，支持学生表达个人观点和行动计划。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_87cda16c3489778f",
+        "lc_5cabd596d69d158f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生围绕所列主题完成理解与表达任务的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c4b863579d906c57",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b5c7eb3328f0de13",
+        "hc_c6019af0c65bcaf7"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“围绕所列主题完成理解与表达任务”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“围绕所列主题完成理解与表达任务”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能围绕丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践等主题开展理解与表达；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "b3110c5bafdc26898afeab7efa6aedbdeb7d180eb7262dce7f7a4636a3ef45bb",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把主题内容与学生真实成长经验连接，支持学生表达个人观点和行动计划。",
+          "excerpt_hash": "06b443de3db76373731db4c19b5da3bc53e402f96b70ac9753ac9156971a82bf",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-TP-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后围绕所列主题完成理解与表达任务，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“围绕所列主题完成理解与表达任务”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把主题内容与学生真实成长经验连接，支持学生表达个人观点和行动计划。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_87cda16c3489778f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生围绕所列主题完成理解与表达任务的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f0d9fe8a9ef8b189",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b5c7eb3328f0de13",
+        "hc_c6019af0c65bcaf7"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“围绕所列主题完成理解与表达任务”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“围绕所列主题完成理解与表达任务”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能围绕丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践等主题开展理解与表达；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "b3110c5bafdc26898afeab7efa6aedbdeb7d180eb7262dce7f7a4636a3ef45bb",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把主题内容与学生真实成长经验连接，支持学生表达个人观点和行动计划。",
+          "excerpt_hash": "06b443de3db76373731db4c19b5da3bc53e402f96b70ac9753ac9156971a82bf",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-TP-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后围绕所列主题完成理解与表达任务，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“围绕所列主题完成理解与表达任务”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把主题内容与学生真实成长经验连接，支持学生表达个人观点和行动计划。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b7db4379b6aa39af",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_600fc96aca5a7c702986",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c81ef75b15c2"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f2972c892efdda49",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e8478d75e731b907",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fcc8f13544f60ac83228",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_006c435d5baa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b6842528f75f35c9",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_526647b39edbfd85",
+      "evidence_refs": [
+        "standard:EN-H4G7-TP-004:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-H4G7-TP-004",
+      "target_code": "EN-H4G8-TP-001",
+      "target_label": "能围绕丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b5c7eb3328f0de13",
+      "component_ids": [
+        "lc_87cda16c3489778f",
+        "lc_ad6099a0f9806cf7",
+        "lc_5cabd596d69d158f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生围绕所列主题完成理解与表达任务。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践等主题范围内，能够围绕所列主题完成理解与表达任务；优先采集：主题表达作品、口头分享、行动计划。",
+        "学生能够获取关键信息；优先采集：主题表达作品、口头分享、行动计划。",
+        "学生能够完成简短交流；优先采集：主题表达作品、口头分享、行动计划。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能围绕丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践等主题开展理解与表达；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "b3110c5bafdc26898afeab7efa6aedbdeb7d180eb7262dce7f7a4636a3ef45bb",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_c6019af0c65bcaf7",
+      "component_ids": [
+        "lc_87cda16c3489778f",
+        "lc_ad6099a0f9806cf7",
+        "lc_5cabd596d69d158f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生围绕所列主题完成理解与表达任务。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践等主题范围内，能够围绕所列主题完成理解与表达任务；优先采集：主题表达作品、口头分享、行动计划。",
+        "学生能够获取关键信息；优先采集：主题表达作品、口头分享、行动计划。",
+        "学生能够完成简短交流；优先采集：主题表达作品、口头分享、行动计划。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能围绕丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践等主题开展理解与表达；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "b3110c5bafdc26898afeab7efa6aedbdeb7d180eb7262dce7f7a4636a3ef45bb",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_87cda16c3489778f",
+      "component_type": "language",
+      "condition": "在丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践等主题范围内",
+      "confidence": 0.72,
+      "description": "学生在丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践等主题范围内，能够围绕所列主题完成理解与表达任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践等主题范围内”的诊断任务，要求学生围绕所列主题完成理解与表达任务，并说明关键步骤、特征或依据。",
+      "label": "围绕所列主题完成理解与表达任务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践等主题范围内，能够围绕所列主题完成理解与表达任务；优先采集：主题表达作品、口头分享、行动计划。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "围绕丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践等主题开展理解与表达",
+          "excerpt_hash": "63173a88c3af6ca34cea46e25ed1e87a2f700c86906298ffac6299cf79582d90",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "围绕丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践等主题开展理解与表达"
+    },
+    {
+      "component_id": "lc_ad6099a0f9806cf7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够获取关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
+      "label": "获取关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够获取关键信息；优先采集：主题表达作品、口头分享、行动计划。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "获取关键信息",
+          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "获取关键信息"
+    },
+    {
+      "component_id": "lc_5cabd596d69d158f",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成简短交流",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成简短交流，并说明关键步骤、特征或依据。",
+      "label": "完成简短交流",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成简短交流；优先采集：主题表达作品、口头分享、行动计划。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成简短交流",
+          "excerpt_hash": "e0d8e980d38fdd45deaf2acf3d21d16ee5acd4e273483f5057e96bc61198198b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成简短交流"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2051,
+      "edge_id": "pc_eb424d3661ddade5",
+      "evidence_refs": [
+        "standard:EN-H4G7-TP-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-TP-004",
+      "source_label": "能识别、提炼、概括语篇的关键信息、主要内容、主题意义和观点。",
+      "target_code": "EN-H4G7-TP-004",
+      "target_label": "能围绕丰富积极的生活、安全有意义的学校生活、身心健康、抗挫能力、珍爱生命、学习方法、自我认识、自我管理、职业启蒙、劳动实践、理性消费和创新实践…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b3110c5bafdc26898afeab7efa6aedbdeb7d180eb7262dce7f7a4636a3ef45bb",
+  "standard_code": "EN-H4G7-TP-004",
+  "verified_prerequisites": []
+}

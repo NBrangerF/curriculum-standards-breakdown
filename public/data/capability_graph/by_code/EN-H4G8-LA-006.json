@@ -1,0 +1,361 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_4cb9a72b7ddb5008"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明观点或文化差异的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3866d786b7fa78f4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ad47cbd2a79864b0"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点或文化差异”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明观点或文化差异”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能根据关键词对人物、地点、事件等进行推断；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "dbbba2ddf5f3d3833db79f9c03ae35b44544102d23a88d393d2c8d063a778ac4",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生把信息提取、推断、语法归纳和语篇结构梳理放在同一个主题语篇任务中完成。",
+          "excerpt_hash": "b7696a9b4e38d41456edf9aac06baf1ad4c81d08eecac370b6a63be4095073c3",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G8-LA-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明观点或文化差异，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明观点或文化差异”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“指导学生把信息提取、推断、语法归纳和语篇结构梳理放在同一个主题语篇任务中完成。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_f3a2afbfa522dbd4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生梳理常见书面语篇的基本结构特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_125c32843b736782",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“梳理常见书面语篇的基本结构特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“梳理常见书面语篇的基本结构特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能根据关键词对人物、地点、事件等进行推断；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "dbbba2ddf5f3d3833db79f9c03ae35b44544102d23a88d393d2c8d063a778ac4",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生把信息提取、推断、语法归纳和语篇结构梳理放在同一个主题语篇任务中完成。",
+          "excerpt_hash": "b7696a9b4e38d41456edf9aac06baf1ad4c81d08eecac370b6a63be4095073c3",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G8-LA-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后梳理常见书面语篇的基本结构特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“梳理常见书面语篇的基本结构特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“指导学生把信息提取、推断、语法归纳和语篇结构梳理放在同一个主题语篇任务中完成。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c1fa788d06637593",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1684bcee616768e03a75",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8b44de69e9bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f090966a8f1f146b",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_deff41ea8fbf3024",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b542c7b235fc"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4db7656086d72cec",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_ae156c91d28d0b1a",
+      "evidence_refs": [
+        "standard:EN-H4G8-LA-006:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-H4G8-LA-006",
+      "target_code": "EN-H4G9-LA-005",
+      "target_label": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能整体理解并简要概括主要内容；能在真实交际中形…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ad47cbd2a79864b0",
+      "component_ids": [
+        "lc_4cb9a72b7ddb5008"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点或文化差异。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明观点或文化差异；优先采集：要点笔记、语篇结构图、推断说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能根据关键词对人物、地点、事件等进行推断；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "dbbba2ddf5f3d3833db79f9c03ae35b44544102d23a88d393d2c8d063a778ac4",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_141bcc24c7c03564",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够归纳语法规则",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生归纳语法规则，并说明关键步骤、特征或依据。",
+      "label": "归纳语法规则",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够归纳语法规则；优先采集：要点笔记、语篇结构图、推断说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "归纳语法规则",
+          "excerpt_hash": "93cb09c64f81a54ddae3d732209290a58bed45ab35e834efdb6ee9db513e5be0",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "归纳语法规则"
+    },
+    {
+      "component_id": "lc_f3a2afbfa522dbd4",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够梳理常见书面语篇的基本结构特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生梳理常见书面语篇的基本结构特征，并说明关键步骤、特征或依据。",
+      "label": "梳理常见书面语篇的基本结构特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够梳理常见书面语篇的基本结构特征；优先采集：要点笔记、语篇结构图、推断说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "梳理常见书面语篇的基本结构特征",
+          "excerpt_hash": "2dc2b2aff48957e6cb9332f91f4a8bbd7fa0e703078d0caf47399f65eea86fc7",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "梳理常见书面语篇的基本结构特征"
+    },
+    {
+      "component_id": "lc_7344082167c1a6e8",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在听、读、看的过程中围绕语篇内容记录重点信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在听、读、看的过程中围绕语篇内容记录重点信息，并说明关键步骤、特征或依据。",
+      "label": "在听、读、看的过程中围绕语篇内容记录重点信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在听、读、看的过程中围绕语篇内容记录重点信息；优先采集：要点笔记、语篇结构图、推断说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在听、读、看的过程中围绕语篇内容记录重点信息",
+          "excerpt_hash": "ed2ce266f2fc5c34a393d76b4ccdc516c6fc5f0603481d8100c26a9d293921f1",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在听、读、看的过程中围绕语篇内容记录重点信息"
+    },
+    {
+      "component_id": "lc_4b6296b228e72a56",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够整合语篇信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合语篇信息，并说明关键步骤、特征或依据。",
+      "label": "整合语篇信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够整合语篇信息；优先采集：要点笔记、语篇结构图、推断说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "整合语篇信息",
+          "excerpt_hash": "8fc7fa6e6eeaf7e69dbafe1c0139000f909d2a7e8aba5e8aae0003274289a04b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "整合语篇信息"
+    },
+    {
+      "component_id": "lc_4cb9a72b7ddb5008",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明观点或文化差异",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点或文化差异，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明观点或文化差异",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明观点或文化差异；优先采集：要点笔记、语篇结构图、推断说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明观点或文化差异",
+          "excerpt_hash": "eddc2a80e635a5a126c12dfa34e72610db5e58b8d29295eaa8d1d361aecdddff",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明观点或文化差异"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_f8da216f6a5c19a9",
+      "evidence_refs": [
+        "standard:EN-H4G8-LA-006:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-H4G7-LA-006",
+      "source_label": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能整体理解并简要概括主要内容；能在听、读、看的过程中围绕语篇内容记录重点信息；能获取关键信息并…",
+      "target_code": "EN-H4G8-LA-006",
+      "target_label": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能根据关键词对人物、地点、事件等进行推断；能整…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "dbbba2ddf5f3d3833db79f9c03ae35b44544102d23a88d393d2c8d063a778ac4",
+  "standard_code": "EN-H4G8-LA-006",
+  "verified_prerequisites": []
+}

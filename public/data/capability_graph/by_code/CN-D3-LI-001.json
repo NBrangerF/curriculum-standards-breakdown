@@ -1,0 +1,352 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_84ace5c09df524bb"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生借助工具书准确理解不同语境中汉字的意思的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_483ad4900df84456",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f37398e58eea6a9d",
+        "hc_5a9c8bf4f7aeae7b"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“借助工具书准确理解不同语境中汉字的意思”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“借助工具书准确理解不同语境中汉字的意思”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "独立识字，能借助工具书准确理解不同语境中汉字的意思。",
+          "excerpt_hash": "28b3e793584d52f08ec8cae50a10d216de8b7051ca60399f9fa91a3ac96e8dce",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-LI-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n在课堂或家庭延伸任务中常备《现代汉语词典》或词典 App，遇生字先自查再提问。",
+          "excerpt_hash": "15406e628a99a0a44249195ab84dc0ca72f2119bc41ed0e7accadbe2dc6c6c38",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D3-LI-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后借助工具书准确理解不同语境中汉字的意思，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“借助工具书准确理解不同语境中汉字的意思”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“在课堂或家庭延伸任务中常备《现代汉语词典》或词典 App，遇生字先自查再提问。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_384bcdd0d381cd1c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_65220055b0e922eb6a1e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_55b8f47777bf"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_976a991fac37cd16",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_54a88ba5277c2a14",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_85776c7beb7e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0586c68945959076",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_dcb266f3da93c66b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7b1d3a1f3d64378c",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e62225a4df4c4be1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_554cb370438d"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9eee8b9cbaa09aef",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1793,
+      "connection_id": "fc_440cb1babd9c3171",
+      "evidence_refs": [
+        "standard:CN-H4G7-LI-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-LI-001",
+      "target_code": "CN-H4G7-LI-001",
+      "target_label": "能熟练使用字典、词典在支架下识字，会用多种检字方法，累计认识常用汉字3500个左右；能用简短记录或口头表达说明基本理解。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_f37398e58eea6a9d",
+      "component_ids": [
+        "lc_d4df14cf461050cf",
+        "lc_84ace5c09df524bb"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "独立",
+        "准确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生独立识字。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够独立识字；优先采集：情境识字/认读。",
+        "学生能够借助工具书准确理解不同语境中汉字的意思；优先采集：情境识字/认读。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "独立识字，能借助工具书准确理解不同语境中汉字的意思。",
+          "excerpt_hash": "28b3e793584d52f08ec8cae50a10d216de8b7051ca60399f9fa91a3ac96e8dce",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-LI-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（独立、准确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_5a9c8bf4f7aeae7b",
+      "component_ids": [
+        "lc_84ace5c09df524bb"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生借助工具书准确理解不同语境中汉字的意思。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够借助工具书准确理解不同语境中汉字的意思；优先采集：情境识字/认读。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "独立识字，能借助工具书准确理解不同语境中汉字的意思。",
+          "excerpt_hash": "28b3e793584d52f08ec8cae50a10d216de8b7051ca60399f9fa91a3ac96e8dce",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-LI-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d4df14cf461050cf",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够独立识字",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生独立识字，并说明关键步骤、特征或依据。",
+      "label": "独立识字",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够独立识字；优先采集：情境识字/认读。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "独立识字",
+          "excerpt_hash": "4c2abe2f57fcec80fc7a6982bcd70e4ba15f0b05aa2113b065b0953884a81c76",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-LI-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "独立识字"
+    },
+    {
+      "component_id": "lc_84ace5c09df524bb",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够借助工具书准确理解不同语境中汉字的意思",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生借助工具书准确理解不同语境中汉字的意思，并说明关键步骤、特征或依据。",
+      "label": "借助工具书准确理解不同语境中汉字的意思",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够借助工具书准确理解不同语境中汉字的意思；优先采集：情境识字/认读。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "借助工具书准确理解不同语境中汉字的意思",
+          "excerpt_hash": "66efec8cf51ae2b3f8f80246cb4f9b57bcfe9c5f6ff6120c92d104d0243cb038",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-LI-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "借助工具书准确理解不同语境中汉字的意思"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_1278658fd9e050b5",
+      "evidence_refs": [
+        "standard:CN-D3-LI-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D2-LI-001",
+      "source_label": "在阅读中借助拼音或工具书独立认读生字。",
+      "target_code": "CN-D3-LI-001",
+      "target_label": "独立识字，能借助工具书准确理解不同语境中汉字的意思。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "28b3e793584d52f08ec8cae50a10d216de8b7051ca60399f9fa91a3ac96e8dce",
+  "standard_code": "CN-D3-LI-001",
+  "verified_prerequisites": []
+}

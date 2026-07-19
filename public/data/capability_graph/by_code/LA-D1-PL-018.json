@@ -1,0 +1,170 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_bdb131fc01a9f968"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生观察植物生长或动物发育变化的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_31b3bc2946d18cc4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_eb93591c4cef5dd3"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“观察植物生长或动物发育变化”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“观察植物生长或动物发育变化”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能观察植物生长或动物发育变化，能用图画、文字或照片等方式记录时间、外形变化与照料情况。",
+          "excerpt_hash": "d39f6b9a63a0aa56d17234eafc196f449183b024ebc1a5cda8a00d517de40668",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "提供“观察三要素”（时间/变化/原因猜想）；记录工具简化（每周一张卡）；鼓励用尺子/计量杯做简单测量。",
+          "excerpt_hash": "1be1fc1ad0c6bdefbc28a82d2e9b6f4ee2f2a942b4d4327c7bd256015aefe647",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-PL-018:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后观察植物生长或动物发育变化，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“观察植物生长或动物发育变化”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“提供“观察三要素”（时间/变化/原因猜想）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_53b21efdc2ce4480",
+      "evidence_refs": [
+        "standard:LA-D1-PL-018:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D1-PL-018",
+      "target_code": "LA-D2-PL-003",
+      "target_label": "能在教师指导下进行除草、松土等田间管理，能观察常见病虫害迹象并记录，不随意使用化学药剂，能提出安全的处理建议。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_eb93591c4cef5dd3",
+      "component_ids": [
+        "lc_bdb131fc01a9f968",
+        "lc_68c4bfa374f8ad5e"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生观察植物生长或动物发育变化。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够观察植物生长或动物发育变化；优先采集：记录卡/小册、照片、口头解释。",
+        "学生能够用图画、文字或照片等方式记录时间、外形变化与照料情况；优先采集：记录卡/小册、照片、口头解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能观察植物生长或动物发育变化，能用图画、文字或照片等方式记录时间、外形变化与照料情况。",
+          "excerpt_hash": "d39f6b9a63a0aa56d17234eafc196f449183b024ebc1a5cda8a00d517de40668",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "观察植物生长或动物发育变化；用图画、文字或照片等方式记录时间、外形变化与照料情况",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_bdb131fc01a9f968",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够观察植物生长或动物发育变化",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生观察植物生长或动物发育变化，并说明关键步骤、特征或依据。",
+      "label": "观察植物生长或动物发育变化",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够观察植物生长或动物发育变化；优先采集：记录卡/小册、照片、口头解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "观察植物生长或动物发育变化",
+          "excerpt_hash": "e897b59b33ca248b58c53afe41f83154e682bf4124acdb9eb457c30c8a972c39",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "观察植物生长或动物发育变化"
+    },
+    {
+      "component_id": "lc_68c4bfa374f8ad5e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用图画、文字或照片等方式记录时间、外形变化与照料情况",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用图画、文字或照片等方式记录时间、外形变化与照料情况，并说明关键步骤、特征或依据。",
+      "label": "用图画、文字或照片等方式记录时间、外形变化与照料情况",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用图画、文字或照片等方式记录时间、外形变化与照料情况；优先采集：记录卡/小册、照片、口头解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用图画、文字或照片等方式记录时间、外形变化与照料情况",
+          "excerpt_hash": "d7f119cf96c6d4bcf22ca0982e4b074ba0637c65e53da1d39439e3df015e3e31",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用图画、文字或照片等方式记录时间、外形变化与照料情况"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d39f6b9a63a0aa56d17234eafc196f449183b024ebc1a5cda8a00d517de40668",
+  "standard_code": "LA-D1-PL-018",
+  "verified_prerequisites": []
+}

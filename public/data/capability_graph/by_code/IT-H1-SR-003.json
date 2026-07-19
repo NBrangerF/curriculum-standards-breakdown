@@ -1,0 +1,152 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_141e0728bc52e834"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生在分享他人数字作品时能标注来源的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a2746080d5ca3ad4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1a775d853a989cfb"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“在分享他人数字作品时能标注来源”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在分享他人数字作品时能标注来源，尊重数字作品所有者的权益，逐步形成尊重知识产权的意识。",
+          "excerpt_hash": "a07ea00302389c489f61b2473f0929ebd08d409a8ed7c90bc11c2ff16880d1eb",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过探究任务讨论“这张图片/这段音乐从哪里来”，示范简单标注方式（来源于××/作者××/来自老师提供素材库）。组织“数字礼仪小榜样”评选，引导学生发现并纠正不标注来源的行为。",
+          "excerpt_hash": "4a1507df260c1491459b0b91518bc3699a7ecf4f458e67faf010c8a26a64e634",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H1-SR-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在分享他人数字作品时能标注来源，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在分享他人数字作品时能标注来源”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“通过探究任务讨论“这张图片/这段音乐从哪里来”，示范简单标注方式（来源于××/作者××/来自老师提供素材库）。组织“数字礼仪小榜样”评选，引导学生发现并纠正不标注来源的行为。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_1a775d853a989cfb",
+      "component_ids": [
+        "lc_141e0728bc52e834",
+        "lc_21950d40aa800641"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在分享他人数字作品时能标注来源。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在分享他人数字作品时能标注来源；优先采集：数字作品、教师核对表。",
+        "学生能够尊重数字作品所有者的权益，逐步形成尊重知识产权的意识；优先采集：数字作品、教师核对表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在分享他人数字作品时能标注来源，尊重数字作品所有者的权益，逐步形成尊重知识产权的意识。",
+          "excerpt_hash": "a07ea00302389c489f61b2473f0929ebd08d409a8ed7c90bc11c2ff16880d1eb",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在分享他人数字作品时能标注来源；尊重数字作品所有者的权益，逐步形成尊重知识产权的意识",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_141e0728bc52e834",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在分享他人数字作品时能标注来源",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在分享他人数字作品时能标注来源，并说明关键步骤、特征或依据。",
+      "label": "在分享他人数字作品时能标注来源",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在分享他人数字作品时能标注来源；优先采集：数字作品、教师核对表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在分享他人数字作品时能标注来源",
+          "excerpt_hash": "54739f66b8305b3fb028aab7a42228ab8764e28ed366d132ba24c39213a50250",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在分享他人数字作品时能标注来源"
+    },
+    {
+      "component_id": "lc_21950d40aa800641",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够尊重数字作品所有者的权益，逐步形成尊重知识产权的意识",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生尊重数字作品所有者的权益，逐步形成尊重知识产权的意识，并说明关键步骤、特征或依据。",
+      "label": "尊重数字作品所有者的权益，逐步形成尊重知识产权的意识",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够尊重数字作品所有者的权益，逐步形成尊重知识产权的意识；优先采集：数字作品、教师核对表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重数字作品所有者的权益，逐步形成尊重知识产权的意识",
+          "excerpt_hash": "b5a9b6d0825817f9f40053098d2ad1cf46fde97183d5bbbc48d414dcdc448769",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "尊重数字作品所有者的权益，逐步形成尊重知识产权的意识"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a07ea00302389c489f61b2473f0929ebd08d409a8ed7c90bc11c2ff16880d1eb",
+  "standard_code": "IT-H1-SR-003",
+  "verified_prerequisites": []
+}

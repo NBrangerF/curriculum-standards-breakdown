@@ -1,0 +1,382 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_fa21cc0d40df61e9",
+        "lc_dc2b6c41391d3d5e",
+        "lc_64322747910dd1cc"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解释日食、月食、节气和月相等与天体运动有关的现象的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_241142a16b6cfa27",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e764eaf6bae5fb7d"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“解释日食、月食、节气和月相等与天体运动有关的现象”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解释日食、月食、节气和月相等与天体运动有关的现象”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能学会运用三球仪模拟地球、月球和太阳的相对运动；能解释日食、月食、节气和月相等与天体运动有关的现象；阐释日食和月食产生的原因；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "0f60d04d1d0652b42417fc6da6efdb2bc90d1a90d00b23d711861840864b2c9c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-044:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生在模拟时注意相对位置、运动方向和尺度差异。",
+          "excerpt_hash": "f23e057c397b611e01718651e9f63e77e02e91f2d3f8c933b3801f56dc8f3db3",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-044:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解释日食、月食、节气和月相等与天体运动有关的现象，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解释日食、月食、节气和月相等与天体运动有关的现象”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生在模拟时注意相对位置、运动方向和尺度差异。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_1b2f6b697e0e59cb"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生学会运用三球仪模拟地球、月球和太阳的相对运动的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c23d8fdd3b8dffcc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“学会运用三球仪模拟地球、月球和太阳的相对运动”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“学会运用三球仪模拟地球、月球和太阳的相对运动”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能学会运用三球仪模拟地球、月球和太阳的相对运动；能解释日食、月食、节气和月相等与天体运动有关的现象；阐释日食和月食产生的原因；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "0f60d04d1d0652b42417fc6da6efdb2bc90d1a90d00b23d711861840864b2c9c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-044:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生在模拟时注意相对位置、运动方向和尺度差异。",
+          "excerpt_hash": "f23e057c397b611e01718651e9f63e77e02e91f2d3f8c933b3801f56dc8f3db3",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-044:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后学会运用三球仪模拟地球、月球和太阳的相对运动，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“学会运用三球仪模拟地球、月球和太阳的相对运动”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“引导学生在模拟时注意相对位置、运动方向和尺度差异。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 3,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_26d9f2537ad7e237",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2b4eaf7fd74d5608c966",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_91e786746fa4"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a01eaebee10c3727",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7a035cf1e11ea9f0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_46b397a7eadfedff",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9866e6ddc945d819",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f0fcd567e766"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_941308fc63ca2501",
+      "textbook_grade": 9,
+      "textbook_subject": "物理",
+      "textbook_title": "物理9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_e764eaf6bae5fb7d",
+      "component_ids": [
+        "lc_fa21cc0d40df61e9",
+        "lc_dc2b6c41391d3d5e",
+        "lc_64322747910dd1cc"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "论证",
+        "解释",
+        "阐释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生解释日食、月食、节气和月相等与天体运动有关的现象。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够解释日食、月食、节气和月相等与天体运动有关的现象；优先采集：模拟演示、现象解释图、口头说明。",
+        "学生能够阐释日食和月食产生的原因；优先采集：模拟演示、现象解释图、口头说明。",
+        "学生能够建模、论证；优先采集：模拟演示、现象解释图、口头说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能学会运用三球仪模拟地球、月球和太阳的相对运动；能解释日食、月食、节气和月相等与天体运动有关的现象；阐释日食和月食产生的原因；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "0f60d04d1d0652b42417fc6da6efdb2bc90d1a90d00b23d711861840864b2c9c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-044:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（论证、解释、阐释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_1b2f6b697e0e59cb",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够学会运用三球仪模拟地球、月球和太阳的相对运动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生学会运用三球仪模拟地球、月球和太阳的相对运动，并说明关键步骤、特征或依据。",
+      "label": "学会运用三球仪模拟地球、月球和太阳的相对运动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够学会运用三球仪模拟地球、月球和太阳的相对运动；优先采集：模拟演示、现象解释图、口头说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "学会运用三球仪模拟地球、月球和太阳的相对运动",
+          "excerpt_hash": "3063985f54dcc9e568264d935bb77bcf6328d3e74120ea2bdc072bd317dfd521",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-044:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "学会运用三球仪模拟地球、月球和太阳的相对运动"
+    },
+    {
+      "component_id": "lc_fa21cc0d40df61e9",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释日食、月食、节气和月相等与天体运动有关的现象",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释日食、月食、节气和月相等与天体运动有关的现象，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释日食、月食、节气和月相等与天体运动有关的现象",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释日食、月食、节气和月相等与天体运动有关的现象；优先采集：模拟演示、现象解释图、口头说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释日食、月食、节气和月相等与天体运动有关的现象",
+          "excerpt_hash": "5e6b103bd30ddb98fe0982b75f4e92d375411923d5dcf08d465b3cdbfe8da8aa",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-044:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释日食、月食、节气和月相等与天体运动有关的现象"
+    },
+    {
+      "component_id": "lc_dc2b6c41391d3d5e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够阐释日食和月食产生的原因",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释日食和月食产生的原因，并保留可回查的口头、书面或操作过程证据。",
+      "label": "阐释日食和月食产生的原因",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够阐释日食和月食产生的原因；优先采集：模拟演示、现象解释图、口头说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释日食和月食产生的原因",
+          "excerpt_hash": "936e327e75195d3cd2d2e8fc04f766cad3fc097c59bb2a70f6c199882a2a38d7",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-044:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "阐释日食和月食产生的原因"
+    },
+    {
+      "component_id": "lc_64322747910dd1cc",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、论证",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
+      "label": "建模、论证",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、论证；优先采集：模拟演示、现象解释图、口头说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、论证",
+          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-044:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、论证"
+    },
+    {
+      "component_id": "lc_1620c024ff35b1d5",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价探究结论或社会影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
+      "label": "评价探究结论或社会影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：模拟演示、现象解释图、口头说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价探究结论或社会影响",
+          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-044:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价探究结论或社会影响"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_17113b50dea837af",
+      "evidence_refs": [
+        "standard:SC-H4G9-SC-044:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G8-SC-044",
+      "source_label": "能学会运用三球仪模拟地球、月球和太阳的相对运动；能解释日食、月食、节气和月相等与天体运动有关的现象；能知道日食和月食产生的原因；能比较证据并解…",
+      "target_code": "SC-H4G9-SC-044",
+      "target_label": "能学会运用三球仪模拟地球、月球和太阳的相对运动；能解释日食、月食、节气和月相等与天体运动有关的现象；阐释日食和月食产生的原因；能建模、论证并评…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "0f60d04d1d0652b42417fc6da6efdb2bc90d1a90d00b23d711861840864b2c9c",
+  "standard_code": "SC-H4G9-SC-044",
+  "verified_prerequisites": []
+}

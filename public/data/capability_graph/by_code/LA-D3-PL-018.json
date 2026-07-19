@@ -1,0 +1,298 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_8437b0b44ced7206",
+        "lc_778b3570f4c0e63b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生正确运用2—3种结绳/编织结构完成任务的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c906ebe9ab026d92",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_13fab04ae5408493",
+        "hc_fc2ee8f53d65b9a6",
+        "hc_c7e2a1a693e42cc3"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“正确运用2—3种结绳/编织结构完成任务”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“正确运用2—3种结绳/编织结构完成任务”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能掌握2—3种结绳/编织结构，制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁。",
+          "excerpt_hash": "5586fae6fcbd00430761da3d390625430cbc2443c6634bb979a297077e109804",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“受力点”解释稳定性；先做小样再做成品；强调拉紧、对称与收尾。",
+          "excerpt_hash": "0acd82b1febfade8f09eb1a5ff7f54b4ac94830e87bed4b9a79c693410e84abb",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-PL-018:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后正确运用2—3种结绳/编织结构完成任务，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“正确运用2—3种结绳/编织结构完成任务”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用“受力点”解释稳定性”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_778b3570f4c0e63b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1c1a033624a17718",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_13fab04ae5408493",
+        "hc_fc2ee8f53d65b9a6",
+        "hc_c7e2a1a693e42cc3"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能掌握2—3种结绳/编织结构，制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁。",
+          "excerpt_hash": "5586fae6fcbd00430761da3d390625430cbc2443c6634bb979a297077e109804",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“受力点”解释稳定性；先做小样再做成品；强调拉紧、对称与收尾。",
+          "excerpt_hash": "0acd82b1febfade8f09eb1a5ff7f54b4ac94830e87bed4b9a79c693410e84abb",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-PL-018:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“用“受力点”解释稳定性”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1371,
+      "connection_id": "fc_20e3b4f5302ed5f7",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-PL-018",
+      "target_code": "LA-H4G7-PL-007",
+      "target_label": "选择一至两项传统工艺制作项目，了解其特点和基本技能，能依据劳动需要进行设计、绘制示意图并完成制作；能按规范完成任务并说明工具、材料或安全要求。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_13fab04ae5408493",
+      "component_ids": [
+        "lc_778b3570f4c0e63b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "实际"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁；优先采集：小样卡、成品、测试记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能掌握2—3种结绳/编织结构，制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁。",
+          "excerpt_hash": "5586fae6fcbd00430761da3d390625430cbc2443c6634bb979a297077e109804",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（实际）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_fc2ee8f53d65b9a6",
+      "component_ids": [
+        "lc_778b3570f4c0e63b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁；优先采集：小样卡、成品、测试记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能掌握2—3种结绳/编织结构，制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁。",
+          "excerpt_hash": "5586fae6fcbd00430761da3d390625430cbc2443c6634bb979a297077e109804",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_c7e2a1a693e42cc3",
+      "component_ids": [
+        "lc_778b3570f4c0e63b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "稳定"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁；优先采集：小样卡、成品、测试记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能掌握2—3种结绳/编织结构，制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁。",
+          "excerpt_hash": "5586fae6fcbd00430761da3d390625430cbc2443c6634bb979a297077e109804",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（稳定）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_8437b0b44ced7206",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够正确运用2—3种结绳/编织结构完成任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生正确运用2—3种结绳/编织结构完成任务，并说明关键步骤、特征或依据。",
+      "label": "正确运用2—3种结绳/编织结构完成任务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够正确运用2—3种结绳/编织结构完成任务；优先采集：小样卡、成品、测试记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "掌握2—3种结绳/编织结构",
+          "excerpt_hash": "378864343cf177e36ed867dd1ce9c3dcac74ab36b67b53386f83d9efeefb041d",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "掌握2—3种结绳/编织结构"
+    },
+    {
+      "component_id": "lc_778b3570f4c0e63b",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁，并说明关键步骤、特征或依据。",
+      "label": "制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁；优先采集：小样卡、成品、测试记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁",
+          "excerpt_hash": "263f8abac12add4f34eb888bf301dd72878b72f310c8e6170d6ff69d836ea106",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_8c78259f0241cdf8",
+      "evidence_refs": [
+        "standard:LA-D3-PL-018:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-PL-016",
+      "source_label": "能掌握1—2种基础编织或打结方法，制作一个小挂饰或小收纳物件，体现整洁与结构稳定。",
+      "target_code": "LA-D3-PL-018",
+      "target_label": "能掌握2—3种结绳/编织结构，制作具有实际用途的物件（如提手、收纳网等），做到结构稳定、长度合适、外观整洁。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5586fae6fcbd00430761da3d390625430cbc2443c6634bb979a297077e109804",
+  "standard_code": "LA-D3-PL-018",
+  "verified_prerequisites": []
+}

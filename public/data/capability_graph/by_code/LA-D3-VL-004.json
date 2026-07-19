@@ -1,0 +1,197 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_6a08a8e1af3e98b2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生参与环境公益行动（公园清洁、护绿、节水节电等）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_65d9120c3b1b6d3d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d7a7c8a965fd0b33"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“参与环境公益行动（公园清洁、护绿、节水节电等）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“参与环境公益行动（公园清洁、护绿、节水节电等）”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人组织下参与环境公益行动（公园清洁、护绿、节水节电等），能形成倡议并推动他人参与，理解可持续发展的意义。",
+          "excerpt_hash": "7937e70c11588bde2449a9bad0974ba78d65e1c92827797749077c50ea4cd112",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-VL-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "行动前进行风险评估（路线/危险点）；倡议强调可执行；记录成果（重量、袋数、照片）。",
+          "excerpt_hash": "85f15b9da289adc9552fa30f3cb4fcbe1759f5ed1c1796c6971ed96a9918b15c",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-VL-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后参与环境公益行动（公园清洁、护绿、节水节电等），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“参与环境公益行动（公园清洁、护绿、节水节电等）”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“行动前进行风险评估（路线/危险点）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.169,
+      "connection_id": "fc_0a6af81c8ca08e44",
+      "evidence_refs": [
+        "standard:LA-H4G7-VL-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-VL-004",
+      "target_code": "LA-H4G7-VL-001",
+      "target_label": "能选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目；能确定服务形式、内容与过程；能利用已有劳动经验；能按规范完成任务并说明工具、材料或安…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_d7a7c8a965fd0b33",
+      "component_ids": [
+        "lc_6a08a8e1af3e98b2",
+        "lc_e7e18fea4bf4911b",
+        "lc_3e9e2d06ed8cd12f"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生参与环境公益行动（公园清洁、护绿、节水节电等）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在成人组织下，能够参与环境公益行动（公园清洁、护绿、节水节电等）；优先采集：行动记录、倡议材料、指标跟踪报告。",
+        "学生在成人组织下，能够在任务中表现出倡议并推动他人参与并说明选择理由；优先采集：行动记录、倡议材料、指标跟踪报告。",
+        "学生在成人组织下，能够用自己的话解释可持续发展的意义；优先采集：行动记录、倡议材料、指标跟踪报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人组织下参与环境公益行动（公园清洁、护绿、节水节电等），能形成倡议并推动他人参与，理解可持续发展的意义。",
+          "excerpt_hash": "7937e70c11588bde2449a9bad0974ba78d65e1c92827797749077c50ea4cd112",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-VL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "参与环境公益行动（公园清洁、护绿、节水节电等）；在任务中表现出倡议并推动他人参与并说明选择理由；用自己的话解释可持续发展的意义",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_6a08a8e1af3e98b2",
+      "component_type": "disposition",
+      "condition": "在成人组织下",
+      "confidence": 0.72,
+      "description": "学生在成人组织下，能够参与环境公益行动（公园清洁、护绿、节水节电等）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人组织下”的诊断任务，要求学生参与环境公益行动（公园清洁、护绿、节水节电等），并说明关键步骤、特征或依据。",
+      "label": "参与环境公益行动（公园清洁、护绿、节水节电等）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人组织下，能够参与环境公益行动（公园清洁、护绿、节水节电等）；优先采集：行动记录、倡议材料、指标跟踪报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人组织下参与环境公益行动（公园清洁、护绿、节水节电等），能形成倡议并推动他人参与，理解可持续发展的意义。",
+          "excerpt_hash": "7937e70c11588bde2449a9bad0974ba78d65e1c92827797749077c50ea4cd112",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-VL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参与环境公益行动（公园清洁、护绿、节水节电等）"
+    },
+    {
+      "component_id": "lc_e7e18fea4bf4911b",
+      "component_type": "disposition",
+      "condition": "在成人组织下",
+      "confidence": 0.72,
+      "description": "学生在成人组织下，能够在任务中表现出倡议并推动他人参与并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人组织下”的诊断任务，要求学生在任务中表现出倡议并推动他人参与并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出倡议并推动他人参与并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人组织下，能够在任务中表现出倡议并推动他人参与并说明选择理由；优先采集：行动记录、倡议材料、指标跟踪报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人组织下参与环境公益行动（公园清洁、护绿、节水节电等），能形成倡议并推动他人参与，理解可持续发展的意义。",
+          "excerpt_hash": "7937e70c11588bde2449a9bad0974ba78d65e1c92827797749077c50ea4cd112",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-VL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成倡议并推动他人参与"
+    },
+    {
+      "component_id": "lc_3e9e2d06ed8cd12f",
+      "component_type": "conceptual",
+      "condition": "在成人组织下",
+      "confidence": 0.72,
+      "description": "学生在成人组织下，能够用自己的话解释可持续发展的意义",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人组织下”的诊断任务，要求学生用自己的话解释可持续发展的意义，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释可持续发展的意义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人组织下，能够用自己的话解释可持续发展的意义；优先采集：行动记录、倡议材料、指标跟踪报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人组织下参与环境公益行动（公园清洁、护绿、节水节电等），能形成倡议并推动他人参与，理解可持续发展的意义。",
+          "excerpt_hash": "7937e70c11588bde2449a9bad0974ba78d65e1c92827797749077c50ea4cd112",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-VL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解可持续发展的意义"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "7937e70c11588bde2449a9bad0974ba78d65e1c92827797749077c50ea4cd112",
+  "standard_code": "LA-D3-VL-004",
+  "verified_prerequisites": []
+}

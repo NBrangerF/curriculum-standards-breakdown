@@ -1,0 +1,178 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_8ab545eb7b2e994a"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生使用在线协作平台进行分工与协同编辑的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9396d8a8e577b39c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b22256658ff2f5e8"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“使用在线协作平台进行分工与协同编辑”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师组织下使用在线协作平台进行分工与协同编辑，能根据任务要求完成自己的部分并与同伴合并完善成果，能记录修改过程并进行小组反思。",
+          "excerpt_hash": "d50751ce59b394921be2a9813535839279f138b330e1e7a9e0795fefa842aa09",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【协作学习从“分工清晰”开始】\n(1) 先明确角色与规则：组长/资料员/编辑员/校对员；约定命名、版本、提交时间与评论方式。\n(2) 教师提供协作编辑清单：标题结构、段落格式、图片来源、引用标注、最终检查。\n(3) 示范“评论—修改—回复”的闭环：每条评论要具体（指出位置+建议），修改后要回复说明。\n(4) 通过小任务练习版本管理：例如同一段文字不同同学提出两种改写方案，小组投票并说明选择理由。",
+          "excerpt_hash": "0486965496a643f0714c6b166ba8b6554282cb2766268dc7ac7851305bf6ab41",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-DL-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后使用在线协作平台进行分工与协同编辑，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“使用在线协作平台进行分工与协同编辑”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“【协作学习从“分工清晰”开始】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b22256658ff2f5e8",
+      "component_ids": [
+        "lc_8ab545eb7b2e994a",
+        "lc_1fbbf48e3838fa35",
+        "lc_1bb7d4c6371dad6b"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用在线协作平台进行分工与协同编辑。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在教师组织下，能够使用在线协作平台进行分工与协同编辑；优先采集：协作成果、过程数据（评论/版本）、小组反思、教师观察。",
+        "学生在教师组织下，能够根据任务要求完成自己的部分并与同伴合并完善成果；优先采集：协作成果、过程数据（评论/版本）、小组反思、教师观察。",
+        "学生在教师组织下，能够记录修改过程并进行小组反思；优先采集：协作成果、过程数据（评论/版本）、小组反思、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师组织下使用在线协作平台进行分工与协同编辑，能根据任务要求完成自己的部分并与同伴合并完善成果，能记录修改过程并进行小组反思。",
+          "excerpt_hash": "d50751ce59b394921be2a9813535839279f138b330e1e7a9e0795fefa842aa09",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "使用在线协作平台进行分工与协同编辑；根据任务要求完成自己的部分并与同伴合并完善成果；记录修改过程并进行小组反思",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_8ab545eb7b2e994a",
+      "component_type": "procedural",
+      "condition": "在教师组织下",
+      "confidence": 0.72,
+      "description": "学生在教师组织下，能够使用在线协作平台进行分工与协同编辑",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师组织下”的诊断任务，要求学生使用在线协作平台进行分工与协同编辑，并说明关键步骤、特征或依据。",
+      "label": "使用在线协作平台进行分工与协同编辑",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师组织下，能够使用在线协作平台进行分工与协同编辑；优先采集：协作成果、过程数据（评论/版本）、小组反思、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师组织下使用在线协作平台进行分工与协同编辑，能根据任务要求完成自己的部分并与同伴合并完善成果，能记录修改过程并进行小组反思。",
+          "excerpt_hash": "d50751ce59b394921be2a9813535839279f138b330e1e7a9e0795fefa842aa09",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用在线协作平台进行分工与协同编辑"
+    },
+    {
+      "component_id": "lc_1fbbf48e3838fa35",
+      "component_type": "procedural",
+      "condition": "在教师组织下",
+      "confidence": 0.72,
+      "description": "学生在教师组织下，能够根据任务要求完成自己的部分并与同伴合并完善成果",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师组织下”的诊断任务，要求学生根据任务要求完成自己的部分并与同伴合并完善成果，并说明关键步骤、特征或依据。",
+      "label": "根据任务要求完成自己的部分并与同伴合并完善成果",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师组织下，能够根据任务要求完成自己的部分并与同伴合并完善成果；优先采集：协作成果、过程数据（评论/版本）、小组反思、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师组织下使用在线协作平台进行分工与协同编辑，能根据任务要求完成自己的部分并与同伴合并完善成果，能记录修改过程并进行小组反思。",
+          "excerpt_hash": "d50751ce59b394921be2a9813535839279f138b330e1e7a9e0795fefa842aa09",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据任务要求完成自己的部分并与同伴合并完善成果"
+    },
+    {
+      "component_id": "lc_1bb7d4c6371dad6b",
+      "component_type": "metacognitive",
+      "condition": "在教师组织下",
+      "confidence": 0.72,
+      "description": "学生在教师组织下，能够记录修改过程并进行小组反思",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师组织下”的诊断任务，要求学生记录修改过程并进行小组反思，并说明关键步骤、特征或依据。",
+      "label": "记录修改过程并进行小组反思",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师组织下，能够记录修改过程并进行小组反思；优先采集：协作成果、过程数据（评论/版本）、小组反思、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师组织下使用在线协作平台进行分工与协同编辑，能根据任务要求完成自己的部分并与同伴合并完善成果，能记录修改过程并进行小组反思。",
+          "excerpt_hash": "d50751ce59b394921be2a9813535839279f138b330e1e7a9e0795fefa842aa09",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "记录修改过程并进行小组反思"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d50751ce59b394921be2a9813535839279f138b330e1e7a9e0795fefa842aa09",
+  "standard_code": "IT-H2-DL-002",
+  "verified_prerequisites": []
+}

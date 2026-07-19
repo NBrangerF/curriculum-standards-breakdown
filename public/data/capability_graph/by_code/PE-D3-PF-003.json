@@ -1,0 +1,205 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_5921d1a4e3c0321e"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生根据身体感受监控运动强度（如呼吸、心率或RPE），在体能活动中及时调整节奏的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_07528e2b57af2c50",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“根据身体感受监控运动强度（如呼吸、心率或RPE），在体能活动中及时调整节奏”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据身体感受监控运动强度（如呼吸、心率或RPE），在体能活动中及时调整节奏并保持良好姿态与安全。",
+          "excerpt_hash": "5eaae11814df7916dcaca11344d5407e4ea82234c74a98f8cb546150324a0a15",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教会学生识别强度信号：说话测试、呼吸频率、出汗程度、心率区间或RPE量表；在循环训练/间歇跑中设置“红黄绿”自我调节规则（绿：保持；黄：降速/延长间歇；红：停止并报告）。强调正确姿态（核心收紧、膝踝对齐、落地缓冲）与补水、放松恢复。",
+          "excerpt_hash": "cae293fb27f75095570332bcb9fb22178de536c5d3b336da4affff1c97876870",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-PF-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据身体感受监控运动强度（如呼吸、心率或RPE），在体能活动中及时调整节奏，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据身体感受监控运动强度（如呼吸、心率或RPE），在体能活动中及时调整节奏”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“教会学生识别强度信号：说话测试、呼吸频率、出汗程度、心率区间或RPE量表”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1336,
+      "connection_id": "fc_7cc0c261b334e1c7",
+      "evidence_refs": [
+        "standard:PE-H4G7-PF-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-PF-003",
+      "target_code": "PE-H4G7-PF-002",
+      "target_label": "能在体能、健康教育、专项运动技能和跨学科主题学习等课程内容中发展运动能力、健康行为和体育品德；能其中专项运动技能包括球类、田径类、体操类、水上…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1637,
+      "connection_id": "fc_834c582b6095a0f5",
+      "evidence_refs": [
+        "standard:PE-H4G7-PF-005:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-PF-003",
+      "target_code": "PE-H4G7-PF-005",
+      "target_label": "能描述预防常见运动损伤的方法；能简单处理自己或他人的运动损伤；能进行体能练习时能注意安全；能完成基础练习并记录身体反应。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1346,
+      "connection_id": "fc_14f16531d5e517a7",
+      "evidence_refs": [
+        "standard:PE-H4G7-PF-010:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-PF-003",
+      "target_code": "PE-H4G7-PF-010",
+      "target_label": "能描述体能对人体运动与健康的重要性；能主动参与和组织体能活动与比赛；能安全、科学地进行体能练习；能完成基础练习并记录身体反应。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_81ddc6dd9d2c0eee",
+      "component_ids": [
+        "lc_d49db7ffaea6db9a"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生保持良好姿态与安全。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够保持良好姿态与安全；优先采集：过程性观察、自我监控记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据身体感受监控运动强度（如呼吸、心率或RPE），在体能活动中及时调整节奏并保持良好姿态与安全。",
+          "excerpt_hash": "5eaae11814df7916dcaca11344d5407e4ea82234c74a98f8cb546150324a0a15",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_5921d1a4e3c0321e",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据身体感受监控运动强度（如呼吸、心率或RPE），在体能活动中及时调整节奏",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据身体感受监控运动强度（如呼吸、心率或RPE），在体能活动中及时调整节奏，并说明关键步骤、特征或依据。",
+      "label": "根据身体感受监控运动强度（如呼吸、心率或RPE），在体能活动中及时调整节奏",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据身体感受监控运动强度（如呼吸、心率或RPE），在体能活动中及时调整节奏；优先采集：过程性观察、自我监控记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据身体感受监控运动强度（如呼吸、心率或RPE），在体能活动中及时调整节奏",
+          "excerpt_hash": "9989bf08f43479899cf2f0b072fddb99d52b23d351f260091f3483090005643b",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据身体感受监控运动强度（如呼吸、心率或RPE），在体能活动中及时调整节奏"
+    },
+    {
+      "component_id": "lc_d49db7ffaea6db9a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够保持良好姿态与安全",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生保持良好姿态与安全，并说明关键步骤、特征或依据。",
+      "label": "保持良好姿态与安全",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够保持良好姿态与安全；优先采集：过程性观察、自我监控记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "保持良好姿态与安全",
+          "excerpt_hash": "09de5b17fd86921d654979e6fc36070cf4dab25767ad99363e008b20693c1142",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "保持良好姿态与安全"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5eaae11814df7916dcaca11344d5407e4ea82234c74a98f8cb546150324a0a15",
+  "standard_code": "PE-D3-PF-003",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,224 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_95f9da7b7055db74"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生认同体育锻炼是健康生活方式的重要组成部分的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1997a4ce4a748692",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_875d20866eb3d6ad"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“认同体育锻炼是健康生活方式的重要组成部分”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“认同体育锻炼是健康生活方式的重要组成部分”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认同体育锻炼是健康生活方式的重要组成部分，能制订并执行每周校内外锻炼计划（≥3次），并持续记录与调整。",
+          "excerpt_hash": "5bfbed33ad61b830afeea0d11794d612f1f1c3481739f5461895ca4ca8aea92b",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用SMART框架指导目标设定（频次/强度/时间/类型），引导学生从兴趣出发选择活动（跑跳、球类、舞蹈、骑行等）。通过“障碍预案”讨论（天气、作业、同伴不配合）设计替代方案；建立同伴互助小组，每周一次互评计划完成度与感受变化。",
+          "excerpt_hash": "be4e8d0424e36135bf0e469929b818f0ecf5565605c9b9ab8ae42f3568a30183",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-HB-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后认同体育锻炼是健康生活方式的重要组成部分，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“认同体育锻炼是健康生活方式的重要组成部分”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用SMART框架指导目标设定（频次/强度/时间/类型），引导学生从兴趣出发选择活动（跑跳、球类、舞蹈、骑行等）。通过“障碍预案”讨论（天气、作业、同伴不配合）设计替代方案”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1228,
+      "connection_id": "fc_244bf7d698b37d5d",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-HB-001",
+      "target_code": "PE-H4G7-HB-001",
+      "target_label": "运用健康与安全知识和技能进行健康管理；能有规律地参与校内外体育锻炼；能善于沟通与合作；能完成基础练习并记录身体反应。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_875d20866eb3d6ad",
+      "component_ids": [
+        "lc_95f9da7b7055db74"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生认同体育锻炼是健康生活方式的重要组成部分。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够认同体育锻炼是健康生活方式的重要组成部分；优先采集：计划作品、打卡记录、反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认同体育锻炼是健康生活方式的重要组成部分，能制订并执行每周校内外锻炼计划（≥3次），并持续记录与调整。",
+          "excerpt_hash": "5bfbed33ad61b830afeea0d11794d612f1f1c3481739f5461895ca4ca8aea92b",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_8615666e54a72e19",
+      "component_ids": [
+        "lc_2c5130c9a0902334"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "每周",
+        "3次"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生制订并执行每周校内外锻炼计划（≥3次），并持续记录与调整。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够制订并执行每周校内外锻炼计划（≥3次），并持续记录与调整；优先采集：计划作品、打卡记录、反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认同体育锻炼是健康生活方式的重要组成部分，能制订并执行每周校内外锻炼计划（≥3次），并持续记录与调整。",
+          "excerpt_hash": "5bfbed33ad61b830afeea0d11794d612f1f1c3481739f5461895ca4ca8aea92b",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（每周、3次）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_95f9da7b7055db74",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够认同体育锻炼是健康生活方式的重要组成部分",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生认同体育锻炼是健康生活方式的重要组成部分，并说明关键步骤、特征或依据。",
+      "label": "认同体育锻炼是健康生活方式的重要组成部分",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够认同体育锻炼是健康生活方式的重要组成部分；优先采集：计划作品、打卡记录、反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认同体育锻炼是健康生活方式的重要组成部分",
+          "excerpt_hash": "6fabd7daac80c3ce860ba62ddb1bf8a2b6a1f238862b0140158128409c338de9",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认同体育锻炼是健康生活方式的重要组成部分"
+    },
+    {
+      "component_id": "lc_2c5130c9a0902334",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够制订并执行每周校内外锻炼计划（≥3次），并持续记录与调整",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生制订并执行每周校内外锻炼计划（≥3次），并持续记录与调整，并说明关键步骤、特征或依据。",
+      "label": "制订并执行每周校内外锻炼计划（≥3次），并持续记录与调整",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够制订并执行每周校内外锻炼计划（≥3次），并持续记录与调整；优先采集：计划作品、打卡记录、反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "制订并执行每周校内外锻炼计划（≥3次），并持续记录与调整",
+          "excerpt_hash": "2bcf5033b4b7a19f772545bc2504ceca97b55d886398dc44b1484e93674d6a16",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "制订并执行每周校内外锻炼计划（≥3次），并持续记录与调整"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_e2fab20be276e531",
+      "evidence_refs": [
+        "standard:PE-D3-HB-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-HB-001",
+      "source_label": "能举例说出参与体育运动的益处。",
+      "target_code": "PE-D3-HB-001",
+      "target_label": "认同体育锻炼是健康生活方式的重要组成部分，能制订并执行每周校内外锻炼计划（≥3次），并持续记录与调整。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5bfbed33ad61b830afeea0d11794d612f1f1c3481739f5461895ca4ca8aea92b",
+  "standard_code": "PE-D3-HB-001",
+  "verified_prerequisites": []
+}

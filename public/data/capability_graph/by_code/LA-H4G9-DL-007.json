@@ -1,0 +1,293 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_a97a30ed6dc1d3de"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生面向真实需求改进方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_11203d34564509ad",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_46dcc65f873d7f13",
+        "hc_e3a693bed7c5251a"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“面向真实需求改进方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“面向真实需求改进方案”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能强化诚实劳动的习惯和品质，形成劳动效率意识和劳动质量意识；能面向真实需求改进方案并评价劳动价值。",
+          "excerpt_hash": "47aeb44f2171bfe092dd4bef26c3aa75e43ef69224539d17c5d09942417689fb",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把效率和质量转化为学生可观察的过程指标，而不是只评价最终作品。",
+          "excerpt_hash": "a6b6a8035a6071f4469558fd2cf2e92b09d9ef124bca447e7eedf886aedc832a",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G9-DL-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后面向真实需求改进方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“面向真实需求改进方案”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把效率和质量转化为学生可观察的过程指标，而不是只评价最终作品。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_a97a30ed6dc1d3de"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生面向真实需求改进方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_aa65c77d757c69d3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_46dcc65f873d7f13",
+        "hc_e3a693bed7c5251a"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“面向真实需求改进方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“面向真实需求改进方案”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能强化诚实劳动的习惯和品质，形成劳动效率意识和劳动质量意识；能面向真实需求改进方案并评价劳动价值。",
+          "excerpt_hash": "47aeb44f2171bfe092dd4bef26c3aa75e43ef69224539d17c5d09942417689fb",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把效率和质量转化为学生可观察的过程指标，而不是只评价最终作品。",
+          "excerpt_hash": "a6b6a8035a6071f4469558fd2cf2e92b09d9ef124bca447e7eedf886aedc832a",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G9-DL-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后面向真实需求改进方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“面向真实需求改进方案”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“把效率和质量转化为学生可观察的过程指标，而不是只评价最终作品。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_46dcc65f873d7f13",
+      "component_ids": [
+        "lc_a97a30ed6dc1d3de"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生面向真实需求改进方案。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够面向真实需求改进方案；优先采集：过程台账、质量检查表、同伴评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能强化诚实劳动的习惯和品质，形成劳动效率意识和劳动质量意识；能面向真实需求改进方案并评价劳动价值。",
+          "excerpt_hash": "47aeb44f2171bfe092dd4bef26c3aa75e43ef69224539d17c5d09942417689fb",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_e3a693bed7c5251a",
+      "component_ids": [
+        "lc_a97a30ed6dc1d3de"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "方案",
+        "改进"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生面向真实需求改进方案。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够面向真实需求改进方案；优先采集：过程台账、质量检查表、同伴评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能强化诚实劳动的习惯和品质，形成劳动效率意识和劳动质量意识；能面向真实需求改进方案并评价劳动价值。",
+          "excerpt_hash": "47aeb44f2171bfe092dd4bef26c3aa75e43ef69224539d17c5d09942417689fb",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（方案、改进）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_049463f90dae0bf9",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够强化诚实劳动的习惯和品质",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生强化诚实劳动的习惯和品质，并说明关键步骤、特征或依据。",
+      "label": "强化诚实劳动的习惯和品质",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够强化诚实劳动的习惯和品质；优先采集：过程台账、质量检查表、同伴评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "强化诚实劳动的习惯和品质",
+          "excerpt_hash": "212dc5b1696fa86b041c10e9e90135f68ff70f3c767d2562058d9e0f6ca8e98b",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "强化诚实劳动的习惯和品质"
+    },
+    {
+      "component_id": "lc_25e6fdde94e48489",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出劳动效率意识和劳动质量意识并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出劳动效率意识和劳动质量意识并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出劳动效率意识和劳动质量意识并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出劳动效率意识和劳动质量意识并说明选择理由；优先采集：过程台账、质量检查表、同伴评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成劳动效率意识和劳动质量意识",
+          "excerpt_hash": "a5ae1cf3e424cab59c9d102a1a29c9e095206b2cc419790d4fe4fcd9ec6b43b3",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成劳动效率意识和劳动质量意识"
+    },
+    {
+      "component_id": "lc_a97a30ed6dc1d3de",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够面向真实需求改进方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生面向真实需求改进方案，并说明关键步骤、特征或依据。",
+      "label": "面向真实需求改进方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够面向真实需求改进方案；优先采集：过程台账、质量检查表、同伴评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "面向真实需求改进方案",
+          "excerpt_hash": "16a16a28f81440334c02c8547f394be7dc8e38f0e4c701940a1291b9a3187129",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "面向真实需求改进方案"
+    },
+    {
+      "component_id": "lc_14029399d1c14d46",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价劳动价值",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价劳动价值，并说明关键步骤、特征或依据。",
+      "label": "评价劳动价值",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价劳动价值；优先采集：过程台账、质量检查表、同伴评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价劳动价值",
+          "excerpt_hash": "9d856ffd403b1580ec1309e162cd692ff677f3278fb67e5ed8ba61d489d6c565",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价劳动价值"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_9f204e291842bcaa",
+      "evidence_refs": [
+        "standard:LA-H4G9-DL-007:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-H4G8-DL-007",
+      "source_label": "能强化诚实劳动的习惯和品质，形成劳动效率意识和劳动质量意识；能规划协作流程并反思劳动质量。",
+      "target_code": "LA-H4G9-DL-007",
+      "target_label": "能强化诚实劳动的习惯和品质，形成劳动效率意识和劳动质量意识；能面向真实需求改进方案并评价劳动价值。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "47aeb44f2171bfe092dd4bef26c3aa75e43ef69224539d17c5d09942417689fb",
+  "standard_code": "LA-H4G9-DL-007",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,342 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_f5c61d31546c1252"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生与同伴协作完成任务，遇到分歧能协商解决的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ed52a7356008c527",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_723f6e1c16c8d911"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“与同伴协作完成任务，遇到分歧能协商解决”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“与同伴协作完成任务，遇到分歧能协商解决”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在班级与小组活动中主动承担角色并履行责任，能与同伴协作完成任务，遇到分歧能协商解决并维护集体利益。",
+          "excerpt_hash": "c127050a6ded3efa009ae5645354a90316dfe967dc6c072de0758b074c689ed5",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-MOR-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "开展集体活动（体育比赛、生产劳动、社会服务等），分享合作体验；引导讨论合作的意义，感受团队力量与集体荣誉。",
+          "excerpt_hash": "ebae81928074a23bf7fa7b03ad331459cadef3536e70a7bad31af73e69266962",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D3-MOR-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后与同伴协作完成任务，遇到分歧能协商解决，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“与同伴协作完成任务，遇到分歧能协商解决”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“开展集体活动（体育比赛、生产劳动、社会服务等），分享合作体验”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2f721b3500563d98",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0e50b2c3cab704574a20",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_0d4b56c03c3c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f543649c0b71f43b",
+      "textbook_grade": 5,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_16697bef92581042",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1717f6091df4cebdd9ec",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_63b354a74aec"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f2273093a9d6cb45",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_832d9dc8152eae72",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_02f942c3391d"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_84d4ef0e1dbf301a",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a7efd4d078940076",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4d47affde4a27f50be6c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_976cae771845"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_03c92473b367e141",
+      "textbook_grade": 5,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_723f6e1c16c8d911",
+      "component_ids": [
+        "lc_f615b72489a9bc09",
+        "lc_f5c61d31546c1252",
+        "lc_704cc019f48c4fa7"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生主动承担角色并履行责任。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在班级与小组活动中，能够主动承担角色并履行责任；优先采集：分工表与过程记录、复盘汇报、同伴互评、教师观察（责任/协作/担当）。",
+        "学生在班级与小组活动中，能够与同伴协作完成任务，遇到分歧能协商解决；优先采集：分工表与过程记录、复盘汇报、同伴互评、教师观察（责任/协作/担当）。",
+        "学生在班级与小组活动中，能够维护集体利益；优先采集：分工表与过程记录、复盘汇报、同伴互评、教师观察（责任/协作/担当）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在班级与小组活动中主动承担角色并履行责任，能与同伴协作完成任务，遇到分歧能协商解决并维护集体利益。",
+          "excerpt_hash": "c127050a6ded3efa009ae5645354a90316dfe967dc6c072de0758b074c689ed5",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-MOR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "主动承担角色并履行责任；与同伴协作完成任务，遇到分歧能协商解决；维护集体利益",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_f615b72489a9bc09",
+      "component_type": "disposition",
+      "condition": "在班级与小组活动中",
+      "confidence": 0.72,
+      "description": "学生在班级与小组活动中，能够主动承担角色并履行责任",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在班级与小组活动中”的诊断任务，要求学生主动承担角色并履行责任，并说明关键步骤、特征或依据。",
+      "label": "主动承担角色并履行责任",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在班级与小组活动中，能够主动承担角色并履行责任；优先采集：分工表与过程记录、复盘汇报、同伴互评、教师观察（责任/协作/担当）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在班级与小组活动中主动承担角色并履行责任，能与同伴协作完成任务，遇到分歧能协商解决并维护集体利益。",
+          "excerpt_hash": "c127050a6ded3efa009ae5645354a90316dfe967dc6c072de0758b074c689ed5",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-MOR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "主动承担角色并履行责任"
+    },
+    {
+      "component_id": "lc_f5c61d31546c1252",
+      "component_type": "procedural",
+      "condition": "在班级与小组活动中",
+      "confidence": 0.72,
+      "description": "学生在班级与小组活动中，能够与同伴协作完成任务，遇到分歧能协商解决",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在班级与小组活动中”的诊断任务，要求学生与同伴协作完成任务，遇到分歧能协商解决，并说明关键步骤、特征或依据。",
+      "label": "与同伴协作完成任务，遇到分歧能协商解决",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在班级与小组活动中，能够与同伴协作完成任务，遇到分歧能协商解决；优先采集：分工表与过程记录、复盘汇报、同伴互评、教师观察（责任/协作/担当）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在班级与小组活动中主动承担角色并履行责任，能与同伴协作完成任务，遇到分歧能协商解决并维护集体利益。",
+          "excerpt_hash": "c127050a6ded3efa009ae5645354a90316dfe967dc6c072de0758b074c689ed5",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-MOR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "与同伴协作完成任务，遇到分歧能协商解决"
+    },
+    {
+      "component_id": "lc_704cc019f48c4fa7",
+      "component_type": "conceptual",
+      "condition": "在班级与小组活动中",
+      "confidence": 0.72,
+      "description": "学生在班级与小组活动中，能够维护集体利益",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在班级与小组活动中”的诊断任务，要求学生维护集体利益，并说明关键步骤、特征或依据。",
+      "label": "维护集体利益",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在班级与小组活动中，能够维护集体利益；优先采集：分工表与过程记录、复盘汇报、同伴互评、教师观察（责任/协作/担当）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在班级与小组活动中主动承担角色并履行责任，能与同伴协作完成任务，遇到分歧能协商解决并维护集体利益。",
+          "excerpt_hash": "c127050a6ded3efa009ae5645354a90316dfe967dc6c072de0758b074c689ed5",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-MOR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "维护集体利益"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_67b6d3c62d7a162b",
+      "evidence_refs": [
+        "standard:ML-D3-MOR-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-D2-MOR-004",
+      "source_label": "能用具体事例表达对老师劳动的理解与尊重；在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决。",
+      "target_code": "ML-D3-MOR-003",
+      "target_label": "能在班级与小组活动中主动承担角色并履行责任，能与同伴协作完成任务，遇到分歧能协商解决并维护集体利益。"
+    },
+    {
+      "confidence": "medium",
+      "edge_id": "pc_76b9b86a321944b1",
+      "evidence_refs": [
+        "standard:ML-D3-MOR-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-D2-MOR-005",
+      "source_label": "能在集体活动中承担角色并与同伴合作完成任务，愿意关心与帮助他人，能用行动维护班级与集体的共同利益。",
+      "target_code": "ML-D3-MOR-003",
+      "target_label": "能在班级与小组活动中主动承担角色并履行责任，能与同伴协作完成任务，遇到分歧能协商解决并维护集体利益。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "c127050a6ded3efa009ae5645354a90316dfe967dc6c072de0758b074c689ed5",
+  "standard_code": "ML-D3-MOR-003",
+  "verified_prerequisites": []
+}

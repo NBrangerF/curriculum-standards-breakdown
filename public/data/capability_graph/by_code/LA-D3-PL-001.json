@@ -1,0 +1,255 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_7b746e30605c3b03",
+        "lc_a1e51f1b89b2f6be"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fc92f68704810449",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3b763bfb94af3b69"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点）”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点），能理解轮作或间作的基本意义，并能据此调整方案。",
+          "excerpt_hash": "efde4f4ef3e79c4c6893b1e41a0d377e4722decbdfc9f70e9f917bc4ccb98e55",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“条件清单”（温度/光照/空间/水）；给学生对比两种作物需求；用示意图标注株距与行距。",
+          "excerpt_hash": "33cdf4cce4992a3d50ed394b7614d4b20ef9d2a1e046acaab91429b85904f294",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-PL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点）”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“用“条件清单”（温度/光照/空间/水）”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_93b88bd69602e5cf"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释轮作或间作的基本意义的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_23ca1da097c1db5d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释轮作或间作的基本意义”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释轮作或间作的基本意义”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点），能理解轮作或间作的基本意义，并能据此调整方案。",
+          "excerpt_hash": "efde4f4ef3e79c4c6893b1e41a0d377e4722decbdfc9f70e9f917bc4ccb98e55",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“条件清单”（温度/光照/空间/水）；给学生对比两种作物需求；用示意图标注株距与行距。",
+          "excerpt_hash": "33cdf4cce4992a3d50ed394b7614d4b20ef9d2a1e046acaab91429b85904f294",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-PL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释轮作或间作的基本意义，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释轮作或间作的基本意义”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用“条件清单”（温度/光照/空间/水）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1625,
+      "connection_id": "fc_be44ae57d136b2f3",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-PL-001",
+      "target_code": "LA-H4G7-PL-004",
+      "target_label": "能体验当地常见种植、养殖等生产劳动；理解现代农业与传统农业的联系和区别；能选择一至两种优良种植或养殖品种开展系列实践；能按规范完成任务并说明工…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_3b763bfb94af3b69",
+      "component_ids": [
+        "lc_7b746e30605c3b03",
+        "lc_a1e51f1b89b2f6be"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点）；优先采集：种植方案、实施记录、调整说明。",
+        "学生能够据此调整方案；优先采集：种植方案、实施记录、调整说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点），能理解轮作或间作的基本意义，并能据此调整方案。",
+          "excerpt_hash": "efde4f4ef3e79c4c6893b1e41a0d377e4722decbdfc9f70e9f917bc4ccb98e55",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_7b746e30605c3b03",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点），并说明关键步骤、特征或依据。",
+      "label": "结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点）；优先采集：种植方案、实施记录、调整说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点）",
+          "excerpt_hash": "6eac563f8e8b5a66d3dd69340cb772322fc564dee2a417740b667e603b827185",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点）"
+    },
+    {
+      "component_id": "lc_93b88bd69602e5cf",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释轮作或间作的基本意义",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释轮作或间作的基本意义，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释轮作或间作的基本意义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释轮作或间作的基本意义；优先采集：种植方案、实施记录、调整说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解轮作或间作的基本意义",
+          "excerpt_hash": "5d1d098a99e6eb4439a0873c96042d228a7f8dca902f3e57087f7cb05be8574e",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解轮作或间作的基本意义"
+    },
+    {
+      "component_id": "lc_a1e51f1b89b2f6be",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够据此调整方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生据此调整方案，并说明关键步骤、特征或依据。",
+      "label": "据此调整方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够据此调整方案；优先采集：种植方案、实施记录、调整说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "据此调整方案",
+          "excerpt_hash": "d8f91355fffa7cdea7566376b48ca1b5d1b60fb6805bb9acbc3d8c267d2c2424",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "据此调整方案"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_c62f1a11522e734e",
+      "evidence_refs": [
+        "standard:LA-D3-PL-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-PL-001",
+      "source_label": "能在教师指导下完成播种、移栽或间苗等基础田园操作，能遵守操作顺序并保持耐心细致，减少对植物的损伤。",
+      "target_code": "LA-D3-PL-001",
+      "target_label": "能结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点），能理解轮作或间作的基本意义，并能据此调整方案。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "efde4f4ef3e79c4c6893b1e41a0d377e4722decbdfc9f70e9f917bc4ccb98e55",
+  "standard_code": "LA-D3-PL-001",
+  "verified_prerequisites": []
+}

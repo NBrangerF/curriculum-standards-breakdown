@@ -1,0 +1,269 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_6835030f17648d1b"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生有意识地通过模仿学习发音的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5bb08230970fc31f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2e047a7e4e49716b"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“有意识地通过模仿学习发音”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能有意识地通过模仿学习发音",
+          "excerpt_hash": "455900a64d40a68acb92c21ef1e7ac1b804685a546d4fa0268503600f3f16f2b",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-LA-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "分层跟读：听整体→分句跟读→影子跟读；聚焦重音与语调，给出可视化标记。",
+          "excerpt_hash": "4ed796f7a077fe912290eca593ed37a1601a0363c348a259d15285f71a403606",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-D1-LA-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后有意识地通过模仿学习发音，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“有意识地通过模仿学习发音”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“分层跟读：听整体→分句跟读→影子跟读”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c74a0d0921dbd76f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_14d3051be175a07856d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_96fe1cf7a088"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4c0b84e107cb3acc",
+      "textbook_grade": 4,
+      "textbook_subject": "英语",
+      "textbook_title": "英语4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_efb219aad53096bd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_33e1117f4e3b64658cf7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2da7a165ff23"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_736b449efa98c23e",
+      "textbook_grade": 4,
+      "textbook_subject": "英语",
+      "textbook_title": "英语4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e46c53be6e78c3e8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_97b9c1a173bf9c3f5fea",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_94ad37d595c7"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c71decfe6366ff07",
+      "textbook_grade": 3,
+      "textbook_subject": "英语",
+      "textbook_title": "英语3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_da8efcd86b60946c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bd2c45b5e8fc08bf234e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9ccd4f4ff8e3"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_623deee3782f3fb1",
+      "textbook_grade": 3,
+      "textbook_subject": "英语",
+      "textbook_title": "英语3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_04a1691fe7833995",
+      "evidence_refs": [
+        "standard:EN-D1-LA-002:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-D1-LA-002",
+      "target_code": "EN-D2-LA-002",
+      "target_label": "能关注生活中或媒体上的语言使用。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_2e047a7e4e49716b",
+      "component_ids": [
+        "lc_6835030f17648d1b"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生有意识地通过模仿学习发音。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够有意识地通过模仿学习发音；优先采集：听懂关键信息（能完成匹配/选择/动作反应）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能有意识地通过模仿学习发音",
+          "excerpt_hash": "455900a64d40a68acb92c21ef1e7ac1b804685a546d4fa0268503600f3f16f2b",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-LA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "有意识地通过模仿学习发音",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_6835030f17648d1b",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够有意识地通过模仿学习发音",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生有意识地通过模仿学习发音，并说明关键步骤、特征或依据。",
+      "label": "有意识地通过模仿学习发音",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够有意识地通过模仿学习发音；优先采集：听懂关键信息（能完成匹配/选择/动作反应）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "有意识地通过模仿学习发音",
+          "excerpt_hash": "752db2fa50bd55bc2c1de19ce8f64aa7a91e440a7c3dfcd15f52199927b87d80",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-LA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "有意识地通过模仿学习发音"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "455900a64d40a68acb92c21ef1e7ac1b804685a546d4fa0268503600f3f16f2b",
+  "standard_code": "EN-D1-LA-002",
+  "verified_prerequisites": []
+}

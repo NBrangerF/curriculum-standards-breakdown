@@ -1,0 +1,215 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_3828bbded34972e2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_397a50b6aa0d323d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_da3c5ff4827eac8b",
+        "hc_bc56fa2ed60db483"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下安全、文明地使用互联网，遵守网络道德规范，能在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）。",
+          "excerpt_hash": "bea08779b17f99e497c69fe00e6285a98bc14d2241df08f45a893e930d0bccde",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【把“文明上网”落实为可操作步骤】\n(1) 明确底线：不访问不良网站、不发布攻击性言论、不参与网络欺凌；遇到不良内容及时关闭并报告。\n(2) 教给学生“冲突三步法”：冷静—表达感受与事实—寻求成人帮助；避免以骂还骂。\n(3) 组织小型辩论或情境剧：如何在评论区表达不同观点？怎样既坚持观点又尊重他人？\n(4) 建立课堂常规：每次上网学习前回顾1条规则；每次结束做1条反思。",
+          "excerpt_hash": "ec503da2f0b9bb4f37e7dd3eb0862f0b777dcb65130b8e22b7d1f610f5a4d022",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-SR-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“【把“文明上网”落实为可操作步骤】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_da3c5ff4827eac8b",
+      "component_ids": [
+        "lc_3828bbded34972e2"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）；优先采集：情境表演/作品、同伴互评、教师评价量表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下安全、文明地使用互联网，遵守网络道德规范，能在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）。",
+          "excerpt_hash": "bea08779b17f99e497c69fe00e6285a98bc14d2241df08f45a893e930d0bccde",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_bc56fa2ed60db483",
+      "component_ids": [
+        "lc_0bbe7ee2761bfb3f",
+        "lc_796da20542b4f7d6",
+        "lc_3828bbded34972e2"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "规范",
+        "正确",
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在教师指导下安全、文明地使用互联网。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在教师指导下安全、文明地使用互联网；优先采集：情境表演/作品、同伴互评、教师评价量表。",
+        "学生能够遵守网络道德规范；优先采集：情境表演/作品、同伴互评、教师评价量表。",
+        "学生能够在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）；优先采集：情境表演/作品、同伴互评、教师评价量表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下安全、文明地使用互联网，遵守网络道德规范，能在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）。",
+          "excerpt_hash": "bea08779b17f99e497c69fe00e6285a98bc14d2241df08f45a893e930d0bccde",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（规范、正确、安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_0bbe7ee2761bfb3f",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在教师指导下安全、文明地使用互联网",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在教师指导下安全、文明地使用互联网，并说明关键步骤、特征或依据。",
+      "label": "在教师指导下安全、文明地使用互联网",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在教师指导下安全、文明地使用互联网；优先采集：情境表演/作品、同伴互评、教师评价量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在教师指导下安全、文明地使用互联网",
+          "excerpt_hash": "1952ac8e196f3080c27023229fd7330d9844e247742d61b415ea147a159163cb",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在教师指导下安全、文明地使用互联网"
+    },
+    {
+      "component_id": "lc_796da20542b4f7d6",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够遵守网络道德规范",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生遵守网络道德规范，并说明关键步骤、特征或依据。",
+      "label": "遵守网络道德规范",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够遵守网络道德规范；优先采集：情境表演/作品、同伴互评、教师评价量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "遵守网络道德规范",
+          "excerpt_hash": "4cc6992c79a3902336f910bf5e2681ddad8d98107c492cb7fc3d5b2ddb9018dd",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守网络道德规范"
+    },
+    {
+      "component_id": "lc_3828bbded34972e2",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据），并说明关键步骤、特征或依据。",
+      "label": "在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）；优先采集：情境表演/作品、同伴互评、教师评价量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）",
+          "excerpt_hash": "705ac3369a1b4a7f5ac20e98ff5544341df01ba73b642fc90835d10c5f199e7b",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在遇到不良信息或线上冲突时采取正确做法（停止、举报/求助、保护证据）"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "bea08779b17f99e497c69fe00e6285a98bc14d2241df08f45a893e930d0bccde",
+  "standard_code": "IT-H2-SR-005",
+  "verified_prerequisites": []
+}

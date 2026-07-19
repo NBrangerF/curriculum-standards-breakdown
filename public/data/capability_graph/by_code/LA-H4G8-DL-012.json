@@ -1,0 +1,260 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_74c833997a47e8c5"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生在劳动过程中持之以恒、诚实守信、有责任担当的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ce84dce589bf56f9",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“在劳动过程中持之以恒、诚实守信、有责任担当”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在劳动过程中持之以恒、诚实守信、有责任担当；能自觉遵守劳动规范和劳动法规；能保持持续参加劳动的积极性；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "bce23b410093dd8747a70e7a6b46cf583c8d666a79fc8ddb19653b8f43239723",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过长期项目记录和同伴互评观察劳动习惯，而不是只凭一次成果评定。",
+          "excerpt_hash": "0e6645c309d54827c58561b1dd2f70ce3aeb7ddd680c98c497ed3bf1de863204",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G8-DL-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在劳动过程中持之以恒、诚实守信、有责任担当，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在劳动过程中持之以恒、诚实守信、有责任担当”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“通过长期项目记录和同伴互评观察劳动习惯，而不是只凭一次成果评定。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_4762db48af1d82f3",
+      "evidence_refs": [
+        "standard:LA-H4G8-DL-012:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-H4G8-DL-012",
+      "target_code": "LA-H4G9-DL-011",
+      "target_label": "能在劳动过程中持之以恒、诚实守信、有责任担当；能自觉遵守劳动规范和劳动法规；能保持持续参加劳动的积极性；能面向真实需求改进方案并评价劳动价值。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ed26029b9cdb7e85",
+      "component_ids": [
+        "lc_23a524e6f14202ac"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "规范"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生自觉遵守劳动规范和劳动法规。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够自觉遵守劳动规范和劳动法规；优先采集：劳动过程档案、同伴评价、教师观察记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在劳动过程中持之以恒、诚实守信、有责任担当；能自觉遵守劳动规范和劳动法规；能保持持续参加劳动的积极性；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "bce23b410093dd8747a70e7a6b46cf583c8d666a79fc8ddb19653b8f43239723",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（规范）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_74c833997a47e8c5",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在劳动过程中持之以恒、诚实守信、有责任担当",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在劳动过程中持之以恒、诚实守信、有责任担当，并说明关键步骤、特征或依据。",
+      "label": "在劳动过程中持之以恒、诚实守信、有责任担当",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在劳动过程中持之以恒、诚实守信、有责任担当；优先采集：劳动过程档案、同伴评价、教师观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在劳动过程中持之以恒、诚实守信、有责任担当",
+          "excerpt_hash": "97df80455cf478003f28590c96fa1a07ade9c880d8ba7e8f4851aecb56d67612",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在劳动过程中持之以恒、诚实守信、有责任担当"
+    },
+    {
+      "component_id": "lc_23a524e6f14202ac",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够自觉遵守劳动规范和劳动法规",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生自觉遵守劳动规范和劳动法规，并说明关键步骤、特征或依据。",
+      "label": "自觉遵守劳动规范和劳动法规",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够自觉遵守劳动规范和劳动法规；优先采集：劳动过程档案、同伴评价、教师观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "自觉遵守劳动规范和劳动法规",
+          "excerpt_hash": "f254efb32e020e766175fcb8c82c5e8759637106899dee6c9d427c7b651068f7",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "自觉遵守劳动规范和劳动法规"
+    },
+    {
+      "component_id": "lc_b5f2c82b68299641",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够保持持续参加劳动的积极性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生保持持续参加劳动的积极性，并说明关键步骤、特征或依据。",
+      "label": "保持持续参加劳动的积极性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够保持持续参加劳动的积极性；优先采集：劳动过程档案、同伴评价、教师观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "保持持续参加劳动的积极性",
+          "excerpt_hash": "e4023c861c60596b8f96135e15754221cdbf1c3c0d57e53d46b8d2fff92a6bd5",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "保持持续参加劳动的积极性"
+    },
+    {
+      "component_id": "lc_22408872804ce1e0",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够规划协作流程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生规划协作流程，并说明关键步骤、特征或依据。",
+      "label": "规划协作流程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够规划协作流程；优先采集：劳动过程档案、同伴评价、教师观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "规划协作流程",
+          "excerpt_hash": "4a84ad92a900406a3d30c00b32a9c485273924f5ccc4aa2724f26c9011663634",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "规划协作流程"
+    },
+    {
+      "component_id": "lc_cad2ca602025cfa9",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够反思劳动质量",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生反思劳动质量，并说明关键步骤、特征或依据。",
+      "label": "反思劳动质量",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够反思劳动质量；优先采集：劳动过程档案、同伴评价、教师观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "反思劳动质量",
+          "excerpt_hash": "7183a8fbee03b379e048527278d4ed6578fdbd0c6cd3aa63470c31916e9cbe23",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思劳动质量"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_95ac2a9c53d88f8a",
+      "evidence_refs": [
+        "standard:LA-H4G8-DL-012:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-H4G7-DL-012",
+      "source_label": "能在劳动过程中持之以恒、诚实守信、有责任担当；能自觉遵守劳动规范和劳动法规；能保持持续参加劳动的积极性；能按规范完成任务并说明工具、材料或安全…",
+      "target_code": "LA-H4G8-DL-012",
+      "target_label": "能在劳动过程中持之以恒、诚实守信、有责任担当；能自觉遵守劳动规范和劳动法规；能保持持续参加劳动的积极性；能规划协作流程并反思劳动质量。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "bce23b410093dd8747a70e7a6b46cf583c8d666a79fc8ddb19653b8f43239723",
+  "standard_code": "LA-H4G8-DL-012",
+  "verified_prerequisites": []
+}

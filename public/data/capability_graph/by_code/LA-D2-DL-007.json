@@ -1,0 +1,168 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_95a10b02c8b34f87"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生使用电饭锅、蒸锅或电水壶进行简单加热（蒸、煮）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_7176c9462e91f35e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“使用电饭锅、蒸锅或电水壶进行简单加热（蒸、煮）”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下使用电饭锅、蒸锅或电水壶进行简单加热（蒸、煮），能按指示设置时间并注意防烫与用电安全。",
+          "excerpt_hash": "7132d981931e4b81e26365ccaf8f531bd7fc77d98e677cd318d945ad7241afb3",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "明确“谁操作火/电源”：学生负责准备与计时，成人负责通电/开火关键步骤；用防烫手套与“远离蒸汽”规则。",
+          "excerpt_hash": "77b70ecdc6646b782e0849d4545f56f779bf8505355984105929cb8e6f3279c9",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-DL-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后使用电饭锅、蒸锅或电水壶进行简单加热（蒸、煮），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“使用电饭锅、蒸锅或电水壶进行简单加热（蒸、煮）”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“明确“谁操作火/电源”：学生负责准备与计时，成人负责通电/开火关键步骤”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_c12fb402c34df707",
+      "evidence_refs": [
+        "standard:LA-D2-DL-007:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-DL-007",
+      "target_code": "LA-D3-DL-008",
+      "target_label": "能根据营养原则设计一日三餐的简单餐单，并能在给定预算内选择食材，说明搭配理由与替代方案。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_1b2f550eff948bb4",
+      "component_ids": [
+        "lc_1e9543184b906bb1"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生按指示设置时间并注意防烫与用电安全。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在成人指导下，能够按指示设置时间并注意防烫与用电安全；优先采集：流程图、教师/家长观察、口头问答。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下使用电饭锅、蒸锅或电水壶进行简单加热（蒸、煮），能按指示设置时间并注意防烫与用电安全。",
+          "excerpt_hash": "7132d981931e4b81e26365ccaf8f531bd7fc77d98e677cd318d945ad7241afb3",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_95a10b02c8b34f87",
+      "component_type": "procedural",
+      "condition": "在成人指导下",
+      "confidence": 0.72,
+      "description": "学生在成人指导下，能够使用电饭锅、蒸锅或电水壶进行简单加热（蒸、煮）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人指导下”的诊断任务，要求学生使用电饭锅、蒸锅或电水壶进行简单加热（蒸、煮），并说明关键步骤、特征或依据。",
+      "label": "使用电饭锅、蒸锅或电水壶进行简单加热（蒸、煮）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人指导下，能够使用电饭锅、蒸锅或电水壶进行简单加热（蒸、煮）；优先采集：流程图、教师/家长观察、口头问答。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下使用电饭锅、蒸锅或电水壶进行简单加热（蒸、煮），能按指示设置时间并注意防烫与用电安全。",
+          "excerpt_hash": "7132d981931e4b81e26365ccaf8f531bd7fc77d98e677cd318d945ad7241afb3",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用电饭锅、蒸锅或电水壶进行简单加热（蒸、煮）"
+    },
+    {
+      "component_id": "lc_1e9543184b906bb1",
+      "component_type": "conceptual",
+      "condition": "在成人指导下",
+      "confidence": 0.72,
+      "description": "学生在成人指导下，能够按指示设置时间并注意防烫与用电安全",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人指导下”的诊断任务，要求学生按指示设置时间并注意防烫与用电安全，并说明关键步骤、特征或依据。",
+      "label": "按指示设置时间并注意防烫与用电安全",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人指导下，能够按指示设置时间并注意防烫与用电安全；优先采集：流程图、教师/家长观察、口头问答。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下使用电饭锅、蒸锅或电水壶进行简单加热（蒸、煮），能按指示设置时间并注意防烫与用电安全。",
+          "excerpt_hash": "7132d981931e4b81e26365ccaf8f531bd7fc77d98e677cd318d945ad7241afb3",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按指示设置时间并注意防烫与用电安全"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "7132d981931e4b81e26365ccaf8f531bd7fc77d98e677cd318d945ad7241afb3",
+  "standard_code": "LA-D2-DL-007",
+  "verified_prerequisites": []
+}

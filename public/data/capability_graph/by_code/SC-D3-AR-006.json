@@ -1,0 +1,321 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_f811a5524b6e81da"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生分析数据，用图表或模型呈现结论的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fb13e69b32faad39",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_fb13e69b32faad39"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“分析数据，用图表或模型呈现结论”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“分析数据，用图表或模型呈现结论”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能合作制定探究计划，收集并分析数据，用图表或模型呈现结论。",
+          "excerpt_hash": "24ea0d77ec58329dfdc02565117152916a3bd24be01097b8c3acd09aade1804d",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“建议：以真实情境/数据为载体，鼓励学生提出问题、收集证据并表达观点。”",
+          "excerpt_hash": "d13f6e87a9275a1581aca1c8e74e3ffb4a42e22f40c064b903274e6b1a065f6a",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-AR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后分析数据，用图表或模型呈现结论，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“分析数据，用图表或模型呈现结论”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：““建议：以真实情境/数据为载体，鼓励学生提出问题、收集证据并表达观点。””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9026c3b965b85ecc",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5d8c5902b781b5de5f03",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d39057261769"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c22c450af4b9046",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d28263957cd14268",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e1c8e586d87fc9",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5e1c65f937d4ec03",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7c85e6846ee2baf665b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b6340ce96157"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_208d54146f4a9b68",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7a5444e345105c99",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a04b8a546cf314368898",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6a5186074181"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_426c7beba471c1cd",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0673,
+      "connection_id": "fc_0091f51957fbb2a6",
+      "evidence_refs": [
+        "standard:SC-H4G7-AR-013:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-AR-006",
+      "target_code": "SC-H4G7-AR-013",
+      "target_label": "能有依据地质疑观点并尊重证据；能观察和实验结果不一致时坚持再次验证；能乐于思考科学现象的原因、规律和理论问题；能用观察证据说明基本科学概念。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_fb13e69b32faad39",
+      "component_ids": [
+        "lc_f811a5524b6e81da"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "图表",
+        "模型"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生分析数据，用图表或模型呈现结论。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够分析数据，用图表或模型呈现结论；优先采集：探究记录、数据表/图表、小组汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能合作制定探究计划，收集并分析数据，用图表或模型呈现结论。",
+          "excerpt_hash": "24ea0d77ec58329dfdc02565117152916a3bd24be01097b8c3acd09aade1804d",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（图表、模型）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_6b89267437988a55",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够合作制定探究计划",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生合作制定探究计划，并说明关键步骤、特征或依据。",
+      "label": "合作制定探究计划",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够合作制定探究计划；优先采集：探究记录、数据表/图表、小组汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "合作制定探究计划",
+          "excerpt_hash": "d18223f14a42d822ab7ba763435ab3e4ff7edd0d318d0a85cd8d5d4b5ffe8a1a",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "合作制定探究计划"
+    },
+    {
+      "component_id": "lc_9407d67dec3c1149",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够收集",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生收集，并说明关键步骤、特征或依据。",
+      "label": "收集",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够收集；优先采集：探究记录、数据表/图表、小组汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "收集",
+          "excerpt_hash": "2797f5178a15f54b1f6843145affa321aca919e407e7919b36e1a81cd64170b8",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "收集"
+    },
+    {
+      "component_id": "lc_f811a5524b6e81da",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析数据，用图表或模型呈现结论",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析数据，用图表或模型呈现结论，并说明关键步骤、特征或依据。",
+      "label": "分析数据，用图表或模型呈现结论",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析数据，用图表或模型呈现结论；优先采集：探究记录、数据表/图表、小组汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析数据，用图表或模型呈现结论",
+          "excerpt_hash": "b7bbebccfdba4f9f15a6dadaa6c19b7e3482076382b457f057e3208c6b5174d3",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析数据，用图表或模型呈现结论"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "24ea0d77ec58329dfdc02565117152916a3bd24be01097b8c3acd09aade1804d",
+  "standard_code": "SC-D3-AR-006",
+  "verified_prerequisites": []
+}

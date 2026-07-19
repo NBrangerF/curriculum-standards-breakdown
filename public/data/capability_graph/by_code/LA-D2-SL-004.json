@@ -1,0 +1,196 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_06cf4c88aabf09fd"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ffd6b432bbec809a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_95c0e54c3f74e2e7"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等）”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等），能明确目标、分工合作并完成行动总结。",
+          "excerpt_hash": "feaf158dddd7e1d73f395b38776f612d0716c2a679092293564c2346ca52f1e4",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先确定“一个目标+一个指标”（如节电提醒贴覆盖率）；分工（设计/张贴/宣传/记录）；行动后用数据或照片复盘。",
+          "excerpt_hash": "b91ca5ddbedd1894c0d791d0d4ec50fae11ede87b269cc9b01dfcbacb83986f6",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-SL-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等）”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“先确定“一个目标+一个指标”（如节电提醒贴覆盖率）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_50416c197ca6b5dc",
+      "evidence_refs": [
+        "standard:LA-D2-SL-004:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-SL-004",
+      "target_code": "LA-D3-VL-001",
+      "target_label": "能围绕校园或社区一个真实问题开展公益项目（发现问题、提出方案、实施行动、评估效果），能体现责任担当与合作精神。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_95c0e54c3f74e2e7",
+      "component_ids": [
+        "lc_06cf4c88aabf09fd",
+        "lc_e005ec34fd879c00",
+        "lc_3a98246d10446248"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等）；优先采集：行动记录、成果照片/数据、总结卡。",
+        "学生能够明确目标、分工合作；优先采集：行动记录、成果照片/数据、总结卡。",
+        "学生能够完成行动总结；优先采集：行动记录、成果照片/数据、总结卡。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等），能明确目标、分工合作并完成行动总结。",
+          "excerpt_hash": "feaf158dddd7e1d73f395b38776f612d0716c2a679092293564c2346ca52f1e4",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等）；明确目标、分工合作；完成行动总结",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_06cf4c88aabf09fd",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等），并说明关键步骤、特征或依据。",
+      "label": "参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等）；优先采集：行动记录、成果照片/数据、总结卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等）",
+          "excerpt_hash": "25a9d3debffe6d0229530c4d1b9b6b1bcdcd5bf21da0c7cc67346012907fce3b",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参与一次校园公益行动（环保宣传、文明劝导、节水节电倡议等）"
+    },
+    {
+      "component_id": "lc_e005ec34fd879c00",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够明确目标、分工合作",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生明确目标、分工合作，并说明关键步骤、特征或依据。",
+      "label": "明确目标、分工合作",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够明确目标、分工合作；优先采集：行动记录、成果照片/数据、总结卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "明确目标、分工合作",
+          "excerpt_hash": "0dd5a3d269354446723b1398d95f94363adc92a6c682d0cb94be2e9a53f04492",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "明确目标、分工合作"
+    },
+    {
+      "component_id": "lc_3a98246d10446248",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成行动总结",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成行动总结，并说明关键步骤、特征或依据。",
+      "label": "完成行动总结",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成行动总结；优先采集：行动记录、成果照片/数据、总结卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成行动总结",
+          "excerpt_hash": "8d814e47cba6ad33fb647a5e091a031f35b342079968f56ed4899a6190338f6f",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成行动总结"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "feaf158dddd7e1d73f395b38776f612d0716c2a679092293564c2346ca52f1e4",
+  "standard_code": "LA-D2-SL-004",
+  "verified_prerequisites": []
+}

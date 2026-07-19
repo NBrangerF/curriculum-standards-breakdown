@@ -1,0 +1,353 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_46bcc76463955fd6",
+        "lc_0cc875713b8c455c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生准确说出动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_131f31e6cbd47556",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_618bc38ea620624c"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“准确说出动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“准确说出动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量。；说出人体生长发育所需的主要营养物质及其消化吸收过程。",
+          "excerpt_hash": "d44e83744175afcb395914549193249bb3e380f4fb4cc5ff88825e3adb7501e3",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-022:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“鼓励学生开展基于实验的探究活动，探索植物生存、生长的规律。”",
+          "excerpt_hash": "1c0289294c89d5240c252c3e237e36720d115aae0a867937cc868f1243568e87",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-SC-022:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后准确说出动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：““鼓励学生开展基于实验的探究活动，探索植物生存、生长的规律。””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9a554de97a007d5e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5d8c5902b781b5de5f03",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d39057261769"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c22c450af4b9046",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9b0f6921d2f11151",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e1c8e586d87fc9",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_75e7b508a1c45a0f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7c85e6846ee2baf665b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b6340ce96157"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_208d54146f4a9b68",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6d204242cf81f7d8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a04b8a546cf314368898",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6a5186074181"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_426c7beba471c1cd",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2083,
+      "connection_id": "fc_163f6186e22ca212",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-015:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-022",
+      "target_code": "SC-H4G7-SC-015",
+      "target_label": "能描述人的受精、胚胎发育、分娩和哺乳过程；能说出人体生殖系统结构和功能；能说出人体发育过程和各阶段生理特点；能用观察证据说明基本科学概念。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1616,
+      "connection_id": "fc_32dad1494484047f",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-021:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-022",
+      "target_code": "SC-H4G7-SC-021",
+      "target_label": "能通过酶催化作用实验体验酶在生命活动中的重要作用；能描述人体消化系统结构及食物消化与吸收过程；能概述生命活动中物质与能量的变化；能用观察证据说…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0918,
+      "connection_id": "fc_3457aa4372196fb1",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-022:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-022",
+      "target_code": "SC-H4G7-SC-022",
+      "target_label": "能说出人体神经系统组成和神经调节基本方式；能知道疫苗作用、疫苗接种、计划免疫和人工免疫实例；能识别免疫现象和类型；能用观察证据说明基本科学概念。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_618bc38ea620624c",
+      "component_ids": [
+        "lc_46bcc76463955fd6",
+        "lc_0cc875713b8c455c"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量；优先采集：实验/探究记录、口头/书面汇报。",
+        "学生能够说出人体生长发育所需的主要营养物质及其消化吸收过程；优先采集：实验/探究记录、口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量。；说出人体生长发育所需的主要营养物质及其消化吸收过程。",
+          "excerpt_hash": "d44e83744175afcb395914549193249bb3e380f4fb4cc5ff88825e3adb7501e3",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-022:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "准确说出动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量；说出人体生长发育所需的主要营养物质及其消化吸收过程",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_46bcc76463955fd6",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量，并说明关键步骤、特征或依据。",
+      "label": "准确说出动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量；优先采集：实验/探究记录、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量",
+          "excerpt_hash": "96136ea89d26f4c46195d60019fc39ed236b8d0d1618423c6d07a00004f63611",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-022:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量"
+    },
+    {
+      "component_id": "lc_0cc875713b8c455c",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出人体生长发育所需的主要营养物质及其消化吸收过程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出人体生长发育所需的主要营养物质及其消化吸收过程，并说明关键步骤、特征或依据。",
+      "label": "说出人体生长发育所需的主要营养物质及其消化吸收过程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出人体生长发育所需的主要营养物质及其消化吸收过程；优先采集：实验/探究记录、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出人体生长发育所需的主要营养物质及其消化吸收过程",
+          "excerpt_hash": "b7b1e4387e960089ce62ac2b99de9ac551f638c2a208f7199db6e9d57aa3a6ba",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-022:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出人体生长发育所需的主要营养物质及其消化吸收过程"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a1d51ce5f151e87c",
+      "evidence_refs": [
+        "standard:SC-D3-SC-022:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D2-SC-023",
+      "source_label": "认识植物的某些结构、动物的某些结构与行为具有维持自身生存的功能。（聚焦生物体的稳态与调节）（生物体的稳态与调节）",
+      "target_code": "SC-D3-SC-022",
+      "target_label": "知道动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量。；说出人体生长发育所需的主要营养物质及其消化吸收过程。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d44e83744175afcb395914549193249bb3e380f4fb4cc5ff88825e3adb7501e3",
+  "standard_code": "SC-D3-SC-022",
+  "verified_prerequisites": []
+}

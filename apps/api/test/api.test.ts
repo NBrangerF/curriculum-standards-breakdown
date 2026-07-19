@@ -12,7 +12,9 @@ import { parsePlanWithLlm } from '../src/plan-llm.js'
 import vercelHandler from '../../../api/v1/[...path].js'
 
 const dataRoot = resolve(process.cwd(), '../../data/internal')
+const publicDataRoot = resolve(process.cwd(), '../../public/data')
 const app = createApp(new FileCurriculumRepository(dataRoot))
+const publicApp = createApp(new FileCurriculumRepository(publicDataRoot))
 const textbookApp = createApp(new FileCurriculumRepository(dataRoot), {
     textbookRepository: new FileTextbookRepository(resolve(process.cwd(), '../../public/data'))
 })
@@ -655,6 +657,50 @@ test('GET /api/v1/standards/:code returns public standard without admin fields',
     assert.equal(body.data.code, 'AR-D1-AA-007')
     assert.equal('materials_tools' in body.data, true)
     assert.equal('review_status' in body.data, false)
+})
+
+test('GET /api/v1/standards/:code/capability-graph returns teachable components and honest review states', async () => {
+    const response = await app.request('/api/v1/standards/CN-D1-RE-001/capability-graph', {
+        headers: { 'x-forwarded-for': 'capability-graph-test-client' }
+    })
+    assert.equal(response.status, 200)
+    const body = await json(response)
+    assert.equal(body.data.standard_code, 'CN-D1-RE-001')
+    assert.equal(body.data.schema_version, '1.0.0')
+    assert.ok(body.data.learning_components.length >= 1)
+    assert.ok(body.data.learning_components.every((item: Record<string, any>) => item.observable_evidence && item.diagnostic_prompt))
+    assert.ok(body.data.common_difficulties.every((item: Record<string, any>) => item.manifestation && item.likely_cause && item.teacher_action))
+    assert.deepEqual(body.data.verified_prerequisites, [])
+    assert.equal(body.meta.prerequisite_review_coverage, 'not_measured')
+    assert.ok(body.data.curriculum_alignments.some((item: Record<string, any>) => item.level === 'scope'))
+})
+
+test('public production projection loads capability sidecar while standard search stays lightweight', async () => {
+    const graphResponse = await publicApp.request('/api/v1/standards/CN-D1-RE-001/capability-graph', {
+        headers: { 'x-forwarded-for': 'public-capability-sidecar-test' }
+    })
+    assert.equal(graphResponse.status, 200)
+    const graphBody = await json(graphResponse)
+    assert.ok(graphBody.data.learning_components.length >= 1)
+    assert.equal(graphBody.data.prerequisite_review_coverage.status, 'not_measured')
+
+    const searchResponse = await publicApp.request('/api/v1/standards/search', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'x-forwarded-for': 'public-capability-search-test'
+        },
+        body: JSON.stringify({ subjects: ['chinese'], limit: 2 })
+    })
+    assert.equal(searchResponse.status, 200)
+    const searchBody = await json(searchResponse)
+    assert.equal(searchBody.data.length, 2)
+    for (const item of searchBody.data) {
+        assert.equal('learning_components' in item, false)
+        assert.equal('common_difficulties' in item, false)
+        assert.equal('curriculum_alignments' in item, false)
+        assert.equal(item.capability_graph_schema_version, '1.0.0')
+    }
 })
 
 test('GET /api/v1/standards/:code resolves a unique legacy alias and rejects an ambiguous alias', async () => {

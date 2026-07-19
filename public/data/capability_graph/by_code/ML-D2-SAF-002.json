@@ -1,0 +1,375 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_b8fa2ece10321a3b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生与同伴合作并友好解决分歧的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_7ca6ec87dc1c7b06",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“与同伴合作并友好解决分歧”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“与同伴合作并友好解决分歧”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在交往中做到认真倾听、清楚表达与尊重差异，能与同伴合作并友好解决分歧，形成更健康的人际关系。",
+          "excerpt_hash": "9892884d9082ee2c4539dd5dea5880d7bdd83e882df1266cfe279f93f73cc0d4",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "从同学日常交往问题入手，示范倾听、表达与协商；鼓励在合作任务中练习包容与尊重差异，形成积极的同伴关系。",
+          "excerpt_hash": "1bc1ef0a579ffcfc286f86810f99f7f94d6344057bad55ddb4c4423d1409dfcf",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-SAF-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后与同伴合作并友好解决分歧，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“与同伴合作并友好解决分歧”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“从同学日常交往问题入手，示范倾听、表达与协商”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_11e1f757ccc4ec9d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在交往中做到认真倾听、清楚表达与尊重差异的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1292b54e0dbdfdda",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f0e9d9b499f902c6"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“在交往中做到认真倾听、清楚表达与尊重差异”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在交往中做到认真倾听、清楚表达与尊重差异”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在交往中做到认真倾听、清楚表达与尊重差异，能与同伴合作并友好解决分歧，形成更健康的人际关系。",
+          "excerpt_hash": "9892884d9082ee2c4539dd5dea5880d7bdd83e882df1266cfe279f93f73cc0d4",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "从同学日常交往问题入手，示范倾听、表达与协商；鼓励在合作任务中练习包容与尊重差异，形成积极的同伴关系。",
+          "excerpt_hash": "1bc1ef0a579ffcfc286f86810f99f7f94d6344057bad55ddb4c4423d1409dfcf",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-SAF-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在交往中做到认真倾听、清楚表达与尊重差异，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在交往中做到认真倾听、清楚表达与尊重差异”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“从同学日常交往问题入手，示范倾听、表达与协商”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9314aebe18641f5f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_49c68a8031fd5b545d9f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c4a8334099f0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4eabffd55a81e2eb",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e06ac4880a2ee432",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7751decca7f37a1d323e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2d734af455c0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4fcca84971a83ec4",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_379ad4541cdae910",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_abbd5db6223f36ab3c5c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9d06bc550436"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_bcb8fe719c29a97c",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_75771a0f7d088b50",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b23dbf8aedd84cd3888f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6d8e93064e1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_85e4b38d814a5d4c",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_3532f3c4acbe6f6b",
+      "evidence_refs": [
+        "standard:ML-D2-SAF-002:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D2-SAF-002",
+      "target_code": "ML-D3-MOR-001",
+      "target_label": "能说明平等待人的意义，在交往中做到谦让友善、尊重与同情他人，遇到需要帮助的情境能主动提供力所能及的支持并表达感恩。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_f0e9d9b499f902c6",
+      "component_ids": [
+        "lc_11e1f757ccc4ec9d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "清楚"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在交往中做到认真倾听、清楚表达与尊重差异。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在交往中做到认真倾听、清楚表达与尊重差异；优先采集：情境表现、同伴互评、教师观察清单（倾听/表达/包容）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在交往中做到认真倾听、清楚表达与尊重差异，能与同伴合作并友好解决分歧，形成更健康的人际关系。",
+          "excerpt_hash": "9892884d9082ee2c4539dd5dea5880d7bdd83e882df1266cfe279f93f73cc0d4",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（清楚）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_11e1f757ccc4ec9d",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在交往中做到认真倾听、清楚表达与尊重差异",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在交往中做到认真倾听、清楚表达与尊重差异，并说明关键步骤、特征或依据。",
+      "label": "在交往中做到认真倾听、清楚表达与尊重差异",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在交往中做到认真倾听、清楚表达与尊重差异；优先采集：情境表现、同伴互评、教师观察清单（倾听/表达/包容）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在交往中做到认真倾听、清楚表达与尊重差异",
+          "excerpt_hash": "800a1e70adf4d057b6e758608a646150b62c44be570e76ddd869efc49fbde8bc",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在交往中做到认真倾听、清楚表达与尊重差异"
+    },
+    {
+      "component_id": "lc_b8fa2ece10321a3b",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够与同伴合作并友好解决分歧",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生与同伴合作并友好解决分歧，并说明关键步骤、特征或依据。",
+      "label": "与同伴合作并友好解决分歧",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够与同伴合作并友好解决分歧；优先采集：情境表现、同伴互评、教师观察清单（倾听/表达/包容）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "与同伴合作并友好解决分歧",
+          "excerpt_hash": "1d82878c5f7e8fc66e56b78acaea999a1b0352e68bf0d723c50c8a9045cb8727",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "与同伴合作并友好解决分歧"
+    },
+    {
+      "component_id": "lc_9852c158a05989ec",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出更健康的人际关系并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出更健康的人际关系并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出更健康的人际关系并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出更健康的人际关系并说明选择理由；优先采集：情境表现、同伴互评、教师观察清单（倾听/表达/包容）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成更健康的人际关系",
+          "excerpt_hash": "61d11955ce6363cec6b09bd7f30914f6393269f2e2d7b31c861c9b6c401b8507",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-SAF-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成更健康的人际关系"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_855d1fb94f65e236",
+      "evidence_refs": [
+        "standard:ML-D2-SAF-002:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-D1-ENR-006",
+      "source_label": "愿意与同伴建立友好关系，能用积极的方式表达需要与感受，能在游戏与学习活动中遵守轮流与合作规则，体验集体学习与游戏的快乐。",
+      "target_code": "ML-D2-SAF-002",
+      "target_label": "能在交往中做到认真倾听、清楚表达与尊重差异，能与同伴合作并友好解决分歧，形成更健康的人际关系。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "9892884d9082ee2c4539dd5dea5880d7bdd83e882df1266cfe279f93f73cc0d4",
+  "standard_code": "ML-D2-SAF-002",
+  "verified_prerequisites": []
+}

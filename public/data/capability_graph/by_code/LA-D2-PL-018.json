@@ -1,0 +1,283 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_095872c07c65c41e",
+        "lc_e30df2f8890314e0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据反馈完成至少一次改进的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_26cb406b65435cee",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1b43bf6a4f0eba26",
+        "hc_9106f8e316a05540",
+        "hc_07f66b4deb33981f"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“根据反馈完成至少一次改进”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据反馈完成至少一次改进”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对工艺作品从牢固、整洁、节约材料与审美效果等方面进行评价，能根据反馈完成至少一次改进并记录改进点。",
+          "excerpt_hash": "f0ceb4aae33639d1eb2296a003906bd4d8f06956bfd07a77dae6f69e4305606d",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "采用“二赞一建议”并要求证据；改进要具体（加固/修边/调整对称）；鼓励使用边角料完成修补。",
+          "excerpt_hash": "cbc2ff470c57fb102f51e7c76ae45a57a8fd1301d362690b98a2f5db3218bb92",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-PL-018:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据反馈完成至少一次改进，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据反馈完成至少一次改进”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“采用“二赞一建议”并要求证据”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_8b1da5cc038f6889",
+      "evidence_refs": [
+        "standard:LA-D2-PL-018:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-PL-018",
+      "target_code": "LA-D3-PL-020",
+      "target_label": "能以小组形式完成一次工艺项目（计划—制作—展示—复盘），能遵守分工、控制进度，形成合作与责任意识。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_1b43bf6a4f0eba26",
+      "component_ids": [
+        "lc_095872c07c65c41e",
+        "lc_e30df2f8890314e0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "改进"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据反馈完成至少一次改进。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据反馈完成至少一次改进；优先采集：评价卡、改进前后对比、教师记录。",
+        "学生能够记录改进点；优先采集：评价卡、改进前后对比、教师记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对工艺作品从牢固、整洁、节约材料与审美效果等方面进行评价，能根据反馈完成至少一次改进并记录改进点。",
+          "excerpt_hash": "f0ceb4aae33639d1eb2296a003906bd4d8f06956bfd07a77dae6f69e4305606d",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（改进）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_9106f8e316a05540",
+      "component_ids": [
+        "lc_095872c07c65c41e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据反馈完成至少一次改进。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据反馈完成至少一次改进；优先采集：评价卡、改进前后对比、教师记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对工艺作品从牢固、整洁、节约材料与审美效果等方面进行评价，能根据反馈完成至少一次改进并记录改进点。",
+          "excerpt_hash": "f0ceb4aae33639d1eb2296a003906bd4d8f06956bfd07a77dae6f69e4305606d",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（至少）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_07f66b4deb33981f",
+      "component_ids": [
+        "lc_095872c07c65c41e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据反馈完成至少一次改进。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据反馈完成至少一次改进；优先采集：评价卡、改进前后对比、教师记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对工艺作品从牢固、整洁、节约材料与审美效果等方面进行评价，能根据反馈完成至少一次改进并记录改进点。",
+          "excerpt_hash": "f0ceb4aae33639d1eb2296a003906bd4d8f06956bfd07a77dae6f69e4305606d",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（至少）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c283a1c6d925da69",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够对工艺作品从牢固、整洁、节约材料与审美效果等方面进行评价",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生对工艺作品从牢固、整洁、节约材料与审美效果等方面进行评价，并说明关键步骤、特征或依据。",
+      "label": "对工艺作品从牢固、整洁、节约材料与审美效果等方面进行评价",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够对工艺作品从牢固、整洁、节约材料与审美效果等方面进行评价；优先采集：评价卡、改进前后对比、教师记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "对工艺作品从牢固、整洁、节约材料与审美效果等方面进行评价",
+          "excerpt_hash": "800e6f32e6ae6155df43bfc0c5eb285c43361f8f03d3be596eb9669109b55076",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "对工艺作品从牢固、整洁、节约材料与审美效果等方面进行评价"
+    },
+    {
+      "component_id": "lc_095872c07c65c41e",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据反馈完成至少一次改进",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据反馈完成至少一次改进，并说明关键步骤、特征或依据。",
+      "label": "根据反馈完成至少一次改进",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据反馈完成至少一次改进；优先采集：评价卡、改进前后对比、教师记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据反馈完成至少一次改进",
+          "excerpt_hash": "56aee224749fee1980478e3649a2fb8acf15c7d73f955e1d81870c7091471673",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据反馈完成至少一次改进"
+    },
+    {
+      "component_id": "lc_e30df2f8890314e0",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够记录改进点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生记录改进点，并说明关键步骤、特征或依据。",
+      "label": "记录改进点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够记录改进点；优先采集：评价卡、改进前后对比、教师记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "记录改进点",
+          "excerpt_hash": "acd340b745cf9b1e5d2448721243642a4b6fa746e98eb43d4057bf010dedf9e2",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "记录改进点"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_ba37cbc65d12f6d7",
+      "evidence_refs": [
+        "standard:LA-D2-PL-018:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D1-PL-025",
+      "source_label": "能对自己的工艺作品从“是否牢固、是否整洁、是否符合步骤/意图”等方面进行简单评价，并尝试做一次改进，形成认真劳动与合理用料的习惯。",
+      "target_code": "LA-D2-PL-018",
+      "target_label": "能对工艺作品从牢固、整洁、节约材料与审美效果等方面进行评价，能根据反馈完成至少一次改进并记录改进点。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f0ceb4aae33639d1eb2296a003906bd4d8f06956bfd07a77dae6f69e4305606d",
+  "standard_code": "LA-D2-PL-018",
+  "verified_prerequisites": []
+}

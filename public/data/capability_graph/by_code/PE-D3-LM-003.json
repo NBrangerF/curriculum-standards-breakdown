@@ -1,0 +1,205 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_97dff046bd8b41f0"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生每学期通过现场/网络/电视观看至少1次所学项目或重大赛事的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a2c680506946b70b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_345de7e73a919cba",
+        "hc_5e85098622970501"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“每学期通过现场/网络/电视观看至少1次所学项目或重大赛事”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "每学期通过现场/网络/电视观看至少1次所学项目或重大赛事，能从技术/战术与体育品德两个维度作出简要分析与评价。",
+          "excerpt_hash": "5aeb7c700fe633f58b20b536c40ce40a655ca8df6d66d72d084175a7c150a367",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-LM-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "观赛前发放“观赛任务单”：明确要观察的3类线索（关键技术动作、战术选择、规则与体育品德）。观赛中用“暂停—预测—验证”方式引导学生描述证据（如“为什么这次进攻成功/失败”）。观赛后连接自身学练：让学生把观察到的1个战术点转化为下一次课堂的练习目标。",
+          "excerpt_hash": "05b06c0fe4b79a9d08a6cabc35bcbf34377de56ccf678f2b7268508baac4f601",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-LM-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后每学期通过现场/网络/电视观看至少1次所学项目或重大赛事，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“每学期通过现场/网络/电视观看至少1次所学项目或重大赛事”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“观赛前发放“观赛任务单”：明确要观察的3类线索（关键技术动作、战术选择、规则与体育品德）。观赛中用“暂停—预测—验证”方式引导学生描述证据（如“为什么这次进攻成功/失败”）。观赛后连接自身学练：让学生把观察到的1个战术…”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2294,
+      "connection_id": "fc_1729378f4bdfaf5d",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-003",
+      "target_code": "PE-H4G7-LM-004",
+      "target_label": "能在所学球类运动项目比赛中合理运用主要比赛规则；能承担班级内比赛的裁判工作；能每学期通过现场或多种媒介观看不少于8次所学球类运动项目比赛；能完…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_345de7e73a919cba",
+      "component_ids": [
+        "lc_97dff046bd8b41f0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生每学期通过现场/网络/电视观看至少1次所学项目或重大赛事。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够每学期通过现场/网络/电视观看至少1次所学项目或重大赛事；优先采集：学习单、口头汇报/海报、课堂讨论记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "每学期通过现场/网络/电视观看至少1次所学项目或重大赛事，能从技术/战术与体育品德两个维度作出简要分析与评价。",
+          "excerpt_hash": "5aeb7c700fe633f58b20b536c40ce40a655ca8df6d66d72d084175a7c150a367",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-LM-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（至少）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_5e85098622970501",
+      "component_ids": [
+        "lc_97dff046bd8b41f0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少",
+        "1次"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生每学期通过现场/网络/电视观看至少1次所学项目或重大赛事。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够每学期通过现场/网络/电视观看至少1次所学项目或重大赛事；优先采集：学习单、口头汇报/海报、课堂讨论记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "每学期通过现场/网络/电视观看至少1次所学项目或重大赛事，能从技术/战术与体育品德两个维度作出简要分析与评价。",
+          "excerpt_hash": "5aeb7c700fe633f58b20b536c40ce40a655ca8df6d66d72d084175a7c150a367",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-LM-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（至少、1次）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_97dff046bd8b41f0",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够每学期通过现场/网络/电视观看至少1次所学项目或重大赛事",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生每学期通过现场/网络/电视观看至少1次所学项目或重大赛事，并说明关键步骤、特征或依据。",
+      "label": "每学期通过现场/网络/电视观看至少1次所学项目或重大赛事",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够每学期通过现场/网络/电视观看至少1次所学项目或重大赛事；优先采集：学习单、口头汇报/海报、课堂讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "每学期通过现场/网络/电视观看至少1次所学项目或重大赛事",
+          "excerpt_hash": "2c261799019bef56e46f660aadbf4c03727a2a81431c3629a3f7d5dcfec67ea2",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-LM-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "每学期通过现场/网络/电视观看至少1次所学项目或重大赛事"
+    },
+    {
+      "component_id": "lc_3d01d9ce629c1425",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够从技术/战术与体育品德两个维度作出简要分析与评价",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生从技术/战术与体育品德两个维度作出简要分析与评价，并说明关键步骤、特征或依据。",
+      "label": "从技术/战术与体育品德两个维度作出简要分析与评价",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够从技术/战术与体育品德两个维度作出简要分析与评价；优先采集：学习单、口头汇报/海报、课堂讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "从技术/战术与体育品德两个维度作出简要分析与评价",
+          "excerpt_hash": "fda99a8f1218681672b0a2fe900f15bc5b6e2db4dcc8c4f4defe825a1da4967f",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-LM-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "从技术/战术与体育品德两个维度作出简要分析与评价"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5aeb7c700fe633f58b20b536c40ce40a655ca8df6d66d72d084175a7c150a367",
+  "standard_code": "PE-D3-LM-003",
+  "verified_prerequisites": []
+}

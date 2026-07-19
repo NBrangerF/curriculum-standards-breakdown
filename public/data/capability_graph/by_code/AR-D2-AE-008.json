@@ -1,0 +1,541 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_1eb9944b2a62d9f7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c103a9842c12b3ae",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_57c1a4fc1869b176"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能理解并运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色，能说出自己的配色意图。",
+          "excerpt_hash": "461594accb28e39690836fab8661d3809143fcd7b258d1d7d55f5ed58b772f29",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先做“调色实验卡”记录比例与效果；用“情绪配色”练习（热烈/安静/神秘等）；鼓励学生解释选择而非追求唯一正确。",
+          "excerpt_hash": "1d10fe81d5e4ba0e3842f7762c8b0cffb92d6481795f6679f2dfb4152fe05d8c",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-AE-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“先做“调色实验卡”记录比例与效果”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_6d3c83a4738cef04"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出自己的配色意图的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a045e9c3df8bb698",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_57c1a4fc1869b176"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出自己的配色意图”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出自己的配色意图”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能理解并运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色，能说出自己的配色意图。",
+          "excerpt_hash": "461594accb28e39690836fab8661d3809143fcd7b258d1d7d55f5ed58b772f29",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先做“调色实验卡”记录比例与效果；用“情绪配色”练习（热烈/安静/神秘等）；鼓励学生解释选择而非追求唯一正确。",
+          "excerpt_hash": "1d10fe81d5e4ba0e3842f7762c8b0cffb92d6481795f6679f2dfb4152fe05d8c",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-AE-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出自己的配色意图，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出自己的配色意图”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“先做“调色实验卡”记录比例与效果”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_6d3c83a4738cef04"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出自己的配色意图的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8dfc39ba17f78bb0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_57c1a4fc1869b176"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“说出自己的配色意图”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出自己的配色意图”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能理解并运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色，能说出自己的配色意图。",
+          "excerpt_hash": "461594accb28e39690836fab8661d3809143fcd7b258d1d7d55f5ed58b772f29",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先做“调色实验卡”记录比例与效果；用“情绪配色”练习（热烈/安静/神秘等）；鼓励学生解释选择而非追求唯一正确。",
+          "excerpt_hash": "1d10fe81d5e4ba0e3842f7762c8b0cffb92d6481795f6679f2dfb4152fe05d8c",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-AE-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出自己的配色意图，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出自己的配色意图”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“先做“调色实验卡”记录比例与效果”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_daeed37d1c4cfcc7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_25cc2de0079d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fbf879fc86b8f9dd",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9f50139a20eae9bf",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5257fc4696e"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5773d3c34b5fac1a",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0cab6837ce1a5eef",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7f08a79245a04bd51982",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_66a45d74ea83"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_70c6b45240660bc3",
+      "textbook_grade": 4,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f34e5e12b5ed299c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9056a7a14a02606cf0cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c7075fcbe13b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1d7f26ff680d57af",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b6ee777029e17faa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b0ba55d2d28575d0ba65",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_aa7ce1e8a37f"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4a0a538012d57261",
+      "textbook_grade": 3,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_652922c4e632ffc2",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b99acd98774d0dc454da",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_572122ddff26"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9a72f44c9f0c7435",
+      "textbook_grade": 3,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ba694298fc62e256",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_edc22a9a708956d31cdc",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a83a27f3607b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3637c861f3728bf7",
+      "textbook_grade": 4,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_068cf40eff204fbd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_aa3aaa5d9032"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_19c3fbbc0c7e7882",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_fb309be769c04087",
+      "evidence_refs": [
+        "standard:AR-D2-AE-008:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D2-AE-008",
+      "target_code": "AR-D3-CP-008",
+      "target_label": "能在小组创作中合理分工、协作交流，能倾听他人意见并进行作品迭代，形成持续改进的学习品质。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_57c1a4fc1869b176",
+      "component_ids": [
+        "lc_dc8bee456b6fe742",
+        "lc_1eb9944b2a62d9f7",
+        "lc_6d3c83a4738cef04"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释色彩知识（原色、间色、复色、对比色、邻近色等）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释色彩知识（原色、间色、复色、对比色、邻近色等）；优先采集：色彩实验卡、作品、口头说明。",
+        "学生能够运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色；优先采集：色彩实验卡、作品、口头说明。",
+        "学生能够说出自己的配色意图；优先采集：色彩实验卡、作品、口头说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能理解并运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色，能说出自己的配色意图。",
+          "excerpt_hash": "461594accb28e39690836fab8661d3809143fcd7b258d1d7d55f5ed58b772f29",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用自己的话解释色彩知识（原色、间色、复色、对比色、邻近色等）；运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色；说出自己的配色意图",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_dc8bee456b6fe742",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释色彩知识（原色、间色、复色、对比色、邻近色等）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释色彩知识（原色、间色、复色、对比色、邻近色等），并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释色彩知识（原色、间色、复色、对比色、邻近色等）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释色彩知识（原色、间色、复色、对比色、邻近色等）；优先采集：色彩实验卡、作品、口头说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解并运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色",
+          "excerpt_hash": "84c944cfd98bd86863cf8ca21716d36e480c5220b9091a96a4eb0db15816e52c",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解色彩知识（原色、间色、复色、对比色、邻近色等）"
+    },
+    {
+      "component_id": "lc_1eb9944b2a62d9f7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色，并说明关键步骤、特征或依据。",
+      "label": "运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色；优先采集：色彩实验卡、作品、口头说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色",
+          "excerpt_hash": "4b39ad74a5bbae8d4dc2de16d4c2735121fda6371fa0cd2d830864d7898a0948",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色"
+    },
+    {
+      "component_id": "lc_6d3c83a4738cef04",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出自己的配色意图",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出自己的配色意图，并说明关键步骤、特征或依据。",
+      "label": "说出自己的配色意图",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出自己的配色意图；优先采集：色彩实验卡、作品、口头说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出自己的配色意图",
+          "excerpt_hash": "ae931f0830db5968ace2607453f17f0dc80be1727e1d65282ef0b282e119cea9",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出自己的配色意图"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_64396501c9589942",
+      "evidence_refs": [
+        "standard:AR-D2-AE-008:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D1-AE-009",
+      "source_label": "能根据观察与感受，用纸、泥等材料通过折、叠、揉、搓、压等方法塑造立体造型作品，并表达自己的想法。",
+      "target_code": "AR-D2-AE-008",
+      "target_label": "能理解并运用色彩知识（原色、间色、复色、对比色、邻近色等）进行配色，能说出自己的配色意图。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "461594accb28e39690836fab8661d3809143fcd7b258d1d7d55f5ed58b772f29",
+  "standard_code": "AR-D2-AE-008",
+  "verified_prerequisites": []
+}

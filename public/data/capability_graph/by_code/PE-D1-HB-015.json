@@ -1,0 +1,263 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_1ebb5ad3aec23960",
+        "lc_8ff4a287c63a0553",
+        "lc_3b561609c8432af1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fae538aeb05101d4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1f2491156ec2f10d"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确；知道生命孕育过程和人体主要器官；知道视力异常的症状，定期检查视力，正确配戴眼镜。",
+          "excerpt_hash": "e43810daacf08f25672cfe36b1ee496cd4854b9e513d5037675548f1b6c9f29e",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-015:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "（健康教育教学提示）1) 创设生活化情境，把健康教育与学生真实生活链接；2) 指导学生在锻炼中体验运动乐趣，参与户外游戏/身体活动，形成锻炼习惯；3) 用学习单/任务单/实践活动帮助掌握健康知识与技能；4) 结合体育活动与日常生活，培养安全意识与自我保护能力。",
+          "excerpt_hash": "712acf24ab220ab0065215191471a11c5a7bd014940d474767bb959a3a776fc8",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D1-HB-015:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“（健康教育教学提示）1) 创设生活化情境，把健康教育与学生真实生活链接”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_68619a910f099056",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_729e6607eab953ee2165",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_1_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_ee2b7c40f4dccca4",
+      "textbook_grade": 1,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康1年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e32d872218f2bd40",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c6389a9109e39310cf86",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_2_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_73d28c16a2eec793",
+      "textbook_grade": 2,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康2年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_aebdb417822b05a1",
+      "evidence_refs": [
+        "standard:PE-D1-HB-015:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D1-HB-015",
+      "target_code": "PE-D2-HB-015",
+      "target_label": "关注自己情绪变化，能使用1种方法调节情绪并恢复投入活动。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_1f2491156ec2f10d",
+      "component_ids": [
+        "lc_1ebb5ad3aec23960",
+        "lc_8ff4a287c63a0553",
+        "lc_3b561609c8432af1"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确；优先采集：习惯月历、口头测评。",
+        "学生能够准确说出生命孕育过程和人体主要器官；优先采集：习惯月历、口头测评。",
+        "学生能够准确说出视力异常的症状，定期检查视力，正确配戴眼镜；优先采集：习惯月历、口头测评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确；知道生命孕育过程和人体主要器官；知道视力异常的症状，定期检查视力，正确配戴眼镜。",
+          "excerpt_hash": "e43810daacf08f25672cfe36b1ee496cd4854b9e513d5037675548f1b6c9f29e",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_1ebb5ad3aec23960",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确，并说明关键步骤、特征或依据。",
+      "label": "说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确；优先采集：习惯月历、口头测评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确",
+          "excerpt_hash": "aa84d2a6fceb043c27c04422f28a480e73556e8c67cf2131408a404ab316d10e",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确"
+    },
+    {
+      "component_id": "lc_8ff4a287c63a0553",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出生命孕育过程和人体主要器官",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出生命孕育过程和人体主要器官，并说明关键步骤、特征或依据。",
+      "label": "准确说出生命孕育过程和人体主要器官",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出生命孕育过程和人体主要器官；优先采集：习惯月历、口头测评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道生命孕育过程和人体主要器官",
+          "excerpt_hash": "6574c1a24735a0a6cafae6fbcc1911091b5af34e8804350ba3f9d5d746da5b82",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道生命孕育过程和人体主要器官"
+    },
+    {
+      "component_id": "lc_3b561609c8432af1",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出视力异常的症状，定期检查视力，正确配戴眼镜",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出视力异常的症状，定期检查视力，正确配戴眼镜，并说明关键步骤、特征或依据。",
+      "label": "准确说出视力异常的症状，定期检查视力，正确配戴眼镜",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出视力异常的症状，定期检查视力，正确配戴眼镜；优先采集：习惯月历、口头测评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道视力异常的症状，定期检查视力，正确配戴眼镜",
+          "excerpt_hash": "f6441dfd110cad331e4d5595e08b5235c063b4592d12536b10274947932f7e21",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道视力异常的症状，定期检查视力，正确配戴眼镜"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e43810daacf08f25672cfe36b1ee496cd4854b9e513d5037675548f1b6c9f29e",
+  "standard_code": "PE-D1-HB-015",
+  "verified_prerequisites": []
+}

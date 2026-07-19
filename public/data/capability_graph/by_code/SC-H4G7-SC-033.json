@@ -1,0 +1,451 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_887bed9ed9222f14"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_de898abc8b950cf0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ecd378477628206c"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "90f542587e998e1b9e9f70a805ea00564c90510db91eff988531af50d5d02708",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-033:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调常见化合物学习中的安全操作和性质证据。",
+          "excerpt_hash": "e50b61ea6f8c33fc13f9455655e855c5b0a7f2f9ebbdea9cef32c9224adf808d",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-033:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用观察证据说明基本科学概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“强调常见化合物学习中的安全操作和性质证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_ef8929eb4044be5d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_60c6508022da5ad1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_fd80c88680b6ee54"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "90f542587e998e1b9e9f70a805ea00564c90510db91eff988531af50d5d02708",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-033:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调常见化合物学习中的安全操作和性质证据。",
+          "excerpt_hash": "e50b61ea6f8c33fc13f9455655e855c5b0a7f2f9ebbdea9cef32c9224adf808d",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-033:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“强调常见化合物学习中的安全操作和性质证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_ef8929eb4044be5d",
+        "lc_887bed9ed9222f14"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_00a6344e9e1ec051",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ecd378477628206c",
+        "hc_fd80c88680b6ee54"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "90f542587e998e1b9e9f70a805ea00564c90510db91eff988531af50d5d02708",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-033:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调常见化合物学习中的安全操作和性质证据。",
+          "excerpt_hash": "e50b61ea6f8c33fc13f9455655e855c5b0a7f2f9ebbdea9cef32c9224adf808d",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-033:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“强调常见化合物学习中的安全操作和性质证据。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b2b1fbff7507075e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_21164b69894834d04f84",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7070ee669923"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ba775a07035c65ee",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e237e4daa1210679",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b2901b9e06df"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3daf5000bc9191a7",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1dcd6aa9b2a80417",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_92369ed68f9321363e22",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae920aee077f"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_94dc3a2f9a671969",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9a3d752f3d20a96e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fc41327ff0651b269c88",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae5d3f924fb1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4604008cfd618f79",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_067c1bc9ed6891b4",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-033:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G7-SC-033",
+      "target_code": "SC-H4G8-SC-033",
+      "target_label": "认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响；能初步学会用酸碱指示剂和pH试纸检验溶液酸碱…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ecd378477628206c",
+      "component_ids": [
+        "lc_887bed9ed9222f14"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用观察证据说明基本科学概念。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用观察证据说明基本科学概念；优先采集：酸碱检测记录、用途与风险说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "90f542587e998e1b9e9f70a805ea00564c90510db91eff988531af50d5d02708",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-033:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_fd80c88680b6ee54",
+      "component_ids": [
+        "lc_ef8929eb4044be5d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征；优先采集：酸碱检测记录、用途与风险说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "90f542587e998e1b9e9f70a805ea00564c90510db91eff988531af50d5d02708",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-033:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b7d58f2e7d487a81",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够初步学会用酸碱指示剂和pH试纸检验溶液酸碱性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生初步学会用酸碱指示剂和pH试纸检验溶液酸碱性，并说明关键步骤、特征或依据。",
+      "label": "初步学会用酸碱指示剂和pH试纸检验溶液酸碱性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；优先采集：酸碱检测记录、用途与风险说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步学会用酸碱指示剂和pH试纸检验溶液酸碱性",
+          "excerpt_hash": "2acb85dbac18e28ed95ccf25724317b63192b6d6643e7e2dc90251fb4382c1f9",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-033:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "初步学会用酸碱指示剂和pH试纸检验溶液酸碱性"
+    },
+    {
+      "component_id": "lc_ef8929eb4044be5d",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征；优先采集：酸碱检测记录、用途与风险说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响",
+          "excerpt_hash": "8ffa0d9b83975161a6a43f9ba350d091629057c0294ae6949bca2a9e73376970",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-033:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响"
+    },
+    {
+      "component_id": "lc_887bed9ed9222f14",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用观察证据说明基本科学概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用观察证据说明基本科学概念",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：酸碱检测记录、用途与风险说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用观察证据说明基本科学概念",
+          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-033:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用观察证据说明基本科学概念"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1273,
+      "edge_id": "pc_09873965b0b2aa07",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-033:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-SC-020",
+      "source_label": "列举睡眠、饮食、运动等影响健康的因素，养成良好的生活习惯。",
+      "target_code": "SC-H4G7-SC-033",
+      "target_label": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "90f542587e998e1b9e9f70a805ea00564c90510db91eff988531af50d5d02708",
+  "standard_code": "SC-H4G7-SC-033",
+  "verified_prerequisites": []
+}

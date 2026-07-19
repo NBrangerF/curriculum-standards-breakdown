@@ -1,0 +1,462 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_8910feaf704f40c4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据某些特征，对植物进行分类的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4ff5c925b725fbbb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d92c15ba6df026ee"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“根据某些特征，对植物进行分类”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据某些特征，对植物进行分类”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的。；根据某些特征，对植物进行分类。",
+          "excerpt_hash": "0af50d7cca18f5189e901405d7860124bbf3a8cb84e001a1e85938fe8679869d",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“合理利用黑板画、图片、视频等素材，以及校园、社区、公园、动物园、植物园等资源，创设情境。”",
+          "excerpt_hash": "dee43821c46d8b07205297535da320f4576c60529de9ecbe18abd33fe1d961fc",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-SC-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据某些特征，对植物进行分类，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据某些特征，对植物进行分类”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：““合理利用黑板画、图片、视频等素材，以及校园、社区、公园、动物园、植物园等资源，创设情境。””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_0a8f717e853990d5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8caefe63da76a7e7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a306715e70ac5652"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的。；根据某些特征，对植物进行分类。",
+          "excerpt_hash": "0af50d7cca18f5189e901405d7860124bbf3a8cb84e001a1e85938fe8679869d",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“合理利用黑板画、图片、视频等素材，以及校园、社区、公园、动物园、植物园等资源，创设情境。”",
+          "excerpt_hash": "dee43821c46d8b07205297535da320f4576c60529de9ecbe18abd33fe1d961fc",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-SC-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：““合理利用黑板画、图片、视频等素材，以及校园、社区、公园、动物园、植物园等资源，创设情境。””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_0a8f717e853990d5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a4065edc9145db8d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a306715e70ac5652"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的。；根据某些特征，对植物进行分类。",
+          "excerpt_hash": "0af50d7cca18f5189e901405d7860124bbf3a8cb84e001a1e85938fe8679869d",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“合理利用黑板画、图片、视频等素材，以及校园、社区、公园、动物园、植物园等资源，创设情境。”",
+          "excerpt_hash": "dee43821c46d8b07205297535da320f4576c60529de9ecbe18abd33fe1d961fc",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-SC-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：““合理利用黑板画、图片、视频等素材，以及校园、社区、公园、动物园、植物园等资源，创设情境。””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_8910feaf704f40c4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据某些特征，对植物进行分类的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f06f597f7f2def17",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d92c15ba6df026ee"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“根据某些特征，对植物进行分类”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据某些特征，对植物进行分类”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的。；根据某些特征，对植物进行分类。",
+          "excerpt_hash": "0af50d7cca18f5189e901405d7860124bbf3a8cb84e001a1e85938fe8679869d",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“合理利用黑板画、图片、视频等素材，以及校园、社区、公园、动物园、植物园等资源，创设情境。”",
+          "excerpt_hash": "dee43821c46d8b07205297535da320f4576c60529de9ecbe18abd33fe1d961fc",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-SC-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据某些特征，对植物进行分类，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据某些特征，对植物进行分类”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：““合理利用黑板画、图片、视频等素材，以及校园、社区、公园、动物园、植物园等资源，创设情境。””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ffe74ab410a8f218",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5d8c5902b781b5de5f03",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d39057261769"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c22c450af4b9046",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_77bbf64ebc4c2642",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e1c8e586d87fc9",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2b6620ce90a2bc93",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7c85e6846ee2baf665b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b6340ce96157"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_208d54146f4a9b68",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7222ccc25f81fd7f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a04b8a546cf314368898",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6a5186074181"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_426c7beba471c1cd",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1676,
+      "connection_id": "fc_93bdb3c81b26b9d5",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-024:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-016",
+      "target_code": "SC-H4G7-SC-024",
+      "target_label": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a306715e70ac5652",
+      "component_ids": [
+        "lc_0a8f717e853990d5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的；优先采集：实验/探究记录、模型/作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的。；根据某些特征，对植物进行分类。",
+          "excerpt_hash": "0af50d7cca18f5189e901405d7860124bbf3a8cb84e001a1e85938fe8679869d",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_d92c15ba6df026ee",
+      "component_ids": [
+        "lc_8910feaf704f40c4"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据某些特征，对植物进行分类。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据某些特征，对植物进行分类；优先采集：实验/探究记录、模型/作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的。；根据某些特征，对植物进行分类。",
+          "excerpt_hash": "0af50d7cca18f5189e901405d7860124bbf3a8cb84e001a1e85938fe8679869d",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_0a8f717e853990d5",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的，并说明关键步骤、特征或依据。",
+      "label": "列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的；优先采集：实验/探究记录、模型/作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的",
+          "excerpt_hash": "2b17d17acc44d081ad1ceed124598b75e1e87d783e84d5f5b47eb90b5b3ee951",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的"
+    },
+    {
+      "component_id": "lc_8910feaf704f40c4",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据某些特征，对植物进行分类",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据某些特征，对植物进行分类，并说明关键步骤、特征或依据。",
+      "label": "根据某些特征，对植物进行分类",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据某些特征，对植物进行分类；优先采集：实验/探究记录、模型/作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据某些特征，对植物进行分类",
+          "excerpt_hash": "b3fe94ad25d26ac2308ae55aa54ada29fe4e7aa8bdaf79e7d1b0c4b166d0d427",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据某些特征，对植物进行分类"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a9d12b589a5f4f92",
+      "evidence_refs": [
+        "standard:SC-D3-SC-016:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D2-SC-018",
+      "source_label": "能区分植物和动物的主要特征，并能对植物和动物进行简单分类。",
+      "target_code": "SC-D3-SC-016",
+      "target_label": "列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的。；根据某些特征，对植物进行分类。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "0af50d7cca18f5189e901405d7860124bbf3a8cb84e001a1e85938fe8679869d",
+  "standard_code": "SC-D3-SC-016",
+  "verified_prerequisites": []
+}

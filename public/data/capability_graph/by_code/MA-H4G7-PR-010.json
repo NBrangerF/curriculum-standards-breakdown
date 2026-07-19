@@ -1,0 +1,481 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_b72bb352b4ad0aa6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明解题步骤和基本依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c1f755e93eeb65c8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_442e9b7b8738d3fb",
+        "hc_351e7c3418522c73"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明解题步骤和基本依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明解题步骤和基本依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过项目式学习形成符合问题背景的模型解答；能感受数学与其他学科融合的功效；能撰写研究报告、进行语言表达；能说明解题步骤和基本依据。",
+          "excerpt_hash": "1e069ef61a2d5c0d971e8257a48b31b76c2773707962e92fdfd0c68a00f63557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生说明模型结论是否符合现实背景，必要时调整模型。",
+          "excerpt_hash": "a080af8ec77dfa4ecba04a49e1e71f8620779fca841c0712966196a0c7758964",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-PR-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明解题步骤和基本依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明解题步骤和基本依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生说明模型结论是否符合现实背景，必要时调整模型。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_b72bb352b4ad0aa6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明解题步骤和基本依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_72a33b642c5e8a85",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_442e9b7b8738d3fb",
+        "hc_351e7c3418522c73"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“说明解题步骤和基本依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明解题步骤和基本依据”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过项目式学习形成符合问题背景的模型解答；能感受数学与其他学科融合的功效；能撰写研究报告、进行语言表达；能说明解题步骤和基本依据。",
+          "excerpt_hash": "1e069ef61a2d5c0d971e8257a48b31b76c2773707962e92fdfd0c68a00f63557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生说明模型结论是否符合现实背景，必要时调整模型。",
+          "excerpt_hash": "a080af8ec77dfa4ecba04a49e1e71f8620779fca841c0712966196a0c7758964",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-PR-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明解题步骤和基本依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明解题步骤和基本依据”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“引导学生说明模型结论是否符合现实背景，必要时调整模型。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_3a25f3379548b27e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过项目式学习形成符合问题背景的模型解答的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1a34e28bbb47d692",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1a34e28bbb47d692"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“通过项目式学习形成符合问题背景的模型解答”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过项目式学习形成符合问题背景的模型解答”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过项目式学习形成符合问题背景的模型解答；能感受数学与其他学科融合的功效；能撰写研究报告、进行语言表达；能说明解题步骤和基本依据。",
+          "excerpt_hash": "1e069ef61a2d5c0d971e8257a48b31b76c2773707962e92fdfd0c68a00f63557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生说明模型结论是否符合现实背景，必要时调整模型。",
+          "excerpt_hash": "a080af8ec77dfa4ecba04a49e1e71f8620779fca841c0712966196a0c7758964",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-PR-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过项目式学习形成符合问题背景的模型解答，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过项目式学习形成符合问题背景的模型解答”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“引导学生说明模型结论是否符合现实背景，必要时调整模型。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_25d4d295acb55f63"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生撰写研究报告、进行语言表达的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a93801b8ccdc1555",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“撰写研究报告、进行语言表达”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“撰写研究报告、进行语言表达”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过项目式学习形成符合问题背景的模型解答；能感受数学与其他学科融合的功效；能撰写研究报告、进行语言表达；能说明解题步骤和基本依据。",
+          "excerpt_hash": "1e069ef61a2d5c0d971e8257a48b31b76c2773707962e92fdfd0c68a00f63557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生说明模型结论是否符合现实背景，必要时调整模型。",
+          "excerpt_hash": "a080af8ec77dfa4ecba04a49e1e71f8620779fca841c0712966196a0c7758964",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-PR-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后撰写研究报告、进行语言表达，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“撰写研究报告、进行语言表达”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“引导学生说明模型结论是否符合现实背景，必要时调整模型。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e48d1ef4be5b5119",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_48072359f7df"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d6ebc3492905c591",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2f985ac4e299fdff",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5fa3c0e2226"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_05b1d5ed90d78b81",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_da2bb9e9296af91f",
+      "evidence_refs": [
+        "standard:MA-H4G7-PR-010:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-H4G7-PR-010",
+      "target_code": "MA-H4G8-PR-011",
+      "target_label": "能通过项目式学习形成符合问题背景的模型解答；能撰写研究报告、进行语言表达；能用数学语言将现实问题转化为数学问题；能比较方法并解释数量、图形或数…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_442e9b7b8738d3fb",
+      "component_ids": [
+        "lc_b72bb352b4ad0aa6"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明解题步骤和基本依据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明解题步骤和基本依据；优先采集：研究报告、小论文或项目产品、展示交流、模型解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过项目式学习形成符合问题背景的模型解答；能感受数学与其他学科融合的功效；能撰写研究报告、进行语言表达；能说明解题步骤和基本依据。",
+          "excerpt_hash": "1e069ef61a2d5c0d971e8257a48b31b76c2773707962e92fdfd0c68a00f63557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_351e7c3418522c73",
+      "component_ids": [
+        "lc_b72bb352b4ad0aa6"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "步骤"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明解题步骤和基本依据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明解题步骤和基本依据；优先采集：研究报告、小论文或项目产品、展示交流、模型解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过项目式学习形成符合问题背景的模型解答；能感受数学与其他学科融合的功效；能撰写研究报告、进行语言表达；能说明解题步骤和基本依据。",
+          "excerpt_hash": "1e069ef61a2d5c0d971e8257a48b31b76c2773707962e92fdfd0c68a00f63557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（步骤）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    },
+    {
+      "case_id": "hc_1a34e28bbb47d692",
+      "component_ids": [
+        "lc_3a25f3379548b27e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "模型"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生通过项目式学习形成符合问题背景的模型解答。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够通过项目式学习形成符合问题背景的模型解答；优先采集：研究报告、小论文或项目产品、展示交流、模型解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过项目式学习形成符合问题背景的模型解答；能感受数学与其他学科融合的功效；能撰写研究报告、进行语言表达；能说明解题步骤和基本依据。",
+          "excerpt_hash": "1e069ef61a2d5c0d971e8257a48b31b76c2773707962e92fdfd0c68a00f63557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（模型）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3a25f3379548b27e",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过项目式学习形成符合问题背景的模型解答",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过项目式学习形成符合问题背景的模型解答，并说明关键步骤、特征或依据。",
+      "label": "通过项目式学习形成符合问题背景的模型解答",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过项目式学习形成符合问题背景的模型解答；优先采集：研究报告、小论文或项目产品、展示交流、模型解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过项目式学习形成符合问题背景的模型解答",
+          "excerpt_hash": "8f47f61d0c9e1ce546cf984ad633e4839a97ea0eb8d9d5926736798c7104f539",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过项目式学习形成符合问题背景的模型解答"
+    },
+    {
+      "component_id": "lc_83976d74e37eb8ef",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够感受数学与其他学科融合的功效",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生感受数学与其他学科融合的功效，并说明关键步骤、特征或依据。",
+      "label": "感受数学与其他学科融合的功效",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够感受数学与其他学科融合的功效；优先采集：研究报告、小论文或项目产品、展示交流、模型解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "感受数学与其他学科融合的功效",
+          "excerpt_hash": "8abb42dfdc47c3e9107025f0e36a34dcd330afe266740488de1ee948be746293",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "感受数学与其他学科融合的功效"
+    },
+    {
+      "component_id": "lc_25d4d295acb55f63",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够撰写研究报告、进行语言表达",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生撰写研究报告、进行语言表达，并说明关键步骤、特征或依据。",
+      "label": "撰写研究报告、进行语言表达",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够撰写研究报告、进行语言表达；优先采集：研究报告、小论文或项目产品、展示交流、模型解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "撰写研究报告、进行语言表达",
+          "excerpt_hash": "f4685264e3b3a09aa92f2a688bde7e81f91eabd4b22dbb6fb40ffbf8ab8940ee",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "撰写研究报告、进行语言表达"
+    },
+    {
+      "component_id": "lc_b72bb352b4ad0aa6",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明解题步骤和基本依据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明解题步骤和基本依据，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明解题步骤和基本依据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明解题步骤和基本依据；优先采集：研究报告、小论文或项目产品、展示交流、模型解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明解题步骤和基本依据",
+          "excerpt_hash": "d00757cae74b1459bbcf36ec8c31849ae0007a290e5019ba4e746f5676a42251",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-PR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明解题步骤和基本依据"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1543,
+      "edge_id": "pc_7f4cc6c4b71093dc",
+      "evidence_refs": [
+        "standard:MA-H4G7-PR-010:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D3-PR-001",
+      "source_label": "能在较复杂的真实或跨学科情境中，经历发现和提出问题、设计方案、调查实验、建立模型、解释结果和交流反思的过程，综合运用数与代数、图形与几何、统计…",
+      "target_code": "MA-H4G7-PR-010",
+      "target_label": "能通过项目式学习形成符合问题背景的模型解答；能感受数学与其他学科融合的功效；能撰写研究报告、进行语言表达；能说明解题步骤和基本依据。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "1e069ef61a2d5c0d971e8257a48b31b76c2773707962e92fdfd0c68a00f63557",
+  "standard_code": "MA-H4G7-PR-010",
+  "verified_prerequisites": []
+}

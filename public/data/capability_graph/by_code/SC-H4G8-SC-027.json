@@ -1,0 +1,601 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_b51fc248417337f0",
+        "lc_7b8a333a9394a316"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8262f226bf420b08",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b91608aadf3c5834",
+        "hc_3baa57d128d7f5b4"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“比较证据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较证据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项；能描述泌尿系统结构及尿的形成排出过程；能描述呼吸系统结构和气体交换过程；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "f3bd9d2058821158edf89f802c6187de4d2bbd7342222ab6190aa158af7186ce",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-027:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把人体系统视为相互协同的开放系统，避免孤立记忆器官名称。",
+          "excerpt_hash": "452d693a6d0376989b40c0716da648eb7623f55be2590b337115b62b79637285",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-027:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较证据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把人体系统视为相互协同的开放系统，避免孤立记忆器官名称。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_b51fc248417337f0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5a76852cd39ccd09",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b91608aadf3c5834",
+        "hc_3baa57d128d7f5b4"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较证据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较证据”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项；能描述泌尿系统结构及尿的形成排出过程；能描述呼吸系统结构和气体交换过程；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "f3bd9d2058821158edf89f802c6187de4d2bbd7342222ab6190aa158af7186ce",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-027:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把人体系统视为相互协同的开放系统，避免孤立记忆器官名称。",
+          "excerpt_hash": "452d693a6d0376989b40c0716da648eb7623f55be2590b337115b62b79637285",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-027:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较证据”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“把人体系统视为相互协同的开放系统，避免孤立记忆器官名称。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_dfaf897bc30229cd",
+        "lc_acb02c9480d0de29",
+        "lc_927e0747af004979"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b1c82ecf3f77aee7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项；能描述泌尿系统结构及尿的形成排出过程；能描述呼吸系统结构和气体交换过程；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "f3bd9d2058821158edf89f802c6187de4d2bbd7342222ab6190aa158af7186ce",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-027:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把人体系统视为相互协同的开放系统，避免孤立记忆器官名称。",
+          "excerpt_hash": "452d693a6d0376989b40c0716da648eb7623f55be2590b337115b62b79637285",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-027:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把人体系统视为相互协同的开放系统，避免孤立记忆器官名称。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_7b8a333a9394a316"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解释概念之间的关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1f1f3098ac5803a1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b91608aadf3c5834"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“解释概念之间的关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解释概念之间的关系”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项；能描述泌尿系统结构及尿的形成排出过程；能描述呼吸系统结构和气体交换过程；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "f3bd9d2058821158edf89f802c6187de4d2bbd7342222ab6190aa158af7186ce",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-027:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把人体系统视为相互协同的开放系统，避免孤立记忆器官名称。",
+          "excerpt_hash": "452d693a6d0376989b40c0716da648eb7623f55be2590b337115b62b79637285",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-027:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解释概念之间的关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解释概念之间的关系”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把人体系统视为相互协同的开放系统，避免孤立记忆器官名称。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 6,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7e404819e4c1f4d4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0f6edf1eb52b44920973",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_77ef51325c22"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_aa920dd0236fd836",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9a9a766b50298501",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a7fe299869b84f655a87",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a871f50d9e2b"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c38c1b84336fa7fa",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c79eaf8d0aa20ce0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b4de49a3e2e59c9c76bf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5f552244f754"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e4f214193210f062",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ac1468973c50da38",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c8cec7bb4ee4d9a29577",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ce524ff21ae1"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d75ade93cbf14989",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b04aab45ddf59db7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_d5ca89ccc00d3103a7f8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a0a929bcb6e9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e8478f57c656a4",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_13313872f5e35776",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f0de8cbbeb88661f44d6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ffb2a04886aa"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_23244c2ebb335c01",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_93bac3018bba4d44",
+      "evidence_refs": [
+        "standard:SC-H4G8-SC-027:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G8-SC-027",
+      "target_code": "SC-H4G9-SC-027",
+      "target_label": "分析并说明血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项；分析并说明呼吸系统结构和气体交换过程；分析并说明泌…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b91608aadf3c5834",
+      "component_ids": [
+        "lc_b51fc248417337f0",
+        "lc_7b8a333a9394a316"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较证据；优先采集：人体系统模型、结构功能说明、健康保健方案。",
+        "学生能够解释概念之间的关系；优先采集：人体系统模型、结构功能说明、健康保健方案。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项；能描述泌尿系统结构及尿的形成排出过程；能描述呼吸系统结构和气体交换过程；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "f3bd9d2058821158edf89f802c6187de4d2bbd7342222ab6190aa158af7186ce",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_3baa57d128d7f5b4",
+      "component_ids": [
+        "lc_b51fc248417337f0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较证据；优先采集：人体系统模型、结构功能说明、健康保健方案。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项；能描述泌尿系统结构及尿的形成排出过程；能描述呼吸系统结构和气体交换过程；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "f3bd9d2058821158edf89f802c6187de4d2bbd7342222ab6190aa158af7186ce",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_dfaf897bc30229cd",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项，并说明关键步骤、特征或依据。",
+      "label": "描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项；优先采集：人体系统模型、结构功能说明、健康保健方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项",
+          "excerpt_hash": "eedb6fd4aea03164ea50b3ce977877a9df7c09b40b53a87b21d58e3816defc6a",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项"
+    },
+    {
+      "component_id": "lc_acb02c9480d0de29",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述泌尿系统结构及尿的形成排出过程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述泌尿系统结构及尿的形成排出过程，并说明关键步骤、特征或依据。",
+      "label": "描述泌尿系统结构及尿的形成排出过程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述泌尿系统结构及尿的形成排出过程；优先采集：人体系统模型、结构功能说明、健康保健方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述泌尿系统结构及尿的形成排出过程",
+          "excerpt_hash": "ebb69169caf2f4528f69cb50389bb520904146aeda07db58c9875cc294c5e486",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述泌尿系统结构及尿的形成排出过程"
+    },
+    {
+      "component_id": "lc_927e0747af004979",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述呼吸系统结构和气体交换过程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述呼吸系统结构和气体交换过程，并说明关键步骤、特征或依据。",
+      "label": "描述呼吸系统结构和气体交换过程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述呼吸系统结构和气体交换过程；优先采集：人体系统模型、结构功能说明、健康保健方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述呼吸系统结构和气体交换过程",
+          "excerpt_hash": "4ed0913029668099b6b2ef3f64bd52f647bf0292410998d4065b87bb8a54f2c9",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述呼吸系统结构和气体交换过程"
+    },
+    {
+      "component_id": "lc_b51fc248417337f0",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较证据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较证据，并说明关键步骤、特征或依据。",
+      "label": "比较证据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较证据；优先采集：人体系统模型、结构功能说明、健康保健方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较证据",
+          "excerpt_hash": "991569e1419bfb53d107f820e29cc506985fb42dec521ee976a4309299317eac",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较证据"
+    },
+    {
+      "component_id": "lc_7b8a333a9394a316",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释概念之间的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释概念之间的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释概念之间的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释概念之间的关系；优先采集：人体系统模型、结构功能说明、健康保健方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释概念之间的关系",
+          "excerpt_hash": "7176bf29ca46d45d574a0ab078112ade02e1c191616f7761e6189d6092a666dd",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-027:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释概念之间的关系"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a35b6d77831cba8a",
+      "evidence_refs": [
+        "standard:SC-H4G8-SC-027:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G7-SC-027",
+      "source_label": "能描述呼吸系统结构和气体交换过程；能描述泌尿系统结构及尿的形成排出过程；能描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血…",
+      "target_code": "SC-H4G8-SC-027",
+      "target_label": "能描述血液循环系统结构和血液循环过程、血液主要成分及功能、骨髓造血、血型和输血注意事项；能描述泌尿系统结构及尿的形成排出过程；能描述呼吸系统结…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f3bd9d2058821158edf89f802c6187de4d2bbd7342222ab6190aa158af7186ce",
+  "standard_code": "SC-H4G8-SC-027",
+  "verified_prerequisites": []
+}

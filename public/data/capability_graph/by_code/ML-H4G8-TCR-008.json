@@ -1,0 +1,315 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_d057a215700ace7f"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b9e19bac08ad6959",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_03b3b829a5e65470"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "f8f7e777672698b43fbe44d0004fdd78726f22e20de5a20d4286d5b7f2ea4a03",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将传统思想落实到学习、劳动和生活中的具体行动。",
+          "excerpt_hash": "baabdb214f7e856851596ce7540c91b9cfe444b32c0e252b46896ad00d0166d0",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G8-TCR-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“将传统思想落实到学习、劳动和生活中的具体行动。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_28034b8457209736",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2860489fc83ddeb6cec5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_76fc538dd0d1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_262756ea29a61d32",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0a6fd75ec5866954",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d8429e42f96b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9eb2e2a90a705049",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1753babacd8e59dc",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b28ec1f6b081b602",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7115ced83ec24f83",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_05dbe85802ac"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c23f52c4ba953c6f",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_26e5defbaf548951",
+      "evidence_refs": [
+        "standard:ML-H4G8-TCR-008:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-H4G8-TCR-008",
+      "target_code": "ML-H4G9-TCR-009",
+      "target_label": "能践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想；能依据规则、价值和证据作出判断并提出行动建议。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_03b3b829a5e65470",
+      "component_ids": [
+        "lc_d057a215700ace7f",
+        "lc_39f04b2b23dd8795"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想；优先采集：行动计划、议题发言、个人反思。",
+        "学生能够结合家庭、学校或社会案例分析问题；优先采集：行动计划、议题发言、个人反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "f8f7e777672698b43fbe44d0004fdd78726f22e20de5a20d4286d5b7f2ea4a03",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想；结合家庭、学校或社会案例分析问题",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d057a215700ace7f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想，并说明关键步骤、特征或依据。",
+      "label": "践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想；优先采集：行动计划、议题发言、个人反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想",
+          "excerpt_hash": "0779a354648b7aa639c8c4b7e25a82fabb05c3de81dba4d34e8f797c5d33bbaf",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想"
+    },
+    {
+      "component_id": "lc_39f04b2b23dd8795",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够结合家庭、学校或社会案例分析问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合家庭、学校或社会案例分析问题，并说明关键步骤、特征或依据。",
+      "label": "结合家庭、学校或社会案例分析问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够结合家庭、学校或社会案例分析问题；优先采集：行动计划、议题发言、个人反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "结合家庭、学校或社会案例分析问题",
+          "excerpt_hash": "9f011217b5939392cbd181d22775f8f11d41c522438ab487610a73e9e02bbda8",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "结合家庭、学校或社会案例分析问题"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_e42615036eee0a08",
+      "evidence_refs": [
+        "standard:ML-H4G8-TCR-008:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-H4G7-TCR-007",
+      "source_label": "能践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想；能联系个人和校园生活说明基本判断。",
+      "target_code": "ML-H4G8-TCR-008",
+      "target_label": "能践行中华民族自强不息、敬业乐群、脚踏实地、实事求是的思想；能结合家庭、学校或社会案例分析问题。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f8f7e777672698b43fbe44d0004fdd78726f22e20de5a20d4286d5b7f2ea4a03",
+  "standard_code": "ML-H4G8-TCR-008",
+  "verified_prerequisites": []
+}

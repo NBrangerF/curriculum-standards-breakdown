@@ -1,0 +1,376 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_188de3e2e0963f44"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解决语言学习中的问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d039451058accca8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“解决语言学习中的问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解决语言学习中的问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习过程中认真思考，主动探究，尝试通过多种方式发现并解决语言学习中的问题。",
+          "excerpt_hash": "9da9b21dd565ebea3cf18b1a075ea30b420592ea9e8eacc723e94468dc752a14",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-SA-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用「策略显性化」：示范查词、做笔记、复盘清单；用学习日志与同伴协作分工，促进自主与反思。",
+          "excerpt_hash": "160f919484e02e885d6fe27527e168ca09e9c14faa2f8ca301d8e2fb8c233aed",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-D2-SA-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解决语言学习中的问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解决语言学习中的问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用「策略显性化」：示范查词、做笔记、复盘清单”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_59d0a0fddf4eb1ac"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过多种方式发现的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_7212c83490e7d15f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_de8a3c80322d4ac1"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“通过多种方式发现”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过多种方式发现”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习过程中认真思考，主动探究，尝试通过多种方式发现并解决语言学习中的问题。",
+          "excerpt_hash": "9da9b21dd565ebea3cf18b1a075ea30b420592ea9e8eacc723e94468dc752a14",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-SA-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用「策略显性化」：示范查词、做笔记、复盘清单；用学习日志与同伴协作分工，促进自主与反思。",
+          "excerpt_hash": "160f919484e02e885d6fe27527e168ca09e9c14faa2f8ca301d8e2fb8c233aed",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-D2-SA-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过多种方式发现，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过多种方式发现”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用「策略显性化」：示范查词、做笔记、复盘清单”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2db90ba3d0d951aa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4fea6fca40d21be4914c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8503084b398b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a63e35ef97657837",
+      "textbook_grade": 6,
+      "textbook_subject": "英语",
+      "textbook_title": "英语6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3a40a1e711e3604d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_78c753ec351358d87f55",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_fadca434d3be"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a1294cf3237c4d38",
+      "textbook_grade": 5,
+      "textbook_subject": "英语",
+      "textbook_title": "英语5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f1d740940f833bc6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_90f2374ef0262b495d15",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9f8ea42bc1d5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c16212957329215",
+      "textbook_grade": 5,
+      "textbook_subject": "英语",
+      "textbook_title": "英语5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_45c4a56716b1473c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_dfebe6a6e8107355cb57",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_4a785804f12e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_45945c79ea7a51bc",
+      "textbook_grade": 6,
+      "textbook_subject": "英语",
+      "textbook_title": "英语6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "high",
+      "confidence_score": 0.2562,
+      "connection_id": "fc_a7cf73a3dffca257",
+      "evidence_refs": [
+        "standard:EN-H4G7-SA-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-D2-SA-003",
+      "target_code": "EN-H4G7-SA-007",
+      "target_label": "能在学习活动中积极与他人合作；能发现并尝试使用多种策略解决语言学习中的问题；能共同完成学习任务；能获取关键信息并完成简短交流。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_de8a3c80322d4ac1",
+      "component_ids": [
+        "lc_59d0a0fddf4eb1ac"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "多种"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生通过多种方式发现。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在学习过程中，能够通过多种方式发现；优先采集：可观察证据：任务单/阅读卡/写作稿/录音或视频。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习过程中认真思考，主动探究，尝试通过多种方式发现并解决语言学习中的问题。",
+          "excerpt_hash": "9da9b21dd565ebea3cf18b1a075ea30b420592ea9e8eacc723e94468dc752a14",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-SA-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（多种）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_4945543077c01098",
+      "component_type": "conceptual",
+      "condition": "在学习过程中",
+      "confidence": 0.72,
+      "description": "学生在学习过程中，能够认真思考，主动探究",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在学习过程中”的诊断任务，要求学生认真思考，主动探究，并说明关键步骤、特征或依据。",
+      "label": "认真思考，主动探究",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在学习过程中，能够认真思考，主动探究；优先采集：可观察证据：任务单/阅读卡/写作稿/录音或视频。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习过程中认真思考，主动探究，尝试通过多种方式发现并解决语言学习中的问题。",
+          "excerpt_hash": "9da9b21dd565ebea3cf18b1a075ea30b420592ea9e8eacc723e94468dc752a14",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-SA-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认真思考，主动探究"
+    },
+    {
+      "component_id": "lc_59d0a0fddf4eb1ac",
+      "component_type": "conceptual",
+      "condition": "在学习过程中",
+      "confidence": 0.72,
+      "description": "学生在学习过程中，能够通过多种方式发现",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在学习过程中”的诊断任务，要求学生通过多种方式发现，并说明关键步骤、特征或依据。",
+      "label": "通过多种方式发现",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在学习过程中，能够通过多种方式发现；优先采集：可观察证据：任务单/阅读卡/写作稿/录音或视频。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习过程中认真思考，主动探究，尝试通过多种方式发现并解决语言学习中的问题。",
+          "excerpt_hash": "9da9b21dd565ebea3cf18b1a075ea30b420592ea9e8eacc723e94468dc752a14",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-SA-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过多种方式发现"
+    },
+    {
+      "component_id": "lc_188de3e2e0963f44",
+      "component_type": "language",
+      "condition": "在学习过程中",
+      "confidence": 0.72,
+      "description": "学生在学习过程中，能够解决语言学习中的问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在学习过程中”的诊断任务，要求学生解决语言学习中的问题，并说明关键步骤、特征或依据。",
+      "label": "解决语言学习中的问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在学习过程中，能够解决语言学习中的问题；优先采集：可观察证据：任务单/阅读卡/写作稿/录音或视频。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习过程中认真思考，主动探究，尝试通过多种方式发现并解决语言学习中的问题。",
+          "excerpt_hash": "9da9b21dd565ebea3cf18b1a075ea30b420592ea9e8eacc723e94468dc752a14",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-SA-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解决语言学习中的问题"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_e39daf8734fc2830",
+      "evidence_refs": [
+        "standard:EN-D2-SA-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D1-SA-003",
+      "source_label": "注意倾听，敢于表达，不怕出错",
+      "target_code": "EN-D2-SA-003",
+      "target_label": "能在学习过程中认真思考，主动探究，尝试通过多种方式发现并解决语言学习中的问题。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "9da9b21dd565ebea3cf18b1a075ea30b420592ea9e8eacc723e94468dc752a14",
+  "standard_code": "EN-D2-SA-003",
+  "verified_prerequisites": []
+}

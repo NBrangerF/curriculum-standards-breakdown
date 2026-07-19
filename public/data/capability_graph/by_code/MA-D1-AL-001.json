@@ -1,0 +1,499 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_81f78e59b741b2dc"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用数表示物体的个数或事物的顺序，认、读、写万以内的数的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fefb84447534b168",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2002b3357830325b",
+        "hc_4372aa9834d76261"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“用数表示物体的个数或事物的顺序，认、读、写万以内的数”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用数表示物体的个数或事物的顺序，认、读、写万以内的数”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用数表示物体的个数或事物的顺序，认、读、写万以内的数；说出不同数位上的数表示的数值；能用符号表示数的大小关系，形成初步符号意识",
+          "excerpt_hash": "409b1c7c323db411f281f2d723d3811273d8f2d73e1b8ad4388f8c6aa71d4712",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "认识教学提供学生熟悉情境，借助方块、圆片等表示相等，再过渡数字表达，帮助学生体验1～9数量抽象过程；同理通过数量多少比较，理解大小关系，形成初步符号意识",
+          "excerpt_hash": "745c8e02c6d19eec1a4a12c7a3dcc1b7bde68f51f20320c1978b8de4393bd08a",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D1-AL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用数表示物体的个数或事物的顺序，认、读、写万以内的数，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用数表示物体的个数或事物的顺序，认、读、写万以内的数”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“认识教学提供学生熟悉情境，借助方块、圆片等表示相等，再过渡数字表达，帮助学生体验1～9数量抽象过程”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_81f78e59b741b2dc",
+        "lc_ed255b28ee70d077",
+        "lc_276f13ec4f7ed2d5",
+        "lc_ca63f05b851730d0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用数表示物体的个数或事物的顺序，认、读、写万以内的数的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4372aa9834d76261",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2002b3357830325b",
+        "hc_4372aa9834d76261",
+        "hc_d10b7de99dc590f2"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“用数表示物体的个数或事物的顺序，认、读、写万以内的数”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用数表示物体的个数或事物的顺序，认、读、写万以内的数”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用数表示物体的个数或事物的顺序，认、读、写万以内的数；说出不同数位上的数表示的数值；能用符号表示数的大小关系，形成初步符号意识",
+          "excerpt_hash": "409b1c7c323db411f281f2d723d3811273d8f2d73e1b8ad4388f8c6aa71d4712",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "认识教学提供学生熟悉情境，借助方块、圆片等表示相等，再过渡数字表达，帮助学生体验1～9数量抽象过程；同理通过数量多少比较，理解大小关系，形成初步符号意识",
+          "excerpt_hash": "745c8e02c6d19eec1a4a12c7a3dcc1b7bde68f51f20320c1978b8de4393bd08a",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D1-AL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用数表示物体的个数或事物的顺序，认、读、写万以内的数，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用数表示物体的个数或事物的顺序，认、读、写万以内的数”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“认识教学提供学生熟悉情境，借助方块、圆片等表示相等，再过渡数字表达，帮助学生体验1～9数量抽象过程”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_81f78e59b741b2dc",
+        "lc_ed255b28ee70d077"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用数表示物体的个数或事物的顺序，认、读、写万以内的数的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a85f96cd14a89b53",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2002b3357830325b",
+        "hc_4372aa9834d76261",
+        "hc_d10b7de99dc590f2"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“用数表示物体的个数或事物的顺序，认、读、写万以内的数”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用数表示物体的个数或事物的顺序，认、读、写万以内的数”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用数表示物体的个数或事物的顺序，认、读、写万以内的数；说出不同数位上的数表示的数值；能用符号表示数的大小关系，形成初步符号意识",
+          "excerpt_hash": "409b1c7c323db411f281f2d723d3811273d8f2d73e1b8ad4388f8c6aa71d4712",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "认识教学提供学生熟悉情境，借助方块、圆片等表示相等，再过渡数字表达，帮助学生体验1～9数量抽象过程；同理通过数量多少比较，理解大小关系，形成初步符号意识",
+          "excerpt_hash": "745c8e02c6d19eec1a4a12c7a3dcc1b7bde68f51f20320c1978b8de4393bd08a",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D1-AL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用数表示物体的个数或事物的顺序，认、读、写万以内的数，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用数表示物体的个数或事物的顺序，认、读、写万以内的数”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“认识教学提供学生熟悉情境，借助方块、圆片等表示相等，再过渡数字表达，帮助学生体验1～9数量抽象过程”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_22722a177504585a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0104742f3f9d88bc5c04",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_1e657bea201b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b5e621d13fc27a93",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d4f0dbad9bbad908",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_17c68dba255a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d087e833a9603dd8",
+      "textbook_grade": 2,
+      "textbook_subject": "数学",
+      "textbook_title": "数学2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f635866a389dae49",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_390c425094d7420b8aec",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_584787a24f66"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0092f57d8acf1e62",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b8ad84a56707152c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_53a4df4ad1d6428c5988",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9af3fe885fc8"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_2f6e825185227a9e",
+      "textbook_grade": 2,
+      "textbook_subject": "数学",
+      "textbook_title": "数学2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_9a7a62fbeb379380",
+      "evidence_refs": [
+        "standard:MA-D1-AL-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D1-AL-001",
+      "target_code": "MA-D2-AL-001",
+      "target_label": "能结合具体实例解释万以上数的含义，能认、读、写万以上的数，会用万、亿为单位表示大数。能计算两位数乘除三位数。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_2002b3357830325b",
+      "component_ids": [
+        "lc_81f78e59b741b2dc"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "顺序"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用数表示物体的个数或事物的顺序，认、读、写万以内的数。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用数表示物体的个数或事物的顺序，认、读、写万以内的数；优先采集：解题过程记录、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用数表示物体的个数或事物的顺序，认、读、写万以内的数；说出不同数位上的数表示的数值；能用符号表示数的大小关系，形成初步符号意识",
+          "excerpt_hash": "409b1c7c323db411f281f2d723d3811273d8f2d73e1b8ad4388f8c6aa71d4712",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（顺序）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    },
+    {
+      "case_id": "hc_4372aa9834d76261",
+      "component_ids": [
+        "lc_81f78e59b741b2dc",
+        "lc_ed255b28ee70d077",
+        "lc_276f13ec4f7ed2d5",
+        "lc_ca63f05b851730d0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "符号",
+        "表示"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用数表示物体的个数或事物的顺序，认、读、写万以内的数。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用数表示物体的个数或事物的顺序，认、读、写万以内的数；优先采集：解题过程记录、口头/书面解释。",
+        "学生能够说出不同数位上的数表示的数值；优先采集：解题过程记录、口头/书面解释。",
+        "学生能够用符号表示数的大小关系；优先采集：解题过程记录、口头/书面解释。",
+        "学生能够在任务中表现出初步符号意识并说明选择理由；优先采集：解题过程记录、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用数表示物体的个数或事物的顺序，认、读、写万以内的数；说出不同数位上的数表示的数值；能用符号表示数的大小关系，形成初步符号意识",
+          "excerpt_hash": "409b1c7c323db411f281f2d723d3811273d8f2d73e1b8ad4388f8c6aa71d4712",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（符号、表示）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_d10b7de99dc590f2",
+      "component_ids": [
+        "lc_ed255b28ee70d077"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说出不同数位上的数表示的数值。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说出不同数位上的数表示的数值；优先采集：解题过程记录、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用数表示物体的个数或事物的顺序，认、读、写万以内的数；说出不同数位上的数表示的数值；能用符号表示数的大小关系，形成初步符号意识",
+          "excerpt_hash": "409b1c7c323db411f281f2d723d3811273d8f2d73e1b8ad4388f8c6aa71d4712",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_81f78e59b741b2dc",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用数表示物体的个数或事物的顺序，认、读、写万以内的数",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用数表示物体的个数或事物的顺序，认、读、写万以内的数，并说明关键步骤、特征或依据。",
+      "label": "用数表示物体的个数或事物的顺序，认、读、写万以内的数",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用数表示物体的个数或事物的顺序，认、读、写万以内的数；优先采集：解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用数表示物体的个数或事物的顺序，认、读、写万以内的数",
+          "excerpt_hash": "d09dc90069e20f1427923a9218f04d197fa7eafc6a8c8b975df58fa1d07ba6e4",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用数表示物体的个数或事物的顺序，认、读、写万以内的数"
+    },
+    {
+      "component_id": "lc_ed255b28ee70d077",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出不同数位上的数表示的数值",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出不同数位上的数表示的数值，并说明关键步骤、特征或依据。",
+      "label": "说出不同数位上的数表示的数值",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出不同数位上的数表示的数值；优先采集：解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出不同数位上的数表示的数值",
+          "excerpt_hash": "b3fc25d8b03a0cfe059bed9d7977b7f4f56b3c9c8e22a6cec35eda89b97b5878",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出不同数位上的数表示的数值"
+    },
+    {
+      "component_id": "lc_276f13ec4f7ed2d5",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用符号表示数的大小关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用符号表示数的大小关系，并说明关键步骤、特征或依据。",
+      "label": "用符号表示数的大小关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用符号表示数的大小关系；优先采集：解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用符号表示数的大小关系",
+          "excerpt_hash": "904878eed3ac3ef3d40fe3085b1310ae8d284083e4c1c5811449bb3fea52d360",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用符号表示数的大小关系"
+    },
+    {
+      "component_id": "lc_ca63f05b851730d0",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出初步符号意识并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出初步符号意识并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出初步符号意识并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出初步符号意识并说明选择理由；优先采集：解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成初步符号意识",
+          "excerpt_hash": "66eb34e92f4b25fec148e98f071dd264b24d3f8bbc0b9d9526dec4260bca9ed9",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成初步符号意识"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "409b1c7c323db411f281f2d723d3811273d8f2d73e1b8ad4388f8c6aa71d4712",
+  "standard_code": "MA-D1-AL-001",
+  "verified_prerequisites": []
+}

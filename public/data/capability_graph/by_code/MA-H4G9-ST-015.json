@@ -1,0 +1,343 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_e8bfb4474497f43a",
+        "lc_228ec98fc7fe659f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用具体事例说明数据随机性以及概率与统计的关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_59aebfa7f652a387",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1538c839e8ebe820",
+        "hc_2b6fcb1fe27a1560"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用具体事例说明数据随机性以及概率与统计的关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用具体事例说明数据随机性以及概率与统计的关系”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体会数据随机性以及概率与统计的关系；分析并计算简单随机事件的概率；能用频率估计概率；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "10b0f7b62fca3cecda1a2dfa31b9aebd8b86514d2bcbc338c279316fffd2ffa7",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-ST-015:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "从定性可能性过渡到定量概率，突出试验频率稳定性的经验基础。",
+          "excerpt_hash": "7af0a2399fadf2dfcfdd340e1b0e15be9fbf32e90d26bae2fdb76f9692319a94",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G9-ST-015:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用具体事例说明数据随机性以及概率与统计的关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用具体事例说明数据随机性以及概率与统计的关系”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“从定性可能性过渡到定量概率，突出试验频率稳定性的经验基础。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5f307d0959c8377a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_045c4e32dda3"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d4d9b4cbf0f4520f",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_87b8b9e781c9dc95",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1e968d721145a524c670",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_286bc7db0209"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3e651d0e242caded",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_1538c839e8ebe820",
+      "component_ids": [
+        "lc_e8bfb4474497f43a",
+        "lc_228ec98fc7fe659f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "推理"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用具体事例说明数据随机性以及概率与统计的关系。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用具体事例说明数据随机性以及概率与统计的关系；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。",
+        "学生能够建模、推理并检验结论的合理性；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体会数据随机性以及概率与统计的关系；分析并计算简单随机事件的概率；能用频率估计概率；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "10b0f7b62fca3cecda1a2dfa31b9aebd8b86514d2bcbc338c279316fffd2ffa7",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-ST-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（推理）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_2b6fcb1fe27a1560",
+      "component_ids": [
+        "lc_228ec98fc7fe659f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生建模、推理并检验结论的合理性。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够建模、推理并检验结论的合理性；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体会数据随机性以及概率与统计的关系；分析并计算简单随机事件的概率；能用频率估计概率；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "10b0f7b62fca3cecda1a2dfa31b9aebd8b86514d2bcbc338c279316fffd2ffa7",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-ST-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_e8bfb4474497f43a",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用具体事例说明数据随机性以及概率与统计的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用具体事例说明数据随机性以及概率与统计的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用具体事例说明数据随机性以及概率与统计的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用具体事例说明数据随机性以及概率与统计的关系；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "体会数据随机性以及概率与统计的关系",
+          "excerpt_hash": "5d84ee5549ccb8a9a44f1b2d4e5f2613a188fc4c63106b66d94a412863f24af2",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-ST-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体会数据随机性以及概率与统计的关系"
+    },
+    {
+      "component_id": "lc_cf8fd73d923aaf25",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析简单随机事件的概率",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析简单随机事件的概率，并说明关键步骤、特征或依据。",
+      "label": "分析简单随机事件的概率",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析简单随机事件的概率；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析并计算简单随机事件的概率",
+          "excerpt_hash": "2cff99110784df7d77f1d04297f7703b7d587d851a5ea4a2bec1e5691d29b935",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-ST-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析简单随机事件的概率"
+    },
+    {
+      "component_id": "lc_a68e2ce6952fc60a",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够计算简单随机事件的概率",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生计算简单随机事件的概率，并说明关键步骤、特征或依据。",
+      "label": "计算简单随机事件的概率",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够计算简单随机事件的概率；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "计算简单随机事件的概率",
+          "excerpt_hash": "dea614d02b0337178352333840dde5fd9316f4258b4b49130e56492c0c74b5e8",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-ST-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "计算简单随机事件的概率"
+    },
+    {
+      "component_id": "lc_d80dda655df564ac",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用频率估计概率",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用频率估计概率，并说明关键步骤、特征或依据。",
+      "label": "用频率估计概率",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用频率估计概率；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用频率估计概率",
+          "excerpt_hash": "f9f8c70a77cb0bb82bf19b7842d8c7036b5b49adc73121dbc007df31acdad08b",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-ST-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用频率估计概率"
+    },
+    {
+      "component_id": "lc_228ec98fc7fe659f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、推理并检验结论的合理性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、推理并检验结论的合理性，并说明关键步骤、特征或依据。",
+      "label": "建模、推理并检验结论的合理性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、推理并检验结论的合理性；优先采集：列表或树状图、概率计算、重复试验记录、解释说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、推理并检验结论的合理性",
+          "excerpt_hash": "b52727f75af831b3e75e1ca5dabdf7c86123edea8c71f6f98dcbf5b28a377c73",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-ST-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、推理并检验结论的合理性"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_c7fb0ad342de0a53",
+      "evidence_refs": [
+        "standard:MA-H4G9-ST-015:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-H4G8-ST-014",
+      "source_label": "能体会数据随机性以及概率与统计的关系；了解并计算简单随机事件的概率；能用频率估计概率；能比较方法并解释数量、图形或数据关系。",
+      "target_code": "MA-H4G9-ST-015",
+      "target_label": "能体会数据随机性以及概率与统计的关系；分析并计算简单随机事件的概率；能用频率估计概率；能建模、推理并检验结论的合理性。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "10b0f7b62fca3cecda1a2dfa31b9aebd8b86514d2bcbc338c279316fffd2ffa7",
+  "standard_code": "MA-H4G9-ST-015",
+  "verified_prerequisites": []
+}

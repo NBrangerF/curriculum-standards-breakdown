@@ -1,0 +1,191 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_188ac1061385b9d5"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生识别并说出保持正常体重的方法的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f623eb5fbdd22075",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d1aa300aaf4bd96c"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“识别并说出保持正常体重的方法的关键特征”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解保持正常体重的方法，能用“运动+饮食+作息”策略进行2周自我管理并复盘效果。",
+          "excerpt_hash": "1a683299a0a76d8f27c2f2904de9b8840b4a46b1c3eede23cc843e6e29cda3af",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "以“能量摄入—消耗—恢复”解释体重管理原理：不追求短期快速变化，强调规律与可持续。提供可选任务包：每日步数/运动时长、饮水量、蔬果打卡、睡眠卫生等；每周一次数据回顾，指导学生根据结果做小幅调整。",
+          "excerpt_hash": "688875250717837446222fdb1733da7223161021375cc02cdae516a0e9c38659",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-HB-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出保持正常体重的方法的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出保持正常体重的方法的关键特征”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“以“能量摄入—消耗—恢复”解释体重管理原理：不追求短期快速变化，强调规律与可持续。提供可选任务包：每日步数/运动时长、饮水量、蔬果打卡、睡眠卫生等”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1205,
+      "connection_id": "fc_dd9a66a104fc132d",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-HB-009",
+      "target_code": "PE-H4G7-HB-007",
+      "target_label": "掌握科学初步判断和管理体重的方法以及预防脊柱侧弯的方法；能理解肥胖的概念、危害和致因；能分析视力不良对职业发展的影响；能完成基础练习并记录身体…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_d1aa300aaf4bd96c",
+      "component_ids": [
+        "lc_188ac1061385b9d5",
+        "lc_ace9b148caf86cfc"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出保持正常体重的方法的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出保持正常体重的方法的关键特征；优先采集：行为记录、复盘报告。",
+        "学生能够用“运动+饮食+作息”策略进行2周自我管理并复盘效果；优先采集：行为记录、复盘报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解保持正常体重的方法，能用“运动+饮食+作息”策略进行2周自我管理并复盘效果。",
+          "excerpt_hash": "1a683299a0a76d8f27c2f2904de9b8840b4a46b1c3eede23cc843e6e29cda3af",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "识别并说出保持正常体重的方法的关键特征；用“运动+饮食+作息”策略进行2周自我管理并复盘效果",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_188ac1061385b9d5",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出保持正常体重的方法的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出保持正常体重的方法的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出保持正常体重的方法的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出保持正常体重的方法的关键特征；优先采集：行为记录、复盘报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解保持正常体重的方法",
+          "excerpt_hash": "897db2f8e744f247d28eaf586e3d83378f351b23fb4ced6fde9574e9fb097ac3",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解保持正常体重的方法"
+    },
+    {
+      "component_id": "lc_ace9b148caf86cfc",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用“运动+饮食+作息”策略进行2周自我管理并复盘效果",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用“运动+饮食+作息”策略进行2周自我管理并复盘效果，并说明关键步骤、特征或依据。",
+      "label": "用“运动+饮食+作息”策略进行2周自我管理并复盘效果",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用“运动+饮食+作息”策略进行2周自我管理并复盘效果；优先采集：行为记录、复盘报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用“运动+饮食+作息”策略进行2周自我管理并复盘效果",
+          "excerpt_hash": "ee0ca3ed41832999fc1c3511de6be0b3bc2b80e1b4564356cf633b9b0b5f6a79",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用“运动+饮食+作息”策略进行2周自我管理并复盘效果"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_153c7ed6f897404e",
+      "evidence_refs": [
+        "standard:PE-D3-HB-009:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-HB-009",
+      "source_label": "了解青春期的身心变化，能用恰当方式表达困惑并寻求帮助。",
+      "target_code": "PE-D3-HB-009",
+      "target_label": "了解保持正常体重的方法，能用“运动+饮食+作息”策略进行2周自我管理并复盘效果。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "1a683299a0a76d8f27c2f2904de9b8840b4a46b1c3eede23cc843e6e29cda3af",
+  "standard_code": "PE-D3-HB-009",
+  "verified_prerequisites": []
+}

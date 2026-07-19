@@ -47,6 +47,20 @@ export function normalizeStandard(raw) {
         official_text: raw.official_text || '',
         field_provenance: raw.field_provenance || {},
 
+        // Teachable capability graph (official standard text remains unchanged)
+        capability_graph_schema_version: raw.capability_graph_schema_version || '',
+        capability_graph_method: raw.capability_graph_method || '',
+        source_standard_hash: raw.source_standard_hash || '',
+        learning_components: ensureArray(raw.learning_components),
+        verified_prerequisites: ensureArray(raw.verified_prerequisites),
+        prerequisite_candidates: ensureArray(raw.prerequisite_candidates),
+        prerequisite_review_coverage: ensureObject(raw.prerequisite_review_coverage),
+        hardest_cases: ensureArray(raw.hardest_cases),
+        common_difficulties: ensureArray(raw.common_difficulties),
+        curriculum_alignments: ensureArray(raw.curriculum_alignments),
+        curriculum_alignment_summary: ensureObject(raw.curriculum_alignment_summary),
+        forward_connections: ensureArray(raw.forward_connections),
+
         // Navigation
         previous_code: raw.previous_code || '',
         next_code: raw.next_code || '',

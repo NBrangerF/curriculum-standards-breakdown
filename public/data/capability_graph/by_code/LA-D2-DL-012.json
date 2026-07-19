@@ -1,0 +1,172 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_04d5ecd8ce0f06c3"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_cf3f6571496113c9",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_6dadb16742453d60"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线，形成用电安全习惯。",
+          "excerpt_hash": "5c57a7ee836767177be103a8d928253b01c1ea25d65c82b8476fa0d43ecaf54d",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "流程固定：检查→放置稳→通电→使用→断电→整理；用“电线不绊脚”的收纳规则；让学生解释每一步的原因。",
+          "excerpt_hash": "5bc0dffc38eeb921418b7521a95fbfb2a50cc09a277158a937cb217472d99d6f",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-DL-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“流程固定：检查→放置稳→通电→使用→断电→整理”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_1d41da9e26e6e260",
+      "evidence_refs": [
+        "standard:LA-D2-DL-012:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-DL-012",
+      "target_code": "LA-D3-DL-012",
+      "target_label": "能在成人指导下对电水壶除垢、空调滤网清洁等进行基础维护，能记录维护时间与效果，形成定期保养习惯。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_6dadb16742453d60",
+      "component_ids": [
+        "lc_04d5ecd8ce0f06c3",
+        "lc_ef61285003040984"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线；优先采集：操作观察清单、口头解释。",
+        "学生能够在任务中表现出用电安全习惯并说明选择理由；优先采集：操作观察清单、口头解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线，形成用电安全习惯。",
+          "excerpt_hash": "5c57a7ee836767177be103a8d928253b01c1ea25d65c82b8476fa0d43ecaf54d",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_04d5ecd8ce0f06c3",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线，并说明关键步骤、特征或依据。",
+      "label": "在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线；优先采集：操作观察清单、口头解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线",
+          "excerpt_hash": "e6a18a64f9fcf663d3f66b33a43f2ddb1a9d0c305d01d83d77f8834f5c526ef6",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在成人指导下安全使用电水壶、台灯等简单电器，做到按流程操作、使用后断电并归位电线"
+    },
+    {
+      "component_id": "lc_ef61285003040984",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出用电安全习惯并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出用电安全习惯并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出用电安全习惯并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出用电安全习惯并说明选择理由；优先采集：操作观察清单、口头解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成用电安全习惯",
+          "excerpt_hash": "d844caf3d60ae5c8b285f4b585fb429f1b65808f9137899ec21576542a7b1808",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成用电安全习惯"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5c57a7ee836767177be103a8d928253b01c1ea25d65c82b8476fa0d43ecaf54d",
+  "standard_code": "LA-D2-DL-012",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,348 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_de444e30a0e655b3",
+        "lc_ea5838e9497f1a98"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过口语或书面语篇描述、介绍人和事物的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_56045e845589e064",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“通过口语或书面语篇描述、介绍人和事物”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过口语或书面语篇描述、介绍人和事物”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能表意清晰、话语基本通顺；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "4e51c7d24b176572a23a1a39b6059377e321e1ccb31056a8b99dd0934b90770c",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-CA-013:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生用正确句式和时态组织信息，并兼顾文化内容的准确性。",
+          "excerpt_hash": "73af6100249ba79af60ff5a7333e9b82bff9cd2729c8660e87b73ba8159e1715",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-CA-013:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过口语或书面语篇描述、介绍人和事物，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过口语或书面语篇描述、介绍人和事物”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“鼓励学生用正确句式和时态组织信息，并兼顾文化内容的准确性。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_169457a0c1d6a387",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_600fc96aca5a7c702986",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c81ef75b15c2"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f2972c892efdda49",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ce2469087100e286",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fcc8f13544f60ac83228",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_006c435d5baa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b6842528f75f35c9",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_6c20599d4b20da5f",
+      "evidence_refs": [
+        "standard:EN-H4G7-CA-013:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-H4G7-CA-013",
+      "target_code": "EN-H4G8-CA-014",
+      "target_label": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能讲述具有代表性的中外杰出人物故…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_7c26ab5ebe795f22",
+      "component_ids": [
+        "lc_278fa1e4cd2885d4",
+        "lc_028488a65fffba91"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "清晰",
+        "连贯"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；优先采集：主题介绍短文、口头讲述、文化说明。",
+        "学生能够表意清晰、话语基本通顺；优先采集：主题介绍短文、口头讲述、文化说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能表意清晰、话语基本通顺；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "4e51c7d24b176572a23a1a39b6059377e321e1ccb31056a8b99dd0934b90770c",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-CA-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（清晰、连贯）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_278fa1e4cd2885d4",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯，并说明关键步骤、特征或依据。",
+      "label": "用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；优先采集：主题介绍短文、口头讲述、文化说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯",
+          "excerpt_hash": "b3bd50640da846c50ef684c1c1fc9a68715ecbf7cf165de340b0367f3ab3fb82",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-CA-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯"
+    },
+    {
+      "component_id": "lc_de444e30a0e655b3",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过口语或书面语篇描述、介绍人和事物",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过口语或书面语篇描述、介绍人和事物，并说明关键步骤、特征或依据。",
+      "label": "通过口语或书面语篇描述、介绍人和事物",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过口语或书面语篇描述、介绍人和事物；优先采集：主题介绍短文、口头讲述、文化说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过口语或书面语篇描述、介绍人和事物",
+          "excerpt_hash": "dd656f2d387bb012d7e0ccc33da4cb71450b4ada75933a14da35790370cb00e9",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-CA-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过口语或书面语篇描述、介绍人和事物"
+    },
+    {
+      "component_id": "lc_028488a65fffba91",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够表意清晰、话语基本通顺",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生表意清晰、话语基本通顺，并说明关键步骤、特征或依据。",
+      "label": "表意清晰、话语基本通顺",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够表意清晰、话语基本通顺；优先采集：主题介绍短文、口头讲述、文化说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "表意清晰、话语基本通顺",
+          "excerpt_hash": "bc06e4eac39aa4706ad86b05ede31088e73171ee8ede7fc72271dd50815a8210",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-CA-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表意清晰、话语基本通顺"
+    },
+    {
+      "component_id": "lc_a6c9cfe4b5cced74",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够获取关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
+      "label": "获取关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够获取关键信息；优先采集：主题介绍短文、口头讲述、文化说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "获取关键信息",
+          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-CA-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "获取关键信息"
+    },
+    {
+      "component_id": "lc_ea5838e9497f1a98",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成简短交流",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成简短交流，并说明关键步骤、特征或依据。",
+      "label": "完成简短交流",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成简短交流；优先采集：主题介绍短文、口头讲述、文化说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成简短交流",
+          "excerpt_hash": "e0d8e980d38fdd45deaf2acf3d21d16ee5acd4e273483f5057e96bc61198198b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-CA-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成简短交流"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.116,
+      "edge_id": "pc_40e20d4a23615338",
+      "evidence_refs": [
+        "standard:EN-H4G7-CA-013:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-CA-002",
+      "source_label": "对学习、探索中外文化有兴趣能在教师引导下，通过故事、介绍、对话、动画等获取中外文化的简单信息。",
+      "target_code": "EN-H4G7-CA-013",
+      "target_label": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能表意清晰、话语基本通顺；能获取…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1251,
+      "edge_id": "pc_ae9bd1a6e455a28f",
+      "evidence_refs": [
+        "standard:EN-H4G7-CA-013:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-CA-003",
+      "source_label": "感知与体验文化多样性能在理解的基础上进行初步的比较。",
+      "target_code": "EN-H4G7-CA-013",
+      "target_label": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能表意清晰、话语基本通顺；能获取…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4e51c7d24b176572a23a1a39b6059377e321e1ccb31056a8b99dd0934b90770c",
+  "standard_code": "EN-H4G7-CA-013",
+  "verified_prerequisites": []
+}

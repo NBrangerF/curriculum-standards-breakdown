@@ -1,0 +1,393 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_e5ee72d535f7b797"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解决简单的比例问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_006a895622e508fc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c60945ba8acbc327"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“解决简单的比例问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解决简单的比例问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在实际情境中理解比和比例以及按比例分配的含义，能解决简单的比例问题。",
+          "excerpt_hash": "5b73cca6607e3926fd2796380557ab2abad43c64860ad551b4551b14f0b17262",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过生活中的比例问题帮助学生理解比与比例的含义，培养学生按比例分配的能力，提升实际问题的解决能力。",
+          "excerpt_hash": "e0f850c48702c6e7c33ba4ad34a4ea5af87d7cbbcbfd06ba99200de54ce3afc5",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-AL-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解决简单的比例问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解决简单的比例问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“通过生活中的比例问题帮助学生理解比与比例的含义，培养学生按比例分配的能力，提升实际问题的解决能力。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_e5ee72d535f7b797"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解决简单的比例问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_813b9f1c197ee8d8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c60945ba8acbc327"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“解决简单的比例问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解决简单的比例问题”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在实际情境中理解比和比例以及按比例分配的含义，能解决简单的比例问题。",
+          "excerpt_hash": "5b73cca6607e3926fd2796380557ab2abad43c64860ad551b4551b14f0b17262",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过生活中的比例问题帮助学生理解比与比例的含义，培养学生按比例分配的能力，提升实际问题的解决能力。",
+          "excerpt_hash": "e0f850c48702c6e7c33ba4ad34a4ea5af87d7cbbcbfd06ba99200de54ce3afc5",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-AL-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解决简单的比例问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解决简单的比例问题”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“通过生活中的比例问题帮助学生理解比与比例的含义，培养学生按比例分配的能力，提升实际问题的解决能力。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d961c3c2f3559f5b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_10296c173573f69db498",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e5b0376a10bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e2243ea8644ffb3f",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b30081d49e5399b2",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1ba8117dec0624e11c0e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b06437a92308"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_52ef62335b18e7df",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a69fdfe72deffdab",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b1f651484391fce9",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ff0f82ec50b43888",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6f696b62cd631c35e5d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_98536ea16bbc"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e1c2312794f3e566",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1633,
+      "connection_id": "fc_979c22604c38af3c",
+      "evidence_refs": [
+        "standard:MA-H4G7-AL-003:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-AL-007",
+      "target_code": "MA-H4G7-AL-003",
+      "target_label": "能用一次函数解决简单实际问题；能体会一次函数与二元一次方程的关系；能从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式；能说明解题步…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1713,
+      "connection_id": "fc_93ba280a9a10b1c0",
+      "evidence_refs": [
+        "standard:MA-H4G7-AL-022:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-AL-007",
+      "target_code": "MA-H4G7-AL-022",
+      "target_label": "能体会一次函数与二元一次方程的关系；能用一次函数解决简单实际问题；理解正比例函数；能说明解题步骤和基本依据。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1731,
+      "connection_id": "fc_2a4127cf256cd160",
+      "evidence_refs": [
+        "standard:MA-H4G7-AL-028:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-AL-007",
+      "target_code": "MA-H4G7-AL-028",
+      "target_label": "能用反比例函数解决简单实际问题；能结合具体情境体会反比例函数意义；能根据已知条件确定反比例函数表达式；能说明解题步骤和基本依据。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_c60945ba8acbc327",
+      "component_ids": [
+        "lc_63b4939cdaac16c2",
+        "lc_e5ee72d535f7b797"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "实际",
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释比和比例以及按比例分配的含义。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在实际情境中，能够用自己的话解释比和比例以及按比例分配的含义；优先采集：解题过程记录。",
+        "学生在实际情境中，能够解决简单的比例问题；优先采集：解题过程记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在实际情境中理解比和比例以及按比例分配的含义，能解决简单的比例问题。",
+          "excerpt_hash": "5b73cca6607e3926fd2796380557ab2abad43c64860ad551b4551b14f0b17262",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（实际、情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_63b4939cdaac16c2",
+      "component_type": "conceptual",
+      "condition": "在实际情境中",
+      "confidence": 0.72,
+      "description": "学生在实际情境中，能够用自己的话解释比和比例以及按比例分配的含义",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在实际情境中”的诊断任务，要求学生用自己的话解释比和比例以及按比例分配的含义，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释比和比例以及按比例分配的含义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在实际情境中，能够用自己的话解释比和比例以及按比例分配的含义；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在实际情境中理解比和比例以及按比例分配的含义，能解决简单的比例问题。",
+          "excerpt_hash": "5b73cca6607e3926fd2796380557ab2abad43c64860ad551b4551b14f0b17262",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解比和比例以及按比例分配的含义"
+    },
+    {
+      "component_id": "lc_e5ee72d535f7b797",
+      "component_type": "procedural",
+      "condition": "在实际情境中",
+      "confidence": 0.72,
+      "description": "学生在实际情境中，能够解决简单的比例问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在实际情境中”的诊断任务，要求学生解决简单的比例问题，并说明关键步骤、特征或依据。",
+      "label": "解决简单的比例问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在实际情境中，能够解决简单的比例问题；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在实际情境中理解比和比例以及按比例分配的含义，能解决简单的比例问题。",
+          "excerpt_hash": "5b73cca6607e3926fd2796380557ab2abad43c64860ad551b4551b14f0b17262",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解决简单的比例问题"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_fa0b9fd9b245dedf",
+      "evidence_refs": [
+        "standard:MA-D3-AL-007:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D2-AL-007",
+      "source_label": "能在真实情境中，合理利用等量的等量相等进行推理，形成初步的推理意识。",
+      "target_code": "MA-D3-AL-007",
+      "target_label": "能在实际情境中理解比和比例以及按比例分配的含义，能解决简单的比例问题。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5b73cca6607e3926fd2796380557ab2abad43c64860ad551b4551b14f0b17262",
+  "standard_code": "MA-D3-AL-007",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,515 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_de77afa4d2b8e9f5",
+        "lc_3dbb3f4b6600f027",
+        "lc_8de73ed7c603dfc8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明新中国成立的重大历史意义的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_dcb8e473e714ff67",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9a9fd7824ca3e501"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明新中国成立的重大历史意义”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明新中国成立的重大历史意义”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说明新中国成立的重大历史意义，能用史实解释“站起来”的含义，能理解社会主义道路对国家发展的重要性，并能表达爱国情感与责任担当。",
+          "excerpt_hash": "fe0daf7d3450d965dbcca1a0cec00dcf78fafc2e4f67de3aa7a28365d2a3136d",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-TCR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "查阅资料并讲好党的故事、革命故事与英雄模范故事；参观纪念馆等，开展“我能为国家做什么”讨论，增进国家认同与爱国情感，增强维护国家利益和民族尊严的意识。",
+          "excerpt_hash": "832892a1cd89481e49422bfefb02ef0a68e982b627f17ecae1b253287a7792a4",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D3-TCR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明新中国成立的重大历史意义，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明新中国成立的重大历史意义”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“查阅资料并讲好党的故事、革命故事与英雄模范故事”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_32e761d03ca7be98"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生表达爱国情感与责任担当的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_254417bfdbc53e6a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“表达爱国情感与责任担当”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“表达爱国情感与责任担当”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说明新中国成立的重大历史意义，能用史实解释“站起来”的含义，能理解社会主义道路对国家发展的重要性，并能表达爱国情感与责任担当。",
+          "excerpt_hash": "fe0daf7d3450d965dbcca1a0cec00dcf78fafc2e4f67de3aa7a28365d2a3136d",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-TCR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "查阅资料并讲好党的故事、革命故事与英雄模范故事；参观纪念馆等，开展“我能为国家做什么”讨论，增进国家认同与爱国情感，增强维护国家利益和民族尊严的意识。",
+          "excerpt_hash": "832892a1cd89481e49422bfefb02ef0a68e982b627f17ecae1b253287a7792a4",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D3-TCR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后表达爱国情感与责任担当，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“表达爱国情感与责任担当”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“查阅资料并讲好党的故事、革命故事与英雄模范故事”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_8de73ed7c603dfc8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释社会主义道路对国家发展的重要性的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8c12481f2da5a050",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9a9fd7824ca3e501"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释社会主义道路对国家发展的重要性”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释社会主义道路对国家发展的重要性”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说明新中国成立的重大历史意义，能用史实解释“站起来”的含义，能理解社会主义道路对国家发展的重要性，并能表达爱国情感与责任担当。",
+          "excerpt_hash": "fe0daf7d3450d965dbcca1a0cec00dcf78fafc2e4f67de3aa7a28365d2a3136d",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-TCR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "查阅资料并讲好党的故事、革命故事与英雄模范故事；参观纪念馆等，开展“我能为国家做什么”讨论，增进国家认同与爱国情感，增强维护国家利益和民族尊严的意识。",
+          "excerpt_hash": "832892a1cd89481e49422bfefb02ef0a68e982b627f17ecae1b253287a7792a4",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D3-TCR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释社会主义道路对国家发展的重要性，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释社会主义道路对国家发展的重要性”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“查阅资料并讲好党的故事、革命故事与英雄模范故事”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1761caf5f75fdf18",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0e50b2c3cab704574a20",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_0d4b56c03c3c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f543649c0b71f43b",
+      "textbook_grade": 5,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_63a890a9c676a288",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1717f6091df4cebdd9ec",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_63b354a74aec"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f2273093a9d6cb45",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_393787ee03e78e3b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_02f942c3391d"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_84d4ef0e1dbf301a",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fec22c641c11f73e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4d47affde4a27f50be6c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_976cae771845"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_03c92473b367e141",
+      "textbook_grade": 5,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1065,
+      "connection_id": "fc_a8908bbd7510eab7",
+      "evidence_refs": [
+        "standard:ML-H4G7-TCR-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-TCR-006",
+      "target_code": "ML-H4G7-TCR-002",
+      "target_label": "理解中国共产党在建设中国特色社会主义过程中的领导作用；能铸牢中华民族共同体意识；认识中国特色社会主义伟大建设成就；能联系个人和校园生活说明基本…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1432,
+      "connection_id": "fc_60f9914122f6c10e",
+      "evidence_refs": [
+        "standard:ML-H4G7-TCR-006:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-TCR-006",
+      "target_code": "ML-H4G7-TCR-006",
+      "target_label": "理解只有社会主义才能救中国、只有社会主义才能发展中国；了解中国共产党领导人民自力更生、发愤图强；能创造社会主义革命和建设伟大成就；能联系个人和…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0839,
+      "connection_id": "fc_4068c0a2b04d2c44",
+      "evidence_refs": [
+        "standard:ML-H4G7-TCR-008:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-TCR-006",
+      "target_code": "ML-H4G7-TCR-008",
+      "target_label": "理解中国特色社会主义道路是指引中国发展繁荣的正确道路；了解中国共产党领导人民解放思想、锐意进取；能创造改革开放和社会主义现代化建设伟大成就；能…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1168,
+      "connection_id": "fc_e89c65fd6b0811e1",
+      "evidence_refs": [
+        "standard:ML-H4G7-TCR-009:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-TCR-006",
+      "target_code": "ML-H4G7-TCR-009",
+      "target_label": "了解中国共产党领导人民自信自强、守正创新；理解确立习近平新时代中国特色社会主义思想指导地位的决定性意义；能创造新时代中国特色社会主义伟大成就；…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1715,
+      "connection_id": "fc_ca30cfaacf9aff32",
+      "evidence_refs": [
+        "standard:ML-H4G7-TCR-013:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-TCR-006",
+      "target_code": "ML-H4G7-TCR-013",
+      "target_label": "能感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀；能联系个人和校园生活说明基本判断。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2055,
+      "connection_id": "fc_f6d24166651380e8",
+      "evidence_refs": [
+        "standard:ML-H4G7-TCR-016:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-TCR-006",
+      "target_code": "ML-H4G7-TCR-016",
+      "target_label": "能够结合史实阐明伟大建党精神的重要意义；能举例说明社会主义先进文化、革命文化和中华优秀传统文化的主要特征；能初步阐释中国共产党为什么能、马克思…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_9a9fd7824ca3e501",
+      "component_ids": [
+        "lc_de77afa4d2b8e9f5",
+        "lc_3dbb3f4b6600f027",
+        "lc_8de73ed7c603dfc8"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明新中国成立的重大历史意义。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明新中国成立的重大历史意义；优先采集：思维导图作品、讨论表现、行动记录、教师评价。",
+        "学生能够用史实解释“站起来”的含义；优先采集：思维导图作品、讨论表现、行动记录、教师评价。",
+        "学生能够用自己的话解释社会主义道路对国家发展的重要性；优先采集：思维导图作品、讨论表现、行动记录、教师评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说明新中国成立的重大历史意义，能用史实解释“站起来”的含义，能理解社会主义道路对国家发展的重要性，并能表达爱国情感与责任担当。",
+          "excerpt_hash": "fe0daf7d3450d965dbcca1a0cec00dcf78fafc2e4f67de3aa7a28365d2a3136d",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-TCR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_de77afa4d2b8e9f5",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明新中国成立的重大历史意义",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明新中国成立的重大历史意义，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明新中国成立的重大历史意义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明新中国成立的重大历史意义；优先采集：思维导图作品、讨论表现、行动记录、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明新中国成立的重大历史意义",
+          "excerpt_hash": "7b40b90eca535a19e41c0613e26448d54b1472d1dc5dcab816855ff0d5894976",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-TCR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明新中国成立的重大历史意义"
+    },
+    {
+      "component_id": "lc_3dbb3f4b6600f027",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用史实解释“站起来”的含义",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用史实解释“站起来”的含义，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用史实解释“站起来”的含义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用史实解释“站起来”的含义；优先采集：思维导图作品、讨论表现、行动记录、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用史实解释“站起来”的含义",
+          "excerpt_hash": "e32e930ab81d613046e2cef739a87faa3f5ca7f4bd48d56a7e0a6924c62149eb",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-TCR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用史实解释“站起来”的含义"
+    },
+    {
+      "component_id": "lc_8de73ed7c603dfc8",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释社会主义道路对国家发展的重要性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释社会主义道路对国家发展的重要性，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释社会主义道路对国家发展的重要性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释社会主义道路对国家发展的重要性；优先采集：思维导图作品、讨论表现、行动记录、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解社会主义道路对国家发展的重要性",
+          "excerpt_hash": "490be3f1090adb929c30d18ba7fbbe562da7e41cf268b418219af60dd74a1c1f",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-TCR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解社会主义道路对国家发展的重要性"
+    },
+    {
+      "component_id": "lc_32e761d03ca7be98",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够表达爱国情感与责任担当",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生表达爱国情感与责任担当，并说明关键步骤、特征或依据。",
+      "label": "表达爱国情感与责任担当",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够表达爱国情感与责任担当；优先采集：思维导图作品、讨论表现、行动记录、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "表达爱国情感与责任担当",
+          "excerpt_hash": "87152b73872f8b7143030770221c8a693cd89404b16a8fa942ecff81f984beb8",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-TCR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表达爱国情感与责任担当"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "fe0daf7d3450d965dbcca1a0cec00dcf78fafc2e4f67de3aa7a28365d2a3136d",
+  "standard_code": "ML-D3-TCR-006",
+  "verified_prerequisites": []
+}

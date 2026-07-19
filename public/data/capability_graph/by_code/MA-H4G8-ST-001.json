@@ -1,0 +1,695 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_f48177c7f2d2a45a",
+        "lc_ae37b2cabe0c5d87"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_244abe02cd815c61",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f233ea71ff831050"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加权平均数的意义和集中趋势特点；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "efd3f25c27dae6da574acee51626f5aa20bc0e29b7b06270c2efebc42adb0dcd",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生根据问题需要选择统计量和统计图表，避免只做机械计算。",
+          "excerpt_hash": "cfe277f142ae967cec73f5f1ddc5ae400639e808388d06ed3a9682905fcb4343",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-ST-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“指导学生根据问题需要选择统计量和统计图表，避免只做机械计算。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_e0bd34fea01eee33"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b2135fe57fe9ebdd",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_01915f965f5f6718"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较方法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较方法”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加权平均数的意义和集中趋势特点；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "efd3f25c27dae6da574acee51626f5aa20bc0e29b7b06270c2efebc42adb0dcd",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生根据问题需要选择统计量和统计图表，避免只做机械计算。",
+          "excerpt_hash": "cfe277f142ae967cec73f5f1ddc5ae400639e808388d06ed3a9682905fcb4343",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-ST-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较方法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较方法”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“指导学生根据问题需要选择统计量和统计图表，避免只做机械计算。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_bbd094c94477b23b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用多种统计图表整理、描述和读懂数据信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ef02ac3f71927e0e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ef02ac3f71927e0e",
+        "hc_f07e3956a9b76b3a"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“用多种统计图表整理、描述和读懂数据信息”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用多种统计图表整理、描述和读懂数据信息”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加权平均数的意义和集中趋势特点；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "efd3f25c27dae6da574acee51626f5aa20bc0e29b7b06270c2efebc42adb0dcd",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生根据问题需要选择统计量和统计图表，避免只做机械计算。",
+          "excerpt_hash": "cfe277f142ae967cec73f5f1ddc5ae400639e808388d06ed3a9682905fcb4343",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-ST-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用多种统计图表整理、描述和读懂数据信息，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用多种统计图表整理、描述和读懂数据信息”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“指导学生根据问题需要选择统计量和统计图表，避免只做机械计算。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_b8c9f0e89412c140"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生制作扇形统计图和频数直方图的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d87093f2c75e3242",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3e70bde7499a6eb3"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“制作扇形统计图和频数直方图”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“制作扇形统计图和频数直方图”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加权平均数的意义和集中趋势特点；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "efd3f25c27dae6da574acee51626f5aa20bc0e29b7b06270c2efebc42adb0dcd",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生根据问题需要选择统计量和统计图表，避免只做机械计算。",
+          "excerpt_hash": "cfe277f142ae967cec73f5f1ddc5ae400639e808388d06ed3a9682905fcb4343",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-ST-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后制作扇形统计图和频数直方图，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“制作扇形统计图和频数直方图”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“指导学生根据问题需要选择统计量和统计图表，避免只做机械计算。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_bbd094c94477b23b",
+        "lc_6e4d694c41b37b16"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用多种统计图表整理、描述和读懂数据信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2c9084a71273a8e2",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ef02ac3f71927e0e",
+        "hc_f07e3956a9b76b3a"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“用多种统计图表整理、描述和读懂数据信息”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用多种统计图表整理、描述和读懂数据信息”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加权平均数的意义和集中趋势特点；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "efd3f25c27dae6da574acee51626f5aa20bc0e29b7b06270c2efebc42adb0dcd",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生根据问题需要选择统计量和统计图表，避免只做机械计算。",
+          "excerpt_hash": "cfe277f142ae967cec73f5f1ddc5ae400639e808388d06ed3a9682905fcb4343",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-ST-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用多种统计图表整理、描述和读懂数据信息，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用多种统计图表整理、描述和读懂数据信息”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“指导学生根据问题需要选择统计量和统计图表，避免只做机械计算。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_6e4d694c41b37b16"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出箱线图和百分位数意义的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_86104d0eebb56986",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出箱线图和百分位数意义的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出箱线图和百分位数意义的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加权平均数的意义和集中趋势特点；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "efd3f25c27dae6da574acee51626f5aa20bc0e29b7b06270c2efebc42adb0dcd",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生根据问题需要选择统计量和统计图表，避免只做机械计算。",
+          "excerpt_hash": "cfe277f142ae967cec73f5f1ddc5ae400639e808388d06ed3a9682905fcb4343",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-ST-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出箱线图和百分位数意义的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出箱线图和百分位数意义的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“指导学生根据问题需要选择统计量和统计图表，避免只做机械计算。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6824b21072021bbc",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d79076db84511d8a",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_24283864c382d0e1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_485165afa9c8"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_8684cc79506c65f5",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_9c419ecee630ab92",
+      "evidence_refs": [
+        "standard:MA-H4G8-ST-001:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-H4G8-ST-001",
+      "target_code": "MA-H4G9-ST-001",
+      "target_label": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_f233ea71ff831050",
+      "component_ids": [
+        "lc_f48177c7f2d2a45a",
+        "lc_ae37b2cabe0c5d87"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点；优先采集：统计图表、统计量计算、数据特征解释。",
+        "学生能够解释数量、图形或数据关系；优先采集：统计图表、统计量计算、数据特征解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加权平均数的意义和集中趋势特点；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "efd3f25c27dae6da574acee51626f5aa20bc0e29b7b06270c2efebc42adb0dcd",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_01915f965f5f6718",
+      "component_ids": [
+        "lc_e0bd34fea01eee33"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较方法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较方法；优先采集：统计图表、统计量计算、数据特征解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加权平均数的意义和集中趋势特点；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "efd3f25c27dae6da574acee51626f5aa20bc0e29b7b06270c2efebc42adb0dcd",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_ef02ac3f71927e0e",
+      "component_ids": [
+        "lc_bbd094c94477b23b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "图表"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用多种统计图表整理、描述和读懂数据信息。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用多种统计图表整理、描述和读懂数据信息；优先采集：统计图表、统计量计算、数据特征解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加权平均数的意义和集中趋势特点；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "efd3f25c27dae6da574acee51626f5aa20bc0e29b7b06270c2efebc42adb0dcd",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（图表）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_3e70bde7499a6eb3",
+      "component_ids": [
+        "lc_b8c9f0e89412c140"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生制作扇形统计图和频数直方图。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够制作扇形统计图和频数直方图；优先采集：统计图表、统计量计算、数据特征解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加权平均数的意义和集中趋势特点；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "efd3f25c27dae6da574acee51626f5aa20bc0e29b7b06270c2efebc42adb0dcd",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_f07e3956a9b76b3a",
+      "component_ids": [
+        "lc_bbd094c94477b23b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "多种"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用多种统计图表整理、描述和读懂数据信息。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用多种统计图表整理、描述和读懂数据信息；优先采集：统计图表、统计量计算、数据特征解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加权平均数的意义和集中趋势特点；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "efd3f25c27dae6da574acee51626f5aa20bc0e29b7b06270c2efebc42adb0dcd",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（多种）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b8c9f0e89412c140",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够制作扇形统计图和频数直方图",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生制作扇形统计图和频数直方图，并说明关键步骤、特征或依据。",
+      "label": "制作扇形统计图和频数直方图",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够制作扇形统计图和频数直方图；优先采集：统计图表、统计量计算、数据特征解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "制作扇形统计图和频数直方图",
+          "excerpt_hash": "45b797d4590829bf2087a494bc77c6d27ca70f2174c547c5ca7c6709d4658c7c",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "制作扇形统计图和频数直方图"
+    },
+    {
+      "component_id": "lc_bbd094c94477b23b",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用多种统计图表整理、描述和读懂数据信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用多种统计图表整理、描述和读懂数据信息，并说明关键步骤、特征或依据。",
+      "label": "用多种统计图表整理、描述和读懂数据信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用多种统计图表整理、描述和读懂数据信息；优先采集：统计图表、统计量计算、数据特征解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用多种统计图表整理、描述和读懂数据信息",
+          "excerpt_hash": "fa7428613a6d9477e505bf47a490a5461ac293b1fcd39d236af0b65c9bb59a43",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用多种统计图表整理、描述和读懂数据信息"
+    },
+    {
+      "component_id": "lc_a4d383f0b15369a4",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够计算四分位数",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生计算四分位数，并说明关键步骤、特征或依据。",
+      "label": "计算四分位数",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够计算四分位数；优先采集：统计图表、统计量计算、数据特征解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "计算四分位数",
+          "excerpt_hash": "7999d91007ccb489cb7e1eb374e0974c48579f09567ca361c74681e25ba84033",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "计算四分位数"
+    },
+    {
+      "component_id": "lc_6e4d694c41b37b16",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出箱线图和百分位数意义的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出箱线图和百分位数意义的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出箱线图和百分位数意义的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出箱线图和百分位数意义的关键特征；优先采集：统计图表、统计量计算、数据特征解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解箱线图和百分位数意义",
+          "excerpt_hash": "1a90f01f7372102f3edc7df7e6186b963f228acb799e3b1400635daf0bd948af",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解箱线图和百分位数意义"
+    },
+    {
+      "component_id": "lc_f48177c7f2d2a45a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点；优先采集：统计图表、统计量计算、数据特征解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平均数、中位数、众数、加权平均数的意义和集中趋势特点",
+          "excerpt_hash": "0d83cdcc855eae90fa4efe5ae17170d835edc0a2a2659025f18b9aa38e3ba9ab",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解平均数、中位数、众数、加权平均数的意义和集中趋势特点"
+    },
+    {
+      "component_id": "lc_e0bd34fea01eee33",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较方法，并说明关键步骤、特征或依据。",
+      "label": "比较方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较方法；优先采集：统计图表、统计量计算、数据特征解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较方法",
+          "excerpt_hash": "7889e4fffed9604deef84a0784668b8242973dd9c5af85496f69faa8f645a0b9",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较方法"
+    },
+    {
+      "component_id": "lc_ae37b2cabe0c5d87",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释数量、图形或数据关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释数量、图形或数据关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释数量、图形或数据关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释数量、图形或数据关系；优先采集：统计图表、统计量计算、数据特征解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释数量、图形或数据关系",
+          "excerpt_hash": "21c5b567c1ef612a5b98a5a459ca76600a99e5cd95a345b6856579018adee66e",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释数量、图形或数据关系"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_6971d87043811cb9",
+      "evidence_refs": [
+        "standard:MA-H4G8-ST-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-H4G7-ST-002",
+      "source_label": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加…",
+      "target_code": "MA-H4G8-ST-001",
+      "target_label": "会制作扇形统计图和频数直方图，能用多种统计图表整理、描述和读懂数据信息；能计算四分位数并了解箱线图和百分位数意义；理解平均数、中位数、众数、加…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "efd3f25c27dae6da574acee51626f5aa20bc0e29b7b06270c2efebc42adb0dcd",
+  "standard_code": "MA-H4G8-ST-001",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,217 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_40ecf2e36a362069"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释健康与常见疾病的概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3ed973b07c75746d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_767b5bc1ba0e3ffe"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释健康与常见疾病的概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释健康与常见疾病的概念”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解健康与常见疾病的概念，能列举影响健康的主要因素并提出可执行的自我管理措施。",
+          "excerpt_hash": "6bd677a86a4a158ba0f2ba516f92fc7eebf7fc9f23a867a201c7d90fb0962585",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "以“健康拼图”引导学生从运动、饮食、睡眠、卫生、情绪、环境等维度分析健康；结合校园常见问题（感冒、过敏、龋齿、运动损伤）讨论预防策略。采用“我能控制/我需支持”两栏，帮助学生把建议落到可行动步骤。",
+          "excerpt_hash": "061b08818de683d52141cbab1692c731196512791688f47630cb01c2b84e89e4",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-HB-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释健康与常见疾病的概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释健康与常见疾病的概念”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“以“健康拼图”引导学生从运动、饮食、睡眠、卫生、情绪、环境等维度分析健康”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1136,
+      "connection_id": "fc_46d1df59957fa6f2",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-013:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-HB-006",
+      "target_code": "PE-H4G7-HB-013",
+      "target_label": "能理解常规体检的具体项目、指标、意义和常见疾病的症状，掌握各种常见疾病的预防方法；能完成基础练习并记录身体反应。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_767b5bc1ba0e3ffe",
+      "component_ids": [
+        "lc_40ecf2e36a362069",
+        "lc_02762108d95c34cb",
+        "lc_b155b21db9d79add"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释健康与常见疾病的概念。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释健康与常见疾病的概念；优先采集：行为记录。",
+        "学生能够列举影响健康的主要因素；优先采集：行为记录。",
+        "学生能够提出可执行的自我管理措施；优先采集：行为记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解健康与常见疾病的概念，能列举影响健康的主要因素并提出可执行的自我管理措施。",
+          "excerpt_hash": "6bd677a86a4a158ba0f2ba516f92fc7eebf7fc9f23a867a201c7d90fb0962585",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用自己的话解释健康与常见疾病的概念；列举影响健康的主要因素；提出可执行的自我管理措施",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_40ecf2e36a362069",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释健康与常见疾病的概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释健康与常见疾病的概念，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释健康与常见疾病的概念",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释健康与常见疾病的概念；优先采集：行为记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解健康与常见疾病的概念",
+          "excerpt_hash": "7c9b7c3217cc0b711e16bca194d4e1e8bdeebd07ae48a6cace0598f8a5671153",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解健康与常见疾病的概念"
+    },
+    {
+      "component_id": "lc_02762108d95c34cb",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够列举影响健康的主要因素",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生列举影响健康的主要因素，并说明关键步骤、特征或依据。",
+      "label": "列举影响健康的主要因素",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够列举影响健康的主要因素；优先采集：行为记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "列举影响健康的主要因素",
+          "excerpt_hash": "61eb2fb8a1bcf47a32cdee3a6e80c2cf31a726d1109bda0c2b9c9617c7ebb210",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "列举影响健康的主要因素"
+    },
+    {
+      "component_id": "lc_b155b21db9d79add",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提出可执行的自我管理措施",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提出可执行的自我管理措施，并说明关键步骤、特征或依据。",
+      "label": "提出可执行的自我管理措施",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提出可执行的自我管理措施；优先采集：行为记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提出可执行的自我管理措施",
+          "excerpt_hash": "e1839ebb0f6f6b3546e75d8a768e42339d57b5d9954ccaa23b90194c78b8b7e4",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出可执行的自我管理措施"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_92eefc7e9169c0cc",
+      "evidence_refs": [
+        "standard:PE-D3-HB-006:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-HB-006",
+      "source_label": "能说出睡眠的作用并养成健康睡眠的习惯。",
+      "target_code": "PE-D3-HB-006",
+      "target_label": "理解健康与常见疾病的概念，能列举影响健康的主要因素并提出可执行的自我管理措施。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "6bd677a86a4a158ba0f2ba516f92fc7eebf7fc9f23a867a201c7d90fb0962585",
+  "standard_code": "PE-D3-HB-006",
+  "verified_prerequisites": []
+}

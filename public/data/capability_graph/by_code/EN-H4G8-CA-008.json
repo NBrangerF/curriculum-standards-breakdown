@@ -1,0 +1,369 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_5b9b3fd1a5fc88a5",
+        "lc_bf63d24a4949fb3b",
+        "lc_221ac857405e57f0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a6c6053135b73ad2",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_28d0880cc49274b3"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "25e2fe628b505548a37b79364c219b991440ac9904697b14cff6fc2306c9c3ae",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-CA-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过文本细节和学生经验连接价值理解，避免空泛说教。",
+          "excerpt_hash": "3ecaf8d43e05b221175c37404d2c903b01d52d677dacc4bb36a060dbfdd2b55c",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G8-CA-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“通过文本细节和学生经验连接价值理解，避免空泛说教。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_5b9b3fd1a5fc88a5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2ce364aeb3244658",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_28d0880cc49274b3"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "25e2fe628b505548a37b79364c219b991440ac9904697b14cff6fc2306c9c3ae",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-CA-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过文本细节和学生经验连接价值理解，避免空泛说教。",
+          "excerpt_hash": "3ecaf8d43e05b221175c37404d2c903b01d52d677dacc4bb36a060dbfdd2b55c",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G8-CA-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“通过文本细节和学生经验连接价值理解，避免空泛说教。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5b7af14105fa5a6c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1684bcee616768e03a75",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8b44de69e9bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f090966a8f1f146b",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5878984da15bc5a4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b542c7b235fc"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4db7656086d72cec",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_ecf8aad07e619879",
+      "evidence_refs": [
+        "standard:EN-H4G8-CA-008:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-H4G8-CA-008",
+      "target_code": "EN-H4G9-CA-009",
+      "target_label": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_28d0880cc49274b3",
+      "component_ids": [
+        "lc_5b9b3fd1a5fc88a5",
+        "lc_bf63d24a4949fb3b",
+        "lc_221ac857405e57f0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由；优先采集：语篇赏析卡、价值说明、交流发言。",
+        "学生能够用自己的话解释与感悟中外优秀文化的内涵；优先采集：语篇赏析卡、价值说明、交流发言。",
+        "学生能够说明观点或文化差异；优先采集：语篇赏析卡、价值说明、交流发言。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "25e2fe628b505548a37b79364c219b991440ac9904697b14cff6fc2306c9c3ae",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-CA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_4633649cb9c135b0",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够领会简短语篇蕴含的人文精神、科学精神和劳动价值",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生领会简短语篇蕴含的人文精神、科学精神和劳动价值，并说明关键步骤、特征或依据。",
+      "label": "领会简短语篇蕴含的人文精神、科学精神和劳动价值",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够领会简短语篇蕴含的人文精神、科学精神和劳动价值；优先采集：语篇赏析卡、价值说明、交流发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "领会简短语篇蕴含的人文精神、科学精神和劳动价值",
+          "excerpt_hash": "4b908684f02fd69bde3b3c34c2d2ac4c32f7124a5848a0ca752ff3538b22e746",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-CA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "领会简短语篇蕴含的人文精神、科学精神和劳动价值"
+    },
+    {
+      "component_id": "lc_5b9b3fd1a5fc88a5",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由；优先采集：语篇赏析卡、价值说明、交流发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度",
+          "excerpt_hash": "97ec36421c4123324026ac39fe1bd7ba42ab4e26a922237ad4b6cadcf4cdf29d",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-CA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度"
+    },
+    {
+      "component_id": "lc_bf63d24a4949fb3b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释与感悟中外优秀文化的内涵",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释与感悟中外优秀文化的内涵，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释与感悟中外优秀文化的内涵",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释与感悟中外优秀文化的内涵；优先采集：语篇赏析卡、价值说明、交流发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解与感悟中外优秀文化的内涵",
+          "excerpt_hash": "f82fa636f7512688a20e0610ad6f1ca4c3ffa1c82e9af3491f1dbec921f89cea",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-CA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解与感悟中外优秀文化的内涵"
+    },
+    {
+      "component_id": "lc_4382277581edaba2",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够整合语篇信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合语篇信息，并说明关键步骤、特征或依据。",
+      "label": "整合语篇信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够整合语篇信息；优先采集：语篇赏析卡、价值说明、交流发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "整合语篇信息",
+          "excerpt_hash": "8fc7fa6e6eeaf7e69dbafe1c0139000f909d2a7e8aba5e8aae0003274289a04b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-CA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "整合语篇信息"
+    },
+    {
+      "component_id": "lc_221ac857405e57f0",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明观点或文化差异",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点或文化差异，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明观点或文化差异",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明观点或文化差异；优先采集：语篇赏析卡、价值说明、交流发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明观点或文化差异",
+          "excerpt_hash": "eddc2a80e635a5a126c12dfa34e72610db5e58b8d29295eaa8d1d361aecdddff",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-CA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明观点或文化差异"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_2ffdc040826c97b0",
+      "evidence_refs": [
+        "standard:EN-H4G8-CA-008:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-H4G7-CA-007",
+      "source_label": "能理解与感悟中外优秀文化的内涵；能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；…",
+      "target_code": "EN-H4G8-CA-008",
+      "target_label": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "25e2fe628b505548a37b79364c219b991440ac9904697b14cff6fc2306c9c3ae",
+  "standard_code": "EN-H4G8-CA-008",
+  "verified_prerequisites": []
+}

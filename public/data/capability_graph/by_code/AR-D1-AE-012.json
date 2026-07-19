@@ -1,0 +1,419 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_e20b52eb532d23da"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生选择合适的表现形式与材料，在给定情境或主题下进行创编与表演的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_893f38f9e493a7f1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0241f53df7a49de2"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“选择合适的表现形式与材料，在给定情境或主题下进行创编与表演”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“选择合适的表现形式与材料，在给定情境或主题下进行创编与表演”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择合适的表现形式与材料，在给定情境或主题下进行创编与表演；能编创简单节奏或旋律为表演配乐或配节奏。",
+          "excerpt_hash": "7eee16ba2af0374da6d18f2070570287b27fad82bed8e84326961d897d1a103f",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AE-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "让学生在“演唱/打击/律动/道具”中二选一组合；节奏创编用“2小节节奏卡”拼接；旋律创编用3音范围（do-mi-sol）降低难度。",
+          "excerpt_hash": "893339888ea70ac7805128544331d4d5f4cdf71246509393cfb7c637b3bf81e5",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D1-AE-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后选择合适的表现形式与材料，在给定情境或主题下进行创编与表演，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“选择合适的表现形式与材料，在给定情境或主题下进行创编与表演”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“让学生在“演唱/打击/律动/道具”中二选一组合”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2c811b8e2c1e818a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_08ce261085ef1c1fe6ef",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8209ad04b47d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0a7833eb0eca0e83",
+      "textbook_grade": 2,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_24c7cefda58bd937",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2622f7b8f7ae819655aa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_51ecddc37440"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1dc5a976932b360a",
+      "textbook_grade": 1,
+      "textbook_subject": "美术",
+      "textbook_title": "美术1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f4b2633abaa0b9c6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5119efddbaf1d245bdbd",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5a22ce498b9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c1c61f1e18f1f1fd",
+      "textbook_grade": 2,
+      "textbook_subject": "美术",
+      "textbook_title": "美术2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9083f8625b45d6da",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9388d4c7d11c755fa6d1",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ff2c02949c7"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ccea29ff50daf60d",
+      "textbook_grade": 1,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_19c4356ba96d70f0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ad1a73f100e4c37bdf97",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_061b98e9e3e0"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_daf0df4eff446a59",
+      "textbook_grade": 1,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ba4b07a053d4dec1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bd2b80ffa90783d7b872",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_04dc110988f2"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_76531f87e68b0f54",
+      "textbook_grade": 2,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2aa8e3a779cf458c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ee63cc92bbb214cfb505",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_1295fe66588a"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f9d43da1be80535c",
+      "textbook_grade": 1,
+      "textbook_subject": "美术",
+      "textbook_title": "美术1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_70a0a74e2863e453",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f2d970d7f6b6a7a553a8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f5a55ad6fbfb"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_038dd968b19a0b50",
+      "textbook_grade": 2,
+      "textbook_subject": "美术",
+      "textbook_title": "美术2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_71f81abdb1ada818",
+      "evidence_refs": [
+        "standard:AR-D1-AE-012:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D1-AE-012",
+      "target_code": "AR-D2-AE-012",
+      "target_label": "在合奏中能遵循指挥或约定，做到进入与停止准确，能倾听并与同伴保持节拍同步，完成简单合奏织体。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_0241f53df7a49de2",
+      "component_ids": [
+        "lc_e20b52eb532d23da"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生选择合适的表现形式与材料，在给定情境或主题下进行创编与表演。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够选择合适的表现形式与材料，在给定情境或主题下进行创编与表演；优先采集：表演视频、节奏卡作品、教师量表（选择恰当/配合/创编）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择合适的表现形式与材料，在给定情境或主题下进行创编与表演；能编创简单节奏或旋律为表演配乐或配节奏。",
+          "excerpt_hash": "7eee16ba2af0374da6d18f2070570287b27fad82bed8e84326961d897d1a103f",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AE-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_e20b52eb532d23da",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择合适的表现形式与材料，在给定情境或主题下进行创编与表演",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择合适的表现形式与材料，在给定情境或主题下进行创编与表演，并说明关键步骤、特征或依据。",
+      "label": "选择合适的表现形式与材料，在给定情境或主题下进行创编与表演",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择合适的表现形式与材料，在给定情境或主题下进行创编与表演；优先采集：表演视频、节奏卡作品、教师量表（选择恰当/配合/创编）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择合适的表现形式与材料，在给定情境或主题下进行创编与表演",
+          "excerpt_hash": "fb4f77274e4fa5157480a9d734baf35cc3478c414b0c8fcd2d0dbb79b4d0f90b",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AE-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择合适的表现形式与材料，在给定情境或主题下进行创编与表演"
+    },
+    {
+      "component_id": "lc_d3fbe4528869f8b5",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够编创简单节奏或旋律为表演配乐或配节奏",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生编创简单节奏或旋律为表演配乐或配节奏，并说明关键步骤、特征或依据。",
+      "label": "编创简单节奏或旋律为表演配乐或配节奏",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够编创简单节奏或旋律为表演配乐或配节奏；优先采集：表演视频、节奏卡作品、教师量表（选择恰当/配合/创编）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "编创简单节奏或旋律为表演配乐或配节奏",
+          "excerpt_hash": "ce2b993304f6ac8fc41b8b2bc5c86bc429dbd9bf737b4857209051610ffa1c8c",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AE-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "编创简单节奏或旋律为表演配乐或配节奏"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "7eee16ba2af0374da6d18f2070570287b27fad82bed8e84326961d897d1a103f",
+  "standard_code": "AR-D1-AE-012",
+  "verified_prerequisites": []
+}

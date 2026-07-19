@@ -1,0 +1,304 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_75b65aee19382fe2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生按规则分类并保证信息清晰的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c42125ef8e93923b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_17960c6895044369",
+        "hc_744e52394fcdbeaf",
+        "hc_881a0d45c09e7ded"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“按规则分类并保证信息清晰”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“按规则分类并保证信息清晰”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在模拟或真实场景中完成物品分拣、打包与贴签，能按规则分类并保证信息清晰，体验服务业的细致与责任。",
+          "excerpt_hash": "b1abd8b116749b7fea9627d1d7d5212e1a62598e52e410f337fd5e0421831475",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先示范“分类规则”；贴签强调位置统一与信息完整；分工（分拣/打包/复核）。",
+          "excerpt_hash": "2ce6d6b062905df68b18268ba6337548ec98484140808f23d65e207be4f55475",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-SL-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后按规则分类并保证信息清晰，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“按规则分类并保证信息清晰”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“先示范“分类规则””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_75b65aee19382fe2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生按规则分类并保证信息清晰的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_35459daeca4593ca",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_17960c6895044369",
+        "hc_744e52394fcdbeaf",
+        "hc_881a0d45c09e7ded"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“按规则分类并保证信息清晰”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“按规则分类并保证信息清晰”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在模拟或真实场景中完成物品分拣、打包与贴签，能按规则分类并保证信息清晰，体验服务业的细致与责任。",
+          "excerpt_hash": "b1abd8b116749b7fea9627d1d7d5212e1a62598e52e410f337fd5e0421831475",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先示范“分类规则”；贴签强调位置统一与信息完整；分工（分拣/打包/复核）。",
+          "excerpt_hash": "2ce6d6b062905df68b18268ba6337548ec98484140808f23d65e207be4f55475",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-SL-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后按规则分类并保证信息清晰，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“按规则分类并保证信息清晰”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“先示范“分类规则””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_c4050001eb69e632",
+      "evidence_refs": [
+        "standard:LA-D2-SL-003:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-SL-003",
+      "target_code": "LA-D3-SL-003",
+      "target_label": "能策划并执行一次班级小型服务活动（如迎新、阅读推广、校园导览），能完成分工、物资准备、现场执行与总结。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_17960c6895044369",
+      "component_ids": [
+        "lc_86a791e14f1aea8e",
+        "lc_75b65aee19382fe2",
+        "lc_88d96f31eebf4417"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成物品分拣、打包与贴签。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在模拟或真实场景中，能够完成物品分拣、打包与贴签；优先采集：分拣正确率、复核记录、教师观察。",
+        "学生在模拟或真实场景中，能够按规则分类并保证信息清晰；优先采集：分拣正确率、复核记录、教师观察。",
+        "学生在模拟或真实场景中，能够参与相关活动并描述服务业的细致与责任；优先采集：分拣正确率、复核记录、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在模拟或真实场景中完成物品分拣、打包与贴签，能按规则分类并保证信息清晰，体验服务业的细致与责任。",
+          "excerpt_hash": "b1abd8b116749b7fea9627d1d7d5212e1a62598e52e410f337fd5e0421831475",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_744e52394fcdbeaf",
+      "component_ids": [
+        "lc_75b65aee19382fe2"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生按规则分类并保证信息清晰。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在模拟或真实场景中，能够按规则分类并保证信息清晰；优先采集：分拣正确率、复核记录、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在模拟或真实场景中完成物品分拣、打包与贴签，能按规则分类并保证信息清晰，体验服务业的细致与责任。",
+          "excerpt_hash": "b1abd8b116749b7fea9627d1d7d5212e1a62598e52e410f337fd5e0421831475",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_881a0d45c09e7ded",
+      "component_ids": [
+        "lc_75b65aee19382fe2"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "清晰"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生按规则分类并保证信息清晰。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在模拟或真实场景中，能够按规则分类并保证信息清晰；优先采集：分拣正确率、复核记录、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在模拟或真实场景中完成物品分拣、打包与贴签，能按规则分类并保证信息清晰，体验服务业的细致与责任。",
+          "excerpt_hash": "b1abd8b116749b7fea9627d1d7d5212e1a62598e52e410f337fd5e0421831475",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（清晰）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_86a791e14f1aea8e",
+      "component_type": "procedural",
+      "condition": "在模拟或真实场景中",
+      "confidence": 0.72,
+      "description": "学生在模拟或真实场景中，能够完成物品分拣、打包与贴签",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在模拟或真实场景中”的诊断任务，要求学生完成物品分拣、打包与贴签，并说明关键步骤、特征或依据。",
+      "label": "完成物品分拣、打包与贴签",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在模拟或真实场景中，能够完成物品分拣、打包与贴签；优先采集：分拣正确率、复核记录、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在模拟或真实场景中完成物品分拣、打包与贴签，能按规则分类并保证信息清晰，体验服务业的细致与责任。",
+          "excerpt_hash": "b1abd8b116749b7fea9627d1d7d5212e1a62598e52e410f337fd5e0421831475",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成物品分拣、打包与贴签"
+    },
+    {
+      "component_id": "lc_75b65aee19382fe2",
+      "component_type": "conceptual",
+      "condition": "在模拟或真实场景中",
+      "confidence": 0.72,
+      "description": "学生在模拟或真实场景中，能够按规则分类并保证信息清晰",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在模拟或真实场景中”的诊断任务，要求学生按规则分类并保证信息清晰，并说明关键步骤、特征或依据。",
+      "label": "按规则分类并保证信息清晰",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在模拟或真实场景中，能够按规则分类并保证信息清晰；优先采集：分拣正确率、复核记录、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在模拟或真实场景中完成物品分拣、打包与贴签，能按规则分类并保证信息清晰，体验服务业的细致与责任。",
+          "excerpt_hash": "b1abd8b116749b7fea9627d1d7d5212e1a62598e52e410f337fd5e0421831475",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按规则分类并保证信息清晰"
+    },
+    {
+      "component_id": "lc_88d96f31eebf4417",
+      "component_type": "disposition",
+      "condition": "在模拟或真实场景中",
+      "confidence": 0.72,
+      "description": "学生在模拟或真实场景中，能够参与相关活动并描述服务业的细致与责任",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在模拟或真实场景中”的诊断任务，要求学生参与相关活动并描述服务业的细致与责任，并说明关键步骤、特征或依据。",
+      "label": "参与相关活动并描述服务业的细致与责任",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在模拟或真实场景中，能够参与相关活动并描述服务业的细致与责任；优先采集：分拣正确率、复核记录、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在模拟或真实场景中完成物品分拣、打包与贴签，能按规则分类并保证信息清晰，体验服务业的细致与责任。",
+          "excerpt_hash": "b1abd8b116749b7fea9627d1d7d5212e1a62598e52e410f337fd5e0421831475",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体验服务业的细致与责任"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b1abd8b116749b7fea9627d1d7d5212e1a62598e52e410f337fd5e0421831475",
+  "standard_code": "LA-D2-SL-003",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,385 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_70cddef81e6dd304",
+        "lc_c2b125eaba0f3d8c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别顺序、分支、循环三种基本控制结构（及其组合）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_653cc80d318564a4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d3e108314c4d7554",
+        "hc_96a329a9ae3f27de"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“识别顺序、分支、循环三种基本控制结构（及其组合）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别顺序、分支、循环三种基本控制结构（及其组合）”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在具体问题情境中识别并运用顺序、分支、循环三种基本控制结构（及其组合），并能根据给定输入分析简单算法的执行过程与输出结果。",
+          "excerpt_hash": "8eb347e272fdccbc7fce67deb732bf0cde51034cc6bedda86baf80ab16bd280c",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【用“走一遍”理解控制结构】\n(1) 用可视化走读：给出流程图/伪代码，让学生扮演“执行器”，按箭头/语句逐步执行并在表格里记录变量或状态变化。\n(2) 控制结构从“规则”入手：顺序=按步骤做；分支=满足条件选路径；循环=重复直到结束条件。\n(3) 设计小挑战：①补全判断条件；②把口头规则改写为分支/循环；③找出算法中‘循环结束条件’是否合理。\n(4) 分层：基础层做单一结构，提升层做结构嵌套（循环里有分支）。",
+          "excerpt_hash": "0e2935ac1f7363431218331f4e3ae0c06214c7e7b328878f159931cc79e2cf3c",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别顺序、分支、循环三种基本控制结构（及其组合），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别顺序、分支、循环三种基本控制结构（及其组合）”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“【用“走一遍”理解控制结构】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_c2b125eaba0f3d8c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用顺序、分支、循环三种基本控制结构（及其组合）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c23ba48ca1f391d9",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d3e108314c4d7554",
+        "hc_96a329a9ae3f27de"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用顺序、分支、循环三种基本控制结构（及其组合）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用顺序、分支、循环三种基本控制结构（及其组合）”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在具体问题情境中识别并运用顺序、分支、循环三种基本控制结构（及其组合），并能根据给定输入分析简单算法的执行过程与输出结果。",
+          "excerpt_hash": "8eb347e272fdccbc7fce67deb732bf0cde51034cc6bedda86baf80ab16bd280c",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【用“走一遍”理解控制结构】\n(1) 用可视化走读：给出流程图/伪代码，让学生扮演“执行器”，按箭头/语句逐步执行并在表格里记录变量或状态变化。\n(2) 控制结构从“规则”入手：顺序=按步骤做；分支=满足条件选路径；循环=重复直到结束条件。\n(3) 设计小挑战：①补全判断条件；②把口头规则改写为分支/循环；③找出算法中‘循环结束条件’是否合理。\n(4) 分层：基础层做单一结构，提升层做结构嵌套（循环里有分支）。",
+          "excerpt_hash": "0e2935ac1f7363431218331f4e3ae0c06214c7e7b328878f159931cc79e2cf3c",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用顺序、分支、循环三种基本控制结构（及其组合），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用顺序、分支、循环三种基本控制结构（及其组合）”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“【用“走一遍”理解控制结构】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_70cddef81e6dd304"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别顺序、分支、循环三种基本控制结构（及其组合）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3bebccf307dcdc28",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d3e108314c4d7554",
+        "hc_96a329a9ae3f27de"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别顺序、分支、循环三种基本控制结构（及其组合）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别顺序、分支、循环三种基本控制结构（及其组合）”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在具体问题情境中识别并运用顺序、分支、循环三种基本控制结构（及其组合），并能根据给定输入分析简单算法的执行过程与输出结果。",
+          "excerpt_hash": "8eb347e272fdccbc7fce67deb732bf0cde51034cc6bedda86baf80ab16bd280c",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【用“走一遍”理解控制结构】\n(1) 用可视化走读：给出流程图/伪代码，让学生扮演“执行器”，按箭头/语句逐步执行并在表格里记录变量或状态变化。\n(2) 控制结构从“规则”入手：顺序=按步骤做；分支=满足条件选路径；循环=重复直到结束条件。\n(3) 设计小挑战：①补全判断条件；②把口头规则改写为分支/循环；③找出算法中‘循环结束条件’是否合理。\n(4) 分层：基础层做单一结构，提升层做结构嵌套（循环里有分支）。",
+          "excerpt_hash": "0e2935ac1f7363431218331f4e3ae0c06214c7e7b328878f159931cc79e2cf3c",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别顺序、分支、循环三种基本控制结构（及其组合），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别顺序、分支、循环三种基本控制结构（及其组合）”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“【用“走一遍”理解控制结构】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0631,
+      "connection_id": "fc_341557d6e1b680ac",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H3-CS-002",
+      "target_code": "IT-H4G7-CS-001",
+      "target_label": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能通过案例分析理解人工智能；能说明数字工具或数据过程的基本做法。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0543,
+      "connection_id": "fc_1ae6047678957c75",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H3-CS-002",
+      "target_code": "IT-H4G7-CS-002",
+      "target_label": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能根据需求设计并搭建简单物联系统原型；能说明数字工具或数据过程的基本做法。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0398,
+      "connection_id": "fc_4fed242ef4560ab8",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-003:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H3-CS-002",
+      "target_code": "IT-H4G7-CS-003",
+      "target_label": "能尝试运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0307,
+      "connection_id": "fc_ebceec80c290bbfa",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H3-CS-002",
+      "target_code": "IT-H4G7-CS-004",
+      "target_label": "知道网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能说明数字工具或数据过程的基本做法。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0535,
+      "connection_id": "fc_57a9a3c89241a7aa",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-005:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H3-CS-002",
+      "target_code": "IT-H4G7-CS-005",
+      "target_label": "理解物联网、大数据与人工智能之间的关系；能够设计并搭建具备数据采集、实时传输和简单控制功能的简易物联系统；能处理物联设备数据；能说明数字工具或…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_d3e108314c4d7554",
+      "component_ids": [
+        "lc_70cddef81e6dd304",
+        "lc_c2b125eaba0f3d8c",
+        "lc_d7e09f911f0e269c"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别顺序、分支、循环三种基本控制结构（及其组合）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在具体问题情境中，能够识别顺序、分支、循环三种基本控制结构（及其组合）；优先采集：走读表、过程性提问记录、课堂观察。",
+        "学生在具体问题情境中，能够运用顺序、分支、循环三种基本控制结构（及其组合）；优先采集：走读表、过程性提问记录、课堂观察。",
+        "学生在具体问题情境中，能够根据给定输入分析简单算法的执行过程与输出结果；优先采集：走读表、过程性提问记录、课堂观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在具体问题情境中识别并运用顺序、分支、循环三种基本控制结构（及其组合），并能根据给定输入分析简单算法的执行过程与输出结果。",
+          "excerpt_hash": "8eb347e272fdccbc7fce67deb732bf0cde51034cc6bedda86baf80ab16bd280c",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_96a329a9ae3f27de",
+      "component_ids": [
+        "lc_70cddef81e6dd304",
+        "lc_c2b125eaba0f3d8c"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "顺序"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别顺序、分支、循环三种基本控制结构（及其组合）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在具体问题情境中，能够识别顺序、分支、循环三种基本控制结构（及其组合）；优先采集：走读表、过程性提问记录、课堂观察。",
+        "学生在具体问题情境中，能够运用顺序、分支、循环三种基本控制结构（及其组合）；优先采集：走读表、过程性提问记录、课堂观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在具体问题情境中识别并运用顺序、分支、循环三种基本控制结构（及其组合），并能根据给定输入分析简单算法的执行过程与输出结果。",
+          "excerpt_hash": "8eb347e272fdccbc7fce67deb732bf0cde51034cc6bedda86baf80ab16bd280c",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（顺序）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_70cddef81e6dd304",
+      "component_type": "conceptual",
+      "condition": "在具体问题情境中",
+      "confidence": 0.72,
+      "description": "学生在具体问题情境中，能够识别顺序、分支、循环三种基本控制结构（及其组合）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在具体问题情境中”的诊断任务，要求学生识别顺序、分支、循环三种基本控制结构（及其组合），并说明关键步骤、特征或依据。",
+      "label": "识别顺序、分支、循环三种基本控制结构（及其组合）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在具体问题情境中，能够识别顺序、分支、循环三种基本控制结构（及其组合）；优先采集：走读表、过程性提问记录、课堂观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在具体问题情境中识别并运用顺序、分支、循环三种基本控制结构（及其组合），并能根据给定输入分析简单算法的执行过程与输出结果。",
+          "excerpt_hash": "8eb347e272fdccbc7fce67deb732bf0cde51034cc6bedda86baf80ab16bd280c",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别顺序、分支、循环三种基本控制结构（及其组合）"
+    },
+    {
+      "component_id": "lc_c2b125eaba0f3d8c",
+      "component_type": "conceptual",
+      "condition": "在具体问题情境中",
+      "confidence": 0.72,
+      "description": "学生在具体问题情境中，能够运用顺序、分支、循环三种基本控制结构（及其组合）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在具体问题情境中”的诊断任务，要求学生运用顺序、分支、循环三种基本控制结构（及其组合），并说明关键步骤、特征或依据。",
+      "label": "运用顺序、分支、循环三种基本控制结构（及其组合）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在具体问题情境中，能够运用顺序、分支、循环三种基本控制结构（及其组合）；优先采集：走读表、过程性提问记录、课堂观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在具体问题情境中识别并运用顺序、分支、循环三种基本控制结构（及其组合），并能根据给定输入分析简单算法的执行过程与输出结果。",
+          "excerpt_hash": "8eb347e272fdccbc7fce67deb732bf0cde51034cc6bedda86baf80ab16bd280c",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用顺序、分支、循环三种基本控制结构（及其组合）"
+    },
+    {
+      "component_id": "lc_d7e09f911f0e269c",
+      "component_type": "conceptual",
+      "condition": "在具体问题情境中",
+      "confidence": 0.72,
+      "description": "学生在具体问题情境中，能够根据给定输入分析简单算法的执行过程与输出结果",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在具体问题情境中”的诊断任务，要求学生根据给定输入分析简单算法的执行过程与输出结果，并说明关键步骤、特征或依据。",
+      "label": "根据给定输入分析简单算法的执行过程与输出结果",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在具体问题情境中，能够根据给定输入分析简单算法的执行过程与输出结果；优先采集：走读表、过程性提问记录、课堂观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在具体问题情境中识别并运用顺序、分支、循环三种基本控制结构（及其组合），并能根据给定输入分析简单算法的执行过程与输出结果。",
+          "excerpt_hash": "8eb347e272fdccbc7fce67deb732bf0cde51034cc6bedda86baf80ab16bd280c",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据给定输入分析简单算法的执行过程与输出结果"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "8eb347e272fdccbc7fce67deb732bf0cde51034cc6bedda86baf80ab16bd280c",
+  "standard_code": "IT-H3-CS-002",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,278 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_ed71b83726e1765f",
+        "lc_e3aec7d7f594ffed"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过真实案例了解威胁数据安全的因素的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_37ff9e341d20a05c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_6b9997c9d1688a7c",
+        "hc_31e6a6d047ae0924"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“通过真实案例了解威胁数据安全的因素”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过真实案例了解威胁数据安全的因素”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过真实案例了解威胁数据安全的因素，认识自主可控技术对数据安全的意义，能在学习与生活中采用常见防护措施并遵守相关法律法规。",
+          "excerpt_hash": "943503c80632ed52bc6dd220c324fd371e1fc0fe8cc0df916d63d765c6340b7a",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【把数据安全落实为“可执行的防护清单”】\n(1) 通过案例讨论数据泄露的常见原因：弱密码、钓鱼链接、过度授权、公共设备遗留登录等。\n(2) 引导学生理解“自主可控技术/平台”对数据安全的重要性，知道选择正规渠道与可信应用。\n(3) 制作数据安全防护卡：强密码、双重验证、隐私设置、备份、谨慎扫码与下载。\n(4) 渗透与信息相关的法律法规意识：不非法获取/传播他人信息，不随意公开他人隐私。",
+          "excerpt_hash": "fbe336e76ff85b37e07932a84f9e70e8dceb42ad39e8ba0ac7035271db0e07aa",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-SR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过真实案例了解威胁数据安全的因素，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过真实案例了解威胁数据安全的因素”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“【把数据安全落实为“可执行的防护清单”】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_92f60041e04a2356"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出自主可控技术对数据安全的意义的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3469c8305d1f67ae",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_31e6a6d047ae0924"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出自主可控技术对数据安全的意义的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出自主可控技术对数据安全的意义的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过真实案例了解威胁数据安全的因素，认识自主可控技术对数据安全的意义，能在学习与生活中采用常见防护措施并遵守相关法律法规。",
+          "excerpt_hash": "943503c80632ed52bc6dd220c324fd371e1fc0fe8cc0df916d63d765c6340b7a",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【把数据安全落实为“可执行的防护清单”】\n(1) 通过案例讨论数据泄露的常见原因：弱密码、钓鱼链接、过度授权、公共设备遗留登录等。\n(2) 引导学生理解“自主可控技术/平台”对数据安全的重要性，知道选择正规渠道与可信应用。\n(3) 制作数据安全防护卡：强密码、双重验证、隐私设置、备份、谨慎扫码与下载。\n(4) 渗透与信息相关的法律法规意识：不非法获取/传播他人信息，不随意公开他人隐私。",
+          "excerpt_hash": "fbe336e76ff85b37e07932a84f9e70e8dceb42ad39e8ba0ac7035271db0e07aa",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-SR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出自主可控技术对数据安全的意义的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出自主可控技术对数据安全的意义的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“【把数据安全落实为“可执行的防护清单”】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_6b9997c9d1688a7c",
+      "component_ids": [
+        "lc_ed71b83726e1765f",
+        "lc_e3aec7d7f594ffed"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实",
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生通过真实案例了解威胁数据安全的因素。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够通过真实案例了解威胁数据安全的因素；优先采集：自查与整改记录、情境判断题、教师观察。",
+        "学生能够在学习与生活中采用常见防护措施；优先采集：自查与整改记录、情境判断题、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过真实案例了解威胁数据安全的因素，认识自主可控技术对数据安全的意义，能在学习与生活中采用常见防护措施并遵守相关法律法规。",
+          "excerpt_hash": "943503c80632ed52bc6dd220c324fd371e1fc0fe8cc0df916d63d765c6340b7a",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实、生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_31e6a6d047ae0924",
+      "component_ids": [
+        "lc_ed71b83726e1765f",
+        "lc_92f60041e04a2356"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "自主",
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生通过真实案例了解威胁数据安全的因素。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够通过真实案例了解威胁数据安全的因素；优先采集：自查与整改记录、情境判断题、教师观察。",
+        "学生能够识别并说出自主可控技术对数据安全的意义的关键特征；优先采集：自查与整改记录、情境判断题、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过真实案例了解威胁数据安全的因素，认识自主可控技术对数据安全的意义，能在学习与生活中采用常见防护措施并遵守相关法律法规。",
+          "excerpt_hash": "943503c80632ed52bc6dd220c324fd371e1fc0fe8cc0df916d63d765c6340b7a",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（自主、安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ed71b83726e1765f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过真实案例了解威胁数据安全的因素",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过真实案例了解威胁数据安全的因素，并说明关键步骤、特征或依据。",
+      "label": "通过真实案例了解威胁数据安全的因素",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过真实案例了解威胁数据安全的因素；优先采集：自查与整改记录、情境判断题、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过真实案例了解威胁数据安全的因素",
+          "excerpt_hash": "6d069d12ad310366039398e9884ab01d9d31242a236d7310652b9c4b8cff1e2f",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过真实案例了解威胁数据安全的因素"
+    },
+    {
+      "component_id": "lc_92f60041e04a2356",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出自主可控技术对数据安全的意义的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出自主可控技术对数据安全的意义的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出自主可控技术对数据安全的意义的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出自主可控技术对数据安全的意义的关键特征；优先采集：自查与整改记录、情境判断题、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识自主可控技术对数据安全的意义",
+          "excerpt_hash": "6829dd7072ad23e83082d171e40ea6cd33e9fb57e1c436d0904257bd04f1a84d",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认识自主可控技术对数据安全的意义"
+    },
+    {
+      "component_id": "lc_e3aec7d7f594ffed",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在学习与生活中采用常见防护措施",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在学习与生活中采用常见防护措施，并说明关键步骤、特征或依据。",
+      "label": "在学习与生活中采用常见防护措施",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在学习与生活中采用常见防护措施；优先采集：自查与整改记录、情境判断题、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在学习与生活中采用常见防护措施",
+          "excerpt_hash": "cb28ba8221c816e70ac2f88a592c966911f2ddfc1465ccb084a0205cf53db3e1",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在学习与生活中采用常见防护措施"
+    },
+    {
+      "component_id": "lc_704beec67bc540ee",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够遵守相关法律法规",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生遵守相关法律法规，并说明关键步骤、特征或依据。",
+      "label": "遵守相关法律法规",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够遵守相关法律法规；优先采集：自查与整改记录、情境判断题、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "遵守相关法律法规",
+          "excerpt_hash": "7ff76322c12ee89654028b26f3370b61c48c00c31293f30b9096a9b5e910542d",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守相关法律法规"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "943503c80632ed52bc6dd220c324fd371e1fc0fe8cc0df916d63d765c6340b7a",
+  "standard_code": "IT-H2-SR-006",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,524 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_999cec26d287268e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生建模、推理并检验结论的合理性的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_7d7ad26a479c1deb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4bf0c2d25bcf2fc4",
+        "hc_425bcc542e2bd75f"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“建模、推理并检验结论的合理性”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“建模、推理并检验结论的合理性”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用轴对称、旋转、平移进行图案设计；认识并欣赏平移在自然界和现实生活中的应用；能通过具体实例认识平移；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "f287ba6ed803c283a48b47ef6d540487c1b3e36b42090d5b6f21e468613a3827",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-030:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "让学生用参照物描述图形变化，发现图形运动中的距离和角不变量。",
+          "excerpt_hash": "43ecb455c8cfeeee846290013ec4b588316cad6896135e360d3cb391f141be0f",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G9-GE-030:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后建模、推理并检验结论的合理性，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“建模、推理并检验结论的合理性”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“让学生用参照物描述图形变化，发现图形运动中的距离和角不变量。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_8fdde77f2bf25f56",
+        "lc_194c214517bbdac1",
+        "lc_08ba7dd512ca2059"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用轴对称、旋转、平移进行图案设计的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a0e30f2bb7695f8a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f67c5442cb656a57",
+        "hc_4899fdf16887ad86"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用轴对称、旋转、平移进行图案设计”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用轴对称、旋转、平移进行图案设计”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用轴对称、旋转、平移进行图案设计；认识并欣赏平移在自然界和现实生活中的应用；能通过具体实例认识平移；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "f287ba6ed803c283a48b47ef6d540487c1b3e36b42090d5b6f21e468613a3827",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-030:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "让学生用参照物描述图形变化，发现图形运动中的距离和角不变量。",
+          "excerpt_hash": "43ecb455c8cfeeee846290013ec4b588316cad6896135e360d3cb391f141be0f",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G9-GE-030:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用轴对称、旋转、平移进行图案设计，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用轴对称、旋转、平移进行图案设计”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“让学生用参照物描述图形变化，发现图形运动中的距离和角不变量。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_8fdde77f2bf25f56"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用轴对称、旋转、平移进行图案设计的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9a3e997964d81b01",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4899fdf16887ad86"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“运用轴对称、旋转、平移进行图案设计”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用轴对称、旋转、平移进行图案设计”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用轴对称、旋转、平移进行图案设计；认识并欣赏平移在自然界和现实生活中的应用；能通过具体实例认识平移；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "f287ba6ed803c283a48b47ef6d540487c1b3e36b42090d5b6f21e468613a3827",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-030:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "让学生用参照物描述图形变化，发现图形运动中的距离和角不变量。",
+          "excerpt_hash": "43ecb455c8cfeeee846290013ec4b588316cad6896135e360d3cb391f141be0f",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G9-GE-030:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用轴对称、旋转、平移进行图案设计，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用轴对称、旋转、平移进行图案设计”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“让学生用参照物描述图形变化，发现图形运动中的距离和角不变量。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_194c214517bbdac1",
+        "lc_31d3bd30a9ff4000"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出平移在自然界和现实生活中的应用的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_cc8a1179a88c33c2",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f67c5442cb656a57"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出平移在自然界和现实生活中的应用的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出平移在自然界和现实生活中的应用的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用轴对称、旋转、平移进行图案设计；认识并欣赏平移在自然界和现实生活中的应用；能通过具体实例认识平移；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "f287ba6ed803c283a48b47ef6d540487c1b3e36b42090d5b6f21e468613a3827",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-030:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "让学生用参照物描述图形变化，发现图形运动中的距离和角不变量。",
+          "excerpt_hash": "43ecb455c8cfeeee846290013ec4b588316cad6896135e360d3cb391f141be0f",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G9-GE-030:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出平移在自然界和现实生活中的应用的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出平移在自然界和现实生活中的应用的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“让学生用参照物描述图形变化，发现图形运动中的距离和角不变量。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 2,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_819cf6ccaa26b85a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_045c4e32dda3"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d4d9b4cbf0f4520f",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5daa365eb6cbe73d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1e968d721145a524c670",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_286bc7db0209"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3e651d0e242caded",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_4bf0c2d25bcf2fc4",
+      "component_ids": [
+        "lc_999cec26d287268e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "推理"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生建模、推理并检验结论的合理性。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够建模、推理并检验结论的合理性；优先采集：平移作图、图案设计、变化性质说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用轴对称、旋转、平移进行图案设计；认识并欣赏平移在自然界和现实生活中的应用；能通过具体实例认识平移；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "f287ba6ed803c283a48b47ef6d540487c1b3e36b42090d5b6f21e468613a3827",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-030:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（推理）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_f67c5442cb656a57",
+      "component_ids": [
+        "lc_194c214517bbdac1",
+        "lc_08ba7dd512ca2059"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出平移在自然界和现实生活中的应用的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出平移在自然界和现实生活中的应用的关键特征；优先采集：平移作图、图案设计、变化性质说明。",
+        "学生能够欣赏平移在自然界和现实生活中的应用；优先采集：平移作图、图案设计、变化性质说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用轴对称、旋转、平移进行图案设计；认识并欣赏平移在自然界和现实生活中的应用；能通过具体实例认识平移；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "f287ba6ed803c283a48b47ef6d540487c1b3e36b42090d5b6f21e468613a3827",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-030:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_4899fdf16887ad86",
+      "component_ids": [
+        "lc_8fdde77f2bf25f56"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生运用轴对称、旋转、平移进行图案设计。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够运用轴对称、旋转、平移进行图案设计；优先采集：平移作图、图案设计、变化性质说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用轴对称、旋转、平移进行图案设计；认识并欣赏平移在自然界和现实生活中的应用；能通过具体实例认识平移；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "f287ba6ed803c283a48b47ef6d540487c1b3e36b42090d5b6f21e468613a3827",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-030:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_425bcc542e2bd75f",
+      "component_ids": [
+        "lc_999cec26d287268e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生建模、推理并检验结论的合理性。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够建模、推理并检验结论的合理性；优先采集：平移作图、图案设计、变化性质说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用轴对称、旋转、平移进行图案设计；认识并欣赏平移在自然界和现实生活中的应用；能通过具体实例认识平移；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "f287ba6ed803c283a48b47ef6d540487c1b3e36b42090d5b6f21e468613a3827",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-030:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_8fdde77f2bf25f56",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用轴对称、旋转、平移进行图案设计",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用轴对称、旋转、平移进行图案设计，并说明关键步骤、特征或依据。",
+      "label": "运用轴对称、旋转、平移进行图案设计",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用轴对称、旋转、平移进行图案设计；优先采集：平移作图、图案设计、变化性质说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用轴对称、旋转、平移进行图案设计",
+          "excerpt_hash": "6a7e92aea442d68ccb9779fbb7cf5a5da2da57070f083e137c8ccf37bf57830f",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-030:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用轴对称、旋转、平移进行图案设计"
+    },
+    {
+      "component_id": "lc_194c214517bbdac1",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出平移在自然界和现实生活中的应用的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出平移在自然界和现实生活中的应用的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出平移在自然界和现实生活中的应用的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出平移在自然界和现实生活中的应用的关键特征；优先采集：平移作图、图案设计、变化性质说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识并欣赏平移在自然界和现实生活中的应用",
+          "excerpt_hash": "3ce7a175c11cdb3a0aeb89b5450c2d80535d67d0e48f888aa7fd3588ea01466c",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-030:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认识平移在自然界和现实生活中的应用"
+    },
+    {
+      "component_id": "lc_08ba7dd512ca2059",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够欣赏平移在自然界和现实生活中的应用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生欣赏平移在自然界和现实生活中的应用，并说明关键步骤、特征或依据。",
+      "label": "欣赏平移在自然界和现实生活中的应用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够欣赏平移在自然界和现实生活中的应用；优先采集：平移作图、图案设计、变化性质说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "欣赏平移在自然界和现实生活中的应用",
+          "excerpt_hash": "18a07734f069c64633bdbf45e1c1b5f0bdaf21bc2d7a01fb56dc7d7dfebc9342",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-030:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "欣赏平移在自然界和现实生活中的应用"
+    },
+    {
+      "component_id": "lc_31d3bd30a9ff4000",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过具体实例认识平移",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过具体实例认识平移，并说明关键步骤、特征或依据。",
+      "label": "通过具体实例认识平移",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过具体实例认识平移；优先采集：平移作图、图案设计、变化性质说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过具体实例认识平移",
+          "excerpt_hash": "3201cac7c60e8d9648a032538c74440be665ddaf5efd97c69b69ed7c09da09c7",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-030:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过具体实例认识平移"
+    },
+    {
+      "component_id": "lc_999cec26d287268e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、推理并检验结论的合理性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、推理并检验结论的合理性，并说明关键步骤、特征或依据。",
+      "label": "建模、推理并检验结论的合理性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、推理并检验结论的合理性；优先采集：平移作图、图案设计、变化性质说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、推理并检验结论的合理性",
+          "excerpt_hash": "b52727f75af831b3e75e1ca5dabdf7c86123edea8c71f6f98dcbf5b28a377c73",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-030:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、推理并检验结论的合理性"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_b236f894a0852141",
+      "evidence_refs": [
+        "standard:MA-H4G9-GE-030:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-H4G8-GE-029",
+      "source_label": "能运用轴对称、旋转、平移进行图案设计；认识并欣赏平移在自然界和现实生活中的应用；能通过具体实例认识平移；能比较方法并解释数量、图形或数据关系。",
+      "target_code": "MA-H4G9-GE-030",
+      "target_label": "能运用轴对称、旋转、平移进行图案设计；认识并欣赏平移在自然界和现实生活中的应用；能通过具体实例认识平移；能建模、推理并检验结论的合理性。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f287ba6ed803c283a48b47ef6d540487c1b3e36b42090d5b6f21e468613a3827",
+  "standard_code": "MA-H4G9-GE-030",
+  "verified_prerequisites": []
+}

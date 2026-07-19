@@ -1,0 +1,198 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_81a6a4a9eab5bbb7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生完成简单装配任务（如纸结构/积木/套件）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_463342f63d82f40b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_429ccff299474d4c"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“完成简单装配任务（如纸结构/积木/套件）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“完成简单装配任务（如纸结构/积木/套件）”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在模拟情境中完成简单装配任务（如纸结构/积木/套件），能按标准进行质量检查（牢固、对齐、可用），并能记录返工原因。",
+          "excerpt_hash": "59622213bd2933459f12d67669d97045843c0231895580aa9e6d5a218b975ffc",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "给出“标准样品”与检查清单；把返工当作学习；分工（装配/质检/记录）。",
+          "excerpt_hash": "d07c3eb923ebebf635eb9bfc3014da3068f17e497a5512b36e876f2bfd6c581a",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-PL-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后完成简单装配任务（如纸结构/积木/套件），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“完成简单装配任务（如纸结构/积木/套件）”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“给出“标准样品”与检查清单”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_0dd6932be9d1152d",
+      "evidence_refs": [
+        "standard:LA-D2-PL-007:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-PL-007",
+      "target_code": "LA-D3-PL-007",
+      "target_label": "能在装配线模拟活动中按标准作业，理解节拍与质量控制的关系，能记录缺陷并进行返工改进。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_429ccff299474d4c",
+      "component_ids": [
+        "lc_81a6a4a9eab5bbb7",
+        "lc_1825bd8625e40937",
+        "lc_3d1f77ea7d3abeff"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成简单装配任务（如纸结构/积木/套件）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在模拟情境中，能够完成简单装配任务（如纸结构/积木/套件）；优先采集：成品、质检清单、返工记录。",
+        "学生在模拟情境中，能够按标准进行质量检查（牢固、对齐、可用）；优先采集：成品、质检清单、返工记录。",
+        "学生在模拟情境中，能够记录返工原因；优先采集：成品、质检清单、返工记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在模拟情境中完成简单装配任务（如纸结构/积木/套件），能按标准进行质量检查（牢固、对齐、可用），并能记录返工原因。",
+          "excerpt_hash": "59622213bd2933459f12d67669d97045843c0231895580aa9e6d5a218b975ffc",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_81a6a4a9eab5bbb7",
+      "component_type": "procedural",
+      "condition": "在模拟情境中",
+      "confidence": 0.72,
+      "description": "学生在模拟情境中，能够完成简单装配任务（如纸结构/积木/套件）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在模拟情境中”的诊断任务，要求学生完成简单装配任务（如纸结构/积木/套件），并说明关键步骤、特征或依据。",
+      "label": "完成简单装配任务（如纸结构/积木/套件）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在模拟情境中，能够完成简单装配任务（如纸结构/积木/套件）；优先采集：成品、质检清单、返工记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在模拟情境中完成简单装配任务（如纸结构/积木/套件），能按标准进行质量检查（牢固、对齐、可用），并能记录返工原因。",
+          "excerpt_hash": "59622213bd2933459f12d67669d97045843c0231895580aa9e6d5a218b975ffc",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成简单装配任务（如纸结构/积木/套件）"
+    },
+    {
+      "component_id": "lc_1825bd8625e40937",
+      "component_type": "conceptual",
+      "condition": "在模拟情境中",
+      "confidence": 0.72,
+      "description": "学生在模拟情境中，能够按标准进行质量检查（牢固、对齐、可用）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在模拟情境中”的诊断任务，要求学生按标准进行质量检查（牢固、对齐、可用），并说明关键步骤、特征或依据。",
+      "label": "按标准进行质量检查（牢固、对齐、可用）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在模拟情境中，能够按标准进行质量检查（牢固、对齐、可用）；优先采集：成品、质检清单、返工记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在模拟情境中完成简单装配任务（如纸结构/积木/套件），能按标准进行质量检查（牢固、对齐、可用），并能记录返工原因。",
+          "excerpt_hash": "59622213bd2933459f12d67669d97045843c0231895580aa9e6d5a218b975ffc",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按标准进行质量检查（牢固、对齐、可用）"
+    },
+    {
+      "component_id": "lc_3d1f77ea7d3abeff",
+      "component_type": "conceptual",
+      "condition": "在模拟情境中",
+      "confidence": 0.72,
+      "description": "学生在模拟情境中，能够记录返工原因",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在模拟情境中”的诊断任务，要求学生记录返工原因，并说明关键步骤、特征或依据。",
+      "label": "记录返工原因",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在模拟情境中，能够记录返工原因；优先采集：成品、质检清单、返工记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在模拟情境中完成简单装配任务（如纸结构/积木/套件），能按标准进行质量检查（牢固、对齐、可用），并能记录返工原因。",
+          "excerpt_hash": "59622213bd2933459f12d67669d97045843c0231895580aa9e6d5a218b975ffc",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "记录返工原因"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "59622213bd2933459f12d67669d97045843c0231895580aa9e6d5a218b975ffc",
+  "standard_code": "LA-D2-PL-007",
+  "verified_prerequisites": []
+}

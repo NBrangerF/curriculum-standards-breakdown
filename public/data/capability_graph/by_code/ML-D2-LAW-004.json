@@ -1,0 +1,327 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_c4a99f6356363a89"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明国家统一和民族团结的重要性的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0de0d29df48a22e6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_93e9b358d67c31b0"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明国家统一和民族团结的重要性”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明国家统一和民族团结的重要性”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说明国家统一和民族团结的重要性，了解宪法中相关基本规定，并在言行上尊重不同民族文化、维护团结。",
+          "excerpt_hash": "fe027dbc1941ad4de5d2102a4031489c8468d412f7be47c1e49ecb465d7b61fd",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-LAW-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把领土与民族团结内容与国情学习联动，引导学生理解宪法相关规定的意义；用典型故事与事件培养维护国家统一与民族团结的情感认同与行动意识。",
+          "excerpt_hash": "d2c8afcde4bfd22af6f02965a10e244038d4f2008ff980c2fd3547b022ff0578",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-LAW-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明国家统一和民族团结的重要性，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明国家统一和民族团结的重要性”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把领土与民族团结内容与国情学习联动，引导学生理解宪法相关规定的意义”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_34173672914f93aa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_49c68a8031fd5b545d9f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c4a8334099f0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4eabffd55a81e2eb",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1cb39792a7d3aba8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7751decca7f37a1d323e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2d734af455c0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4fcca84971a83ec4",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_218ffa8be1614e0b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_abbd5db6223f36ab3c5c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9d06bc550436"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_bcb8fe719c29a97c",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1ae83e819e104764",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b23dbf8aedd84cd3888f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6d8e93064e1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_85e4b38d814a5d4c",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_f824118d22188a3e",
+      "evidence_refs": [
+        "standard:ML-D2-LAW-004:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D2-LAW-004",
+      "target_code": "ML-D3-LAW-002",
+      "target_label": "能说出宪法作为国家根本法的地位，能列举宪法中与公民权利义务相关的要点，能在校园生活中用规则与法治观念约束自身行为。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_93e9b358d67c31b0",
+      "component_ids": [
+        "lc_c4a99f6356363a89"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明国家统一和民族团结的重要性。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明国家统一和民族团结的重要性；优先采集：学习单、讨论表现、行为观察（尊重与团结）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说明国家统一和民族团结的重要性，了解宪法中相关基本规定，并在言行上尊重不同民族文化、维护团结。",
+          "excerpt_hash": "fe027dbc1941ad4de5d2102a4031489c8468d412f7be47c1e49ecb465d7b61fd",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-LAW-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_143e2680e7e47a5c",
+      "component_ids": [
+        "lc_70e55d2bdd33401d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出宪法中相关基本规定，并在言行上尊重不同民族文化、维护团结的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出宪法中相关基本规定，并在言行上尊重不同民族文化、维护团结的关键特征；优先采集：学习单、讨论表现、行为观察（尊重与团结）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说明国家统一和民族团结的重要性，了解宪法中相关基本规定，并在言行上尊重不同民族文化、维护团结。",
+          "excerpt_hash": "fe027dbc1941ad4de5d2102a4031489c8468d412f7be47c1e49ecb465d7b61fd",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-LAW-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c4a99f6356363a89",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明国家统一和民族团结的重要性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明国家统一和民族团结的重要性，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明国家统一和民族团结的重要性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明国家统一和民族团结的重要性；优先采集：学习单、讨论表现、行为观察（尊重与团结）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明国家统一和民族团结的重要性",
+          "excerpt_hash": "c2f60f8342d00f2733338ce309bec68d9989fd2cad0125a6e6d8bfd6c6adc5ec",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-LAW-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明国家统一和民族团结的重要性"
+    },
+    {
+      "component_id": "lc_70e55d2bdd33401d",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出宪法中相关基本规定，并在言行上尊重不同民族文化、维护团结的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出宪法中相关基本规定，并在言行上尊重不同民族文化、维护团结的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出宪法中相关基本规定，并在言行上尊重不同民族文化、维护团结的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出宪法中相关基本规定，并在言行上尊重不同民族文化、维护团结的关键特征；优先采集：学习单、讨论表现、行为观察（尊重与团结）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解宪法中相关基本规定，并在言行上尊重不同民族文化、维护团结",
+          "excerpt_hash": "b24f83ce95ad08d383e807ed30f179319d6a7c25830acf92eb604f237b0d3f1d",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-LAW-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解宪法中相关基本规定，并在言行上尊重不同民族文化、维护团结"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "fe027dbc1941ad4de5d2102a4031489c8468d412f7be47c1e49ecb465d7b61fd",
+  "standard_code": "ML-D2-LAW-004",
+  "verified_prerequisites": []
+}

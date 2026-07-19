@@ -1,0 +1,296 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_c5ede6bfad1b134b"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生识别并说出人造卫星和载人航天的历史，知道太空环境对人体健康的影响的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b33387a956e6be4d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ac630414cdbbc71e"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“识别并说出人造卫星和载人航天的历史，知道太空环境对人体健康的影响的关键特征”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解人造卫星和载人航天的历史，知道太空环境对人体健康的影响，关注我国航天事业的进展。",
+          "excerpt_hash": "25f9b59f69abb48e6a7138f19a51864c4c1863a051f29ef478ff9e2101d88024",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“借助信息技术手段，让学生通过观看动画演示或纪录片，加深对天体系统的大小、相对位置、层次等概念的认识。”",
+          "excerpt_hash": "0327e762023d8954100138ea129ed20cdd35c1a676e5e8e286af2244352eda13",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-SC-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出人造卫星和载人航天的历史，知道太空环境对人体健康的影响的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出人造卫星和载人航天的历史，知道太空环境对人体健康的影响的关键特征”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：““借助信息技术手段，让学生通过观看动画演示或纪录片，加深对天体系统的大小、相对位置、层次等概念的认识。””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_13ab28c4927bd19b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5d8c5902b781b5de5f03",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d39057261769"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c22c450af4b9046",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2f789a2bdedf0153",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e1c8e586d87fc9",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_62f37f6e445ef0cc",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7c85e6846ee2baf665b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b6340ce96157"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_208d54146f4a9b68",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c6bd473f49366aac",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a04b8a546cf314368898",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6a5186074181"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_426c7beba471c1cd",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1493,
+      "connection_id": "fc_266c095a1fe9ef20",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-046:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-007",
+      "target_code": "SC-H4G7-SC-046",
+      "target_label": "了解开发太空资源和外层空间面临的挑战；了解人造地球卫星主要类型和应用；能关注我国空间站建设和深空探测事业进展；能用观察证据说明基本科学概念。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ac630414cdbbc71e",
+      "component_ids": [
+        "lc_c5ede6bfad1b134b",
+        "lc_a55e5c1eeb51ef0b"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出人造卫星和载人航天的历史，知道太空环境对人体健康的影响的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出人造卫星和载人航天的历史，知道太空环境对人体健康的影响的关键特征；优先采集：模型/作品、口头/书面汇报。",
+        "学生能够持续收集并说明我国航天事业的进展的关键信息；优先采集：模型/作品、口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解人造卫星和载人航天的历史，知道太空环境对人体健康的影响，关注我国航天事业的进展。",
+          "excerpt_hash": "25f9b59f69abb48e6a7138f19a51864c4c1863a051f29ef478ff9e2101d88024",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "识别并说出人造卫星和载人航天的历史，知道太空环境对人体健康的影响的关键特征；持续收集并说明我国航天事业的进展的关键信息",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c5ede6bfad1b134b",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出人造卫星和载人航天的历史，知道太空环境对人体健康的影响的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出人造卫星和载人航天的历史，知道太空环境对人体健康的影响的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出人造卫星和载人航天的历史，知道太空环境对人体健康的影响的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出人造卫星和载人航天的历史，知道太空环境对人体健康的影响的关键特征；优先采集：模型/作品、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解人造卫星和载人航天的历史，知道太空环境对人体健康的影响",
+          "excerpt_hash": "b86683a570d868996b6ba9f504f2d8bede9cb08c0289a9ba90a1ecd57eda2923",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解人造卫星和载人航天的历史，知道太空环境对人体健康的影响"
+    },
+    {
+      "component_id": "lc_a55e5c1eeb51ef0b",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够持续收集并说明我国航天事业的进展的关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生持续收集并说明我国航天事业的进展的关键信息，并保留可回查的口头、书面或操作过程证据。",
+      "label": "持续收集并说明我国航天事业的进展的关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够持续收集并说明我国航天事业的进展的关键信息；优先采集：模型/作品、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "关注我国航天事业的进展",
+          "excerpt_hash": "87c7ae7d42f6fd591420c136d2504bdd65ddbc9a5fe0529fc25110cceb6936c4",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "关注我国航天事业的进展"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "25f9b59f69abb48e6a7138f19a51864c4c1863a051f29ef478ff9e2101d88024",
+  "standard_code": "SC-D3-SC-007",
+  "verified_prerequisites": []
+}

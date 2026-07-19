@@ -1,0 +1,303 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_cf02659d275015f1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明选择理由，学会用符号进行恰当表达的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_95e9882db0da98db",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_474867ffe136fca4",
+        "hc_0b7fce74a01833f4",
+        "hc_8eb895216985f211"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明选择理由，学会用符号进行恰当表达”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明选择理由，学会用符号进行恰当表达”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等），并能说明选择理由，学会用符号进行恰当表达。",
+          "excerpt_hash": "5f2d0cd524f8adf684b08d824cb6720600ab226ef37e5b303cdc731223692778",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合语文与美术活动，讨论常见符号的含义与使用场景；强调“符号要与情绪匹配、与对象匹配”，避免误解。可用同一条信息的不同符号表达进行对比。",
+          "excerpt_hash": "86bb627f34af5f34cb06a0dba85c49645f8cdf3f6b5d16c18b73dc60ddab5a15",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H1-IC-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明选择理由，学会用符号进行恰当表达，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明选择理由，学会用符号进行恰当表达”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“结合语文与美术活动，讨论常见符号的含义与使用场景”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_f11ffd84b4deaaf0",
+        "lc_cf02659d275015f1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0b7fce74a01833f4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_474867ffe136fca4",
+        "hc_0b7fce74a01833f4",
+        "hc_8eb895216985f211"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等），并能说明选择理由，学会用符号进行恰当表达。",
+          "excerpt_hash": "5f2d0cd524f8adf684b08d824cb6720600ab226ef37e5b303cdc731223692778",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合语文与美术活动，讨论常见符号的含义与使用场景；强调“符号要与情绪匹配、与对象匹配”，避免误解。可用同一条信息的不同符号表达进行对比。",
+          "excerpt_hash": "86bb627f34af5f34cb06a0dba85c49645f8cdf3f6b5d16c18b73dc60ddab5a15",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H1-IC-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“结合语文与美术活动，讨论常见符号的含义与使用场景”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_f11ffd84b4deaaf0",
+        "lc_cf02659d275015f1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b0a629bbf4c444ce",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_474867ffe136fca4",
+        "hc_0b7fce74a01833f4",
+        "hc_8eb895216985f211"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等），并能说明选择理由，学会用符号进行恰当表达。",
+          "excerpt_hash": "5f2d0cd524f8adf684b08d824cb6720600ab226ef37e5b303cdc731223692778",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合语文与美术活动，讨论常见符号的含义与使用场景；强调“符号要与情绪匹配、与对象匹配”，避免误解。可用同一条信息的不同符号表达进行对比。",
+          "excerpt_hash": "86bb627f34af5f34cb06a0dba85c49645f8cdf3f6b5d16c18b73dc60ddab5a15",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H1-IC-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“结合语文与美术活动，讨论常见符号的含义与使用场景”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_474867ffe136fca4",
+      "component_ids": [
+        "lc_cf02659d275015f1"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "理由",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明选择理由，学会用符号进行恰当表达。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明选择理由，学会用符号进行恰当表达；优先采集：情境配对任务、口头解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等），并能说明选择理由，学会用符号进行恰当表达。",
+          "excerpt_hash": "5f2d0cd524f8adf684b08d824cb6720600ab226ef37e5b303cdc731223692778",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（理由、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_0b7fce74a01833f4",
+      "component_ids": [
+        "lc_f11ffd84b4deaaf0",
+        "lc_cf02659d275015f1"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "符号"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）；优先采集：情境配对任务、口头解释。",
+        "学生能够说明选择理由，学会用符号进行恰当表达；优先采集：情境配对任务、口头解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等），并能说明选择理由，学会用符号进行恰当表达。",
+          "excerpt_hash": "5f2d0cd524f8adf684b08d824cb6720600ab226ef37e5b303cdc731223692778",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（符号）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_8eb895216985f211",
+      "component_ids": [
+        "lc_cf02659d275015f1"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "恰当"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明选择理由，学会用符号进行恰当表达。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明选择理由，学会用符号进行恰当表达；优先采集：情境配对任务、口头解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等），并能说明选择理由，学会用符号进行恰当表达。",
+          "excerpt_hash": "5f2d0cd524f8adf684b08d824cb6720600ab226ef37e5b303cdc731223692778",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（恰当）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_f11ffd84b4deaaf0",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等），并说明关键步骤、特征或依据。",
+      "label": "在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）；优先采集：情境配对任务、口头解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）",
+          "excerpt_hash": "effc41218c1e0f1241781b05626c6e7d6d5602bc8ef372dc3de27a68bdea50cb",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在交流中根据想表达的情绪选择合适的表情符号/图形符号（如点赞、笑脸、五星等）"
+    },
+    {
+      "component_id": "lc_cf02659d275015f1",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明选择理由，学会用符号进行恰当表达",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明选择理由，学会用符号进行恰当表达，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明选择理由，学会用符号进行恰当表达",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明选择理由，学会用符号进行恰当表达；优先采集：情境配对任务、口头解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明选择理由，学会用符号进行恰当表达",
+          "excerpt_hash": "9cb3354d87d5fd11cae006b600b6dea578b9f2474f8eed3da3e80eaea71dd079",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明选择理由，学会用符号进行恰当表达"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5f2d0cd524f8adf684b08d824cb6720600ab226ef37e5b303cdc731223692778",
+  "standard_code": "IT-H1-IC-002",
+  "verified_prerequisites": []
+}

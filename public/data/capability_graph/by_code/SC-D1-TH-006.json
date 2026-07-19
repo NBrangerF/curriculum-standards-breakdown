@@ -1,0 +1,276 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_6006ba5dc0f6125b"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生在任务中表现出质疑他人观点的意识并说明行动选择的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2e99ee2da8852548",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“在任务中表现出质疑他人观点的意识并说明行动选择”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "具有质疑他人观点的意识，能从多个角度提出不同看法。",
+          "excerpt_hash": "db3c165b98fce1e7182442a871f73a593ca2aba04eabb3ed2ca11fa16fdffe98",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-TH-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "课堂角色扮演：纸桥“设计师/使用者/检验员”三角互评，提出改进意见。",
+          "excerpt_hash": "89cf850a377105131765ac32ca09d44fbf4f94bb7ba02fc6506675408dd7a384",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D1-TH-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在任务中表现出质疑他人观点的意识并说明行动选择，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在任务中表现出质疑他人观点的意识并说明行动选择”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“课堂角色扮演：纸桥“设计师/使用者/检验员”三角互评，提出改进意见。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_50a89c7377426ef5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_235f10f3b881f14da2dd",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9c1922580c51"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_98253eda762d4fe7",
+      "textbook_grade": 2,
+      "textbook_subject": "科学",
+      "textbook_title": "科学2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_13bc2a1571562492",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_39bf03d33b98808ec109",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_61cdf9935943"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_6aeaa064abb4b45c",
+      "textbook_grade": 1,
+      "textbook_subject": "科学",
+      "textbook_title": "科学1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2cf02408f2ea984f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_39fb4fecf2598e480a00",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c6a468571ede"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5cc75a528e5eb12b",
+      "textbook_grade": 1,
+      "textbook_subject": "科学",
+      "textbook_title": "科学1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a8cc6e10321eb29a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_49615055e95c20adfa72",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_692fcc11ce5e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ae5e5b53fbbeef83",
+      "textbook_grade": 2,
+      "textbook_subject": "科学",
+      "textbook_title": "科学2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_58443f8f1117dc9b",
+      "component_ids": [
+        "lc_86bc43afd8ae3ed5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同",
+        "多个"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生从多个角度提出不同看法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够从多个角度提出不同看法；优先采集：模型/作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "具有质疑他人观点的意识，能从多个角度提出不同看法。",
+          "excerpt_hash": "db3c165b98fce1e7182442a871f73a593ca2aba04eabb3ed2ca11fa16fdffe98",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-TH-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同、多个）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_6006ba5dc0f6125b",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出质疑他人观点的意识并说明行动选择",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出质疑他人观点的意识并说明行动选择，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出质疑他人观点的意识并说明行动选择",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出质疑他人观点的意识并说明行动选择；优先采集：模型/作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "具有质疑他人观点的意识",
+          "excerpt_hash": "75ee9fc221e8288f4ff54050dd605bb74f3da87d30bde90c3240d027203a9e84",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-TH-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "具有质疑他人观点的意识"
+    },
+    {
+      "component_id": "lc_86bc43afd8ae3ed5",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够从多个角度提出不同看法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生从多个角度提出不同看法，并说明关键步骤、特征或依据。",
+      "label": "从多个角度提出不同看法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够从多个角度提出不同看法；优先采集：模型/作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "从多个角度提出不同看法",
+          "excerpt_hash": "e5a531a35ccce8584e7418ba4aaf239d29dcfe09ae213359ee1a47743a8df18f",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-TH-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "从多个角度提出不同看法"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "db3c165b98fce1e7182442a871f73a593ca2aba04eabb3ed2ca11fa16fdffe98",
+  "standard_code": "SC-D1-TH-006",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,264 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_a24a24f1eb2c7624"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生初步在任务中表现出愿意为社会发展和国家建设付出辛勤劳动的意愿并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_984fed915f8fea41",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_73b85e7ce07ccfa5"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“初步在任务中表现出愿意为社会发展和国家建设付出辛勤劳动的意愿并说明选择理由”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步形成愿意为社会发展和国家建设付出辛勤劳动的意愿；能养成不畏艰辛、锐意进取、精益求精、不断创新的精神；能在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "69a1cc3232f5f05dcfaea0b22ea6423ebe2d59534f3e779fc81e48ec04dbd6d2",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将劳动精神评价嵌入真实困难解决、迭代改进和责任承担中。",
+          "excerpt_hash": "1a00d1198b214203593cbc8f878de83b5dfd02667c3608e4d9bb865957a2ded1",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G8-DL-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后初步在任务中表现出愿意为社会发展和国家建设付出辛勤劳动的意愿并说明选择理由，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“初步在任务中表现出愿意为社会发展和国家建设付出辛勤劳动的意愿并说明选择理由”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“将劳动精神评价嵌入真实困难解决、迭代改进和责任承担中。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_4287c8a846762298",
+      "evidence_refs": [
+        "standard:LA-H4G8-DL-009:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-H4G8-DL-009",
+      "target_code": "LA-H4G9-DL-008",
+      "target_label": "能初步形成愿意为社会发展和国家建设付出辛勤劳动的意愿；能养成不畏艰辛、锐意进取、精益求精、不断创新的精神；能在劳动中不断追求品质、精益求精，树…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_73b85e7ce07ccfa5",
+      "component_ids": [
+        "lc_a24a24f1eb2c7624",
+        "lc_b8da8227a3901e77",
+        "lc_cf8cf3e361468b85"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生初步在任务中表现出愿意为社会发展和国家建设付出辛勤劳动的意愿并说明选择理由。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够初步在任务中表现出愿意为社会发展和国家建设付出辛勤劳动的意愿并说明选择理由；优先采集：成长记录、项目复盘、展示交流。",
+        "学生能够在连续任务中稳定表现出不畏艰辛、锐意进取、精益求精、不断创新的精神；优先采集：成长记录、项目复盘、展示交流。",
+        "学生能够在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神；优先采集：成长记录、项目复盘、展示交流。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步形成愿意为社会发展和国家建设付出辛勤劳动的意愿；能养成不畏艰辛、锐意进取、精益求精、不断创新的精神；能在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "69a1cc3232f5f05dcfaea0b22ea6423ebe2d59534f3e779fc81e48ec04dbd6d2",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "初步在任务中表现出愿意为社会发展和国家建设付出辛勤劳动的意愿并说明选择理由；在连续任务中稳定表现出不畏艰辛、锐意进取、精益求精、不断创新的精神；在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_a24a24f1eb2c7624",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够初步在任务中表现出愿意为社会发展和国家建设付出辛勤劳动的意愿并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生初步在任务中表现出愿意为社会发展和国家建设付出辛勤劳动的意愿并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "初步在任务中表现出愿意为社会发展和国家建设付出辛勤劳动的意愿并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够初步在任务中表现出愿意为社会发展和国家建设付出辛勤劳动的意愿并说明选择理由；优先采集：成长记录、项目复盘、展示交流。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步形成愿意为社会发展和国家建设付出辛勤劳动的意愿",
+          "excerpt_hash": "2a112baa05a6cac929bce1f9eefae7e1fbb93936992457970b3e8543c95885a8",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "初步形成愿意为社会发展和国家建设付出辛勤劳动的意愿"
+    },
+    {
+      "component_id": "lc_b8da8227a3901e77",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在连续任务中稳定表现出不畏艰辛、锐意进取、精益求精、不断创新的精神",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在连续任务中稳定表现出不畏艰辛、锐意进取、精益求精、不断创新的精神，并说明关键步骤、特征或依据。",
+      "label": "在连续任务中稳定表现出不畏艰辛、锐意进取、精益求精、不断创新的精神",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在连续任务中稳定表现出不畏艰辛、锐意进取、精益求精、不断创新的精神；优先采集：成长记录、项目复盘、展示交流。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "养成不畏艰辛、锐意进取、精益求精、不断创新的精神",
+          "excerpt_hash": "2ba2b968c9e0f4981218a4919f7c00f66fb7e56e9dee5ae961b2b033a216f0d8",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "养成不畏艰辛、锐意进取、精益求精、不断创新的精神"
+    },
+    {
+      "component_id": "lc_cf8cf3e361468b85",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神，并说明关键步骤、特征或依据。",
+      "label": "在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神；优先采集：成长记录、项目复盘、展示交流。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神",
+          "excerpt_hash": "37972ff8e25652e4ab45cc8404a6ab6057c4c24672b3905f042e741920f0176e",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神"
+    },
+    {
+      "component_id": "lc_20112d5d3f756085",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够规划协作流程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生规划协作流程，并说明关键步骤、特征或依据。",
+      "label": "规划协作流程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够规划协作流程；优先采集：成长记录、项目复盘、展示交流。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "规划协作流程",
+          "excerpt_hash": "4a84ad92a900406a3d30c00b32a9c485273924f5ccc4aa2724f26c9011663634",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "规划协作流程"
+    },
+    {
+      "component_id": "lc_785d7277c2f86aac",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够反思劳动质量",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生反思劳动质量，并说明关键步骤、特征或依据。",
+      "label": "反思劳动质量",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够反思劳动质量；优先采集：成长记录、项目复盘、展示交流。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "反思劳动质量",
+          "excerpt_hash": "7183a8fbee03b379e048527278d4ed6578fdbd0c6cd3aa63470c31916e9cbe23",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思劳动质量"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_7cb0aece52e4fe3b",
+      "evidence_refs": [
+        "standard:LA-H4G8-DL-009:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-H4G7-DL-009",
+      "source_label": "能初步形成愿意为社会发展和国家建设付出辛勤劳动的意愿；能养成不畏艰辛、锐意进取、精益求精、不断创新的精神；能在劳动中不断追求品质、精益求精，树…",
+      "target_code": "LA-H4G8-DL-009",
+      "target_label": "能初步形成愿意为社会发展和国家建设付出辛勤劳动的意愿；能养成不畏艰辛、锐意进取、精益求精、不断创新的精神；能在劳动中不断追求品质、精益求精，树…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "69a1cc3232f5f05dcfaea0b22ea6423ebe2d59534f3e779fc81e48ec04dbd6d2",
+  "standard_code": "LA-H4G8-DL-009",
+  "verified_prerequisites": []
+}

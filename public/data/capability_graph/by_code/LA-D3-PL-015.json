@@ -1,0 +1,169 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_5e65d42471d1bc5a"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生遵守版权与隐私规则的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1d3b0865a348a70e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“遵守版权与隐私规则”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在发布劳动项目的图片/视频或报告时遵守版权与隐私规则，能正确署名与引用来源，体现诚信与合作精神。",
+          "excerpt_hash": "cb28819753646430948940e41f9a251556c3b1f6e6dcdc01a1bc599022d0869b",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-015:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "提供“发布检查清单”（是否含他人脸/是否已授权/素材来源）；引导小组明确署名规则与贡献记录。",
+          "excerpt_hash": "c7beb1425b735053f0755cbd65fa1897c0e4b757983714f4867b01917313ef8a",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-PL-015:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后遵守版权与隐私规则，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“遵守版权与隐私规则”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“提供“发布检查清单”（是否含他人脸/是否已授权/素材来源）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1628,
+      "connection_id": "fc_173d6b74fc256ac9",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-013:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-PL-015",
+      "target_code": "LA-H4G7-PL-013",
+      "target_label": "能选择一至两项新技术进行劳动体验与应用；了解其基本过程、参数和材料范围；能依据设计要求制订方案并完成加工、组装、测试和改进；能按规范完成任务并…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a4a62cdf0f4a09c9",
+      "component_ids": [
+        "lc_ce1d86a6c6e5f90a"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生正确署名与引用来源，体现诚信与合作精神。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在发布劳动项目的图片/视频或报告时，能够正确署名与引用来源，体现诚信与合作精神；优先采集：发布检查单、署名记录、公约。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在发布劳动项目的图片/视频或报告时遵守版权与隐私规则，能正确署名与引用来源，体现诚信与合作精神。",
+          "excerpt_hash": "cb28819753646430948940e41f9a251556c3b1f6e6dcdc01a1bc599022d0869b",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_5e65d42471d1bc5a",
+      "component_type": "conceptual",
+      "condition": "在发布劳动项目的图片/视频或报告时",
+      "confidence": 0.72,
+      "description": "学生在发布劳动项目的图片/视频或报告时，能够遵守版权与隐私规则",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在发布劳动项目的图片/视频或报告时”的诊断任务，要求学生遵守版权与隐私规则，并说明关键步骤、特征或依据。",
+      "label": "遵守版权与隐私规则",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在发布劳动项目的图片/视频或报告时，能够遵守版权与隐私规则；优先采集：发布检查单、署名记录、公约。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在发布劳动项目的图片/视频或报告时遵守版权与隐私规则，能正确署名与引用来源，体现诚信与合作精神。",
+          "excerpt_hash": "cb28819753646430948940e41f9a251556c3b1f6e6dcdc01a1bc599022d0869b",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守版权与隐私规则"
+    },
+    {
+      "component_id": "lc_ce1d86a6c6e5f90a",
+      "component_type": "disposition",
+      "condition": "在发布劳动项目的图片/视频或报告时",
+      "confidence": 0.72,
+      "description": "学生在发布劳动项目的图片/视频或报告时，能够正确署名与引用来源，体现诚信与合作精神",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在发布劳动项目的图片/视频或报告时”的诊断任务，要求学生正确署名与引用来源，体现诚信与合作精神，并说明关键步骤、特征或依据。",
+      "label": "正确署名与引用来源，体现诚信与合作精神",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在发布劳动项目的图片/视频或报告时，能够正确署名与引用来源，体现诚信与合作精神；优先采集：发布检查单、署名记录、公约。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在发布劳动项目的图片/视频或报告时遵守版权与隐私规则，能正确署名与引用来源，体现诚信与合作精神。",
+          "excerpt_hash": "cb28819753646430948940e41f9a251556c3b1f6e6dcdc01a1bc599022d0869b",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "正确署名与引用来源，体现诚信与合作精神"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "cb28819753646430948940e41f9a251556c3b1f6e6dcdc01a1bc599022d0869b",
+  "standard_code": "LA-D3-PL-015",
+  "verified_prerequisites": []
+}

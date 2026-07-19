@@ -1,0 +1,290 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_dfa0c99b8ee4ac99"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生准确说出植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0d206dd4ad05244f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a81325edc3ce0986"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“准确说出植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分。",
+          "excerpt_hash": "a83cd83f7512da0c531a07675fdacf0d979a72b86936d6d006f08f18f4610fd6",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-021:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“创设真实的生产生活情境，将生物体的稳态与调节的抽象知识具象化。；可让学生在种植植物、养殖动物时，了解植物、动物的基本生存条件。”",
+          "excerpt_hash": "12a60c378b3e8a3cc4bee07382b9d2ff17e11654be155a041f56bb6ff02bc8ee",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-SC-021:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后准确说出植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：““创设真实的生产生活情境，将生物体的稳态与调节的抽象知识具象化。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1661da2a6e87c082",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5d8c5902b781b5de5f03",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d39057261769"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c22c450af4b9046",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8d66678f3b7877ef",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e1c8e586d87fc9",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8a0ff482c7394dc9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7c85e6846ee2baf665b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b6340ce96157"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_208d54146f4a9b68",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c80f5febe210b64e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a04b8a546cf314368898",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6a5186074181"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_426c7beba471c1cd",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.143,
+      "connection_id": "fc_f15d78ae03000882",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-020:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-021",
+      "target_code": "SC-H4G7-SC-020",
+      "target_label": "能知道植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响；能描述无机盐和水对生命活动的作用；能知道光合作用的原料、条件、产物和简要过程；…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a81325edc3ce0986",
+      "component_ids": [
+        "lc_dfa0c99b8ee4ac99"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分；优先采集：口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分。",
+          "excerpt_hash": "a83cd83f7512da0c531a07675fdacf0d979a72b86936d6d006f08f18f4610fd6",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "准确说出植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_dfa0c99b8ee4ac99",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分，并说明关键步骤、特征或依据。",
+      "label": "准确说出植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分；优先采集：口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分",
+          "excerpt_hash": "aaecd226c739a058bdc17d93d8d7074d786fb8ff2fcae9f8d4fb63a6127d4793",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_8c41b1b518321219",
+      "evidence_refs": [
+        "standard:SC-D3-SC-021:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D2-SC-022",
+      "source_label": "认识植物的某些结构、动物的某些结构与行为具有维持自身生存的功能。（聚焦生物体的稳态与调节）",
+      "target_code": "SC-D3-SC-021",
+      "target_label": "知道植物可以利用阳光、空气和水分在绿色叶片中制造其生存所需的养分。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a83cd83f7512da0c531a07675fdacf0d979a72b86936d6d006f08f18f4610fd6",
+  "standard_code": "SC-D3-SC-021",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,292 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_42ae2d8424d6c281"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生根据对象和场合作简短发言，语言得体的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9afed150fca7cab4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_95ea7b36944fe561"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“根据对象和场合作简短发言，语言得体”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据对象和场合作简短发言，语言得体。",
+          "excerpt_hash": "4b5a909e781c5cced86c532856d67b65356f76f9c6a1f29199d50e14421888bc",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-CM-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n练“情景卡”——随机抽“在图书馆/在运动会”发言。",
+          "excerpt_hash": "7ac6ca3d8088651690ee805dcc9ece48b7f703b8797582dd180800082f526990",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D3-CM-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据对象和场合作简短发言，语言得体，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据对象和场合作简短发言，语言得体”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“练“情景卡”——随机抽“在图书馆/在运动会”发言。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_25b958e452cbe1ef",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_65220055b0e922eb6a1e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_55b8f47777bf"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_976a991fac37cd16",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f0e529c4136a9df9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_85776c7beb7e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0586c68945959076",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4af99c79252dcbfd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7b1d3a1f3d64378c",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4690fec158aa7c38",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_554cb370438d"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9eee8b9cbaa09aef",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1114,
+      "connection_id": "fc_3ffdb66fac405a90",
+      "evidence_refs": [
+        "standard:CN-H4G7-CM-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-CM-002",
+      "target_code": "CN-H4G7-CM-007",
+      "target_label": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点；能用简短记录或口头表达说明基…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_95ea7b36944fe561",
+      "component_ids": [
+        "lc_42ae2d8424d6c281"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "得体"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据对象和场合作简短发言，语言得体。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据对象和场合作简短发言，语言得体；优先采集：情境表达（口头/书面）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据对象和场合作简短发言，语言得体。",
+          "excerpt_hash": "4b5a909e781c5cced86c532856d67b65356f76f9c6a1f29199d50e14421888bc",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-CM-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（得体）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_42ae2d8424d6c281",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据对象和场合作简短发言，语言得体",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据对象和场合作简短发言，语言得体，并说明关键步骤、特征或依据。",
+      "label": "根据对象和场合作简短发言，语言得体",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据对象和场合作简短发言，语言得体；优先采集：情境表达（口头/书面）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据对象和场合作简短发言，语言得体",
+          "excerpt_hash": "9dfb2d28b22696b8c7ea594d20030fabd9d547a70f8864f8d857a084a780ff86",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-CM-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据对象和场合作简短发言，语言得体"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_f431f8d9887a2e30",
+      "evidence_refs": [
+        "standard:CN-D3-CM-002:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D2-CM-002",
+      "source_label": "按顺序叙述见闻或经历，表达感受与想法。",
+      "target_code": "CN-D3-CM-002",
+      "target_label": "根据对象和场合作简短发言，语言得体。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4b5a909e781c5cced86c532856d67b65356f76f9c6a1f29199d50e14421888bc",
+  "standard_code": "CN-D3-CM-002",
+  "verified_prerequisites": []
+}

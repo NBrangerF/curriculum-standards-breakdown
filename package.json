@@ -16,6 +16,9 @@
         "migrate:code-taxonomy": "tsx scripts/migrate-code-taxonomy.ts --data-root data/internal --apply",
         "build:unified-progression": "tsx scripts/build-unified-progression.ts --data-root data/internal --apply",
         "build:public-data": "node scripts/build-public-data.mjs --source data/internal --output public/data",
+        "capability-graph:build": "node scripts/capability-graph/build_standard_capability_graph.mjs --apply",
+        "capability-graph:check": "node scripts/capability-graph/build_standard_capability_graph.mjs --check",
+        "capability-graph:audit": "node scripts/capability-graph/audit_standard_capability_graph.mjs",
         "build:indexes": "node scripts/build-indexes.js --data-root data/internal && npm run build:public-data",
         "validate:indexes": "node scripts/validate-data-indexes.js --data-root data/internal && node scripts/validate-data-indexes.js --data-root public/data",
         "validate:json": "node scripts/validate-public-json.js --data-root data/internal && node scripts/validate-public-json.js --data-root public/data",
@@ -389,7 +392,7 @@
         "grade7_9:check-release-candidate": "node scripts/grade7_9/check_release_candidate_ui_compat.js",
         "grade7_9:validate": "node scripts/grade7_9/validate_schema.js",
         "grade7_9:manifest": "node scripts/grade7_9/generate_manifest.js",
-        "prebuild": "npm run validate:data-contract && npm run build:indexes && npm run textbooks:relations:build && npm run textbooks:align-all && npm run textbooks:audit-align-all && npm run textbooks:public:build && npm run textbooks:public:audit && npm run prepare:pdfjs && npm run validate:data-trust && npm run build:knowledge-graph-preview && npm run validate:knowledge-graph-preview",
+        "prebuild": "npm run validate:data-contract && npm run build:indexes && npm run textbooks:relations:build && npm run textbooks:align-all && npm run textbooks:audit-align-all && npm run textbooks:public:build && npm run textbooks:public:audit && npm run capability-graph:build && npm run capability-graph:audit && npm run capability-graph:check && npm run build:public-data && npm run validate:public-data && npm run prepare:pdfjs && npm run validate:data-trust && npm run build:knowledge-graph-preview && npm run validate:knowledge-graph-preview",
         "preview": "vite preview"
     },
     "dependencies": {
@@ -413,6 +416,8 @@
     },
     "devDependencies": {
         "@axe-core/playwright": "4.12.1",
+        "@emnapi/core": "1.11.2",
+        "@emnapi/runtime": "1.11.2",
         "@lhci/cli": "0.15.1",
         "@playwright/test": "1.61.1",
         "@storybook/addon-a11y": "10.5.0",

@@ -1,0 +1,430 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_2cee247783428510"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在判断与行动中表现出判断意识和责任感并说明理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b8074c53497eea68",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_36d527f15385be05"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“在判断与行动中表现出判断意识和责任感并说明理由”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在判断与行动中表现出判断意识和责任感并说明理由”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能带来的伦理与安全挑战；能增强判断意识和责任感；认识网络法律法规、伦理道德规范和自主可控技术的重要意义；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "35fedea5feb9e7f6fad8d4bb39a4c86e8c5121fa61e8f0698cfd5aa68bc69503",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "要求学生把规范落实到真实项目分工、资源引用、数据处理和成果发布过程。",
+          "excerpt_hash": "607a63b71839952a1f746ff07ed9d4c70cc242a17a15f6e21afc41e735e923e1",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-SR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在判断与行动中表现出判断意识和责任感并说明理由，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在判断与行动中表现出判断意识和责任感并说明理由”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“要求学生把规范落实到真实项目分工、资源引用、数据处理和成果发布过程。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_68e78ce2e8e39c26"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生评价数字化解决方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_eadbaf231694fe85",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f59f9c901c1017f2"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“评价数字化解决方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“评价数字化解决方案”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能带来的伦理与安全挑战；能增强判断意识和责任感；认识网络法律法规、伦理道德规范和自主可控技术的重要意义；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "35fedea5feb9e7f6fad8d4bb39a4c86e8c5121fa61e8f0698cfd5aa68bc69503",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "要求学生把规范落实到真实项目分工、资源引用、数据处理和成果发布过程。",
+          "excerpt_hash": "607a63b71839952a1f746ff07ed9d4c70cc242a17a15f6e21afc41e735e923e1",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-SR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后评价数字化解决方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“评价数字化解决方案”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“要求学生把规范落实到真实项目分工、资源引用、数据处理和成果发布过程。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_78e806079d7528b8",
+        "lc_68e78ce2e8e39c26"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生设计、测试的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_7c76101f00db5956",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f59f9c901c1017f2"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“设计、测试”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“设计、测试”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能带来的伦理与安全挑战；能增强判断意识和责任感；认识网络法律法规、伦理道德规范和自主可控技术的重要意义；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "35fedea5feb9e7f6fad8d4bb39a4c86e8c5121fa61e8f0698cfd5aa68bc69503",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "要求学生把规范落实到真实项目分工、资源引用、数据处理和成果发布过程。",
+          "excerpt_hash": "607a63b71839952a1f746ff07ed9d4c70cc242a17a15f6e21afc41e735e923e1",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-SR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后设计、测试，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“设计、测试”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“要求学生把规范落实到真实项目分工、资源引用、数据处理和成果发布过程。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_a6e468baf131b66e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出网络法律法规、伦理道德规范和自主可控技术的重要意义的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_775c189a275535ef",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_6a104472a825955a"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出网络法律法规、伦理道德规范和自主可控技术的重要意义的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出网络法律法规、伦理道德规范和自主可控技术的重要意义的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能带来的伦理与安全挑战；能增强判断意识和责任感；认识网络法律法规、伦理道德规范和自主可控技术的重要意义；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "35fedea5feb9e7f6fad8d4bb39a4c86e8c5121fa61e8f0698cfd5aa68bc69503",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "要求学生把规范落实到真实项目分工、资源引用、数据处理和成果发布过程。",
+          "excerpt_hash": "607a63b71839952a1f746ff07ed9d4c70cc242a17a15f6e21afc41e735e923e1",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-SR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出网络法律法规、伦理道德规范和自主可控技术的重要意义的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出网络法律法规、伦理道德规范和自主可控技术的重要意义的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“要求学生把规范落实到真实项目分工、资源引用、数据处理和成果发布过程。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_36d527f15385be05",
+      "component_ids": [
+        "lc_2cee247783428510"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在判断与行动中表现出判断意识和责任感并说明理由。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在判断与行动中表现出判断意识和责任感并说明理由；优先采集：项目规范文档、引用记录、隐私风险检查表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能带来的伦理与安全挑战；能增强判断意识和责任感；认识网络法律法规、伦理道德规范和自主可控技术的重要意义；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "35fedea5feb9e7f6fad8d4bb39a4c86e8c5121fa61e8f0698cfd5aa68bc69503",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_f59f9c901c1017f2",
+      "component_ids": [
+        "lc_78e806079d7528b8",
+        "lc_68e78ce2e8e39c26"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生设计、测试。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够设计、测试；优先采集：项目规范文档、引用记录、隐私风险检查表。",
+        "学生能够评价数字化解决方案；优先采集：项目规范文档、引用记录、隐私风险检查表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能带来的伦理与安全挑战；能增强判断意识和责任感；认识网络法律法规、伦理道德规范和自主可控技术的重要意义；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "35fedea5feb9e7f6fad8d4bb39a4c86e8c5121fa61e8f0698cfd5aa68bc69503",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_6a104472a825955a",
+      "component_ids": [
+        "lc_2d8c2815c3f76682",
+        "lc_a6e468baf131b66e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "自主",
+        "规范",
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生分析人工智能带来的伦理与安全挑战。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够分析人工智能带来的伦理与安全挑战；优先采集：项目规范文档、引用记录、隐私风险检查表。",
+        "学生能够识别并说出网络法律法规、伦理道德规范和自主可控技术的重要意义的关键特征；优先采集：项目规范文档、引用记录、隐私风险检查表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能带来的伦理与安全挑战；能增强判断意识和责任感；认识网络法律法规、伦理道德规范和自主可控技术的重要意义；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "35fedea5feb9e7f6fad8d4bb39a4c86e8c5121fa61e8f0698cfd5aa68bc69503",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（自主、规范、安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_2d8c2815c3f76682",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析人工智能带来的伦理与安全挑战",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析人工智能带来的伦理与安全挑战，并说明关键步骤、特征或依据。",
+      "label": "分析人工智能带来的伦理与安全挑战",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析人工智能带来的伦理与安全挑战；优先采集：项目规范文档、引用记录、隐私风险检查表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能带来的伦理与安全挑战",
+          "excerpt_hash": "79f7e7da1ebc2adb6f9d3c1b5bfd2f14cd9cfaa910abf4963c6ccc82bbe60709",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析人工智能带来的伦理与安全挑战"
+    },
+    {
+      "component_id": "lc_2cee247783428510",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在判断与行动中表现出判断意识和责任感并说明理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在判断与行动中表现出判断意识和责任感并说明理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在判断与行动中表现出判断意识和责任感并说明理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在判断与行动中表现出判断意识和责任感并说明理由；优先采集：项目规范文档、引用记录、隐私风险检查表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "增强判断意识和责任感",
+          "excerpt_hash": "e2c12d429c2b882c478bfd16dceaa689a6a46499eca3d74d990c4e04b376b394",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "增强判断意识和责任感"
+    },
+    {
+      "component_id": "lc_a6e468baf131b66e",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出网络法律法规、伦理道德规范和自主可控技术的重要意义的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出网络法律法规、伦理道德规范和自主可控技术的重要意义的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出网络法律法规、伦理道德规范和自主可控技术的重要意义的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出网络法律法规、伦理道德规范和自主可控技术的重要意义的关键特征；优先采集：项目规范文档、引用记录、隐私风险检查表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识网络法律法规、伦理道德规范和自主可控技术的重要意义",
+          "excerpt_hash": "7cbf808cd9f04287b1ecf7f9be76cdd9e8d11696f4ddfbb324a8f3d7a2b98c6e",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认识网络法律法规、伦理道德规范和自主可控技术的重要意义"
+    },
+    {
+      "component_id": "lc_78e806079d7528b8",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够设计、测试",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生设计、测试，并说明关键步骤、特征或依据。",
+      "label": "设计、测试",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够设计、测试；优先采集：项目规范文档、引用记录、隐私风险检查表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "设计、测试",
+          "excerpt_hash": "f34282be97ea5b848e2f067f5e47b2decd09f4cc25efac7d5f22df8430dcc747",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "设计、测试"
+    },
+    {
+      "component_id": "lc_68e78ce2e8e39c26",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价数字化解决方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价数字化解决方案，并说明关键步骤、特征或依据。",
+      "label": "评价数字化解决方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价数字化解决方案；优先采集：项目规范文档、引用记录、隐私风险检查表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价数字化解决方案",
+          "excerpt_hash": "3afa3da53a717451ad84e66bce8f0eaff2303dc576fceb8d0d1592cbd9ce2132",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价数字化解决方案"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_98545a9cc188ccf1",
+      "evidence_refs": [
+        "standard:IT-H4G9-SR-007:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H4G8-SR-007",
+      "source_label": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；认识网络法律法规、伦理道德规范和自主可控技术的重要意义；能分析系统关系并完成有步…",
+      "target_code": "IT-H4G9-SR-007",
+      "target_label": "分析人工智能带来的伦理与安全挑战；能增强判断意识和责任感；认识网络法律法规、伦理道德规范和自主可控技术的重要意义；能设计、测试并评价数字化解决…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "35fedea5feb9e7f6fad8d4bb39a4c86e8c5121fa61e8f0698cfd5aa68bc69503",
+  "standard_code": "IT-H4G9-SR-007",
+  "verified_prerequisites": []
+}

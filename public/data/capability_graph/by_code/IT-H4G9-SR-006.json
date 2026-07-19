@@ -1,0 +1,358 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_aaaf741c8adcb9ab",
+        "lc_45c21c5d523508fa",
+        "lc_938f433a614d6fb9"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过认识身边人工智能应用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d1b3eb5d85a52b4c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_84d04146be3f0f25",
+        "hc_21cc416ecf1bc9b9"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“通过认识身边人工智能应用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过认识身边人工智能应用”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能基本特征及其依赖的数据、算法和算力基础；能通过认识身边人工智能应用；能感受人工智能对学习、生活和工作的影响；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "6b239b12e1c2b6176a2c72bca86029afe241efd9cd8ba4c4753889619d452f06",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用学生熟悉的语音服务、人脸识别、棋类程序等案例建立概念理解。",
+          "excerpt_hash": "3e97ed98836a9b909ad065991c927545487c4a79a2ba7279ab3b4df4168acfe3",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-SR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过认识身边人工智能应用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过认识身边人工智能应用”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用学生熟悉的语音服务、人脸识别、棋类程序等案例建立概念理解。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_53ad8386469c8c7d",
+        "lc_938f433a614d6fb9"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生设计、测试的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_7bd05045ac0b7f2c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_21cc416ecf1bc9b9"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“设计、测试”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“设计、测试”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能基本特征及其依赖的数据、算法和算力基础；能通过认识身边人工智能应用；能感受人工智能对学习、生活和工作的影响；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "6b239b12e1c2b6176a2c72bca86029afe241efd9cd8ba4c4753889619d452f06",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用学生熟悉的语音服务、人脸识别、棋类程序等案例建立概念理解。",
+          "excerpt_hash": "3e97ed98836a9b909ad065991c927545487c4a79a2ba7279ab3b4df4168acfe3",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-SR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后设计、测试，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“设计、测试”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“用学生熟悉的语音服务、人脸识别、棋类程序等案例建立概念理解。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_66cab43e72489390",
+        "lc_aaaf741c8adcb9ab"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生分析人工智能基本特征及其依赖的数据、算法和算力基础的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_57c9243411ccbb1e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“分析人工智能基本特征及其依赖的数据、算法和算力基础”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“分析人工智能基本特征及其依赖的数据、算法和算力基础”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能基本特征及其依赖的数据、算法和算力基础；能通过认识身边人工智能应用；能感受人工智能对学习、生活和工作的影响；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "6b239b12e1c2b6176a2c72bca86029afe241efd9cd8ba4c4753889619d452f06",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用学生熟悉的语音服务、人脸识别、棋类程序等案例建立概念理解。",
+          "excerpt_hash": "3e97ed98836a9b909ad065991c927545487c4a79a2ba7279ab3b4df4168acfe3",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-SR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后分析人工智能基本特征及其依赖的数据、算法和算力基础，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“分析人工智能基本特征及其依赖的数据、算法和算力基础”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用学生熟悉的语音服务、人脸识别、棋类程序等案例建立概念理解。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_84d04146be3f0f25",
+      "component_ids": [
+        "lc_45c21c5d523508fa"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生感受人工智能对学习、生活和工作的影响。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够感受人工智能对学习、生活和工作的影响；优先采集：AI 应用分析表、课堂展示、概念说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能基本特征及其依赖的数据、算法和算力基础；能通过认识身边人工智能应用；能感受人工智能对学习、生活和工作的影响；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "6b239b12e1c2b6176a2c72bca86029afe241efd9cd8ba4c4753889619d452f06",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_21cc416ecf1bc9b9",
+      "component_ids": [
+        "lc_53ad8386469c8c7d",
+        "lc_938f433a614d6fb9"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生设计、测试。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够设计、测试；优先采集：AI 应用分析表、课堂展示、概念说明。",
+        "学生能够评价数字化解决方案；优先采集：AI 应用分析表、课堂展示、概念说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能基本特征及其依赖的数据、算法和算力基础；能通过认识身边人工智能应用；能感受人工智能对学习、生活和工作的影响；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "6b239b12e1c2b6176a2c72bca86029afe241efd9cd8ba4c4753889619d452f06",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_66cab43e72489390",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析人工智能基本特征及其依赖的数据、算法和算力基础",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析人工智能基本特征及其依赖的数据、算法和算力基础，并说明关键步骤、特征或依据。",
+      "label": "分析人工智能基本特征及其依赖的数据、算法和算力基础",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析人工智能基本特征及其依赖的数据、算法和算力基础；优先采集：AI 应用分析表、课堂展示、概念说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析人工智能基本特征及其依赖的数据、算法和算力基础",
+          "excerpt_hash": "2765ee718ec03f74257447a2c9f5b0935aff1e1bb59729fbd25b9e9ce2581994",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析人工智能基本特征及其依赖的数据、算法和算力基础"
+    },
+    {
+      "component_id": "lc_aaaf741c8adcb9ab",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过认识身边人工智能应用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过认识身边人工智能应用，并说明关键步骤、特征或依据。",
+      "label": "通过认识身边人工智能应用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过认识身边人工智能应用；优先采集：AI 应用分析表、课堂展示、概念说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过认识身边人工智能应用",
+          "excerpt_hash": "e30897a4202885486c03b5764fb2f57c391ed211c55a5c7c15684c919b6dfca0",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过认识身边人工智能应用"
+    },
+    {
+      "component_id": "lc_45c21c5d523508fa",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够感受人工智能对学习、生活和工作的影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生感受人工智能对学习、生活和工作的影响，并说明关键步骤、特征或依据。",
+      "label": "感受人工智能对学习、生活和工作的影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够感受人工智能对学习、生活和工作的影响；优先采集：AI 应用分析表、课堂展示、概念说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "感受人工智能对学习、生活和工作的影响",
+          "excerpt_hash": "0e811a73906e164d793815966d2ae820f1dfe62c1521fbe47354592319023e8b",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "感受人工智能对学习、生活和工作的影响"
+    },
+    {
+      "component_id": "lc_53ad8386469c8c7d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够设计、测试",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生设计、测试，并说明关键步骤、特征或依据。",
+      "label": "设计、测试",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够设计、测试；优先采集：AI 应用分析表、课堂展示、概念说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "设计、测试",
+          "excerpt_hash": "f34282be97ea5b848e2f067f5e47b2decd09f4cc25efac7d5f22df8430dcc747",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "设计、测试"
+    },
+    {
+      "component_id": "lc_938f433a614d6fb9",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价数字化解决方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价数字化解决方案，并说明关键步骤、特征或依据。",
+      "label": "评价数字化解决方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价数字化解决方案；优先采集：AI 应用分析表、课堂展示、概念说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价数字化解决方案",
+          "excerpt_hash": "3afa3da53a717451ad84e66bce8f0eaff2303dc576fceb8d0d1592cbd9ce2132",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价数字化解决方案"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_2118d351a89ff5ea",
+      "evidence_refs": [
+        "standard:IT-H4G9-SR-006:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H4G8-SR-005",
+      "source_label": "了解人工智能基本特征及其依赖的数据、算法和算力基础；能通过认识身边人工智能应用；能感受人工智能对学习、生活和工作的影响；能分析系统关系并完成有…",
+      "target_code": "IT-H4G9-SR-006",
+      "target_label": "分析人工智能基本特征及其依赖的数据、算法和算力基础；能通过认识身边人工智能应用；能感受人工智能对学习、生活和工作的影响；能设计、测试并评价数字…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "6b239b12e1c2b6176a2c72bca86029afe241efd9cd8ba4c4753889619d452f06",
+  "standard_code": "IT-H4G9-SR-006",
+  "verified_prerequisites": []
+}

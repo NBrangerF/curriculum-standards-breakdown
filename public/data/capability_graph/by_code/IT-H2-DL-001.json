@@ -1,0 +1,201 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_7b5a6ce2feda6a84",
+        "lc_0e8c457c3251296b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生选择合适的在线工具进行信息交流与分享的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f6d50571ae481da9",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1f64fa35457bb18d"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“选择合适的在线工具进行信息交流与分享”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“选择合适的在线工具进行信息交流与分享”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择合适的在线工具进行信息交流与分享，能清晰表达自己的观点与需求，能在交流中倾听与回应他人，形成基本的在线沟通礼仪。",
+          "excerpt_hash": "8f91dd8d66ad43a879600f04036e78cb5330918e1f1e273a423f1cdfdf265b75",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【把“会说”迁移到“会在线说”】\n(1) 提供沟通模板：问候—背景—请求/观点—理由—感谢/期待；强调用词友善、信息完整。\n(2) 设计多种交流任务：向同伴提问、向老师求助、分享学习发现、对同伴作品给出建设性建议。\n(3) 引导学生区分公开/私密沟通场景，讨论什么内容适合公开发布，什么内容应私信或当面沟通。\n(4) 每次交流后做“复盘一分钟”：我说清楚了吗？我有没有尊重他人？我获得了什么反馈？",
+          "excerpt_hash": "209ab66fea3c8104d865268848b4efa196f6c6f2f53826a9f9463dd6599f5b39",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-DL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后选择合适的在线工具进行信息交流与分享，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“选择合适的在线工具进行信息交流与分享”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“【把“会说”迁移到“会在线说”】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_1f64fa35457bb18d",
+      "component_ids": [
+        "lc_0e8c457c3251296b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "清晰"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生清晰表达自己的观点与需求。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够清晰表达自己的观点与需求；优先采集：互动记录、同伴互评、教师评价量表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择合适的在线工具进行信息交流与分享，能清晰表达自己的观点与需求，能在交流中倾听与回应他人，形成基本的在线沟通礼仪。",
+          "excerpt_hash": "8f91dd8d66ad43a879600f04036e78cb5330918e1f1e273a423f1cdfdf265b75",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（清晰）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_7b5a6ce2feda6a84",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择合适的在线工具进行信息交流与分享",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择合适的在线工具进行信息交流与分享，并说明关键步骤、特征或依据。",
+      "label": "选择合适的在线工具进行信息交流与分享",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择合适的在线工具进行信息交流与分享；优先采集：互动记录、同伴互评、教师评价量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择合适的在线工具进行信息交流与分享",
+          "excerpt_hash": "0b29be9ba7905a06b00f05e7cdb77495d635e3bf4663631775678a0cfdd3da83",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择合适的在线工具进行信息交流与分享"
+    },
+    {
+      "component_id": "lc_0e8c457c3251296b",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够清晰表达自己的观点与需求",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生清晰表达自己的观点与需求，并说明关键步骤、特征或依据。",
+      "label": "清晰表达自己的观点与需求",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够清晰表达自己的观点与需求；优先采集：互动记录、同伴互评、教师评价量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "清晰表达自己的观点与需求",
+          "excerpt_hash": "7477365206a76a025ca592258cc190e18be604b5ad7acf37dcb03723a50e67ec",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "清晰表达自己的观点与需求"
+    },
+    {
+      "component_id": "lc_a2c4ee929cb54824",
+      "component_type": "conceptual",
+      "condition": "在交流中",
+      "confidence": 0.72,
+      "description": "学生在交流中，能够倾听与回应他人",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在交流中”的诊断任务，要求学生倾听与回应他人，并说明关键步骤、特征或依据。",
+      "label": "倾听与回应他人",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在交流中，能够倾听与回应他人；优先采集：互动记录、同伴互评、教师评价量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择合适的在线工具进行信息交流与分享，能清晰表达自己的观点与需求，能在交流中倾听与回应他人，形成基本的在线沟通礼仪。",
+          "excerpt_hash": "8f91dd8d66ad43a879600f04036e78cb5330918e1f1e273a423f1cdfdf265b75",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "倾听与回应他人"
+    },
+    {
+      "component_id": "lc_66adaa6e42ec90c3",
+      "component_type": "language",
+      "condition": "在交流中",
+      "confidence": 0.72,
+      "description": "学生在交流中，能够在任务中表现出基本的在线沟通礼仪并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在交流中”的诊断任务，要求学生在任务中表现出基本的在线沟通礼仪并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出基本的在线沟通礼仪并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在交流中，能够在任务中表现出基本的在线沟通礼仪并说明选择理由；优先采集：互动记录、同伴互评、教师评价量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择合适的在线工具进行信息交流与分享，能清晰表达自己的观点与需求，能在交流中倾听与回应他人，形成基本的在线沟通礼仪。",
+          "excerpt_hash": "8f91dd8d66ad43a879600f04036e78cb5330918e1f1e273a423f1cdfdf265b75",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成基本的在线沟通礼仪"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "8f91dd8d66ad43a879600f04036e78cb5330918e1f1e273a423f1cdfdf265b75",
+  "standard_code": "IT-H2-DL-001",
+  "verified_prerequisites": []
+}

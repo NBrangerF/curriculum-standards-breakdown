@@ -1,0 +1,301 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_54e864d838c79e1b",
+        "lc_d490f30eb798815e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过持续参与日常生活劳动、生产劳动和服务性劳动的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6c21e93df9ae2e40",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9765f3f73885d77b"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“通过持续参与日常生活劳动、生产劳动和服务性劳动”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过持续参与日常生活劳动、生产劳动和服务性劳动”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过持续参与日常生活劳动、生产劳动和服务性劳动；能增强家庭责任、职业意识、公共服务意识和社会责任感；理解劳动创造美好生活的道理；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "19de1529b228465049b758f27e4feb41abbbea32dc6c9d3e51e445cab5c6e99f",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用阶段性反思帮助学生把具体劳动经历上升为劳动观念理解。",
+          "excerpt_hash": "3ea02c1bdd431c4feddc5504228f2cf1beda0b622872fa98fdc5498e95cbd27a",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G8-DL-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过持续参与日常生活劳动、生产劳动和服务性劳动，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过持续参与日常生活劳动、生产劳动和服务性劳动”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用阶段性反思帮助学生把具体劳动经历上升为劳动观念理解。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_0ff229b07beceade"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在判断与行动中表现出家庭责任、职业意识、公共服务意识和社会责任感并说明理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8080d2b502d8dcc8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“在判断与行动中表现出家庭责任、职业意识、公共服务意识和社会责任感并说明理由”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在判断与行动中表现出家庭责任、职业意识、公共服务意识和社会责任感并说明理由”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过持续参与日常生活劳动、生产劳动和服务性劳动；能增强家庭责任、职业意识、公共服务意识和社会责任感；理解劳动创造美好生活的道理；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "19de1529b228465049b758f27e4feb41abbbea32dc6c9d3e51e445cab5c6e99f",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用阶段性反思帮助学生把具体劳动经历上升为劳动观念理解。",
+          "excerpt_hash": "3ea02c1bdd431c4feddc5504228f2cf1beda0b622872fa98fdc5498e95cbd27a",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G8-DL-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在判断与行动中表现出家庭责任、职业意识、公共服务意识和社会责任感并说明理由，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在判断与行动中表现出家庭责任、职业意识、公共服务意识和社会责任感并说明理由”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用阶段性反思帮助学生把具体劳动经历上升为劳动观念理解。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_d563d078aab2c53c",
+      "evidence_refs": [
+        "standard:LA-H4G8-DL-010:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-H4G8-DL-010",
+      "target_code": "LA-H4G9-DL-010",
+      "target_label": "能通过持续参与日常生活劳动、生产劳动和服务性劳动；能增强家庭责任、职业意识、公共服务意识和社会责任感；理解劳动创造美好生活的道理；能面向真实需…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_9765f3f73885d77b",
+      "component_ids": [
+        "lc_54e864d838c79e1b",
+        "lc_d490f30eb798815e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生通过持续参与日常生活劳动、生产劳动和服务性劳动。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够通过持续参与日常生活劳动、生产劳动和服务性劳动；优先采集：劳动档案袋、阶段反思、访谈或服务反馈。",
+        "学生能够用自己的话解释劳动创造美好生活的道理；优先采集：劳动档案袋、阶段反思、访谈或服务反馈。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过持续参与日常生活劳动、生产劳动和服务性劳动；能增强家庭责任、职业意识、公共服务意识和社会责任感；理解劳动创造美好生活的道理；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "19de1529b228465049b758f27e4feb41abbbea32dc6c9d3e51e445cab5c6e99f",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_54e864d838c79e1b",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过持续参与日常生活劳动、生产劳动和服务性劳动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过持续参与日常生活劳动、生产劳动和服务性劳动，并说明关键步骤、特征或依据。",
+      "label": "通过持续参与日常生活劳动、生产劳动和服务性劳动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过持续参与日常生活劳动、生产劳动和服务性劳动；优先采集：劳动档案袋、阶段反思、访谈或服务反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过持续参与日常生活劳动、生产劳动和服务性劳动",
+          "excerpt_hash": "9f3760067c3b48b1d9fa82c54f84704ac03b745486b08d1471750eb2b02c7946",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过持续参与日常生活劳动、生产劳动和服务性劳动"
+    },
+    {
+      "component_id": "lc_0ff229b07beceade",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在判断与行动中表现出家庭责任、职业意识、公共服务意识和社会责任感并说明理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在判断与行动中表现出家庭责任、职业意识、公共服务意识和社会责任感并说明理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在判断与行动中表现出家庭责任、职业意识、公共服务意识和社会责任感并说明理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在判断与行动中表现出家庭责任、职业意识、公共服务意识和社会责任感并说明理由；优先采集：劳动档案袋、阶段反思、访谈或服务反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "增强家庭责任、职业意识、公共服务意识和社会责任感",
+          "excerpt_hash": "92f617bb46a8dde9052b428d8cb90039d50a66890e27e61957b95061e6c54052",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "增强家庭责任、职业意识、公共服务意识和社会责任感"
+    },
+    {
+      "component_id": "lc_d490f30eb798815e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释劳动创造美好生活的道理",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释劳动创造美好生活的道理，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释劳动创造美好生活的道理",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释劳动创造美好生活的道理；优先采集：劳动档案袋、阶段反思、访谈或服务反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解劳动创造美好生活的道理",
+          "excerpt_hash": "20f6dbf8e46bb290ec91be52eb820100de1cb1009825dc090f9b8c5db5837158",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解劳动创造美好生活的道理"
+    },
+    {
+      "component_id": "lc_0b8db8d788214dc0",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够规划协作流程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生规划协作流程，并说明关键步骤、特征或依据。",
+      "label": "规划协作流程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够规划协作流程；优先采集：劳动档案袋、阶段反思、访谈或服务反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "规划协作流程",
+          "excerpt_hash": "4a84ad92a900406a3d30c00b32a9c485273924f5ccc4aa2724f26c9011663634",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "规划协作流程"
+    },
+    {
+      "component_id": "lc_da72984518dd99ed",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够反思劳动质量",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生反思劳动质量，并说明关键步骤、特征或依据。",
+      "label": "反思劳动质量",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够反思劳动质量；优先采集：劳动档案袋、阶段反思、访谈或服务反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "反思劳动质量",
+          "excerpt_hash": "7183a8fbee03b379e048527278d4ed6578fdbd0c6cd3aa63470c31916e9cbe23",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思劳动质量"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_172e6b3766351cfe",
+      "evidence_refs": [
+        "standard:LA-H4G8-DL-010:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-H4G7-DL-011",
+      "source_label": "能通过持续参与日常生活劳动、生产劳动和服务性劳动；理解劳动创造美好生活的道理；能增强家庭责任、职业意识、公共服务意识和社会责任感；能按规范完成…",
+      "target_code": "LA-H4G8-DL-010",
+      "target_label": "能通过持续参与日常生活劳动、生产劳动和服务性劳动；能增强家庭责任、职业意识、公共服务意识和社会责任感；理解劳动创造美好生活的道理；能规划协作流…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "19de1529b228465049b758f27e4feb41abbbea32dc6c9d3e51e445cab5c6e99f",
+  "standard_code": "LA-H4G8-DL-010",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,179 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_b280ba0a90fbb082"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生表现出专注、耐心与不怕失败的态度的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9ebafb77136ac2f1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2e81ee2fd8cd7a5a",
+        "hc_79149b8cdb24a4e6"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“表现出专注、耐心与不怕失败的态度”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“表现出专注、耐心与不怕失败的态度”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下完成1件简单传统工艺作品（如纸工、泥工、编织等），在制作中表现出专注、耐心与不怕失败的态度。",
+          "excerpt_hash": "d801833dab2ff8d8133edf0e7e12ec4bcb4d628088c768f605deb687e31935cf",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-023:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "选“可完成度高”的作品（窗花/小泥塑/纸编条）；把困难步骤拆分并提供半成品支架；用过程表扬强化坚持。",
+          "excerpt_hash": "c0bffbe84040919658c4e14832f830a4fa84a2b6bc8388c95118af2582447271",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-PL-023:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后表现出专注、耐心与不怕失败的态度，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“表现出专注、耐心与不怕失败的态度”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“选“可完成度高”的作品（窗花/小泥塑/纸编条）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_7aa9f8cb6a8e302a",
+      "evidence_refs": [
+        "standard:LA-D1-PL-023:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D1-PL-023",
+      "target_code": "LA-D2-PL-014",
+      "target_label": "能完成一件具有对称或重复纹样的剪纸作品，做到折叠准确、剪裁线条连贯、整体完整，并能说出作品所表达的祝福或寓意。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_2e81ee2fd8cd7a5a",
+      "component_ids": [
+        "lc_b280ba0a90fbb082"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生表现出专注、耐心与不怕失败的态度。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在教师指导下完成1件简单传统工艺作品（如纸工、泥工、编织等），在制作中，能够表现出专注、耐心与不怕失败的态度；优先采集：成品、过程观察、学生口述。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下完成1件简单传统工艺作品（如纸工、泥工、编织等），在制作中表现出专注、耐心与不怕失败的态度。",
+          "excerpt_hash": "d801833dab2ff8d8133edf0e7e12ec4bcb4d628088c768f605deb687e31935cf",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-023:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_79149b8cdb24a4e6",
+      "component_ids": [
+        "lc_b280ba0a90fbb082"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "1件"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生表现出专注、耐心与不怕失败的态度。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在教师指导下完成1件简单传统工艺作品（如纸工、泥工、编织等），在制作中，能够表现出专注、耐心与不怕失败的态度；优先采集：成品、过程观察、学生口述。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下完成1件简单传统工艺作品（如纸工、泥工、编织等），在制作中表现出专注、耐心与不怕失败的态度。",
+          "excerpt_hash": "d801833dab2ff8d8133edf0e7e12ec4bcb4d628088c768f605deb687e31935cf",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-023:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（1件）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b280ba0a90fbb082",
+      "component_type": "disposition",
+      "condition": "在教师指导下完成1件简单传统工艺作品（如纸工、泥工、编织等），在制作中",
+      "confidence": 0.72,
+      "description": "学生在教师指导下完成1件简单传统工艺作品（如纸工、泥工、编织等），在制作中，能够表现出专注、耐心与不怕失败的态度",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师指导下完成1件简单传统工艺作品（如纸工、泥工、编织等），在制作中”的诊断任务，要求学生表现出专注、耐心与不怕失败的态度，并说明关键步骤、特征或依据。",
+      "label": "表现出专注、耐心与不怕失败的态度",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师指导下完成1件简单传统工艺作品（如纸工、泥工、编织等），在制作中，能够表现出专注、耐心与不怕失败的态度；优先采集：成品、过程观察、学生口述。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下完成1件简单传统工艺作品（如纸工、泥工、编织等），在制作中表现出专注、耐心与不怕失败的态度。",
+          "excerpt_hash": "d801833dab2ff8d8133edf0e7e12ec4bcb4d628088c768f605deb687e31935cf",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-023:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表现出专注、耐心与不怕失败的态度"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d801833dab2ff8d8133edf0e7e12ec4bcb4d628088c768f605deb687e31935cf",
+  "standard_code": "LA-D1-PL-023",
+  "verified_prerequisites": []
+}

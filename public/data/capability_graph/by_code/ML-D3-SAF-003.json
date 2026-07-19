@@ -1,0 +1,519 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_8fddb2f3e5e13970",
+        "lc_ce9cd24248cd1ef9"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3d4a957d586edf73",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_fbc9881438625593",
+        "hc_0b879df76f757e43"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等）”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等），能在校园与社区情境中做到自律守规，并能解释其对公共安全的意义。",
+          "excerpt_hash": "a067d69a0521573f57edc3da63e69a3cb2630ffe185b2b1de9d05e4e96a8749e",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合重大突发公共卫生事件等案例，了解不同级别下的社会管控措施与个人行为要求，强调遵守政府规定、做好自我防护、维护社会安全。",
+          "excerpt_hash": "6be57cb32f3c2096c20989c4a1b6900f415d30512e5eb267ef2a07317a206b96",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D3-SAF-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等）”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“结合重大突发公共卫生事件等案例，了解不同级别下的社会管控措施与个人行为要求，强调遵守政府规定、做好自我防护、维护社会安全。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_8dddd92c1bdee69b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在校园与社区情境中做到自律守规的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_461e7d241b5795c7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d08e7ae7bafba3b0"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“在校园与社区情境中做到自律守规”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在校园与社区情境中做到自律守规”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等），能在校园与社区情境中做到自律守规，并能解释其对公共安全的意义。",
+          "excerpt_hash": "a067d69a0521573f57edc3da63e69a3cb2630ffe185b2b1de9d05e4e96a8749e",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合重大突发公共卫生事件等案例，了解不同级别下的社会管控措施与个人行为要求，强调遵守政府规定、做好自我防护、维护社会安全。",
+          "excerpt_hash": "6be57cb32f3c2096c20989c4a1b6900f415d30512e5eb267ef2a07317a206b96",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D3-SAF-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在校园与社区情境中做到自律守规，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在校园与社区情境中做到自律守规”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“结合重大突发公共卫生事件等案例，了解不同级别下的社会管控措施与个人行为要求，强调遵守政府规定、做好自我防护、维护社会安全。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8b1ea9eaa2a4ae11",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0e50b2c3cab704574a20",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_0d4b56c03c3c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f543649c0b71f43b",
+      "textbook_grade": 5,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d9eaf183a441b109",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1717f6091df4cebdd9ec",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_63b354a74aec"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f2273093a9d6cb45",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f6bf13ee79f5ceeb",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_02f942c3391d"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_84d4ef0e1dbf301a",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4725613273d0fc31",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4d47affde4a27f50be6c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_976cae771845"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_03c92473b367e141",
+      "textbook_grade": 5,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0998,
+      "connection_id": "fc_3e7f2392007f41aa",
+      "evidence_refs": [
+        "standard:ML-H4G7-SAF-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-SAF-003",
+      "target_code": "ML-H4G7-SAF-001",
+      "target_label": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力；能遵守基本的社交礼仪，恪守诚信，理性维护社会公德，维护公…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0891,
+      "connection_id": "fc_1fde383c1d074041",
+      "evidence_refs": [
+        "standard:ML-H4G7-SAF-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-SAF-003",
+      "target_code": "ML-H4G7-SAF-002",
+      "target_label": "了解青春期的生理和心理变化；掌握青春期性心理知识；能体会青春期的美好；能联系个人和校园生活说明基本判断。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0851,
+      "connection_id": "fc_4383dc9b92732679",
+      "evidence_refs": [
+        "standard:ML-H4G7-SAF-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-SAF-003",
+      "target_code": "ML-H4G7-SAF-004",
+      "target_label": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能联系个人和校园生活说明基本判断。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0731,
+      "connection_id": "fc_3b8c02b00cacc0ec",
+      "evidence_refs": [
+        "standard:ML-H4G7-SAF-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-SAF-003",
+      "target_code": "ML-H4G7-SAF-007",
+      "target_label": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力；能联系个人和校园生活说明基本判断。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1867,
+      "connection_id": "fc_2003955915eacede",
+      "evidence_refs": [
+        "standard:ML-H4G7-SAF-010:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-SAF-003",
+      "target_code": "ML-H4G7-SAF-010",
+      "target_label": "能树立正确的人生观和价值观，尊重和敬畏生命，热爱生活，追求生命高度，成就幸福人生；能联系个人和校园生活说明基本判断。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_fbc9881438625593",
+      "component_ids": [
+        "lc_8fddb2f3e5e13970",
+        "lc_ce9cd24248cd1ef9"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等）；优先采集：情境作业单、流程图作品、演练参与记录、教师评价。",
+        "学生能够解释其对公共安全的意义；优先采集：情境作业单、流程图作品、演练参与记录、教师评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等），能在校园与社区情境中做到自律守规，并能解释其对公共安全的意义。",
+          "excerpt_hash": "a067d69a0521573f57edc3da63e69a3cb2630ffe185b2b1de9d05e4e96a8749e",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_d08e7ae7bafba3b0",
+      "component_ids": [
+        "lc_8dddd92c1bdee69b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在校园与社区情境中做到自律守规。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在校园与社区情境中做到自律守规；优先采集：情境作业单、流程图作品、演练参与记录、教师评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等），能在校园与社区情境中做到自律守规，并能解释其对公共安全的意义。",
+          "excerpt_hash": "a067d69a0521573f57edc3da63e69a3cb2630ffe185b2b1de9d05e4e96a8749e",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_0b879df76f757e43",
+      "component_ids": [
+        "lc_ce9cd24248cd1ef9"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生解释其对公共安全的意义。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够解释其对公共安全的意义；优先采集：情境作业单、流程图作品、演练参与记录、教师评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等），能在校园与社区情境中做到自律守规，并能解释其对公共安全的意义。",
+          "excerpt_hash": "a067d69a0521573f57edc3da63e69a3cb2630ffe185b2b1de9d05e4e96a8749e",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_8fddb2f3e5e13970",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等），并保留可回查的口头、书面或操作过程证据。",
+      "label": "举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等）；优先采集：情境作业单、流程图作品、演练参与记录、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等）",
+          "excerpt_hash": "e6cffa234e5456e63dd95301a31e97fe5745f785b4c29d68a3452dbb46e58660",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等）"
+    },
+    {
+      "component_id": "lc_8dddd92c1bdee69b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在校园与社区情境中做到自律守规",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在校园与社区情境中做到自律守规，并说明关键步骤、特征或依据。",
+      "label": "在校园与社区情境中做到自律守规",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在校园与社区情境中做到自律守规；优先采集：情境作业单、流程图作品、演练参与记录、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在校园与社区情境中做到自律守规",
+          "excerpt_hash": "44bda2828d4b26f9a5475187001b17a06ff611c5c73102f892515aa66405bb90",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在校园与社区情境中做到自律守规"
+    },
+    {
+      "component_id": "lc_ce9cd24248cd1ef9",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释其对公共安全的意义",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释其对公共安全的意义，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释其对公共安全的意义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释其对公共安全的意义；优先采集：情境作业单、流程图作品、演练参与记录、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释其对公共安全的意义",
+          "excerpt_hash": "bce2eaf7638ef8c6988c34c8e61ef579063030b3d5ef0de7a20e8f03479377a0",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-SAF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释其对公共安全的意义"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_b464030b5f5b910d",
+      "evidence_refs": [
+        "standard:ML-D3-SAF-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-D2-SAF-004",
+      "source_label": "能用自己的语言说明生命珍贵的理由，能在日常生活中做出珍爱生命的选择（不冒险、关注身心健康、尊重他人）。",
+      "target_code": "ML-D3-SAF-003",
+      "target_label": "能举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等），能在校园与社区情境中做到自律守规，并能解释其对公共安全的意义。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a067d69a0521573f57edc3da63e69a3cb2630ffe185b2b1de9d05e4e96a8749e",
+  "standard_code": "ML-D3-SAF-003",
+  "verified_prerequisites": []
+}

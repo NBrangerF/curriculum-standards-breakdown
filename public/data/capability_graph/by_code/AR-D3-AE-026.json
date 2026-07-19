@@ -1,0 +1,440 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_035a7cc17afefec1"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生利用身边材料自制打击乐器或简易音高乐器的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9eb6b804c6671916",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_242acb49e99922d9"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“利用身边材料自制打击乐器或简易音高乐器”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用身边材料自制打击乐器或简易音高乐器，能独奏/合奏简单节奏与旋律，或为歌曲与其他表演伴奏。",
+          "excerpt_hash": "307c4d5c3e5baa78e6ef5c2253e8a48bcea888e60f96b9ef7047e5e271449dde",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-026:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "示范“材料—音色—演奏方式”关系；先做节奏型稳定，再加入层次；合奏用指挥手势保证统一。",
+          "excerpt_hash": "17696d715102432b4a7931fd9a823c30399a21964d3db35a351d88606f2176c5",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D3-AE-026:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后利用身边材料自制打击乐器或简易音高乐器，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“利用身边材料自制打击乐器或简易音高乐器”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“示范“材料—音色—演奏方式”关系”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2fe5c1ef19eb3fc8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_00452e62b0a9dead1e66",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a500c9f1cd1c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1fabba386856d842",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0f909822d56f3739",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_47474bd0c3009d7bfcf6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e4cb7e4583cf"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_98c7d2610118429f",
+      "textbook_grade": 5,
+      "textbook_subject": "美术",
+      "textbook_title": "美术5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_be7bb62e380540aa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4b42884b46b80ae41661",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9df9f8776364"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_169db90609589ba4",
+      "textbook_grade": 6,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2add6fef22e74ed0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6e0cec28ca9346d8d02b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_502c7444779d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4ba398935af785c4",
+      "textbook_grade": 5,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d7cf89522edb4b8a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_873c7b8d8f5dfcaf3081",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5d105252e267"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_2a3a735a14f9dc94",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4be92cc581780cc4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913a5e82b0b4337baa77",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5f8b00576115"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d3a37cdd8bcdc4bb",
+      "textbook_grade": 5,
+      "textbook_subject": "美术",
+      "textbook_title": "美术5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e65d17c51d178e44",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e9b82a8986eea7ee1402",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7a1467daa20d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fc37261770b36f51",
+      "textbook_grade": 5,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b6f2c710eb30566d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fe115d2e431c2607bf7d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_118d280cce66"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_8ce6886f94462897",
+      "textbook_grade": 6,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1684,
+      "connection_id": "fc_28a27606cf0333af",
+      "evidence_refs": [
+        "standard:AR-H4G7-AE-012:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D3-AE-026",
+      "target_code": "AR-H4G7-AE-012",
+      "target_label": "能熟练掌握课堂乐器演奏技巧；能视奏简单合奏谱并在合奏中相互配合；能在演奏中融入个性化理解和创意；能描述艺术要素并完成基础表现或创作。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_242acb49e99922d9",
+      "component_ids": [
+        "lc_035a7cc17afefec1",
+        "lc_f6470e3cd6a1479d"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生利用身边材料自制打击乐器或简易音高乐器。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够利用身边材料自制打击乐器或简易音高乐器；优先采集：自制乐器、说明卡、合奏视频。",
+        "学生能够独奏/合奏简单节奏与旋律，或为歌曲与其他表演伴奏；优先采集：自制乐器、说明卡、合奏视频。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用身边材料自制打击乐器或简易音高乐器，能独奏/合奏简单节奏与旋律，或为歌曲与其他表演伴奏。",
+          "excerpt_hash": "307c4d5c3e5baa78e6ef5c2253e8a48bcea888e60f96b9ef7047e5e271449dde",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-026:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "利用身边材料自制打击乐器或简易音高乐器；独奏/合奏简单节奏与旋律，或为歌曲与其他表演伴奏",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_035a7cc17afefec1",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够利用身边材料自制打击乐器或简易音高乐器",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生利用身边材料自制打击乐器或简易音高乐器，并说明关键步骤、特征或依据。",
+      "label": "利用身边材料自制打击乐器或简易音高乐器",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够利用身边材料自制打击乐器或简易音高乐器；优先采集：自制乐器、说明卡、合奏视频。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用身边材料自制打击乐器或简易音高乐器",
+          "excerpt_hash": "47d57d4b579d18556207ccc3bda0ac533300de5fc53527b1d91a53123dcfabd8",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-026:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "利用身边材料自制打击乐器或简易音高乐器"
+    },
+    {
+      "component_id": "lc_f6470e3cd6a1479d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够独奏/合奏简单节奏与旋律，或为歌曲与其他表演伴奏",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生独奏/合奏简单节奏与旋律，或为歌曲与其他表演伴奏，并说明关键步骤、特征或依据。",
+      "label": "独奏/合奏简单节奏与旋律，或为歌曲与其他表演伴奏",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够独奏/合奏简单节奏与旋律，或为歌曲与其他表演伴奏；优先采集：自制乐器、说明卡、合奏视频。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "独奏/合奏简单节奏与旋律，或为歌曲与其他表演伴奏",
+          "excerpt_hash": "cf8b1903051aafd7b793a38abf303c3a649df669bf7fbbe09d0c75434759a144",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-026:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "独奏/合奏简单节奏与旋律，或为歌曲与其他表演伴奏"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_f5c9025aabccc17f",
+      "evidence_refs": [
+        "standard:AR-D3-AE-026:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D2-AA-026",
+      "source_label": "能运用信息技术搜集、听赏与整理音乐资料，能在分享时注明来源并尊重版权与他人劳动。",
+      "target_code": "AR-D3-AE-026",
+      "target_label": "能利用身边材料自制打击乐器或简易音高乐器，能独奏/合奏简单节奏与旋律，或为歌曲与其他表演伴奏。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "307c4d5c3e5baa78e6ef5c2253e8a48bcea888e60f96b9ef7047e5e271449dde",
+  "standard_code": "AR-D3-AE-026",
+  "verified_prerequisites": []
+}

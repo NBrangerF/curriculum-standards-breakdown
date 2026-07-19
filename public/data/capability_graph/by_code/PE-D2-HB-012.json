@@ -1,0 +1,196 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_d161f6fea120fd8d"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生识别并说出营养膳食要点并能进行简单的均衡搭配的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_77a853f3fb570210",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_09983f1a925c2e69"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“识别并说出营养膳食要点并能进行简单的均衡搭配的关键特征”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解营养膳食要点并能进行简单的均衡搭配。",
+          "excerpt_hash": "07a161a90e5ae50feb9f7b4388374cda93571194f7e9049b6b2ddeb9f524a784",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过情境卡训练加油、致谢、道歉、请求等文明用语，把“礼貌沟通”写进游戏规则（如使用积极表达可加分）。教师提供句式支架并示范冲突时的表达方式，及时纠正嘲笑、抱怨等不当言行。",
+          "excerpt_hash": "5910ae6da0a500debbf6b08f584a9a400297c8cd4eeb2062fb0dbc2e4b23f130",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D2-HB-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出营养膳食要点并能进行简单的均衡搭配的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出营养膳食要点并能进行简单的均衡搭配的关键特征”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“通过情境卡训练加油、致谢、道歉、请求等文明用语，把“礼貌沟通”写进游戏规则（如使用积极表达可加分）。教师提供句式支架并示范冲突时的表达方式，及时纠正嘲笑、抱怨等不当言行。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2ace20757bb744b7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_032926ad81d86eb77eb2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_3_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_58c66aa4067b40f9",
+      "textbook_grade": 3,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康3年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_2c3b4f389d528247",
+      "evidence_refs": [
+        "standard:PE-D2-HB-012:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D2-HB-012",
+      "target_code": "PE-D3-HB-012",
+      "target_label": "具有预防运动过程中性骚扰的意识与行为，能说出至少3条安全边界与应对策略。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_09983f1a925c2e69",
+      "component_ids": [
+        "lc_d161f6fea120fd8d"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出营养膳食要点并能进行简单的均衡搭配的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出营养膳食要点并能进行简单的均衡搭配的关键特征；优先采集：口头说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解营养膳食要点并能进行简单的均衡搭配。",
+          "excerpt_hash": "07a161a90e5ae50feb9f7b4388374cda93571194f7e9049b6b2ddeb9f524a784",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "识别并说出营养膳食要点并能进行简单的均衡搭配的关键特征",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d161f6fea120fd8d",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出营养膳食要点并能进行简单的均衡搭配的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出营养膳食要点并能进行简单的均衡搭配的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出营养膳食要点并能进行简单的均衡搭配的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出营养膳食要点并能进行简单的均衡搭配的关键特征；优先采集：口头说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解营养膳食要点并能进行简单的均衡搭配",
+          "excerpt_hash": "62fe0e6a741064c573fbdfccc66d3723bb57b025f8838c9e45767956e4bc676e",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解营养膳食要点并能进行简单的均衡搭配"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_e2ec86ed593dfc0d",
+      "evidence_refs": [
+        "standard:PE-D2-HB-012:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D1-HB-012",
+      "source_label": "能做到正确的坐、立、行和读写姿势。",
+      "target_code": "PE-D2-HB-012",
+      "target_label": "了解营养膳食要点并能进行简单的均衡搭配。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "07a161a90e5ae50feb9f7b4388374cda93571194f7e9049b6b2ddeb9f524a784",
+  "standard_code": "PE-D2-HB-012",
+  "verified_prerequisites": []
+}

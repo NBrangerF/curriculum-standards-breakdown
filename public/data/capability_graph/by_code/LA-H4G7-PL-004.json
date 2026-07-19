@@ -1,0 +1,400 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_8f6e4f467631629a",
+        "lc_5fad27b7fef2d271"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释现代农业与传统农业的联系和区别的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2a731982d5d8a664",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_54132d99fc24a6e3",
+        "hc_6ef508d053d98aaf"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释现代农业与传统农业的联系和区别”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释现代农业与传统农业的联系和区别”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体验当地常见种植、养殖等生产劳动；理解现代农业与传统农业的联系和区别；能选择一至两种优良种植或养殖品种开展系列实践；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "48033355e90070cd5980c21736b025be291f8a130bce4f3e801b96ee9b878ebb",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合当地自然环境和生产条件安排项目，重视农业安全、食品安全和与劳动者交流。",
+          "excerpt_hash": "d4d206043bda4c4689a7059f7074469c55ea41be372d739534e9e4c897d1893e",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G7-PL-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释现代农业与传统农业的联系和区别，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释现代农业与传统农业的联系和区别”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“结合当地自然环境和生产条件安排项目，重视农业安全、食品安全和与劳动者交流。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_8f6e4f467631629a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释现代农业与传统农业的联系和区别的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_52ffa4a1e5e09a10",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_54132d99fc24a6e3"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释现代农业与传统农业的联系和区别”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释现代农业与传统农业的联系和区别”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体验当地常见种植、养殖等生产劳动；理解现代农业与传统农业的联系和区别；能选择一至两种优良种植或养殖品种开展系列实践；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "48033355e90070cd5980c21736b025be291f8a130bce4f3e801b96ee9b878ebb",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合当地自然环境和生产条件安排项目，重视农业安全、食品安全和与劳动者交流。",
+          "excerpt_hash": "d4d206043bda4c4689a7059f7074469c55ea41be372d739534e9e4c897d1893e",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G7-PL-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释现代农业与传统农业的联系和区别，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释现代农业与传统农业的联系和区别”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“结合当地自然环境和生产条件安排项目，重视农业安全、食品安全和与劳动者交流。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_bc7a0eb4b857ae6d",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-004:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-H4G7-PL-004",
+      "target_code": "LA-H4G8-PL-005",
+      "target_label": "能体验当地常见种植、养殖等生产劳动；理解现代农业与传统农业的联系和区别；能选择一至两种优良种植或养殖品种开展系列实践；能规划协作流程并反思劳动…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_54132d99fc24a6e3",
+      "component_ids": [
+        "lc_8f6e4f467631629a",
+        "lc_5fad27b7fef2d271"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释现代农业与传统农业的联系和区别。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释现代农业与传统农业的联系和区别；优先采集：种植或养殖日志、观察数据、成果展示、访谈记录。",
+        "学生能够说明工具、材料或安全要求；优先采集：种植或养殖日志、观察数据、成果展示、访谈记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体验当地常见种植、养殖等生产劳动；理解现代农业与传统农业的联系和区别；能选择一至两种优良种植或养殖品种开展系列实践；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "48033355e90070cd5980c21736b025be291f8a130bce4f3e801b96ee9b878ebb",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_6ef508d053d98aaf",
+      "component_ids": [
+        "lc_32af269ee995ecc7",
+        "lc_5fad27b7fef2d271"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "规范",
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生按规范完成任务。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够按规范完成任务；优先采集：种植或养殖日志、观察数据、成果展示、访谈记录。",
+        "学生能够说明工具、材料或安全要求；优先采集：种植或养殖日志、观察数据、成果展示、访谈记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体验当地常见种植、养殖等生产劳动；理解现代农业与传统农业的联系和区别；能选择一至两种优良种植或养殖品种开展系列实践；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "48033355e90070cd5980c21736b025be291f8a130bce4f3e801b96ee9b878ebb",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（规范、安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_27779129f71d037c",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与相关活动并描述当地常见种植、养殖等生产劳动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与相关活动并描述当地常见种植、养殖等生产劳动，并说明关键步骤、特征或依据。",
+      "label": "参与相关活动并描述当地常见种植、养殖等生产劳动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与相关活动并描述当地常见种植、养殖等生产劳动；优先采集：种植或养殖日志、观察数据、成果展示、访谈记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "体验当地常见种植、养殖等生产劳动",
+          "excerpt_hash": "d8fb6b648d1ef7c790fb5e9bed6b180ff2df0cd5839ee3ee895707c5513a80c3",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体验当地常见种植、养殖等生产劳动"
+    },
+    {
+      "component_id": "lc_8f6e4f467631629a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释现代农业与传统农业的联系和区别",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释现代农业与传统农业的联系和区别，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释现代农业与传统农业的联系和区别",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释现代农业与传统农业的联系和区别；优先采集：种植或养殖日志、观察数据、成果展示、访谈记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解现代农业与传统农业的联系和区别",
+          "excerpt_hash": "fb8b2c3454aee44d31106bede4c9981542bdc611d935aa34be213877c19d3f54",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解现代农业与传统农业的联系和区别"
+    },
+    {
+      "component_id": "lc_212162f92276c5e9",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择一至两种优良种植或养殖品种开展系列实践",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择一至两种优良种植或养殖品种开展系列实践，并说明关键步骤、特征或依据。",
+      "label": "选择一至两种优良种植或养殖品种开展系列实践",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择一至两种优良种植或养殖品种开展系列实践；优先采集：种植或养殖日志、观察数据、成果展示、访谈记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两种优良种植或养殖品种开展系列实践",
+          "excerpt_hash": "81bd1e7871e50b164e0a9a98deba8e4943fde38cb303da71285a2f1d6e5e3df9",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择一至两种优良种植或养殖品种开展系列实践"
+    },
+    {
+      "component_id": "lc_32af269ee995ecc7",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够按规范完成任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生按规范完成任务，并说明关键步骤、特征或依据。",
+      "label": "按规范完成任务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够按规范完成任务；优先采集：种植或养殖日志、观察数据、成果展示、访谈记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "按规范完成任务",
+          "excerpt_hash": "435c431407d1babddb0f9e92d5352aefea84d0123f9d1a56ac0b7f66a8928946",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按规范完成任务"
+    },
+    {
+      "component_id": "lc_5fad27b7fef2d271",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明工具、材料或安全要求",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明工具、材料或安全要求，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明工具、材料或安全要求",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明工具、材料或安全要求；优先采集：种植或养殖日志、观察数据、成果展示、访谈记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明工具、材料或安全要求",
+          "excerpt_hash": "cd212ce4d051adbbf459a3ffdb2752deae8ec0e91d6c7e8522865823136f6708",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明工具、材料或安全要求"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1625,
+      "edge_id": "pc_be44ae57d136b2f3",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D3-PL-001",
+      "source_label": "能结合当地条件设计一种作物种植方案（品种、季节、株距、管理要点），能理解轮作或间作的基本意义，并能据此调整方案。",
+      "target_code": "LA-H4G7-PL-004",
+      "target_label": "能体验当地常见种植、养殖等生产劳动；理解现代农业与传统农业的联系和区别；能选择一至两种优良种植或养殖品种开展系列实践；能按规范完成任务并说明工…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1417,
+      "edge_id": "pc_76822b3ae308e3a9",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D3-PL-002",
+      "source_label": "能在教师指导下进行田间管理（施肥、搭支架、覆盖防护等），能遵循安全与科学原则，避免过量与浪费。",
+      "target_code": "LA-H4G7-PL-004",
+      "target_label": "能体验当地常见种植、养殖等生产劳动；理解现代农业与传统农业的联系和区别；能选择一至两种优良种植或养殖品种开展系列实践；能按规范完成任务并说明工…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0954,
+      "edge_id": "pc_0ba15ec4d6eedb7b",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D3-PL-003",
+      "source_label": "能识别常见病虫害迹象并记录，能在教师指导下采用物理或生物方法进行生态防治，理解减少化学药剂的意义。",
+      "target_code": "LA-H4G7-PL-004",
+      "target_label": "能体验当地常见种植、养殖等生产劳动；理解现代农业与传统农业的联系和区别；能选择一至两种优良种植或养殖品种开展系列实践；能按规范完成任务并说明工…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1711,
+      "edge_id": "pc_e117fe6e814b01d3",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D3-PL-008",
+      "source_label": "能了解常见加工工具（手电钻、锯等）的用途与风险，能在教师指导下遵守安全规则完成简单加工体验或观摩，并能解释规则原因。",
+      "target_code": "LA-H4G7-PL-004",
+      "target_label": "能体验当地常见种植、养殖等生产劳动；理解现代农业与传统农业的联系和区别；能选择一至两种优良种植或养殖品种开展系列实践；能按规范完成任务并说明工…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 4,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "48033355e90070cd5980c21736b025be291f8a130bce4f3e801b96ee9b878ebb",
+  "standard_code": "LA-H4G7-PL-004",
+  "verified_prerequisites": []
+}

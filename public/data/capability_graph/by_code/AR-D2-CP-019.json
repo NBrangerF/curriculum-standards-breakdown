@@ -1,0 +1,589 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_e11b402708546946"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生提出解决问题的思路和方案，并用作品或模型进行表达的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1d9d088ca38b979f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ef30a4ff28ce0002",
+        "hc_7900641d2be8e962"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“提出解决问题的思路和方案，并用作品或模型进行表达”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“提出解决问题的思路和方案，并用作品或模型进行表达”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能将美术与其他学科的知识和技能相结合，提出解决问题的思路和方案，并用作品或模型进行表达。",
+          "excerpt_hash": "c1d20dfb1dadef45bf2c0ea08e6fa70a7ef8350656fe48b30e45459aadd2dc8f",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-CP-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "选真实问题：节水提示、垃圾分类、校园导视等；用“定义问题—构思—原型—测试”流程；评价看“是否解决问题”而非装饰多少。",
+          "excerpt_hash": "ac6adbd3886b63d2e326eb16c47f6046eacbc66c5463433682e25da8896bc76e",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-CP-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后提出解决问题的思路和方案，并用作品或模型进行表达，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“提出解决问题的思路和方案，并用作品或模型进行表达”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“选真实问题：节水提示、垃圾分类、校园导视等”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_e11b402708546946"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生提出解决问题的思路和方案，并用作品或模型进行表达的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_17a779ba1097c4ed",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ef30a4ff28ce0002",
+        "hc_7900641d2be8e962"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“提出解决问题的思路和方案，并用作品或模型进行表达”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“提出解决问题的思路和方案，并用作品或模型进行表达”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能将美术与其他学科的知识和技能相结合，提出解决问题的思路和方案，并用作品或模型进行表达。",
+          "excerpt_hash": "c1d20dfb1dadef45bf2c0ea08e6fa70a7ef8350656fe48b30e45459aadd2dc8f",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-CP-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "选真实问题：节水提示、垃圾分类、校园导视等；用“定义问题—构思—原型—测试”流程；评价看“是否解决问题”而非装饰多少。",
+          "excerpt_hash": "ac6adbd3886b63d2e326eb16c47f6046eacbc66c5463433682e25da8896bc76e",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-CP-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后提出解决问题的思路和方案，并用作品或模型进行表达，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“提出解决问题的思路和方案，并用作品或模型进行表达”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“选真实问题：节水提示、垃圾分类、校园导视等”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_e11b402708546946"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生提出解决问题的思路和方案，并用作品或模型进行表达的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9600e9333051a4d0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ef30a4ff28ce0002",
+        "hc_7900641d2be8e962"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“提出解决问题的思路和方案，并用作品或模型进行表达”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“提出解决问题的思路和方案，并用作品或模型进行表达”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能将美术与其他学科的知识和技能相结合，提出解决问题的思路和方案，并用作品或模型进行表达。",
+          "excerpt_hash": "c1d20dfb1dadef45bf2c0ea08e6fa70a7ef8350656fe48b30e45459aadd2dc8f",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-CP-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "选真实问题：节水提示、垃圾分类、校园导视等；用“定义问题—构思—原型—测试”流程；评价看“是否解决问题”而非装饰多少。",
+          "excerpt_hash": "ac6adbd3886b63d2e326eb16c47f6046eacbc66c5463433682e25da8896bc76e",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-CP-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后提出解决问题的思路和方案，并用作品或模型进行表达，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“提出解决问题的思路和方案，并用作品或模型进行表达”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“选真实问题：节水提示、垃圾分类、校园导视等”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_e11b402708546946"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生提出解决问题的思路和方案，并用作品或模型进行表达的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_677d6e37dfb3335f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ef30a4ff28ce0002",
+        "hc_7900641d2be8e962"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“提出解决问题的思路和方案，并用作品或模型进行表达”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“提出解决问题的思路和方案，并用作品或模型进行表达”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能将美术与其他学科的知识和技能相结合，提出解决问题的思路和方案，并用作品或模型进行表达。",
+          "excerpt_hash": "c1d20dfb1dadef45bf2c0ea08e6fa70a7ef8350656fe48b30e45459aadd2dc8f",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-CP-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "选真实问题：节水提示、垃圾分类、校园导视等；用“定义问题—构思—原型—测试”流程；评价看“是否解决问题”而非装饰多少。",
+          "excerpt_hash": "ac6adbd3886b63d2e326eb16c47f6046eacbc66c5463433682e25da8896bc76e",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-CP-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后提出解决问题的思路和方案，并用作品或模型进行表达，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“提出解决问题的思路和方案，并用作品或模型进行表达”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“选真实问题：节水提示、垃圾分类、校园导视等”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_75c0500413839ca8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_25cc2de0079d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fbf879fc86b8f9dd",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2fcb637000dbd396",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5257fc4696e"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5773d3c34b5fac1a",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_162b4e921a430ada",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7f08a79245a04bd51982",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_66a45d74ea83"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_70c6b45240660bc3",
+      "textbook_grade": 4,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0170b43c6f63346e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9056a7a14a02606cf0cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c7075fcbe13b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1d7f26ff680d57af",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4c9a4493574dc517",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b0ba55d2d28575d0ba65",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_aa7ce1e8a37f"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4a0a538012d57261",
+      "textbook_grade": 3,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4705b73e5b9abe8b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b99acd98774d0dc454da",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_572122ddff26"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9a72f44c9f0c7435",
+      "textbook_grade": 3,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_191894293cbda8cd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_edc22a9a708956d31cdc",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a83a27f3607b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3637c861f3728bf7",
+      "textbook_grade": 4,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c41c0e0fc13e7dec",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_aa3aaa5d9032"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_19c3fbbc0c7e7882",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_f3cea9b41a797e43",
+      "evidence_refs": [
+        "standard:AR-D2-CP-019:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D2-CP-019",
+      "target_code": "AR-D3-AE-004",
+      "target_label": "能运用蒙太奇等方法，借助数字媒体软件完成3–5分钟微电影的后期制作（画面、对白、声音等），形成清晰的画面叙事效果。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ef30a4ff28ce0002",
+      "component_ids": [
+        "lc_e11b402708546946"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "模型"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提出解决问题的思路和方案，并用作品或模型进行表达。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够提出解决问题的思路和方案，并用作品或模型进行表达；优先采集：原型作品、测试记录、改进说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能将美术与其他学科的知识和技能相结合，提出解决问题的思路和方案，并用作品或模型进行表达。",
+          "excerpt_hash": "c1d20dfb1dadef45bf2c0ea08e6fa70a7ef8350656fe48b30e45459aadd2dc8f",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-CP-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（模型）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_7900641d2be8e962",
+      "component_ids": [
+        "lc_e11b402708546946"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提出解决问题的思路和方案，并用作品或模型进行表达。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够提出解决问题的思路和方案，并用作品或模型进行表达；优先采集：原型作品、测试记录、改进说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能将美术与其他学科的知识和技能相结合，提出解决问题的思路和方案，并用作品或模型进行表达。",
+          "excerpt_hash": "c1d20dfb1dadef45bf2c0ea08e6fa70a7ef8350656fe48b30e45459aadd2dc8f",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-CP-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_6723104b2073a751",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够将美术与其他学科的知识和技能相结合",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生将美术与其他学科的知识和技能相结合，并说明关键步骤、特征或依据。",
+      "label": "将美术与其他学科的知识和技能相结合",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够将美术与其他学科的知识和技能相结合；优先采集：原型作品、测试记录、改进说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "将美术与其他学科的知识和技能相结合",
+          "excerpt_hash": "2db8ec2074c9d39288174409a310d5ff6277e0d7f73b478ca17c983950771746",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-CP-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "将美术与其他学科的知识和技能相结合"
+    },
+    {
+      "component_id": "lc_e11b402708546946",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提出解决问题的思路和方案，并用作品或模型进行表达",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提出解决问题的思路和方案，并用作品或模型进行表达，并说明关键步骤、特征或依据。",
+      "label": "提出解决问题的思路和方案，并用作品或模型进行表达",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提出解决问题的思路和方案，并用作品或模型进行表达；优先采集：原型作品、测试记录、改进说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提出解决问题的思路和方案，并用作品或模型进行表达",
+          "excerpt_hash": "87ba83ecbc1a6b33900769d4d5715d6d062f6b7cbfa4b00a59fb90218a343c7f",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-CP-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出解决问题的思路和方案，并用作品或模型进行表达"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_d125c53ff168bd42",
+      "evidence_refs": [
+        "standard:AR-D2-CP-019:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D1-AE-019",
+      "source_label": "能运用撕、剪、编织等方法制作简单工艺品（如剪纸、小挂饰等），完成基本造型并进行适当装饰。",
+      "target_code": "AR-D2-CP-019",
+      "target_label": "能将美术与其他学科的知识和技能相结合，提出解决问题的思路和方案，并用作品或模型进行表达。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "c1d20dfb1dadef45bf2c0ea08e6fa70a7ef8350656fe48b30e45459aadd2dc8f",
+  "standard_code": "AR-D2-CP-019",
+  "verified_prerequisites": []
+}

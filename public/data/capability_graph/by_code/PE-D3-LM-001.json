@@ -1,0 +1,407 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_005ba923bc90ada3"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用学练所学运动项目的基本动作技术与1–2种战术配合的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ac0d03434b5fe72a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ce523eb2eeea4b40"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用学练所学运动项目的基本动作技术与1–2种战术配合”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用学练所学运动项目的基本动作技术与1–2种战术配合”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "学练所学运动项目的基本动作技术与1–2种战术配合，能在展示或小型比赛中运用。",
+          "excerpt_hash": "5b4acd295e99f151d1567b2a180f404d66039de588a11ca16a96f6cbd63748ab",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-LM-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "围绕一个主学项目（如足球/篮球/排球/乒乓球/中华传统体育）落实“教会—勤练—常赛”：先以情境问题引出战术意图（如“如何创造空当/如何支援接应”），再进行“关键技术→局部对抗→小场比赛”递进。提供战术要点卡（站位、传接时机、移动路线）与安全提示（对抗强度、身体接触边界）。用视频回放/同伴观察表抓“1个优点+1个改进点”。",
+          "excerpt_hash": "5d8995dcc4ca0a1eb7110eae92ce97c9df7c3723c7178490aa83cc94980ae073",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-LM-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用学练所学运动项目的基本动作技术与1–2种战术配合，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用学练所学运动项目的基本动作技术与1–2种战术配合”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“围绕一个主学项目（如足球/篮球/排球/乒乓球/中华传统体育）落实“教会—勤练—常赛”：先以情境问题引出战术意图（如“如何创造空当/如何支援接应”），再进行“关键技术→局部对抗→小场比赛”递进。提供战术要点卡（站位、传接…”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "high",
+      "confidence_score": 0.2463,
+      "connection_id": "fc_4d55bee577019f2a",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-001",
+      "target_code": "PE-H4G7-LM-001",
+      "target_label": "能运用知识与技能分析和解决体育展示或比赛中遇到的问题；掌握1-2项运动技能；理解运动项目的相关原理、历史和文化；能完成基础练习并记录身体反应。"
+    },
+    {
+      "confidence": "high",
+      "confidence_score": 0.2856,
+      "connection_id": "fc_8da7ec0c8f78f9ef",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-001",
+      "target_code": "PE-H4G7-LM-002",
+      "target_label": "理解动作技术的基本原理、运动文化和比赛规则；能在比赛中合理运用攻防基本战术；能学练所学球类运动项目的基本动作技术、组合动作技术和战术配合；能完…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1167,
+      "connection_id": "fc_fa34d2272ac23515",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-003:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-001",
+      "target_code": "PE-H4G7-LM-003",
+      "target_label": "能在田径、体操等运动项目学练中模拟军事训练场景；能灵活运用所学运动技能；能培养迎难而上、不怕受伤、挑战自我的钢铁意志；能完成基础练习并记录身体…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1706,
+      "connection_id": "fc_140b82e6a1dabc79",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-005:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-001",
+      "target_code": "PE-H4G7-LM-005",
+      "target_label": "能在体操、武术等运动项目学练中创设由简单向复杂再向创造性发展的劳动情境；能结合劳动模范典型事迹；能培养不怕苦、不怕累、干一行、爱一行、钻一行的…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2166,
+      "connection_id": "fc_157415f84cf5009b",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-001",
+      "target_code": "PE-H4G7-LM-007",
+      "target_label": "能掌握所学田径类运动项目的完整动作技术；能对所学田径类运动项目有整体体验和理解；能在跑、跳、投掷比赛中合理运用；能完成基础练习并记录身体反应。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2002,
+      "connection_id": "fc_bd50467b07cbfae8",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-008:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-001",
+      "target_code": "PE-H4G7-LM-008",
+      "target_label": "理解现代科学技术对运动技能学习、运动器材研发和运动表现提升的影响；能结合物理、数学、化学等相关知识；能在运动技能教学中运用移动设备或虚拟现实技…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1773,
+      "connection_id": "fc_4fabcd3de61bfe0b",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-009:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-001",
+      "target_code": "PE-H4G7-LM-009",
+      "target_label": "能在掌握运动技能的同时正确认识人与自然的关系；能根据实际条件利用虚拟现实技术模拟自然环境；能结合户外运动、定向越野等运动项目学练；能完成基础练…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.167,
+      "connection_id": "fc_8cc8df421fc4fbd4",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-010:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-001",
+      "target_code": "PE-H4G7-LM-010",
+      "target_label": "能及时处理跑、跳、投掷学练和比赛中易发生的安全问题；能解释所学田径类运动项目的安全知识；能正确看待比赛胜负；能完成基础练习并记录身体反应。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2367,
+      "connection_id": "fc_5084e746b66de12c",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-013:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-001",
+      "target_code": "PE-H4G7-LM-013",
+      "target_label": "运用4-5个动作技术参与展示或比赛；能对该运动项目有整体体验和理解；能解释该运动项目的基本原理和文化；能完成基础练习并记录身体反应。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1593,
+      "connection_id": "fc_e013b1f093b36d75",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-016:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-001",
+      "target_code": "PE-H4G7-LM-016",
+      "target_label": "能在比赛中遵守规则、服从裁判；能解释所学体操类运动项目的安全知识并及时处理常见运动损伤；能在体操类运动学练中具有情绪调控能力；能完成基础练习并…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1971,
+      "connection_id": "fc_a2b021a4d21646ce",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-019:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-001",
+      "target_code": "PE-H4G7-LM-019",
+      "target_label": "能掌握所学水上或冰雪类运动项目的完整动作技术；能对该运动项目有完整理解并能合理运用规则；能进行长距离、有难度的运动；能完成基础练习并记录身体反…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1996,
+      "connection_id": "fc_a1844a71e3cb0c8a",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-025:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-001",
+      "target_code": "PE-H4G7-LM-025",
+      "target_label": "能掌握所学中华传统体育类运动项目的完整动作技术；能灵活运用所学知识与技能进行半实战、实战对抗练习和比赛；能描述该项目起源、发展与文化的关系；能…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2158,
+      "connection_id": "fc_69090da14778bfe5",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-031:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-LM-001",
+      "target_code": "PE-H4G7-LM-031",
+      "target_label": "理解比赛规则并能担任组内裁判；能掌握所学新兴体育类运动项目的完整动作技术；能合理运用动作技术开展班级内展示或比赛；能完成基础练习并记录身体反应。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ce523eb2eeea4b40",
+      "component_ids": [
+        "lc_f799c467ed0e65cb",
+        "lc_005ba923bc90ada3"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生学练所学运动项目的基本动作技术与1–2种战术配合。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够学练所学运动项目的基本动作技术与1–2种战术配合；优先采集：比赛录像、战术观察表、自评互评。",
+        "学生在展示或小型比赛中，能够运用学练所学运动项目的基本动作技术与1–2种战术配合；优先采集：比赛录像、战术观察表、自评互评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "学练所学运动项目的基本动作技术与1–2种战术配合，能在展示或小型比赛中运用。",
+          "excerpt_hash": "5b4acd295e99f151d1567b2a180f404d66039de588a11ca16a96f6cbd63748ab",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-LM-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "学练所学运动项目的基本动作技术与1–2种战术配合；运用学练所学运动项目的基本动作技术与1–2种战术配合",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_f799c467ed0e65cb",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够学练所学运动项目的基本动作技术与1–2种战术配合",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生学练所学运动项目的基本动作技术与1–2种战术配合，并说明关键步骤、特征或依据。",
+      "label": "学练所学运动项目的基本动作技术与1–2种战术配合",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够学练所学运动项目的基本动作技术与1–2种战术配合；优先采集：比赛录像、战术观察表、自评互评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "学练所学运动项目的基本动作技术与1–2种战术配合",
+          "excerpt_hash": "40048b2b730802657998d8445b0ea8ae6df948773f84a360e24363152ee60429",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-LM-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "学练所学运动项目的基本动作技术与1–2种战术配合"
+    },
+    {
+      "component_id": "lc_005ba923bc90ada3",
+      "component_type": "conceptual",
+      "condition": "在展示或小型比赛中",
+      "confidence": 0.72,
+      "description": "学生在展示或小型比赛中，能够运用学练所学运动项目的基本动作技术与1–2种战术配合",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在展示或小型比赛中”的诊断任务，要求学生运用学练所学运动项目的基本动作技术与1–2种战术配合，并说明关键步骤、特征或依据。",
+      "label": "运用学练所学运动项目的基本动作技术与1–2种战术配合",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在展示或小型比赛中，能够运用学练所学运动项目的基本动作技术与1–2种战术配合；优先采集：比赛录像、战术观察表、自评互评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "学练所学运动项目的基本动作技术与1–2种战术配合，能在展示或小型比赛中运用。",
+          "excerpt_hash": "5b4acd295e99f151d1567b2a180f404d66039de588a11ca16a96f6cbd63748ab",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-LM-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用学练所学运动项目的基本动作技术与1–2种战术配合"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_11b16b84ea8572a9",
+      "evidence_refs": [
+        "standard:PE-D3-LM-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-LM-001",
+      "source_label": "能在教师指导下进行体育展示或比赛。",
+      "target_code": "PE-D3-LM-001",
+      "target_label": "学练所学运动项目的基本动作技术与1–2种战术配合，能在展示或小型比赛中运用。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5b4acd295e99f151d1567b2a180f404d66039de588a11ca16a96f6cbd63748ab",
+  "standard_code": "PE-D3-LM-001",
+  "verified_prerequisites": []
+}

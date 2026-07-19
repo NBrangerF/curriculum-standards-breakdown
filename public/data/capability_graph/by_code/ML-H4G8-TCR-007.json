@@ -1,0 +1,393 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_5d7eaae98850ff03"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出中国共产党领导人民解放思想、锐意进取的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e00989127dd2071f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出中国共产党领导人民解放思想、锐意进取的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出中国共产党领导人民解放思想、锐意进取的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能创造改革开放和社会主义现代化建设伟大成就；理解中国特色社会主义道路是指引中国发展繁荣的正确道路；了解中国共产党领导人民解放思想、锐意进取；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "1892942098157487c5caddaa6d1c80dcbb74267f1f9ebe3e4ac712cea3763584",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生用从温饱不足到全面小康等事实说明道路选择的意义。",
+          "excerpt_hash": "5c1994c670a0452e586cc774660e4e24e9cca3f71b90279f4be790c5d1b6a9e4",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G8-TCR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出中国共产党领导人民解放思想、锐意进取的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出中国共产党领导人民解放思想、锐意进取的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生用从温饱不足到全面小康等事实说明道路选择的意义。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9040e58e3f770d42",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2860489fc83ddeb6cec5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_76fc538dd0d1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_262756ea29a61d32",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d6ab9fd6486b6529",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d8429e42f96b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9eb2e2a90a705049",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_62d6be11e89472e1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b28ec1f6b081b602",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8c483c42e4a084fb",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_05dbe85802ac"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c23f52c4ba953c6f",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_7c0d4a72bd09d3eb",
+      "evidence_refs": [
+        "standard:ML-H4G8-TCR-007:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-H4G8-TCR-007",
+      "target_code": "ML-H4G9-TCR-007",
+      "target_label": "能创造改革开放和社会主义现代化建设伟大成就；理解中国特色社会主义道路是指引中国发展繁荣的正确道路；分析中国共产党领导人民解放思想、锐意进取；能…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_2e06944254883d97",
+      "component_ids": [
+        "lc_d096afb13a2b20ff"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "开放"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生创造改革开放和社会主义现代化建设伟大成就。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够创造改革开放和社会主义现代化建设伟大成就；优先采集：改革开放成就展板、案例说明、主题发言。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能创造改革开放和社会主义现代化建设伟大成就；理解中国特色社会主义道路是指引中国发展繁荣的正确道路；了解中国共产党领导人民解放思想、锐意进取；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "1892942098157487c5caddaa6d1c80dcbb74267f1f9ebe3e4ac712cea3763584",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（开放）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_259352541c0c86fb",
+      "component_ids": [
+        "lc_3511370c1d51f849"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释中国特色社会主义道路是指引中国发展繁荣的正确道路。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释中国特色社会主义道路是指引中国发展繁荣的正确道路；优先采集：改革开放成就展板、案例说明、主题发言。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能创造改革开放和社会主义现代化建设伟大成就；理解中国特色社会主义道路是指引中国发展繁荣的正确道路；了解中国共产党领导人民解放思想、锐意进取；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "1892942098157487c5caddaa6d1c80dcbb74267f1f9ebe3e4ac712cea3763584",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d096afb13a2b20ff",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够创造改革开放和社会主义现代化建设伟大成就",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生创造改革开放和社会主义现代化建设伟大成就，并说明关键步骤、特征或依据。",
+      "label": "创造改革开放和社会主义现代化建设伟大成就",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够创造改革开放和社会主义现代化建设伟大成就；优先采集：改革开放成就展板、案例说明、主题发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "创造改革开放和社会主义现代化建设伟大成就",
+          "excerpt_hash": "b930d13157446dd277a1f6307cdb031b9708324fcaa26ec2f27e5f38342e9e6b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "创造改革开放和社会主义现代化建设伟大成就"
+    },
+    {
+      "component_id": "lc_3511370c1d51f849",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释中国特色社会主义道路是指引中国发展繁荣的正确道路",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释中国特色社会主义道路是指引中国发展繁荣的正确道路，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释中国特色社会主义道路是指引中国发展繁荣的正确道路",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释中国特色社会主义道路是指引中国发展繁荣的正确道路；优先采集：改革开放成就展板、案例说明、主题发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解中国特色社会主义道路是指引中国发展繁荣的正确道路",
+          "excerpt_hash": "a271eff65e70a8554851b9e7743596937a326eb0a5011a61962d220327544022",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解中国特色社会主义道路是指引中国发展繁荣的正确道路"
+    },
+    {
+      "component_id": "lc_5d7eaae98850ff03",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出中国共产党领导人民解放思想、锐意进取的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出中国共产党领导人民解放思想、锐意进取的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出中国共产党领导人民解放思想、锐意进取的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出中国共产党领导人民解放思想、锐意进取的关键特征；优先采集：改革开放成就展板、案例说明、主题发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解中国共产党领导人民解放思想、锐意进取",
+          "excerpt_hash": "1f4a07736a6ea3c175764029bdadf573f4ddb56e4bae91a94e18b721e17b8b89",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解中国共产党领导人民解放思想、锐意进取"
+    },
+    {
+      "component_id": "lc_31318d01101a8397",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够结合家庭、学校或社会案例分析问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合家庭、学校或社会案例分析问题，并说明关键步骤、特征或依据。",
+      "label": "结合家庭、学校或社会案例分析问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够结合家庭、学校或社会案例分析问题；优先采集：改革开放成就展板、案例说明、主题发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "结合家庭、学校或社会案例分析问题",
+          "excerpt_hash": "9f011217b5939392cbd181d22775f8f11d41c522438ab487610a73e9e02bbda8",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-TCR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "结合家庭、学校或社会案例分析问题"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a0a74ad675709381",
+      "evidence_refs": [
+        "standard:ML-H4G8-TCR-007:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-H4G7-TCR-008",
+      "source_label": "理解中国特色社会主义道路是指引中国发展繁荣的正确道路；了解中国共产党领导人民解放思想、锐意进取；能创造改革开放和社会主义现代化建设伟大成就；能…",
+      "target_code": "ML-H4G8-TCR-007",
+      "target_label": "能创造改革开放和社会主义现代化建设伟大成就；理解中国特色社会主义道路是指引中国发展繁荣的正确道路；了解中国共产党领导人民解放思想、锐意进取；能…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "1892942098157487c5caddaa6d1c80dcbb74267f1f9ebe3e4ac712cea3763584",
+  "standard_code": "ML-H4G8-TCR-007",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,351 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_8ede61a8ad4990ee"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_45301c2a2634c4d5",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感，能正确看待比赛胜负；表现出责任意识和规则意识；能掌握所学水上或冰雪类运动项目的完整动作技术；能分析练习或比赛表现并调整方法。",
+          "excerpt_hash": "aa9a797a7b289be51e48a6fd9c6e4c81057d5b9481c0ad191078308b9beed676",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过角色分工、裁判体验和赛后讨论培养学生的规则意识、责任意识和胜负观。",
+          "excerpt_hash": "0ff447878b969997c97aec3de76cbd56337c3ab90e2a329b158d7d656e0e213e",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G8-SD-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“通过角色分工、裁判体验和赛后讨论培养学生的规则意识、责任意识和胜负观。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7c6e1d1a0f67346e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4033475eef6d59cd7a75",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_640488b51030"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b134cd8790a103dd",
+      "textbook_grade": 8,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康8年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_ac8784f1bc33f4d8",
+      "evidence_refs": [
+        "standard:PE-H4G8-SD-005:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-H4G8-SD-005",
+      "target_code": "PE-H4G9-SD-006",
+      "target_label": "能做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感，能正确看待比赛胜负；表现出责任意识和规则意识；能运用所学水上或冰雪类运动项目的…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_64a43211ac223255",
+      "component_ids": [
+        "lc_fb1824cd4d9e1325",
+        "lc_1b729bf047f8ab14"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生正确看待比赛胜负。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够正确看待比赛胜负；优先采集：比赛观察表、裁判记录、赛后反思。",
+        "学生能够正确运用所学水上或冰雪类运动项目的完整动作技术完成任务；优先采集：比赛观察表、裁判记录、赛后反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感，能正确看待比赛胜负；表现出责任意识和规则意识；能掌握所学水上或冰雪类运动项目的完整动作技术；能分析练习或比赛表现并调整方法。",
+          "excerpt_hash": "aa9a797a7b289be51e48a6fd9c6e4c81057d5b9481c0ad191078308b9beed676",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_30fc0585bf887c29",
+      "component_ids": [
+        "lc_1b729bf047f8ab14"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "完整",
+        "完整"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生正确运用所学水上或冰雪类运动项目的完整动作技术完成任务。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够正确运用所学水上或冰雪类运动项目的完整动作技术完成任务；优先采集：比赛观察表、裁判记录、赛后反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感，能正确看待比赛胜负；表现出责任意识和规则意识；能掌握所学水上或冰雪类运动项目的完整动作技术；能分析练习或比赛表现并调整方法。",
+          "excerpt_hash": "aa9a797a7b289be51e48a6fd9c6e4c81057d5b9481c0ad191078308b9beed676",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（完整、完整）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_8ede61a8ad4990ee",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感，并说明关键步骤、特征或依据。",
+      "label": "做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感；优先采集：比赛观察表、裁判记录、赛后反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感",
+          "excerpt_hash": "8f19f2b554ad7e9ed3af8cab2e862c1fe182a393fd2a210f0abb89603ecb96f3",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感"
+    },
+    {
+      "component_id": "lc_fb1824cd4d9e1325",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够正确看待比赛胜负",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生正确看待比赛胜负，并说明关键步骤、特征或依据。",
+      "label": "正确看待比赛胜负",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够正确看待比赛胜负；优先采集：比赛观察表、裁判记录、赛后反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "正确看待比赛胜负",
+          "excerpt_hash": "b90724a6e54d6ad12402e9e8cad7d2d3b75f43cf2b7248e8f86d667fac123224",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "正确看待比赛胜负"
+    },
+    {
+      "component_id": "lc_948d4bdbb70e0c87",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够表现出责任意识和规则意识",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生表现出责任意识和规则意识，并说明关键步骤、特征或依据。",
+      "label": "表现出责任意识和规则意识",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够表现出责任意识和规则意识；优先采集：比赛观察表、裁判记录、赛后反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "表现出责任意识和规则意识",
+          "excerpt_hash": "668a1acae0a05551414556ab13005d2d20142f412b4da781e31b4c6f996a7f41",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表现出责任意识和规则意识"
+    },
+    {
+      "component_id": "lc_1b729bf047f8ab14",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够正确运用所学水上或冰雪类运动项目的完整动作技术完成任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生正确运用所学水上或冰雪类运动项目的完整动作技术完成任务，并说明关键步骤、特征或依据。",
+      "label": "正确运用所学水上或冰雪类运动项目的完整动作技术完成任务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够正确运用所学水上或冰雪类运动项目的完整动作技术完成任务；优先采集：比赛观察表、裁判记录、赛后反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "掌握所学水上或冰雪类运动项目的完整动作技术",
+          "excerpt_hash": "0cbd708b00b3175376f5559bafa9441b1e2148d7e02e5efc2d9693bc37e6251e",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "掌握所学水上或冰雪类运动项目的完整动作技术"
+    },
+    {
+      "component_id": "lc_745e0edea160ca37",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析练习或比赛表现",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析练习或比赛表现，并说明关键步骤、特征或依据。",
+      "label": "分析练习或比赛表现",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析练习或比赛表现；优先采集：比赛观察表、裁判记录、赛后反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析练习或比赛表现",
+          "excerpt_hash": "12addceee495f899bb968b590b0795c198fd498deec40d201b11b66f42983e0a",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析练习或比赛表现"
+    },
+    {
+      "component_id": "lc_79d32df009cec874",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够调整方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整方法，并说明关键步骤、特征或依据。",
+      "label": "调整方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够调整方法；优先采集：比赛观察表、裁判记录、赛后反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "调整方法",
+          "excerpt_hash": "81d82b6f3664e9545d1c6b025456d98521f9a5e88f20d39b04297a69a5b1507f",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "调整方法"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_bab15e2edbb4c4cf",
+      "evidence_refs": [
+        "standard:PE-H4G8-SD-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-H4G7-SD-004",
+      "source_label": "能做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感，能正确看待比赛胜负；能掌握所学水上或冰雪类运动项目的完整动作技术；表现出责任意…",
+      "target_code": "PE-H4G8-SD-005",
+      "target_label": "能做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感，能正确看待比赛胜负；表现出责任意识和规则意识；能掌握所学水上或冰雪类运动项目的…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "aa9a797a7b289be51e48a6fd9c6e4c81057d5b9481c0ad191078308b9beed676",
+  "standard_code": "PE-H4G8-SD-005",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,554 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_1ba00a50d0242a59"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_df491f3aebcd2051",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对音乐情绪情感形成个性化理解；能在听赏中较准确听辨并描述音乐表现要素、表现形式和表现手段的特点与作用；尝试运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "e3055c2c031e576011eae7932009b3312bccf1b5c416fb0976e7f99ee7ee4b22",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生用证据支持个人听赏判断，避免只表达笼统感受。",
+          "excerpt_hash": "64da4c0302b880b7491be54a9cd45778558ce32c31a47c3d12c6e46c76deb10b",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-AA-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“鼓励学生用证据支持个人听赏判断，避免只表达笼统感受。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_07cbb2db10c0b52f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生完成基础表现或创作的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e2d7534f231e571d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9c4e97433872c094"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“完成基础表现或创作”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“完成基础表现或创作”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对音乐情绪情感形成个性化理解；能在听赏中较准确听辨并描述音乐表现要素、表现形式和表现手段的特点与作用；尝试运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "e3055c2c031e576011eae7932009b3312bccf1b5c416fb0976e7f99ee7ee4b22",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生用证据支持个人听赏判断，避免只表达笼统感受。",
+          "excerpt_hash": "64da4c0302b880b7491be54a9cd45778558ce32c31a47c3d12c6e46c76deb10b",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-AA-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后完成基础表现或创作，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“完成基础表现或创作”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“鼓励学生用证据支持个人听赏判断，避免只表达笼统感受。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_c3d3430b750aef70",
+        "lc_8b1a9d33af8060c6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述音乐表现要素、表现形式和表现手段的特点与作用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_956e7a5af653633f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述音乐表现要素、表现形式和表现手段的特点与作用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述音乐表现要素、表现形式和表现手段的特点与作用”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对音乐情绪情感形成个性化理解；能在听赏中较准确听辨并描述音乐表现要素、表现形式和表现手段的特点与作用；尝试运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "e3055c2c031e576011eae7932009b3312bccf1b5c416fb0976e7f99ee7ee4b22",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生用证据支持个人听赏判断，避免只表达笼统感受。",
+          "excerpt_hash": "64da4c0302b880b7491be54a9cd45778558ce32c31a47c3d12c6e46c76deb10b",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-AA-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述音乐表现要素、表现形式和表现手段的特点与作用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述音乐表现要素、表现形式和表现手段的特点与作用”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“鼓励学生用证据支持个人听赏判断，避免只表达笼统感受。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_a02e82630e2dc63a",
+        "lc_1ba00a50d0242a59"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生对音乐情绪情感形成个性化理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ac5db5effe66d37e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“对音乐情绪情感形成个性化理解”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“对音乐情绪情感形成个性化理解”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对音乐情绪情感形成个性化理解；能在听赏中较准确听辨并描述音乐表现要素、表现形式和表现手段的特点与作用；尝试运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "e3055c2c031e576011eae7932009b3312bccf1b5c416fb0976e7f99ee7ee4b22",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生用证据支持个人听赏判断，避免只表达笼统感受。",
+          "excerpt_hash": "64da4c0302b880b7491be54a9cd45778558ce32c31a47c3d12c6e46c76deb10b",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-AA-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后对音乐情绪情感形成个性化理解，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“对音乐情绪情感形成个性化理解”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“鼓励学生用证据支持个人听赏判断，避免只表达笼统感受。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ac0b3c0844d1f9e0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_010c1e047f00dd19a403",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a98e81d5ea76"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5c9c27ac05203638",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ddc252638c45784e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2efa5fc22fa7520b01b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_86eb84faa252"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0805abf2f5db09ed",
+      "textbook_grade": 7,
+      "textbook_subject": "美术",
+      "textbook_title": "美术7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0d2c4ac772d821fd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4e29c3897ac01b25a084",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d35e7be5354c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a883040b0334e9a7",
+      "textbook_grade": 7,
+      "textbook_subject": "美术",
+      "textbook_title": "美术7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_71a8e126edaf2d67",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a89e5efa283f5034b420",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a99675852c59"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b3fadfb25eca49fe",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_89f51f0d881e23d5",
+      "evidence_refs": [
+        "standard:AR-H4G7-AA-008:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-H4G7-AA-008",
+      "target_code": "AR-H4G8-AA-013",
+      "target_label": "能整合知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵；能在听赏中较准确听辨并描述音乐表现要素、表现形式和表现手段的特点与作用；能…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_9c4e97433872c094",
+      "component_ids": [
+        "lc_07cbb2db10c0b52f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "创作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成基础表现或创作。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够完成基础表现或创作；优先采集：音乐评述、听辨记录、文化背景说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对音乐情绪情感形成个性化理解；能在听赏中较准确听辨并描述音乐表现要素、表现形式和表现手段的特点与作用；尝试运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "e3055c2c031e576011eae7932009b3312bccf1b5c416fb0976e7f99ee7ee4b22",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（创作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_65811f4fa095f41c",
+      "component_ids": [
+        "lc_cbc215ee362e2ed6"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "准确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在听赏中较准确听辨。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在听赏中较准确听辨；优先采集：音乐评述、听辨记录、文化背景说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对音乐情绪情感形成个性化理解；能在听赏中较准确听辨并描述音乐表现要素、表现形式和表现手段的特点与作用；尝试运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "e3055c2c031e576011eae7932009b3312bccf1b5c416fb0976e7f99ee7ee4b22",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（准确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_a02e82630e2dc63a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够对音乐情绪情感形成个性化理解",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生对音乐情绪情感形成个性化理解，并说明关键步骤、特征或依据。",
+      "label": "对音乐情绪情感形成个性化理解",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够对音乐情绪情感形成个性化理解；优先采集：音乐评述、听辨记录、文化背景说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "对音乐情绪情感形成个性化理解",
+          "excerpt_hash": "1aed3cff6b5a22775f694cdf46a5f10ee436bc191af9ca002acd6e1cb7a8b993",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "对音乐情绪情感形成个性化理解"
+    },
+    {
+      "component_id": "lc_cbc215ee362e2ed6",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在听赏中较准确听辨",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在听赏中较准确听辨，并说明关键步骤、特征或依据。",
+      "label": "在听赏中较准确听辨",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在听赏中较准确听辨；优先采集：音乐评述、听辨记录、文化背景说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在听赏中较准确听辨",
+          "excerpt_hash": "a894112d78fa6706271bd73e4fd967fe82014434396162ea1b1cd0dfd10fdeb7",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在听赏中较准确听辨"
+    },
+    {
+      "component_id": "lc_c3d3430b750aef70",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述音乐表现要素、表现形式和表现手段的特点与作用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述音乐表现要素、表现形式和表现手段的特点与作用，并说明关键步骤、特征或依据。",
+      "label": "描述音乐表现要素、表现形式和表现手段的特点与作用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述音乐表现要素、表现形式和表现手段的特点与作用；优先采集：音乐评述、听辨记录、文化背景说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述音乐表现要素、表现形式和表现手段的特点与作用",
+          "excerpt_hash": "cd53224eef750d6955acc98a0bbd52ec770177bf9c5628631482fe7db63bf17f",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述音乐表现要素、表现形式和表现手段的特点与作用"
+    },
+    {
+      "component_id": "lc_1ba00a50d0242a59",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵，并说明关键步骤、特征或依据。",
+      "label": "运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵；优先采集：音乐评述、听辨记录、文化背景说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵",
+          "excerpt_hash": "3465667ec7c7eb9b1145d2a59bcd188e75c8cb386c73c681d77eaddd7b947667",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用知识分析代表性音乐的体裁、形式、审美特征、风格特点和文化内涵"
+    },
+    {
+      "component_id": "lc_8b1a9d33af8060c6",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述艺术要素",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述艺术要素，并说明关键步骤、特征或依据。",
+      "label": "描述艺术要素",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述艺术要素；优先采集：音乐评述、听辨记录、文化背景说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述艺术要素",
+          "excerpt_hash": "710935e4df1532334f250c3d052674e266294edd15da0e6096f7bc2137ca8425",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述艺术要素"
+    },
+    {
+      "component_id": "lc_07cbb2db10c0b52f",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成基础表现或创作",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成基础表现或创作，并说明关键步骤、特征或依据。",
+      "label": "完成基础表现或创作",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成基础表现或创作；优先采集：音乐评述、听辨记录、文化背景说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成基础表现或创作",
+          "excerpt_hash": "c6c7aa6f0fcb88782073b2bfe6ef8341b9660a99662a1a2b49152a8e04a101f6",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成基础表现或创作"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2165,
+      "edge_id": "pc_1cca255903b13df5",
+      "evidence_refs": [
+        "standard:AR-H4G7-AA-008:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D3-AA-021",
+      "source_label": "能感知并理解舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点，理解作品内容与意蕴，并能表达自己的审美感受。",
+      "target_code": "AR-H4G7-AA-008",
+      "target_label": "能对音乐情绪情感形成个性化理解；能在听赏中较准确听辨并描述音乐表现要素、表现形式和表现手段的特点与作用；尝试运用知识分析代表性音乐的体裁、形式…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e3055c2c031e576011eae7932009b3312bccf1b5c416fb0976e7f99ee7ee4b22",
+  "standard_code": "AR-H4G7-AA-008",
+  "verified_prerequisites": []
+}

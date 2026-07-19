@@ -1,0 +1,167 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_1369a703586dff55"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a3053c001e5eb19f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4dae37be900aab18"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在活动中承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全。",
+          "excerpt_hash": "fcc9cc9720cbaa79c07ff9ed86e9493a525502efff2ff01228cf4c34f3e4acac",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“岗位说明书”明确职责（赛前检查器材与场地、提醒热身与间距、记录违规则与安全隐患）。让学生在教师监督下轮值，结束后进行岗位反馈：哪些提醒有效、哪些需要改进。强调责任不是“管人”，而是“让活动更安全更顺畅”。",
+          "excerpt_hash": "2b848476af02caf274c34e46fd738dc7145afaf2c98b85e55e736c9d6c2d6185",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-SD-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“用“岗位说明书”明确职责（赛前检查器材与场地、提醒热身与间距、记录违规则与安全隐患）。让学生在教师监督下轮值，结束后进行岗位反馈：哪些提醒有效、哪些需要改进。强调责任不是“管人”，而是“让活动更安全更顺畅”。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1364,
+      "connection_id": "fc_9d8257c14719d497",
+      "evidence_refs": [
+        "standard:PE-H4G7-SD-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-SD-007",
+      "target_code": "PE-H4G7-SD-001",
+      "target_label": "能积极应对体育活动中遇到的困难，表现出吃苦耐劳、敢于拼搏、勇于争先的精神；能掌握所学球类运动项目的基本动作技术、组合动作技术和战术配合；表现出…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_4dae37be900aab18",
+      "component_ids": [
+        "lc_1369a703586dff55"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在活动中，能够承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全；优先采集：角色履职记录、教师量表、同伴反馈。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在活动中承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全。",
+          "excerpt_hash": "fcc9cc9720cbaa79c07ff9ed86e9493a525502efff2ff01228cf4c34f3e4acac",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_1369a703586dff55",
+      "component_type": "conceptual",
+      "condition": "在活动中",
+      "confidence": 0.72,
+      "description": "学生在活动中，能够承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在活动中”的诊断任务，要求学生承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全，并说明关键步骤、特征或依据。",
+      "label": "承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在活动中，能够承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全；优先采集：角色履职记录、教师量表、同伴反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在活动中承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全。",
+          "excerpt_hash": "fcc9cc9720cbaa79c07ff9ed86e9493a525502efff2ff01228cf4c34f3e4acac",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_d212656ebf99ab61",
+      "evidence_refs": [
+        "standard:PE-D3-SD-007:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-SD-007",
+      "source_label": "能在小组活动中分工合作，主动承担角色并完成任务。",
+      "target_code": "PE-D3-SD-007",
+      "target_label": "能在活动中承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "fcc9cc9720cbaa79c07ff9ed86e9493a525502efff2ff01228cf4c34f3e4acac",
+  "standard_code": "PE-D3-SD-007",
+  "verified_prerequisites": []
+}

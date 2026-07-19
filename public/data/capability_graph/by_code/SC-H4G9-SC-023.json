@@ -1,0 +1,512 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_41a075e4bf0d5061"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生建模、论证的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1d5a639256c6855e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_adcee4b67e4daac6"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“建模、论证”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“建模、论证”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能学会使用放大镜、显微镜等工具观察各类生物；能观察和描述常见生物的生活环境并感知生物对环境的适应；能感受观察工具的使用及发展对提高人类认识自然能力的作用；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "172d22917c0a147dcc0f20379463a5f78e24bf95216fc5741c00b9f43f937fb4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-023:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调观察工具、观察方法和生命现象描述的规范性。",
+          "excerpt_hash": "7e8f35179c4813d7a8db5e06efc837ad96172a6ca92f336eb8397b5d6f944866",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-023:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后建模、论证，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“建模、论证”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“强调观察工具、观察方法和生命现象描述的规范性。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_c3d7e75cd02a5039"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生观察和描述常见生物的生活环境的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5cae3fa7f0aa0439",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_36c7f378fc55bac0"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“观察和描述常见生物的生活环境”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“观察和描述常见生物的生活环境”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能学会使用放大镜、显微镜等工具观察各类生物；能观察和描述常见生物的生活环境并感知生物对环境的适应；能感受观察工具的使用及发展对提高人类认识自然能力的作用；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "172d22917c0a147dcc0f20379463a5f78e24bf95216fc5741c00b9f43f937fb4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-023:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调观察工具、观察方法和生命现象描述的规范性。",
+          "excerpt_hash": "7e8f35179c4813d7a8db5e06efc837ad96172a6ca92f336eb8397b5d6f944866",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-023:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后观察和描述常见生物的生活环境，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“观察和描述常见生物的生活环境”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“强调观察工具、观察方法和生命现象描述的规范性。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_c3d7e75cd02a5039",
+        "lc_3c9fd80a81b8071c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生观察和描述常见生物的生活环境的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2c8413ba53e3e96b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_36c7f378fc55bac0"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“观察和描述常见生物的生活环境”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“观察和描述常见生物的生活环境”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能学会使用放大镜、显微镜等工具观察各类生物；能观察和描述常见生物的生活环境并感知生物对环境的适应；能感受观察工具的使用及发展对提高人类认识自然能力的作用；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "172d22917c0a147dcc0f20379463a5f78e24bf95216fc5741c00b9f43f937fb4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-023:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调观察工具、观察方法和生命现象描述的规范性。",
+          "excerpt_hash": "7e8f35179c4813d7a8db5e06efc837ad96172a6ca92f336eb8397b5d6f944866",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-023:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后观察和描述常见生物的生活环境，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“观察和描述常见生物的生活环境”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“强调观察工具、观察方法和生命现象描述的规范性。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_1a99ca201097bfaa",
+        "lc_c3d7e75cd02a5039",
+        "lc_3c9fd80a81b8071c",
+        "lc_7a110300a51201d9"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生学会使用放大镜、显微镜等工具观察各类生物的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_7a5eab55608df6ab",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_36c7f378fc55bac0"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“学会使用放大镜、显微镜等工具观察各类生物”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“学会使用放大镜、显微镜等工具观察各类生物”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能学会使用放大镜、显微镜等工具观察各类生物；能观察和描述常见生物的生活环境并感知生物对环境的适应；能感受观察工具的使用及发展对提高人类认识自然能力的作用；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "172d22917c0a147dcc0f20379463a5f78e24bf95216fc5741c00b9f43f937fb4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-023:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调观察工具、观察方法和生命现象描述的规范性。",
+          "excerpt_hash": "7e8f35179c4813d7a8db5e06efc837ad96172a6ca92f336eb8397b5d6f944866",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-023:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后学会使用放大镜、显微镜等工具观察各类生物，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“学会使用放大镜、显微镜等工具观察各类生物”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“强调观察工具、观察方法和生命现象描述的规范性。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 3,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2075edb1f734d283",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2b4eaf7fd74d5608c966",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_91e786746fa4"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a01eaebee10c3727",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_095bc85172dbd6af",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_46b397a7eadfedff",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9d2a89b3509c8f34",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f0fcd567e766"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_941308fc63ca2501",
+      "textbook_grade": 9,
+      "textbook_subject": "物理",
+      "textbook_title": "物理9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_adcee4b67e4daac6",
+      "component_ids": [
+        "lc_41a075e4bf0d5061"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "论证"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生建模、论证。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够建模、论证；优先采集：、生物图、工具使用说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能学会使用放大镜、显微镜等工具观察各类生物；能观察和描述常见生物的生活环境并感知生物对环境的适应；能感受观察工具的使用及发展对提高人类认识自然能力的作用；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "172d22917c0a147dcc0f20379463a5f78e24bf95216fc5741c00b9f43f937fb4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-023:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（论证）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_36c7f378fc55bac0",
+      "component_ids": [
+        "lc_c3d7e75cd02a5039"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生观察和描述常见生物的生活环境。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够观察和描述常见生物的生活环境；优先采集：、生物图、工具使用说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能学会使用放大镜、显微镜等工具观察各类生物；能观察和描述常见生物的生活环境并感知生物对环境的适应；能感受观察工具的使用及发展对提高人类认识自然能力的作用；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "172d22917c0a147dcc0f20379463a5f78e24bf95216fc5741c00b9f43f937fb4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-023:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_1a99ca201097bfaa",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够学会使用放大镜、显微镜等工具观察各类生物",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生学会使用放大镜、显微镜等工具观察各类生物，并说明关键步骤、特征或依据。",
+      "label": "学会使用放大镜、显微镜等工具观察各类生物",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够学会使用放大镜、显微镜等工具观察各类生物；优先采集：、生物图、工具使用说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "学会使用放大镜、显微镜等工具观察各类生物",
+          "excerpt_hash": "abd40ee5cea9444c34cad8b1cd6e0cb4e6a6b0dc47a82903dfceb68028784f37",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-023:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "学会使用放大镜、显微镜等工具观察各类生物"
+    },
+    {
+      "component_id": "lc_c3d7e75cd02a5039",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够观察和描述常见生物的生活环境",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生观察和描述常见生物的生活环境，并说明关键步骤、特征或依据。",
+      "label": "观察和描述常见生物的生活环境",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够观察和描述常见生物的生活环境；优先采集：、生物图、工具使用说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "观察和描述常见生物的生活环境",
+          "excerpt_hash": "86371775148dbcdaed31a9406d4ba6764c55c488fd9340d537cfefd695ec80da",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-023:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "观察和描述常见生物的生活环境"
+    },
+    {
+      "component_id": "lc_3c9fd80a81b8071c",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并描述生物对环境的适应",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并描述生物对环境的适应，并说明关键步骤、特征或依据。",
+      "label": "识别并描述生物对环境的适应",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并描述生物对环境的适应；优先采集：、生物图、工具使用说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "感知生物对环境的适应",
+          "excerpt_hash": "21dddf9adf4d5d5da43daf7d656ff22f522f7ec9000b1e07a4b7159d0499b502",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-023:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "感知生物对环境的适应"
+    },
+    {
+      "component_id": "lc_7a110300a51201d9",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够感受观察工具的使用及发展对提高人类认识自然能力的作用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生感受观察工具的使用及发展对提高人类认识自然能力的作用，并说明关键步骤、特征或依据。",
+      "label": "感受观察工具的使用及发展对提高人类认识自然能力的作用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够感受观察工具的使用及发展对提高人类认识自然能力的作用；优先采集：、生物图、工具使用说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "感受观察工具的使用及发展对提高人类认识自然能力的作用",
+          "excerpt_hash": "41ed6841a4e0ad8e8c7d93b7c432a14b22fb81076fe367a659534ea06404dc70",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-023:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "感受观察工具的使用及发展对提高人类认识自然能力的作用"
+    },
+    {
+      "component_id": "lc_41a075e4bf0d5061",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、论证",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
+      "label": "建模、论证",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、论证；优先采集：、生物图、工具使用说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、论证",
+          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-023:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、论证"
+    },
+    {
+      "component_id": "lc_fb4e3cbe8dd222a3",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价探究结论或社会影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
+      "label": "评价探究结论或社会影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：、生物图、工具使用说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价探究结论或社会影响",
+          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-023:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价探究结论或社会影响"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_b3f50ffeefd27742",
+      "evidence_refs": [
+        "standard:SC-H4G9-SC-023:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G8-SC-023",
+      "source_label": "能学会使用放大镜、显微镜等工具观察各类生物；能观察和描述常见生物的生活环境并感知生物对环境的适应；能感受观察工具的使用及发展对提高人类认识自然…",
+      "target_code": "SC-H4G9-SC-023",
+      "target_label": "能学会使用放大镜、显微镜等工具观察各类生物；能观察和描述常见生物的生活环境并感知生物对环境的适应；能感受观察工具的使用及发展对提高人类认识自然…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "172d22917c0a147dcc0f20379463a5f78e24bf95216fc5741c00b9f43f937fb4",
+  "standard_code": "SC-H4G9-SC-023",
+  "verified_prerequisites": []
+}

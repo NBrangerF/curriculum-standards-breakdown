@@ -1,0 +1,152 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_79800ce35195561b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出网络空间也要遵守日常行为规范的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_afc6e9918ad6257c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c8d98318b5aa246d"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“识别并说出网络空间也要遵守日常行为规范的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出网络空间也要遵守日常行为规范的关键特征”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在在线交流与分享中，了解网络空间也要遵守日常行为规范，能用礼貌方式与他人沟通，不进行不当言行。",
+          "excerpt_hash": "b95c7a799450f82f411aaf770e8e108e4b0ac608227f8b5fd2045fb434eeecea",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用聊天模拟或班级平台讨论，示范礼貌用语、友善表达与“不同意也要好好说”。建立班级“网络礼仪四条”（问候/尊重/不刷屏/不伤害）。",
+          "excerpt_hash": "ea8b9da0229f4332942d7b6235752cf3622de8c98ebe6c4d2a72bbf18bb12ebd",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H1-SR-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出网络空间也要遵守日常行为规范的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出网络空间也要遵守日常行为规范的关键特征”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用聊天模拟或班级平台讨论，示范礼貌用语、友善表达与“不同意也要好好说”。建立班级“网络礼仪四条”（问候/尊重/不刷屏/不伤害）。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_c8d98318b5aa246d",
+      "component_ids": [
+        "lc_79800ce35195561b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "规范"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出网络空间也要遵守日常行为规范的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在在线交流与分享中，能够识别并说出网络空间也要遵守日常行为规范的关键特征；优先采集：互动记录、教师评价量表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在在线交流与分享中，了解网络空间也要遵守日常行为规范，能用礼貌方式与他人沟通，不进行不当言行。",
+          "excerpt_hash": "b95c7a799450f82f411aaf770e8e108e4b0ac608227f8b5fd2045fb434eeecea",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（规范）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_79800ce35195561b",
+      "component_type": "language",
+      "condition": "在在线交流与分享中",
+      "confidence": 0.72,
+      "description": "学生在在线交流与分享中，能够识别并说出网络空间也要遵守日常行为规范的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在在线交流与分享中”的诊断任务，要求学生识别并说出网络空间也要遵守日常行为规范的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出网络空间也要遵守日常行为规范的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在在线交流与分享中，能够识别并说出网络空间也要遵守日常行为规范的关键特征；优先采集：互动记录、教师评价量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在在线交流与分享中，了解网络空间也要遵守日常行为规范",
+          "excerpt_hash": "6be8f9504dfdc590f69324e0f742e521f705bf1af72f791b38f57d96f68560b6",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解网络空间也要遵守日常行为规范"
+    },
+    {
+      "component_id": "lc_07a3030efd1f3373",
+      "component_type": "conceptual",
+      "condition": "在在线交流与分享中",
+      "confidence": 0.72,
+      "description": "学生在在线交流与分享中，能够用礼貌方式与他人沟通，不进行不当言行",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在在线交流与分享中”的诊断任务，要求学生用礼貌方式与他人沟通，不进行不当言行，并说明关键步骤、特征或依据。",
+      "label": "用礼貌方式与他人沟通，不进行不当言行",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在在线交流与分享中，能够用礼貌方式与他人沟通，不进行不当言行；优先采集：互动记录、教师评价量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在在线交流与分享中，了解网络空间也要遵守日常行为规范，能用礼貌方式与他人沟通，不进行不当言行。",
+          "excerpt_hash": "b95c7a799450f82f411aaf770e8e108e4b0ac608227f8b5fd2045fb434eeecea",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用礼貌方式与他人沟通，不进行不当言行"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b95c7a799450f82f411aaf770e8e108e4b0ac608227f8b5fd2045fb434eeecea",
+  "standard_code": "IT-H1-SR-005",
+  "verified_prerequisites": []
+}

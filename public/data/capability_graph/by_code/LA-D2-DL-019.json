@@ -1,0 +1,196 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_0bb004277fbad547"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生参与班级公共物品的整理、借还登记与维护的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5f89a4002f5f6357",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4efd5a2f5bb53938"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“参与班级公共物品的整理、借还登记与维护”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能参与班级公共物品的整理、借还登记与维护，能按轮值完成职责并尊重他人使用需求。",
+          "excerpt_hash": "c429b36adf8c060ce31deacb3632cf2dbadeaad3f27d173355057b1b2c94f348",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "建立“借还登记卡”；明确轮值岗位（管理员/检查员）；每周做一次盘点与问题记录。",
+          "excerpt_hash": "298ecd0266d7f64ea91c3abaa99ae85d6d01d8e3279d2bbeae452b88c2eaa2ed",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-DL-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后参与班级公共物品的整理、借还登记与维护，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“参与班级公共物品的整理、借还登记与维护”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“建立“借还登记卡””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_e5fcfaec51e55ee1",
+      "evidence_refs": [
+        "standard:LA-D2-DL-019:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-DL-019",
+      "target_code": "LA-D3-DL-019",
+      "target_label": "能参与班级公共物品资产盘点，能记录数量、状态与维护需求，能提出维护或补充建议并推动落实。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_4efd5a2f5bb53938",
+      "component_ids": [
+        "lc_0bb004277fbad547",
+        "lc_b99a8f4fdc18ab4e",
+        "lc_42a331da192c3873"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生参与班级公共物品的整理、借还登记与维护。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够参与班级公共物品的整理、借还登记与维护；优先采集：登记卡、盘点表、教师评价。",
+        "学生能够按轮值完成职责；优先采集：登记卡、盘点表、教师评价。",
+        "学生能够尊重他人使用需求；优先采集：登记卡、盘点表、教师评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能参与班级公共物品的整理、借还登记与维护，能按轮值完成职责并尊重他人使用需求。",
+          "excerpt_hash": "c429b36adf8c060ce31deacb3632cf2dbadeaad3f27d173355057b1b2c94f348",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "参与班级公共物品的整理、借还登记与维护；按轮值完成职责；尊重他人使用需求",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_0bb004277fbad547",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与班级公共物品的整理、借还登记与维护",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与班级公共物品的整理、借还登记与维护，并说明关键步骤、特征或依据。",
+      "label": "参与班级公共物品的整理、借还登记与维护",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与班级公共物品的整理、借还登记与维护；优先采集：登记卡、盘点表、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "参与班级公共物品的整理、借还登记与维护",
+          "excerpt_hash": "c29ac11c7ec1d39609f671fb2c82b6b038319f14f04172cbc83da7c34d286481",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参与班级公共物品的整理、借还登记与维护"
+    },
+    {
+      "component_id": "lc_b99a8f4fdc18ab4e",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够按轮值完成职责",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生按轮值完成职责，并说明关键步骤、特征或依据。",
+      "label": "按轮值完成职责",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够按轮值完成职责；优先采集：登记卡、盘点表、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "按轮值完成职责",
+          "excerpt_hash": "4571b035a696181f83281055a638fb9983efc36c531e932ed1b673d75175ca9a",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按轮值完成职责"
+    },
+    {
+      "component_id": "lc_42a331da192c3873",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够尊重他人使用需求",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生尊重他人使用需求，并说明关键步骤、特征或依据。",
+      "label": "尊重他人使用需求",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够尊重他人使用需求；优先采集：登记卡、盘点表、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重他人使用需求",
+          "excerpt_hash": "5ddb3a7719a52d1d4ab37885ad833e881abf011400081107687e46477b524089",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "尊重他人使用需求"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "c429b36adf8c060ce31deacb3632cf2dbadeaad3f27d173355057b1b2c94f348",
+  "standard_code": "LA-D2-DL-019",
+  "verified_prerequisites": []
+}

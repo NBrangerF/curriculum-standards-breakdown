@@ -1,0 +1,440 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_b3f13d04ec9fb0b4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明观点、方法或表达选择的依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_54465bb0408fae25",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_56349075cb9cefd4"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点、方法或表达选择的依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明观点、方法或表达选择的依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能较熟练运用略读和浏览方法扩大阅读范围；能用普通话正确、流利、有感情地朗读；能养成默读习惯并达到一定速度；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "33690197ca476f9050ab04bcc688102ebc1ff5131f35626b9ee355e41462d6b8",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "根据文本类型指导朗读、默读、略读、浏览的用途，不以单一速度替代理解质量。",
+          "excerpt_hash": "b85220ac4bc1aa382d4466d4e2a5c3754615e8387fb0e9e6f0e73064098bd681",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-RE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明观点、方法或表达选择的依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明观点、方法或表达选择的依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“根据文本类型指导朗读、默读、略读、浏览的用途，不以单一速度替代理解质量。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_5980fbd0f879f334"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生较熟练运用略读和浏览方法扩大阅读范围的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_971406d9aa57b5a8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_380681823cecc263"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“较熟练运用略读和浏览方法扩大阅读范围”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“较熟练运用略读和浏览方法扩大阅读范围”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能较熟练运用略读和浏览方法扩大阅读范围；能用普通话正确、流利、有感情地朗读；能养成默读习惯并达到一定速度；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "33690197ca476f9050ab04bcc688102ebc1ff5131f35626b9ee355e41462d6b8",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "根据文本类型指导朗读、默读、略读、浏览的用途，不以单一速度替代理解质量。",
+          "excerpt_hash": "b85220ac4bc1aa382d4466d4e2a5c3754615e8387fb0e9e6f0e73064098bd681",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-RE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后较熟练运用略读和浏览方法扩大阅读范围，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“较熟练运用略读和浏览方法扩大阅读范围”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“根据文本类型指导朗读、默读、略读、浏览的用途，不以单一速度替代理解质量。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_5980fbd0f879f334",
+        "lc_b4c846f32f4b9dd4",
+        "lc_b3f13d04ec9fb0b4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生较熟练运用略读和浏览方法扩大阅读范围的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ccedcb932a595931",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_56349075cb9cefd4",
+        "hc_380681823cecc263"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“较熟练运用略读和浏览方法扩大阅读范围”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“较熟练运用略读和浏览方法扩大阅读范围”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能较熟练运用略读和浏览方法扩大阅读范围；能用普通话正确、流利、有感情地朗读；能养成默读习惯并达到一定速度；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "33690197ca476f9050ab04bcc688102ebc1ff5131f35626b9ee355e41462d6b8",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "根据文本类型指导朗读、默读、略读、浏览的用途，不以单一速度替代理解质量。",
+          "excerpt_hash": "b85220ac4bc1aa382d4466d4e2a5c3754615e8387fb0e9e6f0e73064098bd681",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-RE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后较熟练运用略读和浏览方法扩大阅读范围，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“较熟练运用略读和浏览方法扩大阅读范围”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“根据文本类型指导朗读、默读、略读、浏览的用途，不以单一速度替代理解质量。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0c2f1f35d90fc684",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f4fb0c2a21f9"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0fb7983518710ace",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7772a6f9100f0cc0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_be04d8b55a4f"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d5058d79ff37d1bb",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_d98920d382d47b5f",
+      "evidence_refs": [
+        "standard:CN-H4G8-RE-001:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-H4G8-RE-001",
+      "target_code": "CN-H4G9-RE-001",
+      "target_label": "能较熟练运用略读和浏览方法扩大阅读范围；能养成默读习惯并达到一定速度；能用普通话正确、流利、有感情地朗读；能形成有观点、有证据、有修改意识的阐…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_56349075cb9cefd4",
+      "component_ids": [
+        "lc_b3f13d04ec9fb0b4"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点、方法或表达选择的依据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明观点、方法或表达选择的依据；优先采集：朗读表现、阅读速度记录、阅读方法反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能较熟练运用略读和浏览方法扩大阅读范围；能用普通话正确、流利、有感情地朗读；能养成默读习惯并达到一定速度；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "33690197ca476f9050ab04bcc688102ebc1ff5131f35626b9ee355e41462d6b8",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_380681823cecc263",
+      "component_ids": [
+        "lc_5980fbd0f879f334",
+        "lc_b4c846f32f4b9dd4"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "熟练",
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生较熟练运用略读和浏览方法扩大阅读范围。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够较熟练运用略读和浏览方法扩大阅读范围；优先采集：朗读表现、阅读速度记录、阅读方法反思。",
+        "学生能够用普通话正确、流利、有感情地朗读；优先采集：朗读表现、阅读速度记录、阅读方法反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能较熟练运用略读和浏览方法扩大阅读范围；能用普通话正确、流利、有感情地朗读；能养成默读习惯并达到一定速度；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "33690197ca476f9050ab04bcc688102ebc1ff5131f35626b9ee355e41462d6b8",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（熟练、正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_5980fbd0f879f334",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够较熟练运用略读和浏览方法扩大阅读范围",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生较熟练运用略读和浏览方法扩大阅读范围，并说明关键步骤、特征或依据。",
+      "label": "较熟练运用略读和浏览方法扩大阅读范围",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够较熟练运用略读和浏览方法扩大阅读范围；优先采集：朗读表现、阅读速度记录、阅读方法反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "较熟练运用略读和浏览方法扩大阅读范围",
+          "excerpt_hash": "d1a1a72984ab4a5b1747446f1e401ebe40e9eacf7a9672efa33151faaa222d8e",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "较熟练运用略读和浏览方法扩大阅读范围"
+    },
+    {
+      "component_id": "lc_b4c846f32f4b9dd4",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用普通话正确、流利、有感情地朗读",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用普通话正确、流利、有感情地朗读，并说明关键步骤、特征或依据。",
+      "label": "用普通话正确、流利、有感情地朗读",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用普通话正确、流利、有感情地朗读；优先采集：朗读表现、阅读速度记录、阅读方法反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用普通话正确、流利、有感情地朗读",
+          "excerpt_hash": "05bea9e9c35a876425631c02f4f45f2515e3e43cc56dd1605f39f4aa2c744fbf",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用普通话正确、流利、有感情地朗读"
+    },
+    {
+      "component_id": "lc_85f0d1ac7ded341d",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在连续任务中稳定表现出默读习惯并达到一定速度",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在连续任务中稳定表现出默读习惯并达到一定速度，并说明关键步骤、特征或依据。",
+      "label": "在连续任务中稳定表现出默读习惯并达到一定速度",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在连续任务中稳定表现出默读习惯并达到一定速度；优先采集：朗读表现、阅读速度记录、阅读方法反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "养成默读习惯并达到一定速度",
+          "excerpt_hash": "dad911077d919396934024cb11956e39438670b832cab2f1cdd18041d9795aa8",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "养成默读习惯并达到一定速度"
+    },
+    {
+      "component_id": "lc_826e5545e8bcceb6",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够整合材料",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合材料，并说明关键步骤、特征或依据。",
+      "label": "整合材料",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够整合材料；优先采集：朗读表现、阅读速度记录、阅读方法反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "整合材料",
+          "excerpt_hash": "c6c8b0ffb05ba398d2a4a4fb4f067efe130af369012aceee836b9c0c870e2710",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "整合材料"
+    },
+    {
+      "component_id": "lc_b3f13d04ec9fb0b4",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明观点、方法或表达选择的依据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点、方法或表达选择的依据，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明观点、方法或表达选择的依据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明观点、方法或表达选择的依据；优先采集：朗读表现、阅读速度记录、阅读方法反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明观点、方法或表达选择的依据",
+          "excerpt_hash": "04a7ab3f43a7836e4d3a1304eb39d0a43cdf66ecd30248e80d1cdebbd172b84a",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明观点、方法或表达选择的依据"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_337df2752b238cc6",
+      "evidence_refs": [
+        "standard:CN-H4G8-RE-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-H4G7-RE-002",
+      "source_label": "能较熟练运用略读和浏览方法扩大阅读范围；能养成默读习惯并达到一定速度；能用普通话正确、流利、有感情地朗读；能用简短记录或口头表达说明基本理解。",
+      "target_code": "CN-H4G8-RE-001",
+      "target_label": "能较熟练运用略读和浏览方法扩大阅读范围；能用普通话正确、流利、有感情地朗读；能养成默读习惯并达到一定速度；能整合材料并说明观点、方法或表达选择…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "33690197ca476f9050ab04bcc688102ebc1ff5131f35626b9ee355e41462d6b8",
+  "standard_code": "CN-H4G8-RE-001",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,615 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_2b474fbe725453c6",
+        "lc_91ccf8fa1a3839da"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释平面直角坐标系概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9ea593b938b2f1ec",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_cd37d6f67ed1cc24",
+        "hc_d0244d2674fd71ea",
+        "hc_cd5fd878b19b081c"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释平面直角坐标系概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释平面直角坐标系概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；理解平面直角坐标系概念；能说明解题步骤和基本依据。",
+          "excerpt_hash": "93b3451c6c025361e00036766080f397251306fad76117fa2c88496970696557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-037:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "突出平面点与数对的一一对应，以及坐标表达图形位置的意义。",
+          "excerpt_hash": "a2daaa7ec86c95eb942c0c068a9b7380e7b6b412dcbe4aa6c4be9f9d97a6a408",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-GE-037:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释平面直角坐标系概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释平面直角坐标系概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“突出平面点与数对的一一对应，以及坐标表达图形位置的意义。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_91ccf8fa1a3839da"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明解题步骤和基本依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_07351ea39cca0dd7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_cd37d6f67ed1cc24",
+        "hc_cd5fd878b19b081c"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“说明解题步骤和基本依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明解题步骤和基本依据”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；理解平面直角坐标系概念；能说明解题步骤和基本依据。",
+          "excerpt_hash": "93b3451c6c025361e00036766080f397251306fad76117fa2c88496970696557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-037:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "突出平面点与数对的一一对应，以及坐标表达图形位置的意义。",
+          "excerpt_hash": "a2daaa7ec86c95eb942c0c068a9b7380e7b6b412dcbe4aa6c4be9f9d97a6a408",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-GE-037:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明解题步骤和基本依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明解题步骤和基本依据”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“突出平面点与数对的一一对应，以及坐标表达图形位置的意义。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_2b474fbe725453c6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释平面直角坐标系概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fcdfdd64ae76c6e4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_cd37d6f67ed1cc24",
+        "hc_d0244d2674fd71ea"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“用自己的话解释平面直角坐标系概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释平面直角坐标系概念”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；理解平面直角坐标系概念；能说明解题步骤和基本依据。",
+          "excerpt_hash": "93b3451c6c025361e00036766080f397251306fad76117fa2c88496970696557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-037:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "突出平面点与数对的一一对应，以及坐标表达图形位置的意义。",
+          "excerpt_hash": "a2daaa7ec86c95eb942c0c068a9b7380e7b6b412dcbe4aa6c4be9f9d97a6a408",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-GE-037:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释平面直角坐标系概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释平面直角坐标系概念”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“突出平面点与数对的一一对应，以及坐标表达图形位置的意义。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_8cbce237bba5318a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生建立适当坐标系描述物体位置的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b67a09cd12567110",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d0244d2674fd71ea"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“建立适当坐标系描述物体位置”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“建立适当坐标系描述物体位置”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；理解平面直角坐标系概念；能说明解题步骤和基本依据。",
+          "excerpt_hash": "93b3451c6c025361e00036766080f397251306fad76117fa2c88496970696557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-037:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "突出平面点与数对的一一对应，以及坐标表达图形位置的意义。",
+          "excerpt_hash": "a2daaa7ec86c95eb942c0c068a9b7380e7b6b412dcbe4aa6c4be9f9d97a6a408",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-GE-037:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后建立适当坐标系描述物体位置，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“建立适当坐标系描述物体位置”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“突出平面点与数对的一一对应，以及坐标表达图形位置的意义。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_2b474fbe725453c6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释平面直角坐标系概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8d8e639583870674",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_cd37d6f67ed1cc24",
+        "hc_d0244d2674fd71ea"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释平面直角坐标系概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释平面直角坐标系概念”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；理解平面直角坐标系概念；能说明解题步骤和基本依据。",
+          "excerpt_hash": "93b3451c6c025361e00036766080f397251306fad76117fa2c88496970696557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-037:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "突出平面点与数对的一一对应，以及坐标表达图形位置的意义。",
+          "excerpt_hash": "a2daaa7ec86c95eb942c0c068a9b7380e7b6b412dcbe4aa6c4be9f9d97a6a408",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-GE-037:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释平面直角坐标系概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释平面直角坐标系概念”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“突出平面点与数对的一一对应，以及坐标表达图形位置的意义。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 2,
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "gap_reason": null,
+    "highest_evidence_level": "L2_topic",
+    "scope_count": 2,
+    "specific_count": 1,
+    "unit_topic_candidate_count": 1
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "tca_d0ac55da5dd7c916",
+      "alignment_type": "supports",
+      "confidence": 0.58,
+      "coverage": "partial",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "reviewed_toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctu_a9d90ba682c8fc",
+        "textbook-unit:tcu_08ccd50d19c18ac8"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "unit",
+      "method": "legacy_human_review",
+      "pdf_page": 121,
+      "printed_page": "114",
+      "publication_status": "published",
+      "rationale": "已核对教材单元「4.1 几何图形」与课标「MA-H4G7-GE-037」的 subdomain_anchor 关联。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "approved",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_08ccd50d19c18ac8",
+      "unit_title": "4.1几何图形"
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "tca_4f88877c97dddcc8",
+      "alignment_type": "supports",
+      "confidence": 0.911,
+      "coverage": "partial",
+      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_c5fa3c0e2226",
+        "textbook-unit:tcu_c6df1560bb4a3b50"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "unit_topic_candidate",
+      "method": "constrained_concept_idf",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "review_queue",
+      "rationale": "教材条目“平面直角坐标系”与课标 MA-H4G7-GE-037 在standard字段命中概念：平面直角坐标、面直角坐标系。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "candidate",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_c6df1560bb4a3b50",
+      "unit_title": "平面直角坐标系"
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e82f2319d5d05b51",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_48072359f7df"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d6ebc3492905c591",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_018eacda4e65cbc0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5fa3c0e2226"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_05b1d5ed90d78b81",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_5db7945e1b75812c",
+      "evidence_refs": [
+        "standard:MA-H4G7-GE-037:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-H4G7-GE-037",
+      "target_code": "MA-H4G8-GE-038",
+      "target_label": "能运用方位角和距离刻画两个物体相对位置；能感悟坐标沟通代数与几何的作用；能画坐标系并根据坐标描点、由点的位置写坐标；能比较方法并解释数量、图形…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_cd37d6f67ed1cc24",
+      "component_ids": [
+        "lc_2b474fbe725453c6",
+        "lc_91ccf8fa1a3839da"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释平面直角坐标系概念。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释平面直角坐标系概念；优先采集：坐标系建立、点坐标表示、位置描述。",
+        "学生能够说明解题步骤和基本依据；优先采集：坐标系建立、点坐标表示、位置描述。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；理解平面直角坐标系概念；能说明解题步骤和基本依据。",
+          "excerpt_hash": "93b3451c6c025361e00036766080f397251306fad76117fa2c88496970696557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-037:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_d0244d2674fd71ea",
+      "component_ids": [
+        "lc_2951f82f6def9355",
+        "lc_8cbce237bba5318a",
+        "lc_2b474fbe725453c6"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "实际"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生感悟坐标沟通代数与几何的作用。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够感悟坐标沟通代数与几何的作用；优先采集：坐标系建立、点坐标表示、位置描述。",
+        "学生在实际问题中，能够建立适当坐标系描述物体位置；优先采集：坐标系建立、点坐标表示、位置描述。",
+        "学生能够用自己的话解释平面直角坐标系概念；优先采集：坐标系建立、点坐标表示、位置描述。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；理解平面直角坐标系概念；能说明解题步骤和基本依据。",
+          "excerpt_hash": "93b3451c6c025361e00036766080f397251306fad76117fa2c88496970696557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-037:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（实际）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_cd5fd878b19b081c",
+      "component_ids": [
+        "lc_91ccf8fa1a3839da"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "步骤"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明解题步骤和基本依据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明解题步骤和基本依据；优先采集：坐标系建立、点坐标表示、位置描述。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；理解平面直角坐标系概念；能说明解题步骤和基本依据。",
+          "excerpt_hash": "93b3451c6c025361e00036766080f397251306fad76117fa2c88496970696557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-037:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（步骤）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_2951f82f6def9355",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够感悟坐标沟通代数与几何的作用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生感悟坐标沟通代数与几何的作用，并说明关键步骤、特征或依据。",
+      "label": "感悟坐标沟通代数与几何的作用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够感悟坐标沟通代数与几何的作用；优先采集：坐标系建立、点坐标表示、位置描述。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "感悟坐标沟通代数与几何的作用",
+          "excerpt_hash": "083ef81495ab17985d223ff4b4e57aea87e2ce092a2b76de7e70686a3d4f677c",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-037:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "感悟坐标沟通代数与几何的作用"
+    },
+    {
+      "component_id": "lc_8cbce237bba5318a",
+      "component_type": "language",
+      "condition": "在实际问题中",
+      "confidence": 0.72,
+      "description": "学生在实际问题中，能够建立适当坐标系描述物体位置",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在实际问题中”的诊断任务，要求学生建立适当坐标系描述物体位置，并说明关键步骤、特征或依据。",
+      "label": "建立适当坐标系描述物体位置",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在实际问题中，能够建立适当坐标系描述物体位置；优先采集：坐标系建立、点坐标表示、位置描述。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；理解平面直角坐标系概念；能说明解题步骤和基本依据。",
+          "excerpt_hash": "93b3451c6c025361e00036766080f397251306fad76117fa2c88496970696557",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-037:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建立适当坐标系描述物体位置"
+    },
+    {
+      "component_id": "lc_2b474fbe725453c6",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释平面直角坐标系概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释平面直角坐标系概念，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释平面直角坐标系概念",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释平面直角坐标系概念；优先采集：坐标系建立、点坐标表示、位置描述。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平面直角坐标系概念",
+          "excerpt_hash": "7dc9ab06d783a00ec11375d8a134422bffd72b3fe9aa6508404f3f7d9419bb62",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-037:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解平面直角坐标系概念"
+    },
+    {
+      "component_id": "lc_91ccf8fa1a3839da",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明解题步骤和基本依据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明解题步骤和基本依据，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明解题步骤和基本依据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明解题步骤和基本依据；优先采集：坐标系建立、点坐标表示、位置描述。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明解题步骤和基本依据",
+          "excerpt_hash": "d00757cae74b1459bbcf36ec8c31849ae0007a290e5019ba4e746f5676a42251",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-037:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明解题步骤和基本依据"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1203,
+      "edge_id": "pc_c266de80802d1e0d",
+      "evidence_refs": [
+        "standard:MA-H4G7-GE-037:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D3-GE-004",
+      "source_label": "能说出面积单位“公顷”、体积单位“升、毫升”，能进行单位换算，能选择合适单位描述实际问题。",
+      "target_code": "MA-H4G7-GE-037",
+      "target_label": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；理解平面直角坐标系概念；能说明解题步骤和基本依据。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1531,
+      "edge_id": "pc_ac8627a117119ab5",
+      "evidence_refs": [
+        "standard:MA-H4G7-GE-037:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D3-GE-007",
+      "source_label": "能根据指定参照点的具体方向和距离描述物体所处位置，能在熟悉的情境中，描述简单的路线图，形成几何直观。",
+      "target_code": "MA-H4G7-GE-037",
+      "target_label": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；理解平面直角坐标系概念；能说明解题步骤和基本依据。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "93b3451c6c025361e00036766080f397251306fad76117fa2c88496970696557",
+  "standard_code": "MA-H4G7-GE-037",
+  "verified_prerequisites": []
+}

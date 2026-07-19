@@ -1,0 +1,419 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_83cab34916dc4075"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据指定参照点的具体方向和距离描述物体所处位置的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_603886dbd092f8ef",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_53ea420fbe583f17"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“根据指定参照点的具体方向和距离描述物体所处位置”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据指定参照点的具体方向和距离描述物体所处位置”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据指定参照点的具体方向和距离描述物体所处位置，能在熟悉的情境中，描述简单的路线图，形成几何直观。",
+          "excerpt_hash": "d90e99d57865004bc78b427b97540b7b44f43e69457ef9c19d50855c7a8f83c2",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "图形的位置教学可结合教室里学生的位置、电影院里观众的位置等熟悉的情境，引导学生借助方格纸上的点，用有序数对表示具体的位置。",
+          "excerpt_hash": "1d85b086228c3ef862e339b059058f3f021d2b521d8e5a8672ac478f00c753e0",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-GE-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据指定参照点的具体方向和距离描述物体所处位置，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据指定参照点的具体方向和距离描述物体所处位置”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“图形的位置教学可结合教室里学生的位置、电影院里观众的位置等熟悉的情境，引导学生借助方格纸上的点，用有序数对表示具体的位置。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_83cab34916dc4075",
+        "lc_8a8b11ef36ab7a08"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据指定参照点的具体方向和距离描述物体所处位置的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_99071d1c9fabb031",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_53ea420fbe583f17"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“根据指定参照点的具体方向和距离描述物体所处位置”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据指定参照点的具体方向和距离描述物体所处位置”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据指定参照点的具体方向和距离描述物体所处位置，能在熟悉的情境中，描述简单的路线图，形成几何直观。",
+          "excerpt_hash": "d90e99d57865004bc78b427b97540b7b44f43e69457ef9c19d50855c7a8f83c2",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "图形的位置教学可结合教室里学生的位置、电影院里观众的位置等熟悉的情境，引导学生借助方格纸上的点，用有序数对表示具体的位置。",
+          "excerpt_hash": "1d85b086228c3ef862e339b059058f3f021d2b521d8e5a8672ac478f00c753e0",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-GE-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据指定参照点的具体方向和距离描述物体所处位置，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据指定参照点的具体方向和距离描述物体所处位置”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“图形的位置教学可结合教室里学生的位置、电影院里观众的位置等熟悉的情境，引导学生借助方格纸上的点，用有序数对表示具体的位置。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_89ae3bcd50bef555",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_10296c173573f69db498",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e5b0376a10bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e2243ea8644ffb3f",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2f3d32f0f1d941c5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1ba8117dec0624e11c0e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b06437a92308"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_52ef62335b18e7df",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_42309c4d729000e5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b1f651484391fce9",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fcabfa9b517a2c6f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6f696b62cd631c35e5d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_98536ea16bbc"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e1c2312794f3e566",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1438,
+      "connection_id": "fc_cdc32b0646b7c56f",
+      "evidence_refs": [
+        "standard:MA-H4G7-GE-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-GE-007",
+      "target_code": "MA-H4G7-GE-001",
+      "target_label": "掌握基本几何证明方法；能建立基本几何概念；能借助尺规作图等直观操作理解平面图形性质与关系；能说明解题步骤和基本依据。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1531,
+      "connection_id": "fc_ac8627a117119ab5",
+      "evidence_refs": [
+        "standard:MA-H4G7-GE-037:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-GE-007",
+      "target_code": "MA-H4G7-GE-037",
+      "target_label": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；理解平面直角坐标系概念；能说明解题步骤和基本依据。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1675,
+      "connection_id": "fc_9753f34726597921",
+      "evidence_refs": [
+        "standard:MA-H4G7-GE-040:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-GE-007",
+      "target_code": "MA-H4G7-GE-040",
+      "target_label": "能感悟坐标沟通代数与几何的作用；能在实际问题中建立适当坐标系描述物体位置；能知道对应顶点坐标之间关系；能说明解题步骤和基本依据。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_53ea420fbe583f17",
+      "component_ids": [
+        "lc_83cab34916dc4075",
+        "lc_8a8b11ef36ab7a08",
+        "lc_b0ee0851253adfa5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据指定参照点的具体方向和距离描述物体所处位置。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据指定参照点的具体方向和距离描述物体所处位置；优先采集：作图/测量作品、口头/书面解释。",
+        "学生在熟悉的情境中，能够描述简单的路线图；优先采集：作图/测量作品、口头/书面解释。",
+        "学生在熟悉的情境中，能够在任务中表现出几何直观并说明选择理由；优先采集：作图/测量作品、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据指定参照点的具体方向和距离描述物体所处位置，能在熟悉的情境中，描述简单的路线图，形成几何直观。",
+          "excerpt_hash": "d90e99d57865004bc78b427b97540b7b44f43e69457ef9c19d50855c7a8f83c2",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_83cab34916dc4075",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据指定参照点的具体方向和距离描述物体所处位置",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据指定参照点的具体方向和距离描述物体所处位置，并说明关键步骤、特征或依据。",
+      "label": "根据指定参照点的具体方向和距离描述物体所处位置",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据指定参照点的具体方向和距离描述物体所处位置；优先采集：作图/测量作品、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据指定参照点的具体方向和距离描述物体所处位置",
+          "excerpt_hash": "2e059ab6a4b60ff70251dfc357a60a1951a6fce11e9ba32d4aaa1bf38dd1ab9e",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据指定参照点的具体方向和距离描述物体所处位置"
+    },
+    {
+      "component_id": "lc_8a8b11ef36ab7a08",
+      "component_type": "language",
+      "condition": "在熟悉的情境中",
+      "confidence": 0.72,
+      "description": "学生在熟悉的情境中，能够描述简单的路线图",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在熟悉的情境中”的诊断任务，要求学生描述简单的路线图，并说明关键步骤、特征或依据。",
+      "label": "描述简单的路线图",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在熟悉的情境中，能够描述简单的路线图；优先采集：作图/测量作品、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在熟悉的情境中，描述简单的路线图",
+          "excerpt_hash": "18fa3f968045a413ca4a92e2cbf7c787b8f61b08a6f9bdaf8ebc8c5b95a60034",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述简单的路线图"
+    },
+    {
+      "component_id": "lc_b0ee0851253adfa5",
+      "component_type": "language",
+      "condition": "在熟悉的情境中",
+      "confidence": 0.72,
+      "description": "学生在熟悉的情境中，能够在任务中表现出几何直观并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在熟悉的情境中”的诊断任务，要求学生在任务中表现出几何直观并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出几何直观并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在熟悉的情境中，能够在任务中表现出几何直观并说明选择理由；优先采集：作图/测量作品、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据指定参照点的具体方向和距离描述物体所处位置，能在熟悉的情境中，描述简单的路线图，形成几何直观。",
+          "excerpt_hash": "d90e99d57865004bc78b427b97540b7b44f43e69457ef9c19d50855c7a8f83c2",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成几何直观"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_8aad2588a6faf723",
+      "evidence_refs": [
+        "standard:MA-D3-GE-007:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D2-GE-007",
+      "source_label": "在解决图形周长、面积的实际问题过程中，逐步积累操作的经验，形成量感和初步的几何直观。",
+      "target_code": "MA-D3-GE-007",
+      "target_label": "能根据指定参照点的具体方向和距离描述物体所处位置，能在熟悉的情境中，描述简单的路线图，形成几何直观。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d90e99d57865004bc78b427b97540b7b44f43e69457ef9c19d50855c7a8f83c2",
+  "standard_code": "MA-D3-GE-007",
+  "verified_prerequisites": []
+}

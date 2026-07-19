@@ -1,0 +1,420 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_f3d268b86a6e0c31",
+        "lc_269390e8029179d1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生判断简单随机现象发生可能性的大小的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2a2f3e2c9f40ce99",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_6de8b0633b03851b"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“判断简单随机现象发生可能性的大小”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“判断简单随机现象发生可能性的大小”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能列举生活中的随机现象，列出简单随机现象中所有可能发生的结果，判断简单随机现象发生可能性的大小。对于现实生活中的一些简单问题，能根据数据提供的信息，判断随机现象发生的可能性。",
+          "excerpt_hash": "c23ece30bed724e02666ba6a399bd87ee5b467230b8d0c99fd05bdc70fdb3d67",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-ST-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "随机现象发生的可能性教学要引导学生在自然界和生活的情境中感受简单的随机现象，了解其发生的概率，并能进行定性描述。可通过实验数据引导学生判断随机现象发生的可能性。",
+          "excerpt_hash": "7eb92bee525afb33937814575f6692da86776298dc6fbe8d2a1f97fa9001a005",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-ST-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后判断简单随机现象发生可能性的大小，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“判断简单随机现象发生可能性的大小”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“随机现象发生的可能性教学要引导学生在自然界和生活的情境中感受简单的随机现象，了解其发生的概率，并能进行定性描述。可通过实验数据引导学生判断随机现象发生的可能性。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_5acad3f5aa5d4406",
+        "lc_bb591d6dee8ba451"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生列举生活中的随机现象，列出简单随机现象中所有可能发生的结果的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_810332517191e1b7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_30e19f2fe9c41fa5"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“列举生活中的随机现象，列出简单随机现象中所有可能发生的结果”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“列举生活中的随机现象，列出简单随机现象中所有可能发生的结果”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能列举生活中的随机现象，列出简单随机现象中所有可能发生的结果，判断简单随机现象发生可能性的大小。对于现实生活中的一些简单问题，能根据数据提供的信息，判断随机现象发生的可能性。",
+          "excerpt_hash": "c23ece30bed724e02666ba6a399bd87ee5b467230b8d0c99fd05bdc70fdb3d67",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-ST-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "随机现象发生的可能性教学要引导学生在自然界和生活的情境中感受简单的随机现象，了解其发生的概率，并能进行定性描述。可通过实验数据引导学生判断随机现象发生的可能性。",
+          "excerpt_hash": "7eb92bee525afb33937814575f6692da86776298dc6fbe8d2a1f97fa9001a005",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-ST-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后列举生活中的随机现象，列出简单随机现象中所有可能发生的结果，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“列举生活中的随机现象，列出简单随机现象中所有可能发生的结果”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“随机现象发生的可能性教学要引导学生在自然界和生活的情境中感受简单的随机现象，了解其发生的概率，并能进行定性描述。可通过实验数据引导学生判断随机现象发生的可能性。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4bd977e35a4d2e26",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_10296c173573f69db498",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e5b0376a10bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e2243ea8644ffb3f",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_00b89257ed44cd5b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1ba8117dec0624e11c0e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b06437a92308"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_52ef62335b18e7df",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_835e0f105dc4f3fe",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b1f651484391fce9",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_268e406d742b2fd3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6f696b62cd631c35e5d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_98536ea16bbc"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e1c2312794f3e566",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1502,
+      "connection_id": "fc_a42e23f2a7ba0ff9",
+      "evidence_refs": [
+        "standard:MA-H4G7-ST-013:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-ST-003",
+      "target_code": "MA-H4G7-ST-013",
+      "target_label": "了解并计算简单随机事件的概率；能体会数据随机性以及概率与统计的关系；能用频率估计概率；能说明解题步骤和基本依据。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_30e19f2fe9c41fa5",
+      "component_ids": [
+        "lc_5acad3f5aa5d4406",
+        "lc_bb591d6dee8ba451"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生列举生活中的随机现象，列出简单随机现象中所有可能发生的结果。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够列举生活中的随机现象，列出简单随机现象中所有可能发生的结果；优先采集：数据任务单/图表。",
+        "学生能够对于现实生活中的一些简单问题；优先采集：数据任务单/图表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能列举生活中的随机现象，列出简单随机现象中所有可能发生的结果，判断简单随机现象发生可能性的大小。对于现实生活中的一些简单问题，能根据数据提供的信息，判断随机现象发生的可能性。",
+          "excerpt_hash": "c23ece30bed724e02666ba6a399bd87ee5b467230b8d0c99fd05bdc70fdb3d67",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-ST-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_6de8b0633b03851b",
+      "component_ids": [
+        "lc_f3d268b86a6e0c31",
+        "lc_269390e8029179d1"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断简单随机现象发生可能性的大小。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够判断简单随机现象发生可能性的大小；优先采集：数据任务单/图表。",
+        "学生根据数据提供的信息，能够判断随机现象发生的可能性；优先采集：数据任务单/图表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能列举生活中的随机现象，列出简单随机现象中所有可能发生的结果，判断简单随机现象发生可能性的大小。对于现实生活中的一些简单问题，能根据数据提供的信息，判断随机现象发生的可能性。",
+          "excerpt_hash": "c23ece30bed724e02666ba6a399bd87ee5b467230b8d0c99fd05bdc70fdb3d67",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-ST-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_5acad3f5aa5d4406",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够列举生活中的随机现象，列出简单随机现象中所有可能发生的结果",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生列举生活中的随机现象，列出简单随机现象中所有可能发生的结果，并说明关键步骤、特征或依据。",
+      "label": "列举生活中的随机现象，列出简单随机现象中所有可能发生的结果",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够列举生活中的随机现象，列出简单随机现象中所有可能发生的结果；优先采集：数据任务单/图表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "列举生活中的随机现象，列出简单随机现象中所有可能发生的结果",
+          "excerpt_hash": "70091a1ac8c766111e1b118eb9e9cfdeeb09dcd29ea6636f2039ab328a8f9741",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-ST-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "列举生活中的随机现象，列出简单随机现象中所有可能发生的结果"
+    },
+    {
+      "component_id": "lc_f3d268b86a6e0c31",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够判断简单随机现象发生可能性的大小",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生判断简单随机现象发生可能性的大小，并说明关键步骤、特征或依据。",
+      "label": "判断简单随机现象发生可能性的大小",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够判断简单随机现象发生可能性的大小；优先采集：数据任务单/图表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "判断简单随机现象发生可能性的大小",
+          "excerpt_hash": "35747eb2271c7a0c0eba02567096a2660fa96ddc2957bb765e90245f1ed92e25",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-ST-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "判断简单随机现象发生可能性的大小"
+    },
+    {
+      "component_id": "lc_bb591d6dee8ba451",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够对于现实生活中的一些简单问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生对于现实生活中的一些简单问题，并说明关键步骤、特征或依据。",
+      "label": "对于现实生活中的一些简单问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够对于现实生活中的一些简单问题；优先采集：数据任务单/图表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "对于现实生活中的一些简单问题",
+          "excerpt_hash": "9413a3d509fa5af6a778b77ec6f2d6fed07df093e7379f78dc8875c15c8f2cdc",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-ST-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "对于现实生活中的一些简单问题"
+    },
+    {
+      "component_id": "lc_269390e8029179d1",
+      "component_type": "conceptual",
+      "condition": "根据数据提供的信息",
+      "confidence": 0.72,
+      "description": "学生根据数据提供的信息，能够判断随机现象发生的可能性",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“根据数据提供的信息”的诊断任务，要求学生判断随机现象发生的可能性，并说明关键步骤、特征或依据。",
+      "label": "判断随机现象发生的可能性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生根据数据提供的信息，能够判断随机现象发生的可能性；优先采集：数据任务单/图表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据数据提供的信息，判断随机现象发生的可能性",
+          "excerpt_hash": "80658e5772c8ca957a911cb25b4155c0b73df35a2814defc926f55f2816fd703",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-ST-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "判断随机现象发生的可能性"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "c23ece30bed724e02666ba6a399bd87ee5b467230b8d0c99fd05bdc70fdb3d67",
+  "standard_code": "MA-D3-ST-003",
+  "verified_prerequisites": []
+}

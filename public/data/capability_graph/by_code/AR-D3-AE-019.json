@@ -1,0 +1,418 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_2898acdd22d68c60"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_09f00de872b8d286",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3e980f56a7177521"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品。",
+          "excerpt_hash": "269b6d410f72683630b4807c24cf26dbd23cf7fa4c847f9956bb3764b6ba21a8",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“起—承—转—合”或二/三段体做结构框架；明确角色、场景与音乐动机；排练时先跑通结构再雕琢细节。",
+          "excerpt_hash": "21305d5c8e7aa7f9853784ac201758cf8c71d338e67376f8254165205978b7ae",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D3-AE-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“用“起—承—转—合”或二/三段体做结构框架”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fdeef3c13ac8ad9e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_00452e62b0a9dead1e66",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a500c9f1cd1c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1fabba386856d842",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5cd4a9a277b846f5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_47474bd0c3009d7bfcf6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e4cb7e4583cf"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_98c7d2610118429f",
+      "textbook_grade": 5,
+      "textbook_subject": "美术",
+      "textbook_title": "美术5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ada9f7d33abe0c75",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4b42884b46b80ae41661",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9df9f8776364"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_169db90609589ba4",
+      "textbook_grade": 6,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0e8b830478370a12",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6e0cec28ca9346d8d02b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_502c7444779d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4ba398935af785c4",
+      "textbook_grade": 5,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a02f7fc66c69bb98",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_873c7b8d8f5dfcaf3081",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5d105252e267"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_2a3a735a14f9dc94",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1f69546ac234c676",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913a5e82b0b4337baa77",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5f8b00576115"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d3a37cdd8bcdc4bb",
+      "textbook_grade": 5,
+      "textbook_subject": "美术",
+      "textbook_title": "美术5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2b59689094d9cc5c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e9b82a8986eea7ee1402",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7a1467daa20d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fc37261770b36f51",
+      "textbook_grade": 5,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bd6f163c37e23948",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fe115d2e431c2607bf7d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_118d280cce66"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_8ce6886f94462897",
+      "textbook_grade": 6,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1743,
+      "connection_id": "fc_a4b838b8a2d306a8",
+      "evidence_refs": [
+        "standard:AR-H4G7-AE-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D3-AE-019",
+      "target_code": "AR-H4G7-AE-002",
+      "target_label": "能通过系列戏剧游戏学习声音、肢体和情感的表现方法；能在有条件开设戏剧选项时；能体验气息、字音、语气、腔调的运用；能描述艺术要素并完成基础表现或…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_3e980f56a7177521",
+      "component_ids": [
+        "lc_2898acdd22d68c60"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "完整",
+        "清晰",
+        "完整"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品；优先采集：成品演出、剧本/结构图、过程记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品。",
+          "excerpt_hash": "269b6d410f72683630b4807c24cf26dbd23cf7fa4c847f9956bb3764b6ba21a8",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（完整、清晰、完整）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_2898acdd22d68c60",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品，并说明关键步骤、特征或依据。",
+      "label": "围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品；优先采集：成品演出、剧本/结构图、过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品",
+          "excerpt_hash": "4e903eb9d9f74bce94120111c070f01ded0edf73b468e43fefd54042b6894aa7",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_7ddf154a0a6c7073",
+      "evidence_refs": [
+        "standard:AR-D3-AE-019:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D2-AE-019",
+      "source_label": "能围绕一个主题编创、表演简单歌舞剧或情景表演，做到有主题、有情节、有基本结构和逻辑，音乐编配与剧情关联较好，表演自然完整。",
+      "target_code": "AR-D3-AE-019",
+      "target_label": "能围绕指定主题集体编创、表演结构较完整、情节较清晰、表现形式多样的音乐故事/短小音乐剧/情景剧等作品。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "269b6d410f72683630b4807c24cf26dbd23cf7fa4c847f9956bb3764b6ba21a8",
+  "standard_code": "AR-D3-AE-019",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,326 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_422fb5c49be6ed2a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3dc5c27e1ad3853a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ed88d2f98a5545d1"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位。",
+          "excerpt_hash": "ec376669abdd12a72ed24fdb0f2bd2bda6aeee634fa406d742a94de62d3ebbe6",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“指导学生借助多种工具观察各类生物，开展基于观察的科学探究活动，在动手操作中获取直接经验。”",
+          "excerpt_hash": "c16cd051a3a3bca30977e254e3a98e4160228166aa23f0fe66baf2941e127c1f",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-SC-017:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：““指导学生借助多种工具观察各类生物，开展基于观察的科学探究活动，在动手操作中获取直接经验。””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2f2b639c9832b4f9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5d8c5902b781b5de5f03",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d39057261769"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c22c450af4b9046",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_44585227bb8cc712",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e1c8e586d87fc9",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_62a8644f2d06fa98",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7c85e6846ee2baf665b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b6340ce96157"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_208d54146f4a9b68",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ea78948876ae05bf",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a04b8a546cf314368898",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6a5186074181"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_426c7beba471c1cd",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0796,
+      "connection_id": "fc_0697ee2b75183fe3",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-011:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-017",
+      "target_code": "SC-H4G7-SC-011",
+      "target_label": "能知道土壤有不同质地和结构；能通过实验比较不同土壤特点；设计控制变量实验验证植被对土壤的保护作用；能用观察证据说明基本科学概念。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2134,
+      "connection_id": "fc_58f7b1f7de7050b0",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-025:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-017",
+      "target_code": "SC-H4G7-SC-025",
+      "target_label": "能描述细胞基本结构及功能；能说明细胞是生物体结构与生命活动的基本单位；能识别细菌、动物细胞和植物细胞；能用观察证据说明基本科学概念。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2029,
+      "connection_id": "fc_e236dd32b87c75ba",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-026:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-017",
+      "target_code": "SC-H4G7-SC-026",
+      "target_label": "能描述植物细胞、组织、器官和个体的结构特征及功能；理解生命系统构成层次的内在规律；能描述细胞分裂、生长和分化及其意义；能用观察证据说明基本科学…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ed88d2f98a5545d1",
+      "component_ids": [
+        "lc_422fb5c49be6ed2a"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位；优先采集：实验/探究记录、模型/作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位。",
+          "excerpt_hash": "ec376669abdd12a72ed24fdb0f2bd2bda6aeee634fa406d742a94de62d3ebbe6",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_422fb5c49be6ed2a",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位，并说明关键步骤、特征或依据。",
+      "label": "初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位；优先采集：实验/探究记录、模型/作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位",
+          "excerpt_hash": "175312319942ba280171cb464f64b1394b4bc502f77876f333f4ef04b6afd07e",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_cdcf9445a72b57ee",
+      "evidence_refs": [
+        "standard:SC-D3-SC-017:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D2-SC-019",
+      "source_label": "能区分植物和动物的主要特征，并能对植物和动物进行简单分类。（结合生命系统的构成层次情境）",
+      "target_code": "SC-D3-SC-017",
+      "target_label": "初步学会使用显微镜观察细胞，知道细胞是生物体的基本结构单位。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ec376669abdd12a72ed24fdb0f2bd2bda6aeee634fa406d742a94de62d3ebbe6",
+  "standard_code": "SC-D3-SC-017",
+  "verified_prerequisites": []
+}

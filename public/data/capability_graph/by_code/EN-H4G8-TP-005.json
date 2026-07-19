@@ -1,0 +1,369 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_5c8e2bc350f20988"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明观点或文化差异的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6de2731908f31846",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_af727ffa470fdb86"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点或文化差异”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明观点或文化差异”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据语篇推断人物心理、行为动机及信息间简单逻辑关系；能提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点；能从不同角度解读语篇深层含义；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "804818cb5360f9bc440e41c30b51fbc64b01a1712f3b70c2afa610e9cc929f1f",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-TP-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "要求学生把推断结论与具体文本证据对应起来。",
+          "excerpt_hash": "cc128ce295e4541c7ea61b88d511d99f900a5d1d5677ed114fe526b0ddc8ba00",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G8-TP-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明观点或文化差异，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明观点或文化差异”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“要求学生把推断结论与具体文本证据对应起来。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_7249840e91751c29"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_43e542e7683c588b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据语篇推断人物心理、行为动机及信息间简单逻辑关系；能提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点；能从不同角度解读语篇深层含义；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "804818cb5360f9bc440e41c30b51fbc64b01a1712f3b70c2afa610e9cc929f1f",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-TP-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "要求学生把推断结论与具体文本证据对应起来。",
+          "excerpt_hash": "cc128ce295e4541c7ea61b88d511d99f900a5d1d5677ed114fe526b0ddc8ba00",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G8-TP-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“要求学生把推断结论与具体文本证据对应起来。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_dc77c6bfe5b1c6f9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1684bcee616768e03a75",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8b44de69e9bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f090966a8f1f146b",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_26de7f5c05bf4c9e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b542c7b235fc"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4db7656086d72cec",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_4c5a9c117699da60",
+      "evidence_refs": [
+        "standard:EN-H4G8-TP-005:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-H4G8-TP-005",
+      "target_code": "EN-H4G9-TP-006",
+      "target_label": "能提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点；能判断信息异同和关联；能根据语篇推断人物心理、行为动机及信息间简单逻辑关系；能在真…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_af727ffa470fdb86",
+      "component_ids": [
+        "lc_5c8e2bc350f20988"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点或文化差异。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明观点或文化差异；优先采集：信息整理表、推断证据链、观点概括。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据语篇推断人物心理、行为动机及信息间简单逻辑关系；能提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点；能从不同角度解读语篇深层含义；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "804818cb5360f9bc440e41c30b51fbc64b01a1712f3b70c2afa610e9cc929f1f",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-TP-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_4e8de985cff9dca7",
+      "component_ids": [
+        "lc_b2bef4f2f2852f21"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生从不同角度解读语篇深层含义。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够从不同角度解读语篇深层含义；优先采集：信息整理表、推断证据链、观点概括。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据语篇推断人物心理、行为动机及信息间简单逻辑关系；能提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点；能从不同角度解读语篇深层含义；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "804818cb5360f9bc440e41c30b51fbc64b01a1712f3b70c2afa610e9cc929f1f",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-TP-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_7249840e91751c29",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点，并说明关键步骤、特征或依据。",
+      "label": "提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点；优先采集：信息整理表、推断证据链、观点概括。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点",
+          "excerpt_hash": "1a19a71f6ee78c131d1a93eea9d2ff09dfa2aa0a970e0964e0723241576932f8",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-TP-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点"
+    },
+    {
+      "component_id": "lc_b2bef4f2f2852f21",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够从不同角度解读语篇深层含义",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生从不同角度解读语篇深层含义，并说明关键步骤、特征或依据。",
+      "label": "从不同角度解读语篇深层含义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够从不同角度解读语篇深层含义；优先采集：信息整理表、推断证据链、观点概括。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "从不同角度解读语篇深层含义",
+          "excerpt_hash": "c0ccd44771fd52a0efba9b6d3e97f7f7de3e283c558b2927f6beabe3026c86ae",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-TP-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "从不同角度解读语篇深层含义"
+    },
+    {
+      "component_id": "lc_213907415f16ca8c",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够整合语篇信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合语篇信息，并说明关键步骤、特征或依据。",
+      "label": "整合语篇信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够整合语篇信息；优先采集：信息整理表、推断证据链、观点概括。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "整合语篇信息",
+          "excerpt_hash": "8fc7fa6e6eeaf7e69dbafe1c0139000f909d2a7e8aba5e8aae0003274289a04b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-TP-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "整合语篇信息"
+    },
+    {
+      "component_id": "lc_5c8e2bc350f20988",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明观点或文化差异",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点或文化差异，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明观点或文化差异",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明观点或文化差异；优先采集：信息整理表、推断证据链、观点概括。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明观点或文化差异",
+          "excerpt_hash": "eddc2a80e635a5a126c12dfa34e72610db5e58b8d29295eaa8d1d361aecdddff",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-TP-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明观点或文化差异"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_5154024ef3d15f83",
+      "evidence_refs": [
+        "standard:EN-H4G8-TP-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-H4G7-TP-006",
+      "source_label": "能根据语篇推断人物心理、行为动机及信息间简单逻辑关系；能提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点；能从不同角度解读语篇深层含义…",
+      "target_code": "EN-H4G8-TP-005",
+      "target_label": "能根据语篇推断人物心理、行为动机及信息间简单逻辑关系；能提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点；能从不同角度解读语篇深层含义…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "804818cb5360f9bc440e41c30b51fbc64b01a1712f3b70c2afa610e9cc929f1f",
+  "standard_code": "EN-H4G8-TP-005",
+  "verified_prerequisites": []
+}

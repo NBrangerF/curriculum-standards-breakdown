@@ -1,0 +1,465 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_e12ea780d0d4a445"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明观点或文化差异的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_428f5529eb7a03e1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2591459c188e9271"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点或文化差异”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明观点或文化差异”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能以口语或书面形式简单转述语篇主要内容和观点；能在特定情境中引出主题并用所学语言与他人进行口头交流；能独立或小组合作完成角色扮演；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "905a6c3118b538418b2c687ab77b7680bf0adbcc05b06db875312af886ba8df8",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调表达的逻辑性、交际有效性和对原语篇观点的准确转述。",
+          "excerpt_hash": "e1625c2d1b9eedc2c2c52118f50dffab15376f7864906a1c6a192c96583b2a61",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G8-LA-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明观点或文化差异，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明观点或文化差异”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“强调表达的逻辑性、交际有效性和对原语篇观点的准确转述。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_8d456ef09285f114"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在特定情境中引出主题并用所学语言与他人进行口头交流的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_25d4268a621a111e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0e4c5e22ef644c10"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“在特定情境中引出主题并用所学语言与他人进行口头交流”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在特定情境中引出主题并用所学语言与他人进行口头交流”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能以口语或书面形式简单转述语篇主要内容和观点；能在特定情境中引出主题并用所学语言与他人进行口头交流；能独立或小组合作完成角色扮演；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "905a6c3118b538418b2c687ab77b7680bf0adbcc05b06db875312af886ba8df8",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调表达的逻辑性、交际有效性和对原语篇观点的准确转述。",
+          "excerpt_hash": "e1625c2d1b9eedc2c2c52118f50dffab15376f7864906a1c6a192c96583b2a61",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G8-LA-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在特定情境中引出主题并用所学语言与他人进行口头交流，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在特定情境中引出主题并用所学语言与他人进行口头交流”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“强调表达的逻辑性、交际有效性和对原语篇观点的准确转述。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_8d456ef09285f114"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在特定情境中引出主题并用所学语言与他人进行口头交流的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2ca923b0eaa07d23",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0e4c5e22ef644c10"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“在特定情境中引出主题并用所学语言与他人进行口头交流”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在特定情境中引出主题并用所学语言与他人进行口头交流”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能以口语或书面形式简单转述语篇主要内容和观点；能在特定情境中引出主题并用所学语言与他人进行口头交流；能独立或小组合作完成角色扮演；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "905a6c3118b538418b2c687ab77b7680bf0adbcc05b06db875312af886ba8df8",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调表达的逻辑性、交际有效性和对原语篇观点的准确转述。",
+          "excerpt_hash": "e1625c2d1b9eedc2c2c52118f50dffab15376f7864906a1c6a192c96583b2a61",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G8-LA-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在特定情境中引出主题并用所学语言与他人进行口头交流，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在特定情境中引出主题并用所学语言与他人进行口头交流”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“强调表达的逻辑性、交际有效性和对原语篇观点的准确转述。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bf0c81820e3a525e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1684bcee616768e03a75",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8b44de69e9bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f090966a8f1f146b",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ea15a285d75359f3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b542c7b235fc"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4db7656086d72cec",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_af7746d6402d82ba",
+      "evidence_refs": [
+        "standard:EN-H4G8-LA-012:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-H4G8-LA-012",
+      "target_code": "EN-H4G9-LA-014",
+      "target_label": "能就口语或书面语篇的内容、观点和态度作出简单口头评价并说明理由；能围绕相关主题口头表达个人观点和态度并说明理由；能沟通信息、参与讨论并恰当运用…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_2591459c188e9271",
+      "component_ids": [
+        "lc_e12ea780d0d4a445"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点或文化差异。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明观点或文化差异；优先采集：口头讲述、角色扮演表现、转述文本。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能以口语或书面形式简单转述语篇主要内容和观点；能在特定情境中引出主题并用所学语言与他人进行口头交流；能独立或小组合作完成角色扮演；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "905a6c3118b538418b2c687ab77b7680bf0adbcc05b06db875312af886ba8df8",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_0e4c5e22ef644c10",
+      "component_ids": [
+        "lc_8d456ef09285f114"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在特定情境中引出主题并用所学语言与他人进行口头交流。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在特定情境中引出主题并用所学语言与他人进行口头交流；优先采集：口头讲述、角色扮演表现、转述文本。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能以口语或书面形式简单转述语篇主要内容和观点；能在特定情境中引出主题并用所学语言与他人进行口头交流；能独立或小组合作完成角色扮演；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "905a6c3118b538418b2c687ab77b7680bf0adbcc05b06db875312af886ba8df8",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_94a11246d7d3bf14",
+      "component_ids": [
+        "lc_d05d33d6ded79482"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "独立"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生独立或小组合作完成角色扮演。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够独立或小组合作完成角色扮演；优先采集：口头讲述、角色扮演表现、转述文本。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能以口语或书面形式简单转述语篇主要内容和观点；能在特定情境中引出主题并用所学语言与他人进行口头交流；能独立或小组合作完成角色扮演；能整合语篇信息并说明观点或文化差异。",
+          "excerpt_hash": "905a6c3118b538418b2c687ab77b7680bf0adbcc05b06db875312af886ba8df8",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（独立）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_db72b1cc84fcc1ef",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够以口语或书面形式简单转述语篇主要内容和观点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生以口语或书面形式简单转述语篇主要内容和观点，并说明关键步骤、特征或依据。",
+      "label": "以口语或书面形式简单转述语篇主要内容和观点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够以口语或书面形式简单转述语篇主要内容和观点；优先采集：口头讲述、角色扮演表现、转述文本。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "以口语或书面形式简单转述语篇主要内容和观点",
+          "excerpt_hash": "6e9c2fa37a485b240bcdced788a2d3e9c4fe1aa9b357bbf9a6a73d09dc49b7a8",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "以口语或书面形式简单转述语篇主要内容和观点"
+    },
+    {
+      "component_id": "lc_8d456ef09285f114",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在特定情境中引出主题并用所学语言与他人进行口头交流",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在特定情境中引出主题并用所学语言与他人进行口头交流，并说明关键步骤、特征或依据。",
+      "label": "在特定情境中引出主题并用所学语言与他人进行口头交流",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在特定情境中引出主题并用所学语言与他人进行口头交流；优先采集：口头讲述、角色扮演表现、转述文本。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在特定情境中引出主题并用所学语言与他人进行口头交流",
+          "excerpt_hash": "6dea755a771db351c941c83758c976ca931957123ac2ffcb9e898f123401b8e6",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在特定情境中引出主题并用所学语言与他人进行口头交流"
+    },
+    {
+      "component_id": "lc_d05d33d6ded79482",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够独立或小组合作完成角色扮演",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生独立或小组合作完成角色扮演，并说明关键步骤、特征或依据。",
+      "label": "独立或小组合作完成角色扮演",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够独立或小组合作完成角色扮演；优先采集：口头讲述、角色扮演表现、转述文本。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "独立或小组合作完成角色扮演",
+          "excerpt_hash": "2c84e61e625277b9f3f86672df7299d5a5511433e341bb6217fb48e45be2063e",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "独立或小组合作完成角色扮演"
+    },
+    {
+      "component_id": "lc_ccc015be95268f12",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够整合语篇信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合语篇信息，并说明关键步骤、特征或依据。",
+      "label": "整合语篇信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够整合语篇信息；优先采集：口头讲述、角色扮演表现、转述文本。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "整合语篇信息",
+          "excerpt_hash": "8fc7fa6e6eeaf7e69dbafe1c0139000f909d2a7e8aba5e8aae0003274289a04b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "整合语篇信息"
+    },
+    {
+      "component_id": "lc_e12ea780d0d4a445",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明观点或文化差异",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点或文化差异，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明观点或文化差异",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明观点或文化差异；优先采集：口头讲述、角色扮演表现、转述文本。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明观点或文化差异",
+          "excerpt_hash": "eddc2a80e635a5a126c12dfa34e72610db5e58b8d29295eaa8d1d361aecdddff",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G8-LA-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明观点或文化差异"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_ab1d56fa5d43c32f",
+      "evidence_refs": [
+        "standard:EN-H4G8-LA-012:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-H4G7-LA-012",
+      "source_label": "能在教师指导下进行简单角色扮演；能完整连贯地朗读短文并简单复述大意；能语音语调基本正确；能获取关键信息并完成简短交流。",
+      "target_code": "EN-H4G8-LA-012",
+      "target_label": "能以口语或书面形式简单转述语篇主要内容和观点；能在特定情境中引出主题并用所学语言与他人进行口头交流；能独立或小组合作完成角色扮演；能整合语篇信…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "905a6c3118b538418b2c687ab77b7680bf0adbcc05b06db875312af886ba8df8",
+  "standard_code": "EN-H4G8-LA-012",
+  "verified_prerequisites": []
+}

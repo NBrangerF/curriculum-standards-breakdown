@@ -1,0 +1,301 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_27a1248f2a4d6e9e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生验证一个简单控制任务（开关量或连续量控制之一）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_95a3be11e3b31d9e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_7b0dc6236998da7f"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“验证一个简单控制任务（开关量或连续量控制之一）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“验证一个简单控制任务（开关量或连续量控制之一）”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在典型应用场景中提出“用计算机实现过程与控制”的方案（传感—处理—执行），并能在仿真或实验系统中用编程实现并验证一个简单控制任务（开关量或连续量控制之一）。",
+          "excerpt_hash": "4b631c5957a36c4c18d3b37ffb3be31af6ca0f38c3159573541cff097a04b6aa",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【用仿真/实验做控制：让规则跑起来】\n(1) 选择可落地任务：如“光控小夜灯/温控风扇/定时加热/声控开关”。\n(2) 方案先行：要求先画系统图（传感器—处理—执行器）再写规则，再写程序。\n(3) 引导验证：改变输入（光强/温度/声音/按钮），观察输出是否按规则变化；记录至少3组实验数据。\n(4) 进阶：加入反馈（目标值）或加入逻辑组合条件，体现系统改进。",
+          "excerpt_hash": "03b6642f76f3ebb6d084c816712422a14bf4c404cf0ceff344a3e8fd9fb7aa75",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-DL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后验证一个简单控制任务（开关量或连续量控制之一），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“验证一个简单控制任务（开关量或连续量控制之一）”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“【用仿真/实验做控制：让规则跑起来】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_bb7fc653caddddf7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在仿真或实验系统中用编程实现的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f3b1b87cd4f79afa",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“在仿真或实验系统中用编程实现”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在仿真或实验系统中用编程实现”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在典型应用场景中提出“用计算机实现过程与控制”的方案（传感—处理—执行），并能在仿真或实验系统中用编程实现并验证一个简单控制任务（开关量或连续量控制之一）。",
+          "excerpt_hash": "4b631c5957a36c4c18d3b37ffb3be31af6ca0f38c3159573541cff097a04b6aa",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【用仿真/实验做控制：让规则跑起来】\n(1) 选择可落地任务：如“光控小夜灯/温控风扇/定时加热/声控开关”。\n(2) 方案先行：要求先画系统图（传感器—处理—执行器）再写规则，再写程序。\n(3) 引导验证：改变输入（光强/温度/声音/按钮），观察输出是否按规则变化；记录至少3组实验数据。\n(4) 进阶：加入反馈（目标值）或加入逻辑组合条件，体现系统改进。",
+          "excerpt_hash": "03b6642f76f3ebb6d084c816712422a14bf4c404cf0ceff344a3e8fd9fb7aa75",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-DL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在仿真或实验系统中用编程实现，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在仿真或实验系统中用编程实现”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“【用仿真/实验做控制：让规则跑起来】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_0a5126fdd153e3c9"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生提出“用计算机实现过程与控制”的方案（传感—处理—执行）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_beb866c8d6f9fadc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_78c0c7eb4623b0ca"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“提出“用计算机实现过程与控制”的方案（传感—处理—执行）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“提出“用计算机实现过程与控制”的方案（传感—处理—执行）”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在典型应用场景中提出“用计算机实现过程与控制”的方案（传感—处理—执行），并能在仿真或实验系统中用编程实现并验证一个简单控制任务（开关量或连续量控制之一）。",
+          "excerpt_hash": "4b631c5957a36c4c18d3b37ffb3be31af6ca0f38c3159573541cff097a04b6aa",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【用仿真/实验做控制：让规则跑起来】\n(1) 选择可落地任务：如“光控小夜灯/温控风扇/定时加热/声控开关”。\n(2) 方案先行：要求先画系统图（传感器—处理—执行器）再写规则，再写程序。\n(3) 引导验证：改变输入（光强/温度/声音/按钮），观察输出是否按规则变化；记录至少3组实验数据。\n(4) 进阶：加入反馈（目标值）或加入逻辑组合条件，体现系统改进。",
+          "excerpt_hash": "03b6642f76f3ebb6d084c816712422a14bf4c404cf0ceff344a3e8fd9fb7aa75",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-DL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后提出“用计算机实现过程与控制”的方案（传感—处理—执行），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“提出“用计算机实现过程与控制”的方案（传感—处理—执行）”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“【用仿真/实验做控制：让规则跑起来】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0603,
+      "connection_id": "fc_c05a9722bb14b267",
+      "evidence_refs": [
+        "standard:IT-H4G7-DL-003:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H3-DL-001",
+      "target_code": "IT-H4G7-DL-003",
+      "target_label": "能自觉遵守物联网实验操作规程；能通过实验平台读取、发送、接收、汇集和使用数据；会使用实验设备搭建物联系统原型；能说明数字工具或数据过程的基本做…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_7b0dc6236998da7f",
+      "component_ids": [
+        "lc_27a1248f2a4d6e9e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "连续"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生验证一个简单控制任务（开关量或连续量控制之一）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在典型应用场景中，能够验证一个简单控制任务（开关量或连续量控制之一）；优先采集：控制作品、实验数据表、规则说明、展示记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在典型应用场景中提出“用计算机实现过程与控制”的方案（传感—处理—执行），并能在仿真或实验系统中用编程实现并验证一个简单控制任务（开关量或连续量控制之一）。",
+          "excerpt_hash": "4b631c5957a36c4c18d3b37ffb3be31af6ca0f38c3159573541cff097a04b6aa",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（连续）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    },
+    {
+      "case_id": "hc_78c0c7eb4623b0ca",
+      "component_ids": [
+        "lc_0a5126fdd153e3c9"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提出“用计算机实现过程与控制”的方案（传感—处理—执行）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在典型应用场景中，能够提出“用计算机实现过程与控制”的方案（传感—处理—执行）；优先采集：控制作品、实验数据表、规则说明、展示记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在典型应用场景中提出“用计算机实现过程与控制”的方案（传感—处理—执行），并能在仿真或实验系统中用编程实现并验证一个简单控制任务（开关量或连续量控制之一）。",
+          "excerpt_hash": "4b631c5957a36c4c18d3b37ffb3be31af6ca0f38c3159573541cff097a04b6aa",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_0a5126fdd153e3c9",
+      "component_type": "procedural",
+      "condition": "在典型应用场景中",
+      "confidence": 0.72,
+      "description": "学生在典型应用场景中，能够提出“用计算机实现过程与控制”的方案（传感—处理—执行）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在典型应用场景中”的诊断任务，要求学生提出“用计算机实现过程与控制”的方案（传感—处理—执行），并说明关键步骤、特征或依据。",
+      "label": "提出“用计算机实现过程与控制”的方案（传感—处理—执行）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在典型应用场景中，能够提出“用计算机实现过程与控制”的方案（传感—处理—执行）；优先采集：控制作品、实验数据表、规则说明、展示记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在典型应用场景中提出“用计算机实现过程与控制”的方案（传感—处理—执行），并能在仿真或实验系统中用编程实现并验证一个简单控制任务（开关量或连续量控制之一）。",
+          "excerpt_hash": "4b631c5957a36c4c18d3b37ffb3be31af6ca0f38c3159573541cff097a04b6aa",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出“用计算机实现过程与控制”的方案（传感—处理—执行）"
+    },
+    {
+      "component_id": "lc_bb7fc653caddddf7",
+      "component_type": "procedural",
+      "condition": "在典型应用场景中",
+      "confidence": 0.72,
+      "description": "学生在典型应用场景中，能够在仿真或实验系统中用编程实现",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在典型应用场景中”的诊断任务，要求学生在仿真或实验系统中用编程实现，并说明关键步骤、特征或依据。",
+      "label": "在仿真或实验系统中用编程实现",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在典型应用场景中，能够在仿真或实验系统中用编程实现；优先采集：控制作品、实验数据表、规则说明、展示记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在典型应用场景中提出“用计算机实现过程与控制”的方案（传感—处理—执行），并能在仿真或实验系统中用编程实现并验证一个简单控制任务（开关量或连续量控制之一）。",
+          "excerpt_hash": "4b631c5957a36c4c18d3b37ffb3be31af6ca0f38c3159573541cff097a04b6aa",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在仿真或实验系统中用编程实现"
+    },
+    {
+      "component_id": "lc_27a1248f2a4d6e9e",
+      "component_type": "conceptual",
+      "condition": "在典型应用场景中",
+      "confidence": 0.72,
+      "description": "学生在典型应用场景中，能够验证一个简单控制任务（开关量或连续量控制之一）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在典型应用场景中”的诊断任务，要求学生验证一个简单控制任务（开关量或连续量控制之一），并说明关键步骤、特征或依据。",
+      "label": "验证一个简单控制任务（开关量或连续量控制之一）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在典型应用场景中，能够验证一个简单控制任务（开关量或连续量控制之一）；优先采集：控制作品、实验数据表、规则说明、展示记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在典型应用场景中提出“用计算机实现过程与控制”的方案（传感—处理—执行），并能在仿真或实验系统中用编程实现并验证一个简单控制任务（开关量或连续量控制之一）。",
+          "excerpt_hash": "4b631c5957a36c4c18d3b37ffb3be31af6ca0f38c3159573541cff097a04b6aa",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "验证一个简单控制任务（开关量或连续量控制之一）"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4b631c5957a36c4c18d3b37ffb3be31af6ca0f38c3159573541cff097a04b6aa",
+  "standard_code": "IT-H3-DL-001",
+  "verified_prerequisites": []
+}

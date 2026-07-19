@@ -1,0 +1,364 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_071d8d5964f628a5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生判断一个自然数是否是质数或合数的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_738f9cbce669a707",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_aee7f2f90e0fa750"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“判断一个自然数是否是质数或合数”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“判断一个自然数是否是质数或合数”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能找出 2, 3, 5 的倍数。能在 1~100 的自然数中找出 10 以内自然数的所有倍数，10 以内两个自然数的公倍数和最小公倍数；能找出一个自然数的所有因数，两个自然数的公因数和最大公因数；能判断一个自然数是否是质数或合数。",
+          "excerpt_hash": "5da07eda43a95ea11592f952e872c0ea5d63ec23921012e9f84ad551faa2ee7a",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过数的认识教学，引导学生根据数的意义，探索 2, 3, 5 的倍数的特征，理解公因数和公倍数，奇数和偶数、质数和合数的特点，形成推理意识。",
+          "excerpt_hash": "60c57607d70fac0f1726efc613e0019cf94e371cfed3631719fe388137bd8a2d",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-AL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后判断一个自然数是否是质数或合数，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“判断一个自然数是否是质数或合数”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“通过数的认识教学，引导学生根据数的意义，探索 2, 3, 5 的倍数的特征，理解公因数和公倍数，奇数和偶数、质数和合数的特点，形成推理意识。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a89c835636ba4caf",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_10296c173573f69db498",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e5b0376a10bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e2243ea8644ffb3f",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_53fce6a57a55d1da",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1ba8117dec0624e11c0e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b06437a92308"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_52ef62335b18e7df",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_96f935ce97f65d3f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b1f651484391fce9",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_27395537973050eb",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6f696b62cd631c35e5d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_98536ea16bbc"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e1c2312794f3e566",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0459,
+      "connection_id": "fc_ebf778e4dc01157d",
+      "evidence_refs": [
+        "standard:MA-H4G7-AL-025:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-AL-001",
+      "target_code": "MA-H4G7-AL-025",
+      "target_label": "能知道二次函数与一元二次方程关系并能利用图象求一元二次方程近似解；能画二次函数图象并了解性质；能通过实际问题分析体会二次函数意义；能说明解题步…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_aee7f2f90e0fa750",
+      "component_ids": [
+        "lc_071d8d5964f628a5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断一个自然数是否是质数或合数。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够判断一个自然数是否是质数或合数；优先采集：解题过程记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能找出 2, 3, 5 的倍数。能在 1~100 的自然数中找出 10 以内自然数的所有倍数，10 以内两个自然数的公倍数和最小公倍数；能找出一个自然数的所有因数，两个自然数的公因数和最大公因数；能判断一个自然数是否是质数或合数。",
+          "excerpt_hash": "5da07eda43a95ea11592f952e872c0ea5d63ec23921012e9f84ad551faa2ee7a",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_67610087ba94dccf",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够找出 2, 3, 5 的倍数",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生找出 2, 3, 5 的倍数，并说明关键步骤、特征或依据。",
+      "label": "找出 2, 3, 5 的倍数",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够找出 2, 3, 5 的倍数；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "找出 2, 3, 5 的倍数",
+          "excerpt_hash": "2227d075f659c34c130b191ab53dcc9a75e7ea26545e56e896d590c0471c58e8",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "找出 2, 3, 5 的倍数"
+    },
+    {
+      "component_id": "lc_72a8ca6ffffed7f9",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在 1~100 的自然数中找出 10 以内自然数的所有倍数，10 以内两个自然数的公倍数和最小公倍数",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在 1~100 的自然数中找出 10 以内自然数的所有倍数，10 以内两个自然数的公倍数和最小公倍数，并说明关键步骤、特征或依据。",
+      "label": "在 1~100 的自然数中找出 10 以内自然数的所有倍数，10 以内两个自然数的公倍数和最小公倍数",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在 1~100 的自然数中找出 10 以内自然数的所有倍数，10 以内两个自然数的公倍数和最小公倍数；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在 1~100 的自然数中找出 10 以内自然数的所有倍数，10 以内两个自然数的公倍数和最小公倍数",
+          "excerpt_hash": "d5d86d8e028c333d6e82011b12ba2779d1f56c1129d6fe86d08d8e71db42f636",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在 1~100 的自然数中找出 10 以内自然数的所有倍数，10 以内两个自然数的公倍数和最小公倍数"
+    },
+    {
+      "component_id": "lc_be5edf79492cfc20",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够找出一个自然数的所有因数，两个自然数的公因数和最大公因数",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生找出一个自然数的所有因数，两个自然数的公因数和最大公因数，并说明关键步骤、特征或依据。",
+      "label": "找出一个自然数的所有因数，两个自然数的公因数和最大公因数",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够找出一个自然数的所有因数，两个自然数的公因数和最大公因数；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "找出一个自然数的所有因数，两个自然数的公因数和最大公因数",
+          "excerpt_hash": "eb6297473e36e9b2e83bf2ea0444032c4466eafac634cda7d3f5ff61b938bcf2",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "找出一个自然数的所有因数，两个自然数的公因数和最大公因数"
+    },
+    {
+      "component_id": "lc_071d8d5964f628a5",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够判断一个自然数是否是质数或合数",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生判断一个自然数是否是质数或合数，并说明关键步骤、特征或依据。",
+      "label": "判断一个自然数是否是质数或合数",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够判断一个自然数是否是质数或合数；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "判断一个自然数是否是质数或合数",
+          "excerpt_hash": "00b6ca9f02ea2e1a6f7e3f339d74ffa7693e861cde48a066e243df2b37aca27e",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "判断一个自然数是否是质数或合数"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_c9e0d8b1c7eb240a",
+      "evidence_refs": [
+        "standard:MA-D3-AL-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D2-AL-001",
+      "source_label": "能结合具体实例解释万以上数的含义，能认、读、写万以上的数，会用万、亿为单位表示大数。能计算两位数乘除三位数。",
+      "target_code": "MA-D3-AL-001",
+      "target_label": "能找出 2, 3, 5 的倍数。能在 1~100 的自然数中找出 10 以内自然数的所有倍数，10 以内两个自然数的公倍数和最小公倍数；能找出…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5da07eda43a95ea11592f952e872c0ea5d63ec23921012e9f84ad551faa2ee7a",
+  "standard_code": "MA-D3-AL-001",
+  "verified_prerequisites": []
+}

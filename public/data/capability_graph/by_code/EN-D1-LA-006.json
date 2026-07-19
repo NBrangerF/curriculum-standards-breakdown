@@ -1,0 +1,295 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_9836db8173bcde03"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生借助图片读懂语言简单的小故事的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_49db0841cf3bde44",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0dceee44ab4f7fa8"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“借助图片读懂语言简单的小故事”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“借助图片读懂语言简单的小故事”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能借助图片读懂语言简单的小故事，理解基本信息",
+          "excerpt_hash": "d080f2c47ea1c9b56dadf103a689f9080bc6c1b6eef3fee05655e30124474e66",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-LA-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "读前预测（标题/图片）→读中圈关键词→读后复述/连线；用分级读物控制难度。",
+          "excerpt_hash": "d6de4d8543a42298901bf6500b47c867291178eafdea48de984b737ca5348318",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-D1-LA-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后借助图片读懂语言简单的小故事，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“借助图片读懂语言简单的小故事”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“读前预测（标题/图片）→读中圈关键词→读后复述/连线”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fc9b2af58fdf6f94",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_14d3051be175a07856d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_96fe1cf7a088"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4c0b84e107cb3acc",
+      "textbook_grade": 4,
+      "textbook_subject": "英语",
+      "textbook_title": "英语4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_af4e9ee205f327a4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_33e1117f4e3b64658cf7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2da7a165ff23"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_736b449efa98c23e",
+      "textbook_grade": 4,
+      "textbook_subject": "英语",
+      "textbook_title": "英语4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d8b51c79446c6e58",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_97b9c1a173bf9c3f5fea",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_94ad37d595c7"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c71decfe6366ff07",
+      "textbook_grade": 3,
+      "textbook_subject": "英语",
+      "textbook_title": "英语3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3872443d49b9a1fb",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bd2c45b5e8fc08bf234e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9ccd4f4ff8e3"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_623deee3782f3fb1",
+      "textbook_grade": 3,
+      "textbook_subject": "英语",
+      "textbook_title": "英语3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_370d068ff4563c82",
+      "evidence_refs": [
+        "standard:EN-D1-LA-006:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-D1-LA-006",
+      "target_code": "EN-D2-LA-006",
+      "target_label": "能理解日常生活中用所学语言直接传递的交际意图。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_0dceee44ab4f7fa8",
+      "component_ids": [
+        "lc_9836db8173bcde03",
+        "lc_7b067b08b2d7a80f"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生借助图片读懂语言简单的小故事。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够借助图片读懂语言简单的小故事；优先采集：能定位关键词并回答理解题。",
+        "学生能够用自己的话解释基本信息；优先采集：能定位关键词并回答理解题。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能借助图片读懂语言简单的小故事，理解基本信息",
+          "excerpt_hash": "d080f2c47ea1c9b56dadf103a689f9080bc6c1b6eef3fee05655e30124474e66",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-LA-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "借助图片读懂语言简单的小故事；用自己的话解释基本信息",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_9836db8173bcde03",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够借助图片读懂语言简单的小故事",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生借助图片读懂语言简单的小故事，并说明关键步骤、特征或依据。",
+      "label": "借助图片读懂语言简单的小故事",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够借助图片读懂语言简单的小故事；优先采集：能定位关键词并回答理解题。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "借助图片读懂语言简单的小故事",
+          "excerpt_hash": "b957d608b9302157519874dc40480f6efe3df44ff91d7c102e320fab8dcd5d01",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-LA-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "借助图片读懂语言简单的小故事"
+    },
+    {
+      "component_id": "lc_7b067b08b2d7a80f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释基本信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释基本信息，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释基本信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释基本信息；优先采集：能定位关键词并回答理解题。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解基本信息",
+          "excerpt_hash": "a4fa427fa09f0c594071a67c33aa407e952826c4702467ccb38ba9b689e588d1",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-LA-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解基本信息"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d080f2c47ea1c9b56dadf103a689f9080bc6c1b6eef3fee05655e30124474e66",
+  "standard_code": "EN-D1-LA-006",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,191 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_8987e46ee2181798"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别食品包装信息（生产日期、保质期、储存条件）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_72ef62fb31fb34b5",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5ef0fdda5be78a87"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别食品包装信息（生产日期、保质期、储存条件）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别食品包装信息（生产日期、保质期、储存条件）”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别食品包装信息（生产日期、保质期、储存条件），能按“冷藏/冷冻/常温”规则整理食品并避免交叉污染。",
+          "excerpt_hash": "fd93c50e30dbce1373b95b07250a78fa81dd5a5d12a33fbd67e939cd34aac3ce",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用真实包装做“信息找一找”；教“先进先出”贴标；示范密封与分层（熟食在上、生食在下）。",
+          "excerpt_hash": "5c35efe3c241bd0c16bdff5d3439339fed83c977109c1c8d2b736c89e8e7816f",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-DL-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别食品包装信息（生产日期、保质期、储存条件），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别食品包装信息（生产日期、保质期、储存条件）”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用真实包装做“信息找一找””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0828,
+      "connection_id": "fc_c1e9181782377841",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-DL-009",
+      "target_code": "LA-H4G7-DL-007",
+      "target_label": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；能按规范完成任务并说明工具、材料或安全要…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_5ef0fdda5be78a87",
+      "component_ids": [
+        "lc_8987e46ee2181798",
+        "lc_6d50b60cd8bc700b"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别食品包装信息（生产日期、保质期、储存条件）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别食品包装信息（生产日期、保质期、储存条件）；优先采集：储存分区图、贴标照片、问答测评。",
+        "学生能够按“冷藏/冷冻/常温”规则整理食品并避免交叉污染；优先采集：储存分区图、贴标照片、问答测评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别食品包装信息（生产日期、保质期、储存条件），能按“冷藏/冷冻/常温”规则整理食品并避免交叉污染。",
+          "excerpt_hash": "fd93c50e30dbce1373b95b07250a78fa81dd5a5d12a33fbd67e939cd34aac3ce",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "识别食品包装信息（生产日期、保质期、储存条件）；按“冷藏/冷冻/常温”规则整理食品并避免交叉污染",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_8987e46ee2181798",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别食品包装信息（生产日期、保质期、储存条件）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别食品包装信息（生产日期、保质期、储存条件），并说明关键步骤、特征或依据。",
+      "label": "识别食品包装信息（生产日期、保质期、储存条件）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别食品包装信息（生产日期、保质期、储存条件）；优先采集：储存分区图、贴标照片、问答测评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别食品包装信息（生产日期、保质期、储存条件）",
+          "excerpt_hash": "cd9f2f1e9615cde6e54c1c468597c7621b45c886166b4cd3e9dd13d6f5cd6e6c",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别食品包装信息（生产日期、保质期、储存条件）"
+    },
+    {
+      "component_id": "lc_6d50b60cd8bc700b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够按“冷藏/冷冻/常温”规则整理食品并避免交叉污染",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生按“冷藏/冷冻/常温”规则整理食品并避免交叉污染，并说明关键步骤、特征或依据。",
+      "label": "按“冷藏/冷冻/常温”规则整理食品并避免交叉污染",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够按“冷藏/冷冻/常温”规则整理食品并避免交叉污染；优先采集：储存分区图、贴标照片、问答测评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "按“冷藏/冷冻/常温”规则整理食品并避免交叉污染",
+          "excerpt_hash": "5a1e9811ceb031813729311a7cd29a3e229fead3ece3fd89aabff39761d55113",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按“冷藏/冷冻/常温”规则整理食品并避免交叉污染"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_5fa2e900bb58d746",
+      "evidence_refs": [
+        "standard:LA-D3-DL-009:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-DL-008",
+      "source_label": "能完成基本餐桌布置（餐具摆放、分餐工具准备）并遵守就餐礼仪，能在家庭或班级活动中承担分发与收拾任务。",
+      "target_code": "LA-D3-DL-009",
+      "target_label": "能识别食品包装信息（生产日期、保质期、储存条件），能按“冷藏/冷冻/常温”规则整理食品并避免交叉污染。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "fd93c50e30dbce1373b95b07250a78fa81dd5a5d12a33fbd67e939cd34aac3ce",
+  "standard_code": "LA-D3-DL-009",
+  "verified_prerequisites": []
+}

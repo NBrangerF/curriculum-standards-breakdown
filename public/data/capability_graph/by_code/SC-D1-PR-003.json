@@ -1,0 +1,251 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_808b080c61380381"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生借助多感官和简单工具观察并如实记录具体事物或现象的信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5ee543b101f35820",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ecbfb198e263525f"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“借助多感官和简单工具观察并如实记录具体事物或现象的信息”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“借助多感官和简单工具观察并如实记录具体事物或现象的信息”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能借助多感官和简单工具观察并如实记录具体事物或现象的信息。",
+          "excerpt_hash": "24b457dfc87d0ef35c8b0e9821bb1a8cb09ddfa144cd4af5b7d6071596192b9c",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-PR-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "演示简易雨量筒、温度计读数。",
+          "excerpt_hash": "7fd8983dac6649e0dfa7c9e12c119fb27141687bd02cb783ab2ee553b80d2b52",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D1-PR-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后借助多感官和简单工具观察并如实记录具体事物或现象的信息，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“借助多感官和简单工具观察并如实记录具体事物或现象的信息”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“演示简易雨量筒、温度计读数。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9fe368187c7d481e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_235f10f3b881f14da2dd",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9c1922580c51"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_98253eda762d4fe7",
+      "textbook_grade": 2,
+      "textbook_subject": "科学",
+      "textbook_title": "科学2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ef57e3895501c6fd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_39bf03d33b98808ec109",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_61cdf9935943"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_6aeaa064abb4b45c",
+      "textbook_grade": 1,
+      "textbook_subject": "科学",
+      "textbook_title": "科学1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2ca42d6cc527a349",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_39fb4fecf2598e480a00",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c6a468571ede"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5cc75a528e5eb12b",
+      "textbook_grade": 1,
+      "textbook_subject": "科学",
+      "textbook_title": "科学1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1ff7c9802eb51370",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_49615055e95c20adfa72",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_692fcc11ce5e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ae5e5b53fbbeef83",
+      "textbook_grade": 2,
+      "textbook_subject": "科学",
+      "textbook_title": "科学2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ecbfb198e263525f",
+      "component_ids": [
+        "lc_808b080c61380381"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生借助多感官和简单工具观察并如实记录具体事物或现象的信息。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够借助多感官和简单工具观察并如实记录具体事物或现象的信息；优先采集：独立完成与该小能力同构的任务，并留下可回查的口头、书面、作品或操作证据。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能借助多感官和简单工具观察并如实记录具体事物或现象的信息。",
+          "excerpt_hash": "24b457dfc87d0ef35c8b0e9821bb1a8cb09ddfa144cd4af5b7d6071596192b9c",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-PR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "借助多感官和简单工具观察并如实记录具体事物或现象的信息",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_808b080c61380381",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够借助多感官和简单工具观察并如实记录具体事物或现象的信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生借助多感官和简单工具观察并如实记录具体事物或现象的信息，并说明关键步骤、特征或依据。",
+      "label": "借助多感官和简单工具观察并如实记录具体事物或现象的信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够借助多感官和简单工具观察并如实记录具体事物或现象的信息；优先采集：独立完成与该小能力同构的任务，并留下可回查的口头、书面、作品或操作证据。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "借助多感官和简单工具观察并如实记录具体事物或现象的信息",
+          "excerpt_hash": "2aa3a96ff9fe5863aad0011d47fd35645aa4d6628a6933c284bdbdd1590c3176",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-PR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "借助多感官和简单工具观察并如实记录具体事物或现象的信息"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "24b457dfc87d0ef35c8b0e9821bb1a8cb09ddfa144cd4af5b7d6071596192b9c",
+  "standard_code": "SC-D1-PR-003",
+  "verified_prerequisites": []
+}

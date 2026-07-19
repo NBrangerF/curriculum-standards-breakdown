@@ -1,0 +1,198 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_c550d0c3dddf5ca1"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生通过户外运动预防近视，合理安排户外活动时间的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_232c52b2d08ebcdb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ccca22583e380b84"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“通过户外运动预防近视，合理安排户外活动时间”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过户外运动预防近视，合理安排户外活动时间。",
+          "excerpt_hash": "a71545cf1be16d0ecd7f18540971d3bad8630555b049dbd014364b8219494238",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "讲清常见运动损伤（擦伤、扭伤、鼻出血等）的预防与处理步骤，强调何时必须寻求成人/医生帮助。通过角色扮演练习基础处理（清洁、止血、冰敷、抬高、固定）并强调卫生与安全边界。",
+          "excerpt_hash": "369ae19a7a0d651b94feb82f7851f2f14d75fd0de33a55f7e2244b2d77cc41ae",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D2-HB-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过户外运动预防近视，合理安排户外活动时间，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过户外运动预防近视，合理安排户外活动时间”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“讲清常见运动损伤（擦伤、扭伤、鼻出血等）的预防与处理步骤，强调何时必须寻求成人/医生帮助。通过角色扮演练习基础处理（清洁、止血、冰敷、抬高、固定）并强调卫生与安全边界。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_509e129334f81500",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_032926ad81d86eb77eb2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_3_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_58c66aa4067b40f9",
+      "textbook_grade": 3,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康3年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_ed0975edea1918a6",
+      "evidence_refs": [
+        "standard:PE-D2-HB-008:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D2-HB-008",
+      "target_code": "PE-D3-HB-008",
+      "target_label": "理解正常体重、超重、肥胖和体重不足的概念，能使用身高体重数据进行自我评估并设定合理目标。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ccca22583e380b84",
+      "component_ids": [
+        "lc_c550d0c3dddf5ca1"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生通过户外运动预防近视，合理安排户外活动时间。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够通过户外运动预防近视，合理安排户外活动时间；优先采集：过程性记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过户外运动预防近视，合理安排户外活动时间。",
+          "excerpt_hash": "a71545cf1be16d0ecd7f18540971d3bad8630555b049dbd014364b8219494238",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c550d0c3dddf5ca1",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过户外运动预防近视，合理安排户外活动时间",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过户外运动预防近视，合理安排户外活动时间，并说明关键步骤、特征或依据。",
+      "label": "通过户外运动预防近视，合理安排户外活动时间",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过户外运动预防近视，合理安排户外活动时间；优先采集：过程性记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过户外运动预防近视，合理安排户外活动时间",
+          "excerpt_hash": "e61db4dac53250cc5eb548bd09351b83bd1c05ed7ff5483b1a41f3d07195a922",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过户外运动预防近视，合理安排户外活动时间"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_63af28245f527e5f",
+      "evidence_refs": [
+        "standard:PE-D2-HB-008:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D1-HB-008",
+      "source_label": "初步形成个人卫生习惯。",
+      "target_code": "PE-D2-HB-008",
+      "target_label": "能通过户外运动预防近视，合理安排户外活动时间。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a71545cf1be16d0ecd7f18540971d3bad8630555b049dbd014364b8219494238",
+  "standard_code": "PE-D2-HB-008",
+  "verified_prerequisites": []
+}

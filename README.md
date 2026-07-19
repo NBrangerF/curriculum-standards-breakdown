@@ -61,6 +61,22 @@ SC-D1-AR-001
 | `materials_tools` | 所需材料/工具 |
 | `safety_notes` | 安全提示 |
 
+#### 可教学能力图谱
+
+标准正文与既有教学支持字段保持不变；在其上增加可追溯、可审核的教学能力层：
+
+| 字段 | 说明 |
+|------|------|
+| `learning_components` | 从标准原句拆出的可教学、可诊断小能力 |
+| `verified_prerequisites` | 仅收录有证据且经专家批准的前置能力 |
+| `prerequisite_candidates` | 由学习进阶产生、等待专家审核的候选关系 |
+| `hardest_cases` | 标准限定语中最容易被任务或教学漏掉的高难结构 |
+| `common_difficulties` | 学生表现、可能成因、诊断探针与教师动作 |
+| `curriculum_alignments` | 教材册级、单元级与页码级证据分层关联 |
+| `forward_connections` | 后续学习去向候选，不冒充硬前置关系 |
+
+字段契约、证据等级和质量门见 `docs/data/TEACHABLE_CAPABILITY_GRAPH_CONTRACT.md`。
+
 #### 可迁移能力标签
 
 每条标准已标注关联的 **可迁移能力 (Transferable Skills)**：
@@ -124,6 +140,11 @@ npm run eval:matching
 # 生成待人工复核的数据质量工作队列（写入 generated/，不进入发布数据）
 npm run build:data-review-worklist
 
+# 重建并审计 2025 条标准的可教学能力图谱
+npm run capability-graph:build
+npm run capability-graph:audit
+npm run capability-graph:check
+
 # Meilisearch dry run
 npm run search:index-meilisearch
 ```
@@ -136,7 +157,7 @@ API 本地地址: http://localhost:8787
 
 - 运维 API: `/api/v1/health`, `/api/v1/openapi.yaml`, `/api/v1/docs`, `/api/v1/metrics`
 - 数据 API: `/api/v1/meta`, `/api/v1/data-version`, `/api/v1/subjects`, `/api/v1/skills`, `/api/v1/standards/search`
-- 关系图谱 API: `/api/v1/standards/{code}/progression`, `/api/v1/standards/{code}/neighbors`, `/api/v1/standards/compare`。`progression` 已贯通 D1–D3 与 G7–G9；H3→G7 为带置信度的同学科同领域推断桥，不作为官方先修关系。
+- 关系图谱 API: `/api/v1/standards/{code}/progression`, `/api/v1/standards/{code}/neighbors`, `/api/v1/standards/{code}/capability-graph`, `/api/v1/standards/compare`。`progression` 已贯通 D1–D3 与 G7–G9；H3→G7 为带置信度的同学科同领域推断桥，不作为官方先修关系。能力图谱接口会把已核验关系、机器候选和不同证据等级的教材关联分开返回。
 
 证据链与教学规划相关接口仍在开发中，当前不对外开放。
 
@@ -190,11 +211,14 @@ LLM 负责把智能搜索拆分为核心主题、紧密扩展词、学科包含/
 │   ├── manifest.json         # 全站索引
 │   ├── subjects_meta.json    # 学科元数据
 │   ├── skills_meta.json      # 可迁移能力元数据
-│   └── by_subject/           # 按学科分割的标准
-│       ├── science.json      # 科学 (349条)
-│       ├── math.json         # 数学
-│       ├── chinese.json      # 语文
-│       └── ...
+│   ├── by_subject/           # 按学科分割的轻量标准
+│   │   ├── science.json      # 科学 (349条)
+│   │   ├── math.json         # 数学
+│   │   ├── chinese.json      # 语文
+│   │   └── ...
+│   └── capability_graph/     # 详情页按 code 加载的完整能力图谱 sidecar
+│       └── by_code/
+│           └── CN-D1-RE-001.json
 ├── src/
 │   ├── components/           # UI 组件
 │   │   ├── Header.jsx        # 导航栏

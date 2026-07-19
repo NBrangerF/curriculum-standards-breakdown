@@ -1,0 +1,349 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_4a6c0e8252b68950",
+        "lc_3741f7ab61d8c0bf"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生借助关键词句、图片等复述语篇内容的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_72408b223ff56dc0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1b829b0d549cdcce"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“借助关键词句、图片等复述语篇内容”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“借助关键词句、图片等复述语篇内容”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能推断说话者情感、态度和观点；能听懂相关主题的语篇；能借助关键词句、图片等复述语篇内容；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "bd3666a7b8598341b71fb2976f1198fccd99665c0950684ed85a24a3927bd3b5",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价时关注学生是否能用语篇线索支持复述和推断。",
+          "excerpt_hash": "05039143520bf506b5c1f138cdadb710d87eed814c1f9fa3aa982c4b41e6473c",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-TP-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后借助关键词句、图片等复述语篇内容，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“借助关键词句、图片等复述语篇内容”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“评价时关注学生是否能用语篇线索支持复述和推断。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b067916a0fecca25",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_600fc96aca5a7c702986",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c81ef75b15c2"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f2972c892efdda49",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_45ba28888bdb8eba",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fcc8f13544f60ac83228",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_006c435d5baa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b6842528f75f35c9",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_64241ba6bd0f0b99",
+      "evidence_refs": [
+        "standard:EN-H4G7-TP-001:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-H4G7-TP-001",
+      "target_code": "EN-H4G8-TP-002",
+      "target_label": "能推断说话者情感、态度和观点；能判断说话者身份和关系；能听懂相关主题的语篇；能整合语篇信息并说明观点或文化差异。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_1b829b0d549cdcce",
+      "component_ids": [
+        "lc_0fb2d4519350ba85",
+        "lc_262201229b093414",
+        "lc_4a6c0e8252b68950"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生推断说话者情感、态度和观点。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够推断说话者情感、态度和观点；优先采集：听力复述、预测推断记录、理由说明。",
+        "学生能够听懂相关主题的语篇；优先采集：听力复述、预测推断记录、理由说明。",
+        "学生能够借助关键词句、图片等复述语篇内容；优先采集：听力复述、预测推断记录、理由说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能推断说话者情感、态度和观点；能听懂相关主题的语篇；能借助关键词句、图片等复述语篇内容；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "bd3666a7b8598341b71fb2976f1198fccd99665c0950684ed85a24a3927bd3b5",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "推断说话者情感、态度和观点；听懂相关主题的语篇；借助关键词句、图片等复述语篇内容",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_0fb2d4519350ba85",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够推断说话者情感、态度和观点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生推断说话者情感、态度和观点，并说明关键步骤、特征或依据。",
+      "label": "推断说话者情感、态度和观点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够推断说话者情感、态度和观点；优先采集：听力复述、预测推断记录、理由说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "推断说话者情感、态度和观点",
+          "excerpt_hash": "3c4a0e9aa92a215c90fa12ff54668bd603f4b467c8ef4b22806e8e177fb12756",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "推断说话者情感、态度和观点"
+    },
+    {
+      "component_id": "lc_262201229b093414",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够听懂相关主题的语篇",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生听懂相关主题的语篇，并说明关键步骤、特征或依据。",
+      "label": "听懂相关主题的语篇",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够听懂相关主题的语篇；优先采集：听力复述、预测推断记录、理由说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "听懂相关主题的语篇",
+          "excerpt_hash": "6c346a25a5c8e4509a8679f510868676247d85836d3970c05e7dc8997c88d4da",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "听懂相关主题的语篇"
+    },
+    {
+      "component_id": "lc_4a6c0e8252b68950",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够借助关键词句、图片等复述语篇内容",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生借助关键词句、图片等复述语篇内容，并说明关键步骤、特征或依据。",
+      "label": "借助关键词句、图片等复述语篇内容",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够借助关键词句、图片等复述语篇内容；优先采集：听力复述、预测推断记录、理由说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "借助关键词句、图片等复述语篇内容",
+          "excerpt_hash": "ca543a1301e4546fb50968eceadc1505fa618dfeaaf852c674fde6221c270fbc",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "借助关键词句、图片等复述语篇内容"
+    },
+    {
+      "component_id": "lc_2aceef86de66a179",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够获取关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
+      "label": "获取关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够获取关键信息；优先采集：听力复述、预测推断记录、理由说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "获取关键信息",
+          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "获取关键信息"
+    },
+    {
+      "component_id": "lc_3741f7ab61d8c0bf",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成简短交流",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成简短交流，并说明关键步骤、特征或依据。",
+      "label": "完成简短交流",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成简短交流；优先采集：听力复述、预测推断记录、理由说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成简短交流",
+          "excerpt_hash": "e0d8e980d38fdd45deaf2acf3d21d16ee5acd4e273483f5057e96bc61198198b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-TP-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成简短交流"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "high",
+      "confidence_score": 0.2762,
+      "edge_id": "pc_b3a484b08249386e",
+      "evidence_refs": [
+        "standard:EN-H4G7-TP-001:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-TP-002",
+      "source_label": "能就语篇的主题意义和观点作出正确的理解和判断。",
+      "target_code": "EN-H4G7-TP-001",
+      "target_label": "能推断说话者情感、态度和观点；能听懂相关主题的语篇；能借助关键词句、图片等复述语篇内容；能获取关键信息并完成简短交流。"
+    },
+    {
+      "confidence": "high",
+      "confidence_score": 0.3576,
+      "edge_id": "pc_b55a8d5481d422b4",
+      "evidence_refs": [
+        "standard:EN-H4G7-TP-001:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-TP-004",
+      "source_label": "能识别、提炼、概括语篇的关键信息、主要内容、主题意义和观点。",
+      "target_code": "EN-H4G7-TP-001",
+      "target_label": "能推断说话者情感、态度和观点；能听懂相关主题的语篇；能借助关键词句、图片等复述语篇内容；能获取关键信息并完成简短交流。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "bd3666a7b8598341b71fb2976f1198fccd99665c0950684ed85a24a3927bd3b5",
+  "standard_code": "EN-H4G7-TP-001",
+  "verified_prerequisites": []
+}

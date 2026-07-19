@@ -1,0 +1,196 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_1817254cbe467b9c"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生使用扫帚、簸箕完成扫地的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a07aa49541fc060c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1aad42fb9a78ce8c"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“使用扫帚、簸箕完成扫地”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师或家长指导下使用扫帚、簸箕完成扫地，使用拖把完成湿拖，做到不漏扫、基本干净，并能在结束后清理并归位工具。",
+          "excerpt_hash": "78c9edbaf66b49b983ecd337878d889783944072507bd932addf13e0820419bb",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先示范“分区→顺序→收尾”：由门口到角落、由里到外；用胶带划分小区域给每人明确责任；强调“先扫后拖”。",
+          "excerpt_hash": "cc516236c87a796794a35bcf7a534530bc62fe5033f2305fb9a078d203a2b229",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-DL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后使用扫帚、簸箕完成扫地，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“使用扫帚、簸箕完成扫地”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“先示范“分区→顺序→收尾”：由门口到角落、由里到外”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_ee5c5a458dedfe01",
+      "evidence_refs": [
+        "standard:LA-D1-DL-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D1-DL-001",
+      "target_code": "LA-D2-DL-001",
+      "target_label": "能独立制定清扫顺序并完成教室或家中一个区域的分区清扫与湿拖，能关注角落、桌脚等易遗漏处，做到基本整洁，并能主动进行工具清洗与归位。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_1aad42fb9a78ce8c",
+      "component_ids": [
+        "lc_1817254cbe467b9c",
+        "lc_e04f184bc37dcef7",
+        "lc_ee9ced0820fe7573"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用扫帚、簸箕完成扫地。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在教师或家长指导下，能够使用扫帚、簸箕完成扫地；优先采集：过程表现（操作规范/完成度）、工具归位记录、教师观察清单。",
+        "学生在教师或家长指导下，能够使用拖把完成湿拖，做到不漏扫、基本干净；优先采集：过程表现（操作规范/完成度）、工具归位记录、教师观察清单。",
+        "学生在教师或家长指导下，能够在结束后清理并归位工具；优先采集：过程表现（操作规范/完成度）、工具归位记录、教师观察清单。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师或家长指导下使用扫帚、簸箕完成扫地，使用拖把完成湿拖，做到不漏扫、基本干净，并能在结束后清理并归位工具。",
+          "excerpt_hash": "78c9edbaf66b49b983ecd337878d889783944072507bd932addf13e0820419bb",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "使用扫帚、簸箕完成扫地；使用拖把完成湿拖，做到不漏扫、基本干净；在结束后清理并归位工具",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_1817254cbe467b9c",
+      "component_type": "procedural",
+      "condition": "在教师或家长指导下",
+      "confidence": 0.72,
+      "description": "学生在教师或家长指导下，能够使用扫帚、簸箕完成扫地",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师或家长指导下”的诊断任务，要求学生使用扫帚、簸箕完成扫地，并说明关键步骤、特征或依据。",
+      "label": "使用扫帚、簸箕完成扫地",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师或家长指导下，能够使用扫帚、簸箕完成扫地；优先采集：过程表现（操作规范/完成度）、工具归位记录、教师观察清单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师或家长指导下使用扫帚、簸箕完成扫地，使用拖把完成湿拖，做到不漏扫、基本干净，并能在结束后清理并归位工具。",
+          "excerpt_hash": "78c9edbaf66b49b983ecd337878d889783944072507bd932addf13e0820419bb",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用扫帚、簸箕完成扫地"
+    },
+    {
+      "component_id": "lc_e04f184bc37dcef7",
+      "component_type": "procedural",
+      "condition": "在教师或家长指导下",
+      "confidence": 0.72,
+      "description": "学生在教师或家长指导下，能够使用拖把完成湿拖，做到不漏扫、基本干净",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师或家长指导下”的诊断任务，要求学生使用拖把完成湿拖，做到不漏扫、基本干净，并说明关键步骤、特征或依据。",
+      "label": "使用拖把完成湿拖，做到不漏扫、基本干净",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师或家长指导下，能够使用拖把完成湿拖，做到不漏扫、基本干净；优先采集：过程表现（操作规范/完成度）、工具归位记录、教师观察清单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师或家长指导下使用扫帚、簸箕完成扫地，使用拖把完成湿拖，做到不漏扫、基本干净，并能在结束后清理并归位工具。",
+          "excerpt_hash": "78c9edbaf66b49b983ecd337878d889783944072507bd932addf13e0820419bb",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用拖把完成湿拖，做到不漏扫、基本干净"
+    },
+    {
+      "component_id": "lc_ee9ced0820fe7573",
+      "component_type": "conceptual",
+      "condition": "在教师或家长指导下",
+      "confidence": 0.72,
+      "description": "学生在教师或家长指导下，能够在结束后清理并归位工具",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师或家长指导下”的诊断任务，要求学生在结束后清理并归位工具，并说明关键步骤、特征或依据。",
+      "label": "在结束后清理并归位工具",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师或家长指导下，能够在结束后清理并归位工具；优先采集：过程表现（操作规范/完成度）、工具归位记录、教师观察清单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师或家长指导下使用扫帚、簸箕完成扫地，使用拖把完成湿拖，做到不漏扫、基本干净，并能在结束后清理并归位工具。",
+          "excerpt_hash": "78c9edbaf66b49b983ecd337878d889783944072507bd932addf13e0820419bb",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在结束后清理并归位工具"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "78c9edbaf66b49b983ecd337878d889783944072507bd932addf13e0820419bb",
+  "standard_code": "LA-D1-DL-001",
+  "verified_prerequisites": []
+}

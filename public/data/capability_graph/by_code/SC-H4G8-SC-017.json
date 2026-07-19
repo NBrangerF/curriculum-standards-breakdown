@@ -1,0 +1,669 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_840e133a020e5467",
+        "lc_19e6185f634da308",
+        "lc_6fcc79cafdaa46bc",
+        "lc_f8d5b437f9c3f914"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生从遗传学角度说明近亲结婚危害、列举常见遗传性疾病的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a28b4793a5ba8b9a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_51bdc5f7be4750e4",
+        "hc_11dbf1390d3d2e0a"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“从遗传学角度说明近亲结婚危害、列举常见遗传性疾病”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“从遗传学角度说明近亲结婚危害、列举常见遗传性疾病”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出遗传物质作用及DNA、基因和染色体关系；能从遗传学角度说明近亲结婚危害、列举常见遗传性疾病并关注基因工程技术应用进展；能列举遗传和变异在育种方面的应用；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "1efbdbdbdb669a7c7a7190ed34e1ca5c3df10e65aebf89c99b406d59fa981c13",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把遗传概念、优生优育和技术伦理联系起来，避免过度确定化个人遗传风险。",
+          "excerpt_hash": "253dbacd28840b95e35362466d7a5395965080872820d1b0796bd355944834f1",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-017:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后从遗传学角度说明近亲结婚危害、列举常见遗传性疾病，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“从遗传学角度说明近亲结婚危害、列举常见遗传性疾病”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把遗传概念、优生优育和技术伦理联系起来，避免过度确定化个人遗传风险。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_6fcc79cafdaa46bc"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_955220a8d1ad422a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_51bdc5f7be4750e4",
+        "hc_11dbf1390d3d2e0a"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较证据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较证据”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出遗传物质作用及DNA、基因和染色体关系；能从遗传学角度说明近亲结婚危害、列举常见遗传性疾病并关注基因工程技术应用进展；能列举遗传和变异在育种方面的应用；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "1efbdbdbdb669a7c7a7190ed34e1ca5c3df10e65aebf89c99b406d59fa981c13",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把遗传概念、优生优育和技术伦理联系起来，避免过度确定化个人遗传风险。",
+          "excerpt_hash": "253dbacd28840b95e35362466d7a5395965080872820d1b0796bd355944834f1",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-017:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较证据”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“把遗传概念、优生优育和技术伦理联系起来，避免过度确定化个人遗传风险。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_19e6185f634da308",
+        "lc_e31a88f740037c26"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生持续收集并说明基因工程技术应用进展的关键信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_29f5266f5d47ecfe",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_51bdc5f7be4750e4"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“持续收集并说明基因工程技术应用进展的关键信息”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“持续收集并说明基因工程技术应用进展的关键信息”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出遗传物质作用及DNA、基因和染色体关系；能从遗传学角度说明近亲结婚危害、列举常见遗传性疾病并关注基因工程技术应用进展；能列举遗传和变异在育种方面的应用；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "1efbdbdbdb669a7c7a7190ed34e1ca5c3df10e65aebf89c99b406d59fa981c13",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把遗传概念、优生优育和技术伦理联系起来，避免过度确定化个人遗传风险。",
+          "excerpt_hash": "253dbacd28840b95e35362466d7a5395965080872820d1b0796bd355944834f1",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-017:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后持续收集并说明基因工程技术应用进展的关键信息，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“持续收集并说明基因工程技术应用进展的关键信息”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把遗传概念、优生优育和技术伦理联系起来，避免过度确定化个人遗传风险。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_f39ed6bd22a1dee4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出遗传物质作用及DNA、基因和染色体关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c9cdd16280fafc2b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出遗传物质作用及DNA、基因和染色体关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出遗传物质作用及DNA、基因和染色体关系”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出遗传物质作用及DNA、基因和染色体关系；能从遗传学角度说明近亲结婚危害、列举常见遗传性疾病并关注基因工程技术应用进展；能列举遗传和变异在育种方面的应用；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "1efbdbdbdb669a7c7a7190ed34e1ca5c3df10e65aebf89c99b406d59fa981c13",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把遗传概念、优生优育和技术伦理联系起来，避免过度确定化个人遗传风险。",
+          "excerpt_hash": "253dbacd28840b95e35362466d7a5395965080872820d1b0796bd355944834f1",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-017:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出遗传物质作用及DNA、基因和染色体关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出遗传物质作用及DNA、基因和染色体关系”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把遗传概念、优生优育和技术伦理联系起来，避免过度确定化个人遗传风险。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_f8d5b437f9c3f914"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解释概念之间的关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6a0cf01fff1a533b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_51bdc5f7be4750e4"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“解释概念之间的关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解释概念之间的关系”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出遗传物质作用及DNA、基因和染色体关系；能从遗传学角度说明近亲结婚危害、列举常见遗传性疾病并关注基因工程技术应用进展；能列举遗传和变异在育种方面的应用；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "1efbdbdbdb669a7c7a7190ed34e1ca5c3df10e65aebf89c99b406d59fa981c13",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把遗传概念、优生优育和技术伦理联系起来，避免过度确定化个人遗传风险。",
+          "excerpt_hash": "253dbacd28840b95e35362466d7a5395965080872820d1b0796bd355944834f1",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-017:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解释概念之间的关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解释概念之间的关系”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把遗传概念、优生优育和技术伦理联系起来，避免过度确定化个人遗传风险。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 6,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_eb9eea17c5f4c677",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0f6edf1eb52b44920973",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_77ef51325c22"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_aa920dd0236fd836",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_78f6447ef19a8c64",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a7fe299869b84f655a87",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a871f50d9e2b"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c38c1b84336fa7fa",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d7043660607c0088",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b4de49a3e2e59c9c76bf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5f552244f754"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e4f214193210f062",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bfc0883a4b0fa217",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c8cec7bb4ee4d9a29577",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ce524ff21ae1"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d75ade93cbf14989",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_78abd116e15248f5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_d5ca89ccc00d3103a7f8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a0a929bcb6e9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e8478f57c656a4",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_051e3fc4dc85cea4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f0de8cbbeb88661f44d6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ffb2a04886aa"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_23244c2ebb335c01",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_ab884be792f2f3c9",
+      "evidence_refs": [
+        "standard:SC-H4G8-SC-017:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G8-SC-017",
+      "target_code": "SC-H4G9-SC-017",
+      "target_label": "能说出遗传物质作用及DNA、基因和染色体关系；能从遗传学角度说明近亲结婚危害、列举常见遗传性疾病并关注基因工程技术应用进展；阐释决定人性别的因…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_51bdc5f7be4750e4",
+      "component_ids": [
+        "lc_840e133a020e5467",
+        "lc_19e6185f634da308",
+        "lc_6fcc79cafdaa46bc",
+        "lc_f8d5b437f9c3f914"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "解释",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生从遗传学角度说明近亲结婚危害、列举常见遗传性疾病。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够从遗传学角度说明近亲结婚危害、列举常见遗传性疾病；优先采集：资料卡、遗传现象分析、议题讨论记录。",
+        "学生能够持续收集并说明基因工程技术应用进展的关键信息；优先采集：资料卡、遗传现象分析、议题讨论记录。",
+        "学生能够比较证据；优先采集：资料卡、遗传现象分析、议题讨论记录。",
+        "学生能够解释概念之间的关系；优先采集：资料卡、遗传现象分析、议题讨论记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出遗传物质作用及DNA、基因和染色体关系；能从遗传学角度说明近亲结婚危害、列举常见遗传性疾病并关注基因工程技术应用进展；能列举遗传和变异在育种方面的应用；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "1efbdbdbdb669a7c7a7190ed34e1ca5c3df10e65aebf89c99b406d59fa981c13",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、解释、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_11dbf1390d3d2e0a",
+      "component_ids": [
+        "lc_6fcc79cafdaa46bc"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较证据；优先采集：资料卡、遗传现象分析、议题讨论记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出遗传物质作用及DNA、基因和染色体关系；能从遗传学角度说明近亲结婚危害、列举常见遗传性疾病并关注基因工程技术应用进展；能列举遗传和变异在育种方面的应用；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "1efbdbdbdb669a7c7a7190ed34e1ca5c3df10e65aebf89c99b406d59fa981c13",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_f39ed6bd22a1dee4",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出遗传物质作用及DNA、基因和染色体关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出遗传物质作用及DNA、基因和染色体关系，并说明关键步骤、特征或依据。",
+      "label": "说出遗传物质作用及DNA、基因和染色体关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出遗传物质作用及DNA、基因和染色体关系；优先采集：资料卡、遗传现象分析、议题讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出遗传物质作用及DNA、基因和染色体关系",
+          "excerpt_hash": "d59195b2bbe963d2b07268467e48024ed5dca9bdb3d35fd2b0a6956e0018fab9",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出遗传物质作用及DNA、基因和染色体关系"
+    },
+    {
+      "component_id": "lc_840e133a020e5467",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够从遗传学角度说明近亲结婚危害、列举常见遗传性疾病",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生从遗传学角度说明近亲结婚危害、列举常见遗传性疾病，并保留可回查的口头、书面或操作过程证据。",
+      "label": "从遗传学角度说明近亲结婚危害、列举常见遗传性疾病",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够从遗传学角度说明近亲结婚危害、列举常见遗传性疾病；优先采集：资料卡、遗传现象分析、议题讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "从遗传学角度说明近亲结婚危害、列举常见遗传性疾病",
+          "excerpt_hash": "523a32af8a4fb4f5a6fda4e5a0e37ef451868eb57069f2b37acbbe6cbdcb50f5",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "从遗传学角度说明近亲结婚危害、列举常见遗传性疾病"
+    },
+    {
+      "component_id": "lc_19e6185f634da308",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够持续收集并说明基因工程技术应用进展的关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生持续收集并说明基因工程技术应用进展的关键信息，并保留可回查的口头、书面或操作过程证据。",
+      "label": "持续收集并说明基因工程技术应用进展的关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够持续收集并说明基因工程技术应用进展的关键信息；优先采集：资料卡、遗传现象分析、议题讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "关注基因工程技术应用进展",
+          "excerpt_hash": "34d1ca2579799ca73750d574d8ca3629ef61ee7f59d6a64bd1ba5c287d38f780",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "关注基因工程技术应用进展"
+    },
+    {
+      "component_id": "lc_e31a88f740037c26",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够列举遗传和变异在育种方面的应用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生列举遗传和变异在育种方面的应用，并说明关键步骤、特征或依据。",
+      "label": "列举遗传和变异在育种方面的应用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够列举遗传和变异在育种方面的应用；优先采集：资料卡、遗传现象分析、议题讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "列举遗传和变异在育种方面的应用",
+          "excerpt_hash": "bcf140fcd283db8c8dfa5a7bea5fe398a1624bca8cf6c4e5defb7b463ca5f409",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "列举遗传和变异在育种方面的应用"
+    },
+    {
+      "component_id": "lc_6fcc79cafdaa46bc",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较证据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较证据，并说明关键步骤、特征或依据。",
+      "label": "比较证据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较证据；优先采集：资料卡、遗传现象分析、议题讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较证据",
+          "excerpt_hash": "991569e1419bfb53d107f820e29cc506985fb42dec521ee976a4309299317eac",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较证据"
+    },
+    {
+      "component_id": "lc_f8d5b437f9c3f914",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释概念之间的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释概念之间的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释概念之间的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释概念之间的关系；优先采集：资料卡、遗传现象分析、议题讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释概念之间的关系",
+          "excerpt_hash": "7176bf29ca46d45d574a0ab078112ade02e1c191616f7761e6189d6092a666dd",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释概念之间的关系"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_c204084c33d22ef1",
+      "evidence_refs": [
+        "standard:SC-H4G8-SC-017:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G7-SC-017",
+      "source_label": "能识别遗传和变异现象；能知道决定人性别的因素并举例说明性状由基因控制；能列举遗传和变异在育种方面的应用；能用观察证据说明基本科学概念。",
+      "target_code": "SC-H4G8-SC-017",
+      "target_label": "能说出遗传物质作用及DNA、基因和染色体关系；能从遗传学角度说明近亲结婚危害、列举常见遗传性疾病并关注基因工程技术应用进展；能列举遗传和变异在…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "1efbdbdbdb669a7c7a7190ed34e1ca5c3df10e65aebf89c99b406d59fa981c13",
+  "standard_code": "SC-H4G8-SC-017",
+  "verified_prerequisites": []
+}

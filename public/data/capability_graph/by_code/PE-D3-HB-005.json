@@ -1,0 +1,318 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_ab659ef585b21c92"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别风险情境的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_93bda7a7fc574414",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_31fec3f2d5ac1c78"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“识别风险情境”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别风险情境”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解毒品的常见种类与危害，能识别风险情境并使用至少1种拒绝与求助策略。",
+          "excerpt_hash": "0791635f564ab8f9237f740a5282ab6732c6f8804d228c01719aa99ac4502f26",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "以“信息澄清+情境识别”开展教学：澄清“尝一口没事”等误区；用情境卡识别高风险场景（陌生人给饮料/网络诱导/聚会起哄），练习“拒绝—离开—求助—报告”流程。强调不随意接受来源不明食品饮料，必要时寻求可信成年人帮助。",
+          "excerpt_hash": "ec9875e1b26c832d28128d7dc95dedd92a359ffaac8f6d7795e504d9d0c9f1b3",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-HB-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别风险情境，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别风险情境”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“以“信息澄清+情境识别”开展教学：澄清“尝一口没事”等误区”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_d7cf95b281b532c7",
+        "lc_ab659ef585b21c92"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出毒品的常见种类与危害的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6326e7ed6303c116",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_31fec3f2d5ac1c78"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出毒品的常见种类与危害的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出毒品的常见种类与危害的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解毒品的常见种类与危害，能识别风险情境并使用至少1种拒绝与求助策略。",
+          "excerpt_hash": "0791635f564ab8f9237f740a5282ab6732c6f8804d228c01719aa99ac4502f26",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "以“信息澄清+情境识别”开展教学：澄清“尝一口没事”等误区；用情境卡识别高风险场景（陌生人给饮料/网络诱导/聚会起哄），练习“拒绝—离开—求助—报告”流程。强调不随意接受来源不明食品饮料，必要时寻求可信成年人帮助。",
+          "excerpt_hash": "ec9875e1b26c832d28128d7dc95dedd92a359ffaac8f6d7795e504d9d0c9f1b3",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-HB-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出毒品的常见种类与危害的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出毒品的常见种类与危害的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“以“信息澄清+情境识别”开展教学：澄清“尝一口没事”等误区”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0511,
+      "connection_id": "fc_b45f48decfbc55ba",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-013:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-HB-005",
+      "target_code": "PE-H4G7-HB-013",
+      "target_label": "能理解常规体检的具体项目、指标、意义和常见疾病的症状，掌握各种常见疾病的预防方法；能完成基础练习并记录身体反应。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_31fec3f2d5ac1c78",
+      "component_ids": [
+        "lc_ab659ef585b21c92"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别风险情境。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别风险情境；优先采集：小测。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解毒品的常见种类与危害，能识别风险情境并使用至少1种拒绝与求助策略。",
+          "excerpt_hash": "0791635f564ab8f9237f740a5282ab6732c6f8804d228c01719aa99ac4502f26",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_5bae71504482d930",
+      "component_ids": [
+        "lc_5963e05ecc8c911d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用至少1种拒绝与求助策略。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够使用至少1种拒绝与求助策略；优先采集：小测。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解毒品的常见种类与危害，能识别风险情境并使用至少1种拒绝与求助策略。",
+          "excerpt_hash": "0791635f564ab8f9237f740a5282ab6732c6f8804d228c01719aa99ac4502f26",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（至少）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_e2ad414a8106a3ec",
+      "component_ids": [
+        "lc_5963e05ecc8c911d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用至少1种拒绝与求助策略。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够使用至少1种拒绝与求助策略；优先采集：小测。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解毒品的常见种类与危害，能识别风险情境并使用至少1种拒绝与求助策略。",
+          "excerpt_hash": "0791635f564ab8f9237f740a5282ab6732c6f8804d228c01719aa99ac4502f26",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（至少）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d7cf95b281b532c7",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出毒品的常见种类与危害的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出毒品的常见种类与危害的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出毒品的常见种类与危害的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出毒品的常见种类与危害的关键特征；优先采集：小测。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解毒品的常见种类与危害",
+          "excerpt_hash": "2cf25ffaa55d7e4c7803203c8b83888ca14996f54637232cafd5825d457e2b1c",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解毒品的常见种类与危害"
+    },
+    {
+      "component_id": "lc_ab659ef585b21c92",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别风险情境",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别风险情境，并说明关键步骤、特征或依据。",
+      "label": "识别风险情境",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别风险情境；优先采集：小测。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别风险情境",
+          "excerpt_hash": "8518d2f4aba99fde9da9d7492e0b0552bb9ec74519ecf297268944cb81c24707",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别风险情境"
+    },
+    {
+      "component_id": "lc_5963e05ecc8c911d",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够使用至少1种拒绝与求助策略",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生使用至少1种拒绝与求助策略，并说明关键步骤、特征或依据。",
+      "label": "使用至少1种拒绝与求助策略",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够使用至少1种拒绝与求助策略；优先采集：小测。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "使用至少1种拒绝与求助策略",
+          "excerpt_hash": "063c4c4511a6f6b031ac3257a91a64b54c79eefafc0eeec0b664f555c86484b9",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用至少1种拒绝与求助策略"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_9edf96352ad83245",
+      "evidence_refs": [
+        "standard:PE-D3-HB-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-HB-005",
+      "source_label": "知道吸烟的危害并抵制二手烟。",
+      "target_code": "PE-D3-HB-005",
+      "target_label": "了解毒品的常见种类与危害，能识别风险情境并使用至少1种拒绝与求助策略。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "0791635f564ab8f9237f740a5282ab6732c6f8804d228c01719aa99ac4502f26",
+  "standard_code": "PE-D3-HB-005",
+  "verified_prerequisites": []
+}

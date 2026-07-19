@@ -1,0 +1,222 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_55f3d80587d00ca8"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生持续收集并说明自己情绪变化的关键信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e14f0dfedb82771c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a31d9841cfb0c0fb"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“持续收集并说明自己情绪变化的关键信息”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "关注自己情绪变化，能使用1种方法调节情绪并恢复投入活动。",
+          "excerpt_hash": "33bb9454829440e33a272538cbff46d56adefd1d78e67a638861392ffcc02f4b",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-015:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "在小组任务中分配并轮换角色（队长、裁判、计时、记录、安全员），训练协作与责任。教师把任务分解到人，要求每人完成可观察的贡献点，并通过赛后复盘引导改进。",
+          "excerpt_hash": "95eba9bf45f65b2fa2a9116580ea2df5c1e5e09ed8088080d9017347df39de6a",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D2-HB-015:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后持续收集并说明自己情绪变化的关键信息，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“持续收集并说明自己情绪变化的关键信息”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“在小组任务中分配并轮换角色（队长、裁判、计时、记录、安全员），训练协作与责任。教师把任务分解到人，要求每人完成可观察的贡献点，并通过赛后复盘引导改进。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b7f87ef5074693b7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_032926ad81d86eb77eb2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_3_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_58c66aa4067b40f9",
+      "textbook_grade": 3,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康3年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_ea3f37d686baaffc",
+      "evidence_refs": [
+        "standard:PE-D2-HB-015:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D2-HB-015",
+      "target_code": "PE-D3-HB-015",
+      "target_label": "知道骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练并遵守安全规范。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a31d9841cfb0c0fb",
+      "component_ids": [
+        "lc_55f3d80587d00ca8",
+        "lc_f17711398706068e"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生持续收集并说明自己情绪变化的关键信息。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够持续收集并说明自己情绪变化的关键信息；优先采集：过程性记录、自评。",
+        "学生能够使用1种方法调节情绪并恢复投入活动；优先采集：过程性记录、自评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "关注自己情绪变化，能使用1种方法调节情绪并恢复投入活动。",
+          "excerpt_hash": "33bb9454829440e33a272538cbff46d56adefd1d78e67a638861392ffcc02f4b",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "持续收集并说明自己情绪变化的关键信息；使用1种方法调节情绪并恢复投入活动",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_55f3d80587d00ca8",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够持续收集并说明自己情绪变化的关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生持续收集并说明自己情绪变化的关键信息，并保留可回查的口头、书面或操作过程证据。",
+      "label": "持续收集并说明自己情绪变化的关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够持续收集并说明自己情绪变化的关键信息；优先采集：过程性记录、自评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "关注自己情绪变化",
+          "excerpt_hash": "cc71a85e50a83ec2e9270ff62ed6c7942af13a83d58258024542364e7eba2dc5",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "关注自己情绪变化"
+    },
+    {
+      "component_id": "lc_f17711398706068e",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够使用1种方法调节情绪并恢复投入活动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生使用1种方法调节情绪并恢复投入活动，并说明关键步骤、特征或依据。",
+      "label": "使用1种方法调节情绪并恢复投入活动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够使用1种方法调节情绪并恢复投入活动；优先采集：过程性记录、自评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "使用1种方法调节情绪并恢复投入活动",
+          "excerpt_hash": "8efc9a04a262c86da92319783dca668eb96ae7826e1c06e8ea483913d467adbe",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用1种方法调节情绪并恢复投入活动"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_aebdb417822b05a1",
+      "evidence_refs": [
+        "standard:PE-D2-HB-015:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D1-HB-015",
+      "source_label": "能说出饮水、饮食的健康要求，注意个人卫生习惯，坐、立、行和读写姿势正确；知道生命孕育过程和人体主要器官；知道视力异常的症状，定期检查视力，正确…",
+      "target_code": "PE-D2-HB-015",
+      "target_label": "关注自己情绪变化，能使用1种方法调节情绪并恢复投入活动。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "33bb9454829440e33a272538cbff46d56adefd1d78e67a638861392ffcc02f4b",
+  "standard_code": "PE-D2-HB-015",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,534 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_6123ce08bf30f2e9"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用信息技术或视觉艺术手段设计道具、舞美以增强表现力的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_afe6dd5f3a88574c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_02f5c9d6eb09ade6"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用信息技术或视觉艺术手段设计道具、舞美以增强表现力”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用信息技术或视觉艺术手段设计道具、舞美以增强表现力”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系；能积极参与综合性艺术表演活动；运用信息技术或视觉艺术手段设计道具、舞美以增强表现力；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "8d52f2db184029712aa06a2504eadddf487032be5a4f84d40ed22507a5421f18",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CP-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生自编、自导、自演，同时明确主题、形式、分工和评价标准。",
+          "excerpt_hash": "51a60f72bbcc14a4a228de75afb4309a2767caf2359242f1c8abfecf163dc612",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-CP-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用信息技术或视觉艺术手段设计道具、舞美以增强表现力，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用信息技术或视觉艺术手段设计道具、舞美以增强表现力”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“引导学生自编、自导、自演，同时明确主题、形式、分工和评价标准。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_6123ce08bf30f2e9",
+        "lc_e422e958f58d9e5c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用信息技术或视觉艺术手段设计道具、舞美以增强表现力的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a069178ea43527a8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_02f5c9d6eb09ade6"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“运用信息技术或视觉艺术手段设计道具、舞美以增强表现力”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用信息技术或视觉艺术手段设计道具、舞美以增强表现力”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系；能积极参与综合性艺术表演活动；运用信息技术或视觉艺术手段设计道具、舞美以增强表现力；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "8d52f2db184029712aa06a2504eadddf487032be5a4f84d40ed22507a5421f18",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CP-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生自编、自导、自演，同时明确主题、形式、分工和评价标准。",
+          "excerpt_hash": "51a60f72bbcc14a4a228de75afb4309a2767caf2359242f1c8abfecf163dc612",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-CP-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用信息技术或视觉艺术手段设计道具、舞美以增强表现力，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用信息技术或视觉艺术手段设计道具、舞美以增强表现力”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“引导学生自编、自导、自演，同时明确主题、形式、分工和评价标准。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_cabd7a0315ca9710"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述艺术要素的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ed25b1ba807236d8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述艺术要素”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述艺术要素”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系；能积极参与综合性艺术表演活动；运用信息技术或视觉艺术手段设计道具、舞美以增强表现力；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "8d52f2db184029712aa06a2504eadddf487032be5a4f84d40ed22507a5421f18",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CP-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生自编、自导、自演，同时明确主题、形式、分工和评价标准。",
+          "excerpt_hash": "51a60f72bbcc14a4a228de75afb4309a2767caf2359242f1c8abfecf163dc612",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-CP-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述艺术要素，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述艺术要素”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“引导学生自编、自导、自演，同时明确主题、形式、分工和评价标准。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_396904c24ce09f0d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b4a6ed90dc479e6c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系；能积极参与综合性艺术表演活动；运用信息技术或视觉艺术手段设计道具、舞美以增强表现力；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "8d52f2db184029712aa06a2504eadddf487032be5a4f84d40ed22507a5421f18",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CP-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生自编、自导、自演，同时明确主题、形式、分工和评价标准。",
+          "excerpt_hash": "51a60f72bbcc14a4a228de75afb4309a2767caf2359242f1c8abfecf163dc612",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-CP-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生自编、自导、自演，同时明确主题、形式、分工和评价标准。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2948363b3b869057",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_010c1e047f00dd19a403",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a98e81d5ea76"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5c9c27ac05203638",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_944b530006ee8319",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2efa5fc22fa7520b01b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_86eb84faa252"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0805abf2f5db09ed",
+      "textbook_grade": 7,
+      "textbook_subject": "美术",
+      "textbook_title": "美术7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8c8aad97fae72dab",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4e29c3897ac01b25a084",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d35e7be5354c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a883040b0334e9a7",
+      "textbook_grade": 7,
+      "textbook_subject": "美术",
+      "textbook_title": "美术7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a442563d3c90055c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a89e5efa283f5034b420",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a99675852c59"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b3fadfb25eca49fe",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_e9d8ff0365448b89",
+      "evidence_refs": [
+        "standard:AR-H4G7-CP-016:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-H4G7-CP-016",
+      "target_code": "AR-H4G8-CP-027",
+      "target_label": "能分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系；运用信息技术或视觉艺术手段设计道具、舞美以增强表现力；能积极参与综合性…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_00e79656a8d356b6",
+      "component_ids": [
+        "lc_d17d79864037cce3"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "综合"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生积极参与综合性艺术表演活动。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够积极参与综合性艺术表演活动；优先采集：综合表演、舞美或道具设计、角色反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系；能积极参与综合性艺术表演活动；运用信息技术或视觉艺术手段设计道具、舞美以增强表现力；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "8d52f2db184029712aa06a2504eadddf487032be5a4f84d40ed22507a5421f18",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CP-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（综合）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_02f5c9d6eb09ade6",
+      "component_ids": [
+        "lc_6123ce08bf30f2e9",
+        "lc_e422e958f58d9e5c"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "创作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生运用信息技术或视觉艺术手段设计道具、舞美以增强表现力。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够运用信息技术或视觉艺术手段设计道具、舞美以增强表现力；优先采集：综合表演、舞美或道具设计、角色反思。",
+        "学生能够完成基础表现或创作；优先采集：综合表演、舞美或道具设计、角色反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系；能积极参与综合性艺术表演活动；运用信息技术或视觉艺术手段设计道具、舞美以增强表现力；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "8d52f2db184029712aa06a2504eadddf487032be5a4f84d40ed22507a5421f18",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CP-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、创作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_396904c24ce09f0d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系，并说明关键步骤、特征或依据。",
+      "label": "分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系；优先采集：综合表演、舞美或道具设计、角色反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系",
+          "excerpt_hash": "ed1438fc284bcdf787c2d67ead15ae4f6417e9ab56bc33af01b55b0ca1b2958a",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CP-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系"
+    },
+    {
+      "component_id": "lc_d17d79864037cce3",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够积极参与综合性艺术表演活动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生积极参与综合性艺术表演活动，并说明关键步骤、特征或依据。",
+      "label": "积极参与综合性艺术表演活动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够积极参与综合性艺术表演活动；优先采集：综合表演、舞美或道具设计、角色反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "积极参与综合性艺术表演活动",
+          "excerpt_hash": "639012870de0d64be85f8674ace1ccde09044332826e76cfd427c4b09a8086a5",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CP-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "积极参与综合性艺术表演活动"
+    },
+    {
+      "component_id": "lc_6123ce08bf30f2e9",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用信息技术或视觉艺术手段设计道具、舞美以增强表现力",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用信息技术或视觉艺术手段设计道具、舞美以增强表现力，并说明关键步骤、特征或依据。",
+      "label": "运用信息技术或视觉艺术手段设计道具、舞美以增强表现力",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用信息技术或视觉艺术手段设计道具、舞美以增强表现力；优先采集：综合表演、舞美或道具设计、角色反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用信息技术或视觉艺术手段设计道具、舞美以增强表现力",
+          "excerpt_hash": "291d766a9bad0bb850fb3a64e22a9fa91b3b5c7b0d96247bdd4e9c1accb031b0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CP-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用信息技术或视觉艺术手段设计道具、舞美以增强表现力"
+    },
+    {
+      "component_id": "lc_cabd7a0315ca9710",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述艺术要素",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述艺术要素，并说明关键步骤、特征或依据。",
+      "label": "描述艺术要素",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述艺术要素；优先采集：综合表演、舞美或道具设计、角色反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述艺术要素",
+          "excerpt_hash": "710935e4df1532334f250c3d052674e266294edd15da0e6096f7bc2137ca8425",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CP-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述艺术要素"
+    },
+    {
+      "component_id": "lc_e422e958f58d9e5c",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成基础表现或创作",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成基础表现或创作，并说明关键步骤、特征或依据。",
+      "label": "完成基础表现或创作",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成基础表现或创作；优先采集：综合表演、舞美或道具设计、角色反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成基础表现或创作",
+          "excerpt_hash": "c6c7aa6f0fcb88782073b2bfe6ef8341b9660a99662a1a2b49152a8e04a101f6",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-CP-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成基础表现或创作"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0964,
+      "edge_id": "pc_ef6398f9123e8f75",
+      "evidence_refs": [
+        "standard:AR-H4G7-CP-016:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D3-CP-002",
+      "source_label": "能策划微电影作品发布与传播方案，设计标识、海报、请柬等，积极参与校园文化建设，形成团队协作意识与探究能力。",
+      "target_code": "AR-H4G7-CP-016",
+      "target_label": "能分析和理解音乐与舞蹈、戏剧（含戏曲）、影视等姊妹艺术及其他学科的联系；能积极参与综合性艺术表演活动；运用信息技术或视觉艺术手段设计道具、舞美…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "8d52f2db184029712aa06a2504eadddf487032be5a4f84d40ed22507a5421f18",
+  "standard_code": "AR-H4G7-CP-016",
+  "verified_prerequisites": []
+}

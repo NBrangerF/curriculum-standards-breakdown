@@ -1,0 +1,436 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_0a4bdb997ff36fce"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明观点、方法或表达选择的依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_515badbec5d6503f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d51ac464645896bc"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点、方法或表达选择的依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明观点、方法或表达选择的依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题；能用流程图、文字等形式呈现活动设计方案；能围绕学习活动开展调查；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "8a578619422fd1daaf91e66b6d2fec1518cff103a228eb5f4008f60ca381c14e",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将资料获取、方案呈现、调查过程和总结反思作为连续评价链条。",
+          "excerpt_hash": "b203056f28030ea99d36ac18fbb2f55ac894eaf0e3adcaced90d7221fbfff9b7",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-IN-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明观点、方法或表达选择的依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明观点、方法或表达选择的依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“将资料获取、方案呈现、调查过程和总结反思作为连续评价链条。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_b7c8a5192c1e0c40"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用流程图、文字等形式呈现活动设计方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f84144ea7396c6ad",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c928c635042af857"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“用流程图、文字等形式呈现活动设计方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用流程图、文字等形式呈现活动设计方案”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题；能用流程图、文字等形式呈现活动设计方案；能围绕学习活动开展调查；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "8a578619422fd1daaf91e66b6d2fec1518cff103a228eb5f4008f60ca381c14e",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将资料获取、方案呈现、调查过程和总结反思作为连续评价链条。",
+          "excerpt_hash": "b203056f28030ea99d36ac18fbb2f55ac894eaf0e3adcaced90d7221fbfff9b7",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-IN-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用流程图、文字等形式呈现活动设计方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用流程图、文字等形式呈现活动设计方案”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“将资料获取、方案呈现、调查过程和总结反思作为连续评价链条。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_cd9073488076746f",
+        "lc_0a4bdb997ff36fce"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4e4d7a2473a2cbf2",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d51ac464645896bc"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题；能用流程图、文字等形式呈现活动设计方案；能围绕学习活动开展调查；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "8a578619422fd1daaf91e66b6d2fec1518cff103a228eb5f4008f60ca381c14e",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将资料获取、方案呈现、调查过程和总结反思作为连续评价链条。",
+          "excerpt_hash": "b203056f28030ea99d36ac18fbb2f55ac894eaf0e3adcaced90d7221fbfff9b7",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-IN-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“将资料获取、方案呈现、调查过程和总结反思作为连续评价链条。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5c42468037c7b87f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f4fb0c2a21f9"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0fb7983518710ace",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_690ec0337976799e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_be04d8b55a4f"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d5058d79ff37d1bb",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_818de48c1486d981",
+      "evidence_refs": [
+        "standard:CN-H4G8-IN-006:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-H4G8-IN-006",
+      "target_code": "CN-H4G9-IN-005",
+      "target_label": "能就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题；能用文字、图表、图画、照片等形式呈现学习成果；能用流程图、文字等形式呈现…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_d51ac464645896bc",
+      "component_ids": [
+        "lc_0a4bdb997ff36fce"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点、方法或表达选择的依据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明观点、方法或表达选择的依据；优先采集：活动设计方案、调查材料、学习成果、活动总结。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题；能用流程图、文字等形式呈现活动设计方案；能围绕学习活动开展调查；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "8a578619422fd1daaf91e66b6d2fec1518cff103a228eb5f4008f60ca381c14e",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_c928c635042af857",
+      "component_ids": [
+        "lc_b7c8a5192c1e0c40"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用流程图、文字等形式呈现活动设计方案。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用流程图、文字等形式呈现活动设计方案；优先采集：活动设计方案、调查材料、学习成果、活动总结。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题；能用流程图、文字等形式呈现活动设计方案；能围绕学习活动开展调查；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "8a578619422fd1daaf91e66b6d2fec1518cff103a228eb5f4008f60ca381c14e",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_cd9073488076746f",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题，并说明关键步骤、特征或依据。",
+      "label": "就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题；优先采集：活动设计方案、调查材料、学习成果、活动总结。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题",
+          "excerpt_hash": "793db865fd01e9a66de50c11d9a1d01a3c2f2b58e2ad9a168b6ad06b6e7a7ca3",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题"
+    },
+    {
+      "component_id": "lc_b7c8a5192c1e0c40",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用流程图、文字等形式呈现活动设计方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用流程图、文字等形式呈现活动设计方案，并说明关键步骤、特征或依据。",
+      "label": "用流程图、文字等形式呈现活动设计方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用流程图、文字等形式呈现活动设计方案；优先采集：活动设计方案、调查材料、学习成果、活动总结。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用流程图、文字等形式呈现活动设计方案",
+          "excerpt_hash": "aea53490fddd2f4abe630976c3c649127348ce3b102048565d8013bac8bbed60",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用流程图、文字等形式呈现活动设计方案"
+    },
+    {
+      "component_id": "lc_018e3748f07e71b2",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够围绕学习活动开展调查",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生围绕学习活动开展调查，并说明关键步骤、特征或依据。",
+      "label": "围绕学习活动开展调查",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够围绕学习活动开展调查；优先采集：活动设计方案、调查材料、学习成果、活动总结。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "围绕学习活动开展调查",
+          "excerpt_hash": "48572ab621a294c7cb6679d13aae89cc6b6dccc27a5fe4fabe2d66b3ae8fd83b",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "围绕学习活动开展调查"
+    },
+    {
+      "component_id": "lc_834f5b4038f6f13b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够整合材料",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合材料，并说明关键步骤、特征或依据。",
+      "label": "整合材料",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够整合材料；优先采集：活动设计方案、调查材料、学习成果、活动总结。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "整合材料",
+          "excerpt_hash": "c6c8b0ffb05ba398d2a4a4fb4f067efe130af369012aceee836b9c0c870e2710",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "整合材料"
+    },
+    {
+      "component_id": "lc_0a4bdb997ff36fce",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明观点、方法或表达选择的依据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点、方法或表达选择的依据，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明观点、方法或表达选择的依据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明观点、方法或表达选择的依据；优先采集：活动设计方案、调查材料、学习成果、活动总结。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明观点、方法或表达选择的依据",
+          "excerpt_hash": "04a7ab3f43a7836e4d3a1304eb39d0a43cdf66ecd30248e80d1cdebbd172b84a",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明观点、方法或表达选择的依据"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_311165193afce81a",
+      "evidence_refs": [
+        "standard:CN-H4G8-IN-006:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-H4G7-IN-006",
+      "source_label": "能就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题；能用流程图、文字等形式呈现活动设计方案；能整理学习内容、完善认识并撰写活…",
+      "target_code": "CN-H4G8-IN-006",
+      "target_label": "能就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题；能用流程图、文字等形式呈现活动设计方案；能围绕学习活动开展调查；能整合材…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "8a578619422fd1daaf91e66b6d2fec1518cff103a228eb5f4008f60ca381c14e",
+  "standard_code": "CN-H4G8-IN-006",
+  "verified_prerequisites": []
+}

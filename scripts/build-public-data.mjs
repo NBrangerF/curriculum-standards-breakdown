@@ -7,9 +7,24 @@ const PUBLIC_STANDARD_FIELDS = [
     'code', 'subject', 'subject_slug', 'domain', 'subdomain', 'display_subcategory', 'standard_title',
     'grade_band', 'grade_range', 'grade', 'grade_level', 'stage_band', 'standard', 'context', 'practice',
     'teaching_tip', 'assessment_evidence_type', 'ts_primary', 'ts_secondary', 'ts_rationale',
-    'materials_tools', 'safety_notes', 'previous_code', 'next_code'
+    'materials_tools', 'safety_notes', 'previous_code', 'next_code',
+    'capability_graph_schema_version', 'capability_graph_method', 'source_standard_hash',
+    'prerequisite_review_coverage', 'curriculum_alignment_summary'
 ]
+const CAPABILITY_GRAPH_FIELDS = [
+    'capability_graph_schema_version', 'capability_graph_method', 'source_standard_hash',
+    'learning_components', 'verified_prerequisites', 'prerequisite_candidates', 'prerequisite_review_coverage',
+    'hardest_cases', 'common_difficulties', 'curriculum_alignments', 'curriculum_alignment_summary',
+    'forward_connections'
+]
+const CAPABILITY_ARRAY_FIELDS = new Set([
+    'learning_components', 'verified_prerequisites', 'prerequisite_candidates', 'hardest_cases',
+    'common_difficulties', 'curriculum_alignments', 'forward_connections'
+])
+const CAPABILITY_OBJECT_FIELDS = new Set(['prerequisite_review_coverage', 'curriculum_alignment_summary'])
 const PUBLIC_TRUST_FIELDS = ['provenance', 'official_text', 'field_provenance', 'relations', 'skill_alignments']
+const PUBLIC_ARRAY_FIELDS = new Set(['ts_primary', 'ts_secondary'])
+const PUBLIC_OBJECT_FIELDS = new Set(['prerequisite_review_coverage', 'curriculum_alignment_summary'])
 
 function parseArgs(argv) {
     const args = { source: 'data/internal', output: 'public/data' }
@@ -50,8 +65,21 @@ function restoreDirectory(root, snapshot) {
 }
 
 function pickPublic(record, metadata) {
-    const publicRecord = Object.fromEntries(PUBLIC_STANDARD_FIELDS.map(field => [field, record[field] ?? (field === 'ts_primary' || field === 'ts_secondary' ? [] : '')]))
+    const publicRecord = Object.fromEntries(PUBLIC_STANDARD_FIELDS.map(field => [
+        field,
+        record[field] ?? (PUBLIC_ARRAY_FIELDS.has(field) ? [] : PUBLIC_OBJECT_FIELDS.has(field) ? {} : '')
+    ]))
     return projectTrustedRecord(publicRecord, metadata)
+}
+
+function pickCapabilityGraph(record) {
+    return {
+        standard_code: record.code,
+        ...Object.fromEntries(CAPABILITY_GRAPH_FIELDS.map(field => [
+            field,
+            record[field] ?? (CAPABILITY_ARRAY_FIELDS.has(field) ? [] : CAPABILITY_OBJECT_FIELDS.has(field) ? {} : '')
+        ]))
+    }
 }
 
 const args = parseArgs(process.argv.slice(2))
@@ -59,12 +87,15 @@ const sourceRoot = resolve(args.source)
 const outputRoot = resolve(args.output)
 const sourceBySubject = join(sourceRoot, 'by_subject')
 const knowledgeGraphSnapshot = snapshotDirectory(join(outputRoot, 'knowledge_graph'))
+const textbookSnapshot = snapshotDirectory(join(outputRoot, 'textbooks'))
 
 if (!existsSync(sourceBySubject)) throw new Error(`缺少内部数据目录：${sourceBySubject}`)
 rmSync(outputRoot, { recursive: true, force: true })
 mkdirSync(join(outputRoot, 'by_subject'), { recursive: true })
 mkdirSync(join(outputRoot, 'indexes'), { recursive: true })
+mkdirSync(join(outputRoot, 'capability_graph', 'by_code'), { recursive: true })
 restoreDirectory(join(outputRoot, 'knowledge_graph'), knowledgeGraphSnapshot)
+restoreDirectory(join(outputRoot, 'textbooks'), textbookSnapshot)
 
 const manifestSubjects = []
 const codeToSubject = {}
@@ -113,6 +144,10 @@ for (const file of sourceFiles) {
         }
     }
 
+    for (const record of source.standards || []) {
+        writeJson(join(outputRoot, 'capability_graph', 'by_code', `${record.code}.json`), pickCapabilityGraph(record))
+    }
+
     writeJson(join(outputRoot, 'by_subject', file), {
         subject: source.subject,
         subject_slug: subjectSlug,
@@ -141,8 +176,14 @@ writeJson(join(outputRoot, 'manifest.json'), {
     generated_at: new Date().toISOString(),
     data_scope: sourceManifest.data_scope,
     target_policy: sourceManifest.target_policy,
-    projection: 'public_v1',
+    projection: 'public_v2_capability_graph_sidecar',
     columns: [...publicColumns].sort(),
+    capability_graph: {
+        projection: 'by_code_sidecar_v1',
+        path_template: 'capability_graph/by_code/{code}.json',
+        record_count: Object.keys(codeToSubject).length,
+        fields: CAPABILITY_GRAPH_FIELDS
+    },
     subjects: manifestSubjects
 })
 writeJson(join(outputRoot, 'indexes', 'code_to_subject.json'), codeToSubject)
@@ -169,9 +210,10 @@ const dataVersion = JSON.parse(readFileSync(join(sourceRoot, 'data_version.json'
 dataVersion.source_of_truth = {
     canonical_records: 'data/internal/by_subject/*.json',
     public_projection: 'public/data/by_subject/*.json',
+    public_capability_graph: 'public/data/capability_graph/by_code/*.json',
     public_indexes: 'public/data/indexes/*.json'
 }
-dataVersion.public_projection = 'public_v1'
+dataVersion.public_projection = 'public_v2_capability_graph_sidecar'
 writeJson(join(outputRoot, 'data_version.json'), dataVersion)
 
 console.log(JSON.stringify({

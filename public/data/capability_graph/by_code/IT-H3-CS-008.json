@@ -1,0 +1,304 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_a3f701a3577100c0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生迁移该思路解释其他类似“分解—迁移—合并”的问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_32ed913c7fb5bbf5",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3740016d14c4484a",
+        "hc_e8c62731c98cdf6f"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“迁移该思路解释其他类似“分解—迁移—合并”的问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“迁移该思路解释其他类似“分解—迁移—合并”的问题”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在汉诺塔等益智玩具问题中将抽象问题具体化，能用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一），并能迁移该思路解释其他类似“分解—迁移—合并”的问题。",
+          "excerpt_hash": "088733ffc4db3e50c81c46f81ee0dd2ea8665ac858602b2ba22f034e8ce8dd87",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【用分解解决复杂：汉诺塔的‘套路’】\n(1) 先动手再抽象：用纸片/积木实际操作，记录“3层/4层”的移动序列。\n(2) 引导发现规律：把目标拆成“搬上面的n-1层→搬最大盘→搬n-1层”，体验分解与复用。\n(3) 表达方式分层：基础用步骤清单；提高用流程图；挑战用块状/文本程序实现递归或循环模拟。\n(4) 迁移讨论：哪些生活任务也能‘先拆小再合大’（如整理、搬家、排队调度）。",
+          "excerpt_hash": "b82cc6810a1838e8db2fca01e4d2b51076f7297eee10e0e65679e8aad2e6bccf",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后迁移该思路解释其他类似“分解—迁移—合并”的问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“迁移该思路解释其他类似“分解—迁移—合并”的问题”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“【用分解解决复杂：汉诺塔的‘套路’】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_97c6e9acbab9ca41",
+        "lc_a3f701a3577100c0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a8fe63b7a452cc73",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3740016d14c4484a",
+        "hc_e8c62731c98cdf6f"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一）”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在汉诺塔等益智玩具问题中将抽象问题具体化，能用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一），并能迁移该思路解释其他类似“分解—迁移—合并”的问题。",
+          "excerpt_hash": "088733ffc4db3e50c81c46f81ee0dd2ea8665ac858602b2ba22f034e8ce8dd87",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【用分解解决复杂：汉诺塔的‘套路’】\n(1) 先动手再抽象：用纸片/积木实际操作，记录“3层/4层”的移动序列。\n(2) 引导发现规律：把目标拆成“搬上面的n-1层→搬最大盘→搬n-1层”，体验分解与复用。\n(3) 表达方式分层：基础用步骤清单；提高用流程图；挑战用块状/文本程序实现递归或循环模拟。\n(4) 迁移讨论：哪些生活任务也能‘先拆小再合大’（如整理、搬家、排队调度）。",
+          "excerpt_hash": "b82cc6810a1838e8db2fca01e4d2b51076f7297eee10e0e65679e8aad2e6bccf",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一）”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“【用分解解决复杂：汉诺塔的‘套路’】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_97c6e9acbab9ca41"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_450e74ad9967a8d0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一）”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在汉诺塔等益智玩具问题中将抽象问题具体化，能用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一），并能迁移该思路解释其他类似“分解—迁移—合并”的问题。",
+          "excerpt_hash": "088733ffc4db3e50c81c46f81ee0dd2ea8665ac858602b2ba22f034e8ce8dd87",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【用分解解决复杂：汉诺塔的‘套路’】\n(1) 先动手再抽象：用纸片/积木实际操作，记录“3层/4层”的移动序列。\n(2) 引导发现规律：把目标拆成“搬上面的n-1层→搬最大盘→搬n-1层”，体验分解与复用。\n(3) 表达方式分层：基础用步骤清单；提高用流程图；挑战用块状/文本程序实现递归或循环模拟。\n(4) 迁移讨论：哪些生活任务也能‘先拆小再合大’（如整理、搬家、排队调度）。",
+          "excerpt_hash": "b82cc6810a1838e8db2fca01e4d2b51076f7297eee10e0e65679e8aad2e6bccf",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一）”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“【用分解解决复杂：汉诺塔的‘套路’】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0139,
+      "connection_id": "fc_bb5efe9b03ed29ba",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H3-CS-008",
+      "target_code": "IT-H4G7-CS-004",
+      "target_label": "知道网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能说明数字工具或数据过程的基本做法。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_3740016d14c4484a",
+      "component_ids": [
+        "lc_a3f701a3577100c0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生迁移该思路解释其他类似“分解—迁移—合并”的问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够迁移该思路解释其他类似“分解—迁移—合并”的问题；优先采集：解法作品、操作/程序证据、反思文字。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在汉诺塔等益智玩具问题中将抽象问题具体化，能用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一），并能迁移该思路解释其他类似“分解—迁移—合并”的问题。",
+          "excerpt_hash": "088733ffc4db3e50c81c46f81ee0dd2ea8665ac858602b2ba22f034e8ce8dd87",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_e8c62731c98cdf6f",
+      "component_ids": [
+        "lc_a3f701a3577100c0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "迁移"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生迁移该思路解释其他类似“分解—迁移—合并”的问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够迁移该思路解释其他类似“分解—迁移—合并”的问题；优先采集：解法作品、操作/程序证据、反思文字。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在汉诺塔等益智玩具问题中将抽象问题具体化，能用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一），并能迁移该思路解释其他类似“分解—迁移—合并”的问题。",
+          "excerpt_hash": "088733ffc4db3e50c81c46f81ee0dd2ea8665ac858602b2ba22f034e8ce8dd87",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（迁移）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_dfffcc255cc3bc2f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在汉诺塔等益智玩具问题中将抽象问题具体化",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在汉诺塔等益智玩具问题中将抽象问题具体化，并说明关键步骤、特征或依据。",
+      "label": "在汉诺塔等益智玩具问题中将抽象问题具体化",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在汉诺塔等益智玩具问题中将抽象问题具体化；优先采集：解法作品、操作/程序证据、反思文字。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在汉诺塔等益智玩具问题中将抽象问题具体化",
+          "excerpt_hash": "3aa8c10651f68f31cf6f5d3a6d7e192a068857f9a5d5edd667f3905c5c53c3f4",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在汉诺塔等益智玩具问题中将抽象问题具体化"
+    },
+    {
+      "component_id": "lc_97c6e9acbab9ca41",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一），并说明关键步骤、特征或依据。",
+      "label": "用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一）；优先采集：解法作品、操作/程序证据、反思文字。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一）",
+          "excerpt_hash": "3c5f7b807668e44ffcaba3daff3216d02a93b7fda921f264a0dcbcd9055ad47e",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用递归或分步规则描述解决过程（可用自然语言/流程图/程序之一）"
+    },
+    {
+      "component_id": "lc_a3f701a3577100c0",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够迁移该思路解释其他类似“分解—迁移—合并”的问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生迁移该思路解释其他类似“分解—迁移—合并”的问题，并保留可回查的口头、书面或操作过程证据。",
+      "label": "迁移该思路解释其他类似“分解—迁移—合并”的问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够迁移该思路解释其他类似“分解—迁移—合并”的问题；优先采集：解法作品、操作/程序证据、反思文字。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "迁移该思路解释其他类似“分解—迁移—合并”的问题",
+          "excerpt_hash": "355a39eb527098a4b770c5da6fd55b826f7c284fd61b0e5a4906b7ee3a0c9d2d",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "迁移该思路解释其他类似“分解—迁移—合并”的问题"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "088733ffc4db3e50c81c46f81ee0dd2ea8665ac858602b2ba22f034e8ce8dd87",
+  "standard_code": "IT-H3-CS-008",
+  "verified_prerequisites": []
+}

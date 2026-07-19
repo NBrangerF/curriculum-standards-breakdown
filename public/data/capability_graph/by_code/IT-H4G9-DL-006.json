@@ -1,0 +1,354 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_22423b66ed353221"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生评价数字化解决方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_68f01b01dbc8bced",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_041144129a4194b1"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“评价数字化解决方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“评价数字化解决方案”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用信息科技开展自主学习、合作学习和创新实践；能选择恰当数字设备支持学习；能借助在线平台协作设计和创作作品；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "5e4ceacc8d682ddf43cc167de058919abfa48241fc17d2802d0da26df714449c",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注协作分工、版本迭代和原创意识，避免只评价最终作品。",
+          "excerpt_hash": "0dbb742f97ceb7a681daf49f3c319f99912db3381b40ba07ceb67ef1de1dc561",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-DL-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后评价数字化解决方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“评价数字化解决方案”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“关注协作分工、版本迭代和原创意识，避免只评价最终作品。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_71cb3c597901a7e8",
+        "lc_092e9cd9ccaaecf7",
+        "lc_22423b66ed353221"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生借助在线平台协作设计和创作作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ee139a1aeb5f3853",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_041144129a4194b1"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“借助在线平台协作设计和创作作品”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“借助在线平台协作设计和创作作品”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用信息科技开展自主学习、合作学习和创新实践；能选择恰当数字设备支持学习；能借助在线平台协作设计和创作作品；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "5e4ceacc8d682ddf43cc167de058919abfa48241fc17d2802d0da26df714449c",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注协作分工、版本迭代和原创意识，避免只评价最终作品。",
+          "excerpt_hash": "0dbb742f97ceb7a681daf49f3c319f99912db3381b40ba07ceb67ef1de1dc561",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-DL-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后借助在线平台协作设计和创作作品，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“借助在线平台协作设计和创作作品”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“关注协作分工、版本迭代和原创意识，避免只评价最终作品。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_041144129a4194b1",
+      "component_ids": [
+        "lc_71cb3c597901a7e8",
+        "lc_092e9cd9ccaaecf7",
+        "lc_22423b66ed353221"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "创作",
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生借助在线平台协作设计和创作作品。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够借助在线平台协作设计和创作作品；优先采集：在线协作记录、数字作品、项目反思。",
+        "学生能够设计、测试；优先采集：在线协作记录、数字作品、项目反思。",
+        "学生能够评价数字化解决方案；优先采集：在线协作记录、数字作品、项目反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用信息科技开展自主学习、合作学习和创新实践；能选择恰当数字设备支持学习；能借助在线平台协作设计和创作作品；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "5e4ceacc8d682ddf43cc167de058919abfa48241fc17d2802d0da26df714449c",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、创作、方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_8aed13ef0ce798ff",
+      "component_ids": [
+        "lc_3eabdfcbc9c26f4d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "自主"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生利用信息科技开展自主学习、合作学习和创新实践。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够利用信息科技开展自主学习、合作学习和创新实践；优先采集：在线协作记录、数字作品、项目反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用信息科技开展自主学习、合作学习和创新实践；能选择恰当数字设备支持学习；能借助在线平台协作设计和创作作品；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "5e4ceacc8d682ddf43cc167de058919abfa48241fc17d2802d0da26df714449c",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（自主）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_f2c0a20ae93ccc98",
+      "component_ids": [
+        "lc_999299de7dabff9b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "恰当"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生选择恰当数字设备支持学习。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够选择恰当数字设备支持学习；优先采集：在线协作记录、数字作品、项目反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能利用信息科技开展自主学习、合作学习和创新实践；能选择恰当数字设备支持学习；能借助在线平台协作设计和创作作品；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "5e4ceacc8d682ddf43cc167de058919abfa48241fc17d2802d0da26df714449c",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（恰当）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3eabdfcbc9c26f4d",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够利用信息科技开展自主学习、合作学习和创新实践",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生利用信息科技开展自主学习、合作学习和创新实践，并说明关键步骤、特征或依据。",
+      "label": "利用信息科技开展自主学习、合作学习和创新实践",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够利用信息科技开展自主学习、合作学习和创新实践；优先采集：在线协作记录、数字作品、项目反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用信息科技开展自主学习、合作学习和创新实践",
+          "excerpt_hash": "65939c75e8096ee827fba9f40602ff97643672bdfa75e30800aae4b6a13c0e88",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "利用信息科技开展自主学习、合作学习和创新实践"
+    },
+    {
+      "component_id": "lc_999299de7dabff9b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择恰当数字设备支持学习",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择恰当数字设备支持学习，并说明关键步骤、特征或依据。",
+      "label": "选择恰当数字设备支持学习",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择恰当数字设备支持学习；优先采集：在线协作记录、数字作品、项目反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择恰当数字设备支持学习",
+          "excerpt_hash": "5b3fb1a939ed36a177cc7e93bce61c446e97144f02e4f5f4cafdcde480971282",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择恰当数字设备支持学习"
+    },
+    {
+      "component_id": "lc_71cb3c597901a7e8",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够借助在线平台协作设计和创作作品",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生借助在线平台协作设计和创作作品，并说明关键步骤、特征或依据。",
+      "label": "借助在线平台协作设计和创作作品",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够借助在线平台协作设计和创作作品；优先采集：在线协作记录、数字作品、项目反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "借助在线平台协作设计和创作作品",
+          "excerpt_hash": "eda069fe463cd3485bfa8deb1ad6d4b53c28c6852ea4c9e23c0aea5d1f017a37",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "借助在线平台协作设计和创作作品"
+    },
+    {
+      "component_id": "lc_092e9cd9ccaaecf7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够设计、测试",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生设计、测试，并说明关键步骤、特征或依据。",
+      "label": "设计、测试",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够设计、测试；优先采集：在线协作记录、数字作品、项目反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "设计、测试",
+          "excerpt_hash": "f34282be97ea5b848e2f067f5e47b2decd09f4cc25efac7d5f22df8430dcc747",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "设计、测试"
+    },
+    {
+      "component_id": "lc_22423b66ed353221",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价数字化解决方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价数字化解决方案，并说明关键步骤、特征或依据。",
+      "label": "评价数字化解决方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价数字化解决方案；优先采集：在线协作记录、数字作品、项目反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价数字化解决方案",
+          "excerpt_hash": "3afa3da53a717451ad84e66bce8f0eaff2303dc576fceb8d0d1592cbd9ce2132",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价数字化解决方案"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_1b341fee1386d400",
+      "evidence_refs": [
+        "standard:IT-H4G9-DL-006:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H4G8-DL-005",
+      "source_label": "能利用信息科技开展自主学习、合作学习和创新实践；能借助在线平台协作设计和创作作品；能选择恰当数字设备支持学习；能分析系统关系并完成有步骤的数字…",
+      "target_code": "IT-H4G9-DL-006",
+      "target_label": "能利用信息科技开展自主学习、合作学习和创新实践；能选择恰当数字设备支持学习；能借助在线平台协作设计和创作作品；能设计、测试并评价数字化解决方案。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5e4ceacc8d682ddf43cc167de058919abfa48241fc17d2802d0da26df714449c",
+  "standard_code": "IT-H4G9-DL-006",
+  "verified_prerequisites": []
+}

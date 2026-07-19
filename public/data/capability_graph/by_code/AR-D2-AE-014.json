@@ -1,0 +1,465 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_fb97379e3dacac49"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生在演奏中根据音乐表现需要进行力度、速度或音色的基本控制的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_537a1a8d96c0694e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_fb0a13719b99da9d"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“在演奏中根据音乐表现需要进行力度、速度或音色的基本控制”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在演奏中根据音乐表现需要进行力度、速度或音色的基本控制，形成有表现力的演奏，并能进行简单自评或互评。",
+          "excerpt_hash": "316383b6bfa78c4fc680f105865d2e0d493aec2584af73d5cd289093245cd6bc",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-014:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "提供“表现菜单”：渐强/渐弱、加速/减速、音色明亮/柔和；先听示范再选择；评价聚焦1个维度（表现是否一致/是否清晰）。",
+          "excerpt_hash": "6420d47c490297b2ad93a0b87f905af4454dbc4487b0202c46d6f8ed704e9207",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-AE-014:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在演奏中根据音乐表现需要进行力度、速度或音色的基本控制，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在演奏中根据音乐表现需要进行力度、速度或音色的基本控制”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“提供“表现菜单”：渐强/渐弱、加速/减速、音色明亮/柔和”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0d1a19baca06cf4d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_25cc2de0079d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fbf879fc86b8f9dd",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f9f0730e6a83109f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5257fc4696e"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5773d3c34b5fac1a",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b96fc307e3d31d1b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7f08a79245a04bd51982",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_66a45d74ea83"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_70c6b45240660bc3",
+      "textbook_grade": 4,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d9676195445b2b8f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9056a7a14a02606cf0cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c7075fcbe13b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1d7f26ff680d57af",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1163a3ef21dae7d8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b0ba55d2d28575d0ba65",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_aa7ce1e8a37f"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4a0a538012d57261",
+      "textbook_grade": 3,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e9acb25f55a02ead",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b99acd98774d0dc454da",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_572122ddff26"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9a72f44c9f0c7435",
+      "textbook_grade": 3,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fac0a98ba2975a4f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_edc22a9a708956d31cdc",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a83a27f3607b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3637c861f3728bf7",
+      "textbook_grade": 4,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bbb106deeb934d21",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_aa3aaa5d9032"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_19c3fbbc0c7e7882",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_95a48c027a75e706",
+      "evidence_refs": [
+        "standard:AR-D2-AE-014:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D2-AE-014",
+      "target_code": "AR-D3-AE-014",
+      "target_label": "能在演奏中准确表现节拍、节奏、音高与乐句/乐段，控制速度、力度与音色变化，增强表现力并更好表达音乐情感；在合作演奏中能较好协调多声部。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_fb0a13719b99da9d",
+      "component_ids": [
+        "lc_fb97379e3dacac49",
+        "lc_6065ce5180d2b624",
+        "lc_d0ec94bc769314fb"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在演奏中根据音乐表现需要进行力度、速度或音色的基本控制。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在演奏中根据音乐表现需要进行力度、速度或音色的基本控制；优先采集：对比录音、同伴反馈卡、教师观察。",
+        "学生能够在任务中表现出有表现力的演奏并说明选择理由；优先采集：对比录音、同伴反馈卡、教师观察。",
+        "学生能够进行简单自评或互评；优先采集：对比录音、同伴反馈卡、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在演奏中根据音乐表现需要进行力度、速度或音色的基本控制，形成有表现力的演奏，并能进行简单自评或互评。",
+          "excerpt_hash": "316383b6bfa78c4fc680f105865d2e0d493aec2584af73d5cd289093245cd6bc",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在演奏中根据音乐表现需要进行力度、速度或音色的基本控制；在任务中表现出有表现力的演奏并说明选择理由；进行简单自评或互评",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_fb97379e3dacac49",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在演奏中根据音乐表现需要进行力度、速度或音色的基本控制",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在演奏中根据音乐表现需要进行力度、速度或音色的基本控制，并说明关键步骤、特征或依据。",
+      "label": "在演奏中根据音乐表现需要进行力度、速度或音色的基本控制",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在演奏中根据音乐表现需要进行力度、速度或音色的基本控制；优先采集：对比录音、同伴反馈卡、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在演奏中根据音乐表现需要进行力度、速度或音色的基本控制",
+          "excerpt_hash": "693665fac3762ffd71f391dbeabb1b86bb7210e52c5f86901c8e49c97fb974a4",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在演奏中根据音乐表现需要进行力度、速度或音色的基本控制"
+    },
+    {
+      "component_id": "lc_6065ce5180d2b624",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出有表现力的演奏并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出有表现力的演奏并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出有表现力的演奏并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出有表现力的演奏并说明选择理由；优先采集：对比录音、同伴反馈卡、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成有表现力的演奏",
+          "excerpt_hash": "5342a9ab5e1b72b9f37b81640c866b940698e5ec814ceb78fb573f823d02e918",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成有表现力的演奏"
+    },
+    {
+      "component_id": "lc_d0ec94bc769314fb",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够进行简单自评或互评",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生进行简单自评或互评，并说明关键步骤、特征或依据。",
+      "label": "进行简单自评或互评",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够进行简单自评或互评；优先采集：对比录音、同伴反馈卡、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "进行简单自评或互评",
+          "excerpt_hash": "0b4999c7f171fb11c1f68201a89ed0ff89b659e4fe9e006d178831085bc8d3a3",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "进行简单自评或互评"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_19b71549b4280189",
+      "evidence_refs": [
+        "standard:AR-D2-AE-014:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D1-AA-014",
+      "source_label": "能按一定节奏朗读儿歌、童谣或诗词，初步了解音乐节奏、音调与语言节奏、声调之间的关系。",
+      "target_code": "AR-D2-AE-014",
+      "target_label": "能在演奏中根据音乐表现需要进行力度、速度或音色的基本控制，形成有表现力的演奏，并能进行简单自评或互评。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "316383b6bfa78c4fc680f105865d2e0d493aec2584af73d5cd289093245cd6bc",
+  "standard_code": "AR-D2-AE-014",
+  "verified_prerequisites": []
+}

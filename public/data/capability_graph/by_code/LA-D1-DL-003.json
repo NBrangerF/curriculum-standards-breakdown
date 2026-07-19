@@ -1,0 +1,204 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_d95657c958afad92"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5656c9d0b2a473fc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e1e0ffe34d6186e1"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干，理解保持餐具卫生的重要性。",
+          "excerpt_hash": "ae233a33cef9a530de5806b3d003df9e145d3e882011820f32f655468aec7934",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“残渣→泡→擦→冲→摆”口诀；让学生先观察“油/饭粒/茶渍”不同污渍再决定清洗方式；鼓励记录劳动成果。",
+          "excerpt_hash": "785a48d1617977a82b0c8e9fd05ea5a132cad3243dc4ea98a56ec7b1932a99dc",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-DL-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“用“残渣→泡→擦→冲→摆”口诀”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_f67d4f620891a307"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释保持餐具卫生的重要性的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_7a57ee28c2c71b5d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释保持餐具卫生的重要性”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释保持餐具卫生的重要性”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干，理解保持餐具卫生的重要性。",
+          "excerpt_hash": "ae233a33cef9a530de5806b3d003df9e145d3e882011820f32f655468aec7934",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“残渣→泡→擦→冲→摆”口诀；让学生先观察“油/饭粒/茶渍”不同污渍再决定清洗方式；鼓励记录劳动成果。",
+          "excerpt_hash": "785a48d1617977a82b0c8e9fd05ea5a132cad3243dc4ea98a56ec7b1932a99dc",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-DL-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释保持餐具卫生的重要性，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释保持餐具卫生的重要性”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用“残渣→泡→擦→冲→摆”口诀”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_d9d1bedae5309276",
+      "evidence_refs": [
+        "standard:LA-D1-DL-003:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D1-DL-003",
+      "target_code": "LA-D2-DL-003",
+      "target_label": "能识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理，能做到清洁后对操作区域进行整理与消毒卫生习惯化。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_e1e0ffe34d6186e1",
+      "component_ids": [
+        "lc_d95657c958afad92"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干；优先采集：家长签字/照片记录、口头说明清洗步骤。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干，理解保持餐具卫生的重要性。",
+          "excerpt_hash": "ae233a33cef9a530de5806b3d003df9e145d3e882011820f32f655468aec7934",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干；用自己的话解释保持餐具卫生的重要性",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d95657c958afad92",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干，并说明关键步骤、特征或依据。",
+      "label": "选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干；优先采集：家长签字/照片记录、口头说明清洗步骤。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干",
+          "excerpt_hash": "ceb5a36729a409756c126a8ca4a5143ac6dd6895589f2fdf5ebb0b240d22060e",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干"
+    },
+    {
+      "component_id": "lc_f67d4f620891a307",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释保持餐具卫生的重要性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释保持餐具卫生的重要性，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释保持餐具卫生的重要性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释保持餐具卫生的重要性；优先采集：家长签字/照片记录、口头说明清洗步骤。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解保持餐具卫生的重要性",
+          "excerpt_hash": "22d460ac26530240c6bc3cd14cde5f818ee6a174aa1e4137f12755a65b19c629",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解保持餐具卫生的重要性"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ae233a33cef9a530de5806b3d003df9e145d3e882011820f32f655468aec7934",
+  "standard_code": "LA-D1-DL-003",
+  "verified_prerequisites": []
+}

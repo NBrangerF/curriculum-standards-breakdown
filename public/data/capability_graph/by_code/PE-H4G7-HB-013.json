@@ -1,0 +1,309 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_b5f90f8b4d193ea2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释常规体检的具体项目、指标、意义和常见疾病的症状的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_07a15ccd8e70c1f4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释常规体检的具体项目、指标、意义和常见疾病的症状”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释常规体检的具体项目、指标、意义和常见疾病的症状”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能理解常规体检的具体项目、指标、意义和常见疾病的症状，掌握各种常见疾病的预防方法；能完成基础练习并记录身体反应。",
+          "excerpt_hash": "c22985dec598187fa1dd600cabdfcf41938a6d464b4c06cebad75534ed4e1849",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合学生生活经验讲解体检、预防和早期识别的意义。",
+          "excerpt_hash": "c65fe1f4c5d46baa74b5b7f5a9a86ef620433683b4c24518318970374dda1057",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G7-HB-013:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释常规体检的具体项目、指标、意义和常见疾病的症状，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释常规体检的具体项目、指标、意义和常见疾病的症状”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“结合学生生活经验讲解体检、预防和早期识别的意义。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7c773d181e444672",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bebb65c5f3a6a181b33b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7f9265bf475e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fc995ab30b3d79ec",
+      "textbook_grade": 7,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康7年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_d11f23e0cb48fe61",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-013:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-H4G7-HB-013",
+      "target_code": "PE-H4G8-HB-014",
+      "target_label": "能理解常规体检的具体项目、指标、意义和常见疾病的症状，掌握各种常见疾病的预防方法；能分析练习或比赛表现并调整方法。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_54ea8523804deebf",
+      "component_ids": [
+        "lc_133052b7265bca25"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "各种"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生正确运用各种常见疾病的预防方法完成任务。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够正确运用各种常见疾病的预防方法完成任务；优先采集：体检项目说明、疾病预防提示卡。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能理解常规体检的具体项目、指标、意义和常见疾病的症状，掌握各种常见疾病的预防方法；能完成基础练习并记录身体反应。",
+          "excerpt_hash": "c22985dec598187fa1dd600cabdfcf41938a6d464b4c06cebad75534ed4e1849",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（各种）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b5f90f8b4d193ea2",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释常规体检的具体项目、指标、意义和常见疾病的症状",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释常规体检的具体项目、指标、意义和常见疾病的症状，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释常规体检的具体项目、指标、意义和常见疾病的症状",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释常规体检的具体项目、指标、意义和常见疾病的症状；优先采集：体检项目说明、疾病预防提示卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解常规体检的具体项目、指标、意义和常见疾病的症状",
+          "excerpt_hash": "59302c50bc46c34014e2e5e2188b7e6da5456e2315338589fc5ab666d761882c",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解常规体检的具体项目、指标、意义和常见疾病的症状"
+    },
+    {
+      "component_id": "lc_133052b7265bca25",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够正确运用各种常见疾病的预防方法完成任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生正确运用各种常见疾病的预防方法完成任务，并说明关键步骤、特征或依据。",
+      "label": "正确运用各种常见疾病的预防方法完成任务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够正确运用各种常见疾病的预防方法完成任务；优先采集：体检项目说明、疾病预防提示卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "掌握各种常见疾病的预防方法",
+          "excerpt_hash": "7a9c5ef4ee838a64e348785a1bce5ff92fb6c6ad93600a30f55f4f59920163a2",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "掌握各种常见疾病的预防方法"
+    },
+    {
+      "component_id": "lc_bffb8c051f6cea33",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成基础练习",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成基础练习，并说明关键步骤、特征或依据。",
+      "label": "完成基础练习",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成基础练习；优先采集：体检项目说明、疾病预防提示卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成基础练习",
+          "excerpt_hash": "9867465e87f5d1e30b1f61c5a8850c7514e1c5cd08433ab651b29809f18566e0",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成基础练习"
+    },
+    {
+      "component_id": "lc_7d2948de8f5dd379",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够记录身体反应",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生记录身体反应，并说明关键步骤、特征或依据。",
+      "label": "记录身体反应",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够记录身体反应；优先采集：体检项目说明、疾病预防提示卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "记录身体反应",
+          "excerpt_hash": "e674d0e2ce340d3d8b89f23519838231e4d98d4349ecdf159eca0464f7045226",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "记录身体反应"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1033,
+      "edge_id": "pc_c5941d0b37baf91c",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-013:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D3-HB-002",
+      "source_label": "理解一日三餐的营养要求与作用、合理膳食的意义，能设计一天均衡饮食并与运动安排相匹配。",
+      "target_code": "PE-H4G7-HB-013",
+      "target_label": "能理解常规体检的具体项目、指标、意义和常见疾病的症状，掌握各种常见疾病的预防方法；能完成基础练习并记录身体反应。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0511,
+      "edge_id": "pc_b45f48decfbc55ba",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-013:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D3-HB-005",
+      "source_label": "了解毒品的常见种类与危害，能识别风险情境并使用至少1种拒绝与求助策略。",
+      "target_code": "PE-H4G7-HB-013",
+      "target_label": "能理解常规体检的具体项目、指标、意义和常见疾病的症状，掌握各种常见疾病的预防方法；能完成基础练习并记录身体反应。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1136,
+      "edge_id": "pc_46d1df59957fa6f2",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-013:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D3-HB-006",
+      "source_label": "理解健康与常见疾病的概念，能列举影响健康的主要因素并提出可执行的自我管理措施。",
+      "target_code": "PE-H4G7-HB-013",
+      "target_label": "能理解常规体检的具体项目、指标、意义和常见疾病的症状，掌握各种常见疾病的预防方法；能完成基础练习并记录身体反应。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 3,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "c22985dec598187fa1dd600cabdfcf41938a6d464b4c06cebad75534ed4e1849",
+  "standard_code": "PE-H4G7-HB-013",
+  "verified_prerequisites": []
+}

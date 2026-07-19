@@ -1,0 +1,311 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_ec28ed5638778872"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用简短语言解释图表所表达的信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_91a8976f4c9ae4c8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e60b37186e5cd495",
+        "hc_3e269f5eadd04451"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用简短语言解释图表所表达的信息”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用简短语言解释图表所表达的信息”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在分析简单问题时使用数字化工具收集、组织并呈现数据，能借助可视化方式展示数据关系以支撑观点，并能用简短语言解释图表所表达的信息。",
+          "excerpt_hash": "6baccbc41b1461ff6b91ae27d327ee9ed03a82ebe64bd6b41fec41623eaa3c68",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【让数据可视化服务于“表达观点”】\n(1) 从学生熟悉的主题入手：班级阅读量、运动步数、天气变化、垃圾分类等，明确问题与变量。\n(2) 指导学生选择合适图表（条形/折线/饼图等）并解释“为什么用这种图”。\n(3) 引导学生在同一图表中呈现多组相关数据，进行比较与解释，形成初步的数据分析能力。\n(4) 强化全过程体验：发现问题—收集—整理—可视化—结论/预测—展示（或报告）。",
+          "excerpt_hash": "259a1b2d72b7743b157efe912ec5a26d0f5a709138103ba9faad71851fe9dafd",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-CS-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用简短语言解释图表所表达的信息，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用简短语言解释图表所表达的信息”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“【让数据可视化服务于“表达观点”】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_ec28ed5638778872"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用简短语言解释图表所表达的信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3e269f5eadd04451",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e60b37186e5cd495",
+        "hc_3e269f5eadd04451"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“用简短语言解释图表所表达的信息”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用简短语言解释图表所表达的信息”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在分析简单问题时使用数字化工具收集、组织并呈现数据，能借助可视化方式展示数据关系以支撑观点，并能用简短语言解释图表所表达的信息。",
+          "excerpt_hash": "6baccbc41b1461ff6b91ae27d327ee9ed03a82ebe64bd6b41fec41623eaa3c68",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【让数据可视化服务于“表达观点”】\n(1) 从学生熟悉的主题入手：班级阅读量、运动步数、天气变化、垃圾分类等，明确问题与变量。\n(2) 指导学生选择合适图表（条形/折线/饼图等）并解释“为什么用这种图”。\n(3) 引导学生在同一图表中呈现多组相关数据，进行比较与解释，形成初步的数据分析能力。\n(4) 强化全过程体验：发现问题—收集—整理—可视化—结论/预测—展示（或报告）。",
+          "excerpt_hash": "259a1b2d72b7743b157efe912ec5a26d0f5a709138103ba9faad71851fe9dafd",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-CS-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用简短语言解释图表所表达的信息，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用简短语言解释图表所表达的信息”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“【让数据可视化服务于“表达观点”】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_ec28ed5638778872"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用简短语言解释图表所表达的信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2b9fd8a17a5b8523",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e60b37186e5cd495",
+        "hc_3e269f5eadd04451"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“用简短语言解释图表所表达的信息”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用简短语言解释图表所表达的信息”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在分析简单问题时使用数字化工具收集、组织并呈现数据，能借助可视化方式展示数据关系以支撑观点，并能用简短语言解释图表所表达的信息。",
+          "excerpt_hash": "6baccbc41b1461ff6b91ae27d327ee9ed03a82ebe64bd6b41fec41623eaa3c68",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【让数据可视化服务于“表达观点”】\n(1) 从学生熟悉的主题入手：班级阅读量、运动步数、天气变化、垃圾分类等，明确问题与变量。\n(2) 指导学生选择合适图表（条形/折线/饼图等）并解释“为什么用这种图”。\n(3) 引导学生在同一图表中呈现多组相关数据，进行比较与解释，形成初步的数据分析能力。\n(4) 强化全过程体验：发现问题—收集—整理—可视化—结论/预测—展示（或报告）。",
+          "excerpt_hash": "259a1b2d72b7743b157efe912ec5a26d0f5a709138103ba9faad71851fe9dafd",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-CS-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用简短语言解释图表所表达的信息，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用简短语言解释图表所表达的信息”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“【让数据可视化服务于“表达观点”】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_e60b37186e5cd495",
+      "component_ids": [
+        "lc_ec28ed5638778872"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用简短语言解释图表所表达的信息。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在分析简单问题时，能够用简短语言解释图表所表达的信息；优先采集：数据作品、口头展示、过程性记录、教师评价量表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在分析简单问题时使用数字化工具收集、组织并呈现数据，能借助可视化方式展示数据关系以支撑观点，并能用简短语言解释图表所表达的信息。",
+          "excerpt_hash": "6baccbc41b1461ff6b91ae27d327ee9ed03a82ebe64bd6b41fec41623eaa3c68",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_3e269f5eadd04451",
+      "component_ids": [
+        "lc_ec28ed5638778872"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "图表"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用简短语言解释图表所表达的信息。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在分析简单问题时，能够用简短语言解释图表所表达的信息；优先采集：数据作品、口头展示、过程性记录、教师评价量表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在分析简单问题时使用数字化工具收集、组织并呈现数据，能借助可视化方式展示数据关系以支撑观点，并能用简短语言解释图表所表达的信息。",
+          "excerpt_hash": "6baccbc41b1461ff6b91ae27d327ee9ed03a82ebe64bd6b41fec41623eaa3c68",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（图表）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_1f87634b4806b9ee",
+      "component_type": "procedural",
+      "condition": "在分析简单问题时",
+      "confidence": 0.72,
+      "description": "学生在分析简单问题时，能够使用数字化工具收集、组织",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在分析简单问题时”的诊断任务，要求学生使用数字化工具收集、组织，并说明关键步骤、特征或依据。",
+      "label": "使用数字化工具收集、组织",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在分析简单问题时，能够使用数字化工具收集、组织；优先采集：数据作品、口头展示、过程性记录、教师评价量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在分析简单问题时使用数字化工具收集、组织并呈现数据，能借助可视化方式展示数据关系以支撑观点，并能用简短语言解释图表所表达的信息。",
+          "excerpt_hash": "6baccbc41b1461ff6b91ae27d327ee9ed03a82ebe64bd6b41fec41623eaa3c68",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用数字化工具收集、组织"
+    },
+    {
+      "component_id": "lc_9800c5820224f082",
+      "component_type": "conceptual",
+      "condition": "在分析简单问题时",
+      "confidence": 0.72,
+      "description": "学生在分析简单问题时，能够呈现数据",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在分析简单问题时”的诊断任务，要求学生呈现数据，并说明关键步骤、特征或依据。",
+      "label": "呈现数据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在分析简单问题时，能够呈现数据；优先采集：数据作品、口头展示、过程性记录、教师评价量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在分析简单问题时使用数字化工具收集、组织并呈现数据，能借助可视化方式展示数据关系以支撑观点，并能用简短语言解释图表所表达的信息。",
+          "excerpt_hash": "6baccbc41b1461ff6b91ae27d327ee9ed03a82ebe64bd6b41fec41623eaa3c68",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "呈现数据"
+    },
+    {
+      "component_id": "lc_3a2bcd53dca26d45",
+      "component_type": "conceptual",
+      "condition": "在分析简单问题时",
+      "confidence": 0.72,
+      "description": "学生在分析简单问题时，能够借助可视化方式展示数据关系以支撑观点",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在分析简单问题时”的诊断任务，要求学生借助可视化方式展示数据关系以支撑观点，并说明关键步骤、特征或依据。",
+      "label": "借助可视化方式展示数据关系以支撑观点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在分析简单问题时，能够借助可视化方式展示数据关系以支撑观点；优先采集：数据作品、口头展示、过程性记录、教师评价量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在分析简单问题时使用数字化工具收集、组织并呈现数据，能借助可视化方式展示数据关系以支撑观点，并能用简短语言解释图表所表达的信息。",
+          "excerpt_hash": "6baccbc41b1461ff6b91ae27d327ee9ed03a82ebe64bd6b41fec41623eaa3c68",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "借助可视化方式展示数据关系以支撑观点"
+    },
+    {
+      "component_id": "lc_ec28ed5638778872",
+      "component_type": "representational",
+      "condition": "在分析简单问题时",
+      "confidence": 0.72,
+      "description": "学生在分析简单问题时，能够用简短语言解释图表所表达的信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在分析简单问题时”的诊断任务，要求学生用简短语言解释图表所表达的信息，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用简短语言解释图表所表达的信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在分析简单问题时，能够用简短语言解释图表所表达的信息；优先采集：数据作品、口头展示、过程性记录、教师评价量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在分析简单问题时使用数字化工具收集、组织并呈现数据，能借助可视化方式展示数据关系以支撑观点，并能用简短语言解释图表所表达的信息。",
+          "excerpt_hash": "6baccbc41b1461ff6b91ae27d327ee9ed03a82ebe64bd6b41fec41623eaa3c68",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用简短语言解释图表所表达的信息"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "6baccbc41b1461ff6b91ae27d327ee9ed03a82ebe64bd6b41fec41623eaa3c68",
+  "standard_code": "IT-H2-CS-003",
+  "verified_prerequisites": []
+}

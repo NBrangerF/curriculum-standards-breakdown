@@ -1,0 +1,359 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_5c4326401aa8642c",
+        "lc_5031f8df379940f8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生阅读童话、寓言、神话等叙事文本的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ddc4748dda91ad4e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a9528b9781563664"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“阅读童话、寓言、神话等叙事文本”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“阅读童话、寓言、神话等叙事文本”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读童话、寓言、神话等叙事文本，能提取主要信息并概括内容。",
+          "excerpt_hash": "03c20500745630b8254827c609f1802d5a934e3296dee6fc4ac5f42c637294d9",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n看完故事先写“谁+做了什么+结果”三栏小表。",
+          "excerpt_hash": "4e6072cd171924907027c906094a7a95924d6c018251e5ee8f48fa2ca8e43aee",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D2-RE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后阅读童话、寓言、神话等叙事文本，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“阅读童话、寓言、神话等叙事文本”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“看完故事先写“谁+做了什么+结果”三栏小表。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4411699a79475a8d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6679839735c5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a9aaea7b7d7bee10",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e1653c695bf558db",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_334af6341558"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ae7100fbda14f7bd",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_60d543b613a78b2b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_97b49cd39424"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f1323e17e6058c4c",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4e11051df30ba643",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_61d9923f1ed0457b",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_d60bddab71cba35a",
+      "evidence_refs": [
+        "standard:CN-D2-RE-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D2-RE-001",
+      "target_code": "CN-D3-RE-001",
+      "target_label": "独立阅读散文、小说、诗歌等文学作品，获取主要内容。"
+    },
+    {
+      "confidence": "medium",
+      "connection_id": "fc_cec0c7e0a8123c47",
+      "evidence_refs": [
+        "standard:CN-D2-RE-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D2-RE-001",
+      "target_code": "CN-D3-RE-003",
+      "target_label": "能用文字、结构图等方式梳理作品的行文思路。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a9528b9781563664",
+      "component_ids": [
+        "lc_5c4326401aa8642c",
+        "lc_c1401f5b5b1773cc",
+        "lc_5031f8df379940f8"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阅读童话、寓言、神话等叙事文本。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够阅读童话、寓言、神话等叙事文本；优先采集：任务：阅读理解问答（基于文本证据）。",
+        "学生能够提取主要信息；优先采集：任务：阅读理解问答（基于文本证据）。",
+        "学生能够概括内容；优先采集：任务：阅读理解问答（基于文本证据）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读童话、寓言、神话等叙事文本，能提取主要信息并概括内容。",
+          "excerpt_hash": "03c20500745630b8254827c609f1802d5a934e3296dee6fc4ac5f42c637294d9",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "阅读童话、寓言、神话等叙事文本；提取主要信息；概括内容",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_5c4326401aa8642c",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够阅读童话、寓言、神话等叙事文本",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阅读童话、寓言、神话等叙事文本，并说明关键步骤、特征或依据。",
+      "label": "阅读童话、寓言、神话等叙事文本",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够阅读童话、寓言、神话等叙事文本；优先采集：任务：阅读理解问答（基于文本证据）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读童话、寓言、神话等叙事文本",
+          "excerpt_hash": "3edbf0f1b50c9f91ce615dc7c4754a3f710c09b4b9a4a23b9a57435770ffd703",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "阅读童话、寓言、神话等叙事文本"
+    },
+    {
+      "component_id": "lc_c1401f5b5b1773cc",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提取主要信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提取主要信息，并说明关键步骤、特征或依据。",
+      "label": "提取主要信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提取主要信息；优先采集：任务：阅读理解问答（基于文本证据）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提取主要信息",
+          "excerpt_hash": "dd2d60db0ecda7ee5cc212e68e2a5c655f40ae12e2a35adb5a608f9da8092939",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提取主要信息"
+    },
+    {
+      "component_id": "lc_5031f8df379940f8",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够概括内容",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生概括内容，并说明关键步骤、特征或依据。",
+      "label": "概括内容",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够概括内容；优先采集：任务：阅读理解问答（基于文本证据）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "概括内容",
+          "excerpt_hash": "2c269ac2f2f9069192afdd4e95908672c7c3204422e4b903a3313feb8f2c12d2",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-RE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "概括内容"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_d2632f8cc86698b5",
+      "evidence_refs": [
+        "standard:CN-D2-RE-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D1-RE-001",
+      "source_label": "阅读图画书/童话/寓言时，能用关键词句提取显性信息并说出人物或情节特点。",
+      "target_code": "CN-D2-RE-001",
+      "target_label": "阅读童话、寓言、神话等叙事文本，能提取主要信息并概括内容。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "03c20500745630b8254827c609f1802d5a934e3296dee6fc4ac5f42c637294d9",
+  "standard_code": "CN-D2-RE-001",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,196 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_ebd3eb4c13588cd5"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6bbc5784c0b6a5db",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3b62396133fb6395"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等）”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人陪同下参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等），能遵守规则、礼貌沟通并尊重隐私与他人。",
+          "excerpt_hash": "d3c4feed477dbca7906325263ba4f3c07dce0d6a285756662db6425eac07a633",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "与社区机构对接明确边界；服务前做“规则与隐私”教育；服务后写“我帮助了谁/我学到的品质”。",
+          "excerpt_hash": "a6f63a1ef9eaea921d6d130851923770fafab8de3123188909552853e3e0126a",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-SL-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等）”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“与社区机构对接明确边界”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_34643f81ecb10eb0",
+      "evidence_refs": [
+        "standard:LA-D2-SL-005:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-SL-005",
+      "target_code": "LA-D3-VL-002",
+      "target_label": "能在志愿服务中遵守礼仪与边界，能保护受助者隐私，能理解“帮助不等于替代”，以尊重的方式提供支持。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_3b62396133fb6395",
+      "component_ids": [
+        "lc_ebd3eb4c13588cd5",
+        "lc_4086ea3636497f55",
+        "lc_630a798778a63992"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在成人陪同下，能够参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等）；优先采集：志愿记录、负责人/家长反馈、反思卡。",
+        "学生在成人陪同下，能够遵守规则、礼貌沟通；优先采集：志愿记录、负责人/家长反馈、反思卡。",
+        "学生在成人陪同下，能够尊重隐私与他人；优先采集：志愿记录、负责人/家长反馈、反思卡。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人陪同下参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等），能遵守规则、礼貌沟通并尊重隐私与他人。",
+          "excerpt_hash": "d3c4feed477dbca7906325263ba4f3c07dce0d6a285756662db6425eac07a633",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等）；遵守规则、礼貌沟通；尊重隐私与他人",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ebd3eb4c13588cd5",
+      "component_type": "disposition",
+      "condition": "在成人陪同下",
+      "confidence": 0.72,
+      "description": "学生在成人陪同下，能够参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人陪同下”的诊断任务，要求学生参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等），并说明关键步骤、特征或依据。",
+      "label": "参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人陪同下，能够参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等）；优先采集：志愿记录、负责人/家长反馈、反思卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人陪同下参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等），能遵守规则、礼貌沟通并尊重隐私与他人。",
+          "excerpt_hash": "d3c4feed477dbca7906325263ba4f3c07dce0d6a285756662db6425eac07a633",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等）"
+    },
+    {
+      "component_id": "lc_4086ea3636497f55",
+      "component_type": "conceptual",
+      "condition": "在成人陪同下",
+      "confidence": 0.72,
+      "description": "学生在成人陪同下，能够遵守规则、礼貌沟通",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人陪同下”的诊断任务，要求学生遵守规则、礼貌沟通，并说明关键步骤、特征或依据。",
+      "label": "遵守规则、礼貌沟通",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人陪同下，能够遵守规则、礼貌沟通；优先采集：志愿记录、负责人/家长反馈、反思卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人陪同下参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等），能遵守规则、礼貌沟通并尊重隐私与他人。",
+          "excerpt_hash": "d3c4feed477dbca7906325263ba4f3c07dce0d6a285756662db6425eac07a633",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守规则、礼貌沟通"
+    },
+    {
+      "component_id": "lc_630a798778a63992",
+      "component_type": "disposition",
+      "condition": "在成人陪同下",
+      "confidence": 0.72,
+      "description": "学生在成人陪同下，能够尊重隐私与他人",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人陪同下”的诊断任务，要求学生尊重隐私与他人，并说明关键步骤、特征或依据。",
+      "label": "尊重隐私与他人",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人陪同下，能够尊重隐私与他人；优先采集：志愿记录、负责人/家长反馈、反思卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人陪同下参与社区志愿服务（如清洁、秩序协助、爱心捐赠整理等），能遵守规则、礼貌沟通并尊重隐私与他人。",
+          "excerpt_hash": "d3c4feed477dbca7906325263ba4f3c07dce0d6a285756662db6425eac07a633",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "尊重隐私与他人"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d3c4feed477dbca7906325263ba4f3c07dce0d6a285756662db6425eac07a633",
+  "standard_code": "LA-D2-SL-005",
+  "verified_prerequisites": []
+}

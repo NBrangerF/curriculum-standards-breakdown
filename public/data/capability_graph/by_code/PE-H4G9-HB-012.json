@@ -1,0 +1,327 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_7b099c7fd64f9f6c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用体育运动中体温、脉搏等自我测评和监控方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_608eb17059c4ed0f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用体育运动中体温、脉搏等自我测评和监控方法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用体育运动中体温、脉搏等自我测评和监控方法”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能运用体育运动中体温、脉搏等自我测评和监控方法；能制定改进方案并评价运动、健康或品德表现。",
+          "excerpt_hash": "3c9da9475642e8330934c15f9dceb437c78f230a5716c6d029f8ea9b3633f1ce",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把生理监测和心理感受记录结合，帮助学生形成自我调适意识。",
+          "excerpt_hash": "d502f22b3a3ed418b7677b7bb125718f44c2c488cf0b7e00dfa2286c86e9efa0",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G9-HB-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用体育运动中体温、脉搏等自我测评和监控方法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用体育运动中体温、脉搏等自我测评和监控方法”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把生理监测和心理感受记录结合，帮助学生形成自我调适意识。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_7fd99f5a46beef6d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生制定改进方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8e93e5bcd6dbbc41",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0f3f36ea18479fb0"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“制定改进方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“制定改进方案”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能运用体育运动中体温、脉搏等自我测评和监控方法；能制定改进方案并评价运动、健康或品德表现。",
+          "excerpt_hash": "3c9da9475642e8330934c15f9dceb437c78f230a5716c6d029f8ea9b3633f1ce",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把生理监测和心理感受记录结合，帮助学生形成自我调适意识。",
+          "excerpt_hash": "d502f22b3a3ed418b7677b7bb125718f44c2c488cf0b7e00dfa2286c86e9efa0",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G9-HB-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后制定改进方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“制定改进方案”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“把生理监测和心理感受记录结合，帮助学生形成自我调适意识。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_7fd99f5a46beef6d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生制定改进方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_110d2622ed5e87df",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0f3f36ea18479fb0"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“制定改进方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“制定改进方案”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能运用体育运动中体温、脉搏等自我测评和监控方法；能制定改进方案并评价运动、健康或品德表现。",
+          "excerpt_hash": "3c9da9475642e8330934c15f9dceb437c78f230a5716c6d029f8ea9b3633f1ce",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把生理监测和心理感受记录结合，帮助学生形成自我调适意识。",
+          "excerpt_hash": "d502f22b3a3ed418b7677b7bb125718f44c2c488cf0b7e00dfa2286c86e9efa0",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G9-HB-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后制定改进方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“制定改进方案”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把生理监测和心理感受记录结合，帮助学生形成自我调适意识。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e74d790b00091bd6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_edad04fc8816a4ef583f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_028db4ce8af0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5a8a2e0e888764ac",
+      "textbook_grade": 9,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_0f3f36ea18479fb0",
+      "component_ids": [
+        "lc_7fd99f5a46beef6d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "方案",
+        "改进"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生制定改进方案。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够制定改进方案；优先采集：运动监测记录、情绪调适反思、健康日志。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能运用体育运动中体温、脉搏等自我测评和监控方法；能制定改进方案并评价运动、健康或品德表现。",
+          "excerpt_hash": "3c9da9475642e8330934c15f9dceb437c78f230a5716c6d029f8ea9b3633f1ce",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（方案、改进）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_a1ad289a24109f69",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；优先采集：运动监测记录、情绪调适反思、健康日志。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用",
+          "excerpt_hash": "e725bbf8b6b754769d04fb3d04a76b1d298e72219211d9237a20951abd513ab3",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用"
+    },
+    {
+      "component_id": "lc_7b099c7fd64f9f6c",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用体育运动中体温、脉搏等自我测评和监控方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用体育运动中体温、脉搏等自我测评和监控方法，并说明关键步骤、特征或依据。",
+      "label": "运用体育运动中体温、脉搏等自我测评和监控方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用体育运动中体温、脉搏等自我测评和监控方法；优先采集：运动监测记录、情绪调适反思、健康日志。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用体育运动中体温、脉搏等自我测评和监控方法",
+          "excerpt_hash": "b011600849f4363610b28bb3fc03d176db407467bcb3786ebd15deeaed81f796",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用体育运动中体温、脉搏等自我测评和监控方法"
+    },
+    {
+      "component_id": "lc_7fd99f5a46beef6d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够制定改进方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生制定改进方案，并说明关键步骤、特征或依据。",
+      "label": "制定改进方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够制定改进方案；优先采集：运动监测记录、情绪调适反思、健康日志。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "制定改进方案",
+          "excerpt_hash": "305f96671497f03b1e47f1e3cfb9fc5877c88a1fe99ec5cb2dcdb2368ad8dfbc",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "制定改进方案"
+    },
+    {
+      "component_id": "lc_5812125720958e8e",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价运动、健康或品德表现",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价运动、健康或品德表现，并说明关键步骤、特征或依据。",
+      "label": "评价运动、健康或品德表现",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价运动、健康或品德表现；优先采集：运动监测记录、情绪调适反思、健康日志。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价运动、健康或品德表现",
+          "excerpt_hash": "29f95b45527b0f3ecc669bf688bf6ef2e3993738f71ad43d628beda84cd7baab",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价运动、健康或品德表现"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_07e84fad6e371a76",
+      "evidence_refs": [
+        "standard:PE-H4G9-HB-012:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-H4G8-HB-011",
+      "source_label": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法；能分析练习或比赛表现并调…",
+      "target_code": "PE-H4G9-HB-012",
+      "target_label": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能运用体育运动中体温、脉搏等自我测评和监控方法；能制定改进方案并评价运动…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "3c9da9475642e8330934c15f9dceb437c78f230a5716c6d029f8ea9b3633f1ce",
+  "standard_code": "PE-H4G9-HB-012",
+  "verified_prerequisites": []
+}

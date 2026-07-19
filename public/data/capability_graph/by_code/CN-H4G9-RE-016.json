@@ -1,0 +1,323 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_e7cb8112dd4c14be",
+        "lc_b997b87d9390df87"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释作者立场、观点与方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_eff7d13b4342616a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_77dfeba429c83969"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释作者立场、观点与方法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释作者立场、观点与方法”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解作者立场、观点与方法；能围绕社会热点问题以口头或书面方式参与讨论；能学习革命领袖的理论文章、经典思辨性文本和短小文言经典；能形成有观点、有证据、有修改意识的阐释或作品。",
+          "excerpt_hash": "3e5d612445c752a21fc2aef7c19cb018675e6ad62f590c09653a0738f40375d9",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-RE-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生识别文本隐含情感、观点和立场，并用充分证据表达。",
+          "excerpt_hash": "abe7dd9a1271cfa9261483aa619af2a586da5ec9e3bc840af586aaedadcc3b8c",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G9-RE-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释作者立场、观点与方法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释作者立场、观点与方法”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“指导学生识别文本隐含情感、观点和立场，并用充分证据表达。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_f0438131bb0f4fae"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生围绕社会热点问题以口头或书面方式参与讨论的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_db7d3ccf94ef5474",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“围绕社会热点问题以口头或书面方式参与讨论”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“围绕社会热点问题以口头或书面方式参与讨论”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解作者立场、观点与方法；能围绕社会热点问题以口头或书面方式参与讨论；能学习革命领袖的理论文章、经典思辨性文本和短小文言经典；能形成有观点、有证据、有修改意识的阐释或作品。",
+          "excerpt_hash": "3e5d612445c752a21fc2aef7c19cb018675e6ad62f590c09653a0738f40375d9",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-RE-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生识别文本隐含情感、观点和立场，并用充分证据表达。",
+          "excerpt_hash": "abe7dd9a1271cfa9261483aa619af2a586da5ec9e3bc840af586aaedadcc3b8c",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G9-RE-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后围绕社会热点问题以口头或书面方式参与讨论，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“围绕社会热点问题以口头或书面方式参与讨论”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“指导学生识别文本隐含情感、观点和立场，并用充分证据表达。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_95ea68f8b1b948fa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5f396a0577c0d6a9df8a",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a0230fff243e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_bfec983d3862789b",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_99777d28c6f8ecf1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6101d4786e6f31ffcbd1",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6624003b3319"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ec52c6c49dc65828",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_77dfeba429c83969",
+      "component_ids": [
+        "lc_e7cb8112dd4c14be",
+        "lc_b997b87d9390df87"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "阐释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释作者立场、观点与方法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释作者立场、观点与方法；优先采集：观点结构图、讨论发言、议论文段。",
+        "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由；优先采集：观点结构图、讨论发言、议论文段。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解作者立场、观点与方法；能围绕社会热点问题以口头或书面方式参与讨论；能学习革命领袖的理论文章、经典思辨性文本和短小文言经典；能形成有观点、有证据、有修改意识的阐释或作品。",
+          "excerpt_hash": "3e5d612445c752a21fc2aef7c19cb018675e6ad62f590c09653a0738f40375d9",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-RE-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、阐释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_e7cb8112dd4c14be",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释作者立场、观点与方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释作者立场、观点与方法，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释作者立场、观点与方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释作者立场、观点与方法；优先采集：观点结构图、讨论发言、议论文段。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解作者立场、观点与方法",
+          "excerpt_hash": "523ac3799b05a35094d5f9fdc3f21ccf67ba8e9688697b2944aff95bdf465a12",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-RE-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解作者立场、观点与方法"
+    },
+    {
+      "component_id": "lc_f0438131bb0f4fae",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够围绕社会热点问题以口头或书面方式参与讨论",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生围绕社会热点问题以口头或书面方式参与讨论，并说明关键步骤、特征或依据。",
+      "label": "围绕社会热点问题以口头或书面方式参与讨论",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够围绕社会热点问题以口头或书面方式参与讨论；优先采集：观点结构图、讨论发言、议论文段。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "围绕社会热点问题以口头或书面方式参与讨论",
+          "excerpt_hash": "0ab78dea001f2c9c2b9506bfd5a26a6bc867054b71de68de23ffe4ea6f683ec2",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-RE-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "围绕社会热点问题以口头或书面方式参与讨论"
+    },
+    {
+      "component_id": "lc_ac4e4df0573786d9",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够学习革命领袖的理论文章、经典思辨性文本和短小文言经典",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生学习革命领袖的理论文章、经典思辨性文本和短小文言经典，并说明关键步骤、特征或依据。",
+      "label": "学习革命领袖的理论文章、经典思辨性文本和短小文言经典",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够学习革命领袖的理论文章、经典思辨性文本和短小文言经典；优先采集：观点结构图、讨论发言、议论文段。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "学习革命领袖的理论文章、经典思辨性文本和短小文言经典",
+          "excerpt_hash": "c3ec3ac4ae923b9bcd712cdd3d77e5c3b0b7615720cfcefe40b39210a6415106",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-RE-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "学习革命领袖的理论文章、经典思辨性文本和短小文言经典"
+    },
+    {
+      "component_id": "lc_b997b87d9390df87",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由；优先采集：观点结构图、讨论发言、议论文段。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成有观点、有证据、有修改意识的阐释或作品",
+          "excerpt_hash": "81dd4494a3c7ea97b381cd70636e7fb21c3ea27f3530facc4bb9d353dcee96ce",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-RE-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成有观点、有证据、有修改意识的阐释或作品"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_1f8b2354ee653522",
+      "evidence_refs": [
+        "standard:CN-H4G9-RE-016:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-H4G8-RE-016",
+      "source_label": "理解作者立场、观点与方法；能围绕社会热点问题以口头或书面方式参与讨论；能学习革命领袖的理论文章、经典思辨性文本和短小文言经典；能整合材料并说明…",
+      "target_code": "CN-H4G9-RE-016",
+      "target_label": "理解作者立场、观点与方法；能围绕社会热点问题以口头或书面方式参与讨论；能学习革命领袖的理论文章、经典思辨性文本和短小文言经典；能形成有观点、有…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "3e5d612445c752a21fc2aef7c19cb018675e6ad62f590c09653a0738f40375d9",
+  "standard_code": "CN-H4G9-RE-016",
+  "verified_prerequisites": []
+}
