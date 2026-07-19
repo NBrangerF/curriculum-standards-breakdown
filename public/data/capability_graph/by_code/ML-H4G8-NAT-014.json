@@ -1,0 +1,387 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_c9f762a7a14d737a"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0634551442788776",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_56b9bcfa87880a42"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力；了解世界正处于百年未有之大变局，了解全人类共同价值的内涵，领悟构建人类命运共同体的意义；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "8e05d23dbe8cb01c16c025e8c20e41eeb6682c0457e468d75879de4be73fb1dd",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-NAT-014:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注学生真实承担责任和服务对象反馈，避免只评价活动形式。",
+          "excerpt_hash": "b1e4c0cd4678d745cfe22ab8e0444cfca590b9ab81af337aa7027a94571f0dea",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G8-NAT-014:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“关注学生真实承担责任和服务对象反馈，避免只评价活动形式。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_570e896dccbb8c0d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2860489fc83ddeb6cec5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_76fc538dd0d1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_262756ea29a61d32",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e9ea39d3f6d9bbdb",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d8429e42f96b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9eb2e2a90a705049",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2610a554aa07728c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b28ec1f6b081b602",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_abe092a25873d570",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_05dbe85802ac"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c23f52c4ba953c6f",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_dac02e45a798d4f3",
+      "evidence_refs": [
+        "standard:ML-H4G8-NAT-014:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-H4G8-NAT-014",
+      "target_code": "ML-H4G9-NAT-015",
+      "target_label": "能以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力；分析世界正处于百年未有之大变局，了解全人类共同价值…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_56b9bcfa87880a42",
+      "component_ids": [
+        "lc_c9f762a7a14d737a"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "各种"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力；优先采集：服务方案、过程记录、对象反馈、反思报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力；了解世界正处于百年未有之大变局，了解全人类共同价值的内涵，领悟构建人类命运共同体的意义；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "8e05d23dbe8cb01c16c025e8c20e41eeb6682c0457e468d75879de4be73fb1dd",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-NAT-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（各种）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c9f762a7a14d737a",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力，并说明关键步骤、特征或依据。",
+      "label": "以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力；优先采集：服务方案、过程记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力",
+          "excerpt_hash": "64809a7d3ff3f2e78274b1f10e552766df0ba6f5f9df8da73a0302afe8b48933",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-NAT-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力"
+    },
+    {
+      "component_id": "lc_8cf39c44d24b44eb",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出世界正处于百年未有之大变局的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出世界正处于百年未有之大变局的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出世界正处于百年未有之大变局的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出世界正处于百年未有之大变局的关键特征；优先采集：服务方案、过程记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解世界正处于百年未有之大变局",
+          "excerpt_hash": "ac2c57ac82fec439ab44e945fa8f68db8753d96e0f18816e1f35f8f8b8b5c066",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-NAT-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解世界正处于百年未有之大变局"
+    },
+    {
+      "component_id": "lc_eee1a5079b5474c1",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出全人类共同价值的内涵的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出全人类共同价值的内涵的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出全人类共同价值的内涵的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出全人类共同价值的内涵的关键特征；优先采集：服务方案、过程记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解全人类共同价值的内涵",
+          "excerpt_hash": "9ecd0d85234c096c37295241c1cc5cc953b0152ad5b3addb50067f603c1c3576",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-NAT-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解全人类共同价值的内涵"
+    },
+    {
+      "component_id": "lc_c911af494a4f698e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用具体事例解释构建人类命运共同体的意义",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用具体事例解释构建人类命运共同体的意义，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用具体事例解释构建人类命运共同体的意义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用具体事例解释构建人类命运共同体的意义；优先采集：服务方案、过程记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "领悟构建人类命运共同体的意义",
+          "excerpt_hash": "ba4f41e238f33201b310b6982870111cd8831fea65df4b9dbbcba5da09a4bf72",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-NAT-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "领悟构建人类命运共同体的意义"
+    },
+    {
+      "component_id": "lc_78970f69be066d8e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够结合家庭、学校或社会案例分析问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合家庭、学校或社会案例分析问题，并说明关键步骤、特征或依据。",
+      "label": "结合家庭、学校或社会案例分析问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够结合家庭、学校或社会案例分析问题；优先采集：服务方案、过程记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "结合家庭、学校或社会案例分析问题",
+          "excerpt_hash": "9f011217b5939392cbd181d22775f8f11d41c522438ab487610a73e9e02bbda8",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-NAT-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "结合家庭、学校或社会案例分析问题"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_4ec20c7271f9526d",
+      "evidence_refs": [
+        "standard:ML-H4G8-NAT-014:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-H4G7-NAT-013",
+      "source_label": "能以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力；了解世界正处于百年未有之大变局，了解全人类共同价值…",
+      "target_code": "ML-H4G8-NAT-014",
+      "target_label": "能以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力；了解世界正处于百年未有之大变局，了解全人类共同价值…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "8e05d23dbe8cb01c16c025e8c20e41eeb6682c0457e468d75879de4be73fb1dd",
+  "standard_code": "ML-H4G8-NAT-014",
+  "verified_prerequisites": []
+}

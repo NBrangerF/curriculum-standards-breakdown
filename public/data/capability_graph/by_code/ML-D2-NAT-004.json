@@ -1,0 +1,513 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_954737b229fba106"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解释“绿水青山就是金山银山”的基本含义的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_dbf9ac9eecb850d0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_afaa142c148074f3"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“解释“绿水青山就是金山银山”的基本含义”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解释“绿水青山就是金山银山”的基本含义”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能解释“绿水青山就是金山银山”的基本含义，能发现身边环境问题并提出改进建议，能参与至少1项生态文明实践。",
+          "excerpt_hash": "4cc823018d032803cf199602025d4a31b4fa58386c267c56b28c08850bfc9641",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-NAT-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用本地环境变化作为证据，引导学生理解生态与发展的关系；鼓励提出可行建议并参与实践（植树、节能、垃圾分类）。",
+          "excerpt_hash": "d09cbbe2d497d8cff85d6b0a2dba57a8362bb075b3d1cf88571b30e7cf996b6d",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-NAT-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解释“绿水青山就是金山银山”的基本含义，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解释“绿水青山就是金山银山”的基本含义”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用本地环境变化作为证据，引导学生理解生态与发展的关系”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_f00a2045cc2a57ff"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生提出改进建议的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_39c82451d41f5443",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_43a15551f4c72717"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“提出改进建议”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“提出改进建议”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能解释“绿水青山就是金山银山”的基本含义，能发现身边环境问题并提出改进建议，能参与至少1项生态文明实践。",
+          "excerpt_hash": "4cc823018d032803cf199602025d4a31b4fa58386c267c56b28c08850bfc9641",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-NAT-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用本地环境变化作为证据，引导学生理解生态与发展的关系；鼓励提出可行建议并参与实践（植树、节能、垃圾分类）。",
+          "excerpt_hash": "d09cbbe2d497d8cff85d6b0a2dba57a8362bb075b3d1cf88571b30e7cf996b6d",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-NAT-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后提出改进建议，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“提出改进建议”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“用本地环境变化作为证据，引导学生理解生态与发展的关系”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_1abce7a5bc86dfa1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生发现身边环境问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a0c653bcb411592a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“发现身边环境问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“发现身边环境问题”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能解释“绿水青山就是金山银山”的基本含义，能发现身边环境问题并提出改进建议，能参与至少1项生态文明实践。",
+          "excerpt_hash": "4cc823018d032803cf199602025d4a31b4fa58386c267c56b28c08850bfc9641",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-NAT-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用本地环境变化作为证据，引导学生理解生态与发展的关系；鼓励提出可行建议并参与实践（植树、节能、垃圾分类）。",
+          "excerpt_hash": "d09cbbe2d497d8cff85d6b0a2dba57a8362bb075b3d1cf88571b30e7cf996b6d",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-NAT-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后发现身边环境问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“发现身边环境问题”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用本地环境变化作为证据，引导学生理解生态与发展的关系”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e40c72ac44f87e31",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_49c68a8031fd5b545d9f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c4a8334099f0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4eabffd55a81e2eb",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c78b9db2f6c72348",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7751decca7f37a1d323e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2d734af455c0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4fcca84971a83ec4",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a714f98810f87d4b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_abbd5db6223f36ab3c5c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9d06bc550436"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_bcb8fe719c29a97c",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bd3dbce043efeb09",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b23dbf8aedd84cd3888f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6d8e93064e1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_85e4b38d814a5d4c",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_2c725c6c9e6c1243",
+      "evidence_refs": [
+        "standard:ML-D2-NAT-004:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D2-NAT-004",
+      "target_code": "ML-D3-NAT-005",
+      "target_label": "能举例说明世界面临的共同挑战（气候、疫情、冲突等）与合作必要性，能解释人类命运共同体的基本意义，并能形成尊重差异、合作共赢的态度。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_afaa142c148074f3",
+      "component_ids": [
+        "lc_954737b229fba106"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生解释“绿水青山就是金山银山”的基本含义。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够解释“绿水青山就是金山银山”的基本含义；优先采集：调查报告、倡议作品、行动记录、教师评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能解释“绿水青山就是金山银山”的基本含义，能发现身边环境问题并提出改进建议，能参与至少1项生态文明实践。",
+          "excerpt_hash": "4cc823018d032803cf199602025d4a31b4fa58386c267c56b28c08850bfc9641",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-NAT-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_43a15551f4c72717",
+      "component_ids": [
+        "lc_f00a2045cc2a57ff"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "改进"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提出改进建议。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够提出改进建议；优先采集：调查报告、倡议作品、行动记录、教师评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能解释“绿水青山就是金山银山”的基本含义，能发现身边环境问题并提出改进建议，能参与至少1项生态文明实践。",
+          "excerpt_hash": "4cc823018d032803cf199602025d4a31b4fa58386c267c56b28c08850bfc9641",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-NAT-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（改进）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_10bdaa24b5d8012d",
+      "component_ids": [
+        "lc_a7936e9741781184"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生参与至少1项生态文明实践。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够参与至少1项生态文明实践；优先采集：调查报告、倡议作品、行动记录、教师评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能解释“绿水青山就是金山银山”的基本含义，能发现身边环境问题并提出改进建议，能参与至少1项生态文明实践。",
+          "excerpt_hash": "4cc823018d032803cf199602025d4a31b4fa58386c267c56b28c08850bfc9641",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-NAT-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（至少）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_569227190f99e83c",
+      "component_ids": [
+        "lc_a7936e9741781184"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生参与至少1项生态文明实践。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够参与至少1项生态文明实践；优先采集：调查报告、倡议作品、行动记录、教师评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能解释“绿水青山就是金山银山”的基本含义，能发现身边环境问题并提出改进建议，能参与至少1项生态文明实践。",
+          "excerpt_hash": "4cc823018d032803cf199602025d4a31b4fa58386c267c56b28c08850bfc9641",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-NAT-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（至少）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_954737b229fba106",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释“绿水青山就是金山银山”的基本含义",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释“绿水青山就是金山银山”的基本含义，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释“绿水青山就是金山银山”的基本含义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释“绿水青山就是金山银山”的基本含义；优先采集：调查报告、倡议作品、行动记录、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释“绿水青山就是金山银山”的基本含义",
+          "excerpt_hash": "100ddf1a6938f1c7b6fae4cf25c656d57678dd70ef2cb7e90abf6b86ad3a7ac5",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-NAT-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释“绿水青山就是金山银山”的基本含义"
+    },
+    {
+      "component_id": "lc_1abce7a5bc86dfa1",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够发现身边环境问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生发现身边环境问题，并说明关键步骤、特征或依据。",
+      "label": "发现身边环境问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够发现身边环境问题；优先采集：调查报告、倡议作品、行动记录、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "发现身边环境问题",
+          "excerpt_hash": "20129d623e8e124af20e83c2b24bf7ea5eb551255dfbff926becfbfccf595281",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-NAT-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "发现身边环境问题"
+    },
+    {
+      "component_id": "lc_f00a2045cc2a57ff",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提出改进建议",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提出改进建议，并说明关键步骤、特征或依据。",
+      "label": "提出改进建议",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提出改进建议；优先采集：调查报告、倡议作品、行动记录、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提出改进建议",
+          "excerpt_hash": "70969722bbf81fbe65b71651a24eb6cfd5d2086c926911e3c46ed313301e3b90",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-NAT-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出改进建议"
+    },
+    {
+      "component_id": "lc_a7936e9741781184",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与至少1项生态文明实践",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与至少1项生态文明实践，并说明关键步骤、特征或依据。",
+      "label": "参与至少1项生态文明实践",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与至少1项生态文明实践；优先采集：调查报告、倡议作品、行动记录、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "参与至少1项生态文明实践",
+          "excerpt_hash": "d4ef8178db9241c4c741bdc5edd52be0dfa126137fb71759ba2942b3ae4a56e1",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-NAT-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参与至少1项生态文明实践"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4cc823018d032803cf199602025d4a31b4fa58386c267c56b28c08850bfc9641",
+  "standard_code": "ML-D2-NAT-004",
+  "verified_prerequisites": []
+}

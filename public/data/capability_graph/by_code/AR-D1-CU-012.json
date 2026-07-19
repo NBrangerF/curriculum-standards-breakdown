@@ -1,0 +1,482 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_35416abb016e31f2",
+        "lc_2ab353e8195195ca"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生分享与交流自己的作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_40dbfeb2ce3a08cd",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1410f1114b931419"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“分享与交流自己的作品”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“分享与交流自己的作品”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分享与交流自己的作品，理解同学作品的不同表达方式，尊重他人的看法。",
+          "excerpt_hash": "66d02e3eb193c2e3fcdca8edd350da28f3d8fb149f536d039898ae6fbf9d4628",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "建立“二赞一问”评价常规：每位同学给出2个喜欢点+1个问题；教师示范尊重表达与倾听。",
+          "excerpt_hash": "d01d20772b12de216be1aa09153b180f375e643fe55713ec99320c1f130c93aa",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D1-CU-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后分享与交流自己的作品，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“分享与交流自己的作品”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“建立“二赞一问”评价常规：每位同学给出2个喜欢点+1个问题”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_2ab353e8195195ca"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释同学作品的不同表达方式的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ad1ac03993faea3b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1410f1114b931419"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释同学作品的不同表达方式”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释同学作品的不同表达方式”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分享与交流自己的作品，理解同学作品的不同表达方式，尊重他人的看法。",
+          "excerpt_hash": "66d02e3eb193c2e3fcdca8edd350da28f3d8fb149f536d039898ae6fbf9d4628",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "建立“二赞一问”评价常规：每位同学给出2个喜欢点+1个问题；教师示范尊重表达与倾听。",
+          "excerpt_hash": "d01d20772b12de216be1aa09153b180f375e643fe55713ec99320c1f130c93aa",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D1-CU-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释同学作品的不同表达方式，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释同学作品的不同表达方式”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“建立“二赞一问”评价常规：每位同学给出2个喜欢点+1个问题”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_03eb138c2e0ed217",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_08ce261085ef1c1fe6ef",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8209ad04b47d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0a7833eb0eca0e83",
+      "textbook_grade": 2,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b2850679886d9cd3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2622f7b8f7ae819655aa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_51ecddc37440"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1dc5a976932b360a",
+      "textbook_grade": 1,
+      "textbook_subject": "美术",
+      "textbook_title": "美术1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bb3d9232b989115e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5119efddbaf1d245bdbd",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5a22ce498b9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c1c61f1e18f1f1fd",
+      "textbook_grade": 2,
+      "textbook_subject": "美术",
+      "textbook_title": "美术2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4dc0a0772124a40f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9388d4c7d11c755fa6d1",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ff2c02949c7"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ccea29ff50daf60d",
+      "textbook_grade": 1,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8e08b1fb0066ce26",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ad1a73f100e4c37bdf97",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_061b98e9e3e0"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_daf0df4eff446a59",
+      "textbook_grade": 1,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_36e5616617350602",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bd2b80ffa90783d7b872",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_04dc110988f2"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_76531f87e68b0f54",
+      "textbook_grade": 2,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1c96f4b33707bcc4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ee63cc92bbb214cfb505",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_1295fe66588a"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f9d43da1be80535c",
+      "textbook_grade": 1,
+      "textbook_subject": "美术",
+      "textbook_title": "美术1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_30f5575b90bab869",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f2d970d7f6b6a7a553a8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f5a55ad6fbfb"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_038dd968b19a0b50",
+      "textbook_grade": 2,
+      "textbook_subject": "美术",
+      "textbook_title": "美术2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_cf50e33d476a68da",
+      "evidence_refs": [
+        "standard:AR-D1-CU-012:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D1-CU-012",
+      "target_code": "AR-D2-CP-012",
+      "target_label": "能从舒适、美观、便利角度发现日常生活用品存在的不足，并能用手绘草图提出改进建议。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_1410f1114b931419",
+      "component_ids": [
+        "lc_2ab353e8195195ca"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释同学作品的不同表达方式。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释同学作品的不同表达方式；优先采集：同伴留言、口头分享、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分享与交流自己的作品，理解同学作品的不同表达方式，尊重他人的看法。",
+          "excerpt_hash": "66d02e3eb193c2e3fcdca8edd350da28f3d8fb149f536d039898ae6fbf9d4628",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_35416abb016e31f2",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分享与交流自己的作品",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分享与交流自己的作品，并说明关键步骤、特征或依据。",
+      "label": "分享与交流自己的作品",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分享与交流自己的作品；优先采集：同伴留言、口头分享、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分享与交流自己的作品",
+          "excerpt_hash": "7d45e6bc11648573deec5fea215db216c074f121a28cf4b8d908f19c8d0e3a3d",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分享与交流自己的作品"
+    },
+    {
+      "component_id": "lc_2ab353e8195195ca",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释同学作品的不同表达方式",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释同学作品的不同表达方式，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释同学作品的不同表达方式",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释同学作品的不同表达方式；优先采集：同伴留言、口头分享、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解同学作品的不同表达方式",
+          "excerpt_hash": "d9113aba8209bfdd42f8b9b20a9f587bf0bdbcf640d09517257575d32ec98dd1",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解同学作品的不同表达方式"
+    },
+    {
+      "component_id": "lc_4aa0dba1de807bdd",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够尊重他人的看法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生尊重他人的看法，并说明关键步骤、特征或依据。",
+      "label": "尊重他人的看法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够尊重他人的看法；优先采集：同伴留言、口头分享、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重他人的看法",
+          "excerpt_hash": "bb7ba7b6137a145f1b6aa349c6cb021f6b905fc98b67ed99dd592eda49c6654b",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "尊重他人的看法"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "66d02e3eb193c2e3fcdca8edd350da28f3d8fb149f536d039898ae6fbf9d4628",
+  "standard_code": "AR-D1-CU-012",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,224 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_dd3209bc28d827a9"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生识别并说出安全避险方法（场地器材安全、交通/水域等）的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_445e31771c5e40b6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_cd58958a328c5be9"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“识别并说出安全避险方法（场地器材安全、交通/水域等）的关键特征”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解安全避险方法（场地器材安全、交通/水域等），能做出安全选择。",
+          "excerpt_hash": "49db24231e138bb05a205bb9594f0bcaa66b1c3bc6210822aab0835068d8c5a1",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-014:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "建立比赛中的情绪规则（深呼吸、暂停、冷静角/替补席），教“我信息”表达冲突与协商解决。用模拟争议情境训练“停—说—听—议”流程，强调尊重与规则意识。",
+          "excerpt_hash": "1712c65ccb29a230aaff0ef57be1eca0116414f1a642e4fc274d6da91c2b1364",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D2-HB-014:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出安全避险方法（场地器材安全、交通/水域等）的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出安全避险方法（场地器材安全、交通/水域等）的关键特征”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“建立比赛中的情绪规则（深呼吸、暂停、冷静角/替补席），教“我信息”表达冲突与协商解决。用模拟争议情境训练“停—说—听—议”流程，强调尊重与规则意识。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_da32dcfda1dbd942",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_032926ad81d86eb77eb2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_3_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_58c66aa4067b40f9",
+      "textbook_grade": 3,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康3年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_4e7aed5ab571f669",
+      "evidence_refs": [
+        "standard:PE-D2-HB-014:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D2-HB-014",
+      "target_code": "PE-D3-HB-014",
+      "target_label": "理解科学锻炼的注意事项（热身、强度、补水、恢复等），能在锻炼中进行自我保护并减少运动伤害风险。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_cd58958a328c5be9",
+      "component_ids": [
+        "lc_dd3209bc28d827a9",
+        "lc_b4319cfd2bba68ea"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出安全避险方法（场地器材安全、交通/水域等）的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出安全避险方法（场地器材安全、交通/水域等）的关键特征；优先采集：问答。",
+        "学生能够做出安全选择；优先采集：问答。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解安全避险方法（场地器材安全、交通/水域等），能做出安全选择。",
+          "excerpt_hash": "49db24231e138bb05a205bb9594f0bcaa66b1c3bc6210822aab0835068d8c5a1",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_dd3209bc28d827a9",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出安全避险方法（场地器材安全、交通/水域等）的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出安全避险方法（场地器材安全、交通/水域等）的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出安全避险方法（场地器材安全、交通/水域等）的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出安全避险方法（场地器材安全、交通/水域等）的关键特征；优先采集：问答。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解安全避险方法（场地器材安全、交通/水域等）",
+          "excerpt_hash": "ab6d6496c1fb5affaeb4fb262781447918a881487e180dbd58a4368935978c04",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解安全避险方法（场地器材安全、交通/水域等）"
+    },
+    {
+      "component_id": "lc_b4319cfd2bba68ea",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够做出安全选择",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生做出安全选择，并说明关键步骤、特征或依据。",
+      "label": "做出安全选择",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够做出安全选择；优先采集：问答。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "做出安全选择",
+          "excerpt_hash": "7b4cff5274dfc76d917c9b76cd25bd6b58b65d7e68717b55249370b8c2a5dd3f",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-HB-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "做出安全选择"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_8e549d45f639a800",
+      "evidence_refs": [
+        "standard:PE-D2-HB-014:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D1-HB-014",
+      "source_label": "能说出体育活动对健康的益处，参与户外游戏或身体活动，知道其中可能存在的危险并尽力避免。",
+      "target_code": "PE-D2-HB-014",
+      "target_label": "了解安全避险方法（场地器材安全、交通/水域等），能做出安全选择。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "49db24231e138bb05a205bb9594f0bcaa66b1c3bc6210822aab0835068d8c5a1",
+  "standard_code": "PE-D2-HB-014",
+  "verified_prerequisites": []
+}

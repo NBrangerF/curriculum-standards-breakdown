@@ -1,0 +1,381 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_33ea16042d65b5bd",
+        "lc_436ef5a9445b6586",
+        "lc_05022f6534dbd197"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生阐释地球与月球、地球与太阳之间的距离的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d14737f1712b4560",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_6102273b204eaeb7"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“阐释地球与月球、地球与太阳之间的距离”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“阐释地球与月球、地球与太阳之间的距离”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释地球与月球、地球与太阳之间的距离；认识地球形状和大小；阐释从地心说到日心说的发展历程；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "6bfce91e5990bdd7830179c49f8950b840bb21620691da05b22a3f3baa99b35a",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-041:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用科学史促进学生理解科学认识的发展性和证据价值。",
+          "excerpt_hash": "2abeffadd903d0bc0bd1bf9955d5aa16a8589f9e17e2385a2657fab041b61f7c",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-041:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后阐释地球与月球、地球与太阳之间的距离，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“阐释地球与月球、地球与太阳之间的距离”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用科学史促进学生理解科学认识的发展性和证据价值。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_42e76ba38024aabd"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出地球形状和大小的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_361a7146eed788a5",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出地球形状和大小的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出地球形状和大小的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释地球与月球、地球与太阳之间的距离；认识地球形状和大小；阐释从地心说到日心说的发展历程；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "6bfce91e5990bdd7830179c49f8950b840bb21620691da05b22a3f3baa99b35a",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-041:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用科学史促进学生理解科学认识的发展性和证据价值。",
+          "excerpt_hash": "2abeffadd903d0bc0bd1bf9955d5aa16a8589f9e17e2385a2657fab041b61f7c",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-041:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出地球形状和大小的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出地球形状和大小的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用科学史促进学生理解科学认识的发展性和证据价值。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 3,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_88ad83a0f1c305b7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2b4eaf7fd74d5608c966",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_91e786746fa4"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a01eaebee10c3727",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_191e6dbd16dea2f6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_46b397a7eadfedff",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_94a069dc0c03e4aa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f0fcd567e766"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_941308fc63ca2501",
+      "textbook_grade": 9,
+      "textbook_subject": "物理",
+      "textbook_title": "物理9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_6102273b204eaeb7",
+      "component_ids": [
+        "lc_33ea16042d65b5bd",
+        "lc_436ef5a9445b6586",
+        "lc_05022f6534dbd197"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "论证",
+        "阐释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阐释地球与月球、地球与太阳之间的距离。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够阐释地球与月球、地球与太阳之间的距离；优先采集：科学史时间线、观点证据说明。",
+        "学生能够阐释从地心说到日心说的发展历程；优先采集：科学史时间线、观点证据说明。",
+        "学生能够建模、论证；优先采集：科学史时间线、观点证据说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释地球与月球、地球与太阳之间的距离；认识地球形状和大小；阐释从地心说到日心说的发展历程；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "6bfce91e5990bdd7830179c49f8950b840bb21620691da05b22a3f3baa99b35a",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-041:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（论证、阐释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_33ea16042d65b5bd",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够阐释地球与月球、地球与太阳之间的距离",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释地球与月球、地球与太阳之间的距离，并保留可回查的口头、书面或操作过程证据。",
+      "label": "阐释地球与月球、地球与太阳之间的距离",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够阐释地球与月球、地球与太阳之间的距离；优先采集：科学史时间线、观点证据说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释地球与月球、地球与太阳之间的距离",
+          "excerpt_hash": "bd5710cf5114c20b842dd181acd31e9c5960239552a1b2d8886137da30d26e27",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-041:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "阐释地球与月球、地球与太阳之间的距离"
+    },
+    {
+      "component_id": "lc_42e76ba38024aabd",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出地球形状和大小的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出地球形状和大小的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出地球形状和大小的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出地球形状和大小的关键特征；优先采集：科学史时间线、观点证据说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识地球形状和大小",
+          "excerpt_hash": "d412069eb4f93577e33bdfb51ac4ea3ad62eb95afe9294d57cfe158447298577",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-041:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认识地球形状和大小"
+    },
+    {
+      "component_id": "lc_436ef5a9445b6586",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够阐释从地心说到日心说的发展历程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释从地心说到日心说的发展历程，并保留可回查的口头、书面或操作过程证据。",
+      "label": "阐释从地心说到日心说的发展历程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够阐释从地心说到日心说的发展历程；优先采集：科学史时间线、观点证据说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释从地心说到日心说的发展历程",
+          "excerpt_hash": "10c9741bc8db91ee7d6f7b8ef3653d083be6d0a52bef4db44720f04099138e01",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-041:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "阐释从地心说到日心说的发展历程"
+    },
+    {
+      "component_id": "lc_05022f6534dbd197",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、论证",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
+      "label": "建模、论证",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、论证；优先采集：科学史时间线、观点证据说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、论证",
+          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-041:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、论证"
+    },
+    {
+      "component_id": "lc_d1afc790a83e54b7",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价探究结论或社会影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
+      "label": "评价探究结论或社会影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：科学史时间线、观点证据说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价探究结论或社会影响",
+          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-041:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价探究结论或社会影响"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_2ee00d55ece27297",
+      "evidence_refs": [
+        "standard:SC-H4G9-SC-041:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G8-SC-041",
+      "source_label": "能知道地球与月球、地球与太阳之间的距离；能领悟科学家敢于质疑、追求真理的科学精神；认识地球形状和大小；能比较证据并解释概念之间的关系。",
+      "target_code": "SC-H4G9-SC-041",
+      "target_label": "阐释地球与月球、地球与太阳之间的距离；认识地球形状和大小；阐释从地心说到日心说的发展历程；能建模、论证并评价探究结论或社会影响。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "6bfce91e5990bdd7830179c49f8950b840bb21620691da05b22a3f3baa99b35a",
+  "standard_code": "SC-H4G9-SC-041",
+  "verified_prerequisites": []
+}

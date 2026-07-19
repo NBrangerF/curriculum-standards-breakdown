@@ -1,0 +1,207 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_953a96e11cca1210"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生表现出不怕困难、努力坚持学练的意志品质的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fd0e4fda133618d6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_58d1614b58349e85"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“表现出不怕困难、努力坚持学练的意志品质”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在体育活动中表现出不怕困难、努力坚持学练的意志品质。",
+          "excerpt_hash": "86f1f0c48960b930a0abc23be7cf6ebbdf93ef5abdc70acd276f59babfdf16ae",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "（体育品德教学提示）1) 明确规则与安全边界，使用可视化规则卡；2) 用合作闯关/角色轮换促进互助与尊重；3) 及时正向反馈与同伴互评，鼓励坚持与自我控制；4) 活动后用1分钟反思（我做到了什么/下次改进）。",
+          "excerpt_hash": "25e34a78a84a7db1f52e3bc625ddc9471e9034ac9af1794ff964113ca4d439f0",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D1-SD-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后表现出不怕困难、努力坚持学练的意志品质，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“表现出不怕困难、努力坚持学练的意志品质”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“（体育品德教学提示）1) 明确规则与安全边界，使用可视化规则卡”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d32e3b0607d66928",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_729e6607eab953ee2165",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_1_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_ee2b7c40f4dccca4",
+      "textbook_grade": 1,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康1年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_48e5a4ab3decaa55",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c6389a9109e39310cf86",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_2_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_73d28c16a2eec793",
+      "textbook_grade": 2,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康2年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_86f08a5869eb52d3",
+      "evidence_refs": [
+        "standard:PE-D1-SD-005:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D1-SD-005",
+      "target_code": "PE-D2-SD-005",
+      "target_label": "能保持较稳定的情绪，与同伴交流合作完成练习或比赛。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_58d1614b58349e85",
+      "component_ids": [
+        "lc_953a96e11cca1210"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生表现出不怕困难、努力坚持学练的意志品质。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在体育活动中，能够表现出不怕困难、努力坚持学练的意志品质；优先采集：过程性记录、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在体育活动中表现出不怕困难、努力坚持学练的意志品质。",
+          "excerpt_hash": "86f1f0c48960b930a0abc23be7cf6ebbdf93ef5abdc70acd276f59babfdf16ae",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "表现出不怕困难、努力坚持学练的意志品质",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_953a96e11cca1210",
+      "component_type": "conceptual",
+      "condition": "在体育活动中",
+      "confidence": 0.72,
+      "description": "学生在体育活动中，能够表现出不怕困难、努力坚持学练的意志品质",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在体育活动中”的诊断任务，要求学生表现出不怕困难、努力坚持学练的意志品质，并说明关键步骤、特征或依据。",
+      "label": "表现出不怕困难、努力坚持学练的意志品质",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在体育活动中，能够表现出不怕困难、努力坚持学练的意志品质；优先采集：过程性记录、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在体育活动中表现出不怕困难、努力坚持学练的意志品质。",
+          "excerpt_hash": "86f1f0c48960b930a0abc23be7cf6ebbdf93ef5abdc70acd276f59babfdf16ae",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表现出不怕困难、努力坚持学练的意志品质"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "86f1f0c48960b930a0abc23be7cf6ebbdf93ef5abdc70acd276f59babfdf16ae",
+  "standard_code": "PE-D1-SD-005",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,251 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_fbb468142c7695d6"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生准确说出地球是人类和动植物共同的家园的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d1768e6d1e03b56c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f495df0fa1ad5964"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“准确说出地球是人类和动植物共同的家园”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道地球是人类和动植物共同的家园。（聚焦天气、昼夜与季节变化）",
+          "excerpt_hash": "ca006b86df2e1af08f1d70337329870fb0ae7bcdd67c7ac482d5fae7c920f7c0",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-SC-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生讨论：若没有健康土壤，校园植物会怎样？",
+          "excerpt_hash": "15f32d37e49a205d568078d1dc7caf1e35c5ffb654d6f5b354a571b570031f15",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D1-SC-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后准确说出地球是人类和动植物共同的家园，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出地球是人类和动植物共同的家园”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“引导学生讨论：若没有健康土壤，校园植物会怎样？”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0c800a9d6987dd53",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_235f10f3b881f14da2dd",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9c1922580c51"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_98253eda762d4fe7",
+      "textbook_grade": 2,
+      "textbook_subject": "科学",
+      "textbook_title": "科学2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8989cf63ea5ce384",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_39bf03d33b98808ec109",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_61cdf9935943"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_6aeaa064abb4b45c",
+      "textbook_grade": 1,
+      "textbook_subject": "科学",
+      "textbook_title": "科学1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5fa7dbaf364991ab",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_39fb4fecf2598e480a00",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c6a468571ede"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5cc75a528e5eb12b",
+      "textbook_grade": 1,
+      "textbook_subject": "科学",
+      "textbook_title": "科学1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_608722337b732e71",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_49615055e95c20adfa72",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_692fcc11ce5e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ae5e5b53fbbeef83",
+      "textbook_grade": 2,
+      "textbook_subject": "科学",
+      "textbook_title": "科学2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_f495df0fa1ad5964",
+      "component_ids": [
+        "lc_fbb468142c7695d6"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出地球是人类和动植物共同的家园。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出地球是人类和动植物共同的家园；优先采集：口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道地球是人类和动植物共同的家园。（聚焦天气、昼夜与季节变化）",
+          "excerpt_hash": "ca006b86df2e1af08f1d70337329870fb0ae7bcdd67c7ac482d5fae7c920f7c0",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-SC-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "准确说出地球是人类和动植物共同的家园",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_fbb468142c7695d6",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出地球是人类和动植物共同的家园",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出地球是人类和动植物共同的家园，并说明关键步骤、特征或依据。",
+      "label": "准确说出地球是人类和动植物共同的家园",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出地球是人类和动植物共同的家园；优先采集：口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道地球是人类和动植物共同的家园",
+          "excerpt_hash": "2761b055946ed702cc76d76dcc76e3b33725b12c2195b8b2fc8af9840ed87b14",
+          "field": "standard",
+          "ref_id": "standard:SC-D1-SC-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道地球是人类和动植物共同的家园"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ca006b86df2e1af08f1d70337329870fb0ae7bcdd67c7ac482d5fae7c920f7c0",
+  "standard_code": "SC-D1-SC-004",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,339 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_c42c1a0b99224dc5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明其用途的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d46a929406e6c368",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4200f409f932b119"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明其用途”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明其用途”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学校、家庭、公园等场景中接触并比较不同数字设备，能用自己的语言向同伴推荐喜欢或新发现的数字设备，并说明其用途。",
+          "excerpt_hash": "cdeb6d4d0d72e7f6d3cc6d4d77053fadfbf8b50bd0942bddbaf3d88977128bcd",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "采用“模拟推介会/小展览”方式，让学生在安全规则下动手体验；引导从“外观—功能—使用场景—优点”四方面描述，鼓励用图画/词语卡支持表达。",
+          "excerpt_hash": "9838a5016c3da025f1f175c382e30057d455a02d8e2da83f5e4e3b0b67ece3f0",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H1-DL-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明其用途，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明其用途”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“采用“模拟推介会/小展览”方式，让学生在安全规则下动手体验”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_f20ac35a4b53acee"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较不同数字设备的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bd2b3245c71a807e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_7ca7a10da02f7de4",
+        "hc_c39c50865bcfc4da"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较不同数字设备”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较不同数字设备”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学校、家庭、公园等场景中接触并比较不同数字设备，能用自己的语言向同伴推荐喜欢或新发现的数字设备，并说明其用途。",
+          "excerpt_hash": "cdeb6d4d0d72e7f6d3cc6d4d77053fadfbf8b50bd0942bddbaf3d88977128bcd",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "采用“模拟推介会/小展览”方式，让学生在安全规则下动手体验；引导从“外观—功能—使用场景—优点”四方面描述，鼓励用图画/词语卡支持表达。",
+          "excerpt_hash": "9838a5016c3da025f1f175c382e30057d455a02d8e2da83f5e4e3b0b67ece3f0",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H1-DL-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较不同数字设备，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较不同数字设备”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“采用“模拟推介会/小展览”方式，让学生在安全规则下动手体验”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_4093bc6fcf22a16b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的语言向同伴推荐喜欢或新发现的数字设备的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_28e3156730352d9f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的语言向同伴推荐喜欢或新发现的数字设备”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的语言向同伴推荐喜欢或新发现的数字设备”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学校、家庭、公园等场景中接触并比较不同数字设备，能用自己的语言向同伴推荐喜欢或新发现的数字设备，并说明其用途。",
+          "excerpt_hash": "cdeb6d4d0d72e7f6d3cc6d4d77053fadfbf8b50bd0942bddbaf3d88977128bcd",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "采用“模拟推介会/小展览”方式，让学生在安全规则下动手体验；引导从“外观—功能—使用场景—优点”四方面描述，鼓励用图画/词语卡支持表达。",
+          "excerpt_hash": "9838a5016c3da025f1f175c382e30057d455a02d8e2da83f5e4e3b0b67ece3f0",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H1-DL-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的语言向同伴推荐喜欢或新发现的数字设备，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的语言向同伴推荐喜欢或新发现的数字设备”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“采用“模拟推介会/小展览”方式，让学生在安全规则下动手体验”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_4200f409f932b119",
+      "component_ids": [
+        "lc_c42c1a0b99224dc5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明其用途。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明其用途；优先采集：展示型表现任务、作品卡片、口头答辩。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学校、家庭、公园等场景中接触并比较不同数字设备，能用自己的语言向同伴推荐喜欢或新发现的数字设备，并说明其用途。",
+          "excerpt_hash": "cdeb6d4d0d72e7f6d3cc6d4d77053fadfbf8b50bd0942bddbaf3d88977128bcd",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_7ca7a10da02f7de4",
+      "component_ids": [
+        "lc_f20ac35a4b53acee"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较不同数字设备。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较不同数字设备；优先采集：展示型表现任务、作品卡片、口头答辩。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学校、家庭、公园等场景中接触并比较不同数字设备，能用自己的语言向同伴推荐喜欢或新发现的数字设备，并说明其用途。",
+          "excerpt_hash": "cdeb6d4d0d72e7f6d3cc6d4d77053fadfbf8b50bd0942bddbaf3d88977128bcd",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_c39c50865bcfc4da",
+      "component_ids": [
+        "lc_f20ac35a4b53acee"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较不同数字设备。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较不同数字设备；优先采集：展示型表现任务、作品卡片、口头答辩。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学校、家庭、公园等场景中接触并比较不同数字设备，能用自己的语言向同伴推荐喜欢或新发现的数字设备，并说明其用途。",
+          "excerpt_hash": "cdeb6d4d0d72e7f6d3cc6d4d77053fadfbf8b50bd0942bddbaf3d88977128bcd",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_24b10c137aef8ad4",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在学校、家庭、公园等场景中接触",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在学校、家庭、公园等场景中接触，并说明关键步骤、特征或依据。",
+      "label": "在学校、家庭、公园等场景中接触",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在学校、家庭、公园等场景中接触；优先采集：展示型表现任务、作品卡片、口头答辩。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在学校、家庭、公园等场景中接触",
+          "excerpt_hash": "2acb18e8e0c1f5397ab246464ed6ffb1afaa542f54d70fb28b10b6aeac8c9557",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在学校、家庭、公园等场景中接触"
+    },
+    {
+      "component_id": "lc_f20ac35a4b53acee",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较不同数字设备",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较不同数字设备，并说明关键步骤、特征或依据。",
+      "label": "比较不同数字设备",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较不同数字设备；优先采集：展示型表现任务、作品卡片、口头答辩。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较不同数字设备",
+          "excerpt_hash": "1251f669e050cac03df5728a5b19bab82afff15d6b27dec6c18901dd8da20181",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较不同数字设备"
+    },
+    {
+      "component_id": "lc_4093bc6fcf22a16b",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的语言向同伴推荐喜欢或新发现的数字设备",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的语言向同伴推荐喜欢或新发现的数字设备，并说明关键步骤、特征或依据。",
+      "label": "用自己的语言向同伴推荐喜欢或新发现的数字设备",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的语言向同伴推荐喜欢或新发现的数字设备；优先采集：展示型表现任务、作品卡片、口头答辩。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用自己的语言向同伴推荐喜欢或新发现的数字设备",
+          "excerpt_hash": "fbcf1a16c1ac80fa603d89087d5bd23c6a1dcedb69d9e37dbcf66f8b4f545bdf",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用自己的语言向同伴推荐喜欢或新发现的数字设备"
+    },
+    {
+      "component_id": "lc_c42c1a0b99224dc5",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明其用途",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明其用途，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明其用途",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明其用途；优先采集：展示型表现任务、作品卡片、口头答辩。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明其用途",
+          "excerpt_hash": "3cd20db2785ea4d8e0b9f4d50e6e766050f9c1343186bb2398582592b92aab4c",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明其用途"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "cdeb6d4d0d72e7f6d3cc6d4d77053fadfbf8b50bd0942bddbaf3d88977128bcd",
+  "standard_code": "IT-H1-DL-005",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,515 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_7716116c07f4ceac"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较两个分数的大小和两个小数的大小的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fee82b05865517c7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_96c38b1980d57760",
+        "hc_da072fdd51abff31"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较两个分数的大小和两个小数的大小”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较两个分数的大小和两个小数的大小”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用直观的方式表示分数和小数，能比较两个分数的大小和两个小数的大小；会进行小数和分数的转化（不包括将循环小数转化成分数）；能在实际情境中运用小数和分数解决问题，进一步发展符号意识和数感。",
+          "excerpt_hash": "5f5ce25b1fec9b285d72337f23a48858912fb399c123fde79426bd7c6651225a",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "在初步认识小数和分数的基础上，帮助学生理解小数和分数的意义，感悟计数单位的重要性。通过教学，提升学生的小数和分数转换能力，进一步发展符号意识。",
+          "excerpt_hash": "48438fbc09869aa3531ec87c1081fe2e13950b1c12fbcd53b799e496a4791d16",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-AL-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较两个分数的大小和两个小数的大小，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较两个分数的大小和两个小数的大小”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“在初步认识小数和分数的基础上，帮助学生理解小数和分数的意义，感悟计数单位的重要性。通过教学，提升学生的小数和分数转换能力，进一步发展符号意识。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_3d1c84205b3d59d7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用小数和分数解决问题，进一步发展符号意识和数感的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bc6bd663de22f90d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3bc5800e55276f3b"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用小数和分数解决问题，进一步发展符号意识和数感”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用小数和分数解决问题，进一步发展符号意识和数感”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用直观的方式表示分数和小数，能比较两个分数的大小和两个小数的大小；会进行小数和分数的转化（不包括将循环小数转化成分数）；能在实际情境中运用小数和分数解决问题，进一步发展符号意识和数感。",
+          "excerpt_hash": "5f5ce25b1fec9b285d72337f23a48858912fb399c123fde79426bd7c6651225a",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "在初步认识小数和分数的基础上，帮助学生理解小数和分数的意义，感悟计数单位的重要性。通过教学，提升学生的小数和分数转换能力，进一步发展符号意识。",
+          "excerpt_hash": "48438fbc09869aa3531ec87c1081fe2e13950b1c12fbcd53b799e496a4791d16",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-AL-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用小数和分数解决问题，进一步发展符号意识和数感，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用小数和分数解决问题，进一步发展符号意识和数感”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“在初步认识小数和分数的基础上，帮助学生理解小数和分数的意义，感悟计数单位的重要性。通过教学，提升学生的小数和分数转换能力，进一步发展符号意识。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_b6e8ce21354e73c4",
+        "lc_3d1c84205b3d59d7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用直观的方式表示分数和小数的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3bc5800e55276f3b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_96c38b1980d57760",
+        "hc_3bc5800e55276f3b"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“用直观的方式表示分数和小数”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用直观的方式表示分数和小数”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用直观的方式表示分数和小数，能比较两个分数的大小和两个小数的大小；会进行小数和分数的转化（不包括将循环小数转化成分数）；能在实际情境中运用小数和分数解决问题，进一步发展符号意识和数感。",
+          "excerpt_hash": "5f5ce25b1fec9b285d72337f23a48858912fb399c123fde79426bd7c6651225a",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "在初步认识小数和分数的基础上，帮助学生理解小数和分数的意义，感悟计数单位的重要性。通过教学，提升学生的小数和分数转换能力，进一步发展符号意识。",
+          "excerpt_hash": "48438fbc09869aa3531ec87c1081fe2e13950b1c12fbcd53b799e496a4791d16",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-AL-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用直观的方式表示分数和小数，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用直观的方式表示分数和小数”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“在初步认识小数和分数的基础上，帮助学生理解小数和分数的意义，感悟计数单位的重要性。通过教学，提升学生的小数和分数转换能力，进一步发展符号意识。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_23f97bb1d5793e6e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_10296c173573f69db498",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e5b0376a10bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e2243ea8644ffb3f",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c188988c496b945a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1ba8117dec0624e11c0e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b06437a92308"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_52ef62335b18e7df",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c4ca73376e9cc457",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b1f651484391fce9",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e2982466d2ae79f0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6f696b62cd631c35e5d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_98536ea16bbc"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e1c2312794f3e566",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1326,
+      "connection_id": "fc_35bfc2a7fc5b8cb1",
+      "evidence_refs": [
+        "standard:MA-H4G7-AL-005:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-AL-002",
+      "target_code": "MA-H4G7-AL-005",
+      "target_label": "能具备一定应用意识和模型意识；能知道解决问题方法的多样性；能初步会用数学语言表达与交流；能说明解题步骤和基本依据。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_96c38b1980d57760",
+      "component_ids": [
+        "lc_b6e8ce21354e73c4",
+        "lc_7716116c07f4ceac",
+        "lc_a6c3635bfff2fe54"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "实际",
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用直观的方式表示分数和小数。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用直观的方式表示分数和小数；优先采集：解题过程记录。",
+        "学生能够比较两个分数的大小和两个小数的大小；优先采集：解题过程记录。",
+        "学生能够进行小数和分数的转化（不包括将循环小数转化成分数）；优先采集：解题过程记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用直观的方式表示分数和小数，能比较两个分数的大小和两个小数的大小；会进行小数和分数的转化（不包括将循环小数转化成分数）；能在实际情境中运用小数和分数解决问题，进一步发展符号意识和数感。",
+          "excerpt_hash": "5f5ce25b1fec9b285d72337f23a48858912fb399c123fde79426bd7c6651225a",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（实际、情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_da072fdd51abff31",
+      "component_ids": [
+        "lc_7716116c07f4ceac"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较两个分数的大小和两个小数的大小。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较两个分数的大小和两个小数的大小；优先采集：解题过程记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用直观的方式表示分数和小数，能比较两个分数的大小和两个小数的大小；会进行小数和分数的转化（不包括将循环小数转化成分数）；能在实际情境中运用小数和分数解决问题，进一步发展符号意识和数感。",
+          "excerpt_hash": "5f5ce25b1fec9b285d72337f23a48858912fb399c123fde79426bd7c6651225a",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_3bc5800e55276f3b",
+      "component_ids": [
+        "lc_b6e8ce21354e73c4",
+        "lc_3d1c84205b3d59d7"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "符号",
+        "表示"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用直观的方式表示分数和小数。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用直观的方式表示分数和小数；优先采集：解题过程记录。",
+        "学生在实际情境中，能够运用小数和分数解决问题，进一步发展符号意识和数感；优先采集：解题过程记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用直观的方式表示分数和小数，能比较两个分数的大小和两个小数的大小；会进行小数和分数的转化（不包括将循环小数转化成分数）；能在实际情境中运用小数和分数解决问题，进一步发展符号意识和数感。",
+          "excerpt_hash": "5f5ce25b1fec9b285d72337f23a48858912fb399c123fde79426bd7c6651225a",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（符号、表示）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b6e8ce21354e73c4",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用直观的方式表示分数和小数",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用直观的方式表示分数和小数，并说明关键步骤、特征或依据。",
+      "label": "用直观的方式表示分数和小数",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用直观的方式表示分数和小数；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用直观的方式表示分数和小数",
+          "excerpt_hash": "f6de6a6fce573e2444a789015971e43f055efcd83a0c70cbd2845f4ddc2b0742",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用直观的方式表示分数和小数"
+    },
+    {
+      "component_id": "lc_7716116c07f4ceac",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较两个分数的大小和两个小数的大小",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较两个分数的大小和两个小数的大小，并说明关键步骤、特征或依据。",
+      "label": "比较两个分数的大小和两个小数的大小",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较两个分数的大小和两个小数的大小；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较两个分数的大小和两个小数的大小",
+          "excerpt_hash": "a3eb77fb92012b523ccefaf4b85dd5048bf288b6cf5a3b1e4989aca1ecbb5bb1",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较两个分数的大小和两个小数的大小"
+    },
+    {
+      "component_id": "lc_a6c3635bfff2fe54",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够进行小数和分数的转化（不包括将循环小数转化成分数）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生进行小数和分数的转化（不包括将循环小数转化成分数），并说明关键步骤、特征或依据。",
+      "label": "进行小数和分数的转化（不包括将循环小数转化成分数）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够进行小数和分数的转化（不包括将循环小数转化成分数）；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "进行小数和分数的转化（不包括将循环小数转化成分数）",
+          "excerpt_hash": "063a35c508f0065f2283d2dad67f56d90d2098f6e9c2ef5eea4fdaf4bbf73f1d",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "进行小数和分数的转化（不包括将循环小数转化成分数）"
+    },
+    {
+      "component_id": "lc_3d1c84205b3d59d7",
+      "component_type": "disposition",
+      "condition": "在实际情境中",
+      "confidence": 0.72,
+      "description": "学生在实际情境中，能够运用小数和分数解决问题，进一步发展符号意识和数感",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在实际情境中”的诊断任务，要求学生运用小数和分数解决问题，进一步发展符号意识和数感，并说明关键步骤、特征或依据。",
+      "label": "运用小数和分数解决问题，进一步发展符号意识和数感",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在实际情境中，能够运用小数和分数解决问题，进一步发展符号意识和数感；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用直观的方式表示分数和小数，能比较两个分数的大小和两个小数的大小；会进行小数和分数的转化（不包括将循环小数转化成分数）；能在实际情境中运用小数和分数解决问题，进一步发展符号意识和数感。",
+          "excerpt_hash": "5f5ce25b1fec9b285d72337f23a48858912fb399c123fde79426bd7c6651225a",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用小数和分数解决问题，进一步发展符号意识和数感"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_d06723b659142fb2",
+      "evidence_refs": [
+        "standard:MA-D3-AL-002:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D2-AL-002",
+      "source_label": "能直观描述小数和分数，能比较简单的小数的大小和分数的大小；会进行同分母分数的加减运算和一位小数的加减运算，形成数感、符号意识和运算能力。",
+      "target_code": "MA-D3-AL-002",
+      "target_label": "能用直观的方式表示分数和小数，能比较两个分数的大小和两个小数的大小；会进行小数和分数的转化（不包括将循环小数转化成分数）；能在实际情境中运用小…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5f5ce25b1fec9b285d72337f23a48858912fb399c123fde79426bd7c6651225a",
+  "standard_code": "MA-D3-AL-002",
+  "verified_prerequisites": []
+}

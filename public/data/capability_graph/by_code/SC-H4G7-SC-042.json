@@ -1,0 +1,568 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_625c25551ef5025e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_91133893eeab9661",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_22358eba83681fcb"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道经度不同的两地存在时差并认识北京时间由来；能描述两地相对位置和直线距离；能在地球仪和地图上利用经纬度确定地点位置；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "355168befde67a2225ce5be2627b0408e1320d1b0df80bb1c65a52f9a9159bde",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-042:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把空间定位、地图读图和地球自转相关时差问题结合起来。",
+          "excerpt_hash": "a57c71701721dabccb80d0d14508b08aa1a776494f30ee11ea8472d9d03f146f",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-042:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用观察证据说明基本科学概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把空间定位、地图读图和地球自转相关时差问题结合起来。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_722674565011b8e5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在地球仪和地图上利用经纬度确定地点位置的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b3246f954426b16c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b3246f954426b16c"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“在地球仪和地图上利用经纬度确定地点位置”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在地球仪和地图上利用经纬度确定地点位置”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道经度不同的两地存在时差并认识北京时间由来；能描述两地相对位置和直线距离；能在地球仪和地图上利用经纬度确定地点位置；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "355168befde67a2225ce5be2627b0408e1320d1b0df80bb1c65a52f9a9159bde",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-042:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把空间定位、地图读图和地球自转相关时差问题结合起来。",
+          "excerpt_hash": "a57c71701721dabccb80d0d14508b08aa1a776494f30ee11ea8472d9d03f146f",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-042:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在地球仪和地图上利用经纬度确定地点位置，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在地球仪和地图上利用经纬度确定地点位置”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“把空间定位、地图读图和地球自转相关时差问题结合起来。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_5ed8c15ec6f172b7",
+        "lc_212fd2167ccaefd2",
+        "lc_eb6f2875d5d6ab1e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生准确说出经度不同的两地存在时差的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8093a557f22e6bd5",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_348a8c66fc136e74"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“准确说出经度不同的两地存在时差”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“准确说出经度不同的两地存在时差”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道经度不同的两地存在时差并认识北京时间由来；能描述两地相对位置和直线距离；能在地球仪和地图上利用经纬度确定地点位置；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "355168befde67a2225ce5be2627b0408e1320d1b0df80bb1c65a52f9a9159bde",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-042:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把空间定位、地图读图和地球自转相关时差问题结合起来。",
+          "excerpt_hash": "a57c71701721dabccb80d0d14508b08aa1a776494f30ee11ea8472d9d03f146f",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-042:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后准确说出经度不同的两地存在时差，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出经度不同的两地存在时差”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把空间定位、地图读图和地球自转相关时差问题结合起来。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_212fd2167ccaefd2",
+        "lc_625c25551ef5025e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出北京时间由来的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6100c33e48d3e50f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_22358eba83681fcb"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出北京时间由来的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出北京时间由来的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道经度不同的两地存在时差并认识北京时间由来；能描述两地相对位置和直线距离；能在地球仪和地图上利用经纬度确定地点位置；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "355168befde67a2225ce5be2627b0408e1320d1b0df80bb1c65a52f9a9159bde",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-042:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把空间定位、地图读图和地球自转相关时差问题结合起来。",
+          "excerpt_hash": "a57c71701721dabccb80d0d14508b08aa1a776494f30ee11ea8472d9d03f146f",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-042:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出北京时间由来的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出北京时间由来的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把空间定位、地图读图和地球自转相关时差问题结合起来。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9479805e35914e87",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_21164b69894834d04f84",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7070ee669923"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ba775a07035c65ee",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bb15f3f2369201cf",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b2901b9e06df"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3daf5000bc9191a7",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f0b57ad71fbef8ca",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_92369ed68f9321363e22",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae920aee077f"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_94dc3a2f9a671969",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bbfe652fe6404d2d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fc41327ff0651b269c88",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae5d3f924fb1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4604008cfd618f79",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_10152c77802bc722",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-042:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G7-SC-042",
+      "target_code": "SC-H4G8-SC-042",
+      "target_label": "能在地球仪和地图上利用经纬度确定地点位置；能知道经度不同的两地存在时差并认识北京时间由来；能读取比例尺、图例、方向和经纬度等图注信息；能比较证…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_22358eba83681fcb",
+      "component_ids": [
+        "lc_625c25551ef5025e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用观察证据说明基本科学概念。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用观察证据说明基本科学概念；优先采集：读图任务单、定位说明、空间表达作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道经度不同的两地存在时差并认识北京时间由来；能描述两地相对位置和直线距离；能在地球仪和地图上利用经纬度确定地点位置；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "355168befde67a2225ce5be2627b0408e1320d1b0df80bb1c65a52f9a9159bde",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-042:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_b3246f954426b16c",
+      "component_ids": [
+        "lc_722674565011b8e5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在地球仪和地图上利用经纬度确定地点位置。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在地球仪和地图上利用经纬度确定地点位置；优先采集：读图任务单、定位说明、空间表达作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道经度不同的两地存在时差并认识北京时间由来；能描述两地相对位置和直线距离；能在地球仪和地图上利用经纬度确定地点位置；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "355168befde67a2225ce5be2627b0408e1320d1b0df80bb1c65a52f9a9159bde",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-042:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "准确说出经度不同的两地存在时差；识别并说出北京时间由来的关键特征；描述两地相对位置和直线距离",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_348a8c66fc136e74",
+      "component_ids": [
+        "lc_5ed8c15ec6f172b7"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出经度不同的两地存在时差。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出经度不同的两地存在时差；优先采集：读图任务单、定位说明、空间表达作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道经度不同的两地存在时差并认识北京时间由来；能描述两地相对位置和直线距离；能在地球仪和地图上利用经纬度确定地点位置；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "355168befde67a2225ce5be2627b0408e1320d1b0df80bb1c65a52f9a9159bde",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-042:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_5ed8c15ec6f172b7",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出经度不同的两地存在时差",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出经度不同的两地存在时差，并说明关键步骤、特征或依据。",
+      "label": "准确说出经度不同的两地存在时差",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出经度不同的两地存在时差；优先采集：读图任务单、定位说明、空间表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道经度不同的两地存在时差",
+          "excerpt_hash": "64f9d44052870c49238125016ab612f8f34a4eec2fa9ae89a125ea0857cb4542",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-042:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道经度不同的两地存在时差"
+    },
+    {
+      "component_id": "lc_212fd2167ccaefd2",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出北京时间由来的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出北京时间由来的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出北京时间由来的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出北京时间由来的关键特征；优先采集：读图任务单、定位说明、空间表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识北京时间由来",
+          "excerpt_hash": "416de697ad734d752ab922fe296be97632a38e4ebb9d047000309961dea5fc20",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-042:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认识北京时间由来"
+    },
+    {
+      "component_id": "lc_eb6f2875d5d6ab1e",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述两地相对位置和直线距离",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述两地相对位置和直线距离，并说明关键步骤、特征或依据。",
+      "label": "描述两地相对位置和直线距离",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述两地相对位置和直线距离；优先采集：读图任务单、定位说明、空间表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述两地相对位置和直线距离",
+          "excerpt_hash": "54ae20a122174acc9d6502c4d05c0801a9f7e874b3f2e194e21b4cc49b5b7f30",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-042:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述两地相对位置和直线距离"
+    },
+    {
+      "component_id": "lc_722674565011b8e5",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在地球仪和地图上利用经纬度确定地点位置",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在地球仪和地图上利用经纬度确定地点位置，并说明关键步骤、特征或依据。",
+      "label": "在地球仪和地图上利用经纬度确定地点位置",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在地球仪和地图上利用经纬度确定地点位置；优先采集：读图任务单、定位说明、空间表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在地球仪和地图上利用经纬度确定地点位置",
+          "excerpt_hash": "7edb6f180e3410e959d87b8b5d3884d26a53aaf71bde09beaf7dc0c0452cd5cb",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-042:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在地球仪和地图上利用经纬度确定地点位置"
+    },
+    {
+      "component_id": "lc_625c25551ef5025e",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用观察证据说明基本科学概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用观察证据说明基本科学概念",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：读图任务单、定位说明、空间表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用观察证据说明基本科学概念",
+          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-042:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用观察证据说明基本科学概念"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0663,
+      "edge_id": "pc_f14f7bd933d58d1f",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-042:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-SC-005",
+      "source_label": "知道地球的自转轴、自转周期和自转方向，理解昼夜交替和天体东升西落等自然现象与地球的自转有关。",
+      "target_code": "SC-H4G7-SC-042",
+      "target_label": "能知道经度不同的两地存在时差并认识北京时间由来；能描述两地相对位置和直线距离；能在地球仪和地图上利用经纬度确定地点位置；能用观察证据说明基本科…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "355168befde67a2225ce5be2627b0408e1320d1b0df80bb1c65a52f9a9159bde",
+  "standard_code": "SC-H4G7-SC-042",
+  "verified_prerequisites": []
+}

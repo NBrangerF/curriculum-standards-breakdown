@@ -1,0 +1,491 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_5885117ad99c1016"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生积累日常生活中常用的习惯用语、交流表达和常用词语搭配的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6de8d46ed82505fc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_bb9ca2be00cde4a2"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“积累日常生活中常用的习惯用语、交流表达和常用词语搭配”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“积累日常生活中常用的习惯用语、交流表达和常用词语搭配”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "a8f579dcc9f84af175a9c5ed03e5cf824d7dfcc73d580eda1083079baa640f56",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合真实语境示范重音、意群、语调和节奏的表意功能，避免只做脱离意义的发音操练。",
+          "excerpt_hash": "c298f7c425e5176163883d63c2cc47223273aa3ccdc3d0fb16d7191a297c42d9",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-LA-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后积累日常生活中常用的习惯用语、交流表达和常用词语搭配，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“积累日常生活中常用的习惯用语、交流表达和常用词语搭配”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“结合真实语境示范重音、意群、语调和节奏的表意功能，避免只做脱离意义的发音操练。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_5f54ea9f34773141",
+        "lc_5885117ad99c1016",
+        "lc_f7c5172d352f1b1c",
+        "lc_28e1187e590d9993"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别不同语调与节奏等语音特征所表达的意义的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e7040677d77990f1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_bb9ca2be00cde4a2",
+        "hc_3fa1bcd36e26cc07",
+        "hc_432a6d319136a893"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“识别不同语调与节奏等语音特征所表达的意义”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别不同语调与节奏等语音特征所表达的意义”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "a8f579dcc9f84af175a9c5ed03e5cf824d7dfcc73d580eda1083079baa640f56",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合真实语境示范重音、意群、语调和节奏的表意功能，避免只做脱离意义的发音操练。",
+          "excerpt_hash": "c298f7c425e5176163883d63c2cc47223273aa3ccdc3d0fb16d7191a297c42d9",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-LA-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别不同语调与节奏等语音特征所表达的意义，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别不同语调与节奏等语音特征所表达的意义”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“结合真实语境示范重音、意群、语调和节奏的表意功能，避免只做脱离意义的发音操练。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_5f54ea9f34773141"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别不同语调与节奏等语音特征所表达的意义的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e66ac57c18f3215a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3fa1bcd36e26cc07"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别不同语调与节奏等语音特征所表达的意义”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别不同语调与节奏等语音特征所表达的意义”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "a8f579dcc9f84af175a9c5ed03e5cf824d7dfcc73d580eda1083079baa640f56",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合真实语境示范重音、意群、语调和节奏的表意功能，避免只做脱离意义的发音操练。",
+          "excerpt_hash": "c298f7c425e5176163883d63c2cc47223273aa3ccdc3d0fb16d7191a297c42d9",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-LA-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别不同语调与节奏等语音特征所表达的意义，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别不同语调与节奏等语音特征所表达的意义”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“结合真实语境示范重音、意群、语调和节奏的表意功能，避免只做脱离意义的发音操练。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4b5d60addf660ba2",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_600fc96aca5a7c702986",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c81ef75b15c2"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f2972c892efdda49",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_320edaaeb9b9da67",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fcc8f13544f60ac83228",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_006c435d5baa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b6842528f75f35c9",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_4824f5c9b7489430",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-005:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-H4G7-LA-005",
+      "target_code": "EN-H4G8-LA-004",
+      "target_label": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_bb9ca2be00cde4a2",
+      "component_ids": [
+        "lc_5885117ad99c1016"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生积累日常生活中常用的习惯用语、交流表达和常用词语搭配。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够积累日常生活中常用的习惯用语、交流表达和常用词语搭配；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "a8f579dcc9f84af175a9c5ed03e5cf824d7dfcc73d580eda1083079baa640f56",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_3fa1bcd36e26cc07",
+      "component_ids": [
+        "lc_5f54ea9f34773141"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别不同语调与节奏等语音特征所表达的意义。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别不同语调与节奏等语音特征所表达的意义；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "a8f579dcc9f84af175a9c5ed03e5cf824d7dfcc73d580eda1083079baa640f56",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_432a6d319136a893",
+      "component_ids": [
+        "lc_f7c5172d352f1b1c"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "清晰"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生听懂发音清晰、语速较慢的简短口头表达。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够听懂发音清晰、语速较慢的简短口头表达；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获取关键信息；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "a8f579dcc9f84af175a9c5ed03e5cf824d7dfcc73d580eda1083079baa640f56",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（清晰）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_5f54ea9f34773141",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别不同语调与节奏等语音特征所表达的意义",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别不同语调与节奏等语音特征所表达的意义，并说明关键步骤、特征或依据。",
+      "label": "识别不同语调与节奏等语音特征所表达的意义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别不同语调与节奏等语音特征所表达的意义；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别不同语调与节奏等语音特征所表达的意义",
+          "excerpt_hash": "2dae9607c9151425a5392d0cb1e0d3d86e40057eaef842701087be2d8f3222bd",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别不同语调与节奏等语音特征所表达的意义"
+    },
+    {
+      "component_id": "lc_5885117ad99c1016",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够积累日常生活中常用的习惯用语、交流表达和常用词语搭配",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生积累日常生活中常用的习惯用语、交流表达和常用词语搭配，并说明关键步骤、特征或依据。",
+      "label": "积累日常生活中常用的习惯用语、交流表达和常用词语搭配",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够积累日常生活中常用的习惯用语、交流表达和常用词语搭配；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "积累日常生活中常用的习惯用语、交流表达和常用词语搭配",
+          "excerpt_hash": "9e4c529b1d6f6b2236980bc00edd42bacd1146e48e00c125935610aad0ef7348",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "积累日常生活中常用的习惯用语、交流表达和常用词语搭配"
+    },
+    {
+      "component_id": "lc_f7c5172d352f1b1c",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够听懂发音清晰、语速较慢的简短口头表达",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生听懂发音清晰、语速较慢的简短口头表达，并说明关键步骤、特征或依据。",
+      "label": "听懂发音清晰、语速较慢的简短口头表达",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够听懂发音清晰、语速较慢的简短口头表达；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "听懂发音清晰、语速较慢的简短口头表达",
+          "excerpt_hash": "7377bb1743d65c8aed4d8354bd274ae6aeed91be81100ea652f0badb7bbd7a8e",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "听懂发音清晰、语速较慢的简短口头表达"
+    },
+    {
+      "component_id": "lc_0d4c990e7bf852d4",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够获取关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
+      "label": "获取关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够获取关键信息；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "获取关键信息",
+          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "获取关键信息"
+    },
+    {
+      "component_id": "lc_28e1187e590d9993",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成简短交流",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成简短交流，并说明关键步骤、特征或依据。",
+      "label": "完成简短交流",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成简短交流；优先采集：听力关键信息记录、语音特征标注、常用表达整理单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成简短交流",
+          "excerpt_hash": "e0d8e980d38fdd45deaf2acf3d21d16ee5acd4e273483f5057e96bc61198198b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成简短交流"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1061,
+      "edge_id": "pc_f54c3d2d35e2adbf",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-005:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-LA-001",
+      "source_label": "在听或看发音清晰、语速适中、句式简单的音视频材料时，能获取有关人物、时间、地点、事件等基本信息。",
+      "target_code": "EN-H4G7-LA-005",
+      "target_label": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1067,
+      "edge_id": "pc_52bf9f21ae038c29",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-005:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-LA-018",
+      "source_label": "能流利地朗读课内所学语篇，发音清晰，语音、语调基本正确。",
+      "target_code": "EN-H4G7-LA-005",
+      "target_label": "能识别不同语调与节奏等语音特征所表达的意义；能积累日常生活中常用的习惯用语、交流表达和常用词语搭配；能听懂发音清晰、语速较慢的简短口头表达并获…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a8f579dcc9f84af175a9c5ed03e5cf824d7dfcc73d580eda1083079baa640f56",
+  "standard_code": "EN-H4G7-LA-005",
+  "verified_prerequisites": []
+}

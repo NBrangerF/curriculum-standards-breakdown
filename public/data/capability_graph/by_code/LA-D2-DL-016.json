@@ -1,0 +1,367 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_c78a6022b6567bde"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据使用频率与类别对衣橱或抽屉进行分类收纳的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_88615b43fa412365",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ccd6865c77a6832d"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“根据使用频率与类别对衣橱或抽屉进行分类收纳”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据使用频率与类别对衣橱或抽屉进行分类收纳”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据使用频率与类别对衣橱或抽屉进行分类收纳，能制作并使用标签，做到取放有序、持续维护至少一周。",
+          "excerpt_hash": "3305ddd54aa29ff2490018fe7aab927c798e77d2d2125e836ae1b1544cd49fd2",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先“清空—分类—决定位置—标签—复位”；用“常用在上/不常用在下”原则；通过一周回访巩固维护。",
+          "excerpt_hash": "b151fb1557d032ed968e975363d4e0036ae673836de95768649452d8dd9c3566",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-DL-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据使用频率与类别对衣橱或抽屉进行分类收纳，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据使用频率与类别对衣橱或抽屉进行分类收纳”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“先“清空—分类—决定位置—标签—复位””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_fcad6da1cbb59437"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生制作标签的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_87fbf822acd378e4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_66d29e10482384d8"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“制作标签”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“制作标签”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据使用频率与类别对衣橱或抽屉进行分类收纳，能制作并使用标签，做到取放有序、持续维护至少一周。",
+          "excerpt_hash": "3305ddd54aa29ff2490018fe7aab927c798e77d2d2125e836ae1b1544cd49fd2",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先“清空—分类—决定位置—标签—复位”；用“常用在上/不常用在下”原则；通过一周回访巩固维护。",
+          "excerpt_hash": "b151fb1557d032ed968e975363d4e0036ae673836de95768649452d8dd9c3566",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-DL-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后制作标签，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“制作标签”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“先“清空—分类—决定位置—标签—复位””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_b1c1282ff7842d58",
+      "evidence_refs": [
+        "standard:LA-D2-DL-016:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-DL-016",
+      "target_code": "LA-D3-DL-016",
+      "target_label": "能选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰，并能持续维护两周。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ccd6865c77a6832d",
+      "component_ids": [
+        "lc_c78a6022b6567bde"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据使用频率与类别对衣橱或抽屉进行分类收纳。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据使用频率与类别对衣橱或抽屉进行分类收纳；优先采集：收纳前后对比、维护打卡表、口头说明规则。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据使用频率与类别对衣橱或抽屉进行分类收纳，能制作并使用标签，做到取放有序、持续维护至少一周。",
+          "excerpt_hash": "3305ddd54aa29ff2490018fe7aab927c798e77d2d2125e836ae1b1544cd49fd2",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_66d29e10482384d8",
+      "component_ids": [
+        "lc_fcad6da1cbb59437"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生制作标签。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够制作标签；优先采集：收纳前后对比、维护打卡表、口头说明规则。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据使用频率与类别对衣橱或抽屉进行分类收纳，能制作并使用标签，做到取放有序、持续维护至少一周。",
+          "excerpt_hash": "3305ddd54aa29ff2490018fe7aab927c798e77d2d2125e836ae1b1544cd49fd2",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_06d538e771d16154",
+      "component_ids": [
+        "lc_6a24ed9bccd2723b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用标签，做到取放有序、持续维护至少一周。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够使用标签，做到取放有序、持续维护至少一周；优先采集：收纳前后对比、维护打卡表、口头说明规则。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据使用频率与类别对衣橱或抽屉进行分类收纳，能制作并使用标签，做到取放有序、持续维护至少一周。",
+          "excerpt_hash": "3305ddd54aa29ff2490018fe7aab927c798e77d2d2125e836ae1b1544cd49fd2",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（至少）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_35e5b99cacfb7465",
+      "component_ids": [
+        "lc_6a24ed9bccd2723b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用标签，做到取放有序、持续维护至少一周。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够使用标签，做到取放有序、持续维护至少一周；优先采集：收纳前后对比、维护打卡表、口头说明规则。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据使用频率与类别对衣橱或抽屉进行分类收纳，能制作并使用标签，做到取放有序、持续维护至少一周。",
+          "excerpt_hash": "3305ddd54aa29ff2490018fe7aab927c798e77d2d2125e836ae1b1544cd49fd2",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（至少）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c78a6022b6567bde",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据使用频率与类别对衣橱或抽屉进行分类收纳",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据使用频率与类别对衣橱或抽屉进行分类收纳，并说明关键步骤、特征或依据。",
+      "label": "根据使用频率与类别对衣橱或抽屉进行分类收纳",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据使用频率与类别对衣橱或抽屉进行分类收纳；优先采集：收纳前后对比、维护打卡表、口头说明规则。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据使用频率与类别对衣橱或抽屉进行分类收纳",
+          "excerpt_hash": "3b8272fc752ec5743883aca4d5c2c7b94671b3c50dd4121345afc7db5ecaa4d4",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据使用频率与类别对衣橱或抽屉进行分类收纳"
+    },
+    {
+      "component_id": "lc_fcad6da1cbb59437",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够制作标签",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生制作标签，并说明关键步骤、特征或依据。",
+      "label": "制作标签",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够制作标签；优先采集：收纳前后对比、维护打卡表、口头说明规则。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "制作并使用标签，做到取放有序、持续维护至少一周",
+          "excerpt_hash": "bd0a2a5934771d54689d22dc4594db3c6dc1b112b2786956091a2ed0f6a6d8ea",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "制作标签"
+    },
+    {
+      "component_id": "lc_6a24ed9bccd2723b",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够使用标签，做到取放有序、持续维护至少一周",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生使用标签，做到取放有序、持续维护至少一周，并说明关键步骤、特征或依据。",
+      "label": "使用标签，做到取放有序、持续维护至少一周",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够使用标签，做到取放有序、持续维护至少一周；优先采集：收纳前后对比、维护打卡表、口头说明规则。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "使用标签，做到取放有序、持续维护至少一周",
+          "excerpt_hash": "ebbdb7078e9a5da8d8f24245a023728821036ec019b1fba28016a7fe554c5ca2",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用标签，做到取放有序、持续维护至少一周"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_ab6100aad9bb90c9",
+      "evidence_refs": [
+        "standard:LA-D2-DL-016:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D1-DL-007",
+      "source_label": "能整理自己的衣物、玩具等生活用品，做到分类、叠放或摆放整齐，物归原位，初步形成及时整理与收纳的意识。",
+      "target_code": "LA-D2-DL-016",
+      "target_label": "能根据使用频率与类别对衣橱或抽屉进行分类收纳，能制作并使用标签，做到取放有序、持续维护至少一周。"
+    },
+    {
+      "confidence": "medium",
+      "edge_id": "pc_13dfa1f819746fdb",
+      "evidence_refs": [
+        "standard:LA-D2-DL-016:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D1-DL-010",
+      "source_label": "能按物品类别或形状等规则进行归类摆放，能说出自己采用的分类规则，初步形成做事有条理的意识。",
+      "target_code": "LA-D2-DL-016",
+      "target_label": "能根据使用频率与类别对衣橱或抽屉进行分类收纳，能制作并使用标签，做到取放有序、持续维护至少一周。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "3305ddd54aa29ff2490018fe7aab927c798e77d2d2125e836ae1b1544cd49fd2",
+  "standard_code": "LA-D2-DL-016",
+  "verified_prerequisites": []
+}

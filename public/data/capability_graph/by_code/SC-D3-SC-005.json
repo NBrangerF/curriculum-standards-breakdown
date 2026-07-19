@@ -1,0 +1,314 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_e0ef25712f1f0f09"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生准确说出地球的自转轴、自转周期和自转方向的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_600cd9811197d5ff",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b5f653b6ed119435"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“准确说出地球的自转轴、自转周期和自转方向”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“准确说出地球的自转轴、自转周期和自转方向”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道地球的自转轴、自转周期和自转方向，理解昼夜交替和天体东升西落等自然现象与地球的自转有关。",
+          "excerpt_hash": "2fdbeac80335b59eb2c79f425d8f6129f4080a063264b60792e5e99cf664e072",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“引导学生通过观察生活中的现象，了解地球、月球和太阳等天体的运行规律，通过长期观察认识昼夜、季节、节气等自然现象的周期变化。”",
+          "excerpt_hash": "8d38d0d5231d2788b408fd6216f445d84d830d4ef17ca60b0195428f94485a14",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-SC-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后准确说出地球的自转轴、自转周期和自转方向，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出地球的自转轴、自转周期和自转方向”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：““引导学生通过观察生活中的现象，了解地球、月球和太阳等天体的运行规律，通过长期观察认识昼夜、季节、节气等自然现象的周期变化。””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 2,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_da917d984a45afd0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5d8c5902b781b5de5f03",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d39057261769"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c22c450af4b9046",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_dd08ccc76384776f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e1c8e586d87fc9",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_01632c43d80d9459",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7c85e6846ee2baf665b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b6340ce96157"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_208d54146f4a9b68",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e7db3e1922185033",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a04b8a546cf314368898",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6a5186074181"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_426c7beba471c1cd",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0663,
+      "connection_id": "fc_f14f7bd933d58d1f",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-042:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-005",
+      "target_code": "SC-H4G7-SC-042",
+      "target_label": "能知道经度不同的两地存在时差并认识北京时间由来；能描述两地相对位置和直线距离；能在地球仪和地图上利用经纬度确定地点位置；能用观察证据说明基本科…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0763,
+      "connection_id": "fc_bf288d943ec178cb",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-044:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-005",
+      "target_code": "SC-H4G7-SC-044",
+      "target_label": "能知道日食和月食产生的原因；了解日食和月食可以预报；能学会运用三球仪模拟地球、月球和太阳的相对运动；能用观察证据说明基本科学概念。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b5f653b6ed119435",
+      "component_ids": [
+        "lc_e0ef25712f1f0f09",
+        "lc_69b6961b783b1be9"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出地球的自转轴、自转周期和自转方向。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出地球的自转轴、自转周期和自转方向；优先采集：模型/作品、口头/书面汇报。",
+        "学生能够用自己的话解释昼夜交替和天体东升西落等自然现象与地球的自转有关；优先采集：模型/作品、口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道地球的自转轴、自转周期和自转方向，理解昼夜交替和天体东升西落等自然现象与地球的自转有关。",
+          "excerpt_hash": "2fdbeac80335b59eb2c79f425d8f6129f4080a063264b60792e5e99cf664e072",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "准确说出地球的自转轴、自转周期和自转方向；用自己的话解释昼夜交替和天体东升西落等自然现象与地球的自转有关",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_e0ef25712f1f0f09",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出地球的自转轴、自转周期和自转方向",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出地球的自转轴、自转周期和自转方向，并说明关键步骤、特征或依据。",
+      "label": "准确说出地球的自转轴、自转周期和自转方向",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出地球的自转轴、自转周期和自转方向；优先采集：模型/作品、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道地球的自转轴、自转周期和自转方向",
+          "excerpt_hash": "4c96a795cdd95c019a26e1c8f6d556516794609339980004d1657ac2b91f5595",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道地球的自转轴、自转周期和自转方向"
+    },
+    {
+      "component_id": "lc_69b6961b783b1be9",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释昼夜交替和天体东升西落等自然现象与地球的自转有关",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释昼夜交替和天体东升西落等自然现象与地球的自转有关，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释昼夜交替和天体东升西落等自然现象与地球的自转有关",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释昼夜交替和天体东升西落等自然现象与地球的自转有关；优先采集：模型/作品、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解昼夜交替和天体东升西落等自然现象与地球的自转有关",
+          "excerpt_hash": "6f5b33a7938dcfaa2d77953bfd45d1034f35b3e0407ba0536537d816d7d1dfbc",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解昼夜交替和天体东升西落等自然现象与地球的自转有关"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "2fdbeac80335b59eb2c79f425d8f6129f4080a063264b60792e5e99cf664e072",
+  "standard_code": "SC-D3-SC-005",
+  "verified_prerequisites": []
+}

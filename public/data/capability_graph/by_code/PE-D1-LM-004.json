@@ -1,0 +1,227 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_90013d66ccceeeb6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别和说出基本运动技能的动作名称的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c9bee1ae965fc030",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4e7f567b26cdad57"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“识别和说出基本运动技能的动作名称”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别和说出基本运动技能的动作名称”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别和说出基本运动技能的动作名称。",
+          "excerpt_hash": "ddbb2acb970a5b0dd718a54fbf56e738bbc5767dd233c98f2fcca54cb5ec46ad",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-LM-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "（基本运动技能教学提示）1) 通过情境创设和游戏化教学培养运动兴趣，激发学习积极性；2) 教师示范讲解，分解练习→完整练习；3) 将基本运动技能与游戏/比赛结合，提升迁移运用；4) 注重方法选择与分层指导，提高学习效果；5) 采用讲解-示范-练习-展示，培养竞争与合作意识。",
+          "excerpt_hash": "222b8600633a41722b32c918c3d44a6e8ac31d79288b0b8460925ad52665200c",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D1-LM-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别和说出基本运动技能的动作名称，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别和说出基本运动技能的动作名称”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“（基本运动技能教学提示）1) 通过情境创设和游戏化教学培养运动兴趣，激发学习积极性”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_90013d66ccceeeb6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别和说出基本运动技能的动作名称的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_633f795e44bea733",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4e7f567b26cdad57"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别和说出基本运动技能的动作名称”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别和说出基本运动技能的动作名称”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别和说出基本运动技能的动作名称。",
+          "excerpt_hash": "ddbb2acb970a5b0dd718a54fbf56e738bbc5767dd233c98f2fcca54cb5ec46ad",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-LM-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "（基本运动技能教学提示）1) 通过情境创设和游戏化教学培养运动兴趣，激发学习积极性；2) 教师示范讲解，分解练习→完整练习；3) 将基本运动技能与游戏/比赛结合，提升迁移运用；4) 注重方法选择与分层指导，提高学习效果；5) 采用讲解-示范-练习-展示，培养竞争与合作意识。",
+          "excerpt_hash": "222b8600633a41722b32c918c3d44a6e8ac31d79288b0b8460925ad52665200c",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D1-LM-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别和说出基本运动技能的动作名称，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别和说出基本运动技能的动作名称”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“（基本运动技能教学提示）1) 通过情境创设和游戏化教学培养运动兴趣，激发学习积极性”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e65ae56055b9d026",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_729e6607eab953ee2165",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_1_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_ee2b7c40f4dccca4",
+      "textbook_grade": 1,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康1年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fc932a2708f0f9c6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c6389a9109e39310cf86",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_2_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_73d28c16a2eec793",
+      "textbook_grade": 2,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康2年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_4e7f567b26cdad57",
+      "component_ids": [
+        "lc_90013d66ccceeeb6"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别和说出基本运动技能的动作名称。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别和说出基本运动技能的动作名称；优先采集：（词卡/小册）、口头问答。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别和说出基本运动技能的动作名称。",
+          "excerpt_hash": "ddbb2acb970a5b0dd718a54fbf56e738bbc5767dd233c98f2fcca54cb5ec46ad",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-LM-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "识别和说出基本运动技能的动作名称",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_90013d66ccceeeb6",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别和说出基本运动技能的动作名称",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别和说出基本运动技能的动作名称，并说明关键步骤、特征或依据。",
+      "label": "识别和说出基本运动技能的动作名称",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别和说出基本运动技能的动作名称；优先采集：（词卡/小册）、口头问答。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别和说出基本运动技能的动作名称",
+          "excerpt_hash": "6aadd7e57cd278efdb52e8ae78121e1894e9e61a5e9261ad521892adbdf97492",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-LM-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别和说出基本运动技能的动作名称"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ddbb2acb970a5b0dd718a54fbf56e738bbc5767dd233c98f2fcca54cb5ec46ad",
+  "standard_code": "PE-D1-LM-004",
+  "verified_prerequisites": []
+}

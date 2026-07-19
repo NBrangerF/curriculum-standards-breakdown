@@ -1,0 +1,286 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_84779deddb326b82"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据服务业劳动特征和过程发现有价值的问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d7e1c8643f332576",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“根据服务业劳动特征和过程发现有价值的问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据服务业劳动特征和过程发现有价值的问题”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能参加校园保洁美化、助残敬老扶弱等公益劳动，体验现代服务业劳动，增强公共服务意识和社会责任感；能选择一至两项现代服务业劳动项目参与体验；能根据服务业劳动特征和过程发现有价值的问题；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "449848d9d322d5bff6a5acc357001342969d6afb092eefb4eb9f47ea7bd6d91c",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-SL-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "帮助学生识别真实服务对象和服务需求，关注服务过程中的责任、礼仪与安全。",
+          "excerpt_hash": "879ffed932b8d4d9075b4176102bf02d45371e9d098605f0d2f73e3b2134c450",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G8-SL-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据服务业劳动特征和过程发现有价值的问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据服务业劳动特征和过程发现有价值的问题”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“帮助学生识别真实服务对象和服务需求，关注服务过程中的责任、礼仪与安全。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_2810396d818cf708",
+      "evidence_refs": [
+        "standard:LA-H4G8-SL-002:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-H4G8-SL-002",
+      "target_code": "LA-H4G9-SL-003",
+      "target_label": "能参加校园保洁美化、助残敬老扶弱等公益劳动，体验现代服务业劳动，增强公共服务意识和社会责任感；能根据服务业劳动特征和过程发现有价值的问题；能选…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_0c24fce904dca97e",
+      "component_ids": [
+        "lc_3e0e366ef56be9e6",
+        "lc_def5529f295499cd",
+        "lc_3d62f66b7fd67388"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生参加校园保洁美化、助残敬老扶弱等公益劳动。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够参加校园保洁美化、助残敬老扶弱等公益劳动；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+        "学生能够参与相关活动并描述现代服务业劳动，增强公共服务意识和社会责任感；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+        "学生能够选择一至两项现代服务业劳动项目参与体验；优先采集：服务方案、服务记录、对象反馈、反思报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能参加校园保洁美化、助残敬老扶弱等公益劳动，体验现代服务业劳动，增强公共服务意识和社会责任感；能选择一至两项现代服务业劳动项目参与体验；能根据服务业劳动特征和过程发现有价值的问题；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "449848d9d322d5bff6a5acc357001342969d6afb092eefb4eb9f47ea7bd6d91c",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-SL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "参加校园保洁美化、助残敬老扶弱等公益劳动；参与相关活动并描述现代服务业劳动，增强公共服务意识和社会责任感；选择一至两项现代服务业劳动项目参与体验",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3e0e366ef56be9e6",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参加校园保洁美化、助残敬老扶弱等公益劳动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参加校园保洁美化、助残敬老扶弱等公益劳动，并说明关键步骤、特征或依据。",
+      "label": "参加校园保洁美化、助残敬老扶弱等公益劳动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参加校园保洁美化、助残敬老扶弱等公益劳动；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "参加校园保洁美化、助残敬老扶弱等公益劳动",
+          "excerpt_hash": "0196ee9e6d39ca2aaf5261a2de128db4bdfb87357a94f2ddeb387ee069e48a33",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-SL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参加校园保洁美化、助残敬老扶弱等公益劳动"
+    },
+    {
+      "component_id": "lc_def5529f295499cd",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与相关活动并描述现代服务业劳动，增强公共服务意识和社会责任感",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与相关活动并描述现代服务业劳动，增强公共服务意识和社会责任感，并说明关键步骤、特征或依据。",
+      "label": "参与相关活动并描述现代服务业劳动，增强公共服务意识和社会责任感",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与相关活动并描述现代服务业劳动，增强公共服务意识和社会责任感；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "体验现代服务业劳动，增强公共服务意识和社会责任感",
+          "excerpt_hash": "79ad079e8536973e2037b20a0afa1a7c841e69e3903dbb885e1e05a795555d02",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-SL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体验现代服务业劳动，增强公共服务意识和社会责任感"
+    },
+    {
+      "component_id": "lc_3d62f66b7fd67388",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择一至两项现代服务业劳动项目参与体验",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择一至两项现代服务业劳动项目参与体验，并说明关键步骤、特征或依据。",
+      "label": "选择一至两项现代服务业劳动项目参与体验",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择一至两项现代服务业劳动项目参与体验；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项现代服务业劳动项目参与体验",
+          "excerpt_hash": "3cf30eba9ef71b8b58a90f8f9f0591933c77e5a91917504177d6c24928c09a19",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-SL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择一至两项现代服务业劳动项目参与体验"
+    },
+    {
+      "component_id": "lc_84779deddb326b82",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据服务业劳动特征和过程发现有价值的问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据服务业劳动特征和过程发现有价值的问题，并说明关键步骤、特征或依据。",
+      "label": "根据服务业劳动特征和过程发现有价值的问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据服务业劳动特征和过程发现有价值的问题；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据服务业劳动特征和过程发现有价值的问题",
+          "excerpt_hash": "384b92e62349abe6e7620a7394d8d185293d38aa6e0ef3c81ead6d38e8d406c2",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-SL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据服务业劳动特征和过程发现有价值的问题"
+    },
+    {
+      "component_id": "lc_82e8abd0f97bccd9",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够规划协作流程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生规划协作流程，并说明关键步骤、特征或依据。",
+      "label": "规划协作流程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够规划协作流程；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "规划协作流程",
+          "excerpt_hash": "4a84ad92a900406a3d30c00b32a9c485273924f5ccc4aa2724f26c9011663634",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-SL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "规划协作流程"
+    },
+    {
+      "component_id": "lc_c12ae62e09697af4",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够反思劳动质量",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生反思劳动质量，并说明关键步骤、特征或依据。",
+      "label": "反思劳动质量",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够反思劳动质量；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "反思劳动质量",
+          "excerpt_hash": "7183a8fbee03b379e048527278d4ed6578fdbd0c6cd3aa63470c31916e9cbe23",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-SL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思劳动质量"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_049be7cc65bd93f6",
+      "evidence_refs": [
+        "standard:LA-H4G8-SL-002:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-H4G7-SL-001",
+      "source_label": "能参加校园保洁美化、助残敬老扶弱等公益劳动，体验现代服务业劳动，增强公共服务意识和社会责任感；能选择一至两项现代服务业劳动项目参与体验；能根据…",
+      "target_code": "LA-H4G8-SL-002",
+      "target_label": "能参加校园保洁美化、助残敬老扶弱等公益劳动，体验现代服务业劳动，增强公共服务意识和社会责任感；能选择一至两项现代服务业劳动项目参与体验；能根据…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "449848d9d322d5bff6a5acc357001342969d6afb092eefb4eb9f47ea7bd6d91c",
+  "standard_code": "LA-H4G8-SL-002",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,291 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_b690e2f2d46b08ce"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生正确使用句号、问号、感叹号、冒号、引号的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_904a9f1f3e23ed15",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_dc8acdaa5569b86a"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“正确使用句号、问号、感叹号、冒号、引号”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在习作中正确使用句号、问号、感叹号、冒号、引号。",
+          "excerpt_hash": "86852966581e2aeae0546aa9c404965e08a4ce803c8504da8dc585df250f4ee0",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-CM-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n合作玩“标点医生”游戏：修改网络段子标点。",
+          "excerpt_hash": "c1b879e673928ae845539632443a96fcf5b8974174b734b730a4c5534d969821",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D2-CM-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后正确使用句号、问号、感叹号、冒号、引号，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“正确使用句号、问号、感叹号、冒号、引号”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“合作玩“标点医生”游戏：修改网络段子标点。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0c4523b9c2fee1a2",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6679839735c5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a9aaea7b7d7bee10",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c547fb69f4d34560",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_334af6341558"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ae7100fbda14f7bd",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d8d967cf25144bd3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_97b49cd39424"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f1323e17e6058c4c",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5dc7c0bf6be6fd92",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_61d9923f1ed0457b",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_792ec7ea61bb60ed",
+      "evidence_refs": [
+        "standard:CN-D2-CM-006:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D2-CM-006",
+      "target_code": "CN-D3-CM-006",
+      "target_label": "根据表达需要准确使用常用标点符号。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_dc8acdaa5569b86a",
+      "component_ids": [
+        "lc_b690e2f2d46b08ce"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生正确使用句号、问号、感叹号、冒号、引号。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在习作中，能够正确使用句号、问号、感叹号、冒号、引号；优先采集：情境表达（口头/书面）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在习作中正确使用句号、问号、感叹号、冒号、引号。",
+          "excerpt_hash": "86852966581e2aeae0546aa9c404965e08a4ce803c8504da8dc585df250f4ee0",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-CM-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b690e2f2d46b08ce",
+      "component_type": "language",
+      "condition": "在习作中",
+      "confidence": 0.72,
+      "description": "学生在习作中，能够正确使用句号、问号、感叹号、冒号、引号",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在习作中”的诊断任务，要求学生正确使用句号、问号、感叹号、冒号、引号，并说明关键步骤、特征或依据。",
+      "label": "正确使用句号、问号、感叹号、冒号、引号",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在习作中，能够正确使用句号、问号、感叹号、冒号、引号；优先采集：情境表达（口头/书面）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在习作中正确使用句号、问号、感叹号、冒号、引号。",
+          "excerpt_hash": "86852966581e2aeae0546aa9c404965e08a4ce803c8504da8dc585df250f4ee0",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-CM-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "正确使用句号、问号、感叹号、冒号、引号"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_4254127a1ffd300c",
+      "evidence_refs": [
+        "standard:CN-D2-CM-006:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D1-CM-002",
+      "source_label": "依据观察写 50–80 字写话，语句通顺、表达清楚。",
+      "target_code": "CN-D2-CM-006",
+      "target_label": "在习作中正确使用句号、问号、感叹号、冒号、引号。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "86852966581e2aeae0546aa9c404965e08a4ce803c8504da8dc585df250f4ee0",
+  "standard_code": "CN-D2-CM-006",
+  "verified_prerequisites": []
+}

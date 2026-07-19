@@ -1,0 +1,341 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_c3338a4aad34cfc1"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生辨别媒体中的不良信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b9761082d4957e35",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_25fec56c9ed08836"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“辨别媒体中的不良信息”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能辨别媒体中的不良信息，了解网络环境中如何保护未成年人隐私等合法权益；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "cf14f00132ee1f36e14ec636306dc17e00088745caa0533d8446d877b02e475b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-038:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把不良信息辨别、隐私保护和未成年人合法权益放在同一网络情境中处理。",
+          "excerpt_hash": "f565574383404fad4db5bc581fb6c872a5e800308f7eb3c37d0cff2d3d46e70e",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G8-LAW-038:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后辨别媒体中的不良信息，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“辨别媒体中的不良信息”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“把不良信息辨别、隐私保护和未成年人合法权益放在同一网络情境中处理。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_92e9ae0691c523b3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2860489fc83ddeb6cec5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_76fc538dd0d1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_262756ea29a61d32",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d14726fe6793206c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d8429e42f96b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9eb2e2a90a705049",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_81d9663d311d7cd0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b28ec1f6b081b602",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a667b9e1b638251d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_05dbe85802ac"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c23f52c4ba953c6f",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_999a3d335a24b043",
+      "evidence_refs": [
+        "standard:ML-H4G8-LAW-038:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-H4G8-LAW-038",
+      "target_code": "ML-H4G9-LAW-039",
+      "target_label": "能辨别媒体中的不良信息，了解网络环境中如何保护未成年人隐私等合法权益；能依据规则、价值和证据作出判断并提出行动建议。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_25fec56c9ed08836",
+      "component_ids": [
+        "lc_c3338a4aad34cfc1",
+        "lc_4e1fde7013c3287e",
+        "lc_a6e7f307973a1352"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生辨别媒体中的不良信息。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够辨别媒体中的不良信息；优先采集：安全上网手册、隐私风险分析、主题班会记录。",
+        "学生能够识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征；优先采集：安全上网手册、隐私风险分析、主题班会记录。",
+        "学生能够结合家庭、学校或社会案例分析问题；优先采集：安全上网手册、隐私风险分析、主题班会记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能辨别媒体中的不良信息，了解网络环境中如何保护未成年人隐私等合法权益；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "cf14f00132ee1f36e14ec636306dc17e00088745caa0533d8446d877b02e475b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-038:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "辨别媒体中的不良信息；识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征；结合家庭、学校或社会案例分析问题",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c3338a4aad34cfc1",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够辨别媒体中的不良信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生辨别媒体中的不良信息，并说明关键步骤、特征或依据。",
+      "label": "辨别媒体中的不良信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够辨别媒体中的不良信息；优先采集：安全上网手册、隐私风险分析、主题班会记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨别媒体中的不良信息",
+          "excerpt_hash": "70aa1a5403a183df9fa4e547245e2a85208093eb8a2af437f837c354cb242b89",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-038:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "辨别媒体中的不良信息"
+    },
+    {
+      "component_id": "lc_4e1fde7013c3287e",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出网络环境中如何保护未成年人隐私等合法权益的关键特征；优先采集：安全上网手册、隐私风险分析、主题班会记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解网络环境中如何保护未成年人隐私等合法权益",
+          "excerpt_hash": "50cc852319067a90ca617dfeb950743ab5f8c8360d3f3501c9522e3db4e38f57",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-038:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解网络环境中如何保护未成年人隐私等合法权益"
+    },
+    {
+      "component_id": "lc_a6e7f307973a1352",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够结合家庭、学校或社会案例分析问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合家庭、学校或社会案例分析问题，并说明关键步骤、特征或依据。",
+      "label": "结合家庭、学校或社会案例分析问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够结合家庭、学校或社会案例分析问题；优先采集：安全上网手册、隐私风险分析、主题班会记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "结合家庭、学校或社会案例分析问题",
+          "excerpt_hash": "9f011217b5939392cbd181d22775f8f11d41c522438ab487610a73e9e02bbda8",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-LAW-038:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "结合家庭、学校或社会案例分析问题"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_af64c9c49c354808",
+      "evidence_refs": [
+        "standard:ML-H4G8-LAW-038:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-H4G7-LAW-037",
+      "source_label": "能辨别媒体中的不良信息，了解网络环境中如何保护未成年人隐私等合法权益；能联系个人和校园生活说明基本判断。",
+      "target_code": "ML-H4G8-LAW-038",
+      "target_label": "能辨别媒体中的不良信息，了解网络环境中如何保护未成年人隐私等合法权益；能结合家庭、学校或社会案例分析问题。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "cf14f00132ee1f36e14ec636306dc17e00088745caa0533d8446d877b02e475b",
+  "standard_code": "ML-H4G8-LAW-038",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,600 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_495742442aa34119"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明观点、方法或表达选择的依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ed1f5ce17d79829d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_fdd1e6c378361e76"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点、方法或表达选择的依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明观点、方法或表达选择的依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能探究汉字规律，发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用；能在学习与生活中累计认识常用汉字3500个左右；能根据语境借助工具书认清字形、读准字音、正确理解汉字意思；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "d906bdb6ed1fe579ddb15e1219ab84a1d51848ececb50bb9807e51d64c9bc792",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把字词理解、规范书写、语言积累和表达选择放入真实语境中综合评价。",
+          "excerpt_hash": "e7e4f05ab2df8f93f3926a3a0bad6b0fcfd4420886094731f46ccee2ab343468",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-IN-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明观点、方法或表达选择的依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明观点、方法或表达选择的依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把字词理解、规范书写、语言积累和表达选择放入真实语境中综合评价。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_5b9392bb2342fe0b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在学习与生活中累计认识常用汉字3500个左右的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5052fd7a337658ab",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_01cef5517b9e26f1",
+        "hc_bb688f33a00cef8a"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“在学习与生活中累计认识常用汉字3500个左右”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在学习与生活中累计认识常用汉字3500个左右”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能探究汉字规律，发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用；能在学习与生活中累计认识常用汉字3500个左右；能根据语境借助工具书认清字形、读准字音、正确理解汉字意思；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "d906bdb6ed1fe579ddb15e1219ab84a1d51848ececb50bb9807e51d64c9bc792",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把字词理解、规范书写、语言积累和表达选择放入真实语境中综合评价。",
+          "excerpt_hash": "e7e4f05ab2df8f93f3926a3a0bad6b0fcfd4420886094731f46ccee2ab343468",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-IN-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在学习与生活中累计认识常用汉字3500个左右，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在学习与生活中累计认识常用汉字3500个左右”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把字词理解、规范书写、语言积累和表达选择放入真实语境中综合评价。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_b8247a043300c5b5",
+        "lc_495742442aa34119"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_77b58f6440014ff8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_fdd1e6c378361e76",
+        "hc_207145e51635fd04"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能探究汉字规律，发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用；能在学习与生活中累计认识常用汉字3500个左右；能根据语境借助工具书认清字形、读准字音、正确理解汉字意思；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "d906bdb6ed1fe579ddb15e1219ab84a1d51848ececb50bb9807e51d64c9bc792",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把字词理解、规范书写、语言积累和表达选择放入真实语境中综合评价。",
+          "excerpt_hash": "e7e4f05ab2df8f93f3926a3a0bad6b0fcfd4420886094731f46ccee2ab343468",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-IN-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把字词理解、规范书写、语言积累和表达选择放入真实语境中综合评价。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_b8247a043300c5b5",
+        "lc_5b9392bb2342fe0b",
+        "lc_14a3d1ca1c859edf"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_27e8af19e2833ff3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_01cef5517b9e26f1",
+        "hc_82887025bba954e1",
+        "hc_207145e51635fd04",
+        "hc_bb688f33a00cef8a"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能探究汉字规律，发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用；能在学习与生活中累计认识常用汉字3500个左右；能根据语境借助工具书认清字形、读准字音、正确理解汉字意思；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "d906bdb6ed1fe579ddb15e1219ab84a1d51848ececb50bb9807e51d64c9bc792",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把字词理解、规范书写、语言积累和表达选择放入真实语境中综合评价。",
+          "excerpt_hash": "e7e4f05ab2df8f93f3926a3a0bad6b0fcfd4420886094731f46ccee2ab343468",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G8-IN-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把字词理解、规范书写、语言积累和表达选择放入真实语境中综合评价。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_46dbcfd4ba2b4dd1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f4fb0c2a21f9"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0fb7983518710ace",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6cfc6fd9b051cb45",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_be04d8b55a4f"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d5058d79ff37d1bb",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_e6d1625993797199",
+      "evidence_refs": [
+        "standard:CN-H4G8-IN-001:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-H4G8-IN-001",
+      "target_code": "CN-H4G9-IN-001",
+      "target_label": "能探究汉字规律，发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用；能在学习与生活中累计认识常用汉字3500个左右；能根据语…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_fdd1e6c378361e76",
+      "component_ids": [
+        "lc_495742442aa34119"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点、方法或表达选择的依据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明观点、方法或表达选择的依据；优先采集：字词查检记录、书写样本、词句积累库、表达应用片段。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能探究汉字规律，发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用；能在学习与生活中累计认识常用汉字3500个左右；能根据语境借助工具书认清字形、读准字音、正确理解汉字意思；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "d906bdb6ed1fe579ddb15e1219ab84a1d51848ececb50bb9807e51d64c9bc792",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_01cef5517b9e26f1",
+      "component_ids": [
+        "lc_5b9392bb2342fe0b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在学习与生活中累计认识常用汉字3500个左右。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在学习与生活中累计认识常用汉字3500个左右；优先采集：字词查检记录、书写样本、词句积累库、表达应用片段。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能探究汉字规律，发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用；能在学习与生活中累计认识常用汉字3500个左右；能根据语境借助工具书认清字形、读准字音、正确理解汉字意思；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "d906bdb6ed1fe579ddb15e1219ab84a1d51848ececb50bb9807e51d64c9bc792",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_82887025bba954e1",
+      "component_ids": [
+        "lc_14a3d1ca1c859edf"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据语境借助工具书认清字形、读准字音、正确理解汉字意思。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据语境借助工具书认清字形、读准字音、正确理解汉字意思；优先采集：字词查检记录、书写样本、词句积累库、表达应用片段。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能探究汉字规律，发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用；能在学习与生活中累计认识常用汉字3500个左右；能根据语境借助工具书认清字形、读准字音、正确理解汉字意思；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "d906bdb6ed1fe579ddb15e1219ab84a1d51848ececb50bb9807e51d64c9bc792",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_207145e51635fd04",
+      "component_ids": [
+        "lc_b8247a043300c5b5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用；优先采集：字词查检记录、书写样本、词句积累库、表达应用片段。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能探究汉字规律，发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用；能在学习与生活中累计认识常用汉字3500个左右；能根据语境借助工具书认清字形、读准字音、正确理解汉字意思；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "d906bdb6ed1fe579ddb15e1219ab84a1d51848ececb50bb9807e51d64c9bc792",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_bb688f33a00cef8a",
+      "component_ids": [
+        "lc_5b9392bb2342fe0b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "3500个左右"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在学习与生活中累计认识常用汉字3500个左右。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在学习与生活中累计认识常用汉字3500个左右；优先采集：字词查检记录、书写样本、词句积累库、表达应用片段。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能探究汉字规律，发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用；能在学习与生活中累计认识常用汉字3500个左右；能根据语境借助工具书认清字形、读准字音、正确理解汉字意思；能整合材料并说明观点、方法或表达选择的依据。",
+          "excerpt_hash": "d906bdb6ed1fe579ddb15e1219ab84a1d51848ececb50bb9807e51d64c9bc792",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（3500个左右）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_e9801e74e8fcec6f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够探究汉字规律",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生探究汉字规律，并说明关键步骤、特征或依据。",
+      "label": "探究汉字规律",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够探究汉字规律；优先采集：字词查检记录、书写样本、词句积累库、表达应用片段。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "探究汉字规律",
+          "excerpt_hash": "72a3cb374edd83d707dbf071f7cdef85b0007f247b5cf44a9620183bac36edb4",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "探究汉字规律"
+    },
+    {
+      "component_id": "lc_b8247a043300c5b5",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用，并说明关键步骤、特征或依据。",
+      "label": "发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用；优先采集：字词查检记录、书写样本、词句积累库、表达应用片段。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用",
+          "excerpt_hash": "557885c81a5412b6f430a13f65ee6bb5d38b3cd10c8790c8d88ec7f59bfb26e8",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用"
+    },
+    {
+      "component_id": "lc_5b9392bb2342fe0b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在学习与生活中累计认识常用汉字3500个左右",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在学习与生活中累计认识常用汉字3500个左右，并说明关键步骤、特征或依据。",
+      "label": "在学习与生活中累计认识常用汉字3500个左右",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在学习与生活中累计认识常用汉字3500个左右；优先采集：字词查检记录、书写样本、词句积累库、表达应用片段。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在学习与生活中累计认识常用汉字3500个左右",
+          "excerpt_hash": "c78bbe646ea90734c868576c75da1cc01bb8a94cde4432399745c7429d7eb931",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在学习与生活中累计认识常用汉字3500个左右"
+    },
+    {
+      "component_id": "lc_14a3d1ca1c859edf",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据语境借助工具书认清字形、读准字音、正确理解汉字意思",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据语境借助工具书认清字形、读准字音、正确理解汉字意思，并说明关键步骤、特征或依据。",
+      "label": "根据语境借助工具书认清字形、读准字音、正确理解汉字意思",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据语境借助工具书认清字形、读准字音、正确理解汉字意思；优先采集：字词查检记录、书写样本、词句积累库、表达应用片段。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据语境借助工具书认清字形、读准字音、正确理解汉字意思",
+          "excerpt_hash": "e69d188c87b7a95ab77f66ae426ebc1f4018a00d3e37702512ac90f5290e2630",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据语境借助工具书认清字形、读准字音、正确理解汉字意思"
+    },
+    {
+      "component_id": "lc_aad57ab9449ea540",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够整合材料",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合材料，并说明关键步骤、特征或依据。",
+      "label": "整合材料",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够整合材料；优先采集：字词查检记录、书写样本、词句积累库、表达应用片段。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "整合材料",
+          "excerpt_hash": "c6c8b0ffb05ba398d2a4a4fb4f067efe130af369012aceee836b9c0c870e2710",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "整合材料"
+    },
+    {
+      "component_id": "lc_495742442aa34119",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明观点、方法或表达选择的依据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点、方法或表达选择的依据，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明观点、方法或表达选择的依据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明观点、方法或表达选择的依据；优先采集：字词查检记录、书写样本、词句积累库、表达应用片段。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明观点、方法或表达选择的依据",
+          "excerpt_hash": "04a7ab3f43a7836e4d3a1304eb39d0a43cdf66ecd30248e80d1cdebbd172b84a",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G8-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明观点、方法或表达选择的依据"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_f3482ef88553a485",
+      "evidence_refs": [
+        "standard:CN-H4G8-IN-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-H4G7-IN-002",
+      "source_label": "能根据语境借助工具书认清字形、读准字音、正确理解汉字意思；能在学习与生活中累计认识常用汉字3500个左右；能规范、端正、整洁地书写常用汉字；能…",
+      "target_code": "CN-H4G8-IN-001",
+      "target_label": "能探究汉字规律，发现并积累不同语境下具有个性化特征的词句和段落，并按表达需要选择使用；能在学习与生活中累计认识常用汉字3500个左右；能根据语…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d906bdb6ed1fe579ddb15e1219ab84a1d51848ececb50bb9807e51d64c9bc792",
+  "standard_code": "CN-H4G8-IN-001",
+  "verified_prerequisites": []
+}

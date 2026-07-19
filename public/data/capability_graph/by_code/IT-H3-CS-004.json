@@ -1,0 +1,227 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_2d1bd9056d232124"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生针对简单问题设计求解算法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4495ebe1f21bd14d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_48103e5134d62680"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“针对简单问题设计求解算法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“针对简单问题设计求解算法”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能针对简单问题设计求解算法，选择合适的控制结构将算法转化为程序或在编程环境中实现，并通过测试用例验证算法的正确性，能根据测试结果做出基本修改。",
+          "excerpt_hash": "bcc5d1444921b983269c0e5252b7509d9b695d1d196a18190ac83f70c9fd4d0f",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【从算法到程序的最小闭环】\n(1) “三件套”流程：设定输入/输出 → 写算法（流程图/伪代码）→ 写程序（块状/文本均可）→ 用测试用例验证。\n(2) 测试用例分层：正常值、边界值、异常值（如空输入/最小规模）。引导学生先预测结果，再运行对照。\n(3) 调试指导：把错误分成“逻辑错（条件/循环）”与“实现错（变量/拼写/连线）”，让学生用打印/显示变量或单步执行定位。\n(4) 允许“读改跑”：对较复杂算法提供半成品代码，学生通过阅读、修改参数/条件完成验证，降低门槛（与课程建议一致）。",
+          "excerpt_hash": "a6fc31a9fd00c1f6b83128a206bda923c56a34f3b445483ea77c7f26a0133e1c",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后针对简单问题设计求解算法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“针对简单问题设计求解算法”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“【从算法到程序的最小闭环】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0501,
+      "connection_id": "fc_b707fccf56f47b1c",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H3-CS-004",
+      "target_code": "IT-H4G7-CS-002",
+      "target_label": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能根据需求设计并搭建简单物联系统原型；能说明数字工具或数据过程的基本做法。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_48103e5134d62680",
+      "component_ids": [
+        "lc_2d1bd9056d232124"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生针对简单问题设计求解算法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够针对简单问题设计求解算法；优先采集：程序作品、测试用例表、修改记录、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能针对简单问题设计求解算法，选择合适的控制结构将算法转化为程序或在编程环境中实现，并通过测试用例验证算法的正确性，能根据测试结果做出基本修改。",
+          "excerpt_hash": "bcc5d1444921b983269c0e5252b7509d9b695d1d196a18190ac83f70c9fd4d0f",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_64bcbac850b9048e",
+      "component_ids": [
+        "lc_2d7957d2ae7022f3"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生选择合适的控制结构将算法转化为程序或在编程环境中实现，并通过测试用例验证算法的正确性。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够选择合适的控制结构将算法转化为程序或在编程环境中实现，并通过测试用例验证算法的正确性；优先采集：程序作品、测试用例表、修改记录、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能针对简单问题设计求解算法，选择合适的控制结构将算法转化为程序或在编程环境中实现，并通过测试用例验证算法的正确性，能根据测试结果做出基本修改。",
+          "excerpt_hash": "bcc5d1444921b983269c0e5252b7509d9b695d1d196a18190ac83f70c9fd4d0f",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_2d1bd9056d232124",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够针对简单问题设计求解算法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生针对简单问题设计求解算法，并说明关键步骤、特征或依据。",
+      "label": "针对简单问题设计求解算法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够针对简单问题设计求解算法；优先采集：程序作品、测试用例表、修改记录、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "针对简单问题设计求解算法",
+          "excerpt_hash": "8b6b3f12f729f57beb16ce7b9cbdff4068fb1778f1b6d1d659238751d4c1e413",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "针对简单问题设计求解算法"
+    },
+    {
+      "component_id": "lc_2d7957d2ae7022f3",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择合适的控制结构将算法转化为程序或在编程环境中实现，并通过测试用例验证算法的正确性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择合适的控制结构将算法转化为程序或在编程环境中实现，并通过测试用例验证算法的正确性，并说明关键步骤、特征或依据。",
+      "label": "选择合适的控制结构将算法转化为程序或在编程环境中实现，并通过测试用例验证算法的正确性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择合适的控制结构将算法转化为程序或在编程环境中实现，并通过测试用例验证算法的正确性；优先采集：程序作品、测试用例表、修改记录、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择合适的控制结构将算法转化为程序或在编程环境中实现，并通过测试用例验证算法的正确性",
+          "excerpt_hash": "6c1815009b1ca83c8e9f49d4687fdf035e3fb3a989815a336b720b452de64490",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择合适的控制结构将算法转化为程序或在编程环境中实现，并通过测试用例验证算法的正确性"
+    },
+    {
+      "component_id": "lc_70921c949499aa02",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据测试结果做出基本修改",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据测试结果做出基本修改，并说明关键步骤、特征或依据。",
+      "label": "根据测试结果做出基本修改",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据测试结果做出基本修改；优先采集：程序作品、测试用例表、修改记录、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据测试结果做出基本修改",
+          "excerpt_hash": "47b0d8afbaf5ebe822319e99fc325bbe33c717ebf7ae8fae72061cb536ba8b7c",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据测试结果做出基本修改"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "bcc5d1444921b983269c0e5252b7509d9b695d1d196a18190ac83f70c9fd4d0f",
+  "standard_code": "IT-H3-CS-004",
+  "verified_prerequisites": []
+}

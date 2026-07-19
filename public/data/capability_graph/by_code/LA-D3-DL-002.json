@@ -1,0 +1,224 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_440b195aae4801eb"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生区分去油/去垢/消毒的基本目的并规范收尾的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_10d967c7ff797fee",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4ec85b105abe911b",
+        "hc_939884151af537d1"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“区分去油/去垢/消毒的基本目的并规范收尾”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“区分去油/去垢/消毒的基本目的并规范收尾”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下完成厨房或卫生间的重点区域清洁（台面、灶台、洗手池/马桶外部等），能区分去油/去垢/消毒的基本目的并规范收尾。",
+          "excerpt_hash": "72fb2a5b4f9c750404fd67754b6805d3a12857912bc1422964dde92523fc893f",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“污渍类型→清洁方法”表；强调清洁顺序（由上到下、由净到污）；让学生识别“需要消毒”的场景与频率。",
+          "excerpt_hash": "ca8d851d74d727be87fb0e83c4038c60590f8f8c41f6db18a289215d94817950",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-DL-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后区分去油/去垢/消毒的基本目的并规范收尾，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“区分去油/去垢/消毒的基本目的并规范收尾”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“用“污渍类型→清洁方法”表”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.09,
+      "connection_id": "fc_ec10501e94350962",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-013:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-DL-002",
+      "target_code": "LA-H4G7-DL-013",
+      "target_label": "能在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神；能按规范完成任务并说明工具、材料或安全要求。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_4ec85b105abe911b",
+      "component_ids": [
+        "lc_440b195aae4801eb"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "区分"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生区分去油/去垢/消毒的基本目的并规范收尾。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在成人指导下，能够区分去油/去垢/消毒的基本目的并规范收尾；优先采集：前后对比照片、自检清单、家长/教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下完成厨房或卫生间的重点区域清洁（台面、灶台、洗手池/马桶外部等），能区分去油/去垢/消毒的基本目的并规范收尾。",
+          "excerpt_hash": "72fb2a5b4f9c750404fd67754b6805d3a12857912bc1422964dde92523fc893f",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（区分）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_939884151af537d1",
+      "component_ids": [
+        "lc_440b195aae4801eb"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "规范"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生区分去油/去垢/消毒的基本目的并规范收尾。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在成人指导下，能够区分去油/去垢/消毒的基本目的并规范收尾；优先采集：前后对比照片、自检清单、家长/教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下完成厨房或卫生间的重点区域清洁（台面、灶台、洗手池/马桶外部等），能区分去油/去垢/消毒的基本目的并规范收尾。",
+          "excerpt_hash": "72fb2a5b4f9c750404fd67754b6805d3a12857912bc1422964dde92523fc893f",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（规范）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_08e983e7ec9ae0c0",
+      "component_type": "procedural",
+      "condition": "在成人指导下",
+      "confidence": 0.72,
+      "description": "学生在成人指导下，能够完成厨房或卫生间的重点区域清洁（台面、灶台、洗手池/马桶外部等）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人指导下”的诊断任务，要求学生完成厨房或卫生间的重点区域清洁（台面、灶台、洗手池/马桶外部等），并说明关键步骤、特征或依据。",
+      "label": "完成厨房或卫生间的重点区域清洁（台面、灶台、洗手池/马桶外部等）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人指导下，能够完成厨房或卫生间的重点区域清洁（台面、灶台、洗手池/马桶外部等）；优先采集：前后对比照片、自检清单、家长/教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下完成厨房或卫生间的重点区域清洁（台面、灶台、洗手池/马桶外部等），能区分去油/去垢/消毒的基本目的并规范收尾。",
+          "excerpt_hash": "72fb2a5b4f9c750404fd67754b6805d3a12857912bc1422964dde92523fc893f",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成厨房或卫生间的重点区域清洁（台面、灶台、洗手池/马桶外部等）"
+    },
+    {
+      "component_id": "lc_440b195aae4801eb",
+      "component_type": "conceptual",
+      "condition": "在成人指导下",
+      "confidence": 0.72,
+      "description": "学生在成人指导下，能够区分去油/去垢/消毒的基本目的并规范收尾",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人指导下”的诊断任务，要求学生区分去油/去垢/消毒的基本目的并规范收尾，并说明关键步骤、特征或依据。",
+      "label": "区分去油/去垢/消毒的基本目的并规范收尾",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人指导下，能够区分去油/去垢/消毒的基本目的并规范收尾；优先采集：前后对比照片、自检清单、家长/教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下完成厨房或卫生间的重点区域清洁（台面、灶台、洗手池/马桶外部等），能区分去油/去垢/消毒的基本目的并规范收尾。",
+          "excerpt_hash": "72fb2a5b4f9c750404fd67754b6805d3a12857912bc1422964dde92523fc893f",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "区分去油/去垢/消毒的基本目的并规范收尾"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_01a18c877da228e8",
+      "evidence_refs": [
+        "standard:LA-D3-DL-002:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-DL-002",
+      "source_label": "能对衣物进行基本分类（深浅色/内外衣/脏污程度），完成小件衣物手洗或在成人指导下使用洗衣机进行洗涤与晾晒，能保持过程卫生并节约用水用电。",
+      "target_code": "LA-D3-DL-002",
+      "target_label": "能在成人指导下完成厨房或卫生间的重点区域清洁（台面、灶台、洗手池/马桶外部等），能区分去油/去垢/消毒的基本目的并规范收尾。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "72fb2a5b4f9c750404fd67754b6805d3a12857912bc1422964dde92523fc893f",
+  "standard_code": "LA-D3-DL-002",
+  "verified_prerequisites": []
+}

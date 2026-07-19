@@ -1,0 +1,259 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_9b024bb520843e81"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用体能发展的基础知识与多种练习方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8344dfb10a71ac62",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1ddba8308aa40f1e"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用体能发展的基础知识与多种练习方法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用体能发展的基础知识与多种练习方法”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解并运用体能发展的基础知识与多种练习方法，能选择1项体能进行科学测评并记录变化。",
+          "excerpt_hash": "d7bff4ebb5f859968487966359b103c5b3caeb087dddf74ce36ad9b746485edd",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-PF-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "以“体能九宫格”（心肺、力量、耐力、柔韧、速度、协调、灵敏、爆发、平衡）建立概念框架；采用分站学习：每站示范1种测评与1种练习方法（如单脚闭眼站立测平衡、折返跑测灵敏）。强调测评规范（热身、同一条件、记录单位）与安全（不憋气、不超负荷）。引导学生根据数据设定可达目标。",
+          "excerpt_hash": "186ba4253e485975bee46042575cd28afa1cc1b18920a8ce9f444c6ea7ed64ca",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-PF-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用体能发展的基础知识与多种练习方法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用体能发展的基础知识与多种练习方法”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“以“体能九宫格”（心肺、力量、耐力、柔韧、速度、协调、灵敏、爆发、平衡）建立概念框架”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1769,
+      "connection_id": "fc_8fde51cd0ede92da",
+      "evidence_refs": [
+        "standard:PE-H4G7-PF-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-PF-001",
+      "target_code": "PE-H4G7-PF-004",
+      "target_label": "能理解并运用改善身体成分和发展心肺耐力的基本原理与多种练习方法；能合理安排锻炼项目、时间、频率和强度；能主动参与和组织体能活动与比赛；能完成基…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1606,
+      "connection_id": "fc_1a30881103b3a8a4",
+      "evidence_refs": [
+        "standard:PE-H4G7-PF-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-PF-001",
+      "target_code": "PE-H4G7-PF-007",
+      "target_label": "能理解并运用发展肌肉力量、肌肉耐力、柔韧性、反应能力、位移速度、协调性、灵敏性、爆发力和平衡能力的基本原理和多种练习方法；能主动参与和组织体能…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_1ddba8308aa40f1e",
+      "component_ids": [
+        "lc_0b5f53f860f73666",
+        "lc_9b024bb520843e81"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "多种"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出体能发展的基础知识与多种练习方法的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出体能发展的基础知识与多种练习方法的关键特征；优先采集：测评记录表、学习反思、教师观察。",
+        "学生能够运用体能发展的基础知识与多种练习方法；优先采集：测评记录表、学习反思、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解并运用体能发展的基础知识与多种练习方法，能选择1项体能进行科学测评并记录变化。",
+          "excerpt_hash": "d7bff4ebb5f859968487966359b103c5b3caeb087dddf74ce36ad9b746485edd",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-PF-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（多种）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_0b5f53f860f73666",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出体能发展的基础知识与多种练习方法的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出体能发展的基础知识与多种练习方法的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出体能发展的基础知识与多种练习方法的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出体能发展的基础知识与多种练习方法的关键特征；优先采集：测评记录表、学习反思、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解并运用体能发展的基础知识与多种练习方法",
+          "excerpt_hash": "760159da2992377754dbda1fed8549fcfdb9ef63de6337fe7ea6138f887a95d2",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-PF-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解体能发展的基础知识与多种练习方法"
+    },
+    {
+      "component_id": "lc_9b024bb520843e81",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用体能发展的基础知识与多种练习方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用体能发展的基础知识与多种练习方法，并说明关键步骤、特征或依据。",
+      "label": "运用体能发展的基础知识与多种练习方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用体能发展的基础知识与多种练习方法；优先采集：测评记录表、学习反思、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用体能发展的基础知识与多种练习方法",
+          "excerpt_hash": "7c1251a23dfeac1a732fdf624dbf4099d2aa637a92457fd002dc564c8164c440",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-PF-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用体能发展的基础知识与多种练习方法"
+    },
+    {
+      "component_id": "lc_8626dfd59b89aaa9",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择1项体能进行科学测评",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择1项体能进行科学测评，并说明关键步骤、特征或依据。",
+      "label": "选择1项体能进行科学测评",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择1项体能进行科学测评；优先采集：测评记录表、学习反思、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择1项体能进行科学测评",
+          "excerpt_hash": "edf5e9950ce73ac742ad59f1a0e0736bfcc8200a01ab109a8902ab21200ad89f",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-PF-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择1项体能进行科学测评"
+    },
+    {
+      "component_id": "lc_739479880763cbb1",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够记录变化",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生记录变化，并说明关键步骤、特征或依据。",
+      "label": "记录变化",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够记录变化；优先采集：测评记录表、学习反思、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "记录变化",
+          "excerpt_hash": "3b69d7f0025ece365b1e0cc9393fcd2238c966c6433ecc89441dbf6be063ad3a",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-PF-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "记录变化"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_7adebd6e61f69156",
+      "evidence_refs": [
+        "standard:PE-D3-PF-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-PF-001",
+      "source_label": "在教师指导下能参与多种体能活动、游戏和比赛。",
+      "target_code": "PE-D3-PF-001",
+      "target_label": "了解并运用体能发展的基础知识与多种练习方法，能选择1项体能进行科学测评并记录变化。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d7bff4ebb5f859968487966359b103c5b3caeb087dddf74ce36ad9b746485edd",
+  "standard_code": "PE-D3-PF-001",
+  "verified_prerequisites": []
+}

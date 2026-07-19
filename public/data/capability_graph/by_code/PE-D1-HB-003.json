@@ -1,0 +1,242 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_1287a7383c4200d0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生准确说出个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e3143df8e67e57e7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d597362386676ede",
+        "hc_c1381cd632c3e290"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“准确说出个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“准确说出个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中。",
+          "excerpt_hash": "30ab2e7d641c398e803e95eebc336c8961121f6c36d4fe45a95ed3072b919751",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "（健康教育教学提示）1) 创设生活化情境，把健康教育与学生真实生活链接；2) 指导学生在锻炼中体验运动乐趣，参与户外游戏/身体活动，形成锻炼习惯；3) 用学习单/任务单/实践活动帮助掌握健康知识与技能；4) 结合体育活动与日常生活，培养安全意识与自我保护能力。",
+          "excerpt_hash": "712acf24ab220ab0065215191471a11c5a7bd014940d474767bb959a3a776fc8",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D1-HB-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后准确说出个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“（健康教育教学提示）1) 创设生活化情境，把健康教育与学生真实生活链接”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_aa7eab78c900535c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_729e6607eab953ee2165",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_1_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_ee2b7c40f4dccca4",
+      "textbook_grade": 1,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康1年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bb59269a8619ada0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c6389a9109e39310cf86",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_2_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_73d28c16a2eec793",
+      "textbook_grade": 2,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康2年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_44c885107d48cd31",
+      "evidence_refs": [
+        "standard:PE-D1-HB-003:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D1-HB-003",
+      "target_code": "PE-D2-HB-003",
+      "target_label": "能说出体育活动中的安全常识，并在活动中遵守。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_d597362386676ede",
+      "component_ids": [
+        "lc_1287a7383c4200d0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中；优先采集：（演示/情景应对）、作品/照片。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中。",
+          "excerpt_hash": "30ab2e7d641c398e803e95eebc336c8961121f6c36d4fe45a95ed3072b919751",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_c1381cd632c3e290",
+      "component_ids": [
+        "lc_1287a7383c4200d0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中；优先采集：（演示/情景应对）、作品/照片。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中。",
+          "excerpt_hash": "30ab2e7d641c398e803e95eebc336c8961121f6c36d4fe45a95ed3072b919751",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_1287a7383c4200d0",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中，并说明关键步骤、特征或依据。",
+      "label": "准确说出个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中；优先采集：（演示/情景应对）、作品/照片。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中",
+          "excerpt_hash": "c9843645f0eff687fa7ca289cdceb3b3e00e94feb63ec786422ba45dcdb50883",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道个人卫生保健、营养膳食、安全避险等健康知识和方法，并将其运用于日常生活中"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "30ab2e7d641c398e803e95eebc336c8961121f6c36d4fe45a95ed3072b919751",
+  "standard_code": "PE-D1-HB-003",
+  "verified_prerequisites": []
+}

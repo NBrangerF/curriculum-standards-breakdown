@@ -1,0 +1,342 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_85cf9850631bce32",
+        "lc_6435a6605fbda9ef",
+        "lc_612b5afbbb535318"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用四则混合运算解决问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3299cb1904198e3f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2af00b7ca8950b92"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用四则混合运算解决问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用四则混合运算解决问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在简单的实际情境中，运用四则混合运算解决问题；能选择合适的单位通过估算解决实际问题，形成初步的应用意识。",
+          "excerpt_hash": "4c226a7d880267638cd4c8b430fecaa4fb5550dc4d160c9646dc1cd6a071b221",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "估算教学要引导学生在具体问题情境中选择合适的单位进行估算，体会估算在解决实际问题中的作用，了解估算的实际意义。",
+          "excerpt_hash": "38dc3a9e36b0fe65b2b998cdf471d1e6e40c39e7cdcfc63069f5fbcab30dc86e",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-AL-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用四则混合运算解决问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用四则混合运算解决问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“估算教学要引导学生在具体问题情境中选择合适的单位进行估算，体会估算在解决实际问题中的作用，了解估算的实际意义。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_276d4e18adf52dba",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_833ce42b24662dbd40af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ec280d20713"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_96d95cbb27d9412e",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2525cf48e42a5e38",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f61cbfb4e176d8e2",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_284391d767a15ea0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e8d4a6502261fd8416ff",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_19111441ff11"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_056cb0cc3385568d",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_56d3dc85060175aa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f7680a7d4b92"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7b7248af637aca0a",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_e5ab885906f58fc0",
+      "evidence_refs": [
+        "standard:MA-D2-AL-005:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D2-AL-005",
+      "target_code": "MA-D3-AL-005",
+      "target_label": "能在解决实际问题的过程中，选择合适的方法进行估算，并能描述估算的过程。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_2af00b7ca8950b92",
+      "component_ids": [
+        "lc_6435a6605fbda9ef"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "实际",
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生选择合适的单位通过估算解决实际问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够选择合适的单位通过估算解决实际问题；优先采集：解题过程记录、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在简单的实际情境中，运用四则混合运算解决问题；能选择合适的单位通过估算解决实际问题，形成初步的应用意识。",
+          "excerpt_hash": "4c226a7d880267638cd4c8b430fecaa4fb5550dc4d160c9646dc1cd6a071b221",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（实际、情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_85cf9850631bce32",
+      "component_type": "procedural",
+      "condition": "在简单的实际情境中",
+      "confidence": 0.72,
+      "description": "学生在简单的实际情境中，能够运用四则混合运算解决问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在简单的实际情境中”的诊断任务，要求学生运用四则混合运算解决问题，并说明关键步骤、特征或依据。",
+      "label": "运用四则混合运算解决问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在简单的实际情境中，能够运用四则混合运算解决问题；优先采集：解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在简单的实际情境中，运用四则混合运算解决问题",
+          "excerpt_hash": "49a9f8124c7a908fcd921493342c4fb50cedd27d59e2d51e643846f7ad5e042c",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用四则混合运算解决问题"
+    },
+    {
+      "component_id": "lc_6435a6605fbda9ef",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择合适的单位通过估算解决实际问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择合适的单位通过估算解决实际问题，并说明关键步骤、特征或依据。",
+      "label": "选择合适的单位通过估算解决实际问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择合适的单位通过估算解决实际问题；优先采集：解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择合适的单位通过估算解决实际问题",
+          "excerpt_hash": "7a7ce27e6aced714c36e3d12b47f21ac98bbea88f9f42307cd432a026ffc8969",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择合适的单位通过估算解决实际问题"
+    },
+    {
+      "component_id": "lc_612b5afbbb535318",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出初步的应用意识并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出初步的应用意识并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出初步的应用意识并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出初步的应用意识并说明选择理由；优先采集：解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成初步的应用意识",
+          "excerpt_hash": "e5919fa39d58bc4cc371313bdcbafa6d448e7e6dc3a88c0b8296f8a011d44fad",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成初步的应用意识"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_1a0165a14efd0503",
+      "evidence_refs": [
+        "standard:MA-D2-AL-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D1-AL-003",
+      "source_label": "熟悉生活情境，运用数和运算合理表达简单数量关系，解决简单问题；在解决问题过程中解释计算结果的实际意义，感悟数学与现实世界的联系，形成初步模型意…",
+      "target_code": "MA-D2-AL-005",
+      "target_label": "能在简单的实际情境中，运用四则混合运算解决问题；能选择合适的单位通过估算解决实际问题，形成初步的应用意识。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4c226a7d880267638cd4c8b430fecaa4fb5550dc4d160c9646dc1cd6a071b221",
+  "standard_code": "MA-D2-AL-005",
+  "verified_prerequisites": []
+}

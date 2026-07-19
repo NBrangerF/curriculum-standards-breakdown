@@ -275,6 +275,50 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         return ok(c, version, textbooks, { total: textbooks.length })
     })
 
+    app.get('/api/v1/standards/:code/capability-graph', async c => {
+        const version = await repository.loadDataVersion()
+        const lookup = await resolveStandardOrError(c, c.req.param('code'))
+        if (lookup.response) return lookup.response
+        const record = lookup.resolved!.record!
+        const graph = await repository.loadCapabilityGraphForCode(record.code)
+        if (!graph) return apiError(c, 404, 'capability_graph_not_found', `未找到课程标准能力图谱：${record.code}`)
+        const learningComponents = Array.isArray(graph.learning_components) ? graph.learning_components : []
+        const verifiedPrerequisites = Array.isArray(graph.verified_prerequisites) ? graph.verified_prerequisites : []
+        const prerequisiteCandidates = Array.isArray(graph.prerequisite_candidates) ? graph.prerequisite_candidates : []
+        const hardestCases = Array.isArray(graph.hardest_cases) ? graph.hardest_cases : []
+        const commonDifficulties = Array.isArray(graph.common_difficulties) ? graph.common_difficulties : []
+        const curriculumAlignments = Array.isArray(graph.curriculum_alignments) ? graph.curriculum_alignments : []
+        const forwardConnections = Array.isArray(graph.forward_connections) ? graph.forward_connections : []
+        const prerequisiteReviewCoverage = graph.prerequisite_review_coverage && typeof graph.prerequisite_review_coverage === 'object'
+            ? graph.prerequisite_review_coverage
+            : {}
+        const prerequisiteReviewStatus = typeof (prerequisiteReviewCoverage as Record<string, unknown>).status === 'string'
+            ? String((prerequisiteReviewCoverage as Record<string, unknown>).status)
+            : 'not_measured'
+        return ok(c, version, {
+            standard_code: record.code,
+            schema_version: graph.capability_graph_schema_version || null,
+            generation_method: graph.capability_graph_method || null,
+            source_standard_hash: graph.source_standard_hash || null,
+            learning_components: learningComponents,
+            verified_prerequisites: verifiedPrerequisites,
+            prerequisite_candidates: prerequisiteCandidates,
+            prerequisite_review_coverage: prerequisiteReviewCoverage,
+            hardest_cases: hardestCases,
+            common_difficulties: commonDifficulties,
+            curriculum_alignments: curriculumAlignments,
+            curriculum_alignment_summary: graph.curriculum_alignment_summary || {},
+            forward_connections: forwardConnections
+        }, {
+            resolved_from: lookup.resolved!.resolved_from || undefined,
+            learning_component_count: learningComponents.length,
+            verified_prerequisite_count: verifiedPrerequisites.length,
+            prerequisite_candidate_count: prerequisiteCandidates.length,
+            curriculum_alignment_count: curriculumAlignments.length,
+            prerequisite_review_coverage: prerequisiteReviewStatus
+        })
+    })
+
     app.get('/api/v1/subjects', async c => {
         const [version, manifest, metadata, stats] = await Promise.all([
             repository.loadDataVersion(),

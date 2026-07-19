@@ -1,0 +1,564 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_d6b81dbf7cf09ac0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明作品意图或效果的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e2aa6a591da27f69",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b3142fdfa367ed61"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明作品意图或效果”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明作品意图或效果”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能借鉴不同地域中华优秀传统文化特色设计文创产品；运用传统工艺制作方法制作工艺品；能安全使用工具材料；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "f59bb734dd65e2d741b80f1a9665f55b423e5f894d124287ec9b48329fc677a0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生理解中华优秀传统文化需要创造性转化、创新性发展。",
+          "excerpt_hash": "8b74740fdae3229568ffb3c4033af4e8a8f579705ec29f8e8a44f3f185d0dc11",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G8-CU-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明作品意图或效果，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明作品意图或效果”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生理解中华优秀传统文化需要创造性转化、创新性发展。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_92a63692c08f4a76"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用传统工艺制作方法制作工艺品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0b8a82e02060c75e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5a53a6d86dbf312e"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用传统工艺制作方法制作工艺品”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用传统工艺制作方法制作工艺品”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能借鉴不同地域中华优秀传统文化特色设计文创产品；运用传统工艺制作方法制作工艺品；能安全使用工具材料；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "f59bb734dd65e2d741b80f1a9665f55b423e5f894d124287ec9b48329fc677a0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生理解中华优秀传统文化需要创造性转化、创新性发展。",
+          "excerpt_hash": "8b74740fdae3229568ffb3c4033af4e8a8f579705ec29f8e8a44f3f185d0dc11",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G8-CU-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用传统工艺制作方法制作工艺品，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用传统工艺制作方法制作工艺品”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“引导学生理解中华优秀传统文化需要创造性转化、创新性发展。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_d10c715697088656",
+        "lc_92a63692c08f4a76"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生借鉴不同地域中华优秀传统文化特色设计文创产品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a2dca4fdc9b7e2cb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5a53a6d86dbf312e",
+        "hc_7b92fa5a33d42abb"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“借鉴不同地域中华优秀传统文化特色设计文创产品”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“借鉴不同地域中华优秀传统文化特色设计文创产品”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能借鉴不同地域中华优秀传统文化特色设计文创产品；运用传统工艺制作方法制作工艺品；能安全使用工具材料；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "f59bb734dd65e2d741b80f1a9665f55b423e5f894d124287ec9b48329fc677a0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生理解中华优秀传统文化需要创造性转化、创新性发展。",
+          "excerpt_hash": "8b74740fdae3229568ffb3c4033af4e8a8f579705ec29f8e8a44f3f185d0dc11",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G8-CU-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后借鉴不同地域中华优秀传统文化特色设计文创产品，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“借鉴不同地域中华优秀传统文化特色设计文创产品”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“引导学生理解中华优秀传统文化需要创造性转化、创新性发展。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_94ae39d840d5ba6c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_03a3ee5b0a046f990193",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c4470d97d606"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_49008e32afb1ea73",
+      "textbook_grade": 8,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d9cba61e235c2b28",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5176fbbfb48b6f094ec5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_3f3ef809a59b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3937cb93e59941dd",
+      "textbook_grade": 8,
+      "textbook_subject": "美术",
+      "textbook_title": "美术8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_750faa53fe5b3578",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_8af324795e3ff5e3ad56",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5456c0d80ef9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_66b34c8187cbffd0",
+      "textbook_grade": 8,
+      "textbook_subject": "美术",
+      "textbook_title": "美术8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_00d62b775e3fc9d0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c2c429ae25127d8a61ca",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_841b34386a8a"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e236fa847f007794",
+      "textbook_grade": 8,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_564c3ce4fc03f5ab",
+      "evidence_refs": [
+        "standard:AR-H4G8-CU-012:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-H4G8-CU-012",
+      "target_code": "AR-H4G9-CU-013",
+      "target_label": "能反思作品并倾听建议加以改进；能安全使用工具材料；能借鉴不同地域中华优秀传统文化特色设计文创产品；能评价作品效果并完善展演、创作或文化阐释。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b3142fdfa367ed61",
+      "component_ids": [
+        "lc_d6b81dbf7cf09ac0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明作品意图或效果。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明作品意图或效果；优先采集：文创产品、工艺作品、反思说明、改进记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能借鉴不同地域中华优秀传统文化特色设计文创产品；运用传统工艺制作方法制作工艺品；能安全使用工具材料；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "f59bb734dd65e2d741b80f1a9665f55b423e5f894d124287ec9b48329fc677a0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_5a53a6d86dbf312e",
+      "component_ids": [
+        "lc_d10c715697088656",
+        "lc_92a63692c08f4a76"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生借鉴不同地域中华优秀传统文化特色设计文创产品。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够借鉴不同地域中华优秀传统文化特色设计文创产品；优先采集：文创产品、工艺作品、反思说明、改进记录。",
+        "学生能够运用传统工艺制作方法制作工艺品；优先采集：文创产品、工艺作品、反思说明、改进记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能借鉴不同地域中华优秀传统文化特色设计文创产品；运用传统工艺制作方法制作工艺品；能安全使用工具材料；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "f59bb734dd65e2d741b80f1a9665f55b423e5f894d124287ec9b48329fc677a0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_a386b8e85bfd66e2",
+      "component_ids": [
+        "lc_d526be7baedc9423"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生安全使用工具材料。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够安全使用工具材料；优先采集：文创产品、工艺作品、反思说明、改进记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能借鉴不同地域中华优秀传统文化特色设计文创产品；运用传统工艺制作方法制作工艺品；能安全使用工具材料；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "f59bb734dd65e2d741b80f1a9665f55b423e5f894d124287ec9b48329fc677a0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_7b92fa5a33d42abb",
+      "component_ids": [
+        "lc_d10c715697088656"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生借鉴不同地域中华优秀传统文化特色设计文创产品。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够借鉴不同地域中华优秀传统文化特色设计文创产品；优先采集：文创产品、工艺作品、反思说明、改进记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能借鉴不同地域中华优秀传统文化特色设计文创产品；运用传统工艺制作方法制作工艺品；能安全使用工具材料；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "f59bb734dd65e2d741b80f1a9665f55b423e5f894d124287ec9b48329fc677a0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d10c715697088656",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够借鉴不同地域中华优秀传统文化特色设计文创产品",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生借鉴不同地域中华优秀传统文化特色设计文创产品，并说明关键步骤、特征或依据。",
+      "label": "借鉴不同地域中华优秀传统文化特色设计文创产品",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够借鉴不同地域中华优秀传统文化特色设计文创产品；优先采集：文创产品、工艺作品、反思说明、改进记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "借鉴不同地域中华优秀传统文化特色设计文创产品",
+          "excerpt_hash": "3fa65ff48e48daac1070c0295df90b6cbc6ce05b1f04a19c1f758726cdf69806",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "借鉴不同地域中华优秀传统文化特色设计文创产品"
+    },
+    {
+      "component_id": "lc_92a63692c08f4a76",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用传统工艺制作方法制作工艺品",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用传统工艺制作方法制作工艺品，并说明关键步骤、特征或依据。",
+      "label": "运用传统工艺制作方法制作工艺品",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用传统工艺制作方法制作工艺品；优先采集：文创产品、工艺作品、反思说明、改进记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用传统工艺制作方法制作工艺品",
+          "excerpt_hash": "dd38ce6f40822aff7d7f558139cc20ca5ec04a1a334ae13df19acdecf1e6f8ca",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用传统工艺制作方法制作工艺品"
+    },
+    {
+      "component_id": "lc_d526be7baedc9423",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够安全使用工具材料",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生安全使用工具材料，并说明关键步骤、特征或依据。",
+      "label": "安全使用工具材料",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够安全使用工具材料；优先采集：文创产品、工艺作品、反思说明、改进记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "安全使用工具材料",
+          "excerpt_hash": "43fc40e2d64fd660846613f8d67a37f7cf2dea24c0007b6a1172dd507a5a2622",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "安全使用工具材料"
+    },
+    {
+      "component_id": "lc_243c3ab3f74a08a5",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够调整表现方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整表现方法，并说明关键步骤、特征或依据。",
+      "label": "调整表现方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够调整表现方法；优先采集：文创产品、工艺作品、反思说明、改进记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "调整表现方法",
+          "excerpt_hash": "624139c8c27447716076606d4fffc25d29bbd39623044fea23b9317d3438bb50",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "调整表现方法"
+    },
+    {
+      "component_id": "lc_d6b81dbf7cf09ac0",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明作品意图或效果",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明作品意图或效果，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明作品意图或效果",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明作品意图或效果；优先采集：文创产品、工艺作品、反思说明、改进记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明作品意图或效果",
+          "excerpt_hash": "9848376f6e433abf944ce2802b9a7699e3ab8073534008b9730e477835bb86eb",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明作品意图或效果"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_90f7dc66dc0c847b",
+      "evidence_refs": [
+        "standard:AR-H4G8-CU-012:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-H4G7-CU-018",
+      "source_label": "能安全使用工具材料；能借鉴不同地域中华优秀传统文化特色设计文创产品；运用传统工艺制作方法制作工艺品；能描述艺术要素并完成基础表现或创作。",
+      "target_code": "AR-H4G8-CU-012",
+      "target_label": "能借鉴不同地域中华优秀传统文化特色设计文创产品；运用传统工艺制作方法制作工艺品；能安全使用工具材料；能调整表现方法并说明作品意图或效果。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f59bb734dd65e2d741b80f1a9665f55b423e5f894d124287ec9b48329fc677a0",
+  "standard_code": "AR-H4G8-CU-012",
+  "verified_prerequisites": []
+}

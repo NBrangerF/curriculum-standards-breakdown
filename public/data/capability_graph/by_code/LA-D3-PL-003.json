@@ -1,0 +1,241 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_b21d78c77c997731"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别常见病虫害迹象的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4ca52e6bcac76179",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_58691e47fe1102f9"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别常见病虫害迹象”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别常见病虫害迹象”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见病虫害迹象并记录，能在教师指导下采用物理或生物方法进行生态防治，理解减少化学药剂的意义。",
+          "excerpt_hash": "3196aa2adaeb5443818dd1babdf3f78dc1c2ac69065b9ef05a8b79add096286a",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“观察—判断—措施—复查”闭环；示例物理措施（黄板/网罩/手捉）；讨论生态平衡。",
+          "excerpt_hash": "0288e0dee4dbba52dacf38cd916fecb9b2bf1793d930461c3a455ea31fa81b8c",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-PL-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别常见病虫害迹象，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别常见病虫害迹象”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用“观察—判断—措施—复查”闭环”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0954,
+      "connection_id": "fc_0ba15ec4d6eedb7b",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-PL-003",
+      "target_code": "LA-H4G7-PL-004",
+      "target_label": "能体验当地常见种植、养殖等生产劳动；理解现代农业与传统农业的联系和区别；能选择一至两种优良种植或养殖品种开展系列实践；能按规范完成任务并说明工…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_58691e47fe1102f9",
+      "component_ids": [
+        "lc_b21d78c77c997731",
+        "lc_3d35b9c42cd8c308",
+        "lc_7849ef8f1dcd4d25"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别常见病虫害迹象。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别常见病虫害迹象；优先采集：措施记录、周报。",
+        "学生能够记录在教师指导下采用物理或生物方法；优先采集：措施记录、周报。",
+        "学生能够在教师指导下采用物理或生物方法进行生态防治；优先采集：措施记录、周报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见病虫害迹象并记录，能在教师指导下采用物理或生物方法进行生态防治，理解减少化学药剂的意义。",
+          "excerpt_hash": "3196aa2adaeb5443818dd1babdf3f78dc1c2ac69065b9ef05a8b79add096286a",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "识别常见病虫害迹象；记录在教师指导下采用物理或生物方法；在教师指导下采用物理或生物方法进行生态防治",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b21d78c77c997731",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别常见病虫害迹象",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别常见病虫害迹象，并说明关键步骤、特征或依据。",
+      "label": "识别常见病虫害迹象",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别常见病虫害迹象；优先采集：措施记录、周报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别常见病虫害迹象",
+          "excerpt_hash": "58a2e8c66d8d0a438cef95d2c70dbad24b1484c6b0f004475b31b1ee902188d2",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别常见病虫害迹象"
+    },
+    {
+      "component_id": "lc_3d35b9c42cd8c308",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够记录在教师指导下采用物理或生物方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生记录在教师指导下采用物理或生物方法，并说明关键步骤、特征或依据。",
+      "label": "记录在教师指导下采用物理或生物方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够记录在教师指导下采用物理或生物方法；优先采集：措施记录、周报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见病虫害迹象并记录，能在教师指导下采用物理或生物方法进行生态防治，理解减少化学药剂的意义。",
+          "excerpt_hash": "3196aa2adaeb5443818dd1babdf3f78dc1c2ac69065b9ef05a8b79add096286a",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "记录在教师指导下采用物理或生物方法"
+    },
+    {
+      "component_id": "lc_7849ef8f1dcd4d25",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在教师指导下采用物理或生物方法进行生态防治",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在教师指导下采用物理或生物方法进行生态防治，并说明关键步骤、特征或依据。",
+      "label": "在教师指导下采用物理或生物方法进行生态防治",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在教师指导下采用物理或生物方法进行生态防治；优先采集：措施记录、周报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在教师指导下采用物理或生物方法进行生态防治",
+          "excerpt_hash": "90a777dc62a3033bd6c180a2eff3d2037fe5588e35126c6209763d0618fc03f2",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在教师指导下采用物理或生物方法进行生态防治"
+    },
+    {
+      "component_id": "lc_9c7c842f1ff6adc2",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释减少化学药剂的意义",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释减少化学药剂的意义，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释减少化学药剂的意义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释减少化学药剂的意义；优先采集：措施记录、周报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解减少化学药剂的意义",
+          "excerpt_hash": "addd9e65ddf76f6f0235e8d057a850ef4ecc1890d45990e0d04bf64bf053dcd3",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解减少化学药剂的意义"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_ccf3a18dcc765bb4",
+      "evidence_refs": [
+        "standard:LA-D3-PL-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-PL-003",
+      "source_label": "能在教师指导下进行除草、松土等田间管理，能观察常见病虫害迹象并记录，不随意使用化学药剂，能提出安全的处理建议。",
+      "target_code": "LA-D3-PL-003",
+      "target_label": "能识别常见病虫害迹象并记录，能在教师指导下采用物理或生物方法进行生态防治，理解减少化学药剂的意义。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "3196aa2adaeb5443818dd1babdf3f78dc1c2ac69065b9ef05a8b79add096286a",
+  "standard_code": "LA-D3-PL-003",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,507 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_51a7feb0115431e7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用“两点之间线段最短”解决简单问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5f6c98269d64df85",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_def5617c77ff6e79"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用“两点之间线段最短”解决简单问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用“两点之间线段最短”解决简单问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出线段、射线和直线的共性与区别；知道两点间所有连线中线段最短，能在具体情境中运用“两点之间线段最短”解决简单问题；能辨认同一平面内两条直线是否平行或垂直；能辨认从不同角度观察简单物体所对应的照片或直观图。形成空间观念和初步的几何直观。",
+          "excerpt_hash": "4a8e261c45af0d2414d2a9c99bfb8574cb7cce91f3bebb458a1d876c5c169766",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "在认识线段的基础上，引导学生用直尺和圆规作给定线段的等长线段，感知线段长度与两点间距离的关系（例 26）；结合实际情境感受同一平面内两条直线的两种位置关系，借助动态演示或具体操作，感悟平行与相交的差异；通过从不同方位观察同一物体，引导学生将观察到的图像与观察方位对应，发展空间观念和想象能力。",
+          "excerpt_hash": "b4380416f649ddbf027b852fe2a795a7e5daf3c70dcf40a79ad15c27b0e284c6",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-GE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用“两点之间线段最短”解决简单问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用“两点之间线段最短”解决简单问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“在认识线段的基础上，引导学生用直尺和圆规作给定线段的等长线段，感知线段长度与两点间距离的关系（例 26）”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_499f96eb8d834c8a",
+        "lc_6a71a436df1f7fa3"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出线段、射线和直线的共性与区别的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_18a2d3e970857bcb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_def5617c77ff6e79"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出线段、射线和直线的共性与区别”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出线段、射线和直线的共性与区别”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出线段、射线和直线的共性与区别；知道两点间所有连线中线段最短，能在具体情境中运用“两点之间线段最短”解决简单问题；能辨认同一平面内两条直线是否平行或垂直；能辨认从不同角度观察简单物体所对应的照片或直观图。形成空间观念和初步的几何直观。",
+          "excerpt_hash": "4a8e261c45af0d2414d2a9c99bfb8574cb7cce91f3bebb458a1d876c5c169766",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "在认识线段的基础上，引导学生用直尺和圆规作给定线段的等长线段，感知线段长度与两点间距离的关系（例 26）；结合实际情境感受同一平面内两条直线的两种位置关系，借助动态演示或具体操作，感悟平行与相交的差异；通过从不同方位观察同一物体，引导学生将观察到的图像与观察方位对应，发展空间观念和想象能力。",
+          "excerpt_hash": "b4380416f649ddbf027b852fe2a795a7e5daf3c70dcf40a79ad15c27b0e284c6",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-GE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出线段、射线和直线的共性与区别，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出线段、射线和直线的共性与区别”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“在认识线段的基础上，引导学生用直尺和圆规作给定线段的等长线段，感知线段长度与两点间距离的关系（例 26）”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_4d2ef4eb678b0310",
+        "lc_9d28f8283c114c87"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生辨认同一平面内两条直线是否平行或垂直的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_41ba46fbec9c8740",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1b10b8307268bc20"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“辨认同一平面内两条直线是否平行或垂直”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“辨认同一平面内两条直线是否平行或垂直”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出线段、射线和直线的共性与区别；知道两点间所有连线中线段最短，能在具体情境中运用“两点之间线段最短”解决简单问题；能辨认同一平面内两条直线是否平行或垂直；能辨认从不同角度观察简单物体所对应的照片或直观图。形成空间观念和初步的几何直观。",
+          "excerpt_hash": "4a8e261c45af0d2414d2a9c99bfb8574cb7cce91f3bebb458a1d876c5c169766",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "在认识线段的基础上，引导学生用直尺和圆规作给定线段的等长线段，感知线段长度与两点间距离的关系（例 26）；结合实际情境感受同一平面内两条直线的两种位置关系，借助动态演示或具体操作，感悟平行与相交的差异；通过从不同方位观察同一物体，引导学生将观察到的图像与观察方位对应，发展空间观念和想象能力。",
+          "excerpt_hash": "b4380416f649ddbf027b852fe2a795a7e5daf3c70dcf40a79ad15c27b0e284c6",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-GE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后辨认同一平面内两条直线是否平行或垂直，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“辨认同一平面内两条直线是否平行或垂直”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“在认识线段的基础上，引导学生用直尺和圆规作给定线段的等长线段，感知线段长度与两点间距离的关系（例 26）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0c5d327607b87cf0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_833ce42b24662dbd40af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ec280d20713"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_96d95cbb27d9412e",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_34fa13be32b5d7f3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f61cbfb4e176d8e2",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_72ba29221fe471ab",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e8d4a6502261fd8416ff",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_19111441ff11"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_056cb0cc3385568d",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e540dc2de0b8bde7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f7680a7d4b92"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7b7248af637aca0a",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_def5617c77ff6e79",
+      "component_ids": [
+        "lc_499f96eb8d834c8a",
+        "lc_6a71a436df1f7fa3",
+        "lc_51a7feb0115431e7"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说出线段、射线和直线的共性与区别。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说出线段、射线和直线的共性与区别；优先采集：作图/测量作品、口头/书面解释。",
+        "学生能够准确说出两点间所有连线中线段最短；优先采集：作图/测量作品、口头/书面解释。",
+        "学生在具体情境中，能够运用“两点之间线段最短”解决简单问题；优先采集：作图/测量作品、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出线段、射线和直线的共性与区别；知道两点间所有连线中线段最短，能在具体情境中运用“两点之间线段最短”解决简单问题；能辨认同一平面内两条直线是否平行或垂直；能辨认从不同角度观察简单物体所对应的照片或直观图。形成空间观念和初步的几何直观。",
+          "excerpt_hash": "4a8e261c45af0d2414d2a9c99bfb8574cb7cce91f3bebb458a1d876c5c169766",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_1b10b8307268bc20",
+      "component_ids": [
+        "lc_9d28f8283c114c87"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生辨认从不同角度观察简单物体所对应的照片或直观图。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够辨认从不同角度观察简单物体所对应的照片或直观图；优先采集：作图/测量作品、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出线段、射线和直线的共性与区别；知道两点间所有连线中线段最短，能在具体情境中运用“两点之间线段最短”解决简单问题；能辨认同一平面内两条直线是否平行或垂直；能辨认从不同角度观察简单物体所对应的照片或直观图。形成空间观念和初步的几何直观。",
+          "excerpt_hash": "4a8e261c45af0d2414d2a9c99bfb8574cb7cce91f3bebb458a1d876c5c169766",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_499f96eb8d834c8a",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出线段、射线和直线的共性与区别",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出线段、射线和直线的共性与区别，并说明关键步骤、特征或依据。",
+      "label": "说出线段、射线和直线的共性与区别",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出线段、射线和直线的共性与区别；优先采集：作图/测量作品、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出线段、射线和直线的共性与区别",
+          "excerpt_hash": "dd8fe818cf2f317e51a861655b0ad48aa98f5339346237ccf30182b2dd9cf3bb",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出线段、射线和直线的共性与区别"
+    },
+    {
+      "component_id": "lc_6a71a436df1f7fa3",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出两点间所有连线中线段最短",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出两点间所有连线中线段最短，并说明关键步骤、特征或依据。",
+      "label": "准确说出两点间所有连线中线段最短",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出两点间所有连线中线段最短；优先采集：作图/测量作品、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道两点间所有连线中线段最短",
+          "excerpt_hash": "b74ffdc0b5ceced0dba85322514a8c428a5ed3a43c7ceb3b2f0e30fe7bea1878",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道两点间所有连线中线段最短"
+    },
+    {
+      "component_id": "lc_51a7feb0115431e7",
+      "component_type": "procedural",
+      "condition": "在具体情境中",
+      "confidence": 0.72,
+      "description": "学生在具体情境中，能够运用“两点之间线段最短”解决简单问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在具体情境中”的诊断任务，要求学生运用“两点之间线段最短”解决简单问题，并说明关键步骤、特征或依据。",
+      "label": "运用“两点之间线段最短”解决简单问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在具体情境中，能够运用“两点之间线段最短”解决简单问题；优先采集：作图/测量作品、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出线段、射线和直线的共性与区别；知道两点间所有连线中线段最短，能在具体情境中运用“两点之间线段最短”解决简单问题；能辨认同一平面内两条直线是否平行或垂直；能辨认从不同角度观察简单物体所对应的照片或直观图。形成空间观念和初步的几何直观。",
+          "excerpt_hash": "4a8e261c45af0d2414d2a9c99bfb8574cb7cce91f3bebb458a1d876c5c169766",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用“两点之间线段最短”解决简单问题"
+    },
+    {
+      "component_id": "lc_4d2ef4eb678b0310",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够辨认同一平面内两条直线是否平行或垂直",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生辨认同一平面内两条直线是否平行或垂直，并说明关键步骤、特征或依据。",
+      "label": "辨认同一平面内两条直线是否平行或垂直",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够辨认同一平面内两条直线是否平行或垂直；优先采集：作图/测量作品、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨认同一平面内两条直线是否平行或垂直",
+          "excerpt_hash": "d38ba7ef66c97d8c7165c704cbf3637df0124e813abaadc1cc6b74230f90f5ca",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "辨认同一平面内两条直线是否平行或垂直"
+    },
+    {
+      "component_id": "lc_9d28f8283c114c87",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够辨认从不同角度观察简单物体所对应的照片或直观图",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生辨认从不同角度观察简单物体所对应的照片或直观图，并说明关键步骤、特征或依据。",
+      "label": "辨认从不同角度观察简单物体所对应的照片或直观图",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够辨认从不同角度观察简单物体所对应的照片或直观图；优先采集：作图/测量作品、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨认从不同角度观察简单物体所对应的照片或直观图",
+          "excerpt_hash": "ce760fadb596d0979f01637fb358e4876082b58e017f69ca4787a24fabcee7e8",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "辨认从不同角度观察简单物体所对应的照片或直观图"
+    },
+    {
+      "component_id": "lc_b23115fb69e4fb34",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出空间观念和初步的几何直观并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出空间观念和初步的几何直观并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出空间观念和初步的几何直观并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出空间观念和初步的几何直观并说明选择理由；优先采集：作图/测量作品、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成空间观念和初步的几何直观",
+          "excerpt_hash": "d36a8aa9ddea30fc01b7a9faa827311910e798fbce848f9803a57c0530104b36",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成空间观念和初步的几何直观"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_3765c70d91a1d9a6",
+      "evidence_refs": [
+        "standard:MA-D2-GE-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D1-GE-001",
+      "source_label": "辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征；辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根…",
+      "target_code": "MA-D2-GE-001",
+      "target_label": "能说出线段、射线和直线的共性与区别；知道两点间所有连线中线段最短，能在具体情境中运用“两点之间线段最短”解决简单问题；能辨认同一平面内两条直线…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4a8e261c45af0d2414d2a9c99bfb8574cb7cce91f3bebb458a1d876c5c169766",
+  "standard_code": "MA-D2-GE-001",
+  "verified_prerequisites": []
+}

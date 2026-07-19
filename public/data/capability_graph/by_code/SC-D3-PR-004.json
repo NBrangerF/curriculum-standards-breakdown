@@ -1,0 +1,485 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_b705e4ee74376227"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生利用工具制作简单的实物模型，根据实际反馈结果进行改进的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6572cdd1f527b2fc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5758bdb93d8910f5",
+        "hc_766499cc68829858",
+        "hc_82e75edca0f2397c"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“利用工具制作简单的实物模型，根据实际反馈结果进行改进”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“利用工具制作简单的实物模型，根据实际反馈结果进行改进”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用工具制作简单的实物模型，根据实际反馈结果进行改进并展示。",
+          "excerpt_hash": "a99bbefd9f6781e65b99aed77f6c90121c464e457778bf079631c84fd29c377e",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“让学生通过亲身体验，发展实践能力与创新能力学生的实践能力只有通过参与真正的实践活动才能逐步提高，因此设计和制作都是学生必须亲身经历的活动…”",
+          "excerpt_hash": "7acbdaaf484ba94c8f73ee90ba5628789fb35c4a1b6f9061dbb1821053b3f048",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-PR-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后利用工具制作简单的实物模型，根据实际反馈结果进行改进，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“利用工具制作简单的实物模型，根据实际反馈结果进行改进”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：““让学生通过亲身体验，发展实践能力与创新能力学生的实践能力只有通过参与真正的实践活动才能逐步提高，因此设计和制作都是学生必须亲身经历的活动…””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_b705e4ee74376227",
+        "lc_5fe9ad50403cc9a8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生利用工具制作简单的实物模型，根据实际反馈结果进行改进的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_766499cc68829858",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5758bdb93d8910f5",
+        "hc_766499cc68829858",
+        "hc_82e75edca0f2397c"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“利用工具制作简单的实物模型，根据实际反馈结果进行改进”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“利用工具制作简单的实物模型，根据实际反馈结果进行改进”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用工具制作简单的实物模型，根据实际反馈结果进行改进并展示。",
+          "excerpt_hash": "a99bbefd9f6781e65b99aed77f6c90121c464e457778bf079631c84fd29c377e",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“让学生通过亲身体验，发展实践能力与创新能力学生的实践能力只有通过参与真正的实践活动才能逐步提高，因此设计和制作都是学生必须亲身经历的活动…”",
+          "excerpt_hash": "7acbdaaf484ba94c8f73ee90ba5628789fb35c4a1b6f9061dbb1821053b3f048",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-PR-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后利用工具制作简单的实物模型，根据实际反馈结果进行改进，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“利用工具制作简单的实物模型，根据实际反馈结果进行改进”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：““让学生通过亲身体验，发展实践能力与创新能力学生的实践能力只有通过参与真正的实践活动才能逐步提高，因此设计和制作都是学生必须亲身经历的活动…””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_b705e4ee74376227",
+        "lc_5fe9ad50403cc9a8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生利用工具制作简单的实物模型，根据实际反馈结果进行改进的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d7ed58d2b8a76341",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5758bdb93d8910f5",
+        "hc_766499cc68829858",
+        "hc_82e75edca0f2397c"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“利用工具制作简单的实物模型，根据实际反馈结果进行改进”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“利用工具制作简单的实物模型，根据实际反馈结果进行改进”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用工具制作简单的实物模型，根据实际反馈结果进行改进并展示。",
+          "excerpt_hash": "a99bbefd9f6781e65b99aed77f6c90121c464e457778bf079631c84fd29c377e",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“让学生通过亲身体验，发展实践能力与创新能力学生的实践能力只有通过参与真正的实践活动才能逐步提高，因此设计和制作都是学生必须亲身经历的活动…”",
+          "excerpt_hash": "7acbdaaf484ba94c8f73ee90ba5628789fb35c4a1b6f9061dbb1821053b3f048",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-PR-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后利用工具制作简单的实物模型，根据实际反馈结果进行改进，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“利用工具制作简单的实物模型，根据实际反馈结果进行改进”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：““让学生通过亲身体验，发展实践能力与创新能力学生的实践能力只有通过参与真正的实践活动才能逐步提高，因此设计和制作都是学生必须亲身经历的活动…””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f9960c9c1b5d272a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5d8c5902b781b5de5f03",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d39057261769"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c22c450af4b9046",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_da3e34932e4db88a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e1c8e586d87fc9",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2b31667ce1f13a43",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7c85e6846ee2baf665b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b6340ce96157"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_208d54146f4a9b68",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1c2a8d0e86ff57cc",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a04b8a546cf314368898",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6a5186074181"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_426c7beba471c1cd",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1484,
+      "connection_id": "fc_6d84372ea6be3fb0",
+      "evidence_refs": [
+        "standard:SC-H4G7-PR-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-PR-004",
+      "target_code": "SC-H4G7-PR-002",
+      "target_label": "理解真实工程问题需要明确目标、标准、约束和初步判断依据；能定义简单的实际工程问题；分析材料、时间、成本等限制条件并提出验收标准；能用观察证据说…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1313,
+      "connection_id": "fc_459c2f27c2d94666",
+      "evidence_refs": [
+        "standard:SC-H4G7-PR-003:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-PR-004",
+      "target_code": "SC-H4G7-PR-003",
+      "target_label": "理解探究过程和方法；能识别探究问题和研究变量；设计控制变量实验方案；能用观察证据说明基本科学概念。"
+    },
+    {
+      "confidence": "high",
+      "confidence_score": 0.3432,
+      "connection_id": "fc_1ce079ee91afbc31",
+      "evidence_refs": [
+        "standard:SC-H4G7-PR-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-PR-004",
+      "target_code": "SC-H4G7-PR-007",
+      "target_label": "能利用工具制作实物模型；能根据实际反馈对模型进行有科学依据的迭代改进并展示成果；能知道工程需要经历明确问题、设计方案、实施计划、检验作品、改进…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_5758bdb93d8910f5",
+      "component_ids": [
+        "lc_b705e4ee74376227"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "实际"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生利用工具制作简单的实物模型，根据实际反馈结果进行改进。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够利用工具制作简单的实物模型，根据实际反馈结果进行改进；优先采集：模型/作品、口头/书面汇报、讨论记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用工具制作简单的实物模型，根据实际反馈结果进行改进并展示。",
+          "excerpt_hash": "a99bbefd9f6781e65b99aed77f6c90121c464e457778bf079631c84fd29c377e",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（实际）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_766499cc68829858",
+      "component_ids": [
+        "lc_b705e4ee74376227",
+        "lc_5fe9ad50403cc9a8"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "模型"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生利用工具制作简单的实物模型，根据实际反馈结果进行改进。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够利用工具制作简单的实物模型，根据实际反馈结果进行改进；优先采集：模型/作品、口头/书面汇报、讨论记录。",
+        "学生能够展示工具制作简单的实物模型；优先采集：模型/作品、口头/书面汇报、讨论记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用工具制作简单的实物模型，根据实际反馈结果进行改进并展示。",
+          "excerpt_hash": "a99bbefd9f6781e65b99aed77f6c90121c464e457778bf079631c84fd29c377e",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（模型）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_82e75edca0f2397c",
+      "component_ids": [
+        "lc_b705e4ee74376227",
+        "lc_5fe9ad50403cc9a8"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "改进",
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生利用工具制作简单的实物模型，根据实际反馈结果进行改进。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够利用工具制作简单的实物模型，根据实际反馈结果进行改进；优先采集：模型/作品、口头/书面汇报、讨论记录。",
+        "学生能够展示工具制作简单的实物模型；优先采集：模型/作品、口头/书面汇报、讨论记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用工具制作简单的实物模型，根据实际反馈结果进行改进并展示。",
+          "excerpt_hash": "a99bbefd9f6781e65b99aed77f6c90121c464e457778bf079631c84fd29c377e",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（改进、制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b705e4ee74376227",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够利用工具制作简单的实物模型，根据实际反馈结果进行改进",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生利用工具制作简单的实物模型，根据实际反馈结果进行改进，并说明关键步骤、特征或依据。",
+      "label": "利用工具制作简单的实物模型，根据实际反馈结果进行改进",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够利用工具制作简单的实物模型，根据实际反馈结果进行改进；优先采集：模型/作品、口头/书面汇报、讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用工具制作简单的实物模型，根据实际反馈结果进行改进",
+          "excerpt_hash": "8bfafd2d987fde851cc8823dd6512423464609f2ec3e1f7bd407f9828d472648",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "利用工具制作简单的实物模型，根据实际反馈结果进行改进"
+    },
+    {
+      "component_id": "lc_5fe9ad50403cc9a8",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够展示工具制作简单的实物模型",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生展示工具制作简单的实物模型，并说明关键步骤、特征或依据。",
+      "label": "展示工具制作简单的实物模型",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够展示工具制作简单的实物模型；优先采集：模型/作品、口头/书面汇报、讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用工具制作简单的实物模型，根据实际反馈结果进行改进并展示。",
+          "excerpt_hash": "a99bbefd9f6781e65b99aed77f6c90121c464e457778bf079631c84fd29c377e",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "展示工具制作简单的实物模型"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a99bbefd9f6781e65b99aed77f6c90121c464e457778bf079631c84fd29c377e",
+  "standard_code": "SC-D3-PR-004",
+  "verified_prerequisites": []
+}

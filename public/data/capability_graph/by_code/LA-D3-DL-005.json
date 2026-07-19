@@ -1,0 +1,268 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_0ac7d2f0892d0de5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生对家庭或班级可回收物进行分类、清洁、压缩与打包的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a1bc876876eb8164",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9c046c0bc4ddd429"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“对家庭或班级可回收物进行分类、清洁、压缩与打包”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“对家庭或班级可回收物进行分类、清洁、压缩与打包”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对家庭或班级可回收物进行分类、清洁、压缩与打包，能识别危险废弃物并采取正确处置方式，形成环保与安全意识。",
+          "excerpt_hash": "31519543b278464dd386bc82744c1128c594b369c5b68079489d8552b534bd31",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "加入“危险废弃物清单”（电池、药品、灯管等）；让学生设计“回收角”流程：清洗→晾干→压缩→打包→投放。",
+          "excerpt_hash": "4ce5fb31e97acda92a72263d6c1ec09c30ce50bf7215ac3188fec3d33d287627",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-DL-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后对家庭或班级可回收物进行分类、清洁、压缩与打包，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“对家庭或班级可回收物进行分类、清洁、压缩与打包”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“加入“危险废弃物清单”（电池、药品、灯管等）”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_0c6d44948346fef0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别危险废弃物并采取正确处置方式的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e654b2d9b3ee4beb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_65019a492ca62927"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别危险废弃物并采取正确处置方式”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别危险废弃物并采取正确处置方式”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对家庭或班级可回收物进行分类、清洁、压缩与打包，能识别危险废弃物并采取正确处置方式，形成环保与安全意识。",
+          "excerpt_hash": "31519543b278464dd386bc82744c1128c594b369c5b68079489d8552b534bd31",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "加入“危险废弃物清单”（电池、药品、灯管等）；让学生设计“回收角”流程：清洗→晾干→压缩→打包→投放。",
+          "excerpt_hash": "4ce5fb31e97acda92a72263d6c1ec09c30ce50bf7215ac3188fec3d33d287627",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-DL-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别危险废弃物并采取正确处置方式，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别危险废弃物并采取正确处置方式”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“加入“危险废弃物清单”（电池、药品、灯管等）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1052,
+      "connection_id": "fc_6606c15949b9c0c5",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-DL-005",
+      "target_code": "LA-H4G7-DL-007",
+      "target_label": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；能按规范完成任务并说明工具、材料或安全要…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_9c046c0bc4ddd429",
+      "component_ids": [
+        "lc_0ac7d2f0892d0de5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生对家庭或班级可回收物进行分类、清洁、压缩与打包。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够对家庭或班级可回收物进行分类、清洁、压缩与打包；优先采集：分类正确率抽查、打包成品、回收周数据。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对家庭或班级可回收物进行分类、清洁、压缩与打包，能识别危险废弃物并采取正确处置方式，形成环保与安全意识。",
+          "excerpt_hash": "31519543b278464dd386bc82744c1128c594b369c5b68079489d8552b534bd31",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_65019a492ca62927",
+      "component_ids": [
+        "lc_0c6d44948346fef0",
+        "lc_ccfd289ae64a98bb"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确",
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别危险废弃物并采取正确处置方式。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别危险废弃物并采取正确处置方式；优先采集：分类正确率抽查、打包成品、回收周数据。",
+        "学生能够在任务中表现出环保与安全意识并说明选择理由；优先采集：分类正确率抽查、打包成品、回收周数据。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对家庭或班级可回收物进行分类、清洁、压缩与打包，能识别危险废弃物并采取正确处置方式，形成环保与安全意识。",
+          "excerpt_hash": "31519543b278464dd386bc82744c1128c594b369c5b68079489d8552b534bd31",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确、安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_0ac7d2f0892d0de5",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够对家庭或班级可回收物进行分类、清洁、压缩与打包",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生对家庭或班级可回收物进行分类、清洁、压缩与打包，并说明关键步骤、特征或依据。",
+      "label": "对家庭或班级可回收物进行分类、清洁、压缩与打包",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够对家庭或班级可回收物进行分类、清洁、压缩与打包；优先采集：分类正确率抽查、打包成品、回收周数据。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "对家庭或班级可回收物进行分类、清洁、压缩与打包",
+          "excerpt_hash": "ff51e4768a879a559636ebee11d75ae1a0a82a59e187ed33337f11a88172eb5e",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "对家庭或班级可回收物进行分类、清洁、压缩与打包"
+    },
+    {
+      "component_id": "lc_0c6d44948346fef0",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别危险废弃物并采取正确处置方式",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别危险废弃物并采取正确处置方式，并说明关键步骤、特征或依据。",
+      "label": "识别危险废弃物并采取正确处置方式",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别危险废弃物并采取正确处置方式；优先采集：分类正确率抽查、打包成品、回收周数据。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别危险废弃物并采取正确处置方式",
+          "excerpt_hash": "e3ce6e6f6319d78daef36adf437f5305db5ed8ac952524bd1664e26773f22a6c",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别危险废弃物并采取正确处置方式"
+    },
+    {
+      "component_id": "lc_ccfd289ae64a98bb",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出环保与安全意识并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出环保与安全意识并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出环保与安全意识并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出环保与安全意识并说明选择理由；优先采集：分类正确率抽查、打包成品、回收周数据。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成环保与安全意识",
+          "excerpt_hash": "eaa1d9b5539fcb0ddcfecab178ff895aded71801477574671553401e66d66fdf",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成环保与安全意识"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "31519543b278464dd386bc82744c1128c594b369c5b68079489d8552b534bd31",
+  "standard_code": "LA-D3-DL-005",
+  "verified_prerequisites": []
+}

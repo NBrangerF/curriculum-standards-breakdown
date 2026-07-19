@@ -1,0 +1,472 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_b9cff914038d1631"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生乐于参与各种形式的演奏活动的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_217879538f333888",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_41d1de79d37aef1c"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“乐于参与各种形式的演奏活动”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "乐于参与各种形式的演奏活动，能用正确姿势与方法视谱演奏，养成良好的练习与演奏习惯。",
+          "excerpt_hash": "a169ff14f0aedf90d2490238bd500a101c74ab99bf1c84e574e635cd7c711f27",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "建立“演奏三检查”（姿势/手型或握持/呼吸或发力）；用短时高频练习替代长时疲劳练；强调排练纪律与倾听。",
+          "excerpt_hash": "a4d1ddb3d50a70b20afd804b6fe80a453b1be9e5491d498554755e3b6c9e5064",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D3-AE-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后乐于参与各种形式的演奏活动，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“乐于参与各种形式的演奏活动”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“建立“演奏三检查”（姿势/手型或握持/呼吸或发力）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e43cc64a3074c172",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_00452e62b0a9dead1e66",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a500c9f1cd1c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1fabba386856d842",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7dcb73f51a5119fe",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_47474bd0c3009d7bfcf6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e4cb7e4583cf"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_98c7d2610118429f",
+      "textbook_grade": 5,
+      "textbook_subject": "美术",
+      "textbook_title": "美术5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2fded0f0f2efcb56",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4b42884b46b80ae41661",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9df9f8776364"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_169db90609589ba4",
+      "textbook_grade": 6,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_cc889c9bd33dff95",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6e0cec28ca9346d8d02b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_502c7444779d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4ba398935af785c4",
+      "textbook_grade": 5,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4dc460256d519a2d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_873c7b8d8f5dfcaf3081",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5d105252e267"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_2a3a735a14f9dc94",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a2a844572f8f53ce",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913a5e82b0b4337baa77",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5f8b00576115"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d3a37cdd8bcdc4bb",
+      "textbook_grade": 5,
+      "textbook_subject": "美术",
+      "textbook_title": "美术5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_72e8e354b2b0a018",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e9b82a8986eea7ee1402",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7a1467daa20d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fc37261770b36f51",
+      "textbook_grade": 5,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_db7b98659c634b71",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fe115d2e431c2607bf7d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_118d280cce66"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_8ce6886f94462897",
+      "textbook_grade": 6,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0821,
+      "connection_id": "fc_a422d992499693b1",
+      "evidence_refs": [
+        "standard:AR-H4G7-AE-009:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D3-AE-012",
+      "target_code": "AR-H4G7-AE-009",
+      "target_label": "能对指挥动作作出正确反应或运用基本指挥图式指挥他人演唱；能积极参与多种形式的合唱；比较顺畅地识读简单乐谱；能描述艺术要素并完成基础表现或创作。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_3add9e1a7ddaa203",
+      "component_ids": [
+        "lc_03c7fcf89e0cf89a"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用正确姿势与方法视谱演奏，养成良好的练习与演奏习惯。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用正确姿势与方法视谱演奏，养成良好的练习与演奏习惯；优先采集：练习日志、教师观察、同伴提醒卡。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "乐于参与各种形式的演奏活动，能用正确姿势与方法视谱演奏，养成良好的练习与演奏习惯。",
+          "excerpt_hash": "a169ff14f0aedf90d2490238bd500a101c74ab99bf1c84e574e635cd7c711f27",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_41d1de79d37aef1c",
+      "component_ids": [
+        "lc_b9cff914038d1631"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "各种"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生乐于参与各种形式的演奏活动。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够乐于参与各种形式的演奏活动；优先采集：练习日志、教师观察、同伴提醒卡。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "乐于参与各种形式的演奏活动，能用正确姿势与方法视谱演奏，养成良好的练习与演奏习惯。",
+          "excerpt_hash": "a169ff14f0aedf90d2490238bd500a101c74ab99bf1c84e574e635cd7c711f27",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（各种）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b9cff914038d1631",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够乐于参与各种形式的演奏活动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生乐于参与各种形式的演奏活动，并说明关键步骤、特征或依据。",
+      "label": "乐于参与各种形式的演奏活动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够乐于参与各种形式的演奏活动；优先采集：练习日志、教师观察、同伴提醒卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "乐于参与各种形式的演奏活动",
+          "excerpt_hash": "856408615c1c5f9037af89e84f847c73331eb9bda086ed8c3e996c8b95c6d950",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "乐于参与各种形式的演奏活动"
+    },
+    {
+      "component_id": "lc_03c7fcf89e0cf89a",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用正确姿势与方法视谱演奏，养成良好的练习与演奏习惯",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用正确姿势与方法视谱演奏，养成良好的练习与演奏习惯，并说明关键步骤、特征或依据。",
+      "label": "用正确姿势与方法视谱演奏，养成良好的练习与演奏习惯",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用正确姿势与方法视谱演奏，养成良好的练习与演奏习惯；优先采集：练习日志、教师观察、同伴提醒卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用正确姿势与方法视谱演奏，养成良好的练习与演奏习惯",
+          "excerpt_hash": "4fc75c8922be1781db664bf37e1ed361ce8ad4200c2504ad019473768d948427",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用正确姿势与方法视谱演奏，养成良好的练习与演奏习惯"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_6c5555f043f437c5",
+      "evidence_refs": [
+        "standard:AR-D3-AE-012:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D2-AE-012",
+      "source_label": "在合奏中能遵循指挥或约定，做到进入与停止准确，能倾听并与同伴保持节拍同步，完成简单合奏织体。",
+      "target_code": "AR-D3-AE-012",
+      "target_label": "乐于参与各种形式的演奏活动，能用正确姿势与方法视谱演奏，养成良好的练习与演奏习惯。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a169ff14f0aedf90d2490238bd500a101c74ab99bf1c84e574e635cd7c711f27",
+  "standard_code": "AR-D3-AE-012",
+  "verified_prerequisites": []
+}

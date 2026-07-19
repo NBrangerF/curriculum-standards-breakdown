@@ -1,0 +1,271 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_88bd74d369cf4d1a"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生借助拼音独立认读生字的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_90caf4318bdefb2c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8db497fca087805f"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“借助拼音独立认读生字”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能借助拼音独立认读生字。",
+          "excerpt_hash": "9a09d2eb91d7b80830f518221417d02ae217a9f080220b8b26eb906fec1413b4",
+          "field": "standard",
+          "ref_id": "standard:CN-D1-LI-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n教师可引导学生与同伴/家庭成员协同进行拼音游戏，帮助学生通过拼读来认字。\n在真实情境中，教师可引导学生使用拼音书籍，逐渐提升他们对生字的识别能力。",
+          "excerpt_hash": "db7b0bcd2be94b85d132de74c3324ba212e93d972677c4bede3f958ddb61d348",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D1-LI-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后借助拼音独立认读生字，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“借助拼音独立认读生字”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“教师可引导学生与同伴/家庭成员协同进行拼音游戏，帮助学生通过拼读来认字。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f48cdd355b277e2b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0a6e1c6b5a1b0a6964d7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_33cef677757e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_04e1395c0e29a494",
+      "textbook_grade": 1,
+      "textbook_subject": "语文",
+      "textbook_title": "语文1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8be2db710036bee6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4a114a6b7c341f1d8ddf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2afda12f52bd"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_bdc09ddd418917fe",
+      "textbook_grade": 2,
+      "textbook_subject": "语文",
+      "textbook_title": "语文2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bc73557882fe9d3b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6f5882dc3ce287c83613",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_06a995aeed6e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7394cdfe08adf2a1",
+      "textbook_grade": 1,
+      "textbook_subject": "语文",
+      "textbook_title": "语文1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8c11c5532f9b130a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b6fd1fcab83cfe42492b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_30d8b43d1a90"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_34780c76f0a86661",
+      "textbook_grade": 2,
+      "textbook_subject": "语文",
+      "textbook_title": "语文2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_1e416f3efc4bade6",
+      "evidence_refs": [
+        "standard:CN-D1-LI-003:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D1-LI-003",
+      "target_code": "CN-D2-LI-001",
+      "target_label": "在阅读中借助拼音或工具书独立认读生字。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_8db497fca087805f",
+      "component_ids": [
+        "lc_88bd74d369cf4d1a"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "独立"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生借助拼音独立认读生字。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够借助拼音独立认读生字；优先采集：情境识字/认读。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能借助拼音独立认读生字。",
+          "excerpt_hash": "9a09d2eb91d7b80830f518221417d02ae217a9f080220b8b26eb906fec1413b4",
+          "field": "standard",
+          "ref_id": "standard:CN-D1-LI-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（独立）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_88bd74d369cf4d1a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够借助拼音独立认读生字",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生借助拼音独立认读生字，并说明关键步骤、特征或依据。",
+      "label": "借助拼音独立认读生字",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够借助拼音独立认读生字；优先采集：情境识字/认读。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "借助拼音独立认读生字",
+          "excerpt_hash": "8d8c4dda3318faca95abef603edcbc2a834107188b98834a863d557275bac3d1",
+          "field": "standard",
+          "ref_id": "standard:CN-D1-LI-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "借助拼音独立认读生字"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "9a09d2eb91d7b80830f518221417d02ae217a9f080220b8b26eb906fec1413b4",
+  "standard_code": "CN-D1-LI-003",
+  "verified_prerequisites": []
+}

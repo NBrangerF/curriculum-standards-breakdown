@@ -1,0 +1,246 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_7a3939dc28d212d8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生遵守操作步骤并进行基本测试与改进的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_745375752fed4ed2",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_55f38ce4c7295761",
+        "hc_95359b81c0c6f913"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“遵守操作步骤并进行基本测试与改进”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“遵守操作步骤并进行基本测试与改进”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下完成一项简单创客制作（如纸桥承重、简单电路点亮灯），能遵守操作步骤并进行基本测试与改进。",
+          "excerpt_hash": "679510cdf029a671b0544ec232caf30b736b178ef95e33796b4a3a781ae132ab",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把项目对准“可测试”；先做安全说明；用“测试—记录—改进”循环，鼓励失败后调整。",
+          "excerpt_hash": "abff64083d50dad364b964e00827f72c89dadae699d2cb84972611a885e6a71b",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-PL-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后遵守操作步骤并进行基本测试与改进，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“遵守操作步骤并进行基本测试与改进”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“把项目对准“可测试””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_dabe013d0a6ccad4",
+        "lc_7a3939dc28d212d8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生完成一项简单创客制作（如纸桥承重、简单电路点亮灯）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a00716580def39b0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_55f38ce4c7295761",
+        "hc_95359b81c0c6f913"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“完成一项简单创客制作（如纸桥承重、简单电路点亮灯）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“完成一项简单创客制作（如纸桥承重、简单电路点亮灯）”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下完成一项简单创客制作（如纸桥承重、简单电路点亮灯），能遵守操作步骤并进行基本测试与改进。",
+          "excerpt_hash": "679510cdf029a671b0544ec232caf30b736b178ef95e33796b4a3a781ae132ab",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把项目对准“可测试”；先做安全说明；用“测试—记录—改进”循环，鼓励失败后调整。",
+          "excerpt_hash": "abff64083d50dad364b964e00827f72c89dadae699d2cb84972611a885e6a71b",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-PL-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后完成一项简单创客制作（如纸桥承重、简单电路点亮灯），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“完成一项简单创客制作（如纸桥承重、简单电路点亮灯）”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“把项目对准“可测试””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_5eaebdc937c1e6c8",
+      "evidence_refs": [
+        "standard:LA-D2-PL-012:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-PL-012",
+      "target_code": "LA-D3-PL-013",
+      "target_label": "能举例说明AI/自动化在生活服务与生产中的应用，能分析其带来的便利与挑战，形成尊重劳动与理性看待技术的态度。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_55f38ce4c7295761",
+      "component_ids": [
+        "lc_7a3939dc28d212d8"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "步骤"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生遵守操作步骤并进行基本测试与改进。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在教师指导下，能够遵守操作步骤并进行基本测试与改进；优先采集：测试记录、改进说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下完成一项简单创客制作（如纸桥承重、简单电路点亮灯），能遵守操作步骤并进行基本测试与改进。",
+          "excerpt_hash": "679510cdf029a671b0544ec232caf30b736b178ef95e33796b4a3a781ae132ab",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（步骤）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    },
+    {
+      "case_id": "hc_95359b81c0c6f913",
+      "component_ids": [
+        "lc_dabe013d0a6ccad4",
+        "lc_7a3939dc28d212d8"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "改进",
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成一项简单创客制作（如纸桥承重、简单电路点亮灯）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在教师指导下，能够完成一项简单创客制作（如纸桥承重、简单电路点亮灯）；优先采集：测试记录、改进说明。",
+        "学生在教师指导下，能够遵守操作步骤并进行基本测试与改进；优先采集：测试记录、改进说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下完成一项简单创客制作（如纸桥承重、简单电路点亮灯），能遵守操作步骤并进行基本测试与改进。",
+          "excerpt_hash": "679510cdf029a671b0544ec232caf30b736b178ef95e33796b4a3a781ae132ab",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（改进、制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_dabe013d0a6ccad4",
+      "component_type": "procedural",
+      "condition": "在教师指导下",
+      "confidence": 0.72,
+      "description": "学生在教师指导下，能够完成一项简单创客制作（如纸桥承重、简单电路点亮灯）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师指导下”的诊断任务，要求学生完成一项简单创客制作（如纸桥承重、简单电路点亮灯），并说明关键步骤、特征或依据。",
+      "label": "完成一项简单创客制作（如纸桥承重、简单电路点亮灯）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师指导下，能够完成一项简单创客制作（如纸桥承重、简单电路点亮灯）；优先采集：测试记录、改进说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下完成一项简单创客制作（如纸桥承重、简单电路点亮灯），能遵守操作步骤并进行基本测试与改进。",
+          "excerpt_hash": "679510cdf029a671b0544ec232caf30b736b178ef95e33796b4a3a781ae132ab",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成一项简单创客制作（如纸桥承重、简单电路点亮灯）"
+    },
+    {
+      "component_id": "lc_7a3939dc28d212d8",
+      "component_type": "procedural",
+      "condition": "在教师指导下",
+      "confidence": 0.72,
+      "description": "学生在教师指导下，能够遵守操作步骤并进行基本测试与改进",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师指导下”的诊断任务，要求学生遵守操作步骤并进行基本测试与改进，并说明关键步骤、特征或依据。",
+      "label": "遵守操作步骤并进行基本测试与改进",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师指导下，能够遵守操作步骤并进行基本测试与改进；优先采集：测试记录、改进说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下完成一项简单创客制作（如纸桥承重、简单电路点亮灯），能遵守操作步骤并进行基本测试与改进。",
+          "excerpt_hash": "679510cdf029a671b0544ec232caf30b736b178ef95e33796b4a3a781ae132ab",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守操作步骤并进行基本测试与改进"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "679510cdf029a671b0544ec232caf30b736b178ef95e33796b4a3a781ae132ab",
+  "standard_code": "LA-D2-PL-012",
+  "verified_prerequisites": []
+}

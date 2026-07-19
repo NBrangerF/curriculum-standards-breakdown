@@ -1,0 +1,154 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_b1f1bb4c2bf23c54"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生初步用自己的话解释数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_112ef904117fe8fd",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b9611ff415761b9f"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“初步用自己的话解释数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“初步用自己的话解释数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步理解数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人；在活动中体验信息安全与个人隐私保护的重要性。",
+          "excerpt_hash": "7e7bd607218af9c3b02421feb4398c3c5ab8c1f1bf8d03328d57fb01034200db",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过扮演“信息安全小卫士”开展体验式学习（如“我的数字设备我做主”）。用简单规则讲清：密码不外传、位置/照片等敏感信息先问大人、遇到可疑信息立刻求助。条件允许可结合可穿戴设备与位置信息示例扩展视野。",
+          "excerpt_hash": "c1fe45a49da985292bf8c7a89b6463510da82618e341b654d3fa5a237acb6e7d",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H1-SR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后初步用自己的话解释数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“初步用自己的话解释数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“通过扮演“信息安全小卫士”开展体验式学习（如“我的数字设备我做主”）。用简单规则讲清：密码不外传、位置/照片等敏感信息先问大人、遇到可疑信息立刻求助。条件允许可结合可穿戴设备与位置信息示例扩展视野。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b9611ff415761b9f",
+      "component_ids": [
+        "lc_b1f1bb4c2bf23c54",
+        "lc_513e4d6cfa608a4a"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生初步用自己的话解释数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够初步用自己的话解释数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人；优先采集：情境任务、规则清单、口头复述。",
+        "学生在活动中，能够参与相关活动并描述信息安全与个人隐私保护的重要性；优先采集：情境任务、规则清单、口头复述。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步理解数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人；在活动中体验信息安全与个人隐私保护的重要性。",
+          "excerpt_hash": "7e7bd607218af9c3b02421feb4398c3c5ab8c1f1bf8d03328d57fb01034200db",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b1f1bb4c2bf23c54",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够初步用自己的话解释数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生初步用自己的话解释数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人，并保留可回查的口头、书面或操作过程证据。",
+      "label": "初步用自己的话解释数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够初步用自己的话解释数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人；优先采集：情境任务、规则清单、口头复述。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步理解数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人",
+          "excerpt_hash": "61c226ca233804811613949167ef345605d710291c166cdd9f2f224006633397",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "初步理解数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人"
+    },
+    {
+      "component_id": "lc_513e4d6cfa608a4a",
+      "component_type": "disposition",
+      "condition": "在活动中",
+      "confidence": 0.72,
+      "description": "学生在活动中，能够参与相关活动并描述信息安全与个人隐私保护的重要性",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在活动中”的诊断任务，要求学生参与相关活动并描述信息安全与个人隐私保护的重要性，并说明关键步骤、特征或依据。",
+      "label": "参与相关活动并描述信息安全与个人隐私保护的重要性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在活动中，能够参与相关活动并描述信息安全与个人隐私保护的重要性；优先采集：情境任务、规则清单、口头复述。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步理解数字设备的权限与密码等安全概念，知道重要信息需要保护，不轻易将密码告诉他人；在活动中体验信息安全与个人隐私保护的重要性。",
+          "excerpt_hash": "7e7bd607218af9c3b02421feb4398c3c5ab8c1f1bf8d03328d57fb01034200db",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体验信息安全与个人隐私保护的重要性"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "7e7bd607218af9c3b02421feb4398c3c5ab8c1f1bf8d03328d57fb01034200db",
+  "standard_code": "IT-H1-SR-007",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,287 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_481558d09411dc60",
+        "lc_b6856f79538a9314"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生分析常用互联网应用中数据的构成的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f5ed79bd635a7149",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_efda0507cc7ba3c1"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“分析常用互联网应用中数据的构成”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“分析常用互联网应用中数据的构成”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步了解互联网协议以及网络数据编码、传输和呈现原理；分析常用互联网应用中数据的构成；能用数字化工具编辑和发布网页；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "4e9397f17eaf0011aed91d4458040df43e1e0a312f9c598230c8c731d582ca41",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过邮件、网页或视频播放等可类比活动解释协议和分层传输。",
+          "excerpt_hash": "02c1ef3e7923856bcaa929fb56426b9d9b883602b2ea1f2c4c6c6152837c0319",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-DL-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后分析常用互联网应用中数据的构成，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“分析常用互联网应用中数据的构成”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“通过邮件、网页或视频播放等可类比活动解释协议和分层传输。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_265b214c174fb9c3",
+        "lc_b6856f79538a9314"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生设计、测试的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a760ae51a5369ffe",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_efda0507cc7ba3c1"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“设计、测试”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“设计、测试”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步了解互联网协议以及网络数据编码、传输和呈现原理；分析常用互联网应用中数据的构成；能用数字化工具编辑和发布网页；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "4e9397f17eaf0011aed91d4458040df43e1e0a312f9c598230c8c731d582ca41",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过邮件、网页或视频播放等可类比活动解释协议和分层传输。",
+          "excerpt_hash": "02c1ef3e7923856bcaa929fb56426b9d9b883602b2ea1f2c4c6c6152837c0319",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-DL-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后设计、测试，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“设计、测试”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“通过邮件、网页或视频播放等可类比活动解释协议和分层传输。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_efda0507cc7ba3c1",
+      "component_ids": [
+        "lc_265b214c174fb9c3",
+        "lc_b6856f79538a9314"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生设计、测试。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够设计、测试；优先采集：网页作品、过程说明、协议类比图。",
+        "学生能够评价数字化解决方案；优先采集：网页作品、过程说明、协议类比图。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步了解互联网协议以及网络数据编码、传输和呈现原理；分析常用互联网应用中数据的构成；能用数字化工具编辑和发布网页；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "4e9397f17eaf0011aed91d4458040df43e1e0a312f9c598230c8c731d582ca41",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_72900358bc73b348",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够初步识别并说出互联网协议以及网络数据编码、传输和呈现原理的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生初步识别并说出互联网协议以及网络数据编码、传输和呈现原理的关键特征，并说明关键步骤、特征或依据。",
+      "label": "初步识别并说出互联网协议以及网络数据编码、传输和呈现原理的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够初步识别并说出互联网协议以及网络数据编码、传输和呈现原理的关键特征；优先采集：网页作品、过程说明、协议类比图。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步了解互联网协议以及网络数据编码、传输和呈现原理",
+          "excerpt_hash": "c84b10a78058e885bb6e21ffca67ce031c16ad5612130cf766a679d8a3dab969",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "初步了解互联网协议以及网络数据编码、传输和呈现原理"
+    },
+    {
+      "component_id": "lc_481558d09411dc60",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析常用互联网应用中数据的构成",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析常用互联网应用中数据的构成，并说明关键步骤、特征或依据。",
+      "label": "分析常用互联网应用中数据的构成",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析常用互联网应用中数据的构成；优先采集：网页作品、过程说明、协议类比图。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析常用互联网应用中数据的构成",
+          "excerpt_hash": "a0e9b6036f728eec719e4dd1f904636a28eafaafb10c9c605a44078611d17745",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析常用互联网应用中数据的构成"
+    },
+    {
+      "component_id": "lc_21b65b83cd45130b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用数字化工具编辑和发布网页",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用数字化工具编辑和发布网页，并说明关键步骤、特征或依据。",
+      "label": "用数字化工具编辑和发布网页",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用数字化工具编辑和发布网页；优先采集：网页作品、过程说明、协议类比图。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用数字化工具编辑和发布网页",
+          "excerpt_hash": "d3482cb24b9731a019aec2a34ea5043c60b99bab150c91446248adc205fdba50",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用数字化工具编辑和发布网页"
+    },
+    {
+      "component_id": "lc_265b214c174fb9c3",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够设计、测试",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生设计、测试，并说明关键步骤、特征或依据。",
+      "label": "设计、测试",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够设计、测试；优先采集：网页作品、过程说明、协议类比图。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "设计、测试",
+          "excerpt_hash": "f34282be97ea5b848e2f067f5e47b2decd09f4cc25efac7d5f22df8430dcc747",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "设计、测试"
+    },
+    {
+      "component_id": "lc_b6856f79538a9314",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价数字化解决方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价数字化解决方案，并说明关键步骤、特征或依据。",
+      "label": "评价数字化解决方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价数字化解决方案；优先采集：网页作品、过程说明、协议类比图。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价数字化解决方案",
+          "excerpt_hash": "3afa3da53a717451ad84e66bce8f0eaff2303dc576fceb8d0d1592cbd9ce2132",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-DL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价数字化解决方案"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_55b735a7bb1d9b9f",
+      "evidence_refs": [
+        "standard:IT-H4G9-DL-004:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H4G8-DL-004",
+      "source_label": "能初步了解互联网协议以及网络数据编码、传输和呈现原理；了解常用互联网应用中数据的构成；能用数字化工具编辑和发布网页；能分析系统关系并完成有步骤…",
+      "target_code": "IT-H4G9-DL-004",
+      "target_label": "能初步了解互联网协议以及网络数据编码、传输和呈现原理；分析常用互联网应用中数据的构成；能用数字化工具编辑和发布网页；能设计、测试并评价数字化解…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4e9397f17eaf0011aed91d4458040df43e1e0a312f9c598230c8c731d582ca41",
+  "standard_code": "IT-H4G9-DL-004",
+  "verified_prerequisites": []
+}

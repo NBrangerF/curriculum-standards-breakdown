@@ -1,0 +1,431 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_08809dd6ae12b0a4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述长度单位千米、分米、毫米的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4c362b37549c71df",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2b217a8f0d223de8"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“描述长度单位千米、分米、毫米”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述长度单位千米、分米、毫米”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述长度单位千米、分米、毫米，能进行长度单位之间的换算；能在真实情境中选择合适的长度单位。能通过具体事例描述面积单位厘米²、分米²、米²，能进行面积单位之间的换算。",
+          "excerpt_hash": "d815596f54c1d507f02de44f6170e25056aa6e832994083c205aa0fa977d842a",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "图形的面积教学要让学生在熟悉情境中直观感知面积概念，经历选择面积单位进行测量的过程，理解面积意义，形成量感。",
+          "excerpt_hash": "1d54886348096ac5c2980608e8ea198d50d2416cb8548656b524c16c2dc1222b",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-GE-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述长度单位千米、分米、毫米，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述长度单位千米、分米、毫米”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“图形的面积教学要让学生在熟悉情境中直观感知面积概念，经历选择面积单位进行测量的过程，理解面积意义，形成量感。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_08809dd6ae12b0a4",
+        "lc_7fc97085bcc676f6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述长度单位千米、分米、毫米的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_75a3a01a44364a62",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2b217a8f0d223de8"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述长度单位千米、分米、毫米”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述长度单位千米、分米、毫米”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述长度单位千米、分米、毫米，能进行长度单位之间的换算；能在真实情境中选择合适的长度单位。能通过具体事例描述面积单位厘米²、分米²、米²，能进行面积单位之间的换算。",
+          "excerpt_hash": "d815596f54c1d507f02de44f6170e25056aa6e832994083c205aa0fa977d842a",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "图形的面积教学要让学生在熟悉情境中直观感知面积概念，经历选择面积单位进行测量的过程，理解面积意义，形成量感。",
+          "excerpt_hash": "1d54886348096ac5c2980608e8ea198d50d2416cb8548656b524c16c2dc1222b",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-GE-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述长度单位千米、分米、毫米，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述长度单位千米、分米、毫米”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“图形的面积教学要让学生在熟悉情境中直观感知面积概念，经历选择面积单位进行测量的过程，理解面积意义，形成量感。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 2,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0e852a04453d9919",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_833ce42b24662dbd40af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ec280d20713"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_96d95cbb27d9412e",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0fe92f58cc69aa2d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f61cbfb4e176d8e2",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_033c3d02b20b606e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e8d4a6502261fd8416ff",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_19111441ff11"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_056cb0cc3385568d",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bb667c37153c0baa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f7680a7d4b92"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7b7248af637aca0a",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_c3cd0979c57cc197",
+      "evidence_refs": [
+        "standard:MA-D2-GE-005:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D2-GE-005",
+      "target_code": "MA-D3-GE-005",
+      "target_label": "对于简单物体，能辨认不同方向（前面、侧面、上面）的形状图。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_2b217a8f0d223de8",
+      "component_ids": [
+        "lc_08809dd6ae12b0a4",
+        "lc_f575ab73d98d3bd7",
+        "lc_b07e86692efaa1c0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实",
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生描述长度单位千米、分米、毫米。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够描述长度单位千米、分米、毫米；优先采集：作图/测量作品、解题过程记录。",
+        "学生能够进行长度单位之间的换算；优先采集：作图/测量作品、解题过程记录。",
+        "学生在真实情境中，能够选择合适的长度单位；优先采集：作图/测量作品、解题过程记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述长度单位千米、分米、毫米，能进行长度单位之间的换算；能在真实情境中选择合适的长度单位。能通过具体事例描述面积单位厘米²、分米²、米²，能进行面积单位之间的换算。",
+          "excerpt_hash": "d815596f54c1d507f02de44f6170e25056aa6e832994083c205aa0fa977d842a",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实、情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_08809dd6ae12b0a4",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述长度单位千米、分米、毫米",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述长度单位千米、分米、毫米，并说明关键步骤、特征或依据。",
+      "label": "描述长度单位千米、分米、毫米",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述长度单位千米、分米、毫米；优先采集：作图/测量作品、解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述长度单位千米、分米、毫米",
+          "excerpt_hash": "cf0400108868b5c246ff3fd6f0bd47b1f135b529ffc3601ca7ddad5b66c5f1d6",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述长度单位千米、分米、毫米"
+    },
+    {
+      "component_id": "lc_f575ab73d98d3bd7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够进行长度单位之间的换算",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生进行长度单位之间的换算，并说明关键步骤、特征或依据。",
+      "label": "进行长度单位之间的换算",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够进行长度单位之间的换算；优先采集：作图/测量作品、解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "进行长度单位之间的换算",
+          "excerpt_hash": "740ad9a7fa8f29cb8b17fdf6e066752454d5a730ab2353a793bdd1e9be63741a",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "进行长度单位之间的换算"
+    },
+    {
+      "component_id": "lc_b07e86692efaa1c0",
+      "component_type": "conceptual",
+      "condition": "在真实情境中",
+      "confidence": 0.72,
+      "description": "学生在真实情境中，能够选择合适的长度单位",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在真实情境中”的诊断任务，要求学生选择合适的长度单位，并说明关键步骤、特征或依据。",
+      "label": "选择合适的长度单位",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在真实情境中，能够选择合适的长度单位；优先采集：作图/测量作品、解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述长度单位千米、分米、毫米，能进行长度单位之间的换算；能在真实情境中选择合适的长度单位。能通过具体事例描述面积单位厘米²、分米²、米²，能进行面积单位之间的换算。",
+          "excerpt_hash": "d815596f54c1d507f02de44f6170e25056aa6e832994083c205aa0fa977d842a",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择合适的长度单位"
+    },
+    {
+      "component_id": "lc_7fc97085bcc676f6",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过具体事例描述面积单位厘米²、分米²、米²",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过具体事例描述面积单位厘米²、分米²、米²，并说明关键步骤、特征或依据。",
+      "label": "通过具体事例描述面积单位厘米²、分米²、米²",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过具体事例描述面积单位厘米²、分米²、米²；优先采集：作图/测量作品、解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过具体事例描述面积单位厘米²、分米²、米²",
+          "excerpt_hash": "2b2c14085e65761686c8027e8cf05dd0db9ab13be1bfa983cb39084a9ed78547",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过具体事例描述面积单位厘米²、分米²、米²"
+    },
+    {
+      "component_id": "lc_c1d41eeb072980ee",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够进行面积单位之间的换算",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生进行面积单位之间的换算，并说明关键步骤、特征或依据。",
+      "label": "进行面积单位之间的换算",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够进行面积单位之间的换算；优先采集：作图/测量作品、解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "进行面积单位之间的换算",
+          "excerpt_hash": "eff91995ad48757d526194de48aa4c001aea3d68858ff71f89bfe7d7fdff4e5f",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "进行面积单位之间的换算"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_88301213c13bbd2f",
+      "evidence_refs": [
+        "standard:MA-D2-GE-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D1-GE-003",
+      "source_label": "感悟统一度量单位的重要性，恰当选择长度单位厘米描述常见物体长度并进行单位换算；估测身边常见物体长度并借助工具测量",
+      "target_code": "MA-D2-GE-005",
+      "target_label": "能描述长度单位千米、分米、毫米，能进行长度单位之间的换算；能在真实情境中选择合适的长度单位。能通过具体事例描述面积单位厘米²、分米²、米²，能…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d815596f54c1d507f02de44f6170e25056aa6e832994083c205aa0fa977d842a",
+  "standard_code": "MA-D2-GE-005",
+  "verified_prerequisites": []
+}

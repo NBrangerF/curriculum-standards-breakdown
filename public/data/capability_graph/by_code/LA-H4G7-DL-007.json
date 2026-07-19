@@ -1,0 +1,435 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_e17d514a371de213"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明工具、材料或安全要求的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1cdb792db392964f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4bc122a3f570066d",
+        "hc_963b0d722ebc6163"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明工具、材料或安全要求”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明工具、材料或安全要求”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "bf2e0509a189f7db960b73006158e189cb83d3b113db3f6879e4de01ac41e76c",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将营养搭配、饮食文化、家庭评价和安全烹饪纳入完整任务。",
+          "excerpt_hash": "617c953615207b71a42772364502a96226a2319e51e2d7ea469802401dc4f543",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G7-DL-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明工具、材料或安全要求，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明工具、材料或安全要求”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“将营养搭配、饮食文化、家庭评价和安全烹饪纳入完整任务。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_b1ad7702f3424e4f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0f63b8ab2bf5248d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_099f246530bf2b2a",
+        "hc_f3e58c58d3e82b28"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "bf2e0509a189f7db960b73006158e189cb83d3b113db3f6879e4de01ac41e76c",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将营养搭配、饮食文化、家庭评价和安全烹饪纳入完整任务。",
+          "excerpt_hash": "617c953615207b71a42772364502a96226a2319e51e2d7ea469802401dc4f543",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G7-DL-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“将营养搭配、饮食文化、家庭评价和安全烹饪纳入完整任务。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_e1e2ae01c17ff62e",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-007:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-H4G7-DL-007",
+      "target_code": "LA-H4G8-DL-008",
+      "target_label": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，独立制作午餐或晚餐中的三至四道菜；能规划协作流程并反思劳动质量。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_4bc122a3f570066d",
+      "component_ids": [
+        "lc_e17d514a371de213"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明工具、材料或安全要求。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明工具、材料或安全要求；优先采集：食谱设计、菜品成品、家庭评价、劳动心得。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "bf2e0509a189f7db960b73006158e189cb83d3b113db3f6879e4de01ac41e76c",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_099f246530bf2b2a",
+      "component_ids": [
+        "lc_b1ad7702f3424e4f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；优先采集：食谱设计、菜品成品、家庭评价、劳动心得。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "bf2e0509a189f7db960b73006158e189cb83d3b113db3f6879e4de01ac41e76c",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_963b0d722ebc6163",
+      "component_ids": [
+        "lc_5fd81e52e8f69fc4",
+        "lc_e17d514a371de213"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "规范",
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生按规范完成任务。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够按规范完成任务；优先采集：食谱设计、菜品成品、家庭评价、劳动心得。",
+        "学生能够说明工具、材料或安全要求；优先采集：食谱设计、菜品成品、家庭评价、劳动心得。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "bf2e0509a189f7db960b73006158e189cb83d3b113db3f6879e4de01ac41e76c",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（规范、安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_f3e58c58d3e82b28",
+      "component_ids": [
+        "lc_b1ad7702f3424e4f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；优先采集：食谱设计、菜品成品、家庭评价、劳动心得。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "bf2e0509a189f7db960b73006158e189cb83d3b113db3f6879e4de01ac41e76c",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b1ad7702f3424e4f",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜，并说明关键步骤、特征或依据。",
+      "label": "根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；优先采集：食谱设计、菜品成品、家庭评价、劳动心得。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜",
+          "excerpt_hash": "9782e118c6a44ac10c116b5b4cd589756b886c144e72a9964f6a21fbc6a3103c",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜"
+    },
+    {
+      "component_id": "lc_5fd81e52e8f69fc4",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够按规范完成任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生按规范完成任务，并说明关键步骤、特征或依据。",
+      "label": "按规范完成任务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够按规范完成任务；优先采集：食谱设计、菜品成品、家庭评价、劳动心得。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "按规范完成任务",
+          "excerpt_hash": "435c431407d1babddb0f9e92d5352aefea84d0123f9d1a56ac0b7f66a8928946",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按规范完成任务"
+    },
+    {
+      "component_id": "lc_e17d514a371de213",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明工具、材料或安全要求",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明工具、材料或安全要求，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明工具、材料或安全要求",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明工具、材料或安全要求；优先采集：食谱设计、菜品成品、家庭评价、劳动心得。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明工具、材料或安全要求",
+          "excerpt_hash": "cd212ce4d051adbbf459a3ffdb2752deae8ec0e91d6c7e8522865823136f6708",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-DL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明工具、材料或安全要求"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0926,
+      "edge_id": "pc_a4f0e79cf033d35d",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-007:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D3-DL-004",
+      "source_label": "能在校园公共区域开展清洁与消毒（在成人指导下），能制作并传播卫生习惯倡议，理解公共卫生与个体行为的关系。",
+      "target_code": "LA-H4G7-DL-007",
+      "target_label": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；能按规范完成任务并说明工具、材料或安全要…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1052,
+      "edge_id": "pc_6606c15949b9c0c5",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-007:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D3-DL-005",
+      "source_label": "能对家庭或班级可回收物进行分类、清洁、压缩与打包，能识别危险废弃物并采取正确处置方式，形成环保与安全意识。",
+      "target_code": "LA-H4G7-DL-007",
+      "target_label": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；能按规范完成任务并说明工具、材料或安全要…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1674,
+      "edge_id": "pc_984f0aebc0513c2b",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-007:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D3-DL-007",
+      "source_label": "能在成人指导下完成一道简单家常菜的制作（含准备、加热、调味、摆盘），能把控时间与火候（或温控），并能在结束后完成清洁收尾。",
+      "target_code": "LA-H4G7-DL-007",
+      "target_label": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；能按规范完成任务并说明工具、材料或安全要…"
+    },
+    {
+      "confidence": "high",
+      "confidence_score": 0.2645,
+      "edge_id": "pc_6fd55fef618b7148",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-007:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D3-DL-008",
+      "source_label": "能根据营养原则设计一日三餐的简单餐单，并能在给定预算内选择食材，说明搭配理由与替代方案。",
+      "target_code": "LA-H4G7-DL-007",
+      "target_label": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；能按规范完成任务并说明工具、材料或安全要…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0828,
+      "edge_id": "pc_c1e9181782377841",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-007:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D3-DL-009",
+      "source_label": "能识别食品包装信息（生产日期、保质期、储存条件），能按“冷藏/冷冻/常温”规则整理食品并避免交叉污染。",
+      "target_code": "LA-H4G7-DL-007",
+      "target_label": "能根据家庭成员健康状况和饮食特点设计一日三餐食谱，合理搭配营养，在支架下制作午餐或晚餐中的三至四道菜；能按规范完成任务并说明工具、材料或安全要…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 5,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "bf2e0509a189f7db960b73006158e189cb83d3b113db3f6879e4de01ac41e76c",
+  "standard_code": "LA-H4G7-DL-007",
+  "verified_prerequisites": []
+}

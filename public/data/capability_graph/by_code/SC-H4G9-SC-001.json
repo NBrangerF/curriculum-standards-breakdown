@@ -1,0 +1,569 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_857435dccb3d363d",
+        "lc_3d43fd00396567d5",
+        "lc_91d0e9aa33ea6e3b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用物质粒子模型简要解释三态变化和生活中的相关现象的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_37312bef64013729",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_fb36d1dbb89f5e60",
+        "hc_3bd2eb696a1e8c74",
+        "hc_0b9d63ed31c74706"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用物质粒子模型简要解释三态变化和生活中的相关现象”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用物质粒子模型简要解释三态变化和生活中的相关现象”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用物质粒子模型简要解释三态变化和生活中的相关现象；能用图像描述水的沸腾、晶体熔化和凝固等变化；理解物质固态、液态、气态及其变化特点；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "972bc29f68fd53ed6bf1007b59ece01061f642c4e2813d210341ee4d4e3a4869",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把实验曲线、吸放热和微观模型结合，帮助学生理解宏观变化背后的粒子视角。",
+          "excerpt_hash": "c56eaa5a7fc8ec367ad7d6cce710484677492716c2042587cbe63c7fd62426eb",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用物质粒子模型简要解释三态变化和生活中的相关现象，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用物质粒子模型简要解释三态变化和生活中的相关现象”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把实验曲线、吸放热和微观模型结合，帮助学生理解宏观变化背后的粒子视角。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_857435dccb3d363d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用物质粒子模型简要解释三态变化和生活中的相关现象的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_721d140c924a6b0b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_fb36d1dbb89f5e60",
+        "hc_3bd2eb696a1e8c74",
+        "hc_0b9d63ed31c74706"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“用物质粒子模型简要解释三态变化和生活中的相关现象”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用物质粒子模型简要解释三态变化和生活中的相关现象”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用物质粒子模型简要解释三态变化和生活中的相关现象；能用图像描述水的沸腾、晶体熔化和凝固等变化；理解物质固态、液态、气态及其变化特点；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "972bc29f68fd53ed6bf1007b59ece01061f642c4e2813d210341ee4d4e3a4869",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把实验曲线、吸放热和微观模型结合，帮助学生理解宏观变化背后的粒子视角。",
+          "excerpt_hash": "c56eaa5a7fc8ec367ad7d6cce710484677492716c2042587cbe63c7fd62426eb",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用物质粒子模型简要解释三态变化和生活中的相关现象，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用物质粒子模型简要解释三态变化和生活中的相关现象”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把实验曲线、吸放热和微观模型结合，帮助学生理解宏观变化背后的粒子视角。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_857435dccb3d363d",
+        "lc_4e50aefc2775e78f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用物质粒子模型简要解释三态变化和生活中的相关现象的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0b9d63ed31c74706",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_fb36d1dbb89f5e60",
+        "hc_3bd2eb696a1e8c74",
+        "hc_0b9d63ed31c74706"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“用物质粒子模型简要解释三态变化和生活中的相关现象”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用物质粒子模型简要解释三态变化和生活中的相关现象”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用物质粒子模型简要解释三态变化和生活中的相关现象；能用图像描述水的沸腾、晶体熔化和凝固等变化；理解物质固态、液态、气态及其变化特点；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "972bc29f68fd53ed6bf1007b59ece01061f642c4e2813d210341ee4d4e3a4869",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把实验曲线、吸放热和微观模型结合，帮助学生理解宏观变化背后的粒子视角。",
+          "excerpt_hash": "c56eaa5a7fc8ec367ad7d6cce710484677492716c2042587cbe63c7fd62426eb",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用物质粒子模型简要解释三态变化和生活中的相关现象，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用物质粒子模型简要解释三态变化和生活中的相关现象”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“把实验曲线、吸放热和微观模型结合，帮助学生理解宏观变化背后的粒子视角。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_4e50aefc2775e78f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用图像描述水的沸腾、晶体熔化和凝固等变化的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a4fe021669a8a0cc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0b9d63ed31c74706"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“用图像描述水的沸腾、晶体熔化和凝固等变化”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用图像描述水的沸腾、晶体熔化和凝固等变化”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用物质粒子模型简要解释三态变化和生活中的相关现象；能用图像描述水的沸腾、晶体熔化和凝固等变化；理解物质固态、液态、气态及其变化特点；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "972bc29f68fd53ed6bf1007b59ece01061f642c4e2813d210341ee4d4e3a4869",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把实验曲线、吸放热和微观模型结合，帮助学生理解宏观变化背后的粒子视角。",
+          "excerpt_hash": "c56eaa5a7fc8ec367ad7d6cce710484677492716c2042587cbe63c7fd62426eb",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用图像描述水的沸腾、晶体熔化和凝固等变化，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用图像描述水的沸腾、晶体熔化和凝固等变化”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把实验曲线、吸放热和微观模型结合，帮助学生理解宏观变化背后的粒子视角。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_8e02089bf95f8124"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生评价探究结论或社会影响的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8e30a547f6d501f6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“评价探究结论或社会影响”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“评价探究结论或社会影响”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用物质粒子模型简要解释三态变化和生活中的相关现象；能用图像描述水的沸腾、晶体熔化和凝固等变化；理解物质固态、液态、气态及其变化特点；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "972bc29f68fd53ed6bf1007b59ece01061f642c4e2813d210341ee4d4e3a4869",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把实验曲线、吸放热和微观模型结合，帮助学生理解宏观变化背后的粒子视角。",
+          "excerpt_hash": "c56eaa5a7fc8ec367ad7d6cce710484677492716c2042587cbe63c7fd62426eb",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后评价探究结论或社会影响，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“评价探究结论或社会影响”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把实验曲线、吸放热和微观模型结合，帮助学生理解宏观变化背后的粒子视角。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 3,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2b94c4201dc9c68c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2b4eaf7fd74d5608c966",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_91e786746fa4"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a01eaebee10c3727",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_272cd88df53d5e2f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_46b397a7eadfedff",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5e764abde144de4f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f0fcd567e766"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_941308fc63ca2501",
+      "textbook_grade": 9,
+      "textbook_subject": "物理",
+      "textbook_title": "物理9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_fb36d1dbb89f5e60",
+      "component_ids": [
+        "lc_857435dccb3d363d",
+        "lc_3d43fd00396567d5",
+        "lc_91d0e9aa33ea6e3b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "论证",
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用物质粒子模型简要解释三态变化和生活中的相关现象。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用物质粒子模型简要解释三态变化和生活中的相关现象；优先采集：实验记录、图像、粒子模型解释。",
+        "学生能够用自己的话解释物质固态、液态、气态及其变化特点；优先采集：实验记录、图像、粒子模型解释。",
+        "学生能够建模、论证；优先采集：实验记录、图像、粒子模型解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用物质粒子模型简要解释三态变化和生活中的相关现象；能用图像描述水的沸腾、晶体熔化和凝固等变化；理解物质固态、液态、气态及其变化特点；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "972bc29f68fd53ed6bf1007b59ece01061f642c4e2813d210341ee4d4e3a4869",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（论证、解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_3bd2eb696a1e8c74",
+      "component_ids": [
+        "lc_857435dccb3d363d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用物质粒子模型简要解释三态变化和生活中的相关现象。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用物质粒子模型简要解释三态变化和生活中的相关现象；优先采集：实验记录、图像、粒子模型解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用物质粒子模型简要解释三态变化和生活中的相关现象；能用图像描述水的沸腾、晶体熔化和凝固等变化；理解物质固态、液态、气态及其变化特点；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "972bc29f68fd53ed6bf1007b59ece01061f642c4e2813d210341ee4d4e3a4869",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_0b9d63ed31c74706",
+      "component_ids": [
+        "lc_857435dccb3d363d",
+        "lc_4e50aefc2775e78f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "图像",
+        "模型"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用物质粒子模型简要解释三态变化和生活中的相关现象。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用物质粒子模型简要解释三态变化和生活中的相关现象；优先采集：实验记录、图像、粒子模型解释。",
+        "学生能够用图像描述水的沸腾、晶体熔化和凝固等变化；优先采集：实验记录、图像、粒子模型解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用物质粒子模型简要解释三态变化和生活中的相关现象；能用图像描述水的沸腾、晶体熔化和凝固等变化；理解物质固态、液态、气态及其变化特点；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "972bc29f68fd53ed6bf1007b59ece01061f642c4e2813d210341ee4d4e3a4869",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（图像、模型）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_857435dccb3d363d",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用物质粒子模型简要解释三态变化和生活中的相关现象",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用物质粒子模型简要解释三态变化和生活中的相关现象，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用物质粒子模型简要解释三态变化和生活中的相关现象",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用物质粒子模型简要解释三态变化和生活中的相关现象；优先采集：实验记录、图像、粒子模型解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用物质粒子模型简要解释三态变化和生活中的相关现象",
+          "excerpt_hash": "7bb19d1e0108e244397932dee5ab2bcfe47d17a915100d14d8da82ff53134ac4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用物质粒子模型简要解释三态变化和生活中的相关现象"
+    },
+    {
+      "component_id": "lc_4e50aefc2775e78f",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用图像描述水的沸腾、晶体熔化和凝固等变化",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用图像描述水的沸腾、晶体熔化和凝固等变化，并说明关键步骤、特征或依据。",
+      "label": "用图像描述水的沸腾、晶体熔化和凝固等变化",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用图像描述水的沸腾、晶体熔化和凝固等变化；优先采集：实验记录、图像、粒子模型解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用图像描述水的沸腾、晶体熔化和凝固等变化",
+          "excerpt_hash": "2e630c679241936d06f51ef932752ede5c0a01abe6498ad4c9e3abfb23affa51",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用图像描述水的沸腾、晶体熔化和凝固等变化"
+    },
+    {
+      "component_id": "lc_3d43fd00396567d5",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释物质固态、液态、气态及其变化特点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释物质固态、液态、气态及其变化特点，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释物质固态、液态、气态及其变化特点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释物质固态、液态、气态及其变化特点；优先采集：实验记录、图像、粒子模型解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解物质固态、液态、气态及其变化特点",
+          "excerpt_hash": "b7aea8ade062682986f07b5a13cd68e21d31905a29157309d6e214f695fbb4c3",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解物质固态、液态、气态及其变化特点"
+    },
+    {
+      "component_id": "lc_91d0e9aa33ea6e3b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、论证",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
+      "label": "建模、论证",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、论证；优先采集：实验记录、图像、粒子模型解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、论证",
+          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、论证"
+    },
+    {
+      "component_id": "lc_8e02089bf95f8124",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价探究结论或社会影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
+      "label": "评价探究结论或社会影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：实验记录、图像、粒子模型解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价探究结论或社会影响",
+          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价探究结论或社会影响"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_71af750216a7e0f0",
+      "evidence_refs": [
+        "standard:SC-H4G9-SC-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G8-SC-001",
+      "source_label": "能用物质粒子模型简要解释三态变化和生活中的相关现象；理解物质固态、液态、气态及其变化特点；能用图像描述水的沸腾、晶体熔化和凝固等变化；能比较证…",
+      "target_code": "SC-H4G9-SC-001",
+      "target_label": "能用物质粒子模型简要解释三态变化和生活中的相关现象；能用图像描述水的沸腾、晶体熔化和凝固等变化；理解物质固态、液态、气态及其变化特点；能建模、…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "972bc29f68fd53ed6bf1007b59ece01061f642c4e2813d210341ee4d4e3a4869",
+  "standard_code": "SC-H4G9-SC-001",
+  "verified_prerequisites": []
+}

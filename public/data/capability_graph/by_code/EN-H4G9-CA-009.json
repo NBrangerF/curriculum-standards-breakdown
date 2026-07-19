@@ -1,0 +1,419 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_aafaaab8dd2b1d2a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生领会简短语篇蕴含的人文精神、科学精神和劳动价值的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2353508199aaf1da",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_85cd4ac56a6647bf"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“领会简短语篇蕴含的人文精神、科学精神和劳动价值”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“领会简短语篇蕴含的人文精神、科学精神和劳动价值”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "f89e163078595be33e946596e843f40cacbc93f9170d41ee28004ea23d790bd6",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过文本细节和学生经验连接价值理解，避免空泛说教。",
+          "excerpt_hash": "3ecaf8d43e05b221175c37404d2c903b01d52d677dacc4bb36a060dbfdd2b55c",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G9-CA-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后领会简短语篇蕴含的人文精神、科学精神和劳动价值，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“领会简短语篇蕴含的人文精神、科学精神和劳动价值”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“通过文本细节和学生经验连接价值理解，避免空泛说教。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_80141c8f84440812"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在任务中表现出连贯表达并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_dd81fe76dbd58f95",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_776edafccd024a7f"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“在任务中表现出连贯表达并说明选择理由”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在任务中表现出连贯表达并说明选择理由”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "f89e163078595be33e946596e843f40cacbc93f9170d41ee28004ea23d790bd6",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过文本细节和学生经验连接价值理解，避免空泛说教。",
+          "excerpt_hash": "3ecaf8d43e05b221175c37404d2c903b01d52d677dacc4bb36a060dbfdd2b55c",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G9-CA-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在任务中表现出连贯表达并说明选择理由，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在任务中表现出连贯表达并说明选择理由”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“通过文本细节和学生经验连接价值理解，避免空泛说教。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_fd0752435f5c2a99"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释与感悟中外优秀文化的内涵的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_acbe26a607996b2b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_85cd4ac56a6647bf"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释与感悟中外优秀文化的内涵”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释与感悟中外优秀文化的内涵”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "f89e163078595be33e946596e843f40cacbc93f9170d41ee28004ea23d790bd6",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过文本细节和学生经验连接价值理解，避免空泛说教。",
+          "excerpt_hash": "3ecaf8d43e05b221175c37404d2c903b01d52d677dacc4bb36a060dbfdd2b55c",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G9-CA-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释与感悟中外优秀文化的内涵，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释与感悟中外优秀文化的内涵”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“通过文本细节和学生经验连接价值理解，避免空泛说教。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7c7b4898162091e5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ca2005df136f696b98af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_quark_2027_spring_pep_english_grade_9_lower"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "future_candidate",
+      "scope_id": "tcs_54cfcfb15b205d2b",
+      "textbook_grade": 9,
+      "textbook_subject": "英语",
+      "textbook_title": "英语9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_81bb6f26c23d1300",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e0fadc639066b4710fce",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_quark_2026_autumn_pep_english_grade_9_upper"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_likely",
+      "scope_id": "tcs_08aabfe850665d80",
+      "textbook_grade": 9,
+      "textbook_subject": "英语",
+      "textbook_title": "英语9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_85cd4ac56a6647bf",
+      "component_ids": [
+        "lc_aafaaab8dd2b1d2a",
+        "lc_64e6e7c64b7b4421",
+        "lc_fd0752435f5c2a99"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生领会简短语篇蕴含的人文精神、科学精神和劳动价值。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够领会简短语篇蕴含的人文精神、科学精神和劳动价值；优先采集：语篇赏析卡、价值说明、交流发言。",
+        "学生能够在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由；优先采集：语篇赏析卡、价值说明、交流发言。",
+        "学生能够用自己的话解释与感悟中外优秀文化的内涵；优先采集：语篇赏析卡、价值说明、交流发言。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "f89e163078595be33e946596e843f40cacbc93f9170d41ee28004ea23d790bd6",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_776edafccd024a7f",
+      "component_ids": [
+        "lc_80141c8f84440812"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "连贯"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在任务中表现出连贯表达并说明选择理由。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：语篇赏析卡、价值说明、交流发言。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "f89e163078595be33e946596e843f40cacbc93f9170d41ee28004ea23d790bd6",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（连贯）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_aafaaab8dd2b1d2a",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够领会简短语篇蕴含的人文精神、科学精神和劳动价值",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生领会简短语篇蕴含的人文精神、科学精神和劳动价值，并说明关键步骤、特征或依据。",
+      "label": "领会简短语篇蕴含的人文精神、科学精神和劳动价值",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够领会简短语篇蕴含的人文精神、科学精神和劳动价值；优先采集：语篇赏析卡、价值说明、交流发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "领会简短语篇蕴含的人文精神、科学精神和劳动价值",
+          "excerpt_hash": "4b908684f02fd69bde3b3c34c2d2ac4c32f7124a5848a0ca752ff3538b22e746",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "领会简短语篇蕴含的人文精神、科学精神和劳动价值"
+    },
+    {
+      "component_id": "lc_64e6e7c64b7b4421",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由；优先采集：语篇赏析卡、价值说明、交流发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度",
+          "excerpt_hash": "97ec36421c4123324026ac39fe1bd7ba42ab4e26a922237ad4b6cadcf4cdf29d",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度"
+    },
+    {
+      "component_id": "lc_fd0752435f5c2a99",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释与感悟中外优秀文化的内涵",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释与感悟中外优秀文化的内涵，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释与感悟中外优秀文化的内涵",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释与感悟中外优秀文化的内涵；优先采集：语篇赏析卡、价值说明、交流发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解与感悟中外优秀文化的内涵",
+          "excerpt_hash": "f82fa636f7512688a20e0610ad6f1ca4c3ffa1c82e9af3491f1dbec921f89cea",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解与感悟中外优秀文化的内涵"
+    },
+    {
+      "component_id": "lc_80141c8f84440812",
+      "component_type": "language",
+      "condition": "在真实交际中",
+      "confidence": 0.72,
+      "description": "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在真实交际中”的诊断任务，要求学生在任务中表现出连贯表达并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出连贯表达并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：语篇赏析卡、价值说明、交流发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "f89e163078595be33e946596e843f40cacbc93f9170d41ee28004ea23d790bd6",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成连贯表达"
+    },
+    {
+      "component_id": "lc_964448cf253618cf",
+      "component_type": "metacognitive",
+      "condition": "在真实交际中",
+      "confidence": 0.72,
+      "description": "学生在真实交际中，能够反思策略",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在真实交际中”的诊断任务，要求学生反思策略，并说明关键步骤、特征或依据。",
+      "label": "反思策略",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在真实交际中，能够反思策略；优先采集：语篇赏析卡、价值说明、交流发言。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "f89e163078595be33e946596e843f40cacbc93f9170d41ee28004ea23d790bd6",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思策略"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_ecf8aad07e619879",
+      "evidence_refs": [
+        "standard:EN-H4G9-CA-009:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-H4G8-CA-008",
+      "source_label": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；…",
+      "target_code": "EN-H4G9-CA-009",
+      "target_label": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f89e163078595be33e946596e843f40cacbc93f9170d41ee28004ea23d790bd6",
+  "standard_code": "EN-H4G9-CA-009",
+  "verified_prerequisites": []
+}

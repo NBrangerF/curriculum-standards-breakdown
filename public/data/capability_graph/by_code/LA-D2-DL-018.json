@@ -1,0 +1,226 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_c7b1e005e39e82cc"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据出行时长与天气制作打包清单，按类别打包的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_863c553916be3954",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d275f047614bfc5a"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“根据出行时长与天气制作打包清单，按类别打包”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据出行时长与天气制作打包清单，按类别打包”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据出行时长与天气制作打包清单，按类别打包并检查遗漏，能做到合理取舍与自我负责。",
+          "excerpt_hash": "cac0c295d0dd596ea21de713d7546c297613f3dca318a34843dd8e7179ff9875",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-018:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“3类清单”（衣物/洗漱/学习与其他）；示范卷叠与分袋；强调“备用但不过量”。",
+          "excerpt_hash": "8013474fdd5dcd33ed06d13077efdfee292f93d1c090c475a9248bea8079e729",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-DL-018:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据出行时长与天气制作打包清单，按类别打包，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据出行时长与天气制作打包清单，按类别打包”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“用“3类清单”（衣物/洗漱/学习与其他）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_e6076f8f6aefd0cd",
+      "evidence_refs": [
+        "standard:LA-D2-DL-018:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-DL-018",
+      "target_code": "LA-D3-DL-018",
+      "target_label": "能为一次研学或家庭出行制定打包清单与简单预算，能进行取舍并解释理由，做到行李整洁、安全、便于取用。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_d275f047614bfc5a",
+      "component_ids": [
+        "lc_c7b1e005e39e82cc"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据出行时长与天气制作打包清单，按类别打包。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据出行时长与天气制作打包清单，按类别打包；优先采集：打包清单、检查记录、同伴互查。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据出行时长与天气制作打包清单，按类别打包并检查遗漏，能做到合理取舍与自我负责。",
+          "excerpt_hash": "cac0c295d0dd596ea21de713d7546c297613f3dca318a34843dd8e7179ff9875",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_6fd70583cb08c642",
+      "component_ids": [
+        "lc_8748275195f40791"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生做到合理取舍与自我负责。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够做到合理取舍与自我负责；优先采集：打包清单、检查记录、同伴互查。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据出行时长与天气制作打包清单，按类别打包并检查遗漏，能做到合理取舍与自我负责。",
+          "excerpt_hash": "cac0c295d0dd596ea21de713d7546c297613f3dca318a34843dd8e7179ff9875",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c7b1e005e39e82cc",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据出行时长与天气制作打包清单，按类别打包",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据出行时长与天气制作打包清单，按类别打包，并说明关键步骤、特征或依据。",
+      "label": "根据出行时长与天气制作打包清单，按类别打包",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据出行时长与天气制作打包清单，按类别打包；优先采集：打包清单、检查记录、同伴互查。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据出行时长与天气制作打包清单，按类别打包",
+          "excerpt_hash": "4f8e0a6234322e9649c85b9586c5e847f1e131ed324e82ca267b02da43fbd51f",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据出行时长与天气制作打包清单，按类别打包"
+    },
+    {
+      "component_id": "lc_625e13f5beef5daa",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够检查遗漏",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生检查遗漏，并说明关键步骤、特征或依据。",
+      "label": "检查遗漏",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够检查遗漏；优先采集：打包清单、检查记录、同伴互查。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "检查遗漏",
+          "excerpt_hash": "c9994f90833336e47c07f2d590ec8e9c0d1ac19c22a420d6b05a74c1ad648c06",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "检查遗漏"
+    },
+    {
+      "component_id": "lc_8748275195f40791",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够做到合理取舍与自我负责",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生做到合理取舍与自我负责，并说明关键步骤、特征或依据。",
+      "label": "做到合理取舍与自我负责",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够做到合理取舍与自我负责；优先采集：打包清单、检查记录、同伴互查。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "做到合理取舍与自我负责",
+          "excerpt_hash": "e6b53c92909b8eb26b39ce12b7fdd623c3aa8f9f4a59aaf327c67ae78a431624",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "做到合理取舍与自我负责"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "cac0c295d0dd596ea21de713d7546c297613f3dca318a34843dd8e7179ff9875",
+  "standard_code": "LA-D2-DL-018",
+  "verified_prerequisites": []
+}

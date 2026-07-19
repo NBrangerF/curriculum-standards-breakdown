@@ -1,0 +1,191 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_8b8af2322794444e"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生建立个人学习资料归档规则与任务清单管理方式的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d918c7c892b57e36",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_42ae8d9d685ed1c3"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“建立个人学习资料归档规则与任务清单管理方式”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能建立个人学习资料归档规则与任务清单管理方式，能按周进行整理复盘，提高学习效率与持续性。",
+          "excerpt_hash": "cd66b63bbc24fa8576ebc68bd0a18e140a23e840f02fb9a25bc63d1d35002d80",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-017:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "以“周计划—日清单—周复盘”训练；归档规则固定（学科/主题/日期）；把“找不到=没有归档”作为评价点。",
+          "excerpt_hash": "ce9c7e809b12e3f819d30328210684a4f5a785900ae63f0da54245239c40d0e1",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-DL-017:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后建立个人学习资料归档规则与任务清单管理方式，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“建立个人学习资料归档规则与任务清单管理方式”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“以“周计划—日清单—周复盘”训练”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1353,
+      "connection_id": "fc_17660d705eb999eb",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-008:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-DL-017",
+      "target_code": "LA-H4G7-DL-008",
+      "target_label": "能强化诚实劳动的习惯和品质，形成劳动效率意识和劳动质量意识；能按规范完成任务并说明工具、材料或安全要求。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_42ae8d9d685ed1c3",
+      "component_ids": [
+        "lc_8b8af2322794444e",
+        "lc_4d813279795f8f1b"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生建立个人学习资料归档规则与任务清单管理方式。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够建立个人学习资料归档规则与任务清单管理方式；优先采集：任务清单、归档结构截图/照片、周复盘。",
+        "学生能够按周进行整理复盘，提高学习效率与持续性；优先采集：任务清单、归档结构截图/照片、周复盘。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能建立个人学习资料归档规则与任务清单管理方式，能按周进行整理复盘，提高学习效率与持续性。",
+          "excerpt_hash": "cd66b63bbc24fa8576ebc68bd0a18e140a23e840f02fb9a25bc63d1d35002d80",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "建立个人学习资料归档规则与任务清单管理方式；按周进行整理复盘，提高学习效率与持续性",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_8b8af2322794444e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建立个人学习资料归档规则与任务清单管理方式",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建立个人学习资料归档规则与任务清单管理方式，并说明关键步骤、特征或依据。",
+      "label": "建立个人学习资料归档规则与任务清单管理方式",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建立个人学习资料归档规则与任务清单管理方式；优先采集：任务清单、归档结构截图/照片、周复盘。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建立个人学习资料归档规则与任务清单管理方式",
+          "excerpt_hash": "05c8457d4a02925ca6e7ab298ef67555a83d6cd6070292f191bec39091ab32d0",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建立个人学习资料归档规则与任务清单管理方式"
+    },
+    {
+      "component_id": "lc_4d813279795f8f1b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够按周进行整理复盘，提高学习效率与持续性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生按周进行整理复盘，提高学习效率与持续性，并说明关键步骤、特征或依据。",
+      "label": "按周进行整理复盘，提高学习效率与持续性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够按周进行整理复盘，提高学习效率与持续性；优先采集：任务清单、归档结构截图/照片、周复盘。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "按周进行整理复盘，提高学习效率与持续性",
+          "excerpt_hash": "50f22c239b0a50301fdb45a5293b41e25311a1fde186216282b97fa6b31d0beb",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-017:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按周进行整理复盘，提高学习效率与持续性"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_7124f7716a118207",
+      "evidence_refs": [
+        "standard:LA-D3-DL-017:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-DL-017",
+      "source_label": "能使用文件夹、分类袋对学习资料进行整理，能建立“主题/日期”基本索引方式，提升查找效率并保持桌面整洁。",
+      "target_code": "LA-D3-DL-017",
+      "target_label": "能建立个人学习资料归档规则与任务清单管理方式，能按周进行整理复盘，提高学习效率与持续性。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "cd66b63bbc24fa8576ebc68bd0a18e140a23e840f02fb9a25bc63d1d35002d80",
+  "standard_code": "LA-D3-DL-017",
+  "verified_prerequisites": []
+}

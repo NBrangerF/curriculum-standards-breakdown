@@ -1,0 +1,269 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_c9377ed8b0f4f260"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_596776e85e4dd23b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f291b03d3c3d0e62"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌",
+          "excerpt_hash": "2bab9029084e430ba253e73f718f55576616863e44b3c6b252086f12b983a4ae",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-LA-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "提供句框/功能句型卡片（I can..., Can you...）+同伴对话轮换；强调“得体与礼貌”。",
+          "excerpt_hash": "47b55e66fd514c04045e5580c35c215adc761e9a4cb25d6176ebe97b7b40819f",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-D1-LA-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“提供句框/功能句型卡片（I can..., Can you...）+同伴对话轮换”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_eb559f13fdbe621e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_14d3051be175a07856d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_96fe1cf7a088"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4c0b84e107cb3acc",
+      "textbook_grade": 4,
+      "textbook_subject": "英语",
+      "textbook_title": "英语4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9d5a2c1f3bba3ec9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_33e1117f4e3b64658cf7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2da7a165ff23"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_736b449efa98c23e",
+      "textbook_grade": 4,
+      "textbook_subject": "英语",
+      "textbook_title": "英语4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5156c5a4545dc5b0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_97b9c1a173bf9c3f5fea",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_94ad37d595c7"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c71decfe6366ff07",
+      "textbook_grade": 3,
+      "textbook_subject": "英语",
+      "textbook_title": "英语3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0b01a864345b8ab3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bd2c45b5e8fc08bf234e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9ccd4f4ff8e3"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_623deee3782f3fb1",
+      "textbook_grade": 3,
+      "textbook_subject": "英语",
+      "textbook_title": "英语3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_22c41ccceb2cfecf",
+      "evidence_refs": [
+        "standard:EN-D1-LA-016:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-D1-LA-016",
+      "target_code": "EN-D2-LA-016",
+      "target_label": "在听或看简单的音视频材料时，能获取有关人物、时间、地点、事件等 基本信息。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_f291b03d3c3d0e62",
+      "component_ids": [
+        "lc_c9377ed8b0f4f260"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌；优先采集：发音语调基本准确。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌",
+          "excerpt_hash": "2bab9029084e430ba253e73f718f55576616863e44b3c6b252086f12b983a4ae",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-LA-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c9377ed8b0f4f260",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌，并说明关键步骤、特征或依据。",
+      "label": "与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌；优先采集：发音语调基本准确。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌",
+          "excerpt_hash": "f47deae218965dddbbcc173db3c5a3c356fc8e1d926a8fd49d5f42246c17fb72",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-LA-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "2bab9029084e430ba253e73f718f55576616863e44b3c6b252086f12b983a4ae",
+  "standard_code": "EN-D1-LA-016",
+  "verified_prerequisites": []
+}

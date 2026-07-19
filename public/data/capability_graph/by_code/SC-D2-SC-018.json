@@ -1,0 +1,337 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_1cb0143ac7c14917",
+        "lc_6eaf309277b6c300"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生区分植物和动物的主要特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bd27633c2c467929",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_dcc4401e680ba24a"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“区分植物和动物的主要特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“区分植物和动物的主要特征”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能区分植物和动物的主要特征，并能对植物和动物进行简单分类。",
+          "excerpt_hash": "9746d0a33132d1a4ef23bca689b3bfa72680bbdfcb10cc04c82a33af068f36c6",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-018:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“3 在认识常见生物、认识生物生存行为的过程中，认同热爱自然、保；年级| 护环境以及保护当地动村物资源的积极意义，认同保护人体具有呼吕功”",
+          "excerpt_hash": "a99d3687010c18ef282c522baecaad0c11cbd743f3770b509f83f181c24763c3",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D2-SC-018:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后区分植物和动物的主要特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“区分植物和动物的主要特征”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：““3 在认识常见生物、认识生物生存行为的过程中，认同热爱自然、保”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_1cb0143ac7c14917"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生区分植物和动物的主要特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_dfa06bd23fce87cb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_dcc4401e680ba24a"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“区分植物和动物的主要特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“区分植物和动物的主要特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能区分植物和动物的主要特征，并能对植物和动物进行简单分类。",
+          "excerpt_hash": "9746d0a33132d1a4ef23bca689b3bfa72680bbdfcb10cc04c82a33af068f36c6",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-018:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“3 在认识常见生物、认识生物生存行为的过程中，认同热爱自然、保；年级| 护环境以及保护当地动村物资源的积极意义，认同保护人体具有呼吕功”",
+          "excerpt_hash": "a99d3687010c18ef282c522baecaad0c11cbd743f3770b509f83f181c24763c3",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D2-SC-018:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后区分植物和动物的主要特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“区分植物和动物的主要特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：““3 在认识常见生物、认识生物生存行为的过程中，认同热爱自然、保”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_82b1f5e5bc6d2d33",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0757779aa18e19943225",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d4496c65db0c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b9eb991027ffeda8",
+      "textbook_grade": 4,
+      "textbook_subject": "科学",
+      "textbook_title": "科学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c33df7a39ec42a6f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_8f339370bc6f93bec508",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_081c8aedb59a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7c169a53d2e5e61f",
+      "textbook_grade": 3,
+      "textbook_subject": "科学",
+      "textbook_title": "科学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_909e02ea9566f388",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b38444051a56cb65e2a2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e406900c980e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_cdcafe0767eae425",
+      "textbook_grade": 3,
+      "textbook_subject": "科学",
+      "textbook_title": "科学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bc92336129987e35",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fdd69e27f13a56c2ba4c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d37bf862517c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_cd997a8f1d41e32e",
+      "textbook_grade": 4,
+      "textbook_subject": "科学",
+      "textbook_title": "科学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_a9d12b589a5f4f92",
+      "evidence_refs": [
+        "standard:SC-D2-SC-018:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D2-SC-018",
+      "target_code": "SC-D3-SC-016",
+      "target_label": "列举生活中常见的微生物(如酵母菌、霉菌、病毒),举例说出感冒、痢疾等疾病是由微生物引起的。；根据某些特征，对植物进行分类。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_dcc4401e680ba24a",
+      "component_ids": [
+        "lc_1cb0143ac7c14917",
+        "lc_6eaf309277b6c300"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "区分",
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生区分植物和动物的主要特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够区分植物和动物的主要特征；优先采集：实验/探究记录、模型/作品、数据表/图表。",
+        "学生能够对植物和动物进行简单分类；优先采集：实验/探究记录、模型/作品、数据表/图表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能区分植物和动物的主要特征，并能对植物和动物进行简单分类。",
+          "excerpt_hash": "9746d0a33132d1a4ef23bca689b3bfa72680bbdfcb10cc04c82a33af068f36c6",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（区分、分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_1cb0143ac7c14917",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够区分植物和动物的主要特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生区分植物和动物的主要特征，并说明关键步骤、特征或依据。",
+      "label": "区分植物和动物的主要特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够区分植物和动物的主要特征；优先采集：实验/探究记录、模型/作品、数据表/图表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "区分植物和动物的主要特征",
+          "excerpt_hash": "da39e2e48a7fc469138c5a6abf036ee53fc357864e3fedab778d892183538283",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "区分植物和动物的主要特征"
+    },
+    {
+      "component_id": "lc_6eaf309277b6c300",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够对植物和动物进行简单分类",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生对植物和动物进行简单分类，并说明关键步骤、特征或依据。",
+      "label": "对植物和动物进行简单分类",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够对植物和动物进行简单分类；优先采集：实验/探究记录、模型/作品、数据表/图表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "对植物和动物进行简单分类",
+          "excerpt_hash": "55e5911b599932b2bfcd530d63f60325065d2c6269021cf2cfa229a6fbdf716d",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "对植物和动物进行简单分类"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "9746d0a33132d1a4ef23bca689b3bfa72680bbdfcb10cc04c82a33af068f36c6",
+  "standard_code": "SC-D2-SC-018",
+  "verified_prerequisites": []
+}

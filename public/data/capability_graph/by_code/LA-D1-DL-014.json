@@ -1,0 +1,144 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_ef648ea7f9c4b6d4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f0d398207ac78e8d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_59a624da58916f8c"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）。",
+          "excerpt_hash": "8235669e5468c8adbd8818e01bde4682a6a57bda2accedcd943fb502451e3e4d",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-014:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“颜色餐盘”认识多样化；结合体验问“吃前洗了吗/多少算适量”；避免复杂营养学，强调可执行的习惯。",
+          "excerpt_hash": "c76e92902cb9e0a8f6f3eb98b69e07f8f57a1b9e68dce6b236e838dfe68ef6c8",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-DL-014:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用“颜色餐盘”认识多样化”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_016d9be72c39bdf8",
+      "evidence_refs": [
+        "standard:LA-D1-DL-014:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D1-DL-014",
+      "target_code": "LA-D2-DL-009",
+      "target_label": "能依据“食物多样、荤素搭配、少糖少盐”原则为自己设计一份简单健康餐单，并能说明选择理由。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_59a624da58916f8c",
+      "component_ids": [
+        "lc_ef648ea7f9c4b6d4"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）；优先采集：口头问答、学习单、同伴提问。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）。",
+          "excerpt_hash": "8235669e5468c8adbd8818e01bde4682a6a57bda2accedcd943fb502451e3e4d",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ef648ea7f9c4b6d4",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生），并说明关键步骤、特征或依据。",
+      "label": "说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）；优先采集：口头问答、学习单、同伴提问。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）",
+          "excerpt_hash": "b693e4edf1408a988421f3cbe9fe2b7b1584da685edf380b0b365b7aeaa3588a",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出蔬菜、水果、饮品等食物的一个基本营养价值或健康作用，知道简单科学的食用方法（如适量、多样、注意卫生）"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "8235669e5468c8adbd8818e01bde4682a6a57bda2accedcd943fb502451e3e4d",
+  "standard_code": "LA-D1-DL-014",
+  "verified_prerequisites": []
+}

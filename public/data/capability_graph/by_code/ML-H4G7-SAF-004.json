@@ -1,0 +1,658 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_0a589d46f2c5c034",
+        "lc_e8d31ab3445d3536",
+        "lc_a0efe073385c2c53"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释不同社会角色及其相互关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_27e04543b58cfabd",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_de4103487dc0bb96",
+        "hc_634b9efa2e876dbf",
+        "hc_3b418cbcd3e45c05",
+        "hc_e8aff51be07d47b9",
+        "hc_36049f3432af56da"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释不同社会角色及其相互关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释不同社会角色及其相互关系”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "5505316fd11132c9d4b169131ed93eca31a0e3bf56e68e5a949be7a6f509565b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-SAF-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把自我认识放入真实社会关系中，引导学生在团队活动中增强合作精神。",
+          "excerpt_hash": "e9db8652ed96fcec0d24bf3bcb4d1ac0d406adf0ad41de058843bb2fac2c72fd",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G7-SAF-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释不同社会角色及其相互关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释不同社会角色及其相互关系”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把自我认识放入真实社会关系中，引导学生在团队活动中增强合作精神。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_a0efe073385c2c53"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生联系个人和校园生活说明基本判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_537ca4a8d1223890",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_de4103487dc0bb96",
+        "hc_634b9efa2e876dbf",
+        "hc_3b418cbcd3e45c05"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“联系个人和校园生活说明基本判断”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“联系个人和校园生活说明基本判断”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "5505316fd11132c9d4b169131ed93eca31a0e3bf56e68e5a949be7a6f509565b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-SAF-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把自我认识放入真实社会关系中，引导学生在团队活动中增强合作精神。",
+          "excerpt_hash": "e9db8652ed96fcec0d24bf3bcb4d1ac0d406adf0ad41de058843bb2fac2c72fd",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G7-SAF-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后联系个人和校园生活说明基本判断，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“联系个人和校园生活说明基本判断”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“把自我认识放入真实社会关系中，引导学生在团队活动中增强合作精神。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_a0efe073385c2c53"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生联系个人和校园生活说明基本判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_345869319e9c0803",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_de4103487dc0bb96",
+        "hc_634b9efa2e876dbf",
+        "hc_3b418cbcd3e45c05"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“联系个人和校园生活说明基本判断”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“联系个人和校园生活说明基本判断”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "5505316fd11132c9d4b169131ed93eca31a0e3bf56e68e5a949be7a6f509565b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-SAF-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把自我认识放入真实社会关系中，引导学生在团队活动中增强合作精神。",
+          "excerpt_hash": "e9db8652ed96fcec0d24bf3bcb4d1ac0d406adf0ad41de058843bb2fac2c72fd",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G7-SAF-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后联系个人和校园生活说明基本判断，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“联系个人和校园生活说明基本判断”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把自我认识放入真实社会关系中，引导学生在团队活动中增强合作精神。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_acbe0f8b833d5257"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生客观认识和对待自己的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1617d90d9b95211c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“客观认识和对待自己”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“客观认识和对待自己”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "5505316fd11132c9d4b169131ed93eca31a0e3bf56e68e5a949be7a6f509565b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-SAF-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把自我认识放入真实社会关系中，引导学生在团队活动中增强合作精神。",
+          "excerpt_hash": "e9db8652ed96fcec0d24bf3bcb4d1ac0d406adf0ad41de058843bb2fac2c72fd",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G7-SAF-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后客观认识和对待自己，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“客观认识和对待自己”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把自我认识放入真实社会关系中，引导学生在团队活动中增强合作精神。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f7d1596518f2a273",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_258a293644bf7f6dc23f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a1407810561e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fed2028e3cbbb9f4",
+      "textbook_grade": 7,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_20278be0f9cadb9f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_425e807c22d73fd8d96b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2bfb8dc66618"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_eae81c753994e626",
+      "textbook_grade": 7,
+      "textbook_subject": "历史",
+      "textbook_title": "历史7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_235e973bb5037e6f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_92e2b029d14f60ea4496",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_4f77b2484bc7"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d5636bdbaa539717",
+      "textbook_grade": 7,
+      "textbook_subject": "历史",
+      "textbook_title": "历史7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d19c4daf48d3fc22",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ad8f66e172211eab925e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d5a8645a0fdb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5f4537a4f0b5552a",
+      "textbook_grade": 7,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_150b60cec42fc895",
+      "evidence_refs": [
+        "standard:ML-H4G7-SAF-004:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-H4G7-SAF-004",
+      "target_code": "ML-H4G8-SAF-005",
+      "target_label": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能结合家庭、学校或社会案例分析问题。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_de4103487dc0bb96",
+      "component_ids": [
+        "lc_0a589d46f2c5c034",
+        "lc_e8d31ab3445d3536",
+        "lc_a0efe073385c2c53"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释不同社会角色及其相互关系。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释不同社会角色及其相互关系；优先采集：角色关系图、小组活动记录、自我管理反思。",
+        "学生能够在任务中表现出正确的自我认同并说明选择理由；优先采集：角色关系图、小组活动记录、自我管理反思。",
+        "学生能够联系个人和校园生活说明基本判断；优先采集：角色关系图、小组活动记录、自我管理反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "5505316fd11132c9d4b169131ed93eca31a0e3bf56e68e5a949be7a6f509565b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-SAF-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_634b9efa2e876dbf",
+      "component_ids": [
+        "lc_a0efe073385c2c53"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生联系个人和校园生活说明基本判断。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够联系个人和校园生活说明基本判断；优先采集：角色关系图、小组活动记录、自我管理反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "5505316fd11132c9d4b169131ed93eca31a0e3bf56e68e5a949be7a6f509565b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-SAF-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_3b418cbcd3e45c05",
+      "component_ids": [
+        "lc_a0efe073385c2c53"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生联系个人和校园生活说明基本判断。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够联系个人和校园生活说明基本判断；优先采集：角色关系图、小组活动记录、自我管理反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "5505316fd11132c9d4b169131ed93eca31a0e3bf56e68e5a949be7a6f509565b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-SAF-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_e8aff51be07d47b9",
+      "component_ids": [
+        "lc_e8d31ab3445d3536"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在任务中表现出正确的自我认同并说明选择理由。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在任务中表现出正确的自我认同并说明选择理由；优先采集：角色关系图、小组活动记录、自我管理反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "5505316fd11132c9d4b169131ed93eca31a0e3bf56e68e5a949be7a6f509565b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-SAF-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_36049f3432af56da",
+      "component_ids": [
+        "lc_0a589d46f2c5c034"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释不同社会角色及其相互关系。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释不同社会角色及其相互关系；优先采集：角色关系图、小组活动记录、自我管理反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "5505316fd11132c9d4b169131ed93eca31a0e3bf56e68e5a949be7a6f509565b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-SAF-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_0a589d46f2c5c034",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释不同社会角色及其相互关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释不同社会角色及其相互关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释不同社会角色及其相互关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释不同社会角色及其相互关系；优先采集：角色关系图、小组活动记录、自我管理反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解不同社会角色及其相互关系",
+          "excerpt_hash": "68734d86fff95d5c5090219ff68ae423addd05f072891ad700fb3577c54651b3",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-SAF-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解不同社会角色及其相互关系"
+    },
+    {
+      "component_id": "lc_e8d31ab3445d3536",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出正确的自我认同并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出正确的自我认同并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出正确的自我认同并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出正确的自我认同并说明选择理由；优先采集：角色关系图、小组活动记录、自我管理反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成正确的自我认同",
+          "excerpt_hash": "1a3642532ecf6617215df0339df3a1376084ff30700139035b33eb4fc04925b6",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-SAF-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成正确的自我认同"
+    },
+    {
+      "component_id": "lc_acbe0f8b833d5257",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够客观认识和对待自己",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生客观认识和对待自己，并说明关键步骤、特征或依据。",
+      "label": "客观认识和对待自己",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够客观认识和对待自己；优先采集：角色关系图、小组活动记录、自我管理反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "客观认识和对待自己",
+          "excerpt_hash": "2fa23bf0da21ad0ab6f9050579f8d06c1cd7208e3b70b6ad7960673d567e6a6f",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-SAF-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "客观认识和对待自己"
+    },
+    {
+      "component_id": "lc_a0efe073385c2c53",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够联系个人和校园生活说明基本判断",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生联系个人和校园生活说明基本判断，并保留可回查的口头、书面或操作过程证据。",
+      "label": "联系个人和校园生活说明基本判断",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够联系个人和校园生活说明基本判断；优先采集：角色关系图、小组活动记录、自我管理反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "联系个人和校园生活说明基本判断",
+          "excerpt_hash": "441fc06d76bf837efd9f91aece3ac5307096174e73b5685a6475c696570b0b6b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-SAF-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "联系个人和校园生活说明基本判断"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0433,
+      "edge_id": "pc_24138b182267e792",
+      "evidence_refs": [
+        "standard:ML-H4G7-SAF-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-D3-SAF-002",
+      "source_label": "能识别性侵害、欺凌与拐骗的常见信号与危害，能在风险情境中做到拒绝、脱离、保存证据并向可信成年人/机构求助，能尊重同伴边界并反对欺凌。",
+      "target_code": "ML-H4G7-SAF-004",
+      "target_label": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能联系个人和校园生活说明基本判断。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0851,
+      "edge_id": "pc_4383dc9b92732679",
+      "evidence_refs": [
+        "standard:ML-H4G7-SAF-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-D3-SAF-003",
+      "source_label": "能举例说明公共卫生事件中个人应遵守的基本规则（防护、隔离、信息报告等），能在校园与社区情境中做到自律守规，并能解释其对公共安全的意义。",
+      "target_code": "ML-H4G7-SAF-004",
+      "target_label": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能联系个人和校园生活说明基本判断。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0433,
+      "edge_id": "pc_0006ecfedfa4d080",
+      "evidence_refs": [
+        "standard:ML-H4G7-SAF-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-D3-SAF-004",
+      "source_label": "能用案例说明抗疫抗灾中“人民至上、生命至上”的体现，能在灾害与突发事件中遵守应急指引并参与力所能及的互助行动。",
+      "target_code": "ML-H4G7-SAF-004",
+      "target_label": "理解不同社会角色及其相互关系；形成正确的自我认同；能客观认识和对待自己；能联系个人和校园生活说明基本判断。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 3,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5505316fd11132c9d4b169131ed93eca31a0e3bf56e68e5a949be7a6f509565b",
+  "standard_code": "ML-H4G7-SAF-004",
+  "verified_prerequisites": []
+}

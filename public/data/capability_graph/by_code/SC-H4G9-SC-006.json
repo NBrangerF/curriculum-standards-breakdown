@@ -1,0 +1,453 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_48368a0eb2c188b8",
+        "lc_419cc3c5a6f7716d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生阐释溶液的组成、特征和生产生活应用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_212edeb888f1e7f8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e6446ba29cb5fee1",
+        "hc_901f66e9c8935b39"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“阐释溶液的组成、特征和生产生活应用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“阐释溶液的组成、特征和生产生活应用”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释溶液的组成、特征和生产生活应用；能进行简单计算并配制一定溶质质量分数的溶液；能区别饱和溶液与不饱和溶液、悬浊液、溶液和乳浊液；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "5de6ed54b6d7cc8c2df3d5b102a52768e61bbc22eac6d9f5044799ee30aafe8c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注定性概念、定量计算和实验操作之间的对应关系。",
+          "excerpt_hash": "e1b94421b992e7c08e92aad94bf4168b91610e77707637be8a0a079ead4abc66",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后阐释溶液的组成、特征和生产生活应用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“阐释溶液的组成、特征和生产生活应用”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“关注定性概念、定量计算和实验操作之间的对应关系。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_48368a0eb2c188b8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生阐释溶液的组成、特征和生产生活应用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9df629335a1f1816",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e6446ba29cb5fee1",
+        "hc_901f66e9c8935b39"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“阐释溶液的组成、特征和生产生活应用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“阐释溶液的组成、特征和生产生活应用”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释溶液的组成、特征和生产生活应用；能进行简单计算并配制一定溶质质量分数的溶液；能区别饱和溶液与不饱和溶液、悬浊液、溶液和乳浊液；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "5de6ed54b6d7cc8c2df3d5b102a52768e61bbc22eac6d9f5044799ee30aafe8c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注定性概念、定量计算和实验操作之间的对应关系。",
+          "excerpt_hash": "e1b94421b992e7c08e92aad94bf4168b91610e77707637be8a0a079ead4abc66",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后阐释溶液的组成、特征和生产生活应用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“阐释溶液的组成、特征和生产生活应用”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“关注定性概念、定量计算和实验操作之间的对应关系。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_48368a0eb2c188b8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生阐释溶液的组成、特征和生产生活应用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ae9055b9c7ffb6fe",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e6446ba29cb5fee1",
+        "hc_901f66e9c8935b39"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“阐释溶液的组成、特征和生产生活应用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“阐释溶液的组成、特征和生产生活应用”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释溶液的组成、特征和生产生活应用；能进行简单计算并配制一定溶质质量分数的溶液；能区别饱和溶液与不饱和溶液、悬浊液、溶液和乳浊液；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "5de6ed54b6d7cc8c2df3d5b102a52768e61bbc22eac6d9f5044799ee30aafe8c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注定性概念、定量计算和实验操作之间的对应关系。",
+          "excerpt_hash": "e1b94421b992e7c08e92aad94bf4168b91610e77707637be8a0a079ead4abc66",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后阐释溶液的组成、特征和生产生活应用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“阐释溶液的组成、特征和生产生活应用”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“关注定性概念、定量计算和实验操作之间的对应关系。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 3,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_cc1d7abb4140f4c5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2b4eaf7fd74d5608c966",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_91e786746fa4"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a01eaebee10c3727",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9b36464a241f15a7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_46b397a7eadfedff",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bdbd1a887c36a616",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f0fcd567e766"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_941308fc63ca2501",
+      "textbook_grade": 9,
+      "textbook_subject": "物理",
+      "textbook_title": "物理9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_e6446ba29cb5fee1",
+      "component_ids": [
+        "lc_48368a0eb2c188b8",
+        "lc_419cc3c5a6f7716d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "论证",
+        "阐释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阐释溶液的组成、特征和生产生活应用。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够阐释溶液的组成、特征和生产生活应用；优先采集：溶液配制记录、计算过程、实验报告。",
+        "学生能够建模、论证；优先采集：溶液配制记录、计算过程、实验报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释溶液的组成、特征和生产生活应用；能进行简单计算并配制一定溶质质量分数的溶液；能区别饱和溶液与不饱和溶液、悬浊液、溶液和乳浊液；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "5de6ed54b6d7cc8c2df3d5b102a52768e61bbc22eac6d9f5044799ee30aafe8c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（论证、阐释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_901f66e9c8935b39",
+      "component_ids": [
+        "lc_48368a0eb2c188b8"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阐释溶液的组成、特征和生产生活应用。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够阐释溶液的组成、特征和生产生活应用；优先采集：溶液配制记录、计算过程、实验报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释溶液的组成、特征和生产生活应用；能进行简单计算并配制一定溶质质量分数的溶液；能区别饱和溶液与不饱和溶液、悬浊液、溶液和乳浊液；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "5de6ed54b6d7cc8c2df3d5b102a52768e61bbc22eac6d9f5044799ee30aafe8c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_48368a0eb2c188b8",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够阐释溶液的组成、特征和生产生活应用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释溶液的组成、特征和生产生活应用，并保留可回查的口头、书面或操作过程证据。",
+      "label": "阐释溶液的组成、特征和生产生活应用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够阐释溶液的组成、特征和生产生活应用；优先采集：溶液配制记录、计算过程、实验报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释溶液的组成、特征和生产生活应用",
+          "excerpt_hash": "3252ca857a68a92f27d6ab00547f088d1aa034dc051eda256c7df49fd9ef660e",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "阐释溶液的组成、特征和生产生活应用"
+    },
+    {
+      "component_id": "lc_e8a4660b774f1bea",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够进行简单计算并配制一定溶质质量分数的溶液",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生进行简单计算并配制一定溶质质量分数的溶液，并说明关键步骤、特征或依据。",
+      "label": "进行简单计算并配制一定溶质质量分数的溶液",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够进行简单计算并配制一定溶质质量分数的溶液；优先采集：溶液配制记录、计算过程、实验报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "进行简单计算并配制一定溶质质量分数的溶液",
+          "excerpt_hash": "f299f3a46d50734c6157b9aa6e50069b0af7ac5005d044b305c6d870f07d9ee5",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "进行简单计算并配制一定溶质质量分数的溶液"
+    },
+    {
+      "component_id": "lc_8e06198f75f3dc76",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够区别饱和溶液与不饱和溶液、悬浊液、溶液和乳浊液",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生区别饱和溶液与不饱和溶液、悬浊液、溶液和乳浊液，并说明关键步骤、特征或依据。",
+      "label": "区别饱和溶液与不饱和溶液、悬浊液、溶液和乳浊液",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够区别饱和溶液与不饱和溶液、悬浊液、溶液和乳浊液；优先采集：溶液配制记录、计算过程、实验报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "区别饱和溶液与不饱和溶液、悬浊液、溶液和乳浊液",
+          "excerpt_hash": "857b3758b8d7dbe7d2956b9e31205eac9d96546f5fd854fe3575feb71bdfb001",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "区别饱和溶液与不饱和溶液、悬浊液、溶液和乳浊液"
+    },
+    {
+      "component_id": "lc_419cc3c5a6f7716d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、论证",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
+      "label": "建模、论证",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、论证；优先采集：溶液配制记录、计算过程、实验报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、论证",
+          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、论证"
+    },
+    {
+      "component_id": "lc_6e46c21bc66b5186",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价探究结论或社会影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
+      "label": "评价探究结论或社会影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：溶液配制记录、计算过程、实验报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价探究结论或社会影响",
+          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价探究结论或社会影响"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_6bd5fa4161a0a759",
+      "evidence_refs": [
+        "standard:SC-H4G9-SC-006:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G8-SC-005",
+      "source_label": "能知道溶液的组成、特征和生产生活应用；能知道溶解度、溶剂和溶质质量分数含义；能进行简单计算并配制一定溶质质量分数的溶液；能比较证据并解释概念之…",
+      "target_code": "SC-H4G9-SC-006",
+      "target_label": "阐释溶液的组成、特征和生产生活应用；能进行简单计算并配制一定溶质质量分数的溶液；能区别饱和溶液与不饱和溶液、悬浊液、溶液和乳浊液；能建模、论证…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5de6ed54b6d7cc8c2df3d5b102a52768e61bbc22eac6d9f5044799ee30aafe8c",
+  "standard_code": "SC-H4G9-SC-006",
+  "verified_prerequisites": []
+}

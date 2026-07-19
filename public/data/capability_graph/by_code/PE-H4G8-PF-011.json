@@ -1,0 +1,292 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_599f3432993d30cb"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述体能对人体运动与健康的重要性的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_79d0269b2b4492e6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述体能对人体运动与健康的重要性”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述体能对人体运动与健康的重要性”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能主动参与和组织体能活动与比赛；能描述体能对人体运动与健康的重要性；能安全、科学地进行体能练习；能分析练习或比赛表现并调整方法。",
+          "excerpt_hash": "d417a4b30cf8afb6fce0dcb493f7cd4f83c8f909b24c01a019cdd246abfa5540",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-PF-011:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把活动组织、规则执行、安全防护和体育精神纳入同一任务评价。",
+          "excerpt_hash": "9b3fe0b2924362cea84a254c880972e0bb2b36513aa5dc94ed565971f4ddd5bb",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G8-PF-011:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述体能对人体运动与健康的重要性，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述体能对人体运动与健康的重要性”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把活动组织、规则执行、安全防护和体育精神纳入同一任务评价。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6dc7d9a34da57463",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4033475eef6d59cd7a75",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_640488b51030"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b134cd8790a103dd",
+      "textbook_grade": 8,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康8年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_cc43c530de7aa9d5",
+      "evidence_refs": [
+        "standard:PE-H4G8-PF-011:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-H4G8-PF-011",
+      "target_code": "PE-H4G9-PF-012",
+      "target_label": "能主动参与和组织体能活动与比赛；能分析并说明体能对人体运动与健康的重要性；能安全、科学地进行体能练习；能制定改进方案并评价运动、健康或品德表现。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_3303f4356b07353d",
+      "component_ids": [
+        "lc_36a80aa0302a9143"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生安全、科学地进行体能练习。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够安全、科学地进行体能练习；优先采集：活动方案、比赛记录、同伴评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能主动参与和组织体能活动与比赛；能描述体能对人体运动与健康的重要性；能安全、科学地进行体能练习；能分析练习或比赛表现并调整方法。",
+          "excerpt_hash": "d417a4b30cf8afb6fce0dcb493f7cd4f83c8f909b24c01a019cdd246abfa5540",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-PF-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_2249b9ec7efbd3b3",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够主动参与和组织体能活动与比赛",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生主动参与和组织体能活动与比赛，并说明关键步骤、特征或依据。",
+      "label": "主动参与和组织体能活动与比赛",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够主动参与和组织体能活动与比赛；优先采集：活动方案、比赛记录、同伴评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "主动参与和组织体能活动与比赛",
+          "excerpt_hash": "ad5ae03a1a42127f3ead43cb2f21b510df1f888986f4cd72571c2e60805230fd",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-PF-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "主动参与和组织体能活动与比赛"
+    },
+    {
+      "component_id": "lc_599f3432993d30cb",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述体能对人体运动与健康的重要性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述体能对人体运动与健康的重要性，并说明关键步骤、特征或依据。",
+      "label": "描述体能对人体运动与健康的重要性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述体能对人体运动与健康的重要性；优先采集：活动方案、比赛记录、同伴评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述体能对人体运动与健康的重要性",
+          "excerpt_hash": "b2f673939704c1948ee56682b8c4c7189619bd2fa4e6ebe7f98c3a8c2ac60a82",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-PF-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述体能对人体运动与健康的重要性"
+    },
+    {
+      "component_id": "lc_36a80aa0302a9143",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够安全、科学地进行体能练习",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生安全、科学地进行体能练习，并说明关键步骤、特征或依据。",
+      "label": "安全、科学地进行体能练习",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够安全、科学地进行体能练习；优先采集：活动方案、比赛记录、同伴评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "安全、科学地进行体能练习",
+          "excerpt_hash": "342da0a9bacee21619a808deecb4053ab52d485a0f1544715306c3b7824bec14",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-PF-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "安全、科学地进行体能练习"
+    },
+    {
+      "component_id": "lc_cb1e4493a66808b4",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析练习或比赛表现",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析练习或比赛表现，并说明关键步骤、特征或依据。",
+      "label": "分析练习或比赛表现",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析练习或比赛表现；优先采集：活动方案、比赛记录、同伴评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析练习或比赛表现",
+          "excerpt_hash": "12addceee495f899bb968b590b0795c198fd498deec40d201b11b66f42983e0a",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-PF-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析练习或比赛表现"
+    },
+    {
+      "component_id": "lc_987a4d1f7a3a0055",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够调整方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整方法，并说明关键步骤、特征或依据。",
+      "label": "调整方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够调整方法；优先采集：活动方案、比赛记录、同伴评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "调整方法",
+          "excerpt_hash": "81d82b6f3664e9545d1c6b025456d98521f9a5e88f20d39b04297a69a5b1507f",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-PF-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "调整方法"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_427b9414766542da",
+      "evidence_refs": [
+        "standard:PE-H4G8-PF-011:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-H4G7-PF-010",
+      "source_label": "能描述体能对人体运动与健康的重要性；能主动参与和组织体能活动与比赛；能安全、科学地进行体能练习；能完成基础练习并记录身体反应。",
+      "target_code": "PE-H4G8-PF-011",
+      "target_label": "能主动参与和组织体能活动与比赛；能描述体能对人体运动与健康的重要性；能安全、科学地进行体能练习；能分析练习或比赛表现并调整方法。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d417a4b30cf8afb6fce0dcb493f7cd4f83c8f909b24c01a019cdd246abfa5540",
+  "standard_code": "PE-H4G8-PF-011",
+  "verified_prerequisites": []
+}

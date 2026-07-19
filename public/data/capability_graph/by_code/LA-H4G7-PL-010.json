@@ -1,0 +1,433 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_66757270e427ebeb"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明工具、材料或安全要求的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_78ba54c01acc948c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_900a5d66ce4cc6ca",
+        "hc_979a109de7d35af8"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明工具、材料或安全要求”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明工具、材料或安全要求”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择一至两项工业生产项目进行产品设计与加工；能熟悉工具、设备和材料要求；能识读并绘制简单技术图样；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "d063568cc3ace648840a723e3edf2e9cb8f27f8eccecf26a615a1b8e1d72d2c6",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "围绕安全规范、人机关系、材料节约、质量意识和当地工业生产特色组织项目。",
+          "excerpt_hash": "05723f312a11eea353705b6110fbfe06308bf4411b46b738cc0425d1ac5ba302",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G7-PL-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明工具、材料或安全要求，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明工具、材料或安全要求”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“围绕安全规范、人机关系、材料节约、质量意识和当地工业生产特色组织项目。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_dc26200ce3e39596"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生选择一至两项工业生产项目进行产品设计与加工的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_652674117ccd7457",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2189cbd1df7f7ff3"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“选择一至两项工业生产项目进行产品设计与加工”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“选择一至两项工业生产项目进行产品设计与加工”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择一至两项工业生产项目进行产品设计与加工；能熟悉工具、设备和材料要求；能识读并绘制简单技术图样；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "d063568cc3ace648840a723e3edf2e9cb8f27f8eccecf26a615a1b8e1d72d2c6",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "围绕安全规范、人机关系、材料节约、质量意识和当地工业生产特色组织项目。",
+          "excerpt_hash": "05723f312a11eea353705b6110fbfe06308bf4411b46b738cc0425d1ac5ba302",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G7-PL-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后选择一至两项工业生产项目进行产品设计与加工，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“选择一至两项工业生产项目进行产品设计与加工”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“围绕安全规范、人机关系、材料节约、质量意识和当地工业生产特色组织项目。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_16aa896432c4c21b",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-010:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-H4G7-PL-010",
+      "target_code": "LA-H4G8-PL-011",
+      "target_label": "能选择一至两项工业生产项目进行产品设计与加工；完成模型或原型的组装、测试与优化；能熟悉工具、设备和材料要求；能规划协作流程并反思劳动质量。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_900a5d66ce4cc6ca",
+      "component_ids": [
+        "lc_66757270e427ebeb"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明工具、材料或安全要求。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明工具、材料或安全要求；优先采集：技术图样、产品模型或原型、测试记录、优化说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择一至两项工业生产项目进行产品设计与加工；能熟悉工具、设备和材料要求；能识读并绘制简单技术图样；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "d063568cc3ace648840a723e3edf2e9cb8f27f8eccecf26a615a1b8e1d72d2c6",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_2189cbd1df7f7ff3",
+      "component_ids": [
+        "lc_dc26200ce3e39596"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生选择一至两项工业生产项目进行产品设计与加工。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够选择一至两项工业生产项目进行产品设计与加工；优先采集：技术图样、产品模型或原型、测试记录、优化说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择一至两项工业生产项目进行产品设计与加工；能熟悉工具、设备和材料要求；能识读并绘制简单技术图样；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "d063568cc3ace648840a723e3edf2e9cb8f27f8eccecf26a615a1b8e1d72d2c6",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_979a109de7d35af8",
+      "component_ids": [
+        "lc_f7aa2349bbad011c",
+        "lc_66757270e427ebeb"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "规范",
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生按规范完成任务。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够按规范完成任务；优先采集：技术图样、产品模型或原型、测试记录、优化说明。",
+        "学生能够说明工具、材料或安全要求；优先采集：技术图样、产品模型或原型、测试记录、优化说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择一至两项工业生产项目进行产品设计与加工；能熟悉工具、设备和材料要求；能识读并绘制简单技术图样；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "d063568cc3ace648840a723e3edf2e9cb8f27f8eccecf26a615a1b8e1d72d2c6",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（规范、安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_dc26200ce3e39596",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择一至两项工业生产项目进行产品设计与加工",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择一至两项工业生产项目进行产品设计与加工，并说明关键步骤、特征或依据。",
+      "label": "选择一至两项工业生产项目进行产品设计与加工",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择一至两项工业生产项目进行产品设计与加工；优先采集：技术图样、产品模型或原型、测试记录、优化说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项工业生产项目进行产品设计与加工",
+          "excerpt_hash": "65db650e1684aece3f102e3f51758d0746859a82779efcbc443097c9ea0f944a",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择一至两项工业生产项目进行产品设计与加工"
+    },
+    {
+      "component_id": "lc_a553552d4a91f1c8",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够熟悉工具、设备和材料要求",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生熟悉工具、设备和材料要求，并说明关键步骤、特征或依据。",
+      "label": "熟悉工具、设备和材料要求",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够熟悉工具、设备和材料要求；优先采集：技术图样、产品模型或原型、测试记录、优化说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "熟悉工具、设备和材料要求",
+          "excerpt_hash": "561e9e00db066fc5dbe943ecce9b864d1bda2c890bdfaf4e12abdd80d51a5cb7",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "熟悉工具、设备和材料要求"
+    },
+    {
+      "component_id": "lc_760682887c0cea1d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识读",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识读，并说明关键步骤、特征或依据。",
+      "label": "识读",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识读；优先采集：技术图样、产品模型或原型、测试记录、优化说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识读",
+          "excerpt_hash": "459624095db1f51328c0a1771782331202671af80309b348c365227da2110bb6",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识读"
+    },
+    {
+      "component_id": "lc_b5ebf17e12e9f239",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够绘制简单技术图样",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生绘制简单技术图样，并说明关键步骤、特征或依据。",
+      "label": "绘制简单技术图样",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够绘制简单技术图样；优先采集：技术图样、产品模型或原型、测试记录、优化说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "绘制简单技术图样",
+          "excerpt_hash": "c3ce5a1c7c5bec5b2d2a038924c69014e77e75907064e694d741acc632442b57",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "绘制简单技术图样"
+    },
+    {
+      "component_id": "lc_f7aa2349bbad011c",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够按规范完成任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生按规范完成任务，并说明关键步骤、特征或依据。",
+      "label": "按规范完成任务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够按规范完成任务；优先采集：技术图样、产品模型或原型、测试记录、优化说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "按规范完成任务",
+          "excerpt_hash": "435c431407d1babddb0f9e92d5352aefea84d0123f9d1a56ac0b7f66a8928946",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按规范完成任务"
+    },
+    {
+      "component_id": "lc_66757270e427ebeb",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明工具、材料或安全要求",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明工具、材料或安全要求，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明工具、材料或安全要求",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明工具、材料或安全要求；优先采集：技术图样、产品模型或原型、测试记录、优化说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明工具、材料或安全要求",
+          "excerpt_hash": "cd212ce4d051adbbf459a3ffdb2752deae8ec0e91d6c7e8522865823136f6708",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明工具、材料或安全要求"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1505,
+      "edge_id": "pc_783661419fb0f408",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-010:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D3-PL-004",
+      "source_label": "能参与采收并按质量进行分级，能完成简单初加工（清洗、切配或晾晒/冷藏保存），能理解食品卫生与保存原则。",
+      "target_code": "LA-H4G7-PL-010",
+      "target_label": "能选择一至两项工业生产项目进行产品设计与加工；能熟悉工具、设备和材料要求；能识读并绘制简单技术图样；能按规范完成任务并说明工具、材料或安全要求。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1651,
+      "edge_id": "pc_68c65fb810da198f",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-010:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D3-PL-006",
+      "source_label": "能围绕真实需求提出产品改进点，能画出方案草图并制作低保真原型，能基于测试反馈进行迭代。",
+      "target_code": "LA-H4G7-PL-010",
+      "target_label": "能选择一至两项工业生产项目进行产品设计与加工；能熟悉工具、设备和材料要求；能识读并绘制简单技术图样；能按规范完成任务并说明工具、材料或安全要求。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1878,
+      "edge_id": "pc_2294f3d65ed8356c",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-010:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D3-PL-009",
+      "source_label": "能为作品或产品设计包装信息（名称、用途、注意事项、回收提示），能评估包装材料的可持续性并提出优化。",
+      "target_code": "LA-H4G7-PL-010",
+      "target_label": "能选择一至两项工业生产项目进行产品设计与加工；能熟悉工具、设备和材料要求；能识读并绘制简单技术图样；能按规范完成任务并说明工具、材料或安全要求。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 3,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d063568cc3ace648840a723e3edf2e9cb8f27f8eccecf26a615a1b8e1d72d2c6",
+  "standard_code": "LA-H4G7-PL-010",
+  "verified_prerequisites": []
+}

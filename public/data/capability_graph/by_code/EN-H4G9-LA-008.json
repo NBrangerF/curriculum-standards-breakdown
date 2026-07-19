@@ -1,0 +1,401 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_e8875f5e0418c0af"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生进行书面表达时能正确使用所学语言，格式较为规范的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8732c52e8ffdab16",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_81b90526bc90c022",
+        "hc_a3c4d5755f32d643"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“进行书面表达时能正确使用所学语言，格式较为规范”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“进行书面表达时能正确使用所学语言，格式较为规范”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能进行书面表达时能正确使用所学语言，格式较为规范；能参照范例仿写简短文段，语言准确、表意得体；能结合图片、文字等提示信息对语篇进行补充、续编或改编，语言基本准确；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "05c060edbf701bc8ea1de944dd23265a8dcf3f18f4913789d09cc5c19eb77101",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注格式规范、语言准确、语义得体和改编内容合理性。",
+          "excerpt_hash": "56b200191054f2df47a9a17c58c001b39d959600b36c64acea2dde0415e2b9e4",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G9-LA-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后进行书面表达时能正确使用所学语言，格式较为规范，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“进行书面表达时能正确使用所学语言，格式较为规范”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“关注格式规范、语言准确、语义得体和改编内容合理性。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_e8875f5e0418c0af",
+        "lc_723b6796f7c245b8",
+        "lc_92eb18fe8cfa832e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生进行书面表达时能正确使用所学语言，格式较为规范的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a67d590c6502e608",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_81b90526bc90c022",
+        "hc_a3c4d5755f32d643",
+        "hc_8c256243f5db1186"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“进行书面表达时能正确使用所学语言，格式较为规范”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“进行书面表达时能正确使用所学语言，格式较为规范”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能进行书面表达时能正确使用所学语言，格式较为规范；能参照范例仿写简短文段，语言准确、表意得体；能结合图片、文字等提示信息对语篇进行补充、续编或改编，语言基本准确；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "05c060edbf701bc8ea1de944dd23265a8dcf3f18f4913789d09cc5c19eb77101",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注格式规范、语言准确、语义得体和改编内容合理性。",
+          "excerpt_hash": "56b200191054f2df47a9a17c58c001b39d959600b36c64acea2dde0415e2b9e4",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G9-LA-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后进行书面表达时能正确使用所学语言，格式较为规范，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“进行书面表达时能正确使用所学语言，格式较为规范”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“关注格式规范、语言准确、语义得体和改编内容合理性。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fe9a0316e37cbce0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ca2005df136f696b98af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_quark_2027_spring_pep_english_grade_9_lower"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "future_candidate",
+      "scope_id": "tcs_54cfcfb15b205d2b",
+      "textbook_grade": 9,
+      "textbook_subject": "英语",
+      "textbook_title": "英语9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_555280e8c1ede1b3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e0fadc639066b4710fce",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_quark_2026_autumn_pep_english_grade_9_upper"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_likely",
+      "scope_id": "tcs_08aabfe850665d80",
+      "textbook_grade": 9,
+      "textbook_subject": "英语",
+      "textbook_title": "英语9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_81b90526bc90c022",
+      "component_ids": [
+        "lc_e8875f5e0418c0af",
+        "lc_723b6796f7c245b8",
+        "lc_92eb18fe8cfa832e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生进行书面表达时能正确使用所学语言，格式较为规范。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够进行书面表达时能正确使用所学语言，格式较为规范；优先采集：仿写文段、续写或改编作品、修改稿。",
+        "学生能够参照范例仿写简短文段，语言准确、表意得体；优先采集：仿写文段、续写或改编作品、修改稿。",
+        "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：仿写文段、续写或改编作品、修改稿。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能进行书面表达时能正确使用所学语言，格式较为规范；能参照范例仿写简短文段，语言准确、表意得体；能结合图片、文字等提示信息对语篇进行补充、续编或改编，语言基本准确；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "05c060edbf701bc8ea1de944dd23265a8dcf3f18f4913789d09cc5c19eb77101",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_a3c4d5755f32d643",
+      "component_ids": [
+        "lc_e8875f5e0418c0af",
+        "lc_723b6796f7c245b8"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "准确",
+        "规范",
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生进行书面表达时能正确使用所学语言，格式较为规范。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够进行书面表达时能正确使用所学语言，格式较为规范；优先采集：仿写文段、续写或改编作品、修改稿。",
+        "学生能够参照范例仿写简短文段，语言准确、表意得体；优先采集：仿写文段、续写或改编作品、修改稿。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能进行书面表达时能正确使用所学语言，格式较为规范；能参照范例仿写简短文段，语言准确、表意得体；能结合图片、文字等提示信息对语篇进行补充、续编或改编，语言基本准确；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "05c060edbf701bc8ea1de944dd23265a8dcf3f18f4913789d09cc5c19eb77101",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（准确、规范、正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_8c256243f5db1186",
+      "component_ids": [
+        "lc_723b6796f7c245b8",
+        "lc_92eb18fe8cfa832e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "连贯",
+        "得体"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生参照范例仿写简短文段，语言准确、表意得体。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够参照范例仿写简短文段，语言准确、表意得体；优先采集：仿写文段、续写或改编作品、修改稿。",
+        "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：仿写文段、续写或改编作品、修改稿。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能进行书面表达时能正确使用所学语言，格式较为规范；能参照范例仿写简短文段，语言准确、表意得体；能结合图片、文字等提示信息对语篇进行补充、续编或改编，语言基本准确；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "05c060edbf701bc8ea1de944dd23265a8dcf3f18f4913789d09cc5c19eb77101",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（连贯、得体）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_e8875f5e0418c0af",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够进行书面表达时能正确使用所学语言，格式较为规范",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生进行书面表达时能正确使用所学语言，格式较为规范，并说明关键步骤、特征或依据。",
+      "label": "进行书面表达时能正确使用所学语言，格式较为规范",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够进行书面表达时能正确使用所学语言，格式较为规范；优先采集：仿写文段、续写或改编作品、修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "进行书面表达时能正确使用所学语言，格式较为规范",
+          "excerpt_hash": "57098a9171e0997abd563830c5b35df08699679f41b342948f5b5c13ebd4a968",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "进行书面表达时能正确使用所学语言，格式较为规范"
+    },
+    {
+      "component_id": "lc_723b6796f7c245b8",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参照范例仿写简短文段，语言准确、表意得体",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参照范例仿写简短文段，语言准确、表意得体，并说明关键步骤、特征或依据。",
+      "label": "参照范例仿写简短文段，语言准确、表意得体",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参照范例仿写简短文段，语言准确、表意得体；优先采集：仿写文段、续写或改编作品、修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "参照范例仿写简短文段，语言准确、表意得体",
+          "excerpt_hash": "7032f72735daa981c3c215b8344add0340733f20800668c1698abf06af21dc45",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参照范例仿写简短文段，语言准确、表意得体"
+    },
+    {
+      "component_id": "lc_92eb18fe8cfa832e",
+      "component_type": "language",
+      "condition": "在真实交际中",
+      "confidence": 0.72,
+      "description": "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在真实交际中”的诊断任务，要求学生在任务中表现出连贯表达并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出连贯表达并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：仿写文段、续写或改编作品、修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能进行书面表达时能正确使用所学语言，格式较为规范；能参照范例仿写简短文段，语言准确、表意得体；能结合图片、文字等提示信息对语篇进行补充、续编或改编，语言基本准确；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "05c060edbf701bc8ea1de944dd23265a8dcf3f18f4913789d09cc5c19eb77101",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成连贯表达"
+    },
+    {
+      "component_id": "lc_61760b9195eec340",
+      "component_type": "metacognitive",
+      "condition": "在真实交际中",
+      "confidence": 0.72,
+      "description": "学生在真实交际中，能够反思策略",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在真实交际中”的诊断任务，要求学生反思策略，并说明关键步骤、特征或依据。",
+      "label": "反思策略",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在真实交际中，能够反思策略；优先采集：仿写文段、续写或改编作品、修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能进行书面表达时能正确使用所学语言，格式较为规范；能参照范例仿写简短文段，语言准确、表意得体；能结合图片、文字等提示信息对语篇进行补充、续编或改编，语言基本准确；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "05c060edbf701bc8ea1de944dd23265a8dcf3f18f4913789d09cc5c19eb77101",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-LA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思策略"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_7d9590d767c12677",
+      "evidence_refs": [
+        "standard:EN-H4G9-LA-008:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-H4G8-LA-009",
+      "source_label": "能进行书面表达时能正确使用所学语言，格式较为规范；能参照范例仿写简短文段，语言准确、表意得体；能结合图片、文字等提示信息对语篇进行补充、续编或…",
+      "target_code": "EN-H4G9-LA-008",
+      "target_label": "能进行书面表达时能正确使用所学语言，格式较为规范；能参照范例仿写简短文段，语言准确、表意得体；能结合图片、文字等提示信息对语篇进行补充、续编或…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "05c060edbf701bc8ea1de944dd23265a8dcf3f18f4913789d09cc5c19eb77101",
+  "standard_code": "EN-H4G9-LA-008",
+  "verified_prerequisites": []
+}

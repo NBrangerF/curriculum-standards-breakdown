@@ -1,0 +1,191 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_50ecb6289c3939ed"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生组织或参与一次捐赠物资分类整理活动的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_458563e4045d91b7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b9839c3204e99631"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“组织或参与一次捐赠物资分类整理活动”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“组织或参与一次捐赠物资分类整理活动”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能组织或参与一次捐赠物资分类整理活动，能建立透明记录（数量、类别、去向），体现诚信与责任。",
+          "excerpt_hash": "77e881f49ba77a647e54862be545f76ef6cdd66f24875d4822e65b4e4c2ee7b2",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-VL-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "设置“可捐/不可捐”标准（干净、完好）；双人计数；公开展示汇总表（不含个人隐私）。",
+          "excerpt_hash": "e92b34c9e3299f26bf5fb6984d5dc5617713055b8124de82ef147e9c4da4cad8",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-VL-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后组织或参与一次捐赠物资分类整理活动，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“组织或参与一次捐赠物资分类整理活动”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“设置“可捐/不可捐”标准（干净、完好）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1725,
+      "connection_id": "fc_47ecbd2df25da552",
+      "evidence_refs": [
+        "standard:LA-H4G7-VL-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-VL-003",
+      "target_code": "LA-H4G7-VL-001",
+      "target_label": "能选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目；能确定服务形式、内容与过程；能利用已有劳动经验；能按规范完成任务并说明工具、材料或安…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b9839c3204e99631",
+      "component_ids": [
+        "lc_50ecb6289c3939ed"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生组织或参与一次捐赠物资分类整理活动。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够组织或参与一次捐赠物资分类整理活动；优先采集：分类表、汇总表、活动总结。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能组织或参与一次捐赠物资分类整理活动，能建立透明记录（数量、类别、去向），体现诚信与责任。",
+          "excerpt_hash": "77e881f49ba77a647e54862be545f76ef6cdd66f24875d4822e65b4e4c2ee7b2",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-VL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_50ecb6289c3939ed",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够组织或参与一次捐赠物资分类整理活动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生组织或参与一次捐赠物资分类整理活动，并说明关键步骤、特征或依据。",
+      "label": "组织或参与一次捐赠物资分类整理活动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够组织或参与一次捐赠物资分类整理活动；优先采集：分类表、汇总表、活动总结。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "组织或参与一次捐赠物资分类整理活动",
+          "excerpt_hash": "581446d22ec40ce7bf59ad1ba0e180398cb734aa538557419a03161213ee54d7",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-VL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "组织或参与一次捐赠物资分类整理活动"
+    },
+    {
+      "component_id": "lc_168f1d2eb1b278c5",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建立透明记录（数量、类别、去向），体现诚信与责任",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建立透明记录（数量、类别、去向），体现诚信与责任，并说明关键步骤、特征或依据。",
+      "label": "建立透明记录（数量、类别、去向），体现诚信与责任",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建立透明记录（数量、类别、去向），体现诚信与责任；优先采集：分类表、汇总表、活动总结。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建立透明记录（数量、类别、去向），体现诚信与责任",
+          "excerpt_hash": "09060b24d0eec3ad225f2bbe00d40d78f29628cc2d8aa5e40d0affacc3b9b324",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-VL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建立透明记录（数量、类别、去向），体现诚信与责任"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_ee0ab3c6d7c3da4f",
+      "evidence_refs": [
+        "standard:LA-D3-VL-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-SL-006",
+      "source_label": "能在班级中发现他人需要并提供力所能及的帮助（如整理共享物、帮助低年级同学等），能用尊重的方式沟通并坚持完成承诺。",
+      "target_code": "LA-D3-VL-003",
+      "target_label": "能组织或参与一次捐赠物资分类整理活动，能建立透明记录（数量、类别、去向），体现诚信与责任。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "77e881f49ba77a647e54862be545f76ef6cdd66f24875d4822e65b4e4c2ee7b2",
+  "standard_code": "LA-D3-VL-003",
+  "verified_prerequisites": []
+}

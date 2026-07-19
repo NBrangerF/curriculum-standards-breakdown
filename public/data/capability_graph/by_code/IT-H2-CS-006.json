@@ -1,0 +1,284 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_7cbd5288d9f4b504"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生小组合作制定简单编码规则并用可视化方式解释其含义与作用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fafd84ec0e6e8d44",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ef87b78fea510f06"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“小组合作制定简单编码规则并用可视化方式解释其含义与作用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“小组合作制定简单编码规则并用可视化方式解释其含义与作用”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能从编码视角观察学习与生活中的事物，能举出常见编码实例（身份证号、座位号、条形码/二维码等），能小组合作制定简单编码规则并用可视化方式解释其含义与作用。",
+          "excerpt_hash": "f0feb2297ec0496b581c381eb5e779d99c1d70e7189661a08606bccfa06421e6",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【主题活动建议】\n(1) 组织“编码寻宝”：在校园/家庭寻找编码实例，讨论每一段字符代表的信息。\n(2) 小组制定编码规则（如“班级物品管理编码”“校园植物编号”），强调唯一性与可扩展性。\n(3) 用流程图/结构图解释编码规则，并展示解码示例（看到编码能读出信息）。\n(4) 讨论编码对秩序的影响：检索、统计、服务、责任追溯；同时提醒注意隐私边界。",
+          "excerpt_hash": "645a8348f071f1b031845f1b1d3311f0f3691bcb8cd08e214797bb9f9ad01a46",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-CS-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后小组合作制定简单编码规则并用可视化方式解释其含义与作用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“小组合作制定简单编码规则并用可视化方式解释其含义与作用”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“【主题活动建议】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_addfdc1e8d4ea6cf"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生从编码视角观察学习与生活中的事物的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bfac51c69dc8e9d3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_62fa5dd2342e7eb2"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“从编码视角观察学习与生活中的事物”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“从编码视角观察学习与生活中的事物”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能从编码视角观察学习与生活中的事物，能举出常见编码实例（身份证号、座位号、条形码/二维码等），能小组合作制定简单编码规则并用可视化方式解释其含义与作用。",
+          "excerpt_hash": "f0feb2297ec0496b581c381eb5e779d99c1d70e7189661a08606bccfa06421e6",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【主题活动建议】\n(1) 组织“编码寻宝”：在校园/家庭寻找编码实例，讨论每一段字符代表的信息。\n(2) 小组制定编码规则（如“班级物品管理编码”“校园植物编号”），强调唯一性与可扩展性。\n(3) 用流程图/结构图解释编码规则，并展示解码示例（看到编码能读出信息）。\n(4) 讨论编码对秩序的影响：检索、统计、服务、责任追溯；同时提醒注意隐私边界。",
+          "excerpt_hash": "645a8348f071f1b031845f1b1d3311f0f3691bcb8cd08e214797bb9f9ad01a46",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-CS-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后从编码视角观察学习与生活中的事物，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“从编码视角观察学习与生活中的事物”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“【主题活动建议】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_addfdc1e8d4ea6cf"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生从编码视角观察学习与生活中的事物的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f98343948b086697",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_62fa5dd2342e7eb2"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“从编码视角观察学习与生活中的事物”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“从编码视角观察学习与生活中的事物”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能从编码视角观察学习与生活中的事物，能举出常见编码实例（身份证号、座位号、条形码/二维码等），能小组合作制定简单编码规则并用可视化方式解释其含义与作用。",
+          "excerpt_hash": "f0feb2297ec0496b581c381eb5e779d99c1d70e7189661a08606bccfa06421e6",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【主题活动建议】\n(1) 组织“编码寻宝”：在校园/家庭寻找编码实例，讨论每一段字符代表的信息。\n(2) 小组制定编码规则（如“班级物品管理编码”“校园植物编号”），强调唯一性与可扩展性。\n(3) 用流程图/结构图解释编码规则，并展示解码示例（看到编码能读出信息）。\n(4) 讨论编码对秩序的影响：检索、统计、服务、责任追溯；同时提醒注意隐私边界。",
+          "excerpt_hash": "645a8348f071f1b031845f1b1d3311f0f3691bcb8cd08e214797bb9f9ad01a46",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H2-CS-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后从编码视角观察学习与生活中的事物，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“从编码视角观察学习与生活中的事物”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“【主题活动建议】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ef87b78fea510f06",
+      "component_ids": [
+        "lc_7cbd5288d9f4b504"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生小组合作制定简单编码规则并用可视化方式解释其含义与作用。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够小组合作制定简单编码规则并用可视化方式解释其含义与作用；优先采集：设计作品、小组展示、口头答辩、教师提问。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能从编码视角观察学习与生活中的事物，能举出常见编码实例（身份证号、座位号、条形码/二维码等），能小组合作制定简单编码规则并用可视化方式解释其含义与作用。",
+          "excerpt_hash": "f0feb2297ec0496b581c381eb5e779d99c1d70e7189661a08606bccfa06421e6",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_62fa5dd2342e7eb2",
+      "component_ids": [
+        "lc_addfdc1e8d4ea6cf"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生从编码视角观察学习与生活中的事物。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够从编码视角观察学习与生活中的事物；优先采集：设计作品、小组展示、口头答辩、教师提问。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能从编码视角观察学习与生活中的事物，能举出常见编码实例（身份证号、座位号、条形码/二维码等），能小组合作制定简单编码规则并用可视化方式解释其含义与作用。",
+          "excerpt_hash": "f0feb2297ec0496b581c381eb5e779d99c1d70e7189661a08606bccfa06421e6",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_addfdc1e8d4ea6cf",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够从编码视角观察学习与生活中的事物",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生从编码视角观察学习与生活中的事物，并说明关键步骤、特征或依据。",
+      "label": "从编码视角观察学习与生活中的事物",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够从编码视角观察学习与生活中的事物；优先采集：设计作品、小组展示、口头答辩、教师提问。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "从编码视角观察学习与生活中的事物",
+          "excerpt_hash": "c2fe16fa41193bd6fc3f00af03625451fda5ef064ba7416d02752dc14a27900b",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "从编码视角观察学习与生活中的事物"
+    },
+    {
+      "component_id": "lc_9fa55497f5128f4d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够举出常见编码实例（身份证号、座位号、条形码/二维码等）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生举出常见编码实例（身份证号、座位号、条形码/二维码等），并说明关键步骤、特征或依据。",
+      "label": "举出常见编码实例（身份证号、座位号、条形码/二维码等）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够举出常见编码实例（身份证号、座位号、条形码/二维码等）；优先采集：设计作品、小组展示、口头答辩、教师提问。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "举出常见编码实例（身份证号、座位号、条形码/二维码等）",
+          "excerpt_hash": "368192f06bf007f2a10971a73093f5efbc1d28c51acab91fc834c678328769b3",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "举出常见编码实例（身份证号、座位号、条形码/二维码等）"
+    },
+    {
+      "component_id": "lc_7cbd5288d9f4b504",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够小组合作制定简单编码规则并用可视化方式解释其含义与作用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生小组合作制定简单编码规则并用可视化方式解释其含义与作用，并保留可回查的口头、书面或操作过程证据。",
+      "label": "小组合作制定简单编码规则并用可视化方式解释其含义与作用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够小组合作制定简单编码规则并用可视化方式解释其含义与作用；优先采集：设计作品、小组展示、口头答辩、教师提问。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "小组合作制定简单编码规则并用可视化方式解释其含义与作用",
+          "excerpt_hash": "be6ab45fcfc0be2bbde63071ade13b84cf786f9ffc11449b474b04eb9c206540",
+          "field": "standard",
+          "ref_id": "standard:IT-H2-CS-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "小组合作制定简单编码规则并用可视化方式解释其含义与作用"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f0feb2297ec0496b581c381eb5e779d99c1d70e7189661a08606bccfa06421e6",
+  "standard_code": "IT-H2-CS-006",
+  "verified_prerequisites": []
+}

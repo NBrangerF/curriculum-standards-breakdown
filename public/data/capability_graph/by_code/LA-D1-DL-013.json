@@ -1,0 +1,273 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_fa21020b397bbd5c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明基本的卫生与安全注意事项的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_72afbd5bb557dc59",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5ff5c06c3a3862fc",
+        "hc_be41dea5229bd278"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明基本的卫生与安全注意事项”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明基本的卫生与安全注意事项”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶，能说明基本的卫生与安全注意事项。",
+          "excerpt_hash": "81dc07b5b91399b2f2c40d65acc7a1aa91502dfd070c5121f6d8bb5449272c73",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先教“冷热水识别与温度感知”；用量具控制水量；把“清洗器皿—制作—清理”做成完整闭环。",
+          "excerpt_hash": "b8c6e2066a68d3d7644c63c7eba6036576eb17f7eabd06c5ad08b696cc4690e4",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-DL-013:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明基本的卫生与安全注意事项，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明基本的卫生与安全注意事项”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“先教“冷热水识别与温度感知””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_cfc34ea38da7c98c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_473e260312baeca6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_7dbd1f492e0254ff"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶，能说明基本的卫生与安全注意事项。",
+          "excerpt_hash": "81dc07b5b91399b2f2c40d65acc7a1aa91502dfd070c5121f6d8bb5449272c73",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先教“冷热水识别与温度感知”；用量具控制水量；把“清洗器皿—制作—清理”做成完整闭环。",
+          "excerpt_hash": "b8c6e2066a68d3d7644c63c7eba6036576eb17f7eabd06c5ad08b696cc4690e4",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-DL-013:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“先教“冷热水识别与温度感知””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_a97f28f6e4202c3c",
+      "evidence_refs": [
+        "standard:LA-D1-DL-013:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D1-DL-013",
+      "target_code": "LA-D2-DL-006",
+      "target_label": "能独立完成一种无火或少火的简单食品制作（如水果沙拉、凉拌黄瓜等），做到配料合理、步骤清楚、摆盘整洁，并能完成清理收尾。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_5ff5c06c3a3862fc",
+      "component_ids": [
+        "lc_fa21020b397bbd5c"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明基本的卫生与安全注意事项。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明基本的卫生与安全注意事项；优先采集：制作卡、过程记录、同伴分享。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶，能说明基本的卫生与安全注意事项。",
+          "excerpt_hash": "81dc07b5b91399b2f2c40d65acc7a1aa91502dfd070c5121f6d8bb5449272c73",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_7dbd1f492e0254ff",
+      "component_ids": [
+        "lc_cfc34ea38da7c98c"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶；优先采集：制作卡、过程记录、同伴分享。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶，能说明基本的卫生与安全注意事项。",
+          "excerpt_hash": "81dc07b5b91399b2f2c40d65acc7a1aa91502dfd070c5121f6d8bb5449272c73",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_be41dea5229bd278",
+      "component_ids": [
+        "lc_fa21020b397bbd5c"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明基本的卫生与安全注意事项。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明基本的卫生与安全注意事项；优先采集：制作卡、过程记录、同伴分享。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶，能说明基本的卫生与安全注意事项。",
+          "excerpt_hash": "81dc07b5b91399b2f2c40d65acc7a1aa91502dfd070c5121f6d8bb5449272c73",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_cfc34ea38da7c98c",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶，并说明关键步骤、特征或依据。",
+      "label": "根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶；优先采集：制作卡、过程记录、同伴分享。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶",
+          "excerpt_hash": "62f16100a47fe5d9b0f2e81ed0fb36506f16c68f191ca89bb636c680c1d2fd06",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据需要选择合适器皿冲泡饮品（如茶、温水），或在成人指导下尝试制作简单水果茶"
+    },
+    {
+      "component_id": "lc_fa21020b397bbd5c",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明基本的卫生与安全注意事项",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明基本的卫生与安全注意事项，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明基本的卫生与安全注意事项",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明基本的卫生与安全注意事项；优先采集：制作卡、过程记录、同伴分享。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明基本的卫生与安全注意事项",
+          "excerpt_hash": "6375a46ad5d2fb9fbd40ba190edc90029ae8aa80d16c0edc3670de620368b4eb",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明基本的卫生与安全注意事项"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "81dc07b5b91399b2f2c40d65acc7a1aa91502dfd070c5121f6d8bb5449272c73",
+  "standard_code": "LA-D1-DL-013",
+  "verified_prerequisites": []
+}

@@ -17,6 +17,36 @@ const RELATION_LABELS = {
     standard_for: '课程标准'
 }
 
+const SCOPE_PREVIEW_LIMIT = 12
+
+function StandardScopeLinks({ standardCodes }) {
+    if (!standardCodes.length) return null
+    const previewCodes = standardCodes.slice(0, SCOPE_PREVIEW_LIMIT)
+    const remainingCodes = standardCodes.slice(SCOPE_PREVIEW_LIMIT)
+    return (
+        <section className={styles.scopePanel} aria-labelledby="textbook-standard-scope-heading">
+            <div className={styles.scopeHeading}>
+                <div>
+                    <span>CURRICULUM SCOPE</span>
+                    <h3 id="textbook-standard-scope-heading">同学科、同学段课标范围</h3>
+                </div>
+                <p>范围关系帮助进入相关课标，但不代表已经定位到本书某个单元或页码。</p>
+            </div>
+            <ul className={styles.scopeLinks} aria-label="代表性范围课标">
+                {previewCodes.map(code => <li key={code}><Link to={`/standards/${encodeURIComponent(code)}`}>{code}</Link></li>)}
+            </ul>
+            {remainingCodes.length ? (
+                <details className={styles.scopeMore}>
+                    <summary>查看其余 {remainingCodes.length} 条范围课标</summary>
+                    <ul className={styles.scopeLinks}>
+                        {remainingCodes.map(code => <li key={code}><Link to={`/standards/${encodeURIComponent(code)}`}>{code}</Link></li>)}
+                    </ul>
+                </details>
+            ) : null}
+        </section>
+    )
+}
+
 export default function TextbookDetailPage() {
     const { editionId } = useParams()
     const [book, setBook] = useState(null)
@@ -35,6 +65,19 @@ export default function TextbookDetailPage() {
             groups.get(alignment.unit_id).push(alignment)
         }
         return groups
+    }, [book])
+
+    const standardScopeCodes = useMemo(() => {
+        const seen = new Set()
+        const codes = []
+        for (const scope of book?.standard_scopes || []) {
+            for (const code of scope.standard_codes || []) {
+                if (seen.has(code)) continue
+                seen.add(code)
+                codes.push(code)
+            }
+        }
+        return codes
     }, [book])
 
     if (error) return <ErrorState title="教材加载失败" message={error} />
@@ -89,14 +132,15 @@ export default function TextbookDetailPage() {
                                     </li>
                                 ))}
                             </ol>
-                        ) : <EmptyState title="目录还在处理" description={book.text_quality === 'scan_only' ? '这是扫描型 PDF，需要 OCR 后才能建立可搜索目录。' : '可以先阅读原书，结构化目录将在复核后显示。'} />}
+                        ) : <EmptyState title="目录还在处理" message={book.text_quality === 'scan_only' ? '这是扫描型 PDF，需要 OCR 后才能建立可搜索目录。' : '可以先阅读原书，结构化目录将在复核后显示。'} />}
                     </section>
 
                     <section className={styles.section}>
                         <div className={styles.sectionHeading}><div><span>ALIGN</span><h2>课标与教材关联</h2></div><p>展示人工批准与达到保守门槛的可解释智能匹配。</p></div>
                         {book.alignments.length ? (
                             <div className={styles.alignmentList}>{book.alignments.map(item => <article key={item.alignment_id}><LinkSimpleIcon size={18} aria-hidden="true" /><div><Link to={`/standards/${encodeURIComponent(item.standard_code)}`}>{item.standard_code}</Link><p>{item.standard_text}</p><small>{item.rationale}</small></div></article>)}</div>
-                        ) : <EmptyState title="暂无可靠的单元级关联" description={`已建立 ${book.standard_scope_count || 0} 条同学科、同年级带课标范围关系；具体单元证据仍需增强。`} />}
+                        ) : <EmptyState title="暂无可靠的单元级关联" message={standardScopeCodes.length ? `已建立 ${standardScopeCodes.length} 条同学科、同学段课标范围关系；可以先浏览下方相关课标，具体单元证据仍需增强。` : '尚未建立可公开的具体单元或适用范围关系。'} />}
+                        <StandardScopeLinks standardCodes={standardScopeCodes} />
                     </section>
                 </main>
 

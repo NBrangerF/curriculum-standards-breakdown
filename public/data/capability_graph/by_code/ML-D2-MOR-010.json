@@ -1,0 +1,369 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_2e03ba1bc67aa0a6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明其危害的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_beb9d3b765a22e96",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9308631327faf265"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明其危害”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明其危害”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见网络不文明行为并说明其危害，能遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络。",
+          "excerpt_hash": "d3040748df8b29d6b4530fa60fc95faba35c8092c5e375109e8bfecedd451994",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过真实或改编案例辨析网络不文明行为（辱骂、造谣、泄露隐私、沉迷），共创“文明上网公约”；强调尊重、守法与自我保护。",
+          "excerpt_hash": "6f6391c778aa8558a4d2441937525085534ddb92101f08bb28d63d954b43f3b4",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-MOR-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明其危害，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明其危害”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“通过真实或改编案例辨析网络不文明行为（辱骂、造谣、泄露隐私、沉迷），共创“文明上网公约””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_486e1cceb35f2ce4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别常见网络不文明行为的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0e8d82e13d1c8784",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别常见网络不文明行为”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别常见网络不文明行为”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见网络不文明行为并说明其危害，能遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络。",
+          "excerpt_hash": "d3040748df8b29d6b4530fa60fc95faba35c8092c5e375109e8bfecedd451994",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过真实或改编案例辨析网络不文明行为（辱骂、造谣、泄露隐私、沉迷），共创“文明上网公约”；强调尊重、守法与自我保护。",
+          "excerpt_hash": "6f6391c778aa8558a4d2441937525085534ddb92101f08bb28d63d954b43f3b4",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-MOR-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别常见网络不文明行为，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别常见网络不文明行为”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“通过真实或改编案例辨析网络不文明行为（辱骂、造谣、泄露隐私、沉迷），共创“文明上网公约””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fb41e668573cd496",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_49c68a8031fd5b545d9f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c4a8334099f0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4eabffd55a81e2eb",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d41cf89c5a845f2f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7751decca7f37a1d323e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2d734af455c0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4fcca84971a83ec4",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c52a75d8798962e6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_abbd5db6223f36ab3c5c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9d06bc550436"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_bcb8fe719c29a97c",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_96387dcaaa0a0b93",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b23dbf8aedd84cd3888f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6d8e93064e1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_85e4b38d814a5d4c",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_9308631327faf265",
+      "component_ids": [
+        "lc_2e03ba1bc67aa0a6"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明其危害。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明其危害；优先采集：案例评价单、公约成果、作品（贴士/海报）、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见网络不文明行为并说明其危害，能遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络。",
+          "excerpt_hash": "d3040748df8b29d6b4530fa60fc95faba35c8092c5e375109e8bfecedd451994",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_0cb43b18dea7fb56",
+      "component_ids": [
+        "lc_f70cc1e44ab70dbf"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络；优先采集：案例评价单、公约成果、作品（贴士/海报）、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见网络不文明行为并说明其危害，能遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络。",
+          "excerpt_hash": "d3040748df8b29d6b4530fa60fc95faba35c8092c5e375109e8bfecedd451994",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_486e1cceb35f2ce4",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别常见网络不文明行为",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别常见网络不文明行为，并说明关键步骤、特征或依据。",
+      "label": "识别常见网络不文明行为",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别常见网络不文明行为；优先采集：案例评价单、公约成果、作品（贴士/海报）、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别常见网络不文明行为",
+          "excerpt_hash": "3be330fce919ce5aa9b7d8c5f530772b0a32c446761d0dc1d4c3a162b3b36642",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别常见网络不文明行为"
+    },
+    {
+      "component_id": "lc_2e03ba1bc67aa0a6",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明其危害",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明其危害，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明其危害",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明其危害；优先采集：案例评价单、公约成果、作品（贴士/海报）、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明其危害",
+          "excerpt_hash": "077a47bdbdc5664cc032685cb4bcd16718d25bfb90a7f84ea49c4ce90ff30b34",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明其危害"
+    },
+    {
+      "component_id": "lc_f70cc1e44ab70dbf",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络，并说明关键步骤、特征或依据。",
+      "label": "遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络；优先采集：案例评价单、公约成果、作品（贴士/海报）、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络",
+          "excerpt_hash": "52d01574fa9fd036d4d654a8e810dba18fdda6b384a7aa935a6de8f420eaa787",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d3040748df8b29d6b4530fa60fc95faba35c8092c5e375109e8bfecedd451994",
+  "standard_code": "ML-D2-MOR-010",
+  "verified_prerequisites": []
+}

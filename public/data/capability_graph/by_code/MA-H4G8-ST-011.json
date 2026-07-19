@@ -1,0 +1,443 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_5341666ec094ff5d",
+        "lc_3b5f5520b3ae5b52",
+        "lc_3209c72f1e6fbd74"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解释数据分析结果的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_caff533f7ba2c1a4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e6b7c04c844d50b9"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“解释数据分析结果”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解释数据分析结果”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能解释数据分析结果；能体会样本与总体的关系；能根据结果作出简单判断和预测并进行交流；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "f791adb6a006db033ebc8844bfe52533b2324ec53c725350aa04286bf18fd9ce",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-011:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生说明样本推断总体的依据、限制和现实意义。",
+          "excerpt_hash": "15ef92deb8fcf99735e796f089e8b8b7d8b53f64abf41880cbc6e73e52842782",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-ST-011:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解释数据分析结果，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解释数据分析结果”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生说明样本推断总体的依据、限制和现实意义。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_720309e4dc07bf0f",
+        "lc_e00c5a17909f2ed7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据结果作出简单判断和预测并进行交流的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2955e01641eecaa4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1c68f358804e0ef2"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“根据结果作出简单判断和预测并进行交流”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据结果作出简单判断和预测并进行交流”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能解释数据分析结果；能体会样本与总体的关系；能根据结果作出简单判断和预测并进行交流；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "f791adb6a006db033ebc8844bfe52533b2324ec53c725350aa04286bf18fd9ce",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-011:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生说明样本推断总体的依据、限制和现实意义。",
+          "excerpt_hash": "15ef92deb8fcf99735e796f089e8b8b7d8b53f64abf41880cbc6e73e52842782",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-ST-011:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据结果作出简单判断和预测并进行交流，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据结果作出简单判断和预测并进行交流”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“引导学生说明样本推断总体的依据、限制和现实意义。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_720309e4dc07bf0f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据结果作出简单判断和预测并进行交流的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1362db7df927d531",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_1c68f358804e0ef2"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“根据结果作出简单判断和预测并进行交流”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据结果作出简单判断和预测并进行交流”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能解释数据分析结果；能体会样本与总体的关系；能根据结果作出简单判断和预测并进行交流；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "f791adb6a006db033ebc8844bfe52533b2324ec53c725350aa04286bf18fd9ce",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-011:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生说明样本推断总体的依据、限制和现实意义。",
+          "excerpt_hash": "15ef92deb8fcf99735e796f089e8b8b7d8b53f64abf41880cbc6e73e52842782",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-ST-011:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据结果作出简单判断和预测并进行交流，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据结果作出简单判断和预测并进行交流”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“引导学生说明样本推断总体的依据、限制和现实意义。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a0909f6ef24ae642",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d79076db84511d8a",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7208f82a3165d017",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_485165afa9c8"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_8684cc79506c65f5",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_2a0aab4807e5769d",
+      "evidence_refs": [
+        "standard:MA-H4G8-ST-011:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-H4G8-ST-011",
+      "target_code": "MA-H4G9-ST-012",
+      "target_label": "能根据结果作出简单判断和预测并进行交流；能解释数据分析结果；阐释可用样本平均数估计总体平均数、样本方差估计总体方差；能建模、推理并检验结论的合…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_e6b7c04c844d50b9",
+      "component_ids": [
+        "lc_5341666ec094ff5d",
+        "lc_3b5f5520b3ae5b52",
+        "lc_3209c72f1e6fbd74"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生解释数据分析结果。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够解释数据分析结果；优先采集：样本推断说明、趋势图、数据分析报告、交流记录。",
+        "学生能够用具体事例说明样本与总体的关系；优先采集：样本推断说明、趋势图、数据分析报告、交流记录。",
+        "学生能够解释数量、图形或数据关系；优先采集：样本推断说明、趋势图、数据分析报告、交流记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能解释数据分析结果；能体会样本与总体的关系；能根据结果作出简单判断和预测并进行交流；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "f791adb6a006db033ebc8844bfe52533b2324ec53c725350aa04286bf18fd9ce",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_1c68f358804e0ef2",
+      "component_ids": [
+        "lc_720309e4dc07bf0f",
+        "lc_e00c5a17909f2ed7"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较",
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据结果作出简单判断和预测并进行交流。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据结果作出简单判断和预测并进行交流；优先采集：样本推断说明、趋势图、数据分析报告、交流记录。",
+        "学生能够比较方法；优先采集：样本推断说明、趋势图、数据分析报告、交流记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能解释数据分析结果；能体会样本与总体的关系；能根据结果作出简单判断和预测并进行交流；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "f791adb6a006db033ebc8844bfe52533b2324ec53c725350aa04286bf18fd9ce",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较、判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_5341666ec094ff5d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释数据分析结果",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释数据分析结果，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释数据分析结果",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释数据分析结果；优先采集：样本推断说明、趋势图、数据分析报告、交流记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释数据分析结果",
+          "excerpt_hash": "2b7627c2a6b8e08ad5ca73524e5838684462061e6a8599fa16ed8d7e44e37fb2",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释数据分析结果"
+    },
+    {
+      "component_id": "lc_3b5f5520b3ae5b52",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用具体事例说明样本与总体的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用具体事例说明样本与总体的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用具体事例说明样本与总体的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用具体事例说明样本与总体的关系；优先采集：样本推断说明、趋势图、数据分析报告、交流记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "体会样本与总体的关系",
+          "excerpt_hash": "bea670592955d83b58743e3289b7564b50c8deb9f378d021d37eae70fe308a5f",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体会样本与总体的关系"
+    },
+    {
+      "component_id": "lc_720309e4dc07bf0f",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据结果作出简单判断和预测并进行交流",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据结果作出简单判断和预测并进行交流，并说明关键步骤、特征或依据。",
+      "label": "根据结果作出简单判断和预测并进行交流",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据结果作出简单判断和预测并进行交流；优先采集：样本推断说明、趋势图、数据分析报告、交流记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据结果作出简单判断和预测并进行交流",
+          "excerpt_hash": "14825d4a0087ba1640d4e196b5cd4c4c72bf721c29c05c993f86eb839c49f0ab",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据结果作出简单判断和预测并进行交流"
+    },
+    {
+      "component_id": "lc_e00c5a17909f2ed7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较方法，并说明关键步骤、特征或依据。",
+      "label": "比较方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较方法；优先采集：样本推断说明、趋势图、数据分析报告、交流记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较方法",
+          "excerpt_hash": "7889e4fffed9604deef84a0784668b8242973dd9c5af85496f69faa8f645a0b9",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较方法"
+    },
+    {
+      "component_id": "lc_3209c72f1e6fbd74",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释数量、图形或数据关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释数量、图形或数据关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释数量、图形或数据关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释数量、图形或数据关系；优先采集：样本推断说明、趋势图、数据分析报告、交流记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释数量、图形或数据关系",
+          "excerpt_hash": "21c5b567c1ef612a5b98a5a459ca76600a99e5cd95a345b6856579018adee66e",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-ST-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释数量、图形或数据关系"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_f2947f3c76e596fe",
+      "evidence_refs": [
+        "standard:MA-H4G8-ST-011:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-H4G7-ST-010",
+      "source_label": "能根据结果作出简单判断和预测并进行交流；能解释数据分析结果；能通过表格、折线图、趋势图感受随机现象变化趋势；能说明解题步骤和基本依据。",
+      "target_code": "MA-H4G8-ST-011",
+      "target_label": "能解释数据分析结果；能体会样本与总体的关系；能根据结果作出简单判断和预测并进行交流；能比较方法并解释数量、图形或数据关系。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f791adb6a006db033ebc8844bfe52533b2324ec53c725350aa04286bf18fd9ce",
+  "standard_code": "MA-H4G8-ST-011",
+  "verified_prerequisites": []
+}

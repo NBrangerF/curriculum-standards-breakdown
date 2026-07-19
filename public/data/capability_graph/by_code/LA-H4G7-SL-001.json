@@ -1,0 +1,359 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_a5e095100c8518ae"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明工具、材料或安全要求的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_83e3b2494218d32f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e89286d409605fdd",
+        "hc_b617952aa29e5774"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明工具、材料或安全要求”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明工具、材料或安全要求”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能参加校园保洁美化、助残敬老扶弱等公益劳动，体验现代服务业劳动，增强公共服务意识和社会责任感；能选择一至两项现代服务业劳动项目参与体验；能根据服务业劳动特征和过程发现有价值的问题；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "6b5b21aeedac260ebe6b93ea6cc6441b4adce4fd3f1c77320d0b31bb96344dbc",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "帮助学生识别真实服务对象和服务需求，关注服务过程中的责任、礼仪与安全。",
+          "excerpt_hash": "879ffed932b8d4d9075b4176102bf02d45371e9d098605f0d2f73e3b2134c450",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G7-SL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明工具、材料或安全要求，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明工具、材料或安全要求”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“帮助学生识别真实服务对象和服务需求，关注服务过程中的责任、礼仪与安全。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_eb5fb6a448aa9750"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据服务业劳动特征和过程发现有价值的问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_43c9183137a78970",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“根据服务业劳动特征和过程发现有价值的问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据服务业劳动特征和过程发现有价值的问题”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能参加校园保洁美化、助残敬老扶弱等公益劳动，体验现代服务业劳动，增强公共服务意识和社会责任感；能选择一至两项现代服务业劳动项目参与体验；能根据服务业劳动特征和过程发现有价值的问题；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "6b5b21aeedac260ebe6b93ea6cc6441b4adce4fd3f1c77320d0b31bb96344dbc",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "帮助学生识别真实服务对象和服务需求，关注服务过程中的责任、礼仪与安全。",
+          "excerpt_hash": "879ffed932b8d4d9075b4176102bf02d45371e9d098605f0d2f73e3b2134c450",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G7-SL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据服务业劳动特征和过程发现有价值的问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据服务业劳动特征和过程发现有价值的问题”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“帮助学生识别真实服务对象和服务需求，关注服务过程中的责任、礼仪与安全。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_049be7cc65bd93f6",
+      "evidence_refs": [
+        "standard:LA-H4G7-SL-001:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-H4G7-SL-001",
+      "target_code": "LA-H4G8-SL-002",
+      "target_label": "能参加校园保洁美化、助残敬老扶弱等公益劳动，体验现代服务业劳动，增强公共服务意识和社会责任感；能选择一至两项现代服务业劳动项目参与体验；能根据…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_e89286d409605fdd",
+      "component_ids": [
+        "lc_a5e095100c8518ae"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明工具、材料或安全要求。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明工具、材料或安全要求；优先采集：服务方案、服务记录、对象反馈、反思报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能参加校园保洁美化、助残敬老扶弱等公益劳动，体验现代服务业劳动，增强公共服务意识和社会责任感；能选择一至两项现代服务业劳动项目参与体验；能根据服务业劳动特征和过程发现有价值的问题；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "6b5b21aeedac260ebe6b93ea6cc6441b4adce4fd3f1c77320d0b31bb96344dbc",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_b617952aa29e5774",
+      "component_ids": [
+        "lc_13801d5ba6cb3e30",
+        "lc_a5e095100c8518ae"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "规范",
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生按规范完成任务。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够按规范完成任务；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+        "学生能够说明工具、材料或安全要求；优先采集：服务方案、服务记录、对象反馈、反思报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能参加校园保洁美化、助残敬老扶弱等公益劳动，体验现代服务业劳动，增强公共服务意识和社会责任感；能选择一至两项现代服务业劳动项目参与体验；能根据服务业劳动特征和过程发现有价值的问题；能按规范完成任务并说明工具、材料或安全要求。",
+          "excerpt_hash": "6b5b21aeedac260ebe6b93ea6cc6441b4adce4fd3f1c77320d0b31bb96344dbc",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（规范、安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b3f9b34ef5c359b8",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参加校园保洁美化、助残敬老扶弱等公益劳动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参加校园保洁美化、助残敬老扶弱等公益劳动，并说明关键步骤、特征或依据。",
+      "label": "参加校园保洁美化、助残敬老扶弱等公益劳动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参加校园保洁美化、助残敬老扶弱等公益劳动；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "参加校园保洁美化、助残敬老扶弱等公益劳动",
+          "excerpt_hash": "0196ee9e6d39ca2aaf5261a2de128db4bdfb87357a94f2ddeb387ee069e48a33",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参加校园保洁美化、助残敬老扶弱等公益劳动"
+    },
+    {
+      "component_id": "lc_0ab5ebb55dd6f2d8",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与相关活动并描述现代服务业劳动，增强公共服务意识和社会责任感",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与相关活动并描述现代服务业劳动，增强公共服务意识和社会责任感，并说明关键步骤、特征或依据。",
+      "label": "参与相关活动并描述现代服务业劳动，增强公共服务意识和社会责任感",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与相关活动并描述现代服务业劳动，增强公共服务意识和社会责任感；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "体验现代服务业劳动，增强公共服务意识和社会责任感",
+          "excerpt_hash": "79ad079e8536973e2037b20a0afa1a7c841e69e3903dbb885e1e05a795555d02",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体验现代服务业劳动，增强公共服务意识和社会责任感"
+    },
+    {
+      "component_id": "lc_b927a798c2ef918a",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择一至两项现代服务业劳动项目参与体验",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择一至两项现代服务业劳动项目参与体验，并说明关键步骤、特征或依据。",
+      "label": "选择一至两项现代服务业劳动项目参与体验",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择一至两项现代服务业劳动项目参与体验；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项现代服务业劳动项目参与体验",
+          "excerpt_hash": "3cf30eba9ef71b8b58a90f8f9f0591933c77e5a91917504177d6c24928c09a19",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择一至两项现代服务业劳动项目参与体验"
+    },
+    {
+      "component_id": "lc_eb5fb6a448aa9750",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据服务业劳动特征和过程发现有价值的问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据服务业劳动特征和过程发现有价值的问题，并说明关键步骤、特征或依据。",
+      "label": "根据服务业劳动特征和过程发现有价值的问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据服务业劳动特征和过程发现有价值的问题；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据服务业劳动特征和过程发现有价值的问题",
+          "excerpt_hash": "384b92e62349abe6e7620a7394d8d185293d38aa6e0ef3c81ead6d38e8d406c2",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据服务业劳动特征和过程发现有价值的问题"
+    },
+    {
+      "component_id": "lc_13801d5ba6cb3e30",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够按规范完成任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生按规范完成任务，并说明关键步骤、特征或依据。",
+      "label": "按规范完成任务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够按规范完成任务；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "按规范完成任务",
+          "excerpt_hash": "435c431407d1babddb0f9e92d5352aefea84d0123f9d1a56ac0b7f66a8928946",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按规范完成任务"
+    },
+    {
+      "component_id": "lc_a5e095100c8518ae",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明工具、材料或安全要求",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明工具、材料或安全要求，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明工具、材料或安全要求",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明工具、材料或安全要求；优先采集：服务方案、服务记录、对象反馈、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明工具、材料或安全要求",
+          "excerpt_hash": "cd212ce4d051adbbf459a3ffdb2752deae8ec0e91d6c7e8522865823136f6708",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G7-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明工具、材料或安全要求"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.174,
+      "edge_id": "pc_0a56df992a4f0d47",
+      "evidence_refs": [
+        "standard:LA-H4G7-SL-001:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D3-SL-001",
+      "source_label": "能在校园服务岗位体验中完善服务流程（排队、登记、借还等），能收集服务对象反馈并提出改进，体现服务意识与责任。",
+      "target_code": "LA-H4G7-SL-001",
+      "target_label": "能参加校园保洁美化、助残敬老扶弱等公益劳动，体验现代服务业劳动，增强公共服务意识和社会责任感；能选择一至两项现代服务业劳动项目参与体验；能根据…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "6b5b21aeedac260ebe6b93ea6cc6441b4adce4fd3f1c77320d0b31bb96344dbc",
+  "standard_code": "LA-H4G7-SL-001",
+  "verified_prerequisites": []
+}

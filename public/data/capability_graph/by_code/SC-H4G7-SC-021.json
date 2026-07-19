@@ -1,0 +1,439 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_cc41309dab25c631"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_eba8a954cdc794e1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e7b4467bc95c5261"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过酶催化作用实验体验酶在生命活动中的重要作用；能描述人体消化系统结构及食物消化与吸收过程；能概述生命活动中物质与能量的变化；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "9910a53d921962211917d2fc61710110a5901d3cda4b2266cfb14fba94b0b99c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-021:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把结构、功能、酶催化和能量获取放在系统整体中理解。",
+          "excerpt_hash": "dd99b5c7684a3b57b5576661171a805769bc2b17af7a168e485eaaaa58c94efc",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-021:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用观察证据说明基本科学概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把结构、功能、酶催化和能量获取放在系统整体中理解。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_7e9cc99e27082a31"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述人体消化系统结构及食物消化与吸收过程的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f535f22c846887fe",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述人体消化系统结构及食物消化与吸收过程”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述人体消化系统结构及食物消化与吸收过程”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过酶催化作用实验体验酶在生命活动中的重要作用；能描述人体消化系统结构及食物消化与吸收过程；能概述生命活动中物质与能量的变化；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "9910a53d921962211917d2fc61710110a5901d3cda4b2266cfb14fba94b0b99c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-021:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把结构、功能、酶催化和能量获取放在系统整体中理解。",
+          "excerpt_hash": "dd99b5c7684a3b57b5576661171a805769bc2b17af7a168e485eaaaa58c94efc",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-021:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述人体消化系统结构及食物消化与吸收过程，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述人体消化系统结构及食物消化与吸收过程”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把结构、功能、酶催化和能量获取放在系统整体中理解。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_cc41309dab25c631"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9eb26842fa071b4e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e7b4467bc95c5261"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过酶催化作用实验体验酶在生命活动中的重要作用；能描述人体消化系统结构及食物消化与吸收过程；能概述生命活动中物质与能量的变化；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "9910a53d921962211917d2fc61710110a5901d3cda4b2266cfb14fba94b0b99c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-021:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把结构、功能、酶催化和能量获取放在系统整体中理解。",
+          "excerpt_hash": "dd99b5c7684a3b57b5576661171a805769bc2b17af7a168e485eaaaa58c94efc",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-021:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用观察证据说明基本科学概念”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把结构、功能、酶催化和能量获取放在系统整体中理解。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_217b1ecf5ff50b57",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_21164b69894834d04f84",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7070ee669923"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ba775a07035c65ee",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2406aa2fdfb20559",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b2901b9e06df"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3daf5000bc9191a7",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ccb198c751463b13",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_92369ed68f9321363e22",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae920aee077f"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_94dc3a2f9a671969",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ee6b98f104b30ccd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fc41327ff0651b269c88",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae5d3f924fb1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4604008cfd618f79",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_bd763e99aad6960c",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-021:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G7-SC-021",
+      "target_code": "SC-H4G8-SC-021",
+      "target_label": "能通过酶催化作用实验体验酶在生命活动中的重要作用；能描述人体消化系统结构及食物消化与吸收过程；能概述生命活动中物质与能量的变化；能比较证据并解…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_e7b4467bc95c5261",
+      "component_ids": [
+        "lc_cc41309dab25c631"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用观察证据说明基本科学概念。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用观察证据说明基本科学概念；优先采集：消化系统模型、酶实验记录、过程说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过酶催化作用实验体验酶在生命活动中的重要作用；能描述人体消化系统结构及食物消化与吸收过程；能概述生命活动中物质与能量的变化；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "9910a53d921962211917d2fc61710110a5901d3cda4b2266cfb14fba94b0b99c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_2d7837b30e549049",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过酶催化作用实验体验酶在生命活动中的重要作用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过酶催化作用实验体验酶在生命活动中的重要作用，并说明关键步骤、特征或依据。",
+      "label": "通过酶催化作用实验体验酶在生命活动中的重要作用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过酶催化作用实验体验酶在生命活动中的重要作用；优先采集：消化系统模型、酶实验记录、过程说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过酶催化作用实验体验酶在生命活动中的重要作用",
+          "excerpt_hash": "0bce90210545ba53c4f7b2d92794794b8bd7c390efe33b7927cd56649a3db95e",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过酶催化作用实验体验酶在生命活动中的重要作用"
+    },
+    {
+      "component_id": "lc_7e9cc99e27082a31",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述人体消化系统结构及食物消化与吸收过程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述人体消化系统结构及食物消化与吸收过程，并说明关键步骤、特征或依据。",
+      "label": "描述人体消化系统结构及食物消化与吸收过程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述人体消化系统结构及食物消化与吸收过程；优先采集：消化系统模型、酶实验记录、过程说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述人体消化系统结构及食物消化与吸收过程",
+          "excerpt_hash": "4a79735beb5dbb4a2d02132b19fff01f9e7d3b55b64789ac6f56cf73f302fd73",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述人体消化系统结构及食物消化与吸收过程"
+    },
+    {
+      "component_id": "lc_8c87cd4249c0ef2b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够概述生命活动中物质与能量的变化",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生概述生命活动中物质与能量的变化，并说明关键步骤、特征或依据。",
+      "label": "概述生命活动中物质与能量的变化",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够概述生命活动中物质与能量的变化；优先采集：消化系统模型、酶实验记录、过程说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "概述生命活动中物质与能量的变化",
+          "excerpt_hash": "410e177ab608a22763273b1e180283b9b5ea7a99d2a5e43576c0b61473523554",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "概述生命活动中物质与能量的变化"
+    },
+    {
+      "component_id": "lc_cc41309dab25c631",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用观察证据说明基本科学概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用观察证据说明基本科学概念",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：消化系统模型、酶实验记录、过程说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用观察证据说明基本科学概念",
+          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用观察证据说明基本科学概念"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1616,
+      "edge_id": "pc_32dad1494484047f",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-021:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-SC-022",
+      "source_label": "知道动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量。；说出人体生长发育所需的主要营养物质及其消化吸收过程。",
+      "target_code": "SC-H4G7-SC-021",
+      "target_label": "能通过酶催化作用实验体验酶在生命活动中的重要作用；能描述人体消化系统结构及食物消化与吸收过程；能概述生命活动中物质与能量的变化；能用观察证据说…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "9910a53d921962211917d2fc61710110a5901d3cda4b2266cfb14fba94b0b99c",
+  "standard_code": "SC-H4G7-SC-021",
+  "verified_prerequisites": []
+}

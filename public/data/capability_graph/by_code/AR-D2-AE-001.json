@@ -1,0 +1,514 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_0ef158d71837b8b8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解释这些语言如何影响作品表达的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5c443aa47c55e771",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_780db3b7a7351986"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“解释这些语言如何影响作品表达”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解释这些语言如何影响作品表达”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在欣赏中运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述，并能解释这些语言如何影响作品表达。",
+          "excerpt_hash": "cccc111d3dda8d6179ee81077bb7a987a59ae5fd974988bb067b9607b0f50679",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "建立“语言—效果”对应表（冷色→安静/远；对比强→突出）；先让学生找语言，再问“它带来什么感觉”。",
+          "excerpt_hash": "e4edd46c45b230f36b28c2113b5279acd4554fbc075c67f66f80ba0e41cb1b7e",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-AE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解释这些语言如何影响作品表达，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解释这些语言如何影响作品表达”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“建立“语言—效果”对应表（冷色→安静/远”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_dad9afdf47a54e7d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a0000e7149fb6d4c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在欣赏中运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述，并能解释这些语言如何影响作品表达。",
+          "excerpt_hash": "cccc111d3dda8d6179ee81077bb7a987a59ae5fd974988bb067b9607b0f50679",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "建立“语言—效果”对应表（冷色→安静/远；对比强→突出）；先让学生找语言，再问“它带来什么感觉”。",
+          "excerpt_hash": "e4edd46c45b230f36b28c2113b5279acd4554fbc075c67f66f80ba0e41cb1b7e",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-AE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“建立“语言—效果”对应表（冷色→安静/远”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_dad9afdf47a54e7d",
+        "lc_0ef158d71837b8b8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_dc3cbdf5f6653f35",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_780db3b7a7351986"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在欣赏中运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述，并能解释这些语言如何影响作品表达。",
+          "excerpt_hash": "cccc111d3dda8d6179ee81077bb7a987a59ae5fd974988bb067b9607b0f50679",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "建立“语言—效果”对应表（冷色→安静/远；对比强→突出）；先让学生找语言，再问“它带来什么感觉”。",
+          "excerpt_hash": "e4edd46c45b230f36b28c2113b5279acd4554fbc075c67f66f80ba0e41cb1b7e",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D2-AE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“建立“语言—效果”对应表（冷色→安静/远”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b0c8c84ecbce15dd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_25cc2de0079d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fbf879fc86b8f9dd",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b451077c96862f40",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5257fc4696e"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5773d3c34b5fac1a",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_351290e69e49bb1e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7f08a79245a04bd51982",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_66a45d74ea83"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_70c6b45240660bc3",
+      "textbook_grade": 4,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8e847d4f54444370",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9056a7a14a02606cf0cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c7075fcbe13b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1d7f26ff680d57af",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_73b2906e80291730",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b0ba55d2d28575d0ba65",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_aa7ce1e8a37f"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4a0a538012d57261",
+      "textbook_grade": 3,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_43c6729b2a5a1fb8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b99acd98774d0dc454da",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_572122ddff26"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9a72f44c9f0c7435",
+      "textbook_grade": 3,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fc99d19ead4d8a4c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_edc22a9a708956d31cdc",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a83a27f3607b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3637c861f3728bf7",
+      "textbook_grade": 4,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fc4390a3d25e084e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_aa3aaa5d9032"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_19c3fbbc0c7e7882",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_9c8470635f77a7cb",
+      "evidence_refs": [
+        "standard:AR-D2-AE-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D2-AE-001",
+      "target_code": "AR-D3-AE-006",
+      "target_label": "能选择合适材料与工具（含综合材料与数字工具），进行表现与制作；在创作中能解决操作与表现中的问题并不断调整优化。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_780db3b7a7351986",
+      "component_ids": [
+        "lc_0ef158d71837b8b8"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生解释这些语言如何影响作品表达。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在欣赏中，能够解释这些语言如何影响作品表达；优先采集：标注作品、说明句、教师点评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在欣赏中运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述，并能解释这些语言如何影响作品表达。",
+          "excerpt_hash": "cccc111d3dda8d6179ee81077bb7a987a59ae5fd974988bb067b9607b0f50679",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_dad9afdf47a54e7d",
+      "component_type": "language",
+      "condition": "在欣赏中",
+      "confidence": 0.72,
+      "description": "学生在欣赏中，能够运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在欣赏中”的诊断任务，要求学生运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述，并说明关键步骤、特征或依据。",
+      "label": "运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在欣赏中，能够运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述；优先采集：标注作品、说明句、教师点评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在欣赏中运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述，并能解释这些语言如何影响作品表达。",
+          "excerpt_hash": "cccc111d3dda8d6179ee81077bb7a987a59ae5fd974988bb067b9607b0f50679",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述"
+    },
+    {
+      "component_id": "lc_0ef158d71837b8b8",
+      "component_type": "language",
+      "condition": "在欣赏中",
+      "confidence": 0.72,
+      "description": "学生在欣赏中，能够解释这些语言如何影响作品表达",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在欣赏中”的诊断任务，要求学生解释这些语言如何影响作品表达，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释这些语言如何影响作品表达",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在欣赏中，能够解释这些语言如何影响作品表达；优先采集：标注作品、说明句、教师点评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在欣赏中运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述，并能解释这些语言如何影响作品表达。",
+          "excerpt_hash": "cccc111d3dda8d6179ee81077bb7a987a59ae5fd974988bb067b9607b0f50679",
+          "field": "standard",
+          "ref_id": "standard:AR-D2-AE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释这些语言如何影响作品表达"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_524b453d04b6ebf0",
+      "evidence_refs": [
+        "standard:AR-D2-AE-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D1-AA-006",
+      "source_label": "能利用图形对印在不同材质纸上进行表现，体验对称的形式原理并能说出对称带来的视觉感受。",
+      "target_code": "AR-D2-AE-001",
+      "target_label": "能在欣赏中运用美术语言（线条、色彩、形状、空间、肌理、构图等）进行描述，并能解释这些语言如何影响作品表达。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "cccc111d3dda8d6179ee81077bb7a987a59ae5fd974988bb067b9607b0f50679",
+  "standard_code": "AR-D2-AE-001",
+  "verified_prerequisites": []
+}

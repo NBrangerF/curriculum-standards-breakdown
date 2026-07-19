@@ -1,0 +1,356 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_313af838748f1a28"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e5ac2e57c5613c80",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b0d1625d85ef7269"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象；能形成有观点、有证据、有修改意识的阐释或作品。",
+          "excerpt_hash": "dddda5f1efbf02522445ffaa1e2021b5c90e34373b7a0ec9d1b491cdc3fbe2a3",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-LI-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "以具体语言实例引导学生发现规律，避免围绕概念机械训练。",
+          "excerpt_hash": "8168b09f5d184b84818f299998f47fcc74c6f48ddf108fc9208ec6568ed75073",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G9-LI-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“以具体语言实例引导学生发现规律，避免围绕概念机械训练。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_ab93203f6eb61ac2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生初步探究语言文字运用规律的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_78d01edb0be5d775",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“初步探究语言文字运用规律”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“初步探究语言文字运用规律”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象；能形成有观点、有证据、有修改意识的阐释或作品。",
+          "excerpt_hash": "dddda5f1efbf02522445ffaa1e2021b5c90e34373b7a0ec9d1b491cdc3fbe2a3",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-LI-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "以具体语言实例引导学生发现规律，避免围绕概念机械训练。",
+          "excerpt_hash": "8168b09f5d184b84818f299998f47fcc74c6f48ddf108fc9208ec6568ed75073",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G9-LI-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后初步探究语言文字运用规律，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“初步探究语言文字运用规律”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“以具体语言实例引导学生发现规律，避免围绕概念机械训练。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_8f78d23b3697706c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生欣赏优秀作品的语言表达技巧的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_06d7afc6e97caad4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“欣赏优秀作品的语言表达技巧”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“欣赏优秀作品的语言表达技巧”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象；能形成有观点、有证据、有修改意识的阐释或作品。",
+          "excerpt_hash": "dddda5f1efbf02522445ffaa1e2021b5c90e34373b7a0ec9d1b491cdc3fbe2a3",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-LI-012:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "以具体语言实例引导学生发现规律，避免围绕概念机械训练。",
+          "excerpt_hash": "8168b09f5d184b84818f299998f47fcc74c6f48ddf108fc9208ec6568ed75073",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G9-LI-012:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后欣赏优秀作品的语言表达技巧，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“欣赏优秀作品的语言表达技巧”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“以具体语言实例引导学生发现规律，避免围绕概念机械训练。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bdcb2dc60ed51d98",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5f396a0577c0d6a9df8a",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a0230fff243e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_bfec983d3862789b",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_24f59a8f54948a09",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6101d4786e6f31ffcbd1",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6624003b3319"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ec52c6c49dc65828",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b0d1625d85ef7269",
+      "component_ids": [
+        "lc_313af838748f1a28"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "阐释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由；优先采集：语言实例集、规律说明、表达应用记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象；能形成有观点、有证据、有修改意识的阐释或作品。",
+          "excerpt_hash": "dddda5f1efbf02522445ffaa1e2021b5c90e34373b7a0ec9d1b491cdc3fbe2a3",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-LI-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、阐释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ab93203f6eb61ac2",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够初步探究语言文字运用规律",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生初步探究语言文字运用规律，并说明关键步骤、特征或依据。",
+      "label": "初步探究语言文字运用规律",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够初步探究语言文字运用规律；优先采集：语言实例集、规律说明、表达应用记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步探究语言文字运用规律",
+          "excerpt_hash": "d8997648498a7cb8d49066846f169dc9605a8cc0fb5699f8c37cfd43f9e59c47",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-LI-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "初步探究语言文字运用规律"
+    },
+    {
+      "component_id": "lc_8f78d23b3697706c",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够欣赏优秀作品的语言表达技巧",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生欣赏优秀作品的语言表达技巧，并说明关键步骤、特征或依据。",
+      "label": "欣赏优秀作品的语言表达技巧",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够欣赏优秀作品的语言表达技巧；优先采集：语言实例集、规律说明、表达应用记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "欣赏优秀作品的语言表达技巧",
+          "excerpt_hash": "d345cda48234aef411987f485aecd335631dae123a0fcfb4a8f4fbc6aa60c0e2",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-LI-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "欣赏优秀作品的语言表达技巧"
+    },
+    {
+      "component_id": "lc_2eae99c9bc529784",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够梳理学过的语言现象",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生梳理学过的语言现象，并说明关键步骤、特征或依据。",
+      "label": "梳理学过的语言现象",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够梳理学过的语言现象；优先采集：语言实例集、规律说明、表达应用记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "梳理学过的语言现象",
+          "excerpt_hash": "2b2c5bfd06e2330e15c9261462aad207bb76d06cc890c8406f2c3509b1f71bd9",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-LI-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "梳理学过的语言现象"
+    },
+    {
+      "component_id": "lc_313af838748f1a28",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由；优先采集：语言实例集、规律说明、表达应用记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成有观点、有证据、有修改意识的阐释或作品",
+          "excerpt_hash": "81dd4494a3c7ea97b381cd70636e7fb21c3ea27f3530facc4bb9d353dcee96ce",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-LI-012:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成有观点、有证据、有修改意识的阐释或作品"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_adc18916b56584bd",
+      "evidence_refs": [
+        "standard:CN-H4G9-LI-012:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-H4G8-LI-011",
+      "source_label": "能初步探究语言文字运用规律；能整理典型的语法、修辞应用实例；能欣赏优秀作品的语言表达技巧；能整合材料并说明观点、方法或表达选择的依据。",
+      "target_code": "CN-H4G9-LI-012",
+      "target_label": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象；能形成有观点、有证据、有修改意识的阐释或作品。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "dddda5f1efbf02522445ffaa1e2021b5c90e34373b7a0ec9d1b491cdc3fbe2a3",
+  "standard_code": "CN-H4G9-LI-012",
+  "verified_prerequisites": []
+}

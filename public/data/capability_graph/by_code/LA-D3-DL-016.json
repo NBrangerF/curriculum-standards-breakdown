@@ -1,0 +1,225 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_b27b0ebb222c60f0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e6e4823c63c53132",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ddc42d921750b6ee",
+        "hc_42b9a27007c169c7"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰，并能持续维护两周。",
+          "excerpt_hash": "8fcab9d442775f94018f455e5bc01fd6bfe3e1fde23f8212ca4d1ea588763ec9",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“使用频率×取放成本”决定位置；鼓励用可回收材料改造收纳；维护期设置每周一次复查。",
+          "excerpt_hash": "ba10424875d0e88e35009094b92d930362ce41cf11209cac0f421aa2946d05a3",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-DL-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“用“使用频率×取放成本”决定位置”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1237,
+      "connection_id": "fc_745758ff9160c5b2",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-DL-016",
+      "target_code": "LA-H4G7-DL-004",
+      "target_label": "能灵活运用整理与收纳方法；能整体完成家庭居室和教室物品整理；能在支架下完成远行行李整理；能按规范完成任务并说明工具、材料或安全要求。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ddc42d921750b6ee",
+      "component_ids": [
+        "lc_b27b0ebb222c60f0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰；优先采集：改造方案、前后对比、两周维护记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰，并能持续维护两周。",
+          "excerpt_hash": "8fcab9d442775f94018f455e5bc01fd6bfe3e1fde23f8212ca4d1ea588763ec9",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_42b9a27007c169c7",
+      "component_ids": [
+        "lc_b27b0ebb222c60f0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理",
+        "清晰"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰；优先采集：改造方案、前后对比、两周维护记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰，并能持续维护两周。",
+          "excerpt_hash": "8fcab9d442775f94018f455e5bc01fd6bfe3e1fde23f8212ca4d1ea588763ec9",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理、清晰）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b27b0ebb222c60f0",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰，并说明关键步骤、特征或依据。",
+      "label": "选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰；优先采集：改造方案、前后对比、两周维护记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰",
+          "excerpt_hash": "f3d36c86f4cc901cd23c29c5b3ee133c1addff01c7271fa5bf56814a242ce4a7",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰"
+    },
+    {
+      "component_id": "lc_f1d5633a89c9a0af",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够持续维护两周",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生持续维护两周，并说明关键步骤、特征或依据。",
+      "label": "持续维护两周",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够持续维护两周；优先采集：改造方案、前后对比、两周维护记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "持续维护两周",
+          "excerpt_hash": "32c54bc78f02240a9d0b48e704a4c5b2d14e487a434bb3afe85ac36de7f2261d",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "持续维护两周"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_b1c1282ff7842d58",
+      "evidence_refs": [
+        "standard:LA-D3-DL-016:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-DL-016",
+      "source_label": "能根据使用频率与类别对衣橱或抽屉进行分类收纳，能制作并使用标签，做到取放有序、持续维护至少一周。",
+      "target_code": "LA-D3-DL-016",
+      "target_label": "能选择家庭或班级一个空间（书桌/衣柜/储物区）进行收纳系统设计，做到分区明确、动线合理、标识清晰，并能持续维护两周。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "8fcab9d442775f94018f455e5bc01fd6bfe3e1fde23f8212ca4d1ea588763ec9",
+  "standard_code": "LA-D3-DL-016",
+  "verified_prerequisites": []
+}

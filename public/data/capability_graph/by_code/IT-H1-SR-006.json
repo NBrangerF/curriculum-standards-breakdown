@@ -1,0 +1,152 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_8ffe15d13d14cd0a"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生在使用数字设备时能注意不打扰他人的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ec02fe21370fc389",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_388e02fd6f903e1e"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“在使用数字设备时能注意不打扰他人”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在使用数字设备时能注意不打扰他人，遵守公共场所规则，自觉维护公共秩序。",
+          "excerpt_hash": "3e90e39007e694ce5fe4029f7a89d38d570099084521f536539aac41a675ab1b",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "创设公共场所情境（图书馆/公交/走廊），引导学生观察并判断“哪些行为会打扰别人”，形成可操作的行为清单（音量、拍摄、占位等）。通过角色扮演强化执行。",
+          "excerpt_hash": "688bbc59872d0426062ae39af8381e2eac46a6477f6fb1a64e2e4936e59757f3",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H1-SR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在使用数字设备时能注意不打扰他人，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在使用数字设备时能注意不打扰他人”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“创设公共场所情境（图书馆/公交/走廊），引导学生观察并判断“哪些行为会打扰别人”，形成可操作的行为清单（音量、拍摄、占位等）。通过角色扮演强化执行。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_388e02fd6f903e1e",
+      "component_ids": [
+        "lc_8ffe15d13d14cd0a",
+        "lc_eade64236fbd0961"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在使用数字设备时能注意不打扰他人。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在使用数字设备时能注意不打扰他人；优先采集：情境表演、同伴互评、教师观察。",
+        "学生能够遵守公共场所规则，自觉维护公共秩序；优先采集：情境表演、同伴互评、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在使用数字设备时能注意不打扰他人，遵守公共场所规则，自觉维护公共秩序。",
+          "excerpt_hash": "3e90e39007e694ce5fe4029f7a89d38d570099084521f536539aac41a675ab1b",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在使用数字设备时能注意不打扰他人；遵守公共场所规则，自觉维护公共秩序",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_8ffe15d13d14cd0a",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在使用数字设备时能注意不打扰他人",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在使用数字设备时能注意不打扰他人，并说明关键步骤、特征或依据。",
+      "label": "在使用数字设备时能注意不打扰他人",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在使用数字设备时能注意不打扰他人；优先采集：情境表演、同伴互评、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在使用数字设备时能注意不打扰他人",
+          "excerpt_hash": "0a705f9971507fddfc141f0a05b8981552ddb2190c53b269d2cd8287ea258282",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在使用数字设备时能注意不打扰他人"
+    },
+    {
+      "component_id": "lc_eade64236fbd0961",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够遵守公共场所规则，自觉维护公共秩序",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生遵守公共场所规则，自觉维护公共秩序，并说明关键步骤、特征或依据。",
+      "label": "遵守公共场所规则，自觉维护公共秩序",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够遵守公共场所规则，自觉维护公共秩序；优先采集：情境表演、同伴互评、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "遵守公共场所规则，自觉维护公共秩序",
+          "excerpt_hash": "e5414bdd47b2ed124ec95420e37a72152e320018f191300821911dc563209536",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守公共场所规则，自觉维护公共秩序"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "3e90e39007e694ce5fe4029f7a89d38d570099084521f536539aac41a675ab1b",
+  "standard_code": "IT-H1-SR-006",
+  "verified_prerequisites": []
+}

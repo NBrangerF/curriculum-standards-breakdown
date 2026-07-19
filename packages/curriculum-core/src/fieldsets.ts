@@ -31,7 +31,12 @@ export const FIELDSETS: Record<Fieldset, string[]> = {
         'official_text',
         'field_provenance',
         'relations',
-        'skill_alignments'
+        'skill_alignments',
+        'capability_graph_schema_version',
+        'capability_graph_method',
+        'source_standard_hash',
+        'prerequisite_review_coverage',
+        'curriculum_alignment_summary'
     ],
     source: [
         'source_standard_original',

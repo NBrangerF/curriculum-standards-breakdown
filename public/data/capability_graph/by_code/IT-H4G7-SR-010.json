@@ -1,0 +1,339 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_a14014a75362cd26"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明数字工具或数据过程的基本做法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_eca312680d39461f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_49d76dba4bed5ebf"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明数字工具或数据过程的基本做法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明数字工具或数据过程的基本做法”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；了解智慧社会是集成多种人工智能基础设施和服务的智能生态系统；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "efe2d478cc05267188d0a56bba1638a129818ceb8f7bd0047cc18eb16c657a0f",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-SR-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把智慧社会的新机遇、新挑战和自主可控意识结合起来讨论。",
+          "excerpt_hash": "f74d81b7e6d11a04c6f2b143f8ef746b873498a0d7e5a7fae3fe87d2c4e83b44",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G7-SR-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明数字工具或数据过程的基本做法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明数字工具或数据过程的基本做法”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把智慧社会的新机遇、新挑战和自主可控意识结合起来讨论。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_0441bac7f8443ff7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过体验人工智能应用场景的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1007acd27c9affc1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“通过体验人工智能应用场景”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过体验人工智能应用场景”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；了解智慧社会是集成多种人工智能基础设施和服务的智能生态系统；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "efe2d478cc05267188d0a56bba1638a129818ceb8f7bd0047cc18eb16c657a0f",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-SR-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把智慧社会的新机遇、新挑战和自主可控意识结合起来讨论。",
+          "excerpt_hash": "f74d81b7e6d11a04c6f2b143f8ef746b873498a0d7e5a7fae3fe87d2c4e83b44",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G7-SR-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过体验人工智能应用场景，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过体验人工智能应用场景”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把智慧社会的新机遇、新挑战和自主可控意识结合起来讨论。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_61adbe7c0178afc1",
+      "evidence_refs": [
+        "standard:IT-H4G7-SR-010:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H4G7-SR-010",
+      "target_code": "IT-H4G8-SR-011",
+      "target_label": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；了解智慧社会是集成多种人工智能基础设施和服务的智能生态系统；能分析系统关系并完成…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_49d76dba4bed5ebf",
+      "component_ids": [
+        "lc_a14014a75362cd26"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明数字工具或数据过程的基本做法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明数字工具或数据过程的基本做法；优先采集：场景分析报告、系统关系图、交流展示。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；了解智慧社会是集成多种人工智能基础设施和服务的智能生态系统；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "efe2d478cc05267188d0a56bba1638a129818ceb8f7bd0047cc18eb16c657a0f",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-SR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_f6a4397d97de95d5",
+      "component_ids": [
+        "lc_e8186037aa42cbde"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出人工智能带来的伦理与安全挑战的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出人工智能带来的伦理与安全挑战的关键特征；优先采集：场景分析报告、系统关系图、交流展示。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；了解智慧社会是集成多种人工智能基础设施和服务的智能生态系统；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "efe2d478cc05267188d0a56bba1638a129818ceb8f7bd0047cc18eb16c657a0f",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-SR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_f34e7546898a0581",
+      "component_ids": [
+        "lc_fcac22c6f348c8bd"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "多种"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出智慧社会是集成多种人工智能基础设施和服务的智能生态系统的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出智慧社会是集成多种人工智能基础设施和服务的智能生态系统的关键特征；优先采集：场景分析报告、系统关系图、交流展示。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；了解智慧社会是集成多种人工智能基础设施和服务的智能生态系统；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "efe2d478cc05267188d0a56bba1638a129818ceb8f7bd0047cc18eb16c657a0f",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-SR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（多种）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_e8186037aa42cbde",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出人工智能带来的伦理与安全挑战的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出人工智能带来的伦理与安全挑战的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出人工智能带来的伦理与安全挑战的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出人工智能带来的伦理与安全挑战的关键特征；优先采集：场景分析报告、系统关系图、交流展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解人工智能带来的伦理与安全挑战",
+          "excerpt_hash": "426c90f471f356f1447af1f7a954ac6bb3598b41fb5848889a247ac8941f7dd5",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-SR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解人工智能带来的伦理与安全挑战"
+    },
+    {
+      "component_id": "lc_0441bac7f8443ff7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过体验人工智能应用场景",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过体验人工智能应用场景，并说明关键步骤、特征或依据。",
+      "label": "通过体验人工智能应用场景",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过体验人工智能应用场景；优先采集：场景分析报告、系统关系图、交流展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过体验人工智能应用场景",
+          "excerpt_hash": "90f253243c5e6aa80e4e01d109266f3414d1b3e26f846eac97417df47ab8d64f",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-SR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过体验人工智能应用场景"
+    },
+    {
+      "component_id": "lc_fcac22c6f348c8bd",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出智慧社会是集成多种人工智能基础设施和服务的智能生态系统的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出智慧社会是集成多种人工智能基础设施和服务的智能生态系统的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出智慧社会是集成多种人工智能基础设施和服务的智能生态系统的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出智慧社会是集成多种人工智能基础设施和服务的智能生态系统的关键特征；优先采集：场景分析报告、系统关系图、交流展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解智慧社会是集成多种人工智能基础设施和服务的智能生态系统",
+          "excerpt_hash": "6bef5bc62ac6ce09634061719a47dde52ed0796690aeed8b19539abf8a55e05f",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-SR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解智慧社会是集成多种人工智能基础设施和服务的智能生态系统"
+    },
+    {
+      "component_id": "lc_a14014a75362cd26",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明数字工具或数据过程的基本做法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明数字工具或数据过程的基本做法，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明数字工具或数据过程的基本做法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明数字工具或数据过程的基本做法；优先采集：场景分析报告、系统关系图、交流展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明数字工具或数据过程的基本做法",
+          "excerpt_hash": "a578d2fb17bbdec79eedf1635ae20493e83ea3c2f80eabfea02a716484d85a53",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-SR-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明数字工具或数据过程的基本做法"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1183,
+      "edge_id": "pc_03b9834e7b88a8e1",
+      "evidence_refs": [
+        "standard:IT-H4G7-SR-010:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H3-SR-002",
+      "source_label": "能结合生活实例说明过程与控制系统可能存在的安全风险（如误控制、数据/权限问题等），理解自主可控系统的重要性，并能提出至少两条在使用智能设备时的…",
+      "target_code": "IT-H4G7-SR-010",
+      "target_label": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；了解智慧社会是集成多种人工智能基础设施和服务的智能生态系统；能说明数字工具或数据…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "efe2d478cc05267188d0a56bba1638a129818ceb8f7bd0047cc18eb16c657a0f",
+  "standard_code": "IT-H4G7-SR-010",
+  "verified_prerequisites": []
+}

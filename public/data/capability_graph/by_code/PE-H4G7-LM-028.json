@@ -1,0 +1,296 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_6a6dd32e1148f2de"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生熟练运用安全防护动作的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9d62109dd36e3dd1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_131a15fa504f7666"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“熟练运用安全防护动作”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“熟练运用安全防护动作”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能按照规则参与对抗练习与比赛；能熟练运用安全防护动作；能在实战对抗练习与比赛中保持良好心态；能完成基础练习并记录身体反应。",
+          "excerpt_hash": "029fd65fed5d76307892ab7a102b9bfda33f9399a02ee72f23b798daa6048f47",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-LM-028:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调点到为止、安全防护、尊重对手和规则意识。",
+          "excerpt_hash": "855847bbd99ed6e1a8ad0605ab066195c0b9e1812b9d5fb3ee4045fca45f44d3",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G7-LM-028:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后熟练运用安全防护动作，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“熟练运用安全防护动作”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“强调点到为止、安全防护、尊重对手和规则意识。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_814ddc792e69389b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bebb65c5f3a6a181b33b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7f9265bf475e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fc995ab30b3d79ec",
+      "textbook_grade": 7,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康7年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_c25e88bb4b0ecb01",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-028:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-H4G7-LM-028",
+      "target_code": "PE-H4G8-LM-029",
+      "target_label": "能熟练运用安全防护动作；能按照规则参与对抗练习与比赛；能在实战对抗练习与比赛中保持良好心态；能分析练习或比赛表现并调整方法。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_131a15fa504f7666",
+      "component_ids": [
+        "lc_6a6dd32e1148f2de"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "熟练",
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生熟练运用安全防护动作。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够熟练运用安全防护动作；优先采集：礼仪表现、安全防护动作、对抗比赛观察表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能按照规则参与对抗练习与比赛；能熟练运用安全防护动作；能在实战对抗练习与比赛中保持良好心态；能完成基础练习并记录身体反应。",
+          "excerpt_hash": "029fd65fed5d76307892ab7a102b9bfda33f9399a02ee72f23b798daa6048f47",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-LM-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（熟练、安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_a3957d8485c0b167",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够按照规则参与对抗练习与比赛",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生按照规则参与对抗练习与比赛，并说明关键步骤、特征或依据。",
+      "label": "按照规则参与对抗练习与比赛",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够按照规则参与对抗练习与比赛；优先采集：礼仪表现、安全防护动作、对抗比赛观察表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "按照规则参与对抗练习与比赛",
+          "excerpt_hash": "40b24af982a377fa445acdbb35644707aa748dc1a173a7574bc53858b582df5f",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-LM-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按照规则参与对抗练习与比赛"
+    },
+    {
+      "component_id": "lc_6a6dd32e1148f2de",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够熟练运用安全防护动作",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生熟练运用安全防护动作，并说明关键步骤、特征或依据。",
+      "label": "熟练运用安全防护动作",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够熟练运用安全防护动作；优先采集：礼仪表现、安全防护动作、对抗比赛观察表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "熟练运用安全防护动作",
+          "excerpt_hash": "5689ced889f88460e3987c3590888e7d911bc91e07a19cc9ffcbe8bd41c04706",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-LM-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "熟练运用安全防护动作"
+    },
+    {
+      "component_id": "lc_5094431630e9d594",
+      "component_type": "conceptual",
+      "condition": "在实战对抗练习与比赛中",
+      "confidence": 0.72,
+      "description": "学生在实战对抗练习与比赛中，能够保持良好心态",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在实战对抗练习与比赛中”的诊断任务，要求学生保持良好心态，并说明关键步骤、特征或依据。",
+      "label": "保持良好心态",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在实战对抗练习与比赛中，能够保持良好心态；优先采集：礼仪表现、安全防护动作、对抗比赛观察表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能按照规则参与对抗练习与比赛；能熟练运用安全防护动作；能在实战对抗练习与比赛中保持良好心态；能完成基础练习并记录身体反应。",
+          "excerpt_hash": "029fd65fed5d76307892ab7a102b9bfda33f9399a02ee72f23b798daa6048f47",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-LM-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "保持良好心态"
+    },
+    {
+      "component_id": "lc_82f1779b55fd1379",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成基础练习",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成基础练习，并说明关键步骤、特征或依据。",
+      "label": "完成基础练习",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成基础练习；优先采集：礼仪表现、安全防护动作、对抗比赛观察表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成基础练习",
+          "excerpt_hash": "9867465e87f5d1e30b1f61c5a8850c7514e1c5cd08433ab651b29809f18566e0",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-LM-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成基础练习"
+    },
+    {
+      "component_id": "lc_8c025b399bf1ceb1",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够记录身体反应",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生记录身体反应，并说明关键步骤、特征或依据。",
+      "label": "记录身体反应",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够记录身体反应；优先采集：礼仪表现、安全防护动作、对抗比赛观察表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "记录身体反应",
+          "excerpt_hash": "e674d0e2ce340d3d8b89f23519838231e4d98d4349ecdf159eca0464f7045226",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-LM-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "记录身体反应"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1187,
+      "edge_id": "pc_d702c775c2796085",
+      "evidence_refs": [
+        "standard:PE-H4G7-LM-028:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D3-LM-002",
+      "source_label": "能依据所学项目的基本规则，承担计分记录、边裁/助理裁判等角色，并做到公平判罚与文明沟通。",
+      "target_code": "PE-H4G7-LM-028",
+      "target_label": "能按照规则参与对抗练习与比赛；能熟练运用安全防护动作；能在实战对抗练习与比赛中保持良好心态；能完成基础练习并记录身体反应。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "029fd65fed5d76307892ab7a102b9bfda33f9399a02ee72f23b798daa6048f47",
+  "standard_code": "PE-H4G7-LM-028",
+  "verified_prerequisites": []
+}

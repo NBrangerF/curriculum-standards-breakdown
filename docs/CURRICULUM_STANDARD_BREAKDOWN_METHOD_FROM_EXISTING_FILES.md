@@ -575,3 +575,9 @@ npm run grade7_9:apply-release-candidate -- --write --confirm-target-policy
 3. 如需调整旧 `H2:3-5`、`H3:6-7` 数据，先设计新的 runtime 数据契约。
 4. 每次修改正式数据后运行 `npm run validate:indexes`、`npm run grade7_9:audit-grade-band-policy -- --strict`、`npm run grade7_9:audit-release -- --staging-root generated/grade7_9_all_curated --strict`、`npm run build`。
 5. 检查学科页、搜索页、对比页、技能页和详情页是否能正常消费 7-9 数据。
+
+## 20. 可教学能力图谱扩展（不改写既有拆解）
+
+可教学能力图谱是建立在本方法之上的派生层，不改写标准正文、统一编码、来源页码、教学支持字段或数据质量门。它以标准正文 hash 作为版本锚点，分别保存可教学小能力、经专家批准的前置关系、机器候选、高难结构、常见困难、教材证据分层关联与后续学习去向。
+
+自动生成结果必须保持 `candidate` / `machine_checked` 状态；只有具备可回查证据并通过人工批准的关系才可进入 `verified_prerequisites`。教材册级范围、目录标题与正文页码证据必须分层表达，不能把范围相符或标题相似展示为“教材已教授该标准”。完整字段契约和质量门见 `docs/data/TEACHABLE_CAPABILITY_GRAPH_CONTRACT.md`。

@@ -1,0 +1,590 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_6eced24431b2e728"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明作品意图或效果的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1e714cb3048f0eb7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c40f4220263aa5a4"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明作品意图或效果”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明作品意图或效果”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析分析并判断生活中的音乐现象、活动和文化；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能熟练运用信息技术搜集、听赏、表现和分享音乐；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "e8d66c66f0f288284b0ab41e72e430b1807cd910a0cebb204b96e980681ee973",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "让学生从真实生活中寻找声音和音乐素材，形成探究、表现、分享的闭环。",
+          "excerpt_hash": "ee12ebfa83dd1c53af40d218006682ecdfceeb87abb88dbafb6babbfeac27f18",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G8-CU-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明作品意图或效果，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明作品意图或效果”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“让学生从真实生活中寻找声音和音乐素材，形成探究、表现、分享的闭环。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_9d2cac31d78b516a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生判断生活中的音乐现象、活动和文化的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a57827eb9f3cc62e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2df10ce648b4c20d",
+        "hc_8113044b0e308cc3"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“判断生活中的音乐现象、活动和文化”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“判断生活中的音乐现象、活动和文化”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析分析并判断生活中的音乐现象、活动和文化；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能熟练运用信息技术搜集、听赏、表现和分享音乐；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "e8d66c66f0f288284b0ab41e72e430b1807cd910a0cebb204b96e980681ee973",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "让学生从真实生活中寻找声音和音乐素材，形成探究、表现、分享的闭环。",
+          "excerpt_hash": "ee12ebfa83dd1c53af40d218006682ecdfceeb87abb88dbafb6babbfeac27f18",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G8-CU-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后判断生活中的音乐现象、活动和文化，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“判断生活中的音乐现象、活动和文化”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“让学生从真实生活中寻找声音和音乐素材，形成探究、表现、分享的闭环。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_9d2cac31d78b516a",
+        "lc_61ce9f691a18a0cc",
+        "lc_4e7b92a3c3b45f71"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生判断生活中的音乐现象、活动和文化的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c40b181742a3b62e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2df10ce648b4c20d",
+        "hc_8113044b0e308cc3",
+        "hc_da989bb6885c86c9"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“判断生活中的音乐现象、活动和文化”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“判断生活中的音乐现象、活动和文化”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析分析并判断生活中的音乐现象、活动和文化；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能熟练运用信息技术搜集、听赏、表现和分享音乐；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "e8d66c66f0f288284b0ab41e72e430b1807cd910a0cebb204b96e980681ee973",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "让学生从真实生活中寻找声音和音乐素材，形成探究、表现、分享的闭环。",
+          "excerpt_hash": "ee12ebfa83dd1c53af40d218006682ecdfceeb87abb88dbafb6babbfeac27f18",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G8-CU-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后判断生活中的音乐现象、活动和文化，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“判断生活中的音乐现象、活动和文化”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“让学生从真实生活中寻找声音和音乐素材，形成探究、表现、分享的闭环。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fb66261aafb233f0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_03a3ee5b0a046f990193",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c4470d97d606"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_49008e32afb1ea73",
+      "textbook_grade": 8,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8312915d2030f2e3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5176fbbfb48b6f094ec5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_3f3ef809a59b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3937cb93e59941dd",
+      "textbook_grade": 8,
+      "textbook_subject": "美术",
+      "textbook_title": "美术8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e25aec4e6a42b1d4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_8af324795e3ff5e3ad56",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5456c0d80ef9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_66b34c8187cbffd0",
+      "textbook_grade": 8,
+      "textbook_subject": "美术",
+      "textbook_title": "美术8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0d97f8ece6ddc6c5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c2c429ae25127d8a61ca",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_841b34386a8a"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e236fa847f007794",
+      "textbook_grade": 8,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_20c0d55bd833503e",
+      "evidence_refs": [
+        "standard:AR-H4G8-CU-008:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-H4G8-CU-008",
+      "target_code": "AR-H4G9-CU-007",
+      "target_label": "分析评价生活中的音乐现象、活动和文化；能使用自制乐器合奏或伴奏；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能评价作品效果并完善展…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_c40f4220263aa5a4",
+      "component_ids": [
+        "lc_6eced24431b2e728"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明作品意图或效果。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明作品意图或效果；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析分析并判断生活中的音乐现象、活动和文化；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能熟练运用信息技术搜集、听赏、表现和分享音乐；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "e8d66c66f0f288284b0ab41e72e430b1807cd910a0cebb204b96e980681ee973",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_2df10ce648b4c20d",
+      "component_ids": [
+        "lc_9d2cac31d78b516a",
+        "lc_61ce9f691a18a0cc"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断生活中的音乐现象、活动和文化。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够判断生活中的音乐现象、活动和文化；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。",
+        "学生能够运用自然界和生活中声音的特点和规律进行音乐编创与表演；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析分析并判断生活中的音乐现象、活动和文化；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能熟练运用信息技术搜集、听赏、表现和分享音乐；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "e8d66c66f0f288284b0ab41e72e430b1807cd910a0cebb204b96e980681ee973",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_8113044b0e308cc3",
+      "component_ids": [
+        "lc_9d2cac31d78b516a"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断生活中的音乐现象、活动和文化。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够判断生活中的音乐现象、活动和文化；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析分析并判断生活中的音乐现象、活动和文化；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能熟练运用信息技术搜集、听赏、表现和分享音乐；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "e8d66c66f0f288284b0ab41e72e430b1807cd910a0cebb204b96e980681ee973",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_da989bb6885c86c9",
+      "component_ids": [
+        "lc_4e7b92a3c3b45f71"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "熟练"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生熟练运用信息技术搜集、听赏、表现和分享音乐。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够熟练运用信息技术搜集、听赏、表现和分享音乐；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析分析并判断生活中的音乐现象、活动和文化；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能熟练运用信息技术搜集、听赏、表现和分享音乐；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "e8d66c66f0f288284b0ab41e72e430b1807cd910a0cebb204b96e980681ee973",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（熟练）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_74350d3b26f2844f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析分析",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析分析，并说明关键步骤、特征或依据。",
+      "label": "分析分析",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析分析；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析分析",
+          "excerpt_hash": "8ddb13f38fcab650bd3d55fa431cd3055f81d7c73f9c6f7a0c325f5895c09116",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析分析"
+    },
+    {
+      "component_id": "lc_9d2cac31d78b516a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够判断生活中的音乐现象、活动和文化",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生判断生活中的音乐现象、活动和文化，并说明关键步骤、特征或依据。",
+      "label": "判断生活中的音乐现象、活动和文化",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够判断生活中的音乐现象、活动和文化；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "判断生活中的音乐现象、活动和文化",
+          "excerpt_hash": "c1b96abc394376f4a9b31292d2d60b35453c75a79d0a59478ac1b137dda091e6",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "判断生活中的音乐现象、活动和文化"
+    },
+    {
+      "component_id": "lc_61ce9f691a18a0cc",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用自然界和生活中声音的特点和规律进行音乐编创与表演",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用自然界和生活中声音的特点和规律进行音乐编创与表演，并说明关键步骤、特征或依据。",
+      "label": "运用自然界和生活中声音的特点和规律进行音乐编创与表演",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用自然界和生活中声音的特点和规律进行音乐编创与表演；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用自然界和生活中声音的特点和规律进行音乐编创与表演",
+          "excerpt_hash": "716d6b49441f3760e55f6be1a5e0e101a6b0f051abdefa621a75f11866acf356",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用自然界和生活中声音的特点和规律进行音乐编创与表演"
+    },
+    {
+      "component_id": "lc_4e7b92a3c3b45f71",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够熟练运用信息技术搜集、听赏、表现和分享音乐",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生熟练运用信息技术搜集、听赏、表现和分享音乐，并说明关键步骤、特征或依据。",
+      "label": "熟练运用信息技术搜集、听赏、表现和分享音乐",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够熟练运用信息技术搜集、听赏、表现和分享音乐；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "熟练运用信息技术搜集、听赏、表现和分享音乐",
+          "excerpt_hash": "0d7994ad8030de61563f80629059bd411c90c753eb701944e6c544878cc82d94",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "熟练运用信息技术搜集、听赏、表现和分享音乐"
+    },
+    {
+      "component_id": "lc_8ed946dcf22c2605",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够调整表现方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整表现方法，并说明关键步骤、特征或依据。",
+      "label": "调整表现方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够调整表现方法；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "调整表现方法",
+          "excerpt_hash": "624139c8c27447716076606d4fffc25d29bbd39623044fea23b9317d3438bb50",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "调整表现方法"
+    },
+    {
+      "component_id": "lc_6eced24431b2e728",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明作品意图或效果",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明作品意图或效果，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明作品意图或效果",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明作品意图或效果；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明作品意图或效果",
+          "excerpt_hash": "9848376f6e433abf944ce2802b9a7699e3ab8073534008b9730e477835bb86eb",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明作品意图或效果"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_ccc363f27ac01abd",
+      "evidence_refs": [
+        "standard:AR-H4G8-CU-008:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-H4G7-CU-012",
+      "source_label": "能使用自制乐器合奏或伴奏；分析初步判断生活中的音乐现象、活动和文化；能积极参与家庭或社会音乐活动；能描述艺术要素并完成基础表现或创作。",
+      "target_code": "AR-H4G8-CU-008",
+      "target_label": "分析分析并判断生活中的音乐现象、活动和文化；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能熟练运用信息技术搜集、听赏、表现和分享音…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e8d66c66f0f288284b0ab41e72e430b1807cd910a0cebb204b96e980681ee973",
+  "standard_code": "AR-H4G8-CU-008",
+  "verified_prerequisites": []
+}

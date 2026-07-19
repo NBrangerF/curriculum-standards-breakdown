@@ -1,0 +1,712 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_5e49686010c9dc06",
+        "lc_f9dd4a56e0a277b4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_33451d285975ddb9",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b5d025e72f91bfeb",
+        "hc_15c14e7c61e6c699"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“比较证据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较证据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尝试制作把科学原理转化为技术的简单展示模型；能用项目方式制作简易水轮发电机、光纤原理演示或其他模型；能初步认识现代科学、技术与工程高度融合；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "d2e20ed63248a57b01ba971340b9b59fe2957904a6da0350c546d37b9b759111",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生把模型制作、数据测试和科学原理解释结合起来。",
+          "excerpt_hash": "0b6de962d8edf5c95723a6b9c44b374c58a5a5f3af6218f613568588b81c90c4",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-PR-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较证据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“指导学生把模型制作、数据测试和科学原理解释结合起来。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_5e49686010c9dc06"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bf7c24f21f9dae78",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b5d025e72f91bfeb",
+        "hc_15c14e7c61e6c699"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较证据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较证据”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尝试制作把科学原理转化为技术的简单展示模型；能用项目方式制作简易水轮发电机、光纤原理演示或其他模型；能初步认识现代科学、技术与工程高度融合；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "d2e20ed63248a57b01ba971340b9b59fe2957904a6da0350c546d37b9b759111",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生把模型制作、数据测试和科学原理解释结合起来。",
+          "excerpt_hash": "0b6de962d8edf5c95723a6b9c44b374c58a5a5f3af6218f613568588b81c90c4",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-PR-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较证据”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“指导学生把模型制作、数据测试和科学原理解释结合起来。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_e3663b7d0d5f239f",
+        "lc_8f4d824d0e655c9f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生制作把科学原理转化为技术的简单展示模型的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d7bb5d68f7e757fc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d7bb5d68f7e757fc",
+        "hc_f5711f638c9ce583"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“制作把科学原理转化为技术的简单展示模型”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“制作把科学原理转化为技术的简单展示模型”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尝试制作把科学原理转化为技术的简单展示模型；能用项目方式制作简易水轮发电机、光纤原理演示或其他模型；能初步认识现代科学、技术与工程高度融合；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "d2e20ed63248a57b01ba971340b9b59fe2957904a6da0350c546d37b9b759111",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生把模型制作、数据测试和科学原理解释结合起来。",
+          "excerpt_hash": "0b6de962d8edf5c95723a6b9c44b374c58a5a5f3af6218f613568588b81c90c4",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-PR-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后制作把科学原理转化为技术的简单展示模型，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“制作把科学原理转化为技术的简单展示模型”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“指导学生把模型制作、数据测试和科学原理解释结合起来。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_e3663b7d0d5f239f",
+        "lc_8f4d824d0e655c9f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生制作把科学原理转化为技术的简单展示模型的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ffa207ae60c8992b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d7bb5d68f7e757fc",
+        "hc_f5711f638c9ce583"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“制作把科学原理转化为技术的简单展示模型”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“制作把科学原理转化为技术的简单展示模型”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尝试制作把科学原理转化为技术的简单展示模型；能用项目方式制作简易水轮发电机、光纤原理演示或其他模型；能初步认识现代科学、技术与工程高度融合；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "d2e20ed63248a57b01ba971340b9b59fe2957904a6da0350c546d37b9b759111",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生把模型制作、数据测试和科学原理解释结合起来。",
+          "excerpt_hash": "0b6de962d8edf5c95723a6b9c44b374c58a5a5f3af6218f613568588b81c90c4",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-PR-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后制作把科学原理转化为技术的简单展示模型，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“制作把科学原理转化为技术的简单展示模型”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“指导学生把模型制作、数据测试和科学原理解释结合起来。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_b9d9184ec1fa44dc",
+        "lc_f9dd4a56e0a277b4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生初步识别并说出现代科学、技术与工程高度融合的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_acda6aaeb66eac95",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b5d025e72f91bfeb"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“初步识别并说出现代科学、技术与工程高度融合的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“初步识别并说出现代科学、技术与工程高度融合的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尝试制作把科学原理转化为技术的简单展示模型；能用项目方式制作简易水轮发电机、光纤原理演示或其他模型；能初步认识现代科学、技术与工程高度融合；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "d2e20ed63248a57b01ba971340b9b59fe2957904a6da0350c546d37b9b759111",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生把模型制作、数据测试和科学原理解释结合起来。",
+          "excerpt_hash": "0b6de962d8edf5c95723a6b9c44b374c58a5a5f3af6218f613568588b81c90c4",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-PR-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后初步识别并说出现代科学、技术与工程高度融合的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“初步识别并说出现代科学、技术与工程高度融合的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“指导学生把模型制作、数据测试和科学原理解释结合起来。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 6,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4e880d0ba213bcbc",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0f6edf1eb52b44920973",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_77ef51325c22"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_aa920dd0236fd836",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c7ec063cbf1330fe",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a7fe299869b84f655a87",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a871f50d9e2b"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c38c1b84336fa7fa",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5c271b2dbae02670",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b4de49a3e2e59c9c76bf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5f552244f754"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e4f214193210f062",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c4db87a292c88cba",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c8cec7bb4ee4d9a29577",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ce524ff21ae1"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d75ade93cbf14989",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b19332875f17353b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_d5ca89ccc00d3103a7f8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a0a929bcb6e9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e8478f57c656a4",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_db56d6474ec1e994",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f0de8cbbeb88661f44d6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ffb2a04886aa"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_23244c2ebb335c01",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_284b337e64625883",
+      "evidence_refs": [
+        "standard:SC-H4G8-PR-009:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G8-PR-009",
+      "target_code": "SC-H4G9-PR-008",
+      "target_label": "尝试制作把科学原理转化为技术的简单展示模型；能用项目方式制作简易水轮发电机、光纤原理演示或其他模型；能初步认识现代科学、技术与工程高度融合；能…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b5d025e72f91bfeb",
+      "component_ids": [
+        "lc_5e49686010c9dc06",
+        "lc_f9dd4a56e0a277b4"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较证据；优先采集：技术展示模型、测试数据、原理说明。",
+        "学生能够解释概念之间的关系；优先采集：技术展示模型、测试数据、原理说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尝试制作把科学原理转化为技术的简单展示模型；能用项目方式制作简易水轮发电机、光纤原理演示或其他模型；能初步认识现代科学、技术与工程高度融合；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "d2e20ed63248a57b01ba971340b9b59fe2957904a6da0350c546d37b9b759111",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_15c14e7c61e6c699",
+      "component_ids": [
+        "lc_5e49686010c9dc06"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较证据；优先采集：技术展示模型、测试数据、原理说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尝试制作把科学原理转化为技术的简单展示模型；能用项目方式制作简易水轮发电机、光纤原理演示或其他模型；能初步认识现代科学、技术与工程高度融合；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "d2e20ed63248a57b01ba971340b9b59fe2957904a6da0350c546d37b9b759111",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_d7bb5d68f7e757fc",
+      "component_ids": [
+        "lc_e3663b7d0d5f239f",
+        "lc_8f4d824d0e655c9f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "模型"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生制作把科学原理转化为技术的简单展示模型。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够制作把科学原理转化为技术的简单展示模型；优先采集：技术展示模型、测试数据、原理说明。",
+        "学生能够用项目方式制作简易水轮发电机、光纤原理演示或其他模型；优先采集：技术展示模型、测试数据、原理说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尝试制作把科学原理转化为技术的简单展示模型；能用项目方式制作简易水轮发电机、光纤原理演示或其他模型；能初步认识现代科学、技术与工程高度融合；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "d2e20ed63248a57b01ba971340b9b59fe2957904a6da0350c546d37b9b759111",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（模型）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_f5711f638c9ce583",
+      "component_ids": [
+        "lc_e3663b7d0d5f239f",
+        "lc_8f4d824d0e655c9f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生制作把科学原理转化为技术的简单展示模型。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够制作把科学原理转化为技术的简单展示模型；优先采集：技术展示模型、测试数据、原理说明。",
+        "学生能够用项目方式制作简易水轮发电机、光纤原理演示或其他模型；优先采集：技术展示模型、测试数据、原理说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尝试制作把科学原理转化为技术的简单展示模型；能用项目方式制作简易水轮发电机、光纤原理演示或其他模型；能初步认识现代科学、技术与工程高度融合；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "d2e20ed63248a57b01ba971340b9b59fe2957904a6da0350c546d37b9b759111",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_e3663b7d0d5f239f",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够制作把科学原理转化为技术的简单展示模型",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生制作把科学原理转化为技术的简单展示模型，并说明关键步骤、特征或依据。",
+      "label": "制作把科学原理转化为技术的简单展示模型",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够制作把科学原理转化为技术的简单展示模型；优先采集：技术展示模型、测试数据、原理说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "制作把科学原理转化为技术的简单展示模型",
+          "excerpt_hash": "b4e8d5c3ddd9fcf319d2979c3d0fcfa0bb2759811d5a03fc4a5faae36e3f16a5",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "制作把科学原理转化为技术的简单展示模型"
+    },
+    {
+      "component_id": "lc_8f4d824d0e655c9f",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用项目方式制作简易水轮发电机、光纤原理演示或其他模型",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用项目方式制作简易水轮发电机、光纤原理演示或其他模型，并说明关键步骤、特征或依据。",
+      "label": "用项目方式制作简易水轮发电机、光纤原理演示或其他模型",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用项目方式制作简易水轮发电机、光纤原理演示或其他模型；优先采集：技术展示模型、测试数据、原理说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用项目方式制作简易水轮发电机、光纤原理演示或其他模型",
+          "excerpt_hash": "4316633512989602b6eebf696ffc53f273f4f4fbef1a3433cd7cffd18ba141ba",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用项目方式制作简易水轮发电机、光纤原理演示或其他模型"
+    },
+    {
+      "component_id": "lc_b9d9184ec1fa44dc",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够初步识别并说出现代科学、技术与工程高度融合的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生初步识别并说出现代科学、技术与工程高度融合的关键特征，并说明关键步骤、特征或依据。",
+      "label": "初步识别并说出现代科学、技术与工程高度融合的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够初步识别并说出现代科学、技术与工程高度融合的关键特征；优先采集：技术展示模型、测试数据、原理说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步认识现代科学、技术与工程高度融合",
+          "excerpt_hash": "8342f8075e689c0e9d7098bf4c760595d8aeeb699ac614028ae8e2921278a82b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "初步认识现代科学、技术与工程高度融合"
+    },
+    {
+      "component_id": "lc_5e49686010c9dc06",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较证据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较证据，并说明关键步骤、特征或依据。",
+      "label": "比较证据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较证据；优先采集：技术展示模型、测试数据、原理说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较证据",
+          "excerpt_hash": "991569e1419bfb53d107f820e29cc506985fb42dec521ee976a4309299317eac",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较证据"
+    },
+    {
+      "component_id": "lc_f9dd4a56e0a277b4",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释概念之间的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释概念之间的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释概念之间的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释概念之间的关系；优先采集：技术展示模型、测试数据、原理说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释概念之间的关系",
+          "excerpt_hash": "7176bf29ca46d45d574a0ab078112ade02e1c191616f7761e6189d6092a666dd",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释概念之间的关系"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_f1a75255763fcbca",
+      "evidence_refs": [
+        "standard:SC-H4G8-PR-009:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G7-PR-009",
+      "source_label": "尝试制作把科学原理转化为技术的简单展示模型；能知道科学对技术与工程具有指导意义；能初步认识现代科学、技术与工程高度融合；能用观察证据说明基本科…",
+      "target_code": "SC-H4G8-PR-009",
+      "target_label": "尝试制作把科学原理转化为技术的简单展示模型；能用项目方式制作简易水轮发电机、光纤原理演示或其他模型；能初步认识现代科学、技术与工程高度融合；能…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d2e20ed63248a57b01ba971340b9b59fe2957904a6da0350c546d37b9b759111",
+  "standard_code": "SC-H4G8-PR-009",
+  "verified_prerequisites": []
+}

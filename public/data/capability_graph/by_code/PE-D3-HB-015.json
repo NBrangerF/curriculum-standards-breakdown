@@ -1,0 +1,195 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_3b88079635583eb5"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生准确说出骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_de3e08ea3bbc17a3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_39fc7d8aea8f04d7"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“准确说出骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练并遵守安全规范。",
+          "excerpt_hash": "c96d0529fb564010c1b59c9f4ecf5a7294f17dc3d19def03e41c0d001e9f3e5e",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-015:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "以“先呼救、保安全、再处理”为总原则：骨折强调固定与避免二次伤害；心肺复苏强调尽快呼叫急救并在成人指导/使用模型的前提下进行规范演练。教学中避免惊吓画面，采用分步骤示范+角色分工（呼救者/记录者/施救者）。强调真实场景应立即寻求专业帮助。",
+          "excerpt_hash": "fe99ab7a6d3028d2c8bab2482e6ab6de97efec6ad632253344c19f9efaeae8b9",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-HB-015:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后准确说出骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“以“先呼救、保安全、再处理”为总原则：骨折强调固定与避免二次伤害”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0978,
+      "connection_id": "fc_693ae5de24303d50",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-HB-015",
+      "target_code": "PE-H4G7-HB-004",
+      "target_label": "能分析和评估影响健康的因素，了解我国关于控烟、限酒、反兴奋剂和禁毒的法律法规；能掌握所学田径类运动项目的完整动作技术；能完成基础练习并记录身体…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_39fc7d8aea8f04d7",
+      "component_ids": [
+        "lc_3b88079635583eb5",
+        "lc_3e3daa30456a08d0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "规范",
+        "正确",
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练；优先采集：情境演练表现、教师量表。",
+        "学生能够遵守安全规范；优先采集：情境演练表现、教师量表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练并遵守安全规范。",
+          "excerpt_hash": "c96d0529fb564010c1b59c9f4ecf5a7294f17dc3d19def03e41c0d001e9f3e5e",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（规范、正确、安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3b88079635583eb5",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练，并说明关键步骤、特征或依据。",
+      "label": "准确说出骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练；优先采集：情境演练表现、教师量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练",
+          "excerpt_hash": "79bec3c480363061f0ee9b8fc618870b939acba0dd40483f9cfb97784e18cbdb",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练"
+    },
+    {
+      "component_id": "lc_3e3daa30456a08d0",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够遵守安全规范",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生遵守安全规范，并说明关键步骤、特征或依据。",
+      "label": "遵守安全规范",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够遵守安全规范；优先采集：情境演练表现、教师量表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "遵守安全规范",
+          "excerpt_hash": "621d1f6740d34c55028fb3f05825c09115b18b4ec0d69c6d147b25526e660b3e",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守安全规范"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_ea3f37d686baaffc",
+      "evidence_refs": [
+        "standard:PE-D3-HB-015:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-HB-015",
+      "source_label": "关注自己情绪变化，能使用1种方法调节情绪并恢复投入活动。",
+      "target_code": "PE-D3-HB-015",
+      "target_label": "知道骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练并遵守安全规范。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "c96d0529fb564010c1b59c9f4ecf5a7294f17dc3d19def03e41c0d001e9f3e5e",
+  "standard_code": "PE-D3-HB-015",
+  "verified_prerequisites": []
+}

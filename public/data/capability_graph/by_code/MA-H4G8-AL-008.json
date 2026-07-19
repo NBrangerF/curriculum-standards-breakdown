@@ -1,0 +1,543 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_e0301c945e624543",
+        "lc_2228ec9d5a5a60cf"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释平方根、算术平方根、立方根、乘方与开方互逆关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_40c23583f60cf168",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9810e9384ed1fae5"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释平方根、算术平方根、立方根、乘方与开方互逆关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释平方根、算术平方根、立方根、乘方与开方互逆关系”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平方根、算术平方根、立方根、乘方与开方互逆关系；能用二次根式运算法则进行简单四则运算；能用数轴表示和比较实数；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "7abcb5afe0960470cfc7875c339f6484e7f4dd0474259ead2dde888d6cab31ae",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "突出数域扩充、数轴一一对应和实际问题中近似计算的需要。",
+          "excerpt_hash": "38c3f81002dcf32c418e1a3ac90760a067dd846961c09b0c97f9e6fbc18597ce",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-AL-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释平方根、算术平方根、立方根、乘方与开方互逆关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释平方根、算术平方根、立方根、乘方与开方互逆关系”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“突出数域扩充、数轴一一对应和实际问题中近似计算的需要。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_520f4a00f15d081b",
+        "lc_41edf8f82bd177a0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用数轴表示和比较实数的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c0c3cd778da9c9a4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4428b5c4e55eaa26",
+        "hc_f048cf7ff199c6bf"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“用数轴表示和比较实数”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用数轴表示和比较实数”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平方根、算术平方根、立方根、乘方与开方互逆关系；能用二次根式运算法则进行简单四则运算；能用数轴表示和比较实数；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "7abcb5afe0960470cfc7875c339f6484e7f4dd0474259ead2dde888d6cab31ae",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "突出数域扩充、数轴一一对应和实际问题中近似计算的需要。",
+          "excerpt_hash": "38c3f81002dcf32c418e1a3ac90760a067dd846961c09b0c97f9e6fbc18597ce",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-AL-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用数轴表示和比较实数，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用数轴表示和比较实数”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“突出数域扩充、数轴一一对应和实际问题中近似计算的需要。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_520f4a00f15d081b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用数轴表示和比较实数的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f048cf7ff199c6bf",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4428b5c4e55eaa26",
+        "hc_f048cf7ff199c6bf"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“用数轴表示和比较实数”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用数轴表示和比较实数”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平方根、算术平方根、立方根、乘方与开方互逆关系；能用二次根式运算法则进行简单四则运算；能用数轴表示和比较实数；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "7abcb5afe0960470cfc7875c339f6484e7f4dd0474259ead2dde888d6cab31ae",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "突出数域扩充、数轴一一对应和实际问题中近似计算的需要。",
+          "excerpt_hash": "38c3f81002dcf32c418e1a3ac90760a067dd846961c09b0c97f9e6fbc18597ce",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-AL-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用数轴表示和比较实数，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用数轴表示和比较实数”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“突出数域扩充、数轴一一对应和实际问题中近似计算的需要。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_41edf8f82bd177a0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_94db000b5c638a37",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4428b5c4e55eaa26"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“比较方法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较方法”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平方根、算术平方根、立方根、乘方与开方互逆关系；能用二次根式运算法则进行简单四则运算；能用数轴表示和比较实数；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "7abcb5afe0960470cfc7875c339f6484e7f4dd0474259ead2dde888d6cab31ae",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "突出数域扩充、数轴一一对应和实际问题中近似计算的需要。",
+          "excerpt_hash": "38c3f81002dcf32c418e1a3ac90760a067dd846961c09b0c97f9e6fbc18597ce",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-AL-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较方法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较方法”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“突出数域扩充、数轴一一对应和实际问题中近似计算的需要。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 3,
+    "disposition": "unit_topic_needs_page_evidence",
+    "evidence_note": "已有目录主题候选，但缺少可靠 PDF 页定位，已降级进入补证队列。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 1
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "tca_de0c6579828be3ec",
+      "alignment_type": "supports",
+      "confidence": 0.8491,
+      "coverage": "partial",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_485165afa9c8",
+        "textbook-unit:tcu_b993289597d02f70"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "unit_topic_candidate",
+      "method": "constrained_concept_idf",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "review_queue",
+      "rationale": "教材条目“二次根式”与课标 MA-H4G8-AL-008 在practice、standard字段命中概念：二次根式。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "candidate",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_b993289597d02f70",
+      "unit_title": "二次根式"
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ea799a0419be947a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d79076db84511d8a",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1fc4bec0cd2722d5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_485165afa9c8"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_8684cc79506c65f5",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_d6088c9850c06ad8",
+      "evidence_refs": [
+        "standard:MA-H4G8-AL-008:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-H4G8-AL-008",
+      "target_code": "MA-H4G9-AL-009",
+      "target_label": "能用二次根式运算法则进行简单四则运算；阐释实数由有理数和无理数组成并与数轴上的点一一对应；理解平方根、算术平方根、立方根、乘方与开方互逆关系；…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_9810e9384ed1fae5",
+      "component_ids": [
+        "lc_e0301c945e624543",
+        "lc_2228ec9d5a5a60cf"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释平方根、算术平方根、立方根、乘方与开方互逆关系。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释平方根、算术平方根、立方根、乘方与开方互逆关系；优先采集：实数表示与比较、根式计算、近似计算说明。",
+        "学生能够解释数量、图形或数据关系；优先采集：实数表示与比较、根式计算、近似计算说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平方根、算术平方根、立方根、乘方与开方互逆关系；能用二次根式运算法则进行简单四则运算；能用数轴表示和比较实数；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "7abcb5afe0960470cfc7875c339f6484e7f4dd0474259ead2dde888d6cab31ae",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_4428b5c4e55eaa26",
+      "component_ids": [
+        "lc_520f4a00f15d081b",
+        "lc_41edf8f82bd177a0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用数轴表示和比较实数。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用数轴表示和比较实数；优先采集：实数表示与比较、根式计算、近似计算说明。",
+        "学生能够比较方法；优先采集：实数表示与比较、根式计算、近似计算说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平方根、算术平方根、立方根、乘方与开方互逆关系；能用二次根式运算法则进行简单四则运算；能用数轴表示和比较实数；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "7abcb5afe0960470cfc7875c339f6484e7f4dd0474259ead2dde888d6cab31ae",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_f048cf7ff199c6bf",
+      "component_ids": [
+        "lc_520f4a00f15d081b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "表示"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用数轴表示和比较实数。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用数轴表示和比较实数；优先采集：实数表示与比较、根式计算、近似计算说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平方根、算术平方根、立方根、乘方与开方互逆关系；能用二次根式运算法则进行简单四则运算；能用数轴表示和比较实数；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "7abcb5afe0960470cfc7875c339f6484e7f4dd0474259ead2dde888d6cab31ae",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（表示）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_e0301c945e624543",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释平方根、算术平方根、立方根、乘方与开方互逆关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释平方根、算术平方根、立方根、乘方与开方互逆关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释平方根、算术平方根、立方根、乘方与开方互逆关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释平方根、算术平方根、立方根、乘方与开方互逆关系；优先采集：实数表示与比较、根式计算、近似计算说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平方根、算术平方根、立方根、乘方与开方互逆关系",
+          "excerpt_hash": "98873ac3eb7019ef51783268a24cc5f501f82f249b5bb490985f81b0889d9730",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解平方根、算术平方根、立方根、乘方与开方互逆关系"
+    },
+    {
+      "component_id": "lc_bed0c5c1f1052b5b",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用二次根式运算法则进行简单四则运算",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用二次根式运算法则进行简单四则运算，并说明关键步骤、特征或依据。",
+      "label": "用二次根式运算法则进行简单四则运算",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用二次根式运算法则进行简单四则运算；优先采集：实数表示与比较、根式计算、近似计算说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用二次根式运算法则进行简单四则运算",
+          "excerpt_hash": "dfe552654a561aa87224d1398d846cb428f9fa379207a38b4610c6651cf9665f",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用二次根式运算法则进行简单四则运算"
+    },
+    {
+      "component_id": "lc_520f4a00f15d081b",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用数轴表示和比较实数",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用数轴表示和比较实数，并说明关键步骤、特征或依据。",
+      "label": "用数轴表示和比较实数",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用数轴表示和比较实数；优先采集：实数表示与比较、根式计算、近似计算说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用数轴表示和比较实数",
+          "excerpt_hash": "d72b44f98042618ecd42bb03b334b7642f3af72601c36f9574e44b46545a73a6",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用数轴表示和比较实数"
+    },
+    {
+      "component_id": "lc_41edf8f82bd177a0",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较方法，并说明关键步骤、特征或依据。",
+      "label": "比较方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较方法；优先采集：实数表示与比较、根式计算、近似计算说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较方法",
+          "excerpt_hash": "7889e4fffed9604deef84a0784668b8242973dd9c5af85496f69faa8f645a0b9",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较方法"
+    },
+    {
+      "component_id": "lc_2228ec9d5a5a60cf",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释数量、图形或数据关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释数量、图形或数据关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释数量、图形或数据关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释数量、图形或数据关系；优先采集：实数表示与比较、根式计算、近似计算说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释数量、图形或数据关系",
+          "excerpt_hash": "21c5b567c1ef612a5b98a5a459ca76600a99e5cd95a345b6856579018adee66e",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释数量、图形或数据关系"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_8dfe3cc505c158ce",
+      "evidence_refs": [
+        "standard:MA-H4G8-AL-008:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-H4G7-AL-007",
+      "source_label": "能用二次根式运算法则进行简单四则运算；能知道实数由有理数和无理数组成并与数轴上的点一一对应；了解无理数和实数；能说明解题步骤和基本依据。",
+      "target_code": "MA-H4G8-AL-008",
+      "target_label": "理解平方根、算术平方根、立方根、乘方与开方互逆关系；能用二次根式运算法则进行简单四则运算；能用数轴表示和比较实数；能比较方法并解释数量、图形或…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "7abcb5afe0960470cfc7875c339f6484e7f4dd0474259ead2dde888d6cab31ae",
+  "standard_code": "MA-H4G8-AL-008",
+  "verified_prerequisites": []
+}

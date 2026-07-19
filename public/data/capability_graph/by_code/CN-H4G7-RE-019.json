@@ -1,0 +1,383 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_84ed0945dff70bd2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b004c5c096b0c19c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2339220b441e5b11"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能随文学习基本词汇、语法知识以帮助理解语言难点；了解课文涉及的重要作家作品知识和文化常识；了解常用修辞手法并体会其表达效果；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "e0c3ffc08efa732414aa9e9bc871964d5188e919a07d9225fe3b96761fdbd4eb",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "语文知识应随文使用，不脱离语言实践进行机械概念训练。",
+          "excerpt_hash": "7417fb4649f343e8290eee3d381983dd77717d9355e94d1538387b58852eb6cc",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G7-RE-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“语文知识应随文使用，不脱离语言实践进行机械概念训练。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_1d5b24bf62b3b23c",
+        "lc_c194eb4fcd3b3235",
+        "lc_84ed0945dff70bd2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出课文涉及的重要作家作品知识和文化常识的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_074be4e90dbd74c8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2339220b441e5b11"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“识别并说出课文涉及的重要作家作品知识和文化常识的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出课文涉及的重要作家作品知识和文化常识的关键特征”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能随文学习基本词汇、语法知识以帮助理解语言难点；了解课文涉及的重要作家作品知识和文化常识；了解常用修辞手法并体会其表达效果；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "e0c3ffc08efa732414aa9e9bc871964d5188e919a07d9225fe3b96761fdbd4eb",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "语文知识应随文使用，不脱离语言实践进行机械概念训练。",
+          "excerpt_hash": "7417fb4649f343e8290eee3d381983dd77717d9355e94d1538387b58852eb6cc",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G7-RE-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出课文涉及的重要作家作品知识和文化常识的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出课文涉及的重要作家作品知识和文化常识的关键特征”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“语文知识应随文使用，不脱离语言实践进行机械概念训练。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_5a22b49ad5eb8262",
+        "lc_1d5b24bf62b3b23c",
+        "lc_c194eb4fcd3b3235",
+        "lc_84ed0945dff70bd2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生随文学习基本词汇、语法知识以帮助理解语言难点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e3b1fa9133107763",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2339220b441e5b11"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“随文学习基本词汇、语法知识以帮助理解语言难点”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“随文学习基本词汇、语法知识以帮助理解语言难点”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能随文学习基本词汇、语法知识以帮助理解语言难点；了解课文涉及的重要作家作品知识和文化常识；了解常用修辞手法并体会其表达效果；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "e0c3ffc08efa732414aa9e9bc871964d5188e919a07d9225fe3b96761fdbd4eb",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "语文知识应随文使用，不脱离语言实践进行机械概念训练。",
+          "excerpt_hash": "7417fb4649f343e8290eee3d381983dd77717d9355e94d1538387b58852eb6cc",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G7-RE-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后随文学习基本词汇、语法知识以帮助理解语言难点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“随文学习基本词汇、语法知识以帮助理解语言难点”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“语文知识应随文使用，不脱离语言实践进行机械概念训练。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b7a37d413948fa0e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_99938fbe3c9ca232c6d6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_903c001c7bb3"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_48c9f38bc8f352d7",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_394ba274a8401ab2",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_eb285566d0326b76eb6b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2cca20691db7"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4f06732182a984b3",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_e756709d00f1528a",
+      "evidence_refs": [
+        "standard:CN-H4G7-RE-019:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-H4G7-RE-019",
+      "target_code": "CN-H4G8-RE-020",
+      "target_label": "了解课文涉及的重要作家作品知识和文化常识；能随文学习基本词汇、语法知识以帮助理解语言难点；了解常用修辞手法并体会其表达效果；能整合材料并说明观…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_2339220b441e5b11",
+      "component_ids": [
+        "lc_84ed0945dff70bd2"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用简短记录或口头表达说明基本理解。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用简短记录或口头表达说明基本理解；优先采集：随文知识卡、修辞效果说明、文化常识整理。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能随文学习基本词汇、语法知识以帮助理解语言难点；了解课文涉及的重要作家作品知识和文化常识；了解常用修辞手法并体会其表达效果；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "e0c3ffc08efa732414aa9e9bc871964d5188e919a07d9225fe3b96761fdbd4eb",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_5a22b49ad5eb8262",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够随文学习基本词汇、语法知识以帮助理解语言难点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生随文学习基本词汇、语法知识以帮助理解语言难点，并说明关键步骤、特征或依据。",
+      "label": "随文学习基本词汇、语法知识以帮助理解语言难点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够随文学习基本词汇、语法知识以帮助理解语言难点；优先采集：随文知识卡、修辞效果说明、文化常识整理。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "随文学习基本词汇、语法知识以帮助理解语言难点",
+          "excerpt_hash": "277a20a5c691d2ae2f4a647e5f93edf8d9983df8b86d65df35ae7a7c4316ca6f",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "随文学习基本词汇、语法知识以帮助理解语言难点"
+    },
+    {
+      "component_id": "lc_1d5b24bf62b3b23c",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出课文涉及的重要作家作品知识和文化常识的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出课文涉及的重要作家作品知识和文化常识的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出课文涉及的重要作家作品知识和文化常识的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出课文涉及的重要作家作品知识和文化常识的关键特征；优先采集：随文知识卡、修辞效果说明、文化常识整理。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解课文涉及的重要作家作品知识和文化常识",
+          "excerpt_hash": "52519b95e65d36bb4e42504acf71bd58661b5653eaa926b79f706ee78f93239a",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解课文涉及的重要作家作品知识和文化常识"
+    },
+    {
+      "component_id": "lc_c194eb4fcd3b3235",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出常用修辞手法并体会其表达效果的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出常用修辞手法并体会其表达效果的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出常用修辞手法并体会其表达效果的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出常用修辞手法并体会其表达效果的关键特征；优先采集：随文知识卡、修辞效果说明、文化常识整理。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解常用修辞手法并体会其表达效果",
+          "excerpt_hash": "eb9d449a16d7db564cff0ec0a44aaf34e3ef37a04cb01b82bfce431c7680f60b",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解常用修辞手法并体会其表达效果"
+    },
+    {
+      "component_id": "lc_84ed0945dff70bd2",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用简短记录或口头表达说明基本理解",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用简短记录或口头表达说明基本理解，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用简短记录或口头表达说明基本理解",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用简短记录或口头表达说明基本理解；优先采集：随文知识卡、修辞效果说明、文化常识整理。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用简短记录或口头表达说明基本理解",
+          "excerpt_hash": "6b1f3237458514ec859ef1012df6724bfef67003f78886ed140316055791b644",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用简短记录或口头表达说明基本理解"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1192,
+      "edge_id": "pc_5ecb8a84dbf86864",
+      "evidence_refs": [
+        "standard:CN-H4G7-RE-019:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D3-RE-005",
+      "source_label": "诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验。",
+      "target_code": "CN-H4G7-RE-019",
+      "target_label": "能随文学习基本词汇、语法知识以帮助理解语言难点；了解课文涉及的重要作家作品知识和文化常识；了解常用修辞手法并体会其表达效果；能用简短记录或口头…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e0c3ffc08efa732414aa9e9bc871964d5188e919a07d9225fe3b96761fdbd4eb",
+  "standard_code": "CN-H4G7-RE-019",
+  "verified_prerequisites": []
+}

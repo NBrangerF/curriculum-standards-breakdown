@@ -1,0 +1,196 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_8054760c47056536"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生参与相关活动并描述一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_49bd56a0e44bc62c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_7bfe29e7d0a64e2b"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“参与相关活动并描述一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查）”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下体验一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查），能按流程完成服务并使用礼貌用语。",
+          "excerpt_hash": "1649c39cd5aecf494ce6a3522d120f8add67b28d97a4be5a1f5515e90d21571e",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先培训流程与礼貌用语；岗位任务清单化；服务后做“我帮助了谁/我学到了什么”的反思。",
+          "excerpt_hash": "168990d2d0f0af3336e245838130491c21a7a6e19203f4bb237e0c966628c725",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-SL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后参与相关活动并描述一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“参与相关活动并描述一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查）”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“先培训流程与礼貌用语”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_8a8cee2726e66df2",
+      "evidence_refs": [
+        "standard:LA-D2-SL-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-SL-001",
+      "target_code": "LA-D3-SL-001",
+      "target_label": "能在校园服务岗位体验中完善服务流程（排队、登记、借还等），能收集服务对象反馈并提出改进，体现服务意识与责任。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_7bfe29e7d0a64e2b",
+      "component_ids": [
+        "lc_8054760c47056536",
+        "lc_224cfa745ec5d68c",
+        "lc_7ef5f613d78ec8ff"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生参与相关活动并描述一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在教师指导下，能够参与相关活动并描述一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查）；优先采集：服务记录单、教师评价、受服务者反馈（可选）。",
+        "学生在教师指导下，能够按流程完成服务；优先采集：服务记录单、教师评价、受服务者反馈（可选）。",
+        "学生在教师指导下，能够使用礼貌用语；优先采集：服务记录单、教师评价、受服务者反馈（可选）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下体验一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查），能按流程完成服务并使用礼貌用语。",
+          "excerpt_hash": "1649c39cd5aecf494ce6a3522d120f8add67b28d97a4be5a1f5515e90d21571e",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "参与相关活动并描述一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查）；按流程完成服务；使用礼貌用语",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_8054760c47056536",
+      "component_type": "disposition",
+      "condition": "在教师指导下",
+      "confidence": 0.72,
+      "description": "学生在教师指导下，能够参与相关活动并描述一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查）",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师指导下”的诊断任务，要求学生参与相关活动并描述一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查），并说明关键步骤、特征或依据。",
+      "label": "参与相关活动并描述一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师指导下，能够参与相关活动并描述一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查）；优先采集：服务记录单、教师评价、受服务者反馈（可选）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下体验一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查），能按流程完成服务并使用礼貌用语。",
+          "excerpt_hash": "1649c39cd5aecf494ce6a3522d120f8add67b28d97a4be5a1f5515e90d21571e",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体验一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查）"
+    },
+    {
+      "component_id": "lc_224cfa745ec5d68c",
+      "component_type": "procedural",
+      "condition": "在教师指导下",
+      "confidence": 0.72,
+      "description": "学生在教师指导下，能够按流程完成服务",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师指导下”的诊断任务，要求学生按流程完成服务，并说明关键步骤、特征或依据。",
+      "label": "按流程完成服务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师指导下，能够按流程完成服务；优先采集：服务记录单、教师评价、受服务者反馈（可选）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下体验一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查），能按流程完成服务并使用礼貌用语。",
+          "excerpt_hash": "1649c39cd5aecf494ce6a3522d120f8add67b28d97a4be5a1f5515e90d21571e",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按流程完成服务"
+    },
+    {
+      "component_id": "lc_7ef5f613d78ec8ff",
+      "component_type": "procedural",
+      "condition": "在教师指导下",
+      "confidence": 0.72,
+      "description": "学生在教师指导下，能够使用礼貌用语",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师指导下”的诊断任务，要求学生使用礼貌用语，并说明关键步骤、特征或依据。",
+      "label": "使用礼貌用语",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师指导下，能够使用礼貌用语；优先采集：服务记录单、教师评价、受服务者反馈（可选）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下体验一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查），能按流程完成服务并使用礼貌用语。",
+          "excerpt_hash": "1649c39cd5aecf494ce6a3522d120f8add67b28d97a4be5a1f5515e90d21571e",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用礼貌用语"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "1649c39cd5aecf494ce6a3522d120f8add67b28d97a4be5a1f5515e90d21571e",
+  "standard_code": "LA-D2-SL-001",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,200 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_581849337d206c29"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_021d078eaba737b8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_63869b3bb0929a0b",
+        "hc_61fab6663ac00a21"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策。",
+          "excerpt_hash": "81661470fc217779eb307f4b5615629ceb36f5fddb431b83aa118a46226ee614",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“环境—风险—对策”表训练：温度/湿滑/强紫外/雾霾/雷雨/水域等分别对应热身、补水、衣物层次、鞋底防滑、避开高危场地等策略；通过情境卡讨论“是否继续运动/如何调整”。强调求助与同伴结伴原则，建立“停止运动信号”（头晕、胸闷、剧烈疼痛等）。",
+          "excerpt_hash": "b9d9964b816a0f75a6122adc71b2301d825daef106b8bf76c1f3ec7471a30e8b",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-HB-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“用“环境—风险—对策”表训练：温度/湿滑/强紫外/雾霾/雷雨/水域等分别对应热身、补水、衣物层次、鞋底防滑、避开高危场地等策略”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1404,
+      "connection_id": "fc_82668f619c677a9b",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-016:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-HB-003",
+      "target_code": "PE-H4G7-HB-016",
+      "target_label": "能掌握预防运动伤病的知识与技能、溺水自救和配合他救的方法；掌握在踩踏事故、火灾、地震、海啸等突发事件中的自我保护和逃生技能；能以及重污染天气中…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_63869b3bb0929a0b",
+      "component_ids": [
+        "lc_581849337d206c29"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策；优先采集：情境判断、清单作品、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策。",
+          "excerpt_hash": "81661470fc217779eb307f4b5615629ceb36f5fddb431b83aa118a46226ee614",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_61fab6663ac00a21",
+      "component_ids": [
+        "lc_581849337d206c29"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策；优先采集：情境判断、清单作品、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策。",
+          "excerpt_hash": "81661470fc217779eb307f4b5615629ceb36f5fddb431b83aa118a46226ee614",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_581849337d206c29",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策，并说明关键步骤、特征或依据。",
+      "label": "根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策；优先采集：情境判断、清单作品、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策",
+          "excerpt_hash": "3e01118df67ce9284a13c7b9dd80daf42c6592e0e5c2ae8920f89c75a1a5ce12",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_de92438917416e36",
+      "evidence_refs": [
+        "standard:PE-D3-HB-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-HB-003",
+      "source_label": "能说出体育活动中的安全常识，并在活动中遵守。",
+      "target_code": "PE-D3-HB-003",
+      "target_label": "能根据不同自然环境（冷热雨雪、空气质量、光照等）选择合适的锻炼方式与装备，评估风险并做出安全决策。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "81661470fc217779eb307f4b5615629ceb36f5fddb431b83aa118a46226ee614",
+  "standard_code": "PE-D3-HB-003",
+  "verified_prerequisites": []
+}

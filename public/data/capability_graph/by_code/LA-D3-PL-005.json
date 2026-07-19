@@ -1,0 +1,217 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_584c1bcb04c9a934"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述农产品从生产到流通的基本环节的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a22393cd770332f0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_feca9b82c67c7360"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述农产品从生产到流通的基本环节”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述农产品从生产到流通的基本环节”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述农产品从生产到流通的基本环节，能参与一次校园义卖或分享活动，体现诚信与责任，尊重劳动成果。",
+          "excerpt_hash": "fc94a4d6af83d0b482d1e864524bb066ffc50866c0a67ad6216985361304871a",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“成本—定价—宣传—销售—结算”简化链条；强调诚信（足斤足两、明码标价）；活动后做收支与反思。",
+          "excerpt_hash": "341adf512bff9c8e9133ec876dcaf55fea15311041738dbde0ccf4fd43d88d1b",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-PL-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述农产品从生产到流通的基本环节，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述农产品从生产到流通的基本环节”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用“成本—定价—宣传—销售—结算”简化链条”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1254,
+      "connection_id": "fc_17ce9cd1ae01c569",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-PL-005",
+      "target_code": "LA-H4G7-PL-001",
+      "target_label": "能体验金工、木工、电子、陶艺、布艺等项目或种植、养殖等生产劳动，形成初步职业意识和生涯规划意识；能体验当地常见种植、养殖等生产劳动；能按规范完…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_feca9b82c67c7360",
+      "component_ids": [
+        "lc_584c1bcb04c9a934",
+        "lc_edf4dd819efcfad8",
+        "lc_cffe98843b84177f"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生描述农产品从生产到流通的基本环节。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够描述农产品从生产到流通的基本环节；优先采集：收支表、活动照片、反思报告。",
+        "学生能够参与一次校园义卖或分享活动，体现诚信与责任；优先采集：收支表、活动照片、反思报告。",
+        "学生能够尊重劳动成果；优先采集：收支表、活动照片、反思报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述农产品从生产到流通的基本环节，能参与一次校园义卖或分享活动，体现诚信与责任，尊重劳动成果。",
+          "excerpt_hash": "fc94a4d6af83d0b482d1e864524bb066ffc50866c0a67ad6216985361304871a",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "描述农产品从生产到流通的基本环节；参与一次校园义卖或分享活动，体现诚信与责任；尊重劳动成果",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_584c1bcb04c9a934",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述农产品从生产到流通的基本环节",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述农产品从生产到流通的基本环节，并说明关键步骤、特征或依据。",
+      "label": "描述农产品从生产到流通的基本环节",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述农产品从生产到流通的基本环节；优先采集：收支表、活动照片、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述农产品从生产到流通的基本环节",
+          "excerpt_hash": "01d9f2e389e814e572c8b4fab731772a9ce27d9672e97a36de37ea3163cf7c71",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述农产品从生产到流通的基本环节"
+    },
+    {
+      "component_id": "lc_edf4dd819efcfad8",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与一次校园义卖或分享活动，体现诚信与责任",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与一次校园义卖或分享活动，体现诚信与责任，并说明关键步骤、特征或依据。",
+      "label": "参与一次校园义卖或分享活动，体现诚信与责任",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与一次校园义卖或分享活动，体现诚信与责任；优先采集：收支表、活动照片、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "参与一次校园义卖或分享活动，体现诚信与责任",
+          "excerpt_hash": "1cfe0952ee6fabf3ca3d6f39f96a9778dabb3b5d55b060eb39cb7e4d8eda6663",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参与一次校园义卖或分享活动，体现诚信与责任"
+    },
+    {
+      "component_id": "lc_cffe98843b84177f",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够尊重劳动成果",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生尊重劳动成果，并说明关键步骤、特征或依据。",
+      "label": "尊重劳动成果",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够尊重劳动成果；优先采集：收支表、活动照片、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重劳动成果",
+          "excerpt_hash": "0badf2a87741345d2e2fc93986bf5d5bfb8189a8e120c2212f995d121813731b",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "尊重劳动成果"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_8e0d53b863327fe7",
+      "evidence_refs": [
+        "standard:LA-D3-PL-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-PL-005",
+      "source_label": "能了解厨余堆肥或再利用的基本方法，能参与制作简单堆肥桶或厨余分类收集，理解循环利用与生态保护的意义。",
+      "target_code": "LA-D3-PL-005",
+      "target_label": "能描述农产品从生产到流通的基本环节，能参与一次校园义卖或分享活动，体现诚信与责任，尊重劳动成果。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "fc94a4d6af83d0b482d1e864524bb066ffc50866c0a67ad6216985361304871a",
+  "standard_code": "LA-D3-PL-005",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,152 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_62907421547746e8"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5c6b84a9a1e5cce9",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_58d55bd1727add80"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性；在使用或提交个人信息前能征得父母或教师同意，养成保护个人信息的好习惯。",
+          "excerpt_hash": "df1081c431c3e045092cc9b5c5bcc20f2f2065b7e1a4ca98519c4de7f907c3a1",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用故事与类比（如“陌生人的糖果/免费奖励陷阱”）呈现风险情境，引导学生做“停一停—想一想—问一问大人”的安全决策。用情境卡片练习：哪些信息不能随便填（姓名、电话、住址等）。",
+          "excerpt_hash": "945ae482397d89b87bc3eae5d9fc33876b0bbb8ee6b4cbaa26cf35cc83068279",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H1-SR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“用故事与类比（如“陌生人的糖果/免费奖励陷阱”）呈现风险情境，引导学生做“停一停—想一想—问一问大人”的安全决策。用情境卡片练习：哪些信息不能随便填（姓名、电话、住址等）。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_58d55bd1727add80",
+      "component_ids": [
+        "lc_62907421547746e8",
+        "lc_83289b4e5533d68d"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性；优先采集：情境判断任务、规则清单作品、口头说明。",
+        "学生能够在使用或提交个人信息前能征得父母或教师同意，养成保护个人信息的好习惯；优先采集：情境判断任务、规则清单作品、口头说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性；在使用或提交个人信息前能征得父母或教师同意，养成保护个人信息的好习惯。",
+          "excerpt_hash": "df1081c431c3e045092cc9b5c5bcc20f2f2065b7e1a4ca98519c4de7f907c3a1",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性；在使用或提交个人信息前能征得父母或教师同意，养成保护个人信息的好习惯",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_62907421547746e8",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性，并说明关键步骤、特征或依据。",
+      "label": "在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性；优先采集：情境判断任务、规则清单作品、口头说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性",
+          "excerpt_hash": "d27ee61eff5229c263c1bdc37c89689d8a82c99d5d32d941aa7d7a53d6ea9e05",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在教师指导下能初步辨别在线活动中的信息真伪，知道个人信息保护的重要性"
+    },
+    {
+      "component_id": "lc_83289b4e5533d68d",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在使用或提交个人信息前能征得父母或教师同意，养成保护个人信息的好习惯",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在使用或提交个人信息前能征得父母或教师同意，养成保护个人信息的好习惯，并说明关键步骤、特征或依据。",
+      "label": "在使用或提交个人信息前能征得父母或教师同意，养成保护个人信息的好习惯",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在使用或提交个人信息前能征得父母或教师同意，养成保护个人信息的好习惯；优先采集：情境判断任务、规则清单作品、口头说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在使用或提交个人信息前能征得父母或教师同意，养成保护个人信息的好习惯",
+          "excerpt_hash": "dfbe9caf6114606258d1de6e0be217e5fd45e1be5b425277e8d8147f54e0ed43",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-SR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在使用或提交个人信息前能征得父母或教师同意，养成保护个人信息的好习惯"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "df1081c431c3e045092cc9b5c5bcc20f2f2065b7e1a4ca98519c4de7f907c3a1",
+  "standard_code": "IT-H1-SR-002",
+  "verified_prerequisites": []
+}

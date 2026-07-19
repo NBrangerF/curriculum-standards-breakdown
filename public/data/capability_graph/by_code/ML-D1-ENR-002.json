@@ -1,0 +1,295 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_33bd9f8460a9547a"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生按课表在教师提示下准备与整理学习用品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_42c3d6ca191f26f1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_cc1af1d2bea9dfe7"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“按课表在教师提示下准备与整理学习用品”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能按课表在教师提示下准备与整理学习用品，能在课堂中遵守“听讲—举手—发言—收纳”的基本常规，逐步形成自理与自律习惯。",
+          "excerpt_hash": "508604a9e6953edf73d414b7487a1ca43827e45ffc3403c1013526483a7a3f1d",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-ENR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“示范—跟做—计时—复盘”训练收纳；把常规拆成3–5个可视化步骤贴在课桌；对“自己做到了什么”给予具体反馈而非笼统表扬。",
+          "excerpt_hash": "fe144bd5c2b83b161ad180da3e44a006bc9ecfe2192913b79e66d8d153b4bfc4",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D1-ENR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后按课表在教师提示下准备与整理学习用品，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“按课表在教师提示下准备与整理学习用品”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“用“示范—跟做—计时—复盘”训练收纳”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b7f5506e98df6440",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7ac003a6d2fbc0550980",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_565199064cf5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a8cd1c06fc4166b4",
+      "textbook_grade": 2,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_545b6a3b5ee90b01",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_cfcb4ce7864d417c80b2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_17b846efdf7a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f9d3a9d4795fb2cf",
+      "textbook_grade": 1,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8c720e5bc64546bf",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e0415d58f2a7c2ec1a23",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_88807fd2045b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b0742e693a9d96bc",
+      "textbook_grade": 2,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7be6eea66d545b8c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f7992bf9ce09b3760ce8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_50dfe7e5b313"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_33531b3889df7060",
+      "textbook_grade": 1,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_acf857d74e797a16",
+      "evidence_refs": [
+        "standard:ML-D1-ENR-002:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D1-ENR-002",
+      "target_code": "ML-D2-SAF-003",
+      "target_label": "能说出至少1种适合自己的学习方法，遇到学习困难能坚持尝试并寻求帮助；出现消极情绪时能使用至少1种调节方法并恢复学习与生活。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_cc1af1d2bea9dfe7",
+      "component_ids": [
+        "lc_33bd9f8460a9547a",
+        "lc_012cd3cf481eb5f6"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生按课表在教师提示下准备与整理学习用品。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够按课表在教师提示下准备与整理学习用品；优先采集：过程性表现记录（打卡卡）、教师观察清单（步骤/速度/规范）、同伴互评（是否整齐）。",
+        "学生在课堂中，能够遵守“听讲—举手—发言—收纳”的基本常规，逐步形成自理与自律习惯；优先采集：过程性表现记录（打卡卡）、教师观察清单（步骤/速度/规范）、同伴互评（是否整齐）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能按课表在教师提示下准备与整理学习用品，能在课堂中遵守“听讲—举手—发言—收纳”的基本常规，逐步形成自理与自律习惯。",
+          "excerpt_hash": "508604a9e6953edf73d414b7487a1ca43827e45ffc3403c1013526483a7a3f1d",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-ENR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按课表在教师提示下准备与整理学习用品；遵守“听讲—举手—发言—收纳”的基本常规，逐步形成自理与自律习惯",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_33bd9f8460a9547a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够按课表在教师提示下准备与整理学习用品",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生按课表在教师提示下准备与整理学习用品，并说明关键步骤、特征或依据。",
+      "label": "按课表在教师提示下准备与整理学习用品",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够按课表在教师提示下准备与整理学习用品；优先采集：过程性表现记录（打卡卡）、教师观察清单（步骤/速度/规范）、同伴互评（是否整齐）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "按课表在教师提示下准备与整理学习用品",
+          "excerpt_hash": "2c514deb41405c4d8be21cd4cb040c5e94d76d293f119a6ce94ac456e230972d",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-ENR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "按课表在教师提示下准备与整理学习用品"
+    },
+    {
+      "component_id": "lc_012cd3cf481eb5f6",
+      "component_type": "disposition",
+      "condition": "在课堂中",
+      "confidence": 0.72,
+      "description": "学生在课堂中，能够遵守“听讲—举手—发言—收纳”的基本常规，逐步形成自理与自律习惯",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在课堂中”的诊断任务，要求学生遵守“听讲—举手—发言—收纳”的基本常规，逐步形成自理与自律习惯，并说明关键步骤、特征或依据。",
+      "label": "遵守“听讲—举手—发言—收纳”的基本常规，逐步形成自理与自律习惯",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在课堂中，能够遵守“听讲—举手—发言—收纳”的基本常规，逐步形成自理与自律习惯；优先采集：过程性表现记录（打卡卡）、教师观察清单（步骤/速度/规范）、同伴互评（是否整齐）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能按课表在教师提示下准备与整理学习用品，能在课堂中遵守“听讲—举手—发言—收纳”的基本常规，逐步形成自理与自律习惯。",
+          "excerpt_hash": "508604a9e6953edf73d414b7487a1ca43827e45ffc3403c1013526483a7a3f1d",
+          "field": "standard",
+          "ref_id": "standard:ML-D1-ENR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守“听讲—举手—发言—收纳”的基本常规，逐步形成自理与自律习惯"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "508604a9e6953edf73d414b7487a1ca43827e45ffc3403c1013526483a7a3f1d",
+  "standard_code": "ML-D1-ENR-002",
+  "verified_prerequisites": []
+}

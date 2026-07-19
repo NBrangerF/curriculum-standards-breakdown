@@ -1,0 +1,664 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_1cfc24948570cc5e",
+        "lc_f0bef1b8b782a330",
+        "lc_79b3dc6dffdd987b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生结合实例说明自然灾害发生的原因和危害的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3ddceb12734cbd1e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c14b5491df95877b",
+        "hc_7b656b9868cecf49"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“结合实例说明自然灾害发生的原因和危害”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“结合实例说明自然灾害发生的原因和危害”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能结合实例说明自然灾害发生的原因和危害；掌握防灾减灾措施和应急救灾基本常识；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "6a101e4a1743a2f474778607589139d0845b00e06d709d8b55a4ed31cb8d80a4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-AR-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把灾害成因、防护行动和生命安全教育放在真实情境中学习。",
+          "excerpt_hash": "c35853f4c32aa34f314b5cee91e43f12ae2bb6b57471c8ed47182d618b0efa92",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-AR-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后结合实例说明自然灾害发生的原因和危害，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“结合实例说明自然灾害发生的原因和危害”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把灾害成因、防护行动和生命安全教育放在真实情境中学习。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_f0bef1b8b782a330"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f59e8bfeaeb013a8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c14b5491df95877b",
+        "hc_7b656b9868cecf49"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较证据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较证据”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能结合实例说明自然灾害发生的原因和危害；掌握防灾减灾措施和应急救灾基本常识；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "6a101e4a1743a2f474778607589139d0845b00e06d709d8b55a4ed31cb8d80a4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-AR-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把灾害成因、防护行动和生命安全教育放在真实情境中学习。",
+          "excerpt_hash": "c35853f4c32aa34f314b5cee91e43f12ae2bb6b57471c8ed47182d618b0efa92",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-AR-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较证据”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“把灾害成因、防护行动和生命安全教育放在真实情境中学习。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_d8f40b573f2c9c0d",
+        "lc_8f6bee308788bcf8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过资料分析认识自然灾害对生产生活的影响的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_32b808d884f70efa",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e133891479ad8451"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“通过资料分析认识自然灾害对生产生活的影响”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过资料分析认识自然灾害对生产生活的影响”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能结合实例说明自然灾害发生的原因和危害；掌握防灾减灾措施和应急救灾基本常识；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "6a101e4a1743a2f474778607589139d0845b00e06d709d8b55a4ed31cb8d80a4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-AR-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把灾害成因、防护行动和生命安全教育放在真实情境中学习。",
+          "excerpt_hash": "c35853f4c32aa34f314b5cee91e43f12ae2bb6b57471c8ed47182d618b0efa92",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-AR-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过资料分析认识自然灾害对生产生活的影响，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过资料分析认识自然灾害对生产生活的影响”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把灾害成因、防护行动和生命安全教育放在真实情境中学习。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_d8f40b573f2c9c0d",
+        "lc_79b3dc6dffdd987b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过资料分析认识自然灾害对生产生活的影响的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bde2167b89f02e66",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c14b5491df95877b",
+        "hc_e133891479ad8451"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“通过资料分析认识自然灾害对生产生活的影响”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过资料分析认识自然灾害对生产生活的影响”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能结合实例说明自然灾害发生的原因和危害；掌握防灾减灾措施和应急救灾基本常识；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "6a101e4a1743a2f474778607589139d0845b00e06d709d8b55a4ed31cb8d80a4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-AR-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把灾害成因、防护行动和生命安全教育放在真实情境中学习。",
+          "excerpt_hash": "c35853f4c32aa34f314b5cee91e43f12ae2bb6b57471c8ed47182d618b0efa92",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-AR-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过资料分析认识自然灾害对生产生活的影响，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过资料分析认识自然灾害对生产生活的影响”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把灾害成因、防护行动和生命安全教育放在真实情境中学习。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 6,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ae48561ec4e3cee5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0f6edf1eb52b44920973",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_77ef51325c22"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_aa920dd0236fd836",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c6b475456ac77665",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a7fe299869b84f655a87",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a871f50d9e2b"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c38c1b84336fa7fa",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1d586a9d10cc88d0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b4de49a3e2e59c9c76bf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5f552244f754"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e4f214193210f062",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_dc5fccbeb11bb9c9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c8cec7bb4ee4d9a29577",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ce524ff21ae1"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d75ade93cbf14989",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_43d010188e766fce",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_d5ca89ccc00d3103a7f8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a0a929bcb6e9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e8478f57c656a4",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ad619e6352ca1384",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f0de8cbbeb88661f44d6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ffb2a04886aa"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_23244c2ebb335c01",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_65253c72ecd5008e",
+      "evidence_refs": [
+        "standard:SC-H4G8-AR-003:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G8-AR-003",
+      "target_code": "SC-H4G9-AR-002",
+      "target_label": "能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能结合实例说明自然灾害发生的原因和危害；阐释我国是自然灾害多发国家；能建模、论证…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_c14b5491df95877b",
+      "component_ids": [
+        "lc_1cfc24948570cc5e",
+        "lc_f0bef1b8b782a330",
+        "lc_79b3dc6dffdd987b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "解释",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生结合实例说明自然灾害发生的原因和危害。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够结合实例说明自然灾害发生的原因和危害；优先采集：灾害案例分析、应急方案、避险流程图。",
+        "学生能够比较证据；优先采集：灾害案例分析、应急方案、避险流程图。",
+        "学生能够解释概念之间的关系；优先采集：灾害案例分析、应急方案、避险流程图。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能结合实例说明自然灾害发生的原因和危害；掌握防灾减灾措施和应急救灾基本常识；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "6a101e4a1743a2f474778607589139d0845b00e06d709d8b55a4ed31cb8d80a4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-AR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、解释、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_e133891479ad8451",
+      "component_ids": [
+        "lc_d8f40b573f2c9c0d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生通过资料分析认识自然灾害对生产生活的影响。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够通过资料分析认识自然灾害对生产生活的影响；优先采集：灾害案例分析、应急方案、避险流程图。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能结合实例说明自然灾害发生的原因和危害；掌握防灾减灾措施和应急救灾基本常识；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "6a101e4a1743a2f474778607589139d0845b00e06d709d8b55a4ed31cb8d80a4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-AR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_7b656b9868cecf49",
+      "component_ids": [
+        "lc_f0bef1b8b782a330"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较证据；优先采集：灾害案例分析、应急方案、避险流程图。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能结合实例说明自然灾害发生的原因和危害；掌握防灾减灾措施和应急救灾基本常识；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "6a101e4a1743a2f474778607589139d0845b00e06d709d8b55a4ed31cb8d80a4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-AR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d8f40b573f2c9c0d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过资料分析认识自然灾害对生产生活的影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过资料分析认识自然灾害对生产生活的影响，并说明关键步骤、特征或依据。",
+      "label": "通过资料分析认识自然灾害对生产生活的影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过资料分析认识自然灾害对生产生活的影响；优先采集：灾害案例分析、应急方案、避险流程图。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过资料分析认识自然灾害对生产生活的影响",
+          "excerpt_hash": "fdd97d66c8f3d7263e645735898638029ce1cefaceb8707b3f33bb61c98acf6a",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-AR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过资料分析认识自然灾害对生产生活的影响"
+    },
+    {
+      "component_id": "lc_414b3d785ba89c27",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提出自我保护建议",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提出自我保护建议，并说明关键步骤、特征或依据。",
+      "label": "提出自我保护建议",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提出自我保护建议；优先采集：灾害案例分析、应急方案、避险流程图。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提出自我保护建议",
+          "excerpt_hash": "a78f6c70775b9039717736d30e3b3afe2f4c28795c71ea63b8a0d9aaf4e883e2",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-AR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出自我保护建议"
+    },
+    {
+      "component_id": "lc_1cfc24948570cc5e",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够结合实例说明自然灾害发生的原因和危害",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合实例说明自然灾害发生的原因和危害，并保留可回查的口头、书面或操作过程证据。",
+      "label": "结合实例说明自然灾害发生的原因和危害",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够结合实例说明自然灾害发生的原因和危害；优先采集：灾害案例分析、应急方案、避险流程图。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "结合实例说明自然灾害发生的原因和危害",
+          "excerpt_hash": "f61756a4637ef73b75c62f1b0fd11b1fc2d8d4c23a6ba44db58aec075400fc0d",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-AR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "结合实例说明自然灾害发生的原因和危害"
+    },
+    {
+      "component_id": "lc_8f6bee308788bcf8",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够正确运用防灾减灾措施和应急救灾基本常识完成任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生正确运用防灾减灾措施和应急救灾基本常识完成任务，并说明关键步骤、特征或依据。",
+      "label": "正确运用防灾减灾措施和应急救灾基本常识完成任务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够正确运用防灾减灾措施和应急救灾基本常识完成任务；优先采集：灾害案例分析、应急方案、避险流程图。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "掌握防灾减灾措施和应急救灾基本常识",
+          "excerpt_hash": "7ae1a10db28c134983712da0d015bc00ff9069c86cad7f7341434a5114329995",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-AR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "掌握防灾减灾措施和应急救灾基本常识"
+    },
+    {
+      "component_id": "lc_f0bef1b8b782a330",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较证据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较证据，并说明关键步骤、特征或依据。",
+      "label": "比较证据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较证据；优先采集：灾害案例分析、应急方案、避险流程图。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较证据",
+          "excerpt_hash": "991569e1419bfb53d107f820e29cc506985fb42dec521ee976a4309299317eac",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-AR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较证据"
+    },
+    {
+      "component_id": "lc_79b3dc6dffdd987b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释概念之间的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释概念之间的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释概念之间的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释概念之间的关系；优先采集：灾害案例分析、应急方案、避险流程图。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释概念之间的关系",
+          "excerpt_hash": "7176bf29ca46d45d574a0ab078112ade02e1c191616f7761e6189d6092a666dd",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-AR-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释概念之间的关系"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_d54febce99c5e188",
+      "evidence_refs": [
+        "standard:SC-H4G8-AR-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G7-AR-003",
+      "source_label": "掌握防灾减灾措施和应急救灾基本常识；能知道我国是自然灾害多发国家；能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能用观察证据说…",
+      "target_code": "SC-H4G8-AR-003",
+      "target_label": "能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能结合实例说明自然灾害发生的原因和危害；掌握防灾减灾措施和应急救灾基本常识；能比…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "6a101e4a1743a2f474778607589139d0845b00e06d709d8b55a4ed31cb8d80a4",
+  "standard_code": "SC-H4G8-AR-003",
+  "verified_prerequisites": []
+}

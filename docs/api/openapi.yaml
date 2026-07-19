@@ -478,6 +478,31 @@ paths:
           $ref: "#/components/responses/NotFound"
         "409":
           $ref: "#/components/responses/Conflict"
+  /api/v1/standards/{code}/capability-graph:
+    get:
+      tags: [关系图谱]
+      operationId: getStandardCapabilityGraph
+      summary: 获取某条标准的可教学能力图谱
+      description: 返回可教学小能力、高难结构、具体困难、教材关系和后续学习方向。`verified_prerequisites` 只包含有证据且经专家批准的关系；课程顺序和跨学段推断保存在 `prerequisite_candidates`，不得解释为已核验前置能力。教材关系明确区分 L1 范围、L2 目录主题和待补页码候选。
+      security: []
+      parameters:
+        - $ref: "#/components/parameters/StandardCode"
+      responses:
+        "200":
+          description: 可教学能力图谱
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/CapabilityGraph"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
   /api/v1/standards/{code}/progression:
     get:
       tags: [关系图谱]
@@ -1065,11 +1090,11 @@ components:
         data_version:
           description: 当前使用的数据版本。
           type: string
-          example: "2026.07.13-unified-progression-v1"
+          example: "2026.07.18-capability-graph-v1"
         schema_version:
           description: 当前 API 数据结构版本。
           type: string
-          example: "1.4.0"
+          example: "1.5.0"
         warnings:
           description: 非阻断提示，例如解析不完整或需要人工复核。
           type: array
@@ -1372,9 +1397,21 @@ components:
           description: 可迁移技能映射候选；规则或模型结果不得自动覆盖正式数据。
           items:
             $ref: '#/components/schemas/SkillAlignmentCandidate'
-      required: [id, code, subject, subject_slug, grade_band, standard]
+        capability_graph_schema_version:
+          type: string
+          example: 1.0.0
+        capability_graph_method:
+          type: string
+          example: deterministic-teachable-capability-graph-v4
+        source_standard_hash:
+          type: string
+          description: 能力图谱所对应标准正文的 SHA-256 版本锚点。
+        prerequisite_review_coverage:
+          $ref: '#/components/schemas/PrerequisiteReviewCoverage'
+        curriculum_alignment_summary:
+          $ref: '#/components/schemas/CurriculumAlignmentSummary'
+      required: [code, subject, subject_slug, grade_band, standard]
       example:
-        id: SC-D2-SC-010
         code: SC-D2-SC-010
         subject: 科学
         subject_slug: science
@@ -1399,6 +1436,192 @@ components:
         safety_notes: 实验前说明材料使用规范，并在教师指导下操作。
         previous_code: SC-D1-SC-014
         next_code: SC-D3-SC-010
+    LearningComponent:
+      type: object
+      description: 从标准原句确定性拆出的单一、可观察、可诊断的教学能力候选。
+      required: [component_id, label, source_statement, condition, description, component_type, observable_evidence, diagnostic_prompt, source_refs, review_status, publication_status]
+      properties:
+        component_id: { type: string }
+        label: { type: string }
+        source_statement: { type: string }
+        condition: { type: string }
+        description: { type: string }
+        component_type:
+          type: string
+          enum: [conceptual, procedural, representational, language, metacognitive, disposition]
+        observable_evidence: { type: string }
+        diagnostic_prompt: { type: string }
+        source_refs:
+          type: array
+          items: { type: object, additionalProperties: true }
+        review_status: { type: string, enum: [machine_checked, approved] }
+        publication_status: { type: string, enum: [candidate, published] }
+      additionalProperties: true
+    CapabilityPrerequisite:
+      type: object
+      required: [edge_id, source_code, target_code, source_label, target_label, necessity, rationale, evidence_refs, review_status, publication_status]
+      properties:
+        edge_id: { type: string }
+        source_code: { type: string }
+        target_code: { type: string }
+        source_label: { type: string }
+        target_label: { type: string }
+        necessity: { type: string, enum: [required, recommended, undetermined] }
+        rationale: { type: string }
+        evidence_refs:
+          type: array
+          items: { type: string }
+        relation_type: { type: string }
+        review_status: { type: string, enum: [candidate, machine_checked, approved] }
+        publication_status: { type: string, enum: [review_queue, candidate, published] }
+      additionalProperties: true
+    HardestCase:
+      type: object
+      required: [case_id, title, component_ids, structure, demand_dimension, why_hard, diagnostic_focus, required_student_evidence, source_refs, review_status, publication_status]
+      properties:
+        case_id: { type: string }
+        title: { type: string }
+        component_ids:
+          type: array
+          items: { type: string }
+        structure: { type: string }
+        demand_dimension: { type: string }
+        covered_modifiers:
+          type: array
+          items: { type: string }
+        why_hard: { type: string }
+        diagnostic_focus: { type: string }
+        required_student_evidence:
+          type: array
+          items: { type: string }
+        source_refs:
+          type: array
+          items: { type: object, additionalProperties: true }
+        review_status: { type: string, enum: [machine_checked, approved] }
+        publication_status: { type: string, enum: [candidate, published] }
+      additionalProperties: true
+    CommonDifficulty:
+      type: object
+      description: 具体困难必须同时包含可观察表现、可能成因和教师动作。
+      required: [difficulty_id, component_ids, hardest_case_ids, category, manifestation, likely_cause, teacher_action, diagnostic_probe, success_signal, source_refs, evidence_status, frequency_claim, review_status, publication_status]
+      properties:
+        difficulty_id: { type: string }
+        component_ids:
+          type: array
+          items: { type: string }
+        hardest_case_ids:
+          type: array
+          items: { type: string }
+        category: { type: string }
+        manifestation: { type: string }
+        likely_cause: { type: string }
+        teacher_action: { type: string }
+        diagnostic_probe: { type: string }
+        success_signal: { type: string }
+        source_refs:
+          type: array
+          items: { type: object, additionalProperties: true }
+        evidence_status: { type: string, enum: [rule_inferred_not_frequency_validated] }
+        frequency_claim: { type: string, enum: [not_available] }
+        review_status: { type: string, enum: [machine_checked, approved] }
+        publication_status: { type: string, enum: [candidate, published] }
+      additionalProperties: true
+    CurriculumAlignment:
+      type: object
+      required: [alignment_id, level, alignment_type, coverage, evidence_level, edition_id, textbook_title, unit_id, unit_title, pdf_page, printed_page, evidence_refs, rationale, review_status, publication_status]
+      properties:
+        alignment_id: { type: string }
+        level: { type: string, enum: [scope, unit, unit_topic_candidate] }
+        alignment_type: { type: string, enum: [references, supports] }
+        coverage: { type: string, enum: [scope_only, partial] }
+        evidence_level: { type: string, enum: [L1_scope, L2_topic] }
+        edition_id: { type: string }
+        textbook_title: { type: string }
+        unit_id: { type: [string, 'null'] }
+        unit_title: { type: string }
+        pdf_page: { type: [integer, 'null'] }
+        printed_page: { type: [string, 'null'] }
+        evidence_refs:
+          type: array
+          items: { type: string }
+        rationale: { type: string }
+        review_status: { type: string, enum: [candidate, machine_checked, approved] }
+        publication_status: { type: string, enum: [review_queue, published, published_scope] }
+      additionalProperties: true
+    CurriculumAlignmentSummary:
+      type: object
+      required: [disposition, highest_evidence_level, specific_count, unit_topic_candidate_count, candidate_count, scope_count, gap_reason, evidence_note]
+      properties:
+        disposition: { type: string, enum: [unit_aligned, unit_topic_needs_page_evidence, scope_aligned_no_unit_evidence, gap_no_textbook_scope] }
+        highest_evidence_level: { type: string, enum: [L0_gap, L1_scope, L2_topic] }
+        specific_count: { type: integer }
+        unit_topic_candidate_count: { type: integer }
+        candidate_count: { type: integer }
+        scope_count: { type: integer }
+        gap_reason: { type: [string, 'null'] }
+        evidence_note: { type: string }
+      additionalProperties: true
+    PrerequisiteReviewCoverage:
+      type: object
+      description: 独立的人工审核覆盖台账；不得根据已批准边数量反推审核完成度。
+      required: [status, reviewed_candidate_count, total_candidate_count, verified_edge_count, explicit_no_prerequisite_decision, note]
+      properties:
+        status: { type: string, enum: [not_measured, partial, complete] }
+        reviewed_candidate_count: { type: [integer, 'null'] }
+        total_candidate_count: { type: integer }
+        verified_edge_count: { type: integer }
+        explicit_no_prerequisite_decision: { type: boolean }
+        note: { type: string }
+      additionalProperties: false
+    ForwardConnection:
+      type: object
+      required: [connection_id, source_code, target_code, target_label, relation_type, rationale, evidence_refs, review_status, publication_status]
+      properties:
+        connection_id: { type: string }
+        source_code: { type: string }
+        target_code: { type: string }
+        target_label: { type: string }
+        relation_type: { type: string, enum: [curriculum_sequence_candidate, grade_band_bridge_candidate] }
+        rationale: { type: string }
+        evidence_refs:
+          type: array
+          items: { type: string }
+        review_status: { type: string, enum: [machine_checked, approved] }
+        publication_status: { type: string, enum: [candidate, published] }
+      additionalProperties: true
+    CapabilityGraph:
+      type: object
+      required: [standard_code, schema_version, generation_method, source_standard_hash, learning_components, verified_prerequisites, prerequisite_candidates, prerequisite_review_coverage, hardest_cases, common_difficulties, curriculum_alignments, curriculum_alignment_summary, forward_connections]
+      properties:
+        standard_code: { type: string }
+        schema_version: { type: [string, 'null'] }
+        generation_method: { type: [string, 'null'] }
+        source_standard_hash: { type: [string, 'null'] }
+        learning_components:
+          type: array
+          items: { $ref: '#/components/schemas/LearningComponent' }
+        verified_prerequisites:
+          type: array
+          items: { $ref: '#/components/schemas/CapabilityPrerequisite' }
+        prerequisite_candidates:
+          type: array
+          items: { $ref: '#/components/schemas/CapabilityPrerequisite' }
+        prerequisite_review_coverage:
+          $ref: '#/components/schemas/PrerequisiteReviewCoverage'
+        hardest_cases:
+          type: array
+          items: { $ref: '#/components/schemas/HardestCase' }
+        common_difficulties:
+          type: array
+          items: { $ref: '#/components/schemas/CommonDifficulty' }
+        curriculum_alignments:
+          type: array
+          items: { $ref: '#/components/schemas/CurriculumAlignment' }
+        curriculum_alignment_summary:
+          $ref: '#/components/schemas/CurriculumAlignmentSummary'
+        forward_connections:
+          type: array
+          items: { $ref: '#/components/schemas/ForwardConnection' }
     ContentFieldProvenance:
       type: object
       required: [provenance, source_ref, review_status, confidence, quality_flags, rag_eligible]

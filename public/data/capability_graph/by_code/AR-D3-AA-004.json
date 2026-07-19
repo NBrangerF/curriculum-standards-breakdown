@@ -1,0 +1,464 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_47c7057c50e20667"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_41d5db39f21bb2e3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_41d5db39f21bb2e3"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能辨别民族五声调式与大小调，听辨主题及乐句、乐段的重复与变化，辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示。",
+          "excerpt_hash": "70fe57092b2ba420809bde0d8debb6c076b5ddc12696d31a72007cf8dfe116ac",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AA-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "提供“结构模板”（A-B-A/三段体/回旋）与示例；用“主题出现了几次、在哪里变了”做抓手；允许学生用图形谱替代五线谱表达。",
+          "excerpt_hash": "484a8643888cc7c74abc94aad1e71d260200460dcf7be4a37947efaf1edb4941",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D3-AA-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“提供“结构模板”（A-B-A/三段体/回旋）与示例”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_33fedd7de06c0f09",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_00452e62b0a9dead1e66",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a500c9f1cd1c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1fabba386856d842",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b3cdfcffb6082080",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_47474bd0c3009d7bfcf6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e4cb7e4583cf"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_98c7d2610118429f",
+      "textbook_grade": 5,
+      "textbook_subject": "美术",
+      "textbook_title": "美术5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_13e42bc77e49688e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4b42884b46b80ae41661",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9df9f8776364"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_169db90609589ba4",
+      "textbook_grade": 6,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4ef60979c4afb009",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6e0cec28ca9346d8d02b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_502c7444779d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4ba398935af785c4",
+      "textbook_grade": 5,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_beb3bc93cd80d319",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_873c7b8d8f5dfcaf3081",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5d105252e267"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_2a3a735a14f9dc94",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e746ee2f100e3a86",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913a5e82b0b4337baa77",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5f8b00576115"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d3a37cdd8bcdc4bb",
+      "textbook_grade": 5,
+      "textbook_subject": "美术",
+      "textbook_title": "美术5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_727ca653c08fa908",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e9b82a8986eea7ee1402",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7a1467daa20d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fc37261770b36f51",
+      "textbook_grade": 5,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c78e0c1935fcd8d6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fe115d2e431c2607bf7d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_118d280cce66"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_8ce6886f94462897",
+      "textbook_grade": 6,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1098,
+      "connection_id": "fc_06a13f85577b291d",
+      "evidence_refs": [
+        "standard:AR-H4G7-AA-006:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D3-AA-004",
+      "target_code": "AR-H4G7-AA-006",
+      "target_label": "能听辨合唱声部和乐队主奏或伴奏乐器音色；能描述其特点和表现作用；能辨别常见音乐结构及主调、复调音乐；能描述艺术要素并完成基础表现或创作。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_41d5db39f21bb2e3",
+      "component_ids": [
+        "lc_47c7057c50e20667"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "表示"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示；优先采集：结构图/图形谱、口头讲解、教师评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能辨别民族五声调式与大小调，听辨主题及乐句、乐段的重复与变化，辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示。",
+          "excerpt_hash": "70fe57092b2ba420809bde0d8debb6c076b5ddc12696d31a72007cf8dfe116ac",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（表示）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_90d08cdd4f0ac83c",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够辨别民族五声调式与大小调",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生辨别民族五声调式与大小调，并说明关键步骤、特征或依据。",
+      "label": "辨别民族五声调式与大小调",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够辨别民族五声调式与大小调；优先采集：结构图/图形谱、口头讲解、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨别民族五声调式与大小调",
+          "excerpt_hash": "f52e3ac647398564ea55793886eb00c59114f9ad3165dccf85e4abaac55042e4",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "辨别民族五声调式与大小调"
+    },
+    {
+      "component_id": "lc_3c72cec2fcde9288",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够听辨主题及乐句、乐段的重复与变化",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生听辨主题及乐句、乐段的重复与变化，并说明关键步骤、特征或依据。",
+      "label": "听辨主题及乐句、乐段的重复与变化",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够听辨主题及乐句、乐段的重复与变化；优先采集：结构图/图形谱、口头讲解、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "听辨主题及乐句、乐段的重复与变化",
+          "excerpt_hash": "fa63a229190b06cd1ebd50cac131e1afca5b76968a54fbb00f2936e5422c3be4",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "听辨主题及乐句、乐段的重复与变化"
+    },
+    {
+      "component_id": "lc_47c7057c50e20667",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示，并说明关键步骤、特征或依据。",
+      "label": "辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示；优先采集：结构图/图形谱、口头讲解、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示",
+          "excerpt_hash": "da121bd2e0f12c51c4da35b1ca784e64324b66eea6572ec97c07552daf60e946",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_bd8fe9c895a51b47",
+      "evidence_refs": [
+        "standard:AR-D3-AA-004:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D2-CU-004",
+      "source_label": "初步了解中国传统音乐的常见形态与特点（如节奏、节拍、曲调、结构等），能说出其对音乐风格的影响，并能在听赏中做出基本判断。",
+      "target_code": "AR-D3-AA-004",
+      "target_label": "能辨别民族五声调式与大小调，听辨主题及乐句、乐段的重复与变化，辨别常见结构以及主调/复调音乐，并用合适方式（图形谱/结构图/口述）表示。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "70fe57092b2ba420809bde0d8debb6c076b5ddc12696d31a72007cf8dfe116ac",
+  "standard_code": "AR-D3-AA-004",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,399 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_bc24ccc57dc526a2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明作品意图或效果的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fa8822ae52424a34",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_7a7b12dabaf842fb"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明作品意图或效果”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明作品意图或效果”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过系列戏剧游戏学习声音、肢体和情感的表现方法；能在有条件开设戏剧选项时；能体验气息、字音、语气、腔调的运用；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "2f6d72a19cb13075b04e19eb00e3f9a1a6a587df0eea1b71468d38aa002bee12",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-AE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把声音、肢体、情感训练分时段嵌入每次戏剧游戏教学。",
+          "excerpt_hash": "7338305e09486b44ce10862a9f74e51cfc810dcaf5e8797658b37ef01184070f",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G8-AE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明作品意图或效果，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明作品意图或效果”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把声音、肢体、情感训练分时段嵌入每次戏剧游戏教学。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_c29fa634a297f6b1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生参与相关活动并描述气息、字音、语气、腔调的运用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4fd7fd55a373849e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“参与相关活动并描述气息、字音、语气、腔调的运用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“参与相关活动并描述气息、字音、语气、腔调的运用”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过系列戏剧游戏学习声音、肢体和情感的表现方法；能在有条件开设戏剧选项时；能体验气息、字音、语气、腔调的运用；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "2f6d72a19cb13075b04e19eb00e3f9a1a6a587df0eea1b71468d38aa002bee12",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-AE-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把声音、肢体、情感训练分时段嵌入每次戏剧游戏教学。",
+          "excerpt_hash": "7338305e09486b44ce10862a9f74e51cfc810dcaf5e8797658b37ef01184070f",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G8-AE-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后参与相关活动并描述气息、字音、语气、腔调的运用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“参与相关活动并描述气息、字音、语气、腔调的运用”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把声音、肢体、情感训练分时段嵌入每次戏剧游戏教学。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_513d9aaa4955809e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_03a3ee5b0a046f990193",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c4470d97d606"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_49008e32afb1ea73",
+      "textbook_grade": 8,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b1bc6d1262f98c47",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5176fbbfb48b6f094ec5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_3f3ef809a59b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3937cb93e59941dd",
+      "textbook_grade": 8,
+      "textbook_subject": "美术",
+      "textbook_title": "美术8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a3bd52698a81e566",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_8af324795e3ff5e3ad56",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5456c0d80ef9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_66b34c8187cbffd0",
+      "textbook_grade": 8,
+      "textbook_subject": "美术",
+      "textbook_title": "美术8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9c6c4a3841df0b57",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c2c429ae25127d8a61ca",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_841b34386a8a"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e236fa847f007794",
+      "textbook_grade": 8,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_398ea3bf517a6529",
+      "evidence_refs": [
+        "standard:AR-H4G8-AE-001:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-H4G8-AE-001",
+      "target_code": "AR-H4G9-AE-001",
+      "target_label": "能通过系列戏剧游戏学习声音、肢体和情感的表现方法；能在有条件开设戏剧选项时；能通过无实物表演训练肢体动作表现；能评价作品效果并完善展演、创作或…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_7a7b12dabaf842fb",
+      "component_ids": [
+        "lc_bc24ccc57dc526a2"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明作品意图或效果。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明作品意图或效果；优先采集：戏剧游戏表现、语言训练记录、肢体片段展示。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过系列戏剧游戏学习声音、肢体和情感的表现方法；能在有条件开设戏剧选项时；能体验气息、字音、语气、腔调的运用；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "2f6d72a19cb13075b04e19eb00e3f9a1a6a587df0eea1b71468d38aa002bee12",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-AE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_eee3db4a776ddd5e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过系列戏剧游戏学习声音、肢体和情感的表现方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过系列戏剧游戏学习声音、肢体和情感的表现方法，并说明关键步骤、特征或依据。",
+      "label": "通过系列戏剧游戏学习声音、肢体和情感的表现方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过系列戏剧游戏学习声音、肢体和情感的表现方法；优先采集：戏剧游戏表现、语言训练记录、肢体片段展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过系列戏剧游戏学习声音、肢体和情感的表现方法",
+          "excerpt_hash": "a8455334f88ad8c413d8bf9469c406d876051fb83a9c6e910d8a691f77fa34b9",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-AE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过系列戏剧游戏学习声音、肢体和情感的表现方法"
+    },
+    {
+      "component_id": "lc_c29fa634a297f6b1",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与相关活动并描述气息、字音、语气、腔调的运用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与相关活动并描述气息、字音、语气、腔调的运用，并说明关键步骤、特征或依据。",
+      "label": "参与相关活动并描述气息、字音、语气、腔调的运用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与相关活动并描述气息、字音、语气、腔调的运用；优先采集：戏剧游戏表现、语言训练记录、肢体片段展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "体验气息、字音、语气、腔调的运用",
+          "excerpt_hash": "fa46dd493fe5f26bb7a1d8a1175c45b2ca85e2def9e987ed4d9fcf62821d654b",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-AE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体验气息、字音、语气、腔调的运用"
+    },
+    {
+      "component_id": "lc_b9dcd861cf194293",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够调整表现方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整表现方法，并说明关键步骤、特征或依据。",
+      "label": "调整表现方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够调整表现方法；优先采集：戏剧游戏表现、语言训练记录、肢体片段展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "调整表现方法",
+          "excerpt_hash": "624139c8c27447716076606d4fffc25d29bbd39623044fea23b9317d3438bb50",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-AE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "调整表现方法"
+    },
+    {
+      "component_id": "lc_bc24ccc57dc526a2",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明作品意图或效果",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明作品意图或效果，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明作品意图或效果",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明作品意图或效果；优先采集：戏剧游戏表现、语言训练记录、肢体片段展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明作品意图或效果",
+          "excerpt_hash": "9848376f6e433abf944ce2802b9a7699e3ab8073534008b9730e477835bb86eb",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-AE-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明作品意图或效果"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_e064a15f191fe182",
+      "evidence_refs": [
+        "standard:AR-H4G8-AE-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-H4G7-AE-002",
+      "source_label": "能通过系列戏剧游戏学习声音、肢体和情感的表现方法；能在有条件开设戏剧选项时；能体验气息、字音、语气、腔调的运用；能描述艺术要素并完成基础表现或…",
+      "target_code": "AR-H4G8-AE-001",
+      "target_label": "能通过系列戏剧游戏学习声音、肢体和情感的表现方法；能在有条件开设戏剧选项时；能体验气息、字音、语气、腔调的运用；能调整表现方法并说明作品意图或…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "2f6d72a19cb13075b04e19eb00e3f9a1a6a587df0eea1b71468d38aa002bee12",
+  "standard_code": "AR-H4G8-AE-001",
+  "verified_prerequisites": []
+}

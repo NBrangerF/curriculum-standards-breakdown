@@ -1,0 +1,215 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_4c88fabb2f257b3c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生以小组形式完成一次工艺项目（计划—制作—展示—复盘）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1f29ea64acaf7fa4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ab4e42e5a44eaca0"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“以小组形式完成一次工艺项目（计划—制作—展示—复盘）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“以小组形式完成一次工艺项目（计划—制作—展示—复盘）”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能以小组形式完成一次工艺项目（计划—制作—展示—复盘），能遵守分工、控制进度，形成合作与责任意识。",
+          "excerpt_hash": "5eeaf1381e9a7402f179c947520c0c67c7e711c4618283ae25a65feddcd3dae2",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-020:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用甘特式进度表（简化版）；每节课结束做“下一步清单”；展示时要求讲“问题与改进”。",
+          "excerpt_hash": "8774a23b44245b8c8621cad18154658e5fbe34c782b3572f6044c028a020235e",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-PL-020:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后以小组形式完成一次工艺项目（计划—制作—展示—复盘），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“以小组形式完成一次工艺项目（计划—制作—展示—复盘）”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“用甘特式进度表（简化版）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1735,
+      "connection_id": "fc_d715e980942c5ce3",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-PL-020",
+      "target_code": "LA-H4G7-PL-007",
+      "target_label": "选择一至两项传统工艺制作项目，了解其特点和基本技能，能依据劳动需要进行设计、绘制示意图并完成制作；能按规范完成任务并说明工具、材料或安全要求。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ab4e42e5a44eaca0",
+      "component_ids": [
+        "lc_4c88fabb2f257b3c"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生以小组形式完成一次工艺项目（计划—制作—展示—复盘）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够以小组形式完成一次工艺项目（计划—制作—展示—复盘）；优先采集：项目计划、过程证据、展示表现、复盘报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能以小组形式完成一次工艺项目（计划—制作—展示—复盘），能遵守分工、控制进度，形成合作与责任意识。",
+          "excerpt_hash": "5eeaf1381e9a7402f179c947520c0c67c7e711c4618283ae25a65feddcd3dae2",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-020:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_4c88fabb2f257b3c",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够以小组形式完成一次工艺项目（计划—制作—展示—复盘）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生以小组形式完成一次工艺项目（计划—制作—展示—复盘），并说明关键步骤、特征或依据。",
+      "label": "以小组形式完成一次工艺项目（计划—制作—展示—复盘）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够以小组形式完成一次工艺项目（计划—制作—展示—复盘）；优先采集：项目计划、过程证据、展示表现、复盘报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "以小组形式完成一次工艺项目（计划—制作—展示—复盘）",
+          "excerpt_hash": "d7be478d0213028fb132ef0b6baa9e8c54e316c0bc16aeddb3461b60e315af47",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-020:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "以小组形式完成一次工艺项目（计划—制作—展示—复盘）"
+    },
+    {
+      "component_id": "lc_d3e9be3132cb2a85",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够遵守分工、控制进度",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生遵守分工、控制进度，并说明关键步骤、特征或依据。",
+      "label": "遵守分工、控制进度",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够遵守分工、控制进度；优先采集：项目计划、过程证据、展示表现、复盘报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "遵守分工、控制进度",
+          "excerpt_hash": "7884d9299b654efac1ce5420dd12975f7edd4582299ff96b555aad51952b3968",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-020:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守分工、控制进度"
+    },
+    {
+      "component_id": "lc_e8c86aa3218e78ea",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出合作与责任意识并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出合作与责任意识并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出合作与责任意识并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出合作与责任意识并说明选择理由；优先采集：项目计划、过程证据、展示表现、复盘报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成合作与责任意识",
+          "excerpt_hash": "a67761800417e408b3cfcf55165ab8223eaac24819ab0cb2dc15b4e17f2966b1",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-020:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成合作与责任意识"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_8b1da5cc038f6889",
+      "evidence_refs": [
+        "standard:LA-D3-PL-020:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-PL-018",
+      "source_label": "能对工艺作品从牢固、整洁、节约材料与审美效果等方面进行评价，能根据反馈完成至少一次改进并记录改进点。",
+      "target_code": "LA-D3-PL-020",
+      "target_label": "能以小组形式完成一次工艺项目（计划—制作—展示—复盘），能遵守分工、控制进度，形成合作与责任意识。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5eeaf1381e9a7402f179c947520c0c67c7e711c4618283ae25a65feddcd3dae2",
+  "standard_code": "LA-D3-PL-020",
+  "verified_prerequisites": []
+}

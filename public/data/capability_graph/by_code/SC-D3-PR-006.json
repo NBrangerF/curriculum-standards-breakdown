@@ -1,0 +1,414 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_e9493f7c615e6656"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生举例说明科学发现可以促进新技术发明(如激光的发明)的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5a88bdbd1a4ca04a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_397fd55cd638071c"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“举例说明科学发现可以促进新技术发明(如激光的发明)”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“举例说明科学发现可以促进新技术发明(如激光的发明)”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步认识技术与工程对科学发展的促进作用，应用仪器设备进行观察并进行记录；举例说明科学发现可以促进新技术发明(如激光的发明)。",
+          "excerpt_hash": "d87ede7283940fea4d67b85386161287d07d6cb1265913feee28f79b9fae891d",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“提倡在研讨中培养学生全面地认识和看待问题的意识让学生结合身边的事例，采用角色扮演的方式，体会不同人群看待问题的不同立场，理解…”",
+          "excerpt_hash": "1b39630bdc0e0d3dc4d2cb90a191edc8b6c145f027ee3b320c5cc7f8ebf6274d",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-PR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后举例说明科学发现可以促进新技术发明(如激光的发明)，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“举例说明科学发现可以促进新技术发明(如激光的发明)”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：““提倡在研讨中培养学生全面地认识和看待问题的意识让学生结合身边的事例，采用角色扮演的方式，体会不同人群看待问题的不同立场，理解…””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_48d3edf1f3970d06"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生应用仪器设备进行观察并进行记录的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fb6a827bcab0433f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“应用仪器设备进行观察并进行记录”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“应用仪器设备进行观察并进行记录”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步认识技术与工程对科学发展的促进作用，应用仪器设备进行观察并进行记录；举例说明科学发现可以促进新技术发明(如激光的发明)。",
+          "excerpt_hash": "d87ede7283940fea4d67b85386161287d07d6cb1265913feee28f79b9fae891d",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“提倡在研讨中培养学生全面地认识和看待问题的意识让学生结合身边的事例，采用角色扮演的方式，体会不同人群看待问题的不同立场，理解…”",
+          "excerpt_hash": "1b39630bdc0e0d3dc4d2cb90a191edc8b6c145f027ee3b320c5cc7f8ebf6274d",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-PR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后应用仪器设备进行观察并进行记录，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“应用仪器设备进行观察并进行记录”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：““提倡在研讨中培养学生全面地认识和看待问题的意识让学生结合身边的事例，采用角色扮演的方式，体会不同人群看待问题的不同立场，理解…””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_d2933d7902347c7d",
+        "lc_48d3edf1f3970d06",
+        "lc_e9493f7c615e6656"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生初步识别并说出技术与工程对科学发展的促进作用的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_338401f84757b3ae",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_397fd55cd638071c"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“初步识别并说出技术与工程对科学发展的促进作用的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“初步识别并说出技术与工程对科学发展的促进作用的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步认识技术与工程对科学发展的促进作用，应用仪器设备进行观察并进行记录；举例说明科学发现可以促进新技术发明(如激光的发明)。",
+          "excerpt_hash": "d87ede7283940fea4d67b85386161287d07d6cb1265913feee28f79b9fae891d",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“提倡在研讨中培养学生全面地认识和看待问题的意识让学生结合身边的事例，采用角色扮演的方式，体会不同人群看待问题的不同立场，理解…”",
+          "excerpt_hash": "1b39630bdc0e0d3dc4d2cb90a191edc8b6c145f027ee3b320c5cc7f8ebf6274d",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-PR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后初步识别并说出技术与工程对科学发展的促进作用的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“初步识别并说出技术与工程对科学发展的促进作用的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：““提倡在研讨中培养学生全面地认识和看待问题的意识让学生结合身边的事例，采用角色扮演的方式，体会不同人群看待问题的不同立场，理解…””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7e72b9529bd337fa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5d8c5902b781b5de5f03",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d39057261769"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c22c450af4b9046",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_93f6b8920f647640",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e1c8e586d87fc9",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1fc781b5e799664f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7c85e6846ee2baf665b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b6340ce96157"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_208d54146f4a9b68",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2eecf2c2f61d216c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a04b8a546cf314368898",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6a5186074181"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_426c7beba471c1cd",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1302,
+      "connection_id": "fc_55eff9de7a34f394",
+      "evidence_refs": [
+        "standard:SC-H4G7-PR-006:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-PR-006",
+      "target_code": "SC-H4G7-PR-006",
+      "target_label": "能运用学科核心概念和跨学科概念；能知道跨学科解决实际问题的方法并尝试解决问题；认识现代技术与工程的系统性和复杂性；能用观察证据说明基本科学概念。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1639,
+      "connection_id": "fc_ff1f7a79e098f3f7",
+      "evidence_refs": [
+        "standard:SC-H4G7-PR-008:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-PR-006",
+      "target_code": "SC-H4G7-PR-008",
+      "target_label": "能知道技术开发和应用需要考虑伦理问题；能从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断；能举例说明重大技术发明对人类社…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_397fd55cd638071c",
+      "component_ids": [
+        "lc_e9493f7c615e6656"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生举例说明科学发现可以促进新技术发明(如激光的发明)。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够举例说明科学发现可以促进新技术发明(如激光的发明)；优先采集：实验/探究记录、模型/作品、口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步认识技术与工程对科学发展的促进作用，应用仪器设备进行观察并进行记录；举例说明科学发现可以促进新技术发明(如激光的发明)。",
+          "excerpt_hash": "d87ede7283940fea4d67b85386161287d07d6cb1265913feee28f79b9fae891d",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d2933d7902347c7d",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够初步识别并说出技术与工程对科学发展的促进作用的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生初步识别并说出技术与工程对科学发展的促进作用的关键特征，并说明关键步骤、特征或依据。",
+      "label": "初步识别并说出技术与工程对科学发展的促进作用的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够初步识别并说出技术与工程对科学发展的促进作用的关键特征；优先采集：实验/探究记录、模型/作品、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "初步认识技术与工程对科学发展的促进作用",
+          "excerpt_hash": "b91982ce6550fab5bdc12564193aca81c401796e120f3e3ca6089180d2da583f",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "初步认识技术与工程对科学发展的促进作用"
+    },
+    {
+      "component_id": "lc_48d3edf1f3970d06",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够应用仪器设备进行观察并进行记录",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生应用仪器设备进行观察并进行记录，并说明关键步骤、特征或依据。",
+      "label": "应用仪器设备进行观察并进行记录",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够应用仪器设备进行观察并进行记录；优先采集：实验/探究记录、模型/作品、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "应用仪器设备进行观察并进行记录",
+          "excerpt_hash": "6766c91d20271dcaf825eef8894ebdd2c7e144d8f044938c8f545323482ca0e3",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "应用仪器设备进行观察并进行记录"
+    },
+    {
+      "component_id": "lc_e9493f7c615e6656",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够举例说明科学发现可以促进新技术发明(如激光的发明)",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生举例说明科学发现可以促进新技术发明(如激光的发明)，并保留可回查的口头、书面或操作过程证据。",
+      "label": "举例说明科学发现可以促进新技术发明(如激光的发明)",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够举例说明科学发现可以促进新技术发明(如激光的发明)；优先采集：实验/探究记录、模型/作品、口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "举例说明科学发现可以促进新技术发明(如激光的发明)",
+          "excerpt_hash": "292bee3fc3d1652d57336e7200abb2ec1db4408e9403d9e33fccac8faf7f61fb",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-PR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "举例说明科学发现可以促进新技术发明(如激光的发明)"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d87ede7283940fea4d67b85386161287d07d6cb1265913feee28f79b9fae891d",
+  "standard_code": "SC-D3-PR-006",
+  "verified_prerequisites": []
+}

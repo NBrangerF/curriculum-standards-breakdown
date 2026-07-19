@@ -1,0 +1,392 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_941ed179c7b4db17",
+        "lc_d332cde1b7bb339e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释互联网对社会各领域的影响的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_abad546a291c826c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a358bc33834fec86"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释互联网对社会各领域的影响”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释互联网对社会各领域的影响”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感受互联网和物联网改变学习、生活和工作方式；能观察、探究并理解互联网对社会各领域的影响；能体验互联网交互方式；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "b97c327c6f672a0073bfa21a39d5b855762dbcf0d5ec428ed40ba884937a69d7",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-IC-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生从真实应用出发分析技术影响，区分便利、风险和社会价值。",
+          "excerpt_hash": "7f736161240bed98736a637f3397871e920eab8354c420620d98f51fda87b3be",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G7-IC-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释互联网对社会各领域的影响，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释互联网对社会各领域的影响”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生从真实应用出发分析技术影响，区分便利、风险和社会价值。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_df3459e7b52e0dfd"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生感受互联网和物联网改变学习、生活和工作方式的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e3be3c9d70b9f012",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_63e119f7305a959f"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“感受互联网和物联网改变学习、生活和工作方式”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“感受互联网和物联网改变学习、生活和工作方式”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感受互联网和物联网改变学习、生活和工作方式；能观察、探究并理解互联网对社会各领域的影响；能体验互联网交互方式；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "b97c327c6f672a0073bfa21a39d5b855762dbcf0d5ec428ed40ba884937a69d7",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-IC-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生从真实应用出发分析技术影响，区分便利、风险和社会价值。",
+          "excerpt_hash": "7f736161240bed98736a637f3397871e920eab8354c420620d98f51fda87b3be",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G7-IC-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后感受互联网和物联网改变学习、生活和工作方式，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“感受互联网和物联网改变学习、生活和工作方式”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“引导学生从真实应用出发分析技术影响，区分便利、风险和社会价值。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_178500a284961cfe"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生观察、探究的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4c52185edc8b0e67",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“观察、探究”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“观察、探究”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感受互联网和物联网改变学习、生活和工作方式；能观察、探究并理解互联网对社会各领域的影响；能体验互联网交互方式；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "b97c327c6f672a0073bfa21a39d5b855762dbcf0d5ec428ed40ba884937a69d7",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-IC-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生从真实应用出发分析技术影响，区分便利、风险和社会价值。",
+          "excerpt_hash": "7f736161240bed98736a637f3397871e920eab8354c420620d98f51fda87b3be",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G7-IC-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后观察、探究，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“观察、探究”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生从真实应用出发分析技术影响，区分便利、风险和社会价值。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_123bbf45630059c6",
+      "evidence_refs": [
+        "standard:IT-H4G7-IC-001:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H4G7-IC-001",
+      "target_code": "IT-H4G8-IC-002",
+      "target_label": "能感受互联网和物联网改变学习、生活和工作方式；能观察、探究并理解互联网对社会各领域的影响；能体验互联网交互方式；能分析系统关系并完成有步骤的数…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a358bc33834fec86",
+      "component_ids": [
+        "lc_941ed179c7b4db17",
+        "lc_d332cde1b7bb339e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释互联网对社会各领域的影响。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释互联网对社会各领域的影响；优先采集：应用分析报告、展示交流、观察记录。",
+        "学生能够说明数字工具或数据过程的基本做法；优先采集：应用分析报告、展示交流、观察记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感受互联网和物联网改变学习、生活和工作方式；能观察、探究并理解互联网对社会各领域的影响；能体验互联网交互方式；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "b97c327c6f672a0073bfa21a39d5b855762dbcf0d5ec428ed40ba884937a69d7",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-IC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_63e119f7305a959f",
+      "component_ids": [
+        "lc_df3459e7b52e0dfd"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生感受互联网和物联网改变学习、生活和工作方式。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够感受互联网和物联网改变学习、生活和工作方式；优先采集：应用分析报告、展示交流、观察记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感受互联网和物联网改变学习、生活和工作方式；能观察、探究并理解互联网对社会各领域的影响；能体验互联网交互方式；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "b97c327c6f672a0073bfa21a39d5b855762dbcf0d5ec428ed40ba884937a69d7",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-IC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_df3459e7b52e0dfd",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够感受互联网和物联网改变学习、生活和工作方式",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生感受互联网和物联网改变学习、生活和工作方式，并说明关键步骤、特征或依据。",
+      "label": "感受互联网和物联网改变学习、生活和工作方式",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够感受互联网和物联网改变学习、生活和工作方式；优先采集：应用分析报告、展示交流、观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "感受互联网和物联网改变学习、生活和工作方式",
+          "excerpt_hash": "dd521dc1328ff4677148205ba808e5e329b01cfc081e32806f0b2bd5cf228ab0",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-IC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "感受互联网和物联网改变学习、生活和工作方式"
+    },
+    {
+      "component_id": "lc_178500a284961cfe",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够观察、探究",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生观察、探究，并说明关键步骤、特征或依据。",
+      "label": "观察、探究",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够观察、探究；优先采集：应用分析报告、展示交流、观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "观察、探究",
+          "excerpt_hash": "42c93ae8a852cae0b4c8e01357fff752238388526fa80f918389c9c3e27739bd",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-IC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "观察、探究"
+    },
+    {
+      "component_id": "lc_941ed179c7b4db17",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释互联网对社会各领域的影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释互联网对社会各领域的影响，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释互联网对社会各领域的影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释互联网对社会各领域的影响；优先采集：应用分析报告、展示交流、观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解互联网对社会各领域的影响",
+          "excerpt_hash": "0c2685dac2602a353249719cf914d72953c46f281dbf85790ea9a6bc57c04bc6",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-IC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解互联网对社会各领域的影响"
+    },
+    {
+      "component_id": "lc_1e0bbb3bd82a856b",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与相关活动并描述互联网交互方式",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与相关活动并描述互联网交互方式，并说明关键步骤、特征或依据。",
+      "label": "参与相关活动并描述互联网交互方式",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与相关活动并描述互联网交互方式；优先采集：应用分析报告、展示交流、观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "体验互联网交互方式",
+          "excerpt_hash": "f81cd89aaa3e15e9e2e4efe5985ad88f84a52e5dbd016af81d4708870ada054a",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-IC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体验互联网交互方式"
+    },
+    {
+      "component_id": "lc_d332cde1b7bb339e",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明数字工具或数据过程的基本做法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明数字工具或数据过程的基本做法，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明数字工具或数据过程的基本做法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明数字工具或数据过程的基本做法；优先采集：应用分析报告、展示交流、观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明数字工具或数据过程的基本做法",
+          "excerpt_hash": "a578d2fb17bbdec79eedf1635ae20493e83ea3c2f80eabfea02a716484d85a53",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-IC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明数字工具或数据过程的基本做法"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1207,
+      "edge_id": "pc_9b09135a8640e1f4",
+      "evidence_refs": [
+        "standard:IT-H4G7-IC-001:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H3-IC-001",
+      "source_label": "能通过观察身边实例，将过程与控制现象抽象为包含输入、计算（处理）与输出三个环节的系统模型，并能用示意图标注各环节及信息流向。",
+      "target_code": "IT-H4G7-IC-001",
+      "target_label": "能感受互联网和物联网改变学习、生活和工作方式；能观察、探究并理解互联网对社会各领域的影响；能体验互联网交互方式；能说明数字工具或数据过程的基本…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0945,
+      "edge_id": "pc_b5213822c383155c",
+      "evidence_refs": [
+        "standard:IT-H4G7-IC-001:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H3-IC-002",
+      "source_label": "能在实例中理解“大系统可分解为若干小系统、系统可划分为功能模块”，并能对一个日常设备进行至少两层的分解，说明各模块的功能及其协作关系。",
+      "target_code": "IT-H4G7-IC-001",
+      "target_label": "能感受互联网和物联网改变学习、生活和工作方式；能观察、探究并理解互联网对社会各领域的影响；能体验互联网交互方式；能说明数字工具或数据过程的基本…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b97c327c6f672a0073bfa21a39d5b855762dbcf0d5ec428ed40ba884937a69d7",
+  "standard_code": "IT-H4G7-IC-001",
+  "verified_prerequisites": []
+}

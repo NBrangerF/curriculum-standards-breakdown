@@ -1,0 +1,474 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_ca9b018cec63980d",
+        "lc_4b25a02f6ba44935",
+        "lc_b4cbe370563d935e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生尊重证据并坚持正确观点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_79947b2ccb85e2f0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_69d3a3723ea5f3d3",
+        "hc_3ebf318bd8e51f58"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“尊重证据并坚持正确观点”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“尊重证据并坚持正确观点”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重证据并坚持正确观点；能实验结果不一致时分析原因并再次验证；形成热爱自然、珍爱生命、保护环境的责任感；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "fbb650610ae04f5f7e941e67405c648d47deeb09ef444cb176eaab56b0c891f7",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将科学态度、合作交流、伦理规范和生态责任融合在真实议题学习中。",
+          "excerpt_hash": "c2ba2fa6bb5c37ba7d0ad104711cccb9800e4c9b4a19aeb662612e3110cfa01a",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-AR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后尊重证据并坚持正确观点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“尊重证据并坚持正确观点”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“将科学态度、合作交流、伦理规范和生态责任融合在真实议题学习中。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_b4cbe370563d935e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c9d981aab566a5ba",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_69d3a3723ea5f3d3"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重证据并坚持正确观点；能实验结果不一致时分析原因并再次验证；形成热爱自然、珍爱生命、保护环境的责任感；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "fbb650610ae04f5f7e941e67405c648d47deeb09ef444cb176eaab56b0c891f7",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将科学态度、合作交流、伦理规范和生态责任融合在真实议题学习中。",
+          "excerpt_hash": "c2ba2fa6bb5c37ba7d0ad104711cccb9800e4c9b4a19aeb662612e3110cfa01a",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-AR-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用观察证据说明基本科学概念”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“将科学态度、合作交流、伦理规范和生态责任融合在真实议题学习中。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_00d0b441d1e26624",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_21164b69894834d04f84",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7070ee669923"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ba775a07035c65ee",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_587b028f72f751df",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b2901b9e06df"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3daf5000bc9191a7",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9eeddd4d2e40018c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_92369ed68f9321363e22",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae920aee077f"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_94dc3a2f9a671969",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_feb8018cce81b33f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fc41327ff0651b269c88",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae5d3f924fb1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4604008cfd618f79",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_bcd9e2126d66185a",
+      "evidence_refs": [
+        "standard:SC-H4G7-AR-006:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G7-AR-006",
+      "target_code": "SC-H4G8-AR-006",
+      "target_label": "能实验结果不一致时分析原因并再次验证；尊重证据并坚持正确观点；能乐于合作交流；能比较证据并解释概念之间的关系。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_69d3a3723ea5f3d3",
+      "component_ids": [
+        "lc_ca9b018cec63980d",
+        "lc_4b25a02f6ba44935",
+        "lc_b4cbe370563d935e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生尊重证据并坚持正确观点。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够尊重证据并坚持正确观点；优先采集：合作记录、伦理判断、行动倡议。",
+        "学生能够在任务中表现出热爱自然、珍爱生命、保护环境的责任感并说明选择理由；优先采集：合作记录、伦理判断、行动倡议。",
+        "学生能够用观察证据说明基本科学概念；优先采集：合作记录、伦理判断、行动倡议。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重证据并坚持正确观点；能实验结果不一致时分析原因并再次验证；形成热爱自然、珍爱生命、保护环境的责任感；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "fbb650610ae04f5f7e941e67405c648d47deeb09ef444cb176eaab56b0c891f7",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_3ebf318bd8e51f58",
+      "component_ids": [
+        "lc_ca9b018cec63980d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生尊重证据并坚持正确观点。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够尊重证据并坚持正确观点；优先采集：合作记录、伦理判断、行动倡议。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重证据并坚持正确观点；能实验结果不一致时分析原因并再次验证；形成热爱自然、珍爱生命、保护环境的责任感；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "fbb650610ae04f5f7e941e67405c648d47deeb09ef444cb176eaab56b0c891f7",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_e9fec347388e0de1",
+      "component_ids": [
+        "lc_2e0b566194553860"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "一致"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生实验结果不一致时分析原因并再次验证。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够实验结果不一致时分析原因并再次验证；优先采集：合作记录、伦理判断、行动倡议。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重证据并坚持正确观点；能实验结果不一致时分析原因并再次验证；形成热爱自然、珍爱生命、保护环境的责任感；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "fbb650610ae04f5f7e941e67405c648d47deeb09ef444cb176eaab56b0c891f7",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（一致）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ca9b018cec63980d",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够尊重证据并坚持正确观点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生尊重证据并坚持正确观点，并说明关键步骤、特征或依据。",
+      "label": "尊重证据并坚持正确观点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够尊重证据并坚持正确观点；优先采集：合作记录、伦理判断、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重证据并坚持正确观点",
+          "excerpt_hash": "4d32bcf19f7bd7ab575d4c818abeaecaf6d3d085edc6fde175b32b534261d0a2",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "尊重证据并坚持正确观点"
+    },
+    {
+      "component_id": "lc_2e0b566194553860",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够实验结果不一致时分析原因并再次验证",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生实验结果不一致时分析原因并再次验证，并说明关键步骤、特征或依据。",
+      "label": "实验结果不一致时分析原因并再次验证",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够实验结果不一致时分析原因并再次验证；优先采集：合作记录、伦理判断、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "实验结果不一致时分析原因并再次验证",
+          "excerpt_hash": "ce667ee2969cd58a8b5ae7f9e05cf7cb8018b4d54ff4291dccdceeb68b3285b8",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "实验结果不一致时分析原因并再次验证"
+    },
+    {
+      "component_id": "lc_4b25a02f6ba44935",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出热爱自然、珍爱生命、保护环境的责任感并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出热爱自然、珍爱生命、保护环境的责任感并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出热爱自然、珍爱生命、保护环境的责任感并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出热爱自然、珍爱生命、保护环境的责任感并说明选择理由；优先采集：合作记录、伦理判断、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成热爱自然、珍爱生命、保护环境的责任感",
+          "excerpt_hash": "bf5bddcc10cf484fad2df954c1d07fa24fa52f3a96ce15adf595617a9de27afa",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成热爱自然、珍爱生命、保护环境的责任感"
+    },
+    {
+      "component_id": "lc_b4cbe370563d935e",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用观察证据说明基本科学概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用观察证据说明基本科学概念",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：合作记录、伦理判断、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用观察证据说明基本科学概念",
+          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用观察证据说明基本科学概念"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1048,
+      "edge_id": "pc_304f91af1bbedf35",
+      "evidence_refs": [
+        "standard:SC-H4G7-AR-006:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-AR-007",
+      "source_label": "关注科技与工程对社会和环境的影响，做出负责任的选择与行动。",
+      "target_code": "SC-H4G7-AR-006",
+      "target_label": "尊重证据并坚持正确观点；能实验结果不一致时分析原因并再次验证；形成热爱自然、珍爱生命、保护环境的责任感；能用观察证据说明基本科学概念。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "fbb650610ae04f5f7e941e67405c648d47deeb09ef444cb176eaab56b0c891f7",
+  "standard_code": "SC-H4G7-AR-006",
+  "verified_prerequisites": []
+}

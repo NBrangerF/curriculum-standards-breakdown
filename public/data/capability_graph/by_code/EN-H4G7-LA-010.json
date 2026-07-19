@@ -1,0 +1,383 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_1f9cb1c00fc19d80",
+        "lc_d7a2429334257208"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生使用约1600个单词进行交流与表达的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d42f1767ec781dc7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_50c5272c7818cbf5"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“使用约1600个单词进行交流与表达”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“使用约1600个单词进行交流与表达”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过识别词根、词缀理解生词；能围绕相关主题学习并使用约1600个单词进行交流与表达；能辨识前缀、后缀及其意义；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "950002b2f92e1b7b5f0daedd7b32daf03beb14d6bfe516e48720fe5f56269427",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合主题语境、构词法、词典和词表指导学生自主扩展词汇。",
+          "excerpt_hash": "2fce40e7b279d16a5ac8e0f688bbbbecb3a6200fc63c1af734167a18764755aa",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-LA-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后使用约1600个单词进行交流与表达，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“使用约1600个单词进行交流与表达”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“结合主题语境、构词法、词典和词表指导学生自主扩展词汇。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_e73288ef93a51409"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过识别词根、词缀理解生词的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_46cdb8fc8d1f7ca3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“通过识别词根、词缀理解生词”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过识别词根、词缀理解生词”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过识别词根、词缀理解生词；能围绕相关主题学习并使用约1600个单词进行交流与表达；能辨识前缀、后缀及其意义；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "950002b2f92e1b7b5f0daedd7b32daf03beb14d6bfe516e48720fe5f56269427",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合主题语境、构词法、词典和词表指导学生自主扩展词汇。",
+          "excerpt_hash": "2fce40e7b279d16a5ac8e0f688bbbbecb3a6200fc63c1af734167a18764755aa",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-LA-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过识别词根、词缀理解生词，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过识别词根、词缀理解生词”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“结合主题语境、构词法、词典和词表指导学生自主扩展词汇。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a64216f198a13742",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_600fc96aca5a7c702986",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c81ef75b15c2"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f2972c892efdda49",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5f1fd1ff25e0dd12",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fcc8f13544f60ac83228",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_006c435d5baa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b6842528f75f35c9",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_f5ec342cd2cc7097",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-010:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-H4G7-LA-010",
+      "target_code": "EN-H4G8-LA-011",
+      "target_label": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_50c5272c7818cbf5",
+      "component_ids": [
+        "lc_1f9cb1c00fc19d80"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "1600个"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用约1600个单词进行交流与表达。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生围绕相关主题学习，能够使用约1600个单词进行交流与表达；优先采集：词汇语义网、生词推断记录、主题表达作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过识别词根、词缀理解生词；能围绕相关主题学习并使用约1600个单词进行交流与表达；能辨识前缀、后缀及其意义；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "950002b2f92e1b7b5f0daedd7b32daf03beb14d6bfe516e48720fe5f56269427",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（1600个）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_e73288ef93a51409",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过识别词根、词缀理解生词",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过识别词根、词缀理解生词，并说明关键步骤、特征或依据。",
+      "label": "通过识别词根、词缀理解生词",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过识别词根、词缀理解生词；优先采集：词汇语义网、生词推断记录、主题表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过识别词根、词缀理解生词",
+          "excerpt_hash": "927c08bb11338737ec95cae63f7be58d4be9bbf058c9b39521fd24007e7a2634",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过识别词根、词缀理解生词"
+    },
+    {
+      "component_id": "lc_1f9cb1c00fc19d80",
+      "component_type": "language",
+      "condition": "围绕相关主题学习",
+      "confidence": 0.72,
+      "description": "学生围绕相关主题学习，能够使用约1600个单词进行交流与表达",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“围绕相关主题学习”的诊断任务，要求学生使用约1600个单词进行交流与表达，并说明关键步骤、特征或依据。",
+      "label": "使用约1600个单词进行交流与表达",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生围绕相关主题学习，能够使用约1600个单词进行交流与表达；优先采集：词汇语义网、生词推断记录、主题表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过识别词根、词缀理解生词；能围绕相关主题学习并使用约1600个单词进行交流与表达；能辨识前缀、后缀及其意义；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "950002b2f92e1b7b5f0daedd7b32daf03beb14d6bfe516e48720fe5f56269427",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用约1600个单词进行交流与表达"
+    },
+    {
+      "component_id": "lc_d040f9baa4d5f917",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够辨识前缀、后缀及其意义",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生辨识前缀、后缀及其意义，并说明关键步骤、特征或依据。",
+      "label": "辨识前缀、后缀及其意义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够辨识前缀、后缀及其意义；优先采集：词汇语义网、生词推断记录、主题表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨识前缀、后缀及其意义",
+          "excerpt_hash": "209ed52f95b2e5c434c3dc7ae3bdcd35813ad45f7e3398c931d2207bfb55288b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "辨识前缀、后缀及其意义"
+    },
+    {
+      "component_id": "lc_33a57f3fa91163e5",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够获取关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
+      "label": "获取关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够获取关键信息；优先采集：词汇语义网、生词推断记录、主题表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "获取关键信息",
+          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "获取关键信息"
+    },
+    {
+      "component_id": "lc_d7a2429334257208",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成简短交流",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成简短交流，并说明关键步骤、特征或依据。",
+      "label": "完成简短交流",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成简短交流；优先采集：词汇语义网、生词推断记录、主题表达作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成简短交流",
+          "excerpt_hash": "e0d8e980d38fdd45deaf2acf3d21d16ee5acd4e273483f5057e96bc61198198b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成简短交流"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0697,
+      "edge_id": "pc_6eb6217ab31d4b99",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-010:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-LA-002",
+      "source_label": "能关注生活中或媒体上的语言使用。",
+      "target_code": "EN-H4G7-LA-010",
+      "target_label": "能通过识别词根、词缀理解生词；能围绕相关主题学习并使用约1600个单词进行交流与表达；能辨识前缀、后缀及其意义；能获取关键信息并完成简短交流。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1125,
+      "edge_id": "pc_96f44ea4d2c6fa82",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-010:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-LA-010",
+      "source_label": "能围绕相关主题，运用所学语言，与他人进行简单的交流，表演小故事或短剧，语音、语调基本正确。",
+      "target_code": "EN-H4G7-LA-010",
+      "target_label": "能通过识别词根、词缀理解生词；能围绕相关主题学习并使用约1600个单词进行交流与表达；能辨识前缀、后缀及其意义；能获取关键信息并完成简短交流。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "950002b2f92e1b7b5f0daedd7b32daf03beb14d6bfe516e48720fe5f56269427",
+  "standard_code": "EN-H4G7-LA-010",
+  "verified_prerequisites": []
+}

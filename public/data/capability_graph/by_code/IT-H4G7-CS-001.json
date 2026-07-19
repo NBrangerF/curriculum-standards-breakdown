@@ -1,0 +1,331 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_d0c469637cfb28ed"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明数字工具或数据过程的基本做法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e87b6ea9b289eef6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_fb3e4c504e701ea8"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明数字工具或数据过程的基本做法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明数字工具或数据过程的基本做法”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能通过案例分析理解人工智能；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "b9be0fa05ede423cb2d2f26744320a05af292518a7a6d60586e9c7e956682fbf",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生关注数据、算法、算力基础，以及人工智能能力边界。",
+          "excerpt_hash": "d7bbc5c4425a930f5b4a6cec1cf1998e87529e56abf16ea24680c9dfb0feaf30",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G7-CS-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明数字工具或数据过程的基本做法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明数字工具或数据过程的基本做法”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生关注数据、算法、算力基础，以及人工智能能力边界。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_cdb7f6c18f6eb570"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生参与相关活动并描述数据处理和应用过程的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9a20acf9a8e29101",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“参与相关活动并描述数据处理和应用过程”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“参与相关活动并描述数据处理和应用过程”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能通过案例分析理解人工智能；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "b9be0fa05ede423cb2d2f26744320a05af292518a7a6d60586e9c7e956682fbf",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生关注数据、算法、算力基础，以及人工智能能力边界。",
+          "excerpt_hash": "d7bbc5c4425a930f5b4a6cec1cf1998e87529e56abf16ea24680c9dfb0feaf30",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G7-CS-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后参与相关活动并描述数据处理和应用过程，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“参与相关活动并描述数据处理和应用过程”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“引导学生关注数据、算法、算力基础，以及人工智能能力边界。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_ffda46bf0d0e5a20"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过案例分析理解人工智能的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_cdfeab6d82f0acea",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“通过案例分析理解人工智能”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过案例分析理解人工智能”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能通过案例分析理解人工智能；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "b9be0fa05ede423cb2d2f26744320a05af292518a7a6d60586e9c7e956682fbf",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生关注数据、算法、算力基础，以及人工智能能力边界。",
+          "excerpt_hash": "d7bbc5c4425a930f5b4a6cec1cf1998e87529e56abf16ea24680c9dfb0feaf30",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G7-CS-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过案例分析理解人工智能，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过案例分析理解人工智能”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生关注数据、算法、算力基础，以及人工智能能力边界。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_0e462e0da6cdf584",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-001:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H4G7-CS-001",
+      "target_code": "IT-H4G8-CS-002",
+      "target_label": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；比较人工智能方法与传统方法处理同类问题的效果；能分析系统关系并完成有步骤的…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_fb3e4c504e701ea8",
+      "component_ids": [
+        "lc_d0c469637cfb28ed"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明数字工具或数据过程的基本做法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明数字工具或数据过程的基本做法；优先采集：对比分析表、案例报告、课堂讨论记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能通过案例分析理解人工智能；能说明数字工具或数据过程的基本做法。",
+          "excerpt_hash": "b9be0fa05ede423cb2d2f26744320a05af292518a7a6d60586e9c7e956682fbf",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_295998762337e6ec",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够熟悉网络平台中的技术工具和软件系统功能",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生熟悉网络平台中的技术工具和软件系统功能，并说明关键步骤、特征或依据。",
+      "label": "熟悉网络平台中的技术工具和软件系统功能",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够熟悉网络平台中的技术工具和软件系统功能；优先采集：对比分析表、案例报告、课堂讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "熟悉网络平台中的技术工具和软件系统功能",
+          "excerpt_hash": "f17856c091a189bc7217edd03f43a469eb4f46703768adeee457f6ced5682900",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "熟悉网络平台中的技术工具和软件系统功能"
+    },
+    {
+      "component_id": "lc_cdb7f6c18f6eb570",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与相关活动并描述数据处理和应用过程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与相关活动并描述数据处理和应用过程，并说明关键步骤、特征或依据。",
+      "label": "参与相关活动并描述数据处理和应用过程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与相关活动并描述数据处理和应用过程；优先采集：对比分析表、案例报告、课堂讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "体验数据处理和应用过程",
+          "excerpt_hash": "b7b1518cc0fcce8fb3f277f7b89e542d50eb14b8a650a9e12fafd1fb2e918498",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体验数据处理和应用过程"
+    },
+    {
+      "component_id": "lc_ffda46bf0d0e5a20",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过案例分析理解人工智能",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过案例分析理解人工智能，并说明关键步骤、特征或依据。",
+      "label": "通过案例分析理解人工智能",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过案例分析理解人工智能；优先采集：对比分析表、案例报告、课堂讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过案例分析理解人工智能",
+          "excerpt_hash": "23b9f7c17f3b9d032e510b7ea4207190062e68a223634137e1da2b27d5d949fe",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过案例分析理解人工智能"
+    },
+    {
+      "component_id": "lc_d0c469637cfb28ed",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明数字工具或数据过程的基本做法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明数字工具或数据过程的基本做法，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明数字工具或数据过程的基本做法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明数字工具或数据过程的基本做法；优先采集：对比分析表、案例报告、课堂讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明数字工具或数据过程的基本做法",
+          "excerpt_hash": "a578d2fb17bbdec79eedf1635ae20493e83ea3c2f80eabfea02a716484d85a53",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G7-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明数字工具或数据过程的基本做法"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0631,
+      "edge_id": "pc_341557d6e1b680ac",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-001:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H3-CS-002",
+      "source_label": "能在具体问题情境中识别并运用顺序、分支、循环三种基本控制结构（及其组合），并能根据给定输入分析简单算法的执行过程与输出结果。",
+      "target_code": "IT-H4G7-CS-001",
+      "target_label": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能通过案例分析理解人工智能；能说明数字工具或数据过程的基本做法。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0488,
+      "edge_id": "pc_da4213a1b7f530ca",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-001:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H3-CS-005",
+      "source_label": "能通过具体案例识别系统中的反馈与环路，能解释反馈如何让系统更接近目标（如保持温度、亮度或速度），并能提出一种基于反馈的简单优化思路。",
+      "target_code": "IT-H4G7-CS-001",
+      "target_label": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能通过案例分析理解人工智能；能说明数字工具或数据过程的基本做法。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b9be0fa05ede423cb2d2f26744320a05af292518a7a6d60586e9c7e956682fbf",
+  "standard_code": "IT-H4G7-CS-001",
+  "verified_prerequisites": []
+}

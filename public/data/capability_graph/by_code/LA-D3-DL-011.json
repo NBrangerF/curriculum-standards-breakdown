@@ -1,0 +1,286 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_72652669cf469885"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生提取关键安全信息与操作步骤的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c946fd762e6d590e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b3072efcf380ca58",
+        "hc_006209baacf940c7"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“提取关键安全信息与操作步骤”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“提取关键安全信息与操作步骤”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能阅读常见家用器具说明书，提取关键安全信息与操作步骤，能绘制简易操作流程图并指导他人安全使用。",
+          "excerpt_hash": "8ec0cdfa417a391dd4de2654950d7a214684bf87fe08a061ac76571c908363bb",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-011:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "训练“找关键词”（警告/注意/维护/故障）；流程图要求含“前检查—使用—断电—收纳”；同伴互教巩固。",
+          "excerpt_hash": "38e6cf1340b7138c22febc143418ae568b3623ad42e215720137dec604a3fed1",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-DL-011:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后提取关键安全信息与操作步骤，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“提取关键安全信息与操作步骤”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“训练“找关键词”（警告/注意/维护/故障）”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_46fef8b526a5914f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生阅读常见家用器具说明书的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e97f34d3411d58a9",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“阅读常见家用器具说明书”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“阅读常见家用器具说明书”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能阅读常见家用器具说明书，提取关键安全信息与操作步骤，能绘制简易操作流程图并指导他人安全使用。",
+          "excerpt_hash": "8ec0cdfa417a391dd4de2654950d7a214684bf87fe08a061ac76571c908363bb",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-011:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "训练“找关键词”（警告/注意/维护/故障）；流程图要求含“前检查—使用—断电—收纳”；同伴互教巩固。",
+          "excerpt_hash": "38e6cf1340b7138c22febc143418ae568b3623ad42e215720137dec604a3fed1",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-DL-011:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后阅读常见家用器具说明书，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“阅读常见家用器具说明书”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“训练“找关键词”（警告/注意/维护/故障）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.17,
+      "connection_id": "fc_749b2ba29dd754ef",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-010:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-DL-011",
+      "target_code": "LA-H4G7-DL-010",
+      "target_label": "能通过阅读产品说明书了解家庭常用电器的基本结构、工作原理和保养方法；能使用工具进行简单拆卸、清理、维护或小故障判断；能按规范完成任务并说明工具…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b3072efcf380ca58",
+      "component_ids": [
+        "lc_72652669cf469885"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "步骤"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提取关键安全信息与操作步骤。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够提取关键安全信息与操作步骤；优先采集：说明书摘录、流程图、讲解表现。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能阅读常见家用器具说明书，提取关键安全信息与操作步骤，能绘制简易操作流程图并指导他人安全使用。",
+          "excerpt_hash": "8ec0cdfa417a391dd4de2654950d7a214684bf87fe08a061ac76571c908363bb",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（步骤）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    },
+    {
+      "case_id": "hc_006209baacf940c7",
+      "component_ids": [
+        "lc_72652669cf469885",
+        "lc_81101a6e496e9c1f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提取关键安全信息与操作步骤。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够提取关键安全信息与操作步骤；优先采集：说明书摘录、流程图、讲解表现。",
+        "学生能够绘制简易操作流程图并指导他人安全使用；优先采集：说明书摘录、流程图、讲解表现。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能阅读常见家用器具说明书，提取关键安全信息与操作步骤，能绘制简易操作流程图并指导他人安全使用。",
+          "excerpt_hash": "8ec0cdfa417a391dd4de2654950d7a214684bf87fe08a061ac76571c908363bb",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_46fef8b526a5914f",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够阅读常见家用器具说明书",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阅读常见家用器具说明书，并保留可回查的口头、书面或操作过程证据。",
+      "label": "阅读常见家用器具说明书",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够阅读常见家用器具说明书；优先采集：说明书摘录、流程图、讲解表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读常见家用器具说明书",
+          "excerpt_hash": "feccd2fec4cf1edd8f52bbd874de47767b51a9ed81fd7159e30ec81a8101fdf0",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "阅读常见家用器具说明书"
+    },
+    {
+      "component_id": "lc_72652669cf469885",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提取关键安全信息与操作步骤",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提取关键安全信息与操作步骤，并说明关键步骤、特征或依据。",
+      "label": "提取关键安全信息与操作步骤",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提取关键安全信息与操作步骤；优先采集：说明书摘录、流程图、讲解表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提取关键安全信息与操作步骤",
+          "excerpt_hash": "9451106924d9b7ead7d16ba0d7f177a7c5e70d4cfa6c1cc1cccbca787f4196ab",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提取关键安全信息与操作步骤"
+    },
+    {
+      "component_id": "lc_81101a6e496e9c1f",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够绘制简易操作流程图并指导他人安全使用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生绘制简易操作流程图并指导他人安全使用，并说明关键步骤、特征或依据。",
+      "label": "绘制简易操作流程图并指导他人安全使用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够绘制简易操作流程图并指导他人安全使用；优先采集：说明书摘录、流程图、讲解表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "绘制简易操作流程图并指导他人安全使用",
+          "excerpt_hash": "048dc9d02170a0afefb11985f2468b7a4a743133cab650a02b723b0eeaf56ba4",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "绘制简易操作流程图并指导他人安全使用"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_9039fa735897db64",
+      "evidence_refs": [
+        "standard:LA-D3-DL-011:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-DL-011",
+      "source_label": "能识别并正确说出常见家用器具（如电水壶、吸尘器、台灯、空调等）的用途与基本部件，能理解安全标识的含义。",
+      "target_code": "LA-D3-DL-011",
+      "target_label": "能阅读常见家用器具说明书，提取关键安全信息与操作步骤，能绘制简易操作流程图并指导他人安全使用。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "8ec0cdfa417a391dd4de2654950d7a214684bf87fe08a061ac76571c908363bb",
+  "standard_code": "LA-D3-DL-011",
+  "verified_prerequisites": []
+}

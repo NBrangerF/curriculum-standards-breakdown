@@ -3,6 +3,125 @@ export type AccessTier = 'anonymous' | 'developer' | 'partner' | 'admin'
 
 export type JsonObject = Record<string, unknown>
 
+export type CapabilityPublicationStatus = 'candidate' | 'review_queue' | 'published' | 'published_scope'
+export type CapabilityReviewStatus = 'candidate' | 'machine_checked' | 'approved'
+
+export interface CapabilitySourceRef extends JsonObject {
+    ref_id: string
+    source_type: 'curriculum_standard_field'
+    field: string
+    excerpt: string
+    excerpt_hash: string
+}
+
+export interface LearningComponentRecord extends JsonObject {
+    component_id: string
+    label: string
+    source_statement: string
+    condition: string
+    description: string
+    component_type: 'conceptual' | 'procedural' | 'representational' | 'language' | 'metacognitive' | 'disposition'
+    observable_evidence: string
+    diagnostic_prompt: string
+    source_refs: CapabilitySourceRef[]
+    review_status: CapabilityReviewStatus
+    publication_status: CapabilityPublicationStatus
+}
+
+export interface CapabilityPrerequisiteRecord extends JsonObject {
+    edge_id: string
+    source_code: string
+    target_code: string
+    source_label: string
+    target_label: string
+    necessity: 'required' | 'recommended' | 'undetermined'
+    rationale: string
+    evidence_refs: string[]
+    review_status: CapabilityReviewStatus
+    publication_status: CapabilityPublicationStatus
+}
+
+export interface PrerequisiteReviewCoverage extends JsonObject {
+    status: 'not_measured' | 'partial' | 'complete'
+    reviewed_candidate_count: number | null
+    total_candidate_count: number
+    verified_edge_count: number
+    explicit_no_prerequisite_decision: boolean
+    note: string
+}
+
+export interface HardestCaseRecord extends JsonObject {
+    case_id: string
+    title: string
+    component_ids: string[]
+    structure: string
+    demand_dimension: string
+    why_hard: string
+    diagnostic_focus: string
+    required_student_evidence: string[]
+    source_refs: CapabilitySourceRef[]
+    review_status: CapabilityReviewStatus
+    publication_status: CapabilityPublicationStatus
+}
+
+export interface CommonDifficultyRecord extends JsonObject {
+    difficulty_id: string
+    component_ids: string[]
+    hardest_case_ids: string[]
+    category: string
+    manifestation: string
+    likely_cause: string
+    teacher_action: string
+    diagnostic_probe: string
+    success_signal: string
+    source_refs: CapabilitySourceRef[]
+    evidence_status: 'rule_inferred_not_frequency_validated'
+    frequency_claim: 'not_available'
+    review_status: CapabilityReviewStatus
+    publication_status: CapabilityPublicationStatus
+}
+
+export interface CurriculumAlignmentRecord extends JsonObject {
+    alignment_id: string
+    level: 'scope' | 'unit' | 'unit_topic_candidate'
+    alignment_type: 'references' | 'supports'
+    coverage: 'scope_only' | 'partial'
+    evidence_level: 'L1_scope' | 'L2_topic'
+    edition_id: string
+    textbook_title: string
+    unit_id: string | null
+    unit_title: string
+    pdf_page: number | null
+    printed_page: string | null
+    evidence_refs: string[]
+    rationale: string
+    review_status: CapabilityReviewStatus
+    publication_status: CapabilityPublicationStatus
+}
+
+export interface CurriculumAlignmentSummary extends JsonObject {
+    disposition: 'unit_aligned' | 'unit_topic_needs_page_evidence' | 'scope_aligned_no_unit_evidence' | 'gap_no_textbook_scope'
+    highest_evidence_level: 'L0_gap' | 'L1_scope' | 'L2_topic'
+    specific_count: number
+    unit_topic_candidate_count: number
+    candidate_count: number
+    scope_count: number
+    gap_reason: string | null
+    evidence_note: string
+}
+
+export interface ForwardConnectionRecord extends JsonObject {
+    connection_id: string
+    source_code: string
+    target_code: string
+    target_label: string
+    relation_type: 'curriculum_sequence_candidate' | 'grade_band_bridge_candidate'
+    rationale: string
+    evidence_refs: string[]
+    review_status: CapabilityReviewStatus
+    publication_status: CapabilityPublicationStatus
+}
+
 export interface StandardRecord extends JsonObject {
     code: string
     id?: string
@@ -19,6 +138,18 @@ export interface StandardRecord extends JsonObject {
     field_provenance?: JsonObject
     relations?: unknown
     skill_alignments?: unknown
+    capability_graph_schema_version?: string
+    capability_graph_method?: string
+    source_standard_hash?: string
+    learning_components?: LearningComponentRecord[]
+    verified_prerequisites?: CapabilityPrerequisiteRecord[]
+    prerequisite_candidates?: CapabilityPrerequisiteRecord[]
+    prerequisite_review_coverage?: PrerequisiteReviewCoverage
+    hardest_cases?: HardestCaseRecord[]
+    common_difficulties?: CommonDifficultyRecord[]
+    curriculum_alignments?: CurriculumAlignmentRecord[]
+    curriculum_alignment_summary?: CurriculumAlignmentSummary
+    forward_connections?: ForwardConnectionRecord[]
 }
 
 export type ContentProvenance = 'official' | 'extracted' | 'editorial' | 'rule_generated' | 'ai_generated'

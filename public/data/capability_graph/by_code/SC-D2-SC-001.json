@@ -1,0 +1,278 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_7bae276e5a241d20",
+        "lc_f224dca9b8c92aa0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生准确说出地球表面的海陆分布概况的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e4d7960fd6335e4d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_484faa69f6b6b9c4"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“准确说出地球表面的海陆分布概况”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“准确说出地球表面的海陆分布概况”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道地球表面的海陆分布概况，能说出河流、湖泊、海洋、冰川、地下水等主要水体类型。",
+          "excerpt_hash": "2dacc506969a65d6e99c8ee44d6944d07cbb906041856e4fb5daf9317837416d",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“结合地图/地球仪与本地水环境，帮助学生建立“海陆分布—水体类型—生活联系”的整体认识。”",
+          "excerpt_hash": "8393a9f99cbfce26e791f592e3e0ae758139545bf5a9ea48501cfbb9041447d6",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D2-SC-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后准确说出地球表面的海陆分布概况，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出地球表面的海陆分布概况”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：““结合地图/地球仪与本地水环境，帮助学生建立“海陆分布—水体类型—生活联系”的整体认识。””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2b8df62be68809f0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0757779aa18e19943225",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d4496c65db0c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b9eb991027ffeda8",
+      "textbook_grade": 4,
+      "textbook_subject": "科学",
+      "textbook_title": "科学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6a33b0206406d6fa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_8f339370bc6f93bec508",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_081c8aedb59a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7c169a53d2e5e61f",
+      "textbook_grade": 3,
+      "textbook_subject": "科学",
+      "textbook_title": "科学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c4093f7a0fad1ba6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b38444051a56cb65e2a2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e406900c980e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_cdcafe0767eae425",
+      "textbook_grade": 3,
+      "textbook_subject": "科学",
+      "textbook_title": "科学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c6f4bf296a38609c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fdd69e27f13a56c2ba4c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d37bf862517c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_cd997a8f1d41e32e",
+      "textbook_grade": 4,
+      "textbook_subject": "科学",
+      "textbook_title": "科学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_484faa69f6b6b9c4",
+      "component_ids": [
+        "lc_7bae276e5a241d20",
+        "lc_f224dca9b8c92aa0"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出地球表面的海陆分布概况。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出地球表面的海陆分布概况；优先采集：口头/书面汇报。",
+        "学生能够说出河流、湖泊、海洋、冰川、地下水等主要水体类型；优先采集：口头/书面汇报。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道地球表面的海陆分布概况，能说出河流、湖泊、海洋、冰川、地下水等主要水体类型。",
+          "excerpt_hash": "2dacc506969a65d6e99c8ee44d6944d07cbb906041856e4fb5daf9317837416d",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "准确说出地球表面的海陆分布概况；说出河流、湖泊、海洋、冰川、地下水等主要水体类型",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_7bae276e5a241d20",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出地球表面的海陆分布概况",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出地球表面的海陆分布概况，并说明关键步骤、特征或依据。",
+      "label": "准确说出地球表面的海陆分布概况",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出地球表面的海陆分布概况；优先采集：口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道地球表面的海陆分布概况",
+          "excerpt_hash": "7a1c2fb72d7645a1e50c025197690f9b7d2d89dc882d152c822045d21b95fcb3",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道地球表面的海陆分布概况"
+    },
+    {
+      "component_id": "lc_f224dca9b8c92aa0",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出河流、湖泊、海洋、冰川、地下水等主要水体类型",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出河流、湖泊、海洋、冰川、地下水等主要水体类型，并说明关键步骤、特征或依据。",
+      "label": "说出河流、湖泊、海洋、冰川、地下水等主要水体类型",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出河流、湖泊、海洋、冰川、地下水等主要水体类型；优先采集：口头/书面汇报。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出河流、湖泊、海洋、冰川、地下水等主要水体类型",
+          "excerpt_hash": "8ab08483a99e190feabd7b522389745ecc5754b96744a4e57010c1f42597f94e",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出河流、湖泊、海洋、冰川、地下水等主要水体类型"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "2dacc506969a65d6e99c8ee44d6944d07cbb906041856e4fb5daf9317837416d",
+  "standard_code": "SC-D2-SC-001",
+  "verified_prerequisites": []
+}

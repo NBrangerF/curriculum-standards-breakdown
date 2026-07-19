@@ -1,0 +1,427 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_007ec9f145cecd81"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_68a81f1b2734f0f8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c5cca03e054a5e6a",
+        "hc_ab6f3a8834de667a",
+        "hc_8af6b9919b46ff3d"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并能用自然语言、流程图或伪代码等方式清晰描述一个简单算法。",
+          "excerpt_hash": "27b89d9a1d5cbe415b868631e0da10f3aa2c5c99b3ff7f6e16e3c8b252603d7e",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【从生活规则到算法表达】\n(1) 选取学生熟悉的“做三明治/整理书包/班级投票/猜数字”等情境，先让学生用口头步骤讲清“怎么做”，再引导把步骤写成“每一步都可执行”的形式。\n(2) 分层提供表达工具：①自然语言步骤（短句+编号）；②流程图（开始/结束、处理、判断、箭头）；③伪代码（用‘如果/否则/重复…次’）。强调三种表达是“同一算法的不同语言”。\n(3) 设立质量标准：步骤不遗漏、顺序明确、条件可判断、输入/输出说清。用“同伴走一遍能否完成任务”来检验可执行性。\n(4) 常见误区纠偏：把“想法/愿望”当步骤；步骤过于笼统（如‘把它弄好’）；漏写开始/结束。可用示例反例对比。",
+          "excerpt_hash": "ab67bdb5711d49ee52d60901b0be4c8e78b595eb6fbb14ed4116bc23eff1b7e6",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“【从生活规则到算法表达】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_007ec9f145cecd81"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bbc957efa0e669e4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c5cca03e054a5e6a",
+        "hc_ab6f3a8834de667a",
+        "hc_8af6b9919b46ff3d"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并能用自然语言、流程图或伪代码等方式清晰描述一个简单算法。",
+          "excerpt_hash": "27b89d9a1d5cbe415b868631e0da10f3aa2c5c99b3ff7f6e16e3c8b252603d7e",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【从生活规则到算法表达】\n(1) 选取学生熟悉的“做三明治/整理书包/班级投票/猜数字”等情境，先让学生用口头步骤讲清“怎么做”，再引导把步骤写成“每一步都可执行”的形式。\n(2) 分层提供表达工具：①自然语言步骤（短句+编号）；②流程图（开始/结束、处理、判断、箭头）；③伪代码（用‘如果/否则/重复…次’）。强调三种表达是“同一算法的不同语言”。\n(3) 设立质量标准：步骤不遗漏、顺序明确、条件可判断、输入/输出说清。用“同伴走一遍能否完成任务”来检验可执行性。\n(4) 常见误区纠偏：把“想法/愿望”当步骤；步骤过于笼统（如‘把它弄好’）；漏写开始/结束。可用示例反例对比。",
+          "excerpt_hash": "ab67bdb5711d49ee52d60901b0be4c8e78b595eb6fbb14ed4116bc23eff1b7e6",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“【从生活规则到算法表达】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_007ec9f145cecd81"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_57a4998755d6fa2f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c5cca03e054a5e6a",
+        "hc_ab6f3a8834de667a",
+        "hc_8af6b9919b46ff3d"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并能用自然语言、流程图或伪代码等方式清晰描述一个简单算法。",
+          "excerpt_hash": "27b89d9a1d5cbe415b868631e0da10f3aa2c5c99b3ff7f6e16e3c8b252603d7e",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【从生活规则到算法表达】\n(1) 选取学生熟悉的“做三明治/整理书包/班级投票/猜数字”等情境，先让学生用口头步骤讲清“怎么做”，再引导把步骤写成“每一步都可执行”的形式。\n(2) 分层提供表达工具：①自然语言步骤（短句+编号）；②流程图（开始/结束、处理、判断、箭头）；③伪代码（用‘如果/否则/重复…次’）。强调三种表达是“同一算法的不同语言”。\n(3) 设立质量标准：步骤不遗漏、顺序明确、条件可判断、输入/输出说清。用“同伴走一遍能否完成任务”来检验可执行性。\n(4) 常见误区纠偏：把“想法/愿望”当步骤；步骤过于笼统（如‘把它弄好’）；漏写开始/结束。可用示例反例对比。",
+          "excerpt_hash": "ab67bdb5711d49ee52d60901b0be4c8e78b595eb6fbb14ed4116bc23eff1b7e6",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“【从生活规则到算法表达】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_f1d7286abf7eed09"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自然语言、流程图或伪代码等方式清晰描述一个简单算法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_144f1cc87fea463f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_eb8e8f51e4255f55"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“用自然语言、流程图或伪代码等方式清晰描述一个简单算法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自然语言、流程图或伪代码等方式清晰描述一个简单算法”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并能用自然语言、流程图或伪代码等方式清晰描述一个简单算法。",
+          "excerpt_hash": "27b89d9a1d5cbe415b868631e0da10f3aa2c5c99b3ff7f6e16e3c8b252603d7e",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【从生活规则到算法表达】\n(1) 选取学生熟悉的“做三明治/整理书包/班级投票/猜数字”等情境，先让学生用口头步骤讲清“怎么做”，再引导把步骤写成“每一步都可执行”的形式。\n(2) 分层提供表达工具：①自然语言步骤（短句+编号）；②流程图（开始/结束、处理、判断、箭头）；③伪代码（用‘如果/否则/重复…次’）。强调三种表达是“同一算法的不同语言”。\n(3) 设立质量标准：步骤不遗漏、顺序明确、条件可判断、输入/输出说清。用“同伴走一遍能否完成任务”来检验可执行性。\n(4) 常见误区纠偏：把“想法/愿望”当步骤；步骤过于笼统（如‘把它弄好’）；漏写开始/结束。可用示例反例对比。",
+          "excerpt_hash": "ab67bdb5711d49ee52d60901b0be4c8e78b595eb6fbb14ed4116bc23eff1b7e6",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自然语言、流程图或伪代码等方式清晰描述一个简单算法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自然语言、流程图或伪代码等方式清晰描述一个简单算法”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“【从生活规则到算法表达】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_007ec9f145cecd81"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_47297eec1e74a17c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c5cca03e054a5e6a",
+        "hc_ab6f3a8834de667a",
+        "hc_8af6b9919b46ff3d"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并能用自然语言、流程图或伪代码等方式清晰描述一个简单算法。",
+          "excerpt_hash": "27b89d9a1d5cbe415b868631e0da10f3aa2c5c99b3ff7f6e16e3c8b252603d7e",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【从生活规则到算法表达】\n(1) 选取学生熟悉的“做三明治/整理书包/班级投票/猜数字”等情境，先让学生用口头步骤讲清“怎么做”，再引导把步骤写成“每一步都可执行”的形式。\n(2) 分层提供表达工具：①自然语言步骤（短句+编号）；②流程图（开始/结束、处理、判断、箭头）；③伪代码（用‘如果/否则/重复…次’）。强调三种表达是“同一算法的不同语言”。\n(3) 设立质量标准：步骤不遗漏、顺序明确、条件可判断、输入/输出说清。用“同伴走一遍能否完成任务”来检验可执行性。\n(4) 常见误区纠偏：把“想法/愿望”当步骤；步骤过于笼统（如‘把它弄好’）；漏写开始/结束。可用示例反例对比。",
+          "excerpt_hash": "ab67bdb5711d49ee52d60901b0be4c8e78b595eb6fbb14ed4116bc23eff1b7e6",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“【从生活规则到算法表达】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0269,
+      "connection_id": "fc_97c77edd1a124f7f",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H3-CS-001",
+      "target_code": "IT-H4G7-CS-002",
+      "target_label": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能根据需求设计并搭建简单物联系统原型；能说明数字工具或数据过程的基本做法。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_c5cca03e054a5e6a",
+      "component_ids": [
+        "lc_007ec9f145cecd81"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案；优先采集：表达卡作品、流程图/伪代码、同伴互评记录、口头解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并能用自然语言、流程图或伪代码等方式清晰描述一个简单算法。",
+          "excerpt_hash": "27b89d9a1d5cbe415b868631e0da10f3aa2c5c99b3ff7f6e16e3c8b252603d7e",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_ab6f3a8834de667a",
+      "component_ids": [
+        "lc_007ec9f145cecd81"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "步骤"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案；优先采集：表达卡作品、流程图/伪代码、同伴互评记录、口头解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并能用自然语言、流程图或伪代码等方式清晰描述一个简单算法。",
+          "excerpt_hash": "27b89d9a1d5cbe415b868631e0da10f3aa2c5c99b3ff7f6e16e3c8b252603d7e",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（步骤）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    },
+    {
+      "case_id": "hc_8af6b9919b46ff3d",
+      "component_ids": [
+        "lc_007ec9f145cecd81"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案；优先采集：表达卡作品、流程图/伪代码、同伴互评记录、口头解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并能用自然语言、流程图或伪代码等方式清晰描述一个简单算法。",
+          "excerpt_hash": "27b89d9a1d5cbe415b868631e0da10f3aa2c5c99b3ff7f6e16e3c8b252603d7e",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_eb8e8f51e4255f55",
+      "component_ids": [
+        "lc_f1d7286abf7eed09"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "清晰"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自然语言、流程图或伪代码等方式清晰描述一个简单算法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自然语言、流程图或伪代码等方式清晰描述一个简单算法；优先采集：表达卡作品、流程图/伪代码、同伴互评记录、口头解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并能用自然语言、流程图或伪代码等方式清晰描述一个简单算法。",
+          "excerpt_hash": "27b89d9a1d5cbe415b868631e0da10f3aa2c5c99b3ff7f6e16e3c8b252603d7e",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（清晰）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_007ec9f145cecd81",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案，并说明关键步骤、特征或依据。",
+      "label": "结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案；优先采集：表达卡作品、流程图/伪代码、同伴互评记录、口头解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案",
+          "excerpt_hash": "21ee2a37c376aa72f79bcfe872d93b31000f6a728a07526cc9a4b9fc14bcfff9",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "结合学习与生活中的实例理解“算法”是由明确、可执行的步骤构成的求解方案"
+    },
+    {
+      "component_id": "lc_f1d7286abf7eed09",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自然语言、流程图或伪代码等方式清晰描述一个简单算法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自然语言、流程图或伪代码等方式清晰描述一个简单算法，并说明关键步骤、特征或依据。",
+      "label": "用自然语言、流程图或伪代码等方式清晰描述一个简单算法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自然语言、流程图或伪代码等方式清晰描述一个简单算法；优先采集：表达卡作品、流程图/伪代码、同伴互评记录、口头解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用自然语言、流程图或伪代码等方式清晰描述一个简单算法",
+          "excerpt_hash": "729acffc7e6a373b9ea96b3d719703110a31b34158c11a2675c07056685aca9d",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用自然语言、流程图或伪代码等方式清晰描述一个简单算法"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "27b89d9a1d5cbe415b868631e0da10f3aa2c5c99b3ff7f6e16e3c8b252603d7e",
+  "standard_code": "IT-H3-CS-001",
+  "verified_prerequisites": []
+}

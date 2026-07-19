@@ -1,0 +1,220 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_da66ee5c73026a0d"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生参与采收并进行简单分拣、清洗与称量的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ae05b3e76ec55007",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b748002f8520ca21"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“参与采收并进行简单分拣、清洗与称量”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师或家长指导下参与采收并进行简单分拣、清洗与称量，能保持卫生并了解食物来之不易，形成珍惜劳动成果的意识。",
+          "excerpt_hash": "d2dcb5b17e0665f3ad39da8da699701a0c8baf9b7496e38f4172620f208dd47f",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把采收做成“标准”——成熟特征（颜色/大小）；分拣按大小或完整度；结合称量做数学连接。",
+          "excerpt_hash": "432e4c8794f158dd64b94fc2a74368f66cb3bd78e4a9ce4e1e1a989dc7ef249e",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-PL-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后参与采收并进行简单分拣、清洗与称量，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“参与采收并进行简单分拣、清洗与称量”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“把采收做成“标准”——成熟特征（颜色/大小）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_239f728097c17d86",
+      "evidence_refs": [
+        "standard:LA-D2-PL-004:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-PL-004",
+      "target_code": "LA-D3-PL-004",
+      "target_label": "能参与采收并按质量进行分级，能完成简单初加工（清洗、切配或晾晒/冷藏保存），能理解食品卫生与保存原则。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b748002f8520ca21",
+      "component_ids": [
+        "lc_da66ee5c73026a0d",
+        "lc_f958a4d8401461b8",
+        "lc_72caee299dc32f7f"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生参与采收并进行简单分拣、清洗与称量。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在教师或家长指导下，能够参与采收并进行简单分拣、清洗与称量；优先采集：称量记录、照片、反思一句话。",
+        "学生在教师或家长指导下，能够保持卫生；优先采集：称量记录、照片、反思一句话。",
+        "学生在教师或家长指导下，能够识别并说出食物来之不易的关键特征；优先采集：称量记录、照片、反思一句话。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师或家长指导下参与采收并进行简单分拣、清洗与称量，能保持卫生并了解食物来之不易，形成珍惜劳动成果的意识。",
+          "excerpt_hash": "d2dcb5b17e0665f3ad39da8da699701a0c8baf9b7496e38f4172620f208dd47f",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "参与采收并进行简单分拣、清洗与称量；保持卫生；识别并说出食物来之不易的关键特征",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_da66ee5c73026a0d",
+      "component_type": "disposition",
+      "condition": "在教师或家长指导下",
+      "confidence": 0.72,
+      "description": "学生在教师或家长指导下，能够参与采收并进行简单分拣、清洗与称量",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师或家长指导下”的诊断任务，要求学生参与采收并进行简单分拣、清洗与称量，并说明关键步骤、特征或依据。",
+      "label": "参与采收并进行简单分拣、清洗与称量",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师或家长指导下，能够参与采收并进行简单分拣、清洗与称量；优先采集：称量记录、照片、反思一句话。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师或家长指导下参与采收并进行简单分拣、清洗与称量，能保持卫生并了解食物来之不易，形成珍惜劳动成果的意识。",
+          "excerpt_hash": "d2dcb5b17e0665f3ad39da8da699701a0c8baf9b7496e38f4172620f208dd47f",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参与采收并进行简单分拣、清洗与称量"
+    },
+    {
+      "component_id": "lc_f958a4d8401461b8",
+      "component_type": "conceptual",
+      "condition": "在教师或家长指导下",
+      "confidence": 0.72,
+      "description": "学生在教师或家长指导下，能够保持卫生",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师或家长指导下”的诊断任务，要求学生保持卫生，并说明关键步骤、特征或依据。",
+      "label": "保持卫生",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师或家长指导下，能够保持卫生；优先采集：称量记录、照片、反思一句话。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师或家长指导下参与采收并进行简单分拣、清洗与称量，能保持卫生并了解食物来之不易，形成珍惜劳动成果的意识。",
+          "excerpt_hash": "d2dcb5b17e0665f3ad39da8da699701a0c8baf9b7496e38f4172620f208dd47f",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "保持卫生"
+    },
+    {
+      "component_id": "lc_72caee299dc32f7f",
+      "component_type": "language",
+      "condition": "在教师或家长指导下",
+      "confidence": 0.72,
+      "description": "学生在教师或家长指导下，能够识别并说出食物来之不易的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师或家长指导下”的诊断任务，要求学生识别并说出食物来之不易的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出食物来之不易的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师或家长指导下，能够识别并说出食物来之不易的关键特征；优先采集：称量记录、照片、反思一句话。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师或家长指导下参与采收并进行简单分拣、清洗与称量，能保持卫生并了解食物来之不易，形成珍惜劳动成果的意识。",
+          "excerpt_hash": "d2dcb5b17e0665f3ad39da8da699701a0c8baf9b7496e38f4172620f208dd47f",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解食物来之不易"
+    },
+    {
+      "component_id": "lc_dab0be5619c73184",
+      "component_type": "disposition",
+      "condition": "在教师或家长指导下",
+      "confidence": 0.72,
+      "description": "学生在教师或家长指导下，能够在任务中表现出珍惜劳动成果的意识并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师或家长指导下”的诊断任务，要求学生在任务中表现出珍惜劳动成果的意识并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出珍惜劳动成果的意识并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师或家长指导下，能够在任务中表现出珍惜劳动成果的意识并说明选择理由；优先采集：称量记录、照片、反思一句话。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师或家长指导下参与采收并进行简单分拣、清洗与称量，能保持卫生并了解食物来之不易，形成珍惜劳动成果的意识。",
+          "excerpt_hash": "d2dcb5b17e0665f3ad39da8da699701a0c8baf9b7496e38f4172620f208dd47f",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-PL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成珍惜劳动成果的意识"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d2dcb5b17e0665f3ad39da8da699701a0c8baf9b7496e38f4172620f208dd47f",
+  "standard_code": "LA-D2-PL-004",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,209 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_4f58e08f6d51715f"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生表现出诚信自律与公平竞争意识的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d77c1a0fdf902d06",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_86e7a695411aa2e7"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“表现出诚信自律与公平竞争意识”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "表现出诚信自律与公平竞争意识，拒绝违规、弄虚作假和危险行为。",
+          "excerpt_hash": "ae21b728aa91dc04505c285291718879e7b82e6ec8f481d30c7d10147b324b05",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "以真实案例讨论“不公平优势”（故意犯规、夸大受伤、改分数等）的后果；在班级比赛中设置“诚信积分”（自报犯规、主动承认失误、保护对手）。明确危险动作红线（推搡、故意绊倒、报复性动作），形成一致的安全边界。",
+          "excerpt_hash": "1cc288ded905690b24d13975658da8246337d54a79798650365b56c9b933a711",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-SD-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后表现出诚信自律与公平竞争意识，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“表现出诚信自律与公平竞争意识”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“以真实案例讨论“不公平优势”（故意犯规、夸大受伤、改分数等）的后果”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1264,
+      "connection_id": "fc_ff1d396d7208cf2e",
+      "evidence_refs": [
+        "standard:PE-H4G7-SD-025:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-SD-004",
+      "target_code": "PE-H4G7-SD-025",
+      "target_label": "能掌握所学中华传统体育类运动项目的完整动作技术；能熟练运用安全防护动作；能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能完成基础练习并记…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0843,
+      "connection_id": "fc_e1d261289d7caab0",
+      "evidence_refs": [
+        "standard:PE-H4G7-SD-028:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-SD-004",
+      "target_code": "PE-H4G7-SD-028",
+      "target_label": "能防范安全隐患并处理常见运动损伤；分析初步判断高水平比赛；能调控比赛紧张情绪；能完成基础练习并记录身体反应。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_86e7a695411aa2e7",
+      "component_ids": [
+        "lc_4f58e08f6d51715f",
+        "lc_a2dfcb9ce662f8ec"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生表现出诚信自律与公平竞争意识。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够表现出诚信自律与公平竞争意识；优先采集：行为观察、同伴评价、承诺卡。",
+        "学生能够拒绝违规、弄虚作假和危险行为；优先采集：行为观察、同伴评价、承诺卡。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "表现出诚信自律与公平竞争意识，拒绝违规、弄虚作假和危险行为。",
+          "excerpt_hash": "ae21b728aa91dc04505c285291718879e7b82e6ec8f481d30c7d10147b324b05",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "表现出诚信自律与公平竞争意识；拒绝违规、弄虚作假和危险行为",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_4f58e08f6d51715f",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够表现出诚信自律与公平竞争意识",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生表现出诚信自律与公平竞争意识，并说明关键步骤、特征或依据。",
+      "label": "表现出诚信自律与公平竞争意识",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够表现出诚信自律与公平竞争意识；优先采集：行为观察、同伴评价、承诺卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "表现出诚信自律与公平竞争意识",
+          "excerpt_hash": "f469bfdd0496ead4e54bb8f17425ab7d85863631e4d8977b78c2d427b1984459",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表现出诚信自律与公平竞争意识"
+    },
+    {
+      "component_id": "lc_a2dfcb9ce662f8ec",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够拒绝违规、弄虚作假和危险行为",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生拒绝违规、弄虚作假和危险行为，并说明关键步骤、特征或依据。",
+      "label": "拒绝违规、弄虚作假和危险行为",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够拒绝违规、弄虚作假和危险行为；优先采集：行为观察、同伴评价、承诺卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "拒绝违规、弄虚作假和危险行为",
+          "excerpt_hash": "c542b9dc6b71c54297265a41fb25eb332ea1e898acb21702f007924135bc7a27",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "拒绝违规、弄虚作假和危险行为"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a04cf2b15d9d369c",
+      "evidence_refs": [
+        "standard:PE-D3-SD-004:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-SD-004",
+      "source_label": "在体能练习中积极向上，遇到困难时能努力克服并继续坚持学练。",
+      "target_code": "PE-D3-SD-004",
+      "target_label": "表现出诚信自律与公平竞争意识，拒绝违规、弄虚作假和危险行为。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ae21b728aa91dc04505c285291718879e7b82e6ec8f481d30c7d10147b324b05",
+  "standard_code": "PE-D3-SD-004",
+  "verified_prerequisites": []
+}

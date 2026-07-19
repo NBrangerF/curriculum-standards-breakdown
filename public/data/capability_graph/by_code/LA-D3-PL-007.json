@@ -1,0 +1,251 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_6e1adaf1dc70e4be"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生记录缺陷并进行返工改进的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_121e034afd2b88f9",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_7798bf02e064d7b1"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“记录缺陷并进行返工改进”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“记录缺陷并进行返工改进”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在装配线模拟活动中按标准作业，理解节拍与质量控制的关系，能记录缺陷并进行返工改进。",
+          "excerpt_hash": "fbdeb5ec51fc644b9a2e58d6e42f08af8c9bb7199f75caaab9f9ee04090b3169",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "设置岗位与节拍计时；质检清单固定；用“缺陷标签”追踪原因；讨论效率与质量平衡。",
+          "excerpt_hash": "641b4056f653b130b0485c7c20aa09d2478720714e75de5e8a64d82e5963b040",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-PL-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后记录缺陷并进行返工改进，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“记录缺陷并进行返工改进”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“设置岗位与节拍计时”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_b2d76f4c97a6e2b0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释节拍与质量控制的关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0f46cc1c3345f335",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释节拍与质量控制的关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释节拍与质量控制的关系”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在装配线模拟活动中按标准作业，理解节拍与质量控制的关系，能记录缺陷并进行返工改进。",
+          "excerpt_hash": "fbdeb5ec51fc644b9a2e58d6e42f08af8c9bb7199f75caaab9f9ee04090b3169",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "设置岗位与节拍计时；质检清单固定；用“缺陷标签”追踪原因；讨论效率与质量平衡。",
+          "excerpt_hash": "641b4056f653b130b0485c7c20aa09d2478720714e75de5e8a64d82e5963b040",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-PL-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释节拍与质量控制的关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释节拍与质量控制的关系”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“设置岗位与节拍计时”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1375,
+      "connection_id": "fc_a3c25436a4722a77",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-PL-007",
+      "target_code": "LA-H4G7-PL-002",
+      "target_label": "能规划生产劳动方案并尝试运用工具、材料、设备和技能解决问题；能组织实施服务性劳动；能在具有挑战性的劳动中熟练运用家政技能；能按规范完成任务并说…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_7798bf02e064d7b1",
+      "component_ids": [
+        "lc_6e1adaf1dc70e4be"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "改进"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生记录缺陷并进行返工改进。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够记录缺陷并进行返工改进；优先采集：节拍记录、合格率统计、缺陷分析。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在装配线模拟活动中按标准作业，理解节拍与质量控制的关系，能记录缺陷并进行返工改进。",
+          "excerpt_hash": "fbdeb5ec51fc644b9a2e58d6e42f08af8c9bb7199f75caaab9f9ee04090b3169",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（改进）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_de9b94d3a85dc5e8",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在装配线模拟活动中按标准作业",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在装配线模拟活动中按标准作业，并说明关键步骤、特征或依据。",
+      "label": "在装配线模拟活动中按标准作业",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在装配线模拟活动中按标准作业；优先采集：节拍记录、合格率统计、缺陷分析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在装配线模拟活动中按标准作业",
+          "excerpt_hash": "201130ec3d06305a4ca74f7a7945a8093eba1d997b98382daebad7984db8ff40",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在装配线模拟活动中按标准作业"
+    },
+    {
+      "component_id": "lc_b2d76f4c97a6e2b0",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释节拍与质量控制的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释节拍与质量控制的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释节拍与质量控制的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释节拍与质量控制的关系；优先采集：节拍记录、合格率统计、缺陷分析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解节拍与质量控制的关系",
+          "excerpt_hash": "772bd459852428f67f99c8222569b6e9d56884e2ddcc09a0a4da09f9499ed76b",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解节拍与质量控制的关系"
+    },
+    {
+      "component_id": "lc_6e1adaf1dc70e4be",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够记录缺陷并进行返工改进",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生记录缺陷并进行返工改进，并说明关键步骤、特征或依据。",
+      "label": "记录缺陷并进行返工改进",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够记录缺陷并进行返工改进；优先采集：节拍记录、合格率统计、缺陷分析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "记录缺陷并进行返工改进",
+          "excerpt_hash": "831e496027afaf9d70a930b952724591b5e109cf47d16facf2b353d7e65a8ff9",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "记录缺陷并进行返工改进"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_0dd6932be9d1152d",
+      "evidence_refs": [
+        "standard:LA-D3-PL-007:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-PL-007",
+      "source_label": "能在模拟情境中完成简单装配任务（如纸结构/积木/套件），能按标准进行质量检查（牢固、对齐、可用），并能记录返工原因。",
+      "target_code": "LA-D3-PL-007",
+      "target_label": "能在装配线模拟活动中按标准作业，理解节拍与质量控制的关系，能记录缺陷并进行返工改进。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "fbdeb5ec51fc644b9a2e58d6e42f08af8c9bb7199f75caaab9f9ee04090b3169",
+  "standard_code": "LA-D3-PL-007",
+  "verified_prerequisites": []
+}

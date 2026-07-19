@@ -1,0 +1,545 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_0509ca13be479bd0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生联系个人和校园生活说明基本判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b7866d2f17782641",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8c85dd6f6830f739",
+        "hc_bc444557085da635",
+        "hc_12131be44dee93f4"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“联系个人和校园生活说明基本判断”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“联系个人和校园生活说明基本判断”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务；了解我国主要国家机构和基本经济政治制度，了解公民权利义务，具备参与社会生活的基本能力；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "f550fb15d6754eebb9f058266d8b38807b613f70d4aed2516c2e89de70007c82",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-LAW-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "要求学生把制度认知落到参与社会生活的基本能力上。",
+          "excerpt_hash": "28b672c89be5a255c7eca505847a1528f2b858eb2839d6c4da2ef6467a24152c",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G7-LAW-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后联系个人和校园生活说明基本判断，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“联系个人和校园生活说明基本判断”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“要求学生把制度认知落到参与社会生活的基本能力上。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_0509ca13be479bd0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生联系个人和校园生活说明基本判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_61e283606650e872",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8c85dd6f6830f739",
+        "hc_bc444557085da635",
+        "hc_12131be44dee93f4"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“联系个人和校园生活说明基本判断”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“联系个人和校园生活说明基本判断”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务；了解我国主要国家机构和基本经济政治制度，了解公民权利义务，具备参与社会生活的基本能力；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "f550fb15d6754eebb9f058266d8b38807b613f70d4aed2516c2e89de70007c82",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-LAW-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "要求学生把制度认知落到参与社会生活的基本能力上。",
+          "excerpt_hash": "28b672c89be5a255c7eca505847a1528f2b858eb2839d6c4da2ef6467a24152c",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G7-LAW-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后联系个人和校园生活说明基本判断，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“联系个人和校园生活说明基本判断”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“要求学生把制度认知落到参与社会生活的基本能力上。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_7bd061df6309c5a3",
+        "lc_0509ca13be479bd0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c7994d969d74d405",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8c85dd6f6830f739",
+        "hc_bc444557085da635",
+        "hc_12131be44dee93f4"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务；了解我国主要国家机构和基本经济政治制度，了解公民权利义务，具备参与社会生活的基本能力；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "f550fb15d6754eebb9f058266d8b38807b613f70d4aed2516c2e89de70007c82",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-LAW-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "要求学生把制度认知落到参与社会生活的基本能力上。",
+          "excerpt_hash": "28b672c89be5a255c7eca505847a1528f2b858eb2839d6c4da2ef6467a24152c",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G7-LAW-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“要求学生把制度认知落到参与社会生活的基本能力上。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6d4b26810c93ab03",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_258a293644bf7f6dc23f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a1407810561e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fed2028e3cbbb9f4",
+      "textbook_grade": 7,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fd692c6c53409b6a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_425e807c22d73fd8d96b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2bfb8dc66618"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_eae81c753994e626",
+      "textbook_grade": 7,
+      "textbook_subject": "历史",
+      "textbook_title": "历史7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e605865ec6aa7c00",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_92e2b029d14f60ea4496",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_4f77b2484bc7"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d5636bdbaa539717",
+      "textbook_grade": 7,
+      "textbook_subject": "历史",
+      "textbook_title": "历史7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_19f3d9f935be5138",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ad8f66e172211eab925e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d5a8645a0fdb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5f4537a4f0b5552a",
+      "textbook_grade": 7,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_c315536bebcb2216",
+      "evidence_refs": [
+        "standard:ML-H4G7-LAW-002:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-H4G7-LAW-002",
+      "target_code": "ML-H4G8-LAW-001",
+      "target_label": "能懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务；了解我国主要国家机构和基本经济政治制度，了解公民权利义务，具备参与社会生活的基…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_8c85dd6f6830f739",
+      "component_ids": [
+        "lc_0509ca13be479bd0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生联系个人和校园生活说明基本判断。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够联系个人和校园生活说明基本判断；优先采集：制度说明图、社会参与方案、案例分析。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务；了解我国主要国家机构和基本经济政治制度，了解公民权利义务，具备参与社会生活的基本能力；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "f550fb15d6754eebb9f058266d8b38807b613f70d4aed2516c2e89de70007c82",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-LAW-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_bc444557085da635",
+      "component_ids": [
+        "lc_7bd061df6309c5a3",
+        "lc_0509ca13be479bd0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征；优先采集：制度说明图、社会参与方案、案例分析。",
+        "学生能够联系个人和校园生活说明基本判断；优先采集：制度说明图、社会参与方案、案例分析。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务；了解我国主要国家机构和基本经济政治制度，了解公民权利义务，具备参与社会生活的基本能力；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "f550fb15d6754eebb9f058266d8b38807b613f70d4aed2516c2e89de70007c82",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-LAW-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_12131be44dee93f4",
+      "component_ids": [
+        "lc_0509ca13be479bd0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生联系个人和校园生活说明基本判断。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够联系个人和校园生活说明基本判断；优先采集：制度说明图、社会参与方案、案例分析。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务；了解我国主要国家机构和基本经济政治制度，了解公民权利义务，具备参与社会生活的基本能力；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "f550fb15d6754eebb9f058266d8b38807b613f70d4aed2516c2e89de70007c82",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-LAW-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_87b29a5a48a34bb8",
+      "component_ids": [
+        "lc_f61606f83e8b7d2e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务；优先采集：制度说明图、社会参与方案、案例分析。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务；了解我国主要国家机构和基本经济政治制度，了解公民权利义务，具备参与社会生活的基本能力；能联系个人和校园生活说明基本判断。",
+          "excerpt_hash": "f550fb15d6754eebb9f058266d8b38807b613f70d4aed2516c2e89de70007c82",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-LAW-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_f61606f83e8b7d2e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务，并说明关键步骤、特征或依据。",
+      "label": "懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务；优先采集：制度说明图、社会参与方案、案例分析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务",
+          "excerpt_hash": "d7e065a10051dee4fca14e4f454b21cba9725b188a0539c46ddac9d22ee75cd4",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-LAW-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务"
+    },
+    {
+      "component_id": "lc_0be66ddcf26a1247",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出我国主要国家机构和基本经济政治制度的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出我国主要国家机构和基本经济政治制度的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出我国主要国家机构和基本经济政治制度的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出我国主要国家机构和基本经济政治制度的关键特征；优先采集：制度说明图、社会参与方案、案例分析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解我国主要国家机构和基本经济政治制度",
+          "excerpt_hash": "cda6c3a66fbb1b213948c0a8601d990768e447d01e90fa25897206866383a75a",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-LAW-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解我国主要国家机构和基本经济政治制度"
+    },
+    {
+      "component_id": "lc_7bd061df6309c5a3",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征；优先采集：制度说明图、社会参与方案、案例分析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解公民权利义务，具备参与社会生活的基本能力",
+          "excerpt_hash": "65200a080e0e4375da54af0a57d505d65de2823ed57d45ef153f16cf3f2dd8d4",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-LAW-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解公民权利义务，具备参与社会生活的基本能力"
+    },
+    {
+      "component_id": "lc_0509ca13be479bd0",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够联系个人和校园生活说明基本判断",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生联系个人和校园生活说明基本判断，并保留可回查的口头、书面或操作过程证据。",
+      "label": "联系个人和校园生活说明基本判断",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够联系个人和校园生活说明基本判断；优先采集：制度说明图、社会参与方案、案例分析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "联系个人和校园生活说明基本判断",
+          "excerpt_hash": "441fc06d76bf837efd9f91aece3ac5307096174e73b5685a6475c696570b0b6b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G7-LAW-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "联系个人和校园生活说明基本判断"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1589,
+      "edge_id": "pc_bb7f57351d930c7f",
+      "evidence_refs": [
+        "standard:ML-H4G7-LAW-002:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-D3-LAW-003",
+      "source_label": "能解释“公民”的基本含义，能举例说明常见权利与义务，并能在学校与生活中体现人人平等、尊重他人权利与履行自身义务。",
+      "target_code": "ML-H4G7-LAW-002",
+      "target_label": "能懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务；了解我国主要国家机构和基本经济政治制度，了解公民权利义务，具备参与社会生活的基…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f550fb15d6754eebb9f058266d8b38807b613f70d4aed2516c2e89de70007c82",
+  "standard_code": "ML-H4G7-LAW-002",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,469 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_4ff1d1f2ada9ed9e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生结合具体实例解释万以上数的含义的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_17479edd22bfbbe0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_772aa79d15aef9c4"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“结合具体实例解释万以上数的含义”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“结合具体实例解释万以上数的含义”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合具体实例解释万以上数的含义，能认、读、写万以上的数，会用万、亿为单位表示大数。能计算两位数乘除三位数。",
+          "excerpt_hash": "c8a558337f3e5a18688be16306b4b979a3902d1c0d31db619010d5a068d688e6",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "数的认识教学应为学生提供合理情境，引导学生进一步经历整数的抽象过程，知道大数的意义和“四位一级”的表示方法，建立数感。",
+          "excerpt_hash": "3caa659c014177cce80f580c1e79a2baad573550cf87a475cb199c42a6db9126",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-AL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后结合具体实例解释万以上数的含义，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“结合具体实例解释万以上数的含义”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“数的认识教学应为学生提供合理情境，引导学生进一步经历整数的抽象过程，知道大数的意义和“四位一级”的表示方法，建立数感。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_4cab476d4e04d6e6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用万、亿为单位表示大数的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_48673ac0943c1024",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_48673ac0943c1024"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“用万、亿为单位表示大数”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用万、亿为单位表示大数”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合具体实例解释万以上数的含义，能认、读、写万以上的数，会用万、亿为单位表示大数。能计算两位数乘除三位数。",
+          "excerpt_hash": "c8a558337f3e5a18688be16306b4b979a3902d1c0d31db619010d5a068d688e6",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "数的认识教学应为学生提供合理情境，引导学生进一步经历整数的抽象过程，知道大数的意义和“四位一级”的表示方法，建立数感。",
+          "excerpt_hash": "3caa659c014177cce80f580c1e79a2baad573550cf87a475cb199c42a6db9126",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-AL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用万、亿为单位表示大数，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用万、亿为单位表示大数”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“数的认识教学应为学生提供合理情境，引导学生进一步经历整数的抽象过程，知道大数的意义和“四位一级”的表示方法，建立数感。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_fcb66e03fc1b9547"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生认、读、写万以上的数的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9c01b08fc81d13ec",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“认、读、写万以上的数”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“认、读、写万以上的数”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合具体实例解释万以上数的含义，能认、读、写万以上的数，会用万、亿为单位表示大数。能计算两位数乘除三位数。",
+          "excerpt_hash": "c8a558337f3e5a18688be16306b4b979a3902d1c0d31db619010d5a068d688e6",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "数的认识教学应为学生提供合理情境，引导学生进一步经历整数的抽象过程，知道大数的意义和“四位一级”的表示方法，建立数感。",
+          "excerpt_hash": "3caa659c014177cce80f580c1e79a2baad573550cf87a475cb199c42a6db9126",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-AL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后认、读、写万以上的数，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“认、读、写万以上的数”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“数的认识教学应为学生提供合理情境，引导学生进一步经历整数的抽象过程，知道大数的意义和“四位一级”的表示方法，建立数感。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ecc6743a2617406e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_833ce42b24662dbd40af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ec280d20713"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_96d95cbb27d9412e",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_49a1adb84ed35eab",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f61cbfb4e176d8e2",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0c7278730ab12fb2",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e8d4a6502261fd8416ff",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_19111441ff11"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_056cb0cc3385568d",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a05a7edbf492821f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f7680a7d4b92"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7b7248af637aca0a",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_c9e0d8b1c7eb240a",
+      "evidence_refs": [
+        "standard:MA-D2-AL-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D2-AL-001",
+      "target_code": "MA-D3-AL-001",
+      "target_label": "能找出 2, 3, 5 的倍数。能在 1~100 的自然数中找出 10 以内自然数的所有倍数，10 以内两个自然数的公倍数和最小公倍数；能找出…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_772aa79d15aef9c4",
+      "component_ids": [
+        "lc_4ff1d1f2ada9ed9e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生结合具体实例解释万以上数的含义。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够结合具体实例解释万以上数的含义；优先采集：解题过程记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合具体实例解释万以上数的含义，能认、读、写万以上的数，会用万、亿为单位表示大数。能计算两位数乘除三位数。",
+          "excerpt_hash": "c8a558337f3e5a18688be16306b4b979a3902d1c0d31db619010d5a068d688e6",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_48673ac0943c1024",
+      "component_ids": [
+        "lc_4cab476d4e04d6e6"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "表示"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用万、亿为单位表示大数。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用万、亿为单位表示大数；优先采集：解题过程记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能结合具体实例解释万以上数的含义，能认、读、写万以上的数，会用万、亿为单位表示大数。能计算两位数乘除三位数。",
+          "excerpt_hash": "c8a558337f3e5a18688be16306b4b979a3902d1c0d31db619010d5a068d688e6",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（表示）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_4ff1d1f2ada9ed9e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够结合具体实例解释万以上数的含义",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合具体实例解释万以上数的含义，并保留可回查的口头、书面或操作过程证据。",
+      "label": "结合具体实例解释万以上数的含义",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够结合具体实例解释万以上数的含义；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "结合具体实例解释万以上数的含义",
+          "excerpt_hash": "03ce70e751292eac5ff11fafa54f6b6b5d9c3736bcc114df52932fe84bc4e930",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "结合具体实例解释万以上数的含义"
+    },
+    {
+      "component_id": "lc_fcb66e03fc1b9547",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够认、读、写万以上的数",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生认、读、写万以上的数，并说明关键步骤、特征或依据。",
+      "label": "认、读、写万以上的数",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够认、读、写万以上的数；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认、读、写万以上的数",
+          "excerpt_hash": "be3a7627172f7e1161fda24d2278ef0fcc971f3a38d0da5c92e397a65952f9e4",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认、读、写万以上的数"
+    },
+    {
+      "component_id": "lc_4cab476d4e04d6e6",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用万、亿为单位表示大数",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用万、亿为单位表示大数，并说明关键步骤、特征或依据。",
+      "label": "用万、亿为单位表示大数",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用万、亿为单位表示大数；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用万、亿为单位表示大数",
+          "excerpt_hash": "3669030f68a5f313d4511976aa8654fd447743fdf6c5231006f2d3cea8282b9d",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用万、亿为单位表示大数"
+    },
+    {
+      "component_id": "lc_2b093e2bd422ede8",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够计算两位数乘除三位数",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生计算两位数乘除三位数，并说明关键步骤、特征或依据。",
+      "label": "计算两位数乘除三位数",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够计算两位数乘除三位数；优先采集：解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "计算两位数乘除三位数",
+          "excerpt_hash": "b3bd3eaebaed468a98d7e3d193e7b68529e8c7d2918aa43cd698dcc0a6cda6d7",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-AL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "计算两位数乘除三位数"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_9a7a62fbeb379380",
+      "evidence_refs": [
+        "standard:MA-D2-AL-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D1-AL-001",
+      "source_label": "能用数表示物体的个数或事物的顺序，认、读、写万以内的数；说出不同数位上的数表示的数值；能用符号表示数的大小关系，形成初步符号意识",
+      "target_code": "MA-D2-AL-001",
+      "target_label": "能结合具体实例解释万以上数的含义，能认、读、写万以上的数，会用万、亿为单位表示大数。能计算两位数乘除三位数。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "c8a558337f3e5a18688be16306b4b979a3902d1c0d31db619010d5a068d688e6",
+  "standard_code": "MA-D2-AL-001",
+  "verified_prerequisites": []
+}

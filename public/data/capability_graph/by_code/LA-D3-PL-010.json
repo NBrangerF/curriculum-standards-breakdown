@@ -1,0 +1,193 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_b2d2cc7acacf2b3d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生表达对劳动者的尊重的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f1054c322d27c812",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“表达对劳动者的尊重”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“表达对劳动者的尊重”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过案例了解工业生产中的职业分工与协作，能表达对劳动者的尊重，并能反思“质量、效率与安全”的关系。",
+          "excerpt_hash": "6cf3a59babb5840504fb0c1dc54423fd9c4a8c1d8758e218af1d695a1b10b5f4",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用真实职业访谈/视频；讨论“事故案例”强调安全；让学生写一封“致劳动者的感谢卡”。",
+          "excerpt_hash": "c42e8194e4c1af27023a63ba1207c5b4a52d6673de82b187a44b7df8c2ec916b",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-PL-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后表达对劳动者的尊重，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“表达对劳动者的尊重”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用真实职业访谈/视频”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1352,
+      "connection_id": "fc_95b5dc255ee1a5d9",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-PL-010",
+      "target_code": "LA-H4G7-PL-002",
+      "target_label": "能规划生产劳动方案并尝试运用工具、材料、设备和技能解决问题；能组织实施服务性劳动；能在具有挑战性的劳动中熟练运用家政技能；能按规范完成任务并说…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_0225517a5208fe26",
+      "component_ids": [
+        "lc_746fe8a0c1a83466"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生反思“质量、效率与安全”的关系。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够反思“质量、效率与安全”的关系；优先采集：岗位卡、反思短文/感谢卡。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过案例了解工业生产中的职业分工与协作，能表达对劳动者的尊重，并能反思“质量、效率与安全”的关系。",
+          "excerpt_hash": "6cf3a59babb5840504fb0c1dc54423fd9c4a8c1d8758e218af1d695a1b10b5f4",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3efde3a0ed56bf55",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过案例了解工业生产中的职业分工与协作",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过案例了解工业生产中的职业分工与协作，并说明关键步骤、特征或依据。",
+      "label": "通过案例了解工业生产中的职业分工与协作",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过案例了解工业生产中的职业分工与协作；优先采集：岗位卡、反思短文/感谢卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过案例了解工业生产中的职业分工与协作",
+          "excerpt_hash": "6ad15841008d0a692595979bb273feb629a6f2f07305a91c3445b665e0321971",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过案例了解工业生产中的职业分工与协作"
+    },
+    {
+      "component_id": "lc_b2d2cc7acacf2b3d",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够表达对劳动者的尊重",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生表达对劳动者的尊重，并说明关键步骤、特征或依据。",
+      "label": "表达对劳动者的尊重",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够表达对劳动者的尊重；优先采集：岗位卡、反思短文/感谢卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "表达对劳动者的尊重",
+          "excerpt_hash": "e6f6667aa1a80d15eb6f001d8ec6dd16292a125161c89a1e613dfe9b37e55807",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表达对劳动者的尊重"
+    },
+    {
+      "component_id": "lc_746fe8a0c1a83466",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够反思“质量、效率与安全”的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生反思“质量、效率与安全”的关系，并说明关键步骤、特征或依据。",
+      "label": "反思“质量、效率与安全”的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够反思“质量、效率与安全”的关系；优先采集：岗位卡、反思短文/感谢卡。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "反思“质量、效率与安全”的关系",
+          "excerpt_hash": "82f3336ddbdec1bb585d32934d0dc636ae4677393219c7118914fa52a36371e3",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思“质量、效率与安全”的关系"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "6cf3a59babb5840504fb0c1dc54423fd9c4a8c1d8758e218af1d695a1b10b5f4",
+  "standard_code": "LA-D3-PL-010",
+  "verified_prerequisites": []
+}

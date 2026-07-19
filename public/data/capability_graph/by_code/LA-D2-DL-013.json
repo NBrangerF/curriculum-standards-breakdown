@@ -1,0 +1,220 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_ad184681d57d1180"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生使用吸尘器或扫地机完成地面清洁的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c408252359e616bb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8941cb1cd484e266"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“使用吸尘器或扫地机完成地面清洁”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下使用吸尘器或扫地机完成地面清洁，能根据地面材质选择合适模式，能清理集尘盒并保持器具整洁。",
+          "excerpt_hash": "f74673a957fd935e36143fcfc6faead08a61507a9f4c1af8747abccdd2475746",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先讲“吸口不要碰小物件/电线”；演示倒灰与清洗滤网（如可拆）；让学生做“清洁前后对比”。",
+          "excerpt_hash": "883623bf73194e53f1e2943ef5050530a3a5d62e1672ae3343efbd6244a61809",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-DL-013:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后使用吸尘器或扫地机完成地面清洁，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“使用吸尘器或扫地机完成地面清洁”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“先讲“吸口不要碰小物件/电线””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_4fee8d955e8a7d86",
+      "evidence_refs": [
+        "standard:LA-D2-DL-013:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-DL-013",
+      "target_code": "LA-D3-DL-013",
+      "target_label": "能对常见小故障进行初步排查（插头、开关、滤网堵塞等），能使用清晰语言向成人或维修人员描述问题并提出合理诉求。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_8941cb1cd484e266",
+      "component_ids": [
+        "lc_ad184681d57d1180",
+        "lc_e6d9a1abb2f21343",
+        "lc_9072efb7aeba5908"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用吸尘器或扫地机完成地面清洁。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在成人指导下，能够使用吸尘器或扫地机完成地面清洁；优先采集：过程视频/照片、器具维护记录、教师/家长反馈。",
+        "学生在成人指导下，能够根据地面材质选择合适模式；优先采集：过程视频/照片、器具维护记录、教师/家长反馈。",
+        "学生在成人指导下，能够清理集尘盒；优先采集：过程视频/照片、器具维护记录、教师/家长反馈。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下使用吸尘器或扫地机完成地面清洁，能根据地面材质选择合适模式，能清理集尘盒并保持器具整洁。",
+          "excerpt_hash": "f74673a957fd935e36143fcfc6faead08a61507a9f4c1af8747abccdd2475746",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "使用吸尘器或扫地机完成地面清洁；根据地面材质选择合适模式；清理集尘盒",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ad184681d57d1180",
+      "component_type": "procedural",
+      "condition": "在成人指导下",
+      "confidence": 0.72,
+      "description": "学生在成人指导下，能够使用吸尘器或扫地机完成地面清洁",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人指导下”的诊断任务，要求学生使用吸尘器或扫地机完成地面清洁，并说明关键步骤、特征或依据。",
+      "label": "使用吸尘器或扫地机完成地面清洁",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人指导下，能够使用吸尘器或扫地机完成地面清洁；优先采集：过程视频/照片、器具维护记录、教师/家长反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下使用吸尘器或扫地机完成地面清洁，能根据地面材质选择合适模式，能清理集尘盒并保持器具整洁。",
+          "excerpt_hash": "f74673a957fd935e36143fcfc6faead08a61507a9f4c1af8747abccdd2475746",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用吸尘器或扫地机完成地面清洁"
+    },
+    {
+      "component_id": "lc_e6d9a1abb2f21343",
+      "component_type": "conceptual",
+      "condition": "在成人指导下",
+      "confidence": 0.72,
+      "description": "学生在成人指导下，能够根据地面材质选择合适模式",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人指导下”的诊断任务，要求学生根据地面材质选择合适模式，并说明关键步骤、特征或依据。",
+      "label": "根据地面材质选择合适模式",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人指导下，能够根据地面材质选择合适模式；优先采集：过程视频/照片、器具维护记录、教师/家长反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下使用吸尘器或扫地机完成地面清洁，能根据地面材质选择合适模式，能清理集尘盒并保持器具整洁。",
+          "excerpt_hash": "f74673a957fd935e36143fcfc6faead08a61507a9f4c1af8747abccdd2475746",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据地面材质选择合适模式"
+    },
+    {
+      "component_id": "lc_9072efb7aeba5908",
+      "component_type": "conceptual",
+      "condition": "在成人指导下",
+      "confidence": 0.72,
+      "description": "学生在成人指导下，能够清理集尘盒",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人指导下”的诊断任务，要求学生清理集尘盒，并说明关键步骤、特征或依据。",
+      "label": "清理集尘盒",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人指导下，能够清理集尘盒；优先采集：过程视频/照片、器具维护记录、教师/家长反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下使用吸尘器或扫地机完成地面清洁，能根据地面材质选择合适模式，能清理集尘盒并保持器具整洁。",
+          "excerpt_hash": "f74673a957fd935e36143fcfc6faead08a61507a9f4c1af8747abccdd2475746",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "清理集尘盒"
+    },
+    {
+      "component_id": "lc_bf1af193e935700b",
+      "component_type": "conceptual",
+      "condition": "在成人指导下",
+      "confidence": 0.72,
+      "description": "学生在成人指导下，能够保持器具整洁",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在成人指导下”的诊断任务，要求学生保持器具整洁，并说明关键步骤、特征或依据。",
+      "label": "保持器具整洁",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在成人指导下，能够保持器具整洁；优先采集：过程视频/照片、器具维护记录、教师/家长反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在成人指导下使用吸尘器或扫地机完成地面清洁，能根据地面材质选择合适模式，能清理集尘盒并保持器具整洁。",
+          "excerpt_hash": "f74673a957fd935e36143fcfc6faead08a61507a9f4c1af8747abccdd2475746",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "保持器具整洁"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f74673a957fd935e36143fcfc6faead08a61507a9f4c1af8747abccdd2475746",
+  "standard_code": "LA-D2-DL-013",
+  "verified_prerequisites": []
+}

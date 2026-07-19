@@ -1,0 +1,531 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_966bb1d2281dcd9d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4bc1a8acb17b0466",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3c467f49a7cc4d31"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验。",
+          "excerpt_hash": "face8acfb3ed1338ca62e01a965b78173984baddb3ba9e65d6274e033d492236",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-RE-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n周末拍“微剧本视频”上传班级云盘。",
+          "excerpt_hash": "c26d7bea868dd0a3469250612471e0c7fd2c5305f253366940db1005b924c6a5",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D3-RE-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“周末拍“微剧本视频”上传班级云盘。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_966bb1d2281dcd9d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b08e5851b6edbc11",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3c467f49a7cc4d31"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验。",
+          "excerpt_hash": "face8acfb3ed1338ca62e01a965b78173984baddb3ba9e65d6274e033d492236",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-RE-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n周末拍“微剧本视频”上传班级云盘。",
+          "excerpt_hash": "c26d7bea868dd0a3469250612471e0c7fd2c5305f253366940db1005b924c6a5",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D3-RE-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“周末拍“微剧本视频”上传班级云盘。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_966bb1d2281dcd9d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3796cbf1ae9f8e2e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3c467f49a7cc4d31"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验。",
+          "excerpt_hash": "face8acfb3ed1338ca62e01a965b78173984baddb3ba9e65d6274e033d492236",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-RE-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n周末拍“微剧本视频”上传班级云盘。",
+          "excerpt_hash": "c26d7bea868dd0a3469250612471e0c7fd2c5305f253366940db1005b924c6a5",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D3-RE-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“周末拍“微剧本视频”上传班级云盘。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f8101edc78b84001",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_65220055b0e922eb6a1e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_55b8f47777bf"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_976a991fac37cd16",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fc9a3564ab84e7c8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_85776c7beb7e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0586c68945959076",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0ef55b5d5f1e6eda",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7b1d3a1f3d64378c",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4ac3b415ccd8a1c1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_554cb370438d"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9eee8b9cbaa09aef",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.201,
+      "connection_id": "fc_60be4304ce0ccbcd",
+      "evidence_refs": [
+        "standard:CN-H4G7-RE-006:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-RE-005",
+      "target_code": "CN-H4G7-RE-006",
+      "target_label": "能欣赏文学作品并形成情感体验；能说出对感人情境和形象的体验；能品味富于表现力的语言；能用简短记录或口头表达说明基本理解。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.246,
+      "connection_id": "fc_cbbd87af268eee95",
+      "evidence_refs": [
+        "standard:CN-H4G7-RE-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-RE-005",
+      "target_code": "CN-H4G7-RE-007",
+      "target_label": "能在支架下阅读古今中外诗歌集、中长篇小说、散文集等文学名著；能根据阅读进度完成读书笔记；能围绕作品语言、形象、主题等话题展开研讨；能用简短记录…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1477,
+      "connection_id": "fc_db70b9a076314e91",
+      "evidence_refs": [
+        "standard:CN-H4G7-RE-009:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-RE-005",
+      "target_code": "CN-H4G7-RE-009",
+      "target_label": "运用多种方式交流阅读感受；能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；能感悟革命领袖、革命英雄、模范人…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2622,
+      "connection_id": "fc_56ba63731a27af6e",
+      "evidence_refs": [
+        "standard:CN-H4G7-RE-011:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-RE-005",
+      "target_code": "CN-H4G7-RE-011",
+      "target_label": "能借鉴其中写作手法；能包括古诗文名篇；能阅读表现人与自然的优秀文学作品；能用简短记录或口头表达说明基本理解。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1201,
+      "connection_id": "fc_d056a7b0a6e02efd",
+      "evidence_refs": [
+        "standard:CN-H4G7-RE-014:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-RE-005",
+      "target_code": "CN-H4G7-RE-014",
+      "target_label": "能围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；能学习关于科学探究方面的文本；能联系自己的科学学习经历；能用简短记录或口头表达…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.221,
+      "connection_id": "fc_e65f4e272b67fb1c",
+      "evidence_refs": [
+        "standard:CN-H4G7-RE-016:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-RE-005",
+      "target_code": "CN-H4G7-RE-016",
+      "target_label": "能借助注释和工具书理解基本内容；能诵读古代诗词；能阅读浅易文言文；能用简短记录或口头表达说明基本理解。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0979,
+      "connection_id": "fc_3b0e75ce9f70ee79",
+      "evidence_refs": [
+        "standard:CN-H4G7-RE-017:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-RE-005",
+      "target_code": "CN-H4G7-RE-017",
+      "target_label": "理解作者立场、观点与方法；能围绕社会热点问题以口头或书面方式参与讨论；能学习革命领袖的理论文章、经典思辨性文本和短小文言经典；能用简短记录或口…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1192,
+      "connection_id": "fc_5ecb8a84dbf86864",
+      "evidence_refs": [
+        "standard:CN-H4G7-RE-019:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-RE-005",
+      "target_code": "CN-H4G7-RE-019",
+      "target_label": "能随文学习基本词汇、语法知识以帮助理解语言难点；了解课文涉及的重要作家作品知识和文化常识；了解常用修辞手法并体会其表达效果；能用简短记录或口头…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0987,
+      "connection_id": "fc_806830dfa8721de6",
+      "evidence_refs": [
+        "standard:CN-H4G7-RE-034:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-RE-005",
+      "target_code": "CN-H4G7-RE-034",
+      "target_label": "能领略数字时代精彩的文学世界，欣赏由经典文学作品改编的影视作品，感受不同媒介的艺术魅力；能通过口头或书面方式向他人推荐中华优秀传统文化经典、革…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_3c467f49a7cc4d31",
+      "component_ids": [
+        "lc_966bb1d2281dcd9d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验；优先采集：任务：阅读理解问答（基于文本证据）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验。",
+          "excerpt_hash": "face8acfb3ed1338ca62e01a965b78173984baddb3ba9e65d6274e033d492236",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-RE-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_966bb1d2281dcd9d",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验，并说明关键步骤、特征或依据。",
+      "label": "诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验；优先采集：任务：阅读理解问答（基于文本证据）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验",
+          "excerpt_hash": "734a308e756e756db0b1331d6dd441cdeeb4d1851c3381952c87fadea1118401",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-RE-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_40f35ab0bf553990",
+      "evidence_refs": [
+        "standard:CN-D3-RE-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D2-RE-007",
+      "source_label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当。",
+      "target_code": "CN-D3-RE-005",
+      "target_label": "诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验。"
+    },
+    {
+      "confidence": "medium",
+      "edge_id": "pc_515ea03b2cc9e80b",
+      "evidence_refs": [
+        "standard:CN-D3-RE-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D2-RE-009",
+      "source_label": "续讲或续写童话 / 寓言片段，逻辑连贯、想象丰富。",
+      "target_code": "CN-D3-RE-005",
+      "target_label": "诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "face8acfb3ed1338ca62e01a965b78173984baddb3ba9e65d6274e033d492236",
+  "standard_code": "CN-D3-RE-005",
+  "verified_prerequisites": []
+}

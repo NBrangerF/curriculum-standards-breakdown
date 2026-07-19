@@ -1,0 +1,496 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_ef93dbf57460cf7b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生依据劳动需要进行设计、绘制示意图的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0637138db154b7b4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_6932dae1749480ac",
+        "hc_04e90a1ee0bce0fa",
+        "hc_670c0bf4b2183638"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“依据劳动需要进行设计、绘制示意图”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“依据劳动需要进行设计、绘制示意图”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项传统工艺制作项目，了解其特点和基本技能，能依据劳动需要进行设计、绘制示意图并完成制作；能面向真实需求改进方案并评价劳动价值。",
+          "excerpt_hash": "4c9d036d0543d975adde114fa8a6961739c5d6963fe57311029b6e758e9299c9",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合地方特色和学生基础选择项目，鼓励团队合作并突出工匠精神和文化理解。",
+          "excerpt_hash": "6f52a4867819ab305d0277200d6f1542f30135946b91aa1b2aa0c0d2800179cc",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G9-PL-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后依据劳动需要进行设计、绘制示意图，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“依据劳动需要进行设计、绘制示意图”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“结合地方特色和学生基础选择项目，鼓励团队合作并突出工匠精神和文化理解。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_19c138ac48d6482c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生面向真实需求改进方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_55fb9d3473ec8669",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c112b571066f5e7c",
+        "hc_670c0bf4b2183638"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“面向真实需求改进方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“面向真实需求改进方案”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项传统工艺制作项目，了解其特点和基本技能，能依据劳动需要进行设计、绘制示意图并完成制作；能面向真实需求改进方案并评价劳动价值。",
+          "excerpt_hash": "4c9d036d0543d975adde114fa8a6961739c5d6963fe57311029b6e758e9299c9",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合地方特色和学生基础选择项目，鼓励团队合作并突出工匠精神和文化理解。",
+          "excerpt_hash": "6f52a4867819ab305d0277200d6f1542f30135946b91aa1b2aa0c0d2800179cc",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G9-PL-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后面向真实需求改进方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“面向真实需求改进方案”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“结合地方特色和学生基础选择项目，鼓励团队合作并突出工匠精神和文化理解。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_ef93dbf57460cf7b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生依据劳动需要进行设计、绘制示意图的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_04e90a1ee0bce0fa",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_6932dae1749480ac",
+        "hc_04e90a1ee0bce0fa",
+        "hc_670c0bf4b2183638"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“依据劳动需要进行设计、绘制示意图”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“依据劳动需要进行设计、绘制示意图”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项传统工艺制作项目，了解其特点和基本技能，能依据劳动需要进行设计、绘制示意图并完成制作；能面向真实需求改进方案并评价劳动价值。",
+          "excerpt_hash": "4c9d036d0543d975adde114fa8a6961739c5d6963fe57311029b6e758e9299c9",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合地方特色和学生基础选择项目，鼓励团队合作并突出工匠精神和文化理解。",
+          "excerpt_hash": "6f52a4867819ab305d0277200d6f1542f30135946b91aa1b2aa0c0d2800179cc",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G9-PL-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后依据劳动需要进行设计、绘制示意图，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“依据劳动需要进行设计、绘制示意图”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“结合地方特色和学生基础选择项目，鼓励团队合作并突出工匠精神和文化理解。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_9d68079146e53f52",
+        "lc_ef93dbf57460cf7b",
+        "lc_436e461f03ee846d",
+        "lc_19c138ac48d6482c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生选择一至两项传统工艺制作项目的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_28a2562e48126f40",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_6932dae1749480ac",
+        "hc_c112b571066f5e7c",
+        "hc_04e90a1ee0bce0fa",
+        "hc_670c0bf4b2183638"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“选择一至两项传统工艺制作项目”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“选择一至两项传统工艺制作项目”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项传统工艺制作项目，了解其特点和基本技能，能依据劳动需要进行设计、绘制示意图并完成制作；能面向真实需求改进方案并评价劳动价值。",
+          "excerpt_hash": "4c9d036d0543d975adde114fa8a6961739c5d6963fe57311029b6e758e9299c9",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合地方特色和学生基础选择项目，鼓励团队合作并突出工匠精神和文化理解。",
+          "excerpt_hash": "6f52a4867819ab305d0277200d6f1542f30135946b91aa1b2aa0c0d2800179cc",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G9-PL-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后选择一至两项传统工艺制作项目，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“选择一至两项传统工艺制作项目”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“结合地方特色和学生基础选择项目，鼓励团队合作并突出工匠精神和文化理解。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_6932dae1749480ac",
+      "component_ids": [
+        "lc_ef93dbf57460cf7b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生依据劳动需要进行设计、绘制示意图。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够依据劳动需要进行设计、绘制示意图；优先采集：设计示意图、作品实物、过程记录、展示讲解。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项传统工艺制作项目，了解其特点和基本技能，能依据劳动需要进行设计、绘制示意图并完成制作；能面向真实需求改进方案并评价劳动价值。",
+          "excerpt_hash": "4c9d036d0543d975adde114fa8a6961739c5d6963fe57311029b6e758e9299c9",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_c112b571066f5e7c",
+      "component_ids": [
+        "lc_19c138ac48d6482c"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生面向真实需求改进方案。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够面向真实需求改进方案；优先采集：设计示意图、作品实物、过程记录、展示讲解。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项传统工艺制作项目，了解其特点和基本技能，能依据劳动需要进行设计、绘制示意图并完成制作；能面向真实需求改进方案并评价劳动价值。",
+          "excerpt_hash": "4c9d036d0543d975adde114fa8a6961739c5d6963fe57311029b6e758e9299c9",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_04e90a1ee0bce0fa",
+      "component_ids": [
+        "lc_ef93dbf57460cf7b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生依据劳动需要进行设计、绘制示意图。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够依据劳动需要进行设计、绘制示意图；优先采集：设计示意图、作品实物、过程记录、展示讲解。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项传统工艺制作项目，了解其特点和基本技能，能依据劳动需要进行设计、绘制示意图并完成制作；能面向真实需求改进方案并评价劳动价值。",
+          "excerpt_hash": "4c9d036d0543d975adde114fa8a6961739c5d6963fe57311029b6e758e9299c9",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "选择一至两项传统工艺制作项目；识别并说出其特点和基本技能的关键特征；依据劳动需要进行设计、绘制示意图",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_670c0bf4b2183638",
+      "component_ids": [
+        "lc_9d68079146e53f52",
+        "lc_ef93dbf57460cf7b",
+        "lc_436e461f03ee846d",
+        "lc_19c138ac48d6482c"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "方案",
+        "改进",
+        "制作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生选择一至两项传统工艺制作项目。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够选择一至两项传统工艺制作项目；优先采集：设计示意图、作品实物、过程记录、展示讲解。",
+        "学生能够依据劳动需要进行设计、绘制示意图；优先采集：设计示意图、作品实物、过程记录、展示讲解。",
+        "学生能够完成制作；优先采集：设计示意图、作品实物、过程记录、展示讲解。",
+        "学生能够面向真实需求改进方案；优先采集：设计示意图、作品实物、过程记录、展示讲解。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项传统工艺制作项目，了解其特点和基本技能，能依据劳动需要进行设计、绘制示意图并完成制作；能面向真实需求改进方案并评价劳动价值。",
+          "excerpt_hash": "4c9d036d0543d975adde114fa8a6961739c5d6963fe57311029b6e758e9299c9",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、方案、改进、制作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_9d68079146e53f52",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择一至两项传统工艺制作项目",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择一至两项传统工艺制作项目，并说明关键步骤、特征或依据。",
+      "label": "选择一至两项传统工艺制作项目",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择一至两项传统工艺制作项目；优先采集：设计示意图、作品实物、过程记录、展示讲解。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项传统工艺制作项目",
+          "excerpt_hash": "fb7c3a474935d5d6bb2b33b3fe569aa672085539ae1a827dee49b8d24688bc7c",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择一至两项传统工艺制作项目"
+    },
+    {
+      "component_id": "lc_469bb1b3d039c4c0",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出其特点和基本技能的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出其特点和基本技能的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出其特点和基本技能的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出其特点和基本技能的关键特征；优先采集：设计示意图、作品实物、过程记录、展示讲解。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解其特点和基本技能",
+          "excerpt_hash": "78dddb919e3daf0920ee5412b3a29ed3602db30b1ad9946439c89e609143a9cf",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解其特点和基本技能"
+    },
+    {
+      "component_id": "lc_ef93dbf57460cf7b",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够依据劳动需要进行设计、绘制示意图",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生依据劳动需要进行设计、绘制示意图，并保留可回查的口头、书面或操作过程证据。",
+      "label": "依据劳动需要进行设计、绘制示意图",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够依据劳动需要进行设计、绘制示意图；优先采集：设计示意图、作品实物、过程记录、展示讲解。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "依据劳动需要进行设计、绘制示意图",
+          "excerpt_hash": "1bff8b13a111b7dd7a84497176efdd4f64aae7a44a61c4d80068002797432857",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "依据劳动需要进行设计、绘制示意图"
+    },
+    {
+      "component_id": "lc_436e461f03ee846d",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成制作",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成制作，并说明关键步骤、特征或依据。",
+      "label": "完成制作",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成制作；优先采集：设计示意图、作品实物、过程记录、展示讲解。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成制作",
+          "excerpt_hash": "ede4babd45b084a9ecfbd4a6481202e55299207b121d25b8ea338cfd66016564",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成制作"
+    },
+    {
+      "component_id": "lc_19c138ac48d6482c",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够面向真实需求改进方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生面向真实需求改进方案，并说明关键步骤、特征或依据。",
+      "label": "面向真实需求改进方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够面向真实需求改进方案；优先采集：设计示意图、作品实物、过程记录、展示讲解。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "面向真实需求改进方案",
+          "excerpt_hash": "16a16a28f81440334c02c8547f394be7dc8e38f0e4c701940a1291b9a3187129",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "面向真实需求改进方案"
+    },
+    {
+      "component_id": "lc_853aff90b44a21ce",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价劳动价值",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价劳动价值，并说明关键步骤、特征或依据。",
+      "label": "评价劳动价值",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价劳动价值；优先采集：设计示意图、作品实物、过程记录、展示讲解。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价劳动价值",
+          "excerpt_hash": "9d856ffd403b1580ec1309e162cd692ff677f3278fb67e5ed8ba61d489d6c565",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G9-PL-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价劳动价值"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_9a59ea2e439ea1da",
+      "evidence_refs": [
+        "standard:LA-H4G9-PL-009:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-H4G8-PL-008",
+      "source_label": "选择一至两项传统工艺制作项目，了解其特点和基本技能，能依据劳动需要进行设计、绘制示意图并完成制作；能规划协作流程并反思劳动质量。",
+      "target_code": "LA-H4G9-PL-009",
+      "target_label": "选择一至两项传统工艺制作项目，了解其特点和基本技能，能依据劳动需要进行设计、绘制示意图并完成制作；能面向真实需求改进方案并评价劳动价值。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4c9d036d0543d975adde114fa8a6961739c5d6963fe57311029b6e758e9299c9",
+  "standard_code": "LA-H4G9-PL-009",
+  "verified_prerequisites": []
+}

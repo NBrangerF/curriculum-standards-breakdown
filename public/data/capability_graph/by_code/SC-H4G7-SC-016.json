@@ -1,0 +1,545 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_5952279e8d9c192d",
+        "lc_3cf4ac4decf6247e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释其与生活和健康的关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a560019ed59530df",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8330ce43842b9a84",
+        "hc_cf8ff618d00b7879"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释其与生活和健康的关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释其与生活和健康的关系”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述细菌、真菌繁殖在生产生活中的应用；能观察记录微生物繁殖过程并理解其与生活和健康的关系；能描述病毒的增殖；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "e4104775917004abbca32ba22aaea799a49b065b16f223288ff694aff91a3ec9",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调微生物学习中的安全规范和现象证据。",
+          "excerpt_hash": "522faf3134da9414142a63dc1b86340604126ebc8835edc85922fa611284c1ea",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释其与生活和健康的关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释其与生活和健康的关系”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“强调微生物学习中的安全规范和现象证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_24f6705cb39311a8",
+        "lc_5952279e8d9c192d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述细菌、真菌繁殖在生产生活中的应用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_efd759280d1a9e82",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8330ce43842b9a84",
+        "hc_cf8ff618d00b7879"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“描述细菌、真菌繁殖在生产生活中的应用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述细菌、真菌繁殖在生产生活中的应用”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述细菌、真菌繁殖在生产生活中的应用；能观察记录微生物繁殖过程并理解其与生活和健康的关系；能描述病毒的增殖；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "e4104775917004abbca32ba22aaea799a49b065b16f223288ff694aff91a3ec9",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调微生物学习中的安全规范和现象证据。",
+          "excerpt_hash": "522faf3134da9414142a63dc1b86340604126ebc8835edc85922fa611284c1ea",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述细菌、真菌繁殖在生产生活中的应用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述细菌、真菌繁殖在生产生活中的应用”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“强调微生物学习中的安全规范和现象证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_24f6705cb39311a8",
+        "lc_ef6004545482a30d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述细菌、真菌繁殖在生产生活中的应用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3026c80f30aede4e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_cf8ff618d00b7879"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述细菌、真菌繁殖在生产生活中的应用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述细菌、真菌繁殖在生产生活中的应用”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述细菌、真菌繁殖在生产生活中的应用；能观察记录微生物繁殖过程并理解其与生活和健康的关系；能描述病毒的增殖；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "e4104775917004abbca32ba22aaea799a49b065b16f223288ff694aff91a3ec9",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调微生物学习中的安全规范和现象证据。",
+          "excerpt_hash": "522faf3134da9414142a63dc1b86340604126ebc8835edc85922fa611284c1ea",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述细菌、真菌繁殖在生产生活中的应用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述细菌、真菌繁殖在生产生活中的应用”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“强调微生物学习中的安全规范和现象证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_a6d4814eb2c56b7d",
+        "lc_3cf4ac4decf6247e"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生观察记录微生物繁殖过程的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_41b6e051824e8c3b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8330ce43842b9a84"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“观察记录微生物繁殖过程”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“观察记录微生物繁殖过程”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述细菌、真菌繁殖在生产生活中的应用；能观察记录微生物繁殖过程并理解其与生活和健康的关系；能描述病毒的增殖；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "e4104775917004abbca32ba22aaea799a49b065b16f223288ff694aff91a3ec9",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调微生物学习中的安全规范和现象证据。",
+          "excerpt_hash": "522faf3134da9414142a63dc1b86340604126ebc8835edc85922fa611284c1ea",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后观察记录微生物繁殖过程，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“观察记录微生物繁殖过程”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“强调微生物学习中的安全规范和现象证据。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c2efc32f4d8c8508",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_21164b69894834d04f84",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7070ee669923"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ba775a07035c65ee",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f57069ed63363a03",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b2901b9e06df"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3daf5000bc9191a7",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_eb0d049edae27857",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_92369ed68f9321363e22",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae920aee077f"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_94dc3a2f9a671969",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_20b71dede6b7d9df",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fc41327ff0651b269c88",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae5d3f924fb1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4604008cfd618f79",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_839c1d448aea0ece",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-016:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G7-SC-016",
+      "target_code": "SC-H4G8-SC-016",
+      "target_label": "能描述细菌、真菌繁殖在生产生活中的应用；能观察记录微生物繁殖过程并理解其与生活和健康的关系；能说出细菌和真菌的繁殖方式；能比较证据并解释概念之…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_8330ce43842b9a84",
+      "component_ids": [
+        "lc_5952279e8d9c192d",
+        "lc_3cf4ac4decf6247e"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释其与生活和健康的关系。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释其与生活和健康的关系；优先采集：、繁殖过程图、安全操作说明。",
+        "学生能够用观察证据说明基本科学概念；优先采集：、繁殖过程图、安全操作说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述细菌、真菌繁殖在生产生活中的应用；能观察记录微生物繁殖过程并理解其与生活和健康的关系；能描述病毒的增殖；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "e4104775917004abbca32ba22aaea799a49b065b16f223288ff694aff91a3ec9",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_cf8ff618d00b7879",
+      "component_ids": [
+        "lc_24f6705cb39311a8",
+        "lc_5952279e8d9c192d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生描述细菌、真菌繁殖在生产生活中的应用。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够描述细菌、真菌繁殖在生产生活中的应用；优先采集：、繁殖过程图、安全操作说明。",
+        "学生能够用自己的话解释其与生活和健康的关系；优先采集：、繁殖过程图、安全操作说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述细菌、真菌繁殖在生产生活中的应用；能观察记录微生物繁殖过程并理解其与生活和健康的关系；能描述病毒的增殖；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "e4104775917004abbca32ba22aaea799a49b065b16f223288ff694aff91a3ec9",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_24f6705cb39311a8",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述细菌、真菌繁殖在生产生活中的应用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述细菌、真菌繁殖在生产生活中的应用，并说明关键步骤、特征或依据。",
+      "label": "描述细菌、真菌繁殖在生产生活中的应用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述细菌、真菌繁殖在生产生活中的应用；优先采集：、繁殖过程图、安全操作说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述细菌、真菌繁殖在生产生活中的应用",
+          "excerpt_hash": "548eb4ba37491515405f0a465ab52ce07c680245dfeeecee7709f48e4998c953",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述细菌、真菌繁殖在生产生活中的应用"
+    },
+    {
+      "component_id": "lc_a6d4814eb2c56b7d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够观察记录微生物繁殖过程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生观察记录微生物繁殖过程，并说明关键步骤、特征或依据。",
+      "label": "观察记录微生物繁殖过程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够观察记录微生物繁殖过程；优先采集：、繁殖过程图、安全操作说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "观察记录微生物繁殖过程",
+          "excerpt_hash": "ffa3ced6944e518e5bc65a150ed89665724daebe1c67e3fb57398d570a2775cb",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "观察记录微生物繁殖过程"
+    },
+    {
+      "component_id": "lc_5952279e8d9c192d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释其与生活和健康的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释其与生活和健康的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释其与生活和健康的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释其与生活和健康的关系；优先采集：、繁殖过程图、安全操作说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解其与生活和健康的关系",
+          "excerpt_hash": "e79bf3c44795df0375b551237d2e0908548ff75cdb80c5177dee1df3c1cef2d6",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解其与生活和健康的关系"
+    },
+    {
+      "component_id": "lc_ef6004545482a30d",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述病毒的增殖",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述病毒的增殖，并说明关键步骤、特征或依据。",
+      "label": "描述病毒的增殖",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述病毒的增殖；优先采集：、繁殖过程图、安全操作说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述病毒的增殖",
+          "excerpt_hash": "d8886127fb43af7485326a65051b23e20a231af7b0e565e5b5f42a14794cb6f7",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述病毒的增殖"
+    },
+    {
+      "component_id": "lc_3cf4ac4decf6247e",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用观察证据说明基本科学概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用观察证据说明基本科学概念",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：、繁殖过程图、安全操作说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用观察证据说明基本科学概念",
+          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用观察证据说明基本科学概念"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.145,
+      "edge_id": "pc_c671c71a3b6dff09",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-016:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-SC-020",
+      "source_label": "列举睡眠、饮食、运动等影响健康的因素，养成良好的生活习惯。",
+      "target_code": "SC-H4G7-SC-016",
+      "target_label": "能描述细菌、真菌繁殖在生产生活中的应用；能观察记录微生物繁殖过程并理解其与生活和健康的关系；能描述病毒的增殖；能用观察证据说明基本科学概念。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e4104775917004abbca32ba22aaea799a49b065b16f223288ff694aff91a3ec9",
+  "standard_code": "SC-H4G7-SC-016",
+  "verified_prerequisites": []
+}

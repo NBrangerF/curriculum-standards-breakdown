@@ -1,0 +1,554 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_e0e559883b546523"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f4b68fda929cd909",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_6e4d0fc9812937f1"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道无机化合物可分为氧化物、酸、碱、盐等；能根据物质组成和性质分类；认识同类物质通常具有相似性质；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "fa8ed4b6381625c5c4625d6e9385525362056f3a417e848093a0a6b759b35d26",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过分类任务帮助学生建立从组成、类别到性质预测的一般思路。",
+          "excerpt_hash": "6d7933edaa1aa19565523c32d28aa2601a307b24ae5c649632e2620b92222225",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用观察证据说明基本科学概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“通过分类任务帮助学生建立从组成、类别到性质预测的一般思路。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_c9a79b66d41bff15"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据物质组成和性质分类的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a54878c264e6dcc6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_2e856896bf350380"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“根据物质组成和性质分类”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据物质组成和性质分类”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道无机化合物可分为氧化物、酸、碱、盐等；能根据物质组成和性质分类；认识同类物质通常具有相似性质；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "fa8ed4b6381625c5c4625d6e9385525362056f3a417e848093a0a6b759b35d26",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过分类任务帮助学生建立从组成、类别到性质预测的一般思路。",
+          "excerpt_hash": "6d7933edaa1aa19565523c32d28aa2601a307b24ae5c649632e2620b92222225",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据物质组成和性质分类，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据物质组成和性质分类”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“通过分类任务帮助学生建立从组成、类别到性质预测的一般思路。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_fb2b303768dcaac3",
+        "lc_e0e559883b546523"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出同类物质通常具有相似性质的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_350b48bbd24b7230",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_6e4d0fc9812937f1"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出同类物质通常具有相似性质的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出同类物质通常具有相似性质的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道无机化合物可分为氧化物、酸、碱、盐等；能根据物质组成和性质分类；认识同类物质通常具有相似性质；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "fa8ed4b6381625c5c4625d6e9385525362056f3a417e848093a0a6b759b35d26",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过分类任务帮助学生建立从组成、类别到性质预测的一般思路。",
+          "excerpt_hash": "6d7933edaa1aa19565523c32d28aa2601a307b24ae5c649632e2620b92222225",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-SC-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出同类物质通常具有相似性质的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出同类物质通常具有相似性质的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“通过分类任务帮助学生建立从组成、类别到性质预测的一般思路。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_32566a8e6218548e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_21164b69894834d04f84",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7070ee669923"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ba775a07035c65ee",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_daaff5d29298b659",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b2901b9e06df"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3daf5000bc9191a7",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_96f893bb678a816c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_92369ed68f9321363e22",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae920aee077f"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_94dc3a2f9a671969",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a22d4764bf9a0aa8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fc41327ff0651b269c88",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae5d3f924fb1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4604008cfd618f79",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_5d0e6aa7f9e38ef8",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-019:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G7-SC-019",
+      "target_code": "SC-H4G8-SC-020",
+      "target_label": "能初步学会过滤、蒸发、结晶等混合物分离方法；能区别纯净物和混合物、单质和化合物、有机化合物和无机化合物；能知道无机化合物可分为氧化物、酸、碱、…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_6e4d0fc9812937f1",
+      "component_ids": [
+        "lc_e0e559883b546523"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用观察证据说明基本科学概念。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用观察证据说明基本科学概念；优先采集：物质分类图、分离实验记录、性质预测说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道无机化合物可分为氧化物、酸、碱、盐等；能根据物质组成和性质分类；认识同类物质通常具有相似性质；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "fa8ed4b6381625c5c4625d6e9385525362056f3a417e848093a0a6b759b35d26",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_2e856896bf350380",
+      "component_ids": [
+        "lc_c9a79b66d41bff15"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据物质组成和性质分类。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据物质组成和性质分类；优先采集：物质分类图、分离实验记录、性质预测说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道无机化合物可分为氧化物、酸、碱、盐等；能根据物质组成和性质分类；认识同类物质通常具有相似性质；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "fa8ed4b6381625c5c4625d6e9385525362056f3a417e848093a0a6b759b35d26",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_457b67d6a2fa63d0",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出无机化合物可分为氧化物、酸、碱、盐等",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出无机化合物可分为氧化物、酸、碱、盐等，并说明关键步骤、特征或依据。",
+      "label": "准确说出无机化合物可分为氧化物、酸、碱、盐等",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出无机化合物可分为氧化物、酸、碱、盐等；优先采集：物质分类图、分离实验记录、性质预测说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道无机化合物可分为氧化物、酸、碱、盐等",
+          "excerpt_hash": "e072c064cf5f88c2dbc11823de8f9482f2c46623d5603b833b40a1cfd2c304e9",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道无机化合物可分为氧化物、酸、碱、盐等"
+    },
+    {
+      "component_id": "lc_c9a79b66d41bff15",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据物质组成和性质分类",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据物质组成和性质分类，并说明关键步骤、特征或依据。",
+      "label": "根据物质组成和性质分类",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据物质组成和性质分类；优先采集：物质分类图、分离实验记录、性质预测说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据物质组成和性质分类",
+          "excerpt_hash": "a15d6ca9416804eb5bdf4f12dbcca42ac9a098169ac2fbfcccf83ad759fbc3c5",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据物质组成和性质分类"
+    },
+    {
+      "component_id": "lc_fb2b303768dcaac3",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出同类物质通常具有相似性质的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出同类物质通常具有相似性质的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出同类物质通常具有相似性质的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出同类物质通常具有相似性质的关键特征；优先采集：物质分类图、分离实验记录、性质预测说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识同类物质通常具有相似性质",
+          "excerpt_hash": "1685aa3ded93c4d87a57304af464b53e3e97cc0d469d0a2e7dc307c1e2272001",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认识同类物质通常具有相似性质"
+    },
+    {
+      "component_id": "lc_e0e559883b546523",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用观察证据说明基本科学概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用观察证据说明基本科学概念",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：物质分类图、分离实验记录、性质预测说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用观察证据说明基本科学概念",
+          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用观察证据说明基本科学概念"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1564,
+      "edge_id": "pc_702f178cb564b8b2",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-019:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-SC-001",
+      "source_label": "知道海洋为人类生存提供了能源、生物资源、矿产资源等，树立海洋国土意识。；知道资源可分为可再生资源和不可再生资源。",
+      "target_code": "SC-H4G7-SC-019",
+      "target_label": "能知道无机化合物可分为氧化物、酸、碱、盐等；能根据物质组成和性质分类；认识同类物质通常具有相似性质；能用观察证据说明基本科学概念。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.13,
+      "edge_id": "pc_2b534beded8d32c1",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-019:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-SC-002",
+      "source_label": "知道雨、雪、雾等天气现象的成因。",
+      "target_code": "SC-H4G7-SC-019",
+      "target_label": "能知道无机化合物可分为氧化物、酸、碱、盐等；能根据物质组成和性质分类；认识同类物质通常具有相似性质；能用观察证据说明基本科学概念。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.13,
+      "edge_id": "pc_b829813b158e52bb",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-019:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-SC-006",
+      "source_label": "知道新月、上弦月、满月、下弦月四种月相，说明月相的变化情况。",
+      "target_code": "SC-H4G7-SC-019",
+      "target_label": "能知道无机化合物可分为氧化物、酸、碱、盐等；能根据物质组成和性质分类；认识同类物质通常具有相似性质；能用观察证据说明基本科学概念。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2213,
+      "edge_id": "pc_e34fadde213606ae",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-019:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-SC-012",
+      "source_label": "知道空气是一种混合物，含有氮气、氧气、二氧化碳等气体，空气中的氧气和二氧化碳对生命活动具有重要意义。",
+      "target_code": "SC-H4G7-SC-019",
+      "target_label": "能知道无机化合物可分为氧化物、酸、碱、盐等；能根据物质组成和性质分类；认识同类物质通常具有相似性质；能用观察证据说明基本科学概念。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1534,
+      "edge_id": "pc_ba7324be7b4483a3",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-019:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-SC-018",
+      "source_label": "举例说出常见的栖息地为生物提供光、空气、 水、适宜的温度和食物等基本条件。；说出常见动物和植物之间吃与被吃的链状关系。",
+      "target_code": "SC-H4G7-SC-019",
+      "target_label": "能知道无机化合物可分为氧化物、酸、碱、盐等；能根据物质组成和性质分类；认识同类物质通常具有相似性质；能用观察证据说明基本科学概念。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 5,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "fa8ed4b6381625c5c4625d6e9385525362056f3a417e848093a0a6b759b35d26",
+  "standard_code": "SC-H4G7-SC-019",
+  "verified_prerequisites": []
+}

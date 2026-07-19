@@ -1,0 +1,264 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_fb62df87659c98ec"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4e5a0719caa072d6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b0d94b9de0efad51"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目；能确定服务形式、内容与过程；能利用已有劳动经验；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "93740590451afaf71862bc183606cff584506ddc80d1678125bda7c432c33ae3",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-VL-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "突出服务对象需求、项目化组织、持续性和社会影响力，鼓励学生承担真实责任。",
+          "excerpt_hash": "0afe989b6c3f87cf7507f2b3d209e6ca57e4a8401e152b204c93419cc7109d7e",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G8-VL-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“突出服务对象需求、项目化组织、持续性和社会影响力，鼓励学生承担真实责任。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_b731527c2d0c5b27",
+      "evidence_refs": [
+        "standard:LA-H4G8-VL-002:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-H4G8-VL-002",
+      "target_code": "LA-H4G9-VL-003",
+      "target_label": "能选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目；能确定服务形式、内容与过程；能利用已有劳动经验；能面向真实需求改进方案并评价劳动价值。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b0d94b9de0efad51",
+      "component_ids": [
+        "lc_fb62df87659c98ec",
+        "lc_7aa93f5a8bcac542",
+        "lc_03e0280b16135d2c"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目；优先采集：服务性劳动方案、组织实施记录、服务对象反馈、项目复盘。",
+        "学生能够确定服务形式、内容与过程；优先采集：服务性劳动方案、组织实施记录、服务对象反馈、项目复盘。",
+        "学生能够利用已有劳动经验；优先采集：服务性劳动方案、组织实施记录、服务对象反馈、项目复盘。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目；能确定服务形式、内容与过程；能利用已有劳动经验；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "93740590451afaf71862bc183606cff584506ddc80d1678125bda7c432c33ae3",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-VL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目；确定服务形式、内容与过程；利用已有劳动经验",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_fb62df87659c98ec",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目，并说明关键步骤、特征或依据。",
+      "label": "选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目；优先采集：服务性劳动方案、组织实施记录、服务对象反馈、项目复盘。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目",
+          "excerpt_hash": "9d208ee703ad99f0e3435bae4664fc3388fc86731bfe1c8013e217e816adc672",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-VL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目"
+    },
+    {
+      "component_id": "lc_7aa93f5a8bcac542",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够确定服务形式、内容与过程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生确定服务形式、内容与过程，并说明关键步骤、特征或依据。",
+      "label": "确定服务形式、内容与过程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够确定服务形式、内容与过程；优先采集：服务性劳动方案、组织实施记录、服务对象反馈、项目复盘。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "确定服务形式、内容与过程",
+          "excerpt_hash": "ed1df7652bd227627bacb896f878eedaed175b4dbbaf66aa9e4d751d20df9c75",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-VL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "确定服务形式、内容与过程"
+    },
+    {
+      "component_id": "lc_03e0280b16135d2c",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够利用已有劳动经验",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生利用已有劳动经验，并说明关键步骤、特征或依据。",
+      "label": "利用已有劳动经验",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够利用已有劳动经验；优先采集：服务性劳动方案、组织实施记录、服务对象反馈、项目复盘。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用已有劳动经验",
+          "excerpt_hash": "6a915bf66802afb4309fe5214f30f9225c96885d50efa1604064a790a0178731",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-VL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "利用已有劳动经验"
+    },
+    {
+      "component_id": "lc_3cba04ccab4377ae",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够规划协作流程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生规划协作流程，并说明关键步骤、特征或依据。",
+      "label": "规划协作流程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够规划协作流程；优先采集：服务性劳动方案、组织实施记录、服务对象反馈、项目复盘。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "规划协作流程",
+          "excerpt_hash": "4a84ad92a900406a3d30c00b32a9c485273924f5ccc4aa2724f26c9011663634",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-VL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "规划协作流程"
+    },
+    {
+      "component_id": "lc_bda1ae0ce2777ed7",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够反思劳动质量",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生反思劳动质量，并说明关键步骤、特征或依据。",
+      "label": "反思劳动质量",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够反思劳动质量；优先采集：服务性劳动方案、组织实施记录、服务对象反馈、项目复盘。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "反思劳动质量",
+          "excerpt_hash": "7183a8fbee03b379e048527278d4ed6578fdbd0c6cd3aa63470c31916e9cbe23",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-VL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思劳动质量"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a12b4ecc327f2b09",
+      "evidence_refs": [
+        "standard:LA-H4G8-VL-002:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-H4G7-VL-001",
+      "source_label": "能选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目；能确定服务形式、内容与过程；能利用已有劳动经验；能按规范完成任务并说明工具、材料或安…",
+      "target_code": "LA-H4G8-VL-002",
+      "target_label": "能选择一至两项有挑战性的学校或社区公益劳动与志愿服务项目；能确定服务形式、内容与过程；能利用已有劳动经验；能规划协作流程并反思劳动质量。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "93740590451afaf71862bc183606cff584506ddc80d1678125bda7c432c33ae3",
+  "standard_code": "LA-H4G8-VL-002",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,376 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_8b67bdeb8e300e2f",
+        "lc_5322f988f09b41db",
+        "lc_a3af0b04b282f681",
+        "lc_9ca5373ac6698b56",
+        "lc_d492c46b2582e2f3"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生阐释空气质量对健康的影响和空气污染主要原因及防治措施的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9b5ac63a9f0b07f8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a920e84c2f3e23f9"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“阐释空气质量对健康的影响和空气污染主要原因及防治措施”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“阐释空气质量对健康的影响和空气污染主要原因及防治措施”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释空气质量对健康的影响和空气污染主要原因及防治措施；阐释化石能源开发利用对全球气候变化的影响；能关注水环境问题并说明水污染原因和防治措施；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "a92c05c92d421f409dd2780559be60279ba9848512a567baf6bdafa9cc78dd3d",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生融合多学科知识分析问题原因、结果和对策，形成生态文明责任感。",
+          "excerpt_hash": "1a8fba07a44608d48b0d5f3547245165a54a58902f36068f8dba84e574208bfc",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-AR-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后阐释空气质量对健康的影响和空气污染主要原因及防治措施，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“阐释空气质量对健康的影响和空气污染主要原因及防治措施”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生融合多学科知识分析问题原因、结果和对策，形成生态文明责任感。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 3,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bd7b4646a15c0fa6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2b4eaf7fd74d5608c966",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_91e786746fa4"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a01eaebee10c3727",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_54cb688258cdad8a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_46b397a7eadfedff",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6264e69c0bba1a54",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f0fcd567e766"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_941308fc63ca2501",
+      "textbook_grade": 9,
+      "textbook_subject": "物理",
+      "textbook_title": "物理9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a920e84c2f3e23f9",
+      "component_ids": [
+        "lc_8b67bdeb8e300e2f",
+        "lc_5322f988f09b41db",
+        "lc_a3af0b04b282f681",
+        "lc_9ca5373ac6698b56",
+        "lc_d492c46b2582e2f3"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "论证",
+        "说明",
+        "阐释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阐释空气质量对健康的影响和空气污染主要原因及防治措施。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够阐释空气质量对健康的影响和空气污染主要原因及防治措施；优先采集：项目研究报告、环保演讲、行动倡议。",
+        "学生能够阐释化石能源开发利用对全球气候变化的影响；优先采集：项目研究报告、环保演讲、行动倡议。",
+        "学生能够持续收集并说明水环境问题的关键信息；优先采集：项目研究报告、环保演讲、行动倡议。",
+        "学生能够说明水污染原因和防治措施；优先采集：项目研究报告、环保演讲、行动倡议。",
+        "学生能够建模、论证；优先采集：项目研究报告、环保演讲、行动倡议。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释空气质量对健康的影响和空气污染主要原因及防治措施；阐释化石能源开发利用对全球气候变化的影响；能关注水环境问题并说明水污染原因和防治措施；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "a92c05c92d421f409dd2780559be60279ba9848512a567baf6bdafa9cc78dd3d",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（论证、说明、阐释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_8b67bdeb8e300e2f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够阐释空气质量对健康的影响和空气污染主要原因及防治措施",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释空气质量对健康的影响和空气污染主要原因及防治措施，并保留可回查的口头、书面或操作过程证据。",
+      "label": "阐释空气质量对健康的影响和空气污染主要原因及防治措施",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够阐释空气质量对健康的影响和空气污染主要原因及防治措施；优先采集：项目研究报告、环保演讲、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释空气质量对健康的影响和空气污染主要原因及防治措施",
+          "excerpt_hash": "d0e21f4283825263d54b297fc8d78b620e1c35681edcbcdd1d6816a1d84b74d7",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "阐释空气质量对健康的影响和空气污染主要原因及防治措施"
+    },
+    {
+      "component_id": "lc_5322f988f09b41db",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够阐释化石能源开发利用对全球气候变化的影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释化石能源开发利用对全球气候变化的影响，并保留可回查的口头、书面或操作过程证据。",
+      "label": "阐释化石能源开发利用对全球气候变化的影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够阐释化石能源开发利用对全球气候变化的影响；优先采集：项目研究报告、环保演讲、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释化石能源开发利用对全球气候变化的影响",
+          "excerpt_hash": "919f12905085f0aec00ff7ad9ff27e8a605d6d8825a62ffc22c51f9c88db37b9",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "阐释化石能源开发利用对全球气候变化的影响"
+    },
+    {
+      "component_id": "lc_a3af0b04b282f681",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够持续收集并说明水环境问题的关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生持续收集并说明水环境问题的关键信息，并保留可回查的口头、书面或操作过程证据。",
+      "label": "持续收集并说明水环境问题的关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够持续收集并说明水环境问题的关键信息；优先采集：项目研究报告、环保演讲、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "关注水环境问题",
+          "excerpt_hash": "08c4e1f9ef7682f39b16a58a3fffb1e72a5e783ffab0998e57ecba12484cc576",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "关注水环境问题"
+    },
+    {
+      "component_id": "lc_9ca5373ac6698b56",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明水污染原因和防治措施",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明水污染原因和防治措施，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明水污染原因和防治措施",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明水污染原因和防治措施；优先采集：项目研究报告、环保演讲、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明水污染原因和防治措施",
+          "excerpt_hash": "a79eb4359a60a89f5ab29d7509d162bd193d6718cd0899e97decd854fe1560ef",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明水污染原因和防治措施"
+    },
+    {
+      "component_id": "lc_d492c46b2582e2f3",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、论证",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
+      "label": "建模、论证",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、论证；优先采集：项目研究报告、环保演讲、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、论证",
+          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、论证"
+    },
+    {
+      "component_id": "lc_a91f00a6a670a216",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价探究结论或社会影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
+      "label": "评价探究结论或社会影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：项目研究报告、环保演讲、行动倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价探究结论或社会影响",
+          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价探究结论或社会影响"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_31a9722321d2c78d",
+      "evidence_refs": [
+        "standard:SC-H4G9-AR-004:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G8-AR-004",
+      "source_label": "能知道空气质量对健康的影响和空气污染主要原因及防治措施；能知道化石能源开发利用对全球气候变化的影响；能关注水环境问题并说明水污染原因和防治措施…",
+      "target_code": "SC-H4G9-AR-004",
+      "target_label": "阐释空气质量对健康的影响和空气污染主要原因及防治措施；阐释化石能源开发利用对全球气候变化的影响；能关注水环境问题并说明水污染原因和防治措施；能…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a92c05c92d421f409dd2780559be60279ba9848512a567baf6bdafa9cc78dd3d",
+  "standard_code": "SC-H4G9-AR-004",
+  "verified_prerequisites": []
+}

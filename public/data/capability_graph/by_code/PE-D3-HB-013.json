@@ -1,0 +1,262 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_d1426e6be2f093e8",
+        "lc_1f88f4f75f599cec"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生正确运用至少2种情绪调控方法完成任务的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c12721b3c5ca7662",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_951270f7a3d964fa",
+        "hc_404e13046d24fe0a",
+        "hc_8a1242afd86020e0"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“正确运用至少2种情绪调控方法完成任务”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“正确运用至少2种情绪调控方法完成任务”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "掌握并运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动。",
+          "excerpt_hash": "ca63fa587d235699ffbcd48cfcd538cc816d45e8645656c0a4b3a5babe64a9db",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "在比赛/对抗中嵌入“情绪暂停”机制：教会学生使用呼吸放松、正念数数、积极自我对话、目标重聚焦等方法；用“情绪温度计”帮助识别情绪强度。强调把情绪表达与行为控制分开：可以难过/生气，但不能伤人伤己。",
+          "excerpt_hash": "4c2bde94f5e20cb2cdf143902c74c914ae9e7e6a1788d330d4b5438f9e8ebc3e",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-HB-013:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后正确运用至少2种情绪调控方法完成任务，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“正确运用至少2种情绪调控方法完成任务”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“在比赛/对抗中嵌入“情绪暂停”机制：教会学生使用呼吸放松、正念数数、积极自我对话、目标重聚焦等方法”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0852,
+      "connection_id": "fc_3cc9b13907ecf16e",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-010:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-HB-013",
+      "target_code": "PE-H4G7-HB-010",
+      "target_label": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法；能完成基础练习并记录身体…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_951270f7a3d964fa",
+      "component_ids": [
+        "lc_d1426e6be2f093e8",
+        "lc_1f88f4f75f599cec"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生正确运用至少2种情绪调控方法完成任务。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够正确运用至少2种情绪调控方法完成任务；优先采集：工具卡、过程性观察、自评。",
+        "学生能够运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动；优先采集：工具卡、过程性观察、自评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "掌握并运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动。",
+          "excerpt_hash": "ca63fa587d235699ffbcd48cfcd538cc816d45e8645656c0a4b3a5babe64a9db",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（至少）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_404e13046d24fe0a",
+      "component_ids": [
+        "lc_1f88f4f75f599cec"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "稳定"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动；优先采集：工具卡、过程性观察、自评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "掌握并运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动。",
+          "excerpt_hash": "ca63fa587d235699ffbcd48cfcd538cc816d45e8645656c0a4b3a5babe64a9db",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（稳定）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    },
+    {
+      "case_id": "hc_8a1242afd86020e0",
+      "component_ids": [
+        "lc_d1426e6be2f093e8",
+        "lc_1f88f4f75f599cec"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生正确运用至少2种情绪调控方法完成任务。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够正确运用至少2种情绪调控方法完成任务；优先采集：工具卡、过程性观察、自评。",
+        "学生能够运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动；优先采集：工具卡、过程性观察、自评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "掌握并运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动。",
+          "excerpt_hash": "ca63fa587d235699ffbcd48cfcd538cc816d45e8645656c0a4b3a5babe64a9db",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（至少）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d1426e6be2f093e8",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够正确运用至少2种情绪调控方法完成任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生正确运用至少2种情绪调控方法完成任务，并说明关键步骤、特征或依据。",
+      "label": "正确运用至少2种情绪调控方法完成任务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够正确运用至少2种情绪调控方法完成任务；优先采集：工具卡、过程性观察、自评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "掌握并运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动",
+          "excerpt_hash": "f71025e7cf36b49b106e5a94020395f497ac308c4d49193674a68e96d4b378e6",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "掌握至少2种情绪调控方法"
+    },
+    {
+      "component_id": "lc_1f88f4f75f599cec",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动，并说明关键步骤、特征或依据。",
+      "label": "运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动；优先采集：工具卡、过程性观察、自评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动",
+          "excerpt_hash": "bfea17b8df98e5f4cf942d0fcd351d8a0694607a7bf9308384d98e1416aad027",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-HB-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a702d539e3393a28",
+      "evidence_refs": [
+        "standard:PE-D3-HB-013:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-HB-013",
+      "source_label": "了解运动伤病的预防与简单处理方法（热身、放松、扭伤处理等）。",
+      "target_code": "PE-D3-HB-013",
+      "target_label": "掌握并运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ca63fa587d235699ffbcd48cfcd538cc816d45e8645656c0a4b3a5babe64a9db",
+  "standard_code": "PE-D3-HB-013",
+  "verified_prerequisites": []
+}

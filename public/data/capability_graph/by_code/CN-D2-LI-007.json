@@ -1,0 +1,291 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_817d1ffb65db5426"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生分类整理日常积累的词句，并以表格/卡片等形式展示的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f169e658ca05bd7e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8a8d6dd0d781c496"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“分类整理日常积累的词句，并以表格/卡片等形式展示”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“分类整理日常积累的词句，并以表格/卡片等形式展示”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分类整理日常积累的词句，并以表格/卡片等形式展示。",
+          "excerpt_hash": "03d149b467b882bdf4b6ffde5310dc773855886cdbb9b67fc82cac58ab817fa5",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-LI-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n设立“好词好句盒”，每天睡前各投 1 张卡片。",
+          "excerpt_hash": "8ba8935f68b96ecfcc004c9f511b92133e01df4eee8f80d324c9043d4f9b6f19",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D2-LI-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后分类整理日常积累的词句，并以表格/卡片等形式展示，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“分类整理日常积累的词句，并以表格/卡片等形式展示”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“设立“好词好句盒”，每天睡前各投 1 张卡片。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0f0f11877ab3559c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6679839735c5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a9aaea7b7d7bee10",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_38e29790163095d2",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_334af6341558"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ae7100fbda14f7bd",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bde13dfd76bb9718",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_97b49cd39424"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f1323e17e6058c4c",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e050861d8de6bd50",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_61d9923f1ed0457b",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_ac7be525ec35d052",
+      "evidence_refs": [
+        "standard:CN-D2-LI-007:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D2-LI-007",
+      "target_code": "CN-D3-LI-006",
+      "target_label": "在学习中发现富有表现力的词句或段落并记录整理，尝试在表达交流中运用。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_8a8d6dd0d781c496",
+      "component_ids": [
+        "lc_817d1ffb65db5426"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生分类整理日常积累的词句，并以表格/卡片等形式展示。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够分类整理日常积累的词句，并以表格/卡片等形式展示；优先采集：情境识字/认读。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分类整理日常积累的词句，并以表格/卡片等形式展示。",
+          "excerpt_hash": "03d149b467b882bdf4b6ffde5310dc773855886cdbb9b67fc82cac58ab817fa5",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-LI-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_817d1ffb65db5426",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分类整理日常积累的词句，并以表格/卡片等形式展示",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分类整理日常积累的词句，并以表格/卡片等形式展示，并说明关键步骤、特征或依据。",
+      "label": "分类整理日常积累的词句，并以表格/卡片等形式展示",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分类整理日常积累的词句，并以表格/卡片等形式展示；优先采集：情境识字/认读。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分类整理日常积累的词句，并以表格/卡片等形式展示",
+          "excerpt_hash": "01faeb2f7bd3ade1c521e79aa26653f641308bfca9a869c6a8e9c10f446ade78",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-LI-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分类整理日常积累的词句，并以表格/卡片等形式展示"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_f58d0910ff87b4df",
+      "evidence_refs": [
+        "standard:CN-D2-LI-007:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D1-LI-005",
+      "source_label": "能对已学汉字/词语做归类整理（如同偏旁、同主题），并用图表或卡片展示。",
+      "target_code": "CN-D2-LI-007",
+      "target_label": "分类整理日常积累的词句，并以表格/卡片等形式展示。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "03d149b467b882bdf4b6ffde5310dc773855886cdbb9b67fc82cac58ab817fa5",
+  "standard_code": "CN-D2-LI-007",
+  "verified_prerequisites": []
+}

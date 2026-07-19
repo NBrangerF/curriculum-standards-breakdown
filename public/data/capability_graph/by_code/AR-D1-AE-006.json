@@ -1,0 +1,451 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_c61e665504a1cf5f"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e249a9278dbd6ac3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_384f6d1619343c98"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢）”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢），保持队形与节奏的基本一致。",
+          "excerpt_hash": "e1162d6c4f58aa882dd5323728f2533bab79d41cb6038f34d2d8b5a5455ecf8c",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AE-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先训练2种手势（开始/停止），再加强弱与快慢；用“短循环”反复练：8拍开始、8拍停止；让学生轮流当小指挥，提升专注与控制。",
+          "excerpt_hash": "fd68ecf75e20e2122a8d45cd32f320c42e5f1caaeb5c04c11f23916e78876736",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D1-AE-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢）”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“先训练2种手势（开始/停止），再加强弱与快慢”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8f1352db9d9bbe62",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_08ce261085ef1c1fe6ef",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8209ad04b47d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0a7833eb0eca0e83",
+      "textbook_grade": 2,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e4e7409841035871",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2622f7b8f7ae819655aa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_51ecddc37440"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1dc5a976932b360a",
+      "textbook_grade": 1,
+      "textbook_subject": "美术",
+      "textbook_title": "美术1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4688632d4941955b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5119efddbaf1d245bdbd",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5a22ce498b9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c1c61f1e18f1f1fd",
+      "textbook_grade": 2,
+      "textbook_subject": "美术",
+      "textbook_title": "美术2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4a927d3dd516ec43",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9388d4c7d11c755fa6d1",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ff2c02949c7"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ccea29ff50daf60d",
+      "textbook_grade": 1,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f41982fd9a6d3c1c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ad1a73f100e4c37bdf97",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_061b98e9e3e0"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_daf0df4eff446a59",
+      "textbook_grade": 1,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_27fcc31ef7fad4ef",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bd2b80ffa90783d7b872",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_04dc110988f2"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_76531f87e68b0f54",
+      "textbook_grade": 2,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3a14852282a93038",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ee63cc92bbb214cfb505",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_1295fe66588a"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f9d43da1be80535c",
+      "textbook_grade": 1,
+      "textbook_subject": "美术",
+      "textbook_title": "美术1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6546d0e367fe6f82",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f2d970d7f6b6a7a553a8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f5a55ad6fbfb"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_038dd968b19a0b50",
+      "textbook_grade": 2,
+      "textbook_subject": "美术",
+      "textbook_title": "美术2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_8a801a533d7a016a",
+      "evidence_refs": [
+        "standard:AR-D1-AE-006:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D1-AE-006",
+      "target_code": "AR-D2-AE-006",
+      "target_label": "能运用正确的演唱姿势与呼吸方法，自然发声，做到音准、节奏基本准确，咬字清晰，演唱流畅完整。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_384f6d1619343c98",
+      "component_ids": [
+        "lc_c61e665504a1cf5f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "正确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢）；优先采集：课堂表现记录、视频片段、教师量表（反应/一致性）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢），保持队形与节奏的基本一致。",
+          "excerpt_hash": "e1162d6c4f58aa882dd5323728f2533bab79d41cb6038f34d2d8b5a5455ecf8c",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AE-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（正确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_580008a2b0b35d99",
+      "component_ids": [
+        "lc_07b9ff33f9300d04"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "一致"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生保持队形与节奏的基本一致。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够保持队形与节奏的基本一致；优先采集：课堂表现记录、视频片段、教师量表（反应/一致性）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢），保持队形与节奏的基本一致。",
+          "excerpt_hash": "e1162d6c4f58aa882dd5323728f2533bab79d41cb6038f34d2d8b5a5455ecf8c",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AE-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（一致）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c61e665504a1cf5f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢），并说明关键步骤、特征或依据。",
+      "label": "在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢）；优先采集：课堂表现记录、视频片段、教师量表（反应/一致性）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢）",
+          "excerpt_hash": "e62793ce07d80381a7cc47482427a9d33b556d7775537453215d19330564a08e",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AE-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在唱游活动中能根据教师或指挥提示做出正确反应（进入/停止/强弱/快慢）"
+    },
+    {
+      "component_id": "lc_07b9ff33f9300d04",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够保持队形与节奏的基本一致",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生保持队形与节奏的基本一致，并说明关键步骤、特征或依据。",
+      "label": "保持队形与节奏的基本一致",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够保持队形与节奏的基本一致；优先采集：课堂表现记录、视频片段、教师量表（反应/一致性）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "保持队形与节奏的基本一致",
+          "excerpt_hash": "a8e849e40c22faffd7fd3e842ed019d5e15139a249415552852b64587f9906b9",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AE-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "保持队形与节奏的基本一致"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e1162d6c4f58aa882dd5323728f2533bab79d41cb6038f34d2d8b5a5455ecf8c",
+  "standard_code": "AR-D1-AE-006",
+  "verified_prerequisites": []
+}

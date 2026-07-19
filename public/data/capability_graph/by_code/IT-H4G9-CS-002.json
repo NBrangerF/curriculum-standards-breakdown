@@ -1,0 +1,287 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_881050d1cec8ed42",
+        "lc_5ed20d22a13fbef3"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4f810e577d0513f0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_bed606f19829a298"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务；能熟悉网络平台中的技术工具和软件系统功能；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "cc9e89d893d005e4235b6d90ff2577eb6e4ca4510cad3fc14696c3a99b6c9ceb",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调项目管理、展示交流、学科协同和开放设计，给学生留出充分实践时间。",
+          "excerpt_hash": "90a32b637149a409e091aac65b0bffb8230ba3e0cd604dc225ec9d8e00568c2e",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-CS-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“强调项目管理、展示交流、学科协同和开放设计，给学生留出充分实践时间。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_13aafabac1d44672",
+        "lc_5ed20d22a13fbef3"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生设计、测试的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_98d42be83bbaf36e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_bed606f19829a298"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“设计、测试”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“设计、测试”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务；能熟悉网络平台中的技术工具和软件系统功能；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "cc9e89d893d005e4235b6d90ff2577eb6e4ca4510cad3fc14696c3a99b6c9ceb",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调项目管理、展示交流、学科协同和开放设计，给学生留出充分实践时间。",
+          "excerpt_hash": "90a32b637149a409e091aac65b0bffb8230ba3e0cd604dc225ec9d8e00568c2e",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H4G9-CS-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后设计、测试，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“设计、测试”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“强调项目管理、展示交流、学科协同和开放设计，给学生留出充分实践时间。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_bed606f19829a298",
+      "component_ids": [
+        "lc_13aafabac1d44672",
+        "lc_5ed20d22a13fbef3"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生设计、测试。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够设计、测试；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。",
+        "学生能够评价数字化解决方案；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务；能熟悉网络平台中的技术工具和软件系统功能；能设计、测试并评价数字化解决方案。",
+          "excerpt_hash": "cc9e89d893d005e4235b6d90ff2577eb6e4ca4510cad3fc14696c3a99b6c9ceb",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_881050d1cec8ed42",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习，并说明关键步骤、特征或依据。",
+      "label": "运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习",
+          "excerpt_hash": "07cb0c8eb732d974410a48321aa6dccecc05c74ffd2261df2de363dfa352f025",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习"
+    },
+    {
+      "component_id": "lc_01671782ab433195",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务，并说明关键步骤、特征或依据。",
+      "label": "完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务",
+          "excerpt_hash": "941ed39696edce4e6ee6461dc7cd2426e7e278954461fc5956638e892315b654",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务"
+    },
+    {
+      "component_id": "lc_f889e44a3c8f347e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够熟悉网络平台中的技术工具和软件系统功能",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生熟悉网络平台中的技术工具和软件系统功能，并说明关键步骤、特征或依据。",
+      "label": "熟悉网络平台中的技术工具和软件系统功能",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够熟悉网络平台中的技术工具和软件系统功能；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "熟悉网络平台中的技术工具和软件系统功能",
+          "excerpt_hash": "f17856c091a189bc7217edd03f43a469eb4f46703768adeee457f6ced5682900",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "熟悉网络平台中的技术工具和软件系统功能"
+    },
+    {
+      "component_id": "lc_13aafabac1d44672",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够设计、测试",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生设计、测试，并说明关键步骤、特征或依据。",
+      "label": "设计、测试",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够设计、测试；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "设计、测试",
+          "excerpt_hash": "f34282be97ea5b848e2f067f5e47b2decd09f4cc25efac7d5f22df8430dcc747",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "设计、测试"
+    },
+    {
+      "component_id": "lc_5ed20d22a13fbef3",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价数字化解决方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价数字化解决方案，并说明关键步骤、特征或依据。",
+      "label": "评价数字化解决方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价数字化解决方案；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价数字化解决方案",
+          "excerpt_hash": "3afa3da53a717451ad84e66bce8f0eaff2303dc576fceb8d0d1592cbd9ce2132",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G9-CS-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价数字化解决方案"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a0b23f5b6b5b8846",
+      "evidence_refs": [
+        "standard:IT-H4G9-CS-002:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "IT-H4G8-CS-003",
+      "source_label": "能整合互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务…",
+      "target_code": "IT-H4G9-CS-002",
+      "target_label": "能运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "cc9e89d893d005e4235b6d90ff2577eb6e4ca4510cad3fc14696c3a99b6c9ceb",
+  "standard_code": "IT-H4G9-CS-002",
+  "verified_prerequisites": []
+}

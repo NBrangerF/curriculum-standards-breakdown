@@ -1,0 +1,233 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_4f3fbc40fe98497a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生提出改进，体现服务意识与责任的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0dce49afccef1e0b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c3defd0fcd725aa2"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“提出改进，体现服务意识与责任”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“提出改进，体现服务意识与责任”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在校园服务岗位体验中完善服务流程（排队、登记、借还等），能收集服务对象反馈并提出改进，体现服务意识与责任。",
+          "excerpt_hash": "7a0403b1adeb0a730502d87cabc1b4413de4360f9d1c7bc3ed344d5bba0c5264",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“服务旅程”梳理步骤；收集反馈用简短问卷；改进优先从清晰标识与分工入手。",
+          "excerpt_hash": "ddab1f5b2d646a295d245f753fbed74eca7679d4b7d884835a8cc1ce75dfcaa8",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-SL-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后提出改进，体现服务意识与责任，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“提出改进，体现服务意识与责任”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“用“服务旅程”梳理步骤”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.174,
+      "connection_id": "fc_0a56df992a4f0d47",
+      "evidence_refs": [
+        "standard:LA-H4G7-SL-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-SL-001",
+      "target_code": "LA-H4G7-SL-001",
+      "target_label": "能参加校园保洁美化、助残敬老扶弱等公益劳动，体验现代服务业劳动，增强公共服务意识和社会责任感；能选择一至两项现代服务业劳动项目参与体验；能根据…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.15,
+      "connection_id": "fc_54eab23a9ada786f",
+      "evidence_refs": [
+        "standard:LA-H4G7-SL-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-SL-001",
+      "target_code": "LA-H4G7-SL-004",
+      "target_label": "能选择一至两项现代服务业劳动项目参与体验；能根据服务业劳动特征和过程发现有价值的问题；设计合理且有创意的解决方案；能按规范完成任务并说明工具、…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_c3defd0fcd725aa2",
+      "component_ids": [
+        "lc_4f3fbc40fe98497a"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "改进"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提出改进，体现服务意识与责任。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够提出改进，体现服务意识与责任；优先采集：服务流程图、反馈数据、改进报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在校园服务岗位体验中完善服务流程（排队、登记、借还等），能收集服务对象反馈并提出改进，体现服务意识与责任。",
+          "excerpt_hash": "7a0403b1adeb0a730502d87cabc1b4413de4360f9d1c7bc3ed344d5bba0c5264",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（改进）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_9213b1eee3c716b9",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在校园服务岗位体验中完善服务流程（排队、登记、借还等）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在校园服务岗位体验中完善服务流程（排队、登记、借还等），并说明关键步骤、特征或依据。",
+      "label": "在校园服务岗位体验中完善服务流程（排队、登记、借还等）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在校园服务岗位体验中完善服务流程（排队、登记、借还等）；优先采集：服务流程图、反馈数据、改进报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在校园服务岗位体验中完善服务流程（排队、登记、借还等）",
+          "excerpt_hash": "01e11ea744adfc7c5b3c8b9151e3c4c634603a631676874df4738d14c4b49982",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在校园服务岗位体验中完善服务流程（排队、登记、借还等）"
+    },
+    {
+      "component_id": "lc_1dc35ecabdd39133",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够收集服务对象反馈",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生收集服务对象反馈，并说明关键步骤、特征或依据。",
+      "label": "收集服务对象反馈",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够收集服务对象反馈；优先采集：服务流程图、反馈数据、改进报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "收集服务对象反馈",
+          "excerpt_hash": "a3b37f1ed7676a9fe70a3ba5289be7b12890a0c39f72b3a6d91d87240b9fa029",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "收集服务对象反馈"
+    },
+    {
+      "component_id": "lc_4f3fbc40fe98497a",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提出改进，体现服务意识与责任",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提出改进，体现服务意识与责任，并说明关键步骤、特征或依据。",
+      "label": "提出改进，体现服务意识与责任",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提出改进，体现服务意识与责任；优先采集：服务流程图、反馈数据、改进报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提出改进，体现服务意识与责任",
+          "excerpt_hash": "8cce4a6180fd9b7132a700e151206b70ebf5d41b80b732e23a78f1afb235e8b5",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-SL-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出改进，体现服务意识与责任"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_8a8cee2726e66df2",
+      "evidence_refs": [
+        "standard:LA-D3-SL-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-SL-001",
+      "source_label": "能在教师指导下体验一种校园服务岗位（如图书管理员助理、秩序引导、卫生检查），能按流程完成服务并使用礼貌用语。",
+      "target_code": "LA-D3-SL-001",
+      "target_label": "能在校园服务岗位体验中完善服务流程（排队、登记、借还等），能收集服务对象反馈并提出改进，体现服务意识与责任。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "7a0403b1adeb0a730502d87cabc1b4413de4360f9d1c7bc3ed344d5bba0c5264",
+  "standard_code": "LA-D3-SL-001",
+  "verified_prerequisites": []
+}

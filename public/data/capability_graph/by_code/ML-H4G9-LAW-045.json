@@ -1,0 +1,524 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_f074b5dace9680c3",
+        "lc_9ce626ffb3db9880",
+        "lc_121611fed3ef0254"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释总体国家安全观的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fa295ce29c0d2c88",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3d164420178a461e",
+        "hc_6124625dd3b19aa5",
+        "hc_7b88086ad13a15a9"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释总体国家安全观”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释总体国家安全观”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解总体国家安全观；阐释维护国家安全是每个公民的义务；能自觉维护国家安全；能依据规则、价值和证据作出判断并提出行动建议。",
+          "excerpt_hash": "b576b85cfe7c9f7125d5ef08aa2d760ffd2075ed506741c8f7b0a0023061b131",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G9-LAW-045:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "帮助学生区分国家安全的不同领域，并落实到公民义务和日常行动。",
+          "excerpt_hash": "61053c8ab3e546bd67cd5af601e0cc47fb9932409ed78716e8cebde4580eec31",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G9-LAW-045:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释总体国家安全观，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释总体国家安全观”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“帮助学生区分国家安全的不同领域，并落实到公民义务和日常行动。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_121611fed3ef0254"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生依据规则、价值和证据作出判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_72d2d811ef622927",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3d164420178a461e",
+        "hc_6124625dd3b19aa5"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“依据规则、价值和证据作出判断”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“依据规则、价值和证据作出判断”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解总体国家安全观；阐释维护国家安全是每个公民的义务；能自觉维护国家安全；能依据规则、价值和证据作出判断并提出行动建议。",
+          "excerpt_hash": "b576b85cfe7c9f7125d5ef08aa2d760ffd2075ed506741c8f7b0a0023061b131",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G9-LAW-045:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "帮助学生区分国家安全的不同领域，并落实到公民义务和日常行动。",
+          "excerpt_hash": "61053c8ab3e546bd67cd5af601e0cc47fb9932409ed78716e8cebde4580eec31",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G9-LAW-045:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后依据规则、价值和证据作出判断，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“依据规则、价值和证据作出判断”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“帮助学生区分国家安全的不同领域，并落实到公民义务和日常行动。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_12e2e11c58af5ff5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生自觉维护国家安全的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_249c88da07e2cf62",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_7b88086ad13a15a9"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“自觉维护国家安全”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“自觉维护国家安全”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解总体国家安全观；阐释维护国家安全是每个公民的义务；能自觉维护国家安全；能依据规则、价值和证据作出判断并提出行动建议。",
+          "excerpt_hash": "b576b85cfe7c9f7125d5ef08aa2d760ffd2075ed506741c8f7b0a0023061b131",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G9-LAW-045:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "帮助学生区分国家安全的不同领域，并落实到公民义务和日常行动。",
+          "excerpt_hash": "61053c8ab3e546bd67cd5af601e0cc47fb9932409ed78716e8cebde4580eec31",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G9-LAW-045:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后自觉维护国家安全，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“自觉维护国家安全”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“帮助学生区分国家安全的不同领域，并落实到公民义务和日常行动。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e24349f08dfc6a3c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1c2f1b2eb35ee43d98b9",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_bdb26a7ab112"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_95cd8ca38621d636",
+      "textbook_grade": 9,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3a1f008a0f52bb49",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7e63f930aaf0037f4469",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_41292e82b853"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c11c5f855e9e4535",
+      "textbook_grade": 9,
+      "textbook_subject": "历史",
+      "textbook_title": "历史9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_71a2c1bbad6faeeb",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9fe340349c3c4669ebc3",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_0c575518c2f4"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5e5d3fb56db79731",
+      "textbook_grade": 9,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b4e76d47254d0817",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c4c8b194000a948fd0ea",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b1592b8ddc34"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1bec9ee43164bd5d",
+      "textbook_grade": 9,
+      "textbook_subject": "历史",
+      "textbook_title": "历史9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_3d164420178a461e",
+      "component_ids": [
+        "lc_f074b5dace9680c3",
+        "lc_9ce626ffb3db9880",
+        "lc_121611fed3ef0254"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "证据",
+        "阐释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释总体国家安全观。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释总体国家安全观；优先采集：国家安全案例说明、义务清单、观点阐释。",
+        "学生能够阐释维护国家安全是每个公民的义务；优先采集：国家安全案例说明、义务清单、观点阐释。",
+        "学生能够依据规则、价值和证据作出判断；优先采集：国家安全案例说明、义务清单、观点阐释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解总体国家安全观；阐释维护国家安全是每个公民的义务；能自觉维护国家安全；能依据规则、价值和证据作出判断并提出行动建议。",
+          "excerpt_hash": "b576b85cfe7c9f7125d5ef08aa2d760ffd2075ed506741c8f7b0a0023061b131",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G9-LAW-045:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、证据、阐释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_6124625dd3b19aa5",
+      "component_ids": [
+        "lc_121611fed3ef0254"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生依据规则、价值和证据作出判断。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够依据规则、价值和证据作出判断；优先采集：国家安全案例说明、义务清单、观点阐释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解总体国家安全观；阐释维护国家安全是每个公民的义务；能自觉维护国家安全；能依据规则、价值和证据作出判断并提出行动建议。",
+          "excerpt_hash": "b576b85cfe7c9f7125d5ef08aa2d760ffd2075ed506741c8f7b0a0023061b131",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G9-LAW-045:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_7b88086ad13a15a9",
+      "component_ids": [
+        "lc_f074b5dace9680c3",
+        "lc_9ce626ffb3db9880",
+        "lc_12e2e11c58af5ff5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释总体国家安全观。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释总体国家安全观；优先采集：国家安全案例说明、义务清单、观点阐释。",
+        "学生能够阐释维护国家安全是每个公民的义务；优先采集：国家安全案例说明、义务清单、观点阐释。",
+        "学生能够自觉维护国家安全；优先采集：国家安全案例说明、义务清单、观点阐释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解总体国家安全观；阐释维护国家安全是每个公民的义务；能自觉维护国家安全；能依据规则、价值和证据作出判断并提出行动建议。",
+          "excerpt_hash": "b576b85cfe7c9f7125d5ef08aa2d760ffd2075ed506741c8f7b0a0023061b131",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G9-LAW-045:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_f074b5dace9680c3",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释总体国家安全观",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释总体国家安全观，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释总体国家安全观",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释总体国家安全观；优先采集：国家安全案例说明、义务清单、观点阐释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解总体国家安全观",
+          "excerpt_hash": "9d5d1ce65f253d82c8f01370f33b67bb4417bcd3594166328a819dfeb8b2b7d3",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G9-LAW-045:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解总体国家安全观"
+    },
+    {
+      "component_id": "lc_9ce626ffb3db9880",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够阐释维护国家安全是每个公民的义务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释维护国家安全是每个公民的义务，并保留可回查的口头、书面或操作过程证据。",
+      "label": "阐释维护国家安全是每个公民的义务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够阐释维护国家安全是每个公民的义务；优先采集：国家安全案例说明、义务清单、观点阐释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释维护国家安全是每个公民的义务",
+          "excerpt_hash": "02a290d5ec9575c8b6169d6a41c2b724a4620af416e0727a5fa7d851527cb205",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G9-LAW-045:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "阐释维护国家安全是每个公民的义务"
+    },
+    {
+      "component_id": "lc_12e2e11c58af5ff5",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够自觉维护国家安全",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生自觉维护国家安全，并说明关键步骤、特征或依据。",
+      "label": "自觉维护国家安全",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够自觉维护国家安全；优先采集：国家安全案例说明、义务清单、观点阐释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "自觉维护国家安全",
+          "excerpt_hash": "d1eab3b2bf3854c0e6c73b260b48e93273459c051d91346e45b7f31a6711b28b",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G9-LAW-045:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "自觉维护国家安全"
+    },
+    {
+      "component_id": "lc_121611fed3ef0254",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够依据规则、价值和证据作出判断",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生依据规则、价值和证据作出判断，并保留可回查的口头、书面或操作过程证据。",
+      "label": "依据规则、价值和证据作出判断",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够依据规则、价值和证据作出判断；优先采集：国家安全案例说明、义务清单、观点阐释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "依据规则、价值和证据作出判断",
+          "excerpt_hash": "97047fdbb602740de9420342cbd1981fdb36eeef8c89096e110e39fd1be01180",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G9-LAW-045:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "依据规则、价值和证据作出判断"
+    },
+    {
+      "component_id": "lc_9c253bbbe4b988c9",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提出行动建议",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提出行动建议，并说明关键步骤、特征或依据。",
+      "label": "提出行动建议",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提出行动建议；优先采集：国家安全案例说明、义务清单、观点阐释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提出行动建议",
+          "excerpt_hash": "251e34fb656f5a2dc8f0f00552b4d86ebc8271a9aed7c9fe6ce10e170b4906bb",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G9-LAW-045:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出行动建议"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_8672fde60a5158c8",
+      "evidence_refs": [
+        "standard:ML-H4G9-LAW-045:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-H4G8-LAW-044",
+      "source_label": "理解总体国家安全观；能知道维护国家安全是每个公民的义务；能自觉维护国家安全；能结合家庭、学校或社会案例分析问题。",
+      "target_code": "ML-H4G9-LAW-045",
+      "target_label": "理解总体国家安全观；阐释维护国家安全是每个公民的义务；能自觉维护国家安全；能依据规则、价值和证据作出判断并提出行动建议。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b576b85cfe7c9f7125d5ef08aa2d760ffd2075ed506741c8f7b0a0023061b131",
+  "standard_code": "ML-H4G9-LAW-045",
+  "verified_prerequisites": []
+}

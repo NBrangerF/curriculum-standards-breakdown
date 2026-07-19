@@ -1,0 +1,273 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_2b0705cee1275fc3"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述溺水自救、止血的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_dd98eb7e4c27f7b5",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_60efd4c0315b85ba"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述溺水自救、止血”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述溺水自救、止血”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述溺水自救、止血；表现出积极应对挫折的能力；能以及减轻压力、缓解焦虑、预防抑郁等方法；能完成基础练习并记录身体反应。",
+          "excerpt_hash": "8bc502acf299cb054abf84f873d18353ba35a7f9c5765d3b4eadd78f882fcde8",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "采用安全可控的模拟演练，明确何时需要寻求成人和专业帮助。",
+          "excerpt_hash": "581c1eb4043e06b614c1c3b273f25b87105be21e016647cf47d2b1a98bdc7e0d",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G7-HB-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述溺水自救、止血，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述溺水自救、止血”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“采用安全可控的模拟演练，明确何时需要寻求成人和专业帮助。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b1ee76cb9fae2ab2",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bebb65c5f3a6a181b33b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7f9265bf475e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fc995ab30b3d79ec",
+      "textbook_grade": 7,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康7年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_7c59ce8ba2f20f33",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-003:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-H4G7-HB-003",
+      "target_code": "PE-H4G8-HB-003",
+      "target_label": "能在实践中运用；能以及减轻压力、缓解焦虑、预防抑郁等方法；能描述溺水自救、止血；能分析练习或比赛表现并调整方法。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_60efd4c0315b85ba",
+      "component_ids": [
+        "lc_2b0705cee1275fc3",
+        "lc_16f636d7ff3b0ccf",
+        "lc_75fb482601a55fef"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生描述溺水自救、止血。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够描述溺水自救、止血；优先采集：自救互救演示、心理调适记录、情境任务表现。",
+        "学生能够表现出积极应对挫折的能力；优先采集：自救互救演示、心理调适记录、情境任务表现。",
+        "学生能够完成基础练习；优先采集：自救互救演示、心理调适记录、情境任务表现。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能描述溺水自救、止血；表现出积极应对挫折的能力；能以及减轻压力、缓解焦虑、预防抑郁等方法；能完成基础练习并记录身体反应。",
+          "excerpt_hash": "8bc502acf299cb054abf84f873d18353ba35a7f9c5765d3b4eadd78f882fcde8",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "描述溺水自救、止血；表现出积极应对挫折的能力；完成基础练习",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_2b0705cee1275fc3",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述溺水自救、止血",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述溺水自救、止血，并说明关键步骤、特征或依据。",
+      "label": "描述溺水自救、止血",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述溺水自救、止血；优先采集：自救互救演示、心理调适记录、情境任务表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述溺水自救、止血",
+          "excerpt_hash": "233ecb377ec03016da9d5e3dc364f4f6d4bd3eda33dc29dedf848b984afb5185",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述溺水自救、止血"
+    },
+    {
+      "component_id": "lc_16f636d7ff3b0ccf",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够表现出积极应对挫折的能力",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生表现出积极应对挫折的能力，并说明关键步骤、特征或依据。",
+      "label": "表现出积极应对挫折的能力",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够表现出积极应对挫折的能力；优先采集：自救互救演示、心理调适记录、情境任务表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "表现出积极应对挫折的能力",
+          "excerpt_hash": "10e18409bd84473d18f42b4021d178c6afbdca4481c9453e14ba0c08e235973c",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表现出积极应对挫折的能力"
+    },
+    {
+      "component_id": "lc_75fb482601a55fef",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成基础练习",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成基础练习，并说明关键步骤、特征或依据。",
+      "label": "完成基础练习",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成基础练习；优先采集：自救互救演示、心理调适记录、情境任务表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成基础练习",
+          "excerpt_hash": "9867465e87f5d1e30b1f61c5a8850c7514e1c5cd08433ab651b29809f18566e0",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成基础练习"
+    },
+    {
+      "component_id": "lc_89b4380e3bee7fa6",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够记录身体反应",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生记录身体反应，并说明关键步骤、特征或依据。",
+      "label": "记录身体反应",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够记录身体反应；优先采集：自救互救演示、心理调适记录、情境任务表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "记录身体反应",
+          "excerpt_hash": "e674d0e2ce340d3d8b89f23519838231e4d98d4349ecdf159eca0464f7045226",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "记录身体反应"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1136,
+      "edge_id": "pc_13704a22ddd6cadf",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-003:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D3-HB-011",
+      "source_label": "能描述青春期生理与心理变化，尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助。",
+      "target_code": "PE-H4G7-HB-003",
+      "target_label": "能描述溺水自救、止血；表现出积极应对挫折的能力；能以及减轻压力、缓解焦虑、预防抑郁等方法；能完成基础练习并记录身体反应。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "8bc502acf299cb054abf84f873d18353ba35a7f9c5765d3b4eadd78f882fcde8",
+  "standard_code": "PE-H4G7-HB-003",
+  "verified_prerequisites": []
+}

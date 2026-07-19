@@ -1,0 +1,233 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_4ecf945af9b61c3d"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生感受体育锻炼对健康的重要性的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8ddecc5181adf68c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_55470c500c378321"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“感受体育锻炼对健康的重要性”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "感受体育锻炼对健康的重要性，参与校内外体育活动。",
+          "excerpt_hash": "ff5068e58fd0a2e319a95ce450115f232dae27e7a7cc71c41117489a884a4a8d",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "（健康教育教学提示）1) 创设生活化情境，把健康教育与学生真实生活链接；2) 指导学生在锻炼中体验运动乐趣，参与户外游戏/身体活动，形成锻炼习惯；3) 用学习单/任务单/实践活动帮助掌握健康知识与技能；4) 结合体育活动与日常生活，培养安全意识与自我保护能力。",
+          "excerpt_hash": "712acf24ab220ab0065215191471a11c5a7bd014940d474767bb959a3a776fc8",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D1-HB-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后感受体育锻炼对健康的重要性，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“感受体育锻炼对健康的重要性”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“（健康教育教学提示）1) 创设生活化情境，把健康教育与学生真实生活链接”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a362a26c05409563",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_729e6607eab953ee2165",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_1_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_ee2b7c40f4dccca4",
+      "textbook_grade": 1,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康1年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7336f27e6e3aa12a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c6389a9109e39310cf86",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_2_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_73d28c16a2eec793",
+      "textbook_grade": 2,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康2年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_7e3a6e6fe06c8dc3",
+      "evidence_refs": [
+        "standard:PE-D1-HB-002:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D1-HB-002",
+      "target_code": "PE-D2-HB-002",
+      "target_label": "积极参与多种体育活动，关注自己的身高和体重变化。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_55470c500c378321",
+      "component_ids": [
+        "lc_4ecf945af9b61c3d",
+        "lc_4e59dc2752b61535"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生感受体育锻炼对健康的重要性。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够感受体育锻炼对健康的重要性；优先采集：学习单（活动地图）、家校签字/照片证据。",
+        "学生能够参与校内外体育活动；优先采集：学习单（活动地图）、家校签字/照片证据。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "感受体育锻炼对健康的重要性，参与校内外体育活动。",
+          "excerpt_hash": "ff5068e58fd0a2e319a95ce450115f232dae27e7a7cc71c41117489a884a4a8d",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "感受体育锻炼对健康的重要性；参与校内外体育活动",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_4ecf945af9b61c3d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够感受体育锻炼对健康的重要性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生感受体育锻炼对健康的重要性，并说明关键步骤、特征或依据。",
+      "label": "感受体育锻炼对健康的重要性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够感受体育锻炼对健康的重要性；优先采集：学习单（活动地图）、家校签字/照片证据。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "感受体育锻炼对健康的重要性",
+          "excerpt_hash": "58761a70f757a502459f2e90a5f5c3f332f87bd6837f62566f7f9cd568a8a402",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "感受体育锻炼对健康的重要性"
+    },
+    {
+      "component_id": "lc_4e59dc2752b61535",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与校内外体育活动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与校内外体育活动，并说明关键步骤、特征或依据。",
+      "label": "参与校内外体育活动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与校内外体育活动；优先采集：学习单（活动地图）、家校签字/照片证据。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "参与校内外体育活动",
+          "excerpt_hash": "5d7513d015af9ad76c7da13171e76f689703ae59d967d7af920343bae59a0e57",
+          "field": "standard",
+          "ref_id": "standard:PE-D1-HB-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参与校内外体育活动"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ff5068e58fd0a2e319a95ce450115f232dae27e7a7cc71c41117489a884a4a8d",
+  "standard_code": "PE-D1-HB-002",
+  "verified_prerequisites": []
+}

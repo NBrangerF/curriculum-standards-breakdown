@@ -1,0 +1,215 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_832e3bb4449b10de"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用文明方式表达不同意见的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_20ac24262809e560",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ea53a123d7df2097"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“用文明方式表达不同意见”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用文明方式表达不同意见”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重裁判和对手，能用文明方式表达不同意见并维护公平竞赛氛围。",
+          "excerpt_hash": "273a280347cbbe78ab280c9123f3e7cda6fd121077f9ce642f9b9a7d853f59c9",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教授“异议表达三句式”：复述判罚→提出疑问→接受结果并继续比赛；模拟冲突场景（争球、界外、犯规）进行角色扮演。强调尊重对手与裁判是比赛的一部分，鼓励赛前/赛后握手与互致感谢。",
+          "excerpt_hash": "4d3f25a5c8ec935864e5bb213f347274ab4d4a868ec2d3c148a7a62514aad4eb",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-SD-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用文明方式表达不同意见，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用文明方式表达不同意见”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“教授“异议表达三句式”：复述判罚→提出疑问→接受结果并继续比赛”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0861,
+      "connection_id": "fc_2c3eb081452805a6",
+      "evidence_refs": [
+        "standard:PE-H4G7-SD-022:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-SD-003",
+      "target_code": "PE-H4G7-SD-022",
+      "target_label": "表现出责任意识和规则意识；分析初步判断高水平比赛；理解安全知识并进行身心恢复；能完成基础练习并记录身体反应。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ea53a123d7df2097",
+      "component_ids": [
+        "lc_832e3bb4449b10de"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用文明方式表达不同意见。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用文明方式表达不同意见；优先采集：角色扮演、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重裁判和对手，能用文明方式表达不同意见并维护公平竞赛氛围。",
+          "excerpt_hash": "273a280347cbbe78ab280c9123f3e7cda6fd121077f9ce642f9b9a7d853f59c9",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_32d4e67c5453ccc9",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够尊重裁判和对手",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生尊重裁判和对手，并说明关键步骤、特征或依据。",
+      "label": "尊重裁判和对手",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够尊重裁判和对手；优先采集：角色扮演、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重裁判和对手",
+          "excerpt_hash": "4e9fe16217d18d75c401401879a4358f3b9c829288dd21407bcf2f81aca7e801",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "尊重裁判和对手"
+    },
+    {
+      "component_id": "lc_832e3bb4449b10de",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用文明方式表达不同意见",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用文明方式表达不同意见，并说明关键步骤、特征或依据。",
+      "label": "用文明方式表达不同意见",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用文明方式表达不同意见；优先采集：角色扮演、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用文明方式表达不同意见",
+          "excerpt_hash": "65380b2bdad6aa853f341c2d3051eeeda9cc443f1feaf1a6dcd09bee3c38c7cd",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用文明方式表达不同意见"
+    },
+    {
+      "component_id": "lc_d8dacafab149a25d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够维护公平竞赛氛围",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生维护公平竞赛氛围，并说明关键步骤、特征或依据。",
+      "label": "维护公平竞赛氛围",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够维护公平竞赛氛围；优先采集：角色扮演、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "维护公平竞赛氛围",
+          "excerpt_hash": "e28b8c55f2ce9d8a380016adafbc2b9e9b1046f8d445579b54269ad2edbbb328",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "维护公平竞赛氛围"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_f3c2330a1f5d6ffd",
+      "evidence_refs": [
+        "standard:PE-D3-SD-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-SD-003",
+      "source_label": "在体育活动中表现出文明礼貌、乐于助人的行为。",
+      "target_code": "PE-D3-SD-003",
+      "target_label": "尊重裁判和对手，能用文明方式表达不同意见并维护公平竞赛氛围。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "273a280347cbbe78ab280c9123f3e7cda6fd121077f9ce642f9b9a7d853f59c9",
+  "standard_code": "PE-D3-SD-003",
+  "verified_prerequisites": []
+}

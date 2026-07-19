@@ -1,0 +1,218 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_93f05e58be8d7dc9"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生使用清晰语言向成人或维修人员描述问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_72da79ddbe1f1d04",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f3c4eee4f00c917a"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“使用清晰语言向成人或维修人员描述问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“使用清晰语言向成人或维修人员描述问题”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对常见小故障进行初步排查（插头、开关、滤网堵塞等），能使用清晰语言向成人或维修人员描述问题并提出合理诉求。",
+          "excerpt_hash": "952a48c1dac6f68d497b35caf71d8a4ff4cf9276ed835408bab75b9da3aac75a",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“现象—条件—尝试—结果”四要素描述；强调不自行拆修；演练报修电话/工单填写。",
+          "excerpt_hash": "f0b3cf37125086bc5410b71ec6b7f58a73c3def984a8ee987d1b80269f935c76",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-DL-013:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后使用清晰语言向成人或维修人员描述问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“使用清晰语言向成人或维修人员描述问题”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用“现象—条件—尝试—结果”四要素描述”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1606,
+      "connection_id": "fc_250d04f7dd09af39",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-010:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-DL-013",
+      "target_code": "LA-H4G7-DL-010",
+      "target_label": "能通过阅读产品说明书了解家庭常用电器的基本结构、工作原理和保养方法；能使用工具进行简单拆卸、清理、维护或小故障判断；能按规范完成任务并说明工具…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_f3c4eee4f00c917a",
+      "component_ids": [
+        "lc_93f05e58be8d7dc9",
+        "lc_5934ac6fc0eafb85"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理",
+        "清晰"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用清晰语言向成人或维修人员描述问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够使用清晰语言向成人或维修人员描述问题；优先采集：情境题测评、问题描述单、沟通表现。",
+        "学生能够提出合理诉求；优先采集：情境题测评、问题描述单、沟通表现。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对常见小故障进行初步排查（插头、开关、滤网堵塞等），能使用清晰语言向成人或维修人员描述问题并提出合理诉求。",
+          "excerpt_hash": "952a48c1dac6f68d497b35caf71d8a4ff4cf9276ed835408bab75b9da3aac75a",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理、清晰）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_bf7d4915c8e17c7d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够对常见小故障进行初步排查（插头、开关、滤网堵塞等）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生对常见小故障进行初步排查（插头、开关、滤网堵塞等），并说明关键步骤、特征或依据。",
+      "label": "对常见小故障进行初步排查（插头、开关、滤网堵塞等）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够对常见小故障进行初步排查（插头、开关、滤网堵塞等）；优先采集：情境题测评、问题描述单、沟通表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "对常见小故障进行初步排查（插头、开关、滤网堵塞等）",
+          "excerpt_hash": "6a767aa7e551694460c2512a94c22ed87be54cd4797d5dbebd12daca5ba3dca9",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "对常见小故障进行初步排查（插头、开关、滤网堵塞等）"
+    },
+    {
+      "component_id": "lc_93f05e58be8d7dc9",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够使用清晰语言向成人或维修人员描述问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生使用清晰语言向成人或维修人员描述问题，并说明关键步骤、特征或依据。",
+      "label": "使用清晰语言向成人或维修人员描述问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够使用清晰语言向成人或维修人员描述问题；优先采集：情境题测评、问题描述单、沟通表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "使用清晰语言向成人或维修人员描述问题",
+          "excerpt_hash": "4b09dbb43256b291e01bdae612bcee76e5971e4d78d7cb42465d441a7c81902b",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用清晰语言向成人或维修人员描述问题"
+    },
+    {
+      "component_id": "lc_5934ac6fc0eafb85",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提出合理诉求",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提出合理诉求，并说明关键步骤、特征或依据。",
+      "label": "提出合理诉求",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提出合理诉求；优先采集：情境题测评、问题描述单、沟通表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提出合理诉求",
+          "excerpt_hash": "a6ae46a3eef3c70fef892329b52a07d31d22976feb3b6a52cf9c7376981d4e64",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出合理诉求"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_4fee8d955e8a7d86",
+      "evidence_refs": [
+        "standard:LA-D3-DL-013:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-DL-013",
+      "source_label": "能在成人指导下使用吸尘器或扫地机完成地面清洁，能根据地面材质选择合适模式，能清理集尘盒并保持器具整洁。",
+      "target_code": "LA-D3-DL-013",
+      "target_label": "能对常见小故障进行初步排查（插头、开关、滤网堵塞等），能使用清晰语言向成人或维修人员描述问题并提出合理诉求。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "952a48c1dac6f68d497b35caf71d8a4ff4cf9276ed835408bab75b9da3aac75a",
+  "standard_code": "LA-D3-DL-013",
+  "verified_prerequisites": []
+}

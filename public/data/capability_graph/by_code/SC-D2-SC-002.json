@@ -1,0 +1,367 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_ffe53d7f7d18e6d8",
+        "lc_e0bad87d5e57b52e",
+        "lc_1fe44713438445d7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生准确说出土壤的主要成分的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0ea3de7ecbcd3ce9",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b1786cec8c7a4a7a"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“准确说出土壤的主要成分”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“准确说出土壤的主要成分”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道土壤的主要成分，能观察并描述砂质土、黏质土、壤质土的特点，举例说出它们适宜生长的植物。",
+          "excerpt_hash": "ab92f31eaa338a468aa42b02dfc0cdb8e53a157c63cb045accec2b19afb7aa31",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“强调亲身体验：采集样品、观察触感与颗粒、做对比记录，避免只停留在文字记忆。”",
+          "excerpt_hash": "f62129126d133b638be7e5ec7ad065c4a9dfcc700dc6b28072eee7d0d36f048a",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D2-SC-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后准确说出土壤的主要成分，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出土壤的主要成分”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：““强调亲身体验：采集样品、观察触感与颗粒、做对比记录，避免只停留在文字记忆。””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_b8bdb2b8cacbbee1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生观察砂质土、黏质土、壤质土的特点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bdfa1138027b0c93",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b1786cec8c7a4a7a"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“观察砂质土、黏质土、壤质土的特点”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“观察砂质土、黏质土、壤质土的特点”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道土壤的主要成分，能观察并描述砂质土、黏质土、壤质土的特点，举例说出它们适宜生长的植物。",
+          "excerpt_hash": "ab92f31eaa338a468aa42b02dfc0cdb8e53a157c63cb045accec2b19afb7aa31",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“强调亲身体验：采集样品、观察触感与颗粒、做对比记录，避免只停留在文字记忆。”",
+          "excerpt_hash": "f62129126d133b638be7e5ec7ad065c4a9dfcc700dc6b28072eee7d0d36f048a",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D2-SC-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后观察砂质土、黏质土、壤质土的特点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“观察砂质土、黏质土、壤质土的特点”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：““强调亲身体验：采集样品、观察触感与颗粒、做对比记录，避免只停留在文字记忆。””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9612d4fdca04d4f5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0757779aa18e19943225",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d4496c65db0c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b9eb991027ffeda8",
+      "textbook_grade": 4,
+      "textbook_subject": "科学",
+      "textbook_title": "科学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_097e04527e0f6ccb",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_8f339370bc6f93bec508",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_081c8aedb59a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7c169a53d2e5e61f",
+      "textbook_grade": 3,
+      "textbook_subject": "科学",
+      "textbook_title": "科学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6240dedd90a119d4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b38444051a56cb65e2a2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e406900c980e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_cdcafe0767eae425",
+      "textbook_grade": 3,
+      "textbook_subject": "科学",
+      "textbook_title": "科学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6c8b3e61370f9ed2",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fdd69e27f13a56c2ba4c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d37bf862517c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_cd997a8f1d41e32e",
+      "textbook_grade": 4,
+      "textbook_subject": "科学",
+      "textbook_title": "科学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b1786cec8c7a4a7a",
+      "component_ids": [
+        "lc_ffe53d7f7d18e6d8",
+        "lc_b8bdb2b8cacbbee1",
+        "lc_e0bad87d5e57b52e"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出土壤的主要成分。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出土壤的主要成分；优先采集：实验/探究记录、讨论记录。",
+        "学生能够观察砂质土、黏质土、壤质土的特点；优先采集：实验/探究记录、讨论记录。",
+        "学生能够描述砂质土、黏质土、壤质土的特点；优先采集：实验/探究记录、讨论记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道土壤的主要成分，能观察并描述砂质土、黏质土、壤质土的特点，举例说出它们适宜生长的植物。",
+          "excerpt_hash": "ab92f31eaa338a468aa42b02dfc0cdb8e53a157c63cb045accec2b19afb7aa31",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "准确说出土壤的主要成分；观察砂质土、黏质土、壤质土的特点；描述砂质土、黏质土、壤质土的特点",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ffe53d7f7d18e6d8",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出土壤的主要成分",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出土壤的主要成分，并说明关键步骤、特征或依据。",
+      "label": "准确说出土壤的主要成分",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出土壤的主要成分；优先采集：实验/探究记录、讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道土壤的主要成分",
+          "excerpt_hash": "2fa5577f5e41788ec57e89f46683098f5c1788db40fb3f2dcbb2c2681a32d6f2",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道土壤的主要成分"
+    },
+    {
+      "component_id": "lc_b8bdb2b8cacbbee1",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够观察砂质土、黏质土、壤质土的特点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生观察砂质土、黏质土、壤质土的特点，并说明关键步骤、特征或依据。",
+      "label": "观察砂质土、黏质土、壤质土的特点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够观察砂质土、黏质土、壤质土的特点；优先采集：实验/探究记录、讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "观察并描述砂质土、黏质土、壤质土的特点",
+          "excerpt_hash": "b1e3903223c8dde38f326241a318a841ebcaf6fee596fbb5e250111044359a76",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "观察砂质土、黏质土、壤质土的特点"
+    },
+    {
+      "component_id": "lc_e0bad87d5e57b52e",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述砂质土、黏质土、壤质土的特点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述砂质土、黏质土、壤质土的特点，并说明关键步骤、特征或依据。",
+      "label": "描述砂质土、黏质土、壤质土的特点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述砂质土、黏质土、壤质土的特点；优先采集：实验/探究记录、讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述砂质土、黏质土、壤质土的特点",
+          "excerpt_hash": "33e749f4b59cdc19289ef430594a095b36fc05e80aa83e060c546f8a12814c4f",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述砂质土、黏质土、壤质土的特点"
+    },
+    {
+      "component_id": "lc_1fe44713438445d7",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够举例说出它们适宜生长的植物",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生举例说出它们适宜生长的植物，并说明关键步骤、特征或依据。",
+      "label": "举例说出它们适宜生长的植物",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够举例说出它们适宜生长的植物；优先采集：实验/探究记录、讨论记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "举例说出它们适宜生长的植物",
+          "excerpt_hash": "ce84f4e3011a33f01195615834e6edcb668966869992ded3979af67c1bdc9cd2",
+          "field": "standard",
+          "ref_id": "standard:SC-D2-SC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "举例说出它们适宜生长的植物"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ab92f31eaa338a468aa42b02dfc0cdb8e53a157c63cb045accec2b19afb7aa31",
+  "standard_code": "SC-D2-SC-002",
+  "verified_prerequisites": []
+}

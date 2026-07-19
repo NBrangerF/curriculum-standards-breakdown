@@ -1,0 +1,490 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_0ec30f183d829a27"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生评价作品效果并完善展演、创作或文化阐释的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8e14f167974a4e9e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_022a5dd99d9389df",
+        "hc_55913f80ad24bf24"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“评价作品效果并完善展演、创作或文化阐释”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“评价作品效果并完善展演、创作或文化阐释”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示；能结合所学动作与表现形式探索新的舞蹈动作；能运用舞蹈语言进行艺术表现；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "78dc02db3e1ab6a55d46fd8ffbe503ea886dd99fd289533d9225a943c199f10b",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CP-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "营造自由宽松的创编环境，引导学生从真实生活体验中寻找动作语汇。",
+          "excerpt_hash": "5a2c95afc6ff289a0d462fafa9dd352ec3cf721a93a3fabd9cee2cab48de79b8",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G9-CP-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后评价作品效果并完善展演、创作或文化阐释，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“评价作品效果并完善展演、创作或文化阐释”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“营造自由宽松的创编环境，引导学生从真实生活体验中寻找动作语汇。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_727711a45e802d16"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用舞蹈语言进行艺术表现的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_dbdb48edbd406688",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用舞蹈语言进行艺术表现”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用舞蹈语言进行艺术表现”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示；能结合所学动作与表现形式探索新的舞蹈动作；能运用舞蹈语言进行艺术表现；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "78dc02db3e1ab6a55d46fd8ffbe503ea886dd99fd289533d9225a943c199f10b",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CP-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "营造自由宽松的创编环境，引导学生从真实生活体验中寻找动作语汇。",
+          "excerpt_hash": "5a2c95afc6ff289a0d462fafa9dd352ec3cf721a93a3fabd9cee2cab48de79b8",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G9-CP-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用舞蹈语言进行艺术表现，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用舞蹈语言进行艺术表现”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“营造自由宽松的创编环境，引导学生从真实生活体验中寻找动作语汇。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_57dec9ad91fed8bc",
+        "lc_0ec30f183d829a27"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_db3db78ee50d2395",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_022a5dd99d9389df",
+        "hc_55913f80ad24bf24",
+        "hc_fe43bd88034780ba"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示；能结合所学动作与表现形式探索新的舞蹈动作；能运用舞蹈语言进行艺术表现；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "78dc02db3e1ab6a55d46fd8ffbe503ea886dd99fd289533d9225a943c199f10b",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CP-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "营造自由宽松的创编环境，引导学生从真实生活体验中寻找动作语汇。",
+          "excerpt_hash": "5a2c95afc6ff289a0d462fafa9dd352ec3cf721a93a3fabd9cee2cab48de79b8",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G9-CP-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“营造自由宽松的创编环境，引导学生从真实生活体验中寻找动作语汇。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0e8bf4b7d7d2fbad",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_3b89d00b60db4e36ca94",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_bf23ec4c6df8"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_eda06d45d819f009",
+      "textbook_grade": 9,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_339d1dff29010425",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_787571113b5e3afdcb08",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_be6c940b05af"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_412bfc529670f62b",
+      "textbook_grade": 9,
+      "textbook_subject": "美术",
+      "textbook_title": "美术9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_af4706ba3da8c809",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a7ca146a2d967d30165f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_bc115e35d9a0"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f08bc8c50fb8301a",
+      "textbook_grade": 9,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c0aefe54b5938475",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f38852db089654f91a93",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a5e1ff65cd5c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a819193a176652df",
+      "textbook_grade": 9,
+      "textbook_subject": "美术",
+      "textbook_title": "美术9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_022a5dd99d9389df",
+      "component_ids": [
+        "lc_0ec30f183d829a27"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "阐释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生评价作品效果并完善展演、创作或文化阐释。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够评价作品效果并完善展演、创作或文化阐释；优先采集：舞蹈小品展示、脚本设计、创编反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示；能结合所学动作与表现形式探索新的舞蹈动作；能运用舞蹈语言进行艺术表现；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "78dc02db3e1ab6a55d46fd8ffbe503ea886dd99fd289533d9225a943c199f10b",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CP-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（阐释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_55913f80ad24bf24",
+      "component_ids": [
+        "lc_57dec9ad91fed8bc",
+        "lc_0ec30f183d829a27"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "创作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示；优先采集：舞蹈小品展示、脚本设计、创编反思。",
+        "学生能够评价作品效果并完善展演、创作或文化阐释；优先采集：舞蹈小品展示、脚本设计、创编反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示；能结合所学动作与表现形式探索新的舞蹈动作；能运用舞蹈语言进行艺术表现；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "78dc02db3e1ab6a55d46fd8ffbe503ea886dd99fd289533d9225a943c199f10b",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CP-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、创作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_fe43bd88034780ba",
+      "component_ids": [
+        "lc_57dec9ad91fed8bc"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "独立"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示；优先采集：舞蹈小品展示、脚本设计、创编反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示；能结合所学动作与表现形式探索新的舞蹈动作；能运用舞蹈语言进行艺术表现；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "78dc02db3e1ab6a55d46fd8ffbe503ea886dd99fd289533d9225a943c199f10b",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CP-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（独立）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_57dec9ad91fed8bc",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示，并说明关键步骤、特征或依据。",
+      "label": "在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示；优先采集：舞蹈小品展示、脚本设计、创编反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示",
+          "excerpt_hash": "50b7df67a85cace76ad9ff7d695975d81b8a246a16c9393b9db3b205d4ce3dd7",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CP-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示"
+    },
+    {
+      "component_id": "lc_2214f21b0f91fffc",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够结合所学动作与表现形式探索新的舞蹈动作",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合所学动作与表现形式探索新的舞蹈动作，并说明关键步骤、特征或依据。",
+      "label": "结合所学动作与表现形式探索新的舞蹈动作",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够结合所学动作与表现形式探索新的舞蹈动作；优先采集：舞蹈小品展示、脚本设计、创编反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "结合所学动作与表现形式探索新的舞蹈动作",
+          "excerpt_hash": "b634b60f4a602d6946fd0f81cab7d03b4bcbd50eebdd9115f56fbc83a94bb2e1",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CP-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "结合所学动作与表现形式探索新的舞蹈动作"
+    },
+    {
+      "component_id": "lc_727711a45e802d16",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用舞蹈语言进行艺术表现",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用舞蹈语言进行艺术表现，并说明关键步骤、特征或依据。",
+      "label": "运用舞蹈语言进行艺术表现",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用舞蹈语言进行艺术表现；优先采集：舞蹈小品展示、脚本设计、创编反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用舞蹈语言进行艺术表现",
+          "excerpt_hash": "e81e7bd0ede45aa1235d742aa57f1e702c952b225cbeb9d8d1830b2670589cab",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CP-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用舞蹈语言进行艺术表现"
+    },
+    {
+      "component_id": "lc_0ec30f183d829a27",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价作品效果并完善展演、创作或文化阐释",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价作品效果并完善展演、创作或文化阐释，并保留可回查的口头、书面或操作过程证据。",
+      "label": "评价作品效果并完善展演、创作或文化阐释",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价作品效果并完善展演、创作或文化阐释；优先采集：舞蹈小品展示、脚本设计、创编反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价作品效果并完善展演、创作或文化阐释",
+          "excerpt_hash": "6687cd8df12e7718634d4db0ed8816d1665ffdbe2a1bae1cbf4b85d0268e9a39",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-CP-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价作品效果并完善展演、创作或文化阐释"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_74973d14d0750220",
+      "evidence_refs": [
+        "standard:AR-H4G9-CP-008:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-H4G8-CP-007",
+      "source_label": "能在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示；能运用舞蹈语言进行艺术表现；能结合所学动作与表现形式探索新的舞蹈动作；…",
+      "target_code": "AR-H4G9-CP-008",
+      "target_label": "能在规定主题中独立或合作进行即兴舞蹈创作、舞蹈小品脚本设计、编排和展示；能结合所学动作与表现形式探索新的舞蹈动作；能运用舞蹈语言进行艺术表现；…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "78dc02db3e1ab6a55d46fd8ffbe503ea886dd99fd289533d9225a943c199f10b",
+  "standard_code": "AR-H4G9-CP-008",
+  "verified_prerequisites": []
+}

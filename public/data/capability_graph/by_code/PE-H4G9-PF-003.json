@@ -1,0 +1,377 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_8c1e99986307774a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fbabd32d9ea6d777",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据《国家学生体质健康标准（2014年修订）》测评结果制订相应的体能锻炼计划；能理解并运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法；设计包含目标、内容、方法和评价的体能锻炼计划；能制定改进方案并评价运动、健康或品德表现。",
+          "excerpt_hash": "58244956671690521f582e83379af25d9adf89ffcb027e48dbfa44d7a6533ad5",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生把测评数据转化为可执行、可调整、可评价的体能目标。",
+          "excerpt_hash": "d818c1c3830749cc0377862ece85854b5d51296911406e466dc85f5ded306cdf",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G9-PF-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“指导学生把测评数据转化为可执行、可调整、可评价的体能目标。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_a422d07366e8e6fe",
+        "lc_2abaf199b6431e74"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生设计包含目标、内容、方法和评价的体能锻炼计划的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6e0d882ffd69d45c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a7e2f96dac11c6a1"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“设计包含目标、内容、方法和评价的体能锻炼计划”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“设计包含目标、内容、方法和评价的体能锻炼计划”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据《国家学生体质健康标准（2014年修订）》测评结果制订相应的体能锻炼计划；能理解并运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法；设计包含目标、内容、方法和评价的体能锻炼计划；能制定改进方案并评价运动、健康或品德表现。",
+          "excerpt_hash": "58244956671690521f582e83379af25d9adf89ffcb027e48dbfa44d7a6533ad5",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生把测评数据转化为可执行、可调整、可评价的体能目标。",
+          "excerpt_hash": "d818c1c3830749cc0377862ece85854b5d51296911406e466dc85f5ded306cdf",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G9-PF-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后设计包含目标、内容、方法和评价的体能锻炼计划，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“设计包含目标、内容、方法和评价的体能锻炼计划”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“指导学生把测评数据转化为可执行、可调整、可评价的体能目标。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_8c1e99986307774a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9f27dfc31d626650",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据《国家学生体质健康标准（2014年修订）》测评结果制订相应的体能锻炼计划；能理解并运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法；设计包含目标、内容、方法和评价的体能锻炼计划；能制定改进方案并评价运动、健康或品德表现。",
+          "excerpt_hash": "58244956671690521f582e83379af25d9adf89ffcb027e48dbfa44d7a6533ad5",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生把测评数据转化为可执行、可调整、可评价的体能目标。",
+          "excerpt_hash": "d818c1c3830749cc0377862ece85854b5d51296911406e466dc85f5ded306cdf",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G9-PF-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“指导学生把测评数据转化为可执行、可调整、可评价的体能目标。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_275be8424c3a3bfa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_edad04fc8816a4ef583f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_028db4ce8af0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5a8a2e0e888764ac",
+      "textbook_grade": 9,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a7e2f96dac11c6a1",
+      "component_ids": [
+        "lc_a422d07366e8e6fe",
+        "lc_2abaf199b6431e74"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "方案",
+        "改进"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生设计包含目标、内容、方法和评价的体能锻炼计划。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够设计包含目标、内容、方法和评价的体能锻炼计划；优先采集：体质测评记录、体能锻炼计划、自我评价表。",
+        "学生能够制定改进方案；优先采集：体质测评记录、体能锻炼计划、自我评价表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据《国家学生体质健康标准（2014年修订）》测评结果制订相应的体能锻炼计划；能理解并运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法；设计包含目标、内容、方法和评价的体能锻炼计划；能制定改进方案并评价运动、健康或品德表现。",
+          "excerpt_hash": "58244956671690521f582e83379af25d9adf89ffcb027e48dbfa44d7a6533ad5",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、方案、改进）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ed767c0a5224706e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据《国家学生体质健康标准（2014年修订）》测评结果制订相应的体能锻炼计划",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据《国家学生体质健康标准（2014年修订）》测评结果制订相应的体能锻炼计划，并说明关键步骤、特征或依据。",
+      "label": "根据《国家学生体质健康标准（2014年修订）》测评结果制订相应的体能锻炼计划",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据《国家学生体质健康标准（2014年修订）》测评结果制订相应的体能锻炼计划；优先采集：体质测评记录、体能锻炼计划、自我评价表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据《国家学生体质健康标准（2014年修订）》测评结果制订相应的体能锻炼计划",
+          "excerpt_hash": "d5668d9fcfb03eedf424e5f8d7d18428651c1c5c8d0649440f28c0545a323ac4",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据《国家学生体质健康标准（2014年修订）》测评结果制订相应的体能锻炼计划"
+    },
+    {
+      "component_id": "lc_18a37428e351e75e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释体能发展的基本原理和方法、体能锻炼计划制订的程序和方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释体能发展的基本原理和方法、体能锻炼计划制订的程序和方法，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释体能发展的基本原理和方法、体能锻炼计划制订的程序和方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释体能发展的基本原理和方法、体能锻炼计划制订的程序和方法；优先采集：体质测评记录、体能锻炼计划、自我评价表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解并运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法",
+          "excerpt_hash": "3151d025378229c373dda694aa2d116663d97611a0cb5585d89406048d3ea327",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解体能发展的基本原理和方法、体能锻炼计划制订的程序和方法"
+    },
+    {
+      "component_id": "lc_8c1e99986307774a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法，并说明关键步骤、特征或依据。",
+      "label": "运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法；优先采集：体质测评记录、体能锻炼计划、自我评价表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法",
+          "excerpt_hash": "7776c4efb5a5b48759b59a5695d0d86c10c9109c6f871e9f8b914018f7c44b5a",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法"
+    },
+    {
+      "component_id": "lc_a422d07366e8e6fe",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够设计包含目标、内容、方法和评价的体能锻炼计划",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生设计包含目标、内容、方法和评价的体能锻炼计划，并说明关键步骤、特征或依据。",
+      "label": "设计包含目标、内容、方法和评价的体能锻炼计划",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够设计包含目标、内容、方法和评价的体能锻炼计划；优先采集：体质测评记录、体能锻炼计划、自我评价表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "设计包含目标、内容、方法和评价的体能锻炼计划",
+          "excerpt_hash": "ac50e93d52c822d2deb14984d379ea7d80b75f60c3a2231788738a8fd4510684",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "设计包含目标、内容、方法和评价的体能锻炼计划"
+    },
+    {
+      "component_id": "lc_2abaf199b6431e74",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够制定改进方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生制定改进方案，并说明关键步骤、特征或依据。",
+      "label": "制定改进方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够制定改进方案；优先采集：体质测评记录、体能锻炼计划、自我评价表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "制定改进方案",
+          "excerpt_hash": "305f96671497f03b1e47f1e3cfb9fc5877c88a1fe99ec5cb2dcdb2368ad8dfbc",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "制定改进方案"
+    },
+    {
+      "component_id": "lc_86825877bbc7178b",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价运动、健康或品德表现",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价运动、健康或品德表现，并说明关键步骤、特征或依据。",
+      "label": "评价运动、健康或品德表现",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价运动、健康或品德表现；优先采集：体质测评记录、体能锻炼计划、自我评价表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价运动、健康或品德表现",
+          "excerpt_hash": "29f95b45527b0f3ecc669bf688bf6ef2e3993738f71ad43d628beda84cd7baab",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-PF-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价运动、健康或品德表现"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_b6b9edcc14204e4d",
+      "evidence_refs": [
+        "standard:PE-H4G9-PF-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-H4G8-PF-002",
+      "source_label": "能理解并运用体能发展的基本原理和方法、体能锻炼计划制订的程序和方法；能根据《国家学生体质健康标准（2014年修订）》测评结果制订相应的体能锻炼…",
+      "target_code": "PE-H4G9-PF-003",
+      "target_label": "能根据《国家学生体质健康标准（2014年修订）》测评结果制订相应的体能锻炼计划；能理解并运用体能发展的基本原理和方法、体能锻炼计划制订的程序和…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "58244956671690521f582e83379af25d9adf89ffcb027e48dbfa44d7a6533ad5",
+  "standard_code": "PE-H4G9-PF-003",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,555 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_d5b1bb2eeae8da24",
+        "lc_74feeb8ffe5b0064"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用具体事例说明一次函数与二元一次方程的关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4f1e9585a772175c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_940c3b993fdee68c",
+        "hc_5265ddddd8176802"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用具体事例说明一次函数与二元一次方程的关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用具体事例说明一次函数与二元一次方程的关系”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用一次函数解决简单实际问题；能体会一次函数与二元一次方程的关系；能从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式；能说明解题步骤和基本依据。",
+          "excerpt_hash": "17c53eca8e77a166ea5e11c8321c622ba328b2dd9896ff3e8d2321d94e7b68c3",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-AL-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注学生的问题转化、跨领域综合和方案解释能力。",
+          "excerpt_hash": "14463b39dfade5caac79fea182aca6847bd351ed676ae344d1d6c99a674cfdb8",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-AL-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用具体事例说明一次函数与二元一次方程的关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用具体事例说明一次函数与二元一次方程的关系”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“关注学生的问题转化、跨领域综合和方案解释能力。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_74feeb8ffe5b0064"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明解题步骤和基本依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4d2bdcca6dd804d1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_940c3b993fdee68c",
+        "hc_5265ddddd8176802"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“说明解题步骤和基本依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明解题步骤和基本依据”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用一次函数解决简单实际问题；能体会一次函数与二元一次方程的关系；能从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式；能说明解题步骤和基本依据。",
+          "excerpt_hash": "17c53eca8e77a166ea5e11c8321c622ba328b2dd9896ff3e8d2321d94e7b68c3",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-AL-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注学生的问题转化、跨领域综合和方案解释能力。",
+          "excerpt_hash": "14463b39dfade5caac79fea182aca6847bd351ed676ae344d1d6c99a674cfdb8",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-AL-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明解题步骤和基本依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明解题步骤和基本依据”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“关注学生的问题转化、跨领域综合和方案解释能力。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_05c21b80c9969959",
+        "lc_e30a11a2e62b53d4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用一次函数解决简单实际问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4a2b2e5d791f6ec8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0f20f505927b4290"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“用一次函数解决简单实际问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用一次函数解决简单实际问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用一次函数解决简单实际问题；能体会一次函数与二元一次方程的关系；能从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式；能说明解题步骤和基本依据。",
+          "excerpt_hash": "17c53eca8e77a166ea5e11c8321c622ba328b2dd9896ff3e8d2321d94e7b68c3",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-AL-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注学生的问题转化、跨领域综合和方案解释能力。",
+          "excerpt_hash": "14463b39dfade5caac79fea182aca6847bd351ed676ae344d1d6c99a674cfdb8",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-AL-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用一次函数解决简单实际问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用一次函数解决简单实际问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“关注学生的问题转化、跨领域综合和方案解释能力。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_e30a11a2e62b53d4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d1308487dde18e41",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0f20f505927b4290"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用一次函数解决简单实际问题；能体会一次函数与二元一次方程的关系；能从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式；能说明解题步骤和基本依据。",
+          "excerpt_hash": "17c53eca8e77a166ea5e11c8321c622ba328b2dd9896ff3e8d2321d94e7b68c3",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-AL-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注学生的问题转化、跨领域综合和方案解释能力。",
+          "excerpt_hash": "14463b39dfade5caac79fea182aca6847bd351ed676ae344d1d6c99a674cfdb8",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-AL-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“关注学生的问题转化、跨领域综合和方案解释能力。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 11,
+    "disposition": "unit_topic_needs_page_evidence",
+    "evidence_note": "已有目录主题候选，但缺少可靠 PDF 页定位，已降级进入补证队列。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 2
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "tca_af05b911e456b2d5",
+      "alignment_type": "supports",
+      "confidence": 0.4926,
+      "coverage": "partial",
+      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_c5fa3c0e2226",
+        "textbook-unit:tcu_3cc24129b8fb7025"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "unit_topic_candidate",
+      "method": "constrained_concept_idf",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "review_queue",
+      "rationale": "教材条目“实际问题与二元一次方程组”与课标 MA-H4G7-AL-003 在standard字段命中概念：与二元一次方、二元一次方程、实际问题。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "candidate",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_3cc24129b8fb7025",
+      "unit_title": "实际问题与二元一次方程组"
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "tca_4f966b8716ebf75a",
+      "alignment_type": "supports",
+      "confidence": 0.6645,
+      "coverage": "partial",
+      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_c5fa3c0e2226",
+        "textbook-unit:tcu_7fc95c06ab351dbf"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "unit_topic_candidate",
+      "method": "constrained_concept_idf",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "review_queue",
+      "rationale": "教材条目“二元一次方程组”与课标 MA-H4G7-AL-003 在standard字段命中概念：二元一次方程。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "candidate",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_7fc95c06ab351dbf",
+      "unit_title": "二元一次方程组"
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1d547cee977c36b6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_48072359f7df"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d6ebc3492905c591",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_956d6e5d646350c1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5fa3c0e2226"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_05b1d5ed90d78b81",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_942d1fdd5be3266c",
+      "evidence_refs": [
+        "standard:MA-H4G7-AL-003:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-H4G7-AL-003",
+      "target_code": "MA-H4G8-AL-003",
+      "target_label": "能体会一次函数与二元一次方程的关系；能根据已知条件和待定系数法确定一次函数表达式；能从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_940c3b993fdee68c",
+      "component_ids": [
+        "lc_d5b1bb2eeae8da24",
+        "lc_74feeb8ffe5b0064"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用具体事例说明一次函数与二元一次方程的关系。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用具体事例说明一次函数与二元一次方程的关系；优先采集：问题转化说明、设计方案、综合解答报告。",
+        "学生能够说明解题步骤和基本依据；优先采集：问题转化说明、设计方案、综合解答报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用一次函数解决简单实际问题；能体会一次函数与二元一次方程的关系；能从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式；能说明解题步骤和基本依据。",
+          "excerpt_hash": "17c53eca8e77a166ea5e11c8321c622ba328b2dd9896ff3e8d2321d94e7b68c3",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-AL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_0f20f505927b4290",
+      "component_ids": [
+        "lc_05c21b80c9969959",
+        "lc_e30a11a2e62b53d4"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "实际",
+        "生活",
+        "情境"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用一次函数解决简单实际问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用一次函数解决简单实际问题；优先采集：问题转化说明、设计方案、综合解答报告。",
+        "学生能够从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式；优先采集：问题转化说明、设计方案、综合解答报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用一次函数解决简单实际问题；能体会一次函数与二元一次方程的关系；能从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式；能说明解题步骤和基本依据。",
+          "excerpt_hash": "17c53eca8e77a166ea5e11c8321c622ba328b2dd9896ff3e8d2321d94e7b68c3",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-AL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（实际、生活、情境）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_5265ddddd8176802",
+      "component_ids": [
+        "lc_74feeb8ffe5b0064"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "步骤"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明解题步骤和基本依据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明解题步骤和基本依据；优先采集：问题转化说明、设计方案、综合解答报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用一次函数解决简单实际问题；能体会一次函数与二元一次方程的关系；能从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式；能说明解题步骤和基本依据。",
+          "excerpt_hash": "17c53eca8e77a166ea5e11c8321c622ba328b2dd9896ff3e8d2321d94e7b68c3",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-AL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（步骤）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_05c21b80c9969959",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用一次函数解决简单实际问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用一次函数解决简单实际问题，并说明关键步骤、特征或依据。",
+      "label": "用一次函数解决简单实际问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用一次函数解决简单实际问题；优先采集：问题转化说明、设计方案、综合解答报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用一次函数解决简单实际问题",
+          "excerpt_hash": "a6a6233b2417b79c7f7c2cfffb1321abc8a612ea4ed47f442237d225b4b88be8",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-AL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用一次函数解决简单实际问题"
+    },
+    {
+      "component_id": "lc_d5b1bb2eeae8da24",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用具体事例说明一次函数与二元一次方程的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用具体事例说明一次函数与二元一次方程的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用具体事例说明一次函数与二元一次方程的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用具体事例说明一次函数与二元一次方程的关系；优先采集：问题转化说明、设计方案、综合解答报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "体会一次函数与二元一次方程的关系",
+          "excerpt_hash": "9fc10c620c861609441aa8766a0858cfa1674b5e82dd36883b55cef905c47141",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-AL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体会一次函数与二元一次方程的关系"
+    },
+    {
+      "component_id": "lc_e30a11a2e62b53d4",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式，并说明关键步骤、特征或依据。",
+      "label": "从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式；优先采集：问题转化说明、设计方案、综合解答报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式",
+          "excerpt_hash": "d1684329f6b550f5c31038eca2334b5ccd44e99184cb74cdb8ccc65c50e4e1a9",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-AL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式"
+    },
+    {
+      "component_id": "lc_74feeb8ffe5b0064",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明解题步骤和基本依据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明解题步骤和基本依据，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明解题步骤和基本依据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明解题步骤和基本依据；优先采集：问题转化说明、设计方案、综合解答报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明解题步骤和基本依据",
+          "excerpt_hash": "d00757cae74b1459bbcf36ec8c31849ae0007a290e5019ba4e746f5676a42251",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-AL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明解题步骤和基本依据"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1633,
+      "edge_id": "pc_979c22604c38af3c",
+      "evidence_refs": [
+        "standard:MA-H4G7-AL-003:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D3-AL-007",
+      "source_label": "能在实际情境中理解比和比例以及按比例分配的含义，能解决简单的比例问题。",
+      "target_code": "MA-H4G7-AL-003",
+      "target_label": "能用一次函数解决简单实际问题；能体会一次函数与二元一次方程的关系；能从具体生活与科技情境中抽象出函数、方程、不等式等数学表达形式；能说明解题步…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "17c53eca8e77a166ea5e11c8321c622ba328b2dd9896ff3e8d2321d94e7b68c3",
+  "standard_code": "MA-H4G7-AL-003",
+  "verified_prerequisites": []
+}

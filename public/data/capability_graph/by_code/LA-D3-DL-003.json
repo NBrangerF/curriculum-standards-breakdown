@@ -1,0 +1,248 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_c02d26e8a76f4832"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ab0ff49cbc3f6fee",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3e80c51e03861300",
+        "hc_12302b76be5c1edd"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录，能根据材质选择合适晾晒方式并完成收纳整理。",
+          "excerpt_hash": "63376179db509d5737fb7f99d874389cdbfad630956f9dd64e59de1ccba2319c",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生读取洗涤标签（图标/温度）；用“少量多次”原则控制洗涤剂；收纳强调“折叠一致/按类别归位”。",
+          "excerpt_hash": "44b384dca4598e7cb73894f89aa48542f572dc2510a75d61a4b3a220b5f9b6fd",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-DL-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“引导学生读取洗涤标签（图标/温度）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0978,
+      "connection_id": "fc_7cd862de8178c6a5",
+      "evidence_refs": [
+        "standard:LA-H4G7-DL-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-DL-003",
+      "target_code": "LA-H4G7-DL-002",
+      "target_label": "能通过劳动测试、评语初步判断、展示初步判断和劳动档案袋等方式记录并呈现劳动过程、劳动成果和劳动感受；能通过持续参与日常生活劳动、生产劳动和服务…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_3e80c51e03861300",
+      "component_ids": [
+        "lc_c02d26e8a76f4832"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录；优先采集：洗护记录单、成品检查、分工表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录，能根据材质选择合适晾晒方式并完成收纳整理。",
+          "excerpt_hash": "63376179db509d5737fb7f99d874389cdbfad630956f9dd64e59de1ccba2319c",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_12302b76be5c1edd",
+      "component_ids": [
+        "lc_c02d26e8a76f4832"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "独立"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录；优先采集：洗护记录单、成品检查、分工表。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录，能根据材质选择合适晾晒方式并完成收纳整理。",
+          "excerpt_hash": "63376179db509d5737fb7f99d874389cdbfad630956f9dd64e59de1ccba2319c",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（独立）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c02d26e8a76f4832",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录，并说明关键步骤、特征或依据。",
+      "label": "独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录；优先采集：洗护记录单、成品检查、分工表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录",
+          "excerpt_hash": "b025036ec0bd1aa5b97540d91006e86dc7e3d6fa60a236120b2438112cd211bf",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录"
+    },
+    {
+      "component_id": "lc_57c7a68213581503",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据材质选择合适晾晒方式",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据材质选择合适晾晒方式，并说明关键步骤、特征或依据。",
+      "label": "根据材质选择合适晾晒方式",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据材质选择合适晾晒方式；优先采集：洗护记录单、成品检查、分工表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据材质选择合适晾晒方式",
+          "excerpt_hash": "e16024998695013c98c56411aefb014c83fa3043c28d99b2fee4264e3596ce41",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据材质选择合适晾晒方式"
+    },
+    {
+      "component_id": "lc_9dec55c3fcabe3d3",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成收纳整理",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成收纳整理，并说明关键步骤、特征或依据。",
+      "label": "完成收纳整理",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成收纳整理；优先采集：洗护记录单、成品检查、分工表。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成收纳整理",
+          "excerpt_hash": "cf147b897417024377c4e97f7d98ac0a911994b487f8a298cc39669d659a5a95",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成收纳整理"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a773a315b622adf9",
+      "evidence_refs": [
+        "standard:LA-D3-DL-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-DL-003",
+      "source_label": "能识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理，能做到清洁后对操作区域进行整理与消毒卫生习惯化。",
+      "target_code": "LA-D3-DL-003",
+      "target_label": "能独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录，能根据材质选择合适晾晒方式并完成收纳整理。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "63376179db509d5737fb7f99d874389cdbfad630956f9dd64e59de1ccba2319c",
+  "standard_code": "LA-D3-DL-003",
+  "verified_prerequisites": []
+}

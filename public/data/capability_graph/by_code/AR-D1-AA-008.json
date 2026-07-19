@@ -1,0 +1,457 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_b0b942645dc9d210"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e4344f46f11e78ec",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d191916970e8f6d1"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能听辨童声、女声和男声音色及常见打击乐器与其他常见乐器音色；能判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述。",
+          "excerpt_hash": "62fc742a10cd1199a9d21db5860ae4c8746399485b7e3909aa005f7e22bedb59",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“先配对再命名”：先让学生把声音与图片配对，再说出乐器/人声名称；用动作编码（高=手上举，低=手下压；强=大动作，弱=小动作）。",
+          "excerpt_hash": "1b2043c3fe34443469d2d6d1645ec3a05fe8fb47d364911f9b0ad733651d3166",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D1-AA-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“用“先配对再命名”：先让学生把声音与图片配对，再说出乐器/人声名称”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_b0b942645dc9d210"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_63350796ce1868fe",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d191916970e8f6d1"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能听辨童声、女声和男声音色及常见打击乐器与其他常见乐器音色；能判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述。",
+          "excerpt_hash": "62fc742a10cd1199a9d21db5860ae4c8746399485b7e3909aa005f7e22bedb59",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“先配对再命名”：先让学生把声音与图片配对，再说出乐器/人声名称；用动作编码（高=手上举，低=手下压；强=大动作，弱=小动作）。",
+          "excerpt_hash": "1b2043c3fe34443469d2d6d1645ec3a05fe8fb47d364911f9b0ad733651d3166",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D1-AA-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用“先配对再命名”：先让学生把声音与图片配对，再说出乐器/人声名称”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3ea0b89d4dcaccd4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_08ce261085ef1c1fe6ef",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8209ad04b47d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0a7833eb0eca0e83",
+      "textbook_grade": 2,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_312eac63948e2e9c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2622f7b8f7ae819655aa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_51ecddc37440"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1dc5a976932b360a",
+      "textbook_grade": 1,
+      "textbook_subject": "美术",
+      "textbook_title": "美术1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_dfdd8df00c5f1d1c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5119efddbaf1d245bdbd",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5a22ce498b9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c1c61f1e18f1f1fd",
+      "textbook_grade": 2,
+      "textbook_subject": "美术",
+      "textbook_title": "美术2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f5e2f7efca154ab7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9388d4c7d11c755fa6d1",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ff2c02949c7"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ccea29ff50daf60d",
+      "textbook_grade": 1,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_aa7d46bcc6d307f5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ad1a73f100e4c37bdf97",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_061b98e9e3e0"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_daf0df4eff446a59",
+      "textbook_grade": 1,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4173648b1d4c9312",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bd2b80ffa90783d7b872",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_04dc110988f2"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_76531f87e68b0f54",
+      "textbook_grade": 2,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3647ea65ae2511ef",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ee63cc92bbb214cfb505",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_1295fe66588a"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f9d43da1be80535c",
+      "textbook_grade": 1,
+      "textbook_subject": "美术",
+      "textbook_title": "美术1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6006715d8bc06f41",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f2d970d7f6b6a7a553a8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f5a55ad6fbfb"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_038dd968b19a0b50",
+      "textbook_grade": 2,
+      "textbook_subject": "美术",
+      "textbook_title": "美术2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_1c791fe3bb8201d0",
+      "evidence_refs": [
+        "standard:AR-D1-AA-008:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D1-AA-008",
+      "target_code": "AR-D2-CU-008",
+      "target_label": "能独唱或与同伴合作演唱中外歌曲与民歌，初步体现作品风格特点，能在演唱中尊重不同文化的表达方式。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_d191916970e8f6d1",
+      "component_ids": [
+        "lc_b0b942645dc9d210"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述；优先采集：听辨小测、动作表现、配对卡/记录单。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能听辨童声、女声和男声音色及常见打击乐器与其他常见乐器音色；能判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述。",
+          "excerpt_hash": "62fc742a10cd1199a9d21db5860ae4c8746399485b7e3909aa005f7e22bedb59",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_4568f9d5558e8d5e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够听辨童声、女声和男声音色及常见打击乐器与其他常见乐器音色",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生听辨童声、女声和男声音色及常见打击乐器与其他常见乐器音色，并说明关键步骤、特征或依据。",
+      "label": "听辨童声、女声和男声音色及常见打击乐器与其他常见乐器音色",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够听辨童声、女声和男声音色及常见打击乐器与其他常见乐器音色；优先采集：听辨小测、动作表现、配对卡/记录单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "听辨童声、女声和男声音色及常见打击乐器与其他常见乐器音色",
+          "excerpt_hash": "f6bbda47323e4ea14e335c920c0aa16d722d007fc76eb62b9628bc3d787af5d0",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "听辨童声、女声和男声音色及常见打击乐器与其他常见乐器音色"
+    },
+    {
+      "component_id": "lc_b0b942645dc9d210",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述，并说明关键步骤、特征或依据。",
+      "label": "判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述；优先采集：听辨小测、动作表现、配对卡/记录单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述",
+          "excerpt_hash": "7537ec4871c456670b126edcaea66e939e1866e62cae8b2068d12979fff17417",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "判断音乐的高低、快慢、强弱、长短与音色变化，并用体态反应或简单语言描述"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "62fc742a10cd1199a9d21db5860ae4c8746399485b7e3909aa005f7e22bedb59",
+  "standard_code": "AR-D1-AA-008",
+  "verified_prerequisites": []
+}

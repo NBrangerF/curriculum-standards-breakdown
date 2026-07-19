@@ -1,0 +1,175 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_d1cddbf431e1b531",
+        "lc_f5091be8294e5780"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出1–2项传统工艺项目所需的基本材料与常用工具的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0429804c9dcead98",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“识别并说出1–2项传统工艺项目所需的基本材料与常用工具的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出1–2项传统工艺项目所需的基本材料与常用工具的关键特征”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下了解1–2项传统工艺项目所需的基本材料与常用工具，能说出工具用途并遵守基本使用规范。",
+          "excerpt_hash": "622a195001d01262652684d7fcb85e0b1298292f8de165f522d8449eebb1d85d",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-021:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先做“材料触摸与分类”（纸/泥/线）；工具只引入必要且安全等级合适的；用“传递规则”训练秩序。",
+          "excerpt_hash": "4af344b3367b21faf8d304f5b87bb39e802d27182ced2de4d7b565678c69ee71",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-PL-021:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出1–2项传统工艺项目所需的基本材料与常用工具的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出1–2项传统工艺项目所需的基本材料与常用工具的关键特征”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“先做“材料触摸与分类”（纸/泥/线）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_4afe369e2a906712",
+      "component_ids": [
+        "lc_4226b070b17156d8"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "规范"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生遵守基本使用规范。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在教师指导下，能够遵守基本使用规范；优先采集：工具使用观察清单、材料分类单。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下了解1–2项传统工艺项目所需的基本材料与常用工具，能说出工具用途并遵守基本使用规范。",
+          "excerpt_hash": "622a195001d01262652684d7fcb85e0b1298292f8de165f522d8449eebb1d85d",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（规范）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d1cddbf431e1b531",
+      "component_type": "language",
+      "condition": "在教师指导下",
+      "confidence": 0.72,
+      "description": "学生在教师指导下，能够识别并说出1–2项传统工艺项目所需的基本材料与常用工具的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师指导下”的诊断任务，要求学生识别并说出1–2项传统工艺项目所需的基本材料与常用工具的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出1–2项传统工艺项目所需的基本材料与常用工具的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师指导下，能够识别并说出1–2项传统工艺项目所需的基本材料与常用工具的关键特征；优先采集：工具使用观察清单、材料分类单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下了解1–2项传统工艺项目所需的基本材料与常用工具，能说出工具用途并遵守基本使用规范。",
+          "excerpt_hash": "622a195001d01262652684d7fcb85e0b1298292f8de165f522d8449eebb1d85d",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解1–2项传统工艺项目所需的基本材料与常用工具"
+    },
+    {
+      "component_id": "lc_f5091be8294e5780",
+      "component_type": "language",
+      "condition": "在教师指导下",
+      "confidence": 0.72,
+      "description": "学生在教师指导下，能够说出工具用途",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师指导下”的诊断任务，要求学生说出工具用途，并说明关键步骤、特征或依据。",
+      "label": "说出工具用途",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师指导下，能够说出工具用途；优先采集：工具使用观察清单、材料分类单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下了解1–2项传统工艺项目所需的基本材料与常用工具，能说出工具用途并遵守基本使用规范。",
+          "excerpt_hash": "622a195001d01262652684d7fcb85e0b1298292f8de165f522d8449eebb1d85d",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出工具用途"
+    },
+    {
+      "component_id": "lc_4226b070b17156d8",
+      "component_type": "procedural",
+      "condition": "在教师指导下",
+      "confidence": 0.72,
+      "description": "学生在教师指导下，能够遵守基本使用规范",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师指导下”的诊断任务，要求学生遵守基本使用规范，并说明关键步骤、特征或依据。",
+      "label": "遵守基本使用规范",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师指导下，能够遵守基本使用规范；优先采集：工具使用观察清单、材料分类单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在教师指导下了解1–2项传统工艺项目所需的基本材料与常用工具，能说出工具用途并遵守基本使用规范。",
+          "excerpt_hash": "622a195001d01262652684d7fcb85e0b1298292f8de165f522d8449eebb1d85d",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-PL-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守基本使用规范"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "622a195001d01262652684d7fcb85e0b1298292f8de165f522d8449eebb1d85d",
+  "standard_code": "LA-D1-PL-021",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,296 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_59c1a0222c58ca4a",
+        "lc_476bf04668fe93a2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过对图片、具体现象和事物的观察获取信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fffa1847661719d5",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f745bf2c2bff1828"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“通过对图片、具体现象和事物的观察获取信息”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过对图片、具体现象和事物的观察获取信息”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过对图片、具体现象和事物的观察获取信息，了解不同事物的特点，辅助对语篇意义的理解",
+          "excerpt_hash": "9f9551abf4f643835f48d785b1fb624ae94d47bb5436451d349ebeab27ee1eb0",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-TP-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "读前预测（标题/图片）→读中圈关键词→读后复述/连线；用分级读物控制难度。 用提问句型支架（Why/How/What if）引导学生提出疑问与理由；鼓励多角度回答。",
+          "excerpt_hash": "5990951513b2bd89b52e080bf2e383cdf35e7343c1e4473b0be1318e2ccfc3be",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-D1-TP-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过对图片、具体现象和事物的观察获取信息，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过对图片、具体现象和事物的观察获取信息”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“读前预测（标题/图片）→读中圈关键词→读后复述/连线”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_792f00230dff61ab",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_14d3051be175a07856d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_96fe1cf7a088"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4c0b84e107cb3acc",
+      "textbook_grade": 4,
+      "textbook_subject": "英语",
+      "textbook_title": "英语4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_069a4d1c4f5bcadf",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_33e1117f4e3b64658cf7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2da7a165ff23"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_736b449efa98c23e",
+      "textbook_grade": 4,
+      "textbook_subject": "英语",
+      "textbook_title": "英语4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e58b9fb0a54a54bf",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_97b9c1a173bf9c3f5fea",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_94ad37d595c7"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c71decfe6366ff07",
+      "textbook_grade": 3,
+      "textbook_subject": "英语",
+      "textbook_title": "英语3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_15c7c8a6406f3133",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bd2c45b5e8fc08bf234e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9ccd4f4ff8e3"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_623deee3782f3fb1",
+      "textbook_grade": 3,
+      "textbook_subject": "英语",
+      "textbook_title": "英语3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_ccf103dae70f75c0",
+      "evidence_refs": [
+        "standard:EN-D1-TP-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-D1-TP-001",
+      "target_code": "EN-D2-TP-001",
+      "target_label": "在阅读相关主题的语篇材料时，能梳理人物、场景、情节等信息，独立 思考，提出个人见解。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_f745bf2c2bff1828",
+      "component_ids": [
+        "lc_476bf04668fe93a2"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出不同事物的特点，辅助对语篇意义的理解的关键特征。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并说出不同事物的特点，辅助对语篇意义的理解的关键特征；优先采集：能定位关键词并回答理解题。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过对图片、具体现象和事物的观察获取信息，了解不同事物的特点，辅助对语篇意义的理解",
+          "excerpt_hash": "9f9551abf4f643835f48d785b1fb624ae94d47bb5436451d349ebeab27ee1eb0",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-TP-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_59c1a0222c58ca4a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过对图片、具体现象和事物的观察获取信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过对图片、具体现象和事物的观察获取信息，并说明关键步骤、特征或依据。",
+      "label": "通过对图片、具体现象和事物的观察获取信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过对图片、具体现象和事物的观察获取信息；优先采集：能定位关键词并回答理解题。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过对图片、具体现象和事物的观察获取信息",
+          "excerpt_hash": "ce0c4c3ca107a5ec382e855726acef99322b5ec78dcb97da3b7d35584271e278",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-TP-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过对图片、具体现象和事物的观察获取信息"
+    },
+    {
+      "component_id": "lc_476bf04668fe93a2",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出不同事物的特点，辅助对语篇意义的理解的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出不同事物的特点，辅助对语篇意义的理解的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出不同事物的特点，辅助对语篇意义的理解的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出不同事物的特点，辅助对语篇意义的理解的关键特征；优先采集：能定位关键词并回答理解题。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解不同事物的特点，辅助对语篇意义的理解",
+          "excerpt_hash": "11f702aa9ad6fcb80a1462108630029e6b60aa67475de110cf4145a9b7a022e8",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-TP-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解不同事物的特点，辅助对语篇意义的理解"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "9f9551abf4f643835f48d785b1fb624ae94d47bb5436451d349ebeab27ee1eb0",
+  "standard_code": "EN-D1-TP-001",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,469 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_cf7291a75a29b082"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生建模、论证的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8ceed13186371ca4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_28f2299639d4c0ec"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“建模、论证”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“建模、论证”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思；能制订学习目标和计划，安排学习进程并反思学习过程和结果；设计控制变量实验方案；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "25ecab86f67d878930f427643e5d2e6b610a0aa3b449cc983925d7e516e2183c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价探究实践时同时关注计划、工具使用、过程记录和反思改进。",
+          "excerpt_hash": "2114a9b14c33a3efdf812ee0c4aa7ee726a311ad1ac9c2cba5b18a23acd2dc1a",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-PR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后建模、论证，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“建模、论证”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“评价探究实践时同时关注计划、工具使用、过程记录和反思改进。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_f1741cecb7f7b835"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生设计控制变量实验方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bbfddbd51649c4f0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_503bb891b5a4bab7"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“设计控制变量实验方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“设计控制变量实验方案”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思；能制订学习目标和计划，安排学习进程并反思学习过程和结果；设计控制变量实验方案；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "25ecab86f67d878930f427643e5d2e6b610a0aa3b449cc983925d7e516e2183c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价探究实践时同时关注计划、工具使用、过程记录和反思改进。",
+          "excerpt_hash": "2114a9b14c33a3efdf812ee0c4aa7ee726a311ad1ac9c2cba5b18a23acd2dc1a",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-PR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后设计控制变量实验方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“设计控制变量实验方案”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“评价探究实践时同时关注计划、工具使用、过程记录和反思改进。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_20e892f9788250f3"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生完成学过的探究任务并对探究活动及过程进行表达交流、评价反思的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_21104518d13e8754",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“完成学过的探究任务并对探究活动及过程进行表达交流、评价反思”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“完成学过的探究任务并对探究活动及过程进行表达交流、评价反思”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思；能制订学习目标和计划，安排学习进程并反思学习过程和结果；设计控制变量实验方案；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "25ecab86f67d878930f427643e5d2e6b610a0aa3b449cc983925d7e516e2183c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价探究实践时同时关注计划、工具使用、过程记录和反思改进。",
+          "excerpt_hash": "2114a9b14c33a3efdf812ee0c4aa7ee726a311ad1ac9c2cba5b18a23acd2dc1a",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-PR-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后完成学过的探究任务并对探究活动及过程进行表达交流、评价反思，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“完成学过的探究任务并对探究活动及过程进行表达交流、评价反思”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“评价探究实践时同时关注计划、工具使用、过程记录和反思改进。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 3,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0a985c1fb2e6e4c3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2b4eaf7fd74d5608c966",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_91e786746fa4"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a01eaebee10c3727",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ad046bb789b76ef7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_46b397a7eadfedff",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a76d08a93ff7d438",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f0fcd567e766"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_941308fc63ca2501",
+      "textbook_grade": 9,
+      "textbook_subject": "物理",
+      "textbook_title": "物理9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_28f2299639d4c0ec",
+      "component_ids": [
+        "lc_cf7291a75a29b082"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "论证"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生建模、论证。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够建模、论证；优先采集：实验方案、工具使用记录、交流展示、反思评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思；能制订学习目标和计划，安排学习进程并反思学习过程和结果；设计控制变量实验方案；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "25ecab86f67d878930f427643e5d2e6b610a0aa3b449cc983925d7e516e2183c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（论证）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_503bb891b5a4bab7",
+      "component_ids": [
+        "lc_f1741cecb7f7b835"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "方案"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生设计控制变量实验方案。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够设计控制变量实验方案；优先采集：实验方案、工具使用记录、交流展示、反思评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思；能制订学习目标和计划，安排学习进程并反思学习过程和结果；设计控制变量实验方案；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "25ecab86f67d878930f427643e5d2e6b610a0aa3b449cc983925d7e516e2183c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、方案）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_20e892f9788250f3",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成学过的探究任务并对探究活动及过程进行表达交流、评价反思",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成学过的探究任务并对探究活动及过程进行表达交流、评价反思，并说明关键步骤、特征或依据。",
+      "label": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成学过的探究任务并对探究活动及过程进行表达交流、评价反思；优先采集：实验方案、工具使用记录、交流展示、反思评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思",
+          "excerpt_hash": "6209407ddd783f337a096c4ca2b87b5090c82598daab5d9e48c8449a95833306",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思"
+    },
+    {
+      "component_id": "lc_0352600c89dd8251",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够制订学习目标和计划，安排学习进程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生制订学习目标和计划，安排学习进程，并说明关键步骤、特征或依据。",
+      "label": "制订学习目标和计划，安排学习进程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够制订学习目标和计划，安排学习进程；优先采集：实验方案、工具使用记录、交流展示、反思评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "制订学习目标和计划，安排学习进程",
+          "excerpt_hash": "2886284c1c2bd2f3ecd9246d3ec24ca2f88b193e9999c44d50ee03d38c884ba2",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "制订学习目标和计划，安排学习进程"
+    },
+    {
+      "component_id": "lc_cbf2e044099dc4d2",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够反思学习过程和结果",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生反思学习过程和结果，并说明关键步骤、特征或依据。",
+      "label": "反思学习过程和结果",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够反思学习过程和结果；优先采集：实验方案、工具使用记录、交流展示、反思评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "反思学习过程和结果",
+          "excerpt_hash": "af8915b614f687194e3e4cbf565cf3bf71327de1908caf6c00dacb055475c4f5",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思学习过程和结果"
+    },
+    {
+      "component_id": "lc_f1741cecb7f7b835",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够设计控制变量实验方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生设计控制变量实验方案，并说明关键步骤、特征或依据。",
+      "label": "设计控制变量实验方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够设计控制变量实验方案；优先采集：实验方案、工具使用记录、交流展示、反思评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "设计控制变量实验方案",
+          "excerpt_hash": "630bf91ce9bec3f6e6e9d59b633ea0960129739d681289fd0f5c1328bd157405",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "设计控制变量实验方案"
+    },
+    {
+      "component_id": "lc_cf7291a75a29b082",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、论证",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
+      "label": "建模、论证",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、论证；优先采集：实验方案、工具使用记录、交流展示、反思评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、论证",
+          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、论证"
+    },
+    {
+      "component_id": "lc_43b1824c8b672142",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价探究结论或社会影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
+      "label": "评价探究结论或社会影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：实验方案、工具使用记录、交流展示、反思评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价探究结论或社会影响",
+          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-PR-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价探究结论或社会影响"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_141df9a815256265",
+      "evidence_refs": [
+        "standard:SC-H4G9-PR-002:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G8-PR-003",
+      "source_label": "设计控制变量实验方案；能使用常见工具和科学仪器，完成与所学知识相关的技术与工程任务设计和实施；完成学过的探究任务并对探究活动及过程进行表达交流…",
+      "target_code": "SC-H4G9-PR-002",
+      "target_label": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思；能制订学习目标和计划，安排学习进程并反思学习过程和结果；设计控制变量实验方案；能建…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "25ecab86f67d878930f427643e5d2e6b610a0aa3b449cc983925d7e516e2183c",
+  "standard_code": "SC-H4G9-PR-002",
+  "verified_prerequisites": []
+}

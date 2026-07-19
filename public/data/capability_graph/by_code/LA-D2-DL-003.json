@@ -1,0 +1,209 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_a63fa3bcf56f9ad6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_24b25df616043fd4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a690288e3a714ffd"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理，能做到清洁后对操作区域进行整理与消毒卫生习惯化。",
+          "excerpt_hash": "4892c93ed043d7e3c3911e7f457276f9584f59105864e7b91768d4dd6d9da912",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "提供“污渍小卡”（先吸附/先冲洗/再清洗）；强调“小范围测试”；把“擦台面+洗手+物品归位”设为必做收尾。",
+          "excerpt_hash": "3c07edcde4fc04d1237037ead721c58f6b6aac861249c3820b945dc2220dd492",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-DL-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“提供“污渍小卡”（先吸附/先冲洗/再清洗）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_a773a315b622adf9",
+      "evidence_refs": [
+        "standard:LA-D2-DL-003:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-DL-003",
+      "target_code": "LA-D3-DL-003",
+      "target_label": "能独立完成衣物分类、污渍预处理、小件手洗或机洗流程记录，能根据材质选择合适晾晒方式并完成收纳整理。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a690288e3a714ffd",
+      "component_ids": [
+        "lc_a63fa3bcf56f9ad6",
+        "lc_cfed6fe23fd88f3f"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理；优先采集：处理记录单、口头说明、教师/家长反馈。",
+        "学生能够做到清洁后对操作区域进行整理与消毒卫生习惯化；优先采集：处理记录单、口头说明、教师/家长反馈。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理，能做到清洁后对操作区域进行整理与消毒卫生习惯化。",
+          "excerpt_hash": "4892c93ed043d7e3c3911e7f457276f9584f59105864e7b91768d4dd6d9da912",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理；做到清洁后对操作区域进行整理与消毒卫生习惯化",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_a63fa3bcf56f9ad6",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理，并说明关键步骤、特征或依据。",
+      "label": "识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理；优先采集：处理记录单、口头说明、教师/家长反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理",
+          "excerpt_hash": "26ec1e3c9e21dd2d185e1118b2302ef5760712f3577f224b808e214dc1c78b9f",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理"
+    },
+    {
+      "component_id": "lc_cfed6fe23fd88f3f",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够做到清洁后对操作区域进行整理与消毒卫生习惯化",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生做到清洁后对操作区域进行整理与消毒卫生习惯化，并说明关键步骤、特征或依据。",
+      "label": "做到清洁后对操作区域进行整理与消毒卫生习惯化",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够做到清洁后对操作区域进行整理与消毒卫生习惯化；优先采集：处理记录单、口头说明、教师/家长反馈。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "做到清洁后对操作区域进行整理与消毒卫生习惯化",
+          "excerpt_hash": "f3de82dfd1a7fd33dbe57e801ff6607d4289d868b4221f7ac36ce4aba8650bb2",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "做到清洁后对操作区域进行整理与消毒卫生习惯化"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_d9d1bedae5309276",
+      "evidence_refs": [
+        "standard:LA-D2-DL-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D1-DL-003",
+      "source_label": "能选用合适的洗涤用品清洗碗筷等餐具，做到先清除残渣、再清洗、再冲净并沥干，理解保持餐具卫生的重要性。",
+      "target_code": "LA-D2-DL-003",
+      "target_label": "能识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理，能做到清洁后对操作区域进行整理与消毒卫生习惯化。"
+    },
+    {
+      "confidence": "medium",
+      "edge_id": "pc_bb0ef23c5c240c24",
+      "evidence_refs": [
+        "standard:LA-D2-DL-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D1-DL-006",
+      "source_label": "能用科学的方法洗手并独立完成与个人卫生相关的劳动（如整理仪容、清洁个人用品），形成讲究卫生的日常习惯。",
+      "target_code": "LA-D2-DL-003",
+      "target_label": "能识别常见污渍类型（油渍/泥渍/墨渍等），在成人指导下选择合适方法进行简单预处理，能做到清洁后对操作区域进行整理与消毒卫生习惯化。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4892c93ed043d7e3c3911e7f457276f9584f59105864e7b91768d4dd6d9da912",
+  "standard_code": "LA-D2-DL-003",
+  "verified_prerequisites": []
+}

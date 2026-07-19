@@ -3,6 +3,7 @@ import { useParams, Link, useSearchParams } from 'react-router-dom'
 import { AnimatePresence, m } from 'motion/react'
 import {
     loadStandardByCode,
+    loadStandardCapabilityGraph,
     loadManifest,
     loadSkillsMeta,
     getSkillsMeta,
@@ -31,6 +32,199 @@ const PROVENANCE_LABELS = {
     editorial: 'kebiao 结构化整理',
     rule_generated: '规则生成',
     ai_generated: 'AI 生成'
+}
+
+const VERIFIED_REVIEW_STATUSES = new Set(['approved', 'expert_reviewed', 'expert_verified', 'human_reviewed', 'human_verified', 'verified'])
+
+const FORWARD_RELATION_LABELS = {
+    curriculum_sequence_candidate: '课程顺序候选',
+    curriculum_progression: '课程进阶',
+    learning_progression: '学习进阶',
+    navigation_sequence: '课标顺序',
+    next_step: '后续学习',
+    prepares_for: '为后续学习做准备'
+}
+
+const ALIGNMENT_LEVEL_LABELS = {
+    scope: '适用范围',
+    unit: '具体单元',
+    unit_topic_candidate: '单元主题候选'
+}
+
+function normalizeDisplayValues(value) {
+    const values = Array.isArray(value) ? value : value === null || value === undefined ? [] : [value]
+    return values
+        .map(item => {
+            if (typeof item === 'string' || typeof item === 'number') return String(item).trim()
+            return String(item?.label || item?.description || item?.text || '').trim()
+        })
+        .filter(Boolean)
+}
+
+function getCapabilityReviewKind(item, assumeVerified = false) {
+    if (assumeVerified) return 'verified'
+    const reviewStatus = String(item?.review_status || '').toLowerCase()
+    const publicationStatus = String(item?.publication_status || '').toLowerCase()
+    const method = String(item?.method || item?.provenance || '').toLowerCase()
+    if (VERIFIED_REVIEW_STATUSES.has(reviewStatus)) return 'verified'
+    if (
+        reviewStatus.includes('machine')
+        || reviewStatus.includes('candidate')
+        || reviewStatus.includes('pending')
+        || publicationStatus.includes('candidate')
+        || method.includes('rule')
+        || method.includes('machine')
+        || method.includes('ai')
+    ) return 'machine'
+    return 'pending'
+}
+
+function CapabilityStatus({ item, assumeVerified = false, kindOverride = '' }) {
+    const kind = kindOverride || getCapabilityReviewKind(item, assumeVerified)
+    const label = kind === 'verified' ? '已核验' : kind === 'machine' ? '机器候选' : '待复核'
+    const detail = [item?.review_status, item?.publication_status].filter(Boolean).join(' · ')
+    return <span className={`${styles['capability-status']} ${styles[kind]}`} title={detail || label}>{label}</span>
+}
+
+function CapabilityFact({ label, value }) {
+    const values = normalizeDisplayValues(value)
+    if (!values.length) return null
+    return (
+        <div className={styles['capability-fact']}>
+            <dt>{label}</dt>
+            <dd>
+                {values.length === 1 ? values[0] : (
+                    <ul>{values.map((item, index) => <li key={`${item}-${index}`}>{item}</li>)}</ul>
+                )}
+            </dd>
+        </div>
+    )
+}
+
+function CapabilityGroup({ eyebrow, title, description, emptyMessage, isEmpty, children, className = '' }) {
+    return (
+        <section className={`${styles['capability-group']} ${className}`}>
+            <header className={styles['capability-group-heading']}>
+                <span>{eyebrow}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+            </header>
+            {isEmpty ? <p className={styles['capability-empty']}>{emptyMessage}</p> : children}
+        </section>
+    )
+}
+
+function LearningComponentCard({ item, index }) {
+    const component = typeof item === 'string' ? { label: item } : item
+    return (
+        <article className={styles['capability-card']}>
+            <div className={styles['capability-card-heading']}>
+                <span className={styles['capability-index']}>{String(index + 1).padStart(2, '0')}</span>
+                <h4>{component.label || component.description || '待命名学习成分'}</h4>
+                <CapabilityStatus item={component} />
+            </div>
+            {component.description && component.description !== component.label ? <p>{component.description}</p> : null}
+            <dl>
+                <CapabilityFact label="可观察证据" value={component.observable_evidence} />
+                <CapabilityFact label="诊断提示" value={component.diagnostic_prompt} />
+            </dl>
+        </article>
+    )
+}
+
+function PrerequisiteCard({ item, assumeVerified = false }) {
+    const prerequisite = typeof item === 'string' ? { source_code: item } : item
+    const sourceCode = prerequisite.source_code || prerequisite.standard_code
+    return (
+        <article className={styles['relation-card']}>
+            <div className={styles['relation-card-heading']}>
+                {sourceCode ? <Link to={`/standards/${encodeURIComponent(sourceCode)}`}>{sourceCode}</Link> : <strong>前置能力</strong>}
+                <CapabilityStatus item={prerequisite} assumeVerified={assumeVerified} />
+            </div>
+            {prerequisite.source_label ? <h4>{prerequisite.source_label}</h4> : null}
+            {prerequisite.rationale ? <p>{prerequisite.rationale}</p> : null}
+        </article>
+    )
+}
+
+function HardCaseCard({ item }) {
+    const hardCase = typeof item === 'string' ? { title: item } : item
+    return (
+        <article className={styles['capability-card']}>
+            <div className={styles['capability-card-heading']}>
+                <h4>{hardCase.title || hardCase.structure || '高难结构'}</h4>
+                <CapabilityStatus item={hardCase} />
+            </div>
+            <dl>
+                <CapabilityFact label="高难结构" value={hardCase.structure} />
+                <CapabilityFact label="难点原因" value={hardCase.why_hard} />
+                <CapabilityFact label="诊断重点" value={hardCase.diagnostic_focus} />
+                <CapabilityFact label="学生证据" value={hardCase.required_student_evidence} />
+            </dl>
+        </article>
+    )
+}
+
+function DifficultyCard({ item }) {
+    const difficulty = typeof item === 'string' ? { manifestation: item } : item
+    return (
+        <article className={styles['difficulty-card']}>
+            <div className={styles['capability-card-heading']}>
+                <h4>{difficulty.manifestation || '常见困难'}</h4>
+                <CapabilityStatus item={difficulty} />
+            </div>
+            <dl>
+                <CapabilityFact label="可能成因" value={difficulty.likely_cause} />
+                <CapabilityFact label="教师动作" value={difficulty.teacher_action} />
+                <CapabilityFact label="诊断追问" value={difficulty.diagnostic_probe} />
+                <CapabilityFact label="成功信号" value={difficulty.success_signal} />
+            </dl>
+        </article>
+    )
+}
+
+function CurriculumAlignmentCard({ item }) {
+    const level = item.level || (item.unit_id ? 'unit' : 'scope')
+    const textbookLabel = item.textbook_title || item.edition_name || item.edition_id || '相关教材'
+    const isUnitTopicCandidate = level === 'unit_topic_candidate'
+    const canOpenReader = level === 'unit' && item.edition_id && item.pdf_page
+    return (
+        <article className={styles['alignment-card']}>
+            <div className={styles['alignment-card-heading']}>
+                <span className={styles['alignment-level']}>{ALIGNMENT_LEVEL_LABELS[level] || level}</span>
+                <CapabilityStatus item={item} kindOverride={isUnitTopicCandidate ? 'machine' : ''} />
+            </div>
+            <h4>{item.edition_id ? <Link to={`/textbooks/${item.edition_id}`}>{textbookLabel}</Link> : textbookLabel}</h4>
+            {item.unit_title || item.unit_id ? (
+                <p className={styles['alignment-unit']}>
+                    {item.unit_id ? <Link to={`/textbook-units/${item.unit_id}`}>{item.unit_title || '查看关联单元'}</Link> : item.unit_title}
+                </p>
+            ) : null}
+            <div className={styles['alignment-locators']}>
+                {canOpenReader ? (
+                    <Link to={`/textbooks/${item.edition_id}/read?page=${item.pdf_page}`}>PDF {item.pdf_page}{item.printed_page ? ` · 印刷页 ${item.printed_page}` : ''}</Link>
+                ) : isUnitTopicCandidate ? <span>待补页码证据</span> : item.printed_page ? <span>印刷页 {item.printed_page}</span> : null}
+                {item.evidence_role ? <span>{item.evidence_role === 'direct_textbook' ? '教材直接证据' : item.evidence_role}</span> : null}
+            </div>
+            {item.rationale ? <p>{item.rationale}</p> : null}
+        </article>
+    )
+}
+
+function ForwardConnectionCard({ item }) {
+    const connection = typeof item === 'string' ? { target_code: item } : item
+    const targetCode = connection.target_code || connection.standard_code
+    return (
+        <article className={styles['relation-card']}>
+            <div className={styles['relation-card-heading']}>
+                <span className={styles['relation-type']}>{FORWARD_RELATION_LABELS[connection.relation_type] || connection.relation_type || '后续学习'}</span>
+                <CapabilityStatus item={connection} />
+            </div>
+            <h4>{targetCode ? <Link to={`/standards/${encodeURIComponent(targetCode)}`}>{connection.target_label || targetCode}</Link> : connection.target_label || '后续能力'}</h4>
+            {targetCode && connection.target_label ? <small>{targetCode}</small> : null}
+            {connection.rationale ? <p>{connection.rationale}</p> : null}
+        </article>
+    )
 }
 
 function ProvenanceBadge({ metadata, compact = false }) {
@@ -150,6 +344,7 @@ function StandardDetailPage() {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [standard, setStandard] = useState(null)
+    const [capabilityGraphLoading, setCapabilityGraphLoading] = useState(false)
     const [subjects, setSubjects] = useState([])
     const [skills, setSkills] = useState([])
     const [resourcesExpanded, setResourcesExpanded] = useState(false)
@@ -169,8 +364,11 @@ function StandardDetailPage() {
     )
 
     useEffect(() => {
+        let cancelled = false
         setLoading(true)
         setError(null)
+        setStandard(null)
+        setCapabilityGraphLoading(false)
 
         Promise.all([
             loadStandardByCode(code),
@@ -178,19 +376,42 @@ function StandardDetailPage() {
             loadSkillsMeta()
         ])
             .then(([std]) => {
+                if (cancelled) return
                 if (!std) {
                     setError(`找不到标准 ${code}`)
                 } else {
                     setStandard(std)
+                    setCapabilityGraphLoading(true)
+                    loadStandardCapabilityGraph(std)
+                        .then(graph => {
+                            if (cancelled || !graph) return
+                            setStandard(current => current?.code === std.code ? { ...current, ...graph } : current)
+                        })
+                        .catch(err => {
+                            if (cancelled) return
+                            setStandard(current => current?.code === std.code ? {
+                                ...current,
+                                capability_graph_load_error: err instanceof Error ? err.message : '能力图谱暂时无法加载'
+                            } : current)
+                        })
+                        .finally(() => {
+                            if (!cancelled) setCapabilityGraphLoading(false)
+                        })
                 }
                 setSubjects(getSubjectsFromManifest())
                 setSkills(getSkillsMeta())
                 setLoading(false)
             })
             .catch(err => {
+                if (cancelled) return
                 setError(err.message)
                 setLoading(false)
+                setCapabilityGraphLoading(false)
             })
+
+        return () => {
+            cancelled = true
+        }
     }, [code])
 
     useEffect(() => {
@@ -311,6 +532,14 @@ function StandardDetailPage() {
         official_text,
         field_provenance = {},
         skill_alignments = [],
+        learning_components = [],
+        verified_prerequisites = [],
+        prerequisite_candidates = [],
+        hardest_cases = [],
+        common_difficulties = [],
+        curriculum_alignments = [],
+        forward_connections = [],
+        capability_graph_load_error,
         resources = []
     } = standard
 
@@ -461,6 +690,7 @@ function StandardDetailPage() {
                 <div className={`container ${styles['standard-reading-nav-inner']}`}>
                     <span className={styles['reading-nav-label']}>本页</span>
                     <ReadingNavLink sectionId="standard-skills" activeSection={activeSection}>相关能力</ReadingNavLink>
+                    <ReadingNavLink sectionId="standard-capability-graph" activeSection={activeSection}>能力图谱</ReadingNavLink>
                     <ReadingNavLink sectionId="standard-content" activeSection={activeSection}>教学线索</ReadingNavLink>
                     <ReadingNavLink sectionId="standard-resources" activeSection={activeSection}>教学资源</ReadingNavLink>
                     {uiV2Enabled ? <button type="button" onClick={handleLocateGraph} data-kb-telemetry-task="graph_open">关系图谱</button> : null}
@@ -526,6 +756,128 @@ function StandardDetailPage() {
                             </div>
                         )}
                     </div>
+                </div>
+            </section>
+
+            <section className={styles['capability-section']} id="standard-capability-graph" data-reading-section="standard-capability-graph">
+                <div className="container">
+                    <header className={styles['capability-intro']}>
+                        <div>
+                            <span>TEACHABLE GRAPH</span>
+                            <h2>可教学能力图谱</h2>
+                        </div>
+                        <p>把课标拆成可教、可诊断、可追溯的课堂线索。已核验关系与机器候选分开展示；候选内容用于备课判断，不等同于官方课标结论。</p>
+                    </header>
+
+                    {capabilityGraphLoading ? (
+                        <p className={styles['capability-empty']} role="status">课标正文已就绪，正在加载能力图谱…</p>
+                    ) : capability_graph_load_error ? (
+                        <p className={styles['capability-empty']} role="status">能力图谱暂时无法加载；课标正文和既有教学支持内容仍可正常使用。</p>
+                    ) : (
+                        <>
+                            <dl className={styles['capability-summary']} aria-label="能力图谱概览">
+                        <div><dt>学习成分</dt><dd>{learning_components.length}</dd></div>
+                        <div><dt>已核验前置</dt><dd>{verified_prerequisites.length}</dd></div>
+                        <div><dt>教材关联</dt><dd>{curriculum_alignments.length}</dd></div>
+                        <div><dt>后续连接</dt><dd>{forward_connections.length}</dd></div>
+                            </dl>
+
+                            <div className={styles['capability-layout']}>
+                        <CapabilityGroup
+                            eyebrow="DECOMPOSE"
+                            title="可教学小能力"
+                            description="将一条标准分解为课堂中能够教授和观察的学习成分。"
+                            emptyMessage="尚未形成可公开的学习成分。"
+                            isEmpty={learning_components.length === 0}
+                            className={styles['capability-group-wide']}
+                        >
+                            <div className={styles['learning-component-list']}>
+                                {learning_components.map((item, index) => <LearningComponentCard key={item?.component_id || `component-${index}`} item={item} index={index} />)}
+                            </div>
+                        </CapabilityGroup>
+
+                        <CapabilityGroup
+                            eyebrow="PREREQUISITES"
+                            title="前置能力"
+                            description="专家核验关系可作为正式学习路径；机器候选仍需教师或学科专家确认。"
+                            emptyMessage="暂无已核验或候选前置能力。"
+                            isEmpty={verified_prerequisites.length === 0 && prerequisite_candidates.length === 0}
+                            className={styles['capability-group-wide']}
+                        >
+                            <div className={styles['prerequisite-columns']}>
+                                <div>
+                                    <h4>已核验</h4>
+                                    {verified_prerequisites.length ? (
+                                        <div className={styles['relation-list']}>
+                                            {verified_prerequisites.map((item, index) => <PrerequisiteCard key={item?.edge_id || `verified-prerequisite-${index}`} item={item} assumeVerified />)}
+                                        </div>
+                                    ) : <p className={styles['capability-empty-compact']}>目前没有专家核验的前置关系。</p>}
+                                </div>
+                                <div>
+                                    <h4>机器候选</h4>
+                                    {prerequisite_candidates.length ? (
+                                        <div className={styles['relation-list']}>
+                                            {prerequisite_candidates.map((item, index) => <PrerequisiteCard key={item?.edge_id || `candidate-prerequisite-${index}`} item={item} />)}
+                                        </div>
+                                    ) : <p className={styles['capability-empty-compact']}>暂无机器候选。</p>}
+                                </div>
+                            </div>
+                        </CapabilityGroup>
+
+                        <CapabilityGroup
+                            eyebrow="HARD CASES"
+                            title="最难结构"
+                            description="标准中容易被简化或遗漏、需要专门诊断的复杂要求。"
+                            emptyMessage="尚未识别可公开的高难结构。"
+                            isEmpty={hardest_cases.length === 0}
+                            className={styles['capability-group-wide']}
+                        >
+                            <div className={`${styles['capability-card-list']} ${styles['capability-card-grid']}`}>
+                                {hardest_cases.map((item, index) => <HardCaseCard key={item?.case_id || `hard-case-${index}`} item={item} />)}
+                            </div>
+                        </CapabilityGroup>
+
+                        <CapabilityGroup
+                            eyebrow="DIFFICULTIES"
+                            title="可能困难与教师动作"
+                            description="规则根据标准结构提出错误表现、可能成因和教学响应候选；尚无频率证据，需结合真实学生表现核验。"
+                            emptyMessage="尚未形成可公开的常见困难分析。"
+                            isEmpty={common_difficulties.length === 0}
+                            className={styles['capability-group-wide']}
+                        >
+                            <div className={`${styles['capability-card-list']} ${styles['capability-card-grid']}`}>
+                                {common_difficulties.map((item, index) => <DifficultyCard key={item?.difficulty_id || `difficulty-${index}`} item={item} />)}
+                            </div>
+                        </CapabilityGroup>
+
+                        <CapabilityGroup
+                            eyebrow="ALIGNMENTS"
+                            title="教材证据"
+                            description="区分同学科、同学段适用范围与可定位到单元、页码的具体证据。"
+                            emptyMessage="暂无达到公开门槛的教材关联。"
+                            isEmpty={curriculum_alignments.length === 0}
+                            className={styles['capability-group-wide']}
+                        >
+                            <div className={styles['alignment-grid']}>
+                                {curriculum_alignments.map((item, index) => <CurriculumAlignmentCard key={item?.alignment_id || `alignment-${index}`} item={item} />)}
+                            </div>
+                        </CapabilityGroup>
+
+                        <CapabilityGroup
+                            eyebrow="FORWARD"
+                            title="后续学习去向"
+                            description="说明这条标准将连接到哪些后续学习，并标明关系的证据状态。"
+                            emptyMessage="暂无达到公开门槛的后续连接。"
+                            isEmpty={forward_connections.length === 0}
+                            className={styles['capability-group-wide']}
+                        >
+                            <div className={styles['forward-grid']}>
+                                {forward_connections.map((item, index) => <ForwardConnectionCard key={item?.connection_id || `forward-${index}`} item={item} />)}
+                            </div>
+                        </CapabilityGroup>
+                            </div>
+                        </>
+                    )}
                 </div>
             </section>
 

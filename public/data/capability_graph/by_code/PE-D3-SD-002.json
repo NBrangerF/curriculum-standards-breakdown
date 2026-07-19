@@ -1,0 +1,242 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_fc08f71d9f5f51eb"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生遵守各种规范和规则的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0e2e2f430a7e7f61",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f5cd8b4de690993a",
+        "hc_3641e46d5ec7a726"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“遵守各种规范和规则”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "遵守各种规范和规则，能在练习与比赛中自觉执行并提醒同伴。",
+          "excerpt_hash": "97e3d58fb62e015b772fb6438afa6a4b43aed04c20c2da934d3c23356acd0597",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "在活动前共同明确3条关键规则（安全、比赛、文明），用可视化海报贴在场边；通过“规则裁判官”轮值机制让学生参与规则监督。发生违规则采用“暂停—说明规则—再开始”的方式复位，不进行羞辱式批评。",
+          "excerpt_hash": "a54cb8aa685cf7094047d383f2129cbcea777ba313c5f6539a51d51ae391b123",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-SD-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后遵守各种规范和规则，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“遵守各种规范和规则”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“在活动前共同明确3条关键规则（安全、比赛、文明），用可视化海报贴在场边”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1337,
+      "connection_id": "fc_126d89f1baa4b3a5",
+      "evidence_refs": [
+        "standard:PE-H4G7-SD-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-SD-002",
+      "target_code": "PE-H4G7-SD-004",
+      "target_label": "能做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感，能正确看待比赛胜负；能掌握所学水上或冰雪类运动项目的完整动作技术；表现出责任意…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0746,
+      "connection_id": "fc_2552d8afb9a70109",
+      "evidence_refs": [
+        "standard:PE-H4G7-SD-019:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-SD-002",
+      "target_code": "PE-H4G7-SD-019",
+      "target_label": "能处理常见运动损伤；运用4-5个动作技术参与展示或比赛；能解释基本原理和文化；能完成基础练习并记录身体反应。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_f5cd8b4de690993a",
+      "component_ids": [
+        "lc_fc08f71d9f5f51eb"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "规范"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生遵守各种规范和规则。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够遵守各种规范和规则；优先采集：行为记录、同伴评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "遵守各种规范和规则，能在练习与比赛中自觉执行并提醒同伴。",
+          "excerpt_hash": "97e3d58fb62e015b772fb6438afa6a4b43aed04c20c2da934d3c23356acd0597",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（规范）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    },
+    {
+      "case_id": "hc_3641e46d5ec7a726",
+      "component_ids": [
+        "lc_fc08f71d9f5f51eb"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "各种"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生遵守各种规范和规则。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够遵守各种规范和规则；优先采集：行为记录、同伴评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "遵守各种规范和规则，能在练习与比赛中自觉执行并提醒同伴。",
+          "excerpt_hash": "97e3d58fb62e015b772fb6438afa6a4b43aed04c20c2da934d3c23356acd0597",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（各种）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_fc08f71d9f5f51eb",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够遵守各种规范和规则",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生遵守各种规范和规则，并说明关键步骤、特征或依据。",
+      "label": "遵守各种规范和规则",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够遵守各种规范和规则；优先采集：行为记录、同伴评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "遵守各种规范和规则",
+          "excerpt_hash": "59248b0540379ed9f7ab7aa1fa6d273661d612c422a83d69065d26b9a6ff5b73",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守各种规范和规则"
+    },
+    {
+      "component_id": "lc_9bd7aa3fcd163ea0",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在练习与比赛中自觉执行并提醒同伴",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在练习与比赛中自觉执行并提醒同伴，并说明关键步骤、特征或依据。",
+      "label": "在练习与比赛中自觉执行并提醒同伴",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在练习与比赛中自觉执行并提醒同伴；优先采集：行为记录、同伴评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在练习与比赛中自觉执行并提醒同伴",
+          "excerpt_hash": "eec687c3bb8d123ea377fbc3fbe247550a6ff919f2520d0b2a6fa70532b1d768",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在练习与比赛中自觉执行并提醒同伴"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_61ecefeccabfec7c",
+      "evidence_refs": [
+        "standard:PE-D3-SD-002:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-SD-002",
+      "source_label": "按照规则和要求参与体育活动。",
+      "target_code": "PE-D3-SD-002",
+      "target_label": "遵守各种规范和规则，能在练习与比赛中自觉执行并提醒同伴。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "97e3d58fb62e015b772fb6438afa6a4b43aed04c20c2da934d3c23356acd0597",
+  "standard_code": "PE-D3-SD-002",
+  "verified_prerequisites": []
+}

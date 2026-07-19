@@ -1,0 +1,564 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_7453dc8f4b3739b3"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明作品意图或效果的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_cd6ae4daa25341f8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_62ae4fa054a46921"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明作品意图或效果”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明作品意图或效果”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能开展学校或社区设计、非遗工艺和美术贡献探究；能提升综合探索与学习迁移能力；了解中外美术产生背景和特征；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "ef3c7705f268f7c278359d40d5d9cb3c7afb53ba1361af8894d51b19a98bea44",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把历史文化理解、创作表现、社会责任和跨学科探究整合到项目学习中。",
+          "excerpt_hash": "efd5a0c6fae5d619ab80ace598567cde5d0f9f27d87c72816c3d3a78e761d0ff",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G8-CU-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明作品意图或效果，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明作品意图或效果”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把历史文化理解、创作表现、社会责任和跨学科探究整合到项目学习中。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_5132511fdcf0b033"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生提升综合探索与学习迁移能力的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_19a9427567a715e1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b28e41b374a507ee"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“提升综合探索与学习迁移能力”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“提升综合探索与学习迁移能力”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能开展学校或社区设计、非遗工艺和美术贡献探究；能提升综合探索与学习迁移能力；了解中外美术产生背景和特征；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "ef3c7705f268f7c278359d40d5d9cb3c7afb53ba1361af8894d51b19a98bea44",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把历史文化理解、创作表现、社会责任和跨学科探究整合到项目学习中。",
+          "excerpt_hash": "efd5a0c6fae5d619ab80ace598567cde5d0f9f27d87c72816c3d3a78e761d0ff",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G8-CU-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后提升综合探索与学习迁移能力，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“提升综合探索与学习迁移能力”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把历史文化理解、创作表现、社会责任和跨学科探究整合到项目学习中。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_fe7088d7998e61a6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生开展学校或社区设计、非遗工艺和美术贡献探究的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a93b04d4a85ae592",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a4a0da3b2399ece3"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“开展学校或社区设计、非遗工艺和美术贡献探究”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“开展学校或社区设计、非遗工艺和美术贡献探究”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能开展学校或社区设计、非遗工艺和美术贡献探究；能提升综合探索与学习迁移能力；了解中外美术产生背景和特征；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "ef3c7705f268f7c278359d40d5d9cb3c7afb53ba1361af8894d51b19a98bea44",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把历史文化理解、创作表现、社会责任和跨学科探究整合到项目学习中。",
+          "excerpt_hash": "efd5a0c6fae5d619ab80ace598567cde5d0f9f27d87c72816c3d3a78e761d0ff",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G8-CU-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后开展学校或社区设计、非遗工艺和美术贡献探究，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“开展学校或社区设计、非遗工艺和美术贡献探究”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“把历史文化理解、创作表现、社会责任和跨学科探究整合到项目学习中。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_67582cafc9121199"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出中外美术产生背景和特征的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_96d333845d972a7a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出中外美术产生背景和特征的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出中外美术产生背景和特征的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能开展学校或社区设计、非遗工艺和美术贡献探究；能提升综合探索与学习迁移能力；了解中外美术产生背景和特征；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "ef3c7705f268f7c278359d40d5d9cb3c7afb53ba1361af8894d51b19a98bea44",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把历史文化理解、创作表现、社会责任和跨学科探究整合到项目学习中。",
+          "excerpt_hash": "efd5a0c6fae5d619ab80ace598567cde5d0f9f27d87c72816c3d3a78e761d0ff",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G8-CU-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出中外美术产生背景和特征的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出中外美术产生背景和特征的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把历史文化理解、创作表现、社会责任和跨学科探究整合到项目学习中。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_344a57d2d5b74abd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_03a3ee5b0a046f990193",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c4470d97d606"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_49008e32afb1ea73",
+      "textbook_grade": 8,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_740068ac5a5381eb",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5176fbbfb48b6f094ec5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_3f3ef809a59b"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3937cb93e59941dd",
+      "textbook_grade": 8,
+      "textbook_subject": "美术",
+      "textbook_title": "美术8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c8f9f621deed6ed3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_8af324795e3ff5e3ad56",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5456c0d80ef9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_66b34c8187cbffd0",
+      "textbook_grade": 8,
+      "textbook_subject": "美术",
+      "textbook_title": "美术8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e24575f1e1f3a72f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c2c429ae25127d8a61ca",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_841b34386a8a"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e236fa847f007794",
+      "textbook_grade": 8,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_7a957afc709d9875",
+      "evidence_refs": [
+        "standard:AR-H4G8-CU-001:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-H4G8-CU-001",
+      "target_code": "AR-H4G9-CU-001",
+      "target_label": "能提升综合探索与学习迁移能力；能开展学校或社区设计、非遗工艺和美术贡献探究；分析中外美术产生背景和特征；能评价作品效果并完善展演、创作或文化阐…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_62ae4fa054a46921",
+      "component_ids": [
+        "lc_7453dc8f4b3739b3"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明作品意图或效果。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明作品意图或效果；优先采集：集、调研报告、设计方案、展示交流。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能开展学校或社区设计、非遗工艺和美术贡献探究；能提升综合探索与学习迁移能力；了解中外美术产生背景和特征；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "ef3c7705f268f7c278359d40d5d9cb3c7afb53ba1361af8894d51b19a98bea44",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_b28e41b374a507ee",
+      "component_ids": [
+        "lc_5132511fdcf0b033"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "迁移",
+        "综合"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提升综合探索与学习迁移能力。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够提升综合探索与学习迁移能力；优先采集：集、调研报告、设计方案、展示交流。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能开展学校或社区设计、非遗工艺和美术贡献探究；能提升综合探索与学习迁移能力；了解中外美术产生背景和特征；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "ef3c7705f268f7c278359d40d5d9cb3c7afb53ba1361af8894d51b19a98bea44",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（迁移、综合）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_a4a0da3b2399ece3",
+      "component_ids": [
+        "lc_fe7088d7998e61a6"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生开展学校或社区设计、非遗工艺和美术贡献探究。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够开展学校或社区设计、非遗工艺和美术贡献探究；优先采集：集、调研报告、设计方案、展示交流。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能开展学校或社区设计、非遗工艺和美术贡献探究；能提升综合探索与学习迁移能力；了解中外美术产生背景和特征；能调整表现方法并说明作品意图或效果。",
+          "excerpt_hash": "ef3c7705f268f7c278359d40d5d9cb3c7afb53ba1361af8894d51b19a98bea44",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_fe7088d7998e61a6",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够开展学校或社区设计、非遗工艺和美术贡献探究",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生开展学校或社区设计、非遗工艺和美术贡献探究，并说明关键步骤、特征或依据。",
+      "label": "开展学校或社区设计、非遗工艺和美术贡献探究",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够开展学校或社区设计、非遗工艺和美术贡献探究；优先采集：集、调研报告、设计方案、展示交流。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "开展学校或社区设计、非遗工艺和美术贡献探究",
+          "excerpt_hash": "68fc9b7db01da5831fe98142c6e42b8366b8e53e34f0eddab1e12a75e318613d",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "开展学校或社区设计、非遗工艺和美术贡献探究"
+    },
+    {
+      "component_id": "lc_5132511fdcf0b033",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提升综合探索与学习迁移能力",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提升综合探索与学习迁移能力，并说明关键步骤、特征或依据。",
+      "label": "提升综合探索与学习迁移能力",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提升综合探索与学习迁移能力；优先采集：集、调研报告、设计方案、展示交流。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提升综合探索与学习迁移能力",
+          "excerpt_hash": "4bdc58f723a1aa6107b98039a43f0e57d6f5f294c46e073e4baed6c66e220ef7",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提升综合探索与学习迁移能力"
+    },
+    {
+      "component_id": "lc_67582cafc9121199",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出中外美术产生背景和特征的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出中外美术产生背景和特征的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出中外美术产生背景和特征的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出中外美术产生背景和特征的关键特征；优先采集：集、调研报告、设计方案、展示交流。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解中外美术产生背景和特征",
+          "excerpt_hash": "751a6a4ff24a33d2f124ca09c20b97abcbea1c3c97e9e96b3dfdf3b54cb4f153",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解中外美术产生背景和特征"
+    },
+    {
+      "component_id": "lc_a44755d50541f978",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够调整表现方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整表现方法，并说明关键步骤、特征或依据。",
+      "label": "调整表现方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够调整表现方法；优先采集：集、调研报告、设计方案、展示交流。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "调整表现方法",
+          "excerpt_hash": "624139c8c27447716076606d4fffc25d29bbd39623044fea23b9317d3438bb50",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "调整表现方法"
+    },
+    {
+      "component_id": "lc_7453dc8f4b3739b3",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明作品意图或效果",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明作品意图或效果，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明作品意图或效果",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明作品意图或效果；优先采集：集、调研报告、设计方案、展示交流。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明作品意图或效果",
+          "excerpt_hash": "9848376f6e433abf944ce2802b9a7699e3ab8073534008b9730e477835bb86eb",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G8-CU-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明作品意图或效果"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_e5913d315f32d01f",
+      "evidence_refs": [
+        "standard:AR-H4G8-CU-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-H4G7-CU-005",
+      "source_label": "了解中外美术产生背景和特征；能知道中国经典与近现代美术作品；能创作表达自然与社会感受的美术作品；能描述艺术要素并完成基础表现或创作。",
+      "target_code": "AR-H4G8-CU-001",
+      "target_label": "能开展学校或社区设计、非遗工艺和美术贡献探究；能提升综合探索与学习迁移能力；了解中外美术产生背景和特征；能调整表现方法并说明作品意图或效果。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ef3c7705f268f7c278359d40d5d9cb3c7afb53ba1361af8894d51b19a98bea44",
+  "standard_code": "AR-H4G8-CU-001",
+  "verified_prerequisites": []
+}

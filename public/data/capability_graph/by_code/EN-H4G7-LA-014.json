@@ -1,0 +1,461 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_a4a3eb246a3bc5b6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生利用图片、图表、海报、实物或文字提示写出简单文段传达信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e294c81f5e6ba801",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e294c81f5e6ba801"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“利用图片、图表、海报、实物或文字提示写出简单文段传达信息”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“利用图片、图表、海报、实物或文字提示写出简单文段传达信息”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能写出或回复简单问候和邀请；能利用图片、图表、海报、实物或文字提示写出简单文段传达信息；能围绕特定语境在支架下写出几个意义连贯、表意清楚的语句；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "da367bff8c9e0aff2c088b9100a1a5f20678f89589e9ee5c08705bb358bbabc2",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-014:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先保证意思连贯和表意清楚，再逐步关注细节丰富和语言准确。",
+          "excerpt_hash": "6465ae8d343d4c24148f727d7c346dee0b48109c0bddf47931e23428f7807a42",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-LA-014:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后利用图片、图表、海报、实物或文字提示写出简单文段传达信息，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“利用图片、图表、海报、实物或文字提示写出简单文段传达信息”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“先保证意思连贯和表意清楚，再逐步关注细节丰富和语言准确。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_85538071377189eb",
+        "lc_a4a3eb246a3bc5b6",
+        "lc_919ac488ba33316f",
+        "lc_a38559c4194fb70c"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生写出或回复简单问候和邀请的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e4249b2f1dc847c3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e294c81f5e6ba801",
+        "hc_d34593a2e32df817"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“写出或回复简单问候和邀请”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“写出或回复简单问候和邀请”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能写出或回复简单问候和邀请；能利用图片、图表、海报、实物或文字提示写出简单文段传达信息；能围绕特定语境在支架下写出几个意义连贯、表意清楚的语句；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "da367bff8c9e0aff2c088b9100a1a5f20678f89589e9ee5c08705bb358bbabc2",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-014:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先保证意思连贯和表意清楚，再逐步关注细节丰富和语言准确。",
+          "excerpt_hash": "6465ae8d343d4c24148f727d7c346dee0b48109c0bddf47931e23428f7807a42",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-LA-014:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后写出或回复简单问候和邀请，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“写出或回复简单问候和邀请”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“先保证意思连贯和表意清楚，再逐步关注细节丰富和语言准确。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_568aa2477cd76bf0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_600fc96aca5a7c702986",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c81ef75b15c2"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f2972c892efdda49",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5a09493e5a5a60a8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fcc8f13544f60ac83228",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_006c435d5baa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b6842528f75f35c9",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_5258ed323aae353d",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-014:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-H4G7-LA-014",
+      "target_code": "EN-H4G8-LA-013",
+      "target_label": "能结合相关主题进行观点基本明确、逻辑比较清楚的主题演讲；能在口头表达中结合主题使用正确词汇、句式和语法，表意准确得体；能用简单书面语篇描写他人…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_e294c81f5e6ba801",
+      "component_ids": [
+        "lc_a4a3eb246a3bc5b6"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "图表"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生利用图片、图表、海报、实物或文字提示写出简单文段传达信息。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够利用图片、图表、海报、实物或文字提示写出简单文段传达信息；优先采集：短文、邀请回复、小故事、写作修改稿。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能写出或回复简单问候和邀请；能利用图片、图表、海报、实物或文字提示写出简单文段传达信息；能围绕特定语境在支架下写出几个意义连贯、表意清楚的语句；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "da367bff8c9e0aff2c088b9100a1a5f20678f89589e9ee5c08705bb358bbabc2",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（图表）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_d34593a2e32df817",
+      "component_ids": [
+        "lc_919ac488ba33316f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "清楚",
+        "连贯"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生围绕特定语境在支架下写出几个意义连贯、表意清楚的语句。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够围绕特定语境在支架下写出几个意义连贯、表意清楚的语句；优先采集：短文、邀请回复、小故事、写作修改稿。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能写出或回复简单问候和邀请；能利用图片、图表、海报、实物或文字提示写出简单文段传达信息；能围绕特定语境在支架下写出几个意义连贯、表意清楚的语句；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "da367bff8c9e0aff2c088b9100a1a5f20678f89589e9ee5c08705bb358bbabc2",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（清楚、连贯）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_85538071377189eb",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够写出或回复简单问候和邀请",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生写出或回复简单问候和邀请，并说明关键步骤、特征或依据。",
+      "label": "写出或回复简单问候和邀请",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够写出或回复简单问候和邀请；优先采集：短文、邀请回复、小故事、写作修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "写出或回复简单问候和邀请",
+          "excerpt_hash": "9ee43fb5e99bb653e25e039ed4556c5a87a3d0385d729f2ded09f97a066f0836",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "写出或回复简单问候和邀请"
+    },
+    {
+      "component_id": "lc_a4a3eb246a3bc5b6",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够利用图片、图表、海报、实物或文字提示写出简单文段传达信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生利用图片、图表、海报、实物或文字提示写出简单文段传达信息，并说明关键步骤、特征或依据。",
+      "label": "利用图片、图表、海报、实物或文字提示写出简单文段传达信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够利用图片、图表、海报、实物或文字提示写出简单文段传达信息；优先采集：短文、邀请回复、小故事、写作修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用图片、图表、海报、实物或文字提示写出简单文段传达信息",
+          "excerpt_hash": "d7730b3a213535622c1d4422e97305fbd3e07120090a9288fde6417d0711f24d",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "利用图片、图表、海报、实物或文字提示写出简单文段传达信息"
+    },
+    {
+      "component_id": "lc_919ac488ba33316f",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够围绕特定语境在支架下写出几个意义连贯、表意清楚的语句",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生围绕特定语境在支架下写出几个意义连贯、表意清楚的语句，并说明关键步骤、特征或依据。",
+      "label": "围绕特定语境在支架下写出几个意义连贯、表意清楚的语句",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够围绕特定语境在支架下写出几个意义连贯、表意清楚的语句；优先采集：短文、邀请回复、小故事、写作修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "围绕特定语境在支架下写出几个意义连贯、表意清楚的语句",
+          "excerpt_hash": "021fd5010f6f71b1121932b79930af2c9e1bb197a960e8d3ac6f8a77e16014c0",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "围绕特定语境在支架下写出几个意义连贯、表意清楚的语句"
+    },
+    {
+      "component_id": "lc_5e9e15305c949cac",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够获取关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
+      "label": "获取关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够获取关键信息；优先采集：短文、邀请回复、小故事、写作修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "获取关键信息",
+          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "获取关键信息"
+    },
+    {
+      "component_id": "lc_a38559c4194fb70c",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成简短交流",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成简短交流，并说明关键步骤、特征或依据。",
+      "label": "完成简短交流",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成简短交流；优先采集：短文、邀请回复、小故事、写作修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成简短交流",
+          "excerpt_hash": "e0d8e980d38fdd45deaf2acf3d21d16ee5acd4e273483f5057e96bc61198198b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-LA-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成简短交流"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.136,
+      "edge_id": "pc_f4eb52ee6ab1a2d4",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-014:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-LA-009",
+      "source_label": "在书面表达中，能围绕图片内容或模仿范文，写出几句意思连贯的话。",
+      "target_code": "EN-H4G7-LA-014",
+      "target_label": "能写出或回复简单问候和邀请；能利用图片、图表、海报、实物或文字提示写出简单文段传达信息；能围绕特定语境在支架下写出几个意义连贯、表意清楚的语句…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1899,
+      "edge_id": "pc_1aa08ad2b8893531",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-014:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-LA-010",
+      "source_label": "能围绕相关主题，运用所学语言，与他人进行简单的交流，表演小故事或短剧，语音、语调基本正确。",
+      "target_code": "EN-H4G7-LA-014",
+      "target_label": "能写出或回复简单问候和邀请；能利用图片、图表、海报、实物或文字提示写出简单文段传达信息；能围绕特定语境在支架下写出几个意义连贯、表意清楚的语句…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0721,
+      "edge_id": "pc_d1d577b6500933cd",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-014:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-LA-012",
+      "source_label": "能运用所学词句讲述简单的小故事，表意基本清楚。",
+      "target_code": "EN-H4G7-LA-014",
+      "target_label": "能写出或回复简单问候和邀请；能利用图片、图表、海报、实物或文字提示写出简单文段传达信息；能围绕特定语境在支架下写出几个意义连贯、表意清楚的语句…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1124,
+      "edge_id": "pc_d5f4d20927df4021",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-014:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-LA-014",
+      "source_label": "能用简单的语句描述图片内容，意义连贯，句子形式基本正确。",
+      "target_code": "EN-H4G7-LA-014",
+      "target_label": "能写出或回复简单问候和邀请；能利用图片、图表、海报、实物或文字提示写出简单文段传达信息；能围绕特定语境在支架下写出几个意义连贯、表意清楚的语句…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 4,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "da367bff8c9e0aff2c088b9100a1a5f20678f89589e9ee5c08705bb358bbabc2",
+  "standard_code": "EN-H4G7-LA-014",
+  "verified_prerequisites": []
+}

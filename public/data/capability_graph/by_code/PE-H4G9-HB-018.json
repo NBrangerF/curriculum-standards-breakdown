@@ -1,0 +1,290 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_c3005c31b591fd50",
+        "lc_c17f817f44c0daaa"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用预防运动伤病的知识与技能、溺水自救和配合他救的方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8238e92ffe106c5c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用预防运动伤病的知识与技能、溺水自救和配合他救的方法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用预防运动伤病的知识与技能、溺水自救和配合他救的方法”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用预防运动伤病的知识与技能、溺水自救和配合他救的方法；运用在踩踏事故、火灾、地震、海啸等突发事件中的自我保护和逃生技能；能以及重污染天气中的户外防护方法；能制定改进方案并评价运动、健康或品德表现。",
+          "excerpt_hash": "7b649c9402c6ed7be5151c60b8d3c1fc3b105f151b1681f4b8358af139acff5b",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-018:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "采用情境模拟和操作练习，明确安全边界和求助流程。",
+          "excerpt_hash": "50181dc80065cc76b01a78890a97aa723d2852850fe50444876215d4a0763cef",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G9-HB-018:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用预防运动伤病的知识与技能、溺水自救和配合他救的方法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用预防运动伤病的知识与技能、溺水自救和配合他救的方法”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“采用情境模拟和操作练习，明确安全边界和求助流程。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_571f4c474693f220"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生制定改进方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1cf39da4a447fdbf",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_998e1ae01383c0d0"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“制定改进方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“制定改进方案”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用预防运动伤病的知识与技能、溺水自救和配合他救的方法；运用在踩踏事故、火灾、地震、海啸等突发事件中的自我保护和逃生技能；能以及重污染天气中的户外防护方法；能制定改进方案并评价运动、健康或品德表现。",
+          "excerpt_hash": "7b649c9402c6ed7be5151c60b8d3c1fc3b105f151b1681f4b8358af139acff5b",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-018:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "采用情境模拟和操作练习，明确安全边界和求助流程。",
+          "excerpt_hash": "50181dc80065cc76b01a78890a97aa723d2852850fe50444876215d4a0763cef",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G9-HB-018:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后制定改进方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“制定改进方案”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“采用情境模拟和操作练习，明确安全边界和求助流程。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a60b0d83a885dcbd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_edad04fc8816a4ef583f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_028db4ce8af0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5a8a2e0e888764ac",
+      "textbook_grade": 9,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_998e1ae01383c0d0",
+      "component_ids": [
+        "lc_571f4c474693f220"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "方案",
+        "改进"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生制定改进方案。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够制定改进方案；优先采集：应急演示表现、安全流程图、情境任务单。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用预防运动伤病的知识与技能、溺水自救和配合他救的方法；运用在踩踏事故、火灾、地震、海啸等突发事件中的自我保护和逃生技能；能以及重污染天气中的户外防护方法；能制定改进方案并评价运动、健康或品德表现。",
+          "excerpt_hash": "7b649c9402c6ed7be5151c60b8d3c1fc3b105f151b1681f4b8358af139acff5b",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（方案、改进）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c3005c31b591fd50",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用预防运动伤病的知识与技能、溺水自救和配合他救的方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用预防运动伤病的知识与技能、溺水自救和配合他救的方法，并说明关键步骤、特征或依据。",
+      "label": "运用预防运动伤病的知识与技能、溺水自救和配合他救的方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用预防运动伤病的知识与技能、溺水自救和配合他救的方法；优先采集：应急演示表现、安全流程图、情境任务单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用预防运动伤病的知识与技能、溺水自救和配合他救的方法",
+          "excerpt_hash": "7ca4536627941ae82c91f977180b35dd592b5eb911108f2675835a0a7a1744a1",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用预防运动伤病的知识与技能、溺水自救和配合他救的方法"
+    },
+    {
+      "component_id": "lc_c17f817f44c0daaa",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用在踩踏事故、火灾、地震、海啸等突发事件中的自我保护和逃生技能",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用在踩踏事故、火灾、地震、海啸等突发事件中的自我保护和逃生技能，并说明关键步骤、特征或依据。",
+      "label": "运用在踩踏事故、火灾、地震、海啸等突发事件中的自我保护和逃生技能",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用在踩踏事故、火灾、地震、海啸等突发事件中的自我保护和逃生技能；优先采集：应急演示表现、安全流程图、情境任务单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用在踩踏事故、火灾、地震、海啸等突发事件中的自我保护和逃生技能",
+          "excerpt_hash": "5cb3f453e8625a77a5e32aff40d8f4d08c506bf2c6abc8ae9a83dd2e7880a52f",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用在踩踏事故、火灾、地震、海啸等突发事件中的自我保护和逃生技能"
+    },
+    {
+      "component_id": "lc_571f4c474693f220",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够制定改进方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生制定改进方案，并说明关键步骤、特征或依据。",
+      "label": "制定改进方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够制定改进方案；优先采集：应急演示表现、安全流程图、情境任务单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "制定改进方案",
+          "excerpt_hash": "305f96671497f03b1e47f1e3cfb9fc5877c88a1fe99ec5cb2dcdb2368ad8dfbc",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "制定改进方案"
+    },
+    {
+      "component_id": "lc_deb88d88428db84f",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价运动、健康或品德表现",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价运动、健康或品德表现，并说明关键步骤、特征或依据。",
+      "label": "评价运动、健康或品德表现",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价运动、健康或品德表现；优先采集：应急演示表现、安全流程图、情境任务单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价运动、健康或品德表现",
+          "excerpt_hash": "29f95b45527b0f3ecc669bf688bf6ef2e3993738f71ad43d628beda84cd7baab",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G9-HB-018:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价运动、健康或品德表现"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_53dc76a0021a9902",
+      "evidence_refs": [
+        "standard:PE-H4G9-HB-018:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-H4G8-HB-017",
+      "source_label": "能掌握预防运动伤病的知识与技能、溺水自救和配合他救的方法；掌握在踩踏事故、火灾、地震、海啸等突发事件中的自我保护和逃生技能；能以及重污染天气中…",
+      "target_code": "PE-H4G9-HB-018",
+      "target_label": "能运用预防运动伤病的知识与技能、溺水自救和配合他救的方法；运用在踩踏事故、火灾、地震、海啸等突发事件中的自我保护和逃生技能；能以及重污染天气中…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "7b649c9402c6ed7be5151c60b8d3c1fc3b105f151b1681f4b8358af139acff5b",
+  "standard_code": "PE-H4G9-HB-018",
+  "verified_prerequisites": []
+}

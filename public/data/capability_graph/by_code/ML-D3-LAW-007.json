@@ -1,0 +1,408 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_6b773291a9b9d45a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明其后果与法律责任的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f199b9c19e3bd998",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_cb6d52c1fb3fe7a8"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明其后果与法律责任”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明其后果与法律责任”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能区分不良行为、严重不良行为与违法犯罪的边界，能说明其后果与法律责任，能制定自我约束与同伴互助的预防策略。",
+          "excerpt_hash": "b8d316baa4b10987a29223c06af1856f718b66145c07c112861f969ce33672db",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合《预防未成年人犯罪法》与典型案例，认识违法犯罪特点、危害与法律后果，培养提高防范意识与能力。",
+          "excerpt_hash": "ffdc6365631209f657821a5784a44f82f44a61bcdd164a032c119712237c404c",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D3-LAW-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明其后果与法律责任，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明其后果与法律责任”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“结合《预防未成年人犯罪法》与典型案例，认识违法犯罪特点、危害与法律后果，培养提高防范意识与能力。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_ff07d71e859262dc"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生区分不良行为、严重不良行为与违法犯罪的边界的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_62067068ab775ac7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ef90de8ba48f6125"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“区分不良行为、严重不良行为与违法犯罪的边界”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“区分不良行为、严重不良行为与违法犯罪的边界”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能区分不良行为、严重不良行为与违法犯罪的边界，能说明其后果与法律责任，能制定自我约束与同伴互助的预防策略。",
+          "excerpt_hash": "b8d316baa4b10987a29223c06af1856f718b66145c07c112861f969ce33672db",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "结合《预防未成年人犯罪法》与典型案例，认识违法犯罪特点、危害与法律后果，培养提高防范意识与能力。",
+          "excerpt_hash": "ffdc6365631209f657821a5784a44f82f44a61bcdd164a032c119712237c404c",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D3-LAW-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后区分不良行为、严重不良行为与违法犯罪的边界，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“区分不良行为、严重不良行为与违法犯罪的边界”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“结合《预防未成年人犯罪法》与典型案例，认识违法犯罪特点、危害与法律后果，培养提高防范意识与能力。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fd60acb115f4b86b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0e50b2c3cab704574a20",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_0d4b56c03c3c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f543649c0b71f43b",
+      "textbook_grade": 5,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_42a8ce00d8e68784",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1717f6091df4cebdd9ec",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_63b354a74aec"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f2273093a9d6cb45",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b7d315c555f69e45",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_02f942c3391d"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_84d4ef0e1dbf301a",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4b6033a18c66d157",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4d47affde4a27f50be6c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_976cae771845"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_03c92473b367e141",
+      "textbook_grade": 5,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1012,
+      "connection_id": "fc_c918f88bbd0d6081",
+      "evidence_refs": [
+        "standard:ML-H4G7-LAW-028:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-LAW-007",
+      "target_code": "ML-H4G7-LAW-028",
+      "target_label": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能联系个人和校园生活说明基本判断。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1681,
+      "connection_id": "fc_93e0a47a5a5d1661",
+      "evidence_refs": [
+        "standard:ML-H4G7-LAW-034:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-LAW-007",
+      "target_code": "ML-H4G7-LAW-034",
+      "target_label": "认识犯罪的基本概念；了解刑罚的主要类型；认识未成年人违法犯罪行为的危害；能联系个人和校园生活说明基本判断。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_cb6d52c1fb3fe7a8",
+      "component_ids": [
+        "lc_6b773291a9b9d45a"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明其后果与法律责任。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明其后果与法律责任；优先采集：案例判断单、情境演练表现、公约成果、教师评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能区分不良行为、严重不良行为与违法犯罪的边界，能说明其后果与法律责任，能制定自我约束与同伴互助的预防策略。",
+          "excerpt_hash": "b8d316baa4b10987a29223c06af1856f718b66145c07c112861f969ce33672db",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_ef90de8ba48f6125",
+      "component_ids": [
+        "lc_ff07d71e859262dc"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "区分"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生区分不良行为、严重不良行为与违法犯罪的边界。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够区分不良行为、严重不良行为与违法犯罪的边界；优先采集：案例判断单、情境演练表现、公约成果、教师评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能区分不良行为、严重不良行为与违法犯罪的边界，能说明其后果与法律责任，能制定自我约束与同伴互助的预防策略。",
+          "excerpt_hash": "b8d316baa4b10987a29223c06af1856f718b66145c07c112861f969ce33672db",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（区分）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ff07d71e859262dc",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够区分不良行为、严重不良行为与违法犯罪的边界",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生区分不良行为、严重不良行为与违法犯罪的边界，并说明关键步骤、特征或依据。",
+      "label": "区分不良行为、严重不良行为与违法犯罪的边界",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够区分不良行为、严重不良行为与违法犯罪的边界；优先采集：案例判断单、情境演练表现、公约成果、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "区分不良行为、严重不良行为与违法犯罪的边界",
+          "excerpt_hash": "f3102d928d69a5020cb80cd25531937b949eac438e773d0ab3bdd83124ad74cd",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "区分不良行为、严重不良行为与违法犯罪的边界"
+    },
+    {
+      "component_id": "lc_6b773291a9b9d45a",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明其后果与法律责任",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明其后果与法律责任，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明其后果与法律责任",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明其后果与法律责任；优先采集：案例判断单、情境演练表现、公约成果、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明其后果与法律责任",
+          "excerpt_hash": "22e91ec967349e22411c450addaa92a3e78bb5117c9eda336bb77fc6c5042a8a",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明其后果与法律责任"
+    },
+    {
+      "component_id": "lc_3570f8e68c69cec5",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够制定自我约束与同伴互助的预防策略",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生制定自我约束与同伴互助的预防策略，并说明关键步骤、特征或依据。",
+      "label": "制定自我约束与同伴互助的预防策略",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够制定自我约束与同伴互助的预防策略；优先采集：案例判断单、情境演练表现、公约成果、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "制定自我约束与同伴互助的预防策略",
+          "excerpt_hash": "85a8a72535b55f36afb2bcd4e3411b8ad1630eebb177e0c2e9357280891a52c3",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "制定自我约束与同伴互助的预防策略"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b8d316baa4b10987a29223c06af1856f718b66145c07c112861f969ce33672db",
+  "standard_code": "ML-D3-LAW-007",
+  "verified_prerequisites": []
+}

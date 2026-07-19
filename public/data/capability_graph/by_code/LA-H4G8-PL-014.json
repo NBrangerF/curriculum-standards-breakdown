@@ -1,0 +1,399 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_57b564aae99e90af"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生依据设计要求制订方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ce8e41fa0995e68a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d6ecf0eee85f0349",
+        "hc_037c8545ae571f82"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“依据设计要求制订方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“依据设计要求制订方案”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择一至两项新技术进行劳动体验与应用；能依据设计要求制订方案并完成加工、组装、测试和优化；了解其基本过程、参数和材料范围；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "d2cf38bd7daf8b32242a9ff7b91e42206ded053b3f21a40c5696f653c338159f",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "可结合本地高新技术企业、科研机构或学校设备条件开展体验，突出技术价值与职业理解。",
+          "excerpt_hash": "d6d653a95e126650ffd376ccb72e108567c5c3668cb9dccb1cd519df623866db",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G8-PL-014:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后依据设计要求制订方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“依据设计要求制订方案”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“可结合本地高新技术企业、科研机构或学校设备条件开展体验，突出技术价值与职业理解。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_b5364c40b025050d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生选择一至两项新技术进行劳动体验与应用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_a617072f70b709e3",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“选择一至两项新技术进行劳动体验与应用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“选择一至两项新技术进行劳动体验与应用”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择一至两项新技术进行劳动体验与应用；能依据设计要求制订方案并完成加工、组装、测试和优化；了解其基本过程、参数和材料范围；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "d2cf38bd7daf8b32242a9ff7b91e42206ded053b3f21a40c5696f653c338159f",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "可结合本地高新技术企业、科研机构或学校设备条件开展体验，突出技术价值与职业理解。",
+          "excerpt_hash": "d6d653a95e126650ffd376ccb72e108567c5c3668cb9dccb1cd519df623866db",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G8-PL-014:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后选择一至两项新技术进行劳动体验与应用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“选择一至两项新技术进行劳动体验与应用”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“可结合本地高新技术企业、科研机构或学校设备条件开展体验，突出技术价值与职业理解。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_57b564aae99e90af",
+        "lc_8e5a96eaea4ab0e0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生依据设计要求制订方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1cd43e2580576555",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d6ecf0eee85f0349",
+        "hc_037c8545ae571f82"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“依据设计要求制订方案”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“依据设计要求制订方案”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择一至两项新技术进行劳动体验与应用；能依据设计要求制订方案并完成加工、组装、测试和优化；了解其基本过程、参数和材料范围；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "d2cf38bd7daf8b32242a9ff7b91e42206ded053b3f21a40c5696f653c338159f",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "可结合本地高新技术企业、科研机构或学校设备条件开展体验，突出技术价值与职业理解。",
+          "excerpt_hash": "d6d653a95e126650ffd376ccb72e108567c5c3668cb9dccb1cd519df623866db",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G8-PL-014:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后依据设计要求制订方案，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“依据设计要求制订方案”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“可结合本地高新技术企业、科研机构或学校设备条件开展体验，突出技术价值与职业理解。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_87419240f242eb2c",
+      "evidence_refs": [
+        "standard:LA-H4G8-PL-014:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-H4G8-PL-014",
+      "target_code": "LA-H4G9-PL-015",
+      "target_label": "能选择一至两项新技术进行劳动体验与应用；能依据设计要求制订方案并完成加工、组装、测试和优化；分析其基本过程、参数和材料范围；能面向真实需求改进…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_d6ecf0eee85f0349",
+      "component_ids": [
+        "lc_57b564aae99e90af"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生依据设计要求制订方案。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够依据设计要求制订方案；优先采集：技术体验记录、设计或加工方案、模型成果、反思报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择一至两项新技术进行劳动体验与应用；能依据设计要求制订方案并完成加工、组装、测试和优化；了解其基本过程、参数和材料范围；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "d2cf38bd7daf8b32242a9ff7b91e42206ded053b3f21a40c5696f653c338159f",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_037c8545ae571f82",
+      "component_ids": [
+        "lc_57b564aae99e90af",
+        "lc_8e5a96eaea4ab0e0"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "设计",
+        "方案",
+        "优化"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生依据设计要求制订方案。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够依据设计要求制订方案；优先采集：技术体验记录、设计或加工方案、模型成果、反思报告。",
+        "学生能够完成加工、组装、测试和优化；优先采集：技术体验记录、设计或加工方案、模型成果、反思报告。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能选择一至两项新技术进行劳动体验与应用；能依据设计要求制订方案并完成加工、组装、测试和优化；了解其基本过程、参数和材料范围；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "d2cf38bd7daf8b32242a9ff7b91e42206ded053b3f21a40c5696f653c338159f",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（设计、方案、优化）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_b5364c40b025050d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够选择一至两项新技术进行劳动体验与应用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生选择一至两项新技术进行劳动体验与应用，并说明关键步骤、特征或依据。",
+      "label": "选择一至两项新技术进行劳动体验与应用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够选择一至两项新技术进行劳动体验与应用；优先采集：技术体验记录、设计或加工方案、模型成果、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "选择一至两项新技术进行劳动体验与应用",
+          "excerpt_hash": "dc9011baeaca92e193527cf01b40e1292defffdfa82caace9ac49e604a9c7c0d",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "选择一至两项新技术进行劳动体验与应用"
+    },
+    {
+      "component_id": "lc_57b564aae99e90af",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够依据设计要求制订方案",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生依据设计要求制订方案，并保留可回查的口头、书面或操作过程证据。",
+      "label": "依据设计要求制订方案",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够依据设计要求制订方案；优先采集：技术体验记录、设计或加工方案、模型成果、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "依据设计要求制订方案",
+          "excerpt_hash": "68b2a31e3c444cbdfc902acc7235c2cf49a1f5c819ee5cfd560fe18e8c01a379",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "依据设计要求制订方案"
+    },
+    {
+      "component_id": "lc_8e5a96eaea4ab0e0",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成加工、组装、测试和优化",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成加工、组装、测试和优化，并说明关键步骤、特征或依据。",
+      "label": "完成加工、组装、测试和优化",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成加工、组装、测试和优化；优先采集：技术体验记录、设计或加工方案、模型成果、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成加工、组装、测试和优化",
+          "excerpt_hash": "ec14c7236fa9f252b8f08c0f35560b4a980821f447151967fe8ada12518a0cb8",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成加工、组装、测试和优化"
+    },
+    {
+      "component_id": "lc_39d187079b46fba9",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出其基本过程、参数和材料范围的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出其基本过程、参数和材料范围的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出其基本过程、参数和材料范围的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出其基本过程、参数和材料范围的关键特征；优先采集：技术体验记录、设计或加工方案、模型成果、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解其基本过程、参数和材料范围",
+          "excerpt_hash": "72b652abdde78835f5b4a2c1e0545e557e8601b2f7d1f7ac36c9dcc86bc2a58d",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解其基本过程、参数和材料范围"
+    },
+    {
+      "component_id": "lc_b6f216aded6d27a2",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够规划协作流程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生规划协作流程，并说明关键步骤、特征或依据。",
+      "label": "规划协作流程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够规划协作流程；优先采集：技术体验记录、设计或加工方案、模型成果、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "规划协作流程",
+          "excerpt_hash": "4a84ad92a900406a3d30c00b32a9c485273924f5ccc4aa2724f26c9011663634",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "规划协作流程"
+    },
+    {
+      "component_id": "lc_004bca8e185a6300",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够反思劳动质量",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生反思劳动质量，并说明关键步骤、特征或依据。",
+      "label": "反思劳动质量",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够反思劳动质量；优先采集：技术体验记录、设计或加工方案、模型成果、反思报告。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "反思劳动质量",
+          "excerpt_hash": "7183a8fbee03b379e048527278d4ed6578fdbd0c6cd3aa63470c31916e9cbe23",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-PL-014:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思劳动质量"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_ba223b3cefeed599",
+      "evidence_refs": [
+        "standard:LA-H4G8-PL-014:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-H4G7-PL-013",
+      "source_label": "能选择一至两项新技术进行劳动体验与应用；了解其基本过程、参数和材料范围；能依据设计要求制订方案并完成加工、组装、测试和改进；能按规范完成任务并…",
+      "target_code": "LA-H4G8-PL-014",
+      "target_label": "能选择一至两项新技术进行劳动体验与应用；能依据设计要求制订方案并完成加工、组装、测试和优化；了解其基本过程、参数和材料范围；能规划协作流程并反…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d2cf38bd7daf8b32242a9ff7b91e42206ded053b3f21a40c5696f653c338159f",
+  "standard_code": "LA-H4G8-PL-014",
+  "verified_prerequisites": []
+}

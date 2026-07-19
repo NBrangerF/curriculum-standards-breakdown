@@ -1,0 +1,334 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_1ba7cfa1a30e007d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出多幅图情节顺序的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_30dc8da64167b0eb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ec091b827a111c95"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“说出多幅图情节顺序”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出多幅图情节顺序”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "看图说话：描述单幅图主要内容，并说出多幅图情节顺序。",
+          "excerpt_hash": "22835c430510421bcf4cebd47c5a562896477715cdb731060e1f35c8a3b808fc",
+          "field": "standard",
+          "ref_id": "standard:CN-D1-CM-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n周末翻相册，让学生给家人讲“照片故事”；\n鼓励使用时间词“先…然后…最后…”。",
+          "excerpt_hash": "dbd1e45e77cb5765816d93144eb101baf43e1291ebb05221a3ee7c768dffa8a0",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D1-CM-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出多幅图情节顺序，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出多幅图情节顺序”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“周末翻相册，让学生给家人讲“照片故事””。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_3003066bd89a4ab9",
+        "lc_1ba7cfa1a30e007d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述单幅图主要内容的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_41177eacea6e45f6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ec091b827a111c95"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述单幅图主要内容”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述单幅图主要内容”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "看图说话：描述单幅图主要内容，并说出多幅图情节顺序。",
+          "excerpt_hash": "22835c430510421bcf4cebd47c5a562896477715cdb731060e1f35c8a3b808fc",
+          "field": "standard",
+          "ref_id": "standard:CN-D1-CM-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n周末翻相册，让学生给家人讲“照片故事”；\n鼓励使用时间词“先…然后…最后…”。",
+          "excerpt_hash": "dbd1e45e77cb5765816d93144eb101baf43e1291ebb05221a3ee7c768dffa8a0",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D1-CM-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述单幅图主要内容，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述单幅图主要内容”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“周末翻相册，让学生给家人讲“照片故事””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ed88f59685208e99",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0a6e1c6b5a1b0a6964d7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_33cef677757e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_04e1395c0e29a494",
+      "textbook_grade": 1,
+      "textbook_subject": "语文",
+      "textbook_title": "语文1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_54bcfe88bcdf773b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4a114a6b7c341f1d8ddf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2afda12f52bd"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_bdc09ddd418917fe",
+      "textbook_grade": 2,
+      "textbook_subject": "语文",
+      "textbook_title": "语文2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4119a60c216f9b90",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6f5882dc3ce287c83613",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_06a995aeed6e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7394cdfe08adf2a1",
+      "textbook_grade": 1,
+      "textbook_subject": "语文",
+      "textbook_title": "语文1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4a17208e4f6eea22",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b6fd1fcab83cfe42492b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_30d8b43d1a90"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_34780c76f0a86661",
+      "textbook_grade": 2,
+      "textbook_subject": "语文",
+      "textbook_title": "语文2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_07be72ecccffe736",
+      "evidence_refs": [
+        "standard:CN-D1-CM-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D1-CM-001",
+      "target_code": "CN-D2-CM-004",
+      "target_label": "阅读图文并茂材料时，说明图文之间的对应关系并概括要旨。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_ec091b827a111c95",
+      "component_ids": [
+        "lc_1ba7cfa1a30e007d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "顺序"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说出多幅图情节顺序。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说出多幅图情节顺序；优先采集：情境表达（口头/书面）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "看图说话：描述单幅图主要内容，并说出多幅图情节顺序。",
+          "excerpt_hash": "22835c430510421bcf4cebd47c5a562896477715cdb731060e1f35c8a3b808fc",
+          "field": "standard",
+          "ref_id": "standard:CN-D1-CM-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（顺序）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3003066bd89a4ab9",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述单幅图主要内容",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述单幅图主要内容，并说明关键步骤、特征或依据。",
+      "label": "描述单幅图主要内容",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述单幅图主要内容；优先采集：情境表达（口头/书面）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述单幅图主要内容",
+          "excerpt_hash": "d5e2139cf5016fe0ff3bf643264c28270fad3df5d7afd32aca066a98b933167d",
+          "field": "standard",
+          "ref_id": "standard:CN-D1-CM-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述单幅图主要内容"
+    },
+    {
+      "component_id": "lc_1ba7cfa1a30e007d",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出多幅图情节顺序",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出多幅图情节顺序，并说明关键步骤、特征或依据。",
+      "label": "说出多幅图情节顺序",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出多幅图情节顺序；优先采集：情境表达（口头/书面）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出多幅图情节顺序",
+          "excerpt_hash": "5e29bd6723f9896223f39ecab12122a9e4c2ff5ae700f1f9af48e01f5a2b8e89",
+          "field": "standard",
+          "ref_id": "standard:CN-D1-CM-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出多幅图情节顺序"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "22835c430510421bcf4cebd47c5a562896477715cdb731060e1f35c8a3b808fc",
+  "standard_code": "CN-D1-CM-001",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,214 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_3e01ab5e07c252fa"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生对衣物进行基本分类（深浅色/内外衣/脏污程度）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_af245be4a40c150a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4b2a3b67ff9bbf0f"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“对衣物进行基本分类（深浅色/内外衣/脏污程度）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“对衣物进行基本分类（深浅色/内外衣/脏污程度）”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对衣物进行基本分类（深浅色/内外衣/脏污程度），完成小件衣物手洗或在成人指导下使用洗衣机进行洗涤与晾晒，能保持过程卫生并节约用水用电。",
+          "excerpt_hash": "971852799c7d9fe3fc54ee03cb7a032c04be0336d283223d69f485d7ea44431f",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“分类三问”（颜色？材质？脏污？）；示范“局部预处理—整体清洗—冲净”；晾晒强调抖平、防滴水与夹子位置。",
+          "excerpt_hash": "f553d3516762d4acf9fe90c86b0901f095009f01bf179999c170704ac4a88b2d",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D2-DL-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后对衣物进行基本分类（深浅色/内外衣/脏污程度），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“对衣物进行基本分类（深浅色/内外衣/脏污程度）”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“用“分类三问”（颜色？材质？脏污？）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_01a18c877da228e8",
+      "evidence_refs": [
+        "standard:LA-D2-DL-002:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D2-DL-002",
+      "target_code": "LA-D3-DL-002",
+      "target_label": "能在成人指导下完成厨房或卫生间的重点区域清洁（台面、灶台、洗手池/马桶外部等），能区分去油/去垢/消毒的基本目的并规范收尾。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_4b2a3b67ff9bbf0f",
+      "component_ids": [
+        "lc_3e01ab5e07c252fa"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生对衣物进行基本分类（深浅色/内外衣/脏污程度）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够对衣物进行基本分类（深浅色/内外衣/脏污程度）；优先采集：流程记录单、家长观察/签字、成品干净度自评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对衣物进行基本分类（深浅色/内外衣/脏污程度），完成小件衣物手洗或在成人指导下使用洗衣机进行洗涤与晾晒，能保持过程卫生并节约用水用电。",
+          "excerpt_hash": "971852799c7d9fe3fc54ee03cb7a032c04be0336d283223d69f485d7ea44431f",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3e01ab5e07c252fa",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够对衣物进行基本分类（深浅色/内外衣/脏污程度）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生对衣物进行基本分类（深浅色/内外衣/脏污程度），并说明关键步骤、特征或依据。",
+      "label": "对衣物进行基本分类（深浅色/内外衣/脏污程度）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够对衣物进行基本分类（深浅色/内外衣/脏污程度）；优先采集：流程记录单、家长观察/签字、成品干净度自评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "对衣物进行基本分类（深浅色/内外衣/脏污程度）",
+          "excerpt_hash": "603cdcee666d43f7f73d920093309824a9caf7f57ecc89f88812a42b08069f9d",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "对衣物进行基本分类（深浅色/内外衣/脏污程度）"
+    },
+    {
+      "component_id": "lc_6137067a651d5644",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成小件衣物手洗或在成人指导下使用洗衣机进行洗涤与晾晒",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成小件衣物手洗或在成人指导下使用洗衣机进行洗涤与晾晒，并说明关键步骤、特征或依据。",
+      "label": "完成小件衣物手洗或在成人指导下使用洗衣机进行洗涤与晾晒",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成小件衣物手洗或在成人指导下使用洗衣机进行洗涤与晾晒；优先采集：流程记录单、家长观察/签字、成品干净度自评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成小件衣物手洗或在成人指导下使用洗衣机进行洗涤与晾晒",
+          "excerpt_hash": "9dd14016274d52d7933acdc35338d5219feefc31cafba41a7e567a93a7d76478",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成小件衣物手洗或在成人指导下使用洗衣机进行洗涤与晾晒"
+    },
+    {
+      "component_id": "lc_cd59757342bd9cce",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够保持过程卫生并节约用水用电",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生保持过程卫生并节约用水用电，并说明关键步骤、特征或依据。",
+      "label": "保持过程卫生并节约用水用电",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够保持过程卫生并节约用水用电；优先采集：流程记录单、家长观察/签字、成品干净度自评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "保持过程卫生并节约用水用电",
+          "excerpt_hash": "c39cb13e1c0e4dcedf3885a4912503c86c960095ffd260ed9ebb583cfddbceeb",
+          "field": "standard",
+          "ref_id": "standard:LA-D2-DL-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "保持过程卫生并节约用水用电"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_397ebbea2447e43b",
+      "evidence_refs": [
+        "standard:LA-D2-DL-002:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D1-DL-002",
+      "source_label": "能使用抹布对桌椅、讲台等表面进行擦拭，做到按同一方向擦、重点清理污渍，结束后能清洗抹布并晾晒/归位。",
+      "target_code": "LA-D2-DL-002",
+      "target_label": "能对衣物进行基本分类（深浅色/内外衣/脏污程度），完成小件衣物手洗或在成人指导下使用洗衣机进行洗涤与晾晒，能保持过程卫生并节约用水用电。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "971852799c7d9fe3fc54ee03cb7a032c04be0336d283223d69f485d7ea44431f",
+  "standard_code": "LA-D2-DL-002",
+  "verified_prerequisites": []
+}

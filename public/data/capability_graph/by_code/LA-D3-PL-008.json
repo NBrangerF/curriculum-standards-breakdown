@@ -1,0 +1,283 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_2583e1a1e3e703c7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解释规则原因的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_14bf5db32a036b42",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_83a65e6f78842ec2"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“解释规则原因”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解释规则原因”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能了解常见加工工具（手电钻、锯等）的用途与风险，能在教师指导下遵守安全规则完成简单加工体验或观摩，并能解释规则原因。",
+          "excerpt_hash": "8a4f24d9cc426609f127b08eaec88302cc6ee9232429b4534fe43275930dbd43",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "以观摩+局部操作为主；强调护目镜、固定工件、保持距离；让学生写“安全承诺卡”。",
+          "excerpt_hash": "b89709ad26dce42449254bd7d55ba15e5ae693536711ba891492f7bdab78e65f",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D3-PL-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解释规则原因，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解释规则原因”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“以观摩+局部操作为主”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1532,
+      "connection_id": "fc_96c7aab1567c587d",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-PL-008",
+      "target_code": "LA-H4G7-PL-001",
+      "target_label": "能体验金工、木工、电子、陶艺、布艺等项目或种植、养殖等生产劳动，形成初步职业意识和生涯规划意识；能体验当地常见种植、养殖等生产劳动；能按规范完…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.18,
+      "connection_id": "fc_6eb00cbd333e2eca",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-PL-008",
+      "target_code": "LA-H4G7-PL-002",
+      "target_label": "能规划生产劳动方案并尝试运用工具、材料、设备和技能解决问题；能组织实施服务性劳动；能在具有挑战性的劳动中熟练运用家政技能；能按规范完成任务并说…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1711,
+      "connection_id": "fc_e117fe6e814b01d3",
+      "evidence_refs": [
+        "standard:LA-H4G7-PL-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D3-PL-008",
+      "target_code": "LA-H4G7-PL-004",
+      "target_label": "能体验当地常见种植、养殖等生产劳动；理解现代农业与传统农业的联系和区别；能选择一至两种优良种植或养殖品种开展系列实践；能按规范完成任务并说明工…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_83a65e6f78842ec2",
+      "component_ids": [
+        "lc_2583e1a1e3e703c7"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生解释规则原因。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在教师指导下，能够解释规则原因；优先采集：安全问答、承诺卡、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能了解常见加工工具（手电钻、锯等）的用途与风险，能在教师指导下遵守安全规则完成简单加工体验或观摩，并能解释规则原因。",
+          "excerpt_hash": "8a4f24d9cc426609f127b08eaec88302cc6ee9232429b4534fe43275930dbd43",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_ed805a7c4efd89ff",
+      "component_ids": [
+        "lc_83ab2dc9ac7ad870"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生遵守安全规则完成简单加工体验或观摩。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在教师指导下，能够遵守安全规则完成简单加工体验或观摩；优先采集：安全问答、承诺卡、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能了解常见加工工具（手电钻、锯等）的用途与风险，能在教师指导下遵守安全规则完成简单加工体验或观摩，并能解释规则原因。",
+          "excerpt_hash": "8a4f24d9cc426609f127b08eaec88302cc6ee9232429b4534fe43275930dbd43",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_5e57ea4ad55067d9",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出常见加工工具（手电钻、锯等）的用途与风险的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出常见加工工具（手电钻、锯等）的用途与风险的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出常见加工工具（手电钻、锯等）的用途与风险的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出常见加工工具（手电钻、锯等）的用途与风险的关键特征；优先采集：安全问答、承诺卡、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解常见加工工具（手电钻、锯等）的用途与风险",
+          "excerpt_hash": "a9887ae342ea209be4790996df8ce286626a65cfe9f01805c1a0ca9842979348",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解常见加工工具（手电钻、锯等）的用途与风险"
+    },
+    {
+      "component_id": "lc_83ab2dc9ac7ad870",
+      "component_type": "procedural",
+      "condition": "在教师指导下",
+      "confidence": 0.72,
+      "description": "学生在教师指导下，能够遵守安全规则完成简单加工体验或观摩",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师指导下”的诊断任务，要求学生遵守安全规则完成简单加工体验或观摩，并说明关键步骤、特征或依据。",
+      "label": "遵守安全规则完成简单加工体验或观摩",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师指导下，能够遵守安全规则完成简单加工体验或观摩；优先采集：安全问答、承诺卡、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能了解常见加工工具（手电钻、锯等）的用途与风险，能在教师指导下遵守安全规则完成简单加工体验或观摩，并能解释规则原因。",
+          "excerpt_hash": "8a4f24d9cc426609f127b08eaec88302cc6ee9232429b4534fe43275930dbd43",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守安全规则完成简单加工体验或观摩"
+    },
+    {
+      "component_id": "lc_2583e1a1e3e703c7",
+      "component_type": "conceptual",
+      "condition": "在教师指导下",
+      "confidence": 0.72,
+      "description": "学生在教师指导下，能够解释规则原因",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在教师指导下”的诊断任务，要求学生解释规则原因，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释规则原因",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在教师指导下，能够解释规则原因；优先采集：安全问答、承诺卡、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能了解常见加工工具（手电钻、锯等）的用途与风险，能在教师指导下遵守安全规则完成简单加工体验或观摩，并能解释规则原因。",
+          "excerpt_hash": "8a4f24d9cc426609f127b08eaec88302cc6ee9232429b4534fe43275930dbd43",
+          "field": "standard",
+          "ref_id": "standard:LA-D3-PL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释规则原因"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_fda30f66567ad2ac",
+      "evidence_refs": [
+        "standard:LA-D3-PL-008:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-D2-PL-008",
+      "source_label": "能在教师指导下安全使用简单手工工具（如螺丝刀、钳子）完成拧紧、夹持等操作，能遵守工具借还与收纳规范。",
+      "target_code": "LA-D3-PL-008",
+      "target_label": "能了解常见加工工具（手电钻、锯等）的用途与风险，能在教师指导下遵守安全规则完成简单加工体验或观摩，并能解释规则原因。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "8a4f24d9cc426609f127b08eaec88302cc6ee9232429b4534fe43275930dbd43",
+  "standard_code": "LA-D3-PL-008",
+  "verified_prerequisites": []
+}

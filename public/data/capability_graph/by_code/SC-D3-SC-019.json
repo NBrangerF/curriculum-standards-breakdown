@@ -1,0 +1,378 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_06a3bf4cb93afa34"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生举例说出动物在气候、食物、空气和水源等环境变化时的行为的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_7bc502fd62d95a8b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0db0d4d1f9892bef"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“举例说出动物在气候、食物、空气和水源等环境变化时的行为”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“举例说出动物在气候、食物、空气和水源等环境变化时的行为”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "举例说出动物在气候、食物、空气和水源等环境变化时的行为。",
+          "excerpt_hash": "cc8ac0761bcb6f3d768894494c192315d87af3042ab144fb95fa56a5ff538248",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "“创设真实的生活情境，让学生在日常生活、社会实际问题的探讨中，深入理解生物与环境的相互关系。”",
+          "excerpt_hash": "b7da1ef44df4f58a6535250f8a6f4667b6d0ed0c41304d282b311f232e9a79a9",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-D3-SC-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后举例说出动物在气候、食物、空气和水源等环境变化时的行为，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“举例说出动物在气候、食物、空气和水源等环境变化时的行为”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：““创设真实的生活情境，让学生在日常生活、社会实际问题的探讨中，深入理解生物与环境的相互关系。””。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ef185b3e1e5ced59",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5d8c5902b781b5de5f03",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d39057261769"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c22c450af4b9046",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a82f21bd0adbe83c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e1c8e586d87fc9",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_94753482e9554ae6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7c85e6846ee2baf665b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b6340ce96157"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_208d54146f4a9b68",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e037d2702028c4be",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a04b8a546cf314368898",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6a5186074181"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_426c7beba471c1cd",
+      "textbook_grade": 6,
+      "textbook_subject": "科学",
+      "textbook_title": "科学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.069,
+      "connection_id": "fc_161ac26a7ec7fd8c",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-019",
+      "target_code": "SC-H4G7-SC-001",
+      "target_label": "能知道现代技术与工程具有系统性和复杂性；理解运动、相互作用、能量转化与守恒；能从微观视角初步认识物质及其变化；能用观察证据说明基本科学概念。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1208,
+      "connection_id": "fc_8a2b91e0ab4dab62",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-003:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-019",
+      "target_code": "SC-H4G7-SC-003",
+      "target_label": "理解生物对环境的适应；能描述植物感应性现象；能列举动物行为的基本类型；能用观察证据说明基本科学概念。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1565,
+      "connection_id": "fc_57645e55a195d1b3",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-005:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-019",
+      "target_code": "SC-H4G7-SC-005",
+      "target_label": "能举例说明我国生物资源保护、生态环境保护和生态安全的重要性及措施；能说出生物多样性及其意义、生态平衡现象和意义；能说明生态系统中物质和能量沿食…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1147,
+      "connection_id": "fc_f018e51c1a11e7a9",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-014:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-019",
+      "target_code": "SC-H4G7-SC-014",
+      "target_label": "能说出昆虫、两栖动物、鸟的生殖方式和发育过程；能比较不同生物生殖方式与发育过程；能感知科学工作应有的社会责任；能用观察证据说明基本科学概念。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1141,
+      "connection_id": "fc_0ef87ba6f715702b",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-028:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-019",
+      "target_code": "SC-H4G7-SC-028",
+      "target_label": "能列举不同生态系统并运用生态系统概念分析生产生活中的简单问题；能描述生态系统组成及功能；能知道种群、群落、生态系统和生物圈；能用观察证据说明基…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1532,
+      "connection_id": "fc_7a3df33126891392",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-039:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-019",
+      "target_code": "SC-H4G7-SC-039",
+      "target_label": "形成基本科学观念并解决真实情境中的综合问题；运用模型解释运动、相互作用和能量守恒；能解释物质基本性质和结构状态变化；能用观察证据说明基本科学概…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0931,
+      "connection_id": "fc_e0ca108a42109e5e",
+      "evidence_refs": [
+        "standard:SC-H4G7-SC-045:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-D3-SC-019",
+      "target_code": "SC-H4G7-SC-045",
+      "target_label": "能知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；能知道光年和天文单位及其科学意义；了解彗星与流星雨、小行星与陨石之间的关系；能用观察证…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_0db0d4d1f9892bef",
+      "component_ids": [
+        "lc_06a3bf4cb93afa34"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生举例说出动物在气候、食物、空气和水源等环境变化时的行为。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够举例说出动物在气候、食物、空气和水源等环境变化时的行为；优先采集：数据表/图表、安全规范落实。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "举例说出动物在气候、食物、空气和水源等环境变化时的行为。",
+          "excerpt_hash": "cc8ac0761bcb6f3d768894494c192315d87af3042ab144fb95fa56a5ff538248",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "举例说出动物在气候、食物、空气和水源等环境变化时的行为",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_06a3bf4cb93afa34",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够举例说出动物在气候、食物、空气和水源等环境变化时的行为",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生举例说出动物在气候、食物、空气和水源等环境变化时的行为，并说明关键步骤、特征或依据。",
+      "label": "举例说出动物在气候、食物、空气和水源等环境变化时的行为",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够举例说出动物在气候、食物、空气和水源等环境变化时的行为；优先采集：数据表/图表、安全规范落实。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "举例说出动物在气候、食物、空气和水源等环境变化时的行为",
+          "excerpt_hash": "033ff40474e68dd518550a9d33cf4c391e51769ac9c44c28b6425db66f0c9578",
+          "field": "standard",
+          "ref_id": "standard:SC-D3-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "举例说出动物在气候、食物、空气和水源等环境变化时的行为"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "cc8ac0761bcb6f3d768894494c192315d87af3042ab144fb95fa56a5ff538248",
+  "standard_code": "SC-D3-SC-019",
+  "verified_prerequisites": []
+}

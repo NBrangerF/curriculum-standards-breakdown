@@ -1,0 +1,537 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_14ac92fd0f9fca5d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较两段音乐情绪的相同与不同的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2cf7292b48984655",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a6293b24b3cac152",
+        "hc_71a9859780a9b4a6"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较两段音乐情绪的相同与不同”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较两段音乐情绪的相同与不同”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能聆听形象鲜明、结构短小的歌曲与小型器乐曲，体验音乐的基本情绪，能用自己的话简要描述音乐表现的形象与内容，并能比较两段音乐情绪的相同与不同。",
+          "excerpt_hash": "e75e719dd49462a36d8a7b12e95f1a6f79612b62dfc9319048c601d01e7003b9",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“听前1个关注点（情绪）—听中动作反应—听后句式表达”三步；提供情绪词卡与“我听到…我想到…我感觉…”句式；允许个性化联想。",
+          "excerpt_hash": "e3da3bc81700f5950940cf7561447ddda788fc962f16681fb3f53ddda81e0632",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D1-AA-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较两段音乐情绪的相同与不同，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较两段音乐情绪的相同与不同”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“用“听前1个关注点（情绪）—听中动作反应—听后句式表达”三步”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_82cdaefc6004db57",
+        "lc_9d064737330db66d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生参与相关活动并描述音乐的基本情绪的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6795783aaf8b03a9",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“参与相关活动并描述音乐的基本情绪”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“参与相关活动并描述音乐的基本情绪”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能聆听形象鲜明、结构短小的歌曲与小型器乐曲，体验音乐的基本情绪，能用自己的话简要描述音乐表现的形象与内容，并能比较两段音乐情绪的相同与不同。",
+          "excerpt_hash": "e75e719dd49462a36d8a7b12e95f1a6f79612b62dfc9319048c601d01e7003b9",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“听前1个关注点（情绪）—听中动作反应—听后句式表达”三步；提供情绪词卡与“我听到…我想到…我感觉…”句式；允许个性化联想。",
+          "excerpt_hash": "e3da3bc81700f5950940cf7561447ddda788fc962f16681fb3f53ddda81e0632",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D1-AA-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后参与相关活动并描述音乐的基本情绪，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“参与相关活动并描述音乐的基本情绪”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用“听前1个关注点（情绪）—听中动作反应—听后句式表达”三步”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d6327f263720a5b4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_08ce261085ef1c1fe6ef",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8209ad04b47d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0a7833eb0eca0e83",
+      "textbook_grade": 2,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b37036c5a027859f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2622f7b8f7ae819655aa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_51ecddc37440"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1dc5a976932b360a",
+      "textbook_grade": 1,
+      "textbook_subject": "美术",
+      "textbook_title": "美术1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7368d97bd6a7a59f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_5119efddbaf1d245bdbd",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5a22ce498b9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c1c61f1e18f1f1fd",
+      "textbook_grade": 2,
+      "textbook_subject": "美术",
+      "textbook_title": "美术2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_12944f429eddc25a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9388d4c7d11c755fa6d1",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ff2c02949c7"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ccea29ff50daf60d",
+      "textbook_grade": 1,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_cc302f8bb1115dc6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ad1a73f100e4c37bdf97",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_061b98e9e3e0"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_daf0df4eff446a59",
+      "textbook_grade": 1,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_73085a277df6dd2c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bd2b80ffa90783d7b872",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_04dc110988f2"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_76531f87e68b0f54",
+      "textbook_grade": 2,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_18b23245da3e0b0d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ee63cc92bbb214cfb505",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_1295fe66588a"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f9d43da1be80535c",
+      "textbook_grade": 1,
+      "textbook_subject": "美术",
+      "textbook_title": "美术1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c481d568ab39b733",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f2d970d7f6b6a7a553a8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f5a55ad6fbfb"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_038dd968b19a0b50",
+      "textbook_grade": 2,
+      "textbook_subject": "美术",
+      "textbook_title": "美术2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_7d1b329131f07bce",
+      "evidence_refs": [
+        "standard:AR-D1-AA-007:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D1-AA-007",
+      "target_code": "AR-D2-AE-007",
+      "target_label": "能根据歌曲情绪与意境控制力度、速度与音色变化，进行有表现力的演唱，并能用简单语言说明自己的处理方式。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a6293b24b3cac152",
+      "component_ids": [
+        "lc_14ac92fd0f9fca5d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较两段音乐情绪的相同与不同。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较两段音乐情绪的相同与不同；优先采集：口头描述、学习单、教师提问记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能聆听形象鲜明、结构短小的歌曲与小型器乐曲，体验音乐的基本情绪，能用自己的话简要描述音乐表现的形象与内容，并能比较两段音乐情绪的相同与不同。",
+          "excerpt_hash": "e75e719dd49462a36d8a7b12e95f1a6f79612b62dfc9319048c601d01e7003b9",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_71a9859780a9b4a6",
+      "component_ids": [
+        "lc_14ac92fd0f9fca5d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较两段音乐情绪的相同与不同。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较两段音乐情绪的相同与不同；优先采集：口头描述、学习单、教师提问记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能聆听形象鲜明、结构短小的歌曲与小型器乐曲，体验音乐的基本情绪，能用自己的话简要描述音乐表现的形象与内容，并能比较两段音乐情绪的相同与不同。",
+          "excerpt_hash": "e75e719dd49462a36d8a7b12e95f1a6f79612b62dfc9319048c601d01e7003b9",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_1c31588e5eee9326",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够聆听形象鲜明、结构短小的歌曲与小型器乐曲",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生聆听形象鲜明、结构短小的歌曲与小型器乐曲，并说明关键步骤、特征或依据。",
+      "label": "聆听形象鲜明、结构短小的歌曲与小型器乐曲",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够聆听形象鲜明、结构短小的歌曲与小型器乐曲；优先采集：口头描述、学习单、教师提问记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "聆听形象鲜明、结构短小的歌曲与小型器乐曲",
+          "excerpt_hash": "704a8cd871815bdc536891ed89893d362eae08dc177ddd958b62326ac8988b89",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "聆听形象鲜明、结构短小的歌曲与小型器乐曲"
+    },
+    {
+      "component_id": "lc_82cdaefc6004db57",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与相关活动并描述音乐的基本情绪",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与相关活动并描述音乐的基本情绪，并说明关键步骤、特征或依据。",
+      "label": "参与相关活动并描述音乐的基本情绪",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与相关活动并描述音乐的基本情绪；优先采集：口头描述、学习单、教师提问记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "体验音乐的基本情绪",
+          "excerpt_hash": "d006e09edf64b15088d6d46dd704ab8b6c99e155ddcee3ad6e13a61c0ac241d1",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体验音乐的基本情绪"
+    },
+    {
+      "component_id": "lc_9d064737330db66d",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话简要描述音乐表现的形象与内容",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话简要描述音乐表现的形象与内容，并说明关键步骤、特征或依据。",
+      "label": "用自己的话简要描述音乐表现的形象与内容",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话简要描述音乐表现的形象与内容；优先采集：口头描述、学习单、教师提问记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用自己的话简要描述音乐表现的形象与内容",
+          "excerpt_hash": "6ae79592116eba837369cf8d10d92a7b19a1d89b2be180be011994ba810b6d98",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用自己的话简要描述音乐表现的形象与内容"
+    },
+    {
+      "component_id": "lc_14ac92fd0f9fca5d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较两段音乐情绪的相同与不同",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较两段音乐情绪的相同与不同，并说明关键步骤、特征或依据。",
+      "label": "比较两段音乐情绪的相同与不同",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较两段音乐情绪的相同与不同；优先采集：口头描述、学习单、教师提问记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较两段音乐情绪的相同与不同",
+          "excerpt_hash": "c7649ed593a161dfe12622077fa470ab13067d1ee46d2bc086bfe4813d942ccd",
+          "field": "standard",
+          "ref_id": "standard:AR-D1-AA-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较两段音乐情绪的相同与不同"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e75e719dd49462a36d8a7b12e95f1a6f79612b62dfc9319048c601d01e7003b9",
+  "standard_code": "AR-D1-AA-007",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,512 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_1c6efa803e1d2d51",
+        "lc_10d7b7bd9ee66a37",
+        "lc_bdbb78a9ddaaf4c2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生有依据地质疑观点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f98c5199a956e099",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f61db3129914e2d2"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“有依据地质疑观点”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“有依据地质疑观点”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能有依据地质疑观点并尊重证据；能乐于合作交流并通过小组合作解决科学问题和开展创新活动；能观察和实验结果不一致时坚持再次验证；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "ca6375ddfb61ba966b9ee552eb1764f27c711cdc9391b1387ea309ba08bb115c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-015:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价学生是否尊重证据、善于合作、能够进行伦理判断和负责任行动。",
+          "excerpt_hash": "548eea6699ec4e491aebd35cfe3b7c8c4813cf2d5114857fdc5b1cd54fcfc293",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-AR-015:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后有依据地质疑观点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“有依据地质疑观点”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“评价学生是否尊重证据、善于合作、能够进行伦理判断和负责任行动。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_06d664fc453938d1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生乐于合作交流并通过小组合作解决科学问题和开展创新活动的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_62a9324a7b76cece",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“乐于合作交流并通过小组合作解决科学问题和开展创新活动”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“乐于合作交流并通过小组合作解决科学问题和开展创新活动”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能有依据地质疑观点并尊重证据；能乐于合作交流并通过小组合作解决科学问题和开展创新活动；能观察和实验结果不一致时坚持再次验证；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "ca6375ddfb61ba966b9ee552eb1764f27c711cdc9391b1387ea309ba08bb115c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-015:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价学生是否尊重证据、善于合作、能够进行伦理判断和负责任行动。",
+          "excerpt_hash": "548eea6699ec4e491aebd35cfe3b7c8c4813cf2d5114857fdc5b1cd54fcfc293",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-AR-015:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后乐于合作交流并通过小组合作解决科学问题和开展创新活动，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“乐于合作交流并通过小组合作解决科学问题和开展创新活动”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“评价学生是否尊重证据、善于合作、能够进行伦理判断和负责任行动。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_06d664fc453938d1"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生乐于合作交流并通过小组合作解决科学问题和开展创新活动的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_45bb069b84bba52c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“乐于合作交流并通过小组合作解决科学问题和开展创新活动”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“乐于合作交流并通过小组合作解决科学问题和开展创新活动”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能有依据地质疑观点并尊重证据；能乐于合作交流并通过小组合作解决科学问题和开展创新活动；能观察和实验结果不一致时坚持再次验证；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "ca6375ddfb61ba966b9ee552eb1764f27c711cdc9391b1387ea309ba08bb115c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-015:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价学生是否尊重证据、善于合作、能够进行伦理判断和负责任行动。",
+          "excerpt_hash": "548eea6699ec4e491aebd35cfe3b7c8c4813cf2d5114857fdc5b1cd54fcfc293",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-AR-015:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后乐于合作交流并通过小组合作解决科学问题和开展创新活动，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“乐于合作交流并通过小组合作解决科学问题和开展创新活动”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“评价学生是否尊重证据、善于合作、能够进行伦理判断和负责任行动。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_b27484ca9aa44f58"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生观察和实验结果不一致时坚持再次验证的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_90efcca12b6b8752",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b08bdcc4f22b6cb9"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“观察和实验结果不一致时坚持再次验证”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“观察和实验结果不一致时坚持再次验证”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能有依据地质疑观点并尊重证据；能乐于合作交流并通过小组合作解决科学问题和开展创新活动；能观察和实验结果不一致时坚持再次验证；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "ca6375ddfb61ba966b9ee552eb1764f27c711cdc9391b1387ea309ba08bb115c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-015:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价学生是否尊重证据、善于合作、能够进行伦理判断和负责任行动。",
+          "excerpt_hash": "548eea6699ec4e491aebd35cfe3b7c8c4813cf2d5114857fdc5b1cd54fcfc293",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-AR-015:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后观察和实验结果不一致时坚持再次验证，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“观察和实验结果不一致时坚持再次验证”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“评价学生是否尊重证据、善于合作、能够进行伦理判断和负责任行动。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 3,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f03ee670d7c0ef73",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2b4eaf7fd74d5608c966",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_91e786746fa4"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a01eaebee10c3727",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2967ef8bf810774d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_46b397a7eadfedff",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fac36c2634c8274b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f0fcd567e766"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_941308fc63ca2501",
+      "textbook_grade": 9,
+      "textbook_subject": "物理",
+      "textbook_title": "物理9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_f61db3129914e2d2",
+      "component_ids": [
+        "lc_1c6efa803e1d2d51",
+        "lc_10d7b7bd9ee66a37",
+        "lc_bdbb78a9ddaaf4c2"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "证据",
+        "论证"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生有依据地质疑观点。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够有依据地质疑观点；优先采集：合作研究记录、议题判断、行动方案。",
+        "学生能够尊重证据；优先采集：合作研究记录、议题判断、行动方案。",
+        "学生能够建模、论证；优先采集：合作研究记录、议题判断、行动方案。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能有依据地质疑观点并尊重证据；能乐于合作交流并通过小组合作解决科学问题和开展创新活动；能观察和实验结果不一致时坚持再次验证；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "ca6375ddfb61ba966b9ee552eb1764f27c711cdc9391b1387ea309ba08bb115c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、证据、论证）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_b08bdcc4f22b6cb9",
+      "component_ids": [
+        "lc_b27484ca9aa44f58"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "一致"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生观察和实验结果不一致时坚持再次验证。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够观察和实验结果不一致时坚持再次验证；优先采集：合作研究记录、议题判断、行动方案。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能有依据地质疑观点并尊重证据；能乐于合作交流并通过小组合作解决科学问题和开展创新活动；能观察和实验结果不一致时坚持再次验证；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "ca6375ddfb61ba966b9ee552eb1764f27c711cdc9391b1387ea309ba08bb115c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（一致）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_1c6efa803e1d2d51",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够有依据地质疑观点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生有依据地质疑观点，并保留可回查的口头、书面或操作过程证据。",
+      "label": "有依据地质疑观点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够有依据地质疑观点；优先采集：合作研究记录、议题判断、行动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "有依据地质疑观点",
+          "excerpt_hash": "5948c1df57dc310990757e1eca37d2f3021e4e82b8d5ad1506f022781d643237",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "有依据地质疑观点"
+    },
+    {
+      "component_id": "lc_10d7b7bd9ee66a37",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够尊重证据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生尊重证据，并说明关键步骤、特征或依据。",
+      "label": "尊重证据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够尊重证据；优先采集：合作研究记录、议题判断、行动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重证据",
+          "excerpt_hash": "00a1a568572d608c71928c86d027ed91651f710ec6969b036f904586befb2a53",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "尊重证据"
+    },
+    {
+      "component_id": "lc_06d664fc453938d1",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够乐于合作交流并通过小组合作解决科学问题和开展创新活动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生乐于合作交流并通过小组合作解决科学问题和开展创新活动，并说明关键步骤、特征或依据。",
+      "label": "乐于合作交流并通过小组合作解决科学问题和开展创新活动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够乐于合作交流并通过小组合作解决科学问题和开展创新活动；优先采集：合作研究记录、议题判断、行动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "乐于合作交流并通过小组合作解决科学问题和开展创新活动",
+          "excerpt_hash": "132d034e7366bb36770fde5bca5783c36e076f658d65b3969d89e23e40d9042d",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "乐于合作交流并通过小组合作解决科学问题和开展创新活动"
+    },
+    {
+      "component_id": "lc_b27484ca9aa44f58",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够观察和实验结果不一致时坚持再次验证",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生观察和实验结果不一致时坚持再次验证，并说明关键步骤、特征或依据。",
+      "label": "观察和实验结果不一致时坚持再次验证",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够观察和实验结果不一致时坚持再次验证；优先采集：合作研究记录、议题判断、行动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "观察和实验结果不一致时坚持再次验证",
+          "excerpt_hash": "02a898a1a6ab2d1d4d6c9f057dddfacf752ab1a10925fada544c2c5d47b60e83",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "观察和实验结果不一致时坚持再次验证"
+    },
+    {
+      "component_id": "lc_bdbb78a9ddaaf4c2",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、论证",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
+      "label": "建模、论证",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、论证；优先采集：合作研究记录、议题判断、行动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、论证",
+          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、论证"
+    },
+    {
+      "component_id": "lc_34536533d6c58b9f",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价探究结论或社会影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
+      "label": "评价探究结论或社会影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：合作研究记录、议题判断、行动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价探究结论或社会影响",
+          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-AR-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价探究结论或社会影响"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_d9dd53460dfe05b4",
+      "evidence_refs": [
+        "standard:SC-H4G9-AR-015:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G8-AR-014",
+      "source_label": "能有依据地质疑观点并尊重证据；能观察和实验结果不一致时坚持再次验证；能乐于合作交流并通过小组合作解决科学问题和开展创新活动；能比较证据并解释概…",
+      "target_code": "SC-H4G9-AR-015",
+      "target_label": "能有依据地质疑观点并尊重证据；能乐于合作交流并通过小组合作解决科学问题和开展创新活动；能观察和实验结果不一致时坚持再次验证；能建模、论证并评价…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ca6375ddfb61ba966b9ee552eb1764f27c711cdc9391b1387ea309ba08bb115c",
+  "standard_code": "SC-H4G9-AR-015",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,457 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_1ba2d69ce9bc0b73",
+        "lc_1ef576af7ee0ae46"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生主动参与与生活相关的活动并用具体事例说明其价值的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2e5ff993602d75f6",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f92c311663685e76",
+        "hc_b15d728956d11a0c"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“主动参与与生活相关的活动并用具体事例说明其价值”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“主动参与与生活相关的活动并用具体事例说明其价值”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能阅读叙事性和说明性文本；能热爱生活；能感恩生活；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "e2d8f7806772df18942217f8c89943411b03458ed97caee623bbc31a46e5fc68",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-022:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "紧扣真实生活情境，让阅读理解服务生活表达和交流。",
+          "excerpt_hash": "3a13cbc402e068805496364663c342ecf530aedfaeb00ce151a8763540da88d9",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G7-RE-022:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后主动参与与生活相关的活动并用具体事例说明其价值，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“主动参与与生活相关的活动并用具体事例说明其价值”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“紧扣真实生活情境，让阅读理解服务生活表达和交流。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_1ba2d69ce9bc0b73",
+        "lc_231e4dcf2a53e086"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生主动参与与生活相关的活动并用具体事例说明其价值的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_36c02ca2529fce72",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f92c311663685e76",
+        "hc_b15d728956d11a0c"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“主动参与与生活相关的活动并用具体事例说明其价值”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“主动参与与生活相关的活动并用具体事例说明其价值”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能阅读叙事性和说明性文本；能热爱生活；能感恩生活；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "e2d8f7806772df18942217f8c89943411b03458ed97caee623bbc31a46e5fc68",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-022:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "紧扣真实生活情境，让阅读理解服务生活表达和交流。",
+          "excerpt_hash": "3a13cbc402e068805496364663c342ecf530aedfaeb00ce151a8763540da88d9",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G7-RE-022:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后主动参与与生活相关的活动并用具体事例说明其价值，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“主动参与与生活相关的活动并用具体事例说明其价值”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“紧扣真实生活情境，让阅读理解服务生活表达和交流。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_2b358d799016b4f7",
+        "lc_1ef576af7ee0ae46"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生阅读叙事性和说明性文本的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c7c8a514d72705e0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f92c311663685e76"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“阅读叙事性和说明性文本”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“阅读叙事性和说明性文本”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能阅读叙事性和说明性文本；能热爱生活；能感恩生活；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "e2d8f7806772df18942217f8c89943411b03458ed97caee623bbc31a46e5fc68",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-022:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "紧扣真实生活情境，让阅读理解服务生活表达和交流。",
+          "excerpt_hash": "3a13cbc402e068805496364663c342ecf530aedfaeb00ce151a8763540da88d9",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G7-RE-022:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后阅读叙事性和说明性文本，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“阅读叙事性和说明性文本”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“紧扣真实生活情境，让阅读理解服务生活表达和交流。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_1ef576af7ee0ae46"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4aef70951fcb35fc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f92c311663685e76"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能阅读叙事性和说明性文本；能热爱生活；能感恩生活；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "e2d8f7806772df18942217f8c89943411b03458ed97caee623bbc31a46e5fc68",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-022:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "紧扣真实生活情境，让阅读理解服务生活表达和交流。",
+          "excerpt_hash": "3a13cbc402e068805496364663c342ecf530aedfaeb00ce151a8763540da88d9",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G7-RE-022:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“紧扣真实生活情境，让阅读理解服务生活表达和交流。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_95b433d65c6c5f8c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_99938fbe3c9ca232c6d6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_903c001c7bb3"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_48c9f38bc8f352d7",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4f9d212429fde7d1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_eb285566d0326b76eb6b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2cca20691db7"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4f06732182a984b3",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_4a0dcd4e6b822d88",
+      "evidence_refs": [
+        "standard:CN-H4G7-RE-022:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-H4G7-RE-022",
+      "target_code": "CN-H4G8-RE-023",
+      "target_label": "能发现、欣赏、表达和交流家庭生活、学校生活、社会生活和大自然的美好；能阅读叙事性和说明性文本；能热爱生活；能整合材料并说明观点、方法或表达选择…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_f92c311663685e76",
+      "component_ids": [
+        "lc_1ba2d69ce9bc0b73",
+        "lc_1ef576af7ee0ae46"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生主动参与与生活相关的活动并用具体事例说明其价值。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够主动参与与生活相关的活动并用具体事例说明其价值；优先采集：阅读记录、生活主题表达、交流表现。",
+        "学生能够用简短记录或口头表达说明基本理解；优先采集：阅读记录、生活主题表达、交流表现。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能阅读叙事性和说明性文本；能热爱生活；能感恩生活；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "e2d8f7806772df18942217f8c89943411b03458ed97caee623bbc31a46e5fc68",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-022:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_b15d728956d11a0c",
+      "component_ids": [
+        "lc_1ba2d69ce9bc0b73",
+        "lc_231e4dcf2a53e086"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生主动参与与生活相关的活动并用具体事例说明其价值。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够主动参与与生活相关的活动并用具体事例说明其价值；优先采集：阅读记录、生活主题表达、交流表现。",
+        "学生能够感恩生活；优先采集：阅读记录、生活主题表达、交流表现。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能阅读叙事性和说明性文本；能热爱生活；能感恩生活；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "e2d8f7806772df18942217f8c89943411b03458ed97caee623bbc31a46e5fc68",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-022:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_2b358d799016b4f7",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够阅读叙事性和说明性文本",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阅读叙事性和说明性文本，并保留可回查的口头、书面或操作过程证据。",
+      "label": "阅读叙事性和说明性文本",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够阅读叙事性和说明性文本；优先采集：阅读记录、生活主题表达、交流表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阅读叙事性和说明性文本",
+          "excerpt_hash": "1c56df2c99401ce29e33a18e0dc963d8f304d06673a90af26da9c92d67e1604f",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-022:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "阅读叙事性和说明性文本"
+    },
+    {
+      "component_id": "lc_1ba2d69ce9bc0b73",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够主动参与与生活相关的活动并用具体事例说明其价值",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生主动参与与生活相关的活动并用具体事例说明其价值，并保留可回查的口头、书面或操作过程证据。",
+      "label": "主动参与与生活相关的活动并用具体事例说明其价值",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够主动参与与生活相关的活动并用具体事例说明其价值；优先采集：阅读记录、生活主题表达、交流表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "热爱生活",
+          "excerpt_hash": "7eeda34f846eb20e5f67ea4fc23acb244f6407dffc3a89b8c36a3e37c5d09dd8",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-022:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "热爱生活"
+    },
+    {
+      "component_id": "lc_231e4dcf2a53e086",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够感恩生活",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生感恩生活，并说明关键步骤、特征或依据。",
+      "label": "感恩生活",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够感恩生活；优先采集：阅读记录、生活主题表达、交流表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "感恩生活",
+          "excerpt_hash": "04cffb3b5806a87cc3e9433bcb886f7ecc61e71fa2ff5fc4bfa7914debf1b599",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-022:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "感恩生活"
+    },
+    {
+      "component_id": "lc_1ef576af7ee0ae46",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用简短记录或口头表达说明基本理解",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用简短记录或口头表达说明基本理解，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用简短记录或口头表达说明基本理解",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用简短记录或口头表达说明基本理解；优先采集：阅读记录、生活主题表达、交流表现。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用简短记录或口头表达说明基本理解",
+          "excerpt_hash": "6b1f3237458514ec859ef1012df6724bfef67003f78886ed140316055791b644",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-RE-022:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用简短记录或口头表达说明基本理解"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.137,
+      "edge_id": "pc_cb770f411be4efc2",
+      "evidence_refs": [
+        "standard:CN-H4G7-RE-022:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D3-RE-008",
+      "source_label": "用多种方式记录并分享阅读、参观、访问的经历与体会。",
+      "target_code": "CN-H4G7-RE-022",
+      "target_label": "能阅读叙事性和说明性文本；能热爱生活；能感恩生活；能用简短记录或口头表达说明基本理解。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e2d8f7806772df18942217f8c89943411b03458ed97caee623bbc31a46e5fc68",
+  "standard_code": "CN-H4G7-RE-022",
+  "verified_prerequisites": []
+}

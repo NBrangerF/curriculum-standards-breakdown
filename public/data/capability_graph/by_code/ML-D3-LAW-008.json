@@ -1,0 +1,394 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_e7a02ace67c13742"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明其危害的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1b4db3b7958ae145",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_bef7a420adc5454c"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明其危害”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明其危害”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）并说明其危害，能遵守安全规范并在发现风险时及时报告与求助。",
+          "excerpt_hash": "b3b3795c17d88902da4c819df75dd798e61a696513c03437d51633621ec03b44",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过典型案例认识社会安全对国家安全的重要性，了解维护社会安全的意义，初步掌握维护社会安全的基本技能。",
+          "excerpt_hash": "55ea39dd9673f0230c9fb184c7b13c0ff71e2e3a02163686e1ab011154f5090d",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D3-LAW-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明其危害，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明其危害”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“通过典型案例认识社会安全对国家安全的重要性，了解维护社会安全的意义，初步掌握维护社会安全的基本技能。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_718265724d98536b",
+        "lc_ed940650d571e15d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3a0135fb5142d5e9",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_7f6b43e19fec7067"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）并说明其危害，能遵守安全规范并在发现风险时及时报告与求助。",
+          "excerpt_hash": "b3b3795c17d88902da4c819df75dd798e61a696513c03437d51633621ec03b44",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "通过典型案例认识社会安全对国家安全的重要性，了解维护社会安全的意义，初步掌握维护社会安全的基本技能。",
+          "excerpt_hash": "55ea39dd9673f0230c9fb184c7b13c0ff71e2e3a02163686e1ab011154f5090d",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D3-LAW-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“通过典型案例认识社会安全对国家安全的重要性，了解维护社会安全的意义，初步掌握维护社会安全的基本技能。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_faa943a67e7abde5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0e50b2c3cab704574a20",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_0d4b56c03c3c"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f543649c0b71f43b",
+      "textbook_grade": 5,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3498489deb0a2161",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1717f6091df4cebdd9ec",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_63b354a74aec"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f2273093a9d6cb45",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fff61fac6230d433",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_02f942c3391d"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_84d4ef0e1dbf301a",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_93f6cb7c7a1658ed",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4d47affde4a27f50be6c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_976cae771845"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_03c92473b367e141",
+      "textbook_grade": 5,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1067,
+      "connection_id": "fc_eca29e20edb04f44",
+      "evidence_refs": [
+        "standard:ML-H4G7-LAW-034:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D3-LAW-008",
+      "target_code": "ML-H4G7-LAW-034",
+      "target_label": "认识犯罪的基本概念；了解刑罚的主要类型；认识未成年人违法犯罪行为的危害；能联系个人和校园生活说明基本判断。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_bef7a420adc5454c",
+      "component_ids": [
+        "lc_e7a02ace67c13742"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明其危害。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明其危害；优先采集：隐患排查清单、信息核验作业、演练参与记录、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）并说明其危害，能遵守安全规范并在发现风险时及时报告与求助。",
+          "excerpt_hash": "b3b3795c17d88902da4c819df75dd798e61a696513c03437d51633621ec03b44",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_7f6b43e19fec7067",
+      "component_ids": [
+        "lc_718265724d98536b",
+        "lc_ed940650d571e15d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "规范",
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）；优先采集：隐患排查清单、信息核验作业、演练参与记录、教师观察。",
+        "学生能够遵守安全规范并在发现风险时及时报告与求助；优先采集：隐患排查清单、信息核验作业、演练参与记录、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）并说明其危害，能遵守安全规范并在发现风险时及时报告与求助。",
+          "excerpt_hash": "b3b3795c17d88902da4c819df75dd798e61a696513c03437d51633621ec03b44",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（规范、安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_718265724d98536b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等），并说明关键步骤、特征或依据。",
+      "label": "识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）；优先采集：隐患排查清单、信息核验作业、演练参与记录、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）",
+          "excerpt_hash": "b8582d9e9bb5741c6f292670f0bf886f9b404dbb808fc741a2349e31ed66d5f0",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别危害社会安全的常见行为（谣言传播、危险物品、公共场所风险等）"
+    },
+    {
+      "component_id": "lc_e7a02ace67c13742",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明其危害",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明其危害，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明其危害",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明其危害；优先采集：隐患排查清单、信息核验作业、演练参与记录、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明其危害",
+          "excerpt_hash": "077a47bdbdc5664cc032685cb4bcd16718d25bfb90a7f84ea49c4ce90ff30b34",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明其危害"
+    },
+    {
+      "component_id": "lc_ed940650d571e15d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够遵守安全规范并在发现风险时及时报告与求助",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生遵守安全规范并在发现风险时及时报告与求助，并说明关键步骤、特征或依据。",
+      "label": "遵守安全规范并在发现风险时及时报告与求助",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够遵守安全规范并在发现风险时及时报告与求助；优先采集：隐患排查清单、信息核验作业、演练参与记录、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "遵守安全规范并在发现风险时及时报告与求助",
+          "excerpt_hash": "b8aebf7f8ffe3773982e653b76018fe22e4e756db9f3dfa86883bc7c78e69228",
+          "field": "standard",
+          "ref_id": "standard:ML-D3-LAW-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守安全规范并在发现风险时及时报告与求助"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b3b3795c17d88902da4c819df75dd798e61a696513c03437d51633621ec03b44",
+  "standard_code": "ML-D3-LAW-008",
+  "verified_prerequisites": []
+}

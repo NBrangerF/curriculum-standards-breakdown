@@ -1,0 +1,513 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_ad8983c429470e92"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c2dc3d407116a050",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9a50bd95e674df65"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护，能提出至少1条改进建议并参与力所能及的维护行动。",
+          "excerpt_hash": "ab49152d322e22c63152bb464088941023c5e297c0872e31e56f4238ae26bb73",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "带学生观察公共设施的功能与维护状况，引导从“使用者视角”提出改进建议；强调“公共物品=大家共同的家当”，培养规则与责任。",
+          "excerpt_hash": "5dad1bc7771b74674e2e9169a835bfe69e896e574f97e35af2e345a680bba362",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-MOR-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“带学生观察公共设施的功能与维护状况，引导从“使用者视角”提出改进建议”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_2e5ce3c6bc68f4f7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生提出至少1条改进建议的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fcb0e2fafce334ca",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_6ef0ba07ed08e722",
+        "hc_0f8c371c6c9af3a5",
+        "hc_74fcd09bb7faf160"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“提出至少1条改进建议”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“提出至少1条改进建议”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护，能提出至少1条改进建议并参与力所能及的维护行动。",
+          "excerpt_hash": "ab49152d322e22c63152bb464088941023c5e297c0872e31e56f4238ae26bb73",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "带学生观察公共设施的功能与维护状况，引导从“使用者视角”提出改进建议；强调“公共物品=大家共同的家当”，培养规则与责任。",
+          "excerpt_hash": "5dad1bc7771b74674e2e9169a835bfe69e896e574f97e35af2e345a680bba362",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-MOR-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后提出至少1条改进建议，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“提出至少1条改进建议”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“带学生观察公共设施的功能与维护状况，引导从“使用者视角”提出改进建议”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_ad8983c429470e92"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5932a4c2c20d3178",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9a50bd95e674df65"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护，能提出至少1条改进建议并参与力所能及的维护行动。",
+          "excerpt_hash": "ab49152d322e22c63152bb464088941023c5e297c0872e31e56f4238ae26bb73",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "带学生观察公共设施的功能与维护状况，引导从“使用者视角”提出改进建议；强调“公共物品=大家共同的家当”，培养规则与责任。",
+          "excerpt_hash": "5dad1bc7771b74674e2e9169a835bfe69e896e574f97e35af2e345a680bba362",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-MOR-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“带学生观察公共设施的功能与维护状况，引导从“使用者视角”提出改进建议”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_748ba9cf982d2a1b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_49c68a8031fd5b545d9f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c4a8334099f0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4eabffd55a81e2eb",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_132756c0df1032ac",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7751decca7f37a1d323e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2d734af455c0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4fcca84971a83ec4",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_948f6e07a87d28ed",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_abbd5db6223f36ab3c5c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9d06bc550436"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_bcb8fe719c29a97c",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3ff40a6d462743cd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b23dbf8aedd84cd3888f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6d8e93064e1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_85e4b38d814a5d4c",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_38c6bf0dc697bee7",
+      "evidence_refs": [
+        "standard:ML-D2-MOR-008:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D2-MOR-008",
+      "target_code": "ML-D3-MOR-005",
+      "target_label": "能在公共场所做到文明有序（守规则、礼让、安静、爱护公物），遇到不文明行为能进行适当提醒或求助，并能反思与改进自身行为。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_9a50bd95e674df65",
+      "component_ids": [
+        "lc_ad8983c429470e92"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护；优先采集：单、建议清单/提示牌作品、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护，能提出至少1条改进建议并参与力所能及的维护行动。",
+          "excerpt_hash": "ab49152d322e22c63152bb464088941023c5e297c0872e31e56f4238ae26bb73",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_6ef0ba07ed08e722",
+      "component_ids": [
+        "lc_2e5ce3c6bc68f4f7"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "改进"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提出至少1条改进建议。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够提出至少1条改进建议；优先采集：单、建议清单/提示牌作品、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护，能提出至少1条改进建议并参与力所能及的维护行动。",
+          "excerpt_hash": "ab49152d322e22c63152bb464088941023c5e297c0872e31e56f4238ae26bb73",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（改进）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_0f8c371c6c9af3a5",
+      "component_ids": [
+        "lc_2e5ce3c6bc68f4f7"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提出至少1条改进建议。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够提出至少1条改进建议；优先采集：单、建议清单/提示牌作品、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护，能提出至少1条改进建议并参与力所能及的维护行动。",
+          "excerpt_hash": "ab49152d322e22c63152bb464088941023c5e297c0872e31e56f4238ae26bb73",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（至少）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_74fcd09bb7faf160",
+      "component_ids": [
+        "lc_2e5ce3c6bc68f4f7"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提出至少1条改进建议。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够提出至少1条改进建议；优先采集：单、建议清单/提示牌作品、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护，能提出至少1条改进建议并参与力所能及的维护行动。",
+          "excerpt_hash": "ab49152d322e22c63152bb464088941023c5e297c0872e31e56f4238ae26bb73",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（至少）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ad8983c429470e92",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护，并说明关键步骤、特征或依据。",
+      "label": "识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护；优先采集：单、建议清单/提示牌作品、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护",
+          "excerpt_hash": "3d21bc364e4057f9162a8224dc1d5ce676a046ae6b7787a969761503dea75ce3",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护"
+    },
+    {
+      "component_id": "lc_2e5ce3c6bc68f4f7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提出至少1条改进建议",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提出至少1条改进建议，并说明关键步骤、特征或依据。",
+      "label": "提出至少1条改进建议",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提出至少1条改进建议；优先采集：单、建议清单/提示牌作品、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提出至少1条改进建议",
+          "excerpt_hash": "67d3252aac27040248b25e17ccbf194727846d974e49cd1afb7b926389099951",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出至少1条改进建议"
+    },
+    {
+      "component_id": "lc_54ce85bd7e161d6b",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够参与力所能及的维护行动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生参与力所能及的维护行动，并说明关键步骤、特征或依据。",
+      "label": "参与力所能及的维护行动",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够参与力所能及的维护行动；优先采集：单、建议清单/提示牌作品、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "参与力所能及的维护行动",
+          "excerpt_hash": "343723579d1af1c963ff5eb2bf9d95215af4ad9e1aab4edd4b2e5fb90694bd03",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "参与力所能及的维护行动"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_e8b252c9d73fba2c",
+      "evidence_refs": [
+        "standard:ML-D2-MOR-008:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-D1-SAF-002",
+      "source_label": "能识别公共场所常见安全标识（如出口/禁烟/小心台阶等），并能在使用楼梯、游乐设施等公共设施时遵守秩序与规则，做到爱护设施、不破坏。",
+      "target_code": "ML-D2-MOR-008",
+      "target_label": "能识别生活中常见公共设施的用途与维护需求，做到文明使用与爱护，能提出至少1条改进建议并参与力所能及的维护行动。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ab49152d322e22c63152bb464088941023c5e297c0872e31e56f4238ae26bb73",
+  "standard_code": "ML-D2-MOR-008",
+  "verified_prerequisites": []
+}

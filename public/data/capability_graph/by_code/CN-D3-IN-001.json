@@ -1,0 +1,471 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_17b86968862349aa"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d75520b72c88845f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_de91552650c752bf",
+        "hc_eaabce4b4500775b"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活。",
+          "excerpt_hash": "2177ea86d2043ec0823e4c11bcebdecbbe684b917f13e85933f4ff1bc5a86e44",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n指导使用图书馆 OPAC 搜关键词并截图笔记。",
+          "excerpt_hash": "6611ff451eda1bb6a2b77e44e2ff55cbba1c363e035ff2dbf58b6195bdbd5c81",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D3-IN-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“指导使用图书馆 OPAC 搜关键词并截图笔记。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_982adfdf1406d9b3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_65220055b0e922eb6a1e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_55b8f47777bf"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_976a991fac37cd16",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fa7f41491880f4d1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_85776c7beb7e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0586c68945959076",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4639d5198502f572",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7b1d3a1f3d64378c",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d849dc107ddbf1f9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_554cb370438d"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9eee8b9cbaa09aef",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0857,
+      "connection_id": "fc_61ddb062f3ba4bed",
+      "evidence_refs": [
+        "standard:CN-H4G7-IN-003:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-IN-001",
+      "target_code": "CN-H4G7-IN-003",
+      "target_label": "能阅读新闻报道、说明性文字和非连续性文本；能区分事实与观点；能判断信息真实性与可信度；能用简短记录或口头表达说明基本理解。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0968,
+      "connection_id": "fc_055452126b4bda64",
+      "evidence_refs": [
+        "standard:CN-H4G7-IN-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-IN-001",
+      "target_code": "CN-H4G7-IN-004",
+      "target_label": "能学习跨媒介阅读与运用，体会不同媒介的表达特点，根据需要选用合适媒介呈现探究结果；能用简短记录或口头表达说明基本理解。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1912,
+      "connection_id": "fc_8522f9c66408590d",
+      "evidence_refs": [
+        "standard:CN-H4G7-IN-006:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-IN-001",
+      "target_code": "CN-H4G7-IN-006",
+      "target_label": "能就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题；能用流程图、文字等形式呈现活动设计方案；能整理学习内容、完善认识并撰写活…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1401,
+      "connection_id": "fc_dff2f97910a6a8cf",
+      "evidence_refs": [
+        "standard:CN-H4G7-IN-007:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-IN-001",
+      "target_code": "CN-H4G7-IN-007",
+      "target_label": "能自主组织文学活动，在办刊、演出、讨论等活动中体验合作与成功；能就共同关注的热点问题搜集资料、调查访问、相互讨论；能用文字、图表、图画、照片等…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1503,
+      "connection_id": "fc_78ead49a575d8fac",
+      "evidence_refs": [
+        "standard:CN-H4G7-IN-011:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-IN-001",
+      "target_code": "CN-H4G7-IN-011",
+      "target_label": "能撰写并发布调查报告；能学习设计问卷、访谈、统计、分析；能在心理健康、身体素质等方面选择师生共同关心的问题；能用简短记录或口头表达说明基本理解。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1376,
+      "connection_id": "fc_60acfb033c10a697",
+      "evidence_refs": [
+        "standard:CN-H4G7-IN-012:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-IN-001",
+      "target_code": "CN-H4G7-IN-012",
+      "target_label": "能在环境、安全、人口、资源、公共卫生等方面选择感兴趣的社会热点问题；能查找和阅读相关资料；能记录重要内容；能用简短记录或口头表达说明基本理解。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.084,
+      "connection_id": "fc_8748436250390e17",
+      "evidence_refs": [
+        "standard:CN-H4G7-IN-016:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-IN-001",
+      "target_code": "CN-H4G7-IN-016",
+      "target_label": "能在文学体验活动中围绕问题搜集资料、梳理信息、整理观点；了解基本中国古代文化常识；能记录探究过程并条理清晰地呈现问题解决过程和学习成果；能用简…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1073,
+      "connection_id": "fc_7f05e0626f95c83d",
+      "evidence_refs": [
+        "standard:CN-H4G7-IN-019:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D3-IN-001",
+      "target_code": "CN-H4G7-IN-019",
+      "target_label": "能用策划书、调查报告、小论文等形式发表研究成果；运用实证性材料作出合理解释与推断；能针对学习和生活中的问题开展跨学科学习；能用简短记录或口头表…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_de91552650c752bf",
+      "component_ids": [
+        "lc_17b86968862349aa"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实",
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活；优先采集：项目作品：资料卡/引用清单。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活。",
+          "excerpt_hash": "2177ea86d2043ec0823e4c11bcebdecbbe684b917f13e85933f4ff1bc5a86e44",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实、生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_eaabce4b4500775b",
+      "component_ids": [
+        "lc_17b86968862349aa"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "多种"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活；优先采集：项目作品：资料卡/引用清单。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活。",
+          "excerpt_hash": "2177ea86d2043ec0823e4c11bcebdecbbe684b917f13e85933f4ff1bc5a86e44",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（多种）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_17b86968862349aa",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活，并说明关键步骤、特征或依据。",
+      "label": "跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活；优先采集：项目作品：资料卡/引用清单。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活",
+          "excerpt_hash": "33c0d1aca9d1f613464090418754e18613028b7263d813f03b28cac283efe07b",
+          "field": "standard",
+          "ref_id": "standard:CN-D3-IN-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_4620925435dcf50b",
+      "evidence_refs": [
+        "standard:CN-D3-IN-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D2-IN-001",
+      "source_label": "在主题探究中搜集并整理信息，提出至少 1 个自拟问题。",
+      "target_code": "CN-D3-IN-001",
+      "target_label": "跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活。"
+    },
+    {
+      "confidence": "medium",
+      "edge_id": "pc_95c2de29c8a69e86",
+      "evidence_refs": [
+        "standard:CN-D3-IN-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D2-IN-002",
+      "source_label": "采用照片、图表、视频或文字等多模态方式展示学习成果并讲解要点。",
+      "target_code": "CN-D3-IN-001",
+      "target_label": "跨学科学习中利用多种信息渠道获取资料，在调查、访谈中记录真实生活。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "2177ea86d2043ec0823e4c11bcebdecbbe684b917f13e85933f4ff1bc5a86e44",
+  "standard_code": "CN-D3-IN-001",
+  "verified_prerequisites": []
+}

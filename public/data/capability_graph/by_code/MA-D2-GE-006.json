@@ -1,0 +1,341 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_25b3dbd17b68879c"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_752d1c901803cf86",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5fe0d595fac41132"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长；会测量三角形、长方形和正方形的周长；会计算长方形、正方形的周长和面积。",
+          "excerpt_hash": "19c1175f33613156fdfd3152938b6dfa129225f9e19b898bd37b730a8addd568",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-006:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "周长教学可借助用直尺和圆规作图的方法，引导学生自主探索三角形的周长，感知线段长度的可加性，归纳出长方形和正方形周长公式；采用类比方法，推导长方形和正方形面积公式。",
+          "excerpt_hash": "7a9472bddb4b2c28be932de69c7708e2a3d0e5133acbea32a72a5beb4f2c3190",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-GE-006:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“周长教学可借助用直尺和圆规作图的方法，引导学生自主探索三角形的周长，感知线段长度的可加性，归纳出长方形和正方形周长公式”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ea9650180af1ade3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_833ce42b24662dbd40af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ec280d20713"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_96d95cbb27d9412e",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_dd5f8788f17834c7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f61cbfb4e176d8e2",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b7a0dd99b76d1b7e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e8d4a6502261fd8416ff",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_19111441ff11"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_056cb0cc3385568d",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_def1abccef74a6a8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f7680a7d4b92"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7b7248af637aca0a",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_ecd1aa5fabb5aa52",
+      "evidence_refs": [
+        "standard:MA-D2-GE-006:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D2-GE-006",
+      "target_code": "MA-D3-GE-006",
+      "target_label": "在图形认识与测量的过程中，进一步形成量感、空间观念和几何直观。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_5fe0d595fac41132",
+      "component_ids": [
+        "lc_25b3dbd17b68879c",
+        "lc_a35aea4ec4f35180",
+        "lc_8380938e75c88796"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长；优先采集：作图/测量作品、解题过程记录、口头/书面解释。",
+        "学生能够测量三角形、长方形和正方形的周长；优先采集：作图/测量作品、解题过程记录、口头/书面解释。",
+        "学生能够计算长方形、正方形的周长和面积；优先采集：作图/测量作品、解题过程记录、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长；会测量三角形、长方形和正方形的周长；会计算长方形、正方形的周长和面积。",
+          "excerpt_hash": "19c1175f33613156fdfd3152938b6dfa129225f9e19b898bd37b730a8addd568",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长；测量三角形、长方形和正方形的周长；计算长方形、正方形的周长和面积",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_25b3dbd17b68879c",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长，并说明关键步骤、特征或依据。",
+      "label": "经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长；优先采集：作图/测量作品、解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长",
+          "excerpt_hash": "5da7c68a751a2dccfffb6aa80bb5bff6fe0e2ed3a2ec68c64188f962d651f7c0",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长"
+    },
+    {
+      "component_id": "lc_a35aea4ec4f35180",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够测量三角形、长方形和正方形的周长",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生测量三角形、长方形和正方形的周长，并说明关键步骤、特征或依据。",
+      "label": "测量三角形、长方形和正方形的周长",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够测量三角形、长方形和正方形的周长；优先采集：作图/测量作品、解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "测量三角形、长方形和正方形的周长",
+          "excerpt_hash": "6500051909a18f4ef17258309920072c84fe2089db16cbedda14c4eb1cab9c73",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "测量三角形、长方形和正方形的周长"
+    },
+    {
+      "component_id": "lc_8380938e75c88796",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够计算长方形、正方形的周长和面积",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生计算长方形、正方形的周长和面积，并说明关键步骤、特征或依据。",
+      "label": "计算长方形、正方形的周长和面积",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够计算长方形、正方形的周长和面积；优先采集：作图/测量作品、解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "计算长方形、正方形的周长和面积",
+          "excerpt_hash": "b21f5ec890a79503c310282176bf1115862cb5b248f3d0b929aea8ba38258a92",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "计算长方形、正方形的周长和面积"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_c59d4bba456df940",
+      "evidence_refs": [
+        "standard:MA-D2-GE-006:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D1-GE-002",
+      "source_label": "简单图形拼图或组合并说出组成部分；说出立体图形的一个面对应的平面图形，形成初步空间观念",
+      "target_code": "MA-D2-GE-006",
+      "target_label": "经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长；会测量三角形、长方形和正方形的周长；会计算长…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "19c1175f33613156fdfd3152938b6dfa129225f9e19b898bd37b730a8addd568",
+  "standard_code": "MA-D2-GE-006",
+  "verified_prerequisites": []
+}

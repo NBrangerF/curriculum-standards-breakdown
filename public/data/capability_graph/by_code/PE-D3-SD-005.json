@@ -1,0 +1,217 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_ad77c6b267c6de01"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生在任务中表现出团队精神和集体意识并说明行动选择的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_86972cd1f8573304",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5e724001180279e6"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“在任务中表现出团队精神和集体意识并说明行动选择”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "具有团队精神和集体意识，能在团队活动中主动沟通、互相支持并完成分工合作。",
+          "excerpt_hash": "4c85333fb24bb8ded8c77dfa0daf9cbcc87f5f491ae067cfa148b2b158c34488",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "在小组比赛/项目展示中设置明确角色（队长、战术员、记录员、安全员等），并轮换体验；用“团队沟通规则”（说具体、说建议、先肯定后改进）提升协作质量。教师关注弱势同伴的参与机会，避免“强者包办”。",
+          "excerpt_hash": "a2787a94c9043a37d4ec7202adbc3690faf9339ce2fc409defa927f4706f4d97",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D3-SD-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在任务中表现出团队精神和集体意识并说明行动选择，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在任务中表现出团队精神和集体意识并说明行动选择”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“在小组比赛/项目展示中设置明确角色（队长、战术员、记录员、安全员等），并轮换体验”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1136,
+      "connection_id": "fc_64397bbcf6333dd1",
+      "evidence_refs": [
+        "standard:PE-H4G7-SD-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D3-SD-005",
+      "target_code": "PE-H4G7-SD-004",
+      "target_label": "能做到诚信自律、公平公正，规则意识强，具有责任意识和集体荣誉感，能正确看待比赛胜负；能掌握所学水上或冰雪类运动项目的完整动作技术；表现出责任意…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_5e724001180279e6",
+      "component_ids": [
+        "lc_ad77c6b267c6de01",
+        "lc_0b7b1deb6bbe52b7",
+        "lc_c43e5936c5543010"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在任务中表现出团队精神和集体意识并说明行动选择。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在任务中表现出团队精神和集体意识并说明行动选择；优先采集：分工表、互评量表、教师观察。",
+        "学生能够在团队活动中主动沟通、互相支持；优先采集：分工表、互评量表、教师观察。",
+        "学生能够完成分工合作；优先采集：分工表、互评量表、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "具有团队精神和集体意识，能在团队活动中主动沟通、互相支持并完成分工合作。",
+          "excerpt_hash": "4c85333fb24bb8ded8c77dfa0daf9cbcc87f5f491ae067cfa148b2b158c34488",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在任务中表现出团队精神和集体意识并说明行动选择；在团队活动中主动沟通、互相支持；完成分工合作",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ad77c6b267c6de01",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出团队精神和集体意识并说明行动选择",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出团队精神和集体意识并说明行动选择，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出团队精神和集体意识并说明行动选择",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出团队精神和集体意识并说明行动选择；优先采集：分工表、互评量表、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "具有团队精神和集体意识",
+          "excerpt_hash": "76e7bde0e4afeb5cc12a2038d4d29d6895c02a04ccb900bf845e787a227076db",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "具有团队精神和集体意识"
+    },
+    {
+      "component_id": "lc_0b7b1deb6bbe52b7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在团队活动中主动沟通、互相支持",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在团队活动中主动沟通、互相支持，并说明关键步骤、特征或依据。",
+      "label": "在团队活动中主动沟通、互相支持",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在团队活动中主动沟通、互相支持；优先采集：分工表、互评量表、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在团队活动中主动沟通、互相支持",
+          "excerpt_hash": "5b2e960fc43a886702f32629007cb474611abb20a81699e89b4372e9da077deb",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在团队活动中主动沟通、互相支持"
+    },
+    {
+      "component_id": "lc_c43e5936c5543010",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成分工合作",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成分工合作，并说明关键步骤、特征或依据。",
+      "label": "完成分工合作",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成分工合作；优先采集：分工表、互评量表、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成分工合作",
+          "excerpt_hash": "f8f34b7a05b254ca1440761f2bb796ac2cda90a4b8e8a43b393514c5a1805e66",
+          "field": "standard",
+          "ref_id": "standard:PE-D3-SD-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成分工合作"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_92ed9a901936954d",
+      "evidence_refs": [
+        "standard:PE-D3-SD-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D2-SD-005",
+      "source_label": "能保持较稳定的情绪，与同伴交流合作完成练习或比赛。",
+      "target_code": "PE-D3-SD-005",
+      "target_label": "具有团队精神和集体意识，能在团队活动中主动沟通、互相支持并完成分工合作。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4c85333fb24bb8ded8c77dfa0daf9cbcc87f5f491ae067cfa148b2b158c34488",
+  "standard_code": "PE-D3-SD-005",
+  "verified_prerequisites": []
+}

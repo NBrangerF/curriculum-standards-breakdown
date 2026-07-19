@@ -1,0 +1,262 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_51cbacc5dcb06efb"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生灵活运用整理与收纳方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_093f9fb63bd9173c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_dc6517f0b22265ed"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“灵活运用整理与收纳方法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“灵活运用整理与收纳方法”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能灵活运用整理与收纳方法；能合作开展环境装饰和美化；能整体完成家庭居室和教室物品整理；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "f46d6ceda84d6c6a75fd31995dc27b43fe1bd9b3f9707f2e4da713eee327c5c3",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先征集设计方案，再选择可实施方案推进；行李整理可结合研学旅行或社会实践。",
+          "excerpt_hash": "66325753bf841bcf906263231b5ec2142fcaf5c1fb07619885cdf8f8fde51d8c",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-H4G8-DL-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后灵活运用整理与收纳方法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“灵活运用整理与收纳方法”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“先征集设计方案，再选择可实施方案推进”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_9c85b3f389855ede",
+      "evidence_refs": [
+        "standard:LA-H4G8-DL-005:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-H4G8-DL-005",
+      "target_code": "LA-H4G9-DL-006",
+      "target_label": "能独立完成远行行李整理；能灵活运用整理与收纳方法；能整体完成家庭居室和教室物品整理；能面向真实需求改进方案并评价劳动价值。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_dc6517f0b22265ed",
+      "component_ids": [
+        "lc_51cbacc5dcb06efb"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "灵活"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生灵活运用整理与收纳方法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够灵活运用整理与收纳方法；优先采集：整理方案、空间前后对比、行李清单、实施记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能灵活运用整理与收纳方法；能合作开展环境装饰和美化；能整体完成家庭居室和教室物品整理；能规划协作流程并反思劳动质量。",
+          "excerpt_hash": "f46d6ceda84d6c6a75fd31995dc27b43fe1bd9b3f9707f2e4da713eee327c5c3",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（灵活）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_51cbacc5dcb06efb",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够灵活运用整理与收纳方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生灵活运用整理与收纳方法，并说明关键步骤、特征或依据。",
+      "label": "灵活运用整理与收纳方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够灵活运用整理与收纳方法；优先采集：整理方案、空间前后对比、行李清单、实施记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "灵活运用整理与收纳方法",
+          "excerpt_hash": "81af8cd061a7d9e16f67b33d2fea35c138ca9a6019c949328d5f4bdfe7b6f1f4",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "灵活运用整理与收纳方法"
+    },
+    {
+      "component_id": "lc_11299cf3566bd2b5",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够合作开展环境装饰和美化",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生合作开展环境装饰和美化，并说明关键步骤、特征或依据。",
+      "label": "合作开展环境装饰和美化",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够合作开展环境装饰和美化；优先采集：整理方案、空间前后对比、行李清单、实施记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "合作开展环境装饰和美化",
+          "excerpt_hash": "f254cf5cc6cfbfdc9e53c147ec9ba91a87ab2ebc6ff13f33b056893811285388",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "合作开展环境装饰和美化"
+    },
+    {
+      "component_id": "lc_899a685cdba562cd",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够整体完成家庭居室和教室物品整理",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整体完成家庭居室和教室物品整理，并说明关键步骤、特征或依据。",
+      "label": "整体完成家庭居室和教室物品整理",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够整体完成家庭居室和教室物品整理；优先采集：整理方案、空间前后对比、行李清单、实施记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "整体完成家庭居室和教室物品整理",
+          "excerpt_hash": "30a7cfc51721f9e5bca10f541bcbc9c2ad020896cc579d5058b5bec0d7f383a8",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "整体完成家庭居室和教室物品整理"
+    },
+    {
+      "component_id": "lc_5a79712877e5eb72",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够规划协作流程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生规划协作流程，并说明关键步骤、特征或依据。",
+      "label": "规划协作流程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够规划协作流程；优先采集：整理方案、空间前后对比、行李清单、实施记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "规划协作流程",
+          "excerpt_hash": "4a84ad92a900406a3d30c00b32a9c485273924f5ccc4aa2724f26c9011663634",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "规划协作流程"
+    },
+    {
+      "component_id": "lc_766efcf215099597",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够反思劳动质量",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生反思劳动质量，并说明关键步骤、特征或依据。",
+      "label": "反思劳动质量",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够反思劳动质量；优先采集：整理方案、空间前后对比、行李清单、实施记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "反思劳动质量",
+          "excerpt_hash": "7183a8fbee03b379e048527278d4ed6578fdbd0c6cd3aa63470c31916e9cbe23",
+          "field": "standard",
+          "ref_id": "standard:LA-H4G8-DL-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思劳动质量"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_c62500ec09d3651b",
+      "evidence_refs": [
+        "standard:LA-H4G8-DL-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "LA-H4G7-DL-004",
+      "source_label": "能灵活运用整理与收纳方法；能整体完成家庭居室和教室物品整理；能在支架下完成远行行李整理；能按规范完成任务并说明工具、材料或安全要求。",
+      "target_code": "LA-H4G8-DL-005",
+      "target_label": "能灵活运用整理与收纳方法；能合作开展环境装饰和美化；能整体完成家庭居室和教室物品整理；能规划协作流程并反思劳动质量。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f46d6ceda84d6c6a75fd31995dc27b43fe1bd9b3f9707f2e4da713eee327c5c3",
+  "standard_code": "LA-H4G8-DL-005",
+  "verified_prerequisites": []
+}

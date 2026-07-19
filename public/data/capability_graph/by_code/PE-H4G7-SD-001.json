@@ -1,0 +1,341 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_662e8f37f3e660ae"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生积极应对体育活动中遇到的困难的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2ded87a895ad5486",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4f00616864dbad06"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“积极应对体育活动中遇到的困难”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能积极应对体育活动中遇到的困难，表现出吃苦耐劳、敢于拼搏、勇于争先的精神；能掌握所学球类运动项目的基本动作技术、组合动作技术和战术配合；表现出自我保护、情绪调控、沟通合作、公平竞争和勇于拼搏的精神；能完成基础练习并记录身体反应。",
+          "excerpt_hash": "a0e19ceef3fff7addf4f05144efbfc55065eaf5462cf8900e75a4e3ad5683e09",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-SD-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "在保证安全的前提下设置有挑战性的任务，引导学生反思努力、坚持和自我突破。",
+          "excerpt_hash": "9f81416ba429ca44477598bf6f6a9a353884a4e93f8e5d02e93f44426a0366a4",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G7-SD-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后积极应对体育活动中遇到的困难，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“积极应对体育活动中遇到的困难”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“在保证安全的前提下设置有挑战性的任务，引导学生反思努力、坚持和自我突破。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_944cfd622c2e67f8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bebb65c5f3a6a181b33b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7f9265bf475e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fc995ab30b3d79ec",
+      "textbook_grade": 7,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康7年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_8648f808d36effac",
+      "evidence_refs": [
+        "standard:PE-H4G7-SD-001:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-H4G7-SD-001",
+      "target_code": "PE-H4G8-SD-002",
+      "target_label": "能积极应对体育活动中遇到的困难，表现出吃苦耐劳、敢于拼搏、勇于争先的精神；表现出自我保护、情绪调控、沟通合作、公平竞争和勇于拼搏的精神；能掌握…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_4f00616864dbad06",
+      "component_ids": [
+        "lc_662e8f37f3e660ae",
+        "lc_c4814bab418c6df4",
+        "lc_fca76dab8b6613fb"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生积极应对体育活动中遇到的困难。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够积极应对体育活动中遇到的困难；优先采集：挑战任务表现、学习日志、教师观察记录。",
+        "学生能够表现出吃苦耐劳、敢于拼搏、勇于争先的精神；优先采集：挑战任务表现、学习日志、教师观察记录。",
+        "学生能够正确运用所学球类运动项目的基本动作技术、组合动作技术和战术配合完成任务；优先采集：挑战任务表现、学习日志、教师观察记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能积极应对体育活动中遇到的困难，表现出吃苦耐劳、敢于拼搏、勇于争先的精神；能掌握所学球类运动项目的基本动作技术、组合动作技术和战术配合；表现出自我保护、情绪调控、沟通合作、公平竞争和勇于拼搏的精神；能完成基础练习并记录身体反应。",
+          "excerpt_hash": "a0e19ceef3fff7addf4f05144efbfc55065eaf5462cf8900e75a4e3ad5683e09",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-SD-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "积极应对体育活动中遇到的困难；表现出吃苦耐劳、敢于拼搏、勇于争先的精神；正确运用所学球类运动项目的基本动作技术、组合动作技术和战术配合完成任务",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_662e8f37f3e660ae",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够积极应对体育活动中遇到的困难",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生积极应对体育活动中遇到的困难，并说明关键步骤、特征或依据。",
+      "label": "积极应对体育活动中遇到的困难",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够积极应对体育活动中遇到的困难；优先采集：挑战任务表现、学习日志、教师观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "积极应对体育活动中遇到的困难",
+          "excerpt_hash": "5269c6e7b6cb91fd514e0b6c46e74b282621a66be28eb74da25960a5a65a6ed7",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-SD-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "积极应对体育活动中遇到的困难"
+    },
+    {
+      "component_id": "lc_c4814bab418c6df4",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够表现出吃苦耐劳、敢于拼搏、勇于争先的精神",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生表现出吃苦耐劳、敢于拼搏、勇于争先的精神，并说明关键步骤、特征或依据。",
+      "label": "表现出吃苦耐劳、敢于拼搏、勇于争先的精神",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够表现出吃苦耐劳、敢于拼搏、勇于争先的精神；优先采集：挑战任务表现、学习日志、教师观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "表现出吃苦耐劳、敢于拼搏、勇于争先的精神",
+          "excerpt_hash": "c3fc2c239d4be99f770c12face18252394c49b546f191752ce6bab5838656ab6",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-SD-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表现出吃苦耐劳、敢于拼搏、勇于争先的精神"
+    },
+    {
+      "component_id": "lc_fca76dab8b6613fb",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够正确运用所学球类运动项目的基本动作技术、组合动作技术和战术配合完成任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生正确运用所学球类运动项目的基本动作技术、组合动作技术和战术配合完成任务，并说明关键步骤、特征或依据。",
+      "label": "正确运用所学球类运动项目的基本动作技术、组合动作技术和战术配合完成任务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够正确运用所学球类运动项目的基本动作技术、组合动作技术和战术配合完成任务；优先采集：挑战任务表现、学习日志、教师观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "掌握所学球类运动项目的基本动作技术、组合动作技术和战术配合",
+          "excerpt_hash": "d71be808ac73e4463af538eb0797abea93761736c90b14667150cc21692f7d37",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-SD-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "掌握所学球类运动项目的基本动作技术、组合动作技术和战术配合"
+    },
+    {
+      "component_id": "lc_e1ae2877d46467c4",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够表现出自我保护、情绪调控、沟通合作、公平竞争和勇于拼搏的精神",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生表现出自我保护、情绪调控、沟通合作、公平竞争和勇于拼搏的精神，并说明关键步骤、特征或依据。",
+      "label": "表现出自我保护、情绪调控、沟通合作、公平竞争和勇于拼搏的精神",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够表现出自我保护、情绪调控、沟通合作、公平竞争和勇于拼搏的精神；优先采集：挑战任务表现、学习日志、教师观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "表现出自我保护、情绪调控、沟通合作、公平竞争和勇于拼搏的精神",
+          "excerpt_hash": "0d79532155ceea9585dc00b2e4f011678c2e2f0f022e6cf86281de0854b0b9ef",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-SD-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表现出自我保护、情绪调控、沟通合作、公平竞争和勇于拼搏的精神"
+    },
+    {
+      "component_id": "lc_da5ba6b964bdf9b7",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成基础练习",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成基础练习，并说明关键步骤、特征或依据。",
+      "label": "完成基础练习",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成基础练习；优先采集：挑战任务表现、学习日志、教师观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成基础练习",
+          "excerpt_hash": "9867465e87f5d1e30b1f61c5a8850c7514e1c5cd08433ab651b29809f18566e0",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-SD-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成基础练习"
+    },
+    {
+      "component_id": "lc_c37445ee663fab81",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够记录身体反应",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生记录身体反应，并说明关键步骤、特征或依据。",
+      "label": "记录身体反应",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够记录身体反应；优先采集：挑战任务表现、学习日志、教师观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "记录身体反应",
+          "excerpt_hash": "e674d0e2ce340d3d8b89f23519838231e4d98d4349ecdf159eca0464f7045226",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-SD-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "记录身体反应"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1533,
+      "edge_id": "pc_f98f3438b8dcc3a8",
+      "evidence_refs": [
+        "standard:PE-H4G7-SD-001:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D3-SD-001",
+      "source_label": "在有挑战性的体育活动中能迎难而上，表现出自信和抗挫折能力。",
+      "target_code": "PE-H4G7-SD-001",
+      "target_label": "能积极应对体育活动中遇到的困难，表现出吃苦耐劳、敢于拼搏、勇于争先的精神；能掌握所学球类运动项目的基本动作技术、组合动作技术和战术配合；表现出…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1364,
+      "edge_id": "pc_9d8257c14719d497",
+      "evidence_refs": [
+        "standard:PE-H4G7-SD-001:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D3-SD-007",
+      "source_label": "能在活动中承担组织、裁判或安全员等角色，认真履行职责并保障活动秩序与安全。",
+      "target_code": "PE-H4G7-SD-001",
+      "target_label": "能积极应对体育活动中遇到的困难，表现出吃苦耐劳、敢于拼搏、勇于争先的精神；能掌握所学球类运动项目的基本动作技术、组合动作技术和战术配合；表现出…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a0e19ceef3fff7addf4f05144efbfc55065eaf5462cf8900e75a4e3ad5683e09",
+  "standard_code": "PE-H4G7-SD-001",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,610 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_9438224fdbfc33fb",
+        "lc_574fcec898d7e2d7",
+        "lc_bf32fb9f0dc6b0f3",
+        "lc_cb9eb4d882c20f80"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_facab16c1ec4ab7e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3a24afe9c18e653b",
+        "hc_995c95c6655f0d13"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断；能知道技术开发和应用需要考虑伦理问题；能举例说明重大技术发明对人类社会发展的深远影响；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "43d6951e9f19d828a8ed7eddebdfa07a3170daf4b22c9f2f3962fdb138da8c9b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "让学生在证据、立场和伦理约束之间作出理性判断。",
+          "excerpt_hash": "cb1453323bc900b19bbedaaa95bdd2eb41f7468db3a754f2dc5ad1804c2264fa",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-PR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“让学生在证据、立场和伦理约束之间作出理性判断。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_9438224fdbfc33fb",
+        "lc_bf32fb9f0dc6b0f3"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_17db6681b8677d7a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3a24afe9c18e653b",
+        "hc_995c95c6655f0d13"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断；能知道技术开发和应用需要考虑伦理问题；能举例说明重大技术发明对人类社会发展的深远影响；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "43d6951e9f19d828a8ed7eddebdfa07a3170daf4b22c9f2f3962fdb138da8c9b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "让学生在证据、立场和伦理约束之间作出理性判断。",
+          "excerpt_hash": "cb1453323bc900b19bbedaaa95bdd2eb41f7468db3a754f2dc5ad1804c2264fa",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-PR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“让学生在证据、立场和伦理约束之间作出理性判断。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_df8772c584fe3dc8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生准确说出技术开发和应用需要考虑伦理问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_594762a84cbeb337",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“准确说出技术开发和应用需要考虑伦理问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“准确说出技术开发和应用需要考虑伦理问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断；能知道技术开发和应用需要考虑伦理问题；能举例说明重大技术发明对人类社会发展的深远影响；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "43d6951e9f19d828a8ed7eddebdfa07a3170daf4b22c9f2f3962fdb138da8c9b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "让学生在证据、立场和伦理约束之间作出理性判断。",
+          "excerpt_hash": "cb1453323bc900b19bbedaaa95bdd2eb41f7468db3a754f2dc5ad1804c2264fa",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-PR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后准确说出技术开发和应用需要考虑伦理问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出技术开发和应用需要考虑伦理问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“让学生在证据、立场和伦理约束之间作出理性判断。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_cb9eb4d882c20f80"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解释概念之间的关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9d6a2b7bf583bf37",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3a24afe9c18e653b"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“解释概念之间的关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解释概念之间的关系”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断；能知道技术开发和应用需要考虑伦理问题；能举例说明重大技术发明对人类社会发展的深远影响；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "43d6951e9f19d828a8ed7eddebdfa07a3170daf4b22c9f2f3962fdb138da8c9b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "让学生在证据、立场和伦理约束之间作出理性判断。",
+          "excerpt_hash": "cb1453323bc900b19bbedaaa95bdd2eb41f7468db3a754f2dc5ad1804c2264fa",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-PR-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解释概念之间的关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解释概念之间的关系”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“让学生在证据、立场和伦理约束之间作出理性判断。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 6,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8f4e67c75a58467b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0f6edf1eb52b44920973",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_77ef51325c22"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_aa920dd0236fd836",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5bf0428874e5f928",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a7fe299869b84f655a87",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a871f50d9e2b"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c38c1b84336fa7fa",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_163f098c55b1d531",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b4de49a3e2e59c9c76bf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5f552244f754"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e4f214193210f062",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9ac5b21c9f7ef34b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c8cec7bb4ee4d9a29577",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ce524ff21ae1"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d75ade93cbf14989",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_948277c480f29703",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_d5ca89ccc00d3103a7f8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a0a929bcb6e9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e8478f57c656a4",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_663cb47bdc372439",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f0de8cbbeb88661f44d6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ffb2a04886aa"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_23244c2ebb335c01",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_270b41cc1d9490ea",
+      "evidence_refs": [
+        "standard:SC-H4G8-PR-007:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G8-PR-007",
+      "target_code": "SC-H4G9-PR-007",
+      "target_label": "能从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断；能举例说明重大技术发明对人类社会发展的深远影响；阐释技术开发和应用需…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_3a24afe9c18e653b",
+      "component_ids": [
+        "lc_9438224fdbfc33fb",
+        "lc_574fcec898d7e2d7",
+        "lc_bf32fb9f0dc6b0f3",
+        "lc_cb9eb4d882c20f80"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "解释",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断；优先采集：辩论记录、证据清单、伦理判断说明。",
+        "学生能够举例说明重大技术发明对人类社会发展的深远影响；优先采集：辩论记录、证据清单、伦理判断说明。",
+        "学生能够比较证据；优先采集：辩论记录、证据清单、伦理判断说明。",
+        "学生能够解释概念之间的关系；优先采集：辩论记录、证据清单、伦理判断说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断；能知道技术开发和应用需要考虑伦理问题；能举例说明重大技术发明对人类社会发展的深远影响；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "43d6951e9f19d828a8ed7eddebdfa07a3170daf4b22c9f2f3962fdb138da8c9b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、解释、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_995c95c6655f0d13",
+      "component_ids": [
+        "lc_9438224fdbfc33fb",
+        "lc_bf32fb9f0dc6b0f3"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较",
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断；优先采集：辩论记录、证据清单、伦理判断说明。",
+        "学生能够比较证据；优先采集：辩论记录、证据清单、伦理判断说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断；能知道技术开发和应用需要考虑伦理问题；能举例说明重大技术发明对人类社会发展的深远影响；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "43d6951e9f19d828a8ed7eddebdfa07a3170daf4b22c9f2f3962fdb138da8c9b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较、判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_9438224fdbfc33fb",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断，并说明关键步骤、特征或依据。",
+      "label": "从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断；优先采集：辩论记录、证据清单、伦理判断说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断",
+          "excerpt_hash": "1201ba191968428fc77af70affe6fcd9a1c9c904f479fc3dd3d8526d9e1df3e3",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断"
+    },
+    {
+      "component_id": "lc_df8772c584fe3dc8",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出技术开发和应用需要考虑伦理问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出技术开发和应用需要考虑伦理问题，并说明关键步骤、特征或依据。",
+      "label": "准确说出技术开发和应用需要考虑伦理问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出技术开发和应用需要考虑伦理问题；优先采集：辩论记录、证据清单、伦理判断说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道技术开发和应用需要考虑伦理问题",
+          "excerpt_hash": "bb5df5bd615c6ef6ab717da70c39cdd8ad507b14545178bf99644d4225e52b20",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道技术开发和应用需要考虑伦理问题"
+    },
+    {
+      "component_id": "lc_574fcec898d7e2d7",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够举例说明重大技术发明对人类社会发展的深远影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生举例说明重大技术发明对人类社会发展的深远影响，并保留可回查的口头、书面或操作过程证据。",
+      "label": "举例说明重大技术发明对人类社会发展的深远影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够举例说明重大技术发明对人类社会发展的深远影响；优先采集：辩论记录、证据清单、伦理判断说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "举例说明重大技术发明对人类社会发展的深远影响",
+          "excerpt_hash": "f2bed0676abc6e3ecf71ad288b24bf4833e8566d49029d26d2add1ea8758a568",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "举例说明重大技术发明对人类社会发展的深远影响"
+    },
+    {
+      "component_id": "lc_bf32fb9f0dc6b0f3",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较证据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较证据，并说明关键步骤、特征或依据。",
+      "label": "比较证据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较证据；优先采集：辩论记录、证据清单、伦理判断说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较证据",
+          "excerpt_hash": "991569e1419bfb53d107f820e29cc506985fb42dec521ee976a4309299317eac",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较证据"
+    },
+    {
+      "component_id": "lc_cb9eb4d882c20f80",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释概念之间的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释概念之间的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释概念之间的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释概念之间的关系；优先采集：辩论记录、证据清单、伦理判断说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释概念之间的关系",
+          "excerpt_hash": "7176bf29ca46d45d574a0ab078112ade02e1c191616f7761e6189d6092a666dd",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释概念之间的关系"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_9a393a0245024e2d",
+      "evidence_refs": [
+        "standard:SC-H4G8-PR-007:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G7-PR-008",
+      "source_label": "能知道技术开发和应用需要考虑伦理问题；能从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断；能举例说明重大技术发明对人类社…",
+      "target_code": "SC-H4G8-PR-007",
+      "target_label": "能从批判性思维角度基于证据讨论涉及伦理争议的技术与工程问题并作出理性判断；能知道技术开发和应用需要考虑伦理问题；能举例说明重大技术发明对人类社…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "43d6951e9f19d828a8ed7eddebdfa07a3170daf4b22c9f2f3962fdb138da8c9b",
+  "standard_code": "SC-H4G8-PR-007",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,436 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_d39818e043367c31",
+        "lc_fe18e02aa429c78a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_cabb6597848036fe",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3dcd885f6cfd72e7"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念；能用三角板、直尺或尺规完成相关作图；能探索并证明平行线的判定和性质定理；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "40e4241cada71e3eb45d537e86ffc5f74abdcd8506995a9dbbcea722ea559a7d",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-GE-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "帮助学生建立从角关系到平行关系、从基本事实到定理证明的推理链。",
+          "excerpt_hash": "bc89dbd8e7c84f6c8daea2620ab66752f5ae91f2a308fa75dda3a653180c0ca4",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-GE-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“帮助学生建立从角关系到平行关系、从基本事实到定理证明的推理链。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_ba4112df55534e51"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_150b952f6c31062e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_cfbde45f323fb387"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较方法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较方法”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念；能用三角板、直尺或尺规完成相关作图；能探索并证明平行线的判定和性质定理；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "40e4241cada71e3eb45d537e86ffc5f74abdcd8506995a9dbbcea722ea559a7d",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-GE-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "帮助学生建立从角关系到平行关系、从基本事实到定理证明的推理链。",
+          "excerpt_hash": "bc89dbd8e7c84f6c8daea2620ab66752f5ae91f2a308fa75dda3a653180c0ca4",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-GE-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较方法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较方法”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“帮助学生建立从角关系到平行关系、从基本事实到定理证明的推理链。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_d39818e043367c31"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_61df6d7d24e4b592",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3dcd885f6cfd72e7"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念；能用三角板、直尺或尺规完成相关作图；能探索并证明平行线的判定和性质定理；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "40e4241cada71e3eb45d537e86ffc5f74abdcd8506995a9dbbcea722ea559a7d",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-GE-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "帮助学生建立从角关系到平行关系、从基本事实到定理证明的推理链。",
+          "excerpt_hash": "bc89dbd8e7c84f6c8daea2620ab66752f5ae91f2a308fa75dda3a653180c0ca4",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G8-GE-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“帮助学生建立从角关系到平行关系、从基本事实到定理证明的推理链。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d26bbec67b7b9173",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d79076db84511d8a",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0b6708ce722df6f9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_485165afa9c8"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_8684cc79506c65f5",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_0d86a0eb7ea007fa",
+      "evidence_refs": [
+        "standard:MA-H4G8-GE-008:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-H4G8-GE-008",
+      "target_code": "MA-H4G9-GE-009",
+      "target_label": "理解对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念；能探索并证明平行线的判定和性质定理；运用垂直和平行的基本事实；能建模、推理并…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_3dcd885f6cfd72e7",
+      "component_ids": [
+        "lc_d39818e043367c31",
+        "lc_fe18e02aa429c78a"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念；优先采集：角关系分析、证明过程、作图作品。",
+        "学生能够解释数量、图形或数据关系；优先采集：角关系分析、证明过程、作图作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念；能用三角板、直尺或尺规完成相关作图；能探索并证明平行线的判定和性质定理；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "40e4241cada71e3eb45d537e86ffc5f74abdcd8506995a9dbbcea722ea559a7d",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-GE-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_cfbde45f323fb387",
+      "component_ids": [
+        "lc_ba4112df55534e51"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较方法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较方法；优先采集：角关系分析、证明过程、作图作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念；能用三角板、直尺或尺规完成相关作图；能探索并证明平行线的判定和性质定理；能比较方法并解释数量、图形或数据关系。",
+          "excerpt_hash": "40e4241cada71e3eb45d537e86ffc5f74abdcd8506995a9dbbcea722ea559a7d",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-GE-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d39818e043367c31",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念；优先采集：角关系分析、证明过程、作图作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念",
+          "excerpt_hash": "72757e9727ce6e933b9715ef55ff644e72889fe2cabc750c3e27746c24219066",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-GE-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念"
+    },
+    {
+      "component_id": "lc_5decfeb8921e6f23",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用三角板、直尺或尺规完成相关作图",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用三角板、直尺或尺规完成相关作图，并说明关键步骤、特征或依据。",
+      "label": "用三角板、直尺或尺规完成相关作图",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用三角板、直尺或尺规完成相关作图；优先采集：角关系分析、证明过程、作图作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用三角板、直尺或尺规完成相关作图",
+          "excerpt_hash": "2df1c7e652bfd2e30bdbcd09afac0a762c68e829945a0195bd699f5487a5fe98",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-GE-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用三角板、直尺或尺规完成相关作图"
+    },
+    {
+      "component_id": "lc_632c79b8a9eb4731",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够探索并证明平行线的判定和性质定理",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生探索并证明平行线的判定和性质定理，并说明关键步骤、特征或依据。",
+      "label": "探索并证明平行线的判定和性质定理",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够探索并证明平行线的判定和性质定理；优先采集：角关系分析、证明过程、作图作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "探索并证明平行线的判定和性质定理",
+          "excerpt_hash": "92a639ba5663d158b83b0240dbee331f6e4f71dcb9dc706aaa2fa6b653e6a378",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-GE-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "探索并证明平行线的判定和性质定理"
+    },
+    {
+      "component_id": "lc_ba4112df55534e51",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较方法，并说明关键步骤、特征或依据。",
+      "label": "比较方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较方法；优先采集：角关系分析、证明过程、作图作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较方法",
+          "excerpt_hash": "7889e4fffed9604deef84a0784668b8242973dd9c5af85496f69faa8f645a0b9",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-GE-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较方法"
+    },
+    {
+      "component_id": "lc_fe18e02aa429c78a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释数量、图形或数据关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释数量、图形或数据关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释数量、图形或数据关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释数量、图形或数据关系；优先采集：角关系分析、证明过程、作图作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释数量、图形或数据关系",
+          "excerpt_hash": "21c5b567c1ef612a5b98a5a459ca76600a99e5cd95a345b6856579018adee66e",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G8-GE-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释数量、图形或数据关系"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_bf7cebeadca05b8b",
+      "evidence_refs": [
+        "standard:MA-H4G8-GE-008:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-H4G7-GE-007",
+      "source_label": "掌握垂直和平行的基本事实；能识别同位角、内错角、同旁内角；理解对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念；能说明解题步骤和基…",
+      "target_code": "MA-H4G8-GE-008",
+      "target_label": "理解对顶角、余角、补角、垂线、垂线段、平行线和点到直线距离等概念；能用三角板、直尺或尺规完成相关作图；能探索并证明平行线的判定和性质定理；能比…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "40e4241cada71e3eb45d537e86ffc5f74abdcd8506995a9dbbcea722ea559a7d",
+  "standard_code": "MA-H4G8-GE-008",
+  "verified_prerequisites": []
+}

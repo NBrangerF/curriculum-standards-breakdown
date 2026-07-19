@@ -1,0 +1,361 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_c0a3ecfa96effd29"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据角的特征对三角形分类的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_90fb84e80d8b8bf8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_dc0d2d73d4e5031b"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“根据角的特征对三角形分类”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据角的特征对三角形分类”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会根据角的特征对三角形分类，认识直角三角形、锐角三角形和钝角三角形；能根据边的相等关系，认识等腰三角形和等边三角形。",
+          "excerpt_hash": "4c3f004d57fb8fe1af8f5fb4dd512effb7f4007357b0eb5a649977ee976b31fc",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "启发学生根据角的特征将三角形分为锐角、直角、钝角三角形；通过边的特征认识等腰、等边三角形，发展几何直观。",
+          "excerpt_hash": "dd8de7eea1f06dfb3c7cc076baa0f496e5093fc954e4a9cbc10e283878f347e6",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-GE-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据角的特征对三角形分类，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据角的特征对三角形分类”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“启发学生根据角的特征将三角形分为锐角、直角、钝角三角形”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_c0a3ecfa96effd29",
+        "lc_624afea849d58a31",
+        "lc_8c913d2192defd9a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生根据角的特征对三角形分类的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2c7af1e5f4fb282f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_dc0d2d73d4e5031b"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“根据角的特征对三角形分类”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“根据角的特征对三角形分类”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会根据角的特征对三角形分类，认识直角三角形、锐角三角形和钝角三角形；能根据边的相等关系，认识等腰三角形和等边三角形。",
+          "excerpt_hash": "4c3f004d57fb8fe1af8f5fb4dd512effb7f4007357b0eb5a649977ee976b31fc",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-003:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "启发学生根据角的特征将三角形分为锐角、直角、钝角三角形；通过边的特征认识等腰、等边三角形，发展几何直观。",
+          "excerpt_hash": "dd8de7eea1f06dfb3c7cc076baa0f496e5093fc954e4a9cbc10e283878f347e6",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-GE-003:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后根据角的特征对三角形分类，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据角的特征对三角形分类”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“启发学生根据角的特征将三角形分为锐角、直角、钝角三角形”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e955d89125ed9c16",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_833ce42b24662dbd40af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ec280d20713"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_96d95cbb27d9412e",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_52fec8c7c9a4a6d5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f61cbfb4e176d8e2",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_86161f023c58761b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e8d4a6502261fd8416ff",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_19111441ff11"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_056cb0cc3385568d",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_52252f29c90ffad1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f7680a7d4b92"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7b7248af637aca0a",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_dc0d2d73d4e5031b",
+      "component_ids": [
+        "lc_c0a3ecfa96effd29"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据角的特征对三角形分类。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据角的特征对三角形分类；优先采集：作图/测量作品、解题过程记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会根据角的特征对三角形分类，认识直角三角形、锐角三角形和钝角三角形；能根据边的相等关系，认识等腰三角形和等边三角形。",
+          "excerpt_hash": "4c3f004d57fb8fe1af8f5fb4dd512effb7f4007357b0eb5a649977ee976b31fc",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c0a3ecfa96effd29",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据角的特征对三角形分类",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据角的特征对三角形分类，并说明关键步骤、特征或依据。",
+      "label": "根据角的特征对三角形分类",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据角的特征对三角形分类；优先采集：作图/测量作品、解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据角的特征对三角形分类",
+          "excerpt_hash": "46e34b1a754ab2a3018470acadeb5e169fb254bc74bc25626a2c9c9019e6116f",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据角的特征对三角形分类"
+    },
+    {
+      "component_id": "lc_624afea849d58a31",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出直角三角形、锐角三角形和钝角三角形的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出直角三角形、锐角三角形和钝角三角形的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出直角三角形、锐角三角形和钝角三角形的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出直角三角形、锐角三角形和钝角三角形的关键特征；优先采集：作图/测量作品、解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识直角三角形、锐角三角形和钝角三角形",
+          "excerpt_hash": "866e42ff97b9c17be12f093cbbf5485ec68150cd2354c5fda09b4a93b16b1b49",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认识直角三角形、锐角三角形和钝角三角形"
+    },
+    {
+      "component_id": "lc_8c913d2192defd9a",
+      "component_type": "language",
+      "condition": "根据边的相等关系",
+      "confidence": 0.72,
+      "description": "学生根据边的相等关系，能够识别并说出等腰三角形和等边三角形的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“根据边的相等关系”的诊断任务，要求学生识别并说出等腰三角形和等边三角形的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出等腰三角形和等边三角形的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生根据边的相等关系，能够识别并说出等腰三角形和等边三角形的关键特征；优先采集：作图/测量作品、解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据边的相等关系，认识等腰三角形和等边三角形",
+          "excerpt_hash": "c0d6b443ca718e31d463124fb1dbdf836eb42d8aa2398e1eb774b991f2bdf599",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认识等腰三角形和等边三角形"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a6963314fd334a51",
+      "evidence_refs": [
+        "standard:MA-D2-GE-003:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D1-GE-001",
+      "source_label": "辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征；辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根…",
+      "target_code": "MA-D2-GE-003",
+      "target_label": "会根据角的特征对三角形分类，认识直角三角形、锐角三角形和钝角三角形；能根据边的相等关系，认识等腰三角形和等边三角形。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4c3f004d57fb8fe1af8f5fb4dd512effb7f4007357b0eb5a649977ee976b31fc",
+  "standard_code": "MA-D2-GE-003",
+  "verified_prerequisites": []
+}

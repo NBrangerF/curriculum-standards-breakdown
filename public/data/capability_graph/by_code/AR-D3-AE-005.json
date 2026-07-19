@@ -1,0 +1,512 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_6eccca52f89f9675"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d143add44810c250",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象，完成具有主题意识的美术创作，较好传递自己的创意与想法。",
+          "excerpt_hash": "f163dac56bf3182f32f618b9b4e7768cb06bd30f2677aef1200d7f2b80f0576c",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先做“主题一句话”再定构图与色彩方案；用草图迭代（至少2版）；提醒学生用对比/重复/节奏强化主题。",
+          "excerpt_hash": "a9166b3e57f63e5ed5297fbd71d301f48df3288b4ab1696334133d559867cd41",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D3-AE-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“先做“主题一句话”再定构图与色彩方案”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_70ec61f91a110069"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生完成具有主题意识的美术创作，较好传递自己的创意与想法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3cfc7b8290642967",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a15610a3eddbed72"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“完成具有主题意识的美术创作，较好传递自己的创意与想法”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“完成具有主题意识的美术创作，较好传递自己的创意与想法”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象，完成具有主题意识的美术创作，较好传递自己的创意与想法。",
+          "excerpt_hash": "f163dac56bf3182f32f618b9b4e7768cb06bd30f2677aef1200d7f2b80f0576c",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先做“主题一句话”再定构图与色彩方案；用草图迭代（至少2版）；提醒学生用对比/重复/节奏强化主题。",
+          "excerpt_hash": "a9166b3e57f63e5ed5297fbd71d301f48df3288b4ab1696334133d559867cd41",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D3-AE-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后完成具有主题意识的美术创作，较好传递自己的创意与想法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“完成具有主题意识的美术创作，较好传递自己的创意与想法”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“先做“主题一句话”再定构图与色彩方案”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_6eccca52f89f9675"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4673f813d02982cc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象，完成具有主题意识的美术创作，较好传递自己的创意与想法。",
+          "excerpt_hash": "f163dac56bf3182f32f618b9b4e7768cb06bd30f2677aef1200d7f2b80f0576c",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先做“主题一句话”再定构图与色彩方案；用草图迭代（至少2版）；提醒学生用对比/重复/节奏强化主题。",
+          "excerpt_hash": "a9166b3e57f63e5ed5297fbd71d301f48df3288b4ab1696334133d559867cd41",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D3-AE-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“先做“主题一句话”再定构图与色彩方案”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_76e3054ddd84a321",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_00452e62b0a9dead1e66",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a500c9f1cd1c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1fabba386856d842",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_c297139b9deeeaaa",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_47474bd0c3009d7bfcf6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e4cb7e4583cf"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_98c7d2610118429f",
+      "textbook_grade": 5,
+      "textbook_subject": "美术",
+      "textbook_title": "美术5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_96e35655b164ce54",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4b42884b46b80ae41661",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9df9f8776364"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_169db90609589ba4",
+      "textbook_grade": 6,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b981361158231e51",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6e0cec28ca9346d8d02b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_502c7444779d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4ba398935af785c4",
+      "textbook_grade": 5,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d48ace64b3ea00cd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_873c7b8d8f5dfcaf3081",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5d105252e267"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_2a3a735a14f9dc94",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7f2dc516b30fed3c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913a5e82b0b4337baa77",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5f8b00576115"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d3a37cdd8bcdc4bb",
+      "textbook_grade": 5,
+      "textbook_subject": "美术",
+      "textbook_title": "美术5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3783ed1b3b526c21",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e9b82a8986eea7ee1402",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7a1467daa20d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fc37261770b36f51",
+      "textbook_grade": 5,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3dbddcb2207a963c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fe115d2e431c2607bf7d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_118d280cce66"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_8ce6886f94462897",
+      "textbook_grade": 6,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1088,
+      "connection_id": "fc_f0862a97d57cfa0f",
+      "evidence_refs": [
+        "standard:AR-H4G7-AE-004:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D3-AE-005",
+      "target_code": "AR-H4G7-AE-004",
+      "target_label": "掌握运动画面拍摄与声音录制的基本技巧；能欣赏优秀影视（含数字媒体艺术）作品并辨析其中的技术元素；能在有条件开设影视选项时；能描述艺术要素并完成…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a15610a3eddbed72",
+      "component_ids": [
+        "lc_70ec61f91a110069"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "创作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成具有主题意识的美术创作，较好传递自己的创意与想法。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够完成具有主题意识的美术创作，较好传递自己的创意与想法；优先采集：草图过程、成品作品、口头阐释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象，完成具有主题意识的美术创作，较好传递自己的创意与想法。",
+          "excerpt_hash": "f163dac56bf3182f32f618b9b4e7768cb06bd30f2677aef1200d7f2b80f0576c",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（创作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_6eccca52f89f9675",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象，并说明关键步骤、特征或依据。",
+      "label": "运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象；优先采集：草图过程、成品作品、口头阐释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象",
+          "excerpt_hash": "9c0d70326bffd5ae9b9cd11a0dda56b279ae39fa275f1a562bf1bcfd4275ac9f",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象"
+    },
+    {
+      "component_id": "lc_70ec61f91a110069",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成具有主题意识的美术创作，较好传递自己的创意与想法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成具有主题意识的美术创作，较好传递自己的创意与想法，并说明关键步骤、特征或依据。",
+      "label": "完成具有主题意识的美术创作，较好传递自己的创意与想法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成具有主题意识的美术创作，较好传递自己的创意与想法；优先采集：草图过程、成品作品、口头阐释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成具有主题意识的美术创作，较好传递自己的创意与想法",
+          "excerpt_hash": "1464b3b82f042aff3cc7c7a1e601ee82eeccccac43c4e138ec1ef0630208af51",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AE-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成具有主题意识的美术创作，较好传递自己的创意与想法"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a7e6bf23c9bab692",
+      "evidence_refs": [
+        "standard:AR-D3-AE-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D2-CU-007",
+      "source_label": "能口头或书面表达对“中国美术源远流长的历史和多样的艺术魅力”的体会，能举例支持自己的观点。",
+      "target_code": "AR-D3-AE-005",
+      "target_label": "能运用造型元素与形式原理（对比、节奏、均衡等）观察与表现对象，完成具有主题意识的美术创作，较好传递自己的创意与想法。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f163dac56bf3182f32f618b9b4e7768cb06bd30f2677aef1200d7f2b80f0576c",
+  "standard_code": "AR-D3-AE-005",
+  "verified_prerequisites": []
+}

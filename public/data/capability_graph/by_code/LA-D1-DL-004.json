@@ -1,0 +1,170 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_d5c62854bf05e36d"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8b017d3cd4eaacfb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_232654f7cce4f4af"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程，并能保持用水与用品的节约。",
+          "excerpt_hash": "f422a4c0c6b4bf2dcabdb1d2cc600cb04ce7e4db8316749c71a2e7677fd2249c",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "先教“重点污渍定位”：领口/边角多揉；用“水清了再停”判断冲洗到位；把“节约用水”作为评价点之一。",
+          "excerpt_hash": "ae0f076b77d77002bf4ad319bcb241f276f4385e78874638e15b779eebf24203",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-DL-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“先教“重点污渍定位”：领口/边角多揉”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_d46532bda2454bfb",
+      "evidence_refs": [
+        "standard:LA-D1-DL-004:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D1-DL-004",
+      "target_code": "LA-D2-DL-004",
+      "target_label": "能在校园或社区公共空间进行卫生维护（捡拾、清扫、分类投放），能解释分类理由并形成爱护环境、尊重他人劳动的意识。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_232654f7cce4f4af",
+      "component_ids": [
+        "lc_d5c62854bf05e36d",
+        "lc_5459e2b0dbf29d6b"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程；优先采集：流程记录单、家长/教师观察、成品干净度自评。",
+        "学生能够保持用水与用品的节约；优先采集：流程记录单、家长/教师观察、成品干净度自评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程，并能保持用水与用品的节约。",
+          "excerpt_hash": "f422a4c0c6b4bf2dcabdb1d2cc600cb04ce7e4db8316749c71a2e7677fd2249c",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程；保持用水与用品的节约",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d5c62854bf05e36d",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程，并说明关键步骤、特征或依据。",
+      "label": "使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程；优先采集：流程记录单、家长/教师观察、成品干净度自评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程",
+          "excerpt_hash": "90e7344b28bbe3368107e4f2ea40d6164397ffb0c528ec76b8114cdd3f87bcc4",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用肥皂或洗衣液清洗红领巾等小件衣物，做到浸泡—揉搓—冲洗—拧干—晾晒的基本流程"
+    },
+    {
+      "component_id": "lc_5459e2b0dbf29d6b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够保持用水与用品的节约",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生保持用水与用品的节约，并说明关键步骤、特征或依据。",
+      "label": "保持用水与用品的节约",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够保持用水与用品的节约；优先采集：流程记录单、家长/教师观察、成品干净度自评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "保持用水与用品的节约",
+          "excerpt_hash": "88f41f400c0960ae091956150a21551aea87eaa8acf4cd74e2caa41a0f33817c",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "保持用水与用品的节约"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f422a4c0c6b4bf2dcabdb1d2cc600cb04ce7e4db8316749c71a2e7677fd2249c",
+  "standard_code": "LA-D1-DL-004",
+  "verified_prerequisites": []
+}

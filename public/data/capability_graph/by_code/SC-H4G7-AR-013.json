@@ -1,0 +1,488 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_4fa8e2718e811a36",
+        "lc_141081732cb5dec2",
+        "lc_95a46dc57840dcd2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生有依据地质疑观点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4d7763f2d691933b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4d3c3ab5dc57c7ad"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“有依据地质疑观点”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“有依据地质疑观点”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能有依据地质疑观点并尊重证据；能观察和实验结果不一致时坚持再次验证；能乐于思考科学现象的原因、规律和理论问题；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "41774fd6374081f6d12249ecd04c3d558d7ef9c1d926b2024d5ddc914a63a01a",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-013:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价学生是否尊重证据、善于合作、能够进行伦理判断和负责任行动。",
+          "excerpt_hash": "548eea6699ec4e491aebd35cfe3b7c8c4813cf2d5114857fdc5b1cd54fcfc293",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-AR-013:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后有依据地质疑观点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“有依据地质疑观点”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“评价学生是否尊重证据、善于合作、能够进行伦理判断和负责任行动。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_91ebf36042a8127d",
+        "lc_95a46dc57840dcd2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生观察和实验结果不一致时坚持再次验证的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_81c4641de5ec8591",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4d3c3ab5dc57c7ad",
+        "hc_e88ec3ba8248b996"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“观察和实验结果不一致时坚持再次验证”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“观察和实验结果不一致时坚持再次验证”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能有依据地质疑观点并尊重证据；能观察和实验结果不一致时坚持再次验证；能乐于思考科学现象的原因、规律和理论问题；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "41774fd6374081f6d12249ecd04c3d558d7ef9c1d926b2024d5ddc914a63a01a",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-013:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "评价学生是否尊重证据、善于合作、能够进行伦理判断和负责任行动。",
+          "excerpt_hash": "548eea6699ec4e491aebd35cfe3b7c8c4813cf2d5114857fdc5b1cd54fcfc293",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G7-AR-013:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后观察和实验结果不一致时坚持再次验证，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“观察和实验结果不一致时坚持再次验证”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“评价学生是否尊重证据、善于合作、能够进行伦理判断和负责任行动。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_43c56ce82c98db15",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_21164b69894834d04f84",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7070ee669923"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ba775a07035c65ee",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_aa2bc66cca96ed0f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b2901b9e06df"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3daf5000bc9191a7",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7fd170ecd3a378df",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_92369ed68f9321363e22",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae920aee077f"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_94dc3a2f9a671969",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4db54ca3cfa2945c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fc41327ff0651b269c88",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ae5d3f924fb1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4604008cfd618f79",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_fd6048970f62c833",
+      "evidence_refs": [
+        "standard:SC-H4G7-AR-013:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G7-AR-013",
+      "target_code": "SC-H4G8-AR-014",
+      "target_label": "能有依据地质疑观点并尊重证据；能观察和实验结果不一致时坚持再次验证；能乐于合作交流并通过小组合作解决科学问题和开展创新活动；能比较证据并解释概…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_4d3c3ab5dc57c7ad",
+      "component_ids": [
+        "lc_4fa8e2718e811a36",
+        "lc_141081732cb5dec2",
+        "lc_95a46dc57840dcd2"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "证据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生有依据地质疑观点。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够有依据地质疑观点；优先采集：合作研究记录、议题判断、行动方案。",
+        "学生能够尊重证据；优先采集：合作研究记录、议题判断、行动方案。",
+        "学生能够用观察证据说明基本科学概念；优先采集：合作研究记录、议题判断、行动方案。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能有依据地质疑观点并尊重证据；能观察和实验结果不一致时坚持再次验证；能乐于思考科学现象的原因、规律和理论问题；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "41774fd6374081f6d12249ecd04c3d558d7ef9c1d926b2024d5ddc914a63a01a",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、证据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_e88ec3ba8248b996",
+      "component_ids": [
+        "lc_91ebf36042a8127d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "一致"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生观察和实验结果不一致时坚持再次验证。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够观察和实验结果不一致时坚持再次验证；优先采集：合作研究记录、议题判断、行动方案。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能有依据地质疑观点并尊重证据；能观察和实验结果不一致时坚持再次验证；能乐于思考科学现象的原因、规律和理论问题；能用观察证据说明基本科学概念。",
+          "excerpt_hash": "41774fd6374081f6d12249ecd04c3d558d7ef9c1d926b2024d5ddc914a63a01a",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（一致）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_4fa8e2718e811a36",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够有依据地质疑观点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生有依据地质疑观点，并保留可回查的口头、书面或操作过程证据。",
+      "label": "有依据地质疑观点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够有依据地质疑观点；优先采集：合作研究记录、议题判断、行动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "有依据地质疑观点",
+          "excerpt_hash": "5948c1df57dc310990757e1eca37d2f3021e4e82b8d5ad1506f022781d643237",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "有依据地质疑观点"
+    },
+    {
+      "component_id": "lc_141081732cb5dec2",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够尊重证据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生尊重证据，并说明关键步骤、特征或依据。",
+      "label": "尊重证据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够尊重证据；优先采集：合作研究记录、议题判断、行动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "尊重证据",
+          "excerpt_hash": "00a1a568572d608c71928c86d027ed91651f710ec6969b036f904586befb2a53",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "尊重证据"
+    },
+    {
+      "component_id": "lc_91ebf36042a8127d",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够观察和实验结果不一致时坚持再次验证",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生观察和实验结果不一致时坚持再次验证，并说明关键步骤、特征或依据。",
+      "label": "观察和实验结果不一致时坚持再次验证",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够观察和实验结果不一致时坚持再次验证；优先采集：合作研究记录、议题判断、行动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "观察和实验结果不一致时坚持再次验证",
+          "excerpt_hash": "02a898a1a6ab2d1d4d6c9f057dddfacf752ab1a10925fada544c2c5d47b60e83",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "观察和实验结果不一致时坚持再次验证"
+    },
+    {
+      "component_id": "lc_6abed9dbd49807e5",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够乐于思考科学现象的原因、规律和理论问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生乐于思考科学现象的原因、规律和理论问题，并说明关键步骤、特征或依据。",
+      "label": "乐于思考科学现象的原因、规律和理论问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够乐于思考科学现象的原因、规律和理论问题；优先采集：合作研究记录、议题判断、行动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "乐于思考科学现象的原因、规律和理论问题",
+          "excerpt_hash": "679ddc55a3cc9d7c80281325404b24073876d4dcf3b9d48b9742cb838325e14c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "乐于思考科学现象的原因、规律和理论问题"
+    },
+    {
+      "component_id": "lc_95a46dc57840dcd2",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用观察证据说明基本科学概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用观察证据说明基本科学概念",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：合作研究记录、议题判断、行动方案。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用观察证据说明基本科学概念",
+          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-AR-013:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用观察证据说明基本科学概念"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0673,
+      "edge_id": "pc_0091f51957fbb2a6",
+      "evidence_refs": [
+        "standard:SC-H4G7-AR-013:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-AR-006",
+      "source_label": "能合作制定探究计划，收集并分析数据，用图表或模型呈现结论。",
+      "target_code": "SC-H4G7-AR-013",
+      "target_label": "能有依据地质疑观点并尊重证据；能观察和实验结果不一致时坚持再次验证；能乐于思考科学现象的原因、规律和理论问题；能用观察证据说明基本科学概念。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1147,
+      "edge_id": "pc_c0a519963aa1f578",
+      "evidence_refs": [
+        "standard:SC-H4G7-AR-013:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-D3-AR-008",
+      "source_label": "坚持诚实记录与尊重证据，乐于倾听不同观点并进行反思。",
+      "target_code": "SC-H4G7-AR-013",
+      "target_label": "能有依据地质疑观点并尊重证据；能观察和实验结果不一致时坚持再次验证；能乐于思考科学现象的原因、规律和理论问题；能用观察证据说明基本科学概念。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "41774fd6374081f6d12249ecd04c3d558d7ef9c1d926b2024d5ddc914a63a01a",
+  "standard_code": "SC-H4G7-AR-013",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,634 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_60c1c87557eae5da",
+        "lc_1f21059d82bbcfa2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_145f2afb91df9770",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_088419c0780b8cb3",
+        "hc_c79c54fd0cefd332"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“比较证据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较证据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响；认识光合作用中的物质和能量转化及其意义；能知道光合作用的原料、条件、产物和简要过程；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "be69f102ae2748ec18db6aa64d9aa2a392326206420c1e67632cf4f5814053e4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "联系农业生产真实问题，引导学生理解植物体内物质与能量转换。",
+          "excerpt_hash": "5f890b5a504951edffc6c1c6433187d2558dae742fcf9491eab44df087e44909",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较证据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“联系农业生产真实问题，引导学生理解植物体内物质与能量转换。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_60c1c87557eae5da"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_747f3e99d179e079",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_088419c0780b8cb3",
+        "hc_c79c54fd0cefd332"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较证据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较证据”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响；认识光合作用中的物质和能量转化及其意义；能知道光合作用的原料、条件、产物和简要过程；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "be69f102ae2748ec18db6aa64d9aa2a392326206420c1e67632cf4f5814053e4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "联系农业生产真实问题，引导学生理解植物体内物质与能量转换。",
+          "excerpt_hash": "5f890b5a504951edffc6c1c6433187d2558dae742fcf9491eab44df087e44909",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较证据”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“联系农业生产真实问题，引导学生理解植物体内物质与能量转换。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_487c7a525fd8ada6"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生准确说出植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_694724d4cb0e3453",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_694724d4cb0e3453"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“准确说出植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“准确说出植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响；认识光合作用中的物质和能量转化及其意义；能知道光合作用的原料、条件、产物和简要过程；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "be69f102ae2748ec18db6aa64d9aa2a392326206420c1e67632cf4f5814053e4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "联系农业生产真实问题，引导学生理解植物体内物质与能量转换。",
+          "excerpt_hash": "5f890b5a504951edffc6c1c6433187d2558dae742fcf9491eab44df087e44909",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后准确说出植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“联系农业生产真实问题，引导学生理解植物体内物质与能量转换。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_022645a387b2d454",
+        "lc_1f21059d82bbcfa2"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出光合作用中的物质和能量转化及其意义的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1f17ae1fac013527",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_088419c0780b8cb3"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出光合作用中的物质和能量转化及其意义的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出光合作用中的物质和能量转化及其意义的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响；认识光合作用中的物质和能量转化及其意义；能知道光合作用的原料、条件、产物和简要过程；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "be69f102ae2748ec18db6aa64d9aa2a392326206420c1e67632cf4f5814053e4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "联系农业生产真实问题，引导学生理解植物体内物质与能量转换。",
+          "excerpt_hash": "5f890b5a504951edffc6c1c6433187d2558dae742fcf9491eab44df087e44909",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-019:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出光合作用中的物质和能量转化及其意义的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出光合作用中的物质和能量转化及其意义的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“联系农业生产真实问题，引导学生理解植物体内物质与能量转换。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 6,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d5ae3158c5277bdf",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0f6edf1eb52b44920973",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_77ef51325c22"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_aa920dd0236fd836",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9f3916f61697ad05",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a7fe299869b84f655a87",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a871f50d9e2b"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c38c1b84336fa7fa",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1632e41bb71a12fb",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b4de49a3e2e59c9c76bf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5f552244f754"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e4f214193210f062",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a440c9148211f75e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c8cec7bb4ee4d9a29577",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ce524ff21ae1"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d75ade93cbf14989",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1c0e437eee0cd5e8",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_d5ca89ccc00d3103a7f8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a0a929bcb6e9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e8478f57c656a4",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_da273eb407f73409",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f0de8cbbeb88661f44d6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ffb2a04886aa"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_23244c2ebb335c01",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_5434a7a4a6cb5a52",
+      "evidence_refs": [
+        "standard:SC-H4G8-SC-019:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G8-SC-019",
+      "target_code": "SC-H4G9-SC-019",
+      "target_label": "阐释植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响；能说明植物对无机盐和水分的吸收、运输、利用和散失过程；阐释光合作用的原料、条件、…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_088419c0780b8cb3",
+      "component_ids": [
+        "lc_60c1c87557eae5da",
+        "lc_1f21059d82bbcfa2"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较证据；优先采集：植物生长实验报告、概念模型、农业应用说明。",
+        "学生能够解释概念之间的关系；优先采集：植物生长实验报告、概念模型、农业应用说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响；认识光合作用中的物质和能量转化及其意义；能知道光合作用的原料、条件、产物和简要过程；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "be69f102ae2748ec18db6aa64d9aa2a392326206420c1e67632cf4f5814053e4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_c79c54fd0cefd332",
+      "component_ids": [
+        "lc_60c1c87557eae5da"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较证据；优先采集：植物生长实验报告、概念模型、农业应用说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响；认识光合作用中的物质和能量转化及其意义；能知道光合作用的原料、条件、产物和简要过程；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "be69f102ae2748ec18db6aa64d9aa2a392326206420c1e67632cf4f5814053e4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_694724d4cb0e3453",
+      "component_ids": [
+        "lc_487c7a525fd8ada6"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "转换"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够准确说出植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响；优先采集：植物生长实验报告、概念模型、农业应用说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能知道植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响；认识光合作用中的物质和能量转化及其意义；能知道光合作用的原料、条件、产物和简要过程；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "be69f102ae2748ec18db6aa64d9aa2a392326206420c1e67632cf4f5814053e4",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（转换）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_487c7a525fd8ada6",
+      "component_type": "representational",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响，并说明关键步骤、特征或依据。",
+      "label": "准确说出植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响；优先采集：植物生长实验报告、概念模型、农业应用说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响",
+          "excerpt_hash": "a20925d904365c47dd16f300167b01ca0755591c1c292e93ffc6c5a61069bce7",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响"
+    },
+    {
+      "component_id": "lc_022645a387b2d454",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出光合作用中的物质和能量转化及其意义的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出光合作用中的物质和能量转化及其意义的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出光合作用中的物质和能量转化及其意义的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出光合作用中的物质和能量转化及其意义的关键特征；优先采集：植物生长实验报告、概念模型、农业应用说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "认识光合作用中的物质和能量转化及其意义",
+          "excerpt_hash": "7f1f6951ae13b8e081274c7fe2e5b8792466d80e218b84fce65ca9fe6e27b257",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "认识光合作用中的物质和能量转化及其意义"
+    },
+    {
+      "component_id": "lc_790b4f9e4da5904c",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够准确说出光合作用的原料、条件、产物和简要过程",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出光合作用的原料、条件、产物和简要过程，并说明关键步骤、特征或依据。",
+      "label": "准确说出光合作用的原料、条件、产物和简要过程",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够准确说出光合作用的原料、条件、产物和简要过程；优先采集：植物生长实验报告、概念模型、农业应用说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "知道光合作用的原料、条件、产物和简要过程",
+          "excerpt_hash": "6b3deec4c4d4bb71270f3ab9572c28cffb52b9a3007889718439b3718aa0ec70",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "知道光合作用的原料、条件、产物和简要过程"
+    },
+    {
+      "component_id": "lc_60c1c87557eae5da",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较证据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较证据，并说明关键步骤、特征或依据。",
+      "label": "比较证据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较证据；优先采集：植物生长实验报告、概念模型、农业应用说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较证据",
+          "excerpt_hash": "991569e1419bfb53d107f820e29cc506985fb42dec521ee976a4309299317eac",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较证据"
+    },
+    {
+      "component_id": "lc_1f21059d82bbcfa2",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释概念之间的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释概念之间的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释概念之间的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释概念之间的关系；优先采集：植物生长实验报告、概念模型、农业应用说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释概念之间的关系",
+          "excerpt_hash": "7176bf29ca46d45d574a0ab078112ade02e1c191616f7761e6189d6092a666dd",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-019:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释概念之间的关系"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_4cbbd9cbb9b6fe3e",
+      "evidence_refs": [
+        "standard:SC-H4G8-SC-019:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G7-SC-020",
+      "source_label": "能知道植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响；能描述无机盐和水对生命活动的作用；能知道光合作用的原料、条件、产物和简要过程；…",
+      "target_code": "SC-H4G8-SC-019",
+      "target_label": "能知道植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响；认识光合作用中的物质和能量转化及其意义；能知道光合作用的原料、条件、产物和简要…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "be69f102ae2748ec18db6aa64d9aa2a392326206420c1e67632cf4f5814053e4",
+  "standard_code": "SC-H4G8-SC-019",
+  "verified_prerequisites": []
+}

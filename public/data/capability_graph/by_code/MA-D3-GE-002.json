@@ -1,0 +1,332 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_4817da6dc601a3fc"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用相应公式解决实际问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_90b7d4bdd65978ef",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_043fb6c6c3991c1c"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“用相应公式解决实际问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用相应公式解决实际问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会计算平行四边形、三角形、梯形的面积，能用相应公式解决实际问题。",
+          "excerpt_hash": "4a4136fb029abefaf9ab448bcf51c0899219cffbb3fdd9cdb8a0f45b0bb45ad6",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生运用转化的思想，推导平行四边形、三角形、梯形、圆等平面图形的面积公式，形成空间观念和推理意识。",
+          "excerpt_hash": "82f8eaaff6956a8efb29cce60c40648064284554c8c369d2859098771f0d5a73",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-GE-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用相应公式解决实际问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用相应公式解决实际问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“引导学生运用转化的思想，推导平行四边形、三角形、梯形、圆等平面图形的面积公式，形成空间观念和推理意识。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_31b88e49cc578944",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_10296c173573f69db498",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e5b0376a10bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e2243ea8644ffb3f",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_95c6f82d2e6fb83b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1ba8117dec0624e11c0e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b06437a92308"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_52ef62335b18e7df",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a2b9ade045ef9f20",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b1f651484391fce9",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2773b0da4c42eab4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6f696b62cd631c35e5d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_98536ea16bbc"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e1c2312794f3e566",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.175,
+      "connection_id": "fc_72d21fd71b5f51e4",
+      "evidence_refs": [
+        "standard:MA-H4G7-GE-013:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-GE-002",
+      "target_code": "MA-H4G7-GE-013",
+      "target_label": "理解平行四边形、矩形、菱形、正方形、梯形及其关系；了解多边形概念和内角和、外角和公式；理解两条平行线之间距离；能说明解题步骤和基本依据。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0976,
+      "connection_id": "fc_0ea6c01664dbf95e",
+      "evidence_refs": [
+        "standard:MA-H4G7-GE-016:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-GE-002",
+      "target_code": "MA-H4G7-GE-016",
+      "target_label": "了解三角形内心与外心；理解圆、弧、弦、圆心角、圆周角等概念；掌握切线概念；能说明解题步骤和基本依据。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1459,
+      "connection_id": "fc_0e4b63114d931253",
+      "evidence_refs": [
+        "standard:MA-H4G7-GE-031:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-GE-002",
+      "target_code": "MA-H4G7-GE-031",
+      "target_label": "认识锐角三角函数并会用相关知识解直角三角形和解决简单实际问题；掌握平行线截线段成比例基本事实；了解相似三角形判定和性质；能说明解题步骤和基本依…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_043fb6c6c3991c1c",
+      "component_ids": [
+        "lc_4817da6dc601a3fc"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "实际"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用相应公式解决实际问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用相应公式解决实际问题；优先采集：作图/测量作品、解题过程记录、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "会计算平行四边形、三角形、梯形的面积，能用相应公式解决实际问题。",
+          "excerpt_hash": "4a4136fb029abefaf9ab448bcf51c0899219cffbb3fdd9cdb8a0f45b0bb45ad6",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（实际）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_ed8cf8eca8c3b394",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够计算平行四边形、三角形、梯形的面积",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生计算平行四边形、三角形、梯形的面积，并说明关键步骤、特征或依据。",
+      "label": "计算平行四边形、三角形、梯形的面积",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够计算平行四边形、三角形、梯形的面积；优先采集：作图/测量作品、解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "计算平行四边形、三角形、梯形的面积",
+          "excerpt_hash": "54ea1922be8415646e0b30903a12e78eb4686863d0b7286b495d2101f97303e4",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "计算平行四边形、三角形、梯形的面积"
+    },
+    {
+      "component_id": "lc_4817da6dc601a3fc",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用相应公式解决实际问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用相应公式解决实际问题，并说明关键步骤、特征或依据。",
+      "label": "用相应公式解决实际问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用相应公式解决实际问题；优先采集：作图/测量作品、解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用相应公式解决实际问题",
+          "excerpt_hash": "d130dc4575a4dc935e1ec22f491371ad88a001199ac6ef0c10239d6c4ea82768",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-GE-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用相应公式解决实际问题"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4a4136fb029abefaf9ab448bcf51c0899219cffbb3fdd9cdb8a0f45b0bb45ad6",
+  "standard_code": "MA-D3-GE-002",
+  "verified_prerequisites": []
+}

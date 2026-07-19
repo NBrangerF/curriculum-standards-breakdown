@@ -1,0 +1,364 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_1366a05693dfdb6f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生完成简短交流的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5cedfacf5d579472",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“完成简短交流”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“完成简短交流”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据目标和进展合理调整学习计划和策略；能制订明确的英语学习目标和计划；能主动反思学习进步与不足；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "925636812e14e1c154241b02abee7abcaa0265b10457dff56a46b9c23c54fc06",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把计划、执行、反思和调整作为连续学习过程进行指导和评价。",
+          "excerpt_hash": "70281759a8bf31f845a81f5d22a859f98622c948ee016fd829426d75805dda9a",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-SA-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后完成简短交流，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“完成简短交流”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把计划、执行、反思和调整作为连续学习过程进行指导和评价。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_902915db624f75c3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_600fc96aca5a7c702986",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c81ef75b15c2"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f2972c892efdda49",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_4ef7fa86b415d69c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fcc8f13544f60ac83228",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_006c435d5baa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b6842528f75f35c9",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_6d3e17716482d7e4",
+      "evidence_refs": [
+        "standard:EN-H4G7-SA-004:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-H4G7-SA-004",
+      "target_code": "EN-H4G8-SA-005",
+      "target_label": "能根据目标和进展合理调整学习计划和策略；能制订明确的英语学习目标和计划；能主动反思学习进步与不足；能整合语篇信息并说明观点或文化差异。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_1749ce0ccb04bbdd",
+      "component_ids": [
+        "lc_c3f0212f61664883"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生根据目标和进展合理调整学习计划和策略。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够根据目标和进展合理调整学习计划和策略；优先采集：学习计划、错因分析、策略调整记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能根据目标和进展合理调整学习计划和策略；能制订明确的英语学习目标和计划；能主动反思学习进步与不足；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "925636812e14e1c154241b02abee7abcaa0265b10457dff56a46b9c23c54fc06",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c3f0212f61664883",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够根据目标和进展合理调整学习计划和策略",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生根据目标和进展合理调整学习计划和策略，并说明关键步骤、特征或依据。",
+      "label": "根据目标和进展合理调整学习计划和策略",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够根据目标和进展合理调整学习计划和策略；优先采集：学习计划、错因分析、策略调整记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "根据目标和进展合理调整学习计划和策略",
+          "excerpt_hash": "4fcd024508c4b1ecdd9b15ff5c8b0e14769ce612120abba2e9fc1fe1b3a23999",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "根据目标和进展合理调整学习计划和策略"
+    },
+    {
+      "component_id": "lc_6c29f476f430b851",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够制订明确的英语学习目标和计划",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生制订明确的英语学习目标和计划，并说明关键步骤、特征或依据。",
+      "label": "制订明确的英语学习目标和计划",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够制订明确的英语学习目标和计划；优先采集：学习计划、错因分析、策略调整记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "制订明确的英语学习目标和计划",
+          "excerpt_hash": "ce8246ac8ef9e61f2ba809951d989ec4b411a9724459df7251b50f630f17add6",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "制订明确的英语学习目标和计划"
+    },
+    {
+      "component_id": "lc_aa7b97cdeb2c2c8b",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够主动反思学习进步与不足",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生主动反思学习进步与不足，并说明关键步骤、特征或依据。",
+      "label": "主动反思学习进步与不足",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够主动反思学习进步与不足；优先采集：学习计划、错因分析、策略调整记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "主动反思学习进步与不足",
+          "excerpt_hash": "5018a115a78be0bc7a078903ae16f2d8c60cfe1b3507dffd1874f7bf7b97a110",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "主动反思学习进步与不足"
+    },
+    {
+      "component_id": "lc_37d4e710ff3e87e7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够获取关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
+      "label": "获取关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够获取关键信息；优先采集：学习计划、错因分析、策略调整记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "获取关键信息",
+          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "获取关键信息"
+    },
+    {
+      "component_id": "lc_1366a05693dfdb6f",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成简短交流",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成简短交流，并说明关键步骤、特征或依据。",
+      "label": "完成简短交流",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成简短交流；优先采集：学习计划、错因分析、策略调整记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成简短交流",
+          "excerpt_hash": "e0d8e980d38fdd45deaf2acf3d21d16ee5acd4e273483f5057e96bc61198198b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成简短交流"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2028,
+      "edge_id": "pc_ab2e4e3321352c0d",
+      "evidence_refs": [
+        "standard:EN-H4G7-SA-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-SA-004",
+      "source_label": "尝试根据学习进展调整学习计划和策略。",
+      "target_code": "EN-H4G7-SA-004",
+      "target_label": "能根据目标和进展合理调整学习计划和策略；能制订明确的英语学习目标和计划；能主动反思学习进步与不足；能获取关键信息并完成简短交流。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0797,
+      "edge_id": "pc_d0f4985f32beb076",
+      "evidence_refs": [
+        "standard:EN-H4G7-SA-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-SA-006",
+      "source_label": "能借助多种渠道或资源学习英语。",
+      "target_code": "EN-H4G7-SA-004",
+      "target_label": "能根据目标和进展合理调整学习计划和策略；能制订明确的英语学习目标和计划；能主动反思学习进步与不足；能获取关键信息并完成简短交流。"
+    },
+    {
+      "confidence": "high",
+      "confidence_score": 0.2578,
+      "edge_id": "pc_42c50e317bec3f3e",
+      "evidence_refs": [
+        "standard:EN-H4G7-SA-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-SA-008",
+      "source_label": "能在教师指导下，制订并完成简单的英语学习计划，及时预习和复习所学内容。",
+      "target_code": "EN-H4G7-SA-004",
+      "target_label": "能根据目标和进展合理调整学习计划和策略；能制订明确的英语学习目标和计划；能主动反思学习进步与不足；能获取关键信息并完成简短交流。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 3,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "925636812e14e1c154241b02abee7abcaa0265b10457dff56a46b9c23c54fc06",
+  "standard_code": "EN-H4G7-SA-004",
+  "verified_prerequisites": []
+}

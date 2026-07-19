@@ -1,0 +1,528 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_58c8517ea3af9bcb",
+        "lc_98650589195e676a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生依据事物特征，按照一定标准进行分类的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6a482a2bcccefd37",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b637e0c610018ed0",
+        "hc_d74df6cd1f5db497"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“依据事物特征，按照一定标准进行分类”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“依据事物特征，按照一定标准进行分类”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "依据事物特征，按照一定标准进行分类；发现事物特征后制订分类标准并依标准分类；能用语言简单描述分类结果；感知事物共性与差异，形成初步数据意识",
+          "excerpt_hash": "e65bb1f3dceeab2710924f79e63385a62dce253f51ddd900e5470fe66c24c2a3",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "数据分类教学重视对接学生已有生活经验，鼓励学生亲身参与动手活动感悟分类价值；鼓励学生用文字、图画或表格记录分类结果，体会数学语言表达现实世界",
+          "excerpt_hash": "617a49c854f2ab67fb9fad0437411cb4bb599328cc1de2c13945d5524290e84a",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D1-ST-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后依据事物特征，按照一定标准进行分类，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“依据事物特征，按照一定标准进行分类”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“数据分类教学重视对接学生已有生活经验，鼓励学生亲身参与动手活动感悟分类价值”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_58c8517ea3af9bcb",
+        "lc_014affdf464ac3eb",
+        "lc_fb6f6c4b1c5d9c11"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生依据事物特征，按照一定标准进行分类的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_586a602d5f600a4d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b637e0c610018ed0",
+        "hc_d74df6cd1f5db497"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“依据事物特征，按照一定标准进行分类”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“依据事物特征，按照一定标准进行分类”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "依据事物特征，按照一定标准进行分类；发现事物特征后制订分类标准并依标准分类；能用语言简单描述分类结果；感知事物共性与差异，形成初步数据意识",
+          "excerpt_hash": "e65bb1f3dceeab2710924f79e63385a62dce253f51ddd900e5470fe66c24c2a3",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "数据分类教学重视对接学生已有生活经验，鼓励学生亲身参与动手活动感悟分类价值；鼓励学生用文字、图画或表格记录分类结果，体会数学语言表达现实世界",
+          "excerpt_hash": "617a49c854f2ab67fb9fad0437411cb4bb599328cc1de2c13945d5524290e84a",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D1-ST-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后依据事物特征，按照一定标准进行分类，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“依据事物特征，按照一定标准进行分类”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“数据分类教学重视对接学生已有生活经验，鼓励学生亲身参与动手活动感悟分类价值”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_fb6f6c4b1c5d9c11",
+        "lc_b65eea54ddc1e282"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用语言简单描述分类结果的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_73ddd87ce581a564",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d74df6cd1f5db497"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“用语言简单描述分类结果”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用语言简单描述分类结果”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "依据事物特征，按照一定标准进行分类；发现事物特征后制订分类标准并依标准分类；能用语言简单描述分类结果；感知事物共性与差异，形成初步数据意识",
+          "excerpt_hash": "e65bb1f3dceeab2710924f79e63385a62dce253f51ddd900e5470fe66c24c2a3",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "数据分类教学重视对接学生已有生活经验，鼓励学生亲身参与动手活动感悟分类价值；鼓励学生用文字、图画或表格记录分类结果，体会数学语言表达现实世界",
+          "excerpt_hash": "617a49c854f2ab67fb9fad0437411cb4bb599328cc1de2c13945d5524290e84a",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D1-ST-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用语言简单描述分类结果，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用语言简单描述分类结果”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“数据分类教学重视对接学生已有生活经验，鼓励学生亲身参与动手活动感悟分类价值”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_58c8517ea3af9bcb",
+        "lc_014affdf464ac3eb",
+        "lc_b65eea54ddc1e282"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生依据事物特征，按照一定标准进行分类的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_7f23ac74ce3af090",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_b637e0c610018ed0",
+        "hc_d74df6cd1f5db497"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“依据事物特征，按照一定标准进行分类”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“依据事物特征，按照一定标准进行分类”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "依据事物特征，按照一定标准进行分类；发现事物特征后制订分类标准并依标准分类；能用语言简单描述分类结果；感知事物共性与差异，形成初步数据意识",
+          "excerpt_hash": "e65bb1f3dceeab2710924f79e63385a62dce253f51ddd900e5470fe66c24c2a3",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "数据分类教学重视对接学生已有生活经验，鼓励学生亲身参与动手活动感悟分类价值；鼓励学生用文字、图画或表格记录分类结果，体会数学语言表达现实世界",
+          "excerpt_hash": "617a49c854f2ab67fb9fad0437411cb4bb599328cc1de2c13945d5524290e84a",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D1-ST-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后依据事物特征，按照一定标准进行分类，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“依据事物特征，按照一定标准进行分类”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“数据分类教学重视对接学生已有生活经验，鼓励学生亲身参与动手活动感悟分类价值”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_01021d634b76686e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0104742f3f9d88bc5c04",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_1e657bea201b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b5e621d13fc27a93",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_923e1978e9d80b37",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_17c68dba255a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d087e833a9603dd8",
+      "textbook_grade": 2,
+      "textbook_subject": "数学",
+      "textbook_title": "数学2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e1c3236c5ea61773",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_390c425094d7420b8aec",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_584787a24f66"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0092f57d8acf1e62",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_36b8f11286985144",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_53a4df4ad1d6428c5988",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9af3fe885fc8"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_2f6e825185227a9e",
+      "textbook_grade": 2,
+      "textbook_subject": "数学",
+      "textbook_title": "数学2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_e1e3c1418279de1c",
+      "evidence_refs": [
+        "standard:MA-D1-ST-001:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D1-ST-001",
+      "target_code": "MA-D2-ST-001",
+      "target_label": "能收集、整理具体实例中的数据，并用合适的方式描述数据，分析与表达数据中蕴含的信息。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_b637e0c610018ed0",
+      "component_ids": [
+        "lc_58c8517ea3af9bcb",
+        "lc_98650589195e676a"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生依据事物特征，按照一定标准进行分类。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够依据事物特征，按照一定标准进行分类；优先采集：数据任务单/图表、口头/书面解释。",
+        "学生能够在任务中表现出初步数据意识并说明选择理由；优先采集：数据任务单/图表、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "依据事物特征，按照一定标准进行分类；发现事物特征后制订分类标准并依标准分类；能用语言简单描述分类结果；感知事物共性与差异，形成初步数据意识",
+          "excerpt_hash": "e65bb1f3dceeab2710924f79e63385a62dce253f51ddd900e5470fe66c24c2a3",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_d74df6cd1f5db497",
+      "component_ids": [
+        "lc_58c8517ea3af9bcb",
+        "lc_014affdf464ac3eb",
+        "lc_fb6f6c4b1c5d9c11"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生依据事物特征，按照一定标准进行分类。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够依据事物特征，按照一定标准进行分类；优先采集：数据任务单/图表、口头/书面解释。",
+        "学生能够发现事物特征后制订分类标准并依标准分类；优先采集：数据任务单/图表、口头/书面解释。",
+        "学生能够用语言简单描述分类结果；优先采集：数据任务单/图表、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "依据事物特征，按照一定标准进行分类；发现事物特征后制订分类标准并依标准分类；能用语言简单描述分类结果；感知事物共性与差异，形成初步数据意识",
+          "excerpt_hash": "e65bb1f3dceeab2710924f79e63385a62dce253f51ddd900e5470fe66c24c2a3",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_58c8517ea3af9bcb",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够依据事物特征，按照一定标准进行分类",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生依据事物特征，按照一定标准进行分类，并保留可回查的口头、书面或操作过程证据。",
+      "label": "依据事物特征，按照一定标准进行分类",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够依据事物特征，按照一定标准进行分类；优先采集：数据任务单/图表、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "依据事物特征，按照一定标准进行分类",
+          "excerpt_hash": "165195daba8f7555aa5a56ef1dd6d7cfcaf6e8b866b408667d433792be681a8c",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "依据事物特征，按照一定标准进行分类"
+    },
+    {
+      "component_id": "lc_014affdf464ac3eb",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够发现事物特征后制订分类标准并依标准分类",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生发现事物特征后制订分类标准并依标准分类，并说明关键步骤、特征或依据。",
+      "label": "发现事物特征后制订分类标准并依标准分类",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够发现事物特征后制订分类标准并依标准分类；优先采集：数据任务单/图表、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "发现事物特征后制订分类标准并依标准分类",
+          "excerpt_hash": "c3af12b7912f6214145c44c2f5a94ba658df2d3950d1addf3cf764027487a697",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "发现事物特征后制订分类标准并依标准分类"
+    },
+    {
+      "component_id": "lc_fb6f6c4b1c5d9c11",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用语言简单描述分类结果",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用语言简单描述分类结果，并说明关键步骤、特征或依据。",
+      "label": "用语言简单描述分类结果",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用语言简单描述分类结果；优先采集：数据任务单/图表、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用语言简单描述分类结果",
+          "excerpt_hash": "13fee2225940402f5195cbae9be69ac3d22ab568be9bee06fb756196e17778de",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用语言简单描述分类结果"
+    },
+    {
+      "component_id": "lc_b65eea54ddc1e282",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并描述事物共性与差异",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并描述事物共性与差异，并说明关键步骤、特征或依据。",
+      "label": "识别并描述事物共性与差异",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并描述事物共性与差异；优先采集：数据任务单/图表、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "感知事物共性与差异",
+          "excerpt_hash": "473ba371c1e03c9f83f8887c482cea97d0779c76b8fbadd4a73fb905c2b6af56",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "感知事物共性与差异"
+    },
+    {
+      "component_id": "lc_98650589195e676a",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出初步数据意识并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出初步数据意识并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出初步数据意识并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出初步数据意识并说明选择理由；优先采集：数据任务单/图表、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成初步数据意识",
+          "excerpt_hash": "271bbcc238b7c2bfb4d9e90e6f03fed72e3bec319c8d99218b8c23a361ad5bf0",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成初步数据意识"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e65bb1f3dceeab2710924f79e63385a62dce253f51ddd900e5470fe66c24c2a3",
+  "standard_code": "MA-D1-ST-001",
+  "verified_prerequisites": []
+}

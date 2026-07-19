@@ -1,0 +1,346 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_b05e07d15232c7fc",
+        "lc_f6f9333d74cc5165"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出组成部分的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_16b7a5b749c180bf",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_72b5ea0741076dfe"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出组成部分”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出组成部分”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "简单图形拼图或组合并说出组成部分；说出立体图形的一个面对应的平面图形，形成初步空间观念",
+          "excerpt_hash": "2b86fb288c1a2a1f636147beaf2c4ff53ed06f988e6fb41a63afde4c5ca17a58",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-GE-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "提供不同的图形拼图活动，让学生在实际操作中理解立体图形和它们的平面面之间的关系。通过教具或实物模型，让孩子观察立体图形的每个面，并能够将其与已知的平面图形进行匹配。利用实际操作和视觉引导，帮助学生理解并抽象图形的结构。",
+          "excerpt_hash": "5f33ceabb9ded642ad8f8282506d35fb00d4721d69a8d5ca6ba5bba4d87d1c03",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D1-GE-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出组成部分，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出组成部分”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“提供不同的图形拼图活动，让学生在实际操作中理解立体图形和它们的平面面之间的关系。通过教具或实物模型，让孩子观察立体图形的每个面，并能够将其与已知的平面图形进行匹配。利用实际操作和视觉引导，帮助学生理解并抽象图形的结构。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bf2b57607f6789e1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0104742f3f9d88bc5c04",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_1e657bea201b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b5e621d13fc27a93",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_694b82d7fba0cc32",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_17c68dba255a"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d087e833a9603dd8",
+      "textbook_grade": 2,
+      "textbook_subject": "数学",
+      "textbook_title": "数学2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_102e7f87bc8f8e98",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_390c425094d7420b8aec",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_584787a24f66"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0092f57d8acf1e62",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2cc1bab03759a42d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_53a4df4ad1d6428c5988",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9af3fe885fc8"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_2f6e825185227a9e",
+      "textbook_grade": 2,
+      "textbook_subject": "数学",
+      "textbook_title": "数学2年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_c59d4bba456df940",
+      "evidence_refs": [
+        "standard:MA-D1-GE-002:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D1-GE-002",
+      "target_code": "MA-D2-GE-006",
+      "target_label": "经历用直尺和圆规将三角形的三条边画到一条直线上的过程，直观感受三角形的周长，知道什么是图形的周长；会测量三角形、长方形和正方形的周长；会计算长…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_72b5ea0741076dfe",
+      "component_ids": [
+        "lc_67e3b554bc9f482b",
+        "lc_b05e07d15232c7fc",
+        "lc_f6f9333d74cc5165"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生简单图形拼图或组合。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够简单图形拼图或组合；优先采集：作图/测量作品、口头/书面解释。",
+        "学生能够说出组成部分；优先采集：作图/测量作品、口头/书面解释。",
+        "学生能够说出立体图形的一个面对应的平面图形；优先采集：作图/测量作品、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "简单图形拼图或组合并说出组成部分；说出立体图形的一个面对应的平面图形，形成初步空间观念",
+          "excerpt_hash": "2b86fb288c1a2a1f636147beaf2c4ff53ed06f988e6fb41a63afde4c5ca17a58",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-GE-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "简单图形拼图或组合；说出组成部分；说出立体图形的一个面对应的平面图形",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_67e3b554bc9f482b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够简单图形拼图或组合",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生简单图形拼图或组合，并说明关键步骤、特征或依据。",
+      "label": "简单图形拼图或组合",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够简单图形拼图或组合；优先采集：作图/测量作品、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "简单图形拼图或组合",
+          "excerpt_hash": "6221adc1257eca1f9c262cea74f82f24c4ae4bec808b1880c4fd06ad3ede7ad6",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-GE-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "简单图形拼图或组合"
+    },
+    {
+      "component_id": "lc_b05e07d15232c7fc",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出组成部分",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出组成部分，并说明关键步骤、特征或依据。",
+      "label": "说出组成部分",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出组成部分；优先采集：作图/测量作品、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出组成部分",
+          "excerpt_hash": "de2721ef5fa7a202339d1877b9373728b39b47671502eba31f15775a92b9f8b8",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-GE-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出组成部分"
+    },
+    {
+      "component_id": "lc_f6f9333d74cc5165",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出立体图形的一个面对应的平面图形",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出立体图形的一个面对应的平面图形，并说明关键步骤、特征或依据。",
+      "label": "说出立体图形的一个面对应的平面图形",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出立体图形的一个面对应的平面图形；优先采集：作图/测量作品、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出立体图形的一个面对应的平面图形",
+          "excerpt_hash": "27a4854ca888860de9459f37a6841074ba108afb139c192d71382e228ab6d8ed",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-GE-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出立体图形的一个面对应的平面图形"
+    },
+    {
+      "component_id": "lc_151912fb112e90c5",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出初步空间观念并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出初步空间观念并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出初步空间观念并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出初步空间观念并说明选择理由；优先采集：作图/测量作品、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成初步空间观念",
+          "excerpt_hash": "eae79ce225d2f268bdddfcb3b6a0e4928ffd4c766ef9bdd02b7282349f4df70c",
+          "field": "standard",
+          "ref_id": "standard:MA-D1-GE-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成初步空间观念"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "2b86fb288c1a2a1f636147beaf2c4ff53ed06f988e6fb41a63afde4c5ca17a58",
+  "standard_code": "MA-D1-GE-002",
+  "verified_prerequisites": []
+}

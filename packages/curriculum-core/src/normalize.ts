@@ -1,4 +1,4 @@
-import type { JsonObject, StandardRecord } from './types.js'
+import type { CurriculumAlignmentSummary, JsonObject, PrerequisiteReviewCoverage, StandardRecord } from './types.js'
 
 export function ensureArray<T = unknown>(value: unknown): T[] {
     if (Array.isArray(value)) return value as T[]
@@ -6,9 +6,9 @@ export function ensureArray<T = unknown>(value: unknown): T[] {
     return [value as T]
 }
 
-export function ensureObject(value: unknown): JsonObject {
-    if (!value || typeof value !== 'object' || Array.isArray(value)) return {}
-    return value as JsonObject
+export function ensureObject<T extends JsonObject = JsonObject>(value: unknown): T {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return {} as T
+    return value as T
 }
 
 export function normalizeStandard(raw: StandardRecord): StandardRecord {
@@ -41,6 +41,18 @@ export function normalizeStandard(raw: StandardRecord): StandardRecord {
         provenance: raw.provenance && typeof raw.provenance === 'object' ? raw.provenance : {},
         official_text: String(raw.official_text || ''),
         field_provenance: raw.field_provenance && typeof raw.field_provenance === 'object' ? raw.field_provenance : {},
+        capability_graph_schema_version: String(raw.capability_graph_schema_version || ''),
+        capability_graph_method: String(raw.capability_graph_method || ''),
+        source_standard_hash: String(raw.source_standard_hash || ''),
+        learning_components: ensureArray(raw.learning_components),
+        verified_prerequisites: ensureArray(raw.verified_prerequisites),
+        prerequisite_candidates: ensureArray(raw.prerequisite_candidates),
+        prerequisite_review_coverage: ensureObject<PrerequisiteReviewCoverage>(raw.prerequisite_review_coverage),
+        hardest_cases: ensureArray(raw.hardest_cases),
+        common_difficulties: ensureArray(raw.common_difficulties),
+        curriculum_alignments: ensureArray(raw.curriculum_alignments),
+        curriculum_alignment_summary: ensureObject<CurriculumAlignmentSummary>(raw.curriculum_alignment_summary),
+        forward_connections: ensureArray(raw.forward_connections),
         relations: ensureArray(raw.relations),
         skill_alignments: ensureArray(raw.skill_alignments),
         textbook_evidence_ids: ensureArray<string>(raw.textbook_evidence_ids),

@@ -1,0 +1,196 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_bbe3d474ae02115f"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生在参与简单家务烹饪劳动中做到有始有终的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e63719bad1ca442e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5167177318c672ac"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“在参与简单家务烹饪劳动中做到有始有终”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在参与简单家务烹饪劳动中做到有始有终，完成分配任务并在结束后整理清洁操作区域，形成认真负责的劳动习惯。",
+          "excerpt_hash": "17aa893455a364973228306025bd6cca6a2dfe2a8067b89b6e58dced901c1e28",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-015:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把任务拆小并明确收尾要求（洗盆/擦台/归位）；用“劳动日志”记录次数与感受；强调尊重家人劳动、珍惜成果。",
+          "excerpt_hash": "85ec9b055fa420fd129141c2bff2066005bd53379c65eb7046a2ad166b80d325",
+          "field": "teaching_tip",
+          "ref_id": "standard:LA-D1-DL-015:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在参与简单家务烹饪劳动中做到有始有终，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在参与简单家务烹饪劳动中做到有始有终”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“把任务拆小并明确收尾要求（洗盆/擦台/归位）”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_989465ef7f48b1fe",
+      "evidence_refs": [
+        "standard:LA-D1-DL-015:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "LA-D1-DL-015",
+      "target_code": "LA-D2-DL-010",
+      "target_label": "能在制作或用餐后完成厨房与餐后清洁（洗碗、擦台面、处理厨余），能做到分类投放与节约粮食。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_5167177318c672ac",
+      "component_ids": [
+        "lc_bbe3d474ae02115f",
+        "lc_279346372ac24d92",
+        "lc_4ca0e791b4ac7729"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在参与简单家务烹饪劳动中做到有始有终。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在参与简单家务烹饪劳动中做到有始有终；优先采集：劳动日志、家长反馈、自我反思一句话。",
+        "学生能够完成分配任务并在结束后整理清洁操作区域；优先采集：劳动日志、家长反馈、自我反思一句话。",
+        "学生能够在任务中表现出认真负责的劳动习惯并说明选择理由；优先采集：劳动日志、家长反馈、自我反思一句话。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在参与简单家务烹饪劳动中做到有始有终，完成分配任务并在结束后整理清洁操作区域，形成认真负责的劳动习惯。",
+          "excerpt_hash": "17aa893455a364973228306025bd6cca6a2dfe2a8067b89b6e58dced901c1e28",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在参与简单家务烹饪劳动中做到有始有终；完成分配任务并在结束后整理清洁操作区域；在任务中表现出认真负责的劳动习惯并说明选择理由",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_bbe3d474ae02115f",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在参与简单家务烹饪劳动中做到有始有终",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在参与简单家务烹饪劳动中做到有始有终，并说明关键步骤、特征或依据。",
+      "label": "在参与简单家务烹饪劳动中做到有始有终",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在参与简单家务烹饪劳动中做到有始有终；优先采集：劳动日志、家长反馈、自我反思一句话。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在参与简单家务烹饪劳动中做到有始有终",
+          "excerpt_hash": "b158aa3fc4fc2e3a17c4dc67d6966191e8ca4f6dea49d3435803776533d45c2b",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在参与简单家务烹饪劳动中做到有始有终"
+    },
+    {
+      "component_id": "lc_279346372ac24d92",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成分配任务并在结束后整理清洁操作区域",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成分配任务并在结束后整理清洁操作区域，并说明关键步骤、特征或依据。",
+      "label": "完成分配任务并在结束后整理清洁操作区域",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成分配任务并在结束后整理清洁操作区域；优先采集：劳动日志、家长反馈、自我反思一句话。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成分配任务并在结束后整理清洁操作区域",
+          "excerpt_hash": "be42b36d1a2b89c5e822b9f205da4f867aa10bf5186686ae36c28ae49d3dbf6d",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成分配任务并在结束后整理清洁操作区域"
+    },
+    {
+      "component_id": "lc_4ca0e791b4ac7729",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出认真负责的劳动习惯并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出认真负责的劳动习惯并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出认真负责的劳动习惯并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出认真负责的劳动习惯并说明选择理由；优先采集：劳动日志、家长反馈、自我反思一句话。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成认真负责的劳动习惯",
+          "excerpt_hash": "aad6cdb706529c777128ce22b9345733f66790ac95935572993c6bc071cfe01b",
+          "field": "standard",
+          "ref_id": "standard:LA-D1-DL-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成认真负责的劳动习惯"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "17aa893455a364973228306025bd6cca6a2dfe2a8067b89b6e58dced901c1e28",
+  "standard_code": "LA-D1-DL-015",
+  "verified_prerequisites": []
+}

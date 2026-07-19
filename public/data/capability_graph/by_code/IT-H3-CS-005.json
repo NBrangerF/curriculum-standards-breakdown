@@ -1,0 +1,301 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_c9b1708f74ede2f5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解释反馈如何让系统更接近目标（如保持温度、亮度或速度）的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_48e953f4301158bb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d16a1e0ec2428d35"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“解释反馈如何让系统更接近目标（如保持温度、亮度或速度）”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解释反馈如何让系统更接近目标（如保持温度、亮度或速度）”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过具体案例识别系统中的反馈与环路，能解释反馈如何让系统更接近目标（如保持温度、亮度或速度），并能提出一种基于反馈的简单优化思路。",
+          "excerpt_hash": "ac27010097b2092fe0b9debcf4c50374a6831fb0299fb7cdd6658c8dfbb51a21",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【看见反馈：系统为什么能‘自动’】\n(1) 先找‘目标值’：如空调设定温度、热水器设定水温、自动灯光的亮度阈值。\n(2) 画反馈闭环：输出产生结果→传感器检测→与目标比较→调整输出。用箭头圈出“返回”的那条线。\n(3) 让学生做‘如果…会怎样’推理：传感器坏了会怎样？阈值设太高/太低会怎样？从而理解优化。\n(4) 简化为可实现规则：如“温度低于X就加热，高于Y就停止”，引导学生把反馈转为条件判断。",
+          "excerpt_hash": "60598fa0030dcf1c953075ed66b08e7897b6fa62fea6f13191e1f7d55cacc5f0",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解释反馈如何让系统更接近目标（如保持温度、亮度或速度），并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解释反馈如何让系统更接近目标（如保持温度、亮度或速度）”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“【看见反馈：系统为什么能‘自动’】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_608e8748fc0f75e3"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生提出一种基于反馈的简单优化思路的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ab835cf2ea8f82e8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9c6efac274f75826"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“提出一种基于反馈的简单优化思路”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“提出一种基于反馈的简单优化思路”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过具体案例识别系统中的反馈与环路，能解释反馈如何让系统更接近目标（如保持温度、亮度或速度），并能提出一种基于反馈的简单优化思路。",
+          "excerpt_hash": "ac27010097b2092fe0b9debcf4c50374a6831fb0299fb7cdd6658c8dfbb51a21",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【看见反馈：系统为什么能‘自动’】\n(1) 先找‘目标值’：如空调设定温度、热水器设定水温、自动灯光的亮度阈值。\n(2) 画反馈闭环：输出产生结果→传感器检测→与目标比较→调整输出。用箭头圈出“返回”的那条线。\n(3) 让学生做‘如果…会怎样’推理：传感器坏了会怎样？阈值设太高/太低会怎样？从而理解优化。\n(4) 简化为可实现规则：如“温度低于X就加热，高于Y就停止”，引导学生把反馈转为条件判断。",
+          "excerpt_hash": "60598fa0030dcf1c953075ed66b08e7897b6fa62fea6f13191e1f7d55cacc5f0",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后提出一种基于反馈的简单优化思路，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“提出一种基于反馈的简单优化思路”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“【看见反馈：系统为什么能‘自动’】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_a37f50620b760998"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生通过具体案例识别系统中的反馈与环路的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_af36fc5ceeec71cb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“通过具体案例识别系统中的反馈与环路”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“通过具体案例识别系统中的反馈与环路”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过具体案例识别系统中的反馈与环路，能解释反馈如何让系统更接近目标（如保持温度、亮度或速度），并能提出一种基于反馈的简单优化思路。",
+          "excerpt_hash": "ac27010097b2092fe0b9debcf4c50374a6831fb0299fb7cdd6658c8dfbb51a21",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【看见反馈：系统为什么能‘自动’】\n(1) 先找‘目标值’：如空调设定温度、热水器设定水温、自动灯光的亮度阈值。\n(2) 画反馈闭环：输出产生结果→传感器检测→与目标比较→调整输出。用箭头圈出“返回”的那条线。\n(3) 让学生做‘如果…会怎样’推理：传感器坏了会怎样？阈值设太高/太低会怎样？从而理解优化。\n(4) 简化为可实现规则：如“温度低于X就加热，高于Y就停止”，引导学生把反馈转为条件判断。",
+          "excerpt_hash": "60598fa0030dcf1c953075ed66b08e7897b6fa62fea6f13191e1f7d55cacc5f0",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-CS-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后通过具体案例识别系统中的反馈与环路，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过具体案例识别系统中的反馈与环路”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“【看见反馈：系统为什么能‘自动’】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0488,
+      "connection_id": "fc_da4213a1b7f530ca",
+      "evidence_refs": [
+        "standard:IT-H4G7-CS-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H3-CS-005",
+      "target_code": "IT-H4G7-CS-001",
+      "target_label": "能熟悉网络平台中的技术工具和软件系统功能；能体验数据处理和应用过程；能通过案例分析理解人工智能；能说明数字工具或数据过程的基本做法。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_d16a1e0ec2428d35",
+      "component_ids": [
+        "lc_c9b1708f74ede2f5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生解释反馈如何让系统更接近目标（如保持温度、亮度或速度）。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够解释反馈如何让系统更接近目标（如保持温度、亮度或速度）；优先采集：闭环图、推理记录、口头解释、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过具体案例识别系统中的反馈与环路，能解释反馈如何让系统更接近目标（如保持温度、亮度或速度），并能提出一种基于反馈的简单优化思路。",
+          "excerpt_hash": "ac27010097b2092fe0b9debcf4c50374a6831fb0299fb7cdd6658c8dfbb51a21",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_9c6efac274f75826",
+      "component_ids": [
+        "lc_608e8748fc0f75e3"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "优化"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提出一种基于反馈的简单优化思路。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够提出一种基于反馈的简单优化思路；优先采集：闭环图、推理记录、口头解释、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过具体案例识别系统中的反馈与环路，能解释反馈如何让系统更接近目标（如保持温度、亮度或速度），并能提出一种基于反馈的简单优化思路。",
+          "excerpt_hash": "ac27010097b2092fe0b9debcf4c50374a6831fb0299fb7cdd6658c8dfbb51a21",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（优化）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_a37f50620b760998",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过具体案例识别系统中的反馈与环路",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过具体案例识别系统中的反馈与环路，并说明关键步骤、特征或依据。",
+      "label": "通过具体案例识别系统中的反馈与环路",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过具体案例识别系统中的反馈与环路；优先采集：闭环图、推理记录、口头解释、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过具体案例识别系统中的反馈与环路",
+          "excerpt_hash": "37763666a03e221a746de238c4bf915c7e2727c3fc527f08c7c683d4c6969338",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过具体案例识别系统中的反馈与环路"
+    },
+    {
+      "component_id": "lc_c9b1708f74ede2f5",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释反馈如何让系统更接近目标（如保持温度、亮度或速度）",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释反馈如何让系统更接近目标（如保持温度、亮度或速度），并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释反馈如何让系统更接近目标（如保持温度、亮度或速度）",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释反馈如何让系统更接近目标（如保持温度、亮度或速度）；优先采集：闭环图、推理记录、口头解释、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释反馈如何让系统更接近目标（如保持温度、亮度或速度）",
+          "excerpt_hash": "22519044faa9023fd6ad010c1320c84dd1f4e68206939f9ce7f85c8023aff931",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释反馈如何让系统更接近目标（如保持温度、亮度或速度）"
+    },
+    {
+      "component_id": "lc_608e8748fc0f75e3",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够提出一种基于反馈的简单优化思路",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提出一种基于反馈的简单优化思路，并说明关键步骤、特征或依据。",
+      "label": "提出一种基于反馈的简单优化思路",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够提出一种基于反馈的简单优化思路；优先采集：闭环图、推理记录、口头解释、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "提出一种基于反馈的简单优化思路",
+          "excerpt_hash": "b600ac026cd529f865160c3085efac291875d99a3f4ca31cdb190ed1414ac745",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-CS-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "提出一种基于反馈的简单优化思路"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ac27010097b2092fe0b9debcf4c50374a6831fb0299fb7cdd6658c8dfbb51a21",
+  "standard_code": "IT-H3-CS-005",
+  "verified_prerequisites": []
+}

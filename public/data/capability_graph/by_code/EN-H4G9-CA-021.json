@@ -1,0 +1,417 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_65611dc1d8b113ec"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生善于通过多种渠道获取资料的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4d22ba9723704788",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_05ba33fcf9282068",
+        "hc_e47d48324887c17f"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“善于通过多种渠道获取资料”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“善于通过多种渠道获取资料”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "63c84c826e6255d6bcf26ce4c6bc3e63baa464aaf0be2d1b85239c3f3bb19021",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-021:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把资料来源、归纳分析、合作讨论和成果质量纳入过程评价。",
+          "excerpt_hash": "f71678487987bd2f1f0e2d19913bf3dff2e4fd91aa9b6ca3bcaa96ddaff9bb8a",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G9-CA-021:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后善于通过多种渠道获取资料，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“善于通过多种渠道获取资料”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把资料来源、归纳分析、合作讨论和成果质量纳入过程评价。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_fc11201379c96266"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在任务中表现出连贯表达并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fa653b046b1c9dae",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_94ab441206dd7585"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“在任务中表现出连贯表达并说明选择理由”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在任务中表现出连贯表达并说明选择理由”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "63c84c826e6255d6bcf26ce4c6bc3e63baa464aaf0be2d1b85239c3f3bb19021",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-021:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把资料来源、归纳分析、合作讨论和成果质量纳入过程评价。",
+          "excerpt_hash": "f71678487987bd2f1f0e2d19913bf3dff2e4fd91aa9b6ca3bcaa96ddaff9bb8a",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G9-CA-021:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在任务中表现出连贯表达并说明选择理由，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在任务中表现出连贯表达并说明选择理由”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把资料来源、归纳分析、合作讨论和成果质量纳入过程评价。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1958e42a642f0f27",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ca2005df136f696b98af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_quark_2027_spring_pep_english_grade_9_lower"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "future_candidate",
+      "scope_id": "tcs_54cfcfb15b205d2b",
+      "textbook_grade": 9,
+      "textbook_subject": "英语",
+      "textbook_title": "英语9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fa4f1fdda9a6e7ba",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e0fadc639066b4710fce",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_quark_2026_autumn_pep_english_grade_9_upper"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_likely",
+      "scope_id": "tcs_08aabfe850665d80",
+      "textbook_grade": 9,
+      "textbook_subject": "英语",
+      "textbook_title": "英语9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_05ba33fcf9282068",
+      "component_ids": [
+        "lc_65611dc1d8b113ec",
+        "lc_54f349a90b75b93f",
+        "lc_74186178e1d797cf"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "真实"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生善于通过多种渠道获取资料。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够善于通过多种渠道获取资料；优先采集：资料来源记录、小组讨论记录、合作成果展示。",
+        "学生能够归纳学习素材中的语言和文化现象；优先采集：资料来源记录、小组讨论记录、合作成果展示。",
+        "学生能够从不同角度分析问题；优先采集：资料来源记录、小组讨论记录、合作成果展示。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "63c84c826e6255d6bcf26ce4c6bc3e63baa464aaf0be2d1b85239c3f3bb19021",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（真实）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_e47d48324887c17f",
+      "component_ids": [
+        "lc_65611dc1d8b113ec",
+        "lc_74186178e1d797cf"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同",
+        "多种"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生善于通过多种渠道获取资料。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够善于通过多种渠道获取资料；优先采集：资料来源记录、小组讨论记录、合作成果展示。",
+        "学生能够从不同角度分析问题；优先采集：资料来源记录、小组讨论记录、合作成果展示。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "63c84c826e6255d6bcf26ce4c6bc3e63baa464aaf0be2d1b85239c3f3bb19021",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同、多种）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_94ab441206dd7585",
+      "component_ids": [
+        "lc_fc11201379c96266"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "连贯"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在任务中表现出连贯表达并说明选择理由。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：资料来源记录、小组讨论记录、合作成果展示。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "63c84c826e6255d6bcf26ce4c6bc3e63baa464aaf0be2d1b85239c3f3bb19021",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（连贯）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_65611dc1d8b113ec",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够善于通过多种渠道获取资料",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生善于通过多种渠道获取资料，并说明关键步骤、特征或依据。",
+      "label": "善于通过多种渠道获取资料",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够善于通过多种渠道获取资料；优先采集：资料来源记录、小组讨论记录、合作成果展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "善于通过多种渠道获取资料",
+          "excerpt_hash": "f92dfdb2ef4ea9d58bee29eda65e9017751182a01919a783aee3dd3370f1a8cf",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "善于通过多种渠道获取资料"
+    },
+    {
+      "component_id": "lc_54f349a90b75b93f",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够归纳学习素材中的语言和文化现象",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生归纳学习素材中的语言和文化现象，并说明关键步骤、特征或依据。",
+      "label": "归纳学习素材中的语言和文化现象",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够归纳学习素材中的语言和文化现象；优先采集：资料来源记录、小组讨论记录、合作成果展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "归纳学习素材中的语言和文化现象",
+          "excerpt_hash": "855a44de8575fa12600f5cdea1ae1aea3e6708c0c8537fc05321522c1e31f59b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "归纳学习素材中的语言和文化现象"
+    },
+    {
+      "component_id": "lc_74186178e1d797cf",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够从不同角度分析问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生从不同角度分析问题，并说明关键步骤、特征或依据。",
+      "label": "从不同角度分析问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够从不同角度分析问题；优先采集：资料来源记录、小组讨论记录、合作成果展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "从不同角度分析问题",
+          "excerpt_hash": "617f5d25d6625b0e0021fdd98e33dc8e99c4d411da6b8aa23d46303c5962febc",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "从不同角度分析问题"
+    },
+    {
+      "component_id": "lc_fc11201379c96266",
+      "component_type": "language",
+      "condition": "在真实交际中",
+      "confidence": 0.72,
+      "description": "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在真实交际中”的诊断任务，要求学生在任务中表现出连贯表达并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出连贯表达并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：资料来源记录、小组讨论记录、合作成果展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "63c84c826e6255d6bcf26ce4c6bc3e63baa464aaf0be2d1b85239c3f3bb19021",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成连贯表达"
+    },
+    {
+      "component_id": "lc_27e4c858025ebd88",
+      "component_type": "metacognitive",
+      "condition": "在真实交际中",
+      "confidence": 0.72,
+      "description": "学生在真实交际中，能够反思策略",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在真实交际中”的诊断任务，要求学生反思策略，并说明关键步骤、特征或依据。",
+      "label": "反思策略",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在真实交际中，能够反思策略；优先采集：资料来源记录、小组讨论记录、合作成果展示。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题；能在真实交际中形成连贯表达并反思策略。",
+          "excerpt_hash": "63c84c826e6255d6bcf26ce4c6bc3e63baa464aaf0be2d1b85239c3f3bb19021",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G9-CA-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "反思策略"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_6b91b90562d5b8e3",
+      "evidence_refs": [
+        "standard:EN-H4G9-CA-021:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-H4G8-CA-020",
+      "source_label": "能从不同角度分析问题；能合作完成学习任务；尝试归纳学习素材中的语言和文化现象；能整合语篇信息并说明观点或文化差异。",
+      "target_code": "EN-H4G9-CA-021",
+      "target_label": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题；能在真实交际中形成连贯表达并反思策略。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "63c84c826e6255d6bcf26ce4c6bc3e63baa464aaf0be2d1b85239c3f3bb19021",
+  "standard_code": "EN-H4G9-CA-021",
+  "verified_prerequisites": []
+}

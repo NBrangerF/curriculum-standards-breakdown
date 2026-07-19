@@ -1,0 +1,402 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_fbb1412e521c4a2a",
+        "lc_546f99e6b348cc4a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用审题、选材、列提纲、修改和积累词句等写作策略的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8d6ae78ad345ae48",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用审题、选材、列提纲、修改和积累词句等写作策略”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用审题、选材、列提纲、修改和积累词句等写作策略”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用审题、选材、列提纲、修改和积累词句等写作策略；运用预测、略读、猜词、推断和语篇结构理解等阅读策略；能利用不同感官增强理解和记忆；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "784bb790fcecbef5ccff22e725c4cd81b00c6f7d33eb3aa6946f4c2663cd3614",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把策略教学嵌入阅读、词汇、语法和写作任务，而不是单独讲解策略名称。",
+          "excerpt_hash": "7a289ab73e937c3fdc67fe57d4043d33afc3a35ee772c02222f90324412b27a8",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-SA-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用审题、选材、列提纲、修改和积累词句等写作策略，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用审题、选材、列提纲、修改和积累词句等写作策略”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把策略教学嵌入阅读、词汇、语法和写作任务，而不是单独讲解策略名称。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_fbb1412e521c4a2a",
+        "lc_546f99e6b348cc4a",
+        "lc_c2feb71143100078"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用审题、选材、列提纲、修改和积累词句等写作策略的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6553d7bc36c4144a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“运用审题、选材、列提纲、修改和积累词句等写作策略”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用审题、选材、列提纲、修改和积累词句等写作策略”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用审题、选材、列提纲、修改和积累词句等写作策略；运用预测、略读、猜词、推断和语篇结构理解等阅读策略；能利用不同感官增强理解和记忆；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "784bb790fcecbef5ccff22e725c4cd81b00c6f7d33eb3aa6946f4c2663cd3614",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把策略教学嵌入阅读、词汇、语法和写作任务，而不是单独讲解策略名称。",
+          "excerpt_hash": "7a289ab73e937c3fdc67fe57d4043d33afc3a35ee772c02222f90324412b27a8",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-SA-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用审题、选材、列提纲、修改和积累词句等写作策略，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用审题、选材、列提纲、修改和积累词句等写作策略”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把策略教学嵌入阅读、词汇、语法和写作任务，而不是单独讲解策略名称。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_546f99e6b348cc4a",
+        "lc_09807eb93df42097"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用预测、略读、猜词、推断和语篇结构理解等阅读策略的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d04189d7020dc3d0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_e56c154e31cac74d"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“运用预测、略读、猜词、推断和语篇结构理解等阅读策略”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用预测、略读、猜词、推断和语篇结构理解等阅读策略”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用审题、选材、列提纲、修改和积累词句等写作策略；运用预测、略读、猜词、推断和语篇结构理解等阅读策略；能利用不同感官增强理解和记忆；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "784bb790fcecbef5ccff22e725c4cd81b00c6f7d33eb3aa6946f4c2663cd3614",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把策略教学嵌入阅读、词汇、语法和写作任务，而不是单独讲解策略名称。",
+          "excerpt_hash": "7a289ab73e937c3fdc67fe57d4043d33afc3a35ee772c02222f90324412b27a8",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-H4G7-SA-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用预测、略读、猜词、推断和语篇结构理解等阅读策略，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用预测、略读、猜词、推断和语篇结构理解等阅读策略”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把策略教学嵌入阅读、词汇、语法和写作任务，而不是单独讲解策略名称。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bfbc40e555a1197c",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_600fc96aca5a7c702986",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c81ef75b15c2"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f2972c892efdda49",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_bae6e9ceb235c3c7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fcc8f13544f60ac83228",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_006c435d5baa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b6842528f75f35c9",
+      "textbook_grade": 7,
+      "textbook_subject": "英语",
+      "textbook_title": "英语7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_683b45ce0177e266",
+      "evidence_refs": [
+        "standard:EN-H4G7-SA-005:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-H4G7-SA-005",
+      "target_code": "EN-H4G8-SA-004",
+      "target_label": "运用审题、选材、列提纲、修改和积累词句等写作策略；运用拼读、联想、搭配、分类和构词法等方法学习词语；运用预测、略读、猜词、推断和语篇结构理解等…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_e56c154e31cac74d",
+      "component_ids": [
+        "lc_09807eb93df42097"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生利用不同感官增强理解和记忆。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够利用不同感官增强理解和记忆；优先采集：策略使用记录、结构图、写作提纲与修改稿。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用审题、选材、列提纲、修改和积累词句等写作策略；运用预测、略读、猜词、推断和语篇结构理解等阅读策略；能利用不同感官增强理解和记忆；能获取关键信息并完成简短交流。",
+          "excerpt_hash": "784bb790fcecbef5ccff22e725c4cd81b00c6f7d33eb3aa6946f4c2663cd3614",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_fbb1412e521c4a2a",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用审题、选材、列提纲、修改和积累词句等写作策略",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用审题、选材、列提纲、修改和积累词句等写作策略，并说明关键步骤、特征或依据。",
+      "label": "运用审题、选材、列提纲、修改和积累词句等写作策略",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用审题、选材、列提纲、修改和积累词句等写作策略；优先采集：策略使用记录、结构图、写作提纲与修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用审题、选材、列提纲、修改和积累词句等写作策略",
+          "excerpt_hash": "00757af30aca729df7fd79550069d0f169db2d4410bbbbbfbbbc422b4e299b40",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用审题、选材、列提纲、修改和积累词句等写作策略"
+    },
+    {
+      "component_id": "lc_546f99e6b348cc4a",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用预测、略读、猜词、推断和语篇结构理解等阅读策略",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用预测、略读、猜词、推断和语篇结构理解等阅读策略，并说明关键步骤、特征或依据。",
+      "label": "运用预测、略读、猜词、推断和语篇结构理解等阅读策略",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用预测、略读、猜词、推断和语篇结构理解等阅读策略；优先采集：策略使用记录、结构图、写作提纲与修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用预测、略读、猜词、推断和语篇结构理解等阅读策略",
+          "excerpt_hash": "2d0568e2126a26c41129e085b7bbdac1a80f0b8bc437cc8ccccebc849089fbee",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用预测、略读、猜词、推断和语篇结构理解等阅读策略"
+    },
+    {
+      "component_id": "lc_09807eb93df42097",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够利用不同感官增强理解和记忆",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生利用不同感官增强理解和记忆，并说明关键步骤、特征或依据。",
+      "label": "利用不同感官增强理解和记忆",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够利用不同感官增强理解和记忆；优先采集：策略使用记录、结构图、写作提纲与修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "利用不同感官增强理解和记忆",
+          "excerpt_hash": "4dcf020986e18cd1cd1e9c41c10b1020fad5923dd2faa14e99c9d0e8c821a89a",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "利用不同感官增强理解和记忆"
+    },
+    {
+      "component_id": "lc_5f614dbb4420952d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够获取关键信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
+      "label": "获取关键信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够获取关键信息；优先采集：策略使用记录、结构图、写作提纲与修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "获取关键信息",
+          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "获取关键信息"
+    },
+    {
+      "component_id": "lc_c2feb71143100078",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成简短交流",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成简短交流，并说明关键步骤、特征或依据。",
+      "label": "完成简短交流",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成简短交流；优先采集：策略使用记录、结构图、写作提纲与修改稿。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成简短交流",
+          "excerpt_hash": "e0d8e980d38fdd45deaf2acf3d21d16ee5acd4e273483f5057e96bc61198198b",
+          "field": "standard",
+          "ref_id": "standard:EN-H4G7-SA-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成简短交流"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2283,
+      "edge_id": "pc_96d7ed94fc767cd1",
+      "evidence_refs": [
+        "standard:EN-H4G7-SA-005:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D2-SA-002",
+      "source_label": "能在学习活动中与他人合作，共同完成学习任务。",
+      "target_code": "EN-H4G7-SA-005",
+      "target_label": "运用审题、选材、列提纲、修改和积累词句等写作策略；运用预测、略读、猜词、推断和语篇结构理解等阅读策略；能利用不同感官增强理解和记忆；能获取关键…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "784bb790fcecbef5ccff22e725c4cd81b00c6f7d33eb3aa6946f4c2663cd3614",
+  "standard_code": "EN-H4G7-SA-005",
+  "verified_prerequisites": []
+}

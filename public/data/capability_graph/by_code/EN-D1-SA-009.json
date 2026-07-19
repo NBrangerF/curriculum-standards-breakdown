@@ -1,0 +1,341 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_02b97e4db58d3ceb"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解决语言学习中的问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fb6de490f87d80eb",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8b6ecdfdca53775b"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“解决语言学习中的问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解决语言学习中的问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习过程中积极思考，发现并尝试解决语言学习中的问题",
+          "excerpt_hash": "2c38f3c696e69a20212c23f0e04f1f0f25fdf9d0265ee62cd9337730bd9db5a0",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-SA-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "明确学习目标与成功标准；安排自评互评（2 stars and a wish）记录改进点。",
+          "excerpt_hash": "ad3e606d8a9c3d371428eeb5aa3018c364bbda07d75a8aff8bf430ac2877fc30",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-D1-SA-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解决语言学习中的问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解决语言学习中的问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“明确学习目标与成功标准”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_0e90ae6c58663b26"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生发现语言学习中的问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bec01bc8e3360d3a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8b6ecdfdca53775b"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“发现语言学习中的问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“发现语言学习中的问题”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习过程中积极思考，发现并尝试解决语言学习中的问题",
+          "excerpt_hash": "2c38f3c696e69a20212c23f0e04f1f0f25fdf9d0265ee62cd9337730bd9db5a0",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-SA-009:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "明确学习目标与成功标准；安排自评互评（2 stars and a wish）记录改进点。",
+          "excerpt_hash": "ad3e606d8a9c3d371428eeb5aa3018c364bbda07d75a8aff8bf430ac2877fc30",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-D1-SA-009:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后发现语言学习中的问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“发现语言学习中的问题”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“明确学习目标与成功标准”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_90fff49352f92499",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_14d3051be175a07856d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_96fe1cf7a088"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4c0b84e107cb3acc",
+      "textbook_grade": 4,
+      "textbook_subject": "英语",
+      "textbook_title": "英语4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_013bc9f936e0ce61",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_33e1117f4e3b64658cf7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2da7a165ff23"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_736b449efa98c23e",
+      "textbook_grade": 4,
+      "textbook_subject": "英语",
+      "textbook_title": "英语4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_953ca725839dfc2e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_97b9c1a173bf9c3f5fea",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_94ad37d595c7"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c71decfe6366ff07",
+      "textbook_grade": 3,
+      "textbook_subject": "英语",
+      "textbook_title": "英语3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2454f6d5e02bae67",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bd2c45b5e8fc08bf234e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9ccd4f4ff8e3"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_623deee3782f3fb1",
+      "textbook_grade": 3,
+      "textbook_subject": "英语",
+      "textbook_title": "英语3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_8b6ecdfdca53775b",
+      "component_ids": [
+        "lc_172023285965c2c9",
+        "lc_0e90ae6c58663b26",
+        "lc_02b97e4db58d3ceb"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生积极思考。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在学习过程中，能够积极思考；优先采集：有学习计划与记录。",
+        "学生在学习过程中，能够发现语言学习中的问题；优先采集：有学习计划与记录。",
+        "学生在学习过程中，能够解决语言学习中的问题；优先采集：有学习计划与记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习过程中积极思考，发现并尝试解决语言学习中的问题",
+          "excerpt_hash": "2c38f3c696e69a20212c23f0e04f1f0f25fdf9d0265ee62cd9337730bd9db5a0",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-SA-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "积极思考；发现语言学习中的问题；解决语言学习中的问题",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_172023285965c2c9",
+      "component_type": "conceptual",
+      "condition": "在学习过程中",
+      "confidence": 0.72,
+      "description": "学生在学习过程中，能够积极思考",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在学习过程中”的诊断任务，要求学生积极思考，并说明关键步骤、特征或依据。",
+      "label": "积极思考",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在学习过程中，能够积极思考；优先采集：有学习计划与记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习过程中积极思考，发现并尝试解决语言学习中的问题",
+          "excerpt_hash": "2c38f3c696e69a20212c23f0e04f1f0f25fdf9d0265ee62cd9337730bd9db5a0",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-SA-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "积极思考"
+    },
+    {
+      "component_id": "lc_0e90ae6c58663b26",
+      "component_type": "language",
+      "condition": "在学习过程中",
+      "confidence": 0.72,
+      "description": "学生在学习过程中，能够发现语言学习中的问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在学习过程中”的诊断任务，要求学生发现语言学习中的问题，并说明关键步骤、特征或依据。",
+      "label": "发现语言学习中的问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在学习过程中，能够发现语言学习中的问题；优先采集：有学习计划与记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习过程中积极思考，发现并尝试解决语言学习中的问题",
+          "excerpt_hash": "2c38f3c696e69a20212c23f0e04f1f0f25fdf9d0265ee62cd9337730bd9db5a0",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-SA-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "发现语言学习中的问题"
+    },
+    {
+      "component_id": "lc_02b97e4db58d3ceb",
+      "component_type": "language",
+      "condition": "在学习过程中",
+      "confidence": 0.72,
+      "description": "学生在学习过程中，能够解决语言学习中的问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在学习过程中”的诊断任务，要求学生解决语言学习中的问题，并说明关键步骤、特征或依据。",
+      "label": "解决语言学习中的问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在学习过程中，能够解决语言学习中的问题；优先采集：有学习计划与记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在学习过程中积极思考，发现并尝试解决语言学习中的问题",
+          "excerpt_hash": "2c38f3c696e69a20212c23f0e04f1f0f25fdf9d0265ee62cd9337730bd9db5a0",
+          "field": "standard",
+          "ref_id": "standard:EN-D1-SA-009:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解决语言学习中的问题"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "2c38f3c696e69a20212c23f0e04f1f0f25fdf9d0265ee62cd9337730bd9db5a0",
+  "standard_code": "EN-D1-SA-009",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,355 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_f7d2ef2fddec9a4d",
+        "lc_ab83e101b5aa28a7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释平行四边形、矩形、菱形、正方形、梯形及其关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1ad5e6dc691fe5d2",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3123cf76eb6ea4c6",
+        "hc_618912c267bc77fa"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释平行四边形、矩形、菱形、正方形、梯形及其关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释平行四边形、矩形、菱形、正方形、梯形及其关系”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平行四边形、矩形、菱形、正方形、梯形及其关系；能探索并证明平行四边形、矩形、菱形的性质定理和判定定理；分析多边形概念和内角和、外角和公式；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "b76b445cc5ba66784b3a6a6c2270e89e3e2b2b6c273be1161fe52287157d8a81",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-015:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生用包含关系和判定条件理解特殊四边形之间的结构。",
+          "excerpt_hash": "cbfe7c106be3c1c0471af8b870bcfd249c2f8e4c39a3c956c19f9e91ec3f666b",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G9-GE-015:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释平行四边形、矩形、菱形、正方形、梯形及其关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释平行四边形、矩形、菱形、正方形、梯形及其关系”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生用包含关系和判定条件理解特殊四边形之间的结构。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_18f1606c109f9df4"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生分析多边形概念和内角和、外角和公式的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5631e0e24fc18234",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“分析多边形概念和内角和、外角和公式”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“分析多边形概念和内角和、外角和公式”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平行四边形、矩形、菱形、正方形、梯形及其关系；能探索并证明平行四边形、矩形、菱形的性质定理和判定定理；分析多边形概念和内角和、外角和公式；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "b76b445cc5ba66784b3a6a6c2270e89e3e2b2b6c273be1161fe52287157d8a81",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-015:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生用包含关系和判定条件理解特殊四边形之间的结构。",
+          "excerpt_hash": "cbfe7c106be3c1c0471af8b870bcfd249c2f8e4c39a3c956c19f9e91ec3f666b",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G9-GE-015:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后分析多边形概念和内角和、外角和公式，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“分析多边形概念和内角和、外角和公式”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生用包含关系和判定条件理解特殊四边形之间的结构。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_57487c0794c529b3",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_045c4e32dda3"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d4d9b4cbf0f4520f",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_eb9e7710d385c004",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1e968d721145a524c670",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_286bc7db0209"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3e651d0e242caded",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_3123cf76eb6ea4c6",
+      "component_ids": [
+        "lc_f7d2ef2fddec9a4d",
+        "lc_ab83e101b5aa28a7"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "推理"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释平行四边形、矩形、菱形、正方形、梯形及其关系。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释平行四边形、矩形、菱形、正方形、梯形及其关系；优先采集：四边形关系图、性质证明、问题解答。",
+        "学生能够建模、推理并检验结论的合理性；优先采集：四边形关系图、性质证明、问题解答。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平行四边形、矩形、菱形、正方形、梯形及其关系；能探索并证明平行四边形、矩形、菱形的性质定理和判定定理；分析多边形概念和内角和、外角和公式；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "b76b445cc5ba66784b3a6a6c2270e89e3e2b2b6c273be1161fe52287157d8a81",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（推理）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_618912c267bc77fa",
+      "component_ids": [
+        "lc_ab83e101b5aa28a7"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生建模、推理并检验结论的合理性。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够建模、推理并检验结论的合理性；优先采集：四边形关系图、性质证明、问题解答。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平行四边形、矩形、菱形、正方形、梯形及其关系；能探索并证明平行四边形、矩形、菱形的性质定理和判定定理；分析多边形概念和内角和、外角和公式；能建模、推理并检验结论的合理性。",
+          "excerpt_hash": "b76b445cc5ba66784b3a6a6c2270e89e3e2b2b6c273be1161fe52287157d8a81",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_f7d2ef2fddec9a4d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释平行四边形、矩形、菱形、正方形、梯形及其关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释平行四边形、矩形、菱形、正方形、梯形及其关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释平行四边形、矩形、菱形、正方形、梯形及其关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释平行四边形、矩形、菱形、正方形、梯形及其关系；优先采集：四边形关系图、性质证明、问题解答。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解平行四边形、矩形、菱形、正方形、梯形及其关系",
+          "excerpt_hash": "9ae62c81e1fceaf7920423f56c7677aa10bd6a78519ab38e3bbb35e51ce2c605",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解平行四边形、矩形、菱形、正方形、梯形及其关系"
+    },
+    {
+      "component_id": "lc_2529d0ae78fcb99f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够探索并证明平行四边形、矩形、菱形的性质定理和判定定理",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生探索并证明平行四边形、矩形、菱形的性质定理和判定定理，并说明关键步骤、特征或依据。",
+      "label": "探索并证明平行四边形、矩形、菱形的性质定理和判定定理",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够探索并证明平行四边形、矩形、菱形的性质定理和判定定理；优先采集：四边形关系图、性质证明、问题解答。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "探索并证明平行四边形、矩形、菱形的性质定理和判定定理",
+          "excerpt_hash": "ee47adfcf7e12325243103ce38e1c4f535e1754c7c4ce39dd65a7178b0911f1f",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "探索并证明平行四边形、矩形、菱形的性质定理和判定定理"
+    },
+    {
+      "component_id": "lc_18f1606c109f9df4",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析多边形概念和内角和、外角和公式",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析多边形概念和内角和、外角和公式，并说明关键步骤、特征或依据。",
+      "label": "分析多边形概念和内角和、外角和公式",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析多边形概念和内角和、外角和公式；优先采集：四边形关系图、性质证明、问题解答。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析多边形概念和内角和、外角和公式",
+          "excerpt_hash": "cb9c9c549762ae1f0c4a10ba7d349f5be3066012e615b8901ea30ca093173891",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析多边形概念和内角和、外角和公式"
+    },
+    {
+      "component_id": "lc_ab83e101b5aa28a7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、推理并检验结论的合理性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、推理并检验结论的合理性，并说明关键步骤、特征或依据。",
+      "label": "建模、推理并检验结论的合理性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、推理并检验结论的合理性；优先采集：四边形关系图、性质证明、问题解答。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、推理并检验结论的合理性",
+          "excerpt_hash": "b52727f75af831b3e75e1ca5dabdf7c86123edea8c71f6f98dcbf5b28a377c73",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G9-GE-015:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、推理并检验结论的合理性"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_1a40c8391c9e085c",
+      "evidence_refs": [
+        "standard:MA-H4G9-GE-015:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-H4G8-GE-014",
+      "source_label": "理解平行四边形、矩形、菱形、正方形、梯形及其关系；能探索并证明平行四边形、矩形、菱形的性质定理和判定定理；了解多边形概念和内角和、外角和公式；…",
+      "target_code": "MA-H4G9-GE-015",
+      "target_label": "理解平行四边形、矩形、菱形、正方形、梯形及其关系；能探索并证明平行四边形、矩形、菱形的性质定理和判定定理；分析多边形概念和内角和、外角和公式；…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "b76b445cc5ba66784b3a6a6c2270e89e3e2b2b6c273be1161fe52287157d8a81",
+  "standard_code": "MA-H4G9-GE-015",
+  "verified_prerequisites": []
+}

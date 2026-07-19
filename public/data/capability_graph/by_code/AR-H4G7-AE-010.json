@@ -1,0 +1,500 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_9afaea97c5edc0a8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用乐器演奏欣赏曲主题或歌曲旋律的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_be117647786308bf",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用乐器演奏欣赏曲主题或歌曲旋律”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用乐器演奏欣赏曲主题或歌曲旋律”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用乐器演奏欣赏曲主题或歌曲旋律；能编创和表现具有完整结构的短小音乐作品；能与他人交流经验、帮助改进演奏技巧和表现力；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "4163ed62371ffb92c183a92429faa7e1144b00c3e296746c3c7354000c93a6f0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AE-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生把演奏经验转化为同伴可执行的改进建议。",
+          "excerpt_hash": "bc75fde51589937759cb13c9c1e4362e4caf9fdd0186349f73ee326dcf896db0",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-AE-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用乐器演奏欣赏曲主题或歌曲旋律，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用乐器演奏欣赏曲主题或歌曲旋律”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“鼓励学生把演奏经验转化为同伴可执行的改进建议。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_ef459af2e14f93ed",
+        "lc_52323c80035c5148"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生与他人交流经验、帮助改进演奏技巧和表现力的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_34c35b9b347ac5ee",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_65079754506647cb"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“与他人交流经验、帮助改进演奏技巧和表现力”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“与他人交流经验、帮助改进演奏技巧和表现力”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用乐器演奏欣赏曲主题或歌曲旋律；能编创和表现具有完整结构的短小音乐作品；能与他人交流经验、帮助改进演奏技巧和表现力；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "4163ed62371ffb92c183a92429faa7e1144b00c3e296746c3c7354000c93a6f0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AE-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生把演奏经验转化为同伴可执行的改进建议。",
+          "excerpt_hash": "bc75fde51589937759cb13c9c1e4362e4caf9fdd0186349f73ee326dcf896db0",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-AE-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后与他人交流经验、帮助改进演奏技巧和表现力，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“与他人交流经验、帮助改进演奏技巧和表现力”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“鼓励学生把演奏经验转化为同伴可执行的改进建议。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_ef459af2e14f93ed",
+        "lc_27c03f4e17b9fff8"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生与他人交流经验、帮助改进演奏技巧和表现力的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1283a0c82d2a8474",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_65079754506647cb"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“与他人交流经验、帮助改进演奏技巧和表现力”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“与他人交流经验、帮助改进演奏技巧和表现力”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用乐器演奏欣赏曲主题或歌曲旋律；能编创和表现具有完整结构的短小音乐作品；能与他人交流经验、帮助改进演奏技巧和表现力；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "4163ed62371ffb92c183a92429faa7e1144b00c3e296746c3c7354000c93a6f0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AE-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "鼓励学生把演奏经验转化为同伴可执行的改进建议。",
+          "excerpt_hash": "bc75fde51589937759cb13c9c1e4362e4caf9fdd0186349f73ee326dcf896db0",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G7-AE-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后与他人交流经验、帮助改进演奏技巧和表现力，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“与他人交流经验、帮助改进演奏技巧和表现力”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“鼓励学生把演奏经验转化为同伴可执行的改进建议。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1861ffdb919c66b1",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_010c1e047f00dd19a403",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a98e81d5ea76"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_5c9c27ac05203638",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_fd33f9632c005196",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2efa5fc22fa7520b01b7",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_86eb84faa252"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_0805abf2f5db09ed",
+      "textbook_grade": 7,
+      "textbook_subject": "美术",
+      "textbook_title": "美术7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a4a8fe3a5aa563fe",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4e29c3897ac01b25a084",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d35e7be5354c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a883040b0334e9a7",
+      "textbook_grade": 7,
+      "textbook_subject": "美术",
+      "textbook_title": "美术7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8b07f8760d5a2f6f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a89e5efa283f5034b420",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a99675852c59"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b3fadfb25eca49fe",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_a0e6c765cf61f1e1",
+      "evidence_refs": [
+        "standard:AR-H4G7-AE-010:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-H4G7-AE-010",
+      "target_code": "AR-H4G8-AE-021",
+      "target_label": "能运用乐器演奏欣赏曲主题或歌曲旋律；能编创和表现具有完整结构的短小音乐作品；能与他人交流经验、帮助改进演奏技巧和表现力；能调整表现方法并说明作…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_65079754506647cb",
+      "component_ids": [
+        "lc_ef459af2e14f93ed",
+        "lc_52323c80035c5148"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "创作",
+        "改进"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生与他人交流经验、帮助改进演奏技巧和表现力。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够与他人交流经验、帮助改进演奏技巧和表现力；优先采集：器乐编创作品、评价记录、修改说明。",
+        "学生能够完成基础表现或创作；优先采集：器乐编创作品、评价记录、修改说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用乐器演奏欣赏曲主题或歌曲旋律；能编创和表现具有完整结构的短小音乐作品；能与他人交流经验、帮助改进演奏技巧和表现力；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "4163ed62371ffb92c183a92429faa7e1144b00c3e296746c3c7354000c93a6f0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AE-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（创作、改进）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_a67afe3d012ccdfb",
+      "component_ids": [
+        "lc_98e53849c6eb397d"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "完整",
+        "完整"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生编创和表现具有完整结构的短小音乐作品。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够编创和表现具有完整结构的短小音乐作品；优先采集：器乐编创作品、评价记录、修改说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用乐器演奏欣赏曲主题或歌曲旋律；能编创和表现具有完整结构的短小音乐作品；能与他人交流经验、帮助改进演奏技巧和表现力；能描述艺术要素并完成基础表现或创作。",
+          "excerpt_hash": "4163ed62371ffb92c183a92429faa7e1144b00c3e296746c3c7354000c93a6f0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AE-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（完整、完整）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_9afaea97c5edc0a8",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用乐器演奏欣赏曲主题或歌曲旋律",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用乐器演奏欣赏曲主题或歌曲旋律，并说明关键步骤、特征或依据。",
+      "label": "运用乐器演奏欣赏曲主题或歌曲旋律",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用乐器演奏欣赏曲主题或歌曲旋律；优先采集：器乐编创作品、评价记录、修改说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用乐器演奏欣赏曲主题或歌曲旋律",
+          "excerpt_hash": "1d8dee8c154ebbcd4e25c253f087f0ae2c1f0be38014423cd2ef101772ff8a8f",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AE-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用乐器演奏欣赏曲主题或歌曲旋律"
+    },
+    {
+      "component_id": "lc_98e53849c6eb397d",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够编创和表现具有完整结构的短小音乐作品",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生编创和表现具有完整结构的短小音乐作品，并说明关键步骤、特征或依据。",
+      "label": "编创和表现具有完整结构的短小音乐作品",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够编创和表现具有完整结构的短小音乐作品；优先采集：器乐编创作品、评价记录、修改说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "编创和表现具有完整结构的短小音乐作品",
+          "excerpt_hash": "f754956233a96185c31b05af2a952846fd2b4a8b84ebc5a2e1b58269759e39be",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AE-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "编创和表现具有完整结构的短小音乐作品"
+    },
+    {
+      "component_id": "lc_ef459af2e14f93ed",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够与他人交流经验、帮助改进演奏技巧和表现力",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生与他人交流经验、帮助改进演奏技巧和表现力，并说明关键步骤、特征或依据。",
+      "label": "与他人交流经验、帮助改进演奏技巧和表现力",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够与他人交流经验、帮助改进演奏技巧和表现力；优先采集：器乐编创作品、评价记录、修改说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "与他人交流经验、帮助改进演奏技巧和表现力",
+          "excerpt_hash": "26208faa3a06aa7c323b7bf4bd7bffa00ae6bddee7174308283623f7368ee95b",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AE-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "与他人交流经验、帮助改进演奏技巧和表现力"
+    },
+    {
+      "component_id": "lc_27c03f4e17b9fff8",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述艺术要素",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述艺术要素，并说明关键步骤、特征或依据。",
+      "label": "描述艺术要素",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述艺术要素；优先采集：器乐编创作品、评价记录、修改说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述艺术要素",
+          "excerpt_hash": "710935e4df1532334f250c3d052674e266294edd15da0e6096f7bc2137ca8425",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AE-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述艺术要素"
+    },
+    {
+      "component_id": "lc_52323c80035c5148",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成基础表现或创作",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成基础表现或创作，并说明关键步骤、特征或依据。",
+      "label": "完成基础表现或创作",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成基础表现或创作；优先采集：器乐编创作品、评价记录、修改说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成基础表现或创作",
+          "excerpt_hash": "c6c7aa6f0fcb88782073b2bfe6ef8341b9660a99662a1a2b49152a8e04a101f6",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AE-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成基础表现或创作"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1861,
+      "edge_id": "pc_7922d48521250024",
+      "evidence_refs": [
+        "standard:AR-H4G7-AE-010:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D3-AE-015",
+      "source_label": "能根据要求即兴或有计划地用乐器编创并表现短小节奏、旋律或音乐作品。",
+      "target_code": "AR-H4G7-AE-010",
+      "target_label": "能运用乐器演奏欣赏曲主题或歌曲旋律；能编创和表现具有完整结构的短小音乐作品；能与他人交流经验、帮助改进演奏技巧和表现力；能描述艺术要素并完成基…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "4163ed62371ffb92c183a92429faa7e1144b00c3e296746c3c7354000c93a6f0",
+  "standard_code": "AR-H4G7-AE-010",
+  "verified_prerequisites": []
+}

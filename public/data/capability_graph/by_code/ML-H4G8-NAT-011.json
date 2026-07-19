@@ -1,0 +1,361 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_041782ae2485a502"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生在判断与行动中表现出劳动光荣、创造伟大的观念并说明理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_57edaea678212d2c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“在判断与行动中表现出劳动光荣、创造伟大的观念并说明理由”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能树立劳动光荣、创造伟大的观念；能以实现中华民族伟大复兴为己任；能进行合理的生涯规划；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "34021a197a608b851c1d4edd30ff5ced6dd34f27372d37bb2b3d57f3860527f6",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-NAT-011:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把个人发展、劳动观念和民族复兴使命联系起来，鼓励学生形成可执行规划。",
+          "excerpt_hash": "729486c186899df6c96bd68ac6ded1c8e51802a23748b5d83ad7b16451f94e72",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-H4G8-NAT-011:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在判断与行动中表现出劳动光荣、创造伟大的观念并说明理由，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在判断与行动中表现出劳动光荣、创造伟大的观念并说明理由”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“把个人发展、劳动观念和民族复兴使命联系起来，鼓励学生形成可执行规划。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2533e2ed8773ec04",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2860489fc83ddeb6cec5",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_76fc538dd0d1"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_262756ea29a61d32",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1bff3a7757026913",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_d8429e42f96b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_9eb2e2a90a705049",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0c96aea88f596a33",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b28ec1f6b081b602",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a81fb78a67980434",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_05dbe85802ac"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c23f52c4ba953c6f",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_f7f40d7240093892",
+      "evidence_refs": [
+        "standard:ML-H4G8-NAT-011:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-H4G8-NAT-011",
+      "target_code": "ML-H4G9-NAT-012",
+      "target_label": "能树立劳动光荣、创造伟大的观念；能以实现中华民族伟大复兴为己任；能进行合理的生涯规划；能依据规则、价值和证据作出判断并提出行动建议。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_c22209599600af60",
+      "component_ids": [
+        "lc_882fed07a6618bea"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生进行合理的生涯规划。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够进行合理的生涯规划；优先采集：生涯规划、责任担当说明、学习反思。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能树立劳动光荣、创造伟大的观念；能以实现中华民族伟大复兴为己任；能进行合理的生涯规划；能结合家庭、学校或社会案例分析问题。",
+          "excerpt_hash": "34021a197a608b851c1d4edd30ff5ced6dd34f27372d37bb2b3d57f3860527f6",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-NAT-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_041782ae2485a502",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在判断与行动中表现出劳动光荣、创造伟大的观念并说明理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在判断与行动中表现出劳动光荣、创造伟大的观念并说明理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在判断与行动中表现出劳动光荣、创造伟大的观念并说明理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在判断与行动中表现出劳动光荣、创造伟大的观念并说明理由；优先采集：生涯规划、责任担当说明、学习反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "树立劳动光荣、创造伟大的观念",
+          "excerpt_hash": "340194589c8ccba5aeb07efb0246c29b97f8df56de1f343efc18310d4ccdc305",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-NAT-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "树立劳动光荣、创造伟大的观念"
+    },
+    {
+      "component_id": "lc_28544ee74837517f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够以实现中华民族伟大复兴为己任",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生以实现中华民族伟大复兴为己任，并说明关键步骤、特征或依据。",
+      "label": "以实现中华民族伟大复兴为己任",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够以实现中华民族伟大复兴为己任；优先采集：生涯规划、责任担当说明、学习反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "以实现中华民族伟大复兴为己任",
+          "excerpt_hash": "9a73d5533fa39c625ead5846aa873368747a214b1b9be79aca27229ce773ef1e",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-NAT-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "以实现中华民族伟大复兴为己任"
+    },
+    {
+      "component_id": "lc_882fed07a6618bea",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够进行合理的生涯规划",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生进行合理的生涯规划，并说明关键步骤、特征或依据。",
+      "label": "进行合理的生涯规划",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够进行合理的生涯规划；优先采集：生涯规划、责任担当说明、学习反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "进行合理的生涯规划",
+          "excerpt_hash": "a8a9125071a86bbf8fc8780df4c1b0fab3e79e1b537b252cb2173c0c446405cc",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-NAT-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "进行合理的生涯规划"
+    },
+    {
+      "component_id": "lc_7fc16690e5afb499",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够结合家庭、学校或社会案例分析问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合家庭、学校或社会案例分析问题，并说明关键步骤、特征或依据。",
+      "label": "结合家庭、学校或社会案例分析问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够结合家庭、学校或社会案例分析问题；优先采集：生涯规划、责任担当说明、学习反思。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "结合家庭、学校或社会案例分析问题",
+          "excerpt_hash": "9f011217b5939392cbd181d22775f8f11d41c522438ab487610a73e9e02bbda8",
+          "field": "standard",
+          "ref_id": "standard:ML-H4G8-NAT-011:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "结合家庭、学校或社会案例分析问题"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_95a1b8533fe13ce7",
+      "evidence_refs": [
+        "standard:ML-H4G8-NAT-011:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "ML-H4G7-NAT-010",
+      "source_label": "能树立劳动光荣、创造伟大的观念；能以实现中华民族伟大复兴为己任；能进行合理的生涯规划；能联系个人和校园生活说明基本判断。",
+      "target_code": "ML-H4G8-NAT-011",
+      "target_label": "能树立劳动光荣、创造伟大的观念；能以实现中华民族伟大复兴为己任；能进行合理的生涯规划；能结合家庭、学校或社会案例分析问题。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "34021a197a608b851c1d4edd30ff5ced6dd34f27372d37bb2b3d57f3860527f6",
+  "standard_code": "ML-H4G8-NAT-011",
+  "verified_prerequisites": []
+}

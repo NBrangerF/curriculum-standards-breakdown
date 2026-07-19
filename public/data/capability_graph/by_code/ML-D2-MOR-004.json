@@ -1,0 +1,371 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_13e3888e8122c756"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bd0f4464a58304f1",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d6f22886ad185bf9"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用具体事例表达对老师劳动的理解与尊重；在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决。",
+          "excerpt_hash": "63c274cd790043103b0b9c43a3301d0e30115d139e8806f3c42cf7c0599ad64d",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "组织“老师的一天”观察与访谈；用同伴互助案例引导共情；对常见冲突（误会、争抢、起外号）进行冷静讨论，示范“表达—倾听—协商”解决流程。",
+          "excerpt_hash": "f25650647b4ea4519c44b9f6d685c660d170102b8bc693b26c989b0121195c49",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-MOR-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“组织“老师的一天”观察与访谈”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_601d030501279af7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用具体事例表达对老师劳动的理解与尊重的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_efca840050d5d45d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d6f22886ad185bf9"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“用具体事例表达对老师劳动的理解与尊重”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用具体事例表达对老师劳动的理解与尊重”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用具体事例表达对老师劳动的理解与尊重；在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决。",
+          "excerpt_hash": "63c274cd790043103b0b9c43a3301d0e30115d139e8806f3c42cf7c0599ad64d",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "组织“老师的一天”观察与访谈；用同伴互助案例引导共情；对常见冲突（误会、争抢、起外号）进行冷静讨论，示范“表达—倾听—协商”解决流程。",
+          "excerpt_hash": "f25650647b4ea4519c44b9f6d685c660d170102b8bc693b26c989b0121195c49",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-MOR-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用具体事例表达对老师劳动的理解与尊重，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用具体事例表达对老师劳动的理解与尊重”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“组织“老师的一天”观察与访谈”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_601d030501279af7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用具体事例表达对老师劳动的理解与尊重的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_305857eccc58402a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_d6f22886ad185bf9"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用具体事例表达对老师劳动的理解与尊重”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用具体事例表达对老师劳动的理解与尊重”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用具体事例表达对老师劳动的理解与尊重；在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决。",
+          "excerpt_hash": "63c274cd790043103b0b9c43a3301d0e30115d139e8806f3c42cf7c0599ad64d",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "组织“老师的一天”观察与访谈；用同伴互助案例引导共情；对常见冲突（误会、争抢、起外号）进行冷静讨论，示范“表达—倾听—协商”解决流程。",
+          "excerpt_hash": "f25650647b4ea4519c44b9f6d685c660d170102b8bc693b26c989b0121195c49",
+          "field": "teaching_tip",
+          "ref_id": "standard:ML-D2-MOR-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用具体事例表达对老师劳动的理解与尊重，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用具体事例表达对老师劳动的理解与尊重”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“组织“老师的一天”观察与访谈”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_06a068e47e2b0676",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_49c68a8031fd5b545d9f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c4a8334099f0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4eabffd55a81e2eb",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_80818bdcdd7eaf36",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_7751decca7f37a1d323e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2d734af455c0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4fcca84971a83ec4",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3fa5fee1df8ac14a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_abbd5db6223f36ab3c5c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9d06bc550436"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_bcb8fe719c29a97c",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7e2fd913c1bcbc30",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b23dbf8aedd84cd3888f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6d8e93064e1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_85e4b38d814a5d4c",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_67b6d3c62d7a162b",
+      "evidence_refs": [
+        "standard:ML-D2-MOR-004:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "ML-D2-MOR-004",
+      "target_code": "ML-D3-MOR-003",
+      "target_label": "能在班级与小组活动中主动承担角色并履行责任，能与同伴协作完成任务，遇到分歧能协商解决并维护集体利益。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_d6f22886ad185bf9",
+      "component_ids": [
+        "lc_601d030501279af7",
+        "lc_13e3888e8122c756"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用具体事例表达对老师劳动的理解与尊重。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用具体事例表达对老师劳动的理解与尊重；优先采集：访谈记录、情境协商表现、公约成果、教师观察。",
+        "学生能够在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决；优先采集：访谈记录、情境协商表现、公约成果、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用具体事例表达对老师劳动的理解与尊重；在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决。",
+          "excerpt_hash": "63c274cd790043103b0b9c43a3301d0e30115d139e8806f3c42cf7c0599ad64d",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用具体事例表达对老师劳动的理解与尊重；在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_601d030501279af7",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用具体事例表达对老师劳动的理解与尊重",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用具体事例表达对老师劳动的理解与尊重，并说明关键步骤、特征或依据。",
+      "label": "用具体事例表达对老师劳动的理解与尊重",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用具体事例表达对老师劳动的理解与尊重；优先采集：访谈记录、情境协商表现、公约成果、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用具体事例表达对老师劳动的理解与尊重",
+          "excerpt_hash": "65856e61b7afa57f79754a51c34af0dee07e211e1833dfc99e301e9f696fe8e9",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用具体事例表达对老师劳动的理解与尊重"
+    },
+    {
+      "component_id": "lc_13e3888e8122c756",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决，并说明关键步骤、特征或依据。",
+      "label": "在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决；优先采集：访谈记录、情境协商表现、公约成果、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决",
+          "excerpt_hash": "dcc0d7e73f73e106dcafa276e1ab1b037677a8c5a0281def6aaf56ce3940ff6a",
+          "field": "standard",
+          "ref_id": "standard:ML-D2-MOR-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在同伴交往中做到基本尊重，遇到摩擦能尝试用协商方式解决"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "63c274cd790043103b0b9c43a3301d0e30115d139e8806f3c42cf7c0599ad64d",
+  "standard_code": "ML-D2-MOR-004",
+  "verified_prerequisites": []
+}

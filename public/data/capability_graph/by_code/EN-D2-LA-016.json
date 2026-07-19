@@ -1,0 +1,362 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_220eeae63ae95b4b"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生获取有关人物、时间、地点、事件等 基本信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5b9f081fcb6a97da",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_23d521c6afbc1929"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“获取有关人物、时间、地点、事件等 基本信息”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在听或看简单的音视频材料时，能获取有关人物、时间、地点、事件等\n基本信息。",
+          "excerpt_hash": "8e1b7e958aa9b8688169c41efc5298b945aee55980b533a68de80106277df76c",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-LA-016:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用「输入→支架→输出」：多模态输入（音频/文本/视频）+句型框架+循环复述；关注语音语调与信息提取。",
+          "excerpt_hash": "6011060fe5696295b2b9368f84ce29e8a069c7c1b5dd5334272fa3d3f4e41c32",
+          "field": "teaching_tip",
+          "ref_id": "standard:EN-D2-LA-016:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后获取有关人物、时间、地点、事件等 基本信息，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“获取有关人物、时间、地点、事件等 基本信息”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“用「输入→支架→输出」：多模态输入（音频/文本/视频）+句型框架+循环复述”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5dfd5d190405e9b7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4fea6fca40d21be4914c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8503084b398b"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a63e35ef97657837",
+      "textbook_grade": 6,
+      "textbook_subject": "英语",
+      "textbook_title": "英语6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b55ce5930d5e17fe",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_78c753ec351358d87f55",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_fadca434d3be"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a1294cf3237c4d38",
+      "textbook_grade": 5,
+      "textbook_subject": "英语",
+      "textbook_title": "英语5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_805e255ee1af049f",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_90f2374ef0262b495d15",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9f8ea42bc1d5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_3c16212957329215",
+      "textbook_grade": 5,
+      "textbook_subject": "英语",
+      "textbook_title": "英语5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_e10a4a59e9d34631",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_dfebe6a6e8107355cb57",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_4a785804f12e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_45945c79ea7a51bc",
+      "textbook_grade": 6,
+      "textbook_subject": "英语",
+      "textbook_title": "英语6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0918,
+      "connection_id": "fc_8d25fe4564c1e521",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-D2-LA-016",
+      "target_code": "EN-H4G7-LA-001",
+      "target_label": "能接触和理解三级要求中的日常对话、独白、故事、简版小说、人物传记、童话、介绍类短文、程序或现象说明、事理阐释、书面指令、操作指南、使用手册、应…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1034,
+      "connection_id": "fc_7565902669d3c921",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-011:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-D2-LA-016",
+      "target_code": "EN-H4G7-LA-011",
+      "target_label": "能阅读故事并整体理解主要内容；能对所读内容进行简要概括、描述与初步判断；能课外视听活动每周不少于30分钟；能获取关键信息并完成简短交流。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1021,
+      "connection_id": "fc_12f10aad76d80b31",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-013:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-D2-LA-016",
+      "target_code": "EN-H4G7-LA-013",
+      "target_label": "能明确学习语法的目的是在语境中运用语法知识理解和表达意义；能初步意识到语法知识是形式、意义和使用的统一体；能获取关键信息并完成简短交流。"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1034,
+      "connection_id": "fc_716cd61a2d89b352",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-016:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-D2-LA-016",
+      "target_code": "EN-H4G7-LA-016",
+      "target_label": "能了解句子的结构特征；能在口语和书面语篇中理解、体会所学语法的形式和表意功能；能在语境中运用语法知识进行描述、叙述和说明；能获取关键信息并完成…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.1048,
+      "connection_id": "fc_38110129be49d72b",
+      "evidence_refs": [
+        "standard:EN-H4G7-LA-022:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "EN-D2-LA-016",
+      "target_code": "EN-H4G7-LA-022",
+      "target_label": "能在语篇中辨识并尝试运用衔接和连贯手段，以提升理解的准确性和表达的逻辑性；能获取关键信息并完成简短交流。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_23d521c6afbc1929",
+      "component_ids": [
+        "lc_220eeae63ae95b4b"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生获取有关人物、时间、地点、事件等 基本信息。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在听或看简单的音视频材料时，能够获取有关人物、时间、地点、事件等 基本信息；优先采集：可观察证据：任务单/阅读卡/写作稿/录音或视频。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在听或看简单的音视频材料时，能获取有关人物、时间、地点、事件等\n基本信息。",
+          "excerpt_hash": "8e1b7e958aa9b8688169c41efc5298b945aee55980b533a68de80106277df76c",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-LA-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "获取有关人物、时间、地点、事件等 基本信息",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_220eeae63ae95b4b",
+      "component_type": "conceptual",
+      "condition": "在听或看简单的音视频材料时",
+      "confidence": 0.72,
+      "description": "学生在听或看简单的音视频材料时，能够获取有关人物、时间、地点、事件等 基本信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在听或看简单的音视频材料时”的诊断任务，要求学生获取有关人物、时间、地点、事件等 基本信息，并说明关键步骤、特征或依据。",
+      "label": "获取有关人物、时间、地点、事件等 基本信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在听或看简单的音视频材料时，能够获取有关人物、时间、地点、事件等 基本信息；优先采集：可观察证据：任务单/阅读卡/写作稿/录音或视频。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在听或看简单的音视频材料时，能获取有关人物、时间、地点、事件等\n基本信息。",
+          "excerpt_hash": "8e1b7e958aa9b8688169c41efc5298b945aee55980b533a68de80106277df76c",
+          "field": "standard",
+          "ref_id": "standard:EN-D2-LA-016:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "获取有关人物、时间、地点、事件等 基本信息"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_22c41ccceb2cfecf",
+      "evidence_refs": [
+        "standard:EN-D2-LA-016:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "EN-D1-LA-016",
+      "source_label": "能与他人互动交流，对赞扬、道歉、致谢等作出回应，用语礼貌",
+      "target_code": "EN-D2-LA-016",
+      "target_label": "在听或看简单的音视频材料时，能获取有关人物、时间、地点、事件等 基本信息。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "46b5b65cc600178c2a1a34308c1fd28340f6291ce7f484da4b4ff66760a9461a",
+  "standard_code": "EN-D2-LA-016",
+  "verified_prerequisites": []
+}

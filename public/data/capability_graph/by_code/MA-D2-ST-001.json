@@ -1,0 +1,298 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_0ac92d16c48774f1",
+        "lc_f5c0095d780d162d"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生收集、整理具体实例中的数据，并用合适的方式描述数据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_743b89a9446a85d4",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_3f4f77ada13f1ce2"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“收集、整理具体实例中的数据，并用合适的方式描述数据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“收集、整理具体实例中的数据，并用合适的方式描述数据”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能收集、整理具体实例中的数据，并用合适的方式描述数据，分析与表达数据中蕴含的信息。",
+          "excerpt_hash": "dfbe53bed791ed6e9daeda80a6ceccb0aac3526e9455d2c3a390febb467ea014",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "创设真实情境，引导学生经历简单的数据收集和整理，感悟收集数据的意义和方法，用数学语言表达数据所蕴含的信息，形成初步的数据意识。",
+          "excerpt_hash": "9613017f9f7c81b0e6448e650c60288472ff9cd40cae549ff76ce1bf68dbd45c",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-ST-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后收集、整理具体实例中的数据，并用合适的方式描述数据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“收集、整理具体实例中的数据，并用合适的方式描述数据”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“创设真实情境，引导学生经历简单的数据收集和整理，感悟收集数据的意义和方法，用数学语言表达数据所蕴含的信息，形成初步的数据意识。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_92093b756d8aa215",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_833ce42b24662dbd40af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ec280d20713"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_96d95cbb27d9412e",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3a9c3b72d7d1b8b7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f61cbfb4e176d8e2",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_21d0550c9da0654b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e8d4a6502261fd8416ff",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_19111441ff11"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_056cb0cc3385568d",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a97a73a2539567d9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f7680a7d4b92"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7b7248af637aca0a",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_3f4f77ada13f1ce2",
+      "component_ids": [
+        "lc_0ac92d16c48774f1",
+        "lc_f5c0095d780d162d"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生收集、整理具体实例中的数据，并用合适的方式描述数据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够收集、整理具体实例中的数据，并用合适的方式描述数据；优先采集：数据任务单/图表、作图/测量作品。",
+        "学生能够分析与表达数据中蕴含的信息；优先采集：数据任务单/图表、作图/测量作品。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能收集、整理具体实例中的数据，并用合适的方式描述数据，分析与表达数据中蕴含的信息。",
+          "excerpt_hash": "dfbe53bed791ed6e9daeda80a6ceccb0aac3526e9455d2c3a390febb467ea014",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "收集、整理具体实例中的数据，并用合适的方式描述数据；分析与表达数据中蕴含的信息",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_0ac92d16c48774f1",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够收集、整理具体实例中的数据，并用合适的方式描述数据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生收集、整理具体实例中的数据，并用合适的方式描述数据，并说明关键步骤、特征或依据。",
+      "label": "收集、整理具体实例中的数据，并用合适的方式描述数据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够收集、整理具体实例中的数据，并用合适的方式描述数据；优先采集：数据任务单/图表、作图/测量作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "收集、整理具体实例中的数据，并用合适的方式描述数据",
+          "excerpt_hash": "92146bef77c79f067e3fb96f96ab4d6ee75b36f2452d5e91f73fbe037613a595",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "收集、整理具体实例中的数据，并用合适的方式描述数据"
+    },
+    {
+      "component_id": "lc_f5c0095d780d162d",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析与表达数据中蕴含的信息",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析与表达数据中蕴含的信息，并说明关键步骤、特征或依据。",
+      "label": "分析与表达数据中蕴含的信息",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析与表达数据中蕴含的信息；优先采集：数据任务单/图表、作图/测量作品。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析与表达数据中蕴含的信息",
+          "excerpt_hash": "ffc5713299e9ffd526844e47f193be8f4c86c4e4e16add693b8c5a31e378f73e",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-ST-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析与表达数据中蕴含的信息"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_e1e3c1418279de1c",
+      "evidence_refs": [
+        "standard:MA-D2-ST-001:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D1-ST-001",
+      "source_label": "依据事物特征，按照一定标准进行分类；发现事物特征后制订分类标准并依标准分类；能用语言简单描述分类结果；感知事物共性与差异，形成初步数据意识",
+      "target_code": "MA-D2-ST-001",
+      "target_label": "能收集、整理具体实例中的数据，并用合适的方式描述数据，分析与表达数据中蕴含的信息。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "dfbe53bed791ed6e9daeda80a6ceccb0aac3526e9455d2c3a390febb467ea014",
+  "standard_code": "MA-D2-ST-001",
+  "verified_prerequisites": []
+}

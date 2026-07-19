@@ -1,0 +1,412 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_8b7c34acc85773f5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明解题步骤和基本依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_64c81e37ce9e86ca",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_db1823f31e091a8e",
+        "hc_cded6e44f7b6b830"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明解题步骤和基本依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明解题步骤和基本依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解中心对称和中心对称图形概念及基本性质；能探索旋转基本性质；能通过具体实例认识平面图形绕旋转中心的旋转；能说明解题步骤和基本依据。",
+          "excerpt_hash": "5d4bf21ba221d23d78360f33d61503361f64ee8761b763681b5d8f7367a89800",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-025:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调旋转中距离和角度的不变量，联系现实图案欣赏。",
+          "excerpt_hash": "1f76dfce303619a64fd69b90bde55f9ee98a6fecba394001ad490dd73f0233f9",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-GE-025:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明解题步骤和基本依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明解题步骤和基本依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“强调旋转中距离和角度的不变量，联系现实图案欣赏。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "multi_step_procedure",
+      "component_ids": [
+        "lc_8b7c34acc85773f5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明解题步骤和基本依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_35d7ecf902d799b5",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_db1823f31e091a8e",
+        "hc_cded6e44f7b6b830"
+      ],
+      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“说明解题步骤和基本依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明解题步骤和基本依据”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解中心对称和中心对称图形概念及基本性质；能探索旋转基本性质；能通过具体实例认识平面图形绕旋转中心的旋转；能说明解题步骤和基本依据。",
+          "excerpt_hash": "5d4bf21ba221d23d78360f33d61503361f64ee8761b763681b5d8f7367a89800",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-025:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调旋转中距离和角度的不变量，联系现实图案欣赏。",
+          "excerpt_hash": "1f76dfce303619a64fd69b90bde55f9ee98a6fecba394001ad490dd73f0233f9",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-GE-025:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明解题步骤和基本依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明解题步骤和基本依据”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“强调旋转中距离和角度的不变量，联系现实图案欣赏。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_68c8455a1e976d2b",
+        "lc_c6e0b431c70d0783"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并说出中心对称和中心对称图形概念及基本性质的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_976c427862e9ad3c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出中心对称和中心对称图形概念及基本性质的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出中心对称和中心对称图形概念及基本性质的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解中心对称和中心对称图形概念及基本性质；能探索旋转基本性质；能通过具体实例认识平面图形绕旋转中心的旋转；能说明解题步骤和基本依据。",
+          "excerpt_hash": "5d4bf21ba221d23d78360f33d61503361f64ee8761b763681b5d8f7367a89800",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-025:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "强调旋转中距离和角度的不变量，联系现实图案欣赏。",
+          "excerpt_hash": "1f76dfce303619a64fd69b90bde55f9ee98a6fecba394001ad490dd73f0233f9",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-H4G7-GE-025:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并说出中心对称和中心对称图形概念及基本性质的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出中心对称和中心对称图形概念及基本性质的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“强调旋转中距离和角度的不变量，联系现实图案欣赏。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_80d4c3d6acbe3f35",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_48072359f7df"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d6ebc3492905c591",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9c9fc9834c78d4ee",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_c5fa3c0e2226"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_05b1d5ed90d78b81",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_f7a0ee08c0f18724",
+      "evidence_refs": [
+        "standard:MA-H4G7-GE-025:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-H4G7-GE-025",
+      "target_code": "MA-H4G8-GE-026",
+      "target_label": "能通过具体实例认识平面图形绕旋转中心的旋转；了解中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形；能比较方法并…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_db1823f31e091a8e",
+      "component_ids": [
+        "lc_8b7c34acc85773f5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "依据",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明解题步骤和基本依据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明解题步骤和基本依据；优先采集：旋转作图、性质分析、现实图案说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解中心对称和中心对称图形概念及基本性质；能探索旋转基本性质；能通过具体实例认识平面图形绕旋转中心的旋转；能说明解题步骤和基本依据。",
+          "excerpt_hash": "5d4bf21ba221d23d78360f33d61503361f64ee8761b763681b5d8f7367a89800",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-025:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（依据、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_cded6e44f7b6b830",
+      "component_ids": [
+        "lc_8b7c34acc85773f5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "步骤"
+      ],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明解题步骤和基本依据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明解题步骤和基本依据；优先采集：旋转作图、性质分析、现实图案说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解中心对称和中心对称图形概念及基本性质；能探索旋转基本性质；能通过具体实例认识平面图形绕旋转中心的旋转；能说明解题步骤和基本依据。",
+          "excerpt_hash": "5d4bf21ba221d23d78360f33d61503361f64ee8761b763681b5d8f7367a89800",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-025:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "保持多步骤或完整结构（步骤）",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_68c8455a1e976d2b",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并说出中心对称和中心对称图形概念及基本性质的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出中心对称和中心对称图形概念及基本性质的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出中心对称和中心对称图形概念及基本性质的关键特征",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并说出中心对称和中心对称图形概念及基本性质的关键特征；优先采集：旋转作图、性质分析、现实图案说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "了解中心对称和中心对称图形概念及基本性质",
+          "excerpt_hash": "081fe9cd7dc2dd19d6ed14bf5c43bbdfb0bcdb0494b78218c9e3008a70b4ea81",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-025:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "了解中心对称和中心对称图形概念及基本性质"
+    },
+    {
+      "component_id": "lc_aa7f75e836da00b8",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够探索旋转基本性质",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生探索旋转基本性质，并说明关键步骤、特征或依据。",
+      "label": "探索旋转基本性质",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够探索旋转基本性质；优先采集：旋转作图、性质分析、现实图案说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "探索旋转基本性质",
+          "excerpt_hash": "2a9fda7a2b4f278fed3badf79bb071e2970f99ac0c2d2dadd2d3ee6843b9bb87",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-025:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "探索旋转基本性质"
+    },
+    {
+      "component_id": "lc_c6e0b431c70d0783",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够通过具体实例认识平面图形绕旋转中心的旋转",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过具体实例认识平面图形绕旋转中心的旋转，并说明关键步骤、特征或依据。",
+      "label": "通过具体实例认识平面图形绕旋转中心的旋转",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够通过具体实例认识平面图形绕旋转中心的旋转；优先采集：旋转作图、性质分析、现实图案说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "通过具体实例认识平面图形绕旋转中心的旋转",
+          "excerpt_hash": "d7dc2fa536f1b87ea9f41ed05f0d2b709b77e9e6311d72955f7f6ae778e68779",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-025:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "通过具体实例认识平面图形绕旋转中心的旋转"
+    },
+    {
+      "component_id": "lc_8b7c34acc85773f5",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明解题步骤和基本依据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明解题步骤和基本依据，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明解题步骤和基本依据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明解题步骤和基本依据；优先采集：旋转作图、性质分析、现实图案说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明解题步骤和基本依据",
+          "excerpt_hash": "d00757cae74b1459bbcf36ec8c31849ae0007a290e5019ba4e746f5676a42251",
+          "field": "standard",
+          "ref_id": "standard:MA-H4G7-GE-025:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明解题步骤和基本依据"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1208,
+      "edge_id": "pc_548ceb39dd6f40d3",
+      "evidence_refs": [
+        "standard:MA-H4G7-GE-025:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D3-GE-011",
+      "source_label": "能从平移、旋转和轴对称的角度欣赏生活中的图案，能借助方格纸设计简单图案，感受数学美，形成空间观念。",
+      "target_code": "MA-H4G7-GE-025",
+      "target_label": "了解中心对称和中心对称图形概念及基本性质；能探索旋转基本性质；能通过具体实例认识平面图形绕旋转中心的旋转；能说明解题步骤和基本依据。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "5d4bf21ba221d23d78360f33d61503361f64ee8761b763681b5d8f7367a89800",
+  "standard_code": "MA-H4G7-GE-025",
+  "verified_prerequisites": []
+}

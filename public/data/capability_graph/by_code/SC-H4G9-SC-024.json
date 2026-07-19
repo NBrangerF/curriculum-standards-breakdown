@@ -1,0 +1,630 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_eda80a34659e775a"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生建模、论证的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_62eaadc8afafd3bf",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_076cb3e2cfc78579"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“建模、论证”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“建模、论证”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能说出藻类、苔藓、蕨类、种子植物的主要特点；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "7df1ca10ec3b1a50858d3c1d879c58d2062f1e697a69d241b499d54959302e01",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把分类活动和真实观察结合，帮助学生理解分类目的和证据。",
+          "excerpt_hash": "f4c246dd06dc89ba399b4609a54c85d87ebba9fbd19ac466aadd617f6a48b0a4",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-024:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后建模、论证，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“建模、论证”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把分类活动和真实观察结合，帮助学生理解分类目的和证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_c1a0516da497d4b0",
+        "lc_1595b535effb18d9"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生对常见植物进行简单二歧分类的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_cd2040ee62c4363f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_71d48f795d60d75e"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“对常见植物进行简单二歧分类”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“对常见植物进行简单二歧分类”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能说出藻类、苔藓、蕨类、种子植物的主要特点；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "7df1ca10ec3b1a50858d3c1d879c58d2062f1e697a69d241b499d54959302e01",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把分类活动和真实观察结合，帮助学生理解分类目的和证据。",
+          "excerpt_hash": "f4c246dd06dc89ba399b4609a54c85d87ebba9fbd19ac466aadd617f6a48b0a4",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-024:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后对常见植物进行简单二歧分类，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“对常见植物进行简单二歧分类”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“把分类活动和真实观察结合，帮助学生理解分类目的和证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_4ebdb13ef78c9536"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述主要特点、形态和生活习性的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_78a7633d4806af6d",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a5ec01bfde273064"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“描述主要特点、形态和生活习性”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述主要特点、形态和生活习性”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能说出藻类、苔藓、蕨类、种子植物的主要特点；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "7df1ca10ec3b1a50858d3c1d879c58d2062f1e697a69d241b499d54959302e01",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把分类活动和真实观察结合，帮助学生理解分类目的和证据。",
+          "excerpt_hash": "f4c246dd06dc89ba399b4609a54c85d87ebba9fbd19ac466aadd617f6a48b0a4",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-024:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述主要特点、形态和生活习性，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述主要特点、形态和生活习性”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把分类活动和真实观察结合，帮助学生理解分类目的和证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_1595b535effb18d9",
+        "lc_e494930fd6282560",
+        "lc_4ebdb13ef78c9536"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说出生物分类方法和分类等级的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bd889d1a5094b692",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a5ec01bfde273064",
+        "hc_71d48f795d60d75e"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出生物分类方法和分类等级”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说出生物分类方法和分类等级”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能说出藻类、苔藓、蕨类、种子植物的主要特点；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "7df1ca10ec3b1a50858d3c1d879c58d2062f1e697a69d241b499d54959302e01",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把分类活动和真实观察结合，帮助学生理解分类目的和证据。",
+          "excerpt_hash": "f4c246dd06dc89ba399b4609a54c85d87ebba9fbd19ac466aadd617f6a48b0a4",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-024:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说出生物分类方法和分类等级，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说出生物分类方法和分类等级”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把分类活动和真实观察结合，帮助学生理解分类目的和证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_f39696304b87cf26"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生观察无脊椎动物和脊椎动物的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_692b50ff2ad6d0c0",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“观察无脊椎动物和脊椎动物”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“观察无脊椎动物和脊椎动物”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能说出藻类、苔藓、蕨类、种子植物的主要特点；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "7df1ca10ec3b1a50858d3c1d879c58d2062f1e697a69d241b499d54959302e01",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把分类活动和真实观察结合，帮助学生理解分类目的和证据。",
+          "excerpt_hash": "f4c246dd06dc89ba399b4609a54c85d87ebba9fbd19ac466aadd617f6a48b0a4",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-024:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后观察无脊椎动物和脊椎动物，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“观察无脊椎动物和脊椎动物”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把分类活动和真实观察结合，帮助学生理解分类目的和证据。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 3,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_586c54031d2e4824",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2b4eaf7fd74d5608c966",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_91e786746fa4"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a01eaebee10c3727",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7ce7bd53e117cc2a",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_46b397a7eadfedff",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9c9b17c5e562753d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f0fcd567e766"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_941308fc63ca2501",
+      "textbook_grade": 9,
+      "textbook_subject": "物理",
+      "textbook_title": "物理9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_076cb3e2cfc78579",
+      "component_ids": [
+        "lc_eda80a34659e775a"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "论证"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生建模、论证。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够建模、论证；优先采集：检索表、分类说明、观察记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能说出藻类、苔藓、蕨类、种子植物的主要特点；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "7df1ca10ec3b1a50858d3c1d879c58d2062f1e697a69d241b499d54959302e01",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（论证）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_a5ec01bfde273064",
+      "component_ids": [
+        "lc_4ebdb13ef78c9536"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生描述主要特点、形态和生活习性。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够描述主要特点、形态和生活习性；优先采集：检索表、分类说明、观察记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能说出藻类、苔藓、蕨类、种子植物的主要特点；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "7df1ca10ec3b1a50858d3c1d879c58d2062f1e697a69d241b499d54959302e01",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_71d48f795d60d75e",
+      "component_ids": [
+        "lc_c1a0516da497d4b0",
+        "lc_1595b535effb18d9"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "分类"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生对常见植物进行简单二歧分类。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够对常见植物进行简单二歧分类；优先采集：检索表、分类说明、观察记录。",
+        "学生能够说出生物分类方法和分类等级；优先采集：检索表、分类说明、观察记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能说出藻类、苔藓、蕨类、种子植物的主要特点；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "7df1ca10ec3b1a50858d3c1d879c58d2062f1e697a69d241b499d54959302e01",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（分类）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_c1a0516da497d4b0",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够对常见植物进行简单二歧分类",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生对常见植物进行简单二歧分类，并说明关键步骤、特征或依据。",
+      "label": "对常见植物进行简单二歧分类",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够对常见植物进行简单二歧分类；优先采集：检索表、分类说明、观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "对常见植物进行简单二歧分类",
+          "excerpt_hash": "6768673855a772dd3f61389177dc759c3832ebed1e24f014d73b532e5918a244",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "对常见植物进行简单二歧分类"
+    },
+    {
+      "component_id": "lc_1595b535effb18d9",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出生物分类方法和分类等级",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出生物分类方法和分类等级，并说明关键步骤、特征或依据。",
+      "label": "说出生物分类方法和分类等级",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出生物分类方法和分类等级；优先采集：检索表、分类说明、观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出生物分类方法和分类等级",
+          "excerpt_hash": "e5a0992d0d02f853f14c33e3e12b8c4beafbc5bf2945a8892a4cdd1a62065090",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出生物分类方法和分类等级"
+    },
+    {
+      "component_id": "lc_0a63124f1f32bc40",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够使用并编制简单检索表",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生使用并编制简单检索表，并说明关键步骤、特征或依据。",
+      "label": "使用并编制简单检索表",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够使用并编制简单检索表；优先采集：检索表、分类说明、观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "使用并编制简单检索表",
+          "excerpt_hash": "b6ac4e82a8b3d4e80b55b9b754540534bfc36afd9dfd698e6c2db0b4ff9446c3",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "使用并编制简单检索表"
+    },
+    {
+      "component_id": "lc_e494930fd6282560",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说出藻类、苔藓、蕨类、种子植物的主要特点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说出藻类、苔藓、蕨类、种子植物的主要特点，并说明关键步骤、特征或依据。",
+      "label": "说出藻类、苔藓、蕨类、种子植物的主要特点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说出藻类、苔藓、蕨类、种子植物的主要特点；优先采集：检索表、分类说明、观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说出藻类、苔藓、蕨类、种子植物的主要特点",
+          "excerpt_hash": "27d95ed6086c50c5087412893bd8d20d68158363db089f5d450d5dd687d957ca",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说出藻类、苔藓、蕨类、种子植物的主要特点"
+    },
+    {
+      "component_id": "lc_f39696304b87cf26",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够观察无脊椎动物和脊椎动物",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生观察无脊椎动物和脊椎动物，并说明关键步骤、特征或依据。",
+      "label": "观察无脊椎动物和脊椎动物",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够观察无脊椎动物和脊椎动物；优先采集：检索表、分类说明、观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "观察无脊椎动物和脊椎动物",
+          "excerpt_hash": "4c5fdf1e6b3b3f44da6306ea4d036bf8b3ab265585288da15bd6ca1cf572c8bb",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "观察无脊椎动物和脊椎动物"
+    },
+    {
+      "component_id": "lc_4ebdb13ef78c9536",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述主要特点、形态和生活习性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述主要特点、形态和生活习性，并说明关键步骤、特征或依据。",
+      "label": "描述主要特点、形态和生活习性",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述主要特点、形态和生活习性；优先采集：检索表、分类说明、观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述主要特点、形态和生活习性",
+          "excerpt_hash": "7d9fa7807e3abc0424b8f0ffd68aa28d42e02ecb77a37e7c3d4a86d398e3009f",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述主要特点、形态和生活习性"
+    },
+    {
+      "component_id": "lc_eda80a34659e775a",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、论证",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
+      "label": "建模、论证",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、论证；优先采集：检索表、分类说明、观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、论证",
+          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、论证"
+    },
+    {
+      "component_id": "lc_bb32634b6d90020a",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价探究结论或社会影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
+      "label": "评价探究结论或社会影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：检索表、分类说明、观察记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价探究结论或社会影响",
+          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-024:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价探究结论或社会影响"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_51486fa46b6a4227",
+      "evidence_refs": [
+        "standard:SC-H4G9-SC-024:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G8-SC-024",
+      "source_label": "能列举病毒、细菌和真菌主要特点及其与人类生活的关系；能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能说出藻类…",
+      "target_code": "SC-H4G9-SC-024",
+      "target_label": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能说出藻类、苔藓、蕨类、种子植物的主要特点；能观察无脊椎动物和…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "7df1ca10ec3b1a50858d3c1d879c58d2062f1e697a69d241b499d54959302e01",
+  "standard_code": "SC-H4G9-SC-024",
+  "verified_prerequisites": []
+}

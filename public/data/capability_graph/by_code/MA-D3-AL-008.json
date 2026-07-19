@@ -1,0 +1,613 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_3f847c988a0a188f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9f339a2b6c04b406",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_318807f751872380",
+        "hc_059d88d5b09fcbd8",
+        "hc_0a282df2ec2b099f",
+        "hc_ed7ecfc9d27c5194"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用常见的数量关系解决实际问题，能合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力。",
+          "excerpt_hash": "005e4959ce7e8c176e678a82bcbb5adc71006e0e977bf5c8990c60cf8b1a49ed",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学中通过常见数量关系帮助学生理解现实问题，鼓励学生运用数学模型分析和解释数据，提升几何直观与应用能力。",
+          "excerpt_hash": "b61ac1f541743f7aad49f2a76882f1c10cdf54a27bdf190e3de45fabd4151aab",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-AL-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“教学中通过常见数量关系帮助学生理解现实问题，鼓励学生运用数学模型分析和解释数据，提升几何直观与应用能力。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_6d8482d9f698a0c0",
+        "lc_3f847c988a0a188f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用常见的数量关系解决实际问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d334366f4adeebd2",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_318807f751872380",
+        "hc_059d88d5b09fcbd8",
+        "hc_0a282df2ec2b099f",
+        "hc_ed7ecfc9d27c5194"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用常见的数量关系解决实际问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用常见的数量关系解决实际问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用常见的数量关系解决实际问题，能合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力。",
+          "excerpt_hash": "005e4959ce7e8c176e678a82bcbb5adc71006e0e977bf5c8990c60cf8b1a49ed",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学中通过常见数量关系帮助学生理解现实问题，鼓励学生运用数学模型分析和解释数据，提升几何直观与应用能力。",
+          "excerpt_hash": "b61ac1f541743f7aad49f2a76882f1c10cdf54a27bdf190e3de45fabd4151aab",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-AL-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用常见的数量关系解决实际问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用常见的数量关系解决实际问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“教学中通过常见数量关系帮助学生理解现实问题，鼓励学生运用数学模型分析和解释数据，提升几何直观与应用能力。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "representation",
+      "component_ids": [
+        "lc_3f847c988a0a188f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0a282df2ec2b099f",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_318807f751872380",
+        "hc_059d88d5b09fcbd8",
+        "hc_0a282df2ec2b099f",
+        "hc_ed7ecfc9d27c5194"
+      ],
+      "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用常见的数量关系解决实际问题，能合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力。",
+          "excerpt_hash": "005e4959ce7e8c176e678a82bcbb5adc71006e0e977bf5c8990c60cf8b1a49ed",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学中通过常见数量关系帮助学生理解现实问题，鼓励学生运用数学模型分析和解释数据，提升几何直观与应用能力。",
+          "excerpt_hash": "b61ac1f541743f7aad49f2a76882f1c10cdf54a27bdf190e3de45fabd4151aab",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-AL-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力”，要求学生在两种表征之间逐项连线并口头解释，再提供一处错误表征让其定位和修正。 可结合本条教学建议：“教学中通过常见数量关系帮助学生理解现实问题，鼓励学生运用数学模型分析和解释数据，提升几何直观与应用能力。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_3f847c988a0a188f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9b29c65f266f2bca",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_318807f751872380",
+        "hc_059d88d5b09fcbd8",
+        "hc_0a282df2ec2b099f",
+        "hc_ed7ecfc9d27c5194"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用常见的数量关系解决实际问题，能合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力。",
+          "excerpt_hash": "005e4959ce7e8c176e678a82bcbb5adc71006e0e977bf5c8990c60cf8b1a49ed",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学中通过常见数量关系帮助学生理解现实问题，鼓励学生运用数学模型分析和解释数据，提升几何直观与应用能力。",
+          "excerpt_hash": "b61ac1f541743f7aad49f2a76882f1c10cdf54a27bdf190e3de45fabd4151aab",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D3-AL-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“教学中通过常见数量关系帮助学生理解现实问题，鼓励学生运用数学模型分析和解释数据，提升几何直观与应用能力。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_998370807fdb69a7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_10296c173573f69db498",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e5b0376a10bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e2243ea8644ffb3f",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9ad095e7701cf507",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1ba8117dec0624e11c0e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b06437a92308"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_52ef62335b18e7df",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8a7afa89178ec921",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b1f651484391fce9",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ef2a04c8e2bb8b13",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6f696b62cd631c35e5d0",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_98536ea16bbc"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e1c2312794f3e566",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1811,
+      "connection_id": "fc_e3a25a4e902aa0ce",
+      "evidence_refs": [
+        "standard:MA-H4G7-AL-005:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-AL-008",
+      "target_code": "MA-H4G7-AL-005",
+      "target_label": "能具备一定应用意识和模型意识；能知道解决问题方法的多样性；能初步会用数学语言表达与交流；能说明解题步骤和基本依据。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1377,
+      "connection_id": "fc_0614956b3bb52dc1",
+      "evidence_refs": [
+        "standard:MA-H4G7-AL-013:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-AL-008",
+      "target_code": "MA-H4G7-AL-013",
+      "target_label": "了解一元二次方程根与系数关系；理解方程和方程解的意义；掌握等式基本性质；能说明解题步骤和基本依据。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2074,
+      "connection_id": "fc_4e1541d14252b6b9",
+      "evidence_refs": [
+        "standard:MA-H4G7-AL-016:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-AL-008",
+      "target_code": "MA-H4G7-AL-016",
+      "target_label": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质；能说明解题步骤和基本依据。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.14,
+      "connection_id": "fc_8463abda10b046f9",
+      "evidence_refs": [
+        "standard:MA-H4G7-AL-019:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-AL-008",
+      "target_code": "MA-H4G7-AL-019",
+      "target_label": "了解常量、变量、函数概念和表示法；能确定简单实际问题中自变量取值范围并求函数值；能举出函数实例；能说明解题步骤和基本依据。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1611,
+      "connection_id": "fc_0c34a5f33a24a04d",
+      "evidence_refs": [
+        "standard:MA-H4G7-AL-025:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D3-AL-008",
+      "target_code": "MA-H4G7-AL-025",
+      "target_label": "能知道二次函数与一元二次方程关系并能利用图象求一元二次方程近似解；能画二次函数图象并了解性质；能通过实际问题分析体会二次函数意义；能说明解题步…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_318807f751872380",
+      "component_ids": [
+        "lc_3f847c988a0a188f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "解释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力；优先采集：解题过程记录、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用常见的数量关系解决实际问题，能合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力。",
+          "excerpt_hash": "005e4959ce7e8c176e678a82bcbb5adc71006e0e977bf5c8990c60cf8b1a49ed",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（解释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_059d88d5b09fcbd8",
+      "component_ids": [
+        "lc_6d8482d9f698a0c0",
+        "lc_3f847c988a0a188f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "实际"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生运用常见的数量关系解决实际问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够运用常见的数量关系解决实际问题；优先采集：解题过程记录、口头/书面解释。",
+        "学生能够合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力；优先采集：解题过程记录、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用常见的数量关系解决实际问题，能合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力。",
+          "excerpt_hash": "005e4959ce7e8c176e678a82bcbb5adc71006e0e977bf5c8990c60cf8b1a49ed",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（实际）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_0a282df2ec2b099f",
+      "component_ids": [
+        "lc_3f847c988a0a188f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "模型"
+      ],
+      "demand_dimension": "representation",
+      "diagnostic_focus": "改变表征形式，检查学生能否保持关键信息并解释对应关系。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力；优先采集：解题过程记录、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用常见的数量关系解决实际问题，能合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力。",
+          "excerpt_hash": "005e4959ce7e8c176e678a82bcbb5adc71006e0e977bf5c8990c60cf8b1a49ed",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在多种表征之间转换（模型）",
+      "title": "在多种表征之间转换",
+      "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
+    },
+    {
+      "case_id": "hc_ed7ecfc9d27c5194",
+      "component_ids": [
+        "lc_3f847c988a0a188f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "合理"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力；优先采集：解题过程记录、口头/书面解释。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能运用常见的数量关系解决实际问题，能合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力。",
+          "excerpt_hash": "005e4959ce7e8c176e678a82bcbb5adc71006e0e977bf5c8990c60cf8b1a49ed",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（合理）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_6d8482d9f698a0c0",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用常见的数量关系解决实际问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用常见的数量关系解决实际问题，并说明关键步骤、特征或依据。",
+      "label": "运用常见的数量关系解决实际问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用常见的数量关系解决实际问题；优先采集：解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用常见的数量关系解决实际问题",
+          "excerpt_hash": "d3c071aebe248a01b8651fb9b3913162fea9cde32cc129d296a636fa0ad3c383",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用常见的数量关系解决实际问题"
+    },
+    {
+      "component_id": "lc_3f847c988a0a188f",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力，并保留可回查的口头、书面或操作过程证据。",
+      "label": "合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力；优先采集：解题过程记录、口头/书面解释。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力",
+          "excerpt_hash": "22fb7c8c840ed3bfd502eef6cb0d6b2160978d8db37adc42ef99c2528e3b101e",
+          "field": "standard",
+          "ref_id": "standard:MA-D3-AL-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_12f57343b1c56424",
+      "evidence_refs": [
+        "standard:MA-D3-AL-008:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D2-AL-005",
+      "source_label": "能在简单的实际情境中，运用四则混合运算解决问题；能选择合适的单位通过估算解决实际问题，形成初步的应用意识。",
+      "target_code": "MA-D3-AL-008",
+      "target_label": "能运用常见的数量关系解决实际问题，能合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "005e4959ce7e8c176e678a82bcbb5adc71006e0e977bf5c8990c60cf8b1a49ed",
+  "standard_code": "MA-D3-AL-008",
+  "verified_prerequisites": []
+}

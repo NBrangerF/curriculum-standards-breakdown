@@ -1,0 +1,644 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_f901aa944cc82e52",
+        "lc_850d34ca5e5da551",
+        "lc_01d236949e13c307",
+        "lc_ff3ebc01ff6909f7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用细胞结构和功能知识解释某些生命现象的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4cc2a1bea44964cc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5ba6a0666171233b",
+        "hc_24aeeef3638a4d4e"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“运用细胞结构和功能知识解释某些生命现象”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用细胞结构和功能知识解释某些生命现象”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用细胞结构和功能知识解释某些生命现象；能说明细胞是生物体结构与生命活动的基本单位；能描述细胞基本结构及功能；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "48ca3d39d5ee3ded0b60726e4fd9d76a1abcda98e0a7d6672ed796bac1d4389b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-025:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注显微操作、图示规范和结构功能对应关系。",
+          "excerpt_hash": "61216b42e56a894a969cc37e86fb8d992c53a11e5739b5551711e1148075a796",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-025:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用细胞结构和功能知识解释某些生命现象，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用细胞结构和功能知识解释某些生命现象”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“关注显微操作、图示规范和结构功能对应关系。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_01d236949e13c307"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_4baaf286fef803fc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5ba6a0666171233b",
+        "hc_24aeeef3638a4d4e"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较证据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“比较证据”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用细胞结构和功能知识解释某些生命现象；能说明细胞是生物体结构与生命活动的基本单位；能描述细胞基本结构及功能；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "48ca3d39d5ee3ded0b60726e4fd9d76a1abcda98e0a7d6672ed796bac1d4389b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-025:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注显微操作、图示规范和结构功能对应关系。",
+          "excerpt_hash": "61216b42e56a894a969cc37e86fb8d992c53a11e5739b5551711e1148075a796",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-025:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“比较证据”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“关注显微操作、图示规范和结构功能对应关系。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_f901aa944cc82e52"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用细胞结构和功能知识解释某些生命现象的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_94c0e34d585aee66",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5ba6a0666171233b"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用细胞结构和功能知识解释某些生命现象”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用细胞结构和功能知识解释某些生命现象”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用细胞结构和功能知识解释某些生命现象；能说明细胞是生物体结构与生命活动的基本单位；能描述细胞基本结构及功能；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "48ca3d39d5ee3ded0b60726e4fd9d76a1abcda98e0a7d6672ed796bac1d4389b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-025:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注显微操作、图示规范和结构功能对应关系。",
+          "excerpt_hash": "61216b42e56a894a969cc37e86fb8d992c53a11e5739b5551711e1148075a796",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-025:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用细胞结构和功能知识解释某些生命现象，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用细胞结构和功能知识解释某些生命现象”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“关注显微操作、图示规范和结构功能对应关系。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_3517c88402e57dca"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生描述细胞基本结构及功能的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6380cc2daa88864c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述细胞基本结构及功能”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述细胞基本结构及功能”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用细胞结构和功能知识解释某些生命现象；能说明细胞是生物体结构与生命活动的基本单位；能描述细胞基本结构及功能；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "48ca3d39d5ee3ded0b60726e4fd9d76a1abcda98e0a7d6672ed796bac1d4389b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-025:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注显微操作、图示规范和结构功能对应关系。",
+          "excerpt_hash": "61216b42e56a894a969cc37e86fb8d992c53a11e5739b5551711e1148075a796",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-025:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后描述细胞基本结构及功能，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述细胞基本结构及功能”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“关注显微操作、图示规范和结构功能对应关系。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_ff3ebc01ff6909f7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生解释概念之间的关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c5b3a0887d53f940",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5ba6a0666171233b"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“解释概念之间的关系”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“解释概念之间的关系”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用细胞结构和功能知识解释某些生命现象；能说明细胞是生物体结构与生命活动的基本单位；能描述细胞基本结构及功能；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "48ca3d39d5ee3ded0b60726e4fd9d76a1abcda98e0a7d6672ed796bac1d4389b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-025:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "关注显微操作、图示规范和结构功能对应关系。",
+          "excerpt_hash": "61216b42e56a894a969cc37e86fb8d992c53a11e5739b5551711e1148075a796",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-SC-025:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后解释概念之间的关系，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“解释概念之间的关系”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“关注显微操作、图示规范和结构功能对应关系。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 6,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_3b16334e3c0aa2e7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_0f6edf1eb52b44920973",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_77ef51325c22"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_aa920dd0236fd836",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_89d6eb056c6d67d9",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a7fe299869b84f655a87",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a871f50d9e2b"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_c38c1b84336fa7fa",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a332287c7ca70e45",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_b4de49a3e2e59c9c76bf",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5f552244f754"
+      ],
+      "evidence_role": "adjacent_discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_e4f214193210f062",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9ce8757ce9845600",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c8cec7bb4ee4d9a29577",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ce524ff21ae1"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d75ade93cbf14989",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_618056fd6f129233",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_d5ca89ccc00d3103a7f8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a0a929bcb6e9"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a2e8478f57c656a4",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2d08458210baeabd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f0de8cbbeb88661f44d6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ffb2a04886aa"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_23244c2ebb335c01",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_f835dd1e5b0485fe",
+      "evidence_refs": [
+        "standard:SC-H4G8-SC-025:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "SC-H4G8-SC-025",
+      "target_code": "SC-H4G9-SC-025",
+      "target_label": "能说明细胞是生物体结构与生命活动的基本单位；分析并说明细胞基本结构及功能；运用细胞结构和功能知识解释某些生命现象；能建模、论证并评价探究结论或…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_5ba6a0666171233b",
+      "component_ids": [
+        "lc_f901aa944cc82e52",
+        "lc_850d34ca5e5da551",
+        "lc_01d236949e13c307",
+        "lc_ff3ebc01ff6909f7"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "证据",
+        "解释",
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生运用细胞结构和功能知识解释某些生命现象。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够运用细胞结构和功能知识解释某些生命现象；优先采集：临时装片、显微观察记录、生物图、细胞模型。",
+        "学生能够说明细胞是生物体结构与生命活动的基本单位；优先采集：临时装片、显微观察记录、生物图、细胞模型。",
+        "学生能够比较证据；优先采集：临时装片、显微观察记录、生物图、细胞模型。",
+        "学生能够解释概念之间的关系；优先采集：临时装片、显微观察记录、生物图、细胞模型。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用细胞结构和功能知识解释某些生命现象；能说明细胞是生物体结构与生命活动的基本单位；能描述细胞基本结构及功能；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "48ca3d39d5ee3ded0b60726e4fd9d76a1abcda98e0a7d6672ed796bac1d4389b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-025:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（证据、解释、说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_24aeeef3638a4d4e",
+      "component_ids": [
+        "lc_01d236949e13c307"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "比较"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够比较证据；优先采集：临时装片、显微观察记录、生物图、细胞模型。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用细胞结构和功能知识解释某些生命现象；能说明细胞是生物体结构与生命活动的基本单位；能描述细胞基本结构及功能；能比较证据并解释概念之间的关系。",
+          "excerpt_hash": "48ca3d39d5ee3ded0b60726e4fd9d76a1abcda98e0a7d6672ed796bac1d4389b",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-025:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（比较）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_f901aa944cc82e52",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用细胞结构和功能知识解释某些生命现象",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用细胞结构和功能知识解释某些生命现象，并保留可回查的口头、书面或操作过程证据。",
+      "label": "运用细胞结构和功能知识解释某些生命现象",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用细胞结构和功能知识解释某些生命现象；优先采集：临时装片、显微观察记录、生物图、细胞模型。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用细胞结构和功能知识解释某些生命现象",
+          "excerpt_hash": "3ed296a27acc68bb8c1304757cb619e41e72bd62b9f18b238c497704d251de22",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-025:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用细胞结构和功能知识解释某些生命现象"
+    },
+    {
+      "component_id": "lc_850d34ca5e5da551",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明细胞是生物体结构与生命活动的基本单位",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明细胞是生物体结构与生命活动的基本单位，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明细胞是生物体结构与生命活动的基本单位",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明细胞是生物体结构与生命活动的基本单位；优先采集：临时装片、显微观察记录、生物图、细胞模型。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明细胞是生物体结构与生命活动的基本单位",
+          "excerpt_hash": "e6cf1257ef377e2215a16394d13dcfc1ac904fca97dfaaa3b4e5dc947a26e8ff",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-025:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明细胞是生物体结构与生命活动的基本单位"
+    },
+    {
+      "component_id": "lc_3517c88402e57dca",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够描述细胞基本结构及功能",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述细胞基本结构及功能，并说明关键步骤、特征或依据。",
+      "label": "描述细胞基本结构及功能",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够描述细胞基本结构及功能；优先采集：临时装片、显微观察记录、生物图、细胞模型。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "描述细胞基本结构及功能",
+          "excerpt_hash": "b1129720160b0141ed9d5ff6732b4886f14552f2ebc85dfc1c34cd84f9c58b54",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-025:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述细胞基本结构及功能"
+    },
+    {
+      "component_id": "lc_01d236949e13c307",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够比较证据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较证据，并说明关键步骤、特征或依据。",
+      "label": "比较证据",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够比较证据；优先采集：临时装片、显微观察记录、生物图、细胞模型。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "比较证据",
+          "excerpt_hash": "991569e1419bfb53d107f820e29cc506985fb42dec521ee976a4309299317eac",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-025:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "比较证据"
+    },
+    {
+      "component_id": "lc_ff3ebc01ff6909f7",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够解释概念之间的关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释概念之间的关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "解释概念之间的关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够解释概念之间的关系；优先采集：临时装片、显微观察记录、生物图、细胞模型。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "解释概念之间的关系",
+          "excerpt_hash": "7176bf29ca46d45d574a0ab078112ade02e1c191616f7761e6189d6092a666dd",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-SC-025:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "解释概念之间的关系"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_77fe5425f5039391",
+      "evidence_refs": [
+        "standard:SC-H4G8-SC-025:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G7-SC-025",
+      "source_label": "能描述细胞基本结构及功能；能说明细胞是生物体结构与生命活动的基本单位；能识别细菌、动物细胞和植物细胞；能用观察证据说明基本科学概念。",
+      "target_code": "SC-H4G8-SC-025",
+      "target_label": "运用细胞结构和功能知识解释某些生命现象；能说明细胞是生物体结构与生命活动的基本单位；能描述细胞基本结构及功能；能比较证据并解释概念之间的关系。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "48ca3d39d5ee3ded0b60726e4fd9d76a1abcda98e0a7d6672ed796bac1d4389b",
+  "standard_code": "SC-H4G8-SC-025",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,324 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_d4462c09ef778aff"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c624135be3901235",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_428d5272312b5ad5",
+        "hc_7399f3dbe2c2efad"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚。",
+          "excerpt_hash": "44eff7f6b94d9b69d244d9863a6f0abfa37f46da1c951745f73b25fc5adfe964",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-CM-005:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "教学建议：\n建立“200 字周记”，周末教师批注亮点。",
+          "excerpt_hash": "7579a28ba498460c52811fce972868bd481b7091b7a500073732c71072884cc0",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-D2-CM-005:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“建立“200 字周记”，周末教师批注亮点。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5f80249d18644213",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_6679839735c5"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a9aaea7b7d7bee10",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_b1680e0ccbd7e0bf",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_334af6341558"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_ae7100fbda14f7bd",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_95eb564cffbb73ed",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_97b49cd39424"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f1323e17e6058c4c",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_d0ede3c705e1482e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_61d9923f1ed0457b",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_81012ca4f39d3390",
+      "evidence_refs": [
+        "standard:CN-D2-CM-005:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-D2-CM-005",
+      "target_code": "CN-D3-CM-005",
+      "target_label": "留心观察周围事物，用文字、图像、音视频等多媒介方式表达独特感受。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_428d5272312b5ad5",
+      "component_ids": [
+        "lc_d4462c09ef778aff"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "清楚"
+      ],
+      "demand_dimension": "quality_criteria",
+      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚；优先采集：写作文本（草稿—修改—定稿）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚。",
+          "excerpt_hash": "44eff7f6b94d9b69d244d9863a6f0abfa37f46da1c951745f73b25fc5adfe964",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-CM-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "达到标准中的质量准则（清楚）",
+      "title": "达到标准中的质量准则",
+      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+    },
+    {
+      "case_id": "hc_7399f3dbe2c2efad",
+      "component_ids": [
+        "lc_d4462c09ef778aff"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "150–200 字"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚；优先采集：写作文本（草稿—修改—定稿）。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚。",
+          "excerpt_hash": "44eff7f6b94d9b69d244d9863a6f0abfa37f46da1c951745f73b25fc5adfe964",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-CM-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（150–200 字）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d4462c09ef778aff",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚，并说明关键步骤、特征或依据。",
+      "label": "写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚；优先采集：写作文本（草稿—修改—定稿）。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚",
+          "excerpt_hash": "3a8e535767c1a5ceb0894a9403324e6e563789b0ce48a720a827e657371a6205",
+          "field": "standard",
+          "ref_id": "standard:CN-D2-CM-005:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_9a17ad6e7cf3e1d4",
+      "evidence_refs": [
+        "standard:CN-D2-CM-005:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D1-CM-002",
+      "source_label": "依据观察写 50–80 字写话，语句通顺、表达清楚。",
+      "target_code": "CN-D2-CM-005",
+      "target_label": "写出 150–200 字的记事/写景/抒情短文，内容具体，条理清楚。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "44eff7f6b94d9b69d244d9863a6f0abfa37f46da1c951745f73b25fc5adfe964",
+  "standard_code": "CN-D2-CM-005",
+  "verified_prerequisites": []
+}

@@ -1,0 +1,202 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "performance_stability",
+      "component_ids": [
+        "lc_394727df4a4f32f5"
+      ],
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生遵守课堂纪律与安全规则，爱护体育器材的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_83bd5455e59a8802",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_4469f96c9a958fb2"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“遵守课堂纪律与安全规则，爱护体育器材”。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能遵守课堂纪律与安全规则，爱护体育器材并保持场地整洁。",
+          "excerpt_hash": "c78da6e63136f345067f5122da070623070ea9610e020339dff76c8311c079cf",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-SD-008:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "课前进行安全风险提示与器材检查示范（场地湿滑、投掷区域、保护动作等），教学生掌握基本自护互护与紧急求助流程。引导学生把安全规则转化为“我能做到”的具体行为，并在活动中担任安全观察员。",
+          "excerpt_hash": "a88202cbca6d0c5157c1550b5fd257775fbd501c5570eea5dd6f910901fb658b",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-D2-SD-008:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后遵守课堂纪律与安全规则，爱护体育器材，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“遵守课堂纪律与安全规则，爱护体育器材”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“课前进行安全风险提示与器材检查示范（场地湿滑、投掷区域、保护动作等），教学生掌握基本自护互护与紧急求助流程。引导学生把安全规则转化为“我能做到”的具体行为，并在活动中担任安全观察员。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5b0d164c535533af",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_032926ad81d86eb77eb2",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_pe_primary_grade_3_2022"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_58c66aa4067b40f9",
+      "textbook_grade": 3,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康3年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_ff84b3692f7ecd67",
+      "evidence_refs": [
+        "standard:PE-D2-SD-008:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-D2-SD-008",
+      "target_code": "PE-D3-SD-008",
+      "target_label": "能将体育活动中形成的良好体育品德迁移到日常学习和生活中（如遵守规则、坚持、合作与自律）。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_4469f96c9a958fb2",
+      "component_ids": [
+        "lc_394727df4a4f32f5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "安全"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生遵守课堂纪律与安全规则，爱护体育器材。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够遵守课堂纪律与安全规则，爱护体育器材；优先采集：检查表、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能遵守课堂纪律与安全规则，爱护体育器材并保持场地整洁。",
+          "excerpt_hash": "c78da6e63136f345067f5122da070623070ea9610e020339dff76c8311c079cf",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-SD-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（安全）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_394727df4a4f32f5",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够遵守课堂纪律与安全规则，爱护体育器材",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生遵守课堂纪律与安全规则，爱护体育器材，并说明关键步骤、特征或依据。",
+      "label": "遵守课堂纪律与安全规则，爱护体育器材",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够遵守课堂纪律与安全规则，爱护体育器材；优先采集：检查表、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "遵守课堂纪律与安全规则，爱护体育器材",
+          "excerpt_hash": "9131c824f145d111a5be55cff45a33d6ad69692d581a004e84fdd6304bf0e2f8",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-SD-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "遵守课堂纪律与安全规则，爱护体育器材"
+    },
+    {
+      "component_id": "lc_3d714651e3a534c6",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够保持场地整洁",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生保持场地整洁，并说明关键步骤、特征或依据。",
+      "label": "保持场地整洁",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够保持场地整洁；优先采集：检查表、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "保持场地整洁",
+          "excerpt_hash": "8ee6d82cb1e77277a27b9b87ca2e392d665d68a285df4202e2fdac39ff7ebd0b",
+          "field": "standard",
+          "ref_id": "standard:PE-D2-SD-008:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "保持场地整洁"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "c78da6e63136f345067f5122da070623070ea9610e020339dff76c8311c079cf",
+  "standard_code": "PE-D2-SD-008",
+  "verified_prerequisites": []
+}

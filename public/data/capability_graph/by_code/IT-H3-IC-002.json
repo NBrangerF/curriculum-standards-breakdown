@@ -1,0 +1,301 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_81312fb374bb1233",
+        "lc_796e96afc7dc74e5"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释“大系统可分解为若干小系统、系统可划分为功能模块”的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3dbec6c23cc29c44",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_9b0e6874b583744c"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释“大系统可分解为若干小系统、系统可划分为功能模块””中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释“大系统可分解为若干小系统、系统可划分为功能模块””时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在实例中理解“大系统可分解为若干小系统、系统可划分为功能模块”，并能对一个日常设备进行至少两层的分解，说明各模块的功能及其协作关系。",
+          "excerpt_hash": "3b16d362e407a974115ae6cfaf7e428fe1cae49af94fbe5cd054adf99af00573",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【从整体到模块：学会分解】\n(1) 用“黑盒—白盒”策略：先把设备当黑盒画三环节，再把处理环节拆成模块（显示、计时、加热控制等）。\n(2) 引导学生用‘模块功能句式’：模块=输入什么/做什么/输出什么。\n(3) 小组分工：每组负责一个模块，最后拼成整机流程，体验“系统由模块协同”。\n(4) 常见误区：把物理零件与功能模块混淆。可允许先按零件列举，再二次归类成“功能模块”。",
+          "excerpt_hash": "e026349c6f46ce80dbb05f6d38e55e79fdc882fc0970cd51284cc3699e65e9fe",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-IC-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释“大系统可分解为若干小系统、系统可划分为功能模块”，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释“大系统可分解为若干小系统、系统可划分为功能模块””，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“【从整体到模块：学会分解】”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_2d3b22898b6d5623"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生对一个日常设备进行至少两层的分解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_154f1eb0776caecc",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8054638e3fb0f3bc",
+        "hc_d8f4f8b3bb9338fc"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“对一个日常设备进行至少两层的分解”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“对一个日常设备进行至少两层的分解”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在实例中理解“大系统可分解为若干小系统、系统可划分为功能模块”，并能对一个日常设备进行至少两层的分解，说明各模块的功能及其协作关系。",
+          "excerpt_hash": "3b16d362e407a974115ae6cfaf7e428fe1cae49af94fbe5cd054adf99af00573",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "【从整体到模块：学会分解】\n(1) 用“黑盒—白盒”策略：先把设备当黑盒画三环节，再把处理环节拆成模块（显示、计时、加热控制等）。\n(2) 引导学生用‘模块功能句式’：模块=输入什么/做什么/输出什么。\n(3) 小组分工：每组负责一个模块，最后拼成整机流程，体验“系统由模块协同”。\n(4) 常见误区：把物理零件与功能模块混淆。可允许先按零件列举，再二次归类成“功能模块”。",
+          "excerpt_hash": "e026349c6f46ce80dbb05f6d38e55e79fdc882fc0970cd51284cc3699e65e9fe",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H3-IC-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后对一个日常设备进行至少两层的分解，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“对一个日常设备进行至少两层的分解”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“【从整体到模块：学会分解】”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.0945,
+      "connection_id": "fc_b5213822c383155c",
+      "evidence_refs": [
+        "standard:IT-H4G7-IC-001:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "IT-H3-IC-002",
+      "target_code": "IT-H4G7-IC-001",
+      "target_label": "能感受互联网和物联网改变学习、生活和工作方式；能观察、探究并理解互联网对社会各领域的影响；能体验互联网交互方式；能说明数字工具或数据过程的基本…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_9b0e6874b583744c",
+      "component_ids": [
+        "lc_81312fb374bb1233",
+        "lc_796e96afc7dc74e5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释“大系统可分解为若干小系统、系统可划分为功能模块”。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在实例中，能够用自己的话解释“大系统可分解为若干小系统、系统可划分为功能模块”；优先采集：模块图作品、小组展示记录、同伴互评。",
+        "学生在实例中，能够说明各模块的功能及其协作关系；优先采集：模块图作品、小组展示记录、同伴互评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在实例中理解“大系统可分解为若干小系统、系统可划分为功能模块”，并能对一个日常设备进行至少两层的分解，说明各模块的功能及其协作关系。",
+          "excerpt_hash": "3b16d362e407a974115ae6cfaf7e428fe1cae49af94fbe5cd054adf99af00573",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_8054638e3fb0f3bc",
+      "component_ids": [
+        "lc_2d3b22898b6d5623"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生对一个日常设备进行至少两层的分解。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在实例中，能够对一个日常设备进行至少两层的分解；优先采集：模块图作品、小组展示记录、同伴互评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在实例中理解“大系统可分解为若干小系统、系统可划分为功能模块”，并能对一个日常设备进行至少两层的分解，说明各模块的功能及其协作关系。",
+          "excerpt_hash": "3b16d362e407a974115ae6cfaf7e428fe1cae49af94fbe5cd054adf99af00573",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（至少）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    },
+    {
+      "case_id": "hc_d8f4f8b3bb9338fc",
+      "component_ids": [
+        "lc_2d3b22898b6d5623"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "至少"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生对一个日常设备进行至少两层的分解。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在实例中，能够对一个日常设备进行至少两层的分解；优先采集：模块图作品、小组展示记录、同伴互评。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在实例中理解“大系统可分解为若干小系统、系统可划分为功能模块”，并能对一个日常设备进行至少两层的分解，说明各模块的功能及其协作关系。",
+          "excerpt_hash": "3b16d362e407a974115ae6cfaf7e428fe1cae49af94fbe5cd054adf99af00573",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（至少）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_81312fb374bb1233",
+      "component_type": "conceptual",
+      "condition": "在实例中",
+      "confidence": 0.72,
+      "description": "学生在实例中，能够用自己的话解释“大系统可分解为若干小系统、系统可划分为功能模块”",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在实例中”的诊断任务，要求学生用自己的话解释“大系统可分解为若干小系统、系统可划分为功能模块”，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释“大系统可分解为若干小系统、系统可划分为功能模块”",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在实例中，能够用自己的话解释“大系统可分解为若干小系统、系统可划分为功能模块”；优先采集：模块图作品、小组展示记录、同伴互评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在实例中理解“大系统可分解为若干小系统、系统可划分为功能模块”，并能对一个日常设备进行至少两层的分解，说明各模块的功能及其协作关系。",
+          "excerpt_hash": "3b16d362e407a974115ae6cfaf7e428fe1cae49af94fbe5cd054adf99af00573",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解“大系统可分解为若干小系统、系统可划分为功能模块”"
+    },
+    {
+      "component_id": "lc_2d3b22898b6d5623",
+      "component_type": "conceptual",
+      "condition": "在实例中",
+      "confidence": 0.72,
+      "description": "学生在实例中，能够对一个日常设备进行至少两层的分解",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在实例中”的诊断任务，要求学生对一个日常设备进行至少两层的分解，并说明关键步骤、特征或依据。",
+      "label": "对一个日常设备进行至少两层的分解",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在实例中，能够对一个日常设备进行至少两层的分解；优先采集：模块图作品、小组展示记录、同伴互评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在实例中理解“大系统可分解为若干小系统、系统可划分为功能模块”，并能对一个日常设备进行至少两层的分解，说明各模块的功能及其协作关系。",
+          "excerpt_hash": "3b16d362e407a974115ae6cfaf7e428fe1cae49af94fbe5cd054adf99af00573",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "对一个日常设备进行至少两层的分解"
+    },
+    {
+      "component_id": "lc_796e96afc7dc74e5",
+      "component_type": "language",
+      "condition": "在实例中",
+      "confidence": 0.72,
+      "description": "学生在实例中，能够说明各模块的功能及其协作关系",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在实例中”的诊断任务，要求学生说明各模块的功能及其协作关系，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明各模块的功能及其协作关系",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在实例中，能够说明各模块的功能及其协作关系；优先采集：模块图作品、小组展示记录、同伴互评。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能在实例中理解“大系统可分解为若干小系统、系统可划分为功能模块”，并能对一个日常设备进行至少两层的分解，说明各模块的功能及其协作关系。",
+          "excerpt_hash": "3b16d362e407a974115ae6cfaf7e428fe1cae49af94fbe5cd054adf99af00573",
+          "field": "standard",
+          "ref_id": "standard:IT-H3-IC-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明各模块的功能及其协作关系"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "3b16d362e407a974115ae6cfaf7e428fe1cae49af94fbe5cd054adf99af00573",
+  "standard_code": "IT-H3-IC-002",
+  "verified_prerequisites": []
+}

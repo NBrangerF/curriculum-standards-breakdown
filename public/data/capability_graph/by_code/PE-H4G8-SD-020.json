@@ -1,0 +1,388 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_e7edb649661ab860"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生判断练习或比赛表现的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_6edaf94610bf5d0b",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_cb00c9c88bba8a85"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“判断练习或比赛表现”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“判断练习或比赛表现”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用4-5个动作技术参与展示或比赛；能处理常见运动损伤；能进行比赛分析与分析并判断；能分析练习或比赛表现并调整方法。",
+          "excerpt_hash": "e86e2b9484e62539b39581bae04910bf6ca8508185999f7d0b4324c4a6cd79c5",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-020:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "严格落实体操项目的安全组织和同伴保护责任。",
+          "excerpt_hash": "ba50cc51bef715d84ff0317cf6546665dd3cdae2d608619598da42c1d40832a1",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G8-SD-020:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后判断练习或比赛表现，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“判断练习或比赛表现”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“严格落实体操项目的安全组织和同伴保护责任。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_a12c5112b5cbfb3f"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用4-5个动作技术参与展示或比赛的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8de0a036a90349d5",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_ce642db505153086"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用4-5个动作技术参与展示或比赛”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用4-5个动作技术参与展示或比赛”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用4-5个动作技术参与展示或比赛；能处理常见运动损伤；能进行比赛分析与分析并判断；能分析练习或比赛表现并调整方法。",
+          "excerpt_hash": "e86e2b9484e62539b39581bae04910bf6ca8508185999f7d0b4324c4a6cd79c5",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-020:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "严格落实体操项目的安全组织和同伴保护责任。",
+          "excerpt_hash": "ba50cc51bef715d84ff0317cf6546665dd3cdae2d608619598da42c1d40832a1",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G8-SD-020:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用4-5个动作技术参与展示或比赛，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用4-5个动作技术参与展示或比赛”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“严格落实体操项目的安全组织和同伴保护责任。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_266cad3db2cf61ff",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4033475eef6d59cd7a75",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_640488b51030"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_b134cd8790a103dd",
+      "textbook_grade": 8,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康8年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_1e223a8177ff7653",
+      "evidence_refs": [
+        "standard:PE-H4G8-SD-020:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-H4G8-SD-020",
+      "target_code": "PE-H4G9-SD-021",
+      "target_label": "能处理常见运动损伤；能进行比赛分析与评价；运用4-5个动作技术参与展示或比赛；能制定改进方案并评价运动、健康或品德表现。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_cb00c9c88bba8a85",
+      "component_ids": [
+        "lc_e7edb649661ab860"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断练习或比赛表现。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够判断练习或比赛表现；优先采集：成套动作展示、保护帮助记录、比赛评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用4-5个动作技术参与展示或比赛；能处理常见运动损伤；能进行比赛分析与分析并判断；能分析练习或比赛表现并调整方法。",
+          "excerpt_hash": "e86e2b9484e62539b39581bae04910bf6ca8508185999f7d0b4324c4a6cd79c5",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-020:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_ce642db505153086",
+      "component_ids": [
+        "lc_a12c5112b5cbfb3f"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "4-5个"
+      ],
+      "demand_dimension": "quantitative_threshold",
+      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生运用4-5个动作技术参与展示或比赛。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够运用4-5个动作技术参与展示或比赛；优先采集：成套动作展示、保护帮助记录、比赛评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用4-5个动作技术参与展示或比赛；能处理常见运动损伤；能进行比赛分析与分析并判断；能分析练习或比赛表现并调整方法。",
+          "excerpt_hash": "e86e2b9484e62539b39581bae04910bf6ca8508185999f7d0b4324c4a6cd79c5",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-020:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "满足数量、时长或频率阈值（4-5个）",
+      "title": "满足数量、时长或频率阈值",
+      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_a12c5112b5cbfb3f",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用4-5个动作技术参与展示或比赛",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用4-5个动作技术参与展示或比赛，并说明关键步骤、特征或依据。",
+      "label": "运用4-5个动作技术参与展示或比赛",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用4-5个动作技术参与展示或比赛；优先采集：成套动作展示、保护帮助记录、比赛评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用4-5个动作技术参与展示或比赛",
+          "excerpt_hash": "ea92aa040d5fccf804de0a1d5dd0d41dc8be3621fcdd0d5914ce99c0c054eaee",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-020:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用4-5个动作技术参与展示或比赛"
+    },
+    {
+      "component_id": "lc_e38e5713ffe85b88",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够处理常见运动损伤",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生处理常见运动损伤，并说明关键步骤、特征或依据。",
+      "label": "处理常见运动损伤",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够处理常见运动损伤；优先采集：成套动作展示、保护帮助记录、比赛评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "处理常见运动损伤",
+          "excerpt_hash": "4410ea2cdebdb4a51532039d9ddf43b313e2a0ce30723a952983c3652e70fa67",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-020:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "处理常见运动损伤"
+    },
+    {
+      "component_id": "lc_15175594a7bd76a1",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够进行比赛分析与分析",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生进行比赛分析与分析，并说明关键步骤、特征或依据。",
+      "label": "进行比赛分析与分析",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够进行比赛分析与分析；优先采集：成套动作展示、保护帮助记录、比赛评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "进行比赛分析与分析",
+          "excerpt_hash": "8508cf033cd442368f431287cb0c5520985ec5d4a4380e9c3de69b4c5af96807",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-020:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "进行比赛分析与分析"
+    },
+    {
+      "component_id": "lc_e7edb649661ab860",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够判断练习或比赛表现",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生判断练习或比赛表现，并说明关键步骤、特征或依据。",
+      "label": "判断练习或比赛表现",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够判断练习或比赛表现；优先采集：成套动作展示、保护帮助记录、比赛评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用4-5个动作技术参与展示或比赛；能处理常见运动损伤；能进行比赛分析与分析并判断；能分析练习或比赛表现并调整方法。",
+          "excerpt_hash": "e86e2b9484e62539b39581bae04910bf6ca8508185999f7d0b4324c4a6cd79c5",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-020:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "判断练习或比赛表现"
+    },
+    {
+      "component_id": "lc_01c49df7a99464ca",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析练习或比赛表现",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析练习或比赛表现，并说明关键步骤、特征或依据。",
+      "label": "分析练习或比赛表现",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析练习或比赛表现；优先采集：成套动作展示、保护帮助记录、比赛评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析练习或比赛表现",
+          "excerpt_hash": "12addceee495f899bb968b590b0795c198fd498deec40d201b11b66f42983e0a",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-020:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析练习或比赛表现"
+    },
+    {
+      "component_id": "lc_c2f57417429f60dc",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够调整方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整方法，并说明关键步骤、特征或依据。",
+      "label": "调整方法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够调整方法；优先采集：成套动作展示、保护帮助记录、比赛评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "调整方法",
+          "excerpt_hash": "81d82b6f3664e9545d1c6b025456d98521f9a5e88f20d39b04297a69a5b1507f",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G8-SD-020:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "调整方法"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_f4d03f0d25312c9d",
+      "evidence_refs": [
+        "standard:PE-H4G8-SD-020:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-H4G7-SD-019",
+      "source_label": "能处理常见运动损伤；运用4-5个动作技术参与展示或比赛；能解释基本原理和文化；能完成基础练习并记录身体反应。",
+      "target_code": "PE-H4G8-SD-020",
+      "target_label": "运用4-5个动作技术参与展示或比赛；能处理常见运动损伤；能进行比赛分析与分析并判断；能分析练习或比赛表现并调整方法。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "e86e2b9484e62539b39581bae04910bf6ca8508185999f7d0b4324c4a6cd79c5",
+  "standard_code": "PE-H4G8-SD-020",
+  "verified_prerequisites": []
+}

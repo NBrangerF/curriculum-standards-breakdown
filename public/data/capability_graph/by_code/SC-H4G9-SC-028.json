@@ -1,0 +1,534 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_24088f633ad190a4",
+        "lc_915122b9229e05d8",
+        "lc_20a8f745eb943a87"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生说明生态系统组成及功能的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2a59aae2a9a07341",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_c24feea7caf2e6df"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明生态系统组成及功能”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“说明生态系统组成及功能”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能列举不同生态系统并运用生态系统概念分析生产生活中的简单问题；分析并说明生态系统组成及功能；阐释种群、群落、生态系统和生物圈；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "a5950be29bf1707f38a7c683eb4b4af7517581c19e7a2d1bc887de205a503bc1",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-028:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生从种群到生物圈逐层理解生态系统结构与功能。",
+          "excerpt_hash": "fd84d2f5e7ef9faef6c0d742c24657c504b367fd38070d02ef3aad566f5d5bdd",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-028:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后说明生态系统组成及功能，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“说明生态系统组成及功能”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“指导学生从种群到生物圈逐层理解生态系统结构与功能。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_326ee3cda1c37607"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用生态系统概念分析生产生活中的简单问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_34d90953b810ac1c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_00df483d8240e39b"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用生态系统概念分析生产生活中的简单问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用生态系统概念分析生产生活中的简单问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能列举不同生态系统并运用生态系统概念分析生产生活中的简单问题；分析并说明生态系统组成及功能；阐释种群、群落、生态系统和生物圈；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "a5950be29bf1707f38a7c683eb4b4af7517581c19e7a2d1bc887de205a503bc1",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-028:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生从种群到生物圈逐层理解生态系统结构与功能。",
+          "excerpt_hash": "fd84d2f5e7ef9faef6c0d742c24657c504b367fd38070d02ef3aad566f5d5bdd",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-028:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用生态系统概念分析生产生活中的简单问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用生态系统概念分析生产生活中的简单问题”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“指导学生从种群到生物圈逐层理解生态系统结构与功能。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_326ee3cda1c37607"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生运用生态系统概念分析生产生活中的简单问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_88b650f134ecbe69",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_00df483d8240e39b"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“运用生态系统概念分析生产生活中的简单问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“运用生态系统概念分析生产生活中的简单问题”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能列举不同生态系统并运用生态系统概念分析生产生活中的简单问题；分析并说明生态系统组成及功能；阐释种群、群落、生态系统和生物圈；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "a5950be29bf1707f38a7c683eb4b4af7517581c19e7a2d1bc887de205a503bc1",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-028:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "指导学生从种群到生物圈逐层理解生态系统结构与功能。",
+          "excerpt_hash": "fd84d2f5e7ef9faef6c0d742c24657c504b367fd38070d02ef3aad566f5d5bdd",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G9-SC-028:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后运用生态系统概念分析生产生活中的简单问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“运用生态系统概念分析生产生活中的简单问题”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“指导学生从种群到生物圈逐层理解生态系统结构与功能。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 3,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_5c591012bb93f84b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_2b4eaf7fd74d5608c966",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_91e786746fa4"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a01eaebee10c3727",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f623c91ff1e78bf4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_46b397a7eadfedff",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7b0d122761834621",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f0fcd567e766"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_941308fc63ca2501",
+      "textbook_grade": 9,
+      "textbook_subject": "物理",
+      "textbook_title": "物理9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_c24feea7caf2e6df",
+      "component_ids": [
+        "lc_24088f633ad190a4",
+        "lc_915122b9229e05d8",
+        "lc_20a8f745eb943a87"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "论证",
+        "说明",
+        "阐释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明生态系统组成及功能。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够说明生态系统组成及功能；优先采集：生态调查报告、食物网图、保护倡议。",
+        "学生能够阐释种群、群落、生态系统和生物圈；优先采集：生态调查报告、食物网图、保护倡议。",
+        "学生能够建模、论证；优先采集：生态调查报告、食物网图、保护倡议。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能列举不同生态系统并运用生态系统概念分析生产生活中的简单问题；分析并说明生态系统组成及功能；阐释种群、群落、生态系统和生物圈；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "a5950be29bf1707f38a7c683eb4b4af7517581c19e7a2d1bc887de205a503bc1",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（论证、说明、阐释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_00df483d8240e39b",
+      "component_ids": [
+        "lc_326ee3cda1c37607"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "生活"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生运用生态系统概念分析生产生活中的简单问题。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够运用生态系统概念分析生产生活中的简单问题；优先采集：生态调查报告、食物网图、保护倡议。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能列举不同生态系统并运用生态系统概念分析生产生活中的简单问题；分析并说明生态系统组成及功能；阐释种群、群落、生态系统和生物圈；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "a5950be29bf1707f38a7c683eb4b4af7517581c19e7a2d1bc887de205a503bc1",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（生活）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_9ce2cb6276e2d794",
+      "component_ids": [
+        "lc_39fac144dfb9d0de"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "不同"
+      ],
+      "demand_dimension": "multiple_conditions",
+      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生列举不同生态系统。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够列举不同生态系统；优先采集：生态调查报告、食物网图、保护倡议。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能列举不同生态系统并运用生态系统概念分析生产生活中的简单问题；分析并说明生态系统组成及功能；阐释种群、群落、生态系统和生物圈；能建模、论证并评价探究结论或社会影响。",
+          "excerpt_hash": "a5950be29bf1707f38a7c683eb4b4af7517581c19e7a2d1bc887de205a503bc1",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "同时满足多个条件或范围限定（不同）",
+      "title": "同时满足多个条件或范围限定",
+      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_39fac144dfb9d0de",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够列举不同生态系统",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生列举不同生态系统，并说明关键步骤、特征或依据。",
+      "label": "列举不同生态系统",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够列举不同生态系统；优先采集：生态调查报告、食物网图、保护倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "列举不同生态系统",
+          "excerpt_hash": "31e9f028a69f8a1f546bd59d1cea3da1b7ef9015af9b3b29c333ffec257c7e5f",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "列举不同生态系统"
+    },
+    {
+      "component_id": "lc_326ee3cda1c37607",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够运用生态系统概念分析生产生活中的简单问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用生态系统概念分析生产生活中的简单问题，并说明关键步骤、特征或依据。",
+      "label": "运用生态系统概念分析生产生活中的简单问题",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够运用生态系统概念分析生产生活中的简单问题；优先采集：生态调查报告、食物网图、保护倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "运用生态系统概念分析生产生活中的简单问题",
+          "excerpt_hash": "b08c69c315ba61259bfbd4a4a048f5770912887e20df46b3a51778479e0bda4f",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "运用生态系统概念分析生产生活中的简单问题"
+    },
+    {
+      "component_id": "lc_0e0f4348b24b766e",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析生态系统组成及功能",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析生态系统组成及功能，并说明关键步骤、特征或依据。",
+      "label": "分析生态系统组成及功能",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析生态系统组成及功能；优先采集：生态调查报告、食物网图、保护倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析并说明生态系统组成及功能",
+          "excerpt_hash": "0d722a49aae7bf41581351b2070fd10f02710643eabc265041e768a7d882e329",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析生态系统组成及功能"
+    },
+    {
+      "component_id": "lc_24088f633ad190a4",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够说明生态系统组成及功能",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明生态系统组成及功能，并保留可回查的口头、书面或操作过程证据。",
+      "label": "说明生态系统组成及功能",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够说明生态系统组成及功能；优先采集：生态调查报告、食物网图、保护倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "说明生态系统组成及功能",
+          "excerpt_hash": "50d0fc966822d15a6a9970ebe3b0b7d95bca15801e3780832c5cb4b1e365b001",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "说明生态系统组成及功能"
+    },
+    {
+      "component_id": "lc_915122b9229e05d8",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够阐释种群、群落、生态系统和生物圈",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释种群、群落、生态系统和生物圈，并保留可回查的口头、书面或操作过程证据。",
+      "label": "阐释种群、群落、生态系统和生物圈",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够阐释种群、群落、生态系统和生物圈；优先采集：生态调查报告、食物网图、保护倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "阐释种群、群落、生态系统和生物圈",
+          "excerpt_hash": "d68ab89454ef1af1eab4369adfd80fb469ca7a17ac52c4487616069b5adb9e1c",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "阐释种群、群落、生态系统和生物圈"
+    },
+    {
+      "component_id": "lc_20a8f745eb943a87",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够建模、论证",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
+      "label": "建模、论证",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够建模、论证；优先采集：生态调查报告、食物网图、保护倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "建模、论证",
+          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "建模、论证"
+    },
+    {
+      "component_id": "lc_a72948bbc8a41ed0",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价探究结论或社会影响",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
+      "label": "评价探究结论或社会影响",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：生态调查报告、食物网图、保护倡议。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价探究结论或社会影响",
+          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G9-SC-028:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价探究结论或社会影响"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_e8124d2cffadd89e",
+      "evidence_refs": [
+        "standard:SC-H4G9-SC-028:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "SC-H4G8-SC-028",
+      "source_label": "能列举不同生态系统并运用生态系统概念分析生产生活中的简单问题；能体验生命系统的复杂性、开放性和层次性；能描述生态系统组成及功能；能比较证据并解…",
+      "target_code": "SC-H4G9-SC-028",
+      "target_label": "能列举不同生态系统并运用生态系统概念分析生产生活中的简单问题；分析并说明生态系统组成及功能；阐释种群、群落、生态系统和生物圈；能建模、论证并评…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "a5950be29bf1707f38a7c683eb4b4af7517581c19e7a2d1bc887de205a503bc1",
+  "standard_code": "SC-H4G9-SC-028",
+  "verified_prerequisites": []
+}

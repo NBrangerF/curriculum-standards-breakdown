@@ -1,0 +1,457 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_5f39632bfa231965"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_f679a55fdfa89159",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5246c269377e89e9"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体会书法审美价值；能临摹并欣赏名家书法；能在熟练书写正楷字基础上学写规范、通行的行楷字；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "d78d44c5ad7246d18229ae36d69c74e472f4acbc1b0edb41308eecff99b3fb35",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-LI-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将书写规范、流利程度和书法欣赏结合评价，关注日常书写迁移。",
+          "excerpt_hash": "44e23abb29fb7f0f57ca05d4955e5709b37ee3c3616e4a0d59ea90a804ce2a18",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G7-LI-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“将书写规范、流利程度和书法欣赏结合评价，关注日常书写迁移。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_3afd90c02d3858d5",
+        "lc_5f39632bfa231965"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在熟练书写正楷字基础上学写规范、通行的行楷字的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_7d4c6f16e97bdb3c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5246c269377e89e9",
+        "hc_c49f40013dc1bec2"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“在熟练书写正楷字基础上学写规范、通行的行楷字”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在熟练书写正楷字基础上学写规范、通行的行楷字”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体会书法审美价值；能临摹并欣赏名家书法；能在熟练书写正楷字基础上学写规范、通行的行楷字；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "d78d44c5ad7246d18229ae36d69c74e472f4acbc1b0edb41308eecff99b3fb35",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-LI-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将书写规范、流利程度和书法欣赏结合评价，关注日常书写迁移。",
+          "excerpt_hash": "44e23abb29fb7f0f57ca05d4955e5709b37ee3c3616e4a0d59ea90a804ce2a18",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G7-LI-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在熟练书写正楷字基础上学写规范、通行的行楷字，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在熟练书写正楷字基础上学写规范、通行的行楷字”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“将书写规范、流利程度和书法欣赏结合评价，关注日常书写迁移。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_5f39632bfa231965"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_0038596fa273154c",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5246c269377e89e9"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体会书法审美价值；能临摹并欣赏名家书法；能在熟练书写正楷字基础上学写规范、通行的行楷字；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "d78d44c5ad7246d18229ae36d69c74e472f4acbc1b0edb41308eecff99b3fb35",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-LI-004:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "将书写规范、流利程度和书法欣赏结合评价，关注日常书写迁移。",
+          "excerpt_hash": "44e23abb29fb7f0f57ca05d4955e5709b37ee3c3616e4a0d59ea90a804ce2a18",
+          "field": "teaching_tip",
+          "ref_id": "standard:CN-H4G7-LI-004:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“将书写规范、流利程度和书法欣赏结合评价，关注日常书写迁移。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 2,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_ee3558a99894dbdd",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_99938fbe3c9ca232c6d6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_903c001c7bb3"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_48c9f38bc8f352d7",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1a68e789d4bf1635",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_eb285566d0326b76eb6b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_2cca20691db7"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4f06732182a984b3",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_06ea1665e28ce30f",
+      "evidence_refs": [
+        "standard:CN-H4G7-LI-004:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "CN-H4G7-LI-004",
+      "target_code": "CN-H4G8-LI-005",
+      "target_label": "能体会书法审美价值；能临摹并欣赏名家书法；能在熟练书写正楷字基础上学写规范、通行的行楷字；能整合材料并说明观点、方法或表达选择的依据。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_5246c269377e89e9",
+      "component_ids": [
+        "lc_5f39632bfa231965"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "说明"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用简短记录或口头表达说明基本理解。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用简短记录或口头表达说明基本理解；优先采集：书写作品、临摹记录、书法欣赏说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体会书法审美价值；能临摹并欣赏名家书法；能在熟练书写正楷字基础上学写规范、通行的行楷字；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "d78d44c5ad7246d18229ae36d69c74e472f4acbc1b0edb41308eecff99b3fb35",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-LI-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（说明）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_c49f40013dc1bec2",
+      "component_ids": [
+        "lc_3afd90c02d3858d5"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "规范",
+        "熟练"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在熟练书写正楷字基础上学写规范、通行的行楷字。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在熟练书写正楷字基础上学写规范、通行的行楷字；优先采集：书写作品、临摹记录、书法欣赏说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能体会书法审美价值；能临摹并欣赏名家书法；能在熟练书写正楷字基础上学写规范、通行的行楷字；能用简短记录或口头表达说明基本理解。",
+          "excerpt_hash": "d78d44c5ad7246d18229ae36d69c74e472f4acbc1b0edb41308eecff99b3fb35",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-LI-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（规范、熟练）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_d5def3e7e46a9f26",
+      "component_type": "disposition",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用具体事例说明书法审美价值",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用具体事例说明书法审美价值，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用具体事例说明书法审美价值",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用具体事例说明书法审美价值；优先采集：书写作品、临摹记录、书法欣赏说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "体会书法审美价值",
+          "excerpt_hash": "d02a9592ce948001d7febae1e79f8583c7251c0aedd2f01630a883a133a3a76f",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-LI-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "体会书法审美价值"
+    },
+    {
+      "component_id": "lc_2ec32d1342a5d6d6",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够临摹",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生临摹，并说明关键步骤、特征或依据。",
+      "label": "临摹",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够临摹；优先采集：书写作品、临摹记录、书法欣赏说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "临摹",
+          "excerpt_hash": "5ef192b532a9c4b47c05203d115e14f385b3006bdab0bd27e67e70f6bc77ba17",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-LI-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "临摹"
+    },
+    {
+      "component_id": "lc_e84948029baf1051",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够欣赏名家书法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生欣赏名家书法，并说明关键步骤、特征或依据。",
+      "label": "欣赏名家书法",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够欣赏名家书法；优先采集：书写作品、临摹记录、书法欣赏说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "欣赏名家书法",
+          "excerpt_hash": "1e16e214a57ba604b421555a6937d78429a211d6a8df76a3231044cec5214989",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-LI-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "欣赏名家书法"
+    },
+    {
+      "component_id": "lc_3afd90c02d3858d5",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在熟练书写正楷字基础上学写规范、通行的行楷字",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在熟练书写正楷字基础上学写规范、通行的行楷字，并说明关键步骤、特征或依据。",
+      "label": "在熟练书写正楷字基础上学写规范、通行的行楷字",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在熟练书写正楷字基础上学写规范、通行的行楷字；优先采集：书写作品、临摹记录、书法欣赏说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在熟练书写正楷字基础上学写规范、通行的行楷字",
+          "excerpt_hash": "af7746d544a373382eae25b5e2f84f8256381ba9865d5835d810b04b447ffbf1",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-LI-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在熟练书写正楷字基础上学写规范、通行的行楷字"
+    },
+    {
+      "component_id": "lc_5f39632bfa231965",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用简短记录或口头表达说明基本理解",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用简短记录或口头表达说明基本理解，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用简短记录或口头表达说明基本理解",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用简短记录或口头表达说明基本理解；优先采集：书写作品、临摹记录、书法欣赏说明。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "用简短记录或口头表达说明基本理解",
+          "excerpt_hash": "6b1f3237458514ec859ef1012df6724bfef67003f78886ed140316055791b644",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G7-LI-004:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "用简短记录或口头表达说明基本理解"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2024,
+      "edge_id": "pc_7d9b0cd2a81b5448",
+      "evidence_refs": [
+        "standard:CN-H4G7-LI-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D3-LI-004",
+      "source_label": "硬笔规范、端正、整洁地书写约 2500 个常用汉字。",
+      "target_code": "CN-H4G7-LI-004",
+      "target_label": "能体会书法审美价值；能临摹并欣赏名家书法；能在熟练书写正楷字基础上学写规范、通行的行楷字；能用简短记录或口头表达说明基本理解。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1849,
+      "edge_id": "pc_d46ffa7c2609f507",
+      "evidence_refs": [
+        "standard:CN-H4G7-LI-004:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "CN-D3-LI-005",
+      "source_label": "在社会生活中发现不认识的字，能根据字形推断字音字义，并借助语境和工具书验证。",
+      "target_code": "CN-H4G7-LI-004",
+      "target_label": "能体会书法审美价值；能临摹并欣赏名家书法；能在熟练书写正楷字基础上学写规范、通行的行楷字；能用简短记录或口头表达说明基本理解。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "d78d44c5ad7246d18229ae36d69c74e472f4acbc1b0edb41308eecff99b3fb35",
+  "standard_code": "CN-H4G7-LI-004",
+  "verified_prerequisites": []
+}

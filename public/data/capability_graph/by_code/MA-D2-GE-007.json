@@ -1,0 +1,315 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_954e3e48a45f9dfc"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生在解决图形周长、面积的实际问题过程中，逐步积累操作的经验的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_18adfffac275d150",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8b1b8d600cff8633"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“在解决图形周长、面积的实际问题过程中，逐步积累操作的经验”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“在解决图形周长、面积的实际问题过程中，逐步积累操作的经验”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在解决图形周长、面积的实际问题过程中，逐步积累操作的经验，形成量感和初步的几何直观。",
+          "excerpt_hash": "865d7e341b95208126fa950a9b0048ebb34d9e6864341191ca570d53b7e8457e",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-007:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "图形的周长和面积计算要结合现实问题，引导学生在操作、估测、计算中形成量感，提升几何直观与问题解决能力。",
+          "excerpt_hash": "870285b149bc4cf4b071a32d2c0eaed0c88a31f73921e1d71d7967a6d8514865",
+          "field": "teaching_tip",
+          "ref_id": "standard:MA-D2-GE-007:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后在解决图形周长、面积的实际问题过程中，逐步积累操作的经验，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“在解决图形周长、面积的实际问题过程中，逐步积累操作的经验”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“图形的周长和面积计算要结合现实问题，引导学生在操作、估测、计算中形成量感，提升几何直观与问题解决能力。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0f5dcc88d4c324f5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_833ce42b24662dbd40af",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_8ec280d20713"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_96d95cbb27d9412e",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_8222fe903316671d",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f61cbfb4e176d8e2",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_47f64e1ca70eb729",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e8d4a6502261fd8416ff",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_19111441ff11"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_056cb0cc3385568d",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_31b9ca8d17edc5b7",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_f7680a7d4b92"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_7b7248af637aca0a",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_8aad2588a6faf723",
+      "evidence_refs": [
+        "standard:MA-D2-GE-007:next_code"
+      ],
+      "expected_grade_distance": null,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "MA-D2-GE-007",
+      "target_code": "MA-D3-GE-007",
+      "target_label": "能根据指定参照点的具体方向和距离描述物体所处位置，能在熟悉的情境中，描述简单的路线图，形成几何直观。"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_8b1b8d600cff8633",
+      "component_ids": [
+        "lc_954e3e48a45f9dfc"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "实际"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在解决图形周长、面积的实际问题过程中，逐步积累操作的经验。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够在解决图形周长、面积的实际问题过程中，逐步积累操作的经验；优先采集：作图/测量作品、解题过程记录。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在解决图形周长、面积的实际问题过程中，逐步积累操作的经验，形成量感和初步的几何直观。",
+          "excerpt_hash": "865d7e341b95208126fa950a9b0048ebb34d9e6864341191ca570d53b7e8457e",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（实际）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_954e3e48a45f9dfc",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在解决图形周长、面积的实际问题过程中，逐步积累操作的经验",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在解决图形周长、面积的实际问题过程中，逐步积累操作的经验，并说明关键步骤、特征或依据。",
+      "label": "在解决图形周长、面积的实际问题过程中，逐步积累操作的经验",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在解决图形周长、面积的实际问题过程中，逐步积累操作的经验；优先采集：作图/测量作品、解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在解决图形周长、面积的实际问题过程中，逐步积累操作的经验",
+          "excerpt_hash": "013d62a6ecb30aaff491c6a67ae538e8a62eff86adfde9dae1ed7ab34ae4369f",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "在解决图形周长、面积的实际问题过程中，逐步积累操作的经验"
+    },
+    {
+      "component_id": "lc_75b4b1bfa83b50c9",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够在任务中表现出量感和初步的几何直观并说明选择理由",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出量感和初步的几何直观并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
+      "label": "在任务中表现出量感和初步的几何直观并说明选择理由",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够在任务中表现出量感和初步的几何直观并说明选择理由；优先采集：作图/测量作品、解题过程记录。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "形成量感和初步的几何直观",
+          "excerpt_hash": "33fac1e7159132e4b3f6654d2fb59148f03d89366935ead3cacfc6f54a6816b5",
+          "field": "standard",
+          "ref_id": "standard:MA-D2-GE-007:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "形成量感和初步的几何直观"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_35a1d11e4598e63d",
+      "evidence_refs": [
+        "standard:MA-D2-GE-007:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "MA-D1-GE-002",
+      "source_label": "简单图形拼图或组合并说出组成部分；说出立体图形的一个面对应的平面图形，形成初步空间观念",
+      "target_code": "MA-D2-GE-007",
+      "target_label": "在解决图形周长、面积的实际问题过程中，逐步积累操作的经验，形成量感和初步的几何直观。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "865d7e341b95208126fa950a9b0048ebb34d9e6864341191ca570d53b7e8457e",
+  "standard_code": "MA-D2-GE-007",
+  "verified_prerequisites": []
+}

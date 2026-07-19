@@ -1,0 +1,126 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_966b17654e3f24f7"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1719f59775c2e747",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_5c62a9b76d5e8483"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在数字设备辅助学习、交流与分享过程中，能表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索。",
+          "excerpt_hash": "ecce18363adab47dcf4c89ce815bb142514da201dcaa7386522c11fa503ec439",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-IC-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "设置“数字工具探索角”（同一任务多种工具可选），鼓励学生用“我想试试……”“我发现……”“我还想知道……”表达；教师用提问引导学生比较不同工具的效果与优缺点。",
+          "excerpt_hash": "355a06f8df6831c521ae7920bf689402ff36730c13fdd951552d62e09fb716d0",
+          "field": "teaching_tip",
+          "ref_id": "standard:IT-H1-IC-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“设置“数字工具探索角”（同一任务多种工具可选），鼓励学生用“我想试试……”“我发现……”“我还想知道……”表达”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "gap_no_textbook_scope",
+    "evidence_note": "当前教材库无适用范围，保留明确缺口。",
+    "gap_reason": "current_library_has_no_mapped_textbook_for_subject_and_grade_band",
+    "highest_evidence_level": "L0_gap",
+    "scope_count": 0,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_5c62a9b76d5e8483",
+      "component_ids": [
+        "lc_966b17654e3f24f7"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生在数字设备辅助学习、交流与分享过程中，能够表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索；优先采集：学习单作品、口头分享、教师观察。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在数字设备辅助学习、交流与分享过程中，能表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索。",
+          "excerpt_hash": "ecce18363adab47dcf4c89ce815bb142514da201dcaa7386522c11fa503ec439",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-IC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_966b17654e3f24f7",
+      "component_type": "conceptual",
+      "condition": "在数字设备辅助学习、交流与分享过程中",
+      "confidence": 0.72,
+      "description": "学生在数字设备辅助学习、交流与分享过程中，能够表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在数字设备辅助学习、交流与分享过程中”的诊断任务，要求学生表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索，并说明关键步骤、特征或依据。",
+      "label": "表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生在数字设备辅助学习、交流与分享过程中，能够表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索；优先采集：学习单作品、口头分享、教师观察。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "在数字设备辅助学习、交流与分享过程中，能表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索。",
+          "excerpt_hash": "ecce18363adab47dcf4c89ce815bb142514da201dcaa7386522c11fa503ec439",
+          "field": "standard",
+          "ref_id": "standard:IT-H1-IC-001:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表现出对信息科技的好奇心与学习兴趣，愿意提出问题并尝试探索"
+    }
+  ],
+  "prerequisite_candidates": [],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 0,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "ecce18363adab47dcf4c89ce815bb142514da201dcaa7386522c11fa503ec439",
+  "standard_code": "IT-H1-IC-001",
+  "verified_prerequisites": []
+}

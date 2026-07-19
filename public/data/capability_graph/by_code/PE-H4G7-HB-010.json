@@ -1,0 +1,293 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_3962135563aec6b0"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_3e78cc1c6982fee8",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_062c61edae97f2e4"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法；能完成基础练习并记录身体反应。",
+          "excerpt_hash": "0265a26436734838140079127502f506ed341b9380f46c3e414e3a0792be3886",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-010:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把生理监测和心理感受记录结合，帮助学生形成自我调适意识。",
+          "excerpt_hash": "d502f22b3a3ed418b7677b7bb125718f44c2c488cf0b7e00dfa2286c86e9efa0",
+          "field": "teaching_tip",
+          "ref_id": "standard:PE-H4G7-HB-010:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把生理监测和心理感受记录结合，帮助学生形成自我调适意识。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 1,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_7d00bd2db2d3c276",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_bebb65c5f3a6a181b33b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7f9265bf475e"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fc995ab30b3d79ec",
+      "textbook_grade": 7,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康7年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "connection_id": "fc_14d2d400d642021b",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-010:next_code"
+      ],
+      "expected_grade_distance": 1,
+      "method": "source_navigation_field",
+      "provenance": "extracted",
+      "publication_status": "candidate",
+      "rationale": "来自课程标准前后条目字段，表示典型课程顺序方向；不自动构成硬前置关系。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "machine_checked",
+      "source_code": "PE-H4G7-HB-010",
+      "target_code": "PE-H4G8-HB-011",
+      "target_label": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法；能分析练习或比赛表现并调…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_062c61edae97f2e4",
+      "component_ids": [
+        "lc_3962135563aec6b0",
+        "lc_a2ad3af399357667",
+        "lc_51d319b7d50e01af"
+      ],
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；优先采集：运动监测记录、情绪调适反思、健康日志。",
+        "学生能够正确运用体育运动中体温、脉搏等自我测评和监控方法完成任务；优先采集：运动监测记录、情绪调适反思、健康日志。",
+        "学生能够完成基础练习；优先采集：运动监测记录、情绪调适反思、健康日志。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法；能完成基础练习并记录身体反应。",
+          "excerpt_hash": "0265a26436734838140079127502f506ed341b9380f46c3e414e3a0792be3886",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；正确运用体育运动中体温、脉搏等自我测评和监控方法完成任务；完成基础练习",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3962135563aec6b0",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；优先采集：运动监测记录、情绪调适反思、健康日志。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用",
+          "excerpt_hash": "e725bbf8b6b754769d04fb3d04a76b1d298e72219211d9237a20951abd513ab3",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用"
+    },
+    {
+      "component_id": "lc_a2ad3af399357667",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够正确运用体育运动中体温、脉搏等自我测评和监控方法完成任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生正确运用体育运动中体温、脉搏等自我测评和监控方法完成任务，并说明关键步骤、特征或依据。",
+      "label": "正确运用体育运动中体温、脉搏等自我测评和监控方法完成任务",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够正确运用体育运动中体温、脉搏等自我测评和监控方法完成任务；优先采集：运动监测记录、情绪调适反思、健康日志。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "掌握体育运动中体温、脉搏等自我测评和监控方法",
+          "excerpt_hash": "e92500e44e7880e794117a7f21e7e89c3eb4ea455b78cd6b5ee6d956b8536a29",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "掌握体育运动中体温、脉搏等自我测评和监控方法"
+    },
+    {
+      "component_id": "lc_51d319b7d50e01af",
+      "component_type": "procedural",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够完成基础练习",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成基础练习，并说明关键步骤、特征或依据。",
+      "label": "完成基础练习",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够完成基础练习；优先采集：运动监测记录、情绪调适反思、健康日志。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "完成基础练习",
+          "excerpt_hash": "9867465e87f5d1e30b1f61c5a8850c7514e1c5cd08433ab651b29809f18566e0",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "完成基础练习"
+    },
+    {
+      "component_id": "lc_c987a3947c3246a3",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够记录身体反应",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生记录身体反应，并说明关键步骤、特征或依据。",
+      "label": "记录身体反应",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够记录身体反应；优先采集：运动监测记录、情绪调适反思、健康日志。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "记录身体反应",
+          "excerpt_hash": "e674d0e2ce340d3d8b89f23519838231e4d98d4349ecdf159eca0464f7045226",
+          "field": "standard",
+          "ref_id": "standard:PE-H4G7-HB-010:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "记录身体反应"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "low",
+      "confidence_score": 0.1103,
+      "edge_id": "pc_b18eb073bb962a54",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-010:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D3-HB-011",
+      "source_label": "能描述青春期生理与心理变化，尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助。",
+      "target_code": "PE-H4G7-HB-010",
+      "target_label": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法；能完成基础练习并记录身体…"
+    },
+    {
+      "confidence": "low",
+      "confidence_score": 0.0852,
+      "edge_id": "pc_3cc9b13907ecf16e",
+      "evidence_refs": [
+        "standard:PE-H4G7-HB-010:progression_bridge_candidates"
+      ],
+      "failure_if_missing": "这是跨学段进阶候选，尚未核验为必要前提。",
+      "method": "progression_bridge_candidate",
+      "necessity": "undetermined",
+      "provenance": "rule_generated",
+      "publication_status": "review_queue",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "candidate",
+      "source_code": "PE-D3-HB-013",
+      "source_label": "掌握并运用至少2种情绪调控方法，在受挫或失败后能保持情绪相对稳定并恢复投入活动。",
+      "target_code": "PE-H4G7-HB-010",
+      "target_label": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法；能完成基础练习并记录身体…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 2,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "0265a26436734838140079127502f506ed341b9380f46c3e414e3a0792be3886",
+  "standard_code": "PE-H4G7-HB-010",
+  "verified_prerequisites": []
+}

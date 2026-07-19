@@ -1,0 +1,559 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "argument_evidence",
+      "component_ids": [
+        "lc_a8c5d4daded9b289"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生评价作品效果并完善展演、创作或文化阐释的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_ffda37d1518321a5",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f35d427f1f27e2e8",
+        "hc_ddd65c2451e2760d"
+      ],
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“评价作品效果并完善展演、创作或文化阐释”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“评价作品效果并完善展演、创作或文化阐释”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用；能辨别有代表性的戏曲剧种、行当及表现形式；能较准确感知、判断和描述音乐表现要素、体裁、形式与风格；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "f09cd116d4b5a01e067d9f363fc547fccfb974d00f72f3cea99a9de1838bba84",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生从音乐与动作、画面、角色和情节的关系中寻找证据。",
+          "excerpt_hash": "9b4453c5f5f8548ab0a6f0af96c03ddcfe77b9c5382e3f4031d2a91928567150",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G9-AA-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后评价作品效果并完善展演、创作或文化阐释，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“评价作品效果并完善展演、创作或文化阐释”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生从音乐与动作、画面、角色和情节的关系中寻找证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "comparison",
+      "component_ids": [
+        "lc_b4d6cd1a876723b9"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生较准确感知、判断和描述音乐表现要素、体裁、形式与风格的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_191ddf482322978a",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0c4ccf63333b11ee",
+        "hc_696cc1acad3825e2"
+      ],
+      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“较准确感知、判断和描述音乐表现要素、体裁、形式与风格”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“较准确感知、判断和描述音乐表现要素、体裁、形式与风格”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用；能辨别有代表性的戏曲剧种、行当及表现形式；能较准确感知、判断和描述音乐表现要素、体裁、形式与风格；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "f09cd116d4b5a01e067d9f363fc547fccfb974d00f72f3cea99a9de1838bba84",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生从音乐与动作、画面、角色和情节的关系中寻找证据。",
+          "excerpt_hash": "9b4453c5f5f8548ab0a6f0af96c03ddcfe77b9c5382e3f4031d2a91928567150",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G9-AA-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后较准确感知、判断和描述音乐表现要素、体裁、形式与风格，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“较准确感知、判断和描述音乐表现要素、体裁、形式与风格”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“引导学生从音乐与动作、画面、角色和情节的关系中寻找证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "creation_design",
+      "component_ids": [
+        "lc_a8c5d4daded9b289"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生评价作品效果并完善展演、创作或文化阐释的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_1047781542f8c63e",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_f35d427f1f27e2e8",
+        "hc_ddd65c2451e2760d"
+      ],
+      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“评价作品效果并完善展演、创作或文化阐释”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“评价作品效果并完善展演、创作或文化阐释”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用；能辨别有代表性的戏曲剧种、行当及表现形式；能较准确感知、判断和描述音乐表现要素、体裁、形式与风格；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "f09cd116d4b5a01e067d9f363fc547fccfb974d00f72f3cea99a9de1838bba84",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生从音乐与动作、画面、角色和情节的关系中寻找证据。",
+          "excerpt_hash": "9b4453c5f5f8548ab0a6f0af96c03ddcfe77b9c5382e3f4031d2a91928567150",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G9-AA-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后评价作品效果并完善展演、创作或文化阐释，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“评价作品效果并完善展演、创作或文化阐释”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“引导学生从音乐与动作、画面、角色和情节的关系中寻找证据。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_b4d6cd1a876723b9"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生较准确感知、判断和描述音乐表现要素、体裁、形式与风格的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_652fb05185859432",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_0c4ccf63333b11ee",
+        "hc_696cc1acad3825e2"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“较准确感知、判断和描述音乐表现要素、体裁、形式与风格”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“较准确感知、判断和描述音乐表现要素、体裁、形式与风格”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用；能辨别有代表性的戏曲剧种、行当及表现形式；能较准确感知、判断和描述音乐表现要素、体裁、形式与风格；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "f09cd116d4b5a01e067d9f363fc547fccfb974d00f72f3cea99a9de1838bba84",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "引导学生从音乐与动作、画面、角色和情节的关系中寻找证据。",
+          "excerpt_hash": "9b4453c5f5f8548ab0a6f0af96c03ddcfe77b9c5382e3f4031d2a91928567150",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-H4G9-AA-002:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后较准确感知、判断和描述音乐表现要素、体裁、形式与风格，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“较准确感知、判断和描述音乐表现要素、体裁、形式与风格”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“引导学生从音乐与动作、画面、角色和情节的关系中寻找证据。”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 4,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_2d2cfb39ac606d68",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_3b89d00b60db4e36ca94",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_bf23ec4c6df8"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_eda06d45d819f009",
+      "textbook_grade": 9,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_87cdc597316af0a0",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_787571113b5e3afdcb08",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_be6c940b05af"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_412bfc529670f62b",
+      "textbook_grade": 9,
+      "textbook_subject": "美术",
+      "textbook_title": "美术9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_0479d8a322350eb6",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a7ca146a2d967d30165f",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_bc115e35d9a0"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_f08bc8c50fb8301a",
+      "textbook_grade": 9,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_f0c2995429465c9e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_f38852db089654f91a93",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a5e1ff65cd5c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_a819193a176652df",
+      "textbook_grade": 9,
+      "textbook_subject": "美术",
+      "textbook_title": "美术9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [],
+  "hardest_cases": [
+    {
+      "case_id": "hc_f35d427f1f27e2e8",
+      "component_ids": [
+        "lc_a8c5d4daded9b289"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "阐释"
+      ],
+      "demand_dimension": "argument_evidence",
+      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生评价作品效果并完善展演、创作或文化阐释。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够评价作品效果并完善展演、创作或文化阐释；优先采集：片段分析、观赏记录、课堂讨论。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用；能辨别有代表性的戏曲剧种、行当及表现形式；能较准确感知、判断和描述音乐表现要素、体裁、形式与风格；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "f09cd116d4b5a01e067d9f363fc547fccfb974d00f72f3cea99a9de1838bba84",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用证据或依据完成解释（阐释）",
+      "title": "用证据或依据完成解释",
+      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+    },
+    {
+      "case_id": "hc_0c4ccf63333b11ee",
+      "component_ids": [
+        "lc_b4d6cd1a876723b9"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "判断"
+      ],
+      "demand_dimension": "comparison",
+      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生较准确感知、判断和描述音乐表现要素、体裁、形式与风格。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够较准确感知、判断和描述音乐表现要素、体裁、形式与风格；优先采集：片段分析、观赏记录、课堂讨论。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用；能辨别有代表性的戏曲剧种、行当及表现形式；能较准确感知、判断和描述音乐表现要素、体裁、形式与风格；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "f09cd116d4b5a01e067d9f363fc547fccfb974d00f72f3cea99a9de1838bba84",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "按一致维度比较或辨析（判断）",
+      "title": "按一致维度比较或辨析",
+      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+    },
+    {
+      "case_id": "hc_ddd65c2451e2760d",
+      "component_ids": [
+        "lc_a8c5d4daded9b289"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "创作"
+      ],
+      "demand_dimension": "creation_constraints",
+      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生评价作品效果并完善展演、创作或文化阐释。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够评价作品效果并完善展演、创作或文化阐释；优先采集：片段分析、观赏记录、课堂讨论。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用；能辨别有代表性的戏曲剧种、行当及表现形式；能较准确感知、判断和描述音乐表现要素、体裁、形式与风格；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "f09cd116d4b5a01e067d9f363fc547fccfb974d00f72f3cea99a9de1838bba84",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在约束下设计、创作或改进（创作）",
+      "title": "在约束下设计、创作或改进",
+      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+    },
+    {
+      "case_id": "hc_696cc1acad3825e2",
+      "component_ids": [
+        "lc_b4d6cd1a876723b9"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "准确"
+      ],
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生较准确感知、判断和描述音乐表现要素、体裁、形式与风格。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够较准确感知、判断和描述音乐表现要素、体裁、形式与风格；优先采集：片段分析、观赏记录、课堂讨论。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用；能辨别有代表性的戏曲剧种、行当及表现形式；能较准确感知、判断和描述音乐表现要素、体裁、形式与风格；能评价作品效果并完善展演、创作或文化阐释。",
+          "excerpt_hash": "f09cd116d4b5a01e067d9f363fc547fccfb974d00f72f3cea99a9de1838bba84",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "独立且规范地完成表现（准确）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_562c4a12f5a9a7a3",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用，并说明关键步骤、特征或依据。",
+      "label": "分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用；优先采集：片段分析、观赏记录、课堂讨论。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用",
+          "excerpt_hash": "f1b04b5b2b3330cf5a74a611612d4a63ac7272bbefbe3523f4fd4180aa6d543c",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用"
+    },
+    {
+      "component_id": "lc_824742887f475692",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够辨别有代表性的戏曲剧种、行当及表现形式",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生辨别有代表性的戏曲剧种、行当及表现形式，并说明关键步骤、特征或依据。",
+      "label": "辨别有代表性的戏曲剧种、行当及表现形式",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够辨别有代表性的戏曲剧种、行当及表现形式；优先采集：片段分析、观赏记录、课堂讨论。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "辨别有代表性的戏曲剧种、行当及表现形式",
+          "excerpt_hash": "2dce123bad9fc77a9d08700fdfb6d0944ce9bb45f8abe1147bce750de575b90e",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "辨别有代表性的戏曲剧种、行当及表现形式"
+    },
+    {
+      "component_id": "lc_b4d6cd1a876723b9",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够较准确感知、判断和描述音乐表现要素、体裁、形式与风格",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生较准确感知、判断和描述音乐表现要素、体裁、形式与风格，并说明关键步骤、特征或依据。",
+      "label": "较准确感知、判断和描述音乐表现要素、体裁、形式与风格",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够较准确感知、判断和描述音乐表现要素、体裁、形式与风格；优先采集：片段分析、观赏记录、课堂讨论。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "较准确感知、判断和描述音乐表现要素、体裁、形式与风格",
+          "excerpt_hash": "5af2dc37f416c4322252836a6d2d8b3868a68abeab02abbc057bd40f989fb0b6",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "较准确感知、判断和描述音乐表现要素、体裁、形式与风格"
+    },
+    {
+      "component_id": "lc_a8c5d4daded9b289",
+      "component_type": "metacognitive",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够评价作品效果并完善展演、创作或文化阐释",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价作品效果并完善展演、创作或文化阐释，并保留可回查的口头、书面或操作过程证据。",
+      "label": "评价作品效果并完善展演、创作或文化阐释",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够评价作品效果并完善展演、创作或文化阐释；优先采集：片段分析、观赏记录、课堂讨论。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "评价作品效果并完善展演、创作或文化阐释",
+          "excerpt_hash": "6687cd8df12e7718634d4db0ed8816d1665ffdbe2a1bae1cbf4b85d0268e9a39",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G9-AA-002:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "评价作品效果并完善展演、创作或文化阐释"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_30c087b34f0211c9",
+      "evidence_refs": [
+        "standard:AR-H4G9-AA-002:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-H4G8-AA-005",
+      "source_label": "能分析和分析并判断舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用；能辨别有代表性的戏曲剧种、行当及表现形式；分析…",
+      "target_code": "AR-H4G9-AA-002",
+      "target_label": "能分析和评价舞蹈、戏剧（含戏曲）、影视（含数字媒体艺术）等姊妹艺术中音乐的特点及表现作用；能辨别有代表性的戏曲剧种、行当及表现形式；能较准确感…"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "f09cd116d4b5a01e067d9f363fc547fccfb974d00f72f3cea99a9de1838bba84",
+  "standard_code": "AR-H4G9-AA-002",
+  "verified_prerequisites": []
+}

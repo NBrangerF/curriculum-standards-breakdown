@@ -1,0 +1,602 @@
+{
+  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
+  "capability_graph_schema_version": "1.0.0",
+  "common_difficulties": [
+    {
+      "category": "language_expression",
+      "component_ids": [
+        "lc_3c33ad002e3c7dfb",
+        "lc_bde12494dc081bcd"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_238754a5f0ad3963",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a3da554197a4dd82"
+      ],
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感知并理解舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点，理解作品内容与意蕴，并能表达自己的审美感受。",
+          "excerpt_hash": "12a93612c58ed549de8268c6fe7a4c8959b7f235650b3e98eea488597c6fa330",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AA-021:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“看—听—说”三步：先整体感受，再抓动作/音乐要素，最后用词汇表表达；选择中外代表作品做风格比较。",
+          "excerpt_hash": "4fdc4d1babfd79db0494ccf3caf5e7ef99464b148419da2dafc845354744a0a1",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D3-AA-021:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用“看—听—说”三步：先整体感受，再抓动作/音乐要素，最后用词汇表表达”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "concept_discrimination",
+      "component_ids": [
+        "lc_3c33ad002e3c7dfb",
+        "lc_c0755f846b03b23b"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_18006e49c161edd7",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_a3da554197a4dd82"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感知并理解舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点，理解作品内容与意蕴，并能表达自己的审美感受。",
+          "excerpt_hash": "12a93612c58ed549de8268c6fe7a4c8959b7f235650b3e98eea488597c6fa330",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AA-021:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "用“看—听—说”三步：先整体感受，再抓动作/音乐要素，最后用词汇表表达；选择中外代表作品做风格比较。",
+          "excerpt_hash": "4fdc4d1babfd79db0494ccf3caf5e7ef99464b148419da2dafc845354744a0a1",
+          "field": "teaching_tip",
+          "ref_id": "standard:AR-D3-AA-021:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用“看—听—说”三步：先整体感受，再抓动作/音乐要素，最后用词汇表表达”。随后撤去支架，用同构任务复测。"
+    }
+  ],
+  "curriculum_alignment_summary": {
+    "candidate_count": 1,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "gap_reason": null,
+    "highest_evidence_level": "L1_scope",
+    "scope_count": 8,
+    "specific_count": 0,
+    "unit_topic_candidate_count": 0
+  },
+  "curriculum_alignments": [
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_6046bd97e8fcdd15",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_00452e62b0a9dead1e66",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_a500c9f1cd1c"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_1fabba386856d842",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_a1e3133c2b01b715",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_47474bd0c3009d7bfcf6",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_e4cb7e4583cf"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_98c7d2610118429f",
+      "textbook_grade": 5,
+      "textbook_subject": "美术",
+      "textbook_title": "美术5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_9d063e09d7f607e5",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_4b42884b46b80ae41661",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_9df9f8776364"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_169db90609589ba4",
+      "textbook_grade": 6,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_14e512f072d1e967",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_6e0cec28ca9346d8d02b",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_502c7444779d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_4ba398935af785c4",
+      "textbook_grade": 5,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_04ffe84ecd9e95cf",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_873c7b8d8f5dfcaf3081",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5d105252e267"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_2a3a735a14f9dc94",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_89e0a0b658e6a0b4",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_913a5e82b0b4337baa77",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_5f8b00576115"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_d3a37cdd8bcdc4bb",
+      "textbook_grade": 5,
+      "textbook_subject": "美术",
+      "textbook_title": "美术5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_12574ae205be536e",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_e9b82a8986eea7ee1402",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_7a1467daa20d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_fc37261770b36f51",
+      "textbook_grade": 5,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-v1",
+      "alignment_id": "ca_1f20cb823d027b8b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_fe115d2e431c2607bf7d",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "ctb_118d280cce66"
+      ],
+      "evidence_role": "discipline_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "scope_id": "tcs_8ce6886f94462897",
+      "textbook_grade": 6,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": null,
+      "unit_title": ""
+    }
+  ],
+  "forward_connections": [
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1756,
+      "connection_id": "fc_0953a50d9efc88db",
+      "evidence_refs": [
+        "standard:AR-H4G7-AA-002:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D3-AA-021",
+      "target_code": "AR-H4G7-AA-002",
+      "target_label": "能识别和理解所欣赏的舞蹈作品；掌握所学舞蹈的风格差异与文化内涵；能从不同角度表达观点；能描述艺术要素并完成基础表现或创作。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2022,
+      "connection_id": "fc_89ef06cad9ec0d9b",
+      "evidence_refs": [
+        "standard:AR-H4G7-AA-003:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D3-AA-021",
+      "target_code": "AR-H4G7-AA-003",
+      "target_label": "能感知、了解中国民族音乐的体裁、形式和审美特征；能区分民歌基本体裁并描述代表性民歌或器乐曲的体裁、特点、风格和意蕴；能判断并描述有代表性的世界…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1936,
+      "connection_id": "fc_7db90042d179bedb",
+      "evidence_refs": [
+        "standard:AR-H4G7-AA-006:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D3-AA-021",
+      "target_code": "AR-H4G7-AA-006",
+      "target_label": "能听辨合唱声部和乐队主奏或伴奏乐器音色；能描述其特点和表现作用；能辨别常见音乐结构及主调、复调音乐；能描述艺术要素并完成基础表现或创作。"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.2165,
+      "connection_id": "fc_1cca255903b13df5",
+      "evidence_refs": [
+        "standard:AR-H4G7-AA-008:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D3-AA-021",
+      "target_code": "AR-H4G7-AA-008",
+      "target_label": "能对音乐情绪情感形成个性化理解；能在听赏中较准确听辨并描述音乐表现要素、表现形式和表现手段的特点与作用；尝试运用知识分析代表性音乐的体裁、形式…"
+    },
+    {
+      "confidence": "medium",
+      "confidence_score": 0.1918,
+      "connection_id": "fc_de406db8fd1f4aba",
+      "evidence_refs": [
+        "standard:AR-H4G7-AA-009:progression_bridge_candidates"
+      ],
+      "expected_grade_distance": null,
+      "method": "progression_bridge_candidate",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "rationale": "基于同学科、同领域的跨学段进阶相似度产生，需专家核验。",
+      "relation_type": "grade_band_bridge_candidate",
+      "review_status": "machine_checked",
+      "source_code": "AR-D3-AA-021",
+      "target_code": "AR-H4G7-AA-009",
+      "target_label": "能知道我国古代经典美术作品和近现代革命建设改革相关美术作品；能从历史和文化角度分析美术作品；尊重世界美术多样性和知识产权；能描述艺术要素并完成…"
+    }
+  ],
+  "hardest_cases": [
+    {
+      "case_id": "hc_a3da554197a4dd82",
+      "component_ids": [
+        "lc_3c33ad002e3c7dfb",
+        "lc_c0755f846b03b23b"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [
+        "综合"
+      ],
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点；优先采集：观赏札记、课堂发言、教师评价。",
+        "学生能够用自己的话解释舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点；优先采集：观赏札记、课堂发言、教师评价。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能感知并理解舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点，理解作品内容与意蕴，并能表达自己的审美感受。",
+          "excerpt_hash": "12a93612c58ed549de8268c6fe7a4c8959b7f235650b3e98eea488597c6fa330",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AA-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "在真实或变化情境中迁移（综合）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    }
+  ],
+  "learning_components": [
+    {
+      "component_id": "lc_3c33ad002e3c7dfb",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点，并说明关键步骤、特征或依据。",
+      "label": "识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够识别并描述舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点；优先采集：观赏札记、课堂发言、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "感知并理解舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点",
+          "excerpt_hash": "9201d6ae8033970ad6ebca1abad49458c8216256f690b88b8ea6e44d0b932ca3",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AA-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "感知舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点"
+    },
+    {
+      "component_id": "lc_c0755f846b03b23b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点；优先采集：观赏札记、课堂发言、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点",
+          "excerpt_hash": "7f1f64085b8e21a0b66d17d5acaa62a6ca70da6f04ed0c47a0e591c61153c8c8",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AA-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点"
+    },
+    {
+      "component_id": "lc_a21fa0c63212962f",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够用自己的话解释作品内容与意蕴",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释作品内容与意蕴，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释作品内容与意蕴",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够用自己的话解释作品内容与意蕴；优先采集：观赏札记、课堂发言、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "理解作品内容与意蕴",
+          "excerpt_hash": "2058bf4f1f1fc952d71702fa30f99baf62e0e9b26f8f377fd8df6acc257761c5",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AA-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "理解作品内容与意蕴"
+    },
+    {
+      "component_id": "lc_bde12494dc081bcd",
+      "component_type": "language",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够表达自己的审美感受",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生表达自己的审美感受，并说明关键步骤、特征或依据。",
+      "label": "表达自己的审美感受",
+      "method": "deterministic_clause_decomposition_v2",
+      "observable_evidence": "学生能够表达自己的审美感受；优先采集：观赏札记、课堂发言、教师评价。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "表达自己的审美感受",
+          "excerpt_hash": "65354200fdf76d9d27696c66e16762de9c58ccb7e2cbed8493c1240261cfbedf",
+          "field": "standard",
+          "ref_id": "standard:AR-D3-AA-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "表达自己的审美感受"
+    }
+  ],
+  "prerequisite_candidates": [
+    {
+      "confidence": "medium",
+      "edge_id": "pc_a94c4282aeea0a6a",
+      "evidence_refs": [
+        "standard:AR-D3-AA-021:previous_code"
+      ],
+      "failure_if_missing": "尚未由专家核验；不能据此声称缺少该条目会阻断当前学习。",
+      "method": "source_navigation_field",
+      "necessity": "undetermined",
+      "provenance": "extracted",
+      "publication_status": "review_queue",
+      "rationale": "来自现有课程标准前后条目字段，只表示课程顺序候选，不等同于已验证的认知前提。",
+      "relation_type": "curriculum_sequence_candidate",
+      "review_status": "candidate",
+      "source_code": "AR-D2-AE-021",
+      "source_label": "能在情境表演中承担角色，声音、动作与表情基本符合角色形象，能理解并表现角色的情绪与动机。",
+      "target_code": "AR-D3-AA-021",
+      "target_label": "能感知并理解舞蹈、戏剧（含戏曲）等综合性表演艺术的审美特征与风格特点，理解作品内容与意蕴，并能表达自己的审美感受。"
+    }
+  ],
+  "prerequisite_review_coverage": {
+    "explicit_no_prerequisite_decision": false,
+    "note": "当前没有逐标准、逐候选的专家审核覆盖台账；不能根据已批准边数量推断审核是否完成。",
+    "reviewed_candidate_count": null,
+    "status": "not_measured",
+    "total_candidate_count": 1,
+    "verified_edge_count": 0
+  },
+  "source_standard_hash": "12a93612c58ed549de8268c6fe7a4c8959b7f235650b3e98eea488597c6fa330",
+  "standard_code": "AR-D3-AA-021",
+  "verified_prerequisites": []
+}
