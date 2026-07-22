@@ -1384,14 +1384,22 @@ test('stale adjudication and canonical approved ID collisions fail closed', () =
   }), /collides with canonical alignment/u)
 })
 
-test('logical duplicate accepts and invalid generated bbox are rejected before canonical writes', () => {
+test('logical duplicate accepts coalesce evidence while invalid generated bbox fails closed', () => {
   const first = applicationAcceptance({ itemId: 'item-1', candidateId: 'candidate-1', logicalItemId: 'logical-1', spanId: 'span-1', nodeId: 'node-1' })
   const second = applicationAcceptance({ itemId: 'item-2', candidateId: 'candidate-2', logicalItemId: 'logical-2', spanId: 'span-2', nodeId: 'node-2' })
-  assert.throws(() => planAlignmentApplication({
+  const coalesced = planAlignmentApplication({
     structuresByEdition: new Map([['ed_fixture', emptyApplicationStructure()]]),
     decisions: [first.decision, second.decision],
     acceptedAlignments: [first.alignment, second.alignment]
-  }), /Duplicate logical alignment/u)
+  })
+  const structure = coalesced.updates.get('ed_fixture')
+  assert.equal(structure.alignments.length, 1)
+  assert.deepEqual(structure.alignments[0].evidence_span_ids.slice().sort(), ['span-1', 'span-2'])
+  assert.equal(structure.alignments[0].supporting_evidence.length, 1)
+  assert.equal(structure.content_nodes.length, 2)
+  assert.equal(structure.evidence_spans.length, 2)
+  assert.equal(coalesced.report.summary.added_llm_alignments, 1)
+  assert.equal(coalesced.report.summary.coalesced_machine_duplicates, 1)
 
   const invalidBox = applicationAcceptance({
     bbox: { x: -1, y: 0, width: 10, height: 10, unit: 'pixel', page_width: 100, page_height: 100 }

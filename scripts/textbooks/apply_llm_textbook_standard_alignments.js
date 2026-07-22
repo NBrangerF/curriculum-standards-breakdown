@@ -728,7 +728,8 @@ export function planAlignmentApplication({
     preserved_legacy_approved: 0,
     skipped_approved_duplicates: 0,
     missing_prior_alignments: 0,
-    page_only_alignments: 0
+    page_only_alignments: 0,
+    coalesced_machine_duplicates: 0
   }
   const details = []
 
@@ -741,7 +742,15 @@ export function planAlignmentApplication({
     if (catalogByEdition && !catalog) throw new Error(`Textbook catalog entry not found: ${editionId}`)
     const pageCount = Number(catalog?.page_count || structure.extraction?.page_count || 0)
     const editionDecisions = decisionsByEdition.get(editionId) || []
-    const accepted = acceptedByEdition.get(editionId) || []
+    const accepted = [...(acceptedByEdition.get(editionId) || [])].sort((left, right) => {
+      const bboxDifference = Number(Boolean(right.generated_evidence_span?.bbox)) - Number(Boolean(left.generated_evidence_span?.bbox))
+      const levelDifference = Number(right.evidence_level === 'L3') - Number(left.evidence_level === 'L3')
+      return bboxDifference
+        || levelDifference
+        || String(left.evidence_quote || '').length - String(right.evidence_quote || '').length
+        || Number(left.pdf_page || 0) - Number(right.pdf_page || 0)
+        || left.alignment_id.localeCompare(right.alignment_id)
+    })
     const decisionsById = new Map()
     const priorDecisionIds = new Map()
     for (const decision of editionDecisions) {
@@ -799,6 +808,7 @@ export function planAlignmentApplication({
       removed_records: [],
       preserved_approved: [],
       skipped_approved_duplicates: [],
+      coalesced_machine_duplicates: [],
       missing_prior: [],
       added: [],
       replace_all_machine_alignments: replacementEditions.has(editionId)
@@ -930,7 +940,41 @@ export function planAlignmentApplication({
         if (existingById) {
           throw new Error(`Accepted alignment ID collides with canonical alignment: ${alignment.alignment_id}`)
         }
-        throw new Error(`Duplicate logical alignment: ${alignment.edition_id}:${alignment.unit_id}:${alignment.standard_code}:${alignment.relation_type}`)
+        // Multiple page windows in one unit can independently support the same
+        // semantic relation. Keep one relationship card and merge the extra
+        // evidence identities so reverse links and page highlights remain
+        // available without publishing duplicate relations.
+        if (node) {
+          assertGeneratedEntityCompatible(nodes.get(node.node_id), node, `Generated node ${node.node_id}`)
+          if (!nodes.has(node.node_id)) {
+            nodes.set(node.node_id, node)
+            summary.added_content_nodes += 1
+          }
+        }
+        if (span) {
+          assertGeneratedEntityCompatible(spans.get(span.evidence_span_id), span, `Generated span ${span.evidence_span_id}`)
+          if (!spans.has(span.evidence_span_id)) {
+            spans.set(span.evidence_span_id, span)
+            summary.added_evidence_spans += 1
+          }
+        }
+        existing.evidence_span_ids = [...new Set([...(existing.evidence_span_ids || []), ...alignment.evidence_span_ids])]
+        existing.supporting_evidence = [...(existing.supporting_evidence || []), {
+          alignment_id: alignment.alignment_id,
+          node_id: alignment.node_id,
+          evidence_span_id: alignment.evidence_span_ids[0],
+          pdf_page: alignment.pdf_page,
+          printed_page: alignment.printed_page ?? null,
+          evidence_quote: alignment.evidence_quote,
+          evidence_excerpt: alignment.evidence_excerpt,
+          bbox: span?.bbox || null
+        }]
+        summary.coalesced_machine_duplicates += 1
+        editionDetail.coalesced_machine_duplicates.push({
+          accepted_alignment_id: alignment.alignment_id,
+          canonical_alignment_id: existing.alignment_id
+        })
+        continue
       }
       if (node) {
         assertGeneratedEntityCompatible(nodes.get(node.node_id), node, `Generated node ${node.node_id}`)
