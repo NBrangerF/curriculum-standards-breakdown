@@ -143,7 +143,7 @@ export function parseAlignmentArgs(argv) {
     maxUsd: 5,
     inputUsdPerMillion: 10,
     outputUsdPerMillion: 40,
-    validationRetries: 1
+    validationRetries: 2
   }
   for (let index = 0; index < argv.length; index += 1) {
     const value = argv[index]
@@ -170,7 +170,7 @@ export function parseAlignmentArgs(argv) {
     else if (value === '--max-usd') args.maxUsd = numberArg(argv[++index], 'max-usd', { minimum: 0.01 })
     else if (value === '--input-usd-per-million') args.inputUsdPerMillion = numberArg(argv[++index], 'input-usd-per-million', { minimum: 0 })
     else if (value === '--output-usd-per-million') args.outputUsdPerMillion = numberArg(argv[++index], 'output-usd-per-million', { minimum: 0 })
-    else if (value === '--validation-retries') args.validationRetries = numberArg(argv[++index], 'validation-retries', { integer: true, minimum: 0, maximum: 1 })
+    else if (value === '--validation-retries') args.validationRetries = numberArg(argv[++index], 'validation-retries', { integer: true, minimum: 0, maximum: 3 })
     else throw new Error(`Unknown argument: ${value}`)
   }
   if (!['adjudicate', 'discover', 'both'].includes(args.mode)) throw new Error(`Invalid mode: ${args.mode}`)
@@ -1046,8 +1046,17 @@ export function addAlignmentValidationFeedback(input, errors) {
   return JSON.stringify({
     ...payload,
     validation_feedback: {
-      instruction: '上一份输出未通过语义契约。请重新返回完整替代结果；只可使用请求中逐字存在的 evidence_quote、evidence_span_id 与 learning_component_id。不要修补或省略候选决定。',
-      errors: [...new Set((errors || []).map(error => String(error)).filter(Boolean))]
+      instruction: '上一份输出未通过语义契约。请重新返回完整替代结果，不要修补或省略候选决定。accept 时只能从下方白名单复制 evidence_span_id 与 learning_component_id，evidence_quote 必须从对应 evidence excerpt 原样连续复制；如果无法做到，必须 reject 或 abstain，绝不能猜测标识或改写引文。',
+      errors: [...new Set((errors || []).map(error => String(error)).filter(Boolean))],
+      allowed_identifiers: (payload.items || []).map(item => ({
+        item_id: item.item_id,
+        evidence_span_ids: (item.evidence || []).map(row => row.evidence_span_id),
+        candidates: (item.candidates || []).map(candidate => ({
+          candidate_id: candidate.candidate_id,
+          standard_code: candidate.standard_code,
+          learning_component_ids: (candidate.learning_components || []).map(component => component.component_id)
+        }))
+      }))
     }
   })
 }

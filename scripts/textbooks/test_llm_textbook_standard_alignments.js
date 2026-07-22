@@ -65,15 +65,31 @@ test('default discovery keeps one complete scope per logical item', () => {
 })
 
 test('semantic validation retry tells the LLM to replace invalid identifiers and quotes', () => {
-  const original = JSON.stringify({ task: 'adjudicate_textbook_standard_candidates', items: [{ item_id: 'item-1' }] })
+  const original = JSON.stringify({
+    task: 'adjudicate_textbook_standard_candidates',
+    items: [{
+      item_id: 'item-1',
+      evidence: [{ evidence_span_id: 'span-1', excerpt: 'verbatim evidence' }],
+      candidates: [{
+        candidate_id: 'candidate-1',
+        standard_code: 'EN-D4-LS-001',
+        learning_components: [{ component_id: 'lc-1' }]
+      }]
+    }]
+  })
   const repaired = JSON.parse(addAlignmentValidationFeedback(original, [
     'evidence_quote is not verbatim for candidate-1',
     'accept requires a request evidence_span_id for candidate-2'
   ]))
-  assert.deepEqual(repaired.items, [{ item_id: 'item-1' }])
+  assert.equal(repaired.items[0].item_id, 'item-1')
   assert.match(repaired.validation_feedback.instruction, /完整替代结果/u)
-  assert.match(repaired.validation_feedback.instruction, /逐字存在/u)
+  assert.match(repaired.validation_feedback.instruction, /白名单/u)
   assert.equal(repaired.validation_feedback.errors.length, 2)
+  assert.deepEqual(repaired.validation_feedback.allowed_identifiers, [{
+    item_id: 'item-1',
+    evidence_span_ids: ['span-1'],
+    candidates: [{ candidate_id: 'candidate-1', standard_code: 'EN-D4-LS-001', learning_component_ids: ['lc-1'] }]
+  }])
 })
 
 test('strict eval treats relation-type accuracy as a first-class quality gate', () => {
