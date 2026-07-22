@@ -43,16 +43,134 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.0.0",
+      "alignment_id": "tca_llm_d461a2c04b6c34face07",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e",
+        "tes_llm_a1f8d32b78157d231dda",
+        "textbook-node:tcn_llm_a1f8d32b78157d231dda",
+        "textbook-unit:tcu_0774504d2ea75dd2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "|| LS 个 Ei” |\nPi\na ' 3 oe\ni 3 一 Ys ma \\\n上 >\nks ——— | ;\nQR =\n照 镜子 时 , 我 们 看 到 的 镜子 里 的 自己 是 光 反 射 形成 的 。 那 么 , 光 是 怎样\n从 镜子 反射 回来 的 呢 ? 光 的 反射 有 什么 规律 吗 ?\nED ”做 光 的 反射 实验 。\n将 卡 纸 剪 成 比 手 电 简 光 圈 直 径 略 FRR\n大 一 点 的 圆 ;在 剪 好 的 卡 纸 中 间 rm\n划 开 一 道 缝隙 , 并 用 透明 胶带 将 TS\n卡 纸 固定 在 手电 位 光圈 上 ;打开 ~)\n手电 简 , 会 有 一 道 狭窄 的 光束 射\n15",
+          "excerpt_hash": "f347a529f68cc44c80d3ea9c0e0d99e323924465a455d6df07ec73f6d3d23195",
+          "pdf_page": 20,
+          "printed_page": null,
+          "span_id": "tes_llm_a1f8d32b78157d231dda"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7a268afe66511222",
+        "lc_eb72137e4f44f15a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7a268afe66511222",
+          "label": "准确说出来自光源的光或来自物体的反射光进入眼睛"
+        },
+        {
+          "component_id": "lc_eb72137e4f44f15a",
+          "label": "使人们看到光源或该物体"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_a1f8d32b78157d231dda",
+      "node_title": "|| LS 个 Ei” |\nPi\na ' 3 oe\ni 3 一 Ys ma \\\n上 >\nks ——— | ;\nQR =\n照 镜子 时 , 我 们 看 到 的 镜子 里 的 自己 是 光 反 射 形成 ",
+      "pdf_page": 20,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材明确以照镜子看到自己由光反射形成、探究光怎样从镜子反射回来为正文问题，并安排反射实验；这与课标中来自物体的反射光使人看到物体的对象和情境相容。证据未充分呈现光在空气中沿直线传播，因此未选择该学习组件。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_0774504d2ea75dd2",
+      "unit_title": "光的反射现象"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.0.0",
+      "alignment_id": "tca_llm_c74aec1aab944fffaf63",
+      "alignment_type": "assesses",
+      "coverage": "partial",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e",
+        "tes_llm_eec303e7328c0d9283cc",
+        "textbook-node:tcn_llm_eec303e7328c0d9283cc",
+        "textbook-unit:tcu_390567d0a3f20487"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "EERE 1 一 各 一 Tia TT\n(7 制作 二 个 洪 望 错\n潜 望 镜 在 科学 研究 和 国防 建设 上 有 很 多 用 途 。 科 学 家 用 潜 望 镜 在 地 下 室\n里 观察 火箭 的 发 射 ; 科研 工作 者 用 潜 望 镜 在 保护 墙 内 观测 有 放射 性 危险 的 实\n验 ; 潜水 艇 在 水 下 航行 时 , 用 潜 望 镜 观 察 海面 和 空中 的 情况 ......\n右 图 是 同一 方向 放置 的 两 个 平面\n镜 , 代 表 光 照射 下 的 物体 经 过 两 次 反射 V\n后 进入 人 的 视野 。 yr\n运用 本 单元 学 过 的 光学 知识 , 用 箭\n头 标 出 光 的 传播 路 线 , 并 解释 潜 望 镜 是\n怎样 工作 的 。 A\nAl\n18",
+          "excerpt_hash": "b4f1819c11264a755110ec664d9de5026def524f038d2c9505a490ff0a38809a",
+          "pdf_page": 23,
+          "printed_page": null,
+          "span_id": "tes_llm_eec303e7328c0d9283cc"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7a268afe66511222",
+        "lc_eb72137e4f44f15a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7a268afe66511222",
+          "label": "准确说出来自光源的光或来自物体的反射光进入眼睛"
+        },
+        {
+          "component_id": "lc_eb72137e4f44f15a",
+          "label": "使人们看到光源或该物体"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_eec303e7328c0d9283cc",
+      "node_title": "EERE 1 一 各 一 Tia TT\n(7 制作 二 个 洪 望 错\n潜 望 镜 在 科学 研究 和 国防 建设 上 有 很 多 用 途 。 科 学 家 用 潜 望 镜 在 地 下 室\n里 观察 火",
+      "pdf_page": 23,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材要求用光学知识标出光的传播路线并解释潜望镜工作，且明确物体的光经过两次反射后进入人的视野；这与候选中反射光进入眼睛使人看到物体的对象和机制相容。",
+      "relation_type": "assesses",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_390567d0a3f20487",
+      "unit_title": "制作一个潜望镜"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_13bd62fbe32171bf",

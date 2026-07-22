@@ -43,16 +43,70 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.0.0",
+      "alignment_id": "tca_llm_c68ffbaf127140735997",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e",
+        "tes_llm_d7fb3daae5d2e4fa289d",
+        "textbook-node:tcn_llm_d7fb3daae5d2e4fa289d",
+        "textbook-unit:tcu_6012e7da959db84f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "a a a 大-\nape ca “a ” a ‘\new cama ae\nSe tes. a\n- 在 地 表 的 变化 过 程 中 , 水 发 挥 着\n— 巨大 的 作用 。 降 沙 的 雨水 和 众多 的 河\nete ae © ieee cee\n= Re ea :\nae ta oT i “Sa be: ‘\n5 SS es\n区 的 ere CR eC ~ :\nra os Fe Se\npe eee IES. ae\n= j ’ 也\nP\n34\nTB",
+          "excerpt_hash": "22a813224ff43740595d3a9e16dd4cc1f7804e72aa297f6e5558cbcaebec847a",
+          "pdf_page": 39,
+          "printed_page": null,
+          "span_id": "tes_llm_d7fb3daae5d2e4fa289d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f3b438b09cff6d09"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f3b438b09cff6d09",
+          "label": "准确说出水在改变地表形态的过程中发挥着重要作用"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_d7fb3daae5d2e4fa289d",
+      "node_title": "a a a 大-\nape ca “a ” a ‘\new cama ae\nSe tes. a\n- 在 地 表 的 变化 过 程 中 , 水 发 挥 着\n— 巨大 的 作用 。 降 沙 的 雨水 和 众多",
+      "pdf_page": 39,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材逐字证据明确表述水在地表变化过程中发挥巨大作用，并继续提到雨水和河流，学习对象与课标“水在改变地表形态的过程中发挥着重要作用”相容。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_6012e7da959db84f",
+      "unit_title": "水的作用"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_18ea9cbac1693b5d",
