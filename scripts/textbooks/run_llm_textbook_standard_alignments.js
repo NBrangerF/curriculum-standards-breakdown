@@ -30,6 +30,7 @@ import {
   normalizeAlignmentText,
   stableAlignmentId,
   stableCanonicalJson,
+  stableDecisionId,
   validateAlignmentModelOutput
 } from './llm_textbook_standard_alignment_contract.js'
 import {
@@ -325,7 +326,9 @@ export function buildExistingAdjudicationItems(catalog, structure, standardsByCo
         title: alignment.unit_title || unit?.title || '',
         pdf_page_start: Number(unit?.pdf_page) || evidence[0].pdf_page,
         pdf_page_end: Number(unit?.end_pdf_page) || evidence[0].pdf_page,
-        assignment_status: unit ? 'assigned_toc_unit' : 'unassigned_existing_alignment'
+        assignment_status: alignment.unit_assignment_status === 'unassigned_page_only'
+          ? 'unassigned_page_only'
+          : unit ? 'assigned_toc_unit' : 'unassigned_existing_alignment'
       },
       evidence,
       candidates: [candidateFromStandard(itemId, standard)]
@@ -335,8 +338,19 @@ export function buildExistingAdjudicationItems(catalog, structure, standardsByCo
 }
 
 function unionBbox(boxes) {
-  const usable = boxes.filter(box => box && Number.isFinite(Number(box.x)) && Number.isFinite(Number(box.y)))
+  const usable = boxes.filter(box => box && ['x', 'y', 'width', 'height'].every(key => Number.isFinite(Number(box[key])))
+    && Number(box.width) >= 0 && Number(box.height) >= 0 && String(box.unit || '').trim())
   if (!usable.length) return null
+  if (usable.length !== boxes.filter(Boolean).length) return null
+  const units = new Set(usable.map(box => String(box.unit).trim()))
+  if (units.size !== 1) return null
+  const dimensions = new Set(usable.map(box => `${Number(box.page_width) || ''}:${Number(box.page_height) || ''}`))
+  if (dimensions.size !== 1) return null
+  if (usable.some(box => Number(box.x) < 0 || Number(box.y) < 0)) return null
+  const pageWidth = Number(usable[0].page_width)
+  const pageHeight = Number(usable[0].page_height)
+  if ((pageWidth > 0 && usable.some(box => Number(box.x) + Number(box.width) > pageWidth))
+    || (pageHeight > 0 && usable.some(box => Number(box.y) + Number(box.height) > pageHeight))) return null
   const x = Math.min(...usable.map(box => Number(box.x)))
   const y = Math.min(...usable.map(box => Number(box.y)))
   const right = Math.max(...usable.map(box => Number(box.x) + Number(box.width || 0)))
@@ -347,7 +361,7 @@ function unionBbox(boxes) {
     y,
     width: Math.max(0, right - x),
     height: Math.max(0, bottom - y),
-    unit: first.unit || 'unknown',
+    unit: String(first.unit).trim(),
     ...(Number(first.page_width) > 0 ? { page_width: Number(first.page_width) } : {}),
     ...(Number(first.page_height) > 0 ? { page_height: Number(first.page_height) } : {})
   }
@@ -414,7 +428,10 @@ export function loadEditionSidecarPages(structure, libraryRoot) {
 }
 
 function publishedUnitRanges(structure) {
-  return (structure.toc || []).filter(unit => Number(unit.pdf_page) > 0).map(unit => ({
+  return (structure.toc || []).filter(unit => Number(unit.pdf_page) > 0 && (
+    unit.review_status === 'approved'
+      || (unit.review_status === 'machine_checked' && unit.publication_status === 'published' && unit.source === 'body_inferred_unit')
+  )).map(unit => ({
     ...unit,
     start: Number(unit.pdf_page),
     end: Math.max(Number(unit.pdf_page), Number(unit.end_pdf_page) || Number(unit.pdf_page))
@@ -696,12 +713,18 @@ function cachePath(cacheRoot, inputHash) {
   return join(cacheRoot, inputHash.slice(0, 2), `${inputHash}.json`)
 }
 
-function readValidatedCache(path, requestItems) {
+function readValidatedCache(path, requestItems, expected) {
   if (!existsSync(path)) return null
   try {
     const record = readJson(path)
+    if (record.status !== 'ok' || record.input_hash !== expected.inputHash) return null
+    if (stableCanonicalJson(record.request_items) !== stableCanonicalJson(requestItems)) return null
+    if (record.provenance?.provider !== expected.provider || record.provenance?.model !== expected.model
+      || record.provenance?.prompt_version !== LLM_ALIGNMENT_PROMPT_VERSION
+      || record.provenance?.schema_version !== LLM_ALIGNMENT_SCHEMA_VERSION
+      || record.provenance?.input_hash !== expected.inputHash) return null
     const validation = validateAlignmentModelOutput(record.model_output, requestItems)
-    return record.status === 'ok' && validation.ok ? record : null
+    return validation.ok ? record : null
   } catch {
     return null
   }
@@ -710,7 +733,11 @@ function readValidatedCache(path, requestItems) {
 async function adjudicateBatch(batch, context) {
   const input = makeAlignmentResponseInput(batch.requestItems)
   const inputHash = alignmentInputHash({ provider: context.config.provider, model: context.config.model, items: batch.requestItems })
-  const cached = readValidatedCache(cachePath(context.args.cacheRoot, inputHash), batch.requestItems)
+  const cached = readValidatedCache(cachePath(context.args.cacheRoot, inputHash), batch.requestItems, {
+    inputHash,
+    provider: context.config.provider,
+    model: context.config.model
+  })
   if (cached) return { ...cached, cache_hit: true }
 
   const estimatedInputTokens = estimateInputTokens(input)
@@ -786,25 +813,60 @@ async function adjudicateBatch(batch, context) {
   throw new Error('unreachable validation retry state')
 }
 
-async function runPool(batches, concurrency, worker) {
+export async function runPool(batches, concurrency, worker) {
   const results = new Array(batches.length)
   let cursor = 0
+  let stopStatus = null
+  let started = 0
   async function next() {
-    while (cursor < batches.length) {
+    while (!stopStatus && cursor < batches.length) {
       const index = cursor
       cursor += 1
-      results[index] = await worker(batches[index], index)
+      started += 1
+      const result = await worker(batches[index], index)
+      results[index] = result
+      if (result?.status === 'codex_cli_auth_error') stopStatus = result.status
     }
   }
   await Promise.all(Array.from({ length: Math.min(concurrency, batches.length) }, () => next()))
-  return results
+  const unstarted = Math.max(0, batches.length - started)
+  return {
+    results: results.filter(result => result !== undefined),
+    circuit_opened: stopStatus !== null,
+    stop_status: stopStatus,
+    started_batches: started,
+    unstarted_batches: unstarted
+  }
 }
 
-function checkpointSuccesses(path) {
+function checkpointSuccesses(path, batches, config) {
   const records = readJsonLines(path)
+  const requestByHash = new Map(batches.map(batch => {
+    const hash = alignmentInputHash({ provider: config.provider, model: config.model, items: batch.requestItems })
+    return [hash, batch.requestItems]
+  }))
+  const validRecords = []
+  const successfulHashes = new Set()
+  for (const record of records) {
+    const requestItems = requestByHash.get(record.input_hash)
+    if (!requestItems || record.status !== 'ok') continue
+    const expectedHash = alignmentInputHash({ provider: config.provider, model: config.model, items: requestItems })
+    const valid = record.input_hash === expectedHash
+      && record.provenance?.provider === config.provider
+      && record.provenance?.model === config.model
+      && record.provenance?.prompt_version === LLM_ALIGNMENT_PROMPT_VERSION
+      && record.provenance?.schema_version === LLM_ALIGNMENT_SCHEMA_VERSION
+      && record.provenance?.input_hash === expectedHash
+      && stableCanonicalJson(record.request_items) === stableCanonicalJson(requestItems)
+      && validateAlignmentModelOutput(record.model_output, requestItems).ok
+    if (!valid || successfulHashes.has(record.input_hash)) continue
+    validRecords.push(record)
+    successfulHashes.add(record.input_hash)
+  }
   return {
     records,
-    successfulHashes: new Set(records.filter(record => record.status === 'ok').map(record => record.input_hash))
+    validRecords,
+    successfulHashes
   }
 }
 
@@ -822,7 +884,7 @@ export function materializeAlignmentRecords(checkpointRecords, currentHashes) {
       for (const modelDecision of outputItem.decisions) {
         const candidate = candidates.get(modelDecision.candidate_id)
         if (!candidate) continue
-        const decisionId = stableId('llmd', record.input_hash, inputItem.item_id, modelDecision.candidate_id)
+        const decisionId = stableDecisionId(record.input_hash, inputItem.item_id, modelDecision.candidate_id)
         const row = {
           decision_id: decisionId,
           edition_id: inputItem.textbook.edition_id,
@@ -1003,8 +1065,11 @@ export async function runAlignmentPipeline(args, dependencies = {}) {
   const alignmentsPath = `${base}.alignments.jsonl`
   const manifestPath = `${base}.manifest.json`
   mkdirSync(dirname(checkpointPath), { recursive: true })
-  const checkpoint = args.resume ? checkpointSuccesses(checkpointPath) : { records: [], successfulHashes: new Set() }
+  const checkpoint = args.resume
+    ? checkpointSuccesses(checkpointPath, batches, config)
+    : { records: [], validRecords: [], successfulHashes: new Set() }
   if (!args.resume && existsSync(checkpointPath)) atomicWriteJsonLines(checkpointPath, [])
+  if (!existsSync(checkpointPath)) atomicWriteJsonLines(checkpointPath, [])
   const budget = new AlignmentBudget(args)
   const currentHashes = new Set()
   const pending = []
@@ -1014,19 +1079,39 @@ export async function runAlignmentPipeline(args, dependencies = {}) {
     if (!checkpoint.successfulHashes.has(hash)) pending.push(batch)
   }
 
-  const newRecords = await runPool(pending, args.concurrency, async batch => {
+  const pool = await runPool(pending, args.concurrency, async batch => {
     const record = await adjudicateBatch(batch, { args, budget, config })
     appendFileSync(checkpointPath, `${JSON.stringify(record)}\n`)
     return record
   })
-  const allRecords = [...checkpoint.records, ...newRecords]
-  const materialized = materializeAlignmentRecords(allRecords, currentHashes)
+  const newRecords = pool.results
+  const currentRecords = [...checkpoint.validRecords, ...newRecords.filter(record => record.status === 'ok')]
+  const allCurrentAttempts = [...checkpoint.validRecords, ...newRecords]
+  // Compact the checkpoint to the current request set. This prevents stale or
+  // invalid historical rows from becoming part of an authenticated manifest.
+  atomicWriteJsonLines(checkpointPath, allCurrentAttempts)
+  const materialized = materializeAlignmentRecords(currentRecords, currentHashes)
   atomicWriteJsonLines(decisionsPath, materialized.decisions)
   atomicWriteJsonLines(alignmentsPath, materialized.alignments)
-  const statusCounts = Object.fromEntries([...new Set(allRecords.map(record => record.status))].sort().map(status => [
+  const statusCounts = Object.fromEntries([...new Set(allCurrentAttempts.map(record => record.status))].sort().map(status => [
     status,
-    allRecords.filter(record => record.status === status).length
+    allCurrentAttempts.filter(record => record.status === status).length
   ]))
+  const successfulHashes = new Set(currentRecords.map(record => record.input_hash))
+  const incompleteInputHashes = [...currentHashes].filter(hash => !successfulHashes.has(hash)).sort()
+  const artifactDigests = {
+    checkpoint_sha256: sha256(readFileSync(checkpointPath)),
+    decisions_sha256: sha256(readFileSync(decisionsPath)),
+    alignments_sha256: sha256(readFileSync(alignmentsPath))
+  }
+  const complete = incompleteInputHashes.length === 0 && successfulHashes.size === batches.length
+  const terminalError = pool.stop_status
+    ? {
+        status: pool.stop_status,
+        circuit_opened: true,
+        unstarted_batches: pool.unstarted_batches
+      }
+    : null
   const manifest = {
     ...plan,
     dry_run: false,
@@ -1034,8 +1119,17 @@ export async function runAlignmentPipeline(args, dependencies = {}) {
     checkpoint_path: checkpointPath,
     decisions_path: decisionsPath,
     alignments_path: alignmentsPath,
-    resumed_batches: checkpoint.records.filter(record => record.status === 'ok' && currentHashes.has(record.input_hash)).length,
+    current_input_hashes: [...currentHashes].sort(),
+    source_structure_hashes: Object.fromEntries([...structuresByEdition].map(([editionId, structure]) => [editionId, sha256(stableCanonicalJson(structure))])),
+    artifact_digests: artifactDigests,
+    complete,
+    run_status: complete ? 'complete' : terminalError ? 'error' : 'incomplete',
+    terminal_error: terminalError,
+    successful_batches: successfulHashes.size,
+    incomplete_input_hashes: incompleteInputHashes,
+    resumed_batches: checkpoint.validRecords.length,
     attempted_new_batches: newRecords.length,
+    unstarted_new_batches: pool.unstarted_batches,
     status_counts: statusCounts,
     decisions: materialized.decisions.length,
     accepted_alignments: materialized.alignments.length,
@@ -1048,10 +1142,15 @@ export async function runAlignmentPipeline(args, dependencies = {}) {
   return { plan, output: manifest }
 }
 
+export function alignmentPipelineExitCode(result) {
+  return result?.output && result.output.complete !== true ? 1 : 0
+}
+
 async function main() {
   const args = parseAlignmentArgs(process.argv.slice(2))
   const result = await runAlignmentPipeline(args)
   process.stdout.write(`${JSON.stringify(result.output || result.plan, null, 2)}\n`)
+  process.exitCode = alignmentPipelineExitCode(result)
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {

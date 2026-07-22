@@ -138,6 +138,8 @@ export function alignmentInputHash({ provider = LLM_ALIGNMENT_PROVIDER, model, i
     provider,
     prompt_version: LLM_ALIGNMENT_PROMPT_VERSION,
     schema_version: LLM_ALIGNMENT_SCHEMA_VERSION,
+    instructions: LLM_ALIGNMENT_INSTRUCTIONS,
+    output_schema: LLM_ALIGNMENT_OUTPUT_SCHEMA,
     model,
     items
   })).digest('hex')
@@ -145,6 +147,10 @@ export function alignmentInputHash({ provider = LLM_ALIGNMENT_PROVIDER, model, i
 
 export function stableAlignmentId(...parts) {
   return `tca_llm_${createHash('sha256').update(parts.map(value => String(value ?? '')).join('\u001f')).digest('hex').slice(0, 20)}`
+}
+
+export function stableDecisionId(inputHash, itemId, candidateId) {
+  return `llmd_${createHash('sha256').update([inputHash, itemId, candidateId].map(value => String(value ?? '')).join('\u001f')).digest('hex').slice(0, 20)}`
 }
 
 function describeAjvErrors(errors = []) {

@@ -196,7 +196,13 @@ function codexChildEnvironment(env) {
   return Object.fromEntries(allowed.flatMap(key => env[key] == null ? [] : [[key, env[key]]]))
 }
 
+// Codex currently emits several spellings for the same unrecoverable login
+// state. Keep this matched against the accumulated stderr tail so a message
+// split across stream chunks still opens the circuit immediately.
+const CODEX_AUTH_FAILURE_PATTERN = /(?:\b401\s+unauthorized\b|\b(?:http(?:\s+status)?|status(?:\s+code)?|auth(?:entication)?|token|error(?:\s+code)?)\b[^\r\n]{0,40}\b401\b|\b401\b[^\r\n]{0,40}\b(?:unauthorized|http|status|auth(?:entication)?|token|error)\b|token[_\s-]?expired|refresh[_\s-]?token[_\s-]?(?:reused|was\s+already\s+used|already\s+used)|failed\s+to\s+refresh\s+(?:(?:the|your|an?)\s+)?(?:(?:access|refresh)\s+)?(?:token|auth(?:entication)?|session)\b|access\s+token\s+could\s+not\s+be\s+refreshed|authentication\s+token\s+is\s+expired)/iu
+
 function isRetryableCodexFailure(result) {
+  if (result.authFailed) return false
   if (result.timedOut) return true
   if (['EAGAIN', 'ETIMEDOUT', 'ECONNRESET'].includes(result.errorCode)) return true
   return /(?:\b(?:408|409|429|500|502|503|504)\b|rate.?limit|timed?\s*out|timeout|temporary|temporarily|connection reset|network error|service unavailable|overloaded)/iu.test(result.stderr || '')
@@ -207,6 +213,7 @@ function runCodexProcess({ command, args, cwd, env, prompt, timeoutMs, spawnImpl
     let child
     let stderr = ''
     let timedOut = false
+    let authFailed = false
     let settled = false
     let hardKillTimer = null
 
@@ -215,7 +222,7 @@ function runCodexProcess({ command, args, cwd, env, prompt, timeoutMs, spawnImpl
       settled = true
       clearTimeout(timeout)
       if (hardKillTimer) clearTimeout(hardKillTimer)
-      resolve({ ...result, stderr, timedOut })
+      resolve({ ...result, stderr, timedOut, authFailed })
     }
 
     try {
@@ -251,6 +258,14 @@ function runCodexProcess({ command, args, cwd, env, prompt, timeoutMs, spawnImpl
     child.stderr?.on('data', chunk => {
       // Retain only a bounded diagnostic tail, and never expose it in results.
       stderr = `${stderr}${String(chunk)}`.slice(-32_000)
+      if (!authFailed && CODEX_AUTH_FAILURE_PATTERN.test(stderr)) {
+        authFailed = true
+        child.kill('SIGTERM')
+        hardKillTimer = setTimeout(() => {
+          child.kill('SIGKILL')
+          finish({ exitCode: null, signal: 'SIGKILL', errorCode: null })
+        }, 1_000)
+      }
     })
     child.once('error', error => finish({
       exitCode: null,
@@ -330,7 +345,8 @@ async function requestCodexCliAdjudication(input, options, config) {
       }
     }
 
-    if (result.timedOut) lastStatus = 'timeout'
+    if (result.authFailed) lastStatus = 'codex_cli_auth_error'
+    else if (result.timedOut) lastStatus = 'timeout'
     else if (result.errorCode === 'ENOENT') lastStatus = 'codex_cli_not_found'
     else if (result.errorCode) lastStatus = 'codex_cli_spawn_error'
     else if (result.exitCode !== 0) lastStatus = `codex_cli_exit_${result.exitCode ?? 'unknown'}`

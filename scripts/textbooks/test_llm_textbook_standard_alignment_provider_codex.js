@@ -14,6 +14,10 @@ import {
   LLM_ALIGNMENT_OUTPUT_SCHEMA,
   LLM_ALIGNMENT_SCHEMA_VERSION
 } from './llm_textbook_standard_alignment_contract.js'
+import {
+  alignmentPipelineExitCode,
+  runPool
+} from './run_llm_textbook_standard_alignments.js'
 
 function fixtureOutput() {
   return {
@@ -148,6 +152,125 @@ test('codex_cli does not retry a non-transient process failure', async () => {
   assert.equal(result.status, 'codex_cli_exit_1')
   assert.equal(result.attempts, 1)
   assert.equal(calls, 1)
+})
+
+test('codex_cli recognizes real authentication failures, terminates immediately, and never retries', async () => {
+  const messages = [
+    'Your access token could not be refreshed because your refresh token was already used. Please log out and sign in again.',
+    'request failed with status 401',
+    'error_code=token_expired',
+    'error_code=refresh_token_reused'
+  ]
+  let calls = 0
+  let kills = 0
+  for (const message of messages) {
+    const spawnImpl = () => {
+      calls += 1
+      const child = fakeChild(({ child: runningChild }) => {
+        const midpoint = Math.floor(message.length / 2)
+        runningChild.stderr.write(message.slice(0, midpoint))
+        runningChild.stderr.write(message.slice(midpoint))
+      })
+      child.kill = signal => {
+        kills += 1
+        queueMicrotask(() => child.emit('close', 1, signal))
+        return true
+      }
+      return child
+    }
+    const started = performance.now()
+    const result = await requestAlignmentAdjudication('{"items":[]}', {
+      config: {
+        provider: 'codex_cli',
+        enabled: true,
+        valid: true,
+        model: 'codex-default',
+        codexModel: null,
+        timeoutMs: 10_000,
+        maxRetries: 3,
+        codexCommand: 'codex'
+      },
+      spawnImpl,
+      waitImpl: async () => {}
+    })
+    assert.equal(result.ok, false, message)
+    assert.equal(result.status, 'codex_cli_auth_error', message)
+    assert.equal(result.attempts, 1, message)
+    assert.ok(performance.now() - started < 1_000, message)
+  }
+  assert.equal(calls, messages.length)
+  assert.equal(kills, messages.length)
+})
+
+test('codex_cli does not misclassify unrelated 401 counts or cache refresh failures as authentication errors', async () => {
+  const messages = [
+    '401 tokens used',
+    'failed to refresh cache'
+  ]
+  let calls = 0
+  let kills = 0
+  for (const message of messages) {
+    const spawnImpl = () => {
+      calls += 1
+      const child = fakeChild(({ child: runningChild }) => {
+        runningChild.stderr.write(message)
+        queueMicrotask(() => runningChild.emit('close', 1, null))
+      })
+      child.kill = () => {
+        kills += 1
+        return true
+      }
+      return child
+    }
+    const result = await requestAlignmentAdjudication('{"items":[]}', {
+      config: {
+        provider: 'codex_cli',
+        enabled: true,
+        valid: true,
+        model: 'codex-default',
+        codexModel: null,
+        timeoutMs: 10_000,
+        maxRetries: 3,
+        codexCommand: 'codex'
+      },
+      spawnImpl,
+      waitImpl: async () => {}
+    })
+    assert.equal(result.status, 'codex_cli_exit_1', message)
+    assert.equal(result.attempts, 1, message)
+  }
+  assert.equal(calls, messages.length)
+  assert.equal(kills, 0)
+})
+
+test('alignment pool opens an auth circuit and lets only already-started batches converge', async () => {
+  const started = []
+  const pool = await runPool([0, 1, 2, 3, 4], 2, async (_batch, index) => {
+    started.push(index)
+    if (index === 0) return { status: 'codex_cli_auth_error', index }
+    await new Promise(resolve => setImmediate(resolve))
+    return { status: 'ok', index }
+  })
+
+  assert.deepEqual(started, [0, 1])
+  assert.deepEqual(pool.results.map(result => result.index), [0, 1])
+  assert.equal(pool.circuit_opened, true)
+  assert.equal(pool.stop_status, 'codex_cli_auth_error')
+  assert.equal(pool.started_batches, 2)
+  assert.equal(pool.unstarted_batches, 3)
+})
+
+test('incomplete and terminal-error manifests make the CLI fail after artifacts are written', () => {
+  assert.equal(alignmentPipelineExitCode({ output: { complete: true, run_status: 'complete' } }), 0)
+  assert.equal(alignmentPipelineExitCode({ output: { complete: false, run_status: 'incomplete' } }), 1)
+  assert.equal(alignmentPipelineExitCode({
+    output: {
+      complete: false,
+      run_status: 'error',
+      terminal_error: { status: 'codex_cli_auth_error' }
+    }
+  }), 1)
+  assert.equal(alignmentPipelineExitCode({ output: null, plan: { dry_run: true } }), 0)
 })
 
 test('codex_cli does not force a model when using the stable codex-default label', async () => {
