@@ -122,16 +122,124 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_9d4c46c88b17e5b49e82",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_aa30c5a40c874612da72",
+        "textbook-node:tcn_llm_quote_874bd15adcb5418139df",
+        "textbook-unit:tcu_33c8de12314bb055"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3b Complete the chart with your own information. In the last column, use\nexpressions likeexpressions like always, every day, twice a weekalways, every day, twice a weekandnever.\nActivities How often?\nGood habits\nBad habits\n3c Write a report about your good and bad habits. Say how often you do\nthings. Use the report in 3a as an example.things. Use the report in 3a as an example.\n15",
+          "excerpt_hash": "a0b2b187a9558f2453adf493ee1e38cccfdbb0beac7b7f66dd87b2fab2985018",
+          "pdf_page": 26,
+          "printed_page": "15",
+          "span_id": "tes_llm_quote_aa30c5a40c874612da72"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_085b013a6c835cb6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_085b013a6c835cb6",
+          "label": "用简单书面语篇描写他人经历或熟悉事物"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_874bd15adcb5418139df",
+      "node_title": "3c Write a report about your good and bad habits. Say how often you do\nthings. Use the report in 3a ",
+      "pdf_page": 26,
+      "printed_page": "15",
+      "publication_status": "published",
+      "rationale": "证据直接要求写关于自己好坏习惯及频率的 report，属于用简单书面语篇描写熟悉事物。任务是普通写作练习，不是评价或检测，因此 relation_type 为 practices。证据不涉及主题演讲、口头表达、整合语篇信息或说明观点/文化差异。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_33c8de12314bb055",
+      "unit_title": "UNIT 2"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_a7667c1da4127e742290",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_a953d8bc855220f35507",
+        "textbook-node:tcn_llm_quote_795c7601e7f15ee9ac50",
+        "textbook-unit:tcu_84a47d476c71962a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "Best places/things in my town Why?\nbest middle Because it is the most beautiful\nNo. 1 Middle School\nschool school in my town.\n3c Write about your town and the best places/things there.\n31",
+          "excerpt_hash": "46e9d964d5025d37892d370bc903638220a8f76bf4269552c314c5aefb7a9466",
+          "pdf_page": 42,
+          "printed_page": "31",
+          "span_id": "tes_llm_quote_a953d8bc855220f35507"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_085b013a6c835cb6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_085b013a6c835cb6",
+          "label": "用简单书面语篇描写他人经历或熟悉事物"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_795c7601e7f15ee9ac50",
+      "node_title": "3c Write about your town and the best places/things there.",
+      "pdf_page": 42,
+      "printed_page": "31",
+      "publication_status": "published",
+      "rationale": "证据中的任务动作是“Write about”，对象是“your town and the best places/things there”，直接要求学生用书面语篇描写熟悉事物，因此选择“用简单书面语篇描写他人经历或熟悉事物”。这是学生写作练习，不是讲解或评价，所以 relation_type 为 practices。其余组件涉及主题演讲、口头表达、整合语篇信息、说明观点或文化差异，证据没有直接要求。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_84a47d476c71962a",
+      "unit_title": "UNIT 4"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_83316b933c0397c3",

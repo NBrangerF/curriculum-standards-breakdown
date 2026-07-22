@@ -96,7 +96,7 @@ node scripts/textbooks/build_textbook_resource_catalog.js \
 
 当资源资产为 `availability=available`，且 `asset_id / sha256 / bytes / pages / object_path` 构成完整的内容寻址 PDF 记录时，单元投影会将 `resource_reading_available` 设为 `true`。前端链接到 `/textbook-resources/<resource_id>/read?page=<PDF页>`，再通过 `POST /api/v1/textbook-resources/<resource_id>/viewer-session` 获取同源 Range 地址。服务端只解析受信任 registry/catalog 中的 `resource_id`，不接受客户端文件路径。
 
-`resource_reading_available` 表示资源具备合格的 reader 元数据，不是实时存储探测；X9 掉线或 R2 暂时不可达时，会话接口返回 `503`，前端展示明确的不可用状态且不会请求 PDF。线上读取只接受统一桶（默认 `kebiao-textbooks`，可由 `TEXTBOOK_ASSET_BUCKET` 配置）和规范内容寻址 key；自定义 bucket/key 不会被静默改写或误读，而是拒绝建立会话。
+`resource_reading_available` 表示资源具备合格的 reader 元数据，不是实时存储探测；X9 掉线或 R2 暂时不可达时，会话接口返回 `503`，前端展示明确的不可用状态且不会请求 PDF。线上读取只接受统一桶（默认 `kebiao-textbooks`，可由 `TEXTBOOK_ASSET_BUCKET` 配置）和规范内容寻址 key。导入、标准化、目录审计、公共可读性投影和 API 会话使用同一约束：显式桶只能等于配置桶，`r2_key` 只能等于 `objects/sha256/<前两位>/<sha256>.pdf`；不合规 manifest 会在复制或上传前失败。
 
 公开的 `public/data/textbooks/resources/index.json` 只保留阅读器需要的页数、文件大小、可用状态和书目结构；`sha256`、`object_path`、`r2_key`、桶名、本地路径及 provenance 定位信息统一脱敏为 `null`。完整内容寻址记录仅留在服务端数据目录。
 
@@ -129,6 +129,8 @@ node scripts/textbooks/import_textbook_resources.js \
 ```
 
 `--register` 默认采用 `--registration-mode merge`，按稳定 `resource_id` 更新或新增，未出现在本次 manifest 中的既有资源保留。只有在有意重建整个 registry 时才使用 `--registration-mode replace`。登记 manifest-only 资源同样有效；PDF 后续到位后，用相同资源身份再次登记即可补齐 asset 信息而不改变资源 ID。
+
+教师用书、教学参考、教材全解、练习册和答案册默认继承自身书目中的 `publisher` 与 `revision_year` 作为教材配对条件。若 manifest 想覆盖为不同出版社或修订年，必须同时给出明确的目标 `edition_id`；多个教材同分时保持 `ambiguous`，不会自动挑选其中一册。地理图册等 `student_companion` 继续使用兼容版本规则。
 
 `--execute-local` 或 `--upload-r2` 已经代表实际导入，因此只有在复制/上传全部成功后才会自动登记。恢复演练或一次性诊断若确实不希望改 registry，可显式使用 `--no-register`；纯计划模式仍然不会自动登记。
 

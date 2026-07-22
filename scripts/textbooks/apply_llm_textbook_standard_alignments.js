@@ -13,6 +13,7 @@ import {
   existsSync,
   mkdirSync,
   openSync,
+  readdirSync,
   readFileSync,
   realpathSync,
   renameSync,
@@ -32,6 +33,10 @@ import {
   stableDecisionId,
   validateAlignmentModelOutput
 } from './llm_textbook_standard_alignment_contract.js'
+import {
+  synchronizeContentAlignmentMetadata,
+  unassignedPageOnlyAlignmentErrors
+} from './textbook_content_alignment_contract.js'
 import {
   alignmentCandidateFromStandard,
   buildAlignmentWork,
@@ -194,7 +199,7 @@ function loadCatalogByEdition() {
   return new Map((readJson(CATALOG_PATH).items || []).map(row => [row.edition_id, row]))
 }
 
-function validateCurrentRequestScope(records, standardsByCode, catalogByEdition) {
+export function validateCurrentRequestScope(records, standardsByCode, catalogByEdition) {
   for (const record of records) {
     for (const item of record.request_items || []) {
       const catalog = catalogByEdition.get(item.textbook?.edition_id)
@@ -204,7 +209,13 @@ function validateCurrentRequestScope(records, standardsByCode, catalogByEdition)
       }
       for (const candidate of item.candidates || []) {
         const current = standardsByCode.get(candidate.standard_code)
-        const expectedCandidate = current ? alignmentCandidateFromStandard(item.item_id, current) : null
+        const priorAlignmentId = candidate.prior_alignment_id || null
+        const expectedCandidate = current
+          ? {
+              ...alignmentCandidateFromStandard(item.item_id, current, priorAlignmentId || current.code),
+              ...(Object.hasOwn(candidate, 'prior_alignment_id') ? { prior_alignment_id: priorAlignmentId } : {})
+            }
+          : null
         if (!current || stableCanonicalJson(expectedCandidate) !== stableCanonicalJson(candidate)) {
           throw new Error(`Checkpoint curriculum-standard scope is stale: ${item.item_id}:${candidate.standard_code}`)
         }
@@ -752,16 +763,9 @@ export function planAlignmentApplication({
         || left.alignment_id.localeCompare(right.alignment_id)
     })
     const decisionsById = new Map()
-    const priorDecisionIds = new Map()
     for (const decision of editionDecisions) {
       if (decisionsById.has(decision.decision_id)) throw new Error(`Duplicate decision_id: ${decision.decision_id}`)
       decisionsById.set(decision.decision_id, decision)
-      if (decision.source_mode === 'adjudicate_existing') {
-        if (priorDecisionIds.has(decision.prior_alignment_id)) {
-          throw new Error(`Duplicate adjudication for prior alignment: ${decision.prior_alignment_id}`)
-        }
-        priorDecisionIds.set(decision.prior_alignment_id, decision.decision_id)
-      }
     }
     const acceptedDecisionIds = new Set()
     const acceptedAlignmentIds = new Set()
@@ -866,7 +870,6 @@ export function planAlignmentApplication({
     if (nodes.size !== (structure.content_nodes || []).length) throw new Error(`Duplicate canonical content node ID in ${editionId}`)
     if (spans.size !== (structure.evidence_spans || []).length) throw new Error(`Duplicate canonical evidence span ID in ${editionId}`)
     const alignments = new Map(structure.alignments.map(row => [row.alignment_id, row]))
-    const semanticKeys = new Set(structure.alignments.map(semanticAlignmentKey))
     for (const row of accepted) {
       if (row.prior_alignment_id && protectedPriorIds.has(row.prior_alignment_id)) continue
       const node = canonicalGeneratedNode(row)
@@ -887,8 +890,7 @@ export function planAlignmentApplication({
       }
       const unit = (structure.toc || []).find(candidate => candidate.entry_id === row.unit_id)
       if (row.unit_assignment_status === 'unassigned_page_only') {
-        if (!String(row.unit_id || '').startsWith('tpu_') || !String(row.unit_title || '').startsWith('未分配单元 · PDF ')
-          || !node || node.unit_id !== null || node.parent_id !== null) {
+        if (unassignedPageOnlyAlignmentErrors(row, node).length) {
           throw new Error(`Invalid no-TOC page-only identity: ${row.alignment_id}`)
         }
       } else {
@@ -924,58 +926,20 @@ export function planAlignmentApplication({
       }
       validateBbox(resolvedSpan.bbox, `Alignment ${row.alignment_id}`)
       const alignment = canonicalAlignment(row)
-      const existingBySemanticKey = [...alignments.values()].find(existing => semanticAlignmentKey(existing) === semanticAlignmentKey(alignment))
       const existingById = alignments.get(alignment.alignment_id)
-      if (existingById || existingBySemanticKey) {
-        const existing = existingById || existingBySemanticKey
-        const sameSemanticClaim = semanticAlignmentKey(existing) === semanticAlignmentKey(alignment)
-        if (isLegacyApproved(existing) && sameSemanticClaim) {
-          summary.skipped_approved_duplicates += 1
-          editionDetail.skipped_approved_duplicates.push({
-            accepted_alignment_id: alignment.alignment_id,
-            preserved_alignment_id: existing.alignment_id
-          })
-          continue
-        }
-        if (existingById) {
-          throw new Error(`Accepted alignment ID collides with canonical alignment: ${alignment.alignment_id}`)
-        }
-        // Multiple page windows in one unit can independently support the same
-        // semantic relation. Keep one relationship card and merge the extra
-        // evidence identities so reverse links and page highlights remain
-        // available without publishing duplicate relations.
-        if (node) {
-          assertGeneratedEntityCompatible(nodes.get(node.node_id), node, `Generated node ${node.node_id}`)
-          if (!nodes.has(node.node_id)) {
-            nodes.set(node.node_id, node)
-            summary.added_content_nodes += 1
-          }
-        }
-        if (span) {
-          assertGeneratedEntityCompatible(spans.get(span.evidence_span_id), span, `Generated span ${span.evidence_span_id}`)
-          if (!spans.has(span.evidence_span_id)) {
-            spans.set(span.evidence_span_id, span)
-            summary.added_evidence_spans += 1
-          }
-        }
-        existing.evidence_span_ids = [...new Set([...(existing.evidence_span_ids || []), ...alignment.evidence_span_ids])]
-        existing.supporting_evidence = [...(existing.supporting_evidence || []), {
-          alignment_id: alignment.alignment_id,
-          node_id: alignment.node_id,
-          evidence_span_id: alignment.evidence_span_ids[0],
-          pdf_page: alignment.pdf_page,
-          printed_page: alignment.printed_page ?? null,
-          evidence_quote: alignment.evidence_quote,
-          evidence_excerpt: alignment.evidence_excerpt,
-          bbox: span?.bbox || null
-        }]
-        summary.coalesced_machine_duplicates += 1
-        editionDetail.coalesced_machine_duplicates.push({
+      const approvedDuplicate = [...alignments.values()].find(existing => (
+        isLegacyApproved(existing)
+        && semanticAlignmentKey(existing) === semanticAlignmentKey(alignment)
+      ))
+      if (approvedDuplicate) {
+        summary.skipped_approved_duplicates += 1
+        editionDetail.skipped_approved_duplicates.push({
           accepted_alignment_id: alignment.alignment_id,
-          canonical_alignment_id: existing.alignment_id
+          preserved_alignment_id: approvedDuplicate.alignment_id
         })
         continue
       }
+      if (existingById) throw new Error(`Accepted alignment ID collides with canonical alignment: ${alignment.alignment_id}`)
       if (node) {
         assertGeneratedEntityCompatible(nodes.get(node.node_id), node, `Generated node ${node.node_id}`)
         if (!nodes.has(node.node_id)) {
@@ -990,9 +954,6 @@ export function planAlignmentApplication({
           summary.added_evidence_spans += 1
         }
       }
-      const semanticKey = semanticAlignmentKey(alignment)
-      if (semanticKeys.has(semanticKey)) throw new Error(`Duplicate logical alignment: ${alignment.edition_id}:${alignment.unit_id}:${alignment.standard_code}:${alignment.relation_type}`)
-      semanticKeys.add(semanticKey)
       alignments.set(alignment.alignment_id, alignment)
       summary.added_llm_alignments += 1
       if (alignment.unit_assignment_status === 'unassigned_page_only') summary.page_only_alignments += 1
@@ -1001,6 +962,7 @@ export function planAlignmentApplication({
     structure.content_nodes = [...nodes.values()].sort((a, b) => Number(a.pdf_page || 0) - Number(b.pdf_page || 0) || a.node_id.localeCompare(b.node_id))
     structure.evidence_spans = [...spans.values()].sort((a, b) => Number(a.pdf_page || 0) - Number(b.pdf_page || 0) || String(a.evidence_span_id || a.span_id).localeCompare(String(b.evidence_span_id || b.span_id)))
     structure.alignments = [...alignments.values()].sort((a, b) => String(a.unit_id || '').localeCompare(String(b.unit_id || '')) || Number(a.pdf_page || 0) - Number(b.pdf_page || 0) || a.standard_code.localeCompare(b.standard_code) || a.alignment_id.localeCompare(b.alignment_id))
+    synchronizeContentAlignmentMetadata(structure)
     const appliedRows = [...editionDecisions, ...accepted]
     const providers = [...new Set(appliedRows.map(row => row.provenance.provider))].sort()
     structure.llm_semantic_alignment = {
@@ -1128,11 +1090,42 @@ export function prepareCurrentApplicationPlan(args, dependencies = {}) {
   return { args: currentArgs, inputs, standardsByCode, catalogByEdition, result, report }
 }
 
-const MUTATION_ROOTS = [
+export const APPLICATION_MUTATION_ROOTS = [
   ['textbook-derived', join(ROOT, 'data/textbooks/derived')],
   ['public-data', join(ROOT, 'public/data')],
-  ['internal-capability-graph', join(ROOT, 'data/internal/capability_graph')]
+  ['internal-capability-graph', join(ROOT, 'data/internal/capability_graph')],
+  // build_standard_capability_graph --apply also rewrites the subject source
+  // files. They must be in the same transaction as the derived/public views.
+  ['internal-by-subject', join(ROOT, 'data/internal/by_subject')]
 ]
+
+export function captureUnselectedCanonicalAlignmentState(selectedEditionIds = [], structureRoot = STRUCTURE_ROOT) {
+  const selected = new Set(selectedEditionIds)
+  const state = {}
+  for (const file of readdirSync(structureRoot).filter(name => name.endsWith('.json')).sort()) {
+    const editionId = basename(file, '.json')
+    if (selected.has(editionId)) continue
+    const structure = readJson(join(structureRoot, file))
+    const alignments = Array.isArray(structure.alignments) ? structure.alignments : []
+    state[editionId] = {
+      alignment_count: alignments.length,
+      alignment_sha256: jsonHash(alignments),
+      approved_alignment_ids: alignments
+        .filter(alignment => alignment.review_status === 'approved')
+        .map(alignment => alignment.alignment_id)
+        .sort()
+    }
+  }
+  return state
+}
+
+export function assertUnselectedCanonicalAlignmentsUnchanged(before, selectedEditionIds = [], structureRoot = STRUCTURE_ROOT) {
+  const after = captureUnselectedCanonicalAlignmentState(selectedEditionIds, structureRoot)
+  if (stableCanonicalJson(after) === stableCanonicalJson(before)) return after
+  const editionIds = [...new Set([...Object.keys(before || {}), ...Object.keys(after)])].sort()
+  const changed = editionIds.filter(editionId => stableCanonicalJson(before?.[editionId]) !== stableCanonicalJson(after[editionId]))
+  throw new Error(`Projection rebuild mutated canonical alignments outside the authenticated edition scope: ${changed.join(', ')}`)
+}
 
 function protectedApplyPaths(args, inputs, extras = []) {
   return [
@@ -1145,12 +1138,12 @@ function protectedApplyPaths(args, inputs, extras = []) {
     CAPABILITY_ROOT,
     STRUCTURE_ROOT,
     APPLY_LOCK_PATH,
-    ...MUTATION_ROOTS.map(([, path]) => path),
+    ...APPLICATION_MUTATION_ROOTS.map(([, path]) => path),
     ...extras
   ].filter(Boolean)
 }
 
-export function createRecoverySnapshot(runId, mutationRoots = MUTATION_ROOTS, receiptRoot = RECEIPT_ROOT) {
+export function createRecoverySnapshot(runId, mutationRoots = APPLICATION_MUTATION_ROOTS, receiptRoot = RECEIPT_ROOT) {
   const backupRoot = join(receiptRoot, `${runId}.backup`)
   mkdirSync(backupRoot, { recursive: true })
   const roots = []
@@ -1319,6 +1312,8 @@ async function main() {
     // approved relations), standards/capabilities, and textbook catalog.
     const prepared = prepareCurrentApplicationPlan(parsedArgs)
     const { args, inputs, result, report } = prepared
+    const selectedEditionIds = [...result.updates.keys()].sort()
+    const unselectedAlignmentState = captureUnselectedCanonicalAlignmentState(selectedEditionIds)
     const prospectiveBackupRoot = join(RECEIPT_ROOT, `${runId}.backup`)
     const baseProtectedPaths = protectedApplyPaths(args, inputs, [prospectiveBackupRoot])
     const reportPath = args.report
@@ -1345,6 +1340,7 @@ async function main() {
       artifact_digests: inputs.authenticated.digests,
       source_structure_hashes: args.manifestPayload.source_structure_hashes,
       editions: [...result.updates.keys()],
+      protected_unselected_alignment_state: unselectedAlignmentState,
       backup_root: snapshot.backupRoot,
       tombstones: result.report.details.flatMap(detail => detail.removed_records.map(record => ({ edition_id: detail.edition_id, record }))),
       report
@@ -1353,7 +1349,10 @@ async function main() {
     for (const [editionId, structure] of result.updates) {
       atomicWriteJson(join(STRUCTURE_ROOT, `${editionId}.json`), structure)
     }
-    if (args.rebuild) runProjectionRebuild()
+    if (args.rebuild) {
+      runProjectionRebuild()
+      assertUnselectedCanonicalAlignmentsUnchanged(unselectedAlignmentState, selectedEditionIds)
+    }
     receipt = {
       ...receipt,
       status: 'committed',

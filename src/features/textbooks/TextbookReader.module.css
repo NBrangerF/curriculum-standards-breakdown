@@ -84,6 +84,9 @@
 .componentList span { padding: .28rem .4rem; border: 1px solid #dce2f4; border-radius: 999px; background: #f3f5fc; color: #43517b; font-size: .55rem; line-height: 1.25; }
 .standardCard blockquote { margin: .65rem 0 0; padding: .55rem .6rem; border-left: 2px solid #dc992c; background: #fffaf1; color: #5a4b32; font-size: .62rem; line-height: 1.6; }
 .standardEvidenceMeta { display: flex; flex-wrap: wrap; gap: .3rem .55rem; margin-top: .6rem; color: #7b8495; font: .52rem/1.35 var(--font-mono); }
+.standardEvidenceLinks { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .55rem; }
+.standardEvidenceLinks a { display: inline-flex; min-height: 1.9rem; align-items: center; padding: 0 .45rem; border: 1px solid #dce2f4; border-radius: .3rem; color: #4962db; font-size: .52rem; font-weight: 650; text-decoration: none; }
+.standardEvidenceLinks a[aria-current='page'] { border-color: #4962db; background: #eef1ff; }
 .rationale { margin: .55rem 0 0; color: #687284; font-size: .59rem; line-height: 1.55; }
 .standardDetailLink { display: inline-flex; margin-top: .65rem; color: #4962db; font-size: .58rem; font-weight: 650; text-decoration: none; }
 .standardEmpty { padding: 1.1rem; border: 1px dashed #c9cfda; border-radius: var(--radius-md); background: #fff; }

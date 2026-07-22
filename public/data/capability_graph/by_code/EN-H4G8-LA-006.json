@@ -79,16 +79,178 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 3,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_d6d044f8867cb08ac41d",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_b21ee58bad8b63d0d787",
+        "textbook-node:tcn_llm_quote_28221c102a490cf3cc57",
+        "textbook-unit:tcu_33c8de12314bb055"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "answer to each question.\nDoes Tina have good habits? Yes. No. I don’t know.\nDoes Bill have good habits? Yes. No. I don’t know.\n1d Listen again. Fill in the blanks in the survey.\nTina Bill\nQuestions Tina Bill\n1. How often do you exercise? every day\n2. How often do you eat fruit?\n3. How many hours do you sleep every night?\n4. How often do you drink milk?\n5. How often do you eat junk food?",
+          "excerpt_hash": "af768e5fa6b2da2eb59c596af67d9203b06ddb644aa90c2f69e80a317c7fbee2",
+          "pdf_page": 23,
+          "printed_page": "12",
+          "span_id": "tes_llm_quote_b21ee58bad8b63d0d787"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7344082167c1a6e8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7344082167c1a6e8",
+          "label": "在听、读、看的过程中围绕语篇内容记录重点信息"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_28221c102a490cf3cc57",
+      "node_title": "1d Listen again. Fill in the blanks in the survey.\nTina Bill\nQuestions Tina Bill\n1. How often do you",
+      "pdf_page": 23,
+      "printed_page": "12",
+      "publication_status": "published",
+      "rationale": "证据中的“Listen again. Fill in the blanks in the survey”要求学生再次听并填写调查表，问题围绕运动、吃水果、睡眠、喝牛奶、吃垃圾食品等语篇信息，直接落实“在听、读、看的过程中围绕语篇内容记录重点信息”。这是学生实施听力记录任务，因此 relation_type 为 practices。其他组件如归纳语法规则、梳理书面语篇结构、整合信息或说明观点/文化差异没有被该连续证据证明。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_33c8de12314bb055",
+      "unit_title": "UNIT 2"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_4990d54a3e9dc577b3a7",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_d0af511e109c88eb7e88",
+        "textbook-node:tcn_llm_quote_30d65ce27766c2f7f6d7",
+        "textbook-unit:tcu_3774ed1102d2a87c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "UNIT 5\nSteamboat Willie\ncame out in New York.\n1930s November 18, 1978\n2c Read the passage again and fill in the facts about Mickey.\nWhat does he Who created What was his Who is his Why is he\nlook like? him? fi rst cartoon? girlfriend? popular?\nMickey\nMouse\n2d Read the passage again and discuss the questions with a partner.\n1. What is Mickey Mouse a symbol of? What cartoon character is a symbol of\nChinese culture?",
+          "excerpt_hash": "0fa3f1900ed421f6b799c17964e20b45e6e8b0d53566f606f5c9d8cde6120f08",
+          "pdf_page": 49,
+          "printed_page": "38",
+          "span_id": "tes_llm_quote_d0af511e109c88eb7e88"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7344082167c1a6e8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7344082167c1a6e8",
+          "label": "在听、读、看的过程中围绕语篇内容记录重点信息"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_30d65ce27766c2f7f6d7",
+      "node_title": "2c Read the passage again and fill in the facts about Mickey.\nWhat does he Who created What was his ",
+      "pdf_page": 49,
+      "printed_page": "38",
+      "publication_status": "published",
+      "rationale": "该任务明确要求学生读后围绕语篇内容填写 Mickey 的外貌、创作者、首部动画、女友、受欢迎原因等重点事实，直接落实在阅读过程中围绕语篇内容记录重点信息。证据没有涉及归纳语法规则、梳理书面语篇结构、整合语篇信息或说明观点/文化差异。主要功能是阅读信息记录练习，故为 practices。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_3774ed1102d2a87c",
+      "unit_title": "UNIT 5"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_c35aadb87126570f366d",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_8d7927dc01ddbbe9ab72",
+        "textbook-node:tcn_llm_quote_7f9e048100d12c366145",
+        "textbook-unit:tcu_fc7edda29a549157"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "UNIT 9\n2c Read the messages again and answer the questions.\n1. What kind of party is it?\n2. Who is the party for?\n3. When is the party?\n4. Who did David invite to the party?\n5. What can people do at the party?\n2d Complete the invitation with words and phrases from the messages on\npage 69.\nWe are planning a housewarming at our new house this\nSaturday. Can you ? Our house is at 2 London Road.",
+          "excerpt_hash": "620714898be1bfbd7c04f887c9225620c0276260b06d3b3a9f3c78f59e21eaeb",
+          "pdf_page": 81,
+          "printed_page": "70",
+          "span_id": "tes_llm_quote_8d7927dc01ddbbe9ab72"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4b6296b228e72a56"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4b6296b228e72a56",
+          "label": "整合语篇信息"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_7f9e048100d12c366145",
+      "node_title": "2c Read the messages again and answer the questions.\n1. What kind of party is it?\n2. Who is the part",
+      "pdf_page": 81,
+      "printed_page": "70",
+      "publication_status": "published",
+      "rationale": "证据要求学生重读 messages 并根据语篇回答多项具体信息，再用原 messages 中的信息补全 invitation，直接练习整合语篇信息。主要功能是学生练习完成任务，因此为 practices。未选择记录重点信息、归纳语法规则、梳理语篇结构或说明观点/文化差异，因为该连续证据没有要求记录、归纳结构规则或表达文化/观点。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_fc7edda29a549157",
+      "unit_title": "UNIT 9"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c1fa788d06637593",

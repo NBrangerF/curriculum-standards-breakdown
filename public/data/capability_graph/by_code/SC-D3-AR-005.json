@@ -47,16 +47,16 @@
     "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
     "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 1,
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 1,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.0.0",
-      "alignment_id": "tca_llm_8eb653d6bbd7c06225b7",
-      "alignment_type": "supports",
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.1.0",
+      "alignment_id": "tca_llm_63b76f43df59117f54f6",
+      "alignment_type": "practices",
       "coverage": "partial",
       "edition_id": "ed_771c90ecf7861f3b0ba4",
       "evidence_basis": "textbook_page_span",
@@ -64,19 +64,19 @@
       "evidence_level": "L3_page_evidence",
       "evidence_refs": [
         "ctb_a3ba6d51c39e",
-        "tes_llm_d8ad234fed383bbec3bf",
-        "textbook-node:tcn_llm_d8ad234fed383bbec3bf",
+        "tes_llm_quote_f2af6078ea5d175c26e6",
+        "textbook-node:tcn_llm_quote_97e445b3b6ee98117478",
         "textbook-unit:tcu_a576ea816f751687"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "Le ee eee\n加 i\nToe CEI 77\n62 2 aN\nAISA:\na SNA, 、\nYS “|\n> r ae i a\n~~ ae . 4 o\n. = a. aes 5\n> aa LW -\nLa ‘+ a | Fi\n当 我 们 的 手 无 意 中 被 fp *\n仙人 和 警 的 刺 扎 到 时 , 会 有 /一 一\n什么 样 的 反应 ? rk «\n我 们 是 怎样 感知 到 外 faux fe N\nFL 2 BRL Bf aa as Pa\n向 身体 发 出 指令 的 ? <\nf 1 >\nrs 69\ny BA ; dj* a“\nAAA \\,\n| iT",
-          "excerpt_hash": "d5be60700ebcc75f852e2ffa0aca8b0128f104354157dcfd51b1986f74a98ca6",
+          "excerpt": "+ |\neT = fee)\nGE RAR}\n\\ NS AN\n局 和 .\nSS AR, \\ :\n本 a. SS \\ : 3\n4 j v , “J ‘ AN\nwe\ney , “i\n— 5 * 3 ji\n当 我 们 的 手 无 意 中 被 p> «\n仙人 掌 的 刺 扎 到 时 , 会 有 AN\n我 们 是 怎样 感知 到 外 fous Se\nni eee “国信 二 和 ue —\n向 身体 发 出 指令 的 ?\n月 /\ny Bey 4 dA * -",
+          "excerpt_hash": "b11098b48fd186a378d063e41d423b7900b8b115ed71dc02585e459a15411952",
           "pdf_page": 74,
           "printed_page": null,
-          "span_id": "tes_llm_d8ad234fed383bbec3bf"
+          "span_id": "tes_llm_quote_f2af6078ea5d175c26e6"
         }
       ],
       "learning_component_ids": [
@@ -90,13 +90,13 @@
       ],
       "level": "page",
       "method": "llm_semantic_adjudication",
-      "node_id": "tcn_llm_d8ad234fed383bbec3bf",
-      "node_title": "Le ee eee\n加 i\nToe CEI 77\n62 2 aN\nAISA:\na SNA, 、\nYS “|\n> r ae i a\n~~ ae . 4 o\n. = a. aes 5\n> aa LW -\n",
+      "node_id": "tcn_llm_quote_97e445b3b6ee98117478",
+      "node_title": "+ |\neT = fee)\nGE RAR}\n\\ NS AN\n局 和 .\nSS AR, \\ :\n本 a. SS \\ : 3\n4 j v , “J ‘ AN\nwe\ney , “i\n— 5 * 3 ji\n当",
       "pdf_page": 74,
       "printed_page": null,
       "publication_status": "published",
-      "rationale": "教材以手被刺扎为实例询问会有什么反应，并追问如何感知外界及向身体发出指令，学习对象和情境均指向人体对环境刺激的反应方式；但证据未呈现保护相关器官的方法，因此只对应刺激反应这一学习组件。",
-      "relation_type": "supports",
+      "rationale": "证据以手被仙人掌刺扎到为具体环境刺激实例，并提出人体如何感知外界和向身体发出指令的问题，直接让学生围绕人体对环境刺激的反应机制进行思考，主要功能是学习活动/问题引导，因此选 practices。证据没有列举保护相关器官的方法，所以只接受对应的具体学习组件，不扩大到完整候选的另一部分。",
+      "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
       "revision_status": "revision_unknown",
@@ -106,6 +106,60 @@
       "textbook_volume": "上册",
       "unit_id": "tcu_a576ea816f751687",
       "unit_title": "身体的“联络员”"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.1.0",
+      "alignment_id": "tca_llm_1d04eb074f25a692e7f8",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_771c90ecf7861f3b0ba4",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a3ba6d51c39e",
+        "tes_llm_quote_3fdc1d3954cf0813fb6c",
+        "textbook-node:tcn_llm_quote_7f3effdbc94495ab1ddd",
+        "textbook-unit:tcu_b333a50da671ee35"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "Eee —p— Ti” || i\noo Ee 控制 目\n6 Fa E 理 和 企 市 | 已\n|\n, a,\nRa 2\nES 一 ro 3 ~\nI a 着 | —~\nCD RK ps 于\n你 每 天 的 日 程 表 是 不 是 排 得 很 注 有 于 下\n没有 什么 事 让 你 感到 很 有 压力 ? 应 该 如 何 和\n应 对 呢 ? P\nEM. BER. BRA TROT, ECHR\n你 都 体会 过 , 我 们 该 如 何 管理 它们 呢 ? 外\n贺 “身体 对 压力 的 反应 。\n当 你 感到 有 压力 的 时 候 , 身 体会 出 现 哪些 反应 ?\n长 期 的 压力 会 损害 身体 健康 , 不 仅 可 能 让 你 感觉 头疼 、 骨 疼 、 睡 不 好 党 ,\n还 会 使 你 不 能 集中 注意 力 , 难 以 学 会 新 东西 , 因 此 我 们 要 学 会 管理 压力 。\n72",
+          "excerpt_hash": "76373e0cd0ecdd6c961b9be4fb7f44fe7ffce7e4a0f281086fbe25c376747396",
+          "pdf_page": 77,
+          "printed_page": null,
+          "span_id": "tes_llm_quote_3fdc1d3954cf0813fb6c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_457833c9a1d0701f"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_457833c9a1d0701f",
+          "label": "举例说出人体对某些环境刺激的反应方式和作用"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_7f3effdbc94495ab1ddd",
+      "node_title": "Eee —p— Ti” || i\noo Ee 控制 目\n6 Fa E 理 和 企 市 | 已\n|\n, a,\nRa 2\nES 一 ro 3 ~\nI a 着 | —~\nCD RK ps 于\n你 每 天 的",
+      "pdf_page": 77,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "证据直接以“身体对压力的反应”为标题并追问有压力时身体会出现哪些反应，具体落实了人体对压力这一刺激的反应方式；正文还说明长期压力损害健康。该页主要是在解释和组织理解身体反应，因此 relation_type 选 supports。证据未直接列举保护相关器官的方法，所以只选择对应的最小学习组件，不扩展到其他健康或脑健康候选。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "科学",
+      "textbook_title": "科学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_b333a50da671ee35",
+      "unit_title": "学会管理和控制自己"
     },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",

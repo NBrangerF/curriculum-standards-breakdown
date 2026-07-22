@@ -48,7 +48,7 @@ sidecar 行会确定性地形成候选 evidence span：
 
 ## Structured Outputs 契约
 
-提示版本：`textbook-standard-semantic-adjudicator-v1.1.0`
+提示版本：`textbook-standard-semantic-adjudicator-v1.3.0`
 
 输出 schema 版本：`1.0.0`
 
@@ -77,7 +77,7 @@ sidecar 行会确定性地形成候选 evidence span：
 - 整体 abstain 时所有候选都必须 abstain；
 - schema 拒绝额外字段，因此模型不能添加未经校准的 `confidence`。
 
-v1.1.0 提示采用“最小充分且非冗余”关联原则：同一 item 内只接受由逐字证据分别证明的最具体、最少课标集合，不把上位、近义或重复课标一起发布。`relation_type` 必须按证据正在执行的主要教学功能严格区分：正文讲解为 `supports`，非评价性练习为 `practices`，明确检测任务为 `assesses`，完整对象的直接出现才可为 `mentions`，有实质作用的精确应用情境才可为 `contextualizes`。泛词、背景主题、情境装饰、相邻知识和只有答案/解析的页面不能单独触发 accept，`mentions` / `contextualizes` 也不能作为弱关联兜底。
+v1.3.0 提示采用“最小充分且非冗余”关联原则：同一 item 内只接受由逐字证据分别证明的最具体、最少课标集合，不把上位、近义或重复课标一起发布；被选择的每一个 `learning_component_id` 也必须由引文完整证明，不能因同属一条课标而打包带入。组件是不可拆的最小发布单位：合取要求必须全部有证据，明确析取的替代路径至少完整落实一支，不能在理由中自行缩窄。它进一步要求数量级、运算对象、动作和机制逐项一致，并明确阻断“大数书写→认读写全部动作”“词义/习语→语法元认知”“记笔记→描述性语篇”“文化事实→文化认同”“伴唱→器乐伴奏”“模拟演奏→自制乐器”等过度推断。裁决顺序固定为“组件完整蕴含→候选 dominance 去冗余→relation type”。若更具体候选已经完整覆盖证据，而较宽候选没有独立教材动作，则拒绝冗余上位关系。`relation_type` 必须按证据正在执行的主要教学功能严格区分：正文讲解为 `supports`，无评分练习为 `practices`，以检测、评分、评选或达成判断为主要目的的任务为 `assesses`，完整对象的直接出现才可为 `mentions`，有实质作用的精确应用情境才可为 `contextualizes`。泛词、背景主题、情境装饰、相邻知识和只有答案/解析的页面不能单独触发 accept，`mentions` / `contextualizes` 也不能作为弱关联兜底。
 
 候选输入同时携带 `context`、`grade`、`grade_level`、`grade_range`、`grade_specific_focus`、`art_discipline_tag`、`discipline`、`display_subcategory` 与 `subdomain` 等适用性信息。模型必须在教材年级或艺术门类与这些显式约束冲突时 reject，不能只相信 `grade_band` 编码。音乐教材的本地召回只保留 `art_discipline_tag=音乐`；字段缺失时仅接受 `display_subcategory=学习任务：音乐` 的精确回退。美术教材采用对应的“美术”约束，通用 `arts` 教材不预先限制门类。这一层只收窄学科/门类来源 scope，不替代 LLM 的语义 accept 裁决。
 
@@ -144,7 +144,7 @@ npm run textbooks:align-llm:all
 
 ## Golden eval
 
-Golden 集位于 `evals/textbook-standard-alignment/golden.jsonl`，含 20 个案例、24 个逐候选裁决（7 个正例、16 个已知硬负例与 1 个应弃权候选），其中 2 个案例保留与生产请求一致的同 item 多候选形态。指标包括 precision、recall、abstain rate、负例拒绝率、accept relation accuracy、accept component ID accuracy，以及多候选案例整体通过率。旧单候选 `expected.decision` 格式继续兼容；多候选使用与 `item.candidates` 一一对应的 `expected.candidates[]`。
+Golden 集位于 `evals/textbook-standard-alignment/golden.jsonl`，含 28 个案例、34 个逐候选裁决（14 个正例、19 个已知硬负例与 1 个应弃权候选），其中 3 个案例保留与生产请求一致的同 item 多候选形态。指标包括 precision、recall、abstain rate、负例拒绝率、accept relation accuracy、accept component ID accuracy，以及多候选案例整体通过率。旧单候选 `expected.decision` 格式继续兼容；多候选使用与 `item.candidates` 一一对应的 `expected.candidates[]`。
 
 fixture 命令只验证评测器与阈值，不代表模型质量：
 
@@ -164,7 +164,7 @@ npm run textbooks:eval-align-llm:live
 npm run textbooks:eval-align-llm:codex
 ```
 
-默认严格门槛为 `precision >= 0.95`、`recall >= 0.80`、`accept relation accuracy >= 0.90`、`accept component ID accuracy = 1.00`、`abstain_rate <= 0.25`，并要求十六个已知误配全部被 reject、所有多候选案例逐候选完整通过。component ID 按集合精确比较，多选或漏选都失败。
+默认严格门槛为 `precision >= 0.95`、`recall >= 0.80`、`accept relation accuracy >= 0.90`、`accept component ID accuracy = 1.00`、`abstain_rate <= 0.25`，并要求十九个已知误配全部被 reject、所有多候选案例逐候选完整通过。component ID 按集合精确比较，多选或漏选都失败。
 
 ## CI 建议
 
@@ -172,7 +172,7 @@ npm run textbooks:eval-align-llm:codex
 
 1. PR 必跑 `npm run textbooks:quality-align-llm`，验证 schema、缓存键、sidecar fallback、预算与评测器；
 2. 受保护的 scheduled/manual workflow 注入只读 LLM secret，运行 `npm run textbooks:eval-align-llm:live`；
-3. 上传 live report 为 CI artifact；只有 precision/recall/关系类型准确率/component ID 准确率/abstain/十六个硬负例及多候选整体门槛通过，才允许更新提示版本；
+3. 上传 live report 为 CI artifact；只有 precision/recall/关系类型准确率/component ID 准确率/abstain/十九个硬负例及多候选整体门槛通过，才允许更新提示版本；
 4. 不把 fixture 的 100% 结果描述为模型评测结果。
 
 ## Preview 与物化

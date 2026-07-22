@@ -157,16 +157,291 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 5,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 5,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_bc964b1c45f6f6271d64",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_4e42229b5b2846008272",
+        "textbook-node:tcn_llm_quote_344f83d2f5d01e9cd024",
+        "textbook-unit:tcu_06b132b19fc69e28"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "you are similar, and two ways in which you are different.\nUse comparatives.\n1.\n2.\n3.\n4.\n24",
+          "excerpt_hash": "f256309d4a06b6f4f0c8fa75f5e51435fe515d19d833bb85c7299becdf4a828d",
+          "pdf_page": 35,
+          "printed_page": "24",
+          "span_id": "tes_llm_quote_4e42229b5b2846008272"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b13cd8da72f300c6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b13cd8da72f300c6",
+          "label": "运用语法知识进行描述、叙述和说明"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_344f83d2f5d01e9cd024",
+      "node_title": "you are similar, and two ways in which you are different.\nUse comparatives.",
+      "pdf_page": 35,
+      "printed_page": "24",
+      "publication_status": "published",
+      "rationale": "该任务要求学生写出相同与不同之处并使用 comparatives，直接练习用语法知识进行描述。主要功能是学生实施练习，因此 relation_type 为 practices。只选择“运用语法知识进行描述、叙述和说明”，不选择解释语法形式和表意功能、句子种类成分语序主谓一致、整合语篇信息或说明观点/文化差异，因为这些动作没有在所引证据中完整出现。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_06b132b19fc69e28",
+      "unit_title": "UNIT 3"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_082c25263f0f48622c5a",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_9e3242f24c53ec72cc03",
+        "textbook-node:tcn_llm_quote_534d3c9ea509d1a50a19",
+        "textbook-unit:tcu_ad96a054aa519c4f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3a Fill in the blanks with the correct forms of the verbs in brackets.\nDear Su Mei,\nI don’t (know) what to (do) about going to Mike’s birthday\nparty tomorrow night. My parents (think) I should study for my\nEnglish exam next week. If I (go) to the party, they (be)\nupset. Mike (tell) us to wear nice clothes, but I don’t\n(have) any. If I (wear) jeans, I\n(look) the worst. Also, I’m not sure how to",
+          "excerpt_hash": "bfdfa973980d5b57d0d12d5de86296f2aad9cb04299d34fad34c6bd220230953",
+          "pdf_page": 86,
+          "printed_page": "75",
+          "span_id": "tes_llm_quote_9e3242f24c53ec72cc03"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b13cd8da72f300c6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b13cd8da72f300c6",
+          "label": "运用语法知识进行描述、叙述和说明"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_534d3c9ea509d1a50a19",
+      "node_title": "3a Fill in the blanks with the correct forms of the verbs in brackets.",
+      "pdf_page": 86,
+      "printed_page": "75",
+      "publication_status": "published",
+      "rationale": "所引证据要求学生在书信语境中填写动词正确形式，直接练习运用语法知识完成语篇中的叙述/说明表达。主要功能是语法运用练习，因此 relation_type 为 practices。其他组件涉及解释语法形式与表意功能、句子种类成分语序主谓一致、整合信息或文化差异，证据未直接要求这些动作。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_ad96a054aa519c4f",
+      "unit_title": "UNIT 10"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_da66f377954ca106ef7f",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_bc2008694e009606f795",
+        "textbook-node:tcn_llm_quote_8ab71a8b72ad4bab27a4",
+        "textbook-unit:tcu_bf31442b263ed613"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "There will be morepeople. There will be morepollution.\nwon’t = will not\nThere will be fewertrees. There will be less freetime.\n3a Fill in the blanks with more, less or fewer.\n1. In the future, there will be fresh water because there will be\npollution in the sea.\n2. In 100 years, there will be cars because there will be\npeople in the cities.\n3. There will be jobs for people because robots will do the",
+          "excerpt_hash": "ea9d7d997d23c62b137ec8d9be9632586fe80fe3d431ee69da19772d64f8bffe",
+          "pdf_page": 62,
+          "printed_page": "51",
+          "span_id": "tes_llm_quote_bc2008694e009606f795"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b13cd8da72f300c6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b13cd8da72f300c6",
+          "label": "运用语法知识进行描述、叙述和说明"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_8ab71a8b72ad4bab27a4",
+      "node_title": "3a Fill in the blanks with more, less or fewer.",
+      "pdf_page": 62,
+      "printed_page": "51",
+      "publication_status": "published",
+      "rationale": "教材先呈现 There will be fewer/less 的句式示例，随后要求用 more、less 或 fewer 完成语境化填空，直接练习运用语法知识进行说明未来情境。主要功能是语法填空练习，所以为 practices。证据没有要求学生用自己的话解释或体会语法形式和表意功能，也没有涉及句子种类、成分、语序、主谓一致、语篇信息整合或文化差异说明。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bf31442b263ed613",
+      "unit_title": "UNIT 7"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_a89282771680abfa919d",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_4cea571e6a5a96644984",
+        "textbook-node:tcn_llm_quote_f50074ba140259d8d927",
+        "textbook-unit:tpu_b296ce80ee04bf82fdd5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "The sky turned dark just before the storm. 暴风雨来临前,天空变得漆黑了。\n4. Today there are already robots working in factories. 现在已经有机器人在工厂里干\n活了。\n此句中working in factories的逻辑主语是robots,但是在这个there be句型中,谓语\n动词已经有了are,所以work就不能再作本句的谓语动词,而应用-ing形式。这一点在学\n习和使用there be句型时需要特别注意。\n5. ... and they do simple jobs over and over again. ⋯⋯并且它们反复地干着简单的\n工作。\n在此句中,over and over again是一个固定短语,意为“反复地;多次”,还可以说\nover and over。例如:",
+          "excerpt_hash": "1722ac9fe232dd1a19f5101b86a680374c3cc5df2b2620227ffe59a9d9cb526f",
+          "pdf_page": 100,
+          "printed_page": "89",
+          "span_id": "tes_llm_quote_4cea571e6a5a96644984"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7b9f2d224ae4d41f",
+        "lc_e40266f9e7854d0b"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7b9f2d224ae4d41f",
+          "label": "用自己的话解释、体会所学语法的形式和表意功能"
+        },
+        {
+          "component_id": "lc_e40266f9e7854d0b",
+          "label": "如句子的种类、成分、语序及主谓一致"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_f50074ba140259d8d927",
+      "node_title": "此句是在That’s Tara.这一陈述之后添加了一个附着的简略疑问结构,用以进行确认。\n通常情况下,若陈述部分为肯定,便用否定形式进行提问;若陈述部分为否定,便用肯定\n形式进行提问。",
+      "pdf_page": 100,
+      "printed_page": "89",
+      "publication_status": "published",
+      "rationale": "证据直接说明 there be 句型中非谓语 -ing 形式与逻辑主语、谓语动词之间的结构关系，主要是在讲解和支持理解语法形式及其功能，因此选 supports。它同时涉及句子成分和结构关系，能覆盖所选句子结构组件；但没有要求学生运用语法进行描述、叙述和说明，也没有整合语篇信息或说明观点、文化差异。该页为未分配页窗口，accept 使用 L3。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tpu_b296ce80ee04bf82fdd5",
+      "unit_title": "未分配单元 · PDF 100"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_310be130956fb8cc38cf",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_e65b41e428f790350b2a",
+        "textbook-node:tcn_llm_quote_83f66f509a3b1ec20221",
+        "textbook-unit:tpu_dcc9834820cee9780bcf"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "Now you know you’re wrong, but it’s too late. 现在你知道你错了,但是已经太晚了。\n此处it’s too late与before共同组成从句,表示“不要等到为时已晚;不要等到来不及\n的时候;趁着还来得及”。这也是一种常见的用法,例如:\nYou should work harder before it’s too late to catch up. 你应当更加用功,别等到为时\n过晚而赶不上了。(你现在用功还赶得上。)\nUnit 3 I’m more outgoing than my sister.\n1. That’s Tara, isn’t it? 那是塔拉,对吗?\n此句是在That’s Tara.这一陈述之后添加了一个附着的简略疑问结构,用以进行确认。\n通常情况下,若陈述部分为肯定,便用否定形式进行提问;若陈述部分为否定,便用肯定\n形式进行提问。又如:",
+          "excerpt_hash": "6e679175f88971d03b42da9801acb664f12ea36deeac8deaf690a79a4842fd19",
+          "pdf_page": 95,
+          "printed_page": "84",
+          "span_id": "tes_llm_quote_e65b41e428f790350b2a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7b9f2d224ae4d41f"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7b9f2d224ae4d41f",
+          "label": "用自己的话解释、体会所学语法的形式和表意功能"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_83f66f509a3b1ec20221",
+      "node_title": "此句是在That’s Tara.这一陈述之后添加了一个附着的简略疑问结构,用以进行确认。\n通常情况下,若陈述部分为肯定,便用否定形式进行提问;若陈述部分为否定,便用肯定\n形式进行提问。",
+      "pdf_page": 95,
+      "printed_page": "84",
+      "publication_status": "published",
+      "rationale": "证据直接讲解附着简略疑问结构的形式规则及其“用以进行确认”的表意功能，主要功能是支持学生理解所学语法的形式和功能。该页为 unassigned_page_only，但证据来自正文讲解，所以使用 L3。未选择运用语法进行描述叙述说明、整合语篇信息或说明观点/文化差异，因为证据没有这些动作。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tpu_dcc9834820cee9780bcf",
+      "unit_title": "未分配单元 · PDF 95"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_97c6a41d7d8917b4",

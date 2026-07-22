@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { bboxRenderabilityError } from './textbook_public_bbox.js'
+import { projectTextbookAlignments } from './textbook_alignment_projection.js'
 
 const root = resolve(process.argv[2] || 'public/data/textbooks')
 const projectRoot = resolve(import.meta.dirname, '../..')
@@ -140,6 +141,20 @@ if (existsSync(join(root, 'by-edition'))) {
       for (const spanId of alignment.evidence_span_ids || []) {
         if (!spanIds.has(spanId)) errors.push(`${detail.edition_id} alignment ${alignment.alignment_id} references missing evidence span ${spanId}`)
       }
+      const groupedIds = alignment.alignment_ids || [alignment.alignment_id]
+      for (const claim of alignment.supporting_evidence || []) {
+        if (!groupedIds.includes(claim.alignment_id)) {
+          errors.push(`${detail.edition_id} alignment ${alignment.alignment_id} has evidence from an ungrouped claim ${claim.alignment_id}`)
+        }
+        if (claim.evidence_span_id && !spanIds.has(claim.evidence_span_id)) {
+          errors.push(`${detail.edition_id} alignment ${alignment.alignment_id} has supporting evidence from missing span ${claim.evidence_span_id}`)
+        }
+        if ((claim.learning_component_ids || []).some(id => !(alignment.learning_component_ids || []).includes(id))) {
+          errors.push(`${detail.edition_id} alignment ${alignment.alignment_id} loses a claim learning component in its public union`)
+        }
+        const bboxError = bboxRenderabilityError(claim.bbox)
+        if (bboxError) errors.push(`${detail.edition_id} alignment ${alignment.alignment_id} has an unrenderable supporting bbox: ${bboxError}`)
+      }
       if (['curriculum_scope', 'adjacent_curriculum_scope'].includes(alignment.relation_type)) {
         errors.push(`${detail.edition_id} alignment ${alignment.alignment_id} illegally mixes curriculum scope into specific evidence`)
       }
@@ -157,7 +172,8 @@ if (existsSync(join(root, 'by-edition'))) {
         ['approved', 'machine_checked'].includes(alignment.review_status)
         && alignment.publication_status !== 'review_queue'
       )
-      const expectedById = new Map(expected.map(alignment => [alignment.alignment_id, alignment]))
+      const expectedProjected = projectTextbookAlignments(expected, detail.evidence_spans || [])
+      const expectedById = new Map(expectedProjected.map(alignment => [alignment.alignment_id, alignment]))
       if (expectedById.size !== alignmentIds.size) {
         errors.push(`${detail.edition_id} public alignment count ${alignmentIds.size} does not match derived ${expectedById.size}`)
       }
@@ -167,7 +183,7 @@ if (existsSync(join(root, 'by-edition'))) {
           errors.push(`${detail.edition_id} public alignment ${alignment.alignment_id} is absent from derived source`)
           continue
         }
-        for (const field of ['standard_code', 'unit_id', 'node_id', 'pdf_page']) {
+        for (const field of ['standard_code', 'unit_id', 'node_id', 'pdf_page', 'relation_type']) {
           if ((alignment[field] ?? null) !== (source[field] ?? null)) {
             errors.push(`${detail.edition_id} alignment ${alignment.alignment_id} differs from derived field ${field}`)
           }
@@ -175,6 +191,12 @@ if (existsSync(join(root, 'by-edition'))) {
         const publicSpans = [...(alignment.evidence_span_ids || [])].sort().join(',')
         const sourceSpans = [...(source.evidence_span_ids || [])].sort().join(',')
         if (publicSpans !== sourceSpans) errors.push(`${detail.edition_id} alignment ${alignment.alignment_id} differs from derived evidence spans`)
+        const publicClaims = [...(alignment.alignment_ids || [alignment.alignment_id])].sort().join(',')
+        const sourceClaims = [...(source.alignment_ids || [source.alignment_id])].sort().join(',')
+        if (publicClaims !== sourceClaims) errors.push(`${detail.edition_id} alignment ${alignment.alignment_id} differs from derived claim identities`)
+        const publicComponents = [...(alignment.learning_component_ids || [])].sort().join(',')
+        const sourceComponents = [...(source.learning_component_ids || [])].sort().join(',')
+        if (publicComponents !== sourceComponents) errors.push(`${detail.edition_id} alignment ${alignment.alignment_id} differs from derived learning components`)
       }
     }
   }
@@ -200,6 +222,18 @@ else {
         if (Number.isInteger(alignment.pdf_page) && link.pdf_page !== alignment.pdf_page) errors.push(`reverse link ${link.alignment_id} differs from canonical field pdf_page`)
         if (alignment.node_id && link.node_id !== alignment.node_id) errors.push(`reverse link ${link.alignment_id} differs from canonical field node_id`)
         const spanIds = alignment.evidence_span_ids || []
+        if ([...(link.evidence_span_ids || [])].sort().join(',') !== [...spanIds].sort().join(',')) {
+          errors.push(`reverse link ${link.alignment_id} does not preserve all evidence span identities`)
+        }
+        if ([...(link.learning_component_ids || [])].sort().join(',') !== [...(alignment.learning_component_ids || [])].sort().join(',')) {
+          errors.push(`reverse link ${link.alignment_id} does not preserve all learning components`)
+        }
+        const reverseClaims = link.supporting_evidence || []
+        const alignmentClaims = alignment.supporting_evidence || []
+        const claimIdentity = claim => [claim.alignment_id, claim.evidence_span_id, claim.node_id, claim.pdf_page].join(':')
+        if (reverseClaims.map(claimIdentity).sort().join(',') !== alignmentClaims.map(claimIdentity).sort().join(',')) {
+          errors.push(`reverse link ${link.alignment_id} does not preserve all supporting evidence claims`)
+        }
         if (spanIds.length) {
           const firstSpan = (detail.evidence_spans || []).find(span => span.evidence_span_id === spanIds[0])
           if (!firstSpan) errors.push(`reverse link ${link.alignment_id} references a missing first evidence span`)

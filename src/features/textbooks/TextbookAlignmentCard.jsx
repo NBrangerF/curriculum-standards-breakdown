@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { getEvidenceSpansForAlignment } from './textbookAlignmentContext'
+import { getEvidenceClaimsForAlignment, getPreferredEvidenceClaim } from './textbookAlignmentContext'
 import styles from './TextbookAlignmentCard.module.css'
 
 const RELATION_LABELS = {
@@ -25,9 +25,11 @@ function percentage(value) {
     return `${(number <= 1 ? number * 100 : number).toFixed(1).replace(/\.0$/, '')}%`
 }
 
-function learningComponents(book, alignment) {
+function learningComponents(book, alignment, evidence = null) {
     const byId = new Map((book?.learning_components || []).map(component => [component.component_id || component.id, component]))
-    const inline = Array.isArray(alignment.learning_components) ? alignment.learning_components : []
+    const inline = Array.isArray(evidence?.learning_components) && evidence.learning_components.length
+        ? evidence.learning_components
+        : Array.isArray(alignment.learning_components) ? alignment.learning_components : []
     if (inline.length) {
         return inline
             .map(component => typeof component === 'string' ? component : component.label || component.description || component.component_id)
@@ -36,13 +38,16 @@ function learningComponents(book, alignment) {
     if (Array.isArray(alignment.learning_component_labels) && alignment.learning_component_labels.length) {
         return alignment.learning_component_labels
     }
-    return (alignment.learning_component_ids || [])
+    const componentIds = Array.isArray(evidence?.learning_component_ids) && evidence.learning_component_ids.length
+        ? evidence.learning_component_ids
+        : alignment.learning_component_ids || []
+    return componentIds
         .map(componentId => byId.get(componentId)?.label || byId.get(componentId)?.description || componentId)
         .filter(Boolean)
 }
 
 function alignmentLocator(book, alignment, evidence, fallbackPage) {
-    const nodeId = alignment.node_id || alignment.content_node_id || alignment.unit_id
+    const nodeId = evidence?.node_id || alignment.node_id || alignment.content_node_id || alignment.unit_id
     const nodes = [...(book?.content_nodes || []), ...(book?.toc || [])]
     const node = nodes.find(item => (item.node_id || item.entry_id || item.unit_id) === nodeId)
         || nodes.find(item => (item.node_id || item.entry_id || item.unit_id) === alignment.unit_id)
@@ -69,12 +74,18 @@ function readerLink(book, alignment, locator) {
     return `/textbooks/${book.edition_id}/read?${params.toString()}`
 }
 
-export default function TextbookAlignmentCard({ book, alignment, fallbackPage = null }) {
-    const evidence = getEvidenceSpansForAlignment(book, alignment)[0]
-    const components = learningComponents(book, alignment)
+export default function TextbookAlignmentCard({ book, alignment, fallbackPage = null, currentPage = null }) {
+    const evidenceClaims = getEvidenceClaimsForAlignment(book, alignment)
+    const evidence = getPreferredEvidenceClaim(book, alignment, currentPage)
+    const components = learningComponents(book, alignment, evidence)
     const locator = alignmentLocator(book, alignment, evidence, fallbackPage)
     const deepLink = readerLink(book, alignment, locator)
     const evidenceLevel = alignment.evidence_level_detail || alignment.evidence_level
+    const selectedEvidenceKey = evidence ? `${evidence.alignment_id || ''}:${evidence.evidence_span_id || evidence.span_id || ''}:${evidence.pdf_page || ''}` : ''
+    const evidenceLocators = evidenceClaims.map(claim => ({
+        claim,
+        locator: alignmentLocator(book, alignment, claim, fallbackPage)
+    })).filter(item => item.locator.page)
 
     return (
         <article className={styles.card} data-alignment-id={alignment.alignment_id}>
@@ -91,6 +102,20 @@ export default function TextbookAlignmentCard({ book, alignment, fallbackPage = 
             ) : null}
             {evidence?.excerpt ? <blockquote>“{evidence.excerpt}”</blockquote> : null}
             {alignment.rationale ? <p className={styles.rationale}>{alignment.rationale}</p> : null}
+            {evidenceLocators.length > 1 ? (
+                <nav className={styles.evidenceLocators} aria-label="多页证据定位">
+                    <strong>{evidenceLocators.length} 处教材证据</strong>
+                    {evidenceLocators.map(({ claim, locator: claimLocator }, index) => (
+                        <Link
+                            key={`${claim.alignment_id || alignment.alignment_id}:${claim.evidence_span_id || index}`}
+                            aria-current={`${claim.alignment_id || ''}:${claim.evidence_span_id || claim.span_id || ''}:${claim.pdf_page || ''}` === selectedEvidenceKey ? 'location' : undefined}
+                            to={readerLink(book, alignment, claimLocator)}
+                        >
+                            证据 {index + 1} · PDF {claimLocator.page}{claimLocator.printedPage ? ` · 印刷页 ${claimLocator.printedPage}` : ''}
+                        </Link>
+                    ))}
+                </nav>
+            ) : null}
             <dl className={styles.metrics}>
                 <div><dt>原文位置</dt><dd>{locator.page ? `PDF ${locator.page}${locator.printedPage ? ` · 印刷页 ${locator.printedPage}` : ''}` : '—'}</dd></div>
                 <div><dt>匹配分</dt><dd>{percentage(alignment.score)}</dd></div>

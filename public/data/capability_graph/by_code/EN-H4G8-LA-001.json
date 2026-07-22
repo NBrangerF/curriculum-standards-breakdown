@@ -118,16 +118,70 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_072017fd7cbc8b617404",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_aa67ef3181af59e88a2e",
+        "textbook-node:tcn_llm_quote_d2c441fb295a69df6d5c",
+        "textbook-unit:tpu_ad97a988e47c3ef5c0d9"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "Pronunciation\n3. A: But we asked for twoteas!\nB: Well, I thought you wantedcoffee.\n4. A: But we asked fortwoteas!\nB: Well, I thought you wantedone.\n5. A: He can write well.\nB: Hecan, but he doesn’t. He’s too lazy.\nUnit 10 If you go to the party, you’ll have a great time!\n1. Listen and read. Notice the linking, stress, intonation and pauses.\n“It is best | not to run a way from our problems. | We should always try to",
+          "excerpt_hash": "5b175bd619e996dfa0b84d39a31125fd1c45d01a52fc77e632d532b5a791b9aa",
+          "pdf_page": 122,
+          "printed_page": "111",
+          "span_id": "tes_llm_quote_aa67ef3181af59e88a2e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_5c45963b02148516"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_5c45963b02148516",
+          "label": "辨识口语表达中的意群"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_d2c441fb295a69df6d5c",
+      "node_title": "Unit 10 If you go to the party, you’ll have a great time!\n1. Listen and read. Notice the linking, st",
+      "pdf_page": 122,
+      "printed_page": "111",
+      "publication_status": "published",
+      "rationale": "证据明确要求听读并注意linking, stress, intonation and pauses，其中pauses对应口语表达中的停顿/意群边界，能直接证明“辨识口语表达中的意群”。该页是学生执行的听读和注意语音特征活动，主要功能是practices。未选择根据重音、意群、语调与节奏理解说话人意义、意图和态度，因为证据只要求注意这些语音现象，没有要求解释意义、意图或态度；也未选择说明语音表意功能、整合语篇信息或说明观点/文化差异。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tpu_ad97a988e47c3ef5c0d9",
+      "unit_title": "未分配单元 · PDF 122"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_2a5848a3be1ec769",

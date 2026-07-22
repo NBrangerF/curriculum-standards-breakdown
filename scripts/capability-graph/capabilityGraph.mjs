@@ -4,6 +4,57 @@ import { basename, join, resolve } from 'node:path'
 
 export const CAPABILITY_GRAPH_SCHEMA_VERSION = '1.1.0'
 export const GENERATION_METHOD = 'deterministic-teachable-capability-graph-v5'
+export const SOURCE_BOUND_ATOMIC_DECOMPOSITION_METHOD = 'source_bound_atomic_decomposition_v1'
+
+const SOURCE_BOUND_ATOMIC_COMPONENT_DECOMPOSITIONS = new Map([
+    ['AR-H4G7-AA-006', {
+        source_standard: '能听辨合唱声部和乐队主奏或伴奏乐器音色；能描述其特点和表现作用；能辨别常见音乐结构及主调、复调音乐；能描述艺术要素并完成基础表现或创作。',
+        components: [
+            {
+                atomic_key: 'choral_voice_timbre_discrimination',
+                label: '听辨合唱声部音色',
+                source_clause: '能听辨合唱声部和乐队主奏或伴奏乐器音色'
+            },
+            {
+                atomic_key: 'lead_instrument_timbre_discrimination',
+                label: '听辨乐队主奏乐器音色',
+                source_clause: '能听辨合唱声部和乐队主奏或伴奏乐器音色'
+            },
+            {
+                atomic_key: 'accompanying_instrument_timbre_discrimination',
+                label: '听辨乐队伴奏乐器音色',
+                source_clause: '能听辨合唱声部和乐队主奏或伴奏乐器音色'
+            },
+            {
+                atomic_key: 'heard_timbre_characteristics_description',
+                label: '描述所听辨音色的特点',
+                condition: '针对已听辨的合唱声部或乐队主奏、伴奏乐器音色',
+                source_clause: '能听辨合唱声部和乐队主奏或伴奏乐器音色；能描述其特点和表现作用'
+            },
+            {
+                atomic_key: 'heard_timbre_expressive_function_description',
+                label: '描述所听辨音色的表现作用',
+                condition: '针对已听辨的合唱声部或乐队主奏、伴奏乐器音色',
+                source_clause: '能听辨合唱声部和乐队主奏或伴奏乐器音色；能描述其特点和表现作用'
+            },
+            {
+                legacy_index: 3,
+                label: '辨别常见音乐结构及主调、复调音乐',
+                source_clause: '辨别常见音乐结构及主调、复调音乐'
+            },
+            {
+                legacy_index: 4,
+                label: '描述艺术要素',
+                source_clause: '描述艺术要素'
+            },
+            {
+                legacy_index: 5,
+                label: '完成基础表现或创作',
+                source_clause: '完成基础表现或创作'
+            }
+        ]
+    }]
+])
 
 const CORE_FINGERPRINT_FIELDS = [
     'code', 'subject_slug', 'domain', 'subdomain', 'grade_band', 'grade_level', 'standard', 'context',
@@ -333,6 +384,23 @@ function componentClauses(standardText) {
     return resolved.length ? resolved : [{ label: cleanComponentLabel(text), condition: '', source_clause: cleanComponentLabel(text) }]
 }
 
+function learningComponentClauses(record) {
+    const decomposition = SOURCE_BOUND_ATOMIC_COMPONENT_DECOMPOSITIONS.get(record.code)
+    if (!decomposition) return componentClauses(record.standard)
+
+    const expected = compact(decomposition.source_standard)
+    const actual = compact(record.standard)
+    if (actual !== expected) {
+        throw new Error(`${record.code}: source-bound atomic component decomposition is stale; update it against the authoritative standard text before rebuilding`)
+    }
+
+    return decomposition.components.map(component => ({
+        ...component,
+        condition: component.condition || '',
+        source_statement: component.source_statement || component.label
+    }))
+}
+
 function componentType(text) {
     if (/反思|评价|监控|策略|调整|规划/u.test(text)) return 'metacognitive'
     if (/责任|态度|意识|习惯|品德|尊重|合作|参与|价值/u.test(text)) return 'disposition'
@@ -450,8 +518,8 @@ function firstEvidence(record) {
     return values[0] || '独立完成与该小能力同构的任务，并留下可回查的口头、书面、作品或操作证据'
 }
 
-function buildLearningComponents(record) {
-    return componentClauses(record.standard).map((clause, index) => {
+export function buildLearningComponents(record) {
+    return learningComponentClauses(record).map((clause, index) => {
         const { label: sourceLabel, condition, source_clause: sourceClause } = clause
         const scoped = compactLongComponentScope(sourceLabel, condition)
         const label = observableLabel(scoped.label)
@@ -459,17 +527,20 @@ function buildLearningComponents(record) {
         const diagnosticTail = /说明|解释|阐释|论证|理由|依据/u.test(label)
             ? '，并保留可回查的口头、书面或操作过程证据。'
             : '，并说明关键步骤、特征或依据。'
+        const componentId = clause.atomic_key
+            ? id('lc', record.code, 'atomic-v1', clause.atomic_key, sourceLabel)
+            : id('lc', record.code, clause.legacy_index || index + 1, sourceLabel)
         return {
-            component_id: id('lc', record.code, index + 1, sourceLabel),
+            component_id: componentId,
             label,
-            source_statement: sourceLabel,
+            source_statement: clause.source_statement || sourceLabel,
             condition: scoped.condition,
             description: action,
             component_type: componentType(label),
             observable_evidence: `${action}；优先采集：${excerpt(firstEvidence(record), 120)}。`,
             diagnostic_prompt: `请设计一个不提供完整范例${scoped.condition ? `且符合“${scoped.condition}”` : ''}的诊断任务，要求学生${label}${diagnosticTail}`,
             source_refs: [sourceRef(record, 'standard', sourceClause)],
-            method: 'deterministic_clause_decomposition_v2',
+            method: clause.atomic_key ? SOURCE_BOUND_ATOMIC_DECOMPOSITION_METHOD : 'deterministic_clause_decomposition_v2',
             provenance: 'rule_generated',
             confidence: 0.72,
             review_status: 'machine_checked',
@@ -651,7 +722,31 @@ function detailedEvidenceLevel(match) {
     }[match.evidence_level] || match.evidence_level || 'L2_topic'
 }
 
-function curriculumAlignments(record, indexes) {
+export function reconcileAlignmentLearningComponents(match, currentComponents) {
+    const currentById = new Map((currentComponents || []).map(component => [component.component_id, component]))
+    const referencedIds = [...new Set([
+        ...(match.learning_component_ids || []),
+        ...(match.learning_components || []).map(component => component.component_id)
+    ].filter(Boolean))]
+    const retainedIds = referencedIds.filter(componentId => currentById.has(componentId))
+    const supersededIds = referencedIds.filter(componentId => !currentById.has(componentId))
+    const retainedComponents = retainedIds.map(componentId => {
+        const component = currentById.get(componentId)
+        return { component_id: component.component_id, label: component.label }
+    })
+
+    return {
+        learning_component_ids: retainedIds,
+        learning_components: retainedComponents,
+        ...(supersededIds.length ? {
+            component_migration_required: true,
+            component_migration_policy: 'fail_closed_no_one_to_many_guess',
+            superseded_learning_component_ids: supersededIds
+        } : {})
+    }
+}
+
+function curriculumAlignments(record, indexes, learningComponents) {
     const published = indexes.publishedByStandard.get(record.code) || []
     const scopes = indexes.scopesByStandard.get(record.code) || []
     const unitRows = published.map(match => {
@@ -661,6 +756,7 @@ function curriculumAlignments(record, indexes) {
         const hasPageEvidence = hasPageLocator && ['L3_page_evidence', 'L4_teacher_guide', 'L5_official_crosswalk'].includes(evidenceLevel)
         const evidenceSpans = alignmentEvidenceSpans(match, detail)
         const nodeId = match.node_id || match.content_node_id || null
+        const componentReferences = reconcileAlignmentLearningComponents(match, learningComponents)
         return {
             alignment_id: match.alignment_id,
             level: hasPageEvidence ? 'page' : hasPageLocator ? 'unit' : 'unit_topic_candidate',
@@ -680,8 +776,7 @@ function curriculumAlignments(record, indexes) {
             unit_title: match.unit_title || '',
             node_id: nodeId,
             node_title: match.node_title || match.content_node_title || '',
-            learning_component_ids: match.learning_component_ids || [],
-            learning_components: match.learning_components || [],
+            ...componentReferences,
             pdf_page: match.pdf_page ?? null,
             printed_page: match.printed_page === null || match.printed_page === undefined ? null : String(match.printed_page),
             evidence_role: match.evidence_role,
@@ -999,7 +1094,7 @@ export function buildCapabilityGraph(rootInput) {
             prerequisite_review_coverage: prerequisiteReviewCoverage(verified, candidates),
             hardest_cases: hardestCases,
             common_difficulties: buildDifficulties(record, learningComponents, hardestCases),
-            curriculum_alignments: curriculumAlignments(record, alignmentIndexes),
+            curriculum_alignments: curriculumAlignments(record, alignmentIndexes, learningComponents),
             curriculum_alignment_summary: alignmentSummary(record, alignmentIndexes),
             forward_connections: forwardConnections(record, recordIndexes, bridgeForwardIndex)
         })
@@ -1050,12 +1145,22 @@ export function buildCapabilityGraph(rootInput) {
         totals.forward_connections += graph.forward_connections.length
     }
 
+    const componentDecompositionFingerprint = sha256(JSON.stringify(stable(
+        [...SOURCE_BOUND_ATOMIC_COMPONENT_DECOMPOSITIONS.entries()]
+    )))
+    const generatorFingerprint = sha256(`${GENERATION_METHOD}\u241f${componentDecompositionFingerprint}`)
     const manifest = {
         schema_version: CAPABILITY_GRAPH_SCHEMA_VERSION,
         generation_method: GENERATION_METHOD,
+        component_decomposition_policy: {
+            default_method: 'deterministic_clause_decomposition_v2',
+            source_bound_method: SOURCE_BOUND_ATOMIC_DECOMPOSITION_METHOD,
+            source_bound_standard_codes: [...SOURCE_BOUND_ATOMIC_COMPONENT_DECOMPOSITIONS.keys()].sort(),
+            fingerprint: componentDecompositionFingerprint
+        },
         source_fingerprint: sourceFingerprint,
         alignment_fingerprint: alignmentFingerprint,
-        build_id: `capability-graph-${sha256(GENERATION_METHOD).slice(0, 8)}-${sourceFingerprint.slice(0, 10)}-${alignmentFingerprint.slice(0, 10)}`,
+        build_id: `capability-graph-${generatorFingerprint.slice(0, 8)}-${sourceFingerprint.slice(0, 10)}-${alignmentFingerprint.slice(0, 10)}`,
         official_standard_text_policy: 'preserved_unchanged',
         prerequisite_policy: 'verified_prerequisites_accept_only_approved_evidence_backed_edges',
         alignment_policy: {

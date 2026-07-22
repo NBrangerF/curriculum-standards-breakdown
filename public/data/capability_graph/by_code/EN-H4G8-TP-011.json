@@ -164,16 +164,124 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_e78c1ee2cb0cfe9d4b6c",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_7f0abb7f806d2a62f497",
+        "textbook-node:tcn_llm_quote_2fb1886d5c1d7b6d73a7",
+        "textbook-unit:tcu_33c8de12314bb055"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3. How often do most students watch TV? What do they usually watch?\n4. What does the writer think is the best way to relax? Why?\n5. Do you think the students at No. 5 are healthy? Why or why not?\n2d According to the article and the pie charts, write sentences with the\npercentages using always, usually or sometimes.\n1. 90%: Ninety percent of the students always use the Internet.\n2. 85%:\n3. 45%:\n4. 10%:\n5. 13%:\n6. 2%:",
+          "excerpt_hash": "bc5391f9b79afb84f3753f0334d5a8fe47222900f2e49a1593b0227d5b33789b",
+          "pdf_page": 25,
+          "printed_page": "14",
+          "span_id": "tes_llm_quote_7f0abb7f806d2a62f497"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_15700a52167c0a3e"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_15700a52167c0a3e",
+          "label": "表达个人看法"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_2fb1886d5c1d7b6d73a7",
+      "node_title": "5. Do you think the students at No. 5 are healthy? Why or why not?",
+      "pdf_page": 25,
+      "printed_page": "14",
+      "publication_status": "published",
+      "rationale": "证据直接要求学生就 No. 5 学生是否健康表达自己的判断并说明原因，可证明“表达个人看法”。该题是阅读后的普通练习任务，因此 relation_type 选 practices。未选理解主要内容、推断隐含信息、提出疑问、分析解决问题、朗读、整合信息或说明文化差异，因为该单一证据不足以完整证明这些组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_33c8de12314bb055",
+      "unit_title": "UNIT 2"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_6a4832121dcd42d4ed28",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_94e897f1efa1c0735dcc",
+        "textbook-node:tcn_llm_quote_6253613b0604ddec8ca1",
+        "textbook-unit:tcu_3774ed1102d2a87c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2. Do you think Walt Disney is a smart man? Why or why not? Do you want\nto be like him?\n3. Why did people want to be like Mickey? Do you want to be like Mickey?\nWhy or why not?\n4. Can you think of another cartoon character that is as famous as Mickey?\nWhy is the character popular?\n2e Underline the following phrases in the passage. Write your own\nsentences or questions using the phrases.\nthink of\ncome out",
+          "excerpt_hash": "f998a2a080d087fbb0d3bbdf6ae9ebec2111d8ff05dcf5267eed83da300466a5",
+          "pdf_page": 49,
+          "printed_page": "38",
+          "span_id": "tes_llm_quote_94e897f1efa1c0735dcc"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_15700a52167c0a3e"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_15700a52167c0a3e",
+          "label": "表达个人看法"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_6253613b0604ddec8ca1",
+      "node_title": "3. Why did people want to be like Mickey? Do you want to be like Mickey?\nWhy or why not?\n4. Can you ",
+      "pdf_page": 49,
+      "printed_page": "38",
+      "publication_status": "published",
+      "rationale": "该连续任务要求学生围绕阅读内容表达是否想像 Mickey、另举著名卡通人物并说明受欢迎原因，直接练习表达个人看法。它不是检测评分任务，也不是正文讲解，故 relation_type 为 practices。证据未要求学生自己提出疑问、解释主要内容并推断隐含信息、分析解决问题或朗读，因此只选择“表达个人看法”这一组件；其他更宽或不同机制的候选没有独立覆盖。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_3774ed1102d2a87c",
+      "unit_title": "UNIT 5"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_60a1de919025bd33",

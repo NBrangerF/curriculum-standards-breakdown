@@ -129,7 +129,7 @@ export const TextbookTocEntrySchema = z.object({
     confidence: z.number().min(0).max(1),
     review_status: z.enum(['approved', 'machine_checked', 'needs_review']),
     publication_status: z.literal('published').optional(),
-    source: z.enum(['pdf_outline', 'toc_text', 'ocr_toc', 'heading_match', 'body_inferred_unit', 'manual', 'legacy_unit_evidence'])
+    source: z.enum(['pdf_outline', 'toc_text', 'ocr_toc', 'heading_match', 'heading_match+split_heading_merge', 'body_inferred_unit', 'manual', 'legacy_unit_evidence'])
 }).strict()
 
 export const TextbookPageMapEntrySchema = z.object({
@@ -194,6 +194,24 @@ export const TextbookLearningComponentReferenceSchema = z.object({
     label: z.string().min(1)
 }).strict()
 
+export const TextbookAlignmentEvidenceClaimSchema = z.object({
+    alignment_id: z.string().min(1),
+    node_id: z.string().min(1).nullable(),
+    evidence_span_id: z.string().min(1).nullable(),
+    pdf_page: z.number().int().positive().nullable(),
+    printed_page: z.string().nullable(),
+    evidence_quote: z.string().nullable(),
+    evidence_excerpt: z.string().nullable(),
+    evidence_excerpt_hash: z.string().nullable(),
+    bbox: TextbookEvidenceBoundingBoxSchema.nullable(),
+    evidence_role: z.string().nullable(),
+    learning_component_ids: z.array(z.string().min(1)),
+    learning_components: z.array(TextbookLearningComponentReferenceSchema),
+    rationale: z.string(),
+    confidence: z.number().min(0).max(1).optional(),
+    score: z.number().min(0).max(1).optional()
+}).strict()
+
 export const TextbookLlmAlignmentUsageSchema = z.object({
     input_tokens: z.number().int().nonnegative(),
     output_tokens: z.number().int().nonnegative(),
@@ -221,9 +239,11 @@ export const TextbookAlignmentProvenanceSchema = z.union([
 
 export const TextbookStandardAlignmentSchema = z.object({
     alignment_id: z.string().min(1),
+    alignment_ids: z.array(z.string().min(1)).min(1).optional(),
     edition_id: z.string().min(1).optional(),
     unit_id: z.string().min(1).optional(),
     node_id: z.string().min(1).optional(),
+    node_ids: z.array(z.string().min(1)).optional(),
     unit_title: z.string().min(1).optional(),
     standard_code: z.string().min(1),
     standard_text: z.string(),
@@ -234,8 +254,11 @@ export const TextbookStandardAlignmentSchema = z.object({
     learning_components: z.array(TextbookLearningComponentReferenceSchema).optional(),
     evidence_level: TextbookEvidenceLevelSchema.optional(),
     evidence_level_detail: TextbookEvidenceLevelDetailSchema.optional(),
+    locator_source: z.enum(['legacy_approved', 'published_unit_start_backfill']).optional(),
     evidence_granularity: z.string().min(1).optional(),
     evidence_span_ids: z.array(z.string().min(1)).optional(),
+    evidence_claim_count: z.number().int().positive().optional(),
+    supporting_evidence: z.array(TextbookAlignmentEvidenceClaimSchema).optional(),
     provenance: TextbookAlignmentProvenanceSchema.optional(),
     evidence_role: z.string().min(1).optional(),
     // Numeric scores remain available for calibrated legacy pipelines only.

@@ -83,16 +83,286 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 5,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 5,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_f3937c2a457173f1b21b",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_59957d24a70a32e6ca7f",
+        "textbook-node:tcn_llm_quote_d546b7fbd39ee4d1a589",
+        "textbook-unit:tcu_8b274b25b1b01daa"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3c Write a travel diary like Jane’s on page 5. Use your notes in 3b.\n7",
+          "excerpt_hash": "1aee260178c843d96a12a51113e41a68be5866b2d62ef058fa6a9679e063e647",
+          "pdf_page": 18,
+          "printed_page": "7",
+          "span_id": "tes_llm_quote_59957d24a70a32e6ca7f"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_480a0d5b1f6537bd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_480a0d5b1f6537bd",
+          "label": "参照范例仿写简短文段，语言准确、表意得体"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_d546b7fbd39ee4d1a589",
+      "node_title": "3c Write a travel diary like Jane’s on page 5. Use your notes in 3b.",
+      "pdf_page": 18,
+      "printed_page": "7",
+      "publication_status": "published",
+      "rationale": "证据要求学生“Write a travel diary like Jane’s”，即参照已有范例进行书面仿写，学习对象和动作与“参照范例仿写简短文段”相容。该任务是学生实施写作练习，因此 relation_type 为 practices。未选择“正确使用所学语言、格式较为规范”“整合语篇信息”“说明观点或文化差异”，因为单一证据未直接提出这些完整要求；同 item 中更宽泛或理解类候选也没有独立新增动作被该证据落实。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_8b274b25b1b01daa",
+      "unit_title": "UNIT 1"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_0c6493bdd9e3f09115aa",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_404cf8b32939500d20b7",
+        "textbook-node:tcn_llm_quote_8a182c5684b9e3f4db39",
+        "textbook-unit:tcu_ad96a054aa519c4f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "If you go to the party, you’ll have a great time! UNIT 10\n3a Talk to someone you know. Find out his/her three biggest worries. Try\nto think of some solutions to the problems and write them down.\nProblems Possible solutions\n3b Write about your friend’s first problem and the possible solutions. Use\nthe structures below to help you plan your writing.\nMy friend has a problem.\nHe/She\n.\nI think he/she should\n.\nIf he/she ,",
+          "excerpt_hash": "2f996337210b5c1ee1c67942b07710586fd1958c254f403ddbb4a52b4b989ec4",
+          "pdf_page": 90,
+          "printed_page": "79",
+          "span_id": "tes_llm_quote_404cf8b32939500d20b7"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_71474a1e91d88ad2"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_71474a1e91d88ad2",
+          "label": "进行书面表达时能正确使用所学语言，格式较为规范"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_8a182c5684b9e3f4db39",
+      "node_title": "3b Write about your friend’s first problem and the possible solutions. Use\nthe structures below to h",
+      "pdf_page": 90,
+      "printed_page": "79",
+      "publication_status": "published",
+      "rationale": "教材明确要求学生围绕朋友的问题和可能解决办法进行书面表达，并使用给出的结构规划写作，能直接证明“进行书面表达时能正确使用所学语言,格式较为规范”。其主要功能是学生实施写作任务，所以为 practices。证据没有提供完整范例供仿写，也没有要求整合语篇信息或说明文化差异，因此只选择该最小组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_ad96a054aa519c4f",
+      "unit_title": "UNIT 10"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_b706cbc8781ff0551c8f",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_d9390e459ef7a426558a",
+        "textbook-node:tcn_llm_quote_8faaa09c90928476c47f",
+        "textbook-unit:tcu_bf31442b263ed613"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "Kong when possible. One day I’ll even go to Australia.\n3b Complete the chart about your life 20 years from now. You can add\nmore items.\nWhat will your ... be like?\njob\nhome\nfree time activities\nneighborhood\n3c Write about your life 20 years from now. Use 3a and 3b to help you.Write about your life 20 years from now. Use 3a and 3b to help you.\n55",
+          "excerpt_hash": "31e48865bc9e97f837787b5be47d3ad5ba59487487709db84265a8dd4c3b46eb",
+          "pdf_page": 66,
+          "printed_page": "55",
+          "span_id": "tes_llm_quote_d9390e459ef7a426558a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_71474a1e91d88ad2"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_71474a1e91d88ad2",
+          "label": "进行书面表达时能正确使用所学语言，格式较为规范"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_8faaa09c90928476c47f",
+      "node_title": "3c Write about your life 20 years from now. Use 3a and 3b to help you.",
+      "pdf_page": 66,
+      "printed_page": "55",
+      "publication_status": "published",
+      "rationale": "证据直接要求学生围绕未来生活进行书面表达，并可借助前面材料完成写作，符合书面表达中使用所学语言完成表达的动作。主要功能是写作练习，所以为 practices。未选择仿写简短文段，因为证据只说 use 3a and 3b to help you，未明确要求参照范例仿写且语言准确、表意得体；也未证明整合语篇信息或说明观点/文化差异。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bf31442b263ed613",
+      "unit_title": "UNIT 7"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_c225f48453079b6c5804",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_6697c080bed62c6e2212",
+        "textbook-node:tcn_llm_quote_a82e67652b33637e3f5f",
+        "textbook-unit:tcu_e27f16bd14948d09"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3c Write a recipe for your favorite food. Use 3a and 3b to help you.\n63",
+          "excerpt_hash": "da099bc06a1310a3ecaf8ff62f11de05cf139e6157d355649da647cbade12ae0",
+          "pdf_page": 74,
+          "printed_page": "63",
+          "span_id": "tes_llm_quote_6697c080bed62c6e2212"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_71474a1e91d88ad2"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_71474a1e91d88ad2",
+          "label": "进行书面表达时能正确使用所学语言，格式较为规范"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_a82e67652b33637e3f5f",
+      "node_title": "3c Write a recipe for your favorite food. Use 3a and 3b to help you.",
+      "pdf_page": 74,
+      "printed_page": "63",
+      "publication_status": "published",
+      "rationale": "证据要求学生写一份最喜欢食物的食谱，属于明确的书面表达任务；食谱体裁本身要求按步骤和格式表达，能对应书面表达中正确使用所学语言、格式较为规范。该任务是练习写作，不是评价，因此 relation_type 为 practices。未选择仿写简短文段、整合语篇信息或说明观点/文化差异，因为证据只要求参考 3a 和 3b 帮助写食谱，未完整证明这些组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e27f16bd14948d09",
+      "unit_title": "UNIT 8"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_2484d89ec6c3baac8ab3",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_609548c44fde264a0bf0",
+        "textbook-node:tcn_llm_quote_3d2d8bc0e646fe765b44",
+        "textbook-unit:tcu_fc7edda29a549157"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3b Write an invitation to a party or any other event. Reply to your partner’s\ninvitation. If you turn down the invitation, give a good reason.\nUse the following\nInclude the following information:\nwords and phrases:\nkind of party or event\nwould like to\nwhen and where it will be\nwill be\nif guests should bring anything\nafter this\nif guests should reply to the invitation\nplease\nwhen and how guests should reply\nreply\n71",
+          "excerpt_hash": "4042362c8bdc1989e7028667edfd647f72dc5bfbaffed0c5fc1c4a8ca3042136",
+          "pdf_page": 82,
+          "printed_page": "71",
+          "span_id": "tes_llm_quote_609548c44fde264a0bf0"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_71474a1e91d88ad2"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_71474a1e91d88ad2",
+          "label": "进行书面表达时能正确使用所学语言，格式较为规范"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_3d2d8bc0e646fe765b44",
+      "node_title": "3b Write an invitation to a party or any other event. Reply to your partner’s\ninvitation. If you tur",
+      "pdf_page": 82,
+      "printed_page": "71",
+      "publication_status": "published",
+      "rationale": "证据要求学生写 invitation 并回复，同时给出应包含的信息和可使用的词语短语，直接练习书面表达中使用所学语言和相对规范的邀请文本信息组织，所以 relation_type 为 practices。证据没有参照范例仿写、补充续编改编语篇，也没有整合语篇信息或说明观点、文化差异，因此只选择该组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_fc7edda29a549157",
+      "unit_title": "UNIT 9"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_047361fc4701c74e",

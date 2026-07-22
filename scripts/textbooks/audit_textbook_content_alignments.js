@@ -12,6 +12,10 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { basename, join, resolve } from 'node:path'
 import { nowIso, readJson, readJsonLines, writeJson } from './library_common.js'
+import {
+  isUnassignedPageOnlyAlignment,
+  unassignedPageOnlyAlignmentErrors
+} from './textbook_content_alignment_contract.js'
 
 const ROOT = resolve(import.meta.dirname, '../..')
 const DEFAULT_STRUCTURE_ROOT = join(ROOT, 'data/textbooks/derived/by-edition')
@@ -474,12 +478,28 @@ function main() {
           addError('machine_alignment_not_published', 'Machine alignment must be machine_checked and published without a manual gate', { edition_id: editionId, alignment_id: alignmentId })
         }
       }
-      const unit = publishedUnits.get(alignment.unit_id)
-      if (!unit) addError('invalid_alignment_unit', 'Alignment does not reference an approved or published body-inferred unit', { edition_id: editionId, alignment_id: alignmentId, unit_id: alignment.unit_id })
-      else if (!pageStart(unit)) addError('alignment_uses_unlocated_unit', 'Alignment references a TOC/unit entry with no locatable PDF page', { edition_id: editionId, alignment_id: alignmentId, unit_id: alignment.unit_id })
       const node = alignment.node_id ? nodesById.get(alignment.node_id) : null
       if (alignment.node_id && !node) addError('missing_alignment_node', 'Alignment references a missing content node', { edition_id: editionId, alignment_id: alignmentId, node_id: alignment.node_id })
-      if (node && node.unit_id !== alignment.unit_id) addError('alignment_node_unit_mismatch', 'Alignment and its content node reference different units', { edition_id: editionId, alignment_id: alignmentId, node_id: node.node_id })
+      const pageOnly = isUnassignedPageOnlyAlignment(alignment)
+      const unit = pageOnly ? null : publishedUnits.get(alignment.unit_id)
+      if (pageOnly) {
+        const pageOnlyErrors = unassignedPageOnlyAlignmentErrors(alignment, node)
+        if (pageOnlyErrors.length) {
+          addError('invalid_unassigned_page_only_alignment', 'Unassigned page-only alignment violates its synthetic locator contract', {
+            edition_id: editionId,
+            alignment_id: alignmentId,
+            unit_id: alignment.unit_id,
+            reasons: pageOnlyErrors
+          })
+        }
+        if (publishedUnits.has(alignment.unit_id)) {
+          addError('page_only_alignment_collides_with_unit', 'Synthetic page-only locator collides with a published TOC unit', { edition_id: editionId, alignment_id: alignmentId, unit_id: alignment.unit_id })
+        }
+      } else {
+        if (!unit) addError('invalid_alignment_unit', 'Alignment does not reference an approved or published body-inferred unit', { edition_id: editionId, alignment_id: alignmentId, unit_id: alignment.unit_id })
+        else if (!pageStart(unit)) addError('alignment_uses_unlocated_unit', 'Alignment references a TOC/unit entry with no locatable PDF page', { edition_id: editionId, alignment_id: alignmentId, unit_id: alignment.unit_id })
+        if (node && node.unit_id !== alignment.unit_id) addError('alignment_node_unit_mismatch', 'Alignment and its content node reference different units', { edition_id: editionId, alignment_id: alignmentId, node_id: node.node_id })
+      }
       const page = pageStart(alignment)
       const end = pageEnd(alignment)
       if (page && (page < 1 || end < page || (pageCount && end > pageCount))) addError('invalid_alignment_page_range', 'Alignment has an invalid PDF page range', { edition_id: editionId, alignment_id: alignmentId, pdf_page: page, end_pdf_page: end, page_count: pageCount })

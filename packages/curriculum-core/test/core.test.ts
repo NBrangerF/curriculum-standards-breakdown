@@ -340,12 +340,29 @@ test('FileTextbookRepository resolves page context without promoting curriculum 
     assert.equal(context.pdf_page, 121)
     assert.equal(context.printed_page, '114')
     assert.ok(context.active_nodes.length > 0)
-    assert.ok(context.alignments.some(alignment => alignment.alignment_id === 'tca_4644f92b7a13313c'))
+    assert.deepEqual(
+        context.alignments.map(alignment => alignment.standard_code).sort(),
+        ['MA-H4G7-GE-002', 'MA-H4G7-GE-037']
+    )
+    assert.ok(context.alignments.every(alignment => alignment.review_status === 'approved'))
     assert.ok(context.alignments.every(alignment => !['curriculum_scope', 'adjacent_curriculum_scope'].includes(alignment.relation_type)))
     assert.ok(context.standard_scopes.length > 0)
 
-    const reverse = await repository.getTextbooksForStandard('MA-H4G7-GE-002')
-    assert.ok(reverse.some(link => link.alignment_id === 'tca_4644f92b7a13313c'))
+    const alignedDetail = await repository.get('ed_dda80e43104244896faa')
+    assert.ok(alignedDetail)
+    const concreteAlignment = alignedDetail.alignments.find(alignment => typeof alignment.pdf_page === 'number' && alignment.pdf_page > 0)
+    assert.ok(concreteAlignment)
+    const concretePage = concreteAlignment.pdf_page
+    if (typeof concretePage !== 'number') {
+        throw new Error('Expected a concrete textbook alignment PDF page')
+    }
+    const alignedContext = await repository.getPageContext(alignedDetail.edition_id, concretePage)
+    assert.ok(alignedContext)
+    assert.ok(alignedContext.alignments.some(alignment => alignment.alignment_id === concreteAlignment.alignment_id))
+    assert.ok(alignedContext.alignments.every(alignment => !['curriculum_scope', 'adjacent_curriculum_scope'].includes(alignment.relation_type)))
+
+    const reverse = await repository.getTextbooksForStandard(concreteAlignment.standard_code)
+    assert.ok(reverse.some(link => link.alignment_id === concreteAlignment.alignment_id))
 
     const fineGrained = await repository.getPageContext('ed_9d4028e2ab482520d0aa', 70)
     assert.ok(fineGrained)
@@ -369,6 +386,13 @@ test('textbook detail schema supplies empty fine-grained collections for legacy 
     const parsed = TextbookDetailRecordSchema.parse(legacy)
     assert.deepEqual(parsed.content_nodes, [])
     assert.deepEqual(parsed.evidence_spans, [])
+})
+
+test('textbook detail schema accepts split heading merge TOC provenance', async () => {
+    const repository = new FileTextbookRepository(publicDataRoot)
+    const detail = await repository.get('ed_ba25683b949d491afb3c')
+    assert.ok(detail)
+    assert.ok(detail.toc.some(entry => entry.source === 'heading_match+split_heading_merge'))
 })
 
 const learningFixture: KnowledgeGraphDataset = {

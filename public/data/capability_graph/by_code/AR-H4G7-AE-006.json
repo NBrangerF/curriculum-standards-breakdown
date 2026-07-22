@@ -156,16 +156,70 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_45bc175736871856e425",
+      "alignment_type": "assesses",
+      "coverage": "partial",
+      "edition_id": "ed_a89e5efa283f5034b420",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a99675852c59",
+        "tes_llm_quote_a3cc95043761920dace7",
+        "textbook-node:tcn_llm_quote_44bb3da76abb7297fc56",
+        "textbook-unit:tcu_319229806dd620a7"
+      ],
+      "evidence_role": "discipline_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "discipline_textbook",
+          "excerpt": "SEED\n一 、 演 唱 《 银 杯 》, 由 师 生 共同 推选 出 最 佳 歌手 。\nce 最 佳 下 手提 名\n银 “ 杯 情感 豪爽 弃 放 , 装 饰 音 演唱 自然 , 能 背 唱 。\n二 、 聆 听 《 这 阔 的 草原 》, 随 音乐 画 出 歌曲 的 旋律 线 。 模\n唱 《 嘎 达 梅林 》, 写 出 它们 分 别 属于 长 调 还 是 短 调 ; 用 彩 笔 在\n《 嘎 达 梅林 》 的 乐谱 上 标 出 乐句 , 说 说 这 是 由 几 个 乐句 构成 的\n一 段 体 。\nMARR\nee Sau 蒙古 族 民 歌\nmak He _\n1 一 和 4 蒙古 族 民歌\nBie\n63323|561 g|2 321 g| 235 i|6-- -|\n南方 飞 来 的 小 鸿雁 啊 , 不 落 长 江 不 呀 不 起 飞 。\n56535|5616|1615 6|2335 i\\6- - -",
+          "excerpt_hash": "aa08a91e7cf68d57060bed3a8b1f646cb8f8aaddb94641f51d810f4f7c7f47d3",
+          "pdf_page": 36,
+          "printed_page": null,
+          "span_id": "tes_llm_quote_a3cc95043761920dace7"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7302068613b6ea71"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7302068613b6ea71",
+          "label": "完成基础表现或创作"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_44bb3da76abb7297fc56",
+      "node_title": "一 、 演 唱 《 银 杯 》, 由 师 生 共同 推选 出 最 佳 歌手 。",
+      "pdf_page": 36,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "证据要求演唱《银杯》，并由师生共同推选最佳歌手，评价项含演唱自然、能背唱，直接证明一次基础演唱表现。主要功能是评选最佳歌手，因此为 assesses。未选择“每学年背唱4-6首”组件，因为证据只涉及一首歌曲；也未选择演唱分析反馈改进或综合运用演唱、演奏、识谱、即兴表演和编创等组件，因为证据没有完整呈现这些合取要求。",
+      "relation_type": "assesses",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_319229806dd620a7",
+      "unit_title": "草原牧歌"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0128f9c818b2b4b9",

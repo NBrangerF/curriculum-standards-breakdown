@@ -1,5 +1,5 @@
 {
-  "alignment_fingerprint": "217ec56ea065af556ab1897ca97dc9af76b5024f679ff46bfb8c1f3770c7649f",
+  "alignment_fingerprint": "623c26ee2ea23aceb87081e094a6aa827cd1bd22db5897a2b8d75d7b41752f80",
   "alignment_policy": {
     "L0_gap": "当前教材库无同学科同学段范围；明确记录缺口。",
     "L1_scope": "同学科同学段适用范围，不构成具体单元证据。",
@@ -8,7 +8,15 @@
     "L4_teacher_guide": "教师用书目标与教材正文或练习自动交叉印证，并保留两侧逐字证据与来源版本。",
     "L5_official_crosswalk": "保留给出版方或官方明示的课标映射。"
   },
-  "build_id": "capability-graph-2b07908d-247c9df75d-217ec56ea0",
+  "build_id": "capability-graph-0f710296-247c9df75d-623c26ee2e",
+  "component_decomposition_policy": {
+    "default_method": "deterministic_clause_decomposition_v2",
+    "fingerprint": "afa68945d094ac901d54ecb58934f41942be605d48d572090f1c8a6f03ee12cb",
+    "source_bound_method": "source_bound_atomic_decomposition_v1",
+    "source_bound_standard_codes": [
+      "AR-H4G7-AA-006"
+    ]
+  },
   "design_references": [
     "https://www.anthropic.com/news/claude-for-teachers",
     "https://github.com/anthropics/k12-teacher-skills",
@@ -26,8 +34,8 @@
   "subjects": {
     "arts": {
       "gaps": 0,
-      "learning_components": 1182,
-      "page_alignments": 4,
+      "learning_components": 1185,
+      "page_alignments": 21,
       "scope_alignments": 1832,
       "standards": 322,
       "unit_alignments": 3,
@@ -45,7 +53,7 @@
     "english": {
       "gaps": 0,
       "learning_components": 782,
-      "page_alignments": 2,
+      "page_alignments": 71,
       "scope_alignments": 680,
       "standards": 236,
       "unit_alignments": 1,
@@ -72,11 +80,11 @@
     "math": {
       "gaps": 0,
       "learning_components": 677,
-      "page_alignments": 34,
+      "page_alignments": 56,
       "scope_alignments": 428,
       "standards": 164,
-      "unit_alignments": 54,
-      "unit_topic_candidates": 6
+      "unit_alignments": 60,
+      "unit_topic_candidates": 0
     },
     "morality_law": {
       "gaps": 0,
@@ -99,11 +107,11 @@
     "science": {
       "gaps": 0,
       "learning_components": 1248,
-      "page_alignments": 66,
+      "page_alignments": 64,
       "scope_alignments": 1463,
       "standards": 349,
-      "unit_alignments": 28,
-      "unit_topic_candidates": 3
+      "unit_alignments": 31,
+      "unit_topic_candidates": 0
     }
   },
   "totals": {
@@ -111,13 +119,13 @@
     "common_difficulties": 4786,
     "forward_connections": 1709,
     "hardest_cases": 3929,
-    "learning_components": 7194,
-    "page_alignments": 393,
+    "learning_components": 7197,
+    "page_alignments": 499,
     "prerequisite_candidates": 1719,
     "scope_alignments": 6087,
     "standards": 2025,
-    "unit_alignments": 140,
-    "unit_topic_candidates": 9,
+    "unit_alignments": 149,
+    "unit_topic_candidates": 0,
     "verified_prerequisites": 0
   }
 }

@@ -121,16 +121,360 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 6,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 6,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_0e0e4d3b8ab1d6210804",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_ad3c6853f85d9fa71d16",
+        "textbook-node:tcn_llm_quote_47d01b03c9d8b7acfc06",
+        "textbook-unit:tcu_84a47d476c71962a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "because he can sing fast songs very well.\n2e Who’s got talent in your class? Add more talents and write a classmate’s\nname for each talent. Find out how many students in your group agree\nwith you.\nTalents Classmates’ names How many students agree?\nthe best chess player\nthe most talented dancer\nthe most interesting writer\nthe fastest runner\n30",
+          "excerpt_hash": "273997563e780859b5eef491ff41e4d1271d982d8cec5128081e5689f1804c02",
+          "pdf_page": 41,
+          "printed_page": "30",
+          "span_id": "tes_llm_quote_ad3c6853f85d9fa71d16"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1c6d762a83bc65c8",
+        "lc_4054aebe06e36204"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1c6d762a83bc65c8",
+          "label": "在学习活动中积极与他人合作"
+        },
+        {
+          "component_id": "lc_4054aebe06e36204",
+          "label": "积极进行拓展性运用"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_47d01b03c9d8b7acfc06",
+      "node_title": "2e Who’s got talent in your class? Add more talents and write a classmate’s\nname for each talent. Fi",
+      "pdf_page": 41,
+      "printed_page": "30",
+      "publication_status": "published",
+      "rationale": "该连续任务要求学生围绕班级同学才能补充项目并在小组中调查认同人数，直接要求在学习活动中与他人合作；“Add more talents”是在给定才能表达框架上的拓展性运用。证据没有要求发现或使用多种策略解决语言学习问题，也没有要求整合语篇信息或说明观点/文化差异，所以不选择其他组件。主要功能是学生实施活动练习，非检测评分，故为 practices。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_84a47d476c71962a",
+      "unit_title": "UNIT 4"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_453bd2f23f4b72dfc2ee",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_f8445095bcd612812391",
+        "textbook-node:tcn_llm_quote_dabfbe47cb7125f1ea33",
+        "textbook-unit:tcu_8b274b25b1b01daa"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "family. was great. We fed some hens and saw some baby pigs. They\nwere so cute! The only problem was that there was much to do in the\nevening but read. Still seemed to be bored. Bye for now!\nMark\n3c Ask your group questions about their last vacation. Then tell the class\nyour results.your results.\nSomeone (write the\nDid you ... Everyone No oneNo one\nclassmate’s name)\neat anything at a restaurant?\nIn our group,",
+          "excerpt_hash": "219361d73e7de7f6080de171a91150b1007f0ceb191bc7f12cd68eca4aa9544c",
+          "pdf_page": 14,
+          "printed_page": "3",
+          "span_id": "tes_llm_quote_f8445095bcd612812391"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1c6d762a83bc65c8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1c6d762a83bc65c8",
+          "label": "在学习活动中积极与他人合作"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_dabfbe47cb7125f1ea33",
+      "node_title": "3c Ask your group questions about their last vacation. Then tell the class\nyour results.your results",
+      "pdf_page": 14,
+      "printed_page": "3",
+      "publication_status": "published",
+      "rationale": "该任务直接要求学生向小组成员提问并汇报结果，落实“在学习活动中积极与他人合作”。其主要功能是让学生实施课堂学习活动，因此 relation_type 选 practices。证据没有出现拓展性运用、发现或使用多种策略解决语言学习问题，也没有要求整合语篇信息或说明观点、文化差异，所以只接受该最小组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_8b274b25b1b01daa",
+      "unit_title": "UNIT 1"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_a00902aca2aa4d73089b",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_db4275963474d04c32f6",
+        "textbook-node:tcn_llm_quote_d7fc00a07fbdb5050bc5",
+        "textbook-unit:tcu_ad96a054aa519c4f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3c Write a story with your group on a piece of paper. The first person\nbegins the story with “I think I will ...” The others add sentences with\n“if”. Pass the paper around twice. Then read the story.\nI think I will go to the movies tonight. If I go to the movies, I won‛t finish\nmy homework. If I don‛t fi nish my homework ...\n75",
+          "excerpt_hash": "4ed8bbee1d9a7af6e56f66366d24e1ec8070f17058e248ad747a14b26a87d527",
+          "pdf_page": 86,
+          "printed_page": "75",
+          "span_id": "tes_llm_quote_db4275963474d04c32f6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1c6d762a83bc65c8",
+        "lc_4054aebe06e36204"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1c6d762a83bc65c8",
+          "label": "在学习活动中积极与他人合作"
+        },
+        {
+          "component_id": "lc_4054aebe06e36204",
+          "label": "积极进行拓展性运用"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_d7fc00a07fbdb5050bc5",
+      "node_title": "3c Write a story with your group on a piece of paper.",
+      "pdf_page": 86,
+      "printed_page": "75",
+      "publication_status": "published",
+      "rationale": "证据要求“with your group”、轮流添加句子并传递纸张，直接证明在学习活动中与他人合作；同时要求用 if 句共同续写故事，属于对语言结构的拓展性运用。任务是普通课堂练习而非评分或达成判断，因此 relation_type 选 practices。证据没有呈现发现或使用多种策略解决语言学习问题，也没有要求整合语篇信息或说明观点、文化差异，故不选这些组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_ad96a054aa519c4f",
+      "unit_title": "UNIT 10"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_bee8a304d81da9cb4958",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_eab73b062dc573dcde7b",
+        "textbook-node:tcn_llm_quote_b2f2b0b3fd0473cd345d",
+        "textbook-unit:tcu_bf31442b263ed613"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "UNIT 7\n4 Discuss how you think a robot will help students with schoolwork in the\nfuture. Write down your group’s ideas and draw a picture of your robot.\n1. I think students won‛t need\ndictionaries because a robot will\ntell them the meanings of words.\n2.\n3.\n4.\n5.\nSelf Check\n1 Put the words in the correct columns in the chart.\njob people pollution robot fresh water paper planet",
+          "excerpt_hash": "af56ebe2415b21b17f13853a10b2d074466063b9bb0de279da9c6361a9a06694",
+          "pdf_page": 67,
+          "printed_page": "56",
+          "span_id": "tes_llm_quote_eab73b062dc573dcde7b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1c6d762a83bc65c8",
+        "lc_4054aebe06e36204"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1c6d762a83bc65c8",
+          "label": "在学习活动中积极与他人合作"
+        },
+        {
+          "component_id": "lc_4054aebe06e36204",
+          "label": "积极进行拓展性运用"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_b2f2b0b3fd0473cd345d",
+      "node_title": "Discuss how you think a robot will help students with schoolwork in the\nfuture. Write down your grou",
+      "pdf_page": 67,
+      "printed_page": "56",
+      "publication_status": "published",
+      "rationale": "证据要求 Discuss 并写下 group’s ideas，直接落实在学习活动中与他人合作；围绕未来机器人帮助学习进行讨论、记录想法和画出机器人，也是在单元语言基础上的拓展性运用。主要功能是学生完成合作拓展练习，因此为 practices。未选择发现或使用多种策略解决语言学习问题、整合语篇信息或说明观点/文化差异，因为证据没有这些动作要求。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bf31442b263ed613",
+      "unit_title": "UNIT 7"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_50cd904128f7edb8536c",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_10a220bb3e82a441e6ed",
+        "textbook-node:tcn_llm_quote_39773985d21f741613c6",
+        "textbook-unit:tcu_ebebc063adb2dae0"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1e Make a list of other resolutions and how you are going to make them\nwork. Then discuss them with your group.\nA: I want to be a teacher.\nB: How are you going to do that?\nA: Well, I’m going to study hard and get good grades.\nB: Sounds like a good plan. I want to get a lot of exercise.\n44",
+          "excerpt_hash": "633cd510a134f5e10ff8e7896876b2dbafda4af5964c87e071fe6f299950653a",
+          "pdf_page": 55,
+          "printed_page": "44",
+          "span_id": "tes_llm_quote_10a220bb3e82a441e6ed"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1c6d762a83bc65c8",
+        "lc_4054aebe06e36204"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1c6d762a83bc65c8",
+          "label": "在学习活动中积极与他人合作"
+        },
+        {
+          "component_id": "lc_4054aebe06e36204",
+          "label": "积极进行拓展性运用"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_39773985d21f741613c6",
+      "node_title": "1e Make a list of other resolutions and how you are going to make them\nwork. Then discuss them with ",
+      "pdf_page": 55,
+      "printed_page": "44",
+      "publication_status": "published",
+      "rationale": "任务要求学生列出其他 resolutions 及实现方法，并和小组讨论，直接体现与他人合作完成学习活动；“other resolutions”要求在已有话题和句式基础上拓展表达，也能证明拓展性运用。证据未要求发现或使用多种策略解决语言学习问题，也未要求整合语篇信息或说明观点/文化差异。主要功能是学生进行口语/书面活动练习，故为 practices。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_ebebc063adb2dae0",
+      "unit_title": "UNIT 6"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_e9d001a9694be1988664",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_2f39e244b9b4fed3622b",
+        "textbook-node:tcn_llm_quote_98ffc5c9a97cff401698",
+        "textbook-unit:tpu_69d285f22d20c7cc4620"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "致同学\n同学们,你们好!欢迎你们进入八年级的英语学习!\n本套教材是根据你们的心理特点、认知水平和兴趣爱好来编写的。\n相信在八年级,教材的以下特点会继续帮助你们学好英语:\n1. 教材不仅要帮助你们学习英语语言知识,更重要的是要帮助你们\n发展语言运用能力,让你们学会用英语表达思想、与人交流。\n2. 教材充分考虑了你们的生活实际和学习需求,教材的内容和活动\n都与你们的生活和兴趣紧密相连,目的是让你们在英语学习中不感到枯\n燥乏味,而是有话可说、有话想说、有话能说。\n3. 教材在重视培养你们的语言运用能力的同时,更加重视培养你们\n的语言学习策略和技能。这些策略和技能是帮助你们进一步学好英语的\n基础。\n4. 教材为你们设计了许多具有交际意义的任务或活动,目的是让你\n们在英语课堂上“活”起来、“动”起来。英语课堂教学需要你们的充分\n参与,英语学习需要你们与老师合作、与同学交流。通过参与和互动,\n你们的英语水平才会得到不断提高。",
+          "excerpt_hash": "1ab2b72327f5164753de488697a3588ce4a4bd2234c8e4decdfe597ee7ede388",
+          "pdf_page": 4,
+          "printed_page": null,
+          "span_id": "tes_llm_quote_2f39e244b9b4fed3622b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1c6d762a83bc65c8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1c6d762a83bc65c8",
+          "label": "在学习活动中积极与他人合作"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_98ffc5c9a97cff401698",
+      "node_title": "英语课堂教学需要你们的充分\n参与,英语学习需要你们与老师合作、与同学交流。通过参与和互动,\n你们的英语水平才会得到不断提高。",
+      "pdf_page": 4,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "该连续证据直接说明英语学习中需要学生参与并与老师合作、与同学交流，完整覆盖“在学习活动中积极与他人合作”。它是在前言中解释教材学习方式和课堂参与要求，主要功能是 supports。证据虽提到策略和技能，但没有证明发现或使用多种策略解决语言学习问题，也没有拓展性运用、整合语篇信息或说明观点/文化差异，因此只接受该最具体组件。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tpu_69d285f22d20c7cc4620",
+      "unit_title": "未分配单元 · PDF 4"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_f4f2c0e674e5528f",

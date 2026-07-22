@@ -254,9 +254,9 @@ function loadLearningComponents(code) {
   return components
 }
 
-export function alignmentCandidateFromStandard(itemId, standard) {
+export function alignmentCandidateFromStandard(itemId, standard, candidateKey = standard.code) {
   return {
-    candidate_id: stableId('llmc', itemId, standard.code),
+    candidate_id: stableId('llmc', itemId, standard.code, candidateKey),
     standard_code: standard.code,
     subject_slug: standard.subject_slug,
     grade_band: standard.grade_band,
@@ -305,24 +305,97 @@ function normalizedEvidence(span, fallback = {}) {
   }
 }
 
-function unitForNode(structure, node) {
-  const tocById = new Map((structure.toc || []).map(unit => [unit.entry_id, unit]))
-  return tocById.get(node?.unit_id) || null
+function unitRangeForPdfPage(unitRanges, pdfPage) {
+  const page = Number(pdfPage)
+  if (!Number.isInteger(page) || page < 1) return null
+  return unitRanges.filter(unit => page >= unit.start && page <= unit.end)
+    .sort((left, right) => (
+      (left.end - left.start) - (right.end - right.start)
+      || right.start - left.start
+      || left.entry_id.localeCompare(right.entry_id)
+    ))[0] || null
+}
+
+function adjudicationUnitForEvidence(catalog, structure, unitRanges, evidence) {
+  const primaryEvidence = evidence.find(span => Number.isInteger(Number(span.pdf_page)) && Number(span.pdf_page) > 0)
+  if (!primaryEvidence) return null
+  const primaryPage = Number(primaryEvidence.pdf_page)
+  const unit = unitRangeForPdfPage(unitRanges, primaryPage)
+  if (unit) {
+    return {
+      unit: {
+        unit_id: unit.entry_id,
+        title: unit.title || '',
+        pdf_page_start: unit.start,
+        pdf_page_end: unit.end,
+        assignment_status: 'assigned_toc_unit'
+      },
+      evidence: evidence.filter(span => unitRangeForPdfPage(unitRanges, span.pdf_page)?.entry_id === unit.entry_id)
+    }
+  }
+  const unitId = stableId(
+    'tpu',
+    catalog.edition_id,
+    primaryPage,
+    primaryPage,
+    structure.content_alignment?.source_asset_sha256 || ''
+  )
+  return {
+    unit: {
+      unit_id: unitId,
+      title: `未分配单元 · PDF ${primaryPage}`,
+      pdf_page_start: primaryPage,
+      pdf_page_end: primaryPage,
+      assignment_status: 'unassigned_page_only'
+    },
+    // A page-only identity deliberately represents one exact page. Keeping
+    // evidence from another unassigned page would let the model accept a quote
+    // whose materialized page does not match the item's declared page window.
+    evidence: evidence.filter(span => Number(span.pdf_page) === primaryPage && !unitRangeForPdfPage(unitRanges, span.pdf_page))
+  }
+}
+
+function existingEvidenceScopeKey(catalog, resolvedUnit, evidence) {
+  const pages = evidence.map(span => Number(span.pdf_page)).filter(Number.isInteger).sort((a, b) => a - b)
+  const firstPage = pages[0] || 0
+  const lastPage = pages.at(-1) || firstPage
+  const evidenceFingerprint = evidence.map(span => ({
+    // Legacy v1.2 materialized one synthetic quote node per accepted
+    // standard, so node identity is not a reliable task boundary. The page,
+    // verbatim excerpt hash and extraction provenance are. Omitting node_id
+    // lets competing standards for the same textbook task reach the model in
+    // one item, while a different excerpt on the same page remains separate.
+    pdf_page: Number(span.pdf_page) || null,
+    excerpt_hash: span.excerpt_hash || sha256(span.excerpt || ''),
+    source: span.source || null,
+    extraction_method: span.extraction_method || null
+  })).sort((left, right) => stableCanonicalJson(left).localeCompare(stableCanonicalJson(right)))
+  return stableId(
+    'llmi_existing_scope',
+    catalog.edition_id,
+    resolvedUnit.unit_id,
+    resolvedUnit.assignment_status,
+    firstPage,
+    lastPage,
+    sha256(stableCanonicalJson(evidenceFingerprint))
+  )
 }
 
 export function buildExistingAdjudicationItems(catalog, structure, standardsByCode) {
   const spansById = new Map((structure.evidence_spans || []).map(span => [span.evidence_span_id || span.span_id, span]))
   const nodesById = new Map((structure.content_nodes || []).map(node => [node.node_id, node]))
-  const items = []
+  const unitRanges = publishedUnitRanges(structure)
+  const groups = new Map()
   const skipped = []
-  for (const alignment of structure.alignments || []) {
+  for (const alignment of (structure.alignments || []).slice().sort((left, right) => (
+    String(left.alignment_id || '').localeCompare(String(right.alignment_id || ''))
+  ))) {
     const standard = standardsByCode.get(alignment.standard_code)
     if (!standard) {
       skipped.push({ alignment_id: alignment.alignment_id, reason: 'standard_not_found' })
       continue
     }
     const node = nodesById.get(alignment.node_id)
-    const unit = unitForNode(structure, node) || (structure.toc || []).find(row => row.entry_id === alignment.unit_id)
     let evidence = (alignment.evidence_span_ids || []).map(id => spansById.get(id)).filter(Boolean)
       .map(span => normalizedEvidence(span, { node_id: node?.node_id, node_kind: node?.kind, node_title: node?.title }))
       .filter(Boolean)
@@ -344,34 +417,77 @@ export function buildExistingAdjudicationItems(catalog, structure, standardsByCo
       skipped.push({ alignment_id: alignment.alignment_id, reason: 'no_verbatim_evidence' })
       continue
     }
-    const itemId = `existing:${alignment.alignment_id}`
-    items.push({
-      item_id: itemId,
-      logical_item_id: itemId,
-      source_mode: 'adjudicate_existing',
-      prior_alignment_id: alignment.alignment_id,
-      textbook: {
-        edition_id: catalog.edition_id,
-        evidence_id: catalog.evidence_id,
-        title: catalog.title,
-        subject: catalog.subject,
-        subject_slug: catalog.subject_slug,
-        grade: catalog.grade,
-        volume: catalog.volume
-      },
-      unit: {
-        unit_id: alignment.unit_id || node?.unit_id || unit?.entry_id || null,
-        title: alignment.unit_title || unit?.title || '',
-        pdf_page_start: Number(unit?.pdf_page) || evidence[0].pdf_page,
-        pdf_page_end: Number(unit?.end_pdf_page) || evidence[0].pdf_page,
-        assignment_status: alignment.unit_assignment_status === 'unassigned_page_only'
-          ? 'unassigned_page_only'
-          : unit ? 'assigned_toc_unit' : 'unassigned_existing_alignment'
-      },
-      evidence,
-      candidates: [alignmentCandidateFromStandard(itemId, standard)]
-    })
+    // A canonical alignment is one evidence claim. Older pipeline versions
+    // coalesced several page claims into one row; split those rows here so a
+    // single model quote never has to stand in for several pages or component
+    // subsets. Exact current evidence identity, rather than a stale historical
+    // logical_item_id, is the grouping authority. This still lets different
+    // standards for the same textbook task compete in one multi-candidate item.
+    let claimCount = 0
+    for (const span of evidence) {
+      const claimResolved = adjudicationUnitForEvidence(catalog, structure, unitRanges, [span])
+      if (!claimResolved?.evidence.length) continue
+      claimCount += 1
+      const claimEvidence = claimResolved.evidence
+      const baseGroupKey = existingEvidenceScopeKey(catalog, claimResolved.unit, claimEvidence)
+      // The authenticated provider contract allows a standard only once per
+      // item. Duplicate legacy rows for the same standard/evidence therefore
+      // get their own deterministic lane: no prior is dropped, while the
+      // ordinary lane remains a multi-standard comparison scope.
+      let groupKey = baseGroupKey
+      if (groups.get(groupKey)?.candidates.some(candidate => candidate.standard_code === standard.code)) {
+        groupKey = stableId('llmi_existing_duplicate_standard', baseGroupKey, alignment.alignment_id, span.evidence_span_id)
+      }
+      const logicalItemId = `existing-scope:${groupKey}`
+      if (!groups.has(groupKey)) {
+        groups.set(groupKey, {
+          item_id: logicalItemId,
+          logical_item_id: logicalItemId,
+          source_mode: 'adjudicate_existing',
+          prior_alignment_id: null,
+          textbook: {
+            edition_id: catalog.edition_id,
+            evidence_id: catalog.evidence_id,
+            title: catalog.title,
+            subject: catalog.subject,
+            subject_slug: catalog.subject_slug,
+            grade: catalog.grade,
+            volume: catalog.volume
+          },
+          unit: claimResolved.unit,
+          evidence: [],
+          candidates: []
+        })
+      }
+      const group = groups.get(groupKey)
+      const evidenceIds = new Set(group.evidence.map(item => item.evidence_span_id))
+      for (const claimSpan of claimEvidence) {
+        if (!evidenceIds.has(claimSpan.evidence_span_id)) {
+          group.evidence.push(claimSpan)
+          evidenceIds.add(claimSpan.evidence_span_id)
+        }
+      }
+      const candidate = {
+        ...alignmentCandidateFromStandard(group.item_id, standard, alignment.alignment_id),
+        prior_alignment_id: alignment.alignment_id
+      }
+      if (!group.candidates.some(item => item.candidate_id === candidate.candidate_id)) group.candidates.push(candidate)
+    }
+    if (!claimCount) skipped.push({ alignment_id: alignment.alignment_id, reason: 'no_page_grounded_evidence' })
   }
+  const items = [...groups.values()]
+    .map(item => ({
+      ...item,
+      evidence: item.evidence.slice().sort((left, right) => (
+        Number(left.pdf_page) - Number(right.pdf_page)
+        || left.evidence_span_id.localeCompare(right.evidence_span_id)
+      )),
+      candidates: item.candidates.slice().sort((left, right) => (
+        left.standard_code.localeCompare(right.standard_code)
+        || left.prior_alignment_id.localeCompare(right.prior_alignment_id)
+      ))
+    }))
+    .sort((left, right) => left.item_id.localeCompare(right.item_id))
   return { items, skipped }
 }
 
@@ -1202,13 +1318,19 @@ function checkpointSuccesses(path, batches, config) {
   }
 }
 
-function materializedGeneratedEvidenceSpan(span, evidenceQuote) {
-  if (!span?.generated_by_pipeline) return null
-  const preciseBbox = locateEvidenceQuoteBbox({
-    evidenceExcerpt: span.excerpt,
-    evidenceQuote,
-    lines: span.source_lines
-  })
+function materializedGeneratedEvidenceSpan(span, evidenceQuote, { forceGenerated = false } = {}) {
+  if (!span || (!span.generated_by_pipeline && !forceGenerated)) return null
+  // Existing canonical spans normally do not retain the authenticated sidecar
+  // lines used to locate one exact quote. In that case a broad, inherited bbox
+  // could point at text outside the accepted quote, so fail closed to page-level
+  // evidence instead of copying it into the rematerialized span.
+  const preciseBbox = Array.isArray(span.source_lines) && span.source_lines.length
+    ? locateEvidenceQuoteBbox({
+        evidenceExcerpt: span.excerpt,
+        evidenceQuote,
+        lines: span.source_lines
+      })
+    : null
   // One sidecar excerpt can support several standards with different verbatim
   // quotes. A quote-specific identity keeps their precise bboxes independent;
   // reusing the broad source span ID would make two valid accepts collide at
@@ -1245,7 +1367,7 @@ export function materializeAlignmentRecords(checkpointRecords, currentHashes) {
           item_id: inputItem.item_id,
           logical_item_id: inputItem.logical_item_id,
           source_mode: inputItem.source_mode,
-          prior_alignment_id: inputItem.prior_alignment_id || null,
+          prior_alignment_id: candidate.prior_alignment_id || inputItem.prior_alignment_id || null,
           unit_id: inputItem.unit.unit_id,
           unit_title: inputItem.unit.title,
           unit_assignment_status: inputItem.unit.assignment_status || 'assigned_toc_unit',
@@ -1267,7 +1389,11 @@ export function materializeAlignmentRecords(checkpointRecords, currentHashes) {
         const span = evidence.get(modelDecision.evidence_span_id)
         const componentIds = new Set(modelDecision.learning_component_ids)
         const components = candidate.learning_components.filter(component => componentIds.has(component.component_id))
-        const generatedEvidenceSpan = materializedGeneratedEvidenceSpan(span, modelDecision.evidence_quote)
+        const forcePageOnlyRematerialization = inputItem.source_mode === 'adjudicate_existing'
+          && inputItem.unit.assignment_status === 'unassigned_page_only'
+        const generatedEvidenceSpan = materializedGeneratedEvidenceSpan(span, modelDecision.evidence_quote, {
+          forceGenerated: forcePageOnlyRematerialization
+        })
         const materializedEvidenceSpanId = generatedEvidenceSpan?.evidence_span_id || span.evidence_span_id
         const materializedNodeId = generatedEvidenceSpan?.node_id || span.node_id
         alignments.push({
@@ -1285,7 +1411,7 @@ export function materializeAlignmentRecords(checkpointRecords, currentHashes) {
           unit_assignment_status: inputItem.unit.assignment_status || 'assigned_toc_unit',
           source_mode: inputItem.source_mode,
           logical_item_id: inputItem.logical_item_id,
-          prior_alignment_id: inputItem.prior_alignment_id || null,
+          prior_alignment_id: candidate.prior_alignment_id || inputItem.prior_alignment_id || null,
           candidate_id: modelDecision.candidate_id,
           node_id: materializedNodeId,
           content_node_kind: span.node_kind,
@@ -1318,7 +1444,7 @@ export function materializeAlignmentRecords(checkpointRecords, currentHashes) {
           end_pdf_page: span.pdf_page,
           printed_page: span.printed_page,
           generated_evidence_span: generatedEvidenceSpan,
-          generated_content_node: span.generated_by_pipeline ? {
+          generated_content_node: (span.generated_by_pipeline || forcePageOnlyRematerialization) ? {
             node_id: materializedNodeId,
             parent_id: inputItem.unit.assignment_status === 'unassigned_page_only' ? null : inputItem.unit.unit_id,
             unit_id: inputItem.unit.assignment_status === 'unassigned_page_only' ? null : inputItem.unit.unit_id,

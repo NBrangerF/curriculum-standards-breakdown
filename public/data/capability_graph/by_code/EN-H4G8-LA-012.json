@@ -119,16 +119,630 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 11,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 11,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_91485c6557b8fe98a05a",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_bba1ce86091828209624",
+        "textbook-node:tcn_llm_quote_ece4e33b3dbfd9dd2224",
+        "textbook-unit:tcu_06b132b19fc69e28"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1b Listen and number the pairs of twins in the picture [1–3].\n1c Practice the conversation in the picture above. Then make\nconversations about the other twins.\nA: That’s Tara, isn’t it?\nB: No, it isn’t. It’s Tina. Tina is taller than Tara.\nAnd she also sings more loudly than Tara.\n17",
+          "excerpt_hash": "602d52d2ec2210ac84ab9371cd383c9d696e3c52735e1e96849063db21866a0e",
+          "pdf_page": 28,
+          "printed_page": "17",
+          "span_id": "tes_llm_quote_bba1ce86091828209624"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_8d456ef09285f114"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_8d456ef09285f114",
+          "label": "在特定情境中引出主题并用所学语言与他人进行口头交流"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_ece4e33b3dbfd9dd2224",
+      "node_title": "2d Role-play the conversation.\nJack: Hi, Claire, are you free next week?",
+      "pdf_page": 28,
+      "printed_page": "17",
+      "publication_status": "published",
+      "rationale": "证据要求学生基于图片中的双胞胎情境练习并编对话，直接落实在特定情境中用所学语言与他人进行口头交流。该活动是普通课堂练习而非检测评分，因此 relation_type 为 practices。未选择转述、角色扮演、整合语篇信息或说明观点文化差异，因为证据未提出这些完整动作。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_06b132b19fc69e28",
+      "unit_title": "UNIT 3"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_f1fa37980dc83bdd1ee3",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_80873e4f74f2c73df096",
+        "textbook-node:tcn_llm_quote_a2ca2fe827664b696c09",
+        "textbook-unit:tcu_06b132b19fc69e28"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "chart on page 81. Ask and answer Sam Tom\nquestions about Sam and Tom. smart\ntall *** *\nIs Tom smarter\nthan Sam? run fast\nget up early *** ***\nthin\nNo, he isn‛t.\nSam is smarter funny *** *\nthan Tom. hard-working *** *\nfriendly\n2d Role-play the conversation.\nJulie: Did you like the singing competition yesterday,\nAnna?\nAnna: Oh, it was fantastic! Nelly sang so well!\nJulie: Well, I think Lisa sang better than Nelly.",
+          "excerpt_hash": "046f038e22a62cdc178ba343ee9306e1cc033498b6b0d8bcb65792ec3294a6e5",
+          "pdf_page": 29,
+          "printed_page": "18",
+          "span_id": "tes_llm_quote_80873e4f74f2c73df096"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d05d33d6ded79482"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d05d33d6ded79482",
+          "label": "独立或小组合作完成角色扮演"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_a2ca2fe827664b696c09",
+      "node_title": "2d Role-play the conversation.\nJulie: Did you like the singing competition yesterday,\nAnna?\nAnna: Oh",
+      "pdf_page": 29,
+      "printed_page": "18",
+      "publication_status": "published",
+      "rationale": "教材以“Role-play the conversation”组织学生实施角色扮演，主要功能是练习而非检测评价，因此选 practices。证据只直接落实角色扮演组件；没有要求简单转述语篇主要内容和观点，也没有完整证明引出主题并口头交流、整合语篇信息或说明观点和文化差异。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_06b132b19fc69e28",
+      "unit_title": "UNIT 3"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_8a6c9cea8bc79d090040",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_4ff429892d14fde7e073",
+        "textbook-node:tcn_llm_quote_8f700cd7f6079c1ce0c6",
+        "textbook-unit:tcu_33c8de12314bb055"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "them.\n2c How often do you do these activities? Fill in the chart and then make\nconversations.\nActivities How often How often do you watch TV?\nA:\nwatch TV every day B: I watch TV every day.\nuse the Internet A: What’s your favorite program?\nB: Animal World.\nread English books\nA: How often do you watch it?\ngo to the movies\nB: Twice a week.\nexercise\n2d Role-play the conversation.\nJack: Hi, Claire, are you free next week?",
+          "excerpt_hash": "5200bd260785637aead4b8f78fa03d7c108cdc74c4e05412bc557eb941a4f13a",
+          "pdf_page": 21,
+          "printed_page": "10",
+          "span_id": "tes_llm_quote_4ff429892d14fde7e073"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_8d456ef09285f114"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_8d456ef09285f114",
+          "label": "在特定情境中引出主题并用所学语言与他人进行口头交流"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_8f700cd7f6079c1ce0c6",
+      "node_title": "2c How often do you do these activities? Fill in the chart and then make\nconversations.",
+      "pdf_page": 21,
+      "printed_page": "10",
+      "publication_status": "published",
+      "rationale": "证据明确要求学生围绕“How often do you do these activities?”这一特定情境填写表格并进行对话，直接落实用所学语言与他人进行口头交流。该页是学生练习任务，不是讲解或评价，因此 relation_type 为 practices。未选择转述、角色扮演、整合语篇信息或说明观点/文化差异组件，因为所选连续证据未完整证明这些动作。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_33c8de12314bb055",
+      "unit_title": "UNIT 2"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_41b9c36a35e1d4a497ff",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_789bee1309fc19752ff6",
+        "textbook-node:tcn_llm_quote_ffa0a8606e979a178d1d",
+        "textbook-unit:tcu_3774ed1102d2a87c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2c Ask and answer questions about the TV shows in 2a. Use information\nthat is true for you.\nA: Do you plan to watch the news tonight?\nB: Yes. I like watching the news. I watch it every night.\nA: Why?\nB: Because I hope to find out what’s going on around the world.\n2d Role-play the conversation.\nGrace: What did you do in class today, Sarah?\nSarah: We had a discussion about TV shows. My",
+          "excerpt_hash": "987f81f6eb369162868c665ffc516cc8f49dcc39356a88ecb0bdf7989e2d0384",
+          "pdf_page": 45,
+          "printed_page": "34",
+          "span_id": "tes_llm_quote_789bee1309fc19752ff6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_8d456ef09285f114"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_8d456ef09285f114",
+          "label": "在特定情境中引出主题并用所学语言与他人进行口头交流"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_ffa0a8606e979a178d1d",
+      "node_title": "2d Role-play the conversation.\nGrace: What did you do in class today, Sarah?\nSarah: We had a discuss",
+      "pdf_page": 45,
+      "printed_page": "34",
+      "publication_status": "published",
+      "rationale": "证据要求学生围绕 TV shows 提问和回答，并使用与自己真实情况相关的信息，直接落实在特定情境中用所学语言与他人进行口头交流。该任务是课堂练习，不是评价或评分，因此 relation_type 为 practices。未选择角色扮演组件，因为本次所引连续证据主要覆盖问答交流；也未选择转述、语篇整合或观点/文化差异组件，证据没有这些动作。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_3774ed1102d2a87c",
+      "unit_title": "UNIT 5"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_3a1e81b9beaed7e3d9cd",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_91fc54229878c6ac129c",
+        "textbook-node:tcn_llm_quote_d3830281fffd7e4fdd8e",
+        "textbook-unit:tcu_84a47d476c71962a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "It’s the worst store.\nDream Clothes\nYou can buy clothes the most cheaply there.\nRadio stations\n970 AM It has the worst music.\nThey play the most boring songs.\n97.9 FM\nThe DJs choose songs the most carefully.\n107.9 FM\nIt’s the most popular.\n2c Student A, you are the reporter. Student B, you are the boy. Role-play\na conversation using the information in 2a and 2b.\nA: Hello! I’m a reporter. Can I ask you some questions?",
+          "excerpt_hash": "77e92c0defd932a2272b9a869f5a664b75091ba0e650286cec0f42e66a3248dc",
+          "pdf_page": 37,
+          "printed_page": "26",
+          "span_id": "tes_llm_quote_91fc54229878c6ac129c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_8d456ef09285f114",
+        "lc_d05d33d6ded79482"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_8d456ef09285f114",
+          "label": "在特定情境中引出主题并用所学语言与他人进行口头交流"
+        },
+        {
+          "component_id": "lc_d05d33d6ded79482",
+          "label": "独立或小组合作完成角色扮演"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_d3830281fffd7e4fdd8e",
+      "node_title": "2c Student A, you are the reporter. Student B, you are the boy. Role-play\na conversation using the i",
+      "pdf_page": 37,
+      "printed_page": "26",
+      "publication_status": "published",
+      "rationale": "该连续证据明确设定记者与男孩的特定交际情境，并要求学生进行对话和角色扮演，直接覆盖“在特定情境中引出主题并用所学语言与他人进行口头交流”和“独立或小组合作完成角色扮演”。主要教学功能是学生实施练习，因此 relation_type 为 practices。证据没有要求转述语篇主要内容、整合语篇信息或说明观点/文化差异，所以不选择这些组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_84a47d476c71962a",
+      "unit_title": "UNIT 4"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_812589703f61e58bc69c",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_db55ff60d225e533c274",
+        "textbook-node:tcn_llm_quote_f84ce730960175e817ee",
+        "textbook-unit:tcu_8b274b25b1b01daa"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2c Role-play conversations between Grace, Kevin and Julie.\nA: Grace, where did you go on vacation?\nB: I went to New York City.\nA: Oh, really? Did you go with anyone?\nB: Yes, I went with my mother.\n2d Role-play the conversation.\nRick: Hi, Helen. Long time no see.\nHelen: Hi, Rick. Yes, I was on vacation last month.\nRick: Oh, did you go anywhere interesting?\nHelen: Yes, I went to Guizhou with my family.",
+          "excerpt_hash": "49b92fdbc422e62a8361f630539c17d942c03e8d225c0b8dcc25a51edcc5e10f",
+          "pdf_page": 13,
+          "printed_page": "2",
+          "span_id": "tes_llm_quote_db55ff60d225e533c274"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_8d456ef09285f114",
+        "lc_d05d33d6ded79482"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_8d456ef09285f114",
+          "label": "在特定情境中引出主题并用所学语言与他人进行口头交流"
+        },
+        {
+          "component_id": "lc_d05d33d6ded79482",
+          "label": "独立或小组合作完成角色扮演"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_f84ce730960175e817ee",
+      "node_title": "2c Role-play conversations between Grace, Kevin and Julie.\nA: Grace, where did you go on vacation?\nB",
+      "pdf_page": 13,
+      "printed_page": "2",
+      "publication_status": "published",
+      "rationale": "该任务要求学生在 Grace、Kevin 和 Julie 的人物与假期话题情境中扮演并开展问答，对应使用所学语言进行口头交流和完成角色扮演；主要教学功能是练习，因此选 practices。证据没有要求转述语篇主要内容和观点，也没有要求整合语篇信息或说明观点、文化差异。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_8b274b25b1b01daa",
+      "unit_title": "UNIT 1"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_06c9c5839a31fc5406a9",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_1a78519c56819df6cb75",
+        "textbook-node:tcn_llm_quote_66ec4b6d7f2ce81f3217",
+        "textbook-unit:tcu_ad96a054aa519c4f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "A: Hmm. If we have it today, half the class won’t come.\n2d Role-play the conversation.\nJeff: Hey, Ben. For the party next week, should we ask\npeople to bring food?\nBen: No, let’s order food from a restaurant. If we ask\npeople to bring food, they’ll just bring potato chips\nand chocolate because they’ll be too lazy to cook.\nJeff: OK. For the games, do you think we should give\npeople some small gifts if they win?",
+          "excerpt_hash": "90031b42f6d36cf5e4f8b325f345170593ea0442e11b907194268521ac178669",
+          "pdf_page": 85,
+          "printed_page": "74",
+          "span_id": "tes_llm_quote_1a78519c56819df6cb75"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d05d33d6ded79482"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d05d33d6ded79482",
+          "label": "独立或小组合作完成角色扮演"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_66ec4b6d7f2ce81f3217",
+      "node_title": "2d Role-play the conversation.",
+      "pdf_page": 85,
+      "printed_page": "74",
+      "publication_status": "published",
+      "rationale": "证据中的任务指令直接要求进行角色扮演，落实“独立或小组合作完成角色扮演”的可替代路径之一。主要教学功能是练习实施该活动，因此 relation_type 为 practices。未选择转述、特定情境中引出主题并口头交流、整合语篇信息或说明观点/文化差异，因为该引文只证明角色扮演任务本身，不能扩展为这些更宽泛或不同动作。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_ad96a054aa519c4f",
+      "unit_title": "UNIT 10"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_398d9c0b25f359a9240c",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_9e716f10d714d0876f88",
+        "textbook-node:tcn_llm_quote_58240b726e5524b27c09",
+        "textbook-unit:tcu_bf31442b263ed613"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3. People will use the subways less.\n4. There will be more pollution.\n5. Cities will be very big and crowded.\n2c Make conversations about the predictions in 2a and 2b.\nA: What’s your prediction about the future?\nB: I think there will be more pollution.\nA: Really? I don’t think so. But I think there will be fewer trees.\n2d Role-play the conversation.\nNick: What are you reading, Jill?",
+          "excerpt_hash": "b8f6590c5cf1ec295541991afc5e3111997283642fd9aa3e995da689acfbfcbf",
+          "pdf_page": 61,
+          "printed_page": "50",
+          "span_id": "tes_llm_quote_9e716f10d714d0876f88"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_8d456ef09285f114"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_8d456ef09285f114",
+          "label": "在特定情境中引出主题并用所学语言与他人进行口头交流"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_58240b726e5524b27c09",
+      "node_title": "2c Make conversations about the predictions in 2a and 2b.\nA: What’s your prediction about the future",
+      "pdf_page": 61,
+      "printed_page": "50",
+      "publication_status": "published",
+      "rationale": "教材明确要求学生围绕 2a、2b 中关于未来的预测进行对话，并示范用所学语言交流观点，直接覆盖“在特定情境中引出主题并用所学语言与他人进行口头交流”。该证据是学生练习任务，主要功能为 practices。证据虽出现 Role-play 标题，但所引连续任务本身不是完成角色扮演，也未证明转述、整合语篇信息或说明文化差异。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bf31442b263ed613",
+      "unit_title": "UNIT 7"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_96afe2b699489dfab0a0",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_8605022fa554f6f3ec7d",
+        "textbook-node:tcn_llm_quote_228c83a0575275c2c29e",
+        "textbook-unit:tcu_e27f16bd14948d09"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2c Ask and answer B: OK, good idea. How much yogurt do we need?\nquestions about A: One cup.\nhow to make fruit B: How many apples do we need?\nsalad. A: Let me think ... We need two apples.\nB: OK, and how much ...\n2d Role-play the conversation.\nAnna: Sam, I want to make Russian soup for a\nparty on Saturday. Can you tell me how?\nSam: Sure. First, buy some beef, one cabbage,\nfour carrots, three potatoes, five tomatoes",
+          "excerpt_hash": "616d338d43c385bbc9026bb00f24e62797f00a1b211aba1586609dc12813a133",
+          "pdf_page": 69,
+          "printed_page": "58",
+          "span_id": "tes_llm_quote_8605022fa554f6f3ec7d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d05d33d6ded79482"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d05d33d6ded79482",
+          "label": "独立或小组合作完成角色扮演"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_228c83a0575275c2c29e",
+      "node_title": "2d Role-play the conversation.\nAnna: Sam, I want to make Russian soup for a\nparty on Saturday. Can y",
+      "pdf_page": 69,
+      "printed_page": "58",
+      "publication_status": "published",
+      "rationale": "证据直接要求学生“Role-play the conversation”，与“独立或小组合作完成角色扮演”相容。该页是在安排学生进行课堂练习，不是评分或达成评价，因此 relation_type 选 practices。证据没有要求简单转述语篇主要内容和观点，也未完整证明在特定情境中引出主题并进行口头交流，更没有整合语篇信息或说明观点、文化差异，所以只接受角色扮演组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e27f16bd14948d09",
+      "unit_title": "UNIT 8"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_cdb66b319aaa3359b9fd",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_9470a876d882b7edcd3d",
+        "textbook-node:tcn_llm_quote_bde5ca59c6944ad64d25",
+        "textbook-unit:tcu_ebebc063adb2dae0"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "UNIT 6\n2a Listen. What is Cheng Han going to do? Check (✔) the correct boxes\nin the picture.\n2b Listen again. What are Cheng Han’s plans for the future? Complete the\nchart.\nWhat\nWhere\nHow\nWhen\n2c Ask and answer questions about Cheng Han’s plans.\nA: What does Cheng Han want to be?\nB: He wants to be ...\n2d Role-play the conversation.\nAndy: What are you reading, Ken?\nKen: The Old Man and the Sea by Hemingway.",
+          "excerpt_hash": "6054aae41e96987b94ef33cf39396f67bbe261c0de9dac7e268d07fa559db2bd",
+          "pdf_page": 53,
+          "printed_page": "42",
+          "span_id": "tes_llm_quote_9470a876d882b7edcd3d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_8d456ef09285f114",
+        "lc_d05d33d6ded79482"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_8d456ef09285f114",
+          "label": "在特定情境中引出主题并用所学语言与他人进行口头交流"
+        },
+        {
+          "component_id": "lc_d05d33d6ded79482",
+          "label": "独立或小组合作完成角色扮演"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_bde5ca59c6944ad64d25",
+      "node_title": "2c Ask and answer questions about Cheng Han’s plans.\nA: What does Cheng Han want to be?\nB: He wants ",
+      "pdf_page": 53,
+      "printed_page": "42",
+      "publication_status": "published",
+      "rationale": "证据要求学生就 Cheng Han 的计划进行问答，并完成角色扮演，直接落实特定情境中的口头交流和角色扮演。主要功能是学生练习实施这些表达任务，因此为 practices。未选择转述、整合信息、说明观点或文化差异，因为该连续证据没有要求转述语篇主要内容、整合信息或说明观点/文化差异。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_ebebc063adb2dae0",
+      "unit_title": "UNIT 6"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_149134274fe1aa428c5f",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_52480f34cf788cd2c909",
+        "textbook-node:tcn_llm_quote_656f98dc719c0ceb3766",
+        "textbook-unit:tcu_fc7edda29a549157"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "invite your partner to do something. Student B, say you can’t go and why.invite your partner to do something. Student B, say you can’t go and why.\nA: Hey, Dave. Can you go to the movies\n1. too much homework\non Saturday?\n2. B: I’m sorry. I’m not available. I have too\n3. much homework this weekend.\nA: That’s too bad. Maybe another time.\n4.\nB: Sure, Joe. Thanks for asking.\n2d Role-play the conversation.",
+          "excerpt_hash": "302a7a7b0da6429beeda134e9f30c165444238b56149ecd458b54c9bf0399651",
+          "pdf_page": 77,
+          "printed_page": "66",
+          "span_id": "tes_llm_quote_52480f34cf788cd2c909"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_8d456ef09285f114",
+        "lc_d05d33d6ded79482"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_8d456ef09285f114",
+          "label": "在特定情境中引出主题并用所学语言与他人进行口头交流"
+        },
+        {
+          "component_id": "lc_d05d33d6ded79482",
+          "label": "独立或小组合作完成角色扮演"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_656f98dc719c0ceb3766",
+      "node_title": "invite your partner to do something. Student B, say you can’t go and why.\nA: Hey, Dave. Can you go t",
+      "pdf_page": 77,
+      "printed_page": "66",
+      "publication_status": "published",
+      "rationale": "证据要求学生在邀请与拒绝邀请的具体情境中进行对话，并出现“Role-play”，所以主要功能是练习口头交流和角色扮演。证据没有要求转述语篇主要内容、整合语篇信息或说明观点/文化差异，因此只选择这两个最小充分组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_fc7edda29a549157",
+      "unit_title": "UNIT 9"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_bf0c81820e3a525e",

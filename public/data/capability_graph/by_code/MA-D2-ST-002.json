@@ -82,16 +82,129 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_841143279d0b995c8969",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_e83c2cf6e850ad1f2f28",
+        "textbook-node:tcn_llm_quote_b7568f81ce74d2577ae4",
+        "textbook-unit:tcu_38f6f6d8608ec835"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "4 某小学各年级戴近视镜的男生、女生人数如下表。\n年级\n性别\n一 二 三 四 五 六\n男生 3 5 10 19 25 32\n女生 2 4 11 22 25 30\n根据上表中的数据完成下面的条形统计图。\n戴近视镜的男生人数统计图 戴近视镜的女生人数统计图\n人数 人数\n( ) ( )\n( ) ( )\n( ) ( )\n( ) ( )\n( ) ( )\n( ) ( )\n( ) ( )\n0 0\n一 二 三 四 五 六 年级 一 二 三 四 五 六 年级\n(1)四年级戴近视镜的有多少人?哪几个年级戴近视镜的人数\n比较多? 在回答第二个问题时,对比\n看两幅统计图,感觉方便吗?\n(2)哪几个年级戴近视镜的男生\n比女生多?\n(3)你还能提出什么数学问题?\n不改变珠子的上下顺序,你\n能借助2号杆把1号杆上的珠子移\n到3号杆吗?最少移动多少次?\n移动规则是:每次只能移动\n1 个珠子,大珠子不能放到小珠子\n上面。 1 2 3",
+          "excerpt_hash": "e92b6b1d88e334cef34f7eb6389d425697937e8857b326c76ee7f90c14d26fdf",
+          "pdf_page": 116,
+          "printed_page": "111",
+          "span_id": "tes_llm_quote_e83c2cf6e850ad1f2f28"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3e5b2ca4f90fd7fe",
+        "lc_85f76c2e569181e4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3e5b2ca4f90fd7fe",
+          "label": "用条形统计图合理表示数据"
+        },
+        {
+          "component_id": "lc_85f76c2e569181e4",
+          "label": "说明数据的现实意义"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_b7568f81ce74d2577ae4",
+      "node_title": "根据上表中的数据完成下面的条形统计图。\n戴近视镜的男生人数统计图 戴近视镜的女生人数统计图",
+      "pdf_page": 116,
+      "printed_page": "111",
+      "publication_status": "published",
+      "rationale": "证据要求学生依据数据完成男生、女生戴近视镜人数条形统计图，直接落实用条形统计图表示数据；随后围绕四年级人数、人数较多年级、男女比较和提出数学问题进行解释，数据对象具有明确现实意义。任务是普通练习而非评分检测，因此 relation_type 为 practices。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_38f6f6d8608ec835",
+      "unit_title": "9总复习"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_f21816be36cbe86e544d",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_f0247ea1d1657b08a7c3",
+        "textbook-node:tcn_llm_quote_3f482e9d2acb8b282fd4",
+        "textbook-unit:tcu_ef35565312b84aaa"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "做一做\n统计本班同学出生的月份。\n出生月份 1 2 3 4 5 6 7 8 9 10 11 12\n人数\n把上面统计的数据用下面的条形统计图表示出来。\n人数\n10\n9\n8\n7\n6\n5\n4\n3\n2\n1\n0\n1 2 3 4 5 6 7 8 9 10 11 12 出生月份\n(1) 参加统计的同学一共有( )人。\n(2) 有出生人数相同的月份吗?是哪几个月?\n(3) ( )月出生的人数最多,( )月出生的人数最少。\n95",
+          "excerpt_hash": "86afb979cb9870ef1798dcd238a2ff9c6e32bd5ae751a6cb3faed033025b3aec",
+          "pdf_page": 100,
+          "printed_page": "95",
+          "span_id": "tes_llm_quote_f0247ea1d1657b08a7c3"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3e5b2ca4f90fd7fe"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3e5b2ca4f90fd7fe",
+          "label": "用条形统计图合理表示数据"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_3f482e9d2acb8b282fd4",
+      "node_title": "做一做\n统计本班同学出生的月份。\n出生月份 1 2 3 4 5 6 7 8 9 10 11 12\n人数\n把上面统计的数据用下面的条形统计图表示出来。\n人数\n10\n9\n8\n7\n6\n5\n4\n3\n2\n1\n0",
+      "pdf_page": 100,
+      "printed_page": "95",
+      "publication_status": "published",
+      "rationale": "证据明确要求统计出生月份人数，并“把上面统计的数据用下面的条形统计图表示出来”，直接落实用条形统计图表示数据。后续问题只要求人数总量、相同月份、最多最少等读图分析，没有要求说明这些出生月份数据的现实意义，因此不选择“说明数据的现实意义”。该页是学生操作性活动，主要功能是练习表示数据，所以 relation_type 选 practices。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_ef35565312b84aaa",
+      "unit_title": "7条形统计图"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_2b4625cf0e35c2c3",

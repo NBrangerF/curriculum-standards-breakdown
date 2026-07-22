@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { getEvidenceSpansForAlignment } from './textbookAlignmentContext'
+import { getEvidenceClaimsForAlignment, getPreferredEvidenceClaim } from './textbookAlignmentContext'
 import styles from './TextbookReader.module.css'
 
 const RELATION_LABELS = {
@@ -26,18 +26,31 @@ function confidenceLabel(value) {
     return `置信度 ${Math.round((confidence <= 1 ? confidence * 100 : confidence))}%`
 }
 
-function readableComponents(book, alignment) {
+function readableComponents(book, alignment, evidence = null) {
     const componentById = new Map((book.learning_components || []).map(component => [component.component_id || component.id, component]))
-    const inline = Array.isArray(alignment.learning_components) ? alignment.learning_components : []
+    const inline = Array.isArray(evidence?.learning_components) && evidence.learning_components.length
+        ? evidence.learning_components
+        : Array.isArray(alignment.learning_components) ? alignment.learning_components : []
     if (inline.length) return inline.map(component => typeof component === 'string' ? component : component.label || component.description || component.component_id).filter(Boolean)
     if (Array.isArray(alignment.learning_component_labels) && alignment.learning_component_labels.length) return alignment.learning_component_labels
-    return (alignment.learning_component_ids || []).map(componentId => componentById.get(componentId)?.label || componentById.get(componentId)?.description || componentId)
+    const componentIds = Array.isArray(evidence?.learning_component_ids) && evidence.learning_component_ids.length
+        ? evidence.learning_component_ids
+        : alignment.learning_component_ids || []
+    return componentIds.map(componentId => componentById.get(componentId)?.label || componentById.get(componentId)?.description || componentId)
 }
 
-function AlignmentCard({ book, alignment, highlighted }) {
-    const spans = getEvidenceSpansForAlignment(book, alignment)
-    const evidence = spans[0]
-    const components = readableComponents(book, alignment)
+function evidenceReaderLink(book, alignment, evidence) {
+    const page = Number(evidence?.pdf_page)
+    if (!book?.edition_id || !Number.isInteger(page) || page < 1) return ''
+    const params = new URLSearchParams({ page: String(page), alignment: alignment.alignment_id, panel: 'standards' })
+    if (evidence?.node_id) params.set('node', evidence.node_id)
+    return `/textbooks/${book.edition_id}/read?${params.toString()}`
+}
+
+function AlignmentCard({ book, alignment, highlighted, currentPage }) {
+    const evidenceClaims = getEvidenceClaimsForAlignment(book, alignment)
+    const evidence = getPreferredEvidenceClaim(book, alignment, currentPage)
+    const components = readableComponents(book, alignment, evidence)
     const pdfPage = evidence?.pdf_page || alignment.pdf_page
     const printedPage = evidence?.printed_page || alignment.printed_page
     return (
@@ -60,13 +73,24 @@ function AlignmentCard({ book, alignment, highlighted }) {
                 {confidenceLabel(alignment.confidence) ? <span>{confidenceLabel(alignment.confidence)}</span> : null}
                 {pdfPage ? <span>PDF {pdfPage}{printedPage ? ` · 印刷页 ${printedPage}` : ''}</span> : null}
             </div>
+            {evidenceClaims.length > 1 ? (
+                <nav className={styles.standardEvidenceLinks} aria-label="多页证据定位">
+                    {evidenceClaims.map((claim, index) => (
+                        <Link
+                            key={`${claim.alignment_id || alignment.alignment_id}:${claim.evidence_span_id || index}`}
+                            aria-current={Number(claim.pdf_page) === Number(currentPage) ? 'page' : undefined}
+                            to={evidenceReaderLink(book, alignment, claim)}
+                        >证据 {index + 1} · PDF {claim.pdf_page}</Link>
+                    ))}
+                </nav>
+            ) : null}
             {alignment.rationale ? <p className={styles.rationale}>{alignment.rationale}</p> : null}
             <Link className={styles.standardDetailLink} to={`/standards/${encodeURIComponent(alignment.standard_code)}`}>查看完整课标 →</Link>
         </article>
     )
 }
 
-function AlignmentSection({ title, description, items, book, highlightedAlignmentId }) {
+function AlignmentSection({ title, description, items, book, highlightedAlignmentId, currentPage }) {
     if (!items.length) return null
     return (
         <section className={styles.standardGroup}>
@@ -77,6 +101,7 @@ function AlignmentSection({ title, description, items, book, highlightedAlignmen
                         book={book}
                         alignment={alignment}
                         highlighted={alignment.alignment_id === highlightedAlignmentId}
+                        currentPage={currentPage}
                         key={alignment.alignment_id || `${alignment.standard_code}-${index}`}
                     />
                 ))}
@@ -164,9 +189,9 @@ export default function TextbookStandardsPanel({ book, context, highlightedAlign
                 <p>{breadcrumb.length ? breadcrumb.join(' / ') : '尚未定位到具体内容节点'}</p>
             </div>
             <div className={styles.standardsScroller}>
-                <AlignmentSection title="本页证据" description="证据摘录直接位于当前 PDF 页面。" items={context.pageAlignments} book={book} highlightedAlignmentId={highlightedAlignmentId} />
-                <AlignmentSection title="本课 / 本节" description={context.specificNode ? context.specificNode.title : '当前课节的能力关系。'} items={context.nodeAlignments} book={book} highlightedAlignmentId={highlightedAlignmentId} />
-                <AlignmentSection title="本单元" description={context.unitNode ? context.unitNode.title : '当前单元的总体能力关系。'} items={context.unitAlignments} book={book} highlightedAlignmentId={highlightedAlignmentId} />
+                <AlignmentSection title="本页证据" description="证据摘录直接位于当前 PDF 页面。" items={context.pageAlignments} book={book} highlightedAlignmentId={highlightedAlignmentId} currentPage={context.page} />
+                <AlignmentSection title="本课 / 本节" description={context.specificNode ? context.specificNode.title : '当前课节的能力关系。'} items={context.nodeAlignments} book={book} highlightedAlignmentId={highlightedAlignmentId} currentPage={context.page} />
+                <AlignmentSection title="本单元" description={context.unitNode ? context.unitNode.title : '当前单元的总体能力关系。'} items={context.unitAlignments} book={book} highlightedAlignmentId={highlightedAlignmentId} currentPage={context.page} />
                 {!context.hasSpecificAlignments ? <ScopeFallback scopes={context.scopes} /> : null}
             </div>
         </aside>

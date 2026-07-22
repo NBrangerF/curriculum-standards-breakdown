@@ -3,12 +3,17 @@
     {
       "algorithm_version": "component-evidence-hybrid-v3",
       "alignment_id": "tca_8485db1afbd03a9d",
+      "alignment_ids": [
+        "tca_8485db1afbd03a9d",
+        "tca_ad7231312d92ccf4"
+      ],
       "alignment_method": "component_evidence_hybrid",
       "confidence": 0.92,
       "content_node_kind": "objective",
       "content_node_title": "新中国成立后,中国共产党带领全国人民恢复了",
       "edition_id": "ed_4b8e96b92c39d6040f80",
       "end_pdf_page": 18,
+      "evidence_claim_count": 2,
       "evidence_excerpt": "新中国成立后,中国共产党带领全国人民恢复了",
       "evidence_excerpt_hash": "eb56207210c5d86cb53e1633c75adb5c01f531a9e77bb6dffa3afc73209a4bf2",
       "evidence_granularity": "textbook_body",
@@ -17,7 +22,8 @@
       "evidence_level_detail": "L3_page_evidence",
       "evidence_role": "direct_textbook",
       "evidence_span_ids": [
-        "tes_3222ca45e3071f9d"
+        "tes_3222ca45e3071f9d",
+        "tes_6e1b57917dafa0bb"
       ],
       "grade_band": "H3",
       "learning_component_ids": [
@@ -42,6 +48,10 @@
       ],
       "modifier_conflicts": [],
       "node_id": "tcn_38abd5fb31f93cbc",
+      "node_ids": [
+        "tcn_38abd5fb31f93cbc",
+        "tcn_f47c9b50ba084062"
+      ],
       "pdf_page": 18,
       "printed_page": "15",
       "provenance": "machine_generated",
@@ -53,73 +63,88 @@
       "standard_code": "ML-D3-TCR-005",
       "standard_text": "能概述中国共产党成立及带领人民取得革命胜利的基本事实，能理解“为人民服务”的宗旨并用生活例子说明，形成对党的认同并愿意以实际行动服务他人。",
       "subject_slug": "morality_law",
-      "unit_id": "tcu_177b78cb41ba5511",
-      "unit_title": "第一单元"
-    },
-    {
-      "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_ad7231312d92ccf4",
-      "alignment_method": "component_evidence_hybrid",
-      "confidence": 0.92,
-      "content_node_kind": "objective",
-      "content_node_title": "以毛泽东为领袖的中国共产党领导各族人民,建立了中华人民共和国。",
-      "edition_id": "ed_4b8e96b92c39d6040f80",
-      "end_pdf_page": 18,
-      "evidence_excerpt": "以毛泽东为领袖的中国共产党领导各族人民,建立了中华人民共和国。",
-      "evidence_excerpt_hash": "60673ec1e287d5cffb8ac10f47ba4b1cc1f257d5fe2f2df6b27639a9128e3be4",
-      "evidence_granularity": "textbook_body",
-      "evidence_id": "ctb_02f942c3391d",
-      "evidence_level": "L3",
-      "evidence_level_detail": "L3_page_evidence",
-      "evidence_role": "direct_textbook",
-      "evidence_span_ids": [
-        "tes_6e1b57917dafa0bb"
-      ],
-      "grade_band": "H3",
-      "learning_component_ids": [
-        "lc_f084a51d239ccac9"
-      ],
-      "learning_components": [
+      "supporting_evidence": [
         {
-          "component_id": "lc_f084a51d239ccac9",
-          "label": "概述中国共产党成立及带领人民取得革命胜利的基本事实"
+          "alignment_id": "tca_8485db1afbd03a9d",
+          "bbox": {
+            "height": 12.797,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 249.747,
+            "x": 112.709,
+            "y": 453.97
+          },
+          "confidence": 0.92,
+          "evidence_excerpt": "新中国成立后,中国共产党带领全国人民恢复了",
+          "evidence_excerpt_hash": "eb56207210c5d86cb53e1633c75adb5c01f531a9e77bb6dffa3afc73209a4bf2",
+          "evidence_quote": null,
+          "evidence_role": "objective",
+          "evidence_span_id": "tes_3222ca45e3071f9d",
+          "learning_component_ids": [
+            "lc_f084a51d239ccac9"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_f084a51d239ccac9",
+              "label": "概述中国共产党成立及带领人民取得革命胜利的基本事实"
+            }
+          ],
+          "node_id": "tcn_38abd5fb31f93cbc",
+          "pdf_page": 18,
+          "printed_page": "15",
+          "rationale": "教材objective“新中国成立后,中国共产党带领全国人民恢复了”与课标 ML-D3-TCR-005 的可教学小能力“概述中国共产党成立及带领人民取得革命胜利的基本事实”形成页内证据匹配。",
+          "score": 0.88
+        },
+        {
+          "alignment_id": "tca_ad7231312d92ccf4",
+          "bbox": {
+            "height": 12.797,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 363.357,
+            "x": 112.709,
+            "y": 507.97
+          },
+          "confidence": 0.92,
+          "evidence_excerpt": "以毛泽东为领袖的中国共产党领导各族人民,建立了中华人民共和国。",
+          "evidence_excerpt_hash": "60673ec1e287d5cffb8ac10f47ba4b1cc1f257d5fe2f2df6b27639a9128e3be4",
+          "evidence_quote": null,
+          "evidence_role": "objective",
+          "evidence_span_id": "tes_6e1b57917dafa0bb",
+          "learning_component_ids": [
+            "lc_f084a51d239ccac9"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_f084a51d239ccac9",
+              "label": "概述中国共产党成立及带领人民取得革命胜利的基本事实"
+            }
+          ],
+          "node_id": "tcn_f47c9b50ba084062",
+          "pdf_page": 18,
+          "printed_page": "15",
+          "rationale": "教材objective“以毛泽东为领袖的中国共产党领导各族人民,建立了中华人民共和国。”与课标 ML-D3-TCR-005 的可教学小能力“概述中国共产党成立及带领人民取得革命胜利的基本事实”形成页内证据匹配。",
+          "score": 0.88
         }
       ],
-      "longest_match_length": 5,
-      "matched_fields": [
-        "learning_components",
-        "standard_context"
-      ],
-      "matched_keywords": [
-        "中国共产党",
-        "人民",
-        "中华"
-      ],
-      "modifier_conflicts": [],
-      "node_id": "tcn_f47c9b50ba084062",
-      "pdf_page": 18,
-      "printed_page": "15",
-      "provenance": "machine_generated",
-      "publication_status": "published",
-      "rationale": "教材objective“以毛泽东为领袖的中国共产党领导各族人民,建立了中华人民共和国。”与课标 ML-D3-TCR-005 的可教学小能力“概述中国共产党成立及带领人民取得革命胜利的基本事实”形成页内证据匹配。",
-      "relation_type": "supports",
-      "review_status": "machine_checked",
-      "score": 0.88,
-      "standard_code": "ML-D3-TCR-005",
-      "standard_text": "能概述中国共产党成立及带领人民取得革命胜利的基本事实，能理解“为人民服务”的宗旨并用生活例子说明，形成对党的认同并愿意以实际行动服务他人。",
-      "subject_slug": "morality_law",
       "unit_id": "tcu_177b78cb41ba5511",
       "unit_title": "第一单元"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
       "alignment_id": "tca_80c55d0a91013a5f",
+      "alignment_ids": [
+        "tca_80c55d0a91013a5f"
+      ],
       "alignment_method": "component_evidence_hybrid",
       "confidence": 0.92,
       "content_node_kind": "objective",
       "content_node_title": "新中国成立后,中国共产党带领全国人民恢复了",
       "edition_id": "ed_4b8e96b92c39d6040f80",
       "end_pdf_page": 18,
+      "evidence_claim_count": 1,
       "evidence_excerpt": "新中国成立后,中国共产党带领全国人民恢复了",
       "evidence_excerpt_hash": "eb56207210c5d86cb53e1633c75adb5c01f531a9e77bb6dffa3afc73209a4bf2",
       "evidence_granularity": "textbook_body",
@@ -150,6 +175,9 @@
       ],
       "modifier_conflicts": [],
       "node_id": "tcn_38abd5fb31f93cbc",
+      "node_ids": [
+        "tcn_38abd5fb31f93cbc"
+      ],
       "pdf_page": 18,
       "printed_page": "15",
       "provenance": "machine_generated",
@@ -161,18 +189,56 @@
       "standard_code": "ML-D3-TCR-006",
       "standard_text": "能说明新中国成立的重大历史意义，能用史实解释“站起来”的含义，能理解社会主义道路对国家发展的重要性，并能表达爱国情感与责任担当。",
       "subject_slug": "morality_law",
+      "supporting_evidence": [
+        {
+          "alignment_id": "tca_80c55d0a91013a5f",
+          "bbox": {
+            "height": 12.797,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 249.747,
+            "x": 112.709,
+            "y": 453.97
+          },
+          "confidence": 0.92,
+          "evidence_excerpt": "新中国成立后,中国共产党带领全国人民恢复了",
+          "evidence_excerpt_hash": "eb56207210c5d86cb53e1633c75adb5c01f531a9e77bb6dffa3afc73209a4bf2",
+          "evidence_quote": null,
+          "evidence_role": "objective",
+          "evidence_span_id": "tes_3222ca45e3071f9d",
+          "learning_component_ids": [
+            "lc_de77afa4d2b8e9f5"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_de77afa4d2b8e9f5",
+              "label": "说明新中国成立的重大历史意义"
+            }
+          ],
+          "node_id": "tcn_38abd5fb31f93cbc",
+          "pdf_page": 18,
+          "printed_page": "15",
+          "rationale": "教材objective“新中国成立后,中国共产党带领全国人民恢复了”与课标 ML-D3-TCR-006 的可教学小能力“说明新中国成立的重大历史意义”形成页内证据匹配。",
+          "score": 0.88
+        }
+      ],
       "unit_id": "tcu_177b78cb41ba5511",
       "unit_title": "第一单元"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
       "alignment_id": "tca_9d0698e5828aefb3",
+      "alignment_ids": [
+        "tca_9d0698e5828aefb3"
+      ],
       "alignment_method": "component_evidence_hybrid",
       "confidence": 0.86,
       "content_node_kind": "objective",
       "content_node_title": "只有取得选民资格,才享有公民权利。 ( )",
       "edition_id": "ed_4b8e96b92c39d6040f80",
       "end_pdf_page": 33,
+      "evidence_claim_count": 1,
       "evidence_excerpt": "只有取得选民资格,才享有公民权利。 ( )",
       "evidence_excerpt_hash": "09a8edd116490dfadc64ac194f3dae4168063c1cd749b04ba3f7d36b49432d25",
       "evidence_granularity": "textbook_body",
@@ -203,6 +269,9 @@
       ],
       "modifier_conflicts": [],
       "node_id": "tcn_20cba2c32151f570",
+      "node_ids": [
+        "tcn_20cba2c32151f570"
+      ],
       "pdf_page": 33,
       "printed_page": "30",
       "provenance": "machine_generated",
@@ -214,18 +283,56 @@
       "standard_code": "ML-D3-LAW-002",
       "standard_text": "能说出宪法作为国家根本法的地位，能列举宪法中与公民权利义务相关的要点，能在校园生活中用规则与法治观念约束自身行为。",
       "subject_slug": "morality_law",
+      "supporting_evidence": [
+        {
+          "alignment_id": "tca_9d0698e5828aefb3",
+          "bbox": {
+            "height": 12.797,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 303.309,
+            "x": 107.87,
+            "y": 468.665
+          },
+          "confidence": 0.86,
+          "evidence_excerpt": "只有取得选民资格,才享有公民权利。 ( )",
+          "evidence_excerpt_hash": "09a8edd116490dfadc64ac194f3dae4168063c1cd749b04ba3f7d36b49432d25",
+          "evidence_quote": null,
+          "evidence_role": "objective",
+          "evidence_span_id": "tes_d3e63a97cd4f8fb1",
+          "learning_component_ids": [
+            "lc_28582181508ee5a2"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_28582181508ee5a2",
+              "label": "列举宪法中与公民权利义务相关的要点"
+            }
+          ],
+          "node_id": "tcn_20cba2c32151f570",
+          "pdf_page": 33,
+          "printed_page": "30",
+          "rationale": "教材objective“只有取得选民资格,才享有公民权利。 ( )”与课标 ML-D3-LAW-002 的可教学小能力“列举宪法中与公民权利义务相关的要点”形成页内证据匹配。",
+          "score": 0.76
+        }
+      ],
       "unit_id": "tcu_bf08e361b9eb8508",
       "unit_title": "第二单元"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
       "alignment_id": "tca_5cf050101a3e5d80",
+      "alignment_ids": [
+        "tca_5cf050101a3e5d80"
+      ],
       "alignment_method": "component_evidence_hybrid",
       "confidence": 0.92,
       "content_node_kind": "lesson",
       "content_node_title": "4公民的基本权利和义务",
       "edition_id": "ed_4b8e96b92c39d6040f80",
       "end_pdf_page": 44,
+      "evidence_claim_count": 1,
       "evidence_excerpt": "4 公民的基本权利和义务",
       "evidence_excerpt_hash": "516e8d4a5d44acdd822516238aff6744c8e65f738c85fed39630efd386371864",
       "evidence_granularity": "topic_heading",
@@ -258,6 +365,9 @@
       ],
       "modifier_conflicts": [],
       "node_id": "tcn_e344bd603517ab05",
+      "node_ids": [
+        "tcn_e344bd603517ab05"
+      ],
       "pdf_page": 35,
       "printed_page": "32",
       "provenance": "machine_generated",
@@ -269,18 +379,56 @@
       "standard_code": "ML-D3-LAW-003",
       "standard_text": "能解释“公民”的基本含义，能举例说明常见权利与义务，并能在学校与生活中体现人人平等、尊重他人权利与履行自身义务。",
       "subject_slug": "morality_law",
+      "supporting_evidence": [
+        {
+          "alignment_id": "tca_5cf050101a3e5d80",
+          "bbox": {
+            "height": 21,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 233.31,
+            "x": 53.757,
+            "y": 636.928
+          },
+          "confidence": 0.92,
+          "evidence_excerpt": "4 公民的基本权利和义务",
+          "evidence_excerpt_hash": "516e8d4a5d44acdd822516238aff6744c8e65f738c85fed39630efd386371864",
+          "evidence_quote": null,
+          "evidence_role": "heading",
+          "evidence_span_id": "tes_fdca19f9264031f8",
+          "learning_component_ids": [
+            "lc_2966fd47a30d649c"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_2966fd47a30d649c",
+              "label": "解释“公民”的基本含义"
+            }
+          ],
+          "node_id": "tcn_e344bd603517ab05",
+          "pdf_page": 35,
+          "printed_page": "32",
+          "rationale": "教材lesson“4公民的基本权利和义务”与课标 ML-D3-LAW-003 的可教学小能力“解释“公民”的基本含义”形成页内证据匹配。",
+          "score": 0.88
+        }
+      ],
       "unit_id": "tcu_bf08e361b9eb8508",
       "unit_title": "第二单元"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
       "alignment_id": "tca_14e958225ea627fd",
+      "alignment_ids": [
+        "tca_14e958225ea627fd"
+      ],
       "alignment_method": "component_evidence_hybrid",
       "confidence": 0.86,
       "content_node_kind": "lesson",
       "content_node_title": "4公民的基本权利和义务",
       "edition_id": "ed_4b8e96b92c39d6040f80",
       "end_pdf_page": 44,
+      "evidence_claim_count": 1,
       "evidence_excerpt": "4 公民的基本权利和义务",
       "evidence_excerpt_hash": "516e8d4a5d44acdd822516238aff6744c8e65f738c85fed39630efd386371864",
       "evidence_granularity": "topic_heading",
@@ -311,6 +459,9 @@
       ],
       "modifier_conflicts": [],
       "node_id": "tcn_e344bd603517ab05",
+      "node_ids": [
+        "tcn_e344bd603517ab05"
+      ],
       "pdf_page": 35,
       "printed_page": "32",
       "provenance": "machine_generated",
@@ -322,18 +473,221 @@
       "standard_code": "ML-D3-LAW-006",
       "standard_text": "能列举未成年人享有的若干基本权利，能识别侵害情境并采取自我保护与求助措施，能知道主要保护责任主体及可用求助渠道。",
       "subject_slug": "morality_law",
+      "supporting_evidence": [
+        {
+          "alignment_id": "tca_14e958225ea627fd",
+          "bbox": {
+            "height": 21,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 233.31,
+            "x": 53.757,
+            "y": 636.928
+          },
+          "confidence": 0.86,
+          "evidence_excerpt": "4 公民的基本权利和义务",
+          "evidence_excerpt_hash": "516e8d4a5d44acdd822516238aff6744c8e65f738c85fed39630efd386371864",
+          "evidence_quote": null,
+          "evidence_role": "heading",
+          "evidence_span_id": "tes_fdca19f9264031f8",
+          "learning_component_ids": [
+            "lc_54f96fc201e64933"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_54f96fc201e64933",
+              "label": "列举未成年人享有的若干基本权利"
+            }
+          ],
+          "node_id": "tcn_e344bd603517ab05",
+          "pdf_page": 35,
+          "printed_page": "32",
+          "rationale": "教材lesson“4公民的基本权利和义务”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
+          "score": 0.76
+        }
+      ],
       "unit_id": "tcu_bf08e361b9eb8508",
       "unit_title": "第二单元"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_3d8e3b1b5ebf5377",
+      "alignment_ids": [
+        "tca_3d8e3b1b5ebf5377",
+        "tca_7947314b52e6af92",
+        "tca_a450bcd1aa9d7c59"
+      ],
+      "alignment_method": "component_evidence_hybrid",
+      "confidence": 0.86,
+      "content_node_kind": "objective",
+      "content_node_title": "《中华人民共和国未成年人保护法》主要规定有哪些内容?",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "end_pdf_page": 79,
+      "evidence_claim_count": 3,
+      "evidence_excerpt": "结合你的生活实际,说说你认为家庭、学校和社会在保护未成年人方面",
+      "evidence_excerpt_hash": "1a3e4d870098ae05023f7c094304eefde43bf6549973ee94717aa375706ddae8",
+      "evidence_granularity": "textbook_body",
+      "evidence_id": "ctb_02f942c3391d",
+      "evidence_level": "L3",
+      "evidence_level_detail": "L3_page_evidence",
+      "evidence_role": "direct_textbook",
+      "evidence_span_ids": [
+        "tes_20dd304a1832dc4e",
+        "tes_dbb324cf3e6bf05a",
+        "tes_de785a53409539a5"
+      ],
+      "grade_band": "H3",
+      "learning_component_ids": [
+        "lc_54f96fc201e64933"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_54f96fc201e64933",
+          "label": "列举未成年人享有的若干基本权利"
+        }
+      ],
+      "longest_match_length": 4,
+      "matched_fields": [
+        "learning_components",
+        "standard_context"
+      ],
+      "matched_keywords": [
+        "未成年人",
+        "保护"
+      ],
+      "modifier_conflicts": [],
+      "node_id": "tcn_b1c046e6dbd2450f",
+      "node_ids": [
+        "tcn_b1c046e6dbd2450f",
+        "tcn_820d087f72c7fb9c",
+        "tcn_d79427486aeb602c"
+      ],
+      "pdf_page": 79,
+      "printed_page": "76",
+      "provenance": "machine_generated",
+      "publication_status": "published",
+      "rationale": "教材objective“《中华人民共和国未成年人保护法》主要规定有哪些内容?”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
+      "relation_type": "supports",
+      "review_status": "machine_checked",
+      "score": 0.76,
+      "standard_code": "ML-D3-LAW-006",
+      "standard_text": "能列举未成年人享有的若干基本权利，能识别侵害情境并采取自我保护与求助措施，能知道主要保护责任主体及可用求助渠道。",
+      "subject_slug": "morality_law",
+      "supporting_evidence": [
+        {
+          "alignment_id": "tca_7947314b52e6af92",
+          "bbox": {
+            "height": 12.797,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 357.831,
+            "x": 90.031,
+            "y": 190.77
+          },
+          "confidence": 0.86,
+          "evidence_excerpt": "结合你的生活实际,说说你认为家庭、学校和社会在保护未成年人方面",
+          "evidence_excerpt_hash": "1a3e4d870098ae05023f7c094304eefde43bf6549973ee94717aa375706ddae8",
+          "evidence_quote": null,
+          "evidence_role": "objective",
+          "evidence_span_id": "tes_20dd304a1832dc4e",
+          "learning_component_ids": [
+            "lc_54f96fc201e64933"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_54f96fc201e64933",
+              "label": "列举未成年人享有的若干基本权利"
+            }
+          ],
+          "node_id": "tcn_b1c046e6dbd2450f",
+          "pdf_page": 79,
+          "printed_page": "76",
+          "rationale": "教材objective“结合你的生活实际,说说你认为家庭、学校和社会在保护未成年人方面”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
+          "score": 0.76
+        },
+        {
+          "alignment_id": "tca_3d8e3b1b5ebf5377",
+          "bbox": {
+            "height": 12.797,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 293.327,
+            "x": 90.031,
+            "y": 208.77
+          },
+          "confidence": 0.86,
+          "evidence_excerpt": "《中华人民共和国未成年人保护法》主要规定有哪些内容?",
+          "evidence_excerpt_hash": "c2a9844192e2d63050d7e1c140773461b06ef5b0a177c6f08abc1e48542b2124",
+          "evidence_quote": null,
+          "evidence_role": "objective",
+          "evidence_span_id": "tes_dbb324cf3e6bf05a",
+          "learning_component_ids": [
+            "lc_54f96fc201e64933"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_54f96fc201e64933",
+              "label": "列举未成年人享有的若干基本权利"
+            }
+          ],
+          "node_id": "tcn_820d087f72c7fb9c",
+          "pdf_page": 79,
+          "printed_page": "76",
+          "rationale": "教材objective“《中华人民共和国未成年人保护法》主要规定有哪些内容?”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
+          "score": 0.76
+        },
+        {
+          "alignment_id": "tca_a450bcd1aa9d7c59",
+          "bbox": {
+            "height": 11,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 184.327,
+            "x": 90.031,
+            "y": 392.659
+          },
+          "confidence": 0.86,
+          "evidence_excerpt": "4.《中华人民共和国未成年人保护法》",
+          "evidence_excerpt_hash": "d4b21ba5dade9bd1decd55dc84a154716214f54114e9a2c3928752e5d59b9867",
+          "evidence_quote": null,
+          "evidence_role": "heading",
+          "evidence_span_id": "tes_de785a53409539a5",
+          "learning_component_ids": [
+            "lc_54f96fc201e64933"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_54f96fc201e64933",
+              "label": "列举未成年人享有的若干基本权利"
+            }
+          ],
+          "node_id": "tcn_d79427486aeb602c",
+          "pdf_page": 87,
+          "printed_page": "84",
+          "rationale": "教材lesson“4《中华人民共和国未成年人保护法》”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
+          "score": 0.76
+        }
+      ],
+      "unit_id": "tcu_e8695c88af397450",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
       "alignment_id": "tca_2b01ef002d95df0f",
+      "alignment_ids": [
+        "tca_2b01ef002d95df0f"
+      ],
       "alignment_method": "component_evidence_hybrid",
       "confidence": 0.92,
       "content_node_kind": "exercise",
       "content_node_title": "想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。",
       "edition_id": "ed_4b8e96b92c39d6040f80",
       "end_pdf_page": 87,
+      "evidence_claim_count": 1,
       "evidence_excerpt": "想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。",
       "evidence_excerpt_hash": "5753731371144d501d6557fbc2855f89a1e104262191971f11210ce77ebcb365",
       "evidence_granularity": "textbook_body",
@@ -365,6 +719,9 @@
       ],
       "modifier_conflicts": [],
       "node_id": "tcn_bf57a46d0bffe44b",
+      "node_ids": [
+        "tcn_bf57a46d0bffe44b"
+      ],
       "pdf_page": 87,
       "printed_page": "84",
       "provenance": "machine_generated",
@@ -376,180 +733,56 @@
       "standard_code": "ML-D3-LAW-001",
       "standard_text": "能用自己的话说明法律的基本特征与作用，能在日常生活中做到守法守规，遇到纠纷或侵权情境能想到依法求助并选择合适途径。",
       "subject_slug": "morality_law",
-      "unit_id": "tcu_e8695c88af397450",
-      "unit_title": "第四单元"
-    },
-    {
-      "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_3d8e3b1b5ebf5377",
-      "alignment_method": "component_evidence_hybrid",
-      "confidence": 0.86,
-      "content_node_kind": "objective",
-      "content_node_title": "《中华人民共和国未成年人保护法》主要规定有哪些内容?",
-      "edition_id": "ed_4b8e96b92c39d6040f80",
-      "end_pdf_page": 79,
-      "evidence_excerpt": "《中华人民共和国未成年人保护法》主要规定有哪些内容?",
-      "evidence_excerpt_hash": "c2a9844192e2d63050d7e1c140773461b06ef5b0a177c6f08abc1e48542b2124",
-      "evidence_granularity": "textbook_body",
-      "evidence_id": "ctb_02f942c3391d",
-      "evidence_level": "L3",
-      "evidence_level_detail": "L3_page_evidence",
-      "evidence_role": "direct_textbook",
-      "evidence_span_ids": [
-        "tes_dbb324cf3e6bf05a"
-      ],
-      "grade_band": "H3",
-      "learning_component_ids": [
-        "lc_54f96fc201e64933"
-      ],
-      "learning_components": [
+      "supporting_evidence": [
         {
-          "component_id": "lc_54f96fc201e64933",
-          "label": "列举未成年人享有的若干基本权利"
+          "alignment_id": "tca_2b01ef002d95df0f",
+          "bbox": {
+            "height": 11,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 351.839,
+            "x": 90.031,
+            "y": 71.148
+          },
+          "confidence": 0.92,
+          "evidence_excerpt": "想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。",
+          "evidence_excerpt_hash": "5753731371144d501d6557fbc2855f89a1e104262191971f11210ce77ebcb365",
+          "evidence_quote": null,
+          "evidence_role": "exercise",
+          "evidence_span_id": "tes_1632a701280b8882",
+          "learning_component_ids": [
+            "lc_f9c8b0f5dfde96d1"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_f9c8b0f5dfde96d1",
+              "label": "在日常生活中做到守法守规，遇到纠纷或侵权情境能想到依法求助"
+            }
+          ],
+          "node_id": "tcn_bf57a46d0bffe44b",
+          "pdf_page": 87,
+          "printed_page": "84",
+          "rationale": "教材exercise“想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。”与课标 ML-D3-LAW-001 的可教学小能力“在日常生活中做到守法守规，遇到纠纷或侵权情境能想到依法求助”形成页内证据匹配。",
+          "score": 0.88
         }
       ],
-      "longest_match_length": 4,
-      "matched_fields": [
-        "learning_components",
-        "standard_context"
-      ],
-      "matched_keywords": [
-        "未成年人",
-        "保护"
-      ],
-      "modifier_conflicts": [],
-      "node_id": "tcn_820d087f72c7fb9c",
-      "pdf_page": 79,
-      "printed_page": "76",
-      "provenance": "machine_generated",
-      "publication_status": "published",
-      "rationale": "教材objective“《中华人民共和国未成年人保护法》主要规定有哪些内容?”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
-      "relation_type": "supports",
-      "review_status": "machine_checked",
-      "score": 0.76,
-      "standard_code": "ML-D3-LAW-006",
-      "standard_text": "能列举未成年人享有的若干基本权利，能识别侵害情境并采取自我保护与求助措施，能知道主要保护责任主体及可用求助渠道。",
-      "subject_slug": "morality_law",
-      "unit_id": "tcu_e8695c88af397450",
-      "unit_title": "第四单元"
-    },
-    {
-      "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_7947314b52e6af92",
-      "alignment_method": "component_evidence_hybrid",
-      "confidence": 0.86,
-      "content_node_kind": "objective",
-      "content_node_title": "结合你的生活实际,说说你认为家庭、学校和社会在保护未成年人方面",
-      "edition_id": "ed_4b8e96b92c39d6040f80",
-      "end_pdf_page": 79,
-      "evidence_excerpt": "结合你的生活实际,说说你认为家庭、学校和社会在保护未成年人方面",
-      "evidence_excerpt_hash": "1a3e4d870098ae05023f7c094304eefde43bf6549973ee94717aa375706ddae8",
-      "evidence_granularity": "textbook_body",
-      "evidence_id": "ctb_02f942c3391d",
-      "evidence_level": "L3",
-      "evidence_level_detail": "L3_page_evidence",
-      "evidence_role": "direct_textbook",
-      "evidence_span_ids": [
-        "tes_20dd304a1832dc4e"
-      ],
-      "grade_band": "H3",
-      "learning_component_ids": [
-        "lc_54f96fc201e64933"
-      ],
-      "learning_components": [
-        {
-          "component_id": "lc_54f96fc201e64933",
-          "label": "列举未成年人享有的若干基本权利"
-        }
-      ],
-      "longest_match_length": 4,
-      "matched_fields": [
-        "learning_components",
-        "standard_context"
-      ],
-      "matched_keywords": [
-        "未成年人",
-        "保护"
-      ],
-      "modifier_conflicts": [],
-      "node_id": "tcn_b1c046e6dbd2450f",
-      "pdf_page": 79,
-      "printed_page": "76",
-      "provenance": "machine_generated",
-      "publication_status": "published",
-      "rationale": "教材objective“结合你的生活实际,说说你认为家庭、学校和社会在保护未成年人方面”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
-      "relation_type": "supports",
-      "review_status": "machine_checked",
-      "score": 0.76,
-      "standard_code": "ML-D3-LAW-006",
-      "standard_text": "能列举未成年人享有的若干基本权利，能识别侵害情境并采取自我保护与求助措施，能知道主要保护责任主体及可用求助渠道。",
-      "subject_slug": "morality_law",
-      "unit_id": "tcu_e8695c88af397450",
-      "unit_title": "第四单元"
-    },
-    {
-      "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_a450bcd1aa9d7c59",
-      "alignment_method": "component_evidence_hybrid",
-      "confidence": 0.86,
-      "content_node_kind": "lesson",
-      "content_node_title": "4《中华人民共和国未成年人保护法》",
-      "edition_id": "ed_4b8e96b92c39d6040f80",
-      "end_pdf_page": 98,
-      "evidence_excerpt": "4.《中华人民共和国未成年人保护法》",
-      "evidence_excerpt_hash": "d4b21ba5dade9bd1decd55dc84a154716214f54114e9a2c3928752e5d59b9867",
-      "evidence_granularity": "topic_heading",
-      "evidence_id": "ctb_02f942c3391d",
-      "evidence_level": "L2",
-      "evidence_level_detail": "L2_topic",
-      "evidence_role": "direct_textbook",
-      "evidence_span_ids": [
-        "tes_de785a53409539a5"
-      ],
-      "grade_band": "H3",
-      "learning_component_ids": [
-        "lc_54f96fc201e64933"
-      ],
-      "learning_components": [
-        {
-          "component_id": "lc_54f96fc201e64933",
-          "label": "列举未成年人享有的若干基本权利"
-        }
-      ],
-      "longest_match_length": 4,
-      "matched_fields": [
-        "learning_components",
-        "standard_context"
-      ],
-      "matched_keywords": [
-        "未成年人",
-        "保护"
-      ],
-      "modifier_conflicts": [],
-      "node_id": "tcn_d79427486aeb602c",
-      "pdf_page": 87,
-      "printed_page": "84",
-      "provenance": "machine_generated",
-      "publication_status": "published",
-      "rationale": "教材lesson“4《中华人民共和国未成年人保护法》”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
-      "relation_type": "supports",
-      "review_status": "machine_checked",
-      "score": 0.76,
-      "standard_code": "ML-D3-LAW-006",
-      "standard_text": "能列举未成年人享有的若干基本权利，能识别侵害情境并采取自我保护与求助措施，能知道主要保护责任主体及可用求助渠道。",
-      "subject_slug": "morality_law",
       "unit_id": "tcu_e8695c88af397450",
       "unit_title": "第四单元"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
       "alignment_id": "tca_d5267a7d8363efb5",
+      "alignment_ids": [
+        "tca_d5267a7d8363efb5"
+      ],
       "alignment_method": "component_evidence_hybrid",
       "confidence": 0.86,
       "content_node_kind": "exercise",
       "content_node_title": "想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。",
       "edition_id": "ed_4b8e96b92c39d6040f80",
       "end_pdf_page": 87,
+      "evidence_claim_count": 1,
       "evidence_excerpt": "想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。",
       "evidence_excerpt_hash": "5753731371144d501d6557fbc2855f89a1e104262191971f11210ce77ebcb365",
       "evidence_granularity": "textbook_body",
@@ -582,6 +815,9 @@
       ],
       "modifier_conflicts": [],
       "node_id": "tcn_bf57a46d0bffe44b",
+      "node_ids": [
+        "tcn_bf57a46d0bffe44b"
+      ],
       "pdf_page": 87,
       "printed_page": "84",
       "provenance": "machine_generated",
@@ -593,18 +829,56 @@
       "standard_code": "ML-D3-LAW-006",
       "standard_text": "能列举未成年人享有的若干基本权利，能识别侵害情境并采取自我保护与求助措施，能知道主要保护责任主体及可用求助渠道。",
       "subject_slug": "morality_law",
+      "supporting_evidence": [
+        {
+          "alignment_id": "tca_d5267a7d8363efb5",
+          "bbox": {
+            "height": 11,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 351.839,
+            "x": 90.031,
+            "y": 71.148
+          },
+          "confidence": 0.86,
+          "evidence_excerpt": "想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。",
+          "evidence_excerpt_hash": "5753731371144d501d6557fbc2855f89a1e104262191971f11210ce77ebcb365",
+          "evidence_quote": null,
+          "evidence_role": "exercise",
+          "evidence_span_id": "tes_1632a701280b8882",
+          "learning_component_ids": [
+            "lc_54f96fc201e64933"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_54f96fc201e64933",
+              "label": "列举未成年人享有的若干基本权利"
+            }
+          ],
+          "node_id": "tcn_bf57a46d0bffe44b",
+          "pdf_page": 87,
+          "printed_page": "84",
+          "rationale": "教材exercise“想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
+          "score": 0.76
+        }
+      ],
       "unit_id": "tcu_e8695c88af397450",
       "unit_title": "第四单元"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
       "alignment_id": "tca_18fbd3b4cc47f97b",
+      "alignment_ids": [
+        "tca_18fbd3b4cc47f97b"
+      ],
       "alignment_method": "component_evidence_hybrid",
       "confidence": 0.86,
       "content_node_kind": "exercise",
       "content_node_title": "说说杜某某实施了哪三类不良行为,分别受到了哪些处理。请按照由轻到重(黄灯、红灯、褐灯)的顺序进行排序,将不良行为和对应的处理措施,填入下列表格中。",
       "edition_id": "ed_4b8e96b92c39d6040f80",
       "end_pdf_page": 89,
+      "evidence_claim_count": 1,
       "evidence_excerpt": "说说杜某某实施了哪三类不良行为,分别受到了哪些处理。请按照由轻到重(黄灯、红灯、褐灯)的顺序进行排序,将不良行为和对应的处理措施,填入下列表格中。",
       "evidence_excerpt_hash": "23f72f4ffd0388d353e04e5424b038e2701a3c1c0ac0692beefac77e7993d08d",
       "evidence_granularity": "textbook_body",
@@ -635,6 +909,9 @@
       ],
       "modifier_conflicts": [],
       "node_id": "tcn_a0ec4b3d40e15435",
+      "node_ids": [
+        "tcn_a0ec4b3d40e15435"
+      ],
       "pdf_page": 89,
       "printed_page": "86",
       "provenance": "machine_generated",
@@ -646,6 +923,40 @@
       "standard_code": "ML-D3-LAW-007",
       "standard_text": "能区分不良行为、严重不良行为与违法犯罪的边界，能说明其后果与法律责任，能制定自我约束与同伴互助的预防策略。",
       "subject_slug": "morality_law",
+      "supporting_evidence": [
+        {
+          "alignment_id": "tca_18fbd3b4cc47f97b",
+          "bbox": {
+            "height": 11,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 357.742,
+            "x": 90.038,
+            "y": 227.874
+          },
+          "confidence": 0.86,
+          "evidence_excerpt": "说说杜某某实施了哪三类不良行为,分别受到了哪些处理。请按照由轻到重(黄灯、红灯、褐灯)的顺序进行排序,将不良行为和对应的处理措施,填入下列表格中。",
+          "evidence_excerpt_hash": "23f72f4ffd0388d353e04e5424b038e2701a3c1c0ac0692beefac77e7993d08d",
+          "evidence_quote": null,
+          "evidence_role": "exercise",
+          "evidence_span_id": "tes_867c9cfe017558b8",
+          "learning_component_ids": [
+            "lc_ff07d71e859262dc"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_ff07d71e859262dc",
+              "label": "区分不良行为、严重不良行为与违法犯罪的边界"
+            }
+          ],
+          "node_id": "tcn_a0ec4b3d40e15435",
+          "pdf_page": 89,
+          "printed_page": "86",
+          "rationale": "教材exercise“说说杜某某实施了哪三类不良行为,分别受到了哪些处理。请按照由轻到重(黄灯、红灯、褐灯)的顺序进行排序,将不良行为和对应的处理措施,填入下列表格中。”与课标 ML-D3-LAW-007 的可教学小能力“区分不良行为、严重不良行为与违法犯罪的边界”形成页内证据匹配。",
+          "score": 0.76
+        }
+      ],
       "unit_id": "tcu_e8695c88af397450",
       "unit_title": "第四单元"
     }
@@ -5106,7 +5417,7 @@
   "generated_at": "2026-07-17T05:13:38.674Z",
   "grade": 6,
   "grade_label": "6年级",
-  "machine_checked_alignment_count": 12,
+  "machine_checked_alignment_count": 9,
   "page_count": 98,
   "page_map": [
     {
@@ -5776,7 +6087,7 @@
     }
   ],
   "page_map_status": "approved",
-  "published_alignment_count": 12,
+  "published_alignment_count": 9,
   "reading_available": true,
   "related_resource_count": 0,
   "related_resources": [],

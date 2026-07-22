@@ -45,16 +45,70 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_a26bd339c8b560476ac2",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_8e47be2b4fb3fb16dfce",
+        "textbook-node:tcn_llm_quote_9546e085c34c9a9b0805",
+        "textbook-unit:tcu_d5b5e574493c99e4"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "8 王平家到外婆家的路程是600千米,如果选用下面的交通工具,\n分别需要多少时间?\n交通工具 自行车 大巴车 轿车 火车\n速度 /(千米/时) 15 60 75 200\u0007\u0007\u0007\u0007\u0007\u0007\u0007\u0007\u0007\n时间 /时\n他到外婆家应该选择哪种交通工具?\n9 先说出每道题的商是几位数,再在\u0007 \u0007里填上商。\n÷24 ÷18\n144 126\n312 414\n720 162\n168 288\n10 刘叔叔带 900 元去买大米,买了 12 袋同一种大米,剩 60 元。\n每袋大米的价钱是多少?\n11 87÷42 252÷64 247÷19 221÷37\n118÷53 385÷36 158÷25 920÷23\n12 按要求在\u0007\u0007\u0007\u0007\u0007\u0007里填上一个适当的数字,再计算。\n商是一位数 商是两位数\n25÷38 76÷27\n96÷82 04÷64\n13 育英小学的 180 名少先队员在“爱心日”为军属做好事。这些",
+          "excerpt_hash": "37b79e58290f67a63092174f89348ebc1d7c9d35f60e048c8216677fd273be48",
+          "pdf_page": 91,
+          "printed_page": "86",
+          "span_id": "tes_llm_quote_8e47be2b4fb3fb16dfce"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_85cf9850631bce32"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_85cf9850631bce32",
+          "label": "运用四则混合运算解决问题"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_9546e085c34c9a9b0805",
+      "node_title": "10 刘叔叔带 900 元去买大米,买了 12 袋同一种大米,剩 60 元。\n每袋大米的价钱是多少?",
+      "pdf_page": 91,
+      "printed_page": "86",
+      "publication_status": "published",
+      "rationale": "证据给出买大米的实际情境，要求求每袋价钱，需要先处理总钱数与剩余钱数的关系，再按12袋分配，直接覆盖运用混合运算解决问题的动作。该题是普通练习题，主要功能是让学生练习解题，因此 relation_type 取 practices。未选择估算或初步应用意识并说明选择理由，因为证据没有要求选择单位进行估算，也没有要求说明选择理由或展示应用意识的判断。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_d5b5e574493c99e4",
+      "unit_title": "6除数是两位数的除法"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_276d4e18adf52dba",

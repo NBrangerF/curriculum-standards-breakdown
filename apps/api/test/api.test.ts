@@ -353,10 +353,25 @@ test('textbook context API returns page-specific alignments and keeps scopes sep
     assert.equal(payload.data.pdf_page, 121)
     assert.equal(payload.data.printed_page, '114')
     assert.ok(payload.data.active_nodes.length > 0)
-    const alignment = payload.data.alignments.find((item: Record<string, any>) => item.alignment_id === 'tca_4644f92b7a13313c')
-    assert.ok(alignment)
+    assert.deepEqual(
+        payload.data.alignments.map((item: Record<string, any>) => item.standard_code).sort(),
+        ['MA-H4G7-GE-002', 'MA-H4G7-GE-037']
+    )
+    assert.ok(payload.data.alignments.every((item: Record<string, any>) => item.review_status === 'approved'))
     assert.ok(payload.data.alignments.every((item: Record<string, any>) => !['curriculum_scope', 'adjacent_curriculum_scope'].includes(item.relation_type)))
     assert.ok(payload.data.standard_scopes.length > 0)
+
+    const detailResponse = await request('/api/v1/textbooks/ed_dda80e43104244896faa')
+    assert.equal(detailResponse.status, 200)
+    const detailPayload = await json(detailResponse)
+    const concreteAlignment = detailPayload.data.alignments.find((item: Record<string, any>) => Number.isInteger(item.pdf_page) && item.pdf_page > 0)
+    assert.ok(concreteAlignment)
+    const alignedResponse = await request(`/api/v1/textbooks/${detailPayload.data.edition_id}/context?page=${concreteAlignment.pdf_page}`)
+    assert.equal(alignedResponse.status, 200)
+    const alignedPayload = await json(alignedResponse)
+    const alignment = alignedPayload.data.alignments.find((item: Record<string, any>) => item.alignment_id === concreteAlignment.alignment_id)
+    assert.ok(alignment)
+    assert.ok(alignedPayload.data.alignments.every((item: Record<string, any>) => !['curriculum_scope', 'adjacent_curriculum_scope'].includes(item.relation_type)))
 
     const reverseResponse = await request(`/api/v1/standards/${alignment.standard_code}/textbooks`)
     assert.equal(reverseResponse.status, 200)
@@ -422,7 +437,9 @@ test('textbook asset service honors byte ranges without exposing arbitrary files
                     sha256: 'b'.repeat(64),
                     bytes: bytes.length,
                     pages: 8,
-                    object_path: resourceObjectPath
+                    object_path: resourceObjectPath,
+                    r2_bucket: 'kebiao-textbooks',
+                    r2_key: resourceObjectPath
                 }
             }, {
                 resource_id: 'res_fixturemanifestonly',

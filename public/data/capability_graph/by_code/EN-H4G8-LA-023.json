@@ -160,16 +160,124 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_b38968687b22103d90dd",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_b18d50f6a5f8dd06a6d0",
+        "textbook-node:tcn_llm_quote_b6a56f4ba7487b652145",
+        "textbook-unit:tcu_e27f16bd14948d09"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "How do you make a banana milk shake? UNIT 8\nGrammar\nF o c u s\nFirst, peel the bananas.\nNext, put the bananas in the blender.\nHow do you make a banana milk shake?\nThen, pour the milk into the blender.\nFinally, turn on the blender.\nCountable nouns Uncountable nouns\nHow manybananas do we need? How muchyogurt do we need?\nWe need three bananas. We need one cup of yogurt.\n3a Circle the correct word in each question.",
+          "excerpt_hash": "c321b22088251d62c1bc2e7db9d9def5b29f5222888bc77a2210480a7f36d5f4",
+          "pdf_page": 70,
+          "printed_page": "59",
+          "span_id": "tes_llm_quote_b18d50f6a5f8dd06a6d0"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_94ad8b08471812e8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_94ad8b08471812e8",
+          "label": "运用衔接和连贯手段，以提升理解的准确性和表达的逻辑性"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_b6a56f4ba7487b652145",
+      "node_title": "First, peel the bananas.\nNext, put the bananas in the blender.\nHow do you make a banana milk shake?\n",
+      "pdf_page": 70,
+      "printed_page": "59",
+      "publication_status": "published",
+      "rationale": "连续证据用First、Next、Then、Finally组织制作香蕉奶昔的步骤，直接示范在语篇中运用顺序衔接手段来形成清楚的表达逻辑，完整覆盖“运用衔接和连贯手段,以提升理解的准确性和表达的逻辑性”。该证据是Grammar Focus中的示范和组织理解，主要功能是supports，而不是学生练习或评价。未选择“在语篇中辨识”，因为证据没有明确要求学生辨识；也未选择整合语篇信息或说明观点/文化差异。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e27f16bd14948d09",
+      "unit_title": "UNIT 8"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_fd9ce0651ea5a03ff91a",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_2fe62cc5e44b85452f2a",
+        "textbook-node:tcn_llm_quote_16557e57607ca77357b7",
+        "textbook-unit:tpu_ed6e1c4d68892a7d17d5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "What nice people they are! 他们是多么好的人呀!\n5. And because of the bad weather, we couldn’t see anything below. 并且因为糟糕的\n天气,底下的东西我们什么都看不到。\nbecause of和because均为“因为”的意思,两者区别在于前者是短语介词,后面可\n接名词、代词或名词性成分,而后者是连词,后面接句子。试比较:\nI can’t come to your party, Denny, because I’m going away this weekend. 丹尼,我参\n加不了你的聚会啦,因为这个周末我外出不在。(because之后为句子)\nWe can’t play basketball outside today because of the rain. 因为这场雨,我们今天无\n法在室外打篮球了。(because of之后为名词)",
+          "excerpt_hash": "6c13d1fca4e0c5565bb6bf12e13614c0c30dbaae327187d0316eefa10f1ba70c",
+          "pdf_page": 93,
+          "printed_page": "82",
+          "span_id": "tes_llm_quote_2fe62cc5e44b85452f2a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9a69f693be519aab"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9a69f693be519aab",
+          "label": "在语篇中辨识"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_16557e57607ca77357b7",
+      "node_title": "because of和because均为“因为”的意思,两者区别在于前者是短语介词,后面可\n接名词、代词或名词性成分,而后者是连词,后面接句子。",
+      "pdf_page": 93,
+      "printed_page": "82",
+      "publication_status": "published",
+      "rationale": "证据明确比较 because of 与 because 的连接功能和后接成分，并用例句展示其在句中表达原因关系，直接支持辨识衔接手段，因此 relation_type 为 supports。证据没有要求学生实际运用以提升表达逻辑，也没有整合语篇信息或说明观点、文化差异，故只接受辨识组件。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tpu_ed6e1c4d68892a7d17d5",
+      "unit_title": "未分配单元 · PDF 93"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_dfd7fddd705ee933",

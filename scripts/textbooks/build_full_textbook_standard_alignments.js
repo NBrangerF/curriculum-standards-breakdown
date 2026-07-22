@@ -3,12 +3,14 @@ import { createHash } from 'node:crypto'
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join, resolve } from 'node:path'
 import { mkdirSync } from 'node:fs'
+import { synchronizeContentAlignmentMetadata } from './textbook_content_alignment_contract.js'
 
 const ROOT = resolve(import.meta.dirname, '../..')
 const CURRENT_PATH = join(ROOT, 'data/textbooks/library-state/CURRENT.json')
 const STRUCTURE_ROOT = join(ROOT, 'data/textbooks/derived/by-edition')
 const STANDARD_ROOT = join(ROOT, 'public/data/by_subject')
 const TEXTBOOK_INDEX = join(ROOT, 'generated/textbook_evidence/china_textbook_index.json')
+const LEGACY_APPROVED_CATALOG = join(ROOT, 'data/textbooks/catalog/legacy_approved_alignments.json')
 const DEFAULT_OUT = join(ROOT, 'data/textbooks/derived/textbook_standard_alignment_index.json')
 const ALGORITHM_VERSION = 'full-alignment-scope-preserve-v2'
 const STANDARD_FIELDS = ['domain', 'subdomain', 'standard', 'context', 'practice', 'teaching_tip', 'assessment_evidence_type']
@@ -53,6 +55,24 @@ function readJsonLines(path) { return readFileSync(path, 'utf8').split(/\r?\n/).
 function writeJson(path, value) { mkdirSync(dirname(path), { recursive: true }); writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`) }
 function hash(value, length = 16) { return createHash('sha256').update(String(value)).digest('hex').slice(0, length) }
 function countInto(target, key) { target[key || 'missing'] = (target[key || 'missing'] || 0) + 1 }
+
+function loadLegacyApprovedCatalog() {
+  if (!existsSync(LEGACY_APPROVED_CATALOG)) return []
+  const payload = readJson(LEGACY_APPROVED_CATALOG)
+  if (payload.schema_version !== 1 || !Array.isArray(payload.records)) {
+    throw new Error('Legacy approved alignment catalog has an invalid schema.')
+  }
+  const ids = new Set()
+  for (const row of payload.records) {
+    if (!row?.alignment_id || !row.edition_id || !row.unit_id || !row.standard_code
+      || row.review_status && row.review_status !== 'approved') {
+      throw new Error(`Legacy approved alignment catalog has an invalid record: ${row?.alignment_id || 'missing'}`)
+    }
+    if (ids.has(row.alignment_id)) throw new Error(`Legacy approved alignment catalog duplicates ${row.alignment_id}`)
+    ids.add(row.alignment_id)
+  }
+  return payload.records
+}
 
 function gradeBand(grade) {
   if (grade <= 2) return 'H1'
@@ -241,12 +261,18 @@ function build() {
   const standards = loadStandards()
   const standardsByScope = indexStandards(standards)
   const mappingsByEvidence = loadMappings()
+  const catalogLegacyApproved = loadLegacyApprovedCatalog()
+  const catalogLegacyByEdition = new Map()
+  for (const row of catalogLegacyApproved) {
+    if (!catalogLegacyByEdition.has(row.edition_id)) catalogLegacyByEdition.set(row.edition_id, [])
+    catalogLegacyByEdition.get(row.edition_id).push(row)
+  }
   const matches = []
   const unitDispositions = []
   const textbookDispositions = []
   const scopeRelations = []
   const legacyApprovedIds = []
-  const droppedUngroundedLegacyIds = []
+  const restoredLegacyLocatorIds = []
   const byStandardSpecific = new Map()
   const byStandardScope = new Map()
 
@@ -254,11 +280,41 @@ function build() {
     const structurePath = join(STRUCTURE_ROOT, `${asset.edition_id}.json`)
     const structure = existsSync(structurePath) ? readJson(structurePath) : { toc: [], page_map: [], alignments: [] }
     const existingAlignments = structure.alignments || []
-    const legacyApprovedCandidates = existingAlignments.filter(row => row.review_status === 'approved')
-    const legacyApproved = legacyApprovedCandidates.filter(row => Number.isInteger(row.pdf_page) && row.pdf_page > 0)
-    for (const row of legacyApprovedCandidates) {
-      if (!legacyApproved.includes(row)) droppedUngroundedLegacyIds.push(row.alignment_id)
-    }
+    const activeLegacyApproved = existingAlignments.filter(row => row.review_status === 'approved')
+    const legacyApprovedCandidates = [...new Map([
+      ...(catalogLegacyByEdition.get(asset.edition_id) || []),
+      ...activeLegacyApproved
+    ].map(row => [row.alignment_id, row])).values()]
+    const publishedUnitsById = new Map((structure.toc || []).filter(isPublishedUnit).map(unit => [unit.entry_id, unit]))
+    const legacyApproved = legacyApprovedCandidates.map(row => {
+      const unit = publishedUnitsById.get(row.unit_id)
+      if (!unit) throw new Error(`Approved alignment ${row.alignment_id} references a missing published unit ${row.unit_id}`)
+      const hasOriginalLocator = Number.isInteger(row.pdf_page) && row.pdf_page > 0
+      const pdfPage = hasOriginalLocator ? row.pdf_page : Number(unit.pdf_page)
+      if (!Number.isInteger(pdfPage) || pdfPage < 1) {
+        throw new Error(`Approved alignment ${row.alignment_id} has no usable current unit locator`)
+      }
+      if (!hasOriginalLocator) restoredLegacyLocatorIds.push(row.alignment_id)
+      return {
+        ...row,
+        edition_id: asset.edition_id,
+        unit_title: row.unit_title || unit.title,
+        pdf_page: pdfPage,
+        printed_page: row.printed_page ?? unit.printed_page ?? null,
+        evidence_level: row.evidence_level || 'L2',
+        evidence_level_detail: row.evidence_level_detail || 'L2_topic',
+        locator_source: hasOriginalLocator ? (row.locator_source || 'legacy_approved') : 'published_unit_start_backfill',
+        review_status: 'approved',
+        publication_status: 'published',
+        evidence_role: row.evidence_role || 'legacy_reviewed_textbook_evidence',
+        score: row.score ?? row.confidence ?? 1,
+        matched_keywords: row.matched_keywords?.length ? row.matched_keywords : ['人工复核'],
+        matched_fields: row.matched_fields?.length ? row.matched_fields : ['legacy_review'],
+        longest_match_length: row.longest_match_length ?? 0,
+        alignment_method: row.alignment_method || 'legacy_human_review',
+        algorithm_version: row.algorithm_version || 'pre-full-alignment'
+      }
+    })
     const contentEvidenceAlignments = existingAlignments.filter(isContentEvidenceAlignment)
     for (const row of legacyApproved) legacyApprovedIds.push(row.alignment_id)
     const legacyByKey = new Map(legacyApproved.map(row => [`${row.unit_id}:${row.standard_code}`, row]))
@@ -404,6 +460,7 @@ function build() {
         || String(a.standard_code || '').localeCompare(String(b.standard_code || ''))
         || String(a.alignment_id || '').localeCompare(String(b.alignment_id || '')))
     structure.standard_scopes = scopeBlocks
+    synchronizeContentAlignmentMetadata(structure)
     writeJson(structurePath, structure)
     const hasPageOnlyLlmEvidence = published.some(isLlmPageOnlyAlignment)
     textbookDispositions.push({
@@ -461,7 +518,7 @@ function build() {
     candidate_matches: matches.filter(row => row.review_status === 'candidate').length,
     scope_relations: scopeRelations.length,
     legacy_approved_relations: legacyApprovedIds.length,
-    dropped_ungrounded_legacy_relations: droppedUngroundedLegacyIds.length
+    restored_legacy_unit_locators: new Set(restoredLegacyLocatorIds).size
   }
   for (const row of textbookDispositions) countInto(summary.textbooks_by_status, row.status)
   for (const row of unitDispositions) countInto(summary.units_by_status, row.status)
@@ -487,13 +544,14 @@ function build() {
       review_policy: 'automatic_no_human_gate',
       publication_gate: false,
       published_specific_relations_require_pdf_page: true,
-      ungrounded_legacy_approved_relations_preserved: false,
+      legacy_approved_relations_preserved: true,
+      legacy_approved_without_page_evidence_use_unit_start_locator: true,
       scope_relations_are_not_unit_evidence: true,
       adjacent_discipline_relations_are_not_direct_support: true
     },
     summary,
     legacy_approved_alignment_ids: [...new Set(legacyApprovedIds)].sort(),
-    dropped_ungrounded_legacy_alignment_ids: [...new Set(droppedUngroundedLegacyIds)].sort(),
+    restored_legacy_unit_locator_alignment_ids: [...new Set(restoredLegacyLocatorIds)].sort(),
     textbook_dispositions: textbookDispositions,
     unit_dispositions: unitDispositions,
     standard_dispositions: standardDispositions,

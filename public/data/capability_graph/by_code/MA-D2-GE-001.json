@@ -121,16 +121,124 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_d3884bf0f196be2845d2",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_aa2f8c796977ce38d17f",
+        "textbook-node:tcn_llm_quote_bd83d095b09286a8053d",
+        "textbook-unit:tcu_783628caaee5285c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "直线、射线与线段有什么区别?\n直线和射线都可\n线段可以量出长度。\n以无限延伸。\n线 段 有 两 个 端 点,\n直线没有端点,射\n线只有一个端点。\n做一做\n下面的图形,哪些是线段?哪些是直线?哪些是射线?\n角\n我们认识过角,下面的图形都是角。\n)\n从一点引出两条射线所组成的图形\n(\n叫作角。右图中这个点叫作角的什么? 1\n( )\n这两条射线叫作角的什么? ( )\n角通常用符号“∠”来表示,右上图的角可以记作“∠1”。\n做一做\n数一数,右图中\n各有几个角?\n39",
+          "excerpt_hash": "bdc437172e0400d76f9aca26f8c38dd82197e46638e5fe70ad44221191cce4c0",
+          "pdf_page": 44,
+          "printed_page": "39",
+          "span_id": "tes_llm_quote_aa2f8c796977ce38d17f"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_499f96eb8d834c8a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_499f96eb8d834c8a",
+          "label": "说出线段、射线和直线的共性与区别"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_bd83d095b09286a8053d",
+      "node_title": "直线、射线与线段有什么区别?\n直线和射线都可\n线段可以量出长度。\n以无限延伸。\n线 段 有 两 个 端 点,\n直线没有端点,射\n线只有一个端点。",
+      "pdf_page": 44,
+      "printed_page": "39",
+      "publication_status": "published",
+      "rationale": "证据直接提出“直线、射线与线段有什么区别”，并说明三者在端点、延伸性和能否量出长度上的差异，完整支撑“说出线段、射线和直线的共性与区别”。主要功能是解释和组织理解概念区别，因此 relation_type 为 supports。其余组件涉及线段最短、解决问题、平行垂直、观察物体或空间观念说明，均无独立逐字证据。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_783628caaee5285c",
+      "unit_title": "3角的度量"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_b4d3f6cee214db3f0a43",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_fb6169b387bb68651f56",
+        "textbook-node:tcn_llm_quote_bf1a0185bc7a66521755",
+        "textbook-unit:tcu_a5be6185ba7727d9"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "平行在生活中很常见,你能举出生活中一些有关平行的例子吗?\n量一量,下面的相交直线组成的角分别是多少度。\n左边这组相交直线组成\n的每个角都是90°。\n两条直线相交成直角,就说这两条直线互相垂直,其中一条直\n线叫作另一条直线的垂线,这两条直线的交点叫作垂足。\na a\na\nb\nO b\nO O\nb\n上图中直线 a 与 b 互相垂直,记作 a ⊥ b,读作 a 垂直于 b。\n你能举出生活中一些有关垂直的例子吗?\n做一做\n下面各组直线,哪一组互相平行?哪一组互相垂直?\n57",
+          "excerpt_hash": "097bfffbe8b1b0f423219d6ae7482a8920af7ab9fd8c490ffb9422d530c47d17",
+          "pdf_page": 62,
+          "printed_page": "57",
+          "span_id": "tes_llm_quote_fb6169b387bb68651f56"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4d2ef4eb678b0310"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4d2ef4eb678b0310",
+          "label": "辨认同一平面内两条直线是否平行或垂直"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_bf1a0185bc7a66521755",
+      "node_title": "两条直线相交成直角,就说这两条直线互相垂直,其中一条直\n线叫作另一条直线的垂线,这两条直线的交点叫作垂足。",
+      "pdf_page": 62,
+      "printed_page": "57",
+      "publication_status": "published",
+      "rationale": "证据直接解释两条直线互相垂直的判定含义，学习对象是同一平面内两条直线的位置关系，能够支撑辨认垂直。主要功能是正文定义和解释，所以 relation_type 为 supports。未选择线段射线直线共性区别、两点之间线段最短、观察物体或空间观念组件，因为该证据没有这些对象或完整动作。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_a5be6185ba7727d9",
+      "unit_title": "5平行四边形和梯形"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0c5d327607b87cf0",

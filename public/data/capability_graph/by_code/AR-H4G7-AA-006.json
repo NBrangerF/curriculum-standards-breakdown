@@ -43,17 +43,18 @@
     {
       "category": "language_expression",
       "component_ids": [
-        "lc_17eee6bd658349fc",
+        "lc_b5b9d364d9e05ce6",
+        "lc_c5186ef12fe84d72",
         "lc_7d743ad862f5f3f2"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生描述其特点和表现作用的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "diagnostic_probe": "给出一个需要学生描述所听辨音色的特点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
       "difficulty_id": "cd_05c09a47a140a383",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [],
-      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述其特点和表现作用”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“描述其特点和表现作用”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述所听辨音色的特点”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述所听辨音色的特点”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
@@ -74,22 +75,140 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后描述其特点和表现作用，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“描述其特点和表现作用”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“使用短音频片段帮助学生反复听辨，并把听辨结果转化为可交流的图示。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后描述所听辨音色的特点，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述所听辨音色的特点”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“使用短音频片段帮助学生反复听辨，并把听辨结果转化为可交流的图示。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_7f54bde03b9e720f85b2",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_a89e5efa283f5034b420",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a99675852c59",
+        "tes_llm_quote_e0068f85081f3f052f2d",
+        "textbook-node:tcn_llm_quote_c47a5bb06778a0c1a4a2",
+        "textbook-unit:tcu_319229806dd620a7"
+      ],
+      "evidence_role": "discipline_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "discipline_textbook",
+          "excerpt": "四 | 中 |\nPs\noF\n6O? F455 atS\n一 、 欣 赏 《 银 杯 》, 用 模仿 的 方法 学 习 蒙古 族 民歌 中 装饰 音 ( 倚 音 、 滑\n音 ) 的 演唱 风格 。 以 小 组 为 单位 设计 不 同 的 演唱 形式 进行 表演 。\n二 、 先 欣赏 独唱 《牧歌 》, 仔 细 体 会 这 首 歌曲 的 意境 , 再 欣赏 无 伴奏\n合唱 《牧歌 》, 参 照 音色 、 力 度 示意 图 了 解 合唱 的 形式 。 你 先 听 到 了 哪个 声\n部 ? 主旋律 依次 出 现在 娜 个 声 部 9 用 和 连 线 标 出 各 声 部 的 音色 特点 , 讨 论 齐 唱\n与 合唱 的 主要 不 同 之 处 。\nAm ~ ”~ ~ ~ ~ ~ 人\n女 高 女 低 男 高 男 低\nCo\n1 ”丰满 结实 明亮 宽广 深沉 浑厚 高 亢 富 有 诗意 1 CK",
+          "excerpt_hash": "0a0b1a04efa47a87c0069e72bf8e298ed232836782b88fbb3300e568c0fc6c1f",
+          "pdf_page": 35,
+          "printed_page": null,
+          "span_id": "tes_llm_quote_e0068f85081f3f052f2d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3388a8895a3f2c79",
+        "lc_b5b9d364d9e05ce6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3388a8895a3f2c79",
+          "label": "听辨合唱声部音色"
+        },
+        {
+          "component_id": "lc_b5b9d364d9e05ce6",
+          "label": "描述所听辨音色的特点"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_c47a5bb06778a0c1a4a2",
+      "node_title": "参 照 音色 、 力 度 示意 图 了 解 合唱 的 形式 。 你 先 听 到 了 哪个 声\n部 ? 主旋律 依次 出 现在 娜 个 声 部 9 用 和 连 线 标 出 各 声 部 的 音色 特点 ,",
+      "pdf_page": 35,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "证据要求学生欣赏无伴奏合唱，判断听到的声部和主旋律所在声部，并标出各声部音色特点，直接落实“听辨合唱声部音色”和“描述所听辨音色的特点”。这是学生实施听辨和标注任务，主要功能是 practices。未选择乐队乐器、表现作用、音乐结构、艺术要素或基础表现/创作组件，因为该连续证据没有完整证明这些动作。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_319229806dd620a7",
+      "unit_title": "草原牧歌"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_79243bdaaee5f6a62af1",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_a89e5efa283f5034b420",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a99675852c59",
+        "tes_llm_quote_50353fff543c9650d455",
+        "textbook-node:tcn_llm_quote_7a800cf983e90056717d",
+        "textbook-unit:tpu_bdaf59e6165b4e55fc2e"
+      ],
+      "evidence_role": "discipline_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "discipline_textbook",
+          "excerpt": "三 、欣赏《溜冰圆舞曲》,按要求回答下列问题。\n1. 第一小圆舞曲在整首乐曲中出现了 次。\n2. 在第一小圆舞曲主题 a 下方标出其典型节奏。\n3. 在第三小圆舞曲主题下方画出旋律线。\n第三单元 草原牧歌\n一、欣赏无伴奏合唱《牧歌》,用连线的方法标出每个声部的音色特点。\n女高 女低 男高 男低\n丰满结实 明亮宽广 深沉浑厚 高亢富有诗意\n二、将《鄂伦春小调》的节拍改为三拍子,然后划拍视唱,体会节拍变化对音乐表\n现的影响。",
+          "excerpt_hash": "c5566b45aa531dfad1db281d41a7e01724706472e8436e077423b652cb05abc3",
+          "pdf_page": 71,
+          "printed_page": null,
+          "span_id": "tes_llm_quote_50353fff543c9650d455"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3388a8895a3f2c79",
+        "lc_b5b9d364d9e05ce6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3388a8895a3f2c79",
+          "label": "听辨合唱声部音色"
+        },
+        {
+          "component_id": "lc_b5b9d364d9e05ce6",
+          "label": "描述所听辨音色的特点"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_7a800cf983e90056717d",
+      "node_title": "一、欣赏无伴奏合唱《牧歌》,用连线的方法标出每个声部的音色特点。\n女高 女低 男高 男低\n丰满结实 明亮宽广 深沉浑厚 高亢富有诗意",
+      "pdf_page": 71,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "证据要求欣赏无伴奏合唱并将女高、女低、男高、男低各声部与音色特点连线，直接证明听辨合唱声部音色并描述所听辨音色的特点。主要功能是学生练习听辨和匹配，不是讲解或评分。未选择乐队主奏/伴奏乐器音色、音色表现作用、音乐结构或基础表现/创作组件，因为证据没有涉及这些对象或动作。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tpu_bdaf59e6165b4e55fc2e",
+      "unit_title": "未分配单元 · PDF 71"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_5edd3d801a54182d",
@@ -270,52 +389,124 @@
   ],
   "learning_components": [
     {
-      "component_id": "lc_fc3d3aa20e471aa3",
+      "component_id": "lc_3388a8895a3f2c79",
       "component_type": "conceptual",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够听辨合唱声部和乐队主奏或伴奏乐器音色",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生听辨合唱声部和乐队主奏或伴奏乐器音色，并说明关键步骤、特征或依据。",
-      "label": "听辨合唱声部和乐队主奏或伴奏乐器音色",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够听辨合唱声部和乐队主奏或伴奏乐器音色；优先采集：听辨记录、结构图示、比较分析。",
+      "description": "学生能够听辨合唱声部音色",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生听辨合唱声部音色，并说明关键步骤、特征或依据。",
+      "label": "听辨合唱声部音色",
+      "method": "source_bound_atomic_decomposition_v1",
+      "observable_evidence": "学生能够听辨合唱声部音色；优先采集：听辨记录、结构图示、比较分析。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "听辨合唱声部和乐队主奏或伴奏乐器音色",
-          "excerpt_hash": "06ae049ba2fbed785190d275536e9a3a7e104aa60dedec064f18a9eae43f6f44",
+          "excerpt": "能听辨合唱声部和乐队主奏或伴奏乐器音色",
+          "excerpt_hash": "b04b4c1bfa4b3ef68f605545a7e38ed1012c8545770da5b1db7786a2fb267fa0",
           "field": "standard",
           "ref_id": "standard:AR-H4G7-AA-006:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "听辨合唱声部和乐队主奏或伴奏乐器音色"
+      "source_statement": "听辨合唱声部音色"
     },
     {
-      "component_id": "lc_17eee6bd658349fc",
-      "component_type": "language",
+      "component_id": "lc_a06c9c5621c8f24f",
+      "component_type": "conceptual",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够描述其特点和表现作用",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述其特点和表现作用，并说明关键步骤、特征或依据。",
-      "label": "描述其特点和表现作用",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够描述其特点和表现作用；优先采集：听辨记录、结构图示、比较分析。",
+      "description": "学生能够听辨乐队主奏乐器音色",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生听辨乐队主奏乐器音色，并说明关键步骤、特征或依据。",
+      "label": "听辨乐队主奏乐器音色",
+      "method": "source_bound_atomic_decomposition_v1",
+      "observable_evidence": "学生能够听辨乐队主奏乐器音色；优先采集：听辨记录、结构图示、比较分析。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "描述其特点和表现作用",
-          "excerpt_hash": "c7cfcbdb7e63b29df00f22bf8a03af5edca5001e94e4edddc4b61096badf97df",
+          "excerpt": "能听辨合唱声部和乐队主奏或伴奏乐器音色",
+          "excerpt_hash": "b04b4c1bfa4b3ef68f605545a7e38ed1012c8545770da5b1db7786a2fb267fa0",
           "field": "standard",
           "ref_id": "standard:AR-H4G7-AA-006:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "描述其特点和表现作用"
+      "source_statement": "听辨乐队主奏乐器音色"
+    },
+    {
+      "component_id": "lc_bd5ec23ac168116b",
+      "component_type": "conceptual",
+      "condition": "",
+      "confidence": 0.72,
+      "description": "学生能够听辨乐队伴奏乐器音色",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生听辨乐队伴奏乐器音色，并说明关键步骤、特征或依据。",
+      "label": "听辨乐队伴奏乐器音色",
+      "method": "source_bound_atomic_decomposition_v1",
+      "observable_evidence": "学生能够听辨乐队伴奏乐器音色；优先采集：听辨记录、结构图示、比较分析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能听辨合唱声部和乐队主奏或伴奏乐器音色",
+          "excerpt_hash": "b04b4c1bfa4b3ef68f605545a7e38ed1012c8545770da5b1db7786a2fb267fa0",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "听辨乐队伴奏乐器音色"
+    },
+    {
+      "component_id": "lc_b5b9d364d9e05ce6",
+      "component_type": "language",
+      "condition": "针对已听辨的合唱声部或乐队主奏、伴奏乐器音色",
+      "confidence": 0.72,
+      "description": "学生针对已听辨的合唱声部或乐队主奏、伴奏乐器音色，能够描述所听辨音色的特点",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“针对已听辨的合唱声部或乐队主奏、伴奏乐器音色”的诊断任务，要求学生描述所听辨音色的特点，并说明关键步骤、特征或依据。",
+      "label": "描述所听辨音色的特点",
+      "method": "source_bound_atomic_decomposition_v1",
+      "observable_evidence": "学生针对已听辨的合唱声部或乐队主奏、伴奏乐器音色，能够描述所听辨音色的特点；优先采集：听辨记录、结构图示、比较分析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能听辨合唱声部和乐队主奏或伴奏乐器音色；能描述其特点和表现作用",
+          "excerpt_hash": "3b27f3a2fdcc3fc9eb60e70e4820167107e71370327dd4cd6124c688dbb0d5aa",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述所听辨音色的特点"
+    },
+    {
+      "component_id": "lc_c5186ef12fe84d72",
+      "component_type": "language",
+      "condition": "针对已听辨的合唱声部或乐队主奏、伴奏乐器音色",
+      "confidence": 0.72,
+      "description": "学生针对已听辨的合唱声部或乐队主奏、伴奏乐器音色，能够描述所听辨音色的表现作用",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“针对已听辨的合唱声部或乐队主奏、伴奏乐器音色”的诊断任务，要求学生描述所听辨音色的表现作用，并说明关键步骤、特征或依据。",
+      "label": "描述所听辨音色的表现作用",
+      "method": "source_bound_atomic_decomposition_v1",
+      "observable_evidence": "学生针对已听辨的合唱声部或乐队主奏、伴奏乐器音色，能够描述所听辨音色的表现作用；优先采集：听辨记录、结构图示、比较分析。",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能听辨合唱声部和乐队主奏或伴奏乐器音色；能描述其特点和表现作用",
+          "excerpt_hash": "3b27f3a2fdcc3fc9eb60e70e4820167107e71370327dd4cd6124c688dbb0d5aa",
+          "field": "standard",
+          "ref_id": "standard:AR-H4G7-AA-006:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "source_statement": "描述所听辨音色的表现作用"
     },
     {
       "component_id": "lc_ef3900efde99cc34",

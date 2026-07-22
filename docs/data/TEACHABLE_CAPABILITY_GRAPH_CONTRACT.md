@@ -53,6 +53,8 @@ Learning component 必须满足：
 4. “理解、掌握、认识、体验”等不可直接观察的动词必须转换为可观察表现，同时在 `source_statement` 保留来源措辞；
 5. 不能从教材标题反推小能力；v1 只从标准正文拆解。
 
+当通用分句仍把多个不可互换的动作或对象捆绑为一个 component 时，可以增加“source-bound atomic decomposition”：它必须绑定标准编码和完整权威正文，正文发生任何变化即停止构建；每个新组件使用稳定的原子键生成 ID，并在 manifest 中记录策略指纹。旧捆绑 ID 不得猜测性地一对多迁移，现有关联先 fail-closed 标记 `component_migration_required`，再由教材逐字证据重新裁决。
+
 ```json
 {
   "component_id": "lc_...",

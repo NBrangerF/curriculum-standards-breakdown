@@ -3,16 +3,23 @@
     {
       "algorithm_version": "pre-full-alignment",
       "alignment_id": "tca_d8a122e71d8eddd1",
+      "alignment_ids": [
+        "tca_d8a122e71d8eddd1"
+      ],
       "alignment_method": "legacy_human_review",
       "confidence": 0.5689,
       "edition_id": "ed_f0de8cbbeb88661f44d6",
       "end_pdf_page": null,
+      "evidence_claim_count": 1,
       "evidence_id": "ctu_a3a168cd66e360",
+      "evidence_level": "L2",
+      "evidence_level_detail": "L2_topic",
       "evidence_role": "legacy_reviewed_textbook_evidence",
       "evidence_span_ids": [],
       "grade_band": "H4G8",
       "learning_component_ids": [],
       "learning_components": [],
+      "locator_source": "published_unit_start_backfill",
       "longest_match_length": 0,
       "matched_fields": [
         "legacy_review"
@@ -20,8 +27,9 @@
       "matched_keywords": [
         "人工复核"
       ],
-      "pdf_page": null,
-      "printed_page": null,
+      "node_ids": [],
+      "pdf_page": 74,
+      "printed_page": "69",
       "publication_status": "published",
       "rationale": "已核对教材单元「第1节 光的直线传播」与课标「SC-H4G8-SC-038」的 subdomain_anchor 关联。",
       "relation_type": "supports",
@@ -30,17 +38,41 @@
       "standard_code": "SC-H4G8-SC-038",
       "standard_text": "能知道响度、音调与声源振动关系及防治噪声方法；能解释近视和远视成因并形成保护视力意识；能知道光的直线传播、反射、折射、色散、平面镜和凸透镜成像特点；能比较证据并解释概念之间的关系。",
       "subject_slug": "science",
-      "unit_id": "tcu_1f36ed265475860e"
+      "supporting_evidence": [
+        {
+          "alignment_id": "tca_d8a122e71d8eddd1",
+          "bbox": null,
+          "confidence": 0.5689,
+          "evidence_excerpt": null,
+          "evidence_excerpt_hash": null,
+          "evidence_quote": null,
+          "evidence_role": "legacy_reviewed_textbook_evidence",
+          "evidence_span_id": null,
+          "learning_component_ids": [],
+          "learning_components": [],
+          "node_id": null,
+          "pdf_page": 74,
+          "printed_page": "69",
+          "rationale": "已核对教材单元「第1节 光的直线传播」与课标「SC-H4G8-SC-038」的 subdomain_anchor 关联。",
+          "score": 0.5689
+        }
+      ],
+      "unit_id": "tcu_1f36ed265475860e",
+      "unit_title": "第1节 光的直线传播"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
       "alignment_id": "tca_9a5f7aafdd4cea1f",
+      "alignment_ids": [
+        "tca_9a5f7aafdd4cea1f"
+      ],
       "alignment_method": "component_evidence_hybrid",
       "confidence": 0.92,
       "content_node_kind": "exercise",
       "content_node_title": "探究凸透镜成像的规律设计实验我们可以把物体放在距凸透镜较远的地方,然后逐渐移近,观察成像的情",
       "edition_id": "ed_f0de8cbbeb88661f44d6",
       "end_pdf_page": 102,
+      "evidence_claim_count": 1,
       "evidence_excerpt": "探究凸透镜成像的规律设计实验我们可以把物体放在距凸透镜较远的地方,然后逐渐移近,观察成像的情",
       "evidence_excerpt_hash": "2d6cf185e389695f85c9114d7b27f9ad67f41b45053b76fb91f697c8b46eee4b",
       "evidence_granularity": "textbook_body",
@@ -73,6 +105,9 @@
       ],
       "modifier_conflicts": [],
       "node_id": "tcn_a33af7770e686bf0",
+      "node_ids": [
+        "tcn_a33af7770e686bf0"
+      ],
       "pdf_page": 102,
       "printed_page": "97",
       "provenance": "machine_generated",
@@ -84,18 +119,56 @@
       "standard_code": "SC-H4G8-SC-038",
       "standard_text": "能知道响度、音调与声源振动关系及防治噪声方法；能解释近视和远视成因并形成保护视力意识；能知道光的直线传播、反射、折射、色散、平面镜和凸透镜成像特点；能比较证据并解释概念之间的关系。",
       "subject_slug": "science",
+      "supporting_evidence": [
+        {
+          "alignment_id": "tca_9a5f7aafdd4cea1f",
+          "bbox": {
+            "height": 12,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 120,
+            "x": 220.787,
+            "y": 418.507
+          },
+          "confidence": 0.92,
+          "evidence_excerpt": "探究凸透镜成像的规律设计实验我们可以把物体放在距凸透镜较远的地方,然后逐渐移近,观察成像的情",
+          "evidence_excerpt_hash": "2d6cf185e389695f85c9114d7b27f9ad67f41b45053b76fb91f697c8b46eee4b",
+          "evidence_quote": null,
+          "evidence_role": "exercise",
+          "evidence_span_id": "tes_34e1db65e3a9bc2a",
+          "learning_component_ids": [
+            "lc_af090636ed31bf8a"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_af090636ed31bf8a",
+              "label": "准确说出光的直线传播、反射、折射、色散、平面镜和凸透镜成像特点"
+            }
+          ],
+          "node_id": "tcn_a33af7770e686bf0",
+          "pdf_page": 102,
+          "printed_page": "97",
+          "rationale": "教材exercise“探究凸透镜成像的规律设计实验我们可以把物体放在距凸透镜较远的地方,然后逐渐移近,观察成像的情”与课标 SC-H4G8-SC-038 的可教学小能力“准确说出光的直线传播、反射、折射、色散、平面镜和凸透镜成像特点”形成页内证据匹配。",
+          "score": 0.88
+        }
+      ],
       "unit_id": "tcu_855421710d86d8ce",
       "unit_title": "第五章 透镜及其应用"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
       "alignment_id": "tca_339cb9a89eeb0a05",
+      "alignment_ids": [
+        "tca_339cb9a89eeb0a05"
+      ],
       "alignment_method": "component_evidence_hybrid",
       "confidence": 0.92,
       "content_node_kind": "lesson",
       "content_node_title": "1光的直线传播",
       "edition_id": "ed_f0de8cbbeb88661f44d6",
       "end_pdf_page": 93,
+      "evidence_claim_count": 1,
       "evidence_excerpt": "1. 光的直线传播",
       "evidence_excerpt_hash": "e393ff0fa9c482c2f6a9c683a885ed965170004631528a39f3e8dc2d2edcb7c5",
       "evidence_granularity": "topic_heading",
@@ -127,6 +200,9 @@
       ],
       "modifier_conflicts": [],
       "node_id": "tcn_ac20e19ad48e8dba",
+      "node_ids": [
+        "tcn_ac20e19ad48e8dba"
+      ],
       "pdf_page": 93,
       "printed_page": "88",
       "provenance": "machine_generated",
@@ -138,6 +214,40 @@
       "standard_code": "SC-H4G8-SC-038",
       "standard_text": "能知道响度、音调与声源振动关系及防治噪声方法；能解释近视和远视成因并形成保护视力意识；能知道光的直线传播、反射、折射、色散、平面镜和凸透镜成像特点；能比较证据并解释概念之间的关系。",
       "subject_slug": "science",
+      "supporting_evidence": [
+        {
+          "alignment_id": "tca_339cb9a89eeb0a05",
+          "bbox": {
+            "height": 10.5,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 76.125,
+            "x": 77.858,
+            "y": 630.653
+          },
+          "confidence": 0.92,
+          "evidence_excerpt": "1. 光的直线传播",
+          "evidence_excerpt_hash": "e393ff0fa9c482c2f6a9c683a885ed965170004631528a39f3e8dc2d2edcb7c5",
+          "evidence_quote": null,
+          "evidence_role": "heading",
+          "evidence_span_id": "tes_ba4c7ba0e42f5e7c",
+          "learning_component_ids": [
+            "lc_af090636ed31bf8a"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_af090636ed31bf8a",
+              "label": "准确说出光的直线传播、反射、折射、色散、平面镜和凸透镜成像特点"
+            }
+          ],
+          "node_id": "tcn_ac20e19ad48e8dba",
+          "pdf_page": 93,
+          "printed_page": "88",
+          "rationale": "教材lesson“1光的直线传播”与课标 SC-H4G8-SC-038 的可教学小能力“准确说出光的直线传播、反射、折射、色散、平面镜和凸透镜成像特点”形成页内证据匹配。",
+          "score": 0.88
+        }
+      ],
       "unit_id": "tcu_df25ec7b9ad394ff",
       "unit_title": "第四章 光 现 象"
     }

@@ -3,9 +3,10 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { parseArgs, readJson, readJsonLines, resolveCurrentAssetRegistry, writeJson } from './library_common.js'
 import {
+  DEFAULT_SUPPORT_RESOURCE_BUCKET,
   auditTextbookResourceCatalog,
   buildTextbookResourceCatalog,
-  mergeResourceManifestInputs,
+  mergeResourceManifestInputsWithOptions,
   resourceInputFromAsset
 } from './textbook_resource_pipeline.js'
 
@@ -45,6 +46,8 @@ function main() {
   const catalogPath = resolveProjectPath(args.catalog || 'data/textbooks/catalog/expected_editions.jsonl')
   const structureRoot = resolveProjectPath(args.structures || 'data/textbooks/derived/by-edition')
   const outputPath = resolveProjectPath(args.out || 'data/textbooks/catalog/support_resource_catalog.json')
+  const r2Bucket = String(args.r2Bucket || process.env.TEXTBOOK_ASSET_BUCKET || DEFAULT_SUPPORT_RESOURCE_BUCKET).trim()
+  if (!r2Bucket) throw new Error('configured R2 bucket must not be empty')
   const assets = readJsonLines(assetPath)
   if (!assets.length) throw new Error(`Textbook asset registry is empty: ${assetPath}`)
   const catalogRows = readJsonLines(catalogPath)
@@ -70,7 +73,8 @@ function main() {
     ? []
     : readRequiredManifest(registryPath, args.registry ? '--registry' : 'default registry')
   const explicitResources = manifestPaths.map(manifestPath => readManifest(resolveProjectPath(manifestPath)))
-  const resources = mergeResourceManifestInputs(
+  const resources = mergeResourceManifestInputsWithOptions(
+    { r2Bucket },
     companionResources,
     registeredResources,
     ...explicitResources
@@ -80,9 +84,10 @@ function main() {
     resources,
     targets,
     structures,
+    r2Bucket,
     generatedAt: args.generatedAt || new Date().toISOString()
   })
-  const audit = auditTextbookResourceCatalog(result)
+  const audit = auditTextbookResourceCatalog(result, { r2Bucket })
   if (!audit.valid) {
     console.error(JSON.stringify(audit, null, 2))
     process.exit(1)

@@ -82,15 +82,15 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 1,
+    "candidate_count": 0,
     "disposition": "page_aligned",
     "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
     "highest_evidence_level": "L3_page_evidence",
     "page_evidence_count": 2,
     "scope_count": 3,
-    "specific_count": 4,
-    "unit_topic_candidate_count": 1
+    "specific_count": 5,
+    "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
@@ -214,57 +214,34 @@
       "unit_title": "第五单元 化学方程式"
     },
     {
-      "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_c52c00d079b0446d",
-      "alignment_type": "supports",
-      "confidence": 0.92,
+      "algorithm_version": "pre-full-alignment",
+      "alignment_id": "tca_386bfb1e9f90af50",
+      "alignment_type": "mentions",
+      "confidence": 0.5545,
       "coverage": "partial",
       "edition_id": "ed_ba25683b949d491afb3c",
-      "evidence_basis": "toc_title",
+      "evidence_basis": "reviewed_toc_title",
       "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
       "evidence_level": "L2_topic",
       "evidence_refs": [
-        "ctb_29dc6f39b08d",
-        "tes_3d1143fe7f12d213",
-        "textbook-node:tcn_aac1ea66cefac33b",
+        "ctu_ebc0f9920d30fd",
         "textbook-unit:tcu_d57ced1beaf28e9a"
       ],
-      "evidence_role": "direct_textbook",
-      "evidence_spans": [
-        {
-          "evidence_role": "direct_textbook",
-          "excerpt": "92 第五单元 化学方程式",
-          "excerpt_hash": "a93ff45e08013ea9b73faeee57e2276cc303c54c34ce053389ddb96d469d7a60",
-          "pdf_page": 97,
-          "printed_page": "92",
-          "span_id": "tes_3d1143fe7f12d213"
-        }
-      ],
-      "learning_component_ids": [
-        "lc_69f5b7cd1e72069b",
-        "lc_6ec898fdef19e46a"
-      ],
-      "learning_components": [
-        {
-          "component_id": "lc_69f5b7cd1e72069b",
-          "label": "根据化学方程式进行简单计算"
-        },
-        {
-          "component_id": "lc_6ec898fdef19e46a",
-          "label": "阐释化学方程式的意义和书写规则"
-        }
-      ],
+      "evidence_role": "legacy_reviewed_textbook_evidence",
+      "evidence_spans": [],
+      "learning_component_ids": [],
+      "learning_components": [],
       "level": "unit",
-      "method": "component_evidence_hybrid",
-      "node_id": "tcn_aac1ea66cefac33b",
-      "node_title": "92第五单元化学方程式",
-      "pdf_page": 97,
-      "printed_page": "92",
+      "method": "legacy_human_review",
+      "node_id": null,
+      "node_title": "",
+      "pdf_page": 96,
+      "printed_page": "91",
       "publication_status": "published",
-      "rationale": "教材lesson“92第五单元化学方程式”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、阐释化学方程式的意义和书写规则”形成页内证据匹配。",
-      "relation_type": "supports",
+      "rationale": "已核对教材单元「第五单 元 化学方程式」与课标「SC-H4G9-SC-012」的 strong_field_alignment 关联。",
+      "relation_type": "mentions",
       "resource_type": "student_textbook",
-      "review_status": "machine_checked",
+      "review_status": "approved",
       "revision_status": "revision_unknown",
       "textbook_grade": 9,
       "textbook_subject": "化学",
@@ -334,41 +311,64 @@
       "unit_title": "第五单元 化学方程式"
     },
     {
-      "algorithm_version": "pre-full-alignment",
-      "alignment_id": "tca_386bfb1e9f90af50",
-      "alignment_type": "mentions",
-      "confidence": 0.5545,
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c52c00d079b0446d",
+      "alignment_type": "supports",
+      "confidence": 0.92,
       "coverage": "partial",
       "edition_id": "ed_ba25683b949d491afb3c",
-      "evidence_basis": "reviewed_toc_title",
+      "evidence_basis": "toc_title",
       "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
       "evidence_level": "L2_topic",
       "evidence_refs": [
-        "ctu_ebc0f9920d30fd",
+        "ctb_29dc6f39b08d",
+        "tes_3d1143fe7f12d213",
+        "textbook-node:tcn_aac1ea66cefac33b",
         "textbook-unit:tcu_d57ced1beaf28e9a"
       ],
-      "evidence_role": "legacy_reviewed_textbook_evidence",
-      "evidence_spans": [],
-      "learning_component_ids": [],
-      "learning_components": [],
-      "level": "unit_topic_candidate",
-      "method": "legacy_human_review",
-      "node_id": null,
-      "node_title": "",
-      "pdf_page": null,
-      "printed_page": null,
-      "publication_status": "review_queue",
-      "rationale": "已核对教材单元「第五单 元 化学方程式」与课标「SC-H4G9-SC-012」的 strong_field_alignment 关联。",
-      "relation_type": "mentions",
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "92 第五单元 化学方程式",
+          "excerpt_hash": "a93ff45e08013ea9b73faeee57e2276cc303c54c34ce053389ddb96d469d7a60",
+          "pdf_page": 97,
+          "printed_page": "92",
+          "span_id": "tes_3d1143fe7f12d213"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_69f5b7cd1e72069b",
+        "lc_6ec898fdef19e46a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_69f5b7cd1e72069b",
+          "label": "根据化学方程式进行简单计算"
+        },
+        {
+          "component_id": "lc_6ec898fdef19e46a",
+          "label": "阐释化学方程式的意义和书写规则"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_aac1ea66cefac33b",
+      "node_title": "92第五单元化学方程式",
+      "pdf_page": 97,
+      "printed_page": "92",
+      "publication_status": "published",
+      "rationale": "教材lesson“92第五单元化学方程式”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、阐释化学方程式的意义和书写规则”形成页内证据匹配。",
+      "relation_type": "supports",
       "resource_type": "student_textbook",
-      "review_status": "candidate",
+      "review_status": "machine_checked",
       "revision_status": "revision_unknown",
       "textbook_grade": 9,
       "textbook_subject": "化学",
       "textbook_title": "化学9年级上册",
       "textbook_volume": "上册",
       "unit_id": "tcu_d57ced1beaf28e9a",
-      "unit_title": ""
+      "unit_title": "第五单元 化学方程式"
     },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",

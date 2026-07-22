@@ -9,6 +9,10 @@
 .components span { padding: .3rem .45rem; border: 1px solid var(--kb-hairline); border-radius: 999px; background: var(--kb-surface-muted); color: var(--text-secondary); font-size: .6rem; line-height: 1.25; }
 .card blockquote { margin: 0; padding: .65rem .75rem; border-left: 2px solid #c88b2b; background: #fffaf0; color: var(--text-secondary); font-size: .68rem; line-height: 1.65; }
 .rationale { margin: 0; color: var(--text-secondary); font-size: .68rem; line-height: 1.6; }
+.evidenceLocators { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+.evidenceLocators strong { width: 100%; color: var(--text-secondary); font: 600 .55rem/1.4 var(--font-mono); }
+.evidenceLocators a { display: inline-flex; min-height: 2rem; align-items: center; padding: 0 .55rem; border: 1px solid var(--kb-hairline); border-radius: var(--radius-sm); color: var(--kb-accent); font-size: .6rem; font-weight: 620; text-decoration: none; }
+.evidenceLocators a[aria-current='location'] { border-color: var(--kb-accent); background: var(--kb-accent-soft); }
 .metrics { display: grid; grid-template-columns: minmax(9rem,1.5fr) repeat(2,minmax(5rem,.7fr)) minmax(9rem,1fr); margin: 0; overflow: hidden; border: 1px solid var(--kb-hairline); border-radius: var(--radius-md); }
 .metrics div { min-width: 0; padding: .55rem .65rem; border-left: 1px solid var(--kb-hairline); }
 .metrics div:first-child { border-left: 0; }

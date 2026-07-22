@@ -23,6 +23,12 @@ import {
 import { basename, dirname, join, relative, resolve, sep } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs'
+import {
+  assertApprovedAlignmentReferences,
+  findAuthenticatedUnitRangeRecovery,
+  loadUnitRangeRecoveryCatalog,
+  reconcileTextbookUnitRanges
+} from './reconcile_textbook_unit_ranges.js'
 
 const ROOT = resolve(import.meta.dirname, '../..')
 const CURRENT_PATH = join(ROOT, 'data/textbooks/library-state/CURRENT.json')
@@ -36,6 +42,7 @@ const SCHEMA_VERSION = 2
 const PARSER_VERSION = 'textbook-content-pdfjs-v3'
 const ALIGNER_VERSION = 'component-evidence-hybrid-v3'
 const SIDECAR_VERSION = 'textbook-content-v2'
+const UNIT_RANGE_RECOVERY_CATALOG = loadUnitRangeRecoveryCatalog()
 const MAX_EVIDENCE_TEXT = 320
 const BODY_INFERRED_UNIT_SOURCE = 'body_inferred_unit'
 
@@ -1666,6 +1673,9 @@ async function buildEdition(asset, args, standardsByCode) {
   const extraction = await extractPages(asset, structure, pdfPath, args)
   const sidecarPath = writeSidecar(args, asset, extraction)
   if (args.sidecarOnly) return { structure, alignments: [], summary: { sidecarPath, pageCount: extraction.pages.length } }
+  const sidecarSha256 = createHash('sha256')
+    .update(readFileSync(join(args.libraryRoot, sidecarPath)))
+    .digest('hex')
   const baseStructure = {
     ...structure,
     toc: normalizeTocEntries((structure.toc || [])
@@ -1678,13 +1688,32 @@ async function buildEdition(asset, args, standardsByCode) {
       }))
   }
   const unitRecovery = recoverBodyInferredUnits(asset, baseStructure, extraction.pages)
-  const workingStructure = unitRecovery.entries.length
+  const recoveredStructure = unitRecovery.entries.length
     ? { ...baseStructure, toc: [...baseStructure.toc, ...unitRecovery.entries] }
     : baseStructure
+  const authenticatedRecovery = findAuthenticatedUnitRangeRecovery(
+    UNIT_RANGE_RECOVERY_CATALOG,
+    asset.edition_id,
+    asset.sha256
+  )
+  const unitRangeReconciliation = reconcileTextbookUnitRanges(recoveredStructure, extraction.pages, {
+    sourceAssetSha256: asset.sha256,
+    sidecarSha256,
+    authenticatedRecovery
+  })
+  const workingStructure = unitRangeReconciliation.structure
   const { contentNodes, evidenceSpans } = buildContentGraph(asset, workingStructure, extraction.pages)
+  const legacyApproved = (structure.alignments || []).filter(alignment => alignment.review_status === 'approved')
+  if (authenticatedRecovery) {
+    assertApprovedAlignmentReferences({
+      structure: workingStructure,
+      contentNodes,
+      evidenceSpans,
+      alignments: legacyApproved
+    })
+  }
   const components = loadCapabilityComponents(asset, standardsByCode)
   const generatedAlignments = alignContentNodes(asset, workingStructure, contentNodes, evidenceSpans, components, args)
-  const legacyApproved = (structure.alignments || []).filter(alignment => alignment.review_status === 'approved')
   const alignments = [...new Map([...legacyApproved, ...generatedAlignments].map(alignment => [alignment.alignment_id, alignment])).values()]
     .sort((a, b) => (a.unit_id || '').localeCompare(b.unit_id || '') || Number(a.pdf_page || 0) - Number(b.pdf_page || 0) || a.alignment_id.localeCompare(b.alignment_id))
   const enhanced = {
@@ -1701,6 +1730,7 @@ async function buildEdition(asset, args, standardsByCode) {
       review_policy: 'automatic_no_human_gate',
       source_asset_sha256: asset.sha256,
       sidecar_path: sidecarPath,
+      sidecar_sha256: sidecarSha256,
       native_text_ratio: extraction.nativeRatio,
       ocr_page_count: extraction.ocrCount,
       ocr_reused_count: extraction.ocrReused,
@@ -1709,6 +1739,8 @@ async function buildEdition(asset, args, standardsByCode) {
       unit_recovery_reason: unitRecovery.reason,
       automatic_content_unit_count: unitRecovery.entries.length,
       unit_recovery_native_text_ratio: unitRecovery.native_text_ratio,
+      unit_range_reconciliation_algorithm: unitRangeReconciliation.report.algorithm_version,
+      reconciled_unit_range_count: unitRangeReconciliation.report.changed_unit_range_count || 0,
       content_node_count: contentNodes.length,
       evidence_span_count: evidenceSpans.length,
       alignment_count: alignments.length,
@@ -1729,6 +1761,7 @@ async function buildEdition(asset, args, standardsByCode) {
       unit_recovery_status: unitRecovery.status,
       unit_recovery_reason: unitRecovery.reason,
       automatic_content_units: unitRecovery.entries.length,
+      reconciled_unit_ranges: unitRangeReconciliation.report.changed_unit_range_count || 0,
       content_nodes: contentNodes.length,
       evidence_spans: evidenceSpans.length,
       alignments: alignments.length,

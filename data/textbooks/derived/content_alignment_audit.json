@@ -1,29 +1,31 @@
 {
   "by_evidence_level": {
-    "L2": 140,
-    "L3": 383,
-    "legacy_approved": 9
+    "L2": 149,
+    "L3": 499
   },
   "by_evidence_role": {
-    "exercise": 1293,
-    "heading": 4478,
-    "objective": 922
+    "exercise": 1305,
+    "heading": 4506,
+    "objective": 922,
+    "textbook_page_excerpt": 237
   },
   "by_node_kind": {
     "activity": 478,
     "chapter": 595,
-    "exercise": 1373,
-    "lesson": 2548,
+    "exercise": 1385,
+    "lesson": 2576,
     "objective": 922,
-    "page": 10260,
+    "page": 10379,
+    "page_excerpt": 237,
     "section": 869,
     "unit": 829
   },
   "by_relation_type": {
+    "assesses": 1,
     "contextualizes": 23,
     "mentions": 1,
-    "practices": 283,
-    "supports": 225
+    "practices": 369,
+    "supports": 254
   },
   "by_subject": {
     "art": {
@@ -61,7 +63,7 @@
       "content_nodes": 358,
       "evidence_spans": 160,
       "failures": 0,
-      "l2_alignments": 6,
+      "l2_alignments": 7,
       "l3_alignments": 18,
       "processed": 2,
       "scope_only": 1,
@@ -87,18 +89,18 @@
       "with_spans": 18
     },
     "english": {
-      "alignments": 3,
-      "content_nodes": 1180,
-      "evidence_spans": 179,
+      "alignments": 72,
+      "content_nodes": 1363,
+      "evidence_spans": 314,
       "failures": 0,
       "l2_alignments": 1,
-      "l3_alignments": 2,
+      "l3_alignments": 71,
       "processed": 14,
-      "scope_only": 13,
+      "scope_only": 12,
       "textbooks": 14,
-      "with_alignments": 1,
-      "with_l3": 1,
-      "with_nodes": 12,
+      "with_alignments": 2,
+      "with_l3": 2,
+      "with_nodes": 13,
       "with_spans": 10
     },
     "geography": {
@@ -132,19 +134,19 @@
       "with_spans": 6
     },
     "math": {
-      "alignments": 94,
-      "content_nodes": 2700,
-      "evidence_spans": 589,
+      "alignments": 116,
+      "content_nodes": 2799,
+      "evidence_spans": 664,
       "failures": 0,
-      "l2_alignments": 54,
-      "l3_alignments": 34,
+      "l2_alignments": 60,
+      "l3_alignments": 56,
       "processed": 18,
-      "scope_only": 9,
+      "scope_only": 8,
       "textbooks": 18,
-      "with_alignments": 9,
-      "with_l3": 8,
+      "with_alignments": 10,
+      "with_l3": 9,
       "with_nodes": 18,
-      "with_spans": 9
+      "with_spans": 10
     },
     "morality_law": {
       "alignments": 51,
@@ -162,17 +164,17 @@
       "with_spans": 18
     },
     "music": {
-      "alignments": 0,
-      "content_nodes": 181,
-      "evidence_spans": 51,
+      "alignments": 17,
+      "content_nodes": 275,
+      "evidence_spans": 98,
       "failures": 0,
       "l2_alignments": 0,
-      "l3_alignments": 0,
+      "l3_alignments": 17,
       "processed": 18,
-      "scope_only": 18,
+      "scope_only": 17,
       "textbooks": 18,
-      "with_alignments": 0,
-      "with_l3": 0,
+      "with_alignments": 1,
+      "with_l3": 1,
       "with_nodes": 18,
       "with_spans": 3
     },
@@ -196,7 +198,7 @@
       "content_nodes": 865,
       "evidence_spans": 438,
       "failures": 0,
-      "l2_alignments": 6,
+      "l2_alignments": 8,
       "l3_alignments": 3,
       "processed": 3,
       "scope_only": 1,
@@ -207,12 +209,12 @@
       "with_spans": 2
     },
     "science": {
-      "alignments": 1,
-      "content_nodes": 94,
-      "evidence_spans": 5,
+      "alignments": 9,
+      "content_nodes": 114,
+      "evidence_spans": 25,
       "failures": 0,
       "l2_alignments": 0,
-      "l3_alignments": 1,
+      "l3_alignments": 9,
       "processed": 12,
       "scope_only": 11,
       "textbooks": 12,
@@ -228,51 +230,51 @@
     "missing_structures": 0,
     "normalized_toc_ranges": 0,
     "registry_textbooks": 141,
-    "scope_only": 82,
+    "scope_only": 79,
     "structure_records": 141,
     "unlocated_toc_entries": 119,
-    "with_alignments": 59,
-    "with_content_nodes": 123,
-    "with_evidence_spans": 89,
-    "with_l3_page_evidence": 52
+    "with_alignments": 62,
+    "with_content_nodes": 124,
+    "with_evidence_spans": 90,
+    "with_l3_page_evidence": 55
   },
   "errors": [],
   "forward_reverse": {
-    "canonical_alignment_count": 532,
-    "edition_alignment_count": 532,
+    "canonical_alignment_count": 648,
+    "edition_alignment_count": 648,
     "forward_only_count": 0,
     "mismatched_count": 0,
     "reverse_only_count": 0,
-    "standard_reverse_keys": 186
+    "standard_reverse_keys": 232
   },
-  "generated_at": "2026-07-22T06:17:30.106Z",
+  "generated_at": "2026-07-22T21:13:26.803Z",
   "inputs": {
     "canonical_index": "/Users/shawn.fsc/Downloads/curriculum breakdown/curriculum-standards-breakdown/data/textbooks/derived/textbook_standard_alignment_index.json",
     "latest_run_report": "/Users/shawn.fsc/Downloads/curriculum breakdown/curriculum-standards-breakdown/data/textbooks/derived/content_alignment_report.json",
-    "latest_run_selected_count": 3,
+    "latest_run_selected_count": 4,
     "registry": "/Users/shawn.fsc/Downloads/curriculum breakdown/curriculum-standards-breakdown/data/textbooks/library-state/generations/gen-20260717051338-15c077ccb4/asset_registry.lock.jsonl",
     "structure_root": "/Users/shawn.fsc/Downloads/curriculum breakdown/curriculum-standards-breakdown/data/textbooks/derived/by-edition"
   },
   "latest_run": {
-    "completed_count": 3,
+    "completed_count": 4,
     "failure_count": 0,
     "failures": [],
-    "selected_count": 3
+    "selected_count": 4
   },
   "schema_version": 1,
   "source_generation_id": "gen-20260717051338-15c077ccb4",
   "summary": {
-    "canonical_alignments": 532,
-    "content_nodes": 17874,
+    "canonical_alignments": 648,
+    "content_nodes": 18270,
     "current_textbooks": 141,
-    "edition_alignments": 532,
+    "edition_alignments": 648,
     "errors": 0,
-    "evidence_spans": 6693,
+    "evidence_spans": 6970,
     "expected_textbooks": 141,
-    "l3_page_alignments": 383,
+    "l3_page_alignments": 499,
     "legacy_approved_alignments": 9,
-    "machine_alignments": 523,
-    "published_alignments": 532,
+    "machine_alignments": 639,
+    "published_alignments": 648,
     "support_resource_structures": 4,
     "warnings": 2
   },
@@ -290,7 +292,7 @@
       "code": "partial_latest_run",
       "current_textbooks": 141,
       "message": "Latest run report covers only part of the library; canonical coverage is audited from all edition records",
-      "selected_count": 3
+      "selected_count": 4
     },
     {
       "code": "unlocated_toc_entries",

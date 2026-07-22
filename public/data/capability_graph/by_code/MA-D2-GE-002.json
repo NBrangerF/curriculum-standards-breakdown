@@ -116,16 +116,188 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 3,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_a5b6f37f38e2badc0800",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_5f12f030350363850ac3",
+        "textbook-node:tcn_llm_quote_c4785b35d886b72fc2ca",
+        "textbook-unit:tcu_38f6f6d8608ec835"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "费是多少元?照这样计算,一年的电话费是多少元?\n9 画出下面的角,并说一说它们分别是哪一种角。\n40° 90° 145° 180° 360°\n113",
+          "excerpt_hash": "5342a4b94f663a6d06415e1652b1ef6b25402c08636dfe4f6869abdca899263d",
+          "pdf_page": 118,
+          "printed_page": "113",
+          "span_id": "tes_llm_quote_5f12f030350363850ac3"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3988ec99d253bc57",
+        "lc_1f8b7b6d1c3e7d9a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3988ec99d253bc57",
+          "label": "辨认平角和周角"
+        },
+        {
+          "component_id": "lc_1f8b7b6d1c3e7d9a",
+          "label": "用直尺和量角器画出指定度数的角"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_c4785b35d886b72fc2ca",
+      "node_title": "9 画出下面的角,并说一说它们分别是哪一种角。\n40° 90° 145° 180° 360°",
+      "pdf_page": 118,
+      "printed_page": "113",
+      "publication_status": "published",
+      "rationale": "证据要求画出40°、90°、145°、180°、360°等指定度数的角，并说出类别；其中180°和360°对应平角和周角的辨认，画指定度数的角也被直接练习。主要功能是学生练习，所以 relation_type 为 practices。未选择比较角大小、说出直角锐角钝角特征、用量角器测量、用三角板画30°45°60°90°，因为证据没有这些工具或动作要求。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_38f6f6d8608ec835",
+      "unit_title": "9总复习"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_0cb94164a46e7aeb1c07",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_1a29eac6c07cd4e95e1f",
+        "textbook-node:tcn_llm_quote_50e4028a1d57dc83221d",
+        "textbook-unit:tcu_783628caaee5285c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "画角\n3 画一个 60°的角。\n60°\n画角的步骤是:\n(1)画一条射线,使量角器的中心和射线的端点重合,0°\n刻度线和射线重合。\n(2)在量角器60°刻度线的地方点一个点。\n(3)以画出的射线的端点为端点,通过刚画的点,再画一\n条射线。\n做一做\n1 下面的角各是哪一种角?写出角的名称。\n( )角 ( )角 ( )角 ( )角\n2 (1)分别画出75°、105°的角。\n(2)画出下面的角。\n20° 30° 85° 90° 120° 135°\n43",
+          "excerpt_hash": "ae853c2288cca1ea889826c428dda08ba1674187c59c2080204d5341449b4058",
+          "pdf_page": 48,
+          "printed_page": "43",
+          "span_id": "tes_llm_quote_1a29eac6c07cd4e95e1f"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1f8b7b6d1c3e7d9a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1f8b7b6d1c3e7d9a",
+          "label": "用直尺和量角器画出指定度数的角"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_50e4028a1d57dc83221d",
+      "node_title": "画角\n3 画一个 60°的角。\n60°\n画角的步骤是:\n(1)画一条射线,使量角器的中心和射线的端点重合,0°\n刻度线和射线重合。\n(2)在量角器60°刻度线的地方点一个点。\n(3)以画出的射线的端点",
+      "pdf_page": 48,
+      "printed_page": "43",
+      "publication_status": "published",
+      "rationale": "证据以“画一个60°的角”为目标，并逐步说明量角器与射线端点、0°刻度线重合，在60°刻度线处点点，再画射线，直接覆盖画指定度数角的对象和动作。该页主要是在讲解和示范画角步骤，因此 relation_type 取 supports。未选择比较角、说出特征、辨认平角和周角、测量角或用三角板画角，因为这些动作没有在所引连续证据中完整落实；同一候选内仅保留被证据证明的最具体组件。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_783628caaee5285c",
+      "unit_title": "3角的度量"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_cdf33a10265085f8942f",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_c9e3c88f490abada1138",
+        "textbook-node:tcn_llm_quote_961a8708c012d1169d47",
+        "textbook-unit:tcu_783628caaee5285c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "11 (1)你能用一张长方形纸折出下面度数的角吗?\n90° 45° 135°\n(2)将一张圆形纸对折三次后展开,可以得到哪些度数的角?\n12 选择合适的方法画出下面的角,并说说它们分别是哪一种角。\n10° 45° 60° 90° 105° 120° 180°\n13 量出右面各角的度数。你能\n1 ∠1=____\n3\n发现什么? 2\n∠2=____\nB\n∠3=____\nA\n14 你能想办法知道\n右面两个角的度\n数吗?\n15 右面每个图中的\n∠1与 ∠2相 等\n1\n吗?说明理由。\n2 1\n2\n平角很特别,平\n角的两条边在一\n我的收获是:\n本单元结束了, 条直线上。\n你有什么收获?\n成长小档案 平角\n周角\n46",
+          "excerpt_hash": "63aeddaa6694645d2cb31b5ff56429a77f9ff9c491f91f6b5a2ed6d68e1285e0",
+          "pdf_page": 51,
+          "printed_page": "46",
+          "span_id": "tes_llm_quote_c9e3c88f490abada1138"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3ffc45e9bcd5654d",
+        "lc_1f8b7b6d1c3e7d9a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3ffc45e9bcd5654d",
+          "label": "用量角器测量角的大小"
+        },
+        {
+          "component_id": "lc_1f8b7b6d1c3e7d9a",
+          "label": "用直尺和量角器画出指定度数的角"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_961a8708c012d1169d47",
+      "node_title": "12 选择合适的方法画出下面的角,并说说它们分别是哪一种角。\n10° 45° 60° 90° 105° 120° 180°\n13 量出右面各角的度数。",
+      "pdf_page": 51,
+      "printed_page": "46",
+      "publication_status": "published",
+      "rationale": "证据要求学生画出指定度数的角，并量出角的度数，直接对应“用直尺和量角器画出指定度数的角”和“用量角器测量角的大小”。虽然题干未逐字写出量角器、直尺，但在角的度量练习中“量出角的度数”和“画出指定度数的角”直接落实相应操作对象与动作。证据还要求说出角的种类，但没有完整要求说出直角、锐角、钝角的特征；也没有完整证明比较角的大小、辨认平角和周角或用三角板画30°、45°、60°、90°的角。因此只接受最具体且由该连续证据证明的两个组件，relation_type 为 practices。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_783628caaee5285c",
+      "unit_title": "3角的度量"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_97f5b9b66db93a3c",

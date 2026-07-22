@@ -6,8 +6,9 @@ import Ajv2020 from 'ajv/dist/2020.js'
 import { atomicWriteJson, parseArgs, readJson, writeJson } from './library_common.js'
 import { sha256FileChunked, verifyPdf } from './verify_textbook_asset.js'
 import {
+  DEFAULT_SUPPORT_RESOURCE_BUCKET,
   buildResourceImportPlan,
-  mergeResourceManifestInputs,
+  mergeResourceManifestInputsWithOptions,
   normalizeResourceInput,
   resourceInputForRegistry
 } from './textbook_resource_pipeline.js'
@@ -35,20 +36,24 @@ function main() {
   if (!['merge', 'replace'].includes(registrationMode)) throw new Error('--registration-mode must be merge or replace')
   if (!register && args.registrationMode) throw new Error('--registration-mode requires --register')
   if (executeLocal && !libraryRoot) throw new Error('--execute-local requires --library-root')
+  const r2Bucket = String(args.r2Bucket || process.env.TEXTBOOK_ASSET_BUCKET || DEFAULT_SUPPORT_RESOURCE_BUCKET).trim()
+  if (!r2Bucket) throw new Error('configured R2 bucket must not be empty')
 
   const plans = []
   const enriched = []
   const registered = []
+  const executions = []
   const sourceRef = portableProjectReference(manifestPath)
   for (const input of inputs) {
     const availability = input.asset?.availability || 'manifest_only'
     if (availability !== 'available') {
-      const normalized = normalizeResourceInput(input, { sourceRef })
+      const normalized = normalizeResourceInput(input, { sourceRef, r2Bucket })
       enriched.push(input)
-      registered.push(resourceInputForRegistry(input, normalized.resource, { sourceRef }))
-      plans.push(buildResourceImportPlan(normalized.resource, { libraryRoot, r2Bucket: args.r2Bucket }))
+      registered.push(resourceInputForRegistry(input, normalized.resource, { sourceRef, r2Bucket }))
+      plans.push(buildResourceImportPlan(normalized.resource, { libraryRoot, r2Bucket }))
       continue
     }
+    assertImportStorageHints(input.asset, r2Bucket)
     if (!input.asset?.source_path) throw new Error(`available resource requires asset.source_path: ${input.bibliography?.title || 'untitled'}`)
     const sourcePath = resolve(dirname(manifestPath), input.asset.source_path)
     if (!existsSync(sourcePath)) throw new Error(`resource source PDF is missing: ${sourcePath}`)
@@ -65,14 +70,12 @@ function main() {
         bytes: verification.bytes,
         pages: verification.pages,
         object_path: objectPath,
-        r2_bucket: input.asset.r2_bucket || args.r2Bucket || 'kebiao-textbooks',
+        r2_bucket: input.asset.r2_bucket || r2Bucket,
         r2_key: input.asset.r2_key || objectPath
       }
     }
-    const normalized = normalizeResourceInput(augmented, { sourceRef })
-    const plan = buildResourceImportPlan(normalized.resource, { libraryRoot, r2Bucket: args.r2Bucket })
-    if (executeLocal) installLocalObject(sourcePath, plan.local.destination_path, verification.sha256)
-    if (uploadR2) uploadObjectToR2(executeLocal ? plan.local.destination_path : sourcePath, plan.r2)
+    const normalized = normalizeResourceInput(augmented, { sourceRef, r2Bucket })
+    const plan = buildResourceImportPlan(normalized.resource, { libraryRoot, r2Bucket })
     enriched.push({
       ...augmented,
       resource_id: normalized.resource.resource_id,
@@ -80,23 +83,33 @@ function main() {
       work_id: normalized.resource.work_id,
       asset: { ...augmented.asset, asset_id: normalized.resource.asset.asset_id }
     })
-    registered.push(resourceInputForRegistry(augmented, normalized.resource, { sourceRef }))
+    registered.push(resourceInputForRegistry(augmented, normalized.resource, { sourceRef, r2Bucket }))
     plans.push(plan)
+    executions.push({ sourcePath, plan, sha256: verification.sha256 })
   }
 
   let registryPath = null
   let registeredCount = null
+  let registryPayload = null
   if (register) {
     registryPath = resolve(PROJECT_ROOT, args.registry || DEFAULT_REGISTRY)
     const existing = registrationMode === 'merge' && existsSync(registryPath)
       ? resourceRows(readJson(registryPath), registryPath)
       : []
-    const resources = mergeResourceManifestInputs(existing, registered)
-    const registryPayload = { schema_version: 1, resources }
+    const resources = mergeResourceManifestInputsWithOptions({ r2Bucket }, existing, registered)
+    registryPayload = { schema_version: 1, resources }
     assertValidResourceManifest(registryPayload, 'Resource registry')
-    atomicWriteJson(registryPath, registryPayload)
     registeredCount = resources.length
   }
+
+  // Validate every manifest and registry row before copying or uploading any
+  // object. This prevents a late custom bucket/key error from leaving an
+  // earlier row partially imported.
+  for (const execution of executions) {
+    if (executeLocal) installLocalObject(execution.sourcePath, execution.plan.local.destination_path, execution.sha256)
+    if (uploadR2) uploadObjectToR2(executeLocal ? execution.plan.local.destination_path : execution.sourcePath, execution.plan.r2)
+  }
+  if (registryPayload) atomicWriteJson(registryPath, registryPayload)
 
   const result = {
     schema_version: 1,
@@ -121,6 +134,31 @@ function main() {
     registered_resources: registeredCount,
     output: args.out || null
   }, null, 2))
+}
+
+function assertImportStorageHints(asset, r2Bucket) {
+  const bucket = String(asset?.r2_bucket || '').trim()
+  if (bucket && bucket !== r2Bucket) {
+    throw new Error(`resource asset r2_bucket must equal configured bucket: ${r2Bucket}`)
+  }
+  const sha256 = String(asset?.sha256 || '').trim().toLowerCase()
+  const objectPath = String(asset?.object_path || '').trim()
+  const r2Key = String(asset?.r2_key || '').trim()
+  const contentAddressPattern = /^objects\/sha256\/[a-f0-9]{2}\/[a-f0-9]{64}\.pdf$/
+  if (objectPath && !contentAddressPattern.test(objectPath)) {
+    throw new Error('resource asset object_path must be content-addressed')
+  }
+  if (r2Key && !contentAddressPattern.test(r2Key)) {
+    throw new Error('resource asset r2_key must be content-addressed')
+  }
+  if (objectPath && r2Key && objectPath !== r2Key) {
+    throw new Error('resource asset r2_key must equal object_path')
+  }
+  if (/^[a-f0-9]{64}$/.test(sha256)) {
+    const expected = `objects/sha256/${sha256.slice(0, 2)}/${sha256}.pdf`
+    if (objectPath && objectPath !== expected) throw new Error('resource asset object_path must match sha256')
+    if (r2Key && r2Key !== expected) throw new Error('resource asset r2_key must match sha256')
+  }
 }
 
 function assertValidResourceManifest(payload, label) {

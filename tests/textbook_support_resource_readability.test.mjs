@@ -27,9 +27,16 @@ function resource(asset = {}) {
 
 test('support resource readability requires a complete content-addressed PDF asset', () => {
   assert.equal(isReadableSupportResource(resource()), true)
+  assert.equal(isReadableSupportResource(resource({ r2_bucket: 'kebiao-textbooks', r2_key: `objects/sha256/aa/${SHA}.pdf` })), true)
   assert.equal(isReadableSupportResource(resource({ availability: 'manifest_only' })), false)
   assert.equal(isReadableSupportResource(resource({ pages: null })), false)
   assert.equal(isReadableSupportResource(resource({ object_path: 'teacher-guides/arbitrary.pdf' })), false)
+  assert.equal(isReadableSupportResource(resource({ r2_key: 'teacher-guides/arbitrary.pdf' })), false)
+  assert.equal(isReadableSupportResource(resource({ r2_bucket: 'another-bucket', r2_key: `objects/sha256/aa/${SHA}.pdf` })), false)
+  assert.equal(isReadableSupportResource(
+    resource({ r2_bucket: 'private-configured-bucket', r2_key: `objects/sha256/aa/${SHA}.pdf` }),
+    { r2Bucket: 'private-configured-bucket' }
+  ), true)
   assert.equal(isReadableSupportResource(resource({ sha256: 'not-a-hash' })), false)
 })
 

@@ -62,6 +62,7 @@ const book = {
     ],
     evidence_spans: [
         { span_id: 'span_1', node_id: 'lesson_1', pdf_page: 3, printed_page: '1', excerpt: '说说课文围绕“落花生”写了哪些内容。', evidence_role: 'exercise', bbox: { x: 50, y: 620, width: 220, height: 24, unit: 'pdf_point', page_width: 544.32, page_height: 754.08 } },
+        { span_id: 'span_grouped', node_id: 'lesson_2', pdf_page: 6, printed_page: '4', excerpt: '体会桂花雨中表达的思乡感情。', evidence_role: 'exercise', bbox: { x: 80, y: 560, width: 240, height: 28, unit: 'pdf_point', page_width: 544.32, page_height: 754.08 } },
         { span_id: 'span_2', node_id: 'lesson_2', pdf_page: 6, printed_page: '4', excerpt: '桂花给我带来了哪些美好的回忆？', evidence_role: 'exercise' }
     ],
     alignments: [{
@@ -70,11 +71,24 @@ const book = {
         node_id: 'lesson_1',
         standard_code: STANDARD_CODE,
         standard_text: '能结合上下文和生活实际了解课文中词句的意思。',
-        learning_component_ids: ['lc_main_idea'],
-        learning_component_labels: ['获取主要内容'],
+        learning_component_ids: ['lc_main_idea', 'lc_emotion'],
+        learning_components: [{ component_id: 'lc_main_idea', label: '获取主要内容' }, { component_id: 'lc_emotion', label: '体会作者情感' }],
         relation_type: 'practices',
         evidence_level: 'L3_page_evidence',
-        evidence_span_ids: ['span_1'],
+        evidence_span_ids: ['span_1', 'span_grouped'],
+        alignment_ids: ['alignment_1', 'alignment_1_second_claim'],
+        node_ids: ['lesson_1', 'lesson_2'],
+        supporting_evidence: [{
+            alignment_id: 'alignment_1', node_id: 'lesson_1', evidence_span_id: 'span_1', pdf_page: 3, printed_page: '1',
+            evidence_excerpt: '说说课文围绕“落花生”写了哪些内容。', learning_component_ids: ['lc_main_idea'],
+            learning_components: [{ component_id: 'lc_main_idea', label: '获取主要内容' }],
+            bbox: { x: 50, y: 620, width: 220, height: 24, unit: 'pdf_point', page_width: 544.32, page_height: 754.08 }
+        }, {
+            alignment_id: 'alignment_1_second_claim', node_id: 'lesson_2', evidence_span_id: 'span_grouped', pdf_page: 6, printed_page: '4',
+            evidence_excerpt: '体会桂花雨中表达的思乡感情。', learning_component_ids: ['lc_emotion'],
+            learning_components: [{ component_id: 'lc_emotion', label: '体会作者情感' }],
+            bbox: { x: 80, y: 560, width: 240, height: 28, unit: 'pdf_point', page_width: 544.32, page_height: 754.08 }
+        }],
         confidence: 0.93,
         score: 0.87,
         algorithm_version: 'component-evidence-hybrid-v3',
@@ -142,6 +156,29 @@ test('reader resolves the deepest node, displays page evidence and keeps URL sta
     await expect(page).not.toHaveURL(/alignment=alignment_1|panel=standards/)
     await page.reload()
     await expect(page.getByTestId('textbook-standards-panel')).toHaveCount(0)
+})
+
+test('grouped relationship selects the current-page claim and exposes every evidence deep link', async ({ page }) => {
+    await routeReaderFixture(page)
+    await page.goto(`/textbooks/${EDITION_ID}/read?page=6&node=lesson_2&alignment=alignment_1&panel=standards`)
+
+    const panel = page.getByTestId('textbook-standards-panel')
+    const groupedCard = panel.locator('[data-alignment-id="alignment_1"]')
+    await expect(groupedCard.getByText(/体会桂花雨中表达的思乡感情/)).toBeVisible()
+    await expect(groupedCard.getByText('体会作者情感')).toBeVisible()
+    await expect(groupedCard.getByText('获取主要内容')).toHaveCount(0)
+    await expect(groupedCard.getByText('PDF 6 · 印刷页 4')).toBeVisible()
+    await expect(groupedCard.getByRole('link', { name: '证据 1 · PDF 3' })).toHaveAttribute(
+        'href',
+        `/textbooks/${EDITION_ID}/read?page=3&alignment=alignment_1&panel=standards&node=lesson_1`
+    )
+    await expect(groupedCard.getByRole('link', { name: '证据 2 · PDF 6' })).toHaveAttribute('aria-current', 'page')
+    await expect(page.locator('[data-evidence-mode="exact"] [data-testid="textbook-evidence-highlight"]')).toBeVisible()
+
+    await groupedCard.getByRole('link', { name: '证据 1 · PDF 3' }).click()
+    await expect(page).toHaveURL(/page=3.*alignment=alignment_1.*panel=standards.*node=lesson_1/)
+    await expect(panel.locator('[data-alignment-id="alignment_1"]').getByText(/说说课文围绕/)).toBeVisible()
+    await expect(page.locator('[data-evidence-mode="exact"] [data-testid="textbook-evidence-highlight"]')).toBeVisible()
 })
 
 test('reader clamps invalid page deep links and builds one real ancestor path', async ({ page }) => {
@@ -300,6 +337,11 @@ test('textbook detail and unit cards expose evidence metadata and exact reader l
     await expect(detailCard.getByText('置信度').locator('..')).toContainText('93%')
     await expect(detailCard.getByText('算法版本').locator('..')).toContainText('component-evidence-hybrid-v3')
     await expect(detailCard.getByRole('link', { name: '定位原文与课标 →' })).toHaveAttribute('href', expected)
+    await expect(detailCard.getByRole('link', { name: '证据 1 · PDF 3 · 印刷页 1' })).toHaveAttribute('href', expected)
+    await expect(detailCard.getByRole('link', { name: '证据 2 · PDF 6 · 印刷页 4' })).toHaveAttribute(
+        'href',
+        `/textbooks/${EDITION_ID}/read?page=6&node=lesson_2&alignment=alignment_1&panel=standards`
+    )
 
     await page.goto('/textbook-units/unit_1')
     const unitCard = page.locator('[data-alignment-id="alignment_1"]')

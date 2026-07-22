@@ -121,9 +121,9 @@
     "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
     "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 1,
+    "page_evidence_count": 7,
     "scope_count": 4,
-    "specific_count": 1,
+    "specific_count": 7,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
@@ -181,6 +181,340 @@
       "textbook_volume": "下册",
       "unit_id": "tcu_372443c621cbd76c",
       "unit_title": "3.7 元"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_204e1ff56071e0e6d134",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_3abb6397b4242a03daf1",
+        "textbook-node:tcn_llm_quote_d18e90cc1ced6b046403",
+        "textbook-unit:tcu_38f6f6d8608ec835"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1\n数级 ...... 亿级 万级 个级\n千 百 十 亿 千 百 十 万 千 百 十 个\n数位 ...... 亿 亿 亿 万 万 万\n位 位 位 位 位 位 位 位 位 位 位 位\n(1)在上面的数位顺序表中,写出一个数,让同学读出来。再\n任意指出这个数中的数字,说出它们的含义。\n(2)写出一个数读出来,让同学写\n你是怎么读、\n出来,看看与你写的一样吗。 写多位数的?\n(3)你能将写出的数改写成以“万”或“亿”\n作单位的数吗?\n2 先想一想笔算乘、除法应注意什么,再分析下面各题的错误原因。\n3 4 1 4 3 4 5\n× 2 1 × 2 6 90 365 68 408\n36 340\n8 4 6 4 8\n5 68\n6 8 2 8 6\n7 6 4 3 5 0 8\n3 在下表中适当的空格内填上“ ”,再说一说几种图形之间\n的联系和区别。\n两组对边 只有一组 两组对边 有四个\n四边形 四边相等\n分别相等 对边平行 分别平行 直角\n正方形",
+          "excerpt_hash": "bd26fbd8c614b49fae4b67f6f65fa8a5997d888fb6db4836259d65d89b4b34df",
+          "pdf_page": 115,
+          "printed_page": "110",
+          "span_id": "tes_llm_quote_3abb6397b4242a03daf1"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_fcb66e03fc1b9547",
+        "lc_4cab476d4e04d6e6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_fcb66e03fc1b9547",
+          "label": "认、读、写万以上的数"
+        },
+        {
+          "component_id": "lc_4cab476d4e04d6e6",
+          "label": "用万、亿为单位表示大数"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_d18e90cc1ced6b046403",
+      "node_title": "(1)在上面的数位顺序表中,写出一个数,让同学读出来。再\n任意指出这个数中的数字,说出它们的含义。\n(2)写出一个数读出来,让同学写\n你是怎么读、\n出来,看看与你写的一样吗。 写多位数的?\n(3)你能",
+      "pdf_page": 115,
+      "printed_page": "110",
+      "publication_status": "published",
+      "rationale": "证据要求学生写出数、读出数、让同学写出并核对，还要求指出数字含义，足以覆盖万以上数的认、读、写练习；同时明确要求将数改写成以“万”或“亿”作单位的数。主要功能是总复习中的学生练习任务，所以 relation_type 为 practices。未选择“结合具体实例解释万以上数的含义”，因为证据只基于数位顺序表和自写数字，不是具体实例；未选择乘除三位数组件，因为所引连续证据只出现“笔算乘、除法”要求，未完整保留可识别的两位数乘除三位数对象。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_38f6f6d8608ec835",
+      "unit_title": "9总复习"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_3463c997929b3e142b87",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_6eb56cf69fc006472b7d",
+        "textbook-node:tcn_llm_quote_f0c727644b7d502e59ae",
+        "textbook-unit:tcu_d5b5e574493c99e4"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "除数是两位数的除法与除数是一位数的除法有什么相同点?\n有什么不同点?\n每求出一位商,\n余下的数......\n都是从被除数的\n高位除起。 先试除被除数\n的前......\n除到被除数的哪一\n位,就......\n总结一下除数是两位数的除法的计算方法。\n1.\u0007从被除数的 ______ 位除起,先用除数试除被除数的前\n______ 位数,如果它比除数小,再试除前 ______ 位数。\n2.\u0007除到被除数的哪一位,就在那一位上面写 ______。\n3.求出每一位商,余下的数必须比除数 ______。\n做一做\n1 计算下面各题,说一说先试除被除数的前几位数。\n43 989 58 244 26 768\n2 计算下面各题。\n54 784 31 649 12 364 38 762\n84",
+          "excerpt_hash": "4a8d9267326ec72f37096e8a68779633bfc7732addbab47b3361a06fb6ca1991",
+          "pdf_page": 89,
+          "printed_page": "84",
+          "span_id": "tes_llm_quote_6eb56cf69fc006472b7d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_2b093e2bd422ede8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_2b093e2bd422ede8",
+          "label": "计算两位数乘除三位数"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_f0c727644b7d502e59ae",
+      "node_title": "总结一下除数是两位数的除法的计算方法。\n1.\u0007从被除数的 ______ 位除起,先用除数试除被除数的前\n______ 位数,如果它比除数小,再试除前 ______ 位数。\n2.\u0007除到被除数的哪一位,就",
+      "pdf_page": 89,
+      "printed_page": "84",
+      "publication_status": "published",
+      "rationale": "证据要求学生计算除数为两位数、被除数为三位数的除法题，并说明试除位数，直接落实“两位数除三位数”的计算练习。主要功能是普通练习而非讲解或评价，因此 relation_type 为 practices。只选择计算组件；万以上数含义、认读写及用万亿作单位表示大数没有被该证据证明。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_d5b5e574493c99e4",
+      "unit_title": "6除数是两位数的除法"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_55f93006789bd33afa40",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_a1a3744e90a3468be994",
+        "textbook-node:tcn_llm_quote_d72f5649dd569f6d9148",
+        "textbook-unit:tcu_d5b5e574493c99e4"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "918÷18 423÷84 608÷62 225÷45\n118÷29 658÷47 964÷24 828÷36\n11 从下面拿出两张卡片,使它们的商是 7。你能有多少种拿法?\n280 20 560 40 420 80 140 60\n90",
+          "excerpt_hash": "0b0d1b6f7eece0a148618ba52dac96d538230f0e81ced1c7b90686f230a04564",
+          "pdf_page": 95,
+          "printed_page": "90",
+          "span_id": "tes_llm_quote_a1a3744e90a3468be994"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_2b093e2bd422ede8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_2b093e2bd422ede8",
+          "label": "计算两位数乘除三位数"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_d72f5649dd569f6d9148",
+      "node_title": "918÷18 423÷84 608÷62 225÷45\n118÷29 658÷47 964÷24 828÷36",
+      "pdf_page": 95,
+      "printed_page": "90",
+      "publication_status": "published",
+      "rationale": "证据连续列出三位数除以两位数的计算题，要求学生进行除法计算，主要功能是练习而非讲解或评价，因此为 practices。证据不涉及万以上数的含义、认读写或用万亿表示大数，只能接受计算组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_d5b5e574493c99e4",
+      "unit_title": "6除数是两位数的除法"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_6431383ed193514f3d50",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_276953658b166ce7d2f2",
+        "textbook-node:tcn_llm_quote_8209135c61cb92b672ca",
+        "textbook-unit:tcu_e04f09ebddcd3bcf"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "整理和复习\n在本单元,我们学习了哪些知识?先把所学的知识要点按顺序\n写下来,再把它们分类整理一下。\n1 填写下面的数位顺序表,并完成后面的问题。\n数级 ...... 亿级 万级 个级\n数位 ......\n位 位 位 位 位 位 位 位 位 位 位 位\n计数\n......\n单位\n(1)每级的数位、计数单位有什么相同点?\n(2)想一想:怎样能准确地读出一个多位数?再读出下面各数。\n60308700000 269008000\n分级读、写多位\n(3)想一想:怎样能准确地写出一个 数有什么好处?\n多位数?再写出下面各数。\n二十五亿三千零九万\n五百一十亿零二百零七万\n(4)为什么有时要把一个多位数改写成一个用“万”或“亿”\n作单位的数?你知道如何用“万”或“亿”作单位,求出\n一个数的近似数吗?\n2 想一想:怎样比较两个数的大小?再比较下面每组中两个数的\n大小。\n123150000 90780000\n7036400000 7963000000",
+          "excerpt_hash": "18aaa74c8d12a9395f8b190fe627bd73267ac39ebac5703c1b16449a242c73e9",
+          "pdf_page": 35,
+          "printed_page": "30",
+          "span_id": "tes_llm_quote_276953658b166ce7d2f2"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_fcb66e03fc1b9547",
+        "lc_4cab476d4e04d6e6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_fcb66e03fc1b9547",
+          "label": "认、读、写万以上的数"
+        },
+        {
+          "component_id": "lc_4cab476d4e04d6e6",
+          "label": "用万、亿为单位表示大数"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_8209135c61cb92b672ca",
+      "node_title": "练习一\n1 写出横线上的数字表示的含义。\n3 2086 9 3787 10 7398 69 0250\n2 照样子说一说。\n4 7578 28 0064\n表 示4个 万, 表示28个万,\n7578个一。",
+      "pdf_page": 35,
+      "printed_page": "30",
+      "publication_status": "published",
+      "rationale": "该连续证据要求准确读出多位数、准确写出多位数，并讨论把多位数改写成用“万”或“亿”作单位的数，直接覆盖万以上数的认、读、写以及用万、亿为单位表示大数。证据没有结合具体实例解释万以上数的含义，也没有两位数乘除三位数计算，因此不选择这些组件。该证据是复习练习任务，主要功能是让学生实践相关能力，所以 relation_type 为 practices。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e04f09ebddcd3bcf",
+      "unit_title": "1大数的认识"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_8e4b75db094c767ee12e",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_02d76f6cb3c3639a9bb1",
+        "textbook-node:tcn_llm_quote_bf81d0dbb74ce4f54a16",
+        "textbook-unit:tcu_e04f09ebddcd3bcf"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "十进制计数法\n在生产和生活中往往会遇到比亿大的数。\n(1)现代科学研究表明,人一生心跳25亿 ~30亿次。\n(2)第七次全国人口普查结果:全国总人口为1443497378人。\n从一亿开始,还可以继续数下去:\n10 个一亿是十亿,\n10 个十亿是一百亿,\n10 个百亿是一千亿。\n千亿百亿十亿 千万百万十万\n亿 万千百十个\n个(一)、十、百、千、万......亿、十亿、百亿、千亿都是\n计数单位。\n用阿拉伯数字写数时,要把计数单位按照一定的顺序排列\n起来。\n数\n...... 亿 级 万 级 个 级\n级\n( ( (\n亿 千 百 十 万 千 百 十 个\n数\n...... ) ) ) 万 万 万\n位\n位 位 位 位 位 位 位 位 位 位 位 位\n计 ( ( (\n数 千 百 十\n...... ) ) ) 亿 万 千 百 十 个\n单 万 万 万\n位\n像这样每相邻两个计数单位之间的进率都是十的计数方法叫作\n十进制计数法。\n18",
+          "excerpt_hash": "35d8087329ad7fa6e887915ae31be5ec007815f1d14dc98c80bbe80e2a3bbb95",
+          "pdf_page": 23,
+          "printed_page": "18",
+          "span_id": "tes_llm_quote_02d76f6cb3c3639a9bb1"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4ff1d1f2ada9ed9e"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4ff1d1f2ada9ed9e",
+          "label": "结合具体实例解释万以上数的含义"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_bf81d0dbb74ce4f54a16",
+      "node_title": "像这样每相邻两个计数单位之间的进率都是十的计数方法叫作\n十进制计数法。",
+      "pdf_page": 23,
+      "printed_page": "18",
+      "publication_status": "published",
+      "rationale": "证据先给出生活和人口普查中的万以上数实例，再说明从一亿继续数出的十亿、百亿、千亿及计数单位、数位排列，直接解释万以上数的含义，主要功能是正文讲解，因此为 supports。证据没有要求学生完整认、读、写万以上的数，也没有以万、亿为单位改写大数，更没有两位数乘除三位数计算，所以只选择该最小组件。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e04f09ebddcd3bcf",
+      "unit_title": "1大数的认识"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_a313157955c64a94f106",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_13caf48a3c62c1a22993",
+        "textbook-node:tcn_llm_quote_bc7e01726f2b158660b0",
+        "textbook-unit:tcu_e04f09ebddcd3bcf"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "练习一\n1 写出横线上的数字表示的含义。\n3 2086 9 3787 10 7398 69 0250\n2 照样子说一说。\n4 7578 28 0064\n表 示4个 万, 表示28个万,\n7578个一。 64个一。\n498909 2700006 55523870\n3 读出下面各数。\n1053600 563004 45000600 5320190\n4 写出下面横线上的数。\n(1)一个人的心脏一年大约跳动四千二百万次。\n(2)地球赤道周长约四千零七万五千七百米。\n(3)一头蓝鲸重十二万五千千克,相当于23头大象的体重。\n8",
+          "excerpt_hash": "84fb317af489b2622b549b157f82d85497cac21795790554411f7d56b7cd23d5",
+          "pdf_page": 13,
+          "printed_page": "8",
+          "span_id": "tes_llm_quote_13caf48a3c62c1a22993"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4ff1d1f2ada9ed9e"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4ff1d1f2ada9ed9e",
+          "label": "结合具体实例解释万以上数的含义"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_bc7e01726f2b158660b0",
+      "node_title": "练习一\n1 写出横线上的数字表示的含义。\n3 2086 9 3787 10 7398 69 0250\n2 照样子说一说。\n4 7578 28 0064\n表 示4个 万, 表示28个万,\n7578个一。",
+      "pdf_page": 13,
+      "printed_page": "8",
+      "publication_status": "published",
+      "rationale": "证据要求学生写出数字表示的含义，并通过“4个万、7578个一”等具体数例说明万以上数的组成，直接落实“结合具体实例解释万以上数的含义”。其主要功能是学生练习解释数的含义，因此为 practices。虽然同页还有读数、写数题，但所选单一连续证据不能完整证明“认、读、写万以上的数”的合取要求；也没有用万、亿为单位表示大数或两位数乘除三位数。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e04f09ebddcd3bcf",
+      "unit_title": "1大数的认识"
     },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",

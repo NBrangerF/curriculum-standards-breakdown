@@ -79,16 +79,70 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_215012d4a2d8362a401f",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_70790ee4fe4c19494b1f",
+        "textbook-node:tcn_llm_quote_5235182059e7d526ad50",
+        "textbook-unit:tcu_fc7edda29a549157"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "Can you come to my party? UNIT 9\n2a Make a list of the kinds of parties people have.\nbirthday party,\n2b Read the messages quickly. Why did the people write them? Match the\nreason with each message.\n1. accept an invitation 2. make an invitation 3. turn down an invitation\nMessage\nNew Reply Forward Delete Print Move to\nHi David,\nWhat a great idea! I really like Ms. Steen a lot. She helped me to improve my",
+          "excerpt_hash": "c4af7fcb4ee86cd4d90ba4f400dea5811839669df3282e2c9b545dcbe9fe663d",
+          "pdf_page": 80,
+          "printed_page": "69",
+          "span_id": "tes_llm_quote_70790ee4fe4c19494b1f"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9e782a8bfe1c5c41"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9e782a8bfe1c5c41",
+          "label": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_5235182059e7d526ad50",
+      "node_title": "2b Read the messages quickly. Why did the people write them? Match the\nreason with each message.\n1. ",
+      "pdf_page": 80,
+      "printed_page": "69",
+      "publication_status": "published",
+      "rationale": "证据中的任务要求学生阅读 messages 并匹配每条消息的写作原因，且页面保留了 New、Reply、Forward、Delete、Print、Move to 等电子消息界面元素，可直接证明学生接触并理解电子邮件/网络消息类语篇。该证据主要是学生阅读匹配练习，因此 relation_type 为 practices。证据没有要求整合语篇信息或说明观点/文化差异，所以不选择更宽泛组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_fc7edda29a549157",
+      "unit_title": "UNIT 9"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0341fadbffd5ad45",

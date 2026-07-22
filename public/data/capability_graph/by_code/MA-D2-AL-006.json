@@ -163,16 +163,286 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 5,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 5,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_7a7b54318259203fa8ee",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_d60e17c7e1b99c7133b6",
+        "textbook-node:tcn_llm_quote_bef9d8c981818f8309b1",
+        "textbook-unit:tcu_38f6f6d8608ec835"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "4 看谁算得都对。\n40×8= 120×6= 72-48=\n420÷6= 450÷5= 360+90=\n5×16= 11×60= 9×50=\n810÷90= 630÷3= 560÷40=\n23×4= 54÷3= 7×50=\n60÷30= 18×3= 250÷50=\n5 计算下面各题,并验算。\n125×43 665÷25 54×69 168÷32\n952÷28 240×36 390÷60 207×40\n6 王阿姨的花店上个月卖出几种花的情况如下表,请在空格中填\n上适当的数。\n花名 单价 / 元 数量 / 盆 总价 / 元\n茉莉 37 259\n水仙 14 224\n杜鹃 21 98\n7 不计算,直接写出下面两题的积或商。\n45÷9=5 28×14=392 840÷24=35\n90÷18= 280×14= 840÷12=\n180÷36= 28×140= 1680÷24=\n8 欣欣家今年前 4 个月的电话费共 300 元,平均每个月的电话",
+          "excerpt_hash": "8c7c2859f8fbb93566e3d47b1193a7693cfd41d01a902993c3e2a7fd445506eb",
+          "pdf_page": 118,
+          "printed_page": "113",
+          "span_id": "tes_llm_quote_d60e17c7e1b99c7133b6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_5d857581fc56c2cf"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_5d857581fc56c2cf",
+          "label": "发现常见数量关系，感悟利用常见数量关系解决问题"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_bef9d8c981818f8309b1",
+      "node_title": "6 王阿姨的花店上个月卖出几种花的情况如下表,请在空格中填\n上适当的数。\n花名 单价 / 元 数量 / 盆 总价 / 元\n茉莉 37 259\n水仙 14 224\n杜鹃 21 98",
+      "pdf_page": 118,
+      "printed_page": "113",
+      "publication_status": "published",
+      "rationale": "证据以花店销售表呈现单价、数量、总价，要求在空格中填适当的数，学生需要运用总价、单价、数量之间的常见数量关系解决问题，主要功能是练习，因此为 practices。证据没有出现计算器，也没有要求解释计算结果的实际意义或说明模型、几何直观、应用意识的选择理由，所以只接受该最小组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_38f6f6d8608ec835",
+      "unit_title": "9总复习"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_7f7664304aa2fc14626d",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_1ee19cd994d118ae5ec1",
+        "textbook-node:tcn_llm_quote_b6823c1447eb56da22c0",
+        "textbook-unit:tcu_451257a58e571969"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "7\n因数 20 40 200\n因数 5 5 10\n积 200 2000\n8\n每份 21 元 每份 18 元\n有60元,买3份,\n有几种买法?\n9 王叔叔从县城开车去王庄乡送化肥,去的时候速度是40千米/时,\n用了3小时,原路返回用了2小时。\n(1)从县城到王庄乡有多远?\n(2)返回时平均每小时行多少千米?\n10 根据下面第1题的积,找规律填出其他题的得数。\n15×14=210\n15×28=____ 15×42=____\n15×56=____ 15×70=____\n积 的 变 化 规 律 很\n有 趣, 我 还 想 知\n本单元结束了, 我的收获是:\n道商的变化规律。\n你有什么收获?\n成长小档案\n55",
+          "excerpt_hash": "3f9d774dbe7246b691c9d0c3e282935d69c563c13560ff7a01c83886006cd578",
+          "pdf_page": 60,
+          "printed_page": "55",
+          "span_id": "tes_llm_quote_1ee19cd994d118ae5ec1"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_5d857581fc56c2cf"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_5d857581fc56c2cf",
+          "label": "发现常见数量关系，感悟利用常见数量关系解决问题"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_b6823c1447eb56da22c0",
+      "node_title": "9 王叔叔从县城开车去王庄乡送化肥,去的时候速度是40千米/时,\n用了3小时,原路返回用了2小时。\n(1)从县城到王庄乡有多远?\n(2)返回时平均每小时行多少千米?",
+      "pdf_page": 60,
+      "printed_page": "55",
+      "publication_status": "published",
+      "rationale": "该题给出行车送化肥的实际情境，要求根据速度和时间求路程，再根据路程和时间求返回平均速度，直接练习发现并利用路程、速度、时间的常见数量关系解决问题，因此 relation_type 为 practices。证据没有要求借助计算器，也没有明确要求解释计算结果实际意义或说明模型意识、几何直观和应用意识的选择理由，所以不选择其他组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_451257a58e571969",
+      "unit_title": "4三位数乘两位数"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_c5992bd8ff3d7c8aa8fe",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_07ba11d84440787ecd67",
+        "textbook-node:tcn_llm_quote_8f8c3e4ab41ef780389d",
+        "textbook-unit:tcu_451257a58e571969"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "在前面的学习中,我们经常会见到一些数量关系,下面我们就\n来总结两种常见的数量关系。\n4 解答下面的问题。\n(1) 一个篮球 80 元,买 3 个要多少钱?\n80×3=____(元)\n(2) 一千克苹果 10 元,买 4 千克要多少钱?\n10×4=____(元)\n这两个问题有什么共同点?\n还知道买了多少件\n都是已知每件\n商品,最后算......\n商品的价格。\n每件商品的价格,叫作单价;买了多少,叫作数量;一共用的\n钱数,叫作总价。根据上面的例子,可以得出下面的数量关系。\n单价 × 数量 = 总价\n做一做\n1 举例说明什么是单价、数量和总价。\n2 不解答,只说出下面各题已知的是什么,要求的是什么。\n(1)每套校服120元,买5套要用多少元?\n(2)学校买了4箱同样的粉笔,花了840元。每箱粉笔多少元?\n52",
+          "excerpt_hash": "8f506b9fbd8660e77dd5d98d2e56a43d54a8bc6a2e868c50a9d4f43e0c041b6c",
+          "pdf_page": 57,
+          "printed_page": "52",
+          "span_id": "tes_llm_quote_07ba11d84440787ecd67"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_5d857581fc56c2cf"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_5d857581fc56c2cf",
+          "label": "发现常见数量关系，感悟利用常见数量关系解决问题"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_8f8c3e4ab41ef780389d",
+      "node_title": "每件商品的价格,叫作单价;买了多少,叫作数量;一共用的\n钱数,叫作总价。根据上面的例子,可以得出下面的数量关系。\n单价 × 数量 = 总价",
+      "pdf_page": 57,
+      "printed_page": "52",
+      "publication_status": "published",
+      "rationale": "证据直接定义单价、数量、总价，并从购物问题总结出“单价 × 数量 = 总价”，完整落实发现常见数量关系并感悟其用于解决问题的对象和动作。该证据的主要功能是正文解释和归纳数量关系，所以 relation_type 为 supports。未选择计算器、解释计算结果实际意义、模型意识等组件，因为该连续证据没有落实这些动作。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_451257a58e571969",
+      "unit_title": "4三位数乘两位数"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_63e52f4bb179831f1423",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_3bf2612a41b90e3434b8",
+        "textbook-node:tcn_llm_quote_81033c29165dc860d54b",
+        "textbook-unit:tcu_d5b5e574493c99e4"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "6 根据每组题的第 1 题的商,写出下面两题的商。\n56÷2=28 45÷9=5 40÷5=8\n560÷20= 90÷18= 120÷5=\n560÷2= 180÷36= 280÷35=\n7 下面是一个小公园周一到周五卖出门票的记录表,请把表填完整。\n总价 / 元 16 32 80 320\n门票数量 / 张 4 20 40\n单价 / 元 4 4 4\n8 下面的计算对吗?把不对的改正过来。\n120 310\n80 960 210 65100\n8 63\n16 21\n16 21\n0 0\n9 (1)计算下面三组题,你发现了什么?\n160÷(4×8) 96÷(3×8) 105÷(5×7)\n160÷4÷8 96÷3÷8 105÷5÷7\n(2)用你喜欢的方法计算。\n420÷21 144÷(2×8) 270÷(6×9)\n420÷3÷7 144÷2÷8 270÷9÷6\n10 先说出商是几位数,再计算。",
+          "excerpt_hash": "1718cb95b185ace30c6d61ee9017d9f8af1cb1871154d1b64b882c81cd35a85c",
+          "pdf_page": 95,
+          "printed_page": "90",
+          "span_id": "tes_llm_quote_3bf2612a41b90e3434b8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_5d857581fc56c2cf"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_5d857581fc56c2cf",
+          "label": "发现常见数量关系，感悟利用常见数量关系解决问题"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_81033c29165dc860d54b",
+      "node_title": "下面是一个小公园周一到周五卖出门票的记录表,请把表填完整。\n总价 / 元 16 32 80 320\n门票数量 / 张 4 20 40\n单价 / 元 4 4 4",
+      "pdf_page": 95,
+      "printed_page": "90",
+      "publication_status": "published",
+      "rationale": "该题以小公园卖门票的真实情境给出总价、门票数量、单价表，要求补全表格，直接练习利用“总价、数量、单价”这一常见数量关系解决问题。证据没有要求借助计算器、解释计算结果实际意义，或说明模型意识、几何直观和应用意识，因此只选择该组件。主要功能是让学生完成练习，不是讲解或评价，所以 relation_type 为 practices。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_d5b5e574493c99e4",
+      "unit_title": "6除数是两位数的除法"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_5fe1ec4c1040b11b480a",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_72b1a196c333378c22c9",
+        "textbook-node:tcn_llm_quote_0c6976a5b3b72ffd3524",
+        "textbook-unit:tcu_e04f09ebddcd3bcf"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "12 按照下面的步骤,用计算器算一算。\n386+179=______\n按 键\n屏幕显示\n自己试试看。\n825-138=______ 26×39=______ 312÷8=______\n13 用计算器计算下面左边各题。\n9999 × 1 = 9999\n9999 × 2 =______ 9999 × 5 =______\n9999 × 3 =______ 9999 × 7 =______\n9999 × 4 =______ 9999 × 9 =______\n不用计算器,你能直接写出上面右边各题的答案吗?\n做一做\n1 用计算器计算下面各题。\n55846+7646 13027-8934 66280×23\n6908×37 111111111÷9 395412+ 10589\n2 用计算器计算下面左边各题,再试着不用计算器,直接写出下\n面右边各题的结果,并用计算器进行检验。\n111105 ÷ 9 =__________",
+          "excerpt_hash": "71c099750e5aaea3f2d5e04ed4b23c7416d25de7b5249d16a842e395122d8a20",
+          "pdf_page": 31,
+          "printed_page": "26",
+          "span_id": "tes_llm_quote_72b1a196c333378c22c9"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9f3d199ea3e9a6b5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9f3d199ea3e9a6b5",
+          "label": "借助计算器进行计算"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_0c6976a5b3b72ffd3524",
+      "node_title": "12 按照下面的步骤,用计算器算一算。\n386+179=______\n按 键\n屏幕显示\n自己试试看。\n825-138=______ 26×39=______ 312÷8=______",
+      "pdf_page": 31,
+      "printed_page": "26",
+      "publication_status": "published",
+      "rationale": "该连续证据明确要求学生“用计算器计算下面各题”，直接覆盖“借助计算器进行计算”。其主要功能是让学生实施计算练习，因此 relation_type 为 practices。证据没有真实问题情境、常见数量关系发现、计算结果实际意义解释或模型意识说明，所以只接受该最小组件，不扩展到同课标的其他组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e04f09ebddcd3bcf",
+      "unit_title": "1大数的认识"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_2fa8aae01c27eb8d",

@@ -2,7 +2,7 @@
 import { existsSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { parseArgs, readJson, readJsonLines, resolveCurrentAssetRegistry, writeJson } from './library_common.js'
-import { auditTextbookResourceCatalog } from './textbook_resource_pipeline.js'
+import { DEFAULT_SUPPORT_RESOURCE_BUCKET, auditTextbookResourceCatalog } from './textbook_resource_pipeline.js'
 
 const PROJECT_ROOT = resolve(import.meta.dirname, '../..')
 const atRoot = value => resolve(PROJECT_ROOT, value)
@@ -16,8 +16,10 @@ function main() {
     current: args.current
   })
   const structureRoot = atRoot(args.structures || 'data/textbooks/derived/by-edition')
+  const r2Bucket = String(args.r2Bucket || process.env.TEXTBOOK_ASSET_BUCKET || DEFAULT_SUPPORT_RESOURCE_BUCKET).trim()
+  if (!r2Bucket) throw new Error('configured R2 bucket must not be empty')
   const catalog = readJson(catalogPath)
-  const audit = auditTextbookResourceCatalog(catalog)
+  const audit = auditTextbookResourceCatalog(catalog, { r2Bucket })
   const errors = [...audit.errors]
   const assets = existsSync(assetPath) ? readJsonLines(assetPath) : []
   const assetEditions = new Set(assets.filter(asset => asset.resource_type === 'student_textbook').map(asset => asset.edition_id))

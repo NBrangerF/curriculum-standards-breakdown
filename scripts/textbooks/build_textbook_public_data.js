@@ -16,6 +16,11 @@ import {
   redactSupportResourceCatalogForPublic
 } from './support_resource_readability.js'
 import { bboxRenderabilityError } from './textbook_public_bbox.js'
+import {
+  buildTextbookAlignmentPageContextIndex,
+  projectTextbookAlignments,
+  textbookAlignmentEvidenceClaims
+} from './textbook_alignment_projection.js'
 
 const PROJECT_ROOT = resolve(import.meta.dirname, '../..')
 const CURRENT_PATH = join(PROJECT_ROOT, 'data/textbooks/library-state/CURRENT.json')
@@ -291,6 +296,7 @@ function normalizeAlignment(alignment) {
     learning_components: learningComponents,
     evidence_level: normalizeEvidenceLevel(alignment.evidence_level),
     evidence_level_detail: normalizeEvidenceLevelDetail(alignment.evidence_level_detail, alignment.evidence_level),
+    locator_source: alignment.locator_source || undefined,
     evidence_granularity: alignment.evidence_granularity
       || (String(alignment.evidence_level || '').includes('_') ? String(alignment.evidence_level).split('_').slice(1).join('_') : undefined),
     evidence_span_ids: Array.isArray(alignment.evidence_span_ids) ? [...new Set(alignment.evidence_span_ids)] : [],
@@ -320,7 +326,10 @@ function normalizeAlignment(alignment) {
     content_node_title: alignment.content_node_title || undefined,
     evidence_excerpt: alignment.evidence_excerpt || undefined,
     evidence_excerpt_hash: alignment.evidence_excerpt_hash || undefined,
-    evidence_quote: alignment.evidence_quote || undefined
+    evidence_quote: alignment.evidence_quote || undefined,
+    supporting_evidence: Array.isArray(alignment.supporting_evidence)
+      ? alignment.supporting_evidence.map(claim => ({ ...claim }))
+      : undefined
   }
 }
 
@@ -353,11 +362,12 @@ function normalizeStructure(structure, pageCount) {
   const evidenceSpans = normalizeEvidenceSpans(structure, contentNodeIds, pageCount)
   const alignments = Array.isArray(structure?.alignments) ? structure.alignments.map(normalizeAlignment) : []
   const standardScopes = Array.isArray(structure?.standard_scopes) ? structure.standard_scopes : []
-  const approvedAlignments = alignments.filter(entry => entry.review_status === 'approved')
-  const publishedAlignments = alignments.filter(entry =>
+  const canonicalPublishedAlignments = alignments.filter(entry =>
     ['approved', 'machine_checked'].includes(entry.review_status)
     && entry.publication_status !== 'review_queue'
   )
+  const publishedAlignments = projectTextbookAlignments(canonicalPublishedAlignments, evidenceSpans)
+  const approvedAlignments = publishedAlignments.filter(entry => entry.review_status === 'approved')
   const publishedScopes = standardScopes.filter(entry => ['approved', 'machine_checked'].includes(entry.review_status))
   return {
     toc: publishedToc,
@@ -384,56 +394,6 @@ function normalizeStructure(structure, pageCount) {
     published_alignment_count: publishedAlignments.length,
     standard_scope_count: publishedScopes.reduce((sum, scope) => sum + (scope.standard_codes || []).length, 0)
   }
-}
-
-function addUnique(array, value) {
-  if (value && !array.includes(value)) array.push(value)
-}
-
-function buildPageContextIndex(detail) {
-  const pages = {}
-  const ensurePage = pdfPage => {
-    const key = String(pdfPage)
-    if (!pages[key]) pages[key] = { node_ids: [], alignment_ids: [], evidence_span_ids: [] }
-    return pages[key]
-  }
-  const nodesById = new Map(detail.content_nodes.map(node => [node.node_id, node]))
-  const spansById = new Map(detail.evidence_spans.map(span => [span.evidence_span_id, span]))
-
-  for (const node of detail.content_nodes) {
-    for (let page = node.pdf_page; page <= node.end_pdf_page; page += 1) {
-      addUnique(ensurePage(page).node_ids, node.node_id)
-    }
-  }
-  for (const span of detail.evidence_spans) {
-    const page = ensurePage(span.pdf_page)
-    addUnique(page.node_ids, span.node_id)
-    addUnique(page.evidence_span_ids, span.evidence_span_id)
-  }
-  for (const alignment of detail.alignments) {
-    const target = alignment.node_id
-      ? nodesById.get(alignment.node_id)
-      : detail.content_nodes.find(node => node.unit_id === alignment.unit_id || node.node_id === alignment.unit_id)
-    const alignmentSpans = (alignment.evidence_span_ids || []).map(id => spansById.get(id)).filter(Boolean)
-    const pageNumbers = new Set()
-    if (target) {
-      for (let page = target.pdf_page; page <= target.end_pdf_page; page += 1) pageNumbers.add(page)
-    }
-    if (Number.isInteger(alignment.pdf_page)) pageNumbers.add(alignment.pdf_page)
-    for (const span of alignmentSpans) pageNumbers.add(span.pdf_page)
-    for (const pdfPage of pageNumbers) {
-      const page = ensurePage(pdfPage)
-      if (target) addUnique(page.node_ids, target.node_id)
-      addUnique(page.alignment_ids, alignment.alignment_id)
-      for (const span of alignmentSpans) addUnique(page.evidence_span_ids, span.evidence_span_id)
-    }
-  }
-  for (const page of Object.values(pages)) {
-    page.node_ids.sort()
-    page.alignment_ids.sort()
-    page.evidence_span_ids.sort()
-  }
-  return { schema_version: 1, edition_id: detail.edition_id, pages }
 }
 
 function publicBase(asset, structure, generatedAt) {
@@ -543,7 +503,7 @@ function main() {
     }
     writeJson(join(OUTPUT_ROOT, 'by-edition', `${asset.edition_id}.json`), detail)
     writeJson(join(OUTPUT_ROOT, 'page-context/by-edition', `${asset.edition_id}.json`), {
-      ...buildPageContextIndex(detail),
+      ...buildTextbookAlignmentPageContextIndex(detail),
       generated_at: generatedAt
     })
     for (const entry of detail.toc) {
@@ -574,14 +534,17 @@ function main() {
         : detail.content_nodes.find(candidate => candidate.unit_id === alignment.unit_id || candidate.node_id === alignment.unit_id)
       const unit = alignment.unit_id ? tocById.get(alignment.unit_id) : null
       const evidenceSpans = (alignment.evidence_span_ids || []).map(id => spansById.get(id)).filter(Boolean)
+      const evidenceClaims = textbookAlignmentEvidenceClaims(alignment, spansById)
       const firstEvidence = evidenceSpans[0] || null
       const reverse = {
         alignment_id: alignment.alignment_id,
+        alignment_ids: alignment.alignment_ids || [alignment.alignment_id],
         edition_id: asset.edition_id,
         textbook_title: base.title,
         unit_id: alignment.unit_id || node?.unit_id || null,
         unit_title: unit?.title || alignment.unit_title || null,
         node_id: node?.node_id || alignment.node_id || null,
+        node_ids: alignment.node_ids || [node?.node_id || alignment.node_id].filter(Boolean),
         node_title: node?.title || null,
         node_kind: node?.kind || null,
         pdf_page: alignment.pdf_page ?? firstEvidence?.pdf_page ?? node?.pdf_page ?? unit?.pdf_page ?? null,
@@ -594,6 +557,7 @@ function main() {
         evidence_level: alignment.evidence_level || null,
         evidence_level_detail: alignment.evidence_level_detail || null,
         evidence_span_ids: alignment.evidence_span_ids || [],
+        supporting_evidence: evidenceClaims,
         evidence_excerpt: alignment.evidence_excerpt || firstEvidence?.excerpt || firstEvidence?.text || null,
         evidence_excerpt_hash: alignment.evidence_excerpt_hash || firstEvidence?.excerpt_hash || firstEvidence?.text_hash || null,
         evidence_quote: alignment.evidence_quote || null,
@@ -604,7 +568,14 @@ function main() {
           printed_page: span.printed_page ?? null,
           role: span.role || span.evidence_role || 'content',
           excerpt: span.excerpt || span.text || '',
-          excerpt_hash: span.excerpt_hash || span.text_hash || null
+          excerpt_hash: span.excerpt_hash || span.text_hash || null,
+          bbox: span.bbox || null,
+          learning_component_ids: [...new Set(evidenceClaims
+            .filter(claim => claim.evidence_span_id === span.evidence_span_id)
+            .flatMap(claim => claim.learning_component_ids || []))],
+          learning_components: evidenceClaims
+            .filter(claim => claim.evidence_span_id === span.evidence_span_id)
+            .flatMap(claim => claim.learning_components || [])
         })),
         evidence_role: alignment.evidence_role,
         provenance: alignment.provenance || undefined,

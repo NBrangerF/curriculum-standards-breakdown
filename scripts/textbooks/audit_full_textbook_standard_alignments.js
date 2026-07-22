@@ -6,6 +6,7 @@ import { mkdirSync } from 'node:fs'
 const ROOT = resolve(import.meta.dirname, '../..')
 const DEFAULT_INDEX = join(ROOT, 'data/textbooks/derived/textbook_standard_alignment_index.json')
 const DEFAULT_OUT = join(ROOT, 'data/textbooks/derived/textbook_standard_alignment_audit.json')
+const LEGACY_APPROVED_CATALOG = join(ROOT, 'data/textbooks/catalog/legacy_approved_alignments.json')
 const INVALID_OCR_TOC_TITLE = /(?:ISBN|CIP|邮编|印张|印刷|出版|定价|责任编辑|号院|号楼|月第|版\s*[”"“]?\s*20\d{2}年)/i
 
 function isPublishedUnit(row) {
@@ -174,6 +175,26 @@ function main() {
       (structure.alignments || []).some(row => row.alignment_id === id && row.review_status === 'approved')
     )
     if (!inMatch && !inStructure) errors.push(`legacy approved relation lost: ${id}`)
+  }
+  const catalogLegacyApproved = existsSync(LEGACY_APPROVED_CATALOG)
+    ? readJson(LEGACY_APPROVED_CATALOG).records || []
+    : []
+  for (const expected of catalogLegacyApproved) {
+    const match = matches.find(row => row.alignment_id === expected.alignment_id)
+    const canonical = structures.get(expected.edition_id)?.alignments?.find(row => row.alignment_id === expected.alignment_id)
+    if (!match || !canonical) {
+      errors.push(`cataloged approved relation is absent from canonical/index: ${expected.alignment_id}`)
+      continue
+    }
+    if (match.review_status !== 'approved' || canonical.review_status !== 'approved'
+      || match.edition_id !== expected.edition_id || match.unit_id !== expected.unit_id
+      || match.standard_code !== expected.standard_code || match.relation_type !== expected.relation_type) {
+      errors.push(`cataloged approved relation identity changed: ${expected.alignment_id}`)
+    }
+    if (!Number.isInteger(match.pdf_page) || match.pdf_page < 1
+      || match.evidence_level_detail !== 'L2_topic') {
+      errors.push(`cataloged approved relation lacks an explicit L2 unit locator: ${expected.alignment_id}`)
+    }
   }
   const noToc = textbookDispositions.filter(row => ['scope_only_no_toc', 'page_aligned_no_toc'].includes(row.status))
   const pageAlignedNoToc = noToc.filter(row => row.status === 'page_aligned_no_toc')

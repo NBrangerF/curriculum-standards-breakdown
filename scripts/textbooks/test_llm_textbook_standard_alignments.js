@@ -23,6 +23,7 @@ import {
 } from './llm_textbook_standard_alignment_provider.js'
 import {
   addAlignmentValidationFeedback,
+  alignmentCandidateFromStandard,
   AlignmentBudget,
   buildAlignmentWork,
   buildDiscoveryItems,
@@ -34,6 +35,9 @@ import {
   parseAlignmentArgs
 } from './run_llm_textbook_standard_alignments.js'
 import {
+  APPLICATION_MUTATION_ROOTS,
+  assertUnselectedCanonicalAlignmentsUnchanged,
+  captureUnselectedCanonicalAlignmentState,
   createRecoverySnapshot,
   planAlignmentApplication,
   prepareCurrentApplicationPlan,
@@ -42,15 +46,31 @@ import {
   resolveSafeReportPath,
   restoreRecoverySnapshot,
   validateApplicationArtifacts,
+  validateCurrentRequestScope,
   validateCurrentAlignmentWorkset
 } from './apply_llm_textbook_standard_alignments.js'
 import { evaluateAlignmentPredictions } from './evaluate_llm_textbook_standard_alignments.js'
 
 const hash = value => createHash('sha256').update(String(value)).digest('hex')
 
-test('v1.1 prompt requires minimal non-redundant matches and strict relation semantics', () => {
-  assert.equal(LLM_ALIGNMENT_PROMPT_VERSION, 'textbook-standard-semantic-adjudicator-v1.1.0')
+test('v1.3 prompt requires indivisible component evidence and strict semantic functions', () => {
+  assert.equal(LLM_ALIGNMENT_PROMPT_VERSION, 'textbook-standard-semantic-adjudicator-v1.3.0')
   assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /最小充分且非冗余/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /每个被选组件都要由所引逐字证据单独证明/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /learning_component 是不可拆的最小发布单位/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /合取要求必须全部有证据/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /析取要求，至少完整落实其中一个分支/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /单一证据必须足以证明该 accept 选择的全部组件/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /只要求记笔记不能证明写出描述性语篇/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /较宽候选没有新增、可单独指出的教材动作/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /两位数乘两位数不能证明两位数乘除三位数/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /数位顺序或书写不能自动证明认读写的全部动作/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /词义、短语或习语释义及其局部用法不能自动证明/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /模拟某种演奏不能自动证明制作或使用自制乐器/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /人声“伴唱”不能自动证明器乐“伴奏”或“配乐”/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /教师\/同伴评选或达成判断/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /普通无评分练习题仍是 practices/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /先检查每个 learning_component/u)
   assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /答案\/解析页本身不算 assesses/u)
   assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /不得用 mentions\/contextualizes 为本应 reject 的弱关联兜底/u)
   assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /完整候选 scope/u)
@@ -201,6 +221,11 @@ function applicationAcceptance({
   spanId = 'application-span',
   nodeId = 'application-node',
   excerpt = '分式的基本性质练习',
+  evidenceQuote = '分式的基本性质',
+  page = 10,
+  componentIds = ['lc_fixture'],
+  sourceMode = 'discover_scope_sidecar',
+  priorAlignmentId = null,
   bbox = null,
   provenance = fullProvenance()
 } = {}) {
@@ -210,8 +235,8 @@ function applicationAcceptance({
     edition_id: 'ed_fixture',
     item_id: itemId,
     logical_item_id: logicalItemId,
-    source_mode: 'discover_scope_sidecar',
-    prior_alignment_id: null,
+    source_mode: sourceMode,
+    prior_alignment_id: priorAlignmentId,
     unit_id: 'unit_fixture',
     candidate_id: candidateId,
     standard_code: 'MA-H4G8-AL-011',
@@ -227,7 +252,7 @@ function applicationAcceptance({
     unit_assignment_status: 'assigned_toc_unit',
     source_mode: decision.source_mode,
     logical_item_id: logicalItemId,
-    prior_alignment_id: null,
+    prior_alignment_id: priorAlignmentId,
     candidate_id: candidateId,
     node_id: nodeId,
     standard_code: decision.standard_code,
@@ -239,14 +264,16 @@ function applicationAcceptance({
     evidence_span_ids: [spanId],
     evidence_excerpt: excerpt,
     evidence_excerpt_hash: hash(excerpt),
-    evidence_quote: '分式的基本性质',
+    evidence_quote: evidenceQuote,
+    learning_component_ids: componentIds,
+    learning_components: componentIds.map(componentId => ({ component_id: componentId, label: componentId })),
     semantic_decision: 'accept',
-    pdf_page: 10,
+    pdf_page: page,
     provenance,
     generated_evidence_span: {
       evidence_span_id: spanId,
       node_id: nodeId,
-      pdf_page: 10,
+      pdf_page: page,
       printed_page: null,
       excerpt,
       excerpt_hash: hash(excerpt),
@@ -260,8 +287,8 @@ function applicationAcceptance({
       level: 1,
       kind: 'page_excerpt',
       title: excerpt,
-      pdf_page: 10,
-      end_pdf_page: 10,
+      pdf_page: page,
+      end_pdf_page: page,
       printed_page: null,
       end_printed_page: null,
       text_excerpt: excerpt,
@@ -366,7 +393,7 @@ test('input hash changes with model or prompt-relevant input and is stable for k
 test('existing adjudication consumes every current pair as a candidate without local acceptance', () => {
   const catalog = fixtureItem().textbook
   const structure = {
-    toc: [{ entry_id: 'unit_fixture', title: '分式', pdf_page: 10, end_pdf_page: 20 }],
+    toc: [{ entry_id: 'unit_fixture', title: '分式', pdf_page: 10, end_pdf_page: 20, review_status: 'approved' }],
     content_nodes: [{ node_id: 'node_fixture', unit_id: 'unit_fixture', kind: 'section', title: '分式的基本性质', evidence_span_ids: ['span_fixture'] }],
     evidence_spans: [{ span_id: 'span_fixture', node_id: 'node_fixture', pdf_page: 10, printed_page: '3', text: '15.1.2 分式的基本性质', text_hash: 'hash' }],
     alignments: [{ alignment_id: 'old_alignment', node_id: 'node_fixture', unit_id: 'unit_fixture', standard_code: 'MA-H4G8-AL-011', evidence_span_ids: ['span_fixture'] }]
@@ -382,8 +409,282 @@ test('existing adjudication consumes every current pair as a candidate without l
   const result = buildExistingAdjudicationItems(catalog, structure, standards)
   assert.equal(result.items.length, 1)
   assert.equal(result.items[0].candidates[0].standard_code, 'MA-H4G8-AL-011')
+  assert.equal(result.items[0].candidates[0].prior_alignment_id, 'old_alignment')
   assert.equal('decision' in result.items[0].candidates[0], false)
   assert.equal('relation_type' in result.items[0].candidates[0], false)
+})
+
+test('existing adjudication groups one current evidence scope so the LLM can remove redundant candidates', () => {
+  const catalog = fixtureItem().textbook
+  const structure = {
+    toc: [{ entry_id: 'unit_fixture', title: '信息提取', pdf_page: 10, end_pdf_page: 12, review_status: 'approved' }],
+    content_nodes: [{ node_id: 'task_node', unit_id: 'unit_fixture', kind: 'exercise', title: '填写表格' }],
+    evidence_spans: [{ span_id: 'task_span', node_id: 'task_node', pdf_page: 11, text: '阅读日记并填写表格。', text_hash: hash('阅读日记并填写表格。') }],
+    alignments: [
+      {
+        alignment_id: 'specific_alignment',
+        logical_item_id: 'discover:fixture:unit_fixture:pages-10-12',
+        node_id: 'task_node', unit_id: 'unit_fixture', standard_code: 'EN-H4G8-LA-006', evidence_span_ids: ['task_span']
+      },
+      {
+        alignment_id: 'generic_alignment',
+        logical_item_id: 'discover:fixture:unit_fixture:pages-10-12',
+        node_id: 'task_node', unit_id: 'unit_fixture', standard_code: 'EN-H4G8-TP-007', evidence_span_ids: ['task_span']
+      }
+    ]
+  }
+  const standards = new Map([
+    ['EN-H4G8-LA-006', {
+      code: 'EN-H4G8-LA-006', standard_title: '提取信息', standard: '提取语篇信息。', official_text: '', subject_slug: 'english', grade_band: 'H4G8'
+    }],
+    ['EN-H4G8-TP-007', {
+      code: 'EN-H4G8-TP-007', standard_title: '整合信息', standard: '整合语篇信息。', official_text: '', subject_slug: 'english', grade_band: 'H4G8'
+    }]
+  ])
+  const result = buildExistingAdjudicationItems(catalog, structure, standards)
+  assert.equal(result.items.length, 1)
+  assert.deepEqual(result.items[0].evidence.map(span => span.evidence_span_id), ['task_span'])
+  assert.deepEqual(
+    result.items[0].candidates.map(candidate => [candidate.standard_code, candidate.prior_alignment_id]),
+    [['EN-H4G8-LA-006', 'specific_alignment'], ['EN-H4G8-TP-007', 'generic_alignment']]
+  )
+  assert.doesNotThrow(() => validateCurrentRequestScope(
+    [{ request_items: result.items }],
+    standards,
+    new Map([[catalog.edition_id, catalog]])
+  ))
+
+  const inputHash = 'c'.repeat(64)
+  const [specific, generic] = result.items[0].candidates
+  const modelOutput = {
+    schema_version: LLM_ALIGNMENT_SCHEMA_VERSION,
+    items: [{
+      item_id: result.items[0].item_id,
+      overall_decision: 'evaluated',
+      overall_rationale: '具体候选完整覆盖证据，宽泛候选没有独立动作。',
+      decisions: [
+        {
+          candidate_id: specific.candidate_id,
+          standard_code: specific.standard_code,
+          decision: 'accept', relation_type: 'practices', evidence_level: 'L3',
+          evidence_span_id: 'task_span', evidence_quote: '阅读日记并填写表格。',
+          learning_component_ids: specific.learning_components.map(component => component.component_id),
+          rationale: '任务直接要求填写表格，具体落实信息提取。'
+        },
+        {
+          candidate_id: generic.candidate_id,
+          standard_code: generic.standard_code,
+          decision: 'reject', relation_type: null, evidence_level: null,
+          evidence_span_id: null, evidence_quote: '', learning_component_ids: [],
+          rationale: '宽泛候选没有超出具体候选的独立教材动作。'
+        }
+      ]
+    }]
+  }
+  const materialized = materializeAlignmentRecords([{
+    status: 'ok', input_hash: inputHash, request_items: result.items,
+    model_output: modelOutput, provenance: fullProvenance(inputHash)
+  }], new Set([inputHash]))
+  assert.deepEqual(
+    materialized.decisions.map(decision => [decision.standard_code, decision.prior_alignment_id]),
+    [['EN-H4G8-LA-006', 'specific_alignment'], ['EN-H4G8-TP-007', 'generic_alignment']]
+  )
+})
+
+test('math and music degenerate historical IDs regroup by exact current task without crossing excerpts', () => {
+  const fixtures = [
+    {
+      edition_id: 'ed_math_scope', subject: '数学', subject_slug: 'math', grade: 4,
+      codes: ['MA-D2-AL-001', 'MA-D2-AL-003']
+    },
+    {
+      edition_id: 'ed_music_scope', subject: '音乐', subject_slug: 'music', grade: 7,
+      codes: ['AR-H4G7-AA-006', 'AR-H4G7-AE-005']
+    }
+  ]
+  for (const fixture of fixtures) {
+    const catalog = { ...fixtureItem().textbook, ...fixture, evidence_id: `ev_${fixture.edition_id}` }
+    const [specificCode, competingCode] = fixture.codes
+    const structure = {
+      toc: [{ entry_id: 'unit_scope', title: '当前单元', pdf_page: 12, end_pdf_page: 18, review_status: 'approved' }],
+      content_nodes: [
+        { node_id: 'task_node_specific', unit_id: 'unit_scope', kind: 'exercise', title: '共同任务（具体候选）' },
+        { node_id: 'task_node_competing', unit_id: 'unit_scope', kind: 'exercise', title: '共同任务（宽泛候选）' },
+        { node_id: 'other_node', unit_id: 'unit_scope', kind: 'exercise', title: '另一任务' }
+      ],
+      evidence_spans: [
+        { span_id: 'task_span_specific', node_id: 'task_node_specific', pdf_page: 13, text: '完成同一个教材任务。', text_hash: hash('完成同一个教材任务。'), source: 'fixture' },
+        { span_id: 'task_span_competing', node_id: 'task_node_competing', pdf_page: 13, text: '完成同一个教材任务。', text_hash: hash('完成同一个教材任务。'), source: 'fixture' },
+        { span_id: 'other_span', node_id: 'other_node', pdf_page: 13, text: '同页但不同的教材任务。', text_hash: hash('同页但不同的教材任务。'), source: 'fixture' }
+      ],
+      alignments: [
+        { alignment_id: 'a_prior', logical_item_id: 'existing:a_prior', node_id: 'task_node_specific', unit_id: 'unit_scope', standard_code: specificCode, evidence_span_ids: ['task_span_specific'] },
+        { alignment_id: 'b_prior', logical_item_id: 'existing:b_prior', node_id: 'task_node_competing', unit_id: 'unit_scope', standard_code: competingCode, evidence_span_ids: ['task_span_competing'] },
+        { alignment_id: 'c_prior', logical_item_id: 'existing:c_prior', node_id: 'other_node', unit_id: 'unit_scope', standard_code: specificCode, evidence_span_ids: ['other_span'] }
+      ]
+    }
+    const standards = new Map(fixture.codes.map(code => [code, {
+      code, standard_title: code, standard: `${code} 标准`, official_text: `${code} 标准`,
+      subject_slug: fixture.subject_slug === 'music' ? 'arts' : fixture.subject_slug,
+      grade_band: fixture.grade === 7 ? 'H4G7' : 'H2'
+    }]))
+    const result = buildExistingAdjudicationItems(catalog, structure, standards)
+    assert.equal(result.items.length, 2, fixture.edition_id)
+    const sharedTask = result.items.find(item => item.evidence.some(span => span.evidence_span_id === 'task_span_specific'))
+    const otherTask = result.items.find(item => item.evidence.some(span => span.evidence_span_id === 'other_span'))
+    assert.deepEqual(sharedTask.candidates.map(candidate => candidate.standard_code).sort(), fixture.codes.slice().sort())
+    assert.deepEqual(sharedTask.evidence.map(span => span.evidence_span_id).sort(), ['task_span_competing', 'task_span_specific'])
+    assert.equal(otherTask.candidates.length, 1)
+    assert.notEqual(sharedTask.item_id, otherTask.item_id)
+  }
+})
+
+test('duplicate priors for one standard use separate authenticated lanes without losing removals', () => {
+  const catalog = fixtureItem().textbook
+  const standard = {
+    code: 'MA-H4G8-AL-011', standard_title: '分式', standard: '理解分式。', official_text: '理解分式。',
+    subject_slug: 'math', grade_band: 'H4G8'
+  }
+  const structure = {
+    toc: [{ entry_id: 'unit_fixture', title: '分式', pdf_page: 10, end_pdf_page: 20, review_status: 'approved' }],
+    content_nodes: [{ node_id: 'task_node', unit_id: 'unit_fixture', kind: 'exercise', title: '分式练习' }],
+    evidence_spans: [{ span_id: 'task_span', node_id: 'task_node', pdf_page: 10, text: '分式练习', text_hash: hash('分式练习') }],
+    alignments: [
+      { alignment_id: 'prior_a', node_id: 'task_node', unit_id: 'unit_fixture', standard_code: standard.code, relation_type: 'supports', evidence_span_ids: ['task_span'] },
+      { alignment_id: 'prior_b', node_id: 'task_node', unit_id: 'unit_fixture', standard_code: standard.code, relation_type: 'practices', evidence_span_ids: ['task_span'] }
+    ]
+  }
+  const result = buildExistingAdjudicationItems(catalog, structure, new Map([[standard.code, standard]]))
+  assert.equal(result.items.length, 2)
+  assert.ok(result.items.every(item => item.candidates.length === 1))
+  assert.deepEqual(result.items.map(item => item.candidates[0].prior_alignment_id).sort(), ['prior_a', 'prior_b'])
+  assert.equal(new Set(result.items.map(item => item.item_id)).size, 2)
+  assert.equal(new Set(result.items.map(item => item.candidates[0].candidate_id)).size, 2)
+})
+
+test('existing adjudication reassigns stale unit identities from the current published page ranges', () => {
+  const catalog = fixtureItem().textbook
+  const structure = {
+    content_alignment: { source_asset_sha256: 'asset-hash' },
+    toc: [
+      { entry_id: 'unit_2', title: 'Unit 2', pdf_page: 20, end_pdf_page: 27, review_status: 'approved' },
+      { entry_id: 'unit_3', title: 'Unit 3', pdf_page: 28, end_pdf_page: 35, review_status: 'approved' }
+    ],
+    content_nodes: [{ node_id: 'stale_node', unit_id: 'unit_2', kind: 'section', title: 'Unit 3', evidence_span_ids: ['page_28'] }],
+    evidence_spans: [{ span_id: 'page_28', node_id: 'stale_node', pdf_page: 28, text: 'UNIT 3', text_hash: hash('UNIT 3') }],
+    alignments: [{
+      alignment_id: 'stale_unit_2_alignment',
+      node_id: 'stale_node',
+      unit_id: 'unit_2',
+      unit_title: 'Unit 2',
+      standard_code: 'EN-H4G8-LA-001',
+      evidence_span_ids: ['page_28']
+    }]
+  }
+  const standard = {
+    code: 'EN-H4G8-LA-001',
+    standard_title: '语言理解',
+    standard: '理解语篇主要内容。',
+    official_text: '理解语篇主要内容。',
+    subject_slug: 'english',
+    grade_band: 'H4G8'
+  }
+  const result = buildExistingAdjudicationItems(catalog, structure, new Map([[standard.code, standard]]))
+  assert.equal(result.items.length, 1)
+  assert.deepEqual(result.items[0].unit, {
+    unit_id: 'unit_3',
+    title: 'Unit 3',
+    pdf_page_start: 28,
+    pdf_page_end: 35,
+    assignment_status: 'assigned_toc_unit'
+  })
+  assert.deepEqual(result.items[0].evidence.map(span => span.pdf_page), [28])
+})
+
+test('existing adjudication splits every stale trailing-unit evidence claim into a stable exact-page item', () => {
+  const catalog = fixtureItem().textbook
+  const structure = {
+    content_alignment: { source_asset_sha256: 'asset-hash' },
+    toc: [{ entry_id: 'unit_10', title: 'Unit 10', pdf_page: 84, end_pdf_page: 91, review_status: 'approved' }],
+    content_nodes: [{ node_id: 'stale_node', unit_id: 'unit_10', kind: 'appendix', title: 'Additional Material' }],
+    evidence_spans: [
+      { span_id: 'page_92_a', node_id: 'stale_node', pdf_page: 92, text: 'Additional Material', text_hash: hash('Additional Material') },
+      { span_id: 'page_92_b', node_id: 'stale_node', pdf_page: 92, text: 'Student A', text_hash: hash('Student A') },
+      { span_id: 'page_93', node_id: 'stale_node', pdf_page: 93, text: 'Notes on the Text', text_hash: hash('Notes on the Text') }
+    ],
+    alignments: [{
+      alignment_id: 'stale_unit_10_alignment',
+      node_id: 'stale_node',
+      unit_id: 'unit_10',
+      unit_title: 'Unit 10',
+      standard_code: 'EN-H4G8-LA-001',
+      evidence_span_ids: ['page_92_a', 'page_92_b', 'page_93']
+    }]
+  }
+  const standard = {
+    code: 'EN-H4G8-LA-001',
+    standard_title: '语言理解',
+    standard: '理解语篇主要内容。',
+    official_text: '理解语篇主要内容。',
+    subject_slug: 'english',
+    grade_band: 'H4G8'
+  }
+  const standards = new Map([[standard.code, standard]])
+  const first = buildExistingAdjudicationItems(catalog, structure, standards)
+  const second = buildExistingAdjudicationItems(catalog, structure, standards)
+  assert.equal(first.items.length, 3)
+  assert.deepEqual(first.items.map(item => item.item_id), second.items.map(item => item.item_id))
+  const page92 = first.items.filter(item => item.unit.pdf_page_start === 92)
+  const page93 = first.items.filter(item => item.unit.pdf_page_start === 93)
+  assert.equal(page92.length, 2)
+  assert.equal(page93.length, 1)
+  assert.match(page92[0].unit.unit_id, /^tpu_/u)
+  assert.deepEqual(page92[0].unit, {
+    unit_id: page92[0].unit.unit_id,
+    title: '未分配单元 · PDF 92',
+    pdf_page_start: 92,
+    pdf_page_end: 92,
+    assignment_status: 'unassigned_page_only'
+  })
+  assert.deepEqual(page92.flatMap(item => item.evidence.map(span => span.evidence_span_id)).sort(), ['page_92_a', 'page_92_b'])
+  assert.deepEqual(page93[0].evidence.map(span => span.evidence_span_id), ['page_93'])
+  assert.equal(new Set(first.items.map(item => item.candidates[0].candidate_id)).size, 3)
+  assert.deepEqual([...new Set(first.items.map(item => item.candidates[0].prior_alignment_id))], ['stale_unit_10_alignment'])
+})
+
+test('existing adjudication preserves cross-unit claims but reassigns each to its current unit', () => {
+  const catalog = fixtureItem().textbook
+  const structure = {
+    toc: [
+      { entry_id: 'unit_a', title: 'Unit A', pdf_page: 10, end_pdf_page: 19, review_status: 'approved' },
+      { entry_id: 'unit_b', title: 'Unit B', pdf_page: 20, end_pdf_page: 29, review_status: 'approved' }
+    ],
+    content_nodes: [{ node_id: 'node', unit_id: 'unit_b', kind: 'section', title: 'Stale Unit B' }],
+    evidence_spans: [
+      { span_id: 'first', node_id: 'node', pdf_page: 18, text: 'first evidence', text_hash: hash('first evidence') },
+      { span_id: 'same', node_id: 'node', pdf_page: 19, text: 'same-unit evidence', text_hash: hash('same-unit evidence') },
+      { span_id: 'cross', node_id: 'node', pdf_page: 20, text: 'cross-unit evidence', text_hash: hash('cross-unit evidence') }
+    ],
+    alignments: [{
+      alignment_id: 'cross_unit_alignment',
+      node_id: 'node',
+      unit_id: 'unit_b',
+      standard_code: 'MA-H4G8-AL-011',
+      evidence_span_ids: ['first', 'same', 'cross']
+    }]
+  }
+  const standard = {
+    code: 'MA-H4G8-AL-011',
+    standard_title: '代数关系推理与求解',
+    standard: '理解分式及最简分式。',
+    official_text: '理解分式及最简分式。',
+    subject_slug: 'math',
+    grade_band: 'H4G8'
+  }
+  const result = buildExistingAdjudicationItems(catalog, structure, new Map([[standard.code, standard]]))
+  assert.equal(result.items.length, 3)
+  assert.deepEqual(result.items.map(item => item.unit.unit_id).sort(), ['unit_a', 'unit_a', 'unit_b'])
+  assert.deepEqual(result.items.flatMap(item => item.evidence.map(span => span.evidence_span_id)).sort(), ['cross', 'first', 'same'])
 })
 
 test('gap discovery reads sidecar lines when the edition has zero derived evidence spans', () => {
@@ -943,6 +1244,127 @@ test('materialized accepted relation contains model provenance but no uncalibrat
   assert.equal('confidence' in output.alignments[0], false)
   assert.equal('score' in output.alignments[0], false)
   assert.equal(output.alignments[0].provenance.prompt_version, LLM_ALIGNMENT_PROMPT_VERSION)
+  assert.equal(output.alignments[0].generated_evidence_span, null)
+  assert.equal(output.alignments[0].generated_content_node, null)
+})
+
+test('existing page-only accepts rematerialize quote-specific detached evidence with stable identities', () => {
+  const item = fixtureItem()
+  item.item_id = 'existing:old-page-only'
+  item.logical_item_id = 'existing:old-page-only'
+  item.source_mode = 'adjudicate_existing'
+  item.prior_alignment_id = 'old-page-only'
+  item.unit = {
+    unit_id: 'tpu_fixture_page_10',
+    title: '未分配单元 · PDF 10',
+    pdf_page_start: 10,
+    pdf_page_end: 10,
+    assignment_status: 'unassigned_page_only'
+  }
+  item.evidence[0].excerpt_hash = hash(item.evidence[0].excerpt)
+  item.evidence[0].bbox = {
+    x: 10,
+    y: 20,
+    width: 100,
+    height: 30,
+    unit: 'pixel',
+    page_width: 600,
+    page_height: 800
+  }
+  delete item.evidence[0].source_lines
+
+  const modelOutput = acceptedOutput()
+  modelOutput.items[0].item_id = item.item_id
+  modelOutput.items[0].decisions[0].evidence_level = 'L3'
+  const inputHash = alignmentInputHash({ model: 'gpt-5-mini', items: [item] })
+  const record = {
+    status: 'ok',
+    input_hash: inputHash,
+    request_items: [item],
+    model_output: modelOutput,
+    provenance: fullProvenance(inputHash)
+  }
+
+  const first = materializeAlignmentRecords([record], new Set([inputHash]))
+  const second = materializeAlignmentRecords([record], new Set([inputHash]))
+  assert.equal(first.alignments.length, 1)
+  const alignment = first.alignments[0]
+  const span = alignment.generated_evidence_span
+  const node = alignment.generated_content_node
+  assert.ok(span)
+  assert.ok(node)
+  assert.notEqual(span.evidence_span_id, item.evidence[0].evidence_span_id)
+  assert.notEqual(node.node_id, item.evidence[0].node_id)
+  assert.equal(span.bbox, null)
+  assert.equal(node.parent_id, null)
+  assert.equal(node.unit_id, null)
+  assert.equal(node.level, 0)
+  assert.equal(span.node_id, node.node_id)
+  assert.equal(alignment.node_id, node.node_id)
+  assert.deepEqual(alignment.evidence_span_ids, [span.evidence_span_id])
+  assert.equal(alignment.alignment_id, stableAlignmentId(
+    item.textbook.edition_id,
+    item.logical_item_id,
+    item.candidates[0].standard_code,
+    span.evidence_span_id,
+    LLM_ALIGNMENT_PROMPT_VERSION
+  ))
+  assert.equal(second.alignments[0].alignment_id, alignment.alignment_id)
+  assert.equal(second.alignments[0].node_id, alignment.node_id)
+  assert.equal(second.alignments[0].evidence_span_ids[0], alignment.evidence_span_ids[0])
+
+  const structure = {
+    edition_id: 'ed_fixture',
+    toc: [],
+    content_nodes: [{
+      node_id: item.evidence[0].node_id,
+      parent_id: 'old_unit',
+      unit_id: 'old_unit',
+      level: 1,
+      kind: 'section',
+      title: '旧节点',
+      pdf_page: 10,
+      end_pdf_page: 10,
+      evidence_span_ids: [item.evidence[0].evidence_span_id]
+    }],
+    evidence_spans: [{
+      evidence_span_id: item.evidence[0].evidence_span_id,
+      span_id: item.evidence[0].evidence_span_id,
+      node_id: item.evidence[0].node_id,
+      pdf_page: 10,
+      excerpt: item.evidence[0].excerpt,
+      text: item.evidence[0].excerpt,
+      excerpt_hash: item.evidence[0].excerpt_hash,
+      text_hash: item.evidence[0].excerpt_hash,
+      bbox: item.evidence[0].bbox
+    }],
+    alignments: [{
+      alignment_id: item.prior_alignment_id,
+      edition_id: 'ed_fixture',
+      unit_id: 'old_unit',
+      node_id: item.evidence[0].node_id,
+      standard_code: item.candidates[0].standard_code,
+      relation_type: 'supports',
+      evidence_span_ids: [item.evidence[0].evidence_span_id],
+      review_status: 'machine_checked'
+    }]
+  }
+  const plan = planAlignmentApplication({
+    structuresByEdition: new Map([['ed_fixture', structure]]),
+    decisions: first.decisions,
+    acceptedAlignments: first.alignments
+  })
+  const updated = plan.updates.get('ed_fixture')
+  const applied = updated.alignments.find(row => row.alignment_id === alignment.alignment_id)
+  const appliedNode = updated.content_nodes.find(row => row.node_id === node.node_id)
+  const appliedSpan = updated.evidence_spans.find(row => row.evidence_span_id === span.evidence_span_id)
+  assert.ok(applied)
+  assert.ok(appliedNode)
+  assert.ok(appliedSpan)
+  assert.equal(applied.unit_assignment_status, 'unassigned_page_only')
+  assert.equal(appliedNode.parent_id, null)
+  assert.equal(appliedNode.unit_id, null)
+  assert.equal(appliedSpan.node_id, appliedNode.node_id)
 })
 
 test('application preview removes rejected or abstained machine relations, preserves approved legacy, and adds accepted evidence', () => {
@@ -1413,22 +1835,34 @@ test('stale adjudication and canonical approved ID collisions fail closed', () =
   }), /collides with canonical alignment/u)
 })
 
-test('logical duplicate accepts coalesce evidence while invalid generated bbox fails closed', () => {
-  const first = applicationAcceptance({ itemId: 'item-1', candidateId: 'candidate-1', logicalItemId: 'logical-1', spanId: 'span-1', nodeId: 'node-1' })
-  const second = applicationAcceptance({ itemId: 'item-2', candidateId: 'candidate-2', logicalItemId: 'logical-2', spanId: 'span-2', nodeId: 'node-2' })
-  const coalesced = planAlignmentApplication({
-    structuresByEdition: new Map([['ed_fixture', emptyApplicationStructure()]]),
+test('same-semantic evidence accepts remain independent canonical claims and one prior is removed once', () => {
+  const prior = {
+    alignment_id: 'prior-coalesced', edition_id: 'ed_fixture', unit_id: 'unit_fixture',
+    standard_code: 'MA-H4G8-AL-011', relation_type: 'supports', review_status: 'machine_checked'
+  }
+  const first = applicationAcceptance({
+    itemId: 'item-1', candidateId: 'candidate-1', logicalItemId: 'logical-1', spanId: 'span-1', nodeId: 'node-1',
+    sourceMode: 'adjudicate_existing', priorAlignmentId: prior.alignment_id, componentIds: ['lc_meaning']
+  })
+  const second = applicationAcceptance({
+    itemId: 'item-2', candidateId: 'candidate-2', logicalItemId: 'logical-2', spanId: 'span-2', nodeId: 'node-2',
+    sourceMode: 'adjudicate_existing', priorAlignmentId: prior.alignment_id, componentIds: ['lc_write'],
+    page: 15, excerpt: '写出分式的基本性质', evidenceQuote: '分式的基本性质'
+  })
+  const applied = planAlignmentApplication({
+    structuresByEdition: new Map([['ed_fixture', emptyApplicationStructure([prior])]]),
     decisions: [first.decision, second.decision],
     acceptedAlignments: [first.alignment, second.alignment]
   })
-  const structure = coalesced.updates.get('ed_fixture')
-  assert.equal(structure.alignments.length, 1)
-  assert.deepEqual(structure.alignments[0].evidence_span_ids.slice().sort(), ['span-1', 'span-2'])
-  assert.equal(structure.alignments[0].supporting_evidence.length, 1)
+  const structure = applied.updates.get('ed_fixture')
+  assert.equal(structure.alignments.length, 2)
+  assert.deepEqual(structure.alignments.map(item => item.evidence_span_ids[0]).sort(), ['span-1', 'span-2'])
+  assert.deepEqual(structure.alignments.map(item => item.learning_component_ids).sort(), [['lc_meaning'], ['lc_write']])
   assert.equal(structure.content_nodes.length, 2)
   assert.equal(structure.evidence_spans.length, 2)
-  assert.equal(coalesced.report.summary.added_llm_alignments, 1)
-  assert.equal(coalesced.report.summary.coalesced_machine_duplicates, 1)
+  assert.equal(applied.report.summary.removed_machine_alignments, 1)
+  assert.equal(applied.report.summary.added_llm_alignments, 2)
+  assert.equal(applied.report.summary.coalesced_machine_duplicates, 0)
 
   const invalidBox = applicationAcceptance({
     bbox: { x: -1, y: 0, width: 10, height: 10, unit: 'pixel', page_width: 100, page_height: 100 }
@@ -1485,6 +1919,67 @@ test('recovery snapshots restore canonical and projection roots after a simulate
     restoreRecoverySnapshot(snapshot)
     assert.equal(readFileSync(join(canonicalRoot, 'state.json'), 'utf8'), '{"before":true}\n')
     assert.equal(readFileSync(join(projectionRoot, 'index.json'), 'utf8'), '{"before":true}\n')
+  } finally {
+    rmSync(root, { recursive: true, force: true })
+  }
+})
+
+test('projection rebuild cannot mutate canonical alignments outside authenticated edition scope', () => {
+  const root = mkdtempSync(join(tmpdir(), 'kebiao-llm-scope-invariant-'))
+  try {
+    const selectedPath = join(root, 'ed_selected.json')
+    const protectedPath = join(root, 'ed_protected.json')
+    const selected = { edition_id: 'ed_selected', alignments: [{ alignment_id: 'selected-before', review_status: 'machine_checked' }] }
+    const protectedEdition = { edition_id: 'ed_protected', alignments: [{ alignment_id: 'approved-before', review_status: 'approved' }] }
+    writeFileSync(selectedPath, `${JSON.stringify(selected)}\n`)
+    writeFileSync(protectedPath, `${JSON.stringify(protectedEdition)}\n`)
+    const before = captureUnselectedCanonicalAlignmentState(['ed_selected'], root)
+
+    writeFileSync(selectedPath, `${JSON.stringify({ ...selected, alignments: [] })}\n`)
+    assert.doesNotThrow(() => assertUnselectedCanonicalAlignmentsUnchanged(before, ['ed_selected'], root))
+
+    writeFileSync(protectedPath, `${JSON.stringify({ ...protectedEdition, alignments: [] })}\n`)
+    assert.throws(
+      () => assertUnselectedCanonicalAlignmentsUnchanged(before, ['ed_selected'], root),
+      /mutated canonical alignments outside the authenticated edition scope: ed_protected/u
+    )
+  } finally {
+    rmSync(root, { recursive: true, force: true })
+  }
+})
+
+test('a later rebuild failure rolls back capability graph and internal by-subject writes together', () => {
+  assert.ok(APPLICATION_MUTATION_ROOTS.some(([name, path]) => (
+    name === 'internal-by-subject' && path.endsWith(join('data', 'internal', 'by_subject'))
+  )))
+  const root = mkdtempSync(join(tmpdir(), 'kebiao-llm-capability-rollback-'))
+  try {
+    const capabilityRoot = join(root, 'data/internal/capability_graph')
+    const bySubjectRoot = join(root, 'data/internal/by_subject')
+    const publicRoot = join(root, 'public/data')
+    const receiptRoot = join(root, 'receipts')
+    for (const path of [capabilityRoot, bySubjectRoot, publicRoot]) mkdirSync(path, { recursive: true })
+    writeFileSync(join(capabilityRoot, 'manifest.json'), '{"version":"before"}\n')
+    writeFileSync(join(bySubjectRoot, 'math.json'), '{"standards":"before"}\n')
+    writeFileSync(join(publicRoot, 'manifest.json'), '{"public":"before"}\n')
+    const snapshot = createRecoverySnapshot('capability-fixture', [
+      ['internal-capability-graph', capabilityRoot],
+      ['internal-by-subject', bySubjectRoot],
+      ['public-data', publicRoot]
+    ], receiptRoot)
+
+    // Simulate build_standard_capability_graph --apply succeeding before a
+    // later projection/validation command fails.
+    writeFileSync(join(capabilityRoot, 'manifest.json'), '{"version":"after"}\n')
+    writeFileSync(join(bySubjectRoot, 'math.json'), '{"standards":"after"}\n')
+    writeFileSync(join(publicRoot, 'manifest.json'), '{"public":"after"}\n')
+    const recovery = recoverApplicationFailure({
+      error: new Error('later rebuild command failed'), snapshot, receipt: null, receiptPath: null
+    })
+    assert.equal(recovery.recoveryFailed, false)
+    assert.equal(readFileSync(join(capabilityRoot, 'manifest.json'), 'utf8'), '{"version":"before"}\n')
+    assert.equal(readFileSync(join(bySubjectRoot, 'math.json'), 'utf8'), '{"standards":"before"}\n')
+    assert.equal(readFileSync(join(publicRoot, 'manifest.json'), 'utf8'), '{"public":"before"}\n')
   } finally {
     rmSync(root, { recursive: true, force: true })
   }

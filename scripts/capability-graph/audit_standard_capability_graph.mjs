@@ -123,6 +123,11 @@ for (const record of records) {
         registerId(item.alignment_id, prefix, 'curriculum_alignments')
         if (!['page', 'unit', 'unit_topic_candidate', 'scope'].includes(item.level)) errors.push(`${prefix}: alignment level 非法`)
         if (!item.edition_id || !item.textbook_title) errors.push(`${prefix}: alignment 缺少教材标识或标题`)
+        if (item.component_migration_required) {
+            if (item.component_migration_policy !== 'fail_closed_no_one_to_many_guess') errors.push(`${prefix}: component migration 必须使用 fail-closed 策略`)
+            if (!Array.isArray(item.superseded_learning_component_ids) || !item.superseded_learning_component_ids.length) errors.push(`${prefix}: component migration 缺少已废弃 component ID`)
+            if ((item.superseded_learning_component_ids || []).some(value => componentIds.has(value))) errors.push(`${prefix}: component migration 把当前 component 错标为已废弃`)
+        }
         if (item.level === 'page') {
             if (!item.unit_id || !item.node_id || !Number.isInteger(item.pdf_page)) errors.push(`${prefix}: 页面关系缺少单元、内容节点或 PDF 页码`)
             if (!['L3_page_evidence', 'L4_teacher_guide', 'L5_official_crosswalk'].includes(item.evidence_level)) errors.push(`${prefix}: 页面关系证据等级必须为 L3–L5`)

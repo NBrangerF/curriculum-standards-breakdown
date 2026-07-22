@@ -10,7 +10,16 @@ export const SUPPORT_RESOURCE_TYPES = Object.freeze([
   'student_companion'
 ])
 
+export const DEFAULT_SUPPORT_RESOURCE_BUCKET = 'kebiao-textbooks'
+
 const SUPPORT_RESOURCE_TYPE_SET = new Set(SUPPORT_RESOURCE_TYPES)
+const STRICT_BIBLIOGRAPHIC_TARGET_TYPES = new Set([
+  'teacher_guide',
+  'teaching_reference',
+  'textbook_explanation',
+  'workbook',
+  'answer_key'
+])
 const VOLUMES = new Set(['上册', '下册', '全一册'])
 const STAGES = new Set(['primary', 'junior'])
 
@@ -25,6 +34,12 @@ function clean(value) {
 function nullableString(value) {
   const normalized = clean(value)
   return normalized || null
+}
+
+function configuredBucket(value) {
+  return nullableString(value)
+    || nullableString(typeof process !== 'undefined' ? process.env?.TEXTBOOK_ASSET_BUCKET : null)
+    || DEFAULT_SUPPORT_RESOURCE_BUCKET
 }
 
 function isAbsoluteLocalReference(value) {
@@ -125,18 +140,41 @@ function normalizeBibliography(raw) {
 }
 
 function normalizeTargetHint(raw, resourceType, bibliography) {
+  const target = raw || {}
+  const editionId = nullableString(target.edition_id) || undefined
+  const strictBibliographicTarget = STRICT_BIBLIOGRAPHIC_TARGET_TYPES.has(resourceType)
+  const hasPublisherOverride = Object.prototype.hasOwnProperty.call(target, 'publisher')
+  const hasRevisionOverride = Object.prototype.hasOwnProperty.call(target, 'revision_year')
+  const targetPublisher = hasPublisherOverride ? nullableString(target.publisher) : bibliography.publisher
+  const targetRevisionYear = hasRevisionOverride
+    ? (target.revision_year == null ? null : Number(target.revision_year))
+    : bibliography.revision_year
+
+  // Teacher-facing resources are commonly published for one exact textbook
+  // revision. A conflicting override without an edition ID would silently
+  // weaken the match to a same-grade/same-volume guess, so require the caller
+  // to name the intended target explicitly.
+  if (strictBibliographicTarget && !editionId && hasPublisherOverride
+    && normalizeToken(targetPublisher) !== normalizeToken(bibliography.publisher)) {
+    throw new Error(`conflicting target publisher requires explicit edition_id: ${bibliography.title}`)
+  }
+  if (strictBibliographicTarget && !editionId && hasRevisionOverride
+    && targetRevisionYear !== bibliography.revision_year) {
+    throw new Error(`conflicting target revision_year requires explicit edition_id: ${bibliography.title}`)
+  }
+
   return {
-    edition_id: nullableString(raw?.edition_id) || undefined,
-    subject_slug: clean(raw?.subject_slug) || normalizedSubject(resourceType, bibliography.subject_slug),
-    grade: raw?.grade == null ? bibliography.grade : Number(raw.grade),
-    volume: clean(raw?.volume) || bibliography.volume,
-    publisher: raw?.publisher === undefined ? undefined : nullableString(raw.publisher),
-    edition_name: raw?.edition_name === undefined ? undefined : nullableString(raw.edition_name),
-    revision_year: raw?.revision_year === undefined || raw?.revision_year === null ? raw?.revision_year : Number(raw.revision_year)
+    edition_id: editionId,
+    subject_slug: clean(target.subject_slug) || normalizedSubject(resourceType, bibliography.subject_slug),
+    grade: target.grade == null ? bibliography.grade : Number(target.grade),
+    volume: clean(target.volume) || bibliography.volume,
+    publisher: strictBibliographicTarget ? targetPublisher : (hasPublisherOverride ? targetPublisher : undefined),
+    edition_name: target.edition_name === undefined ? undefined : nullableString(target.edition_name),
+    revision_year: strictBibliographicTarget ? targetRevisionYear : (hasRevisionOverride ? targetRevisionYear : undefined)
   }
 }
 
-function normalizeAsset(raw, seed) {
+function normalizeAsset(raw, seed, r2Bucket) {
   const availability = clean(raw?.availability) || (raw?.sha256 ? 'available' : 'manifest_only')
   assert(['available', 'manifest_only', 'missing'].includes(availability), `unsupported asset availability: ${availability}`)
   const sha256 = nullableString(raw?.sha256)?.toLowerCase() || null
@@ -161,6 +199,11 @@ function normalizeAsset(raw, seed) {
     assert(asset.sha256 && asset.object_path, 'available resource asset requires sha256 and object_path')
     assert(Number.isInteger(asset.bytes) && asset.bytes > 0, 'available resource asset requires positive bytes')
     assert(Number.isInteger(asset.pages) && asset.pages > 0, 'available resource asset requires positive pages')
+    const expectedObjectPath = `objects/sha256/${asset.sha256.slice(0, 2)}/${asset.sha256}.pdf`
+    assert(asset.object_path === expectedObjectPath, 'available resource asset object_path must match its sha256 content address')
+    assert(asset.r2_key === expectedObjectPath, 'available resource asset r2_key must equal its content-addressed object_path')
+    const expectedBucket = configuredBucket(r2Bucket)
+    assert(!asset.r2_bucket || asset.r2_bucket === expectedBucket, `available resource asset r2_bucket must equal configured bucket: ${expectedBucket}`)
   }
   return asset
 }
@@ -268,7 +311,7 @@ export function normalizeResourceInput(input, options = {}) {
     resource_type: resourceType,
     bibliography,
     target_hints: targetHints,
-    asset: normalizeAsset(input.asset, resourceId),
+    asset: normalizeAsset(input.asset, resourceId, options.r2Bucket),
     sections,
     page_map: normalizePageMap(input.structure?.page_map || input.page_map),
     provenance: {
@@ -290,10 +333,15 @@ export function normalizeResourceInput(input, options = {}) {
  * used for both registry upserts and explicit build-time manifest overlays.
  */
 export function mergeResourceManifestInputs(...layers) {
+  return mergeResourceManifestInputsWithOptions({}, ...layers)
+}
+
+/** Merge manifest layers while validating assets against one configured R2 bucket. */
+export function mergeResourceManifestInputsWithOptions(options, ...layers) {
   const byResourceId = new Map()
   for (const layer of layers) {
     for (const input of Array.isArray(layer) ? layer : []) {
-      const resourceId = normalizeResourceInput(input).resource.resource_id
+      const resourceId = normalizeResourceInput(input, options).resource.resource_id
       byResourceId.set(resourceId, input)
     }
   }
@@ -308,7 +356,7 @@ export function mergeResourceManifestInputs(...layers) {
  * workstation and external-volume paths are deliberately discarded.
  */
 export function resourceInputForRegistry(input, normalizedResource, options = {}) {
-  const resource = normalizedResource || normalizeResourceInput(input).resource
+  const resource = normalizedResource || normalizeResourceInput(input, options).resource
   const provenance = input.provenance || {}
   const objectPath = portableReference(resource.asset.object_path)
   const portableSourceRef = portableReference(provenance.source_ref)
@@ -337,7 +385,7 @@ export function resourceInputForRegistry(input, normalizedResource, options = {}
     pdf_page_start: section.pdf_page_start,
     pdf_page_end: section.pdf_page_end
   }))
-  const declaredMappings = normalizeResourceInput(input).declared_unit_mappings
+  const declaredMappings = normalizeResourceInput(input, options).declared_unit_mappings
   return {
     resource_id: resource.resource_id,
     edition_id: resource.edition_id,
@@ -656,10 +704,10 @@ function sortedIndex(index) {
 }
 
 /** Build book-level and unit-level forward/reverse support-resource indexes. */
-export function buildTextbookResourceCatalog({ resources, targets, structures = {}, generatedAt = new Date().toISOString() }) {
+export function buildTextbookResourceCatalog({ resources, targets, structures = {}, generatedAt = new Date().toISOString(), r2Bucket = null }) {
   const normalized = resources.map((input, index) => input.resource && input.declared_unit_mappings
     ? input
-    : normalizeResourceInput(input, { sourceRef: `resources[${index}]` }))
+    : normalizeResourceInput(input, { sourceRef: `resources[${index}]`, r2Bucket }))
   normalized.forEach(item => assertResourcePageBounds(item.resource))
   const projectedTargets = targets
     .filter(target => target.resource_type === 'student_textbook')
@@ -773,7 +821,7 @@ export function projectRelatedResourcesForUnit(catalog, editionId, unitId, { rea
     .sort((left, right) => left.mapping_id.localeCompare(right.mapping_id))
 }
 
-export function buildResourceImportPlan(resource, { libraryRoot = null, r2Bucket = 'kebiao-textbooks' } = {}) {
+export function buildResourceImportPlan(resource, { libraryRoot = null, r2Bucket = DEFAULT_SUPPORT_RESOURCE_BUCKET } = {}) {
   const asset = resource.asset
   if (asset.availability !== 'available' || !asset.sha256 || !asset.object_path) {
     return {
@@ -785,6 +833,12 @@ export function buildResourceImportPlan(resource, { libraryRoot = null, r2Bucket
       r2: null
     }
   }
+  const expectedBucket = configuredBucket(r2Bucket)
+  const expectedObjectPath = `objects/sha256/${asset.sha256.slice(0, 2)}/${asset.sha256}.pdf`
+  const storageKey = asset.r2_key || asset.object_path
+  assert(asset.object_path === expectedObjectPath, 'resource import object_path must match its sha256 content address')
+  assert(storageKey === expectedObjectPath, 'resource import r2_key must equal its content-addressed object_path')
+  assert(!asset.r2_bucket || asset.r2_bucket === expectedBucket, `resource import r2_bucket must equal configured bucket: ${expectedBucket}`)
   return {
     resource_id: resource.resource_id,
     asset_id: asset.asset_id,
@@ -797,8 +851,8 @@ export function buildResourceImportPlan(resource, { libraryRoot = null, r2Bucket
       bytes: asset.bytes
     },
     r2: {
-      bucket: asset.r2_bucket || r2Bucket,
-      key: asset.r2_key || asset.object_path,
+      bucket: asset.r2_bucket || expectedBucket,
+      key: storageKey,
       content_type: 'application/pdf',
       sha256: asset.sha256,
       bytes: asset.bytes
@@ -811,7 +865,7 @@ function indexValues(index) {
 }
 
 /** Audit references, stable identifiers, page ranges and forward/reverse index parity. */
-export function auditTextbookResourceCatalog(catalog) {
+export function auditTextbookResourceCatalog(catalog, { r2Bucket = null } = {}) {
   const errors = []
   const warnings = []
   const resources = new Map()
@@ -836,6 +890,11 @@ export function auditTextbookResourceCatalog(catalog) {
     if (resource.asset?.availability === 'available') {
       const expected = `objects/sha256/${resource.asset.sha256?.slice(0, 2)}/${resource.asset.sha256}.pdf`
       if (resource.asset.object_path !== expected) errors.push(`non-content-addressed object_path: ${resource.resource_id}`)
+      if ((resource.asset.r2_key || resource.asset.object_path) !== expected) errors.push(`non-content-addressed r2_key: ${resource.resource_id}`)
+      const expectedBucket = configuredBucket(r2Bucket)
+      if (resource.asset.r2_bucket && resource.asset.r2_bucket !== expectedBucket) {
+        errors.push(`resource r2_bucket differs from configured bucket: ${resource.resource_id}`)
+      }
       for (const entry of resource.page_map || []) {
         if (entry.pdf_page > resource.asset.pages) errors.push(`page map exceeds asset pages: ${resource.resource_id}:${entry.pdf_page}`)
       }

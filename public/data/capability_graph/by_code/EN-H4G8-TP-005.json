@@ -79,16 +79,70 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_b2da8b12fbfb57967cd0",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_1e9a7b44e4a8b7f10cfc",
+        "textbook-node:tcn_llm_quote_2346305ef5f47a5765f6",
+        "textbook-unit:tcu_84a47d476c71962a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "UNIT 4\n2c Read the passage again and answer the questions.\n1. What do talent shows have in common?\n2. Who decides the winner?\n3. Why do some people not like these shows?\n4. Why do some people like these shows?\n5. What do you think of these shows?\n2d Underline all the superlatives in the passage.\nThen write sentences using at least four of them.\nbest singer: In my class, Tom is the best singer",
+          "excerpt_hash": "17873a611c80750b7bda253c96880589edb2c8b37c4647973880aa65f14c8c6e",
+          "pdf_page": 41,
+          "printed_page": "30",
+          "span_id": "tes_llm_quote_1e9a7b44e4a8b7f10cfc"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7249840e91751c29"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7249840e91751c29",
+          "label": "提取、整理、概括稍长语篇的关键信息、主要内容、思想和观点"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_2346305ef5f47a5765f6",
+      "node_title": "2c Read the passage again and answer the questions.\n1. What do talent shows have in common?\n2. Who d",
+      "pdf_page": 41,
+      "printed_page": "30",
+      "publication_status": "published",
+      "rationale": "连续证据要求学生重读稍长 passage，回答共同点、决定者、不同人喜欢或不喜欢的原因以及个人看法，直接练习提取、整理、概括语篇关键信息、主要内容、思想和观点。该任务是普通阅读练习而非评价，因此 relation_type 为 practices。未选择深层含义、整合信息或说明文化差异组件，因为证据没有明确要求多角度解读深层含义或文化差异说明。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_84a47d476c71962a",
+      "unit_title": "UNIT 4"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_dc77c6bfe5b1c6f9",

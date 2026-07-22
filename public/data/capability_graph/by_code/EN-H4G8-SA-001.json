@@ -152,16 +152,70 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_53f9669e3fffc68ed362",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_5df79989316e749dc5ec",
+        "textbook-node:tcn_llm_quote_15f72f22cc94bbd59280",
+        "textbook-unit:tcu_8b274b25b1b01daa"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "UNIT 1\n2c Read Jane’s diary entries again. Fill in the chart.\nThings Jane did or saw Did she like it? (Yes/No) Why or why not?\ntried paragliding\nThey were delicious.\nwalked around Georgetown\nwent to Penang Hill\nIt tasted great because she\nwas hungry.\n2d Complete the conversation about Jane’s trip to Penang using the\ninformation in the diary entries.\nAnna: Hi, Jane. Where did you go on vacation last week?",
+          "excerpt_hash": "f05f1e1162a33711a59a4a6b0b7c278a707a790df1e6eeadf17e9d39205cddc4",
+          "pdf_page": 17,
+          "printed_page": "6",
+          "span_id": "tes_llm_quote_5df79989316e749dc5ec"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7fd3b535aeeb8ed8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7fd3b535aeeb8ed8",
+          "label": "借助表格、思维导图等工具梳理书面语篇主要信息"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_15f72f22cc94bbd59280",
+      "node_title": "2c Read Jane’s diary entries again. Fill in the chart.\nThings Jane did or saw Did she like it? (Yes/",
+      "pdf_page": 17,
+      "printed_page": "6",
+      "publication_status": "published",
+      "rationale": "逐字证据要求学生重读 Jane 的日记并填表，直接落实“借助表格、思维导图等工具梳理书面语篇主要信息”。这是学生实施阅读后信息梳理的练习任务，主要功能是 practices。未选择词义推测、解释大意、整合信息或说明观点文化差异，因为该连续引文没有完整要求这些动作。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_8b274b25b1b01daa",
+      "unit_title": "UNIT 1"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_155352afad02c6be",

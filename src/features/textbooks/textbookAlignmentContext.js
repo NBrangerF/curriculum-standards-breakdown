@@ -76,13 +76,42 @@ export function findActiveTextbookNodes(book, pdfPage) {
         })
 }
 
-export function getEvidenceSpansForAlignment(book, alignment) {
-    const spanById = new Map(asArray(book?.evidence_spans).map(span => [span.span_id || span.evidence_span_id, span]))
+export function getEvidenceClaimsForAlignment(book, alignment) {
+    const allSpans = [...asArray(book?.evidence_spans), ...asArray(alignment?.evidence_spans)]
+    const spanById = new Map(allSpans.map(span => [span.span_id || span.evidence_span_id, span]))
+    const supporting = asArray(alignment?.supporting_evidence)
+    if (supporting.length) {
+        return supporting.map(claim => {
+            const span = spanById.get(claim.evidence_span_id) || {}
+            return {
+                ...span,
+                ...claim,
+                evidence_span_id: claim.evidence_span_id || span.evidence_span_id || span.span_id,
+                excerpt: claim.evidence_excerpt || span.excerpt || span.text,
+                excerpt_hash: claim.evidence_excerpt_hash || span.excerpt_hash || span.text_hash,
+                bbox: claim.bbox ?? span.bbox ?? null
+            }
+        })
+    }
     const inline = asArray(alignment?.evidence_spans)
-    const referenced = asArray(alignment?.evidence_span_ids)
-        .map(spanId => spanById.get(spanId))
-        .filter(Boolean)
-    return inline.length ? inline : referenced
+    if (inline.length) return inline
+    return asArray(alignment?.evidence_span_ids).map(spanId => spanById.get(spanId)).filter(Boolean)
+}
+
+export function getEvidenceSpansForAlignment(book, alignment) {
+    const seen = new Set()
+    return getEvidenceClaimsForAlignment(book, alignment).filter(span => {
+        const key = span.evidence_span_id || span.span_id || `${span.node_id || ''}:${span.pdf_page || ''}:${span.excerpt || ''}`
+        if (seen.has(key)) return false
+        seen.add(key)
+        return true
+    })
+}
+
+export function getPreferredEvidenceClaim(book, alignment, currentPage = null) {
+    const claims = getEvidenceClaimsForAlignment(book, alignment)
+    const page = positiveNumber(currentPage)
+    return (page ? claims.find(claim => positiveNumber(claim.pdf_page) === page) : null) || claims[0] || null
 }
 
 function alignmentNodeId(alignment) {

@@ -161,16 +161,124 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_e36aa9a809cd4f6449a5",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_5fb5160f3b46a4775d27",
+        "textbook-node:tcn_llm_quote_51e0128d8568bb979c1e",
+        "textbook-unit:tcu_3774ed1102d2a87c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "UNIT 5\n4 What do you and your partner think of these TV shows or movies?\nWrite description words for each one.\nMe My partner\nWhat do you think soap operas\nof soap operas?\ntalent shows\nnews\nsports shows\nI think they‛re game shows\nboring!\ntalk shows\ncomedies\nscary movies\naction movies\ncartoons\nSelf Check\n1 Write questions and answers using the words in brackets.\n1. A: (what/think of/soap operas)\nB: (can’t stand)",
+          "excerpt_hash": "f081ad27e10982bf57e233224cd3bbf5d78b95ecbc821748b9c2cd0e2567b758",
+          "pdf_page": 51,
+          "printed_page": "40",
+          "span_id": "tes_llm_quote_5fb5160f3b46a4775d27"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4cb891a4b3908448"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4cb891a4b3908448",
+          "label": "运用恰当语言形式表达自己的情感、态度和观点"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_51e0128d8568bb979c1e",
+      "node_title": "4 What do you and your partner think of these TV shows or movies?\nWrite description words for each o",
+      "pdf_page": 51,
+      "printed_page": "40",
+      "publication_status": "published",
+      "rationale": "证据中的 What do you think 与 I think they’re boring 以及写 description words 的任务，直接要求学生表达对节目或电影的态度、观点，主要功能是练习表达而非评价达成，因此为 practices。证据没有要求使用非语言形式进行社会情境交流、解释他人观点、整合语篇信息或说明文化差异，所以不选择其他组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_3774ed1102d2a87c",
+      "unit_title": "UNIT 5"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_2b7d97cf24f06982efce",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_622f117b6a434bbb211b",
+        "textbook-node:tcn_llm_quote_b7f9202cfe2bfbfe5271",
+        "textbook-unit:tcu_fc7edda29a549157"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "UNIT 9\nSection\nCan you come to my party?\nA\nJenny, can you come to my\nparty on Saturday afternoon?\nLanguage Goals: How about you, Ted? Sure,\nCan you come to my party? I‛d love to.\nMake, accept a\nand decline\ninvitations;\nTalk about\nb\nobligations e\nI‛m sorry, I can‛t.\nI have to help my\nparents.\nTed\nc d\n1a Match the phrases with the pictures [a–e].\n1. prepare for an exam a 3. go to the doctor 5. have the flu",
+          "excerpt_hash": "03ac0ba2938bb956ef26568c275c6e9abb351eb02da0b3a8df791f8b636345f7",
+          "pdf_page": 76,
+          "printed_page": "65",
+          "span_id": "tes_llm_quote_622f117b6a434bbb211b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b84c79a1fd8bd32b"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b84c79a1fd8bd32b",
+          "label": "使用得体的语言和非语言形式进行日常生活交流"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_b7f9202cfe2bfbfe5271",
+      "node_title": "Language Goals: How about you, Ted? Sure,\nCan you come to my party? I‛d love to.\nMake, accept a\nand ",
+      "pdf_page": 76,
+      "printed_page": "65",
+      "publication_status": "published",
+      "rationale": "证据中的语言目标和示例话轮直接围绕邀请、接受/拒绝邀请以及说明义务，属于在日常社会情境中使用得体语言进行交流。该页是在呈现本单元 Language Goals，而非单纯检测或自由练习，因此 relation_type 选 supports。未选择表达情感态度观点、解释他人观点、整合语篇信息或说明观点/文化差异，因为该证据没有完整落实这些动作。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_fc7edda29a549157",
+      "unit_title": "UNIT 9"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a49aee493bf191cd",

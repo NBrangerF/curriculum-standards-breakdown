@@ -162,16 +162,124 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_afb2ced2f4639c8c7292",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_138691b4aeae594bcbeb",
+        "textbook-node:tcn_llm_quote_17693a79a91d8adc00ca",
+        "textbook-unit:tcu_33c8de12314bb055"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "UNIT 2\n4 Take the health quiz. Compare your results with your partner’s. Who’s\nhealthier?\n1. How often do you eat breakfast?\na. Never. b. A few times a week. c. Almost every day.\n2. How often do you eat fast food?\na. Never. b. A few times a week. c. Almost every day.\n3. How often do you eat vegetables and fruit?\na. Never. b. A few times a week. c. Almost every day.\n4. How often do you exercise?",
+          "excerpt_hash": "32b39edda3b22f1b2fdd9e260b42c3ef5a0792871bfca6ece427c836a4effa96",
+          "pdf_page": 27,
+          "printed_page": "16",
+          "span_id": "tes_llm_quote_138691b4aeae594bcbeb"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0710557f56369b3b"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0710557f56369b3b",
+          "label": "围绕所列主题完成理解与表达任务"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_17693a79a91d8adc00ca",
+      "node_title": "4 Take the health quiz. Compare your results with your partner’s. Who’s\nhealthier?",
+      "pdf_page": 27,
+      "printed_page": "16",
+      "publication_status": "published",
+      "rationale": "证据逐字要求学生完成健康问卷、比较同伴结果并判断谁更健康，学习对象属于身心健康主题，动作包含理解问卷并进行表达/比较。该页主要是学生练习活动，故 relation_type 为 practices。未选择整合语篇信息或说明观点、文化差异，因为证据没有呈现语篇整合或文化差异说明任务。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_33c8de12314bb055",
+      "unit_title": "UNIT 2"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_354b34f705a22e67de59",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_68d5d165eaeae3e628de",
+        "textbook-node:tcn_llm_quote_2483df584d8fc397dfb7",
+        "textbook-unit:tcu_ad96a054aa519c4f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1. What problems do you have with schoolwork?\n2. Who do you talk to about these problems and why?\n3. Who else can you get advice from?\n4. Do you always tell your parents about your problems? Why or why not?\n5. Do you ever give advice to your friends about their problems? What advice\ndo you give?\n78",
+          "excerpt_hash": "41ea6b263836be59d2c900f9248848db860670e865b46caa7a5741146f50ba91",
+          "pdf_page": 89,
+          "printed_page": "78",
+          "span_id": "tes_llm_quote_68d5d165eaeae3e628de"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0710557f56369b3b"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0710557f56369b3b",
+          "label": "围绕所列主题完成理解与表达任务"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_2483df584d8fc397dfb7",
+      "node_title": "1. What problems do you have with schoolwork?\n2. Who do you talk to about these problems and why?",
+      "pdf_page": 89,
+      "printed_page": "78",
+      "publication_status": "published",
+      "rationale": "证据连续问题要求学生围绕学业问题、求助对象、父母沟通和给朋友建议进行理解与表达，属于学校生活、身心健康或自我管理相关主题下的表达任务。该页是学生问答练习，所以 relation_type 为 practices。证据没有要求整合语篇信息或说明观点/文化差异，因此不选择这些组件。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_ad96a054aa519c4f",
+      "unit_title": "UNIT 10"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_9f93a4da0a93cd5b",

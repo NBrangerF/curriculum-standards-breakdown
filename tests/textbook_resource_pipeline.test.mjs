@@ -7,6 +7,7 @@ import test from 'node:test'
 import { fileURLToPath } from 'node:url'
 import Ajv2020 from 'ajv/dist/2020.js'
 import {
+  DEFAULT_SUPPORT_RESOURCE_BUCKET,
   auditTextbookResourceCatalog,
   buildResourceImportPlan,
   buildTextbookResourceCatalog,
@@ -17,6 +18,7 @@ import {
   resourceInputForRegistry,
   resourceInputFromAsset
 } from '../scripts/textbooks/textbook_resource_pipeline.js'
+import { isReadableSupportResource } from '../scripts/textbooks/support_resource_readability.js'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const readJson = path => JSON.parse(readFileSync(path, 'utf8'))
@@ -218,6 +220,55 @@ test('catalog build rejects an explicit unit target that conflicts with the fina
   )
 })
 
+test('teacher-facing resources inherit bibliographic publisher and revision and fail closed on unsafe overrides', () => {
+  const { structures, targets, teacherFixture } = fixtures()
+  const inherited = structuredClone(teacherFixture.resources[0])
+  inherited.bibliography.publisher = '人民教育出版社'
+  inherited.bibliography.edition_name = '统编版'
+  inherited.target = {
+    subject_slug: 'chinese',
+    grade: 5,
+    volume: '上册'
+  }
+  const normalized = normalizeResourceInput(inherited)
+  assert.equal(normalized.resource.target_hints[0].publisher, '人民教育出版社')
+  assert.equal(normalized.resource.target_hints[0].revision_year, 2022)
+
+  const catalog = buildTextbookResourceCatalog({ resources: [inherited], targets, structures })
+  assert.equal(catalog.pairings[0].status, 'matched')
+  assert.equal(catalog.pairings[0].target_edition_id, 'ed_9d4028e2ab482520d0aa')
+  assert.ok(catalog.pairings[0].matching_fields.includes('publisher'))
+  assert.ok(catalog.pairings[0].matching_fields.includes('revision_year'))
+
+  const publisherConflict = structuredClone(inherited)
+  publisherConflict.target.publisher = '其他出版社'
+  assert.throws(
+    () => normalizeResourceInput(publisherConflict),
+    /conflicting target publisher requires explicit edition_id/
+  )
+
+  const revisionConflict = structuredClone(inherited)
+  revisionConflict.target.revision_year = 2024
+  assert.throws(
+    () => normalizeResourceInput(revisionConflict),
+    /conflicting target revision_year requires explicit edition_id/
+  )
+
+  const ambiguous = structuredClone(inherited)
+  ambiguous.unit_mappings = []
+  const duplicateTarget = {
+    ...targets.find(target => target.edition_id === 'ed_9d4028e2ab482520d0aa'),
+    edition_id: 'ed_fixture_same_bibliography'
+  }
+  const ambiguousCatalog = buildTextbookResourceCatalog({
+    resources: [ambiguous],
+    targets: [...targets, duplicateTarget],
+    structures
+  })
+  assert.equal(ambiguousCatalog.pairings[0].status, 'ambiguous')
+  assert.equal(ambiguousCatalog.pairings[0].target_edition_id, null)
+})
+
 test('available resource sections and unit mappings cannot exceed asset.pages', () => {
   const { structures, targets, teacherFixture } = fixtures()
   const outOfBounds = structuredClone(teacherFixture.resources[0])
@@ -252,6 +303,53 @@ test('available resource sections and unit mappings cannot exceed asset.pages', 
   )
 })
 
+test('available resource manifest, catalog, readability, and import plan share one storage contract', () => {
+  const { structures, targets, teacherFixture } = fixtures()
+  const available = structuredClone(teacherFixture.resources[0])
+  const sha256 = 'a'.repeat(64)
+  const objectPath = `objects/sha256/aa/${sha256}.pdf`
+  Object.assign(available.asset, {
+    availability: 'available',
+    sha256,
+    bytes: 4096,
+    pages: 12,
+    object_path: objectPath,
+    r2_bucket: DEFAULT_SUPPORT_RESOURCE_BUCKET,
+    r2_key: objectPath
+  })
+  const catalog = buildTextbookResourceCatalog({ resources: [available], targets, structures })
+  assert.equal(auditTextbookResourceCatalog(catalog).valid, true)
+  assert.equal(isReadableSupportResource(catalog.resources[0]), true)
+  assert.deepEqual(buildResourceImportPlan(catalog.resources[0]).r2, {
+    bucket: DEFAULT_SUPPORT_RESOURCE_BUCKET,
+    key: objectPath,
+    content_type: 'application/pdf',
+    sha256,
+    bytes: 4096
+  })
+
+  const customBucket = structuredClone(available)
+  customBucket.asset.r2_bucket = 'another-bucket'
+  assert.throws(
+    () => normalizeResourceInput(customBucket),
+    /r2_bucket must equal configured bucket/
+  )
+
+  const customKey = structuredClone(available)
+  customKey.asset.r2_key = 'custom/teacher-guide.pdf'
+  assert.throws(
+    () => normalizeResourceInput(customKey),
+    /r2_key must equal its content-addressed object_path/
+  )
+
+  const brokenCatalog = structuredClone(catalog)
+  brokenCatalog.resources[0].asset.r2_key = 'custom/teacher-guide.pdf'
+  const audit = auditTextbookResourceCatalog(brokenCatalog)
+  assert.equal(audit.valid, false)
+  assert.ok(audit.errors.some(error => error.startsWith('non-content-addressed r2_key:')))
+  assert.equal(isReadableSupportResource(brokenCatalog.resources[0]), false)
+})
+
 test('resource import validates the strict manifest schema before writing a registry', () => {
   const temporaryRoot = mkdtempSync(join(tmpdir(), 'kebiao-resource-schema-'))
   try {
@@ -267,6 +365,35 @@ test('resource import validates the strict manifest schema before writing a regi
     ])
     assert.match(`${result.stdout}\n${result.stderr}`, /does not conform to resource_manifest\.schema\.json/)
     assert.equal(readFileOrNull(registryPath), null)
+  } finally {
+    rmSync(temporaryRoot, { recursive: true, force: true })
+  }
+})
+
+test('resource import rejects custom bucket and key before reading or transferring a source PDF', () => {
+  const temporaryRoot = mkdtempSync(join(tmpdir(), 'kebiao-resource-storage-contract-'))
+  try {
+    for (const [field, value, expected] of [
+      ['r2_bucket', 'another-bucket', /r2_bucket must equal configured bucket/],
+      ['r2_key', 'custom\/teacher-guide.pdf', /r2_key must be content-addressed/]
+    ]) {
+      const invalid = structuredClone(fixtures().teacherFixture)
+      Object.assign(invalid.resources[0].asset, {
+        availability: 'available',
+        source_path: 'missing.pdf',
+        [field]: value
+      })
+      const importManifest = join(temporaryRoot, `invalid-${field}.json`)
+      const registryPath = join(temporaryRoot, `registry-${field}.json`)
+      writeFileSync(importManifest, `${JSON.stringify(invalid, null, 2)}\n`)
+      const result = runNodeFailure('scripts/textbooks/import_textbook_resources.js', [
+        '--manifest', importManifest,
+        '--register',
+        '--registry', registryPath
+      ])
+      assert.match(`${result.stdout}\n${result.stderr}`, expected)
+      assert.equal(readFileOrNull(registryPath), null)
+    }
   } finally {
     rmSync(temporaryRoot, { recursive: true, force: true })
   }

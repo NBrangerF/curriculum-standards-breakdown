@@ -160,16 +160,70 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_83be4ea7282f1b4ed822",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_3b32b1c496c20ad4561a",
+        "textbook-node:tcn_llm_quote_bd78eaea760d452335d3",
+        "textbook-unit:tcu_ebebc063adb2dae0"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "UNIT 6\n2c Read the passage again and match each paragraph [1–3] with its main\npurpose below. Underline the words and phrases that helped you decide.\nTo question the idea of making resolutions\nTo give the meaning of resolution\nTo discuss the different kinds of resolutions\n2d Answer the questions with short sentences.\n1. What is a resolution?\n2. When do people usually make resolutions?",
+          "excerpt_hash": "7e87ecedc8f29e830ba864f86c27e906530a4fc281143fcee82034d089621d33",
+          "pdf_page": 57,
+          "printed_page": "46",
+          "span_id": "tes_llm_quote_3b32b1c496c20ad4561a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1dd2997743410cab"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1dd2997743410cab",
+          "label": "在听、读、看的过程中围绕语篇内容记录重点信息"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_bd78eaea760d452335d3",
+      "node_title": "2c Read the passage again and match each paragraph [1–3] with its main\npurpose below. Underline the ",
+      "pdf_page": 57,
+      "printed_page": "46",
+      "publication_status": "published",
+      "rationale": "证据中的 Read the passage again 和 Underline the words and phrases that helped you decide 要求学生在阅读中围绕语篇内容标记支持判断的重点词语和短语，可直接对应“在听、读、看的过程中围绕语篇内容记录重点信息”。这是普通阅读练习任务，主要功能是 practices。未选择更宽的语篇类型/写作目的组件，因为该组件要求用自己的话解释多类语篇的写作目的、结构特征、语言特点和信息组织方式，证据只要求匹配段落目的并划线，未完整覆盖这些合取要求。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_ebebc063adb2dae0",
+      "unit_title": "UNIT 6"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_07efac2b84298a5e",

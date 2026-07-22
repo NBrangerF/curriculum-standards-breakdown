@@ -124,7 +124,7 @@ export interface TextbookTocEntry {
     confidence: number
     review_status: 'approved' | 'machine_checked' | 'needs_review'
     publication_status?: 'published'
-    source: 'pdf_outline' | 'toc_text' | 'ocr_toc' | 'heading_match' | 'body_inferred_unit' | 'manual' | 'legacy_unit_evidence'
+    source: 'pdf_outline' | 'toc_text' | 'ocr_toc' | 'heading_match' | 'heading_match+split_heading_merge' | 'body_inferred_unit' | 'manual' | 'legacy_unit_evidence'
 }
 
 export interface TextbookPageMapEntry {
@@ -192,6 +192,24 @@ export interface TextbookLearningComponentReference {
     label: string
 }
 
+export interface TextbookAlignmentEvidenceClaim {
+    alignment_id: string
+    node_id: string | null
+    evidence_span_id: string | null
+    pdf_page: number | null
+    printed_page: string | null
+    evidence_quote: string | null
+    evidence_excerpt: string | null
+    evidence_excerpt_hash: string | null
+    bbox: TextbookEvidenceBoundingBox | null
+    evidence_role: string | null
+    learning_component_ids: string[]
+    learning_components: TextbookLearningComponentReference[]
+    rationale: string
+    confidence?: number
+    score?: number
+}
+
 export interface TextbookLlmAlignmentUsage {
     input_tokens: number
     output_tokens: number
@@ -218,9 +236,11 @@ export type TextbookAlignmentSourceMode = 'adjudicate_existing' | 'discover_scop
 
 export interface TextbookStandardAlignment {
     alignment_id: string
+    alignment_ids?: string[]
     edition_id?: string
     unit_id?: string
     node_id?: string
+    node_ids?: string[]
     unit_title?: string
     standard_code: string
     standard_text: string
@@ -231,8 +251,11 @@ export interface TextbookStandardAlignment {
     learning_components?: TextbookLearningComponentReference[]
     evidence_level?: TextbookEvidenceLevel
     evidence_level_detail?: TextbookEvidenceLevelDetail
+    locator_source?: 'legacy_approved' | 'published_unit_start_backfill'
     evidence_granularity?: string
     evidence_span_ids?: string[]
+    evidence_claim_count?: number
+    supporting_evidence?: TextbookAlignmentEvidenceClaim[]
     provenance?: TextbookAlignmentProvenance
     evidence_role?: string
     confidence?: number

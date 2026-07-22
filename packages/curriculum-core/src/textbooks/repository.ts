@@ -186,10 +186,14 @@ export class FileTextbookRepository {
                 || Boolean(alignment.node_id && nodeIds.has(alignment.node_id))
                 || Boolean(alignment.unit_id && unitIds.has(alignment.unit_id)))
 
-        const evidenceSpanIds = new Set([
-            ...(indexed?.evidence_span_ids || []),
-            ...alignments.flatMap(alignment => alignment.evidence_span_ids || [])
-        ])
+        const spanById = new Map(detail.evidence_spans.map(span => [span.evidence_span_id, span]))
+        const alignmentSpanIds = alignments
+            .flatMap(alignment => alignment.evidence_span_ids || [])
+            .filter(spanId => spanById.get(spanId)?.pdf_page === pdfPage)
+        // A grouped relationship can contain claims from several pages. Page
+        // context returns the whole relationship card, but only the literal
+        // evidence spans located on the requested page.
+        const evidenceSpanIds = new Set([...(indexed?.evidence_span_ids || []), ...alignmentSpanIds])
         const evidenceSpans = detail.evidence_spans.filter(span => evidenceSpanIds.has(span.evidence_span_id))
         const printedPage = detail.page_map.find(entry => entry.pdf_page === pdfPage)?.printed_page || null
 

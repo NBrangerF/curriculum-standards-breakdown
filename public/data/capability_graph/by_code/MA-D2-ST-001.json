@@ -44,16 +44,75 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_15a18d5411056c5a6a4c",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_dda80e43104244896faa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b8d2d5a007c1",
+        "tes_llm_quote_4f6c0f37cc60870d6887",
+        "textbook-node:tcn_llm_quote_16dcc466b7441d579410",
+        "textbook-unit:tcu_ef35565312b84aaa"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "练习十九\n1 调查班里同学的睡眠时间,完成条形统计图。\n̡஝\n13\n12 小学生的睡眠\n11 时间每天应达\n10 到 10 小时。\n9\n8\n7\n6\n5\n4\n3\n2\n1\n0\n10௑࠵ 9௑࠵ 8௑࠵ 7௑࠵ 7௑̿࠵ ௑ᫎ\nԣ̿ʽ ʾ\n你们班同学的睡眠时间够吗?你有什么建议?\n2 调查本班每一位同学最喜欢什么交通工具,完成条形统计图。\n̡஝̔\n10\n9\n8\n7\n6\n5\n4\n3\n2\n1\n0\nᒭᛡᢼු ᢼ ༢ᢼ ᮻ఻ Х̵ ᤰࢺЦ\n(1)最喜欢( )的人数最多,最喜欢( )的人数最少。\n(2)你还能提出什么数学问题?\n100",
+          "excerpt_hash": "0c25765ecd47a1f2f74bd50ce45400cb80362cd3895142a31fd9d4b22f30fa77",
+          "pdf_page": 105,
+          "printed_page": "100",
+          "span_id": "tes_llm_quote_4f6c0f37cc60870d6887"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0ac92d16c48774f1",
+        "lc_f5c0095d780d162d"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0ac92d16c48774f1",
+          "label": "收集、整理具体实例中的数据，并用合适的方式描述数据"
+        },
+        {
+          "component_id": "lc_f5c0095d780d162d",
+          "label": "分析与表达数据中蕴含的信息"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_16dcc466b7441d579410",
+      "node_title": "练习十九\n1 调查班里同学的睡眠时间,完成条形统计图。\n̡஝\n13\n12 小学生的睡眠\n11 时间每天应达\n10 到 10 小时。\n9\n8\n7\n6\n5\n4\n3\n2\n1\n0\n10௑࠵ 9௑࠵ 8௑࠵ 7",
+      "pdf_page": 105,
+      "printed_page": "100",
+      "publication_status": "published",
+      "rationale": "证据要求学生调查班里同学睡眠时间并完成条形统计图，直接落实收集具体实例数据并用合适方式描述数据；随后要求判断睡眠时间是否够并提出建议，要求基于数据分析和表达蕴含信息。该页是练习任务，主要功能是让学生实施这些动作，因此 relation_type 选 practices。此 item 只有该候选，不存在更具体候选被同一证据支配的问题。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_ef35565312b84aaa",
+      "unit_title": "7条形统计图"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_92093b756d8aa215",

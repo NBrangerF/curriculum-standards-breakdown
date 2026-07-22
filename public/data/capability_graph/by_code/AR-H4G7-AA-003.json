@@ -163,16 +163,237 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 4,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 4,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_e3729f6b4bd2f5889f4e",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_a89e5efa283f5034b420",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a99675852c59",
+        "tes_llm_quote_2dfdf9411c559475d611",
+        "textbook-node:tcn_llm_quote_eeaf888d956e5b194327",
+        "textbook-unit:tcu_319229806dd620a7"
+      ],
+      "evidence_role": "discipline_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "discipline_textbook",
+          "excerpt": "SEED\n一 、 演 唱 《 银 杯 》, 由 师 生 共同 推选 出 最 佳 歌手 。\nce 最 佳 下 手提 名\n银 “ 杯 情感 豪爽 弃 放 , 装 饰 音 演唱 自然 , 能 背 唱 。\n二 、 聆 听 《 这 阔 的 草原 》, 随 音乐 画 出 歌曲 的 旋律 线 。 模\n唱 《 嘎 达 梅林 》, 写 出 它们 分 别 属于 长 调 还 是 短 调 ; 用 彩 笔 在\n《 嘎 达 梅林 》 的 乐谱 上 标 出 乐句 , 说 说 这 是 由 几 个 乐句 构成 的\n一 段 体 。\nMARR\nee Sau 蒙古 族 民 歌\nmak He _\n1 一 和 4 蒙古 族 民歌\nBie\n63323|561 g|2 321 g| 235 i|6-- -|\n南方 飞 来 的 小 鸿雁 啊 , 不 落 长 江 不 呀 不 起 飞 。\n56535|5616|1615 6|2335 i\\6- - -",
+          "excerpt_hash": "aa08a91e7cf68d57060bed3a8b1f646cb8f8aaddb94641f51d810f4f7c7f47d3",
+          "pdf_page": 36,
+          "printed_page": null,
+          "span_id": "tes_llm_quote_2dfdf9411c559475d611"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0e4c2554bb26aefa",
+        "lc_395560717d38bcb5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0e4c2554bb26aefa",
+          "label": "区分民歌基本体裁"
+        },
+        {
+          "component_id": "lc_395560717d38bcb5",
+          "label": "描述艺术要素"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_eeaf888d956e5b194327",
+      "node_title": "二 、 聆 听 《 这 阔 的 草原 》, 随 音乐 画 出 歌曲 的 旋律 线 。 模\n唱 《 嘎 达 梅林 》, 写 出 它们 分 别 属于 长 调 还 是 短 调 ; 用 彩 笔 在\n《 嘎 达",
+      "pdf_page": 36,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "证据要求学生判断两首蒙古族民歌分别属于长调还是短调，直接落实“区分民歌基本体裁”；同时画旋律线、标出乐句并说明乐句构成，直接要求描述音乐艺术要素。主要功能是学生练习听辨、模唱和标注，不是评分评价。未选择关于世界民族民间音乐、完整描述体裁特点风格意蕴或基础创作的组件，因为单一证据没有完整落实这些要求。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_319229806dd620a7",
+      "unit_title": "草原牧歌"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_5b2abda7da7a36023495",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_a89e5efa283f5034b420",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a99675852c59",
+        "tes_llm_quote_7c4739feaeb1c4bdcb7a",
+        "textbook-node:tcn_llm_quote_3e3ed312802afbbc1d72",
+        "textbook-unit:tcu_beb36eeb82b29c2d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "discipline_textbook",
+          "excerpt": "= >\n. 中 国民 歌 的 体裁 分 类 “可 大 臻 分 为 : SASF WAR Wi\n型 。\nSYST 产生 并 运用 于 劳动 , 具 有 协调 与 指挥 劳动 的 实际 功用 的\n曲 。 在 劳动 号 子 中 , 最 常见 的 歌唱 方式 是 一 领 众 和 , 领 唱 者 往往\n动 的 指挥 者 。\nG 站\nLest \\ |\nnar\n农事 号 子",
+          "excerpt_hash": "f2bf0c610733a409d64dc276c35033c1c00fa6f9110f03712ce908c0d59c2fe0",
+          "pdf_page": 48,
+          "printed_page": null,
+          "span_id": "tes_llm_quote_7c4739feaeb1c4bdcb7a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c5b86de74d00f917"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c5b86de74d00f917",
+          "label": "识别并描述、了解中国民族音乐的体裁、形式和审美特征"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_3e3ed312802afbbc1d72",
+      "node_title": "中 国民 歌 的 体裁 分 类 “可 大 臻 分 为 : SASF WAR Wi\n型 。\nSYST 产生 并 运用 于 劳动 , 具 有 协调 与 指挥 劳动 的 实际 功用 的\n曲 。 在 劳动 号",
+      "pdf_page": 48,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "证据直接说明中国民歌的体裁分类，并解释劳动号子的产生运用、实际功用和一领众和的歌唱方式，属于对中国民族音乐体裁与形式特征的讲解。主要功能是支持理解而非练习或测评。未选择区分民歌基本体裁或描述代表性作品等组件，因为该连续证据没有要求学生进行区分，也没有完整描述某一代表性民歌或器乐曲的体裁、特点、风格和意蕴。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_beb36eeb82b29c2d",
+      "unit_title": "劳动的歌"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_2dfe9c0ac20e7ad5f31e",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_a89e5efa283f5034b420",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a99675852c59",
+        "tes_llm_quote_3a3e25b4988aa0b9f1eb",
+        "textbook-node:tcn_llm_quote_7300bed2ac0f460aef37",
+        "textbook-unit:tpu_03aa3500737210de1c59"
+      ],
+      "evidence_role": "discipline_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "discipline_textbook",
+          "excerpt": "三、聆听《辽阔的草原》,随音乐画出歌曲的旋律线。模唱《嘎达梅林》,写出它\n们分别属于长调还是短调;用彩笔在《嘎达梅林》的乐谱上标出乐句,说说这是由几个\n乐句构成的一段体。\n辽阔的草原\n蒙古族民歌\n慢速 自由地\n嘎达梅林\n蒙古族民歌\n慢速\n请\n沿\n此\n歌 名 辽阔的草原 嘎达梅林\n线\n民歌类型\n裁\n开\n第四单元 欧洲风情\n一 、欣赏《桑塔·露琪亚》,将 、 、 、 以及 填在你认为合适的\n中。\n二、在《伏尔加船夫曲》与《我的太阳》两首歌曲中,歌唱家的人声分类,前者\n为 ,后者为 。《我的太阳》这首歌可分为 个乐段。\n三、聆听下列两首器乐曲,填写表格中的相关内容。\n曲 名 爱的罗曼斯 云 雀\n演奏乐器\n音乐情绪",
+          "excerpt_hash": "b61f6b251f186df0eb50fe1dbb88778cf4302dab216e6946aa71b5a8fa200cae",
+          "pdf_page": 72,
+          "printed_page": null,
+          "span_id": "tes_llm_quote_3a3e25b4988aa0b9f1eb"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0e4c2554bb26aefa"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0e4c2554bb26aefa",
+          "label": "区分民歌基本体裁"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_7300bed2ac0f460aef37",
+      "node_title": "模唱《嘎达梅林》,写出它\n们分别属于长调还是短调",
+      "pdf_page": 72,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "证据直接要求学生写出《辽阔的草原》和《嘎达梅林》分别属于长调还是短调，完整落实“区分民歌基本体裁”。这是学生练习性任务，不是讲解或评价，故 relation_type 为 practices。未选择其他组件，因为证据没有完整描述中国民族音乐的形式和审美特征，也没有描述代表性民歌的特点、风格和意蕴或完成创作。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tpu_03aa3500737210de1c59",
+      "unit_title": "未分配单元 · PDF 72"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_aa7594d24b843f9b40ae",
+      "alignment_type": "practices",
+      "coverage": "partial",
+      "edition_id": "ed_a89e5efa283f5034b420",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a99675852c59",
+        "tes_llm_quote_757aed00f48e8ee33524",
+        "textbook-node:tcn_llm_quote_93f00c41c89618e8eb1c",
+        "textbook-unit:tpu_69605910e026757f911d"
+      ],
+      "evidence_role": "discipline_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "discipline_textbook",
+          "excerpt": "四、《桑塔·露琪亚》、《友谊地久天长》和《我的太阳》的结束音均是最稳定\n的 音,请排列音阶 ,它们均为 调。\n五、聆听乐曲片段,判断音色类别,辨别哪首乐曲为船歌。\n音响序号 人 声 乐 器 是否为船歌\n1\n2\n3\n4\n5\n第五单元 劳动的歌\n一 、聆听下列民歌,在()内注明它们是哪个地区的民歌。\n《杵歌》 《军民大生产》 《哈腰挂》 《 咚 》\n( ) ( ) ( ) ( )\n二、试着找一找下列这两首歌曲的结束音,分别填写出它们的调式和上行音阶。\n曲 名 结束音 调 式 音 阶\n军民大生产\n杵 歌\n三、视唱工程号子《打路基》,并标出领唱、齐唱的部分,说一说为什么每小节第\n二拍要用力唱。\n四、聆听下面的旋律,判断其中哪一首为平水号子?哪一首为见滩号子?并将答案\n填入括号内。两首均判断正确者为优秀。\n( ) ( )",
+          "excerpt_hash": "cec4340d9bbfb64bb82b4a7b88a48c36cae231493502443a877aa42f3d44bbb4",
+          "pdf_page": 73,
+          "printed_page": null,
+          "span_id": "tes_llm_quote_757aed00f48e8ee33524"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0e4c2554bb26aefa"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0e4c2554bb26aefa",
+          "label": "区分民歌基本体裁"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_93f00c41c89618e8eb1c",
+      "node_title": "一 、聆听下列民歌,在()内注明它们是哪个地区的民歌。\n《杵歌》 《军民大生产》 《哈腰挂》 《 咚 》\n( ) ( ) ( ) ( )",
+      "pdf_page": 73,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "证据要求学生聆听旋律并判断哪一首为平水号子、哪一首为见滩号子，直接落实民歌基本体裁的区分。虽然含有“优秀”评价语，但主要任务是聆听后判断并填写答案，教学功能仍以练习为主。未选择描述类组件，因为证据没有要求描述体裁特点、风格和意蕴。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "音乐",
+      "textbook_title": "音乐7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tpu_69605910e026757f911d",
+      "unit_title": "未分配单元 · PDF 73"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0af4e7879d2e0c82",

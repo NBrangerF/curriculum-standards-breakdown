@@ -44,16 +44,178 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 3,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_dbd57521f6eda33a70cb",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_cab1474481cf09918bee",
+        "textbook-node:tcn_llm_quote_70b25810521f587b9bde",
+        "textbook-unit:tcu_e27f16bd14948d09"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "things, such as gravy, cornbread, mashed\npotatoes, and pumpkin or apple pie.\nMaking a turkey dinner\nHere is one way to make turkey for a\nThanksgiving dinner.\nFirst, mix together some bread pieces,\nonions, salt and pepper.\nNext, fill the turkey with this bread mix.\nThen, put the turkey in a hot oven and\ncook it for a few hours.\nWhen it is ready, place the turkey on a\nlarge plate and cover it with gravy.",
+          "excerpt_hash": "ad281b207a8ed6b35f4f18fa26502421b68168b090fa61053b11b869b0e28f39",
+          "pdf_page": 72,
+          "printed_page": "61",
+          "span_id": "tes_llm_quote_cab1474481cf09918bee"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_948d4273ed1c76a6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_948d4273ed1c76a6",
+          "label": "识别并说明所列文化内容的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_70b25810521f587b9bde",
+      "node_title": "Making a turkey dinner\nHere is one way to make turkey for a\nThanksgiving dinner.\nFirst, mix together",
+      "pdf_page": 72,
+      "printed_page": "61",
+      "publication_status": "published",
+      "rationale": "证据直接介绍 Thanksgiving dinner 中制作 turkey 的方式，属于中外主要节日庆典习俗和饮食文化的具体内容，可证明识别并说明该文化内容的关键特征。页面主要功能是正文说明该节日饮食习俗，因此 relation_type 选 supports。其余组件涉及交际策略、语篇信息整合、观点或文化差异说明，证据未直接要求或呈现，故不选。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e27f16bd14948d09",
+      "unit_title": "UNIT 8"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_c41926a39f8845c8390b",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_c841d857c5b9a2b92313",
+        "textbook-node:tcn_llm_quote_99e012b6c2a337ed8335",
+        "textbook-unit:tpu_c3f5813093d69200d33d"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "A: That’s it, Mrs. Carter? 卡特太太,这就算完了?\nB: Yes, that’s it. You’ve done a good job, Peter. Thank you. 对,就这样了。你干得不\n错,彼得,谢谢你了。\n3. Thanksgiving in North America 北美洲的感恩节\nThanksgiving也称作Thanksgiving Day,汉语译作“感恩节”。美国的感恩节是每年\n11月的第四个星期四,加拿大感恩节则是每年10月的第二个星期一。北美洲的感恩节是\n一个喜庆丰收、合家欢聚的重大节日。\n4. In most countries, people usually eat traditional food on special holidays. 在大多\n数国家,人们通常在特殊的节日里吃传统食物。",
+          "excerpt_hash": "95b1061d2a442eb38c6a6fe71e84d3e07ccdee4b73f2b787e95e0f54dc252406",
+          "pdf_page": 101,
+          "printed_page": "90",
+          "span_id": "tes_llm_quote_c841d857c5b9a2b92313"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_948d4273ed1c76a6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_948d4273ed1c76a6",
+          "label": "识别并说明所列文化内容的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_99e012b6c2a337ed8335",
+      "node_title": "Thanksgiving也称作Thanksgiving Day,汉语译作“感恩节”。美国的感恩节是每年\n11月的第四个星期四,加拿大感恩节则是每年10月的第二个星期一。北美洲的感恩节是\n一个喜庆丰收、",
+      "pdf_page": 101,
+      "printed_page": "90",
+      "publication_status": "published",
+      "rationale": "该证据直接说明北美洲感恩节的名称、美国和加拿大日期以及“喜庆丰收、合家欢聚”的节日特征，能证明识别并说明所列文化内容关键特征。unit.assignment_status 为 unassigned_page_only，因此采用 L3。主要功能是正文解释文化知识，故 relation_type 为 supports。证据没有要求选择交际策略、增强跨文化沟通自信、整合语篇信息或说明观点/文化差异，所以不选择其他组件。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tpu_c3f5813093d69200d33d",
+      "unit_title": "未分配单元 · PDF 101"
+    },
+    {
+      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
+      "alignment_id": "tca_llm_65cfe4d112747c26f0cc",
+      "alignment_type": "supports",
+      "coverage": "partial",
+      "edition_id": "ed_46a4e4df6fd1edee4185",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b542c7b235fc",
+        "tes_llm_quote_095223e66d8f95eeae1d",
+        "textbook-node:tcn_llm_quote_96a810973724ec321e0e",
+        "textbook-unit:tpu_dd3faa0ee8d981170ad1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "Notes on the Text\nUnit 5 Do you want to watch a game show?\n1. I love soap operas. 我爱看肥皂剧。\n中文多将soap opera译作“肥皂剧”,这是西方广播及电视节目中以家庭问题为主要\n内容的一种连续剧形式。\n2. The man behind Mickey was Walt Disney. 米老鼠的幕后之人便是沃尔特·迪斯尼。\n沃尔特·迪斯尼(1901—1966)是美国著名动画大师、企业家、导演及电影制片\n人,他创建了举世闻名的“迪斯尼公司”,他笔下的米老鼠使他一举成名,他还制作出诸\n如《白雪公主和七个小矮人》、《小鹿斑比》、《小飞侠》等大量优秀动画影片。影视事业成\n功后,他又创建了可供人们尽情欢乐的“迪斯尼乐园”。\n3. However, he was always ready to try his best. 然而,他总是准备好去尽其所能。",
+          "excerpt_hash": "bed987a324b83eac7bfbc1f7f7e43c51cdb807bfb41a8a2cd5cd19605760d48b",
+          "pdf_page": 98,
+          "printed_page": "87",
+          "span_id": "tes_llm_quote_095223e66d8f95eeae1d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_948d4273ed1c76a6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_948d4273ed1c76a6",
+          "label": "识别并说明所列文化内容的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "llm_semantic_adjudication",
+      "node_id": "tcn_llm_quote_96a810973724ec321e0e",
+      "node_title": "Thanksgiving也称作Thanksgiving Day,汉语译作“感恩节”。美国的感恩节是每年\n11月的第四个星期四,加拿大感恩节则是每年10月的第二个星期一。北美洲的感恩节是\n一个喜庆丰收、",
+      "pdf_page": 98,
+      "printed_page": "87",
+      "publication_status": "published",
+      "rationale": "证据以课文注释形式说明 Walt Disney 的身份、事迹和代表作品，直接对应文化内容中代表人物及艺术作品关键特征的识别和说明。该页为 unassigned_page_only，因此只可采用 L3；其功能是解释课文相关文化知识，故 relation_type 选 supports。未选择交际策略、整合语篇信息、说明观点或文化差异，因为证据没有这些任务动作。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "英语",
+      "textbook_title": "英语8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tpu_dd3faa0ee8d981170ad1",
+      "unit_title": "未分配单元 · PDF 98"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_f950046c29741654",
