@@ -1041,6 +1041,17 @@ function readValidatedCache(path, requestItems, expected) {
   }
 }
 
+export function addAlignmentValidationFeedback(input, errors) {
+  const payload = JSON.parse(input)
+  return JSON.stringify({
+    ...payload,
+    validation_feedback: {
+      instruction: '上一份输出未通过语义契约。请重新返回完整替代结果；只可使用请求中逐字存在的 evidence_quote、evidence_span_id 与 learning_component_id。不要修补或省略候选决定。',
+      errors: [...new Set((errors || []).map(error => String(error)).filter(Boolean))]
+    }
+  })
+}
+
 async function adjudicateBatch(batch, context) {
   const input = makeAlignmentResponseInput(requestItemsForProvider(batch.requestItems))
   const inputHash = alignmentInputHash({ provider: context.config.provider, model: context.config.model, items: batch.requestItems })
@@ -1051,9 +1062,10 @@ async function adjudicateBatch(batch, context) {
   })
   if (cached) return { ...cached, cache_hit: true }
 
-  const estimatedInputTokens = estimateInputTokens(input)
   let latestErrors = []
   for (let validationAttempt = 0; validationAttempt <= context.args.validationRetries; validationAttempt += 1) {
+    const attemptInput = validationAttempt === 0 ? input : addAlignmentValidationFeedback(input, latestErrors)
+    const estimatedInputTokens = estimateInputTokens(attemptInput)
     const worstCaseAttempts = context.config.maxRetries + 1
     const reservation = context.budget.reserve(estimatedInputTokens, context.args.maxOutputTokens, worstCaseAttempts)
     if (!reservation) {
@@ -1066,7 +1078,7 @@ async function adjudicateBatch(batch, context) {
         validation_errors: latestErrors
       }
     }
-    const result = await requestAlignmentAdjudication(input, {
+    const result = await requestAlignmentAdjudication(attemptInput, {
       config: context.config,
       maxOutputTokens: context.args.maxOutputTokens
     })

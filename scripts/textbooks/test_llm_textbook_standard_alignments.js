@@ -22,6 +22,7 @@ import {
   resolveAlignmentLlmConfig
 } from './llm_textbook_standard_alignment_provider.js'
 import {
+  addAlignmentValidationFeedback,
   AlignmentBudget,
   buildAlignmentWork,
   buildDiscoveryItems,
@@ -61,6 +62,18 @@ test('default discovery keeps one complete scope per logical item', () => {
   assert.equal(args.batchSize, 1)
   assert.equal(args.candidatesPerItem, 80)
   assert.equal(args.maxOutputTokens, 10_000)
+})
+
+test('semantic validation retry tells the LLM to replace invalid identifiers and quotes', () => {
+  const original = JSON.stringify({ task: 'adjudicate_textbook_standard_candidates', items: [{ item_id: 'item-1' }] })
+  const repaired = JSON.parse(addAlignmentValidationFeedback(original, [
+    'evidence_quote is not verbatim for candidate-1',
+    'accept requires a request evidence_span_id for candidate-2'
+  ]))
+  assert.deepEqual(repaired.items, [{ item_id: 'item-1' }])
+  assert.match(repaired.validation_feedback.instruction, /完整替代结果/u)
+  assert.match(repaired.validation_feedback.instruction, /逐字存在/u)
+  assert.equal(repaired.validation_feedback.errors.length, 2)
 })
 
 test('strict eval treats relation-type accuracy as a first-class quality gate', () => {
