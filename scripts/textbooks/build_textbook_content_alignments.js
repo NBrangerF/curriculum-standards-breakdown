@@ -341,6 +341,19 @@ export function parseTesseractTsv(tsv, imageWidth = 0, imageHeight = 0) {
   })).filter(row => row.text)
 }
 
+export function parsePngDimensions(data) {
+  if (!data || data.length < 24
+    || data[0] !== 0x89
+    || data.subarray(1, 4).toString('ascii') !== 'PNG'
+    || data.subarray(12, 16).toString('ascii') !== 'IHDR') {
+    throw new Error('OCR raster is not a valid PNG with an IHDR header')
+  }
+  const width = data.readUInt32BE(16)
+  const height = data.readUInt32BE(20)
+  if (!width || !height) throw new Error('OCR raster has invalid dimensions')
+  return { width, height }
+}
+
 function ocrPage(pdfPath, pageNumber, workRoot, dpi) {
   const pdftoppm = commandPath('pdftoppm', [
     '/Users/shawn.fsc/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/pdftoppm'
@@ -354,7 +367,8 @@ function ocrPage(pdfPath, pageNumber, workRoot, dpi) {
     execFileSync(pdftoppm, ['-f', String(pageNumber), '-l', String(pageNumber), '-singlefile', '-r', String(dpi), '-png', pdfPath, prefix], { stdio: 'pipe', maxBuffer: 32 * 1024 * 1024 })
     const image = `${prefix}.png`
     const tsv = execFileSync(tesseract, [image, 'stdout', '-l', 'chi_sim+eng', '--psm', '6', 'tsv'], { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 })
-    const lines = parseTesseractTsv(tsv)
+    const { width, height } = parsePngDimensions(readFileSync(image))
+    const lines = parseTesseractTsv(tsv, width, height)
     return { status: lines.length ? 'ocr_extracted' : 'ocr_empty', lines, text: lines.map(row => row.text).join('\n') }
   } catch (error) {
     return { status: `ocr_failed:${normalizeText(error.message).slice(0, 120)}`, lines: [], text: '' }
@@ -407,6 +421,12 @@ function reusableOcrPages(args, asset) {
         && String(page.extraction_method || '').includes('tesseract')
         && Array.isArray(page.lines)
         && page.lines.length > 0
+        && page.lines.every(line => {
+          const box = line?.bbox
+          return box
+            && Number.isFinite(box.page_width) && box.page_width > 0
+            && Number.isFinite(box.page_height) && box.page_height > 0
+        })
       ))
       .map(page => [Number(page.pdf_page), page]))
   } catch {
@@ -1514,6 +1534,7 @@ function writeSidecar(args, asset, extraction) {
     ocr_page_count: extraction.ocrCount,
     ocr_reused_count: extraction.ocrReused,
     ocr_skipped_count: extraction.ocrSkipped,
+    ocr_dpi: args.ocrDpi,
     pages_path: 'pages.jsonl'
   })
   return relative(args.libraryRoot, paths.pages)

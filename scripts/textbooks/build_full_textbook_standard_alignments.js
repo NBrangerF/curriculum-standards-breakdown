@@ -246,6 +246,7 @@ function build() {
   const textbookDispositions = []
   const scopeRelations = []
   const legacyApprovedIds = []
+  const droppedUngroundedLegacyIds = []
   const byStandardSpecific = new Map()
   const byStandardScope = new Map()
 
@@ -253,7 +254,11 @@ function build() {
     const structurePath = join(STRUCTURE_ROOT, `${asset.edition_id}.json`)
     const structure = existsSync(structurePath) ? readJson(structurePath) : { toc: [], page_map: [], alignments: [] }
     const existingAlignments = structure.alignments || []
-    const legacyApproved = existingAlignments.filter(row => row.review_status === 'approved')
+    const legacyApprovedCandidates = existingAlignments.filter(row => row.review_status === 'approved')
+    const legacyApproved = legacyApprovedCandidates.filter(row => Number.isInteger(row.pdf_page) && row.pdf_page > 0)
+    for (const row of legacyApprovedCandidates) {
+      if (!legacyApproved.includes(row)) droppedUngroundedLegacyIds.push(row.alignment_id)
+    }
     const contentEvidenceAlignments = existingAlignments.filter(isContentEvidenceAlignment)
     for (const row of legacyApproved) legacyApprovedIds.push(row.alignment_id)
     const legacyByKey = new Map(legacyApproved.map(row => [`${row.unit_id}:${row.standard_code}`, row]))
@@ -455,7 +460,8 @@ function build() {
     machine_checked_matches: matches.filter(row => row.review_status === 'machine_checked').length,
     candidate_matches: matches.filter(row => row.review_status === 'candidate').length,
     scope_relations: scopeRelations.length,
-    legacy_approved_relations: legacyApprovedIds.length
+    legacy_approved_relations: legacyApprovedIds.length,
+    dropped_ungrounded_legacy_relations: droppedUngroundedLegacyIds.length
   }
   for (const row of textbookDispositions) countInto(summary.textbooks_by_status, row.status)
   for (const row of unitDispositions) countInto(summary.units_by_status, row.status)
@@ -480,11 +486,14 @@ function build() {
       content_alignment_target: 'learning_components',
       review_policy: 'automatic_no_human_gate',
       publication_gate: false,
+      published_specific_relations_require_pdf_page: true,
+      ungrounded_legacy_approved_relations_preserved: false,
       scope_relations_are_not_unit_evidence: true,
       adjacent_discipline_relations_are_not_direct_support: true
     },
     summary,
     legacy_approved_alignment_ids: [...new Set(legacyApprovedIds)].sort(),
+    dropped_ungrounded_legacy_alignment_ids: [...new Set(droppedUngroundedLegacyIds)].sort(),
     textbook_dispositions: textbookDispositions,
     unit_dispositions: unitDispositions,
     standard_dispositions: standardDispositions,

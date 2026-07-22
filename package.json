@@ -98,7 +98,7 @@
         "textbooks:library:recover": "node scripts/textbooks/recover_textbook_library.js",
         "textbooks:library:audit": "node scripts/textbooks/audit_textbook_library.js --strict",
     "textbooks:public:build": "node scripts/textbooks/build_textbook_public_data.js",
-    "textbooks:public:audit": "node scripts/textbooks/audit_textbook_public_data.js",
+    "textbooks:public:audit": "node --test tests/textbook_public_bbox_audit.test.mjs && node scripts/textbooks/audit_textbook_public_data.js",
     "textbooks:resources:build": "node scripts/textbooks/build_textbook_resource_catalog.js",
     "textbooks:resources:audit": "node scripts/textbooks/audit_textbook_resource_catalog.js",
     "textbooks:resources:test": "node --test tests/textbook_resource_pipeline.test.mjs tests/textbook_support_resource_readability.test.mjs",

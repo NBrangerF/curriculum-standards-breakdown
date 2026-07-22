@@ -140,6 +140,9 @@ function main() {
       errors.push(`${match.alignment_id} publishes an uncalibrated LLM score`)
     }
     if (match.publication_status === 'published' && !['approved', 'machine_checked'].includes(match.review_status)) errors.push(`${match.alignment_id} published with invalid review status`)
+    if (match.publication_status === 'published' && (!Number.isInteger(match.pdf_page) || match.pdf_page < 1)) {
+      errors.push(`${match.alignment_id} publishes a concrete relation without a PDF page`)
+    }
     if (match.review_status === 'machine_checked' && match.modifier_conflicts?.length) errors.push(`${match.alignment_id} published despite numeric concept conflict`)
     if (match.evidence_role === 'adjacent_discipline_textbook' && match.relation_type === 'supports') errors.push(`${match.alignment_id} adjacent discipline cannot claim direct support`)
   }

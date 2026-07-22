@@ -9,6 +9,7 @@ import {
   lexicalComponentScore,
   normalizeTocEntries,
   normalizeText,
+  parsePngDimensions,
   parseTesseractTsv,
   recoverBodyInferredUnits,
   stableId
@@ -42,6 +43,12 @@ const tsv = [
 const ocrLines = parseTesseractTsv(tsv, 100, 200)
 assert.equal(ocrLines[0].text, '获取 主要内容')
 assert.equal(ocrLines[0].bbox.unit, 'pixel')
+assert.deepEqual(parsePngDimensions(Buffer.from([
+  0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a,
+  0x00, 0x00, 0x00, 0x0d, 0x49, 0x48, 0x44, 0x52,
+  0x00, 0x00, 0x05, 0x38, 0x00, 0x00, 0x07, 0x48
+])), { width: 1336, height: 1864 })
+assert.throws(() => parsePngDimensions(Buffer.from('not a png')), /valid PNG/u)
 
 assert.ok(lexicalComponentScore('获取文章的主要内容', '获取主要内容').score >= 0.75)
 assert.ok(lexicalComponentScore('计算下面各题', '有感情地朗读课文').score < 0.52)

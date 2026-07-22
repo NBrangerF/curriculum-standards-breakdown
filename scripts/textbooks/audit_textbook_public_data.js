@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join, resolve } from 'node:path'
+import { bboxRenderabilityError } from './textbook_public_bbox.js'
 
 const root = resolve(process.argv[2] || 'public/data/textbooks')
 const projectRoot = resolve(import.meta.dirname, '../..')
@@ -122,6 +123,10 @@ if (existsSync(join(root, 'by-edition'))) {
       if (['objective', 'activity', 'exercise'].includes(span.evidence_role)
         && placeholderEvidencePattern.test(span.excerpt)) {
         errors.push(`${detail.edition_id} evidence span ${span.evidence_span_id} contains only placeholder punctuation`)
+      }
+      const bboxError = bboxRenderabilityError(span.bbox)
+      if (bboxError) {
+        errors.push(`${detail.edition_id} evidence span ${span.evidence_span_id} has an unrenderable bbox: ${bboxError}`)
       }
     }
 

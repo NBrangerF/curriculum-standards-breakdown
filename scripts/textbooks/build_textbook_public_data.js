@@ -15,6 +15,7 @@ import {
   readableSupportResourceIds,
   redactSupportResourceCatalogForPublic
 } from './support_resource_readability.js'
+import { bboxRenderabilityError } from './textbook_public_bbox.js'
 
 const PROJECT_ROOT = resolve(import.meta.dirname, '../..')
 const CURRENT_PATH = join(PROJECT_ROOT, 'data/textbooks/library-state/CURRENT.json')
@@ -225,7 +226,7 @@ function normalizeEvidenceSpans(structure, nodeIds, pageCount) {
   if (!Array.isArray(structure?.evidence_spans)) return []
   return structure.evidence_spans.map(span => {
     const rawBox = span.bbox && typeof span.bbox === 'object' ? span.bbox : null
-    const bbox = rawBox && ['x', 'y', 'width', 'height'].every(key => Number.isFinite(rawBox[key]))
+    const candidateBbox = rawBox && ['x', 'y', 'width', 'height'].every(key => Number.isFinite(rawBox[key]))
       ? {
           x: rawBox.x,
           y: rawBox.y,
@@ -235,7 +236,10 @@ function normalizeEvidenceSpans(structure, nodeIds, pageCount) {
           page_width: Number.isFinite(rawBox.page_width) ? rawBox.page_width : undefined,
           page_height: Number.isFinite(rawBox.page_height) ? rawBox.page_height : undefined
         }
-      : undefined
+      : null
+    // Never publish a rectangle the reader cannot transform. A null bbox is
+    // an explicit, honest whole-page fallback and remains deep-linkable.
+    const bbox = bboxRenderabilityError(candidateBbox) ? null : candidateBbox
     return {
       evidence_span_id: span.evidence_span_id || span.span_id,
       node_id: span.node_id,

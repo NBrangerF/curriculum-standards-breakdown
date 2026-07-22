@@ -12,6 +12,10 @@ import styles from './TextbookDetailPage.module.css'
 
 const RELATION_LABELS = {
     teacher_guide_for: '教师用书',
+    teaching_reference_for: '教学参考',
+    explains: '教材全解',
+    workbook_for: '配套练习',
+    answer_key_for: '参考答案',
     companion_to: '配套资料',
     supplement_to: '辅助材料',
     standard_for: '课程标准'

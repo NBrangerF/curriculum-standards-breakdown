@@ -191,6 +191,25 @@ test('reader restores saved progress only when the URL has no explicit content t
     await expect(page.getByLabel('PDF 页码')).toHaveValue('3')
 })
 
+test('reader persists a newly navigated page and restores it after reload', async ({ page }) => {
+    await routeReaderFixture(page)
+    await page.goto(`/textbooks/${EDITION_ID}/read?page=3`)
+
+    await page.getByLabel('下一页').click()
+    await expect(page).toHaveURL(`/textbooks/${EDITION_ID}/read?page=4`)
+    await expect(page.getByLabel('PDF 页码')).toHaveValue('4')
+    await expect.poll(() => page.evaluate(editionId => {
+        const saved = JSON.parse(localStorage.getItem('kebiao:textbook-reading:v1') || '{}')
+        return saved[editionId]?.page
+    }, EDITION_ID)).toBe(4)
+
+    await page.evaluate(() => history.replaceState(null, '', location.pathname))
+    await page.reload()
+
+    await expect(page).toHaveURL(`/textbooks/${EDITION_ID}/read?page=4`)
+    await expect(page.getByLabel('PDF 页码')).toHaveValue('4')
+})
+
 test('mobile toolbar keeps the standards button visible and the dialog restores focus on Escape', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 })
     await routeReaderFixture(page)
@@ -319,7 +338,7 @@ test('textbook detail links readable paired resources by resource id without req
     const readable = page.getByRole('link', { name: /配对教师用书/ })
     await expect(readable).toHaveAttribute('href', '/textbook-resources/res_detailteacher/read?page=1')
     const metadataOnly = page.getByText('元数据教材全解').locator('..')
-    await expect(metadataOnly).toContainText('文件暂不可在线阅读')
+    await expect(metadataOnly).toContainText('教材全解 · 文件暂不可在线阅读')
     await expect(metadataOnly.getByRole('link')).toHaveCount(0)
 })
 
