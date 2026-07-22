@@ -1,6 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto'
 import { closeSync, existsSync, fsyncSync, mkdirSync, openSync, readFileSync, renameSync, writeFileSync } from 'node:fs'
-import { dirname } from 'node:path'
+import { dirname, resolve } from 'node:path'
 
 export function parseArgs(argv) {
   const result = { _: [] }
@@ -33,6 +33,34 @@ export function readJson(path) {
 export function readJsonLines(path) {
   if (!existsSync(path)) return []
   return readFileSync(path, 'utf8').split(/\r?\n/).filter(Boolean).map(line => JSON.parse(line))
+}
+
+export function resolveCurrentAssetRegistry({
+  projectRoot,
+  assets = null,
+  current = 'data/textbooks/library-state/CURRENT.json'
+}) {
+  if (assets) {
+    const explicitPath = resolve(projectRoot, assets)
+    if (!existsSync(explicitPath)) throw new Error(`Explicit asset registry is missing: ${explicitPath}`)
+    return explicitPath
+  }
+
+  const currentPath = resolve(projectRoot, current)
+  if (!existsSync(currentPath)) throw new Error(`Textbook library CURRENT pointer is missing: ${currentPath}`)
+  const pointer = readJson(currentPath)
+  const generationId = String(pointer?.generation_id || '').trim()
+  if (!/^gen-[A-Za-z0-9-]+$/.test(generationId)) {
+    throw new Error(`Textbook library CURRENT pointer has an invalid generation_id: ${generationId || 'missing'}`)
+  }
+  const trackedRegistry = resolve(
+    projectRoot,
+    `data/textbooks/library-state/generations/${generationId}/asset_registry.lock.jsonl`
+  )
+  if (!existsSync(trackedRegistry)) {
+    throw new Error(`CURRENT textbook asset registry is missing: ${trackedRegistry}`)
+  }
+  return trackedRegistry
 }
 
 export function ensureDir(path) {

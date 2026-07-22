@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { existsSync } from 'node:fs'
 import { join, resolve } from 'node:path'
-import { parseArgs, readJson, readJsonLines, writeJson } from './library_common.js'
+import { parseArgs, readJson, readJsonLines, resolveCurrentAssetRegistry, writeJson } from './library_common.js'
 import { auditTextbookResourceCatalog } from './textbook_resource_pipeline.js'
 
 const PROJECT_ROOT = resolve(import.meta.dirname, '../..')
@@ -10,7 +10,11 @@ const atRoot = value => resolve(PROJECT_ROOT, value)
 function main() {
   const args = parseArgs(process.argv.slice(2))
   const catalogPath = atRoot(args.catalog || 'data/textbooks/catalog/support_resource_catalog.json')
-  const assetPath = atRoot(args.assets || 'generated/textbook_library/asset_manifest.jsonl')
+  const assetPath = resolveCurrentAssetRegistry({
+    projectRoot: PROJECT_ROOT,
+    assets: args.assets,
+    current: args.current
+  })
   const structureRoot = atRoot(args.structures || 'data/textbooks/derived/by-edition')
   const catalog = readJson(catalogPath)
   const audit = auditTextbookResourceCatalog(catalog)

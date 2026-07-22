@@ -311,6 +311,29 @@ test('default resource build reads CURRENT tracked registry and fails when that 
   }
 })
 
+test('default resource audit validates pairings against the same CURRENT tracked registry as the build', () => {
+  const temporaryRoot = mkdtempSync(join(tmpdir(), 'kebiao-resource-audit-current-'))
+  try {
+    const catalogPath = join(temporaryRoot, 'catalog.json')
+    runNode('scripts/textbooks/build_textbook_resource_catalog.js', [
+      '--generated-at', '2026-07-22T00:00:00.000Z',
+      '--out', catalogPath
+    ])
+    const result = runNode('scripts/textbooks/audit_textbook_resource_catalog.js', [
+      '--catalog', catalogPath
+    ])
+    const report = JSON.parse(result.stdout)
+    const current = readJson(join(ROOT, 'data/textbooks/library-state/CURRENT.json'))
+    assert.equal(report.valid, true)
+    assert.equal(
+      report.asset_path,
+      join(ROOT, 'data/textbooks/library-state/generations', current.generation_id, 'asset_registry.lock.jsonl')
+    )
+  } finally {
+    rmSync(temporaryRoot, { recursive: true, force: true })
+  }
+})
+
 test('registered import survives a default catalog rebuild with its unit mapping', () => {
   const temporaryRoot = mkdtempSync(join(tmpdir(), 'kebiao-resource-registry-'))
   try {

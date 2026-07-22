@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
-import { parseArgs, readJson, readJsonLines, writeJson } from './library_common.js'
+import { parseArgs, readJson, readJsonLines, resolveCurrentAssetRegistry, writeJson } from './library_common.js'
 import {
   auditTextbookResourceCatalog,
   buildTextbookResourceCatalog,
@@ -11,7 +11,6 @@ import {
 
 const PROJECT_ROOT = resolve(import.meta.dirname, '../..')
 const DEFAULT_REGISTRY = 'data/textbooks/catalog/support_resource_registry.json'
-const DEFAULT_CURRENT = 'data/textbooks/library-state/CURRENT.json'
 
 function resolveProjectPath(value) {
   return resolve(PROJECT_ROOT, value)
@@ -38,7 +37,11 @@ function loadStructures(root) {
 
 function main() {
   const args = parseArgs(process.argv.slice(2))
-  const assetPath = resolveAssetPath(args)
+  const assetPath = resolveCurrentAssetRegistry({
+    projectRoot: PROJECT_ROOT,
+    assets: args.assets,
+    current: args.current
+  })
   const catalogPath = resolveProjectPath(args.catalog || 'data/textbooks/catalog/expected_editions.jsonl')
   const structureRoot = resolveProjectPath(args.structures || 'data/textbooks/derived/by-edition')
   const outputPath = resolveProjectPath(args.out || 'data/textbooks/catalog/support_resource_catalog.json')
@@ -94,27 +97,6 @@ function main() {
     ...audit.summary,
     warnings: audit.warnings.length
   }, null, 2))
-}
-
-function resolveAssetPath(args) {
-  if (args.assets) {
-    const explicitPath = resolveProjectPath(args.assets)
-    if (!existsSync(explicitPath)) throw new Error(`Explicit asset registry is missing: ${explicitPath}`)
-    return explicitPath
-  }
-
-  const currentPath = resolveProjectPath(args.current || DEFAULT_CURRENT)
-  if (!existsSync(currentPath)) throw new Error(`Textbook library CURRENT pointer is missing: ${currentPath}`)
-  const current = readJson(currentPath)
-  const generationId = String(current?.generation_id || '').trim()
-  if (!/^gen-[A-Za-z0-9-]+$/.test(generationId)) {
-    throw new Error(`Textbook library CURRENT pointer has an invalid generation_id: ${generationId || 'missing'}`)
-  }
-  const trackedRegistry = resolveProjectPath(`data/textbooks/library-state/generations/${generationId}/asset_registry.lock.jsonl`)
-  if (!existsSync(trackedRegistry)) {
-    throw new Error(`CURRENT textbook asset registry is missing: ${trackedRegistry}`)
-  }
-  return trackedRegistry
 }
 
 function readRequiredManifest(path, label) {
