@@ -15,7 +15,6 @@ import {
   openSync,
   readFileSync,
   realpathSync,
-  readdirSync,
   renameSync,
   rmSync,
   writeFileSync
@@ -28,13 +27,17 @@ import {
   LLM_ALIGNMENT_PROVIDERS,
   LLM_ALIGNMENT_SCHEMA_VERSION,
   alignmentInputHash,
-  normalizeAlignmentText,
   stableAlignmentId,
   stableCanonicalJson,
   stableDecisionId,
   validateAlignmentModelOutput
 } from './llm_textbook_standard_alignment_contract.js'
-import { materializeAlignmentRecords } from './run_llm_textbook_standard_alignments.js'
+import {
+  alignmentCandidateFromStandard,
+  buildAlignmentWork,
+  loadStandardIndex as loadAlignmentStandardIndex,
+  materializeAlignmentRecords
+} from './run_llm_textbook_standard_alignments.js'
 
 const ROOT = resolve(import.meta.dirname, '../..')
 const STRUCTURE_ROOT = join(ROOT, 'data/textbooks/derived/by-edition')
@@ -184,21 +187,7 @@ function sameProvenance(left, right) {
 }
 
 function loadStandardsByCode() {
-  const standards = new Map()
-  for (const file of readdirSync(STANDARD_ROOT).filter(name => name.endsWith('.json')).sort()) {
-    const subject = basename(file, '.json')
-    for (const row of readJson(join(STANDARD_ROOT, file)).standards || []) {
-      const capabilityPath = join(CAPABILITY_ROOT, `${row.code}.json`)
-      const learningComponents = existsSync(capabilityPath)
-        ? (readJson(capabilityPath).learning_components || []).map(component => ({
-            component_id: component.component_id,
-            label: normalizeAlignmentText(component.label || component.source_statement || component.description)
-          })).filter(component => component.component_id && component.label)
-        : []
-      standards.set(row.code, { ...row, subject_slug: row.subject_slug || subject, learning_components: learningComponents })
-    }
-  }
-  return standards
+  return loadAlignmentStandardIndex()
 }
 
 function loadCatalogByEdition() {
@@ -215,15 +204,67 @@ function validateCurrentRequestScope(records, standardsByCode, catalogByEdition)
       }
       for (const candidate of item.candidates || []) {
         const current = standardsByCode.get(candidate.standard_code)
-        const currentText = normalizeAlignmentText(current?.standard || current?.official_text)
-        if (!current || current.subject_slug !== candidate.subject_slug || current.grade_band !== candidate.grade_band
-          || currentText !== candidate.standard_text
-          || stableCanonicalJson(current.learning_components) !== stableCanonicalJson(candidate.learning_components)) {
+        const expectedCandidate = current ? alignmentCandidateFromStandard(item.item_id, current) : null
+        if (!current || stableCanonicalJson(expectedCandidate) !== stableCanonicalJson(candidate)) {
           throw new Error(`Checkpoint curriculum-standard scope is stale: ${item.item_id}:${candidate.standard_code}`)
         }
       }
     }
   }
+}
+
+export function validateCurrentAlignmentWorkset({
+  manifest,
+  records,
+  structuresByEdition,
+  standardsByCode,
+  catalogByEdition
+}) {
+  const editionIds = uniqueStringArray(manifest?.selected_edition_ids, 'Manifest selected_edition_ids')
+  const catalogs = editionIds.map(editionId => {
+    const catalog = catalogByEdition.get(editionId)
+    if (!catalog) throw new Error(`Current textbook catalog is missing a selected edition: ${editionId}`)
+    if (!structuresByEdition.has(editionId)) throw new Error(`Current structure is missing a selected edition: ${editionId}`)
+    return catalog
+  })
+  const discoveryConfig = manifest.discovery_config || {}
+  const integerConfig = (value, label) => {
+    const number = Number(value)
+    if (!Number.isInteger(number) || number < 1) throw new Error(`Manifest ${label} is invalid.`)
+    return number
+  }
+  const args = {
+    mode: manifest.mode,
+    libraryRoot: resolve(String(discoveryConfig.library_root || '')),
+    sidecarPagesPerItem: integerConfig(discoveryConfig.sidecar_pages_per_item, 'sidecar_pages_per_item'),
+    evidenceSpansPerPage: integerConfig(discoveryConfig.evidence_spans_per_page_compatibility, 'evidence_spans_per_page_compatibility'),
+    candidatesPerItem: integerConfig(discoveryConfig.candidates_per_item, 'candidates_per_item'),
+    maxItems: 0
+  }
+  if (!String(discoveryConfig.library_root || '').trim()) throw new Error('Manifest discovery library root is missing.')
+  const rebuilt = buildAlignmentWork({ catalogs, structuresByEdition, standardsByCode, args })
+  const checkpointItems = sortedCheckpointItems(records)
+  if (rebuilt.skipped.length !== 0 || stableCanonicalJson(rebuilt.skipped) !== stableCanonicalJson(manifest.skipped || [])) {
+    throw new Error('Current alignment workset contains skipped inputs or disagrees with the manifest.')
+  }
+  if (rebuilt.items.length !== rebuilt.totalBeforeLimit
+    || stableCanonicalJson(rebuilt.items) !== stableCanonicalJson(checkpointItems)) {
+    throw new Error('Current full alignment workset differs from the authenticated checkpoint.')
+  }
+  if (jsonHash(rebuilt.items) !== manifest.workset_hash) {
+    throw new Error('Current alignment workset digest differs from the manifest.')
+  }
+  if (stableCanonicalJson(rebuilt.editions) !== stableCanonicalJson(manifest.editions)) {
+    throw new Error('Current per-edition sidecar, coverage, evidence, or candidate-scope integrity differs from the manifest.')
+  }
+  const currentSourceHashes = Object.fromEntries(editionIds.map(editionId => [
+    editionId,
+    jsonHash(structuresByEdition.get(editionId))
+  ]))
+  if (stableCanonicalJson(currentSourceHashes) !== stableCanonicalJson(manifest.source_structure_hashes)) {
+    throw new Error('Current canonical source structure scope differs from the manifest.')
+  }
+  return rebuilt
 }
 
 function validateBbox(bbox, label) {
@@ -241,6 +282,194 @@ function validateBbox(bbox, label) {
   if (bbox.page_height !== undefined && (!Number.isFinite(bbox.page_height) || bbox.page_height <= 0 || bbox.y + bbox.height > bbox.page_height)) {
     throw new Error(`${label} bbox exceeds page_height.`)
   }
+}
+
+function assertSha256(value, label) {
+  if (!/^[a-f0-9]{64}$/u.test(String(value || ''))) throw new Error(`${label} must be a SHA-256 digest.`)
+}
+
+function uniqueStringArray(values, label, { allowEmpty = false } = {}) {
+  if (!Array.isArray(values) || (!allowEmpty && values.length === 0)
+    || values.some(value => typeof value !== 'string' || !value.trim())) {
+    throw new Error(`${label} must be ${allowEmpty ? 'an' : 'a non-empty'} array of strings.`)
+  }
+  if (new Set(values).size !== values.length) throw new Error(`${label} contains duplicates.`)
+  return values
+}
+
+function sortedCheckpointItems(records) {
+  return records.flatMap(record => record.request_items || [])
+    .sort((left, right) => (
+      String(left.textbook?.edition_id || '').localeCompare(String(right.textbook?.edition_id || ''))
+      || String(left.item_id || '').localeCompare(String(right.item_id || ''))
+    ))
+}
+
+function editionDiscoveryIntegrity(items) {
+  const discoveryItems = items.filter(item => item.source_mode === 'discover_scope_sidecar')
+  const pageItemCounts = new Map()
+  for (const item of discoveryItems) {
+    const itemPages = new Set()
+    for (const span of item.evidence || []) {
+      const pdfPage = Number(span.pdf_page)
+      if (!Number.isInteger(pdfPage) || pdfPage < 1) {
+        throw new Error(`Checkpoint evidence has an invalid PDF page: ${item.item_id}`)
+      }
+      itemPages.add(pdfPage)
+    }
+    if (!itemPages.size) throw new Error(`Checkpoint discovery item has no evidence pages: ${item.item_id}`)
+    for (const pdfPage of itemPages) pageItemCounts.set(pdfPage, (pageItemCounts.get(pdfPage) || 0) + 1)
+  }
+  const coveredPages = [...pageItemCounts.keys()].sort((a, b) => a - b)
+  return {
+    discoveryItems,
+    coveredPages,
+    duplicatePages: coveredPages.filter(pdfPage => pageItemCounts.get(pdfPage) !== 1)
+  }
+}
+
+function validateCheckpointWorksetManifest(manifest, records) {
+  const selectedEditionIds = uniqueStringArray(manifest.selected_edition_ids, 'Manifest selected_edition_ids')
+  if (!Number.isInteger(manifest.textbooks) || manifest.textbooks < 1 || manifest.textbooks !== selectedEditionIds.length) {
+    throw new Error('Manifest textbook count does not match selected_edition_ids.')
+  }
+  if (!['adjudicate', 'discover', 'both'].includes(manifest.mode)) throw new Error('Manifest alignment mode is invalid or missing.')
+  if (manifest.skipped_count !== 0 || manifest.fatal_skipped_count !== 0
+    || !Array.isArray(manifest.skipped) || manifest.skipped.length !== 0) {
+    throw new Error('Manifest contains skipped or fatal inputs; full-scope apply is forbidden.')
+  }
+  if (!Array.isArray(manifest.editions) || manifest.editions.length !== selectedEditionIds.length) {
+    throw new Error('Manifest must contain exactly one completion record per selected edition.')
+  }
+  const editionsById = new Map()
+  for (const edition of manifest.editions) {
+    if (!edition?.edition_id || editionsById.has(edition.edition_id)) {
+      throw new Error('Manifest edition completion records are missing identities or duplicated.')
+    }
+    if (edition.status !== 'ready') throw new Error(`Manifest edition is not complete: ${edition.edition_id}`)
+    editionsById.set(edition.edition_id, edition)
+  }
+  if (selectedEditionIds.some(editionId => !editionsById.has(editionId))) {
+    throw new Error('Manifest edition completion records do not cover the selected editions.')
+  }
+
+  const replacementEditions = uniqueStringArray(manifest.replace_machine_alignments || [], 'Manifest replace_machine_alignments', { allowEmpty: true })
+    .slice().sort()
+  const expectedReplacementEditions = manifest.mode === 'both' ? selectedEditionIds.slice().sort() : []
+  if (stableCanonicalJson(replacementEditions) !== stableCanonicalJson(expectedReplacementEditions)) {
+    throw new Error('Machine-alignment replacement scope must equal the complete selected scope in mode=both and be empty otherwise.')
+  }
+
+  if (records.length !== manifest.request_batches) {
+    throw new Error('Checkpoint batch row count does not equal the manifest request batch count.')
+  }
+  const items = sortedCheckpointItems(records)
+  if (items.length !== manifest.work_items) throw new Error('Checkpoint unique work item count does not equal manifest.work_items.')
+  const seenItemIds = new Set()
+  const seenCandidateIds = new Set()
+  const selectedEditionSet = new Set(selectedEditionIds)
+  let candidatePairs = 0
+  for (const item of items) {
+    if (!item?.item_id || seenItemIds.has(item.item_id)) throw new Error(`Checkpoint contains a duplicate or missing item_id: ${item?.item_id || 'missing'}`)
+    seenItemIds.add(item.item_id)
+    const editionId = item.textbook?.edition_id
+    if (!selectedEditionSet.has(editionId)) throw new Error(`Checkpoint item is outside selected edition scope: ${item.item_id}`)
+    if (!Array.isArray(item.candidates) || item.candidates.length === 0) throw new Error(`Checkpoint item has no candidates: ${item.item_id}`)
+    if (!Array.isArray(item.evidence) || item.evidence.length === 0) throw new Error(`Checkpoint item has no evidence: ${item.item_id}`)
+    const itemCandidateCodes = new Set()
+    for (const candidate of item.candidates) {
+      if (!candidate?.candidate_id || seenCandidateIds.has(candidate.candidate_id)) {
+        throw new Error(`Checkpoint contains a duplicate or missing candidate_id: ${candidate?.candidate_id || 'missing'}`)
+      }
+      if (!candidate.standard_code || itemCandidateCodes.has(candidate.standard_code)) {
+        throw new Error(`Checkpoint item contains a duplicate or missing standard code: ${item.item_id}`)
+      }
+      seenCandidateIds.add(candidate.candidate_id)
+      itemCandidateCodes.add(candidate.standard_code)
+      candidatePairs += 1
+    }
+    if ((manifest.mode === 'discover' || manifest.mode === 'both') && item.source_mode !== 'discover_scope_sidecar') {
+      throw new Error(`${manifest.mode} checkpoint contains a non-discovery item: ${item.item_id}`)
+    }
+  }
+  if (new Set(items.map(item => item.textbook.edition_id)).size !== selectedEditionIds.length) {
+    throw new Error('Checkpoint items do not cover every selected edition.')
+  }
+  if (manifest.candidate_pairs !== candidatePairs) throw new Error('Checkpoint candidate pair count does not equal manifest.candidate_pairs.')
+  assertSha256(manifest.workset_hash, 'Manifest workset_hash')
+  if (manifest.workset_hash !== jsonHash(items)) throw new Error('Checkpoint workset hash does not match the manifest.')
+
+  const batchSize = Number(manifest.discovery_config?.batch_size)
+  if (!Number.isInteger(batchSize) || batchSize < 1
+    || records.some(record => !Array.isArray(record.request_items) || record.request_items.length < 1 || record.request_items.length > batchSize)
+    || Math.ceil(items.length / batchSize) !== manifest.request_batches) {
+    throw new Error('Checkpoint batch partition does not match the manifest batch configuration.')
+  }
+
+  for (const editionId of selectedEditionIds) {
+    const edition = editionsById.get(editionId)
+    const editionItems = items.filter(item => item.textbook.edition_id === editionId)
+    const adjudicationCount = editionItems.filter(item => item.source_mode === 'adjudicate_existing').length
+    const discovery = editionDiscoveryIntegrity(editionItems)
+    if (edition.adjudication_items !== adjudicationCount || edition.discovery_items !== discovery.discoveryItems.length) {
+      throw new Error(`Manifest edition work item counts are stale: ${editionId}`)
+    }
+    if (manifest.mode === 'discover' || manifest.mode === 'both') {
+      if (edition.sidecar_status !== 'loaded') throw new Error(`Manifest sidecar was not loaded: ${editionId}`)
+      assertSha256(edition.sidecar_sha256, `Manifest sidecar_sha256 for ${editionId}`)
+      assertSha256(edition.sidecar_nonempty_page_set_hash, `Manifest sidecar_nonempty_page_set_hash for ${editionId}`)
+      assertSha256(edition.sidecar_dedup_map_hash, `Manifest sidecar_dedup_map_hash for ${editionId}`)
+      assertSha256(edition.evidence_workset_hash, `Manifest evidence_workset_hash for ${editionId}`)
+      assertSha256(edition.candidate_scope_hash, `Manifest candidate_scope_hash for ${editionId}`)
+      const expectedPages = edition.sidecar_nonempty_pdf_pages
+      if (!Array.isArray(expectedPages) || expectedPages.length === 0
+        || expectedPages.some(page => !Number.isInteger(page) || page < 1)
+        || new Set(expectedPages).size !== expectedPages.length
+        || stableCanonicalJson(expectedPages) !== stableCanonicalJson(expectedPages.slice().sort((a, b) => a - b))) {
+        throw new Error(`Manifest sidecar non-empty page set is invalid: ${editionId}`)
+      }
+      const duplicateMap = edition.sidecar_duplicate_page_map
+      if (!Array.isArray(duplicateMap)) throw new Error(`Manifest sidecar deduplication map is missing: ${editionId}`)
+      if (edition.sidecar_nonempty_page_set_hash !== jsonHash(expectedPages)
+        || edition.sidecar_dedup_map_hash !== jsonHash(duplicateMap)) {
+        throw new Error(`Manifest sidecar page-set or deduplication digest is stale: ${editionId}`)
+      }
+      if (edition.sidecar_discovery_page_count !== expectedPages.length
+        || edition.sidecar_page_count !== edition.sidecar_raw_page_count
+        || edition.sidecar_duplicate_page_count !== duplicateMap.length
+        || edition.sidecar_unique_page_count !== edition.sidecar_raw_page_count - edition.sidecar_duplicate_page_count) {
+        throw new Error(`Manifest sidecar page counts are inconsistent: ${editionId}`)
+      }
+      const coverage = edition.page_coverage
+      if (coverage?.complete !== true
+        || (coverage.missing_pdf_pages || []).length
+        || (coverage.extra_pdf_pages || []).length
+        || (coverage.duplicate_item_pdf_pages || []).length
+        || (coverage.duplicate_source_pdf_pages || []).length
+        || (coverage.invalid_nonempty_source_rows || []).length
+        || discovery.duplicatePages.length
+        || stableCanonicalJson(discovery.coveredPages) !== stableCanonicalJson(expectedPages)
+        || stableCanonicalJson(coverage.expected_nonempty_pdf_pages) !== stableCanonicalJson(expectedPages)
+        || stableCanonicalJson(coverage.covered_pdf_pages) !== stableCanonicalJson(expectedPages)) {
+        throw new Error(`Checkpoint does not provide exact one-item coverage for every non-empty sidecar page: ${editionId}`)
+      }
+      const evidenceWorkset = discovery.discoveryItems.map(({ candidates: _candidates, ...item }) => item)
+      const candidateScope = discovery.discoveryItems.map(item => ({
+        item_id: item.item_id,
+        textbook_edition_id: item.textbook.edition_id,
+        candidates: item.candidates
+      }))
+      if (edition.evidence_workset_hash !== jsonHash(evidenceWorkset)
+        || edition.candidate_scope_hash !== jsonHash(candidateScope)) {
+        throw new Error(`Checkpoint discovery evidence or candidate scope digest is stale: ${editionId}`)
+      }
+      if (edition.scope_standard_count < 1
+        || discovery.discoveryItems.some(item => item.candidates.length !== edition.scope_standard_count)) {
+        throw new Error(`Checkpoint discovery item does not contain the full candidate scope: ${editionId}`)
+      }
+    }
+  }
+  return { items, selectedEditionIds, replacementEditions }
 }
 
 export function validateApplicationArtifacts({ manifest, manifestPath, decisionsPath, alignmentsPath }) {
@@ -286,11 +515,18 @@ export function validateApplicationArtifacts({ manifest, manifestPath, decisions
     }
   }
 
-  const expectedHashes = new Set(manifest.current_input_hashes || [])
+  const currentInputHashes = uniqueStringArray(manifest.current_input_hashes, 'Manifest current_input_hashes')
+  currentInputHashes.forEach((value, index) => assertSha256(value, `Manifest current_input_hashes[${index}]`))
+  const expectedHashes = new Set(currentInputHashes)
   if (expectedHashes.size !== manifest.request_batches) throw new Error('Manifest current_input_hashes is incomplete or duplicated.')
+  const checkpointRecords = readJsonLines(checkpointPath)
+  if (checkpointRecords.length !== manifest.request_batches) {
+    throw new Error('Checkpoint must contain exactly one row per current request batch.')
+  }
   const validRecords = new Map()
-  for (const record of readJsonLines(checkpointPath)) {
-    if (!expectedHashes.has(record.input_hash) || record.status !== 'ok') continue
+  for (const record of checkpointRecords) {
+    if (!expectedHashes.has(record.input_hash)) throw new Error(`Checkpoint contains an unknown input hash: ${record.input_hash || 'missing'}`)
+    if (record.status !== 'ok') throw new Error(`Checkpoint contains a non-successful current batch: ${record.input_hash}`)
     assertObjectProvenance(record.provenance, `checkpoint ${record.input_hash}`)
     if (record.provenance.provider !== manifest.provider || record.provenance.model !== manifest.model) {
       throw new Error(`Checkpoint provider/model disagrees with manifest: ${record.input_hash}`)
@@ -309,6 +545,7 @@ export function validateApplicationArtifacts({ manifest, manifestPath, decisions
     validRecords.set(record.input_hash, record)
   }
   if (validRecords.size !== expectedHashes.size) throw new Error('Checkpoint does not contain exactly one validated record per current request batch.')
+  const workset = validateCheckpointWorksetManifest(manifest, [...validRecords.values()])
 
   const regenerated = materializeAlignmentRecords([...validRecords.values()], expectedHashes)
   const decisions = readJsonLines(decisionsPath)
@@ -319,7 +556,16 @@ export function validateApplicationArtifacts({ manifest, manifestPath, decisions
   if (stableCanonicalJson(alignments) !== stableCanonicalJson(regenerated.alignments)) {
     throw new Error('Alignments artifact does not materialize from the authenticated checkpoint records.')
   }
-  return { decisions, acceptedAlignments: alignments, checkpointPath, records: [...validRecords.values()], digests: actualDigests }
+  return {
+    decisions,
+    acceptedAlignments: alignments,
+    checkpointPath,
+    records: [...validRecords.values()],
+    checkpointItems: workset.items,
+    selectedEditionIds: workset.selectedEditionIds,
+    replacementEditions: workset.replacementEditions,
+    digests: actualDigests
+  }
 }
 
 function validateDecision(row) {
@@ -446,12 +692,14 @@ export function planAlignmentApplication({
   decisions,
   acceptedAlignments,
   editionFilter = [],
+  replaceMachineEditions = [],
   standardsByCode = null,
   catalogByEdition = null
 }) {
   for (const row of decisions) validateDecision(row)
   for (const row of acceptedAlignments) validateAlignment(row)
   const selected = new Set(editionFilter)
+  const replacementEditions = new Set(replaceMachineEditions.filter(editionId => !selected.size || selected.has(editionId)))
   const decisionsByEdition = new Map()
   const acceptedByEdition = new Map()
   for (const row of decisions) {
@@ -465,7 +713,7 @@ export function planAlignmentApplication({
     acceptedByEdition.get(row.edition_id).push(row)
   }
 
-  const editions = [...new Set([...decisionsByEdition.keys(), ...acceptedByEdition.keys()])].sort()
+  const editions = [...new Set([...decisionsByEdition.keys(), ...acceptedByEdition.keys(), ...replacementEditions])].sort()
   const updates = new Map()
   const summary = {
     editions: 0,
@@ -478,6 +726,7 @@ export function planAlignmentApplication({
     added_content_nodes: 0,
     added_evidence_spans: 0,
     preserved_legacy_approved: 0,
+    skipped_approved_duplicates: 0,
     missing_prior_alignments: 0,
     page_only_alignments: 0
   }
@@ -549,8 +798,24 @@ export function planAlignmentApplication({
       removed: [],
       removed_records: [],
       preserved_approved: [],
+      skipped_approved_duplicates: [],
       missing_prior: [],
-      added: []
+      added: [],
+      replace_all_machine_alignments: replacementEditions.has(editionId)
+    }
+
+    if (replacementEditions.has(editionId)) {
+      for (const prior of byAlignmentId.values()) {
+        if (isLegacyApproved(prior)) {
+          protectedPriorIds.add(prior.alignment_id)
+          summary.preserved_legacy_approved += 1
+          editionDetail.preserved_approved.push(prior.alignment_id)
+        } else {
+          removePriorIds.add(prior.alignment_id)
+          editionDetail.removed.push(prior.alignment_id)
+          editionDetail.removed_records.push(structuredClone(prior))
+        }
+      }
     }
 
     for (const decision of editionDecisions) {
@@ -568,15 +833,19 @@ export function planAlignmentApplication({
         throw new Error(`Adjudication prior identity mismatch: ${decision.prior_alignment_id}`)
       }
       if (isLegacyApproved(prior)) {
-        protectedPriorIds.add(prior.alignment_id)
-        summary.preserved_legacy_approved += 1
-        editionDetail.preserved_approved.push(prior.alignment_id)
+        if (!protectedPriorIds.has(prior.alignment_id)) {
+          protectedPriorIds.add(prior.alignment_id)
+          summary.preserved_legacy_approved += 1
+          editionDetail.preserved_approved.push(prior.alignment_id)
+        }
       } else {
         // accept supersedes the heuristic relation; reject removes it; abstain
         // leaves no publishable semantic claim. All three remove old machine data.
-        removePriorIds.add(prior.alignment_id)
-        editionDetail.removed.push(prior.alignment_id)
-        editionDetail.removed_records.push(structuredClone(prior))
+        if (!removePriorIds.has(prior.alignment_id)) {
+          removePriorIds.add(prior.alignment_id)
+          editionDetail.removed.push(prior.alignment_id)
+          editionDetail.removed_records.push(structuredClone(prior))
+        }
       }
     }
     structure.alignments = (structure.alignments || []).filter(row => !removePriorIds.has(row.alignment_id))
@@ -644,6 +913,25 @@ export function planAlignmentApplication({
         throw new Error(`Alignment quote/excerpt/hash does not match canonical evidence: ${row.alignment_id}`)
       }
       validateBbox(resolvedSpan.bbox, `Alignment ${row.alignment_id}`)
+      const alignment = canonicalAlignment(row)
+      const existingBySemanticKey = [...alignments.values()].find(existing => semanticAlignmentKey(existing) === semanticAlignmentKey(alignment))
+      const existingById = alignments.get(alignment.alignment_id)
+      if (existingById || existingBySemanticKey) {
+        const existing = existingById || existingBySemanticKey
+        const sameSemanticClaim = semanticAlignmentKey(existing) === semanticAlignmentKey(alignment)
+        if (isLegacyApproved(existing) && sameSemanticClaim) {
+          summary.skipped_approved_duplicates += 1
+          editionDetail.skipped_approved_duplicates.push({
+            accepted_alignment_id: alignment.alignment_id,
+            preserved_alignment_id: existing.alignment_id
+          })
+          continue
+        }
+        if (existingById) {
+          throw new Error(`Accepted alignment ID collides with canonical alignment: ${alignment.alignment_id}`)
+        }
+        throw new Error(`Duplicate logical alignment: ${alignment.edition_id}:${alignment.unit_id}:${alignment.standard_code}:${alignment.relation_type}`)
+      }
       if (node) {
         assertGeneratedEntityCompatible(nodes.get(node.node_id), node, `Generated node ${node.node_id}`)
         if (!nodes.has(node.node_id)) {
@@ -657,10 +945,6 @@ export function planAlignmentApplication({
           spans.set(span.evidence_span_id, span)
           summary.added_evidence_spans += 1
         }
-      }
-      const alignment = canonicalAlignment(row)
-      if (alignments.has(alignment.alignment_id)) {
-        throw new Error(`Accepted alignment ID collides with canonical alignment: ${alignment.alignment_id}`)
       }
       const semanticKey = semanticAlignmentKey(alignment)
       if (semanticKeys.has(semanticKey)) throw new Error(`Duplicate logical alignment: ${alignment.edition_id}:${alignment.unit_id}:${alignment.standard_code}:${alignment.relation_type}`)
@@ -681,8 +965,11 @@ export function planAlignmentApplication({
       prompt_versions: [...new Set(accepted.map(row => row.provenance.prompt_version))].sort(),
       input_hashes: [...new Set(appliedRows.map(row => row.provenance.input_hash))].sort(),
       applied_decision_count: editionDecisions.length,
-      published_accept_count: accepted.filter(row => !(row.prior_alignment_id && protectedPriorIds.has(row.prior_alignment_id))).length,
-      page_only_alignment_count: accepted.filter(row => row.unit_assignment_status === 'unassigned_page_only').length,
+      published_accept_count: editionDetail.added.length,
+      page_only_alignment_count: editionDetail.added
+        .map(alignmentId => alignments.get(alignmentId))
+        .filter(alignment => alignment?.unit_assignment_status === 'unassigned_page_only').length,
+      replaced_all_non_approved_machine_alignments: replacementEditions.has(editionId),
       policy: 'automatic_no_human_gate'
     }
     updates.set(editionId, structure)
@@ -718,9 +1005,15 @@ export function loadApplicationInputs(args) {
       })
     : { decisions: readJsonLines(args.decisions), acceptedAlignments: readJsonLines(args.alignments) }
   const { decisions, acceptedAlignments } = authenticated
-  const editionIds = [...new Set([...decisions, ...acceptedAlignments].map(row => row.edition_id))]
-    .filter(id => !args.editions.length || args.editions.includes(id))
-    .sort()
+  if (args.manifestPayload && args.editions.length
+    && stableCanonicalJson(args.editions.slice().sort()) !== stableCanonicalJson(authenticated.selectedEditionIds.slice().sort())) {
+    throw new Error('Manifest-backed apply must include its complete selected edition scope; generate a separate manifest for a subset.')
+  }
+  const editionIds = args.manifestPayload
+    ? [...authenticated.selectedEditionIds].sort()
+    : [...new Set([...decisions, ...acceptedAlignments].map(row => row.edition_id))]
+      .filter(id => !args.editions.length || args.editions.includes(id))
+      .sort()
   const structuresByEdition = new Map(editionIds.map(editionId => {
     const path = join(STRUCTURE_ROOT, `${editionId}.json`)
     if (!existsSync(path)) throw new Error(`Derived edition not found: ${path}`)
@@ -763,11 +1056,21 @@ export function prepareCurrentApplicationPlan(args, dependencies = {}) {
   const standardsByCode = (dependencies.loadStandards || loadStandardsByCode)()
   const catalogByEdition = (dependencies.loadCatalog || loadCatalogByEdition)()
   if (currentArgs.manifestPayload) {
-    (dependencies.validateScope || validateCurrentRequestScope)(inputs.authenticated.records, standardsByCode, catalogByEdition)
+    const validateScope = dependencies.validateScope || validateCurrentRequestScope
+    const validateWorkset = dependencies.validateWorkset || validateCurrentAlignmentWorkset
+    validateScope(inputs.authenticated.records, standardsByCode, catalogByEdition)
+    validateWorkset({
+      manifest: currentArgs.manifestPayload,
+      records: inputs.authenticated.records,
+      structuresByEdition: inputs.structuresByEdition,
+      standardsByCode,
+      catalogByEdition
+    })
   }
   const result = (dependencies.plan || planAlignmentApplication)({
     ...inputs,
     editionFilter: currentArgs.editions,
+    replaceMachineEditions: currentArgs.manifestPayload?.replace_machine_alignments || [],
     standardsByCode,
     catalogByEdition
   })

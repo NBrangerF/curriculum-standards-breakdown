@@ -7,11 +7,13 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { test } from 'node:test'
 import {
+  LLM_ALIGNMENT_INSTRUCTIONS,
   LLM_ALIGNMENT_PROMPT_VERSION,
   LLM_ALIGNMENT_PROVIDER,
   LLM_ALIGNMENT_SCHEMA_VERSION,
   alignmentInputHash,
   stableAlignmentId,
+  stableCanonicalJson,
   stableDecisionId,
   validateAlignmentModelOutput
 } from './llm_textbook_standard_alignment_contract.js'
@@ -21,9 +23,14 @@ import {
 } from './llm_textbook_standard_alignment_provider.js'
 import {
   AlignmentBudget,
+  buildAlignmentWork,
   buildDiscoveryItems,
   buildExistingAdjudicationItems,
-  materializeAlignmentRecords
+  chunkPageLines,
+  deduplicateSidecarPages,
+  loadEditionSidecarPages,
+  materializeAlignmentRecords,
+  parseAlignmentArgs
 } from './run_llm_textbook_standard_alignments.js'
 import {
   createRecoverySnapshot,
@@ -33,11 +40,28 @@ import {
   resolveSafeReceiptPath,
   resolveSafeReportPath,
   restoreRecoverySnapshot,
-  validateApplicationArtifacts
+  validateApplicationArtifacts,
+  validateCurrentAlignmentWorkset
 } from './apply_llm_textbook_standard_alignments.js'
 import { evaluateAlignmentPredictions } from './evaluate_llm_textbook_standard_alignments.js'
 
 const hash = value => createHash('sha256').update(String(value)).digest('hex')
+
+test('v1.1 prompt requires minimal non-redundant matches and strict relation semantics', () => {
+  assert.equal(LLM_ALIGNMENT_PROMPT_VERSION, 'textbook-standard-semantic-adjudicator-v1.1.0')
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /最小充分且非冗余/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /答案\/解析页本身不算 assesses/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /不得用 mentions\/contextualizes 为本应 reject 的弱关联兜底/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /完整候选 scope/u)
+  assert.match(LLM_ALIGNMENT_INSTRUCTIONS, /不得只因 grade_band 编码相同而忽略冲突/u)
+})
+
+test('default discovery keeps one complete scope per logical item', () => {
+  const args = parseAlignmentArgs(['--edition', 'ed_fixture', '--dry-run'])
+  assert.equal(args.batchSize, 1)
+  assert.equal(args.candidatesPerItem, 80)
+  assert.equal(args.maxOutputTokens, 10_000)
+})
 
 test('strict eval treats relation-type accuracy as a first-class quality gate', () => {
   const golden = [{
@@ -382,6 +406,350 @@ test('gap discovery reads sidecar lines when the edition has zero derived eviden
   }
 })
 
+test('sidecar loading rejects lexical traversal and symlink escape outside the library root', () => {
+  const root = mkdtempSync(join(tmpdir(), 'kebiao-llm-sidecar-path-'))
+  try {
+    const library = join(root, 'library')
+    const outside = join(root, 'outside')
+    mkdirSync(library)
+    mkdirSync(outside)
+    writeFileSync(join(outside, 'pages.jsonl'), `${JSON.stringify({ pdf_page: 1, text: 'outside' })}\n`)
+    symlinkSync(outside, join(library, 'escape'))
+    assert.equal(loadEditionSidecarPages({
+      content_alignment: { sidecar_path: '../outside/pages.jsonl' }
+    }, library).status, 'sidecar_path_outside_library')
+    assert.equal(loadEditionSidecarPages({
+      content_alignment: { sidecar_path: 'escape/pages.jsonl' }
+    }, library).status, 'sidecar_path_outside_library')
+  } finally {
+    rmSync(root, { recursive: true, force: true })
+  }
+})
+
+test('a loaded sidecar with zero non-empty pages is explicitly incomplete', () => {
+  const root = mkdtempSync(join(tmpdir(), 'kebiao-llm-empty-sidecar-'))
+  try {
+    const relative = 'derived/textbook-content-v2/hash/pages.jsonl'
+    const path = join(root, relative)
+    mkdirSync(join(root, 'derived/textbook-content-v2/hash'), { recursive: true })
+    writeFileSync(path, `${JSON.stringify({ pdf_page: 1, text: '', lines: [] })}\n`)
+    const catalog = fixtureItem().textbook
+    const structure = {
+      content_alignment: { sidecar_path: relative, source_asset_sha256: 'hash' },
+      toc: [],
+      content_nodes: [],
+      evidence_spans: [],
+      alignments: []
+    }
+    const standard = {
+      code: 'MA-H4G8-AL-011', standard: '理解分式。', official_text: '理解分式。', subject_slug: 'math', grade_band: 'H4G8'
+    }
+    const args = { libraryRoot: root, sidecarPagesPerItem: 1, evidenceSpansPerPage: 8, candidatesPerItem: 80, maxItems: 0, mode: 'discover' }
+    const work = buildAlignmentWork({
+      catalogs: [catalog],
+      structuresByEdition: new Map([[catalog.edition_id, structure]]),
+      standardsByCode: new Map([[standard.code, standard]]),
+      args
+    })
+    assert.equal(work.editions[0].page_coverage.complete, false)
+    assert.equal(work.editions[0].status, 'incomplete_discovery_coverage')
+  } finally {
+    rmSync(root, { recursive: true, force: true })
+  }
+})
+
+test('a non-empty sidecar row without a positive integer PDF page fails discovery coverage closed', () => {
+  const root = mkdtempSync(join(tmpdir(), 'kebiao-llm-invalid-sidecar-page-'))
+  try {
+    const relative = 'derived/textbook-content-v2/hash/pages.jsonl'
+    const path = join(root, relative)
+    mkdirSync(join(root, 'derived/textbook-content-v2/hash'), { recursive: true })
+    const pages = [
+      { pdf_page: 1, text: '有效正文', lines: [{ text: '有效正文' }] },
+      { pdf_page: 0, text: '不可静默忽略的正文', lines: [{ text: '不可静默忽略的正文' }] },
+      { text: '缺少页码的正文', lines: [{ text: '缺少页码的正文' }] }
+    ]
+    writeFileSync(path, `${pages.map(page => JSON.stringify(page)).join('\n')}\n`)
+    const catalog = fixtureItem().textbook
+    const structure = {
+      content_alignment: { sidecar_path: relative, source_asset_sha256: 'hash' },
+      toc: [],
+      content_nodes: [],
+      evidence_spans: [],
+      alignments: []
+    }
+    const standard = {
+      code: 'MA-H4G8-AL-011', standard: '理解分式。', official_text: '理解分式。', subject_slug: 'math', grade_band: 'H4G8'
+    }
+    const args = { libraryRoot: root, sidecarPagesPerItem: 1, evidenceSpansPerPage: 8, candidatesPerItem: 80, maxItems: 0, mode: 'discover' }
+    const work = buildAlignmentWork({
+      catalogs: [catalog],
+      structuresByEdition: new Map([[catalog.edition_id, structure]]),
+      standardsByCode: new Map([[standard.code, standard]]),
+      args
+    })
+    assert.equal(work.editions[0].page_coverage.complete, false)
+    assert.equal(work.editions[0].status, 'incomplete_discovery_coverage')
+    assert.deepEqual(work.editions[0].page_coverage.invalid_nonempty_source_rows, [
+      { source_row: 2, pdf_page: '0' },
+      { source_row: 3, pdf_page: null }
+    ])
+  } finally {
+    rmSync(root, { recursive: true, force: true })
+  }
+})
+
+test('dense sidecar pages retain every deterministic text group even above the compatibility span limit', () => {
+  const markers = Array.from({ length: 12 }, (_, index) => `密集页段落-${String(index + 1).padStart(2, '0')}`)
+  const page = {
+    pdf_page: 7,
+    printed_page: '1',
+    extraction_method: 'fixture',
+    lines: markers.map(marker => ({ text: `${marker}${'字'.repeat(421)}`, bbox: null }))
+  }
+  const spans = chunkPageLines(
+    fixtureItem().textbook,
+    { content_alignment: { source_asset_sha256: 'fixture' } },
+    page,
+    2
+  )
+  assert.equal(spans.length, markers.length)
+  assert.equal(new Set(spans.map(span => span.evidence_span_id)).size, markers.length)
+  for (const marker of markers) assert.equal(spans.filter(span => span.excerpt.includes(marker)).length, 1)
+})
+
+test('gap discovery sends only the earliest exact duplicate sidecar page and reports page counts', () => {
+  const root = mkdtempSync(join(tmpdir(), 'kebiao-llm-sidecar-dedup-'))
+  try {
+    const relative = 'derived/textbook-content-v2/hash/pages.jsonl'
+    const path = join(root, relative)
+    mkdirSync(join(root, 'derived/textbook-content-v2/hash'), { recursive: true })
+    const pages = [
+      {
+        pdf_page: 11,
+        printed_page: '4',
+        text: '观察  光的反射',
+        lines: [{ text: '观察 光的反射', bbox: null }]
+      },
+      {
+        pdf_page: 10,
+        printed_page: '3',
+        text: '观察\n光的反射',
+        lines: [{ text: '观察光的反射', bbox: null }]
+      },
+      {
+        pdf_page: 12,
+        printed_page: '5',
+        text: '画出入射光线和反射光线',
+        lines: [{ text: '画出入射光线和反射光线', bbox: null }]
+      }
+    ]
+    writeFileSync(path, `${pages.map(page => JSON.stringify(page)).join('\n')}\n`)
+    const direct = deduplicateSidecarPages(pages)
+    assert.deepEqual(direct.pages.map(page => page.pdf_page), [10, 12])
+    assert.equal(direct.raw_page_count, 3)
+    assert.equal(direct.unique_page_count, 2)
+    assert.equal(direct.duplicate_page_count, 1)
+    assert.deepEqual(direct.duplicate_pages.map(page => [page.pdf_page, page.duplicate_of_pdf_page]), [[11, 10]])
+
+    const catalog = { ...fixtureItem().textbook, subject: '科学', subject_slug: 'science', grade: 7 }
+    const structure = {
+      edition_id: catalog.edition_id,
+      content_alignment: { sidecar_path: relative, source_asset_sha256: 'hash' },
+      toc: [
+        { entry_id: 'unit_10', title: '光', pdf_page: 10, end_pdf_page: 10, review_status: 'approved' },
+        { entry_id: 'unit_11', title: '重复页', pdf_page: 11, end_pdf_page: 11, review_status: 'approved' },
+        { entry_id: 'unit_12', title: '反射作图', pdf_page: 12, end_pdf_page: 12, review_status: 'approved' }
+      ],
+      content_nodes: [{ node_id: 'node_11', unit_id: 'unit_11', evidence_span_ids: ['span_11'] }],
+      evidence_spans: [{ evidence_span_id: 'span_11', node_id: 'node_11', pdf_page: 11, excerpt: '观察 光的反射' }],
+      alignments: []
+    }
+    const standard = {
+      code: 'SC-H4G7-PS-001',
+      standard_title: '光的反射',
+      standard: '观察并描述光的反射现象。',
+      official_text: '观察并描述光的反射现象。',
+      subject_slug: 'science',
+      grade_band: 'H4G7'
+    }
+    const args = {
+      libraryRoot: root,
+      sidecarPagesPerItem: 1,
+      evidenceSpansPerPage: 8,
+      candidatesPerItem: 8,
+      maxItems: 0,
+      mode: 'discover'
+    }
+    const standards = new Map([[standard.code, standard]])
+    const discovery = buildDiscoveryItems(catalog, structure, standards, args)
+    assert.equal(discovery.sidecar_raw_page_count, 3)
+    assert.equal(discovery.sidecar_unique_page_count, 2)
+    assert.equal(discovery.sidecar_duplicate_page_count, 1)
+    assert.deepEqual(discovery.items.map(item => item.unit.pdf_page_start), [10, 12])
+    assert.equal(discovery.items.some(item => item.evidence.some(span => span.pdf_page === 11)), false)
+
+    const work = buildAlignmentWork({
+      catalogs: [catalog],
+      structuresByEdition: new Map([[catalog.edition_id, structure]]),
+      standardsByCode: standards,
+      args
+    })
+    assert.equal(work.editions[0].sidecar_raw_page_count, 3)
+    assert.equal(work.editions[0].sidecar_unique_page_count, 2)
+    assert.equal(work.editions[0].sidecar_duplicate_page_count, 1)
+  } finally {
+    rmSync(root, { recursive: true, force: true })
+  }
+})
+
+test('gap discovery covers non-empty pages outside published TOC as stable page-only windows', () => {
+  const root = mkdtempSync(join(tmpdir(), 'kebiao-llm-sidecar-coverage-'))
+  try {
+    const relative = 'derived/textbook-content-v2/hash/pages.jsonl'
+    const path = join(root, relative)
+    mkdirSync(join(root, 'derived/textbook-content-v2/hash'), { recursive: true })
+    const pages = [1, 2, 10, 12].map(pdfPage => ({
+      pdf_page: pdfPage,
+      text: `第${pdfPage}页正文`,
+      lines: [{ text: `第${pdfPage}页正文`, bbox: null }]
+    }))
+    writeFileSync(path, `${pages.map(page => JSON.stringify(page)).join('\n')}\n`)
+    const catalog = fixtureItem().textbook
+    const structure = {
+      content_alignment: { sidecar_path: relative, source_asset_sha256: 'hash' },
+      toc: [{ entry_id: 'unit_10', title: '正式单元', pdf_page: 10, end_pdf_page: 10, review_status: 'approved' }],
+      content_nodes: [],
+      evidence_spans: [],
+      alignments: []
+    }
+    const standard = {
+      code: 'MA-H4G8-AL-011',
+      standard_title: '代数关系推理与求解',
+      standard: '理解分式及最简分式。',
+      official_text: '理解分式及最简分式。',
+      subject_slug: 'math',
+      grade_band: 'H4G8'
+    }
+    const result = buildDiscoveryItems(catalog, structure, new Map([[standard.code, standard]]), {
+      libraryRoot: root,
+      sidecarPagesPerItem: 2,
+      evidenceSpansPerPage: 8,
+      candidatesPerItem: 80,
+      mode: 'discover'
+    })
+    assert.deepEqual(
+      [...new Set(result.items.flatMap(item => item.evidence.map(span => span.pdf_page)))].sort((a, b) => a - b),
+      [1, 2, 10, 12]
+    )
+    assert.equal(result.items.filter(item => item.unit.assignment_status === 'assigned_toc_unit').length, 1)
+    const pageOnly = result.items.filter(item => item.unit.assignment_status === 'unassigned_page_only')
+    assert.equal(pageOnly.length, 2)
+    assert.equal(pageOnly[0].unit.unit_id, buildDiscoveryItems(
+      catalog,
+      structure,
+      new Map([[standard.code, standard]]),
+      { libraryRoot: root, sidecarPagesPerItem: 2, evidenceSpansPerPage: 8, candidatesPerItem: 80, mode: 'discover' }
+    ).items.find(item => item.unit.pdf_page_start === 1).unit.unit_id)
+  } finally {
+    rmSync(root, { recursive: true, force: true })
+  }
+})
+
+test('music discovery limits local arts scope by discipline and carries applicability metadata', () => {
+  const root = mkdtempSync(join(tmpdir(), 'kebiao-llm-music-scope-'))
+  try {
+    const relative = 'derived/textbook-content-v2/hash/pages.jsonl'
+    const path = join(root, relative)
+    mkdirSync(join(root, 'derived/textbook-content-v2/hash'), { recursive: true })
+    writeFileSync(path, `${JSON.stringify({ pdf_page: 1, text: '聆听并辨别音色', lines: [{ text: '聆听并辨别音色' }] })}\n`)
+    const catalog = { ...fixtureItem().textbook, subject: '音乐', subject_slug: 'music', grade: 7 }
+    const base = {
+      standard: '辨别艺术作品中的要素。',
+      official_text: '辨别艺术作品中的要素。',
+      subject_slug: 'arts',
+      grade_band: 'H4G7'
+    }
+    const standards = new Map([
+      ['AR-H4G7-AA-001', {
+        ...base,
+        code: 'AR-H4G7-AA-001',
+        standard_title: '音乐审美',
+        art_discipline_tag: '音乐',
+        display_subcategory: '学习任务：音乐',
+        subdomain: '音乐审美感知',
+        context: '第四学段 8-9 年级音乐目标。',
+        grade_specific_focus: '八至九年级聚焦多声部分析。',
+        grade: '七年级',
+        grade_level: 7,
+        grade_range: '7'
+      }],
+      ['AR-H4G7-AE-002', { ...base, code: 'AR-H4G7-AE-002', standard_title: '舞蹈表现', art_discipline_tag: '舞蹈', display_subcategory: '学习任务：舞蹈' }],
+      ['AR-H4G7-AA-003', { ...base, code: 'AR-H4G7-AA-003', standard_title: '音乐文化', display_subcategory: '学习任务：音乐' }],
+      ['AR-H4G7-AA-004', { ...base, code: 'AR-H4G7-AA-004', standard_title: '泛艺术', display_subcategory: '学习任务1：综合艺术' }]
+    ])
+    const structure = {
+      content_alignment: { sidecar_path: relative, source_asset_sha256: 'hash' },
+      toc: [],
+      content_nodes: [],
+      evidence_spans: [],
+      alignments: []
+    }
+    const result = buildDiscoveryItems(catalog, structure, standards, {
+      libraryRoot: root,
+      sidecarPagesPerItem: 1,
+      evidenceSpansPerPage: 8,
+      candidatesPerItem: 80,
+      mode: 'discover'
+    })
+    assert.equal(result.items.length, 1)
+    assert.deepEqual(result.items[0].candidates.map(candidate => candidate.standard_code), [
+      'AR-H4G7-AA-001',
+      'AR-H4G7-AA-003'
+    ])
+    const candidate = result.items[0].candidates[0]
+    assert.equal(candidate.context, '第四学段 8-9 年级音乐目标。')
+    assert.equal(candidate.grade_specific_focus, '八至九年级聚焦多声部分析。')
+    assert.equal(candidate.art_discipline_tag, '音乐')
+    assert.equal(candidate.display_subcategory, '学习任务:音乐')
+    assert.equal(candidate.subdomain, '音乐审美感知')
+  } finally {
+    rmSync(root, { recursive: true, force: true })
+  }
+})
+
+test('discovery refuses to split one logical evidence scope across candidate chunks', () => {
+  const root = mkdtempSync(join(tmpdir(), 'kebiao-llm-full-scope-'))
+  try {
+    const relative = 'derived/textbook-content-v2/hash/pages.jsonl'
+    const path = join(root, relative)
+    mkdirSync(join(root, 'derived/textbook-content-v2/hash'), { recursive: true })
+    writeFileSync(path, `${JSON.stringify({ pdf_page: 1, text: '完整正文', lines: [{ text: '完整正文' }] })}\n`)
+    const catalog = fixtureItem().textbook
+    const structure = {
+      content_alignment: { sidecar_path: relative, source_asset_sha256: 'hash' },
+      toc: [],
+      content_nodes: [],
+      evidence_spans: [],
+      alignments: []
+    }
+    const standards = new Map(Array.from({ length: 19 }, (_, index) => {
+      const code = `MA-H4G8-AL-${String(index + 1).padStart(3, '0')}`
+      return [code, { code, standard_title: code, standard: code, official_text: code, subject_slug: 'math', grade_band: 'H4G8' }]
+    }))
+    const args = { libraryRoot: root, sidecarPagesPerItem: 1, evidenceSpansPerPage: 8, candidatesPerItem: 80, mode: 'discover' }
+    const result = buildDiscoveryItems(catalog, structure, standards, args)
+    assert.equal(result.items.length, 1)
+    assert.equal(result.items[0].candidates.length, 19)
+    assert.throws(
+      () => buildDiscoveryItems(catalog, structure, standards, { ...args, candidatesPerItem: 8 }),
+      /complete scope fits one item/u
+    )
+  } finally {
+    rmSync(root, { recursive: true, force: true })
+  }
+})
+
 test('no-TOC discovery uses stable page-only containers and never claims an official unit', () => {
   const root = mkdtempSync(join(tmpdir(), 'kebiao-llm-page-only-'))
   try {
@@ -425,6 +793,72 @@ test('no-TOC discovery uses stable page-only containers and never claims an offi
     assert.match(first.items[0].unit.title, /^未分配单元/u)
     assert.match(first.items[0].unit.unit_id, /^tpu_/u)
     assert.equal(first.items[0].unit.unit_id, second.items[0].unit.unit_id)
+  } finally {
+    rmSync(root, { recursive: true, force: true })
+  }
+})
+
+test('apply reconstructs the full current workset and rejects a changed sidecar', () => {
+  const root = mkdtempSync(join(tmpdir(), 'kebiao-llm-current-workset-'))
+  try {
+    const relative = 'derived/textbook-content-v2/hash/pages.jsonl'
+    const path = join(root, relative)
+    mkdirSync(join(root, 'derived/textbook-content-v2/hash'), { recursive: true })
+    const writePage = text => writeFileSync(path, `${JSON.stringify({ pdf_page: 1, text, lines: [{ text }] })}\n`)
+    writePage('分式的基本性质')
+    const catalog = fixtureItem().textbook
+    const structure = {
+      edition_id: catalog.edition_id,
+      content_alignment: { sidecar_path: relative, source_asset_sha256: 'hash' },
+      toc: [],
+      content_nodes: [],
+      evidence_spans: [],
+      alignments: []
+    }
+    const standard = {
+      code: 'MA-H4G8-AL-011',
+      standard_title: '代数关系推理与求解',
+      standard: '理解分式及最简分式。',
+      official_text: '理解分式及最简分式。',
+      subject_slug: 'math',
+      grade_band: 'H4G8',
+      context: '八年级代数'
+    }
+    const standardsByCode = new Map([[standard.code, standard]])
+    const args = {
+      mode: 'discover',
+      libraryRoot: root,
+      sidecarPagesPerItem: 1,
+      evidenceSpansPerPage: 8,
+      candidatesPerItem: 80,
+      maxItems: 0
+    }
+    const structuresByEdition = new Map([[catalog.edition_id, structure]])
+    const work = buildAlignmentWork({ catalogs: [catalog], structuresByEdition, standardsByCode, args })
+    const manifest = {
+      mode: 'discover',
+      selected_edition_ids: [catalog.edition_id],
+      discovery_config: {
+        library_root: root,
+        sidecar_pages_per_item: 1,
+        evidence_spans_per_page_compatibility: 8,
+        candidates_per_item: 80
+      },
+      skipped: [],
+      editions: work.editions,
+      workset_hash: hash(stableCanonicalJson(work.items)),
+      source_structure_hashes: { [catalog.edition_id]: hash(stableCanonicalJson(structure)) }
+    }
+    const validationInput = {
+      manifest,
+      records: [{ request_items: work.items }],
+      structuresByEdition,
+      standardsByCode,
+      catalogByEdition: new Map([[catalog.edition_id, catalog]])
+    }
+    assert.equal(validateCurrentAlignmentWorkset(validationInput).items.length, 1)
+    writePage('分式的值随条件变化')
+    assert.throws(() => validateCurrentAlignmentWorkset(validationInput), /workset differs|integrity differs/u)
   } finally {
     rmSync(root, { recursive: true, force: true })
   }
@@ -580,6 +1014,26 @@ test('application preview removes rejected or abstained machine relations, prese
   assert.equal(result.report.summary.preserved_legacy_approved, 1)
 })
 
+test('mode=both replacement removes every non-approved relation in scope and preserves approved evidence', () => {
+  const accepted = applicationAcceptance()
+  const structure = emptyApplicationStructure([
+    { alignment_id: 'machine-a', edition_id: 'ed_fixture', unit_id: 'unit_fixture', standard_code: 'OLD-A', relation_type: 'supports', review_status: 'machine_checked' },
+    { alignment_id: 'machine-b', edition_id: 'ed_fixture', unit_id: 'unit_fixture', standard_code: 'OLD-B', relation_type: 'assesses', review_status: 'pending' },
+    { alignment_id: 'approved-a', edition_id: 'ed_fixture', unit_id: 'unit_fixture', standard_code: 'APPROVED', relation_type: 'supports', review_status: 'approved' }
+  ])
+  const result = planAlignmentApplication({
+    structuresByEdition: new Map([['ed_fixture', structure]]),
+    decisions: [accepted.decision],
+    acceptedAlignments: [accepted.alignment],
+    replaceMachineEditions: ['ed_fixture']
+  })
+  const updated = result.updates.get('ed_fixture')
+  assert.deepEqual(updated.alignments.map(row => row.alignment_id), ['approved-a', accepted.alignment.alignment_id])
+  assert.equal(result.report.summary.removed_machine_alignments, 2)
+  assert.equal(result.report.summary.preserved_legacy_approved, 1)
+  assert.equal(updated.llm_semantic_alignment.replaced_all_non_approved_machine_alignments, true)
+})
+
 test('application artifacts are cryptographically bound to one complete validated checkpoint', () => {
   const root = mkdtempSync(join(tmpdir(), 'kebiao-llm-apply-artifacts-'))
   try {
@@ -609,6 +1063,17 @@ test('application artifacts are cryptographically bound to one complete validate
       model: 'gpt-5-mini',
       prompt_version: LLM_ALIGNMENT_PROMPT_VERSION,
       schema_version: LLM_ALIGNMENT_SCHEMA_VERSION,
+      mode: 'adjudicate',
+      textbooks: 1,
+      selected_edition_ids: ['ed_fixture'],
+      replace_machine_alignments: [],
+      discovery_config: {
+        library_root: root,
+        sidecar_pages_per_item: 1,
+        evidence_spans_per_page_compatibility: 8,
+        candidates_per_item: 80,
+        batch_size: 1
+      },
       request_batches: 1,
       successful_batches: 1,
       work_items: 1,
@@ -624,6 +1089,18 @@ test('application artifacts are cryptographically bound to one complete validate
         omitted_items: 0
       },
       complete: true,
+      candidate_pairs: 1,
+      workset_hash: hash(stableCanonicalJson([item])),
+      editions: [{
+        edition_id: 'ed_fixture',
+        status: 'ready',
+        adjudication_items: 0,
+        discovery_items: 0,
+        replace_machine_alignment_count: 0
+      }],
+      skipped_count: 0,
+      fatal_skipped_count: 0,
+      skipped: [],
       incomplete_input_hashes: [],
       current_input_hashes: [inputHash],
       checkpoint_path: checkpointPath,
@@ -643,6 +1120,14 @@ test('application artifacts are cryptographically bound to one complete validate
     assert.throws(() => validateApplicationArtifacts({
       manifest: { ...manifest, complete: false }, manifestPath, decisionsPath, alignmentsPath
     }), /partial alignment manifest/u)
+
+    assert.throws(() => validateApplicationArtifacts({
+      manifest: { ...manifest, skipped_count: 1 }, manifestPath, decisionsPath, alignmentsPath
+    }), /skipped or fatal inputs/u)
+
+    assert.throws(() => validateApplicationArtifacts({
+      manifest: { ...manifest, mode: 'both', replace_machine_alignments: [] }, manifestPath, decisionsPath, alignmentsPath
+    }), /replacement scope/u)
 
     assert.throws(() => validateApplicationArtifacts({
       manifest: {
@@ -684,7 +1169,7 @@ test('current application planning re-opens manifest, canonical sources, standar
   let generation = 1
   const observedInputs = []
   const observedPlans = []
-  const calls = { manifests: 0, inputs: 0, standards: 0, catalogs: 0, scopes: 0, plans: 0 }
+  const calls = { manifests: 0, inputs: 0, standards: 0, catalogs: 0, scopes: 0, worksets: 0, plans: 0 }
   const args = {
     manifest: '/tmp/kebiao-plan-fixture/run.manifest.json',
     manifestPayload: { stale: true },
@@ -730,6 +1215,9 @@ test('current application planning re-opens manifest, canonical sources, standar
     validateScope: () => {
       calls.scopes += 1
     },
+    validateWorkset: () => {
+      calls.worksets += 1
+    },
     plan: ({ structuresByEdition, standardsByCode, catalogByEdition }) => {
       calls.plans += 1
       observedPlans.push([
@@ -750,7 +1238,7 @@ test('current application planning re-opens manifest, canonical sources, standar
   assert.deepEqual(observedPlans, [[1, 1, 1], [2, 2, 2]])
   assert.match(observedInputs[0].decisions, /fresh-1\.decisions\.jsonl$/u)
   assert.match(observedInputs[1].alignments, /fresh-2\.alignments\.jsonl$/u)
-  assert.deepEqual(calls, { manifests: 2, inputs: 2, standards: 2, catalogs: 2, scopes: 2, plans: 2 })
+  assert.deepEqual(calls, { manifests: 2, inputs: 2, standards: 2, catalogs: 2, scopes: 2, worksets: 2, plans: 2 })
 })
 
 test('receipt path confinement rejects traversal, nested paths, symlink escapes and protected aliases', () => {

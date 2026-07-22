@@ -279,7 +279,9 @@ test('incomplete and terminal-error manifests make the CLI fail after artifacts 
 test('max-items truncation is reported as an incomplete workset and cannot exit successfully', () => {
   const truncated = alignmentWorksetSummary({
     items: [{ item_id: 'one' }, { item_id: 'two' }],
-    totalBeforeLimit: 5
+    totalBeforeLimit: 5,
+    skipped: [],
+    editions: [{ edition_id: 'fixture', status: 'ready' }]
   }, 2)
   assert.deepEqual(truncated, {
     complete: false,
@@ -290,7 +292,7 @@ test('max-items truncation is reported as an incomplete workset and cannot exit 
     omitted_items: 3
   })
   assert.equal(alignmentRunIsComplete({
-    work: { items: [{}, {}], totalBeforeLimit: 5 },
+    work: { items: [{}, {}], totalBeforeLimit: 5, skipped: [], editions: [{ edition_id: 'fixture', status: 'ready' }] },
     incompleteInputHashes: [],
     successfulBatches: 1,
     requestBatches: 1
@@ -307,13 +309,15 @@ test('max-items truncation is reported as an incomplete workset and cannot exit 
 
   const complete = alignmentWorksetSummary({
     items: [{ item_id: 'one' }, { item_id: 'two' }],
-    totalBeforeLimit: 2
+    totalBeforeLimit: 2,
+    skipped: [],
+    editions: [{ edition_id: 'fixture', status: 'ready' }]
   }, 10)
   assert.equal(complete.complete, true)
   assert.equal(complete.limited_by_max_items, false)
   assert.equal(complete.omitted_items, 0)
   assert.equal(alignmentRunIsComplete({
-    work: { items: [{}, {}], totalBeforeLimit: 2 },
+    work: { items: [{}, {}], totalBeforeLimit: 2, skipped: [], editions: [{ edition_id: 'fixture', status: 'ready' }] },
     incompleteInputHashes: [],
     successfulBatches: 1,
     requestBatches: 1

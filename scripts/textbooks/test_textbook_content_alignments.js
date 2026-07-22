@@ -242,6 +242,56 @@ assert.equal(scanOnly.status, 'scope_only')
 assert.equal(scanOnly.reason, 'insufficient_native_body_text')
 assert.equal(scanOnly.entries.length, 0)
 
+const mathAsset = { ...asset, edition_id: 'ed_math_fixture', subject_slug: 'math', grade: 4 }
+const mathUnitPages = Array.from({ length: 9 }, (_, index) => {
+  const ordinal = index + 1
+  const page = 7 + index * 10
+  const title = `${ordinal} ${['大数的认识', '公顷和平方千米', '角的度量', '三位数乘两位数', '平行四边形和梯形', '除数是两位数的除法', '条形统计图', '数学广角—优化', '总复习'][index]}`
+  const exerciseLines = [1, 2, 3].map(number => ({ text: `${number} 计算下面各题`, bbox }))
+  return {
+    pdf_page: page,
+    printed_page: String(page - 5),
+    extraction_method: 'pdfjs_text_layer',
+    text: `${title}\n${exerciseLines.map(line => line.text).join('\n')}\n${longBody}`,
+    lines: [{ text: title, bbox }, ...exerciseLines, { text: longBody, bbox }]
+  }
+})
+const mathPages = [
+  ...mathUnitPages,
+  {
+    pdf_page: 12,
+    printed_page: '7',
+    extraction_method: 'pdfjs_text_layer',
+    text: `1亿有多大\n${longBody}`,
+    lines: [{ text: '1亿有多大', bbox }, { text: longBody, bbox }]
+  },
+  {
+    pdf_page: 22,
+    printed_page: '17',
+    extraction_method: 'pdfjs_text_layer',
+    text: `1平方千米\n${longBody}`,
+    lines: [{ text: '1平方千米', bbox }, { text: longBody, bbox }]
+  }
+]
+const recoveredMath = recoverBodyInferredUnits(
+  mathAsset,
+  { toc: [], page_map: mathPages.map(page => ({ pdf_page: page.pdf_page, printed_page: page.printed_page })) },
+  mathPages
+)
+assert.equal(recoveredMath.status, 'recovered')
+assert.equal(recoveredMath.family, 'numbered_lesson')
+assert.deepEqual(recoveredMath.entries.map(entry => [entry.title, entry.pdf_page]), [
+  ['1大数的认识', 7],
+  ['2公顷和平方千米', 17],
+  ['3角的度量', 27],
+  ['4三位数乘两位数', 37],
+  ['5平行四边形和梯形', 47],
+  ['6除数是两位数的除法', 57],
+  ['7条形统计图', 67],
+  ['8数学广角—优化', 77],
+  ['9总复习', 87]
+])
+
 const invalidTocStructure = {
   toc: [
     { entry_id: 'tcu_null', level: 1, kind: 'unit', title: '无页目录', pdf_page: null, end_pdf_page: null, review_status: 'approved' },

@@ -483,7 +483,7 @@ export function classifyStructuralHeading(text, subjectSlug = '') {
     const parts = display.replace(/^\*?\s*\d{1,2}\s*[.、]?\s*/u, '').split(/\s+/).filter(Boolean)
     const title = compactHeading(numberedChinese[2])
     const hanCount = (title.match(/\p{Script=Han}/gu) || []).length
-    const cleanTitle = /^[\p{Script=Han}·《》“”‘’（）()]{2,22}$/u.test(title)
+    const cleanTitle = /^[\p{Script=Han}·《》“”‘’（）()—-]{2,22}$/u.test(title)
     const looksLikeVocabulary = parts.length > 3 || /^(?:注释|生字|词语|写字表|识字表)$/u.test(title)
     if (cleanTitle && hanCount >= 2 && hanCount <= 14 && !looksLikeVocabulary && !TASK_VERB_PATTERN.test(title)) {
       return { kind: 'lesson', title: `${numberedChinese[1]}${title}` }
@@ -646,17 +646,58 @@ function inferredHeadingAnchor(text, subjectSlug) {
   return null
 }
 
-function coherentAnchorSequence(anchors) {
+function longestConsecutiveAnchorSequence(anchors) {
+  const candidates = [...new Map(anchors
+    .sort((a, b) => a.pdf_page - b.pdf_page || a.ordinal - b.ordinal)
+    .map(anchor => [`${anchor.pdf_page}:${anchor.ordinal}`, anchor])).values()]
+  const states = []
+  for (let index = 0; index < candidates.length; index += 1) {
+    const anchor = candidates[index]
+    let bestPrevious = -1
+    for (let previous = 0; previous < index; previous += 1) {
+      const candidate = candidates[previous]
+      if (candidate.pdf_page >= anchor.pdf_page || candidate.ordinal + 1 !== anchor.ordinal) continue
+      if (bestPrevious < 0 || states[previous].length > states[bestPrevious].length) bestPrevious = previous
+    }
+    states.push({
+      length: bestPrevious < 0 ? 1 : states[bestPrevious].length + 1,
+      previous: bestPrevious
+    })
+  }
+  let end = -1
+  for (let index = 0; index < states.length; index += 1) {
+    if (end < 0 || states[index].length > states[end].length) end = index
+  }
+  const sequence = []
+  while (end >= 0) {
+    sequence.push(candidates[end])
+    end = states[end].previous
+  }
+  return sequence.reverse()
+}
+
+function coherentAnchorSequence(anchors, family = '') {
   const unique = [...new Map(anchors
     .sort((a, b) => a.pdf_page - b.pdf_page || a.ordinal - b.ordinal)
     .map(anchor => [`${anchor.pdf_page}:${anchor.ordinal}`, anchor])).values()]
   const byPage = [...new Map(unique.map(anchor => [anchor.pdf_page, anchor])).values()]
   if (byPage.length < 2) return []
+  // Numbered mathematics units often coexist with numbered examples and
+  // exercises, so prefer the strongest page-ordered 1,2,3... spine even when
+  // the surrounding noise happens to look mostly increasing.
+  if (family === 'numbered_lesson') {
+    const consecutive = longestConsecutiveAnchorSequence(anchors)
+    // The fallback exists specifically for noisy books where local exercise
+    // counters broke the ordinary coherence ratio. Requiring a long spine
+    // avoids promoting a short 1-2-3 exercise sequence to top-level units.
+    if (consecutive.length >= 6 && consecutive[0].ordinal === 1) return consecutive
+  }
   let increasing = 0
   for (let index = 1; index < byPage.length; index += 1) {
     if (byPage[index].ordinal > byPage[index - 1].ordinal) increasing += 1
   }
-  return increasing / (byPage.length - 1) >= 0.8 ? byPage : []
+  if (increasing / (byPage.length - 1) >= 0.8) return byPage
+  return []
 }
 
 /**
@@ -686,7 +727,11 @@ export function recoverBodyInferredUnits(asset, structure, pages) {
   const anchorsByFamily = new Map()
   for (const page of nativePages) {
     if (isTocLikePage(page) || isNonInstructionalPage(page)) continue
-    const pageAnchors = (page.lines || [])
+    // Structural unit/chapter headings are page-level anchors and normally
+    // occur in the page header. Looking through the full page lets numbered
+    // exercises masquerade as peer lessons; a page with several exercises was
+    // then discarded wholesale, including its valid first-line heading.
+    const pageAnchors = (page.lines || []).slice(0, 6)
       .map(line => ({ ...inferredHeadingAnchor(line.text, asset.subject_slug), line }))
       .filter(anchor => anchor.family && Number.isFinite(anchor.ordinal))
     // A page listing several structural titles is almost certainly a contents
@@ -707,7 +752,7 @@ export function recoverBodyInferredUnits(asset, structure, pages) {
   let selected = []
   let selectedFamily = null
   for (const family of priorities) {
-    const coherent = coherentAnchorSequence(anchorsByFamily.get(family) || [])
+    const coherent = coherentAnchorSequence(anchorsByFamily.get(family) || [], family)
     const minimum = ['numbered_lesson', 'decimal_section_2', 'decimal_section_3'].includes(family) ? 3 : 2
     if (coherent.length >= minimum) {
       selected = coherent

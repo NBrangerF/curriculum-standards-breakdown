@@ -119,7 +119,7 @@
     "textbooks:align-llm:all": "node scripts/textbooks/run_llm_textbook_standard_alignments.js --all --mode both",
     "textbooks:apply-align-llm": "node scripts/textbooks/apply_llm_textbook_standard_alignments.js",
     "textbooks:apply-align-llm:preview": "node scripts/textbooks/apply_llm_textbook_standard_alignments.js",
-    "textbooks:test-align-llm": "node --test scripts/textbooks/test_llm_textbook_standard_alignments.js scripts/textbooks/test_llm_textbook_standard_alignment_provider_codex.js",
+    "textbooks:test-align-llm": "node --test scripts/textbooks/test_llm_textbook_standard_alignments.js scripts/textbooks/test_llm_textbook_standard_alignment_provider_codex.js tests/textbook_standard_alignment_eval.test.mjs",
     "textbooks:eval-align-llm:fixture": "node scripts/textbooks/evaluate_llm_textbook_standard_alignments.js --golden evals/textbook-standard-alignment/golden.jsonl --predictions evals/textbook-standard-alignment/golden_predictions.fixture.jsonl --strict",
     "textbooks:eval-align-llm:live": "node scripts/textbooks/evaluate_llm_textbook_standard_alignments.js --golden evals/textbook-standard-alignment/golden.jsonl --live --strict --output output/textbook-standard-llm/golden-live-report.json",
     "textbooks:eval-align-llm:codex": "node scripts/textbooks/evaluate_llm_textbook_standard_alignments.js --golden evals/textbook-standard-alignment/golden.jsonl --live --provider codex_cli --strict --output output/textbook-standard-llm/golden-codex-report.json",

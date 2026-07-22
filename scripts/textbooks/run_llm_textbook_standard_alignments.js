@@ -15,11 +15,12 @@ import {
   existsSync,
   mkdirSync,
   readFileSync,
+  realpathSync,
   readdirSync,
   renameSync,
   writeFileSync
 } from 'node:fs'
-import { basename, dirname, join, resolve } from 'node:path'
+import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import {
   LLM_ALIGNMENT_INSTRUCTIONS,
@@ -37,11 +38,13 @@ import {
   requestAlignmentAdjudication,
   resolveAlignmentLlmConfig
 } from './llm_textbook_standard_alignment_provider.js'
+import { locateEvidenceQuoteBbox } from './textbook_alignment_quote_bbox.js'
 
 const ROOT = resolve(import.meta.dirname, '../..')
 const CATALOG_PATH = join(ROOT, 'public/data/textbooks/index.json')
 const STRUCTURE_ROOT = join(ROOT, 'data/textbooks/derived/by-edition')
 const STANDARD_ROOT = join(ROOT, 'public/data/by_subject')
+const INTERNAL_STANDARD_ROOT = join(ROOT, 'data/internal/by_subject')
 const CAPABILITY_ROOT = join(ROOT, 'public/data/capability_graph/by_code')
 const DEFAULT_LIBRARY_ROOT = process.env.TEXTBOOK_LIBRARY_ROOT || '/Volumes/X9 Pro/kebiao-library'
 const DEFAULT_OUTPUT_ROOT = join(ROOT, 'output/textbook-standard-llm')
@@ -71,7 +74,7 @@ function readJson(path) {
 }
 
 function sha256(value) {
-  return createHash('sha256').update(String(value)).digest('hex')
+  return createHash('sha256').update(Buffer.isBuffer(value) ? value : String(value)).digest('hex')
 }
 
 function stableId(prefix, ...parts) {
@@ -127,13 +130,13 @@ export function parseAlignmentArgs(argv) {
     libraryRoot: resolve(DEFAULT_LIBRARY_ROOT),
     outputPath: null,
     cacheRoot: join(DEFAULT_OUTPUT_ROOT, 'cache'),
-    batchSize: 3,
-    candidatesPerItem: 8,
+    batchSize: 1,
+    candidatesPerItem: 80,
     sidecarPagesPerItem: 2,
     evidenceSpansPerPage: 8,
     maxItems: 0,
     concurrency: 2,
-    maxOutputTokens: 3_500,
+    maxOutputTokens: 10_000,
     maxRequests: 30,
     maxInputTokens: 160_000,
     maxOutputTokensTotal: 60_000,
@@ -155,7 +158,7 @@ export function parseAlignmentArgs(argv) {
     else if (value === '--output') args.outputPath = resolve(argv[++index])
     else if (value === '--cache-root') args.cacheRoot = resolve(argv[++index])
     else if (value === '--batch-size') args.batchSize = numberArg(argv[++index], 'batch-size', { integer: true, minimum: 1, maximum: 12 })
-    else if (value === '--candidates-per-item') args.candidatesPerItem = numberArg(argv[++index], 'candidates-per-item', { integer: true, minimum: 1, maximum: 40 })
+    else if (value === '--candidates-per-item') args.candidatesPerItem = numberArg(argv[++index], 'candidates-per-item', { integer: true, minimum: 1, maximum: 80 })
     else if (value === '--sidecar-pages-per-item') args.sidecarPagesPerItem = numberArg(argv[++index], 'sidecar-pages-per-item', { integer: true, minimum: 1, maximum: 8 })
     else if (value === '--evidence-spans-per-page') args.evidenceSpansPerPage = numberArg(argv[++index], 'evidence-spans-per-page', { integer: true, minimum: 1, maximum: 24 })
     else if (value === '--max-items') args.maxItems = numberArg(argv[++index], 'max-items', { integer: true, minimum: 0 })
@@ -195,13 +198,38 @@ function mappedStandardSubject(subjectSlug) {
 }
 
 export function loadStandardIndex() {
+  const internalByCode = new Map()
+  if (existsSync(INTERNAL_STANDARD_ROOT)) {
+    for (const file of readdirSync(INTERNAL_STANDARD_ROOT).filter(name => name.endsWith('.json')).sort()) {
+      const payload = readJson(join(INTERNAL_STANDARD_ROOT, file))
+      for (const row of payload.standards || []) {
+        internalByCode.set(row.code, {
+          context: row.context,
+          grade: row.grade,
+          grade_level: row.grade_level,
+          grade_range: row.grade_range,
+          grade_specific_focus: row.grade_specific_focus,
+          art_discipline_tag: row.art_discipline_tag,
+          art_discipline: row.art_discipline,
+          discipline: row.discipline,
+          display_subcategory: row.display_subcategory,
+          subdomain: row.subdomain,
+          source_anchor_subcategory: row.source_anchor_subcategory
+        })
+      }
+    }
+  }
   const standards = new Map()
   for (const file of readdirSync(STANDARD_ROOT).filter(name => name.endsWith('.json')).sort()) {
     const payload = readJson(join(STANDARD_ROOT, file))
     const fileSubject = basename(file, '.json')
     for (const row of payload.standards || []) {
+      const internalApplicability = Object.fromEntries(Object.entries(internalByCode.get(row.code) || {}).filter(([, value]) => (
+        value != null && (typeof value !== 'string' || value.trim())
+      )))
       standards.set(row.code, {
         ...row,
+        ...internalApplicability,
         subject_slug: row.subject_slug || fileSubject
       })
     }
@@ -226,7 +254,7 @@ function loadLearningComponents(code) {
   return components
 }
 
-function candidateFromStandard(itemId, standard) {
+export function alignmentCandidateFromStandard(itemId, standard) {
   return {
     candidate_id: stableId('llmc', itemId, standard.code),
     standard_code: standard.code,
@@ -236,6 +264,16 @@ function candidateFromStandard(itemId, standard) {
     standard_text: normalizeAlignmentText(standard.standard || standard.official_text),
     official_text: normalizeAlignmentText(standard.official_text),
     domain: normalizeAlignmentText(standard.domain || standard.subdomain || standard.display_subcategory),
+    subdomain: normalizeAlignmentText(standard.subdomain),
+    display_subcategory: normalizeAlignmentText(standard.display_subcategory),
+    context: normalizeAlignmentText(standard.context),
+    grade: normalizeAlignmentText(standard.grade),
+    grade_level: Number(standard.grade_level) || null,
+    grade_range: normalizeAlignmentText(standard.grade_range),
+    grade_specific_focus: normalizeAlignmentText(standard.grade_specific_focus),
+    art_discipline_tag: normalizeAlignmentText(standard.art_discipline_tag),
+    discipline: normalizeAlignmentText(standard.discipline || standard.art_discipline),
+    source_anchor_subcategory: normalizeAlignmentText(standard.source_anchor_subcategory),
     learning_components: loadLearningComponents(standard.code)
   }
 }
@@ -331,7 +369,7 @@ export function buildExistingAdjudicationItems(catalog, structure, standardsByCo
           : unit ? 'assigned_toc_unit' : 'unassigned_existing_alignment'
       },
       evidence,
-      candidates: [candidateFromStandard(itemId, standard)]
+      candidates: [alignmentCandidateFromStandard(itemId, standard)]
     })
   }
   return { items, skipped }
@@ -367,7 +405,7 @@ function unionBbox(boxes) {
   }
 }
 
-function chunkPageLines(catalog, structure, page, spansPerPage) {
+export function chunkPageLines(catalog, structure, page, spansPerPage) {
   const rawLines = Array.isArray(page.lines) && page.lines.length
     ? page.lines.map(line => ({ text: String(line.text || '').trim(), bbox: line.bbox || null })).filter(line => line.text)
     : [{ text: String(page.text || '').trim(), bbox: null }].filter(line => line.text)
@@ -384,10 +422,12 @@ function chunkPageLines(catalog, structure, page, spansPerPage) {
     characters += line.text.length + 1
   }
   if (active.length) groups.push(active)
-  const selected = groups.length <= spansPerPage
-    ? groups
-    : Array.from({ length: spansPerPage }, (_, index) => groups[Math.floor(index * groups.length / spansPerPage)])
-  return selected.map((lines, index) => {
+  // Every deterministic text group is retained. Sampling dense pages made
+  // omitted groups impossible to recover or audit and silently broke page
+  // coverage. `spansPerPage` remains an accepted compatibility argument but
+  // is no longer a lossy cap.
+  void spansPerPage
+  return groups.map((lines, index) => {
     const excerpt = lines.map(line => line.text).join('\n').trim()
     const sourceHash = sha256(stableCanonicalJson({
       asset_sha256: structure.content_alignment?.source_asset_sha256 || '',
@@ -396,7 +436,7 @@ function chunkPageLines(catalog, structure, page, spansPerPage) {
       excerpt
     }))
     const nodeId = stableId('tcn_llm', catalog.edition_id, page.pdf_page, index, sourceHash)
-    return normalizedEvidence({
+    const evidence = normalizedEvidence({
       evidence_span_id: stableId('tes_llm', catalog.edition_id, page.pdf_page, index, sourceHash),
       node_id: nodeId,
       pdf_page: page.pdf_page,
@@ -414,17 +454,97 @@ function chunkPageLines(catalog, structure, page, spansPerPage) {
       node_title: excerpt.slice(0, 100),
       source: 'external_textbook_sidecar'
     })
+    return evidence ? {
+      ...evidence,
+      // Retained in authenticated checkpoint input for deterministic bbox
+      // rematerialization, but stripped from the provider prompt below.
+      source_lines: lines.map(line => ({ text: line.text, bbox: line.bbox }))
+    } : null
   }).filter(Boolean)
 }
 
 export function loadEditionSidecarPages(structure, libraryRoot) {
   const relativePath = structure.content_alignment?.sidecar_path
   if (!relativePath) return { pages: [], status: 'sidecar_not_declared', path: null }
-  const path = resolve(libraryRoot, relativePath)
-  const safeRoot = `${resolve(libraryRoot)}/`
-  if (!path.startsWith(safeRoot)) return { pages: [], status: 'sidecar_path_outside_library', path: null }
+  const root = resolve(libraryRoot)
+  const path = resolve(root, relativePath)
+  const lexicalRelative = relative(root, path)
+  if (lexicalRelative === '..' || lexicalRelative.startsWith(`..${sep}`) || isAbsolute(lexicalRelative)) {
+    return { pages: [], status: 'sidecar_path_outside_library', path: null }
+  }
   if (!existsSync(path)) return { pages: [], status: 'sidecar_missing', path }
-  return { pages: readJsonLines(path), status: 'loaded', path }
+  const canonicalRoot = realpathSync(root)
+  const canonicalPath = realpathSync(path)
+  const canonicalRelative = relative(canonicalRoot, canonicalPath)
+  if (canonicalRelative === '..' || canonicalRelative.startsWith(`..${sep}`) || isAbsolute(canonicalRelative)) {
+    return { pages: [], status: 'sidecar_path_outside_library', path: null }
+  }
+  return { pages: readJsonLines(canonicalPath), status: 'loaded', path: canonicalPath, sha256: sha256(readFileSync(canonicalPath)) }
+}
+
+function normalizedSidecarPageBody(page) {
+  const pageText = normalizeAlignmentText(page?.text)
+  if (pageText) return pageText
+  return normalizeAlignmentText((Array.isArray(page?.lines) ? page.lines : [])
+    .map(line => line?.text)
+    .filter(Boolean)
+    .join('\n'))
+}
+
+/**
+ * Collapse byte-equivalent normalized page bodies before discovery. PDFs in
+ * the source collection can contain repeated physical pages; asking the model
+ * to adjudicate each copy independently creates contradictory relationships.
+ * Empty pages are retained because they contain no body to compare and will be
+ * discarded later when no evidence span can be formed.
+ */
+export function deduplicateSidecarPages(pages) {
+  const ordered = (Array.isArray(pages) ? pages : []).map((page, sourceIndex) => ({ page, sourceIndex }))
+    .sort((left, right) => {
+      const leftPage = Number(left.page?.pdf_page)
+      const rightPage = Number(right.page?.pdf_page)
+      const leftOrder = Number.isFinite(leftPage) && leftPage > 0 ? leftPage : Number.MAX_SAFE_INTEGER
+      const rightOrder = Number.isFinite(rightPage) && rightPage > 0 ? rightPage : Number.MAX_SAFE_INTEGER
+      return leftOrder - rightOrder || left.sourceIndex - right.sourceIndex
+    })
+  const firstByBodyHash = new Map()
+  const sourcePageNumberCounts = new Map()
+  const uniquePages = []
+  const duplicatePages = []
+  for (const { page } of ordered) {
+    const pdfPage = Number(page?.pdf_page)
+    if (Number.isInteger(pdfPage) && pdfPage > 0) {
+      sourcePageNumberCounts.set(pdfPage, (sourcePageNumberCounts.get(pdfPage) || 0) + 1)
+    }
+    const body = normalizedSidecarPageBody(page)
+    if (!body) {
+      uniquePages.push(page)
+      continue
+    }
+    const bodyHash = sha256(body)
+    const first = firstByBodyHash.get(bodyHash)
+    if (first && first.body === body) {
+      duplicatePages.push({
+        pdf_page: Number(page.pdf_page) || null,
+        duplicate_of_pdf_page: Number(first.page.pdf_page) || null,
+        body_hash: bodyHash
+      })
+      continue
+    }
+    firstByBodyHash.set(bodyHash, { body, page })
+    uniquePages.push(page)
+  }
+  return {
+    pages: uniquePages,
+    duplicate_pages: duplicatePages,
+    duplicate_pdf_page_numbers: [...sourcePageNumberCounts]
+      .filter(([, count]) => count > 1)
+      .map(([pdfPage]) => pdfPage)
+      .sort((a, b) => a - b),
+    raw_page_count: ordered.length,
+    unique_page_count: uniquePages.length,
+    duplicate_page_count: duplicatePages.length
+  }
 }
 
 function publishedUnitRanges(structure) {
@@ -444,10 +564,33 @@ function chunks(values, size) {
   return result
 }
 
+function contiguousPageWindows(pages, size) {
+  const windows = []
+  let run = []
+  for (const page of pages) {
+    if (run.length && Number(page.pdf_page) !== Number(run.at(-1).pdf_page) + 1) {
+      windows.push(...chunks(run, size))
+      run = []
+    }
+    run.push(page)
+  }
+  if (run.length) windows.push(...chunks(run, size))
+  return windows
+}
+
 function standardsInScope(catalog, standardsByCode) {
   const subject = mappedStandardSubject(catalog.subject_slug)
   const band = gradeBand(catalog.grade)
-  return [...standardsByCode.values()].filter(standard => standard.subject_slug === subject && standard.grade_band === band)
+  const requiredArtDiscipline = catalog.subject_slug === 'music'
+    ? '音乐'
+    : catalog.subject_slug === 'art' ? '美术' : null
+  return [...standardsByCode.values()].filter(standard => {
+    if (standard.subject_slug !== subject || standard.grade_band !== band) return false
+    if (!requiredArtDiscipline) return true
+    const explicitTag = normalizeAlignmentText(standard.art_discipline_tag)
+    if (explicitTag) return explicitTag === requiredArtDiscipline
+    return normalizeAlignmentText(standard.display_subcategory) === normalizeAlignmentText(`学习任务：${requiredArtDiscipline}`)
+  })
     .sort((a, b) => a.code.localeCompare(b.code))
 }
 
@@ -458,14 +601,21 @@ function standardsInScope(catalog, standardsByCode) {
  */
 export function buildDiscoveryItems(catalog, structure, standardsByCode, args) {
   const scope = standardsInScope(catalog, standardsByCode)
-  const existingByUnit = new Map()
-  for (const alignment of structure.alignments || []) {
-    const unitId = alignment.unit_id || null
-    if (!existingByUnit.has(unitId)) existingByUnit.set(unitId, new Set())
-    existingByUnit.get(unitId).add(alignment.standard_code)
-  }
   const sidecar = loadEditionSidecarPages(structure, args.libraryRoot)
-  const pagesByNumber = new Map(sidecar.pages.map(page => [Number(page.pdf_page), page]))
+  const invalidNonemptySourceRows = sidecar.pages.flatMap((page, sourceIndex) => {
+    if (!normalizedSidecarPageBody(page)) return []
+    const pdfPage = Number(page?.pdf_page)
+    if (Number.isInteger(pdfPage) && pdfPage > 0) return []
+    return [{
+      source_row: sourceIndex + 1,
+      pdf_page: page?.pdf_page == null ? null : String(page.pdf_page)
+    }]
+  })
+  const sidecarDeduplication = deduplicateSidecarPages(sidecar.pages)
+  const pagesByNumber = new Map(sidecarDeduplication.pages.map(page => [Number(page.pdf_page), page]))
+  const duplicatePageNumbers = new Set(sidecarDeduplication.duplicate_pages
+    .map(page => page.pdf_page)
+    .filter(page => Number.isInteger(page) && page > 0))
   const spansById = new Map((structure.evidence_spans || []).map(span => [span.evidence_span_id || span.span_id, span]))
   const nodesByUnit = new Map()
   for (const node of structure.content_nodes || []) {
@@ -476,28 +626,59 @@ export function buildDiscoveryItems(catalog, structure, standardsByCode, args) {
 
   const logicalItems = []
   const unitRanges = publishedUnitRanges(structure)
-  const discoveryRanges = unitRanges.length
-    ? unitRanges.map(unit => ({ ...unit, assignment_status: 'assigned_toc_unit' }))
-    : chunks(sidecar.pages.filter(page => Number(page.pdf_page) > 0).sort((a, b) => Number(a.pdf_page) - Number(b.pdf_page)), args.sidecarPagesPerItem)
-      .filter(window => window.length)
-      .map(window => {
-        const start = Number(window[0].pdf_page)
-        const end = Number(window.at(-1).pdf_page)
-        const entryId = stableId('tpu', catalog.edition_id, start, end, structure.content_alignment?.source_asset_sha256 || '')
-        return {
-          entry_id: entryId,
-          title: `未分配单元 · PDF ${start}${end === start ? '' : `–${end}`}`,
-          start,
-          end,
-          assignment_status: 'unassigned_page_only'
-        }
-      })
-  for (const unit of discoveryRanges) {
-    const pageRows = []
-    for (let page = unit.start; page <= unit.end; page += 1) {
-      if (pagesByNumber.has(page)) pageRows.push(pagesByNumber.get(page))
+  const usableSidecarPages = sidecarDeduplication.pages.filter(page => (
+    Number(page.pdf_page) > 0 && normalizedSidecarPageBody(page)
+  ))
+  let discoveryRanges
+  if (usableSidecarPages.length) {
+    const pagesByUnit = new Map()
+    const unassignedPages = []
+    for (const page of usableSidecarPages) {
+      const pdfPage = Number(page.pdf_page)
+      const matchingUnits = unitRanges.filter(unit => pdfPage >= unit.start && pdfPage <= unit.end)
+        .sort((left, right) => (
+          (left.end - left.start) - (right.end - right.start)
+          || right.start - left.start
+          || left.entry_id.localeCompare(right.entry_id)
+        ))
+      const unit = matchingUnits[0]
+      if (!unit) {
+        unassignedPages.push(page)
+        continue
+      }
+      if (!pagesByUnit.has(unit.entry_id)) pagesByUnit.set(unit.entry_id, [])
+      pagesByUnit.get(unit.entry_id).push(page)
     }
-    const pageWindows = chunks(pageRows, args.sidecarPagesPerItem)
+    const assignedRanges = unitRanges.flatMap(unit => pagesByUnit.has(unit.entry_id)
+      ? [{ ...unit, assignment_status: 'assigned_toc_unit', page_rows: pagesByUnit.get(unit.entry_id) }]
+      : [])
+    const unassignedRanges = contiguousPageWindows(unassignedPages, args.sidecarPagesPerItem).map(window => {
+      const start = Number(window[0].pdf_page)
+      const end = Number(window.at(-1).pdf_page)
+      const entryId = stableId('tpu', catalog.edition_id, start, end, structure.content_alignment?.source_asset_sha256 || '')
+      return {
+        entry_id: entryId,
+        title: `未分配单元 · PDF ${start}${end === start ? '' : `–${end}`}`,
+        start,
+        end,
+        assignment_status: 'unassigned_page_only',
+        page_rows: window
+      }
+    })
+    discoveryRanges = [...assignedRanges, ...unassignedRanges]
+      .sort((left, right) => left.start - right.start || left.end - right.end || left.entry_id.localeCompare(right.entry_id))
+  } else {
+    // Preserve the derived-evidence fallback when no usable sidecar body exists.
+    discoveryRanges = unitRanges.map(unit => ({ ...unit, assignment_status: 'assigned_toc_unit' }))
+  }
+  for (const unit of discoveryRanges) {
+    const pageRows = Array.isArray(unit.page_rows) ? unit.page_rows : []
+    if (!Array.isArray(unit.page_rows)) {
+      for (let page = unit.start; page <= unit.end; page += 1) {
+        if (pagesByNumber.has(page)) pageRows.push(pagesByNumber.get(page))
+      }
+    }
+    const pageWindows = contiguousPageWindows(pageRows, args.sidecarPagesPerItem)
     if (pageWindows.length) {
       for (let windowIndex = 0; windowIndex < pageWindows.length; windowIndex += 1) {
         const evidence = pageWindows[windowIndex].flatMap(page => chunkPageLines(
@@ -527,20 +708,22 @@ export function buildDiscoveryItems(catalog, structure, standardsByCode, args) {
             assignment_status: unit.assignment_status
           },
           evidence,
-          standards: scope.filter(standard => (
-            args.mode !== 'both' || !existingByUnit.get(unit.entry_id)?.has(standard.code)
-          ))
+          standards: scope
         })
       }
       continue
     }
+
+    // When sidecar assignment was explicit, an empty range must not fall back
+    // to a derived copy of a page that content deduplication intentionally removed.
+    if (Array.isArray(unit.page_rows)) continue
 
     const derivedEvidence = (nodesByUnit.get(unit.entry_id) || []).flatMap(node => (
       (node.evidence_span_ids || []).map(id => spansById.get(id)).filter(Boolean).map(span => normalizedEvidence(span, {
         node_id: node.node_id,
         node_kind: node.kind,
         node_title: node.title
-      })).filter(Boolean)
+      })).filter(span => span && !duplicatePageNumbers.has(Number(span.pdf_page)))
     ))
     if (!derivedEvidence.length) continue
     logicalItems.push({
@@ -563,32 +746,79 @@ export function buildDiscoveryItems(catalog, structure, standardsByCode, args) {
         assignment_status: unit.assignment_status
       },
       evidence: derivedEvidence.slice(0, args.sidecarPagesPerItem * args.evidenceSpansPerPage),
-      standards: scope.filter(standard => (
-        args.mode !== 'both' || !existingByUnit.get(unit.entry_id)?.has(standard.code)
-      ))
+      standards: scope
     })
   }
 
   const items = []
   for (const logical of logicalItems) {
-    const standardChunks = chunks(logical.standards, args.candidatesPerItem)
-    for (let index = 0; index < standardChunks.length; index += 1) {
-      const itemId = `${logical.logical_item_id}:c${String(index + 1).padStart(2, '0')}`
-      items.push({
-        item_id: itemId,
-        logical_item_id: logical.logical_item_id,
-        source_mode: logical.source_mode,
-        textbook: logical.textbook,
-        unit: logical.unit,
-        evidence: logical.evidence,
-        candidates: standardChunks[index].map(standard => candidateFromStandard(itemId, standard))
-      })
+    if (!logical.standards.length) continue
+    if (logical.standards.length > args.candidatesPerItem) {
+      throw new Error(`Candidate scope for ${logical.logical_item_id} has ${logical.standards.length} standards; raise --candidates-per-item so the complete scope fits one item.`)
+    }
+    const itemId = `${logical.logical_item_id}:c01`
+    items.push({
+      item_id: itemId,
+      logical_item_id: logical.logical_item_id,
+      source_mode: logical.source_mode,
+      textbook: logical.textbook,
+      unit: logical.unit,
+      evidence: logical.evidence,
+      candidates: logical.standards.map(standard => alignmentCandidateFromStandard(itemId, standard))
+    })
+  }
+  const expectedPages = [...new Set(usableSidecarPages.map(page => Number(page.pdf_page)))]
+    .sort((a, b) => a - b)
+  const coverageCounts = new Map()
+  for (const item of items) {
+    for (const page of new Set(item.evidence.map(span => Number(span.pdf_page)).filter(Number.isInteger))) {
+      coverageCounts.set(page, (coverageCounts.get(page) || 0) + 1)
     }
   }
+  const expectedPageSet = new Set(expectedPages)
+  const coveredPages = [...coverageCounts.keys()].sort((a, b) => a - b)
+  const missingPages = expectedPages.filter(page => !coverageCounts.has(page))
+  const extraPages = coveredPages.filter(page => !expectedPageSet.has(page))
+  const duplicateItemPages = coveredPages.filter(page => coverageCounts.get(page) !== 1)
+  const pageCoverage = {
+    complete: sidecar.status === 'loaded'
+      && expectedPages.length > 0
+      && invalidNonemptySourceRows.length === 0
+      && sidecarDeduplication.duplicate_pdf_page_numbers.length === 0
+      && missingPages.length === 0
+      && extraPages.length === 0
+      && duplicateItemPages.length === 0,
+    expected_nonempty_pdf_pages: expectedPages,
+    covered_pdf_pages: coveredPages,
+    missing_pdf_pages: missingPages,
+    extra_pdf_pages: extraPages,
+    duplicate_item_pdf_pages: duplicateItemPages,
+    duplicate_source_pdf_pages: sidecarDeduplication.duplicate_pdf_page_numbers,
+    invalid_nonempty_source_rows: invalidNonemptySourceRows
+  }
+  const evidenceWorkset = items.map(({ candidates: _candidates, ...item }) => item)
+  const candidateScope = items.map(item => ({
+    item_id: item.item_id,
+    textbook_edition_id: item.textbook.edition_id,
+    candidates: item.candidates
+  }))
   return {
     items,
     sidecar_status: sidecar.status,
-    sidecar_page_count: sidecar.pages.length,
+    sidecar_sha256: sidecar.sha256 || null,
+    sidecar_page_count: sidecarDeduplication.raw_page_count,
+    sidecar_raw_page_count: sidecarDeduplication.raw_page_count,
+    sidecar_unique_page_count: sidecarDeduplication.unique_page_count,
+    sidecar_duplicate_page_count: sidecarDeduplication.duplicate_page_count,
+    sidecar_discovery_page_count: usableSidecarPages.length,
+    sidecar_nonempty_pdf_pages: expectedPages,
+    sidecar_nonempty_page_set_hash: sha256(stableCanonicalJson(expectedPages)),
+    sidecar_duplicate_page_map: sidecarDeduplication.duplicate_pages,
+    sidecar_dedup_map_hash: sha256(stableCanonicalJson(sidecarDeduplication.duplicate_pages)),
+    sidecar_invalid_nonempty_source_rows: invalidNonemptySourceRows,
+    page_coverage: pageCoverage,
+    evidence_workset_hash: sha256(stableCanonicalJson(evidenceWorkset)),
+    candidate_scope_hash: sha256(stableCanonicalJson(candidateScope)),
     scope_standard_count: scope.length
   }
 }
@@ -599,12 +829,20 @@ export function buildAlignmentWork({ catalogs, structuresByEdition, standardsByC
   const editions = []
   for (const catalog of catalogs) {
     const structure = structuresByEdition.get(catalog.edition_id)
+    const editionSummary = {
+      edition_id: catalog.edition_id,
+      status: 'pending',
+      adjudication_items: 0,
+      discovery_items: 0,
+      replace_machine_alignment_count: 0
+    }
     if (!structure) {
       skipped.push({ edition_id: catalog.edition_id, reason: 'structure_not_found' })
+      editionSummary.status = 'structure_not_found'
+      editions.push(editionSummary)
       continue
     }
-    const editionSummary = { edition_id: catalog.edition_id, adjudication_items: 0, discovery_items: 0 }
-    if (args.mode === 'adjudicate' || args.mode === 'both') {
+    if (args.mode === 'adjudicate') {
       const existing = buildExistingAdjudicationItems(catalog, structure, standardsByCode)
       items.push(...existing.items)
       skipped.push(...existing.skipped.map(row => ({ edition_id: catalog.edition_id, ...row })))
@@ -613,12 +851,35 @@ export function buildAlignmentWork({ catalogs, structuresByEdition, standardsByC
     if (args.mode === 'discover' || args.mode === 'both') {
       const discovery = buildDiscoveryItems(catalog, structure, standardsByCode, args)
       items.push(...discovery.items)
+      if (args.mode === 'both') {
+        editionSummary.replace_machine_alignment_count = (structure.alignments || []).filter(alignment => alignment.review_status !== 'approved').length
+      }
       editionSummary.discovery_items = discovery.items.length
       editionSummary.page_only_discovery_items = discovery.items.filter(item => item.unit.assignment_status === 'unassigned_page_only').length
       editionSummary.sidecar_status = discovery.sidecar_status
       editionSummary.sidecar_page_count = discovery.sidecar_page_count
+      editionSummary.sidecar_raw_page_count = discovery.sidecar_raw_page_count
+      editionSummary.sidecar_unique_page_count = discovery.sidecar_unique_page_count
+      editionSummary.sidecar_duplicate_page_count = discovery.sidecar_duplicate_page_count
+      editionSummary.sidecar_discovery_page_count = discovery.sidecar_discovery_page_count
+      editionSummary.sidecar_sha256 = discovery.sidecar_sha256
+      editionSummary.sidecar_nonempty_pdf_pages = discovery.sidecar_nonempty_pdf_pages
+      editionSummary.sidecar_nonempty_page_set_hash = discovery.sidecar_nonempty_page_set_hash
+      editionSummary.sidecar_duplicate_page_map = discovery.sidecar_duplicate_page_map
+      editionSummary.sidecar_dedup_map_hash = discovery.sidecar_dedup_map_hash
+      editionSummary.sidecar_invalid_nonempty_source_rows = discovery.sidecar_invalid_nonempty_source_rows
+      editionSummary.page_coverage = discovery.page_coverage
+      editionSummary.evidence_workset_hash = discovery.evidence_workset_hash
+      editionSummary.candidate_scope_hash = discovery.candidate_scope_hash
       editionSummary.scope_standard_count = discovery.scope_standard_count
     }
+    const editionSkipped = skipped.filter(row => row.edition_id === catalog.edition_id)
+    const discoveryRequired = args.mode === 'discover' || args.mode === 'both'
+    editionSummary.status = editionSkipped.length
+      ? 'skipped_inputs'
+      : discoveryRequired && (editionSummary.sidecar_status !== 'loaded' || editionSummary.page_coverage?.complete !== true)
+        ? 'incomplete_discovery_coverage'
+        : (editionSummary.adjudication_items + editionSummary.discovery_items > 0) ? 'ready' : 'empty_workset'
     editions.push(editionSummary)
   }
   const sorted = items.sort((a, b) => a.textbook.edition_id.localeCompare(b.textbook.edition_id) || a.item_id.localeCompare(b.item_id))
@@ -634,12 +895,32 @@ export function makeRequestBatches(items, batchSize) {
   return chunks(items, batchSize).map(requestItems => ({ requestItems }))
 }
 
+/**
+ * Sidecar line boxes are integrity-bound checkpoint input used to rematerialize
+ * quote-level bboxes. They are not semantic evidence for the model and would
+ * needlessly inflate prompt tokens, so provider payloads omit only this field.
+ */
+export function requestItemsForProvider(items) {
+  return items.map(item => ({
+    ...item,
+    evidence: (item.evidence || []).map(span => {
+      const providerSpan = { ...span }
+      delete providerSpan.source_lines
+      return providerSpan
+    })
+  }))
+}
+
 export function alignmentWorksetSummary(work, maxItems = 0) {
   const selected = work.items.length
   const available = work.totalBeforeLimit
   const omitted = Math.max(0, available - selected)
   return {
-    complete: selected > 0 && selected === available,
+    complete: selected > 0
+      && selected === available
+      && (work.skipped || []).length === 0
+      && (work.editions || []).length > 0
+      && (work.editions || []).every(edition => edition.status === 'ready'),
     limited_by_max_items: omitted > 0,
     max_items: maxItems,
     selected_items: selected,
@@ -651,6 +932,9 @@ export function alignmentWorksetSummary(work, maxItems = 0) {
 export function alignmentRunIsComplete({ work, incompleteInputHashes, successfulBatches, requestBatches }) {
   return work.items.length > 0
     && work.items.length === work.totalBeforeLimit
+    && (work.skipped || []).length === 0
+    && (work.editions || []).length > 0
+    && (work.editions || []).every(edition => edition.status === 'ready')
     && incompleteInputHashes.length === 0
     && successfulBatches === requestBatches
 }
@@ -752,7 +1036,7 @@ function readValidatedCache(path, requestItems, expected) {
 }
 
 async function adjudicateBatch(batch, context) {
-  const input = makeAlignmentResponseInput(batch.requestItems)
+  const input = makeAlignmentResponseInput(requestItemsForProvider(batch.requestItems))
   const inputHash = alignmentInputHash({ provider: context.config.provider, model: context.config.model, items: batch.requestItems })
   const cached = readValidatedCache(cachePath(context.args.cacheRoot, inputHash), batch.requestItems, {
     inputHash,
@@ -891,6 +1175,18 @@ function checkpointSuccesses(path, batches, config) {
   }
 }
 
+function materializedGeneratedEvidenceSpan(span, evidenceQuote) {
+  if (!span?.generated_by_pipeline) return null
+  const preciseBbox = locateEvidenceQuoteBbox({
+    evidenceExcerpt: span.excerpt,
+    evidenceQuote,
+    lines: span.source_lines
+  })
+  const materializedSpan = { ...span, bbox: preciseBbox }
+  delete materializedSpan.source_lines
+  return materializedSpan
+}
+
 export function materializeAlignmentRecords(checkpointRecords, currentHashes) {
   const decisions = []
   const alignments = []
@@ -934,6 +1230,7 @@ export function materializeAlignmentRecords(checkpointRecords, currentHashes) {
         const span = evidence.get(modelDecision.evidence_span_id)
         const componentIds = new Set(modelDecision.learning_component_ids)
         const components = candidate.learning_components.filter(component => componentIds.has(component.component_id))
+        const generatedEvidenceSpan = materializedGeneratedEvidenceSpan(span, modelDecision.evidence_quote)
         alignments.push({
           decision_id: decisionId,
           alignment_id: stableAlignmentId(
@@ -981,7 +1278,7 @@ export function materializeAlignmentRecords(checkpointRecords, currentHashes) {
           pdf_page: span.pdf_page,
           end_pdf_page: span.pdf_page,
           printed_page: span.printed_page,
-          generated_evidence_span: span.generated_by_pipeline ? span : null,
+          generated_evidence_span: generatedEvidenceSpan,
           generated_content_node: span.generated_by_pipeline ? {
             node_id: span.node_id,
             parent_id: inputItem.unit.assignment_status === 'unassigned_page_only' ? null : inputItem.unit.unit_id,
@@ -1026,8 +1323,13 @@ function outputBase(args, config, catalogs) {
 
 function planSummary({ args, config, catalogs, work, batches }) {
   const candidatePairs = work.items.reduce((sum, item) => sum + item.candidates.length, 0)
-  const estimatedInput = batches.reduce((sum, batch) => sum + estimateInputTokens(makeAlignmentResponseInput(batch.requestItems)), 0)
+  const estimatedInput = batches.reduce((sum, batch) => sum + estimateInputTokens(makeAlignmentResponseInput(requestItemsForProvider(batch.requestItems))), 0)
   const workset = alignmentWorksetSummary(work, args.maxItems)
+  const discoveryPageCounts = work.editions.reduce((counts, edition) => ({
+    raw: counts.raw + Number(edition.sidecar_raw_page_count || 0),
+    unique: counts.unique + Number(edition.sidecar_unique_page_count || 0),
+    duplicate: counts.duplicate + Number(edition.sidecar_duplicate_page_count || 0)
+  }), { raw: 0, unique: 0, duplicate: 0 })
   return {
     dry_run: args.dryRun,
     provider: config.provider,
@@ -1036,6 +1338,15 @@ function planSummary({ args, config, catalogs, work, batches }) {
     schema_version: LLM_ALIGNMENT_SCHEMA_VERSION,
     mode: args.mode,
     textbooks: catalogs.length,
+    selected_edition_ids: catalogs.map(row => row.edition_id),
+    replace_machine_alignments: args.mode === 'both' ? catalogs.map(row => row.edition_id) : [],
+    discovery_config: {
+      library_root: args.libraryRoot,
+      sidecar_pages_per_item: args.sidecarPagesPerItem,
+      evidence_spans_per_page_compatibility: args.evidenceSpansPerPage,
+      candidates_per_item: args.candidatesPerItem,
+      batch_size: args.batchSize
+    },
     work_items: work.items.length,
     work_items_before_limit: work.totalBeforeLimit,
     workset_complete: workset.complete,
@@ -1053,8 +1364,11 @@ function planSummary({ args, config, catalogs, work, batches }) {
       max_usd: args.maxUsd,
       accounting_rates_are_operator_configurable_safety_rates: true
     },
+    discovery_page_counts: discoveryPageCounts,
     editions: work.editions,
-    skipped_count: work.skipped.length
+    skipped_count: work.skipped.length,
+    fatal_skipped_count: work.skipped.length,
+    workset_hash: sha256(stableCanonicalJson(work.items))
   }
 }
 
