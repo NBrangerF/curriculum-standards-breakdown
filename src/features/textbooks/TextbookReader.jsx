@@ -57,16 +57,57 @@ function ThumbnailRail({ pdf, numPages, currentPage, onJump }) {
     )
 }
 
-function PdfPageSurface({ pageNumber, width, highlighted = false }) {
+function evidenceRectangle(span) {
+    const bbox = span?.bbox
+    if (!bbox) return null
+    const x = Number(bbox.x)
+    const y = Number(bbox.y)
+    const boxWidth = Number(bbox.width)
+    const boxHeight = Number(bbox.height)
+    const pageWidth = Number(bbox.page_width)
+    const pageHeight = Number(bbox.page_height)
+    if (![x, y, boxWidth, boxHeight, pageWidth, pageHeight].every(Number.isFinite)) return null
+    if (x < 0 || y < 0 || boxWidth <= 0 || boxHeight <= 0 || pageWidth <= 0 || pageHeight <= 0) return null
+
+    const top = String(bbox.unit || '').toLowerCase() === 'pdf_point'
+        ? pageHeight - y - boxHeight
+        : y
+    const leftPercent = Math.max(0, Math.min(100, x / pageWidth * 100))
+    const topPercent = Math.max(0, Math.min(100, top / pageHeight * 100))
+    const rightPercent = Math.max(leftPercent, Math.min(100, (x + boxWidth) / pageWidth * 100))
+    const bottomPercent = Math.max(topPercent, Math.min(100, (top + boxHeight) / pageHeight * 100))
+    if (rightPercent <= leftPercent || bottomPercent <= topPercent) return null
+    return {
+        left: `${leftPercent}%`,
+        top: `${topPercent}%`,
+        width: `${rightPercent - leftPercent}%`,
+        height: `${bottomPercent - topPercent}%`
+    }
+}
+
+function PdfPageSurface({ pageNumber, width, evidenceSpans = [], highlighted = false }) {
+    const rectangles = evidenceSpans.map(evidenceRectangle).filter(Boolean)
+    const exact = rectangles.length > 0
+    const pageFallback = highlighted && !exact
     return (
-        <div className={`${styles.pageSurface} ${highlighted ? styles.highlightedPage : ''}`} data-pdf-page={pageNumber}>
+        <div
+            className={`${styles.pageSurface} ${pageFallback ? styles.highlightedPage : ''}`}
+            data-pdf-page={pageNumber}
+            data-evidence-mode={exact ? 'exact' : pageFallback ? 'page' : undefined}
+        >
             <Page pageNumber={pageNumber} width={width} renderTextLayer renderAnnotationLayer />
-            {highlighted ? <span className={styles.highlightFlag}>课标证据页</span> : null}
+            {exact ? (
+                <span className={styles.evidenceOverlay} aria-label="精确课标证据高亮">
+                    {rectangles.map((style, index) => <span className={styles.evidenceRect} data-testid="textbook-evidence-highlight" style={style} key={index} />)}
+                </span>
+            ) : null}
+            {exact ? <span className={styles.highlightFlag}>精确证据高亮</span> : null}
+            {pageFallback ? <span className={styles.highlightFlag}>课标证据页（无精确坐标）</span> : null}
         </div>
     )
 }
 
-function ContinuousPages({ numPages, width, currentPage, onCurrentPage, scrollRequest, highlightedPages }) {
+function ContinuousPages({ numPages, width, currentPage, onCurrentPage, scrollRequest, highlightedPages, highlightedEvidenceByPage }) {
     const parentRef = useRef(null)
     const programmaticTargetRef = useRef(null)
     const virtualizer = useVirtualizer({
@@ -126,7 +167,12 @@ function ContinuousPages({ numPages, width, currentPage, onCurrentPage, scrollRe
                         style={{ transform: `translateY(${item.start}px)` }}
                         aria-current={currentPage === item.index + 1 ? 'page' : undefined}
                     >
-                        <PdfPageSurface pageNumber={item.index + 1} width={width} highlighted={highlightedPages.has(item.index + 1)} />
+                        <PdfPageSurface
+                            pageNumber={item.index + 1}
+                            width={width}
+                            evidenceSpans={highlightedEvidenceByPage.get(item.index + 1) || []}
+                            highlighted={highlightedPages.has(item.index + 1)}
+                        />
                         <span className={styles.pdfPageLabel}>PDF {item.index + 1}</span>
                     </div>
                 ))}
@@ -135,16 +181,18 @@ function ContinuousPages({ numPages, width, currentPage, onCurrentPage, scrollRe
     )
 }
 
-export default function TextbookReader({ book, fileUrl, initialPage = 1, initialNodeId = '', initialAlignmentId = '', initialPanel = '' }) {
+export default function TextbookReader({ book, fileUrl, initialPage = null, initialNodeId = '', initialAlignmentId = '', initialPanel = '' }) {
     const location = useLocation()
     const navigate = useNavigate()
     const saved = loadReadingState(book.edition_id)
+    const initialReaderPage = Math.max(1, Math.min(book.page_count || Number.MAX_SAFE_INTEGER, Number(initialPage) || Number(saved?.page) || 1))
     const [pdf, setPdf] = useState(null)
     const [numPages, setNumPages] = useState(book.page_count || 1)
-    const [currentPage, setCurrentPage] = useState(Math.max(1, Number(initialPage) || saved?.page || 1))
-    const [pageInput, setPageInput] = useState(String(Math.max(1, Number(initialPage) || saved?.page || 1)))
+    const [currentPage, setCurrentPage] = useState(initialReaderPage)
+    const [pageInput, setPageInput] = useState(String(initialReaderPage))
     const [zoom, setZoom] = useState(saved?.zoom || 1)
     const [mode, setMode] = useState(saved?.mode || 'continuous')
+    const [compactViewport, setCompactViewport] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 780px)').matches)
     const [sidebarOpen, setSidebarOpen] = useState(() => typeof window === 'undefined' || !window.matchMedia('(max-width: 780px)').matches)
     const [sidebarTab, setSidebarTab] = useState('toc')
     const [query, setQuery] = useState('')
@@ -153,7 +201,7 @@ export default function TextbookReader({ book, fileUrl, initialPage = 1, initial
     const [searchResults, setSearchResults] = useState([])
     const [searchMessage, setSearchMessage] = useState('')
     const [viewportWidth, setViewportWidth] = useState(980)
-    const [scrollRequest, setScrollRequest] = useState(() => ({ page: Math.max(1, Number(initialPage) || saved?.page || 1), token: 0 }))
+    const [scrollRequest, setScrollRequest] = useState(() => ({ page: initialReaderPage, token: 0 }))
     const [highlightedAlignmentId, setHighlightedAlignmentId] = useState(initialAlignmentId)
     const [standardsOpen, setStandardsOpen] = useState(() => {
         if (initialPanel === 'standards' || initialAlignmentId) return true
@@ -170,12 +218,23 @@ export default function TextbookReader({ book, fileUrl, initialPage = 1, initial
     const highlightedAlignment = useMemo(() => (book.alignments || []).find(item => item.alignment_id === highlightedAlignmentId), [book.alignments, highlightedAlignmentId])
     const preferredNodeId = highlightedAlignment?.node_id || highlightedAlignment?.content_node_id || initialNodeId
     const alignmentContext = useMemo(() => buildTextbookAlignmentContext(book, currentPage, preferredNodeId), [book, currentPage, preferredNodeId])
-    const highlightedPages = useMemo(() => {
-        if (!highlightedAlignment) return new Set()
-        const spanPages = getEvidenceSpansForAlignment(book, highlightedAlignment).map(span => Number(span.pdf_page)).filter(Number.isFinite)
-        if (highlightedAlignment.pdf_page) spanPages.push(Number(highlightedAlignment.pdf_page))
-        return new Set(spanPages)
+    const highlightedEvidenceByPage = useMemo(() => {
+        const byPage = new Map()
+        if (!highlightedAlignment) return byPage
+        for (const span of getEvidenceSpansForAlignment(book, highlightedAlignment)) {
+            const page = Number(span.pdf_page)
+            if (!Number.isInteger(page) || page < 1) continue
+            if (!byPage.has(page)) byPage.set(page, [])
+            byPage.get(page).push(span)
+        }
+        return byPage
     }, [book, highlightedAlignment])
+    const highlightedPages = useMemo(() => {
+        const pages = new Set(highlightedEvidenceByPage.keys())
+        const directPage = Number(highlightedAlignment?.pdf_page)
+        if (Number.isInteger(directPage) && directPage > 0) pages.add(directPage)
+        return pages
+    }, [highlightedAlignment, highlightedEvidenceByPage])
 
     const syncReaderUrl = useCallback((page, { replace = false, panel = standardsOpen, alignmentId = highlightedAlignmentId, nodeId = initialNodeId } = {}) => {
         const params = new URLSearchParams(location.search)
@@ -219,6 +278,14 @@ export default function TextbookReader({ book, fileUrl, initialPage = 1, initial
         const observer = new ResizeObserver(entries => setViewportWidth(entries[0].contentRect.width))
         observer.observe(element)
         return () => observer.disconnect()
+    }, [])
+
+    useEffect(() => {
+        const media = window.matchMedia('(max-width: 780px)')
+        const update = () => setCompactViewport(media.matches)
+        update()
+        media.addEventListener?.('change', update)
+        return () => media.removeEventListener?.('change', update)
     }, [])
 
     useEffect(() => {
@@ -355,14 +422,14 @@ export default function TextbookReader({ book, fileUrl, initialPage = 1, initial
                     </aside>
 
                     <section className={styles.stage} ref={stageRef} aria-label="PDF 阅读区">
-                        {mode === 'continuous' ? <ContinuousPages numPages={numPages} width={pageWidth} currentPage={currentPage} onCurrentPage={updateVisiblePage} scrollRequest={scrollRequest} highlightedPages={highlightedPages} /> : (
+                        {mode === 'continuous' ? <ContinuousPages numPages={numPages} width={pageWidth} currentPage={currentPage} onCurrentPage={updateVisiblePage} scrollRequest={scrollRequest} highlightedPages={highlightedPages} highlightedEvidenceByPage={highlightedEvidenceByPage} /> : (
                             <div className={`${styles.pagedView} ${mode === 'double' ? styles.doubleView : ''}`}>
-                                <PdfPageSurface pageNumber={currentPage} width={mode === 'double' ? spreadWidth : pageWidth} highlighted={highlightedPages.has(currentPage)} />
-                                {mode === 'double' && currentPage + 1 <= numPages && <PdfPageSurface pageNumber={currentPage + 1} width={spreadWidth} highlighted={highlightedPages.has(currentPage + 1)} />}
+                                <PdfPageSurface pageNumber={currentPage} width={mode === 'double' ? spreadWidth : pageWidth} evidenceSpans={highlightedEvidenceByPage.get(currentPage) || []} highlighted={highlightedPages.has(currentPage)} />
+                                {mode === 'double' && currentPage + 1 <= numPages && <PdfPageSurface pageNumber={currentPage + 1} width={spreadWidth} evidenceSpans={highlightedEvidenceByPage.get(currentPage + 1) || []} highlighted={highlightedPages.has(currentPage + 1)} />}
                             </div>
                         )}
                     </section>
-                    {standardsOpen ? <TextbookStandardsPanel book={book} context={alignmentContext} highlightedAlignmentId={highlightedAlignmentId} onClose={toggleStandards} /> : null}
+                    {standardsOpen ? <TextbookStandardsPanel book={book} context={alignmentContext} highlightedAlignmentId={highlightedAlignmentId} onClose={toggleStandards} modal={compactViewport} /> : null}
                 </div>
             </div>
         </Document>

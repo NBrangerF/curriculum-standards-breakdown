@@ -7,10 +7,15 @@ import {
   sha256Text,
   writeJson
 } from './library_common.js'
+import {
+  projectRelatedResourcesForTextbook,
+  projectRelatedResourcesForUnit
+} from './textbook_resource_pipeline.js'
 
 const PROJECT_ROOT = resolve(import.meta.dirname, '../..')
 const CURRENT_PATH = join(PROJECT_ROOT, 'data/textbooks/library-state/CURRENT.json')
 const DERIVED_ROOT = join(PROJECT_ROOT, 'data/textbooks/derived/by-edition')
+const SUPPORT_RESOURCE_PATH = join(PROJECT_ROOT, 'data/textbooks/catalog/support_resource_catalog.json')
 const OUTPUT_ROOT = join(PROJECT_ROOT, 'public/data/textbooks')
 
 function titleFor(asset) {
@@ -56,7 +61,7 @@ function relationId(left, right, relationship) {
   return `rel_${sha256Text(`${left}:${right}:${relationship}`).slice(0, 16)}`
 }
 
-function relatedResources(asset, allAssets) {
+function legacyRelatedResources(asset, allAssets) {
   if (asset.resource_type !== 'student_textbook') return []
   const related = []
   for (const candidate of allAssets) {
@@ -80,6 +85,34 @@ function relatedResources(asset, allAssets) {
     })
   }
   return related
+}
+
+function emptySupportResourceCatalog() {
+  return {
+    schema_version: 1,
+    generated_at: '1970-01-01T00:00:00.000Z',
+    resources: [],
+    pairings: [],
+    unit_mappings: [],
+    unit_mapping_gaps: [],
+    indexes: { by_textbook: {}, by_resource: {}, by_textbook_unit: {}, by_resource_section: {} }
+  }
+}
+
+function loadSupportResourceCatalog() {
+  return existsSync(SUPPORT_RESOURCE_PATH) ? readJson(SUPPORT_RESOURCE_PATH) : emptySupportResourceCatalog()
+}
+
+function relatedResources(asset, allAssets, supportCatalog) {
+  if (asset.resource_type !== 'student_textbook') return []
+  const projected = projectRelatedResourcesForTextbook(supportCatalog, asset.edition_id)
+  const byEdition = new Map(projected.map(resource => [resource.resource_edition_id, resource]))
+  // Keep backwards compatibility for a legacy asset that has not yet been
+  // represented in the support-resource catalog. Catalog rows win on overlap.
+  for (const resource of legacyRelatedResources(asset, allAssets)) {
+    if (!byEdition.has(resource.resource_edition_id)) byEdition.set(resource.resource_edition_id, resource)
+  }
+  return [...byEdition.values()].sort((left, right) => left.relation_id.localeCompare(right.relation_id))
 }
 
 function normalizeEvidenceLevel(value) {
@@ -117,7 +150,11 @@ function normalizeContentNodes(structure, toc, pageCount) {
     text_excerpt: typeof node.text_excerpt === 'string' ? node.text_excerpt.slice(0, 280) : undefined,
     evidence_span_ids: Array.isArray(node.evidence_span_ids) ? [...new Set(node.evidence_span_ids)] : [],
     source: node.source || undefined,
-    confidence: Number.isFinite(node.confidence) ? node.confidence : 0,
+    extraction_method: typeof node.extraction_method === 'string' ? node.extraction_method : node.extraction_method === null ? null : undefined,
+    source_fidelity: node.source_fidelity || undefined,
+    // A missing score is intentional for LLM-created page evidence. Do not
+    // manufacture a zero that could be mistaken for calibrated confidence.
+    confidence: Number.isFinite(node.confidence) ? node.confidence : undefined,
     review_status: node.review_status || 'machine_checked'
   })).filter(node =>
     typeof node.node_id === 'string'
@@ -235,8 +272,8 @@ function normalizeAlignment(alignment) {
       || (String(alignment.evidence_level || '').includes('_') ? String(alignment.evidence_level).split('_').slice(1).join('_') : undefined),
     evidence_span_ids: Array.isArray(alignment.evidence_span_ids) ? [...new Set(alignment.evidence_span_ids)] : [],
     evidence_role: alignment.evidence_role || undefined,
-    confidence: alignment.confidence,
-    score: alignment.score,
+    confidence: Number.isFinite(alignment.confidence) ? alignment.confidence : undefined,
+    score: Number.isFinite(alignment.score) ? alignment.score : undefined,
     matched_keywords: Array.isArray(alignment.matched_keywords) ? alignment.matched_keywords : undefined,
     matched_fields: Array.isArray(alignment.matched_fields) ? alignment.matched_fields : undefined,
     modifier_conflicts: Array.isArray(alignment.modifier_conflicts) ? alignment.modifier_conflicts : undefined,
@@ -249,7 +286,18 @@ function normalizeAlignment(alignment) {
     publication_status: alignment.publication_status || undefined,
     evidence_id: alignment.evidence_id ?? null,
     pdf_page: alignment.pdf_page ?? null,
-    printed_page: alignment.printed_page ?? null
+    end_pdf_page: alignment.end_pdf_page ?? null,
+    printed_page: alignment.printed_page ?? null,
+    semantic_decision: alignment.semantic_decision === 'accept' ? 'accept' : undefined,
+    unit_assignment_status: alignment.unit_assignment_status || undefined,
+    source_mode: alignment.source_mode || undefined,
+    logical_item_id: alignment.logical_item_id || undefined,
+    prior_alignment_id: alignment.prior_alignment_id ?? undefined,
+    content_node_kind: alignment.content_node_kind || undefined,
+    content_node_title: alignment.content_node_title || undefined,
+    evidence_excerpt: alignment.evidence_excerpt || undefined,
+    evidence_excerpt_hash: alignment.evidence_excerpt_hash || undefined,
+    evidence_quote: alignment.evidence_quote || undefined
   }
 }
 
@@ -411,12 +459,15 @@ function main() {
     `data/textbooks/library-state/generations/${current.generation_id}/asset_registry.lock.jsonl`
   )
   const assets = readJsonLines(registryPath)
+  const supportCatalog = loadSupportResourceCatalog()
   const generatedAt = current.updated_at
 
   if (!assets.length) throw new Error(`Textbook registry is empty: ${registryPath}`)
   if (existsSync(OUTPUT_ROOT)) rmSync(OUTPUT_ROOT, { recursive: true })
   ensureDir(join(OUTPUT_ROOT, 'by-edition'))
   ensureDir(join(OUTPUT_ROOT, 'page-context/by-edition'))
+  ensureDir(join(OUTPUT_ROOT, 'resources'))
+  writeJson(join(OUTPUT_ROOT, 'resources/index.json'), supportCatalog)
 
   const catalogItems = []
   const units = []
@@ -424,7 +475,9 @@ function main() {
   const standardScopesToTextbooks = {}
   for (const asset of assets) {
     const structure = normalizeStructure(loadStructure(asset.edition_id), asset.pages)
-    const resources = relatedResources(asset, assets)
+    const resources = relatedResources(asset, assets, supportCatalog)
+    const resourceUnitMappings = supportCatalog.unit_mappings.filter(mapping => mapping.target_edition_id === asset.edition_id)
+    const resourceUnitMappingGaps = supportCatalog.unit_mapping_gaps.filter(gap => gap.target_edition_id === asset.edition_id)
     const base = publicBase(asset, structure, generatedAt)
     base.related_resource_count = resources.length
     const detail = {
@@ -436,6 +489,8 @@ function main() {
       alignments: structure.alignments,
       standard_scopes: structure.standard_scopes,
       related_resources: resources,
+      resource_unit_mappings: resourceUnitMappings,
+      resource_unit_mapping_gaps: resourceUnitMappingGaps,
       extraction: structure.extraction
     }
     for (const scope of detail.standard_scopes) {
@@ -478,7 +533,7 @@ function main() {
         grade: base.grade,
         volume: base.volume,
         alignments: unitAlignments,
-        related_resources: resources
+        related_resources: projectRelatedResourcesForUnit(supportCatalog, asset.edition_id, entry.entry_id)
       }
       units.push(unit)
     }
@@ -503,7 +558,7 @@ function main() {
         node_kind: node?.kind || null,
         pdf_page: alignment.pdf_page ?? firstEvidence?.pdf_page ?? node?.pdf_page ?? unit?.pdf_page ?? null,
         printed_page: alignment.printed_page ?? firstEvidence?.printed_page ?? node?.printed_page ?? unit?.printed_page ?? null,
-        confidence: alignment.confidence,
+        confidence: Number.isFinite(alignment.confidence) ? alignment.confidence : undefined,
         rationale: alignment.rationale,
         relation_type: alignment.relation_type,
         learning_component_ids: alignment.learning_component_ids || [],
@@ -513,6 +568,7 @@ function main() {
         evidence_span_ids: alignment.evidence_span_ids || [],
         evidence_excerpt: alignment.evidence_excerpt || firstEvidence?.excerpt || firstEvidence?.text || null,
         evidence_excerpt_hash: alignment.evidence_excerpt_hash || firstEvidence?.excerpt_hash || firstEvidence?.text_hash || null,
+        evidence_quote: alignment.evidence_quote || null,
         evidence_spans: evidenceSpans.map(span => ({
           evidence_span_id: span.evidence_span_id,
           node_id: span.node_id,
@@ -523,6 +579,12 @@ function main() {
           excerpt_hash: span.excerpt_hash || span.text_hash || null
         })),
         evidence_role: alignment.evidence_role,
+        provenance: alignment.provenance || undefined,
+        semantic_decision: alignment.semantic_decision || undefined,
+        unit_assignment_status: alignment.unit_assignment_status || undefined,
+        source_mode: alignment.source_mode || undefined,
+        logical_item_id: alignment.logical_item_id || undefined,
+        prior_alignment_id: alignment.prior_alignment_id ?? undefined,
         review_status: alignment.review_status,
         publication_status: alignment.publication_status || 'published',
         alignment_method: alignment.alignment_method || null,

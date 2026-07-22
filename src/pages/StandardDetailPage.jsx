@@ -45,22 +45,6 @@ const FORWARD_RELATION_LABELS = {
     prepares_for: '为后续学习做准备'
 }
 
-const ALIGNMENT_LEVEL_LABELS = {
-    scope: '适用范围',
-    unit: '具体单元',
-    page: '教材页面证据',
-    unit_topic_candidate: '单元主题候选'
-}
-
-function buildCurriculumAlignmentReaderLink(item) {
-    const params = new URLSearchParams()
-    params.set('page', item.pdf_page)
-    if (item.node_id) params.set('node', item.node_id)
-    if (item.alignment_id) params.set('alignment', item.alignment_id)
-    params.set('panel', 'standards')
-    return `/textbooks/${item.edition_id}/read?${params.toString()}`
-}
-
 function normalizeDisplayValues(value) {
     const values = Array.isArray(value) ? value : value === null || value === undefined ? [] : [value]
     return values
@@ -189,41 +173,6 @@ function DifficultyCard({ item }) {
                 <CapabilityFact label="诊断追问" value={difficulty.diagnostic_probe} />
                 <CapabilityFact label="成功信号" value={difficulty.success_signal} />
             </dl>
-        </article>
-    )
-}
-
-function CurriculumAlignmentCard({ item }) {
-    const level = item.level || (item.evidence_level === 'L3_page_evidence' ? 'page' : item.unit_id || item.node_id ? 'unit' : 'scope')
-    const textbookLabel = item.textbook_title || item.edition_name || item.edition_id || '相关教材'
-    const isUnitTopicCandidate = level === 'unit_topic_candidate'
-    const isPageEvidence = level === 'page' || item.evidence_level === 'L3_page_evidence'
-    const canOpenReader = !isUnitTopicCandidate && ['unit', 'page'].includes(level) && item.edition_id && item.pdf_page
-    const readerLink = isPageEvidence || item.node_id ? buildCurriculumAlignmentReaderLink(item) : `/textbooks/${item.edition_id}/read?page=${item.pdf_page}`
-    const evidence = item.evidence_spans?.[0]
-    const components = item.learning_component_labels || item.learning_components || item.learning_component_ids || []
-    return (
-        <article className={styles['alignment-card']}>
-            <div className={styles['alignment-card-heading']}>
-                <span className={styles['alignment-level']}>{ALIGNMENT_LEVEL_LABELS[level] || level}</span>
-                {isPageEvidence ? <span className={`${styles['capability-status']} ${styles.machine}`}>机器生成</span> : <CapabilityStatus item={item} kindOverride={isUnitTopicCandidate ? 'machine' : ''} />}
-            </div>
-            <h4>{item.edition_id ? <Link to={`/textbooks/${item.edition_id}`}>{textbookLabel}</Link> : textbookLabel}</h4>
-            {item.node_title || item.unit_title || item.unit_id ? (
-                <p className={styles['alignment-unit']}>
-                    {item.unit_id ? <Link to={`/textbook-units/${item.unit_id}`}>{item.node_title || item.unit_title || '查看关联单元'}</Link> : item.node_title || item.unit_title}
-                </p>
-            ) : null}
-            <div className={styles['alignment-locators']}>
-                {canOpenReader ? (
-                    <Link to={readerLink}>PDF {item.pdf_page}{item.printed_page ? ` · 印刷页 ${item.printed_page}` : ''}</Link>
-                ) : isUnitTopicCandidate ? <span>待补页码证据</span> : item.printed_page ? <span>印刷页 {item.printed_page}</span> : null}
-                {item.evidence_role ? <span>{item.evidence_role === 'direct_textbook' ? '教材直接证据' : item.evidence_role}</span> : null}
-                {item.evidence_level ? <span>{item.evidence_level}</span> : null}
-            </div>
-            {components.length ? <div className={styles['alignment-components']}>{components.map(component => <span key={typeof component === 'string' ? component : component.component_id}>{typeof component === 'string' ? component : component.label || component.component_id}</span>)}</div> : null}
-            {evidence?.excerpt || item.evidence_excerpt ? <blockquote className={styles['alignment-evidence']}>“{evidence?.excerpt || item.evidence_excerpt}”</blockquote> : null}
-            {item.rationale ? <p>{item.rationale}</p> : null}
         </article>
     )
 }
@@ -868,19 +817,6 @@ function StandardDetailPage() {
                         </CapabilityGroup>
 
                         <CapabilityGroup
-                            eyebrow="ALIGNMENTS"
-                            title="教材证据"
-                            description="区分同学科、同学段适用范围与可定位到单元、页码的具体证据。"
-                            emptyMessage="暂无达到公开门槛的教材关联。"
-                            isEmpty={curriculum_alignments.length === 0}
-                            className={styles['capability-group-wide']}
-                        >
-                            <div className={styles['alignment-grid']}>
-                                {curriculum_alignments.map((item, index) => <CurriculumAlignmentCard key={item?.alignment_id || `alignment-${index}`} item={item} />)}
-                            </div>
-                        </CapabilityGroup>
-
-                        <CapabilityGroup
                             eyebrow="FORWARD"
                             title="后续学习去向"
                             description="说明这条标准将连接到哪些后续学习，并标明关系的证据状态。"
@@ -895,6 +831,7 @@ function StandardDetailPage() {
                             </div>
                         </>
                     )}
+                    <StandardTextbookLinks standardCode={code} />
                 </div>
             </section>
 
@@ -923,7 +860,6 @@ function StandardDetailPage() {
             {/* P1: Resources Placeholder */}
             <section className={styles['resources-section']} id="standard-resources" data-reading-section="standard-resources">
                 <div className="container">
-                    <StandardTextbookLinks standardCode={code} />
                     <button
                         className={`${styles['resources-header-btn']} ${resourcesExpanded ? styles.expanded : ''}`}
                         onClick={() => setResourcesExpanded(!resourcesExpanded)}

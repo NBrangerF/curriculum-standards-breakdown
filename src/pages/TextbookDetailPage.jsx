@@ -3,8 +3,8 @@ import { Link, useParams } from 'react-router-dom'
 import { ArrowLeftIcon } from '@phosphor-icons/react/dist/csr/ArrowLeft'
 import { BookOpenTextIcon } from '@phosphor-icons/react/dist/csr/BookOpenText'
 import { ArrowRightIcon } from '@phosphor-icons/react/dist/csr/ArrowRight'
-import { LinkSimpleIcon } from '@phosphor-icons/react/dist/csr/LinkSimple'
 import { LoadingState, ErrorState, EmptyState } from '../components/StateComponents'
+import TextbookAlignmentCard from '../features/textbooks/TextbookAlignmentCard'
 import TextbookCover from '../features/textbooks/TextbookCover'
 import TextbookStatus from '../features/textbooks/TextbookStatus'
 import { loadTextbookDetail } from '../features/textbooks/textbookApi'
@@ -138,7 +138,7 @@ export default function TextbookDetailPage() {
                     <section className={styles.section}>
                         <div className={styles.sectionHeading}><div><span>ALIGN</span><h2>课标与教材关联</h2></div><p>机器校验后直接展示，并附页内证据、置信度与算法版本。</p></div>
                         {book.alignments.length ? (
-                            <div className={styles.alignmentList}>{book.alignments.map(item => <article key={item.alignment_id}><LinkSimpleIcon size={18} aria-hidden="true" /><div><Link to={`/standards/${encodeURIComponent(item.standard_code)}`}>{item.standard_code}</Link><p>{item.standard_text}</p><small>{item.rationale}</small></div></article>)}</div>
+                            <div className={styles.alignmentList}>{book.alignments.map(item => <TextbookAlignmentCard key={item.alignment_id} book={book} alignment={item} />)}</div>
                         ) : <EmptyState title="暂无可靠的单元级关联" message={standardScopeCodes.length ? `已建立 ${standardScopeCodes.length} 条同学科、同学段课标范围关系；可以先浏览下方相关课标，具体单元证据仍需增强。` : '尚未生成具体单元证据或适用范围关系。'} />}
                         <StandardScopeLinks standardCodes={standardScopeCodes} />
                     </section>

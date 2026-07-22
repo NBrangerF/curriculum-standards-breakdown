@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kebiao.org/schemas/textbook-support-resource-manifest-v1.json",
+  "title": "kebiao textbook support resource manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "resources"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "resources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/resource" }
+    }
+  },
+  "$defs": {
+    "resource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resource_type", "bibliography", "asset", "structure", "provenance"],
+      "properties": {
+        "resource_id": { "type": "string", "pattern": "^res_[a-f0-9]{24}$" },
+        "edition_id": { "type": "string", "pattern": "^ed_[A-Za-z0-9]+$" },
+        "work_id": { "type": "string", "pattern": "^work_[A-Za-z0-9]+$" },
+        "resource_type": {
+          "enum": ["teacher_guide", "teaching_reference", "textbook_explanation", "workbook", "answer_key", "student_companion"]
+        },
+        "bibliography": { "$ref": "#/$defs/bibliography" },
+        "target": { "$ref": "#/$defs/target" },
+        "targets": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/target" }
+        },
+        "asset": { "$ref": "#/$defs/asset" },
+        "structure": { "$ref": "#/$defs/structure" },
+        "unit_mappings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/unit_mapping" }
+        },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "bibliography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "stage", "subject", "subject_slug", "grade", "volume", "publisher", "edition_name", "edition_statement", "revision_year", "isbn"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "stage": { "enum": ["primary", "junior"] },
+        "subject": { "type": "string", "minLength": 1 },
+        "subject_slug": { "type": "string", "minLength": 1 },
+        "grade": { "type": "integer", "minimum": 1, "maximum": 9 },
+        "volume": { "enum": ["上册", "下册", "全一册"] },
+        "publisher": { "type": ["string", "null"] },
+        "edition_name": { "type": "string", "minLength": 1 },
+        "edition_statement": { "type": ["string", "null"] },
+        "revision_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2200 },
+        "isbn": { "type": ["string", "null"] }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject_slug", "grade", "volume"],
+      "properties": {
+        "edition_id": { "type": "string", "pattern": "^ed_[A-Za-z0-9]+$" },
+        "subject_slug": { "type": "string", "minLength": 1 },
+        "grade": { "type": "integer", "minimum": 1, "maximum": 9 },
+        "volume": { "enum": ["上册", "下册", "全一册"] },
+        "publisher": { "type": ["string", "null"] },
+        "edition_name": { "type": ["string", "null"] },
+        "revision_year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2200 }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["availability"],
+      "properties": {
+        "asset_id": { "type": "string", "pattern": "^asset_[A-Za-z0-9]+$" },
+        "availability": { "enum": ["available", "manifest_only", "missing"] },
+        "source_locator": { "type": ["string", "null"] },
+        "source_path": { "type": ["string", "null"] },
+        "sha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+        "bytes": { "type": ["integer", "null"], "minimum": 1 },
+        "pages": { "type": ["integer", "null"], "minimum": 1 },
+        "object_path": { "type": ["string", "null"] },
+        "local_path": { "type": ["string", "null"] },
+        "r2_bucket": { "type": ["string", "null"] },
+        "r2_key": { "type": ["string", "null"] }
+      }
+    },
+    "structure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["toc", "page_map"],
+      "properties": {
+        "toc": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/section" }
+        },
+        "page_map": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/page_map" }
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_key", "parent_ref", "level", "kind", "title", "printed_page_start", "printed_page_end", "pdf_page_start", "pdf_page_end"],
+      "properties": {
+        "section_id": { "type": "string", "minLength": 1 },
+        "source_key": { "type": "string", "minLength": 1 },
+        "parent_ref": { "type": ["string", "null"] },
+        "level": { "type": "integer", "minimum": 1 },
+        "kind": { "enum": ["part", "unit", "chapter", "lesson", "section", "appendix", "other"] },
+        "title": { "type": "string", "minLength": 1 },
+        "printed_page_start": { "type": ["string", "null"] },
+        "printed_page_end": { "type": ["string", "null"] },
+        "pdf_page_start": { "type": ["integer", "null"], "minimum": 1 },
+        "pdf_page_end": { "type": ["integer", "null"], "minimum": 1 }
+      }
+    },
+    "page_map": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pdf_page", "printed_page", "label"],
+      "properties": {
+        "pdf_page": { "type": "integer", "minimum": 1 },
+        "printed_page": { "type": ["string", "null"] },
+        "label": { "type": "string", "minLength": 1 }
+      }
+    },
+    "unit_mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target_edition_id", "target_unit_id", "resource_section_ref", "confidence"],
+      "properties": {
+        "target_edition_id": { "type": "string", "pattern": "^ed_[A-Za-z0-9]+$" },
+        "target_unit_id": { "type": "string", "minLength": 1 },
+        "resource_section_ref": { "type": "string", "minLength": 1 },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_kind", "source_ref", "generated_from"],
+      "properties": {
+        "source_kind": { "type": "string", "minLength": 1 },
+        "source_ref": { "type": ["string", "null"] },
+        "generated_from": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

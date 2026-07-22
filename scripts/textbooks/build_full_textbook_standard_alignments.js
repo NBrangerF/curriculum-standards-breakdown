@@ -217,6 +217,15 @@ function isContentEvidenceAlignment(row) {
     && row.evidence_span_ids.length > 0
 }
 
+function isLlmPageOnlyAlignment(row) {
+  return row.alignment_method === 'llm_semantic_adjudication'
+    && row.unit_assignment_status === 'unassigned_page_only'
+    && /^L3(?:_|$)/.test(String(row.evidence_level_detail || row.evidence_level || ''))
+    && String(row.unit_id || '').startsWith('tpu_')
+    && String(row.unit_title || '').startsWith('未分配单元 · PDF ')
+    && isContentEvidenceAlignment(row)
+}
+
 function isPublishedUnit(row) {
   return row.review_status === 'approved'
     || (row.review_status === 'machine_checked'
@@ -386,9 +395,12 @@ function build() {
       }
     }
     structure.alignments = [...new Map(published.map(row => [row.alignment_id, row])).values()]
-      .sort((a, b) => a.unit_id.localeCompare(b.unit_id) || a.standard_code.localeCompare(b.standard_code))
+      .sort((a, b) => String(a.unit_id || a.node_id || '').localeCompare(String(b.unit_id || b.node_id || ''))
+        || String(a.standard_code || '').localeCompare(String(b.standard_code || ''))
+        || String(a.alignment_id || '').localeCompare(String(b.alignment_id || '')))
     structure.standard_scopes = scopeBlocks
     writeJson(structurePath, structure)
+    const hasPageOnlyLlmEvidence = published.some(isLlmPageOnlyAlignment)
     textbookDispositions.push({
       edition_id: asset.edition_id,
       evidence_id: asset.evidence_id,
@@ -408,7 +420,11 @@ function build() {
       structure_status_reason: units.length
         ? null
         : structure.audit?.ocr?.status || (structure.toc?.length ? 'no_approved_toc_entries' : 'no_toc_detected'),
-      status: !mappings.length ? 'no_standard_subject_mapping' : !units.length ? 'scope_only_no_toc' : published.length ? 'unit_aligned' : 'scope_aligned_unit_review_needed'
+      status: !mappings.length
+        ? 'no_standard_subject_mapping'
+        : !units.length
+          ? hasPageOnlyLlmEvidence ? 'page_aligned_no_toc' : 'scope_only_no_toc'
+          : published.length ? 'unit_aligned' : 'scope_aligned_unit_review_needed'
     })
   }
 

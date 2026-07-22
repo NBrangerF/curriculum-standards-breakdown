@@ -8,9 +8,8 @@
 .grid section,.grid aside { min-width: 0; }
 .grid h2 { margin-bottom: var(--space-5); font-size: 1.2rem; }
 .list { display: grid; gap: .7rem; }
-.list article,.grid aside { padding: 1rem; border: 1px solid var(--kb-hairline); border-radius: var(--radius-lg); background: var(--kb-surface); }
-.list p { margin-top: .5rem; color: var(--kb-ink); font-size: .82rem; }
-.list small,.grid aside p { display: block; margin-top: .5rem; color: var(--text-secondary); font-size: .7rem; }
+.grid aside { padding: 1rem; border: 1px solid var(--kb-hairline); border-radius: var(--radius-lg); background: var(--kb-surface); }
+.grid aside p { display: block; margin-top: .5rem; color: var(--text-secondary); font-size: .7rem; }
 .grid aside ul { display: grid; gap: .5rem; list-style: none; }
 
 @media (max-width: 760px) { .page header { padding: var(--space-6); } .grid { grid-template-columns: 1fr; } }

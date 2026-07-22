@@ -1,0 +1,1062 @@
+#!/usr/bin/env node
+
+/**
+ * LLM-first textbook -> curriculum-standard semantic alignment pipeline.
+ *
+ * Local code is allowed to select same-subject/same-grade scope candidates and
+ * collect page evidence. It is deliberately forbidden from deciding semantic
+ * matches: every decision, relation type and rationale comes from validated
+ * Responses API Structured Outputs. Canonical data is never mutated here.
+ */
+
+import { createHash } from 'node:crypto'
+import {
+  appendFileSync,
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  readdirSync,
+  renameSync,
+  writeFileSync
+} from 'node:fs'
+import { basename, dirname, join, resolve } from 'node:path'
+import { pathToFileURL } from 'node:url'
+import {
+  LLM_ALIGNMENT_INSTRUCTIONS,
+  LLM_ALIGNMENT_PROMPT_VERSION,
+  LLM_ALIGNMENT_SCHEMA_VERSION,
+  alignmentInputHash,
+  makeAlignmentResponseInput,
+  normalizeAlignmentText,
+  stableAlignmentId,
+  stableCanonicalJson,
+  validateAlignmentModelOutput
+} from './llm_textbook_standard_alignment_contract.js'
+import {
+  requestAlignmentAdjudication,
+  resolveAlignmentLlmConfig
+} from './llm_textbook_standard_alignment_provider.js'
+
+const ROOT = resolve(import.meta.dirname, '../..')
+const CATALOG_PATH = join(ROOT, 'public/data/textbooks/index.json')
+const STRUCTURE_ROOT = join(ROOT, 'data/textbooks/derived/by-edition')
+const STANDARD_ROOT = join(ROOT, 'public/data/by_subject')
+const CAPABILITY_ROOT = join(ROOT, 'public/data/capability_graph/by_code')
+const DEFAULT_LIBRARY_ROOT = process.env.TEXTBOOK_LIBRARY_ROOT || '/Volumes/X9 Pro/kebiao-library'
+const DEFAULT_OUTPUT_ROOT = join(ROOT, 'output/textbook-standard-llm')
+
+const TEXTBOOK_TO_STANDARD_SUBJECT = {
+  chinese: 'chinese',
+  math: 'math',
+  english: 'english',
+  science: 'science',
+  physics: 'science',
+  chemistry: 'science',
+  biology: 'science',
+  geography: 'science',
+  morality_law: 'morality_law',
+  history: 'morality_law',
+  pe: 'pe',
+  art: 'arts',
+  music: 'arts',
+  arts: 'arts',
+  labor: 'labor',
+  it: 'it',
+  information_technology: 'it'
+}
+
+function readJson(path) {
+  return JSON.parse(readFileSync(path, 'utf8'))
+}
+
+function sha256(value) {
+  return createHash('sha256').update(String(value)).digest('hex')
+}
+
+function stableId(prefix, ...parts) {
+  return `${prefix}_${sha256(parts.map(value => String(value ?? '')).join('\u001f')).slice(0, 20)}`
+}
+
+function atomicWriteJson(path, value) {
+  mkdirSync(dirname(path), { recursive: true })
+  const temporary = `${path}.tmp-${process.pid}`
+  writeFileSync(temporary, `${JSON.stringify(value, null, 2)}\n`)
+  renameSync(temporary, path)
+}
+
+function atomicWriteJsonLines(path, rows) {
+  mkdirSync(dirname(path), { recursive: true })
+  const temporary = `${path}.tmp-${process.pid}`
+  writeFileSync(temporary, rows.length ? `${rows.map(row => JSON.stringify(row)).join('\n')}\n` : '')
+  renameSync(temporary, path)
+}
+
+function readJsonLines(path) {
+  if (!existsSync(path)) return []
+  return readFileSync(path, 'utf8').split(/\r?\n/u).filter(Boolean).flatMap((line, index) => {
+    try {
+      return [JSON.parse(line)]
+    } catch {
+      throw new Error(`Invalid JSONL at ${path}:${index + 1}`)
+    }
+  })
+}
+
+function numberArg(value, label, { integer = false, minimum = 0, maximum = Number.MAX_SAFE_INTEGER } = {}) {
+  const parsed = Number(value)
+  if (!Number.isFinite(parsed) || (integer && !Number.isInteger(parsed)) || parsed < minimum || parsed > maximum) {
+    throw new Error(`Invalid ${label}: ${value}`)
+  }
+  return parsed
+}
+
+function pushCsv(target, value) {
+  target.push(...String(value || '').split(',').map(item => item.trim()).filter(Boolean))
+}
+
+export function parseAlignmentArgs(argv) {
+  const args = {
+    all: false,
+    editionIds: [],
+    subjects: [],
+    mode: 'both',
+    provider: null,
+    dryRun: false,
+    resume: true,
+    libraryRoot: resolve(DEFAULT_LIBRARY_ROOT),
+    outputPath: null,
+    cacheRoot: join(DEFAULT_OUTPUT_ROOT, 'cache'),
+    batchSize: 3,
+    candidatesPerItem: 8,
+    sidecarPagesPerItem: 2,
+    evidenceSpansPerPage: 8,
+    maxItems: 0,
+    concurrency: 2,
+    maxOutputTokens: 3_500,
+    maxRequests: 30,
+    maxInputTokens: 160_000,
+    maxOutputTokensTotal: 60_000,
+    maxUsd: 5,
+    inputUsdPerMillion: 10,
+    outputUsdPerMillion: 40,
+    validationRetries: 1
+  }
+  for (let index = 0; index < argv.length; index += 1) {
+    const value = argv[index]
+    if (value === '--all') args.all = true
+    else if (value === '--edition' || value === '--edition-id') pushCsv(args.editionIds, argv[++index])
+    else if (value === '--subject') pushCsv(args.subjects, argv[++index])
+    else if (value === '--mode') args.mode = argv[++index]
+    else if (value === '--provider') args.provider = String(argv[++index] || '').trim()
+    else if (value === '--dry-run') args.dryRun = true
+    else if (value === '--no-resume') args.resume = false
+    else if (value === '--library-root') args.libraryRoot = resolve(argv[++index])
+    else if (value === '--output') args.outputPath = resolve(argv[++index])
+    else if (value === '--cache-root') args.cacheRoot = resolve(argv[++index])
+    else if (value === '--batch-size') args.batchSize = numberArg(argv[++index], 'batch-size', { integer: true, minimum: 1, maximum: 12 })
+    else if (value === '--candidates-per-item') args.candidatesPerItem = numberArg(argv[++index], 'candidates-per-item', { integer: true, minimum: 1, maximum: 40 })
+    else if (value === '--sidecar-pages-per-item') args.sidecarPagesPerItem = numberArg(argv[++index], 'sidecar-pages-per-item', { integer: true, minimum: 1, maximum: 8 })
+    else if (value === '--evidence-spans-per-page') args.evidenceSpansPerPage = numberArg(argv[++index], 'evidence-spans-per-page', { integer: true, minimum: 1, maximum: 24 })
+    else if (value === '--max-items') args.maxItems = numberArg(argv[++index], 'max-items', { integer: true, minimum: 0 })
+    else if (value === '--concurrency') args.concurrency = numberArg(argv[++index], 'concurrency', { integer: true, minimum: 1, maximum: 8 })
+    else if (value === '--max-output-tokens') args.maxOutputTokens = numberArg(argv[++index], 'max-output-tokens', { integer: true, minimum: 256, maximum: 12_000 })
+    else if (value === '--max-requests') args.maxRequests = numberArg(argv[++index], 'max-requests', { integer: true, minimum: 1 })
+    else if (value === '--max-input-tokens') args.maxInputTokens = numberArg(argv[++index], 'max-input-tokens', { integer: true, minimum: 1 })
+    else if (value === '--max-total-output-tokens') args.maxOutputTokensTotal = numberArg(argv[++index], 'max-total-output-tokens', { integer: true, minimum: 1 })
+    else if (value === '--max-usd') args.maxUsd = numberArg(argv[++index], 'max-usd', { minimum: 0.01 })
+    else if (value === '--input-usd-per-million') args.inputUsdPerMillion = numberArg(argv[++index], 'input-usd-per-million', { minimum: 0 })
+    else if (value === '--output-usd-per-million') args.outputUsdPerMillion = numberArg(argv[++index], 'output-usd-per-million', { minimum: 0 })
+    else if (value === '--validation-retries') args.validationRetries = numberArg(argv[++index], 'validation-retries', { integer: true, minimum: 0, maximum: 1 })
+    else throw new Error(`Unknown argument: ${value}`)
+  }
+  if (!['adjudicate', 'discover', 'both'].includes(args.mode)) throw new Error(`Invalid mode: ${args.mode}`)
+  if (args.provider && !['responses', 'openai_responses', 'codex_cli'].includes(args.provider)) {
+    throw new Error(`Invalid provider: ${args.provider}. Use openai_responses or codex_cli.`)
+  }
+  args.editionIds = [...new Set(args.editionIds)].sort()
+  args.subjects = [...new Set(args.subjects)].sort()
+  if (!args.all && !args.editionIds.length && !args.subjects.length) {
+    throw new Error('Refusing an unscoped run. Use --edition, --subject, or the explicit --all flag.')
+  }
+  return args
+}
+
+export function gradeBand(grade) {
+  const value = Number(grade)
+  if (value <= 2) return 'H1'
+  if (value <= 4) return 'H2'
+  if (value <= 6) return 'H3'
+  return `H4G${value}`
+}
+
+function mappedStandardSubject(subjectSlug) {
+  return TEXTBOOK_TO_STANDARD_SUBJECT[subjectSlug] || subjectSlug
+}
+
+export function loadStandardIndex() {
+  const standards = new Map()
+  for (const file of readdirSync(STANDARD_ROOT).filter(name => name.endsWith('.json')).sort()) {
+    const payload = readJson(join(STANDARD_ROOT, file))
+    const fileSubject = basename(file, '.json')
+    for (const row of payload.standards || []) {
+      standards.set(row.code, {
+        ...row,
+        subject_slug: row.subject_slug || fileSubject
+      })
+    }
+  }
+  return standards
+}
+
+const learningComponentCache = new Map()
+
+function loadLearningComponents(code) {
+  if (learningComponentCache.has(code)) return learningComponentCache.get(code)
+  const path = join(CAPABILITY_ROOT, `${code}.json`)
+  if (!existsSync(path)) {
+    learningComponentCache.set(code, [])
+    return []
+  }
+  const components = (readJson(path).learning_components || []).map(component => ({
+    component_id: component.component_id,
+    label: normalizeAlignmentText(component.label || component.source_statement || component.description)
+  })).filter(component => component.component_id && component.label)
+  learningComponentCache.set(code, components)
+  return components
+}
+
+function candidateFromStandard(itemId, standard) {
+  return {
+    candidate_id: stableId('llmc', itemId, standard.code),
+    standard_code: standard.code,
+    subject_slug: standard.subject_slug,
+    grade_band: standard.grade_band,
+    standard_title: normalizeAlignmentText(standard.standard_title),
+    standard_text: normalizeAlignmentText(standard.standard || standard.official_text),
+    official_text: normalizeAlignmentText(standard.official_text),
+    domain: normalizeAlignmentText(standard.domain || standard.subdomain || standard.display_subcategory),
+    learning_components: loadLearningComponents(standard.code)
+  }
+}
+
+function catalogSelected(row, args) {
+  if (args.editionIds.length && !args.editionIds.includes(row.edition_id)) return false
+  if (!args.subjects.length) return true
+  return args.subjects.includes(row.subject_slug) || args.subjects.includes(mappedStandardSubject(row.subject_slug))
+}
+
+function normalizedEvidence(span, fallback = {}) {
+  const evidenceSpanId = span.evidence_span_id || span.span_id
+  const excerpt = String(span.excerpt || span.text || '').trim()
+  if (!evidenceSpanId || !excerpt) return null
+  return {
+    evidence_span_id: evidenceSpanId,
+    node_id: span.node_id || fallback.node_id || null,
+    node_kind: fallback.node_kind || span.evidence_role || span.role || 'page_excerpt',
+    node_title: fallback.node_title || span.title || excerpt.slice(0, 100),
+    pdf_page: Number(span.pdf_page) || null,
+    printed_page: span.printed_page == null ? null : String(span.printed_page),
+    excerpt,
+    excerpt_hash: span.excerpt_hash || span.text_hash || sha256(excerpt),
+    bbox: span.bbox || null,
+    evidence_role: span.evidence_role || span.role || 'textbook_page_excerpt',
+    source: span.source || fallback.source || 'derived_evidence_span',
+    extraction_method: span.extraction_method || null,
+    generated_by_pipeline: Boolean(span.generated_by_pipeline)
+  }
+}
+
+function unitForNode(structure, node) {
+  const tocById = new Map((structure.toc || []).map(unit => [unit.entry_id, unit]))
+  return tocById.get(node?.unit_id) || null
+}
+
+export function buildExistingAdjudicationItems(catalog, structure, standardsByCode) {
+  const spansById = new Map((structure.evidence_spans || []).map(span => [span.evidence_span_id || span.span_id, span]))
+  const nodesById = new Map((structure.content_nodes || []).map(node => [node.node_id, node]))
+  const items = []
+  const skipped = []
+  for (const alignment of structure.alignments || []) {
+    const standard = standardsByCode.get(alignment.standard_code)
+    if (!standard) {
+      skipped.push({ alignment_id: alignment.alignment_id, reason: 'standard_not_found' })
+      continue
+    }
+    const node = nodesById.get(alignment.node_id)
+    const unit = unitForNode(structure, node) || (structure.toc || []).find(row => row.entry_id === alignment.unit_id)
+    let evidence = (alignment.evidence_span_ids || []).map(id => spansById.get(id)).filter(Boolean)
+      .map(span => normalizedEvidence(span, { node_id: node?.node_id, node_kind: node?.kind, node_title: node?.title }))
+      .filter(Boolean)
+    if (!evidence.length && alignment.evidence_excerpt) {
+      const excerpt = String(alignment.evidence_excerpt).trim()
+      evidence = [normalizedEvidence({
+        evidence_span_id: stableId('tes_llm_fallback', alignment.alignment_id, excerpt),
+        node_id: alignment.node_id || null,
+        pdf_page: alignment.pdf_page,
+        printed_page: alignment.printed_page,
+        excerpt,
+        excerpt_hash: alignment.evidence_excerpt_hash || sha256(excerpt),
+        evidence_role: alignment.evidence_role || 'legacy_alignment_excerpt',
+        source: 'existing_alignment_fallback',
+        generated_by_pipeline: true
+      }, { node_kind: alignment.content_node_kind, node_title: alignment.content_node_title })].filter(Boolean)
+    }
+    if (!evidence.length) {
+      skipped.push({ alignment_id: alignment.alignment_id, reason: 'no_verbatim_evidence' })
+      continue
+    }
+    const itemId = `existing:${alignment.alignment_id}`
+    items.push({
+      item_id: itemId,
+      logical_item_id: itemId,
+      source_mode: 'adjudicate_existing',
+      prior_alignment_id: alignment.alignment_id,
+      textbook: {
+        edition_id: catalog.edition_id,
+        evidence_id: catalog.evidence_id,
+        title: catalog.title,
+        subject: catalog.subject,
+        subject_slug: catalog.subject_slug,
+        grade: catalog.grade,
+        volume: catalog.volume
+      },
+      unit: {
+        unit_id: alignment.unit_id || node?.unit_id || unit?.entry_id || null,
+        title: alignment.unit_title || unit?.title || '',
+        pdf_page_start: Number(unit?.pdf_page) || evidence[0].pdf_page,
+        pdf_page_end: Number(unit?.end_pdf_page) || evidence[0].pdf_page,
+        assignment_status: unit ? 'assigned_toc_unit' : 'unassigned_existing_alignment'
+      },
+      evidence,
+      candidates: [candidateFromStandard(itemId, standard)]
+    })
+  }
+  return { items, skipped }
+}
+
+function unionBbox(boxes) {
+  const usable = boxes.filter(box => box && Number.isFinite(Number(box.x)) && Number.isFinite(Number(box.y)))
+  if (!usable.length) return null
+  const x = Math.min(...usable.map(box => Number(box.x)))
+  const y = Math.min(...usable.map(box => Number(box.y)))
+  const right = Math.max(...usable.map(box => Number(box.x) + Number(box.width || 0)))
+  const bottom = Math.max(...usable.map(box => Number(box.y) + Number(box.height || 0)))
+  const first = usable[0]
+  return {
+    x,
+    y,
+    width: Math.max(0, right - x),
+    height: Math.max(0, bottom - y),
+    unit: first.unit || 'unknown',
+    ...(Number(first.page_width) > 0 ? { page_width: Number(first.page_width) } : {}),
+    ...(Number(first.page_height) > 0 ? { page_height: Number(first.page_height) } : {})
+  }
+}
+
+function chunkPageLines(catalog, structure, page, spansPerPage) {
+  const rawLines = Array.isArray(page.lines) && page.lines.length
+    ? page.lines.map(line => ({ text: String(line.text || '').trim(), bbox: line.bbox || null })).filter(line => line.text)
+    : [{ text: String(page.text || '').trim(), bbox: null }].filter(line => line.text)
+  const groups = []
+  let active = []
+  let characters = 0
+  for (const line of rawLines) {
+    if (active.length && characters + line.text.length > 420) {
+      groups.push(active)
+      active = []
+      characters = 0
+    }
+    active.push(line)
+    characters += line.text.length + 1
+  }
+  if (active.length) groups.push(active)
+  const selected = groups.length <= spansPerPage
+    ? groups
+    : Array.from({ length: spansPerPage }, (_, index) => groups[Math.floor(index * groups.length / spansPerPage)])
+  return selected.map((lines, index) => {
+    const excerpt = lines.map(line => line.text).join('\n').trim()
+    const sourceHash = sha256(stableCanonicalJson({
+      asset_sha256: structure.content_alignment?.source_asset_sha256 || '',
+      pdf_page: page.pdf_page,
+      index,
+      excerpt
+    }))
+    const nodeId = stableId('tcn_llm', catalog.edition_id, page.pdf_page, index, sourceHash)
+    return normalizedEvidence({
+      evidence_span_id: stableId('tes_llm', catalog.edition_id, page.pdf_page, index, sourceHash),
+      node_id: nodeId,
+      pdf_page: page.pdf_page,
+      printed_page: page.printed_page,
+      excerpt,
+      excerpt_hash: sha256(excerpt),
+      bbox: unionBbox(lines.map(line => line.bbox)),
+      evidence_role: 'textbook_page_excerpt',
+      source: 'external_textbook_sidecar',
+      extraction_method: page.extraction_method || page.extraction_status || 'unknown',
+      generated_by_pipeline: true
+    }, {
+      node_id: nodeId,
+      node_kind: 'page_excerpt',
+      node_title: excerpt.slice(0, 100),
+      source: 'external_textbook_sidecar'
+    })
+  }).filter(Boolean)
+}
+
+export function loadEditionSidecarPages(structure, libraryRoot) {
+  const relativePath = structure.content_alignment?.sidecar_path
+  if (!relativePath) return { pages: [], status: 'sidecar_not_declared', path: null }
+  const path = resolve(libraryRoot, relativePath)
+  const safeRoot = `${resolve(libraryRoot)}/`
+  if (!path.startsWith(safeRoot)) return { pages: [], status: 'sidecar_path_outside_library', path: null }
+  if (!existsSync(path)) return { pages: [], status: 'sidecar_missing', path }
+  return { pages: readJsonLines(path), status: 'loaded', path }
+}
+
+function publishedUnitRanges(structure) {
+  return (structure.toc || []).filter(unit => Number(unit.pdf_page) > 0).map(unit => ({
+    ...unit,
+    start: Number(unit.pdf_page),
+    end: Math.max(Number(unit.pdf_page), Number(unit.end_pdf_page) || Number(unit.pdf_page))
+  })).sort((a, b) => a.start - b.start || a.end - b.end || a.entry_id.localeCompare(b.entry_id))
+}
+
+function chunks(values, size) {
+  const result = []
+  for (let index = 0; index < values.length; index += size) result.push(values.slice(index, index + size))
+  return result
+}
+
+function standardsInScope(catalog, standardsByCode) {
+  const subject = mappedStandardSubject(catalog.subject_slug)
+  const band = gradeBand(catalog.grade)
+  return [...standardsByCode.values()].filter(standard => standard.subject_slug === subject && standard.grade_band === band)
+    .sort((a, b) => a.code.localeCompare(b.code))
+}
+
+/**
+ * Discover gaps from all standards in the edition's curriculum scope. Sidecar
+ * page lines are converted into auditable candidate spans without semantic
+ * filtering; the LLM alone chooses whether any span supports a candidate.
+ */
+export function buildDiscoveryItems(catalog, structure, standardsByCode, args) {
+  const scope = standardsInScope(catalog, standardsByCode)
+  const existingByUnit = new Map()
+  for (const alignment of structure.alignments || []) {
+    const unitId = alignment.unit_id || null
+    if (!existingByUnit.has(unitId)) existingByUnit.set(unitId, new Set())
+    existingByUnit.get(unitId).add(alignment.standard_code)
+  }
+  const sidecar = loadEditionSidecarPages(structure, args.libraryRoot)
+  const pagesByNumber = new Map(sidecar.pages.map(page => [Number(page.pdf_page), page]))
+  const spansById = new Map((structure.evidence_spans || []).map(span => [span.evidence_span_id || span.span_id, span]))
+  const nodesByUnit = new Map()
+  for (const node of structure.content_nodes || []) {
+    if (!node.unit_id) continue
+    if (!nodesByUnit.has(node.unit_id)) nodesByUnit.set(node.unit_id, [])
+    nodesByUnit.get(node.unit_id).push(node)
+  }
+
+  const logicalItems = []
+  const unitRanges = publishedUnitRanges(structure)
+  const discoveryRanges = unitRanges.length
+    ? unitRanges.map(unit => ({ ...unit, assignment_status: 'assigned_toc_unit' }))
+    : chunks(sidecar.pages.filter(page => Number(page.pdf_page) > 0).sort((a, b) => Number(a.pdf_page) - Number(b.pdf_page)), args.sidecarPagesPerItem)
+      .filter(window => window.length)
+      .map(window => {
+        const start = Number(window[0].pdf_page)
+        const end = Number(window.at(-1).pdf_page)
+        const entryId = stableId('tpu', catalog.edition_id, start, end, structure.content_alignment?.source_asset_sha256 || '')
+        return {
+          entry_id: entryId,
+          title: `未分配单元 · PDF ${start}${end === start ? '' : `–${end}`}`,
+          start,
+          end,
+          assignment_status: 'unassigned_page_only'
+        }
+      })
+  for (const unit of discoveryRanges) {
+    const pageRows = []
+    for (let page = unit.start; page <= unit.end; page += 1) {
+      if (pagesByNumber.has(page)) pageRows.push(pagesByNumber.get(page))
+    }
+    const pageWindows = chunks(pageRows, args.sidecarPagesPerItem)
+    if (pageWindows.length) {
+      for (let windowIndex = 0; windowIndex < pageWindows.length; windowIndex += 1) {
+        const evidence = pageWindows[windowIndex].flatMap(page => chunkPageLines(
+          catalog,
+          structure,
+          page,
+          args.evidenceSpansPerPage
+        ))
+        if (!evidence.length) continue
+        logicalItems.push({
+          logical_item_id: `discover:${catalog.edition_id}:${unit.entry_id}:pages-${pageWindows[windowIndex][0].pdf_page}-${pageWindows[windowIndex].at(-1).pdf_page}`,
+          source_mode: 'discover_scope_sidecar',
+          textbook: {
+            edition_id: catalog.edition_id,
+            evidence_id: catalog.evidence_id,
+            title: catalog.title,
+            subject: catalog.subject,
+            subject_slug: catalog.subject_slug,
+            grade: catalog.grade,
+            volume: catalog.volume
+          },
+          unit: {
+            unit_id: unit.entry_id,
+            title: unit.title,
+            pdf_page_start: pageWindows[windowIndex][0].pdf_page,
+            pdf_page_end: pageWindows[windowIndex].at(-1).pdf_page,
+            assignment_status: unit.assignment_status
+          },
+          evidence,
+          standards: scope.filter(standard => (
+            args.mode !== 'both' || !existingByUnit.get(unit.entry_id)?.has(standard.code)
+          ))
+        })
+      }
+      continue
+    }
+
+    const derivedEvidence = (nodesByUnit.get(unit.entry_id) || []).flatMap(node => (
+      (node.evidence_span_ids || []).map(id => spansById.get(id)).filter(Boolean).map(span => normalizedEvidence(span, {
+        node_id: node.node_id,
+        node_kind: node.kind,
+        node_title: node.title
+      })).filter(Boolean)
+    ))
+    if (!derivedEvidence.length) continue
+    logicalItems.push({
+      logical_item_id: `discover:${catalog.edition_id}:${unit.entry_id}:derived`,
+      source_mode: 'discover_scope_derived',
+      textbook: {
+        edition_id: catalog.edition_id,
+        evidence_id: catalog.evidence_id,
+        title: catalog.title,
+        subject: catalog.subject,
+        subject_slug: catalog.subject_slug,
+        grade: catalog.grade,
+        volume: catalog.volume
+      },
+      unit: {
+        unit_id: unit.entry_id,
+        title: unit.title,
+        pdf_page_start: unit.start,
+        pdf_page_end: unit.end,
+        assignment_status: unit.assignment_status
+      },
+      evidence: derivedEvidence.slice(0, args.sidecarPagesPerItem * args.evidenceSpansPerPage),
+      standards: scope.filter(standard => (
+        args.mode !== 'both' || !existingByUnit.get(unit.entry_id)?.has(standard.code)
+      ))
+    })
+  }
+
+  const items = []
+  for (const logical of logicalItems) {
+    const standardChunks = chunks(logical.standards, args.candidatesPerItem)
+    for (let index = 0; index < standardChunks.length; index += 1) {
+      const itemId = `${logical.logical_item_id}:c${String(index + 1).padStart(2, '0')}`
+      items.push({
+        item_id: itemId,
+        logical_item_id: logical.logical_item_id,
+        source_mode: logical.source_mode,
+        textbook: logical.textbook,
+        unit: logical.unit,
+        evidence: logical.evidence,
+        candidates: standardChunks[index].map(standard => candidateFromStandard(itemId, standard))
+      })
+    }
+  }
+  return {
+    items,
+    sidecar_status: sidecar.status,
+    sidecar_page_count: sidecar.pages.length,
+    scope_standard_count: scope.length
+  }
+}
+
+export function buildAlignmentWork({ catalogs, structuresByEdition, standardsByCode, args }) {
+  const items = []
+  const skipped = []
+  const editions = []
+  for (const catalog of catalogs) {
+    const structure = structuresByEdition.get(catalog.edition_id)
+    if (!structure) {
+      skipped.push({ edition_id: catalog.edition_id, reason: 'structure_not_found' })
+      continue
+    }
+    const editionSummary = { edition_id: catalog.edition_id, adjudication_items: 0, discovery_items: 0 }
+    if (args.mode === 'adjudicate' || args.mode === 'both') {
+      const existing = buildExistingAdjudicationItems(catalog, structure, standardsByCode)
+      items.push(...existing.items)
+      skipped.push(...existing.skipped.map(row => ({ edition_id: catalog.edition_id, ...row })))
+      editionSummary.adjudication_items = existing.items.length
+    }
+    if (args.mode === 'discover' || args.mode === 'both') {
+      const discovery = buildDiscoveryItems(catalog, structure, standardsByCode, args)
+      items.push(...discovery.items)
+      editionSummary.discovery_items = discovery.items.length
+      editionSummary.page_only_discovery_items = discovery.items.filter(item => item.unit.assignment_status === 'unassigned_page_only').length
+      editionSummary.sidecar_status = discovery.sidecar_status
+      editionSummary.sidecar_page_count = discovery.sidecar_page_count
+      editionSummary.scope_standard_count = discovery.scope_standard_count
+    }
+    editions.push(editionSummary)
+  }
+  const sorted = items.sort((a, b) => a.textbook.edition_id.localeCompare(b.textbook.edition_id) || a.item_id.localeCompare(b.item_id))
+  return {
+    items: args.maxItems > 0 ? sorted.slice(0, args.maxItems) : sorted,
+    totalBeforeLimit: sorted.length,
+    skipped,
+    editions
+  }
+}
+
+export function makeRequestBatches(items, batchSize) {
+  return chunks(items, batchSize).map(requestItems => ({ requestItems }))
+}
+
+export function estimateInputTokens(input) {
+  // Conservative for Chinese (roughly one token per three UTF-8 bytes) and
+  // intentionally an overestimate for most English text.
+  return Math.ceil(Buffer.byteLength(`${LLM_ALIGNMENT_INSTRUCTIONS}\n${input}`, 'utf8') / 3)
+}
+
+export class AlignmentBudget {
+  constructor(options) {
+    this.limits = {
+      requests: options.maxRequests,
+      input_tokens: options.maxInputTokens,
+      output_tokens: options.maxOutputTokensTotal,
+      usd: options.maxUsd
+    }
+    this.rates = {
+      input_usd_per_million: options.inputUsdPerMillion,
+      output_usd_per_million: options.outputUsdPerMillion
+    }
+    this.used = { requests: 0, input_tokens: 0, output_tokens: 0, usd: 0 }
+    this.reserved = { requests: 0, input_tokens: 0, output_tokens: 0, usd: 0 }
+  }
+
+  cost(inputTokens, outputTokens) {
+    return inputTokens * this.rates.input_usd_per_million / 1_000_000
+      + outputTokens * this.rates.output_usd_per_million / 1_000_000
+  }
+
+  reserve(inputTokens, outputTokens, requestSlots = 1) {
+    const reservation = {
+      requests: requestSlots,
+      input_tokens: inputTokens * requestSlots,
+      output_tokens: outputTokens * requestSlots,
+      usd: this.cost(inputTokens, outputTokens) * requestSlots
+    }
+    for (const key of Object.keys(reservation)) {
+      if (this.used[key] + this.reserved[key] + reservation[key] > this.limits[key]) return null
+    }
+    for (const key of Object.keys(reservation)) this.reserved[key] += reservation[key]
+    return reservation
+  }
+
+  settle(reservation, usage, attempts = 1) {
+    for (const key of Object.keys(reservation)) this.reserved[key] -= reservation[key]
+    const reservedInputPerAttempt = Math.round(reservation.input_tokens / reservation.requests)
+    const reservedOutputPerAttempt = Math.round(reservation.output_tokens / reservation.requests)
+    // Only the last provider attempt exposes usage. Conservatively account for
+    // earlier attempts at the reserved ceiling so retries cannot escape caps.
+    const actualInput = usage?.input_tokens == null
+      ? reservedInputPerAttempt * attempts
+      : usage.input_tokens + reservedInputPerAttempt * Math.max(0, attempts - 1)
+    const actualOutput = usage?.output_tokens == null
+      ? reservedOutputPerAttempt * attempts
+      : usage.output_tokens + reservedOutputPerAttempt * Math.max(0, attempts - 1)
+    this.used.requests += attempts
+    this.used.input_tokens += actualInput
+    this.used.output_tokens += actualOutput
+    this.used.usd += this.cost(actualInput, actualOutput)
+  }
+
+  snapshot() {
+    return {
+      limits: this.limits,
+      accounting_rates: this.rates,
+      used: {
+        ...this.used,
+        usd: Number(this.used.usd.toFixed(6))
+      },
+      reserved: {
+        ...this.reserved,
+        usd: Number(this.reserved.usd.toFixed(6))
+      }
+    }
+  }
+}
+
+function cachePath(cacheRoot, inputHash) {
+  return join(cacheRoot, inputHash.slice(0, 2), `${inputHash}.json`)
+}
+
+function readValidatedCache(path, requestItems) {
+  if (!existsSync(path)) return null
+  try {
+    const record = readJson(path)
+    const validation = validateAlignmentModelOutput(record.model_output, requestItems)
+    return record.status === 'ok' && validation.ok ? record : null
+  } catch {
+    return null
+  }
+}
+
+async function adjudicateBatch(batch, context) {
+  const input = makeAlignmentResponseInput(batch.requestItems)
+  const inputHash = alignmentInputHash({ provider: context.config.provider, model: context.config.model, items: batch.requestItems })
+  const cached = readValidatedCache(cachePath(context.args.cacheRoot, inputHash), batch.requestItems)
+  if (cached) return { ...cached, cache_hit: true }
+
+  const estimatedInputTokens = estimateInputTokens(input)
+  let latestErrors = []
+  for (let validationAttempt = 0; validationAttempt <= context.args.validationRetries; validationAttempt += 1) {
+    const worstCaseAttempts = context.config.maxRetries + 1
+    const reservation = context.budget.reserve(estimatedInputTokens, context.args.maxOutputTokens, worstCaseAttempts)
+    if (!reservation) {
+      return {
+        record_type: 'batch_result',
+        status: 'budget_exhausted',
+        input_hash: inputHash,
+        request_items: batch.requestItems,
+        estimated_input_tokens: estimatedInputTokens,
+        validation_errors: latestErrors
+      }
+    }
+    const result = await requestAlignmentAdjudication(input, {
+      config: context.config,
+      maxOutputTokens: context.args.maxOutputTokens
+    })
+    context.budget.settle(reservation, result.usage, result.attempts || 1)
+    if (!result.ok) {
+      return {
+        record_type: 'batch_result',
+        status: result.status,
+        input_hash: inputHash,
+        request_items: batch.requestItems,
+        estimated_input_tokens: estimatedInputTokens,
+        provider_attempts: result.attempts || 0,
+        latency_ms: result.latency_ms || null
+      }
+    }
+    const validation = validateAlignmentModelOutput(result.output, batch.requestItems)
+    if (!validation.ok) {
+      latestErrors = validation.errors
+      if (validationAttempt < context.args.validationRetries) continue
+      return {
+        record_type: 'batch_result',
+        status: 'invalid_semantic_output',
+        input_hash: inputHash,
+        request_items: batch.requestItems,
+        response_id: result.response_id,
+        model: result.model,
+        usage: result.usage,
+        provider_attempts: result.attempts,
+        validation_errors: validation.errors
+      }
+    }
+    const record = {
+      record_type: 'batch_result',
+      status: 'ok',
+      input_hash: inputHash,
+      request_items: batch.requestItems,
+      model_output: validation.value,
+      provenance: {
+        provider: result.provider || context.config.provider,
+        model: result.model,
+        prompt_version: LLM_ALIGNMENT_PROMPT_VERSION,
+        schema_version: LLM_ALIGNMENT_SCHEMA_VERSION,
+        input_hash: inputHash,
+        response_id: result.response_id,
+        generated_at: new Date().toISOString(),
+        usage: result.usage,
+        provider_attempts: result.attempts,
+        validation_attempts: validationAttempt + 1,
+        latency_ms: result.latency_ms
+      }
+    }
+    atomicWriteJson(cachePath(context.args.cacheRoot, inputHash), record)
+    return record
+  }
+  throw new Error('unreachable validation retry state')
+}
+
+async function runPool(batches, concurrency, worker) {
+  const results = new Array(batches.length)
+  let cursor = 0
+  async function next() {
+    while (cursor < batches.length) {
+      const index = cursor
+      cursor += 1
+      results[index] = await worker(batches[index], index)
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(concurrency, batches.length) }, () => next()))
+  return results
+}
+
+function checkpointSuccesses(path) {
+  const records = readJsonLines(path)
+  return {
+    records,
+    successfulHashes: new Set(records.filter(record => record.status === 'ok').map(record => record.input_hash))
+  }
+}
+
+export function materializeAlignmentRecords(checkpointRecords, currentHashes) {
+  const decisions = []
+  const alignments = []
+  for (const record of checkpointRecords) {
+    if (record.status !== 'ok' || !currentHashes.has(record.input_hash)) continue
+    const requestById = new Map(record.request_items.map(item => [item.item_id, item]))
+    for (const outputItem of record.model_output.items) {
+      const inputItem = requestById.get(outputItem.item_id)
+      if (!inputItem) continue
+      const candidates = new Map(inputItem.candidates.map(candidate => [candidate.candidate_id, candidate]))
+      const evidence = new Map(inputItem.evidence.map(span => [span.evidence_span_id, span]))
+      for (const modelDecision of outputItem.decisions) {
+        const candidate = candidates.get(modelDecision.candidate_id)
+        if (!candidate) continue
+        const decisionId = stableId('llmd', record.input_hash, inputItem.item_id, modelDecision.candidate_id)
+        const row = {
+          decision_id: decisionId,
+          edition_id: inputItem.textbook.edition_id,
+          item_id: inputItem.item_id,
+          logical_item_id: inputItem.logical_item_id,
+          source_mode: inputItem.source_mode,
+          prior_alignment_id: inputItem.prior_alignment_id || null,
+          unit_id: inputItem.unit.unit_id,
+          unit_title: inputItem.unit.title,
+          unit_assignment_status: inputItem.unit.assignment_status || 'assigned_toc_unit',
+          candidate_id: modelDecision.candidate_id,
+          standard_code: modelDecision.standard_code,
+          decision: modelDecision.decision,
+          relation_type: modelDecision.relation_type,
+          evidence_level: modelDecision.evidence_level,
+          evidence_span_id: modelDecision.evidence_span_id,
+          evidence_quote: modelDecision.evidence_quote,
+          learning_component_ids: modelDecision.learning_component_ids,
+          rationale: modelDecision.rationale,
+          overall_decision: outputItem.overall_decision,
+          overall_rationale: outputItem.overall_rationale,
+          provenance: record.provenance
+        }
+        decisions.push(row)
+        if (modelDecision.decision !== 'accept') continue
+        const span = evidence.get(modelDecision.evidence_span_id)
+        const componentIds = new Set(modelDecision.learning_component_ids)
+        const components = candidate.learning_components.filter(component => componentIds.has(component.component_id))
+        alignments.push({
+          decision_id: decisionId,
+          alignment_id: stableAlignmentId(
+            inputItem.textbook.edition_id,
+            inputItem.logical_item_id,
+            candidate.standard_code,
+            modelDecision.evidence_span_id,
+            LLM_ALIGNMENT_PROMPT_VERSION
+          ),
+          edition_id: inputItem.textbook.edition_id,
+          unit_id: inputItem.unit.unit_id,
+          unit_title: inputItem.unit.title,
+          unit_assignment_status: inputItem.unit.assignment_status || 'assigned_toc_unit',
+          source_mode: inputItem.source_mode,
+          logical_item_id: inputItem.logical_item_id,
+          prior_alignment_id: inputItem.prior_alignment_id || null,
+          candidate_id: modelDecision.candidate_id,
+          node_id: span.node_id,
+          content_node_kind: span.node_kind,
+          content_node_title: span.node_title,
+          standard_code: candidate.standard_code,
+          standard_text: candidate.standard_text,
+          subject_slug: candidate.subject_slug,
+          grade_band: candidate.grade_band,
+          relation_type: modelDecision.relation_type,
+          evidence_level: modelDecision.evidence_level,
+          evidence_level_detail: modelDecision.evidence_level === 'L3' ? 'L3_page_evidence' : 'L2_topic',
+          evidence_span_ids: [span.evidence_span_id],
+          evidence_excerpt: span.excerpt,
+          evidence_excerpt_hash: span.excerpt_hash,
+          evidence_quote: modelDecision.evidence_quote,
+          learning_component_ids: modelDecision.learning_component_ids,
+          learning_components: components,
+          rationale: modelDecision.rationale,
+          semantic_decision: 'accept',
+          alignment_method: 'llm_semantic_adjudication',
+          algorithm_version: LLM_ALIGNMENT_PROMPT_VERSION,
+          provenance: record.provenance,
+          evidence_role: mappedStandardSubject(inputItem.textbook.subject_slug) === inputItem.textbook.subject_slug
+            ? 'direct_textbook'
+            : 'discipline_textbook',
+          evidence_id: inputItem.textbook.evidence_id || null,
+          review_status: 'machine_checked',
+          publication_status: 'published',
+          pdf_page: span.pdf_page,
+          end_pdf_page: span.pdf_page,
+          printed_page: span.printed_page,
+          generated_evidence_span: span.generated_by_pipeline ? span : null,
+          generated_content_node: span.generated_by_pipeline ? {
+            node_id: span.node_id,
+            parent_id: inputItem.unit.assignment_status === 'unassigned_page_only' ? null : inputItem.unit.unit_id,
+            unit_id: inputItem.unit.assignment_status === 'unassigned_page_only' ? null : inputItem.unit.unit_id,
+            level: inputItem.unit.assignment_status === 'unassigned_page_only' ? 0 : 1,
+            kind: span.node_kind,
+            title: span.node_title,
+            pdf_page: span.pdf_page,
+            end_pdf_page: span.pdf_page,
+            printed_page: span.printed_page,
+            end_printed_page: span.printed_page,
+            text_excerpt: span.excerpt.slice(0, 280),
+            evidence_span_ids: [span.evidence_span_id],
+            source: span.source,
+            extraction_method: span.extraction_method,
+            review_status: 'machine_checked'
+          } : null
+        })
+      }
+    }
+  }
+  const unique = rows => [...new Map(rows.map(row => [row.decision_id || row.alignment_id, row])).values()]
+  return {
+    decisions: unique(decisions).sort((a, b) => a.edition_id.localeCompare(b.edition_id) || a.item_id.localeCompare(b.item_id) || a.standard_code.localeCompare(b.standard_code)),
+    alignments: unique(alignments).sort((a, b) => a.edition_id.localeCompare(b.edition_id) || String(a.unit_id).localeCompare(String(b.unit_id)) || Number(a.pdf_page) - Number(b.pdf_page) || a.standard_code.localeCompare(b.standard_code))
+  }
+}
+
+function outputBase(args, config, catalogs) {
+  if (args.outputPath) return args.outputPath.replace(/\.jsonl$/u, '')
+  const scopeHash = sha256(stableCanonicalJson({
+    editions: catalogs.map(row => row.edition_id),
+    mode: args.mode,
+    prompt: LLM_ALIGNMENT_PROMPT_VERSION,
+    provider: config.provider,
+    model: config.model,
+    candidatesPerItem: args.candidatesPerItem,
+    pagesPerItem: args.sidecarPagesPerItem
+  })).slice(0, 16)
+  return join(DEFAULT_OUTPUT_ROOT, `alignment-${scopeHash}`)
+}
+
+function planSummary({ args, config, catalogs, work, batches }) {
+  const candidatePairs = work.items.reduce((sum, item) => sum + item.candidates.length, 0)
+  const estimatedInput = batches.reduce((sum, batch) => sum + estimateInputTokens(makeAlignmentResponseInput(batch.requestItems)), 0)
+  return {
+    dry_run: args.dryRun,
+    provider: config.provider,
+    model: config.model,
+    prompt_version: LLM_ALIGNMENT_PROMPT_VERSION,
+    schema_version: LLM_ALIGNMENT_SCHEMA_VERSION,
+    mode: args.mode,
+    textbooks: catalogs.length,
+    work_items: work.items.length,
+    work_items_before_limit: work.totalBeforeLimit,
+    candidate_pairs: candidatePairs,
+    request_batches: batches.length,
+    estimated_input_tokens_without_retries: estimatedInput,
+    maximum_output_tokens_without_retries: batches.length * args.maxOutputTokens,
+    concurrency: args.concurrency,
+    budget: {
+      max_requests: args.maxRequests,
+      max_input_tokens: args.maxInputTokens,
+      max_output_tokens: args.maxOutputTokensTotal,
+      max_usd: args.maxUsd,
+      accounting_rates_are_operator_configurable_safety_rates: true
+    },
+    editions: work.editions,
+    skipped_count: work.skipped.length
+  }
+}
+
+export async function runAlignmentPipeline(args, dependencies = {}) {
+  const sourceEnv = dependencies.env || process.env
+  const config = dependencies.config || resolveAlignmentLlmConfig(args.provider
+    ? { ...sourceEnv, KEBIAO_ALIGNMENT_LLM_PROVIDER: args.provider }
+    : sourceEnv)
+  const catalog = readJson(CATALOG_PATH).items || []
+  const catalogs = catalog.filter(row => row.resource_type === 'student_textbook' && catalogSelected(row, args))
+    .sort((a, b) => a.edition_id.localeCompare(b.edition_id))
+  if (!catalogs.length) throw new Error('No textbooks matched the requested --edition/--subject filters.')
+
+  const standardsByCode = loadStandardIndex()
+  const structuresByEdition = new Map(catalogs.flatMap(row => {
+    const path = join(STRUCTURE_ROOT, `${row.edition_id}.json`)
+    return existsSync(path) ? [[row.edition_id, readJson(path)]] : []
+  }))
+  const work = buildAlignmentWork({ catalogs, structuresByEdition, standardsByCode, args })
+  const batches = makeRequestBatches(work.items, args.batchSize)
+  const plan = planSummary({ args, config, catalogs, work, batches })
+  if (args.dryRun) return { plan, output: null }
+  if (!config.enabled) {
+    throw new Error(config.provider === 'codex_cli'
+      ? 'codex_cli is unavailable: install/sign in to Codex CLI or choose openai_responses.'
+      : 'LLM is disabled: provide KEBIAO_LLM_API_KEY (or KEBIAO_ALIGNMENT_LLM_API_KEY), or explicitly use --provider codex_cli.')
+  }
+  if (!config.valid) throw new Error(config.provider === 'codex_cli' ? 'codex_cli configuration is invalid.' : 'LLM base URL must be a valid HTTPS URL.')
+
+  const base = outputBase(args, config, catalogs)
+  const checkpointPath = `${base}.checkpoint.jsonl`
+  const decisionsPath = `${base}.decisions.jsonl`
+  const alignmentsPath = `${base}.alignments.jsonl`
+  const manifestPath = `${base}.manifest.json`
+  mkdirSync(dirname(checkpointPath), { recursive: true })
+  const checkpoint = args.resume ? checkpointSuccesses(checkpointPath) : { records: [], successfulHashes: new Set() }
+  if (!args.resume && existsSync(checkpointPath)) atomicWriteJsonLines(checkpointPath, [])
+  const budget = new AlignmentBudget(args)
+  const currentHashes = new Set()
+  const pending = []
+  for (const batch of batches) {
+    const hash = alignmentInputHash({ provider: config.provider, model: config.model, items: batch.requestItems })
+    currentHashes.add(hash)
+    if (!checkpoint.successfulHashes.has(hash)) pending.push(batch)
+  }
+
+  const newRecords = await runPool(pending, args.concurrency, async batch => {
+    const record = await adjudicateBatch(batch, { args, budget, config })
+    appendFileSync(checkpointPath, `${JSON.stringify(record)}\n`)
+    return record
+  })
+  const allRecords = [...checkpoint.records, ...newRecords]
+  const materialized = materializeAlignmentRecords(allRecords, currentHashes)
+  atomicWriteJsonLines(decisionsPath, materialized.decisions)
+  atomicWriteJsonLines(alignmentsPath, materialized.alignments)
+  const statusCounts = Object.fromEntries([...new Set(allRecords.map(record => record.status))].sort().map(status => [
+    status,
+    allRecords.filter(record => record.status === status).length
+  ]))
+  const manifest = {
+    ...plan,
+    dry_run: false,
+    completed_at: new Date().toISOString(),
+    checkpoint_path: checkpointPath,
+    decisions_path: decisionsPath,
+    alignments_path: alignmentsPath,
+    resumed_batches: checkpoint.records.filter(record => record.status === 'ok' && currentHashes.has(record.input_hash)).length,
+    attempted_new_batches: newRecords.length,
+    status_counts: statusCounts,
+    decisions: materialized.decisions.length,
+    accepted_alignments: materialized.alignments.length,
+    abstained: materialized.decisions.filter(row => row.decision === 'abstain').length,
+    rejected: materialized.decisions.filter(row => row.decision === 'reject').length,
+    budget: budget.snapshot(),
+    skipped: work.skipped
+  }
+  atomicWriteJson(manifestPath, manifest)
+  return { plan, output: manifest }
+}
+
+async function main() {
+  const args = parseAlignmentArgs(process.argv.slice(2))
+  const result = await runAlignmentPipeline(args)
+  process.stdout.write(`${JSON.stringify(result.output || result.plan, null, 2)}\n`)
+}
+
+if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+  main().catch(error => {
+    process.stderr.write(`${error.message}\n`)
+    process.exitCode = 1
+  })
+}

@@ -28,10 +28,8 @@ export async function createTextbookViewerSession(editionId) {
 }
 
 export async function loadTextbookUnit(unitId) {
-    const payload = await fetchJson(`${PUBLIC_ROOT}/units.json`)
-    const unit = payload.items?.find(item => item.entry_id === unitId)
-    if (!unit) throw new Error('未找到教材单元。')
-    return unit
+    if (!/^[a-z0-9_-]+$/i.test(unitId)) throw new Error('教材单元编号无效。')
+    return fetchJson(`/api/v1/units/${encodeURIComponent(unitId)}`)
 }
 
 export async function loadTextbooksForStandard(standardCode) {

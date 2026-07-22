@@ -3,9 +3,54 @@ export type TextbookVolume = '上册' | '下册' | '全一册'
 export type TextbookResourceType =
     | 'student_textbook'
     | 'teacher_guide'
+    | 'teaching_reference'
+    | 'textbook_explanation'
+    | 'workbook'
+    | 'answer_key'
     | 'student_companion'
     | 'curriculum_standard'
     | 'supplementary_material'
+
+export type TextbookSupportResourceType =
+    | 'teacher_guide'
+    | 'teaching_reference'
+    | 'textbook_explanation'
+    | 'workbook'
+    | 'answer_key'
+    | 'student_companion'
+
+export type TextbookResourceAvailability = 'available' | 'manifest_only' | 'missing'
+export type TextbookResourcePairingStatus = 'matched' | 'unmatched' | 'ambiguous'
+export type TextbookResourceRelationship =
+    | 'teacher_guide_for'
+    | 'teaching_reference_for'
+    | 'explains'
+    | 'workbook_for'
+    | 'answer_key_for'
+    | 'companion_to'
+export type TextbookResourcePairingReason =
+    | 'explicit_target'
+    | 'exact_bibliographic_match'
+    | 'compatible_companion_edition'
+    | 'target_not_found'
+    | 'subject_mismatch'
+    | 'grade_mismatch'
+    | 'volume_mismatch'
+    | 'publisher_mismatch'
+    | 'revision_mismatch'
+    | 'ambiguous_target'
+    | 'insufficient_bibliography'
+
+export type TextbookResourceUnitMappingMethod =
+    | 'explicit_manifest'
+    | 'exact_normalized_title'
+    | 'ordered_title_match'
+
+export type TextbookResourceUnitMappingGapReason =
+    | 'target_structure_unavailable'
+    | 'resource_structure_unavailable'
+    | 'no_compatible_section'
+    | 'ambiguous_section'
 
 export type TextbookRevisionStatus =
     | 'current_confirmed'
@@ -111,7 +156,9 @@ export interface TextbookContentNode {
     text_excerpt?: string
     evidence_span_ids?: string[]
     source?: string
-    confidence: number
+    extraction_method?: string | null
+    source_fidelity?: string
+    confidence?: number
     review_status?: 'approved' | 'machine_checked'
 }
 
@@ -145,6 +192,30 @@ export interface TextbookLearningComponentReference {
     label: string
 }
 
+export interface TextbookLlmAlignmentUsage {
+    input_tokens: number
+    output_tokens: number
+    total_tokens: number
+}
+
+export interface TextbookLlmAlignmentProvenance {
+    provider: string
+    model: string
+    prompt_version: string
+    schema_version: string
+    input_hash: string
+    response_id: string | null
+    generated_at: string
+    usage: TextbookLlmAlignmentUsage | null
+    provider_attempts: number
+    validation_attempts: number
+    latency_ms: number | null
+}
+
+export type TextbookAlignmentProvenance = string | TextbookLlmAlignmentProvenance
+export type TextbookUnitAssignmentStatus = 'assigned_toc_unit' | 'unassigned_page_only' | 'unassigned_existing_alignment'
+export type TextbookAlignmentSourceMode = 'adjudicate_existing' | 'discover_scope_sidecar' | 'discover_scope_derived'
+
 export interface TextbookStandardAlignment {
     alignment_id: string
     edition_id?: string
@@ -162,9 +233,9 @@ export interface TextbookStandardAlignment {
     evidence_level_detail?: TextbookEvidenceLevelDetail
     evidence_granularity?: string
     evidence_span_ids?: string[]
-    provenance?: string
+    provenance?: TextbookAlignmentProvenance
     evidence_role?: string
-    confidence: number
+    confidence?: number
     score?: number
     matched_keywords?: string[]
     matched_fields?: string[]
@@ -177,7 +248,18 @@ export interface TextbookStandardAlignment {
     publication_status?: 'published' | 'review_queue'
     evidence_id?: string | null
     pdf_page?: number | null
+    end_pdf_page?: number | null
     printed_page?: string | null
+    semantic_decision?: 'accept'
+    unit_assignment_status?: TextbookUnitAssignmentStatus
+    source_mode?: TextbookAlignmentSourceMode
+    logical_item_id?: string
+    prior_alignment_id?: string | null
+    content_node_kind?: string
+    content_node_title?: string
+    evidence_excerpt?: string
+    evidence_excerpt_hash?: string
+    evidence_quote?: string
 }
 
 export interface TextbookStandardScope {
@@ -197,9 +279,150 @@ export interface TextbookRelatedResource {
     resource_edition_id: string
     resource_type: TextbookResourceType
     title: string
-    relationship: 'teacher_guide_for' | 'companion_to' | 'supplement_to' | 'standard_for'
+    relationship: TextbookResourceRelationship | 'supplement_to' | 'standard_for'
     confidence: number
-    review_status: 'approved' | 'candidate'
+    review_status: 'approved' | 'machine_checked' | 'candidate'
+}
+
+/** A support resource narrowed to the chapter/page span for one textbook unit. */
+export interface TextbookUnitRelatedResource extends TextbookRelatedResource {
+    mapping_id: string
+    resource_id: string
+    resource_section_id: string
+    resource_section_title: string
+    resource_pdf_page_start: number | null
+    resource_pdf_page_end: number | null
+    target_pdf_page_start: number | null
+    target_pdf_page_end: number | null
+}
+
+export interface TextbookResourceBibliography {
+    title: string
+    stage: TextbookStage
+    subject: string
+    subject_slug: string
+    grade: number
+    volume: TextbookVolume
+    publisher: string | null
+    edition_name: string
+    edition_statement: string | null
+    revision_year: number | null
+    isbn: string | null
+}
+
+export interface TextbookResourceTargetHint {
+    edition_id?: string
+    subject_slug: string
+    grade: number
+    volume: TextbookVolume
+    publisher?: string | null
+    edition_name?: string | null
+    revision_year?: number | null
+}
+
+export interface TextbookResourceAsset {
+    asset_id: string
+    availability: TextbookResourceAvailability
+    media_type: 'application/pdf'
+    sha256: string | null
+    bytes: number | null
+    pages: number | null
+    source_path: string | null
+    object_path: string | null
+    local_path: string | null
+    r2_bucket: string | null
+    r2_key: string | null
+}
+
+export interface TextbookResourceSection {
+    section_id: string
+    source_key: string | null
+    parent_id: string | null
+    level: number
+    kind: 'part' | 'unit' | 'chapter' | 'lesson' | 'section' | 'appendix' | 'other'
+    title: string
+    printed_page_start: string | null
+    printed_page_end: string | null
+    pdf_page_start: number | null
+    pdf_page_end: number | null
+}
+
+export interface TextbookResourcePageMapEntry {
+    pdf_page: number
+    printed_page: string | null
+    label: string
+}
+
+export interface TextbookSupportResourceRecord {
+    resource_id: string
+    edition_id: string
+    work_id: string
+    resource_type: TextbookSupportResourceType
+    bibliography: TextbookResourceBibliography
+    target_hints: TextbookResourceTargetHint[]
+    asset: TextbookResourceAsset
+    sections: TextbookResourceSection[]
+    page_map: TextbookResourcePageMapEntry[]
+    provenance: {
+        source_kind: string
+        source_ref: string | null
+        generated_from: string | null
+    }
+}
+
+export interface TextbookResourcePairing {
+    relation_id: string
+    resource_id: string
+    resource_edition_id: string
+    target_edition_id: string | null
+    relationship: TextbookResourceRelationship
+    status: TextbookResourcePairingStatus
+    reason: TextbookResourcePairingReason
+    confidence: number
+    matching_fields: string[]
+    mismatching_fields: string[]
+}
+
+export interface TextbookResourceUnitMapping {
+    mapping_id: string
+    relation_id: string
+    resource_id: string
+    resource_section_id: string
+    target_edition_id: string
+    target_unit_id: string
+    resource_pdf_page_start: number | null
+    resource_pdf_page_end: number | null
+    target_pdf_page_start: number | null
+    target_pdf_page_end: number | null
+    method: TextbookResourceUnitMappingMethod
+    confidence: number
+}
+
+export interface TextbookResourceUnitMappingGap {
+    gap_id: string
+    relation_id: string
+    resource_id: string
+    target_edition_id: string
+    target_unit_id: string | null
+    reason: TextbookResourceUnitMappingGapReason
+    detail: string
+}
+
+export interface TextbookResourceCatalogIndexes {
+    by_textbook: Record<string, string[]>
+    by_resource: Record<string, string[]>
+    by_textbook_unit: Record<string, string[]>
+    by_resource_section: Record<string, string[]>
+}
+
+export interface TextbookResourceCatalog {
+    schema_version: number
+    generated_at: string
+    resources: TextbookSupportResourceRecord[]
+    pairings: TextbookResourcePairing[]
+    unit_mappings: TextbookResourceUnitMapping[]
+    unit_mapping_gaps: TextbookResourceUnitMappingGap[]
+    indexes: TextbookResourceCatalogIndexes
 }
 
 export interface TextbookDetailRecord extends TextbookCatalogRecord {
@@ -210,6 +433,9 @@ export interface TextbookDetailRecord extends TextbookCatalogRecord {
     alignments: TextbookStandardAlignment[]
     standard_scopes: TextbookStandardScope[]
     related_resources: TextbookRelatedResource[]
+    /** Full-fidelity mappings retained alongside the backwards-compatible related_resources projection. */
+    resource_unit_mappings: TextbookResourceUnitMapping[]
+    resource_unit_mapping_gaps: TextbookResourceUnitMappingGap[]
     extraction: {
         extracted_at: string | null
         page_count_checked: number

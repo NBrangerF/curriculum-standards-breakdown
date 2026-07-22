@@ -15,6 +15,23 @@ function isPublishedUnit(row) {
       && row.source === 'body_inferred_unit')
 }
 
+function isLlmSemanticAlignment(row) {
+  return row.alignment_method === 'llm_semantic_adjudication'
+}
+
+function isValidLlmPageOnlyAlignment(row) {
+  const evidenceLevel = String(row.evidence_level_detail || row.evidence_level || '')
+  return isLlmSemanticAlignment(row)
+    && row.unit_assignment_status === 'unassigned_page_only'
+    && /^L3(?:_|$)/.test(evidenceLevel)
+    && String(row.unit_id || '').startsWith('tpu_')
+    && String(row.unit_title || '').startsWith('未分配单元 · PDF ')
+    && Number.isInteger(row.pdf_page)
+    && Boolean(row.node_id || row.content_node_id)
+    && Array.isArray(row.evidence_span_ids)
+    && row.evidence_span_ids.length > 0
+}
+
 function parseArgs(argv) {
   const args = { index: DEFAULT_INDEX, out: DEFAULT_OUT, strict: false }
   for (let i = 0; i < argv.length; i += 1) {
@@ -80,7 +97,9 @@ function main() {
     if (!row.status) errors.push(`textbook disposition missing status: ${row.edition_id}`)
     if (row.status === 'no_standard_subject_mapping' || row.scope_standard_count <= 0) errors.push(`textbook has no standard scope: ${row.edition_id}`)
     if (!Array.isArray(row.standard_subject_mappings) || !row.standard_subject_mappings.length) errors.push(`textbook mapping provenance missing: ${row.edition_id}`)
-    if (row.status === 'scope_only_no_toc' && !row.structure_status_reason) errors.push(`textbook without TOC has no failure reason: ${row.edition_id}`)
+    if (['scope_only_no_toc', 'page_aligned_no_toc'].includes(row.status) && !row.structure_status_reason) {
+      errors.push(`textbook without TOC has no structure reason: ${row.edition_id}`)
+    }
   }
   for (const row of standardDispositions) {
     if (!standardMap.has(row.standard_code)) errors.push(`unknown standard disposition: ${row.standard_code}`)
@@ -105,11 +124,21 @@ function main() {
     const textbook = textbookMap.get(match.edition_id)
     if (!standard) errors.push(`${match.alignment_id} references unknown standard`)
     if (!textbook) errors.push(`${match.alignment_id} references unknown textbook`)
-    if (!unitsByEdition.get(match.edition_id)?.has(match.unit_id)) errors.push(`${match.alignment_id} references unknown approved TOC entry`)
+    const pageOnly = match.unit_assignment_status === 'unassigned_page_only'
+    const validPageOnly = isValidLlmPageOnlyAlignment(match)
+    if (pageOnly && !validPageOnly) errors.push(`${match.alignment_id} has invalid synthetic page-only unit evidence`)
+    if (!unitsByEdition.get(match.edition_id)?.has(match.unit_id) && !validPageOnly) {
+      errors.push(`${match.alignment_id} references unknown approved TOC entry`)
+    }
     if (standard && standard.subject_slug !== match.subject_slug) errors.push(`${match.alignment_id} crosses standard subject`)
     if (standard && standard.grade_band !== match.grade_band) errors.push(`${match.alignment_id} crosses grade band`)
-    if (!Array.isArray(match.matched_keywords) || !match.matched_keywords.length) errors.push(`${match.alignment_id} has no matched keywords`)
+    if (!isLlmSemanticAlignment(match) && (!Array.isArray(match.matched_keywords) || !match.matched_keywords.length)) {
+      errors.push(`${match.alignment_id} has no matched keywords`)
+    }
     if (!Array.isArray(match.matched_fields) || !match.matched_fields.length) errors.push(`${match.alignment_id} has no matched fields`)
+    if (isLlmSemanticAlignment(match) && (match.confidence !== undefined || match.score !== undefined)) {
+      errors.push(`${match.alignment_id} publishes an uncalibrated LLM score`)
+    }
     if (match.publication_status === 'published' && !['approved', 'machine_checked'].includes(match.review_status)) errors.push(`${match.alignment_id} published with invalid review status`)
     if (match.review_status === 'machine_checked' && match.modifier_conflicts?.length) errors.push(`${match.alignment_id} published despite numeric concept conflict`)
     if (match.evidence_role === 'adjacent_discipline_textbook' && match.relation_type === 'supports') errors.push(`${match.alignment_id} adjacent discipline cannot claim direct support`)
@@ -143,8 +172,11 @@ function main() {
     )
     if (!inMatch && !inStructure) errors.push(`legacy approved relation lost: ${id}`)
   }
-  const noToc = textbookDispositions.filter(row => row.status === 'scope_only_no_toc')
-  if (noToc.length) warnings.push(`${noToc.length} textbook(s) have curriculum scope but no approved TOC after extraction`)
+  const noToc = textbookDispositions.filter(row => ['scope_only_no_toc', 'page_aligned_no_toc'].includes(row.status))
+  const pageAlignedNoToc = noToc.filter(row => row.status === 'page_aligned_no_toc')
+  const scopeOnlyNoToc = noToc.filter(row => row.status === 'scope_only_no_toc')
+  if (scopeOnlyNoToc.length) warnings.push(`${scopeOnlyNoToc.length} textbook(s) have curriculum scope but no approved TOC after extraction`)
+  if (pageAlignedNoToc.length) warnings.push(`${pageAlignedNoToc.length} textbook(s) use explicit synthetic page-only L3 evidence because no approved TOC is available`)
   const standardGaps = standardDispositions.filter(row => row.status === 'gap_no_textbook_scope')
   if (standardGaps.length) warnings.push(`${standardGaps.length} standard(s) have no textbook subject in the current library`)
   const result = {

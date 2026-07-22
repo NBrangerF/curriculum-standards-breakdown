@@ -395,17 +395,54 @@ async function extractNativePages(pdfPath) {
   return pages
 }
 
+function reusableOcrPages(args, asset) {
+  const path = join(args.libraryRoot, 'derived', SIDECAR_VERSION, asset.sha256, 'pages.jsonl')
+  if (!existsSync(path)) return new Map()
+  try {
+    return new Map(readJsonLines(path)
+      .filter(page => (
+        page.asset_sha256 === asset.sha256
+        && page.edition_id === asset.edition_id
+        && Number.isInteger(Number(page.pdf_page))
+        && String(page.extraction_method || '').includes('tesseract')
+        && Array.isArray(page.lines)
+        && page.lines.length > 0
+      ))
+      .map(page => [Number(page.pdf_page), page]))
+  } catch {
+    return new Map()
+  }
+}
+
 async function extractPages(asset, structure, pdfPath, args) {
   const pages = await extractNativePages(pdfPath)
   const nativeUsable = pages.filter(page => compactText(page.text).length >= 20).length
   const nativeRatio = nativeUsable / Math.max(1, pages.length)
   const shouldFillMissing = args.ocr === 'all' || (args.ocr === 'auto' && nativeRatio < 0.72)
+  const reusable = reusableOcrPages(args, asset)
   let ocrCount = 0
+  let ocrReused = 0
   let ocrSkipped = 0
   const workRoot = join(args.libraryRoot, 'staging/tmp')
   const tocStarts = new Set((structure.toc || []).map(row => Number(row.pdf_page)).filter(Number.isFinite))
+  if (shouldFillMissing) {
+    for (const page of pages) {
+      const cached = reusable.get(page.pdf_page)
+      const shouldReuse = cached && (args.ocr === 'all' || compactText(page.text).length < 20)
+      if (!shouldReuse) continue
+      page.lines = cached.lines
+      page.text = cached.text
+      page.extraction_method = cached.extraction_method
+      page.extraction_status = `${cached.extraction_status || 'ocr_extracted'}:reused`
+      ocrCount += 1
+      ocrReused += 1
+    }
+  }
   const ocrCandidates = pages
-    .filter(page => args.ocr === 'all' || (shouldFillMissing && compactText(page.text).length < 20))
+    .filter(page => (
+      !String(page.extraction_method || '').includes('tesseract')
+      && (args.ocr === 'all' || (shouldFillMissing && compactText(page.text).length < 20))
+    ))
     .sort((a, b) => Number(tocStarts.has(b.pdf_page)) - Number(tocStarts.has(a.pdf_page)) || a.pdf_page - b.pdf_page)
   for (const page of ocrCandidates) {
     if (args.ocrPageLimit > 0 && ocrCount >= args.ocrPageLimit) {
@@ -424,7 +461,7 @@ async function extractPages(asset, structure, pdfPath, args) {
   }
   const printed = printedPageMap(structure)
   for (const page of pages) page.printed_page = printed.get(page.pdf_page) ?? null
-  return { pages, nativeRatio: round(nativeRatio, 4), ocrCount, ocrSkipped }
+  return { pages, nativeRatio: round(nativeRatio, 4), ocrCount, ocrReused, ocrSkipped }
 }
 
 function tocKind(kind) {
@@ -1430,6 +1467,7 @@ function writeSidecar(args, asset, extraction) {
     page_count: extraction.pages.length,
     native_text_ratio: extraction.nativeRatio,
     ocr_page_count: extraction.ocrCount,
+    ocr_reused_count: extraction.ocrReused,
     ocr_skipped_count: extraction.ocrSkipped,
     pages_path: 'pages.jsonl'
   })
@@ -1599,6 +1637,7 @@ async function buildEdition(asset, args, standardsByCode) {
       sidecar_path: sidecarPath,
       native_text_ratio: extraction.nativeRatio,
       ocr_page_count: extraction.ocrCount,
+      ocr_reused_count: extraction.ocrReused,
       ocr_skipped_count: extraction.ocrSkipped,
       unit_recovery_status: unitRecovery.status,
       unit_recovery_reason: unitRecovery.reason,
@@ -1620,6 +1659,7 @@ async function buildEdition(asset, args, standardsByCode) {
       pages: extraction.pages.length,
       native_text_ratio: extraction.nativeRatio,
       ocr_pages: extraction.ocrCount,
+      ocr_reused_pages: extraction.ocrReused,
       unit_recovery_status: unitRecovery.status,
       unit_recovery_reason: unitRecovery.reason,
       automatic_content_units: unitRecovery.entries.length,

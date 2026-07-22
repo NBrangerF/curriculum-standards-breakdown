@@ -2,7 +2,8 @@ import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import {
     TextbookCatalogDatasetSchema,
-    TextbookDetailRecordSchema
+    TextbookDetailRecordSchema,
+    TextbookResourceCatalogSchema
 } from './schemas.js'
 import type {
     TextbookCatalogDataset,
@@ -10,6 +11,10 @@ import type {
     TextbookContentNode,
     TextbookDetailRecord,
     TextbookPageContext,
+    TextbookResourceCatalog,
+    TextbookResourcePairing,
+    TextbookResourceUnitMapping,
+    TextbookSupportResourceRecord,
     TextbookStage,
     TextbookVolume
 } from './types.js'
@@ -43,6 +48,7 @@ export class FileTextbookRepository {
         items: Record<string, Array<Record<string, unknown>>>
         scopes: Record<string, Array<Record<string, unknown>>>
     }> | null = null
+    private resourceCatalogPromise: Promise<TextbookResourceCatalog> | null = null
 
     constructor(private readonly dataRoot: string) {}
 
@@ -214,5 +220,79 @@ export class FileTextbookRepository {
         const specificEditions = new Set(specific.map(item => item.edition_id))
         const scopes = (reverse.scopes[code] || []).filter(item => !specificEditions.has(item.edition_id))
         return [...specific, ...scopes]
+    }
+
+    /**
+     * Load the support-resource graph. Older deployments may not have emitted
+     * it yet, so a missing file is a valid empty catalog rather than a runtime
+     * failure.
+     */
+    async loadResourceCatalog(): Promise<TextbookResourceCatalog> {
+        if (!this.resourceCatalogPromise) {
+            this.resourceCatalogPromise = readFile(resolve(this.dataRoot, 'textbooks/resources/index.json'), 'utf8')
+                .then(source => TextbookResourceCatalogSchema.parse(JSON.parse(source)) as TextbookResourceCatalog)
+                .catch(error => {
+                    if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+                        return {
+                            schema_version: 1,
+                            generated_at: '1970-01-01T00:00:00.000Z',
+                            resources: [],
+                            pairings: [],
+                            unit_mappings: [],
+                            unit_mapping_gaps: [],
+                            indexes: {
+                                by_textbook: {},
+                                by_resource: {},
+                                by_textbook_unit: {},
+                                by_resource_section: {}
+                            }
+                        }
+                    }
+                    this.resourceCatalogPromise = null
+                    throw error
+                })
+        }
+        return this.resourceCatalogPromise
+    }
+
+    async getResourcesForTextbook(editionId: string): Promise<Array<{
+        pairing: TextbookResourcePairing
+        resource: TextbookSupportResourceRecord
+    }>> {
+        const catalog = await this.loadResourceCatalog()
+        const relationIds = new Set(catalog.indexes.by_textbook[editionId] || [])
+        const pairings = catalog.pairings.filter(pairing => relationIds.has(pairing.relation_id))
+        const resources = new Map(catalog.resources.map(resource => [resource.resource_id, resource]))
+        return pairings.flatMap(pairing => {
+            const resource = resources.get(pairing.resource_id)
+            return resource ? [{ pairing, resource }] : []
+        })
+    }
+
+    async getTextbooksForResource(resourceId: string): Promise<TextbookResourcePairing[]> {
+        const catalog = await this.loadResourceCatalog()
+        const relationIds = new Set(catalog.indexes.by_resource[resourceId] || [])
+        return catalog.pairings.filter(pairing => relationIds.has(pairing.relation_id))
+    }
+
+    async getResourceSectionsForUnit(unitId: string): Promise<Array<{
+        mapping: TextbookResourceUnitMapping
+        resource: TextbookSupportResourceRecord
+    }>> {
+        const catalog = await this.loadResourceCatalog()
+        const mappingIds = new Set(catalog.indexes.by_textbook_unit[unitId] || [])
+        const resources = new Map(catalog.resources.map(resource => [resource.resource_id, resource]))
+        return catalog.unit_mappings
+            .filter(mapping => mappingIds.has(mapping.mapping_id))
+            .flatMap(mapping => {
+                const resource = resources.get(mapping.resource_id)
+                return resource ? [{ mapping, resource }] : []
+            })
+    }
+
+    async getTextbookUnitsForResourceSection(sectionId: string): Promise<TextbookResourceUnitMapping[]> {
+        const catalog = await this.loadResourceCatalog()
+        const mappingIds = new Set(catalog.indexes.by_resource_section[sectionId] || [])
+        return catalog.unit_mappings.filter(mapping => mappingIds.has(mapping.mapping_id))
     }
 }

@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "resources": [
+    {
+      "resource_type": "teacher_guide",
+      "bibliography": {
+        "title": "示例教师用书元数据夹具（不含正文）",
+        "stage": "primary",
+        "subject": "语文",
+        "subject_slug": "chinese",
+        "grade": 5,
+        "volume": "上册",
+        "publisher": "测试夹具出版社",
+        "edition_name": "统编版测试夹具",
+        "edition_statement": "仅用于资源管道自动化测试",
+        "revision_year": 2022,
+        "isbn": null
+      },
+      "target": {
+        "edition_id": "ed_9d4028e2ab482520d0aa",
+        "subject_slug": "chinese",
+        "grade": 5,
+        "volume": "上册",
+        "publisher": "人民教育出版社",
+        "edition_name": "统编版",
+        "revision_year": 2022
+      },
+      "asset": {
+        "availability": "manifest_only",
+        "source_locator": "fixture://teacher-guide-metadata-only",
+        "source_path": null,
+        "sha256": null,
+        "bytes": null,
+        "pages": null,
+        "object_path": null,
+        "local_path": null,
+        "r2_bucket": null,
+        "r2_key": null
+      },
+      "structure": {
+        "toc": [
+          {
+            "source_key": "fixture-unit-1",
+            "parent_ref": null,
+            "level": 1,
+            "kind": "unit",
+            "title": "第一单元教学设计（测试元数据）",
+            "printed_page_start": "1",
+            "printed_page_end": "12",
+            "pdf_page_start": 1,
+            "pdf_page_end": 12
+          }
+        ],
+        "page_map": [
+          { "pdf_page": 1, "printed_page": "1", "label": "1" },
+          { "pdf_page": 12, "printed_page": "12", "label": "12" }
+        ]
+      },
+      "unit_mappings": [
+        {
+          "target_edition_id": "ed_9d4028e2ab482520d0aa",
+          "target_unit_id": "tcu_4689a5d3ae9ee154",
+          "resource_section_ref": "fixture-unit-1",
+          "confidence": 0.99
+        }
+      ],
+      "provenance": {
+        "source_kind": "metadata_only_test_fixture",
+        "source_ref": "tests/fixtures/textbook-resources/teacher-guide-manifest.fixture.json",
+        "generated_from": null
+      }
+    }
+  ]
+}

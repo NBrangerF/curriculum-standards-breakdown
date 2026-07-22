@@ -2,14 +2,14 @@
 
 ## 目标
 
-教材关联以可定位的教材内容为起点，先关联到课标的 `learning_component`，再汇总到课标条目。教材侧、课标侧、阅读器和能力图谱必须使用同一个 `alignment_id`。
+教材关联以可定位的教材内容为起点，先关联到课标的 `learning_component`，再汇总到课标条目。教材侧、课标侧、阅读器和能力图谱必须使用同一个 `alignment_id`。具体内容的语义关系由 [LLM 语义关联管道](./LLM_TEXTBOOK_STANDARD_ALIGNMENT_PIPELINE.md)裁决；本地规则只允许召回同学科、同学段候选，不得决定 accept/reject、关系类型或理由。
 
 ```text
 TextbookContentNode -> TextbookEvidenceSpan -> TextbookStandardAlignment
                                             -> LearningComponent -> Standard
 ```
 
-本流水线完全自动运行，不设置人工审核队列或发布审批。机器生成的具体关系直接进入公开投影，同时必须展示置信度、证据等级、生成方法和逐字教材证据。结构校验属于构建正确性检查，不是发布门。
+本流水线完全自动运行，不设置人工审核队列或发布审批。通过 Structured Outputs 与请求相关不变量校验的模型关系直接进入公开投影，同时必须展示模型、提示版本、输入哈希、证据等级、生成方法和逐字教材证据。结构校验属于构建正确性检查，不是人工发布门。新语义关系不输出未经校准的 `confidence` 或 `score`；旧启发式字段只作为待重审历史数据。
 
 ## 数据实体
 
@@ -20,7 +20,7 @@ TextbookContentNode -> TextbookEvidenceSpan -> TextbookStandardAlignment
 - `kind`：`unit | chapter | lesson | section | objective | knowledge_point | activity | exercise | assessment | writing_task | other`。
 - `pdf_page_start` / `pdf_page_end`：PDF 页范围。
 - `printed_page_start` / `printed_page_end`：印刷页范围。
-- `source`、`confidence`：说明节点由何种抽取方法产生。
+- `source`、`extraction_method`、`source_fidelity`：说明节点由何种抽取方法产生。只有已有校准含义的抽取器才保留可选 `confidence`；LLM 生成的页证据不补零、不制造分数。
 
 ### `evidence_spans`
 
@@ -36,8 +36,9 @@ TextbookContentNode -> TextbookEvidenceSpan -> TextbookStandardAlignment
 - `standard_code`、`learning_component_ids`，以及用于界面展示的 `learning_components[{component_id,label}]`。
 - `relation_type`：`supports | practices | assesses | teaches | mentions | contextualizes`。
 - `evidence_level`（`L1`–`L5`）、可选详细枚举 `evidence_level_detail`、`evidence_span_ids`。
-- `confidence`、`rationale`、`alignment_method`、`algorithm_version`。
+- `rationale`、`alignment_method`、`algorithm_version` 与 LLM provenance（provider、model、prompt/schema version、input hash、response ID、usage）。
 - 自动关系固定使用 `review_status: machine_checked` 与 `publication_status: published`。
+- 无可靠目录时，页窗口使用稳定 `tpu_*` ID 与 `unassigned_page_only`，只允许 L3 逐字页面证据；它不是正式教材单元，反向界面只跳转 PDF 页面。
 
 ## 证据语义
 

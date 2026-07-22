@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { getEvidenceSpansForAlignment } from './textbookAlignmentContext'
 import styles from './TextbookReader.module.css'
@@ -105,13 +106,58 @@ function ScopeFallback({ scopes }) {
     )
 }
 
-export default function TextbookStandardsPanel({ book, context, highlightedAlignmentId, onClose }) {
+export default function TextbookStandardsPanel({ book, context, highlightedAlignmentId, onClose, modal = false }) {
     const breadcrumb = (context.breadcrumbNodes || []).map(node => node.title).filter(Boolean)
+    const panelRef = useRef(null)
+    const closeRef = useRef(null)
+
+    useEffect(() => {
+        const previouslyFocused = document.activeElement
+        const frame = modal ? requestAnimationFrame(() => closeRef.current?.focus()) : 0
+        const onKeyDown = event => {
+            if (event.key === 'Escape') {
+                event.preventDefault()
+                onClose()
+                return
+            }
+            if (!modal || event.key !== 'Tab') return
+            const focusable = [...(panelRef.current?.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])') || [])]
+                .filter(element => !element.hasAttribute('hidden'))
+            if (!focusable.length) {
+                event.preventDefault()
+                return
+            }
+            const first = focusable[0]
+            const last = focusable.at(-1)
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault()
+                last.focus()
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault()
+                first.focus()
+            }
+        }
+        document.addEventListener('keydown', onKeyDown)
+        return () => {
+            if (frame) cancelAnimationFrame(frame)
+            document.removeEventListener('keydown', onKeyDown)
+            if (previouslyFocused instanceof HTMLElement && previouslyFocused.isConnected) previouslyFocused.focus()
+        }
+    }, [modal, onClose])
+
     return (
-        <aside id="textbook-standards-panel" className={styles.standardsPanel} aria-label="当前教材课标" data-testid="textbook-standards-panel">
+        <aside
+            id="textbook-standards-panel"
+            className={styles.standardsPanel}
+            ref={panelRef}
+            role={modal ? 'dialog' : 'complementary'}
+            aria-modal={modal ? 'true' : undefined}
+            aria-labelledby="textbook-standards-panel-heading"
+            data-testid="textbook-standards-panel"
+        >
             <header className={styles.standardsHeading}>
-                <div><span>CURRICULUM CONTEXT</span><h2>当前课程标准</h2></div>
-                <button type="button" onClick={onClose} aria-label="关闭课标面板">关闭</button>
+                <div><span>CURRICULUM CONTEXT</span><h2 id="textbook-standards-panel-heading">当前课程标准</h2></div>
+                <button type="button" ref={closeRef} onClick={onClose} aria-label="关闭课标面板">关闭</button>
             </header>
             <div className={styles.activeContext}>
                 <strong>PDF {context.page}</strong>

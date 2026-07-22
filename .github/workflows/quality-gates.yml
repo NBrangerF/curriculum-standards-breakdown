@@ -28,5 +28,7 @@ jobs:
       - run: npm run test:api
       - run: npm run eval:smart-search
       - run: npm run eval:matching
+      - run: npm run textbooks:quality-align-llm
+      - run: npm run textbooks:resources:test
       - run: npm run lint:styles
       - run: npm run build

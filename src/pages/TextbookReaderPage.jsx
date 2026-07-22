@@ -24,7 +24,8 @@ export default function TextbookReaderPage() {
     if (state.loading) return <LoadingState message="正在建立教材阅读会话" />
     if (state.error) return <div className={`container ${styles.errorWrap}`}><ErrorState title="暂时无法阅读这本教材" message={state.error} /><p>X9 Pro 未连接时，教材馆与详情页仍可浏览；阅读器需要本地文件或已配置的对象存储。</p><Link className="btn btn-secondary" to={`/textbooks/${editionId}`}>返回教材详情</Link></div>
 
-    const initialPage = resolveTextbookDeepLinkPage(state.book, searchParams, 1)
+    const hasExplicitTarget = ['page', 'node', 'alignment'].some(key => searchParams.has(key))
+    const initialPage = hasExplicitTarget ? resolveTextbookDeepLinkPage(state.book, searchParams, 1) : null
     return (
         <div className={styles.page}>
             <div className={`container ${styles.heading}`}>
