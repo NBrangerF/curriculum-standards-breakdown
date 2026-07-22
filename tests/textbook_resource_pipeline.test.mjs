@@ -18,7 +18,10 @@ const readJson = path => JSON.parse(readFileSync(path, 'utf8'))
 const readJsonLines = path => readFileSync(path, 'utf8').trim().split(/\r?\n/).filter(Boolean).map(JSON.parse)
 
 function fixtures() {
-  const assets = readJsonLines(join(ROOT, 'generated/textbook_library/asset_manifest.jsonl'))
+  // Keep CI deterministic: the real asset registry lives on the external X9
+  // library and is intentionally not committed. These four metadata-only rows
+  // are the smallest representative sample needed to exercise atlas pairing.
+  const assets = readJsonLines(join(ROOT, 'tests/fixtures/textbook-resources/atlas-assets.fixture.jsonl'))
   const expected = readJsonLines(join(ROOT, 'data/textbooks/catalog/expected_editions.jsonl'))
   const expectedByEdition = new Map(expected.map(row => [row.edition_id, row]))
   const structureRoot = join(ROOT, 'data/textbooks/derived/by-edition')
@@ -28,9 +31,7 @@ function fixtures() {
       const structure = readJson(join(structureRoot, name))
       return [structure.edition_id, structure]
     }))
-  const targets = assets
-    .filter(asset => asset.resource_type === 'student_textbook')
-    .map(asset => ({ ...expectedByEdition.get(asset.edition_id), ...asset }))
+  const targets = expected.filter(row => row.resource_type === 'student_textbook')
   const atlases = assets
     .filter(asset => asset.resource_type === 'student_companion')
     .map(asset => resourceInputFromAsset(asset, expectedByEdition.get(asset.edition_id), structures[asset.edition_id]))
