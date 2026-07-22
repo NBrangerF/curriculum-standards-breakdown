@@ -1782,7 +1782,7 @@ async function main() {
     items: summaries,
     failures
   }
-  writeJson(join(ROOT, 'data/textbooks/derived/content_alignment_report.json'), report)
+  if (!args.sidecarOnly) writeJson(join(ROOT, 'data/textbooks/derived/content_alignment_report.json'), report)
   console.log(JSON.stringify(report, null, 2))
   if (failures.length) process.exitCode = 1
 }
