@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "performance_stability",
@@ -40,18 +40,74 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 1,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 1,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_06399e2e93f701b3",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_bebb65c5f3a6a181b33b",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_7f9265bf475e",
+        "tes_149c58ff6df28623",
+        "textbook-node:tcn_271a741d6f7e8443",
+        "textbook-unit:tcu_0f4e0950e6b65123"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3. 蛙泳的完整动作",
+          "excerpt_hash": "fd1af2d928da8861798c6eeef3cef23566eb05cc7dbf3e42b36e3dff8db2f68b",
+          "pdf_page": 78,
+          "printed_page": "71",
+          "span_id": "tes_149c58ff6df28623"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_e73e8425cff204ed"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_e73e8425cff204ed",
+          "label": "正确运用所学田径类运动项目的完整动作技术完成任务"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_271a741d6f7e8443",
+      "node_title": "3蛙泳的完整动作",
+      "pdf_page": 78,
+      "printed_page": "71",
+      "publication_status": "published",
+      "rationale": "教材lesson“3蛙泳的完整动作”与课标 PE-H4G7-HB-004 的可教学小能力“正确运用所学田径类运动项目的完整动作技术完成任务”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康7年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": "tcu_0f4e0950e6b65123",
+      "unit_title": "第九章 游泳"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_155e6e4b43a0eae0",
       "alignment_type": "references",
       "confidence": null,

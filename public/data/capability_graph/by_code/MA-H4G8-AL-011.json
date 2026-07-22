@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -199,18 +199,239 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 3,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 4,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7a5713ad2d8d1850",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a",
+        "tes_a71253955f1992ac",
+        "textbook-node:tcn_68fcd09542bf0c6d",
+        "textbook-unit:tcu_42fa85f99be66df0"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "回答上面的问题,要用到整式的乘法与因式分解的知识.本章我们将在七年级学习整式的加减法的基础上,继续学习整式的乘法与因式分解,",
+          "excerpt_hash": "839cde130a228b20b5a426996a864a6c275b896a939fc5bce5097d6b894fbf04",
+          "pdf_page": 101,
+          "printed_page": "94",
+          "span_id": "tes_a71253955f1992ac"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4fed577aa5b04287"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4fed577aa5b04287",
+          "label": "用自己的话解释整式、乘法公式、因式分解、分式及最简分式"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_68fcd09542bf0c6d",
+      "node_title": "回答上面的问题,要用到整式的乘法与因式分解的知识.本章我们将在七年级学习整式的加减法的基础上,继续学习整式的乘法与因式分解,",
+      "pdf_page": 101,
+      "printed_page": "94",
+      "publication_status": "published",
+      "rationale": "教材exercise“回答上面的问题,要用到整式的乘法与因式分解的知识.本章我们将在七年级学习整式的加减法的基础上,继续学习整式的乘法与因式分解,”与课标 MA-H4G8-AL-011 的可教学小能力“用自己的话解释整式、乘法公式、因式分解、分式及最简分式”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_42fa85f99be66df0",
+      "unit_title": "第十四章 整式的乘法与因式分解"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_b737c9c6250ecfa2",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a",
+        "tes_492950c506cd4b74",
+        "textbook-node:tcn_bc00c4e051d424d5",
+        "textbook-unit:tcu_42fa85f99be66df0"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "根据除法是乘法的逆运算,计算被除数除以除数所得的商,就是求一个数,使它与除数的积等于被除数.由于式中的字母表示数,所以可以用类似的方法来计算犪犿÷犪狀.",
+          "excerpt_hash": "588b33f0e6fe9fee2d4e8cf1e53d7650c44a86e72b56c7e13dd5d286414de37e",
+          "pdf_page": 109,
+          "printed_page": "102",
+          "span_id": "tes_492950c506cd4b74"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b18b73236386701a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b18b73236386701a",
+          "label": "借助现实情境理解代数式和用字母表示数的意义"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_bc00c4e051d424d5",
+      "node_title": "根据除法是乘法的逆运算,计算被除数除以除数所得的商,就是求一个数,使它与除数的积等于被除数.由于式中的字母表示数,所以可以用类似的方法来计算犪犿÷犪狀.",
+      "pdf_page": 109,
+      "printed_page": "102",
+      "publication_status": "published",
+      "rationale": "教材exercise“根据除法是乘法的逆运算,计算被除数除以除数所得的商,就是求一个数,使它与除数的积等于被除数.由于式中的字母表示数,所以可以用类似的方法来计算犪犿÷犪狀.”与课标 MA-H4G8-AL-011 的可教学小能力“借助现实情境理解代数式和用字母表示数的意义”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_42fa85f99be66df0",
+      "unit_title": "第十四章 整式的乘法与因式分解"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_932f23074937d4ba",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a",
+        "tes_2c7e26a187b3db80",
+        "textbook-node:tcn_78259b36cb0a8d26",
+        "textbook-unit:tcu_42fa85f99be66df0"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "14.2 乘法公式",
+          "excerpt_hash": "4ad16ee45781e5be3436952faa925537c7425db562ed4065c3e9a6d210bc3dd7",
+          "pdf_page": 114,
+          "printed_page": "107",
+          "span_id": "tes_2c7e26a187b3db80"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4fed577aa5b04287"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4fed577aa5b04287",
+          "label": "用自己的话解释整式、乘法公式、因式分解、分式及最简分式"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_78259b36cb0a8d26",
+      "node_title": "14.2 乘法公式",
+      "pdf_page": 114,
+      "printed_page": "107",
+      "publication_status": "published",
+      "rationale": "教材section“14.2 乘法公式”与课标 MA-H4G8-AL-011 的可教学小能力“用自己的话解释整式、乘法公式、因式分解、分式及最简分式”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_42fa85f99be66df0",
+      "unit_title": "第十四章 整式的乘法与因式分解"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_55e1054bc187d565",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a",
+        "tes_a0956b8d13da7fff",
+        "textbook-node:tcn_5a0b26bada02b61f",
+        "textbook-unit:tcu_42fa85f99be66df0"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "14.3 因式分解",
+          "excerpt_hash": "63b91f73c72f6fa9b418afa780ff029c404afa858a234da4b16951f6e2c8040b",
+          "pdf_page": 121,
+          "printed_page": "114",
+          "span_id": "tes_a0956b8d13da7fff"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4fed577aa5b04287"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4fed577aa5b04287",
+          "label": "用自己的话解释整式、乘法公式、因式分解、分式及最简分式"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_5a0b26bada02b61f",
+      "node_title": "14.3 因式分解",
+      "pdf_page": 121,
+      "printed_page": "114",
+      "publication_status": "published",
+      "rationale": "教材section“14.3 因式分解”与课标 MA-H4G8-AL-011 的可教学小能力“用自己的话解释整式、乘法公式、因式分解、分式及最简分式”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_42fa85f99be66df0",
+      "unit_title": "第十四章 整式的乘法与因式分解"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_995189aa3e435f88",
       "alignment_type": "references",
       "confidence": null,
@@ -241,7 +462,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0431bbd7e582e33c",
       "alignment_type": "references",
       "confidence": null,

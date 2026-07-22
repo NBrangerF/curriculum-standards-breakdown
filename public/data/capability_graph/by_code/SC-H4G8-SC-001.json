@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -244,82 +244,19 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 2,
-    "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
+    "highest_evidence_level": "L1_scope",
+    "page_evidence_count": 0,
     "scope_count": 6,
-    "specific_count": 2,
+    "specific_count": 0,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_7fdfe6074c58f884",
-      "alignment_type": "supports",
-      "confidence": 0.6264,
-      "coverage": "partial",
-      "edition_id": "ed_f0de8cbbeb88661f44d6",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
-      "evidence_refs": [
-        "ctb_ffb2a04886aa",
-        "textbook-unit:tcu_75dd608de3367e67"
-      ],
-      "evidence_role": "discipline_textbook",
-      "level": "unit",
-      "method": "constrained_concept_idf",
-      "pdf_page": 52,
-      "printed_page": "47",
-      "publication_status": "published",
-      "rationale": "教材条目“第三章 物态变化”与课标 SC-H4G8-SC-001 在practice字段命中概念：物态变化。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 8,
-      "textbook_subject": "物理",
-      "textbook_title": "物理8年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_75dd608de3367e67",
-      "unit_title": "第三章 物态变化"
-    },
-    {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_58ed90b395b107a6",
-      "alignment_type": "supports",
-      "confidence": 0.7982,
-      "coverage": "partial",
-      "edition_id": "ed_f0de8cbbeb88661f44d6",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
-      "evidence_refs": [
-        "ctb_ffb2a04886aa",
-        "textbook-unit:tcu_a08e7ac022c96b29"
-      ],
-      "evidence_role": "discipline_textbook",
-      "level": "unit",
-      "method": "constrained_concept_idf",
-      "pdf_page": 58,
-      "printed_page": "53",
-      "publication_status": "published",
-      "rationale": "教材条目“第2节 熔化和凝固”与课标 SC-H4G8-SC-001 在standard字段命中概念：熔化和凝固。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 8,
-      "textbook_subject": "物理",
-      "textbook_title": "物理8年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_a08e7ac022c96b29",
-      "unit_title": "第2节 熔化和凝固"
-    },
-    {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_d38ac800f5bc6790",
       "alignment_type": "references",
       "confidence": null,
@@ -350,7 +287,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_6e39bda3faa7bdb0",
       "alignment_type": "references",
       "confidence": null,
@@ -381,7 +318,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7d3b3292495aefb1",
       "alignment_type": "references",
       "confidence": null,
@@ -412,7 +349,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_00c68174db8af1e7",
       "alignment_type": "references",
       "confidence": null,
@@ -443,7 +380,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_961ed70747b456b6",
       "alignment_type": "references",
       "confidence": null,
@@ -474,7 +411,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_98bc58a0b17a6196",
       "alignment_type": "references",
       "confidence": null,

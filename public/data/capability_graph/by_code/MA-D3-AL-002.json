@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "comparison",
@@ -122,17 +122,238 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 3,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 4,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_36a9312761c1f5d6",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5",
+        "tes_f6c9eaa6aded2c2f",
+        "textbook-node:tcn_c860c7ede9f3c0f8",
+        "textbook-unit:tcu_e400348f1a1520e3"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "讨论一下:分母相同的两个分数怎样比较大小?分子相同的两个分数呢?",
+          "excerpt_hash": "add175b2673f0e4aca64511a7cf4fe4fc8540067890e31a755b404724ba88799",
+          "pdf_page": 78,
+          "printed_page": "73",
+          "span_id": "tes_f6c9eaa6aded2c2f"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7716116c07f4ceac"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7716116c07f4ceac",
+          "label": "比较两个分数的大小和两个小数的大小"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c860c7ede9f3c0f8",
+      "node_title": "讨论一下:分母相同的两个分数怎样比较大小?分子相同的两个分数呢?",
+      "pdf_page": 78,
+      "printed_page": "73",
+      "publication_status": "published",
+      "rationale": "教材exercise“讨论一下:分母相同的两个分数怎样比较大小?分子相同的两个分数呢?”与课标 MA-D3-AL-002 的可教学小能力“比较两个分数的大小和两个小数的大小”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_e400348f1a1520e3",
+      "unit_title": "24.6 m2,高是 3 m。它的容"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_43135033c1e708f0",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5",
+        "tes_048949830f086ab6",
+        "textbook-node:tcn_1fbe6ab8e6bef271",
+        "textbook-unit:tcu_e400348f1a1520e3"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "想一想:怎样能较快地把小数化成分数?",
+          "excerpt_hash": "d7b5c9d67962325da1dd09f8c8adecf30a5447d03adf096a77213df8e78bc7b9",
+          "pdf_page": 82,
+          "printed_page": "77",
+          "span_id": "tes_048949830f086ab6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_a6c3635bfff2fe54"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_a6c3635bfff2fe54",
+          "label": "进行小数和分数的转化（不包括将循环小数转化成分数）"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_1fbe6ab8e6bef271",
+      "node_title": "想一想:怎样能较快地把小数化成分数?",
+      "pdf_page": 82,
+      "printed_page": "77",
+      "publication_status": "published",
+      "rationale": "教材exercise“想一想:怎样能较快地把小数化成分数?”与课标 MA-D3-AL-002 的可教学小能力“进行小数和分数的转化（不包括将循环小数转化成分数）”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_e400348f1a1520e3",
+      "unit_title": "24.6 m2,高是 3 m。它的容"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c903763738587b5d",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5",
+        "tes_0d726409d4746832",
+        "textbook-node:tcn_a6c0b6d399085b16",
+        "textbook-unit:tcu_e400348f1a1520e3"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "找出8和 10的公倍数,2 解决问题。 就知道......一块正方形布料,既可以裁成若干条边长是8 cm的方巾,",
+          "excerpt_hash": "0386e8dac7dfa66af725d5b6c5a610d9919bb18bea4b678b64c3da2a56224fbd",
+          "pdf_page": 85,
+          "printed_page": "80",
+          "span_id": "tes_0d726409d4746832"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3d1c84205b3d59d7"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3d1c84205b3d59d7",
+          "label": "运用小数和分数解决问题，进一步发展符号意识和数感"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a6c0b6d399085b16",
+      "node_title": "找出8和 10的公倍数,2 解决问题。 就知道......一块正方形布料,既可以裁成若干条边长是8 cm的方巾,",
+      "pdf_page": 85,
+      "printed_page": "80",
+      "publication_status": "published",
+      "rationale": "教材exercise“找出8和 10的公倍数,2 解决问题。 就知道......一块正方形布料,既可以裁成若干条边长是8 cm的方巾,”与课标 MA-D3-AL-002 的可教学小能力“运用小数和分数解决问题，进一步发展符号意识和数感”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_e400348f1a1520e3",
+      "unit_title": "24.6 m2,高是 3 m。它的容"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1452cf0890712048",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5",
+        "tes_83be64305248ecc8",
+        "textbook-node:tcn_1a0f5ab63f3bfdfd",
+        "textbook-unit:tcu_e400348f1a1520e3"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "6. 分数和小数的互化",
+          "excerpt_hash": "18dd31e68ff9057882cc21debf1532e8493fe1d2d01f20809b5352292c6981d2",
+          "pdf_page": 82,
+          "printed_page": "77",
+          "span_id": "tes_83be64305248ecc8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b6e8ce21354e73c4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b6e8ce21354e73c4",
+          "label": "用直观的方式表示分数和小数"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_1a0f5ab63f3bfdfd",
+      "node_title": "6分数和小数的互化",
+      "pdf_page": 82,
+      "printed_page": "77",
+      "publication_status": "published",
+      "rationale": "教材lesson“6分数和小数的互化”与课标 MA-D3-AL-002 的可教学小能力“用直观的方式表示分数和小数”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_e400348f1a1520e3",
+      "unit_title": "24.6 m2,高是 3 m。它的容"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_23f97bb1d5793e6e",
       "alignment_type": "references",
       "confidence": null,
@@ -163,7 +384,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c188988c496b945a",
       "alignment_type": "references",
       "confidence": null,
@@ -194,7 +415,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c4ca73376e9cc457",
       "alignment_type": "references",
       "confidence": null,
@@ -225,7 +446,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e2982466d2ae79f0",
       "alignment_type": "references",
       "confidence": null,

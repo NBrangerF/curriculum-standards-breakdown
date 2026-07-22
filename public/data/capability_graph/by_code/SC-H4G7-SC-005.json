@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -120,17 +120,458 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 6,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 8,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6600937a4e231016",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_3fc540b4d8d77cc3",
+        "textbook-node:tcn_20cbca72668afbfe",
+        "textbook-unit:tcu_018e7ddf9bdc9398"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "细胞的生活需要物质和能量,细胞膜控制物质进出细胞,细胞质",
+          "excerpt_hash": "85ac9c973bb4b3edea2f3922d20851512b54201665109586d2c85275652337d6",
+          "pdf_page": 77,
+          "printed_page": "70",
+          "span_id": "tes_3fc540b4d8d77cc3"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c721cd8c168bfed6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c721cd8c168bfed6",
+          "label": "说明生态系统中物质和能量沿食物链与食物网流动"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_20cbca72668afbfe",
+      "node_title": "细胞的生活需要物质和能量,细胞膜控制物质进出细胞,细胞质",
+      "pdf_page": 77,
+      "printed_page": "70",
+      "publication_status": "published",
+      "rationale": "教材objective“细胞的生活需要物质和能量,细胞膜控制物质进出细胞,细胞质”与课标 SC-H4G7-SC-005 的可教学小能力“说明生态系统中物质和能量沿食物链与食物网流动”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_018e7ddf9bdc9398",
+      "unit_title": "第二单元 生物体的结构层次"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0be783b27bf166f4",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_04977ab9d86c6ad8",
+        "textbook-node:tcn_269b88ea54606569",
+        "textbook-unit:tcu_39ba776db2ddc40c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "在生态系统中,物质和能量沿着食物链和食物网流动,一些不易",
+          "excerpt_hash": "dfd339549e96f4a64df2f6c08e6dfe32438cf1afb6d45da1132c7eed5f2059d6",
+          "pdf_page": 41,
+          "printed_page": "34",
+          "span_id": "tes_04977ab9d86c6ad8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c721cd8c168bfed6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c721cd8c168bfed6",
+          "label": "说明生态系统中物质和能量沿食物链与食物网流动"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_269b88ea54606569",
+      "node_title": "在生态系统中,物质和能量沿着食物链和食物网流动,一些不易",
+      "pdf_page": 41,
+      "printed_page": "34",
+      "publication_status": "published",
+      "rationale": "教材objective“在生态系统中,物质和能量沿着食物链和食物网流动,一些不易”与课标 SC-H4G7-SC-005 的可教学小能力“说明生态系统中物质和能量沿食物链与食物网流动”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_39ba776db2ddc40c",
+      "unit_title": "第二章"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1176b92644e4f09c",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_6781908ed6f9fdb4",
+        "textbook-node:tcn_fb40c7d4428cdbd8",
+        "textbook-unit:tcu_39ba776db2ddc40c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "生态系统靠自身的调节能力维持相对稳定,但这种调节能力是有",
+          "excerpt_hash": "c55f817cbce4e1b8ef36894cbd10a0a54353b8d5f5401467e7647f49fb43fe08",
+          "pdf_page": 41,
+          "printed_page": "34",
+          "span_id": "tes_6781908ed6f9fdb4"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c721cd8c168bfed6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c721cd8c168bfed6",
+          "label": "说明生态系统中物质和能量沿食物链与食物网流动"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_fb40c7d4428cdbd8",
+      "node_title": "生态系统靠自身的调节能力维持相对稳定,但这种调节能力是有",
+      "pdf_page": 41,
+      "printed_page": "34",
+      "publication_status": "published",
+      "rationale": "教材objective“生态系统靠自身的调节能力维持相对稳定,但这种调节能力是有”与课标 SC-H4G7-SC-005 的可教学小能力“说明生态系统中物质和能量沿食物链与食物网流动”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_39ba776db2ddc40c",
+      "unit_title": "第二章"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8c61c48486c719f2",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_e89633d2ebbd1522",
+        "textbook-node:tcn_16a0dde218e93cf4",
+        "textbook-unit:tcu_39ba776db2ddc40c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "生物圈是最大的生态系统。生物圈是所有生物的共同家园。",
+          "excerpt_hash": "0c5810dba0062e018461bfa508b33d56be29ab6b30521d6c593b2d7022f88c94",
+          "pdf_page": 41,
+          "printed_page": "34",
+          "span_id": "tes_e89633d2ebbd1522"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c721cd8c168bfed6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c721cd8c168bfed6",
+          "label": "说明生态系统中物质和能量沿食物链与食物网流动"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_16a0dde218e93cf4",
+      "node_title": "生物圈是最大的生态系统。生物圈是所有生物的共同家园。",
+      "pdf_page": 41,
+      "printed_page": "34",
+      "publication_status": "published",
+      "rationale": "教材objective“生物圈是最大的生态系统。生物圈是所有生物的共同家园。”与课标 SC-H4G7-SC-005 的可教学小能力“说明生态系统中物质和能量沿食物链与食物网流动”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_39ba776db2ddc40c",
+      "unit_title": "第二章"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9668c33d6546155d",
+      "alignment_type": "supports",
+      "confidence": 0.8768,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_d5e9f1287726d21b",
+        "textbook-node:tcn_04ee42e6a00af997",
+        "textbook-unit:tcu_39ba776db2ddc40c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "在一定的空间范围内,生物与环境形成的统一整体就是生态系统。",
+          "excerpt_hash": "a73c47e61cc281590b3fc42b033c704af6d398a61d027c16799f4a281998bdee",
+          "pdf_page": 41,
+          "printed_page": "34",
+          "span_id": "tes_d5e9f1287726d21b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c721cd8c168bfed6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c721cd8c168bfed6",
+          "label": "说明生态系统中物质和能量沿食物链与食物网流动"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_04ee42e6a00af997",
+      "node_title": "在一定的空间范围内,生物与环境形成的统一整体就是生态系统。",
+      "pdf_page": 41,
+      "printed_page": "34",
+      "publication_status": "published",
+      "rationale": "教材objective“在一定的空间范围内,生物与环境形成的统一整体就是生态系统。”与课标 SC-H4G7-SC-005 的可教学小能力“说明生态系统中物质和能量沿食物链与食物网流动”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_39ba776db2ddc40c",
+      "unit_title": "第二章"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ae3569b7aaf3f6b6",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_3ce1e8e3223155fd",
+        "textbook-node:tcn_8b73d1588d371441",
+        "textbook-unit:tcu_39ba776db2ddc40c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "生态系统的成分包括生物成分和非生物成分,前者由生产者、消",
+          "excerpt_hash": "5e2518f551bc6481d669f57c406eff678920ce3b3f6c4276864dc98554ad8646",
+          "pdf_page": 41,
+          "printed_page": "34",
+          "span_id": "tes_3ce1e8e3223155fd"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c721cd8c168bfed6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c721cd8c168bfed6",
+          "label": "说明生态系统中物质和能量沿食物链与食物网流动"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_8b73d1588d371441",
+      "node_title": "生态系统的成分包括生物成分和非生物成分,前者由生产者、消",
+      "pdf_page": 41,
+      "printed_page": "34",
+      "publication_status": "published",
+      "rationale": "教材objective“生态系统的成分包括生物成分和非生物成分,前者由生产者、消”与课标 SC-H4G7-SC-005 的可教学小能力“说明生态系统中物质和能量沿食物链与食物网流动”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_39ba776db2ddc40c",
+      "unit_title": "第二章"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_44c221c9ee1bea3a",
+      "alignment_type": "supports",
+      "confidence": 0.8768,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_eba6c7418a213b0e",
+        "textbook-node:tcn_cac859bf0d161390",
+        "textbook-unit:tcu_39ba776db2ddc40c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第二节 生物与环境组成生态系统",
+          "excerpt_hash": "120ec2fbaba56fc79f2642910d92fe1b47612c15273fd35496f35c59ecf6f1e5",
+          "pdf_page": 26,
+          "printed_page": "19",
+          "span_id": "tes_eba6c7418a213b0e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c721cd8c168bfed6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c721cd8c168bfed6",
+          "label": "说明生态系统中物质和能量沿食物链与食物网流动"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_cac859bf0d161390",
+      "node_title": "第二节生物与环境组成生态系统",
+      "pdf_page": 26,
+      "printed_page": "19",
+      "publication_status": "published",
+      "rationale": "教材section“第二节生物与环境组成生态系统”与课标 SC-H4G7-SC-005 的可教学小能力“说明生态系统中物质和能量沿食物链与食物网流动”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_39ba776db2ddc40c",
+      "unit_title": "第二章"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6a22828484dd1729",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_cc0e859ca6d41c89",
+        "textbook-node:tcn_a668b7cdfe9beb3b",
+        "textbook-unit:tcu_39ba776db2ddc40c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第三节 生物圈是最大的生态系统",
+          "excerpt_hash": "fabeeef7d12cc86e4c7c6935e0b0383244e4dfe0294a2bc30d4e616823e4a05c",
+          "pdf_page": 33,
+          "printed_page": "26",
+          "span_id": "tes_cc0e859ca6d41c89"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c721cd8c168bfed6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c721cd8c168bfed6",
+          "label": "说明生态系统中物质和能量沿食物链与食物网流动"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a668b7cdfe9beb3b",
+      "node_title": "第三节生物圈是最大的生态系统",
+      "pdf_page": 33,
+      "printed_page": "26",
+      "publication_status": "published",
+      "rationale": "教材section“第三节生物圈是最大的生态系统”与课标 SC-H4G7-SC-005 的可教学小能力“说明生态系统中物质和能量沿食物链与食物网流动”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_39ba776db2ddc40c",
+      "unit_title": "第二章"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_11a2e11443865f14",
       "alignment_type": "references",
       "confidence": null,
@@ -161,7 +602,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_8d32db1bda5735c9",
       "alignment_type": "references",
       "confidence": null,
@@ -192,7 +633,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0acd3c5484bf750a",
       "alignment_type": "references",
       "confidence": null,
@@ -223,7 +664,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_1b9969b0c590fb31",
       "alignment_type": "references",
       "confidence": null,

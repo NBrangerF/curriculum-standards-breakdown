@@ -10,6 +10,7 @@ import {
     createMeilisearchDocuments,
     FileCurriculumRepository,
     FileTextbookRepository,
+    TextbookDetailRecordSchema,
     filterStandards,
     getLearningContext,
     getPrerequisites,
@@ -319,16 +320,55 @@ test('FileTextbookRepository exposes specific evidence and deduplicated curricul
     const catalog = await repository.loadCatalog()
     assert.equal(catalog.items.length, 141)
 
-    const detail = await repository.get('ed_f8159854e52a9dd85942')
+    const detail = await repository.get('ed_9d4028e2ab482520d0aa')
     assert.ok(detail)
     assert.ok(detail.standard_scopes.length > 0)
     assert.ok(detail.alignments.some(alignment => alignment.review_status === 'machine_checked'))
 
     const links = await repository.getTextbooksForStandard('MA-H4G7-AL-003')
-    assert.ok(links.some(link => link.evidence_granularity === 'textbook_toc_entry'))
+    assert.ok(links.some(link => link.evidence_granularity === 'textbook_page_evidence'))
+    assert.ok(links.some(link => typeof link.evidence_excerpt === 'string' && link.evidence_excerpt.length > 0))
     assert.ok(links.some(link => link.evidence_granularity === 'textbook_grade_band_scope'))
     const scopeEditions = new Set(links.filter(link => link.evidence_granularity === 'textbook_grade_band_scope').map(link => link.edition_id))
-    assert.ok(links.filter(link => link.evidence_granularity === 'textbook_toc_entry').every(link => !scopeEditions.has(link.edition_id)))
+    assert.ok(links.filter(link => link.evidence_granularity === 'textbook_page_evidence').every(link => !scopeEditions.has(link.edition_id)))
+})
+
+test('FileTextbookRepository resolves page context without promoting curriculum scope', async () => {
+    const repository = new FileTextbookRepository(publicDataRoot)
+    const context = await repository.getPageContext('ed_006d5ed61c055eb63857', 121)
+    assert.ok(context)
+    assert.equal(context.pdf_page, 121)
+    assert.equal(context.printed_page, '114')
+    assert.ok(context.active_nodes.length > 0)
+    assert.ok(context.alignments.some(alignment => alignment.alignment_id === 'tca_4644f92b7a13313c'))
+    assert.ok(context.alignments.every(alignment => !['curriculum_scope', 'adjacent_curriculum_scope'].includes(alignment.relation_type)))
+    assert.ok(context.standard_scopes.length > 0)
+
+    const reverse = await repository.getTextbooksForStandard('MA-H4G7-GE-002')
+    assert.ok(reverse.some(link => link.alignment_id === 'tca_4644f92b7a13313c'))
+
+    const fineGrained = await repository.getPageContext('ed_9d4028e2ab482520d0aa', 70)
+    assert.ok(fineGrained)
+    const pageEvidence = fineGrained.alignments.find(alignment => alignment.evidence_level === 'L3')
+    assert.ok(pageEvidence)
+    assert.equal(pageEvidence.evidence_level_detail, 'L3_page_evidence')
+    assert.ok(pageEvidence.node_id)
+    assert.ok(pageEvidence.learning_components?.length)
+    assert.ok(pageEvidence.evidence_span_ids?.length)
+    assert.ok(fineGrained.evidence_spans.some(span => pageEvidence.evidence_span_ids?.includes(span.evidence_span_id)))
+    assert.equal(await repository.getPageContext('ed_006d5ed61c055eb63857', 0), null)
+})
+
+test('textbook detail schema supplies empty fine-grained collections for legacy payloads', async () => {
+    const repository = new FileTextbookRepository(publicDataRoot)
+    const detail = await repository.get('ed_006d5ed61c055eb63857')
+    assert.ok(detail)
+    const legacy = structuredClone(detail) as unknown as Record<string, unknown>
+    delete legacy.content_nodes
+    delete legacy.evidence_spans
+    const parsed = TextbookDetailRecordSchema.parse(legacy)
+    assert.deepEqual(parsed.content_nodes, [])
+    assert.deepEqual(parsed.evidence_spans, [])
 })
 
 const learningFixture: KnowledgeGraphDataset = {

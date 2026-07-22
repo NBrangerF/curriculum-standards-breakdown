@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -117,17 +117,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_f96e9364dc56f958",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_833ce42b24662dbd40af",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_8ec280d20713",
+        "tes_f7b3b417ebf18d22",
+        "textbook-node:tcn_8bcf8dee2a8410b5",
+        "textbook-unit:tcu_372443c621cbd76c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "计算两位数乘两位85×66= (平方米)数要注意什么?",
+          "excerpt_hash": "e7bcc09547b5357dca7b2a2a725eda361a8a4a64d1c84a0925cb1c1cd88e9b0d",
+          "pdf_page": 107,
+          "printed_page": "102",
+          "span_id": "tes_f7b3b417ebf18d22"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_2b093e2bd422ede8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_2b093e2bd422ede8",
+          "label": "计算两位数乘除三位数"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_8bcf8dee2a8410b5",
+      "node_title": "计算两位数乘两位85×66= (平方米)数要注意什么?",
+      "pdf_page": 107,
+      "printed_page": "102",
+      "publication_status": "published",
+      "rationale": "教材exercise“计算两位数乘两位85×66= (平方米)数要注意什么?”与课标 MA-D2-AL-001 的可教学小能力“计算两位数乘除三位数”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_372443c621cbd76c",
+      "unit_title": "3.7 元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ecc6743a2617406e",
       "alignment_type": "references",
       "confidence": null,
@@ -158,7 +214,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_49a1adb84ed35eab",
       "alignment_type": "references",
       "confidence": null,
@@ -189,7 +245,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0c7278730ab12fb2",
       "alignment_type": "references",
       "confidence": null,
@@ -220,7 +276,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a05a7edbf492821f",
       "alignment_type": "references",
       "confidence": null,

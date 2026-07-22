@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -158,50 +158,19 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 1,
-    "disposition": "unit_topic_needs_page_evidence",
-    "evidence_note": "已有目录主题候选，但缺少可靠 PDF 页定位，已降级进入补证队列。",
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
     "gap_reason": null,
     "highest_evidence_level": "L1_scope",
+    "page_evidence_count": 0,
     "scope_count": 2,
     "specific_count": 0,
-    "unit_topic_candidate_count": 1
+    "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_f47d43b8660c52eb",
-      "alignment_type": "supports",
-      "confidence": 0.8491,
-      "coverage": "partial",
-      "edition_id": "ed_f8159854e52a9dd85942",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
-      "evidence_refs": [
-        "ctb_485165afa9c8",
-        "textbook-unit:tcu_267f58d57d56a334"
-      ],
-      "evidence_role": "direct_textbook",
-      "level": "unit_topic_candidate",
-      "method": "constrained_concept_idf",
-      "pdf_page": null,
-      "printed_page": null,
-      "publication_status": "review_queue",
-      "rationale": "教材条目“一次函数”与课标 MA-H4G8-AL-003 在standard字段命中概念：一次函数。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "candidate",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 8,
-      "textbook_subject": "数学",
-      "textbook_title": "数学8年级下册",
-      "textbook_volume": "下册",
-      "unit_id": "tcu_267f58d57d56a334",
-      "unit_title": "一次函数"
-    },
-    {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_055dae9a09348015",
       "alignment_type": "references",
       "confidence": null,
@@ -232,7 +201,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_af46011df33e3e9a",
       "alignment_type": "references",
       "confidence": null,

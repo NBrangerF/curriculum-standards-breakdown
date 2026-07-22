@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "concept_discrimination",
@@ -41,17 +41,188 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_61b61bf87695ffb0",
+      "alignment_type": "contextualizes",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_05dbe85802ac",
+        "tes_fdf7b8c235aadecb",
+        "textbook-node:tcn_27d09752a3e3f176",
+        "textbook-unit:tcu_3309d4424fc2c169"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "交流,发展社会主义现代化事业起到了极为重要的作用。",
+          "excerpt_hash": "4a684a264487685106088fba094dfbb221cb8cbb5d174253fc0b7bab9961067d",
+          "pdf_page": 48,
+          "printed_page": "43",
+          "span_id": "tes_fdf7b8c235aadecb"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d096afb13a2b20ff",
+        "lc_3511370c1d51f849"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d096afb13a2b20ff",
+          "label": "创造改革开放和社会主义现代化建设伟大成就"
+        },
+        {
+          "component_id": "lc_3511370c1d51f849",
+          "label": "用自己的话解释中国特色社会主义道路是指引中国发展繁荣的正确道路"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_27d09752a3e3f176",
+      "node_title": "交流,发展社会主义现代化事业起到了极为重要的作用。",
+      "pdf_page": 48,
+      "printed_page": "43",
+      "publication_status": "published",
+      "rationale": "教材exercise“交流,发展社会主义现代化事业起到了极为重要的作用。”为课标 ML-H4G8-TCR-007 的可教学小能力“创造改革开放和社会主义现代化建设伟大成就、用自己的话解释中国特色社会主义道路是指引中国发展繁荣的正确道路”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_3309d4424fc2c169",
+      "unit_title": "第9课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_604175202900e7e5",
+      "alignment_type": "contextualizes",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_05dbe85802ac",
+        "tes_9d9da6021b1e0fa5",
+        "textbook-node:tcn_fe3ffc1b67bd3360",
+        "textbook-unit:tcu_96147719f2c7a3a4"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "结合上表,搜集材料,说说改革开放的巨大成就。",
+          "excerpt_hash": "71f19a4c1f7bf143ec6f43f9e5b9f173b651fbe8fa37e0d3c246bfa7dba4aafa",
+          "pdf_page": 104,
+          "printed_page": "99",
+          "span_id": "tes_9d9da6021b1e0fa5"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d096afb13a2b20ff"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d096afb13a2b20ff",
+          "label": "创造改革开放和社会主义现代化建设伟大成就"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_fe3ffc1b67bd3360",
+      "node_title": "结合上表,搜集材料,说说改革开放的巨大成就。",
+      "pdf_page": 104,
+      "printed_page": "99",
+      "publication_status": "published",
+      "rationale": "教材exercise“结合上表,搜集材料,说说改革开放的巨大成就。”为课标 ML-H4G8-TCR-007 的可教学小能力“创造改革开放和社会主义现代化建设伟大成就”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_96147719f2c7a3a4",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_bdafa1f596754711",
+      "alignment_type": "contextualizes",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_2860489fc83ddeb6cec5",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_76fc538dd0d1",
+        "tes_49602811f91d5dd8",
+        "textbook-node:tcn_79632a6adab36bfd",
+        "textbook-unit:tcu_9800d83e891caff6"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第24课 人民解放战争的胜利 115",
+          "excerpt_hash": "f88c612099da882f05b58e39ffa9da8b07748933b67552b89fa09a3111775efc",
+          "pdf_page": 120,
+          "printed_page": "115",
+          "span_id": "tes_49602811f91d5dd8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_5d7eaae98850ff03"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_5d7eaae98850ff03",
+          "label": "识别并说出中国共产党领导人民解放思想、锐意进取的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_79632a6adab36bfd",
+      "node_title": "第24课人民解放战争的胜利115",
+      "pdf_page": 120,
+      "printed_page": "115",
+      "publication_status": "published",
+      "rationale": "教材lesson“第24课人民解放战争的胜利115”为课标 ML-H4G8-TCR-007 的可教学小能力“识别并说出中国共产党领导人民解放思想、锐意进取的关键特征”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_9800d83e891caff6",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_9040e58e3f770d42",
       "alignment_type": "references",
       "confidence": null,
@@ -82,7 +253,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_d6ab9fd6486b6529",
       "alignment_type": "references",
       "confidence": null,
@@ -113,7 +284,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_62d6be11e89472e1",
       "alignment_type": "references",
       "confidence": null,
@@ -144,7 +315,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_8c483c42e4a084fb",
       "alignment_type": "references",
       "confidence": null,

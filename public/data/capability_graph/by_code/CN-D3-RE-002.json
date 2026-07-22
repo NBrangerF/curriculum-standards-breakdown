@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "language_expression",
@@ -81,17 +81,2163 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 39,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 39,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_64e896ef967e4ca7",
+      "alignment_type": "practices",
+      "confidence": 0.8302,
+      "coverage": "partial",
+      "edition_id": "ed_65220055b0e922eb6a1e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_55b8f47777bf",
+        "tes_b05f6a7730fbbfba",
+        "textbook-node:tcn_955871d08f6ffb23",
+        "textbook-unit:tcu_159a53dca6a8e829"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "正确、流利地朗读课文。背诵课文。",
+          "excerpt_hash": "c479810dc509da1c539c17183b3178e007dfed08b14cbb594bbf32acc4a26101",
+          "pdf_page": 86,
+          "printed_page": "81",
+          "span_id": "tes_b05f6a7730fbbfba"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_955871d08f6ffb23",
+      "node_title": "正确、流利地朗读课文。背诵课文。",
+      "pdf_page": 86,
+      "printed_page": "81",
+      "publication_status": "published",
+      "rationale": "教材exercise“正确、流利地朗读课文。背诵课文。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_159a53dca6a8e829",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_d6186b794627b3cf",
+      "alignment_type": "practices",
+      "confidence": 0.8302,
+      "coverage": "partial",
+      "edition_id": "ed_65220055b0e922eb6a1e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_55b8f47777bf",
+        "tes_f13670f9eba5c319",
+        "textbook-node:tcn_2a6f9e4c4070fd20",
+        "textbook-unit:tcu_181dace91a30e159"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。",
+          "excerpt_hash": "1ec4022c3f381b50211bd1a252dc21933d367fa77b22f4a29aa903dd6e35f235",
+          "pdf_page": 50,
+          "printed_page": "45",
+          "span_id": "tes_f13670f9eba5c319"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2a6f9e4c4070fd20",
+      "node_title": "有感情地朗读课文。背诵课文。",
+      "pdf_page": 50,
+      "printed_page": "45",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_181dace91a30e159",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9ae4f715ed9cc997",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_65220055b0e922eb6a1e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_55b8f47777bf",
+        "tes_1eddca4b9df428ff",
+        "textbook-node:tcn_729d0549a90b7a2f",
+        "textbook-unit:tcu_4a6c16779c8a8cf7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,一边读一边想象八儿的馋样儿。",
+          "excerpt_hash": "bce5d2bd5ef83ca1a8d2653b98b6a25a69a5bcb94ac841269c7a2e0803f69222",
+          "pdf_page": 15,
+          "printed_page": "10",
+          "span_id": "tes_1eddca4b9df428ff"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_729d0549a90b7a2f",
+      "node_title": "朗读课文,一边读一边想象八儿的馋样儿。",
+      "pdf_page": 15,
+      "printed_page": "10",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,一边读一边想象八儿的馋样儿。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_4a6c16779c8a8cf7",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1f084e155aa9abf0",
+      "alignment_type": "practices",
+      "confidence": 0.8302,
+      "coverage": "partial",
+      "edition_id": "ed_65220055b0e922eb6a1e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_55b8f47777bf",
+        "tes_982df4425b67149b",
+        "textbook-node:tcn_a0ba6b2f464c596c",
+        "textbook-unit:tcu_4a6c16779c8a8cf7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。",
+          "excerpt_hash": "1ec4022c3f381b50211bd1a252dc21933d367fa77b22f4a29aa903dd6e35f235",
+          "pdf_page": 17,
+          "printed_page": "12",
+          "span_id": "tes_982df4425b67149b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a0ba6b2f464c596c",
+      "node_title": "有感情地朗读课文。背诵课文。",
+      "pdf_page": 17,
+      "printed_page": "12",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_4a6c16779c8a8cf7",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8a1dca248b744ee8",
+      "alignment_type": "practices",
+      "confidence": 0.8302,
+      "coverage": "partial",
+      "edition_id": "ed_65220055b0e922eb6a1e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_55b8f47777bf",
+        "tes_3759df6f9f9b4b84",
+        "textbook-node:tcn_ef753521f4e7e706",
+        "textbook-unit:tcu_a532a912db10b5d9"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。默写《竹石》。",
+          "excerpt_hash": "94b885f2b458bb3da26aa973319e871e925d3db76a619b5fe0f7e071657fbe7d",
+          "pdf_page": 64,
+          "printed_page": "59",
+          "span_id": "tes_3759df6f9f9b4b84"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ef753521f4e7e706",
+      "node_title": "有感情地朗读课文。背诵课文。默写《竹石》。",
+      "pdf_page": 64,
+      "printed_page": "59",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。默写《竹石》。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_a532a912db10b5d9",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_97e11102d18af130",
+      "alignment_type": "practices",
+      "confidence": 0.8304,
+      "coverage": "partial",
+      "edition_id": "ed_65220055b0e922eb6a1e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_55b8f47777bf",
+        "tes_6e4f5dccb73c9ca9",
+        "textbook-node:tcn_13326cbc2d21c3e8",
+        "textbook-unit:tcu_a532a912db10b5d9"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。",
+          "excerpt_hash": "bac99e3a6dbca29c213051927f6e102fc804c1b8df48dbbe3eb57e0d60bb8ddb",
+          "pdf_page": 68,
+          "printed_page": "63",
+          "span_id": "tes_6e4f5dccb73c9ca9"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_13326cbc2d21c3e8",
+      "node_title": "有感情地朗读课文。",
+      "pdf_page": 68,
+      "printed_page": "63",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_a532a912db10b5d9",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_582ddf8967a6f803",
+      "alignment_type": "practices",
+      "confidence": 0.8302,
+      "coverage": "partial",
+      "edition_id": "ed_65220055b0e922eb6a1e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_55b8f47777bf",
+        "tes_6a3990e48c3f6845",
+        "textbook-node:tcn_fc7d799291d55e97",
+        "textbook-unit:tcu_a532a912db10b5d9"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵第 2〜3 自然段。",
+          "excerpt_hash": "8a621bd8173ff82b7486d0bc066703390f9df8e34ddd74c35c076b17b4e65dff",
+          "pdf_page": 70,
+          "printed_page": "65",
+          "span_id": "tes_6a3990e48c3f6845"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_fc7d799291d55e97",
+      "node_title": "有感情地朗读课文。背诵第 2〜3 自然段。",
+      "pdf_page": 70,
+      "printed_page": "65",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵第 2〜3 自然段。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_a532a912db10b5d9",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6a9c02066a46cbed",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_85776c7beb7e",
+        "tes_1a59e112b9a08d54",
+        "textbook-node:tcn_89a813a9a123d8e3",
+        "textbook-unit:tcu_5d66ec2d341978d1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "正确、流利地朗读课文,读好下面的句子。背诵课文。",
+          "excerpt_hash": "a9f3f62d81dded693276edfbe2809feaff62684bc922a55b661dc3a42322f829",
+          "pdf_page": 113,
+          "printed_page": "108",
+          "span_id": "tes_1a59e112b9a08d54"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_89a813a9a123d8e3",
+      "node_title": "正确、流利地朗读课文,读好下面的句子。背诵课文。",
+      "pdf_page": 113,
+      "printed_page": "108",
+      "publication_status": "published",
+      "rationale": "教材exercise“正确、流利地朗读课文,读好下面的句子。背诵课文。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_5d66ec2d341978d1",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9644b7ed3ff4605e",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_85776c7beb7e",
+        "tes_c83836f0d9ba784b",
+        "textbook-node:tcn_a3c7e952fb0f39ad",
+        "textbook-unit:tcu_688e67b0e5ec20b5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。默写《从军行》《秋夜将晓出篱门迎凉有感》。",
+          "excerpt_hash": "113be16c2f71fd88d262b39c03a1bba57fb095527815271fd2d7446bbb208d89",
+          "pdf_page": 60,
+          "printed_page": "55",
+          "span_id": "tes_c83836f0d9ba784b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a3c7e952fb0f39ad",
+      "node_title": "有感情地朗读课文。背诵课文。默写《从军行》《秋夜将晓出篱门迎凉有感》。",
+      "pdf_page": 60,
+      "printed_page": "55",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。默写《从军行》《秋夜将晓出篱门迎凉有感》。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_688e67b0e5ec20b5",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_07d7ee85fd08d010",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_85776c7beb7e",
+        "tes_3e63c2146a87da90",
+        "textbook-node:tcn_893e8cd9b9f13378",
+        "textbook-unit:tcu_688e67b0e5ec20b5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "从课文中找出描写毛主席动作、语言、神态的语句,体会他的内心世界,再有感情地朗读课文。",
+          "excerpt_hash": "270584a8b8696106a21264f64b66b91092ef0297829b8fba1afb38ffbdb74cf4",
+          "pdf_page": 63,
+          "printed_page": "58",
+          "span_id": "tes_3e63c2146a87da90"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_893e8cd9b9f13378",
+      "node_title": "从课文中找出描写毛主席动作、语言、神态的语句,体会他的内心世界,再有感情地朗读课文。",
+      "pdf_page": 63,
+      "printed_page": "58",
+      "publication_status": "published",
+      "rationale": "教材exercise“从课文中找出描写毛主席动作、语言、神态的语句,体会他的内心世界,再有感情地朗读课文。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_688e67b0e5ec20b5",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_e8a6d3c5602f83f5",
+      "alignment_type": "practices",
+      "confidence": 0.8302,
+      "coverage": "partial",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_85776c7beb7e",
+        "tes_da3431737132fa8e",
+        "textbook-node:tcn_874aa6edc522246a",
+        "textbook-unit:tcu_688e67b0e5ec20b5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,注意读出人物说话的语气。",
+          "excerpt_hash": "e49c3e8c5437186921cdd62b5ab9014d103ba7731be3205def0600eb9ec83c7f",
+          "pdf_page": 66,
+          "printed_page": "61",
+          "span_id": "tes_da3431737132fa8e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_874aa6edc522246a",
+      "node_title": "朗读课文,注意读出人物说话的语气。",
+      "pdf_page": 66,
+      "printed_page": "61",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,注意读出人物说话的语气。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_688e67b0e5ec20b5",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8cdf7aeb01a0785a",
+      "alignment_type": "practices",
+      "confidence": 0.8304,
+      "coverage": "partial",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_85776c7beb7e",
+        "tes_a9d31365440bc1d8",
+        "textbook-node:tcn_d23f686ab3e906dc",
+        "textbook-unit:tcu_b313c130246bdc0a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。",
+          "excerpt_hash": "bac99e3a6dbca29c213051927f6e102fc804c1b8df48dbbe3eb57e0d60bb8ddb",
+          "pdf_page": 103,
+          "printed_page": "98",
+          "span_id": "tes_a9d31365440bc1d8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d23f686ab3e906dc",
+      "node_title": "有感情地朗读课文。",
+      "pdf_page": 103,
+      "printed_page": "98",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_b313c130246bdc0a",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ad3415634f9844f8",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_85776c7beb7e",
+        "tes_98ff7d531b869b12",
+        "textbook-node:tcn_2ab8582e7a23ab92",
+        "textbook-unit:tcu_e67912948a389293"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。默写《四时田园杂兴》(其三十一)。",
+          "excerpt_hash": "0d686a95964f95b7340f9ec6b4f8a01926266c442b6af0452baf7d106bd4afc5",
+          "pdf_page": 8,
+          "printed_page": "3",
+          "span_id": "tes_98ff7d531b869b12"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2ab8582e7a23ab92",
+      "node_title": "有感情地朗读课文。背诵课文。默写《四时田园杂兴》(其三十一)。",
+      "pdf_page": 8,
+      "printed_page": "3",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。默写《四时田园杂兴》(其三十一)。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_e67912948a389293",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_405945a15d0c2093",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_85776c7beb7e",
+        "tes_25c87330d8e14363",
+        "textbook-node:tcn_069b97c8886b2be4",
+        "textbook-unit:tcu_e67912948a389293"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "读下面的“阅读链接”,说说你对课文有什么新的体会,再有感情地朗读课文。",
+          "excerpt_hash": "f60e39b2ddb1f84b771b2ab3fcdd3f3c63d067dea3ad4841c2e91f4d03b57876",
+          "pdf_page": 12,
+          "printed_page": "7",
+          "span_id": "tes_25c87330d8e14363"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_069b97c8886b2be4",
+      "node_title": "读下面的“阅读链接”,说说你对课文有什么新的体会,再有感情地朗读课文。",
+      "pdf_page": 12,
+      "printed_page": "7",
+      "publication_status": "published",
+      "rationale": "教材exercise“读下面的“阅读链接”,说说你对课文有什么新的体会,再有感情地朗读课文。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_e67912948a389293",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_86b4e988422478aa",
+      "alignment_type": "practices",
+      "confidence": 0.8302,
+      "coverage": "partial",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_85776c7beb7e",
+        "tes_3c3ba4a6819a952c",
+        "textbook-node:tcn_e156d8e244a59c41",
+        "textbook-unit:tcu_f02385c58f8afa82"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "正确、流利地朗读课文。背诵课文。",
+          "excerpt_hash": "c479810dc509da1c539c17183b3178e007dfed08b14cbb594bbf32acc4a26101",
+          "pdf_page": 89,
+          "printed_page": "84",
+          "span_id": "tes_3c3ba4a6819a952c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e156d8e244a59c41",
+      "node_title": "正确、流利地朗读课文。背诵课文。",
+      "pdf_page": 89,
+      "printed_page": "84",
+      "publication_status": "published",
+      "rationale": "教材exercise“正确、流利地朗读课文。背诵课文。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_f02385c58f8afa82",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ab5932b0df1ada47",
+      "alignment_type": "supports",
+      "confidence": 0.8302,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_6f515131c57347f0",
+        "textbook-node:tcn_10d5f70e623f3479",
+        "textbook-unit:tcu_32d4d2972f6b513d"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "了解课文内容,创造性地复述故事。",
+          "excerpt_hash": "45cf1b44cc73b36990913cc8657c141ba792f72adff43d79b54dc75a99a80ef3",
+          "pdf_page": 36,
+          "printed_page": "31",
+          "span_id": "tes_6f515131c57347f0"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_10d5f70e623f3479",
+      "node_title": "了解课文内容,创造性地复述故事。",
+      "pdf_page": 36,
+      "printed_page": "31",
+      "publication_status": "published",
+      "rationale": "教材objective“了解课文内容,创造性地复述故事。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_32d4d2972f6b513d",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c831186106e4a391",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_d131626638aca1f3",
+        "textbook-node:tcn_ba607b36cf2af232",
+        "textbook-unit:tcu_4689a5d3ae9ee154"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。说说你从哪些地方感受到“白鹭是一首精巧的诗”。",
+          "excerpt_hash": "f9c3319fa4ea600245647d35c5497e9e8c929fdd3902ab014095ea155ee6e289",
+          "pdf_page": 8,
+          "printed_page": "3",
+          "span_id": "tes_d131626638aca1f3"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ba607b36cf2af232",
+      "node_title": "朗读课文。说说你从哪些地方感受到“白鹭是一首精巧的诗”。",
+      "pdf_page": 8,
+      "printed_page": "3",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。说说你从哪些地方感受到“白鹭是一首精巧的诗”。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_4689a5d3ae9ee154",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_00ca39862f1976ef",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_cbd23caa4d5e8ecc",
+        "textbook-node:tcn_2f9e8fff9eee915a",
+        "textbook-unit:tcu_4689a5d3ae9ee154"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "分角色朗读课文。说说课文围绕“落花生”写了哪些内容。",
+          "excerpt_hash": "2753dc1ed3a47a38665a3c7a2a7ae8c4135ecd99889162235d3f01afb9d3392a",
+          "pdf_page": 10,
+          "printed_page": "5",
+          "span_id": "tes_cbd23caa4d5e8ecc"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2f9e8fff9eee915a",
+      "node_title": "分角色朗读课文。说说课文围绕“落花生”写了哪些内容。",
+      "pdf_page": 10,
+      "printed_page": "5",
+      "publication_status": "published",
+      "rationale": "教材exercise“分角色朗读课文。说说课文围绕“落花生”写了哪些内容。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_4689a5d3ae9ee154",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_b9815dd7a71afb8e",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_7bcc7a613fe46103",
+        "textbook-node:tcn_75d91dd1ca32b425",
+        "textbook-unit:tcu_4689a5d3ae9ee154"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。说说桂花给“我”带来了哪些美好的回忆。",
+          "excerpt_hash": "0b0dc3a362f19cd7d2871c4d463846497f3035210fa7510cc270b8065fe89635",
+          "pdf_page": 13,
+          "printed_page": "8",
+          "span_id": "tes_7bcc7a613fe46103"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_75d91dd1ca32b425",
+      "node_title": "有感情地朗读课文。说说桂花给“我”带来了哪些美好的回忆。",
+      "pdf_page": 13,
+      "printed_page": "8",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。说说桂花给“我”带来了哪些美好的回忆。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_4689a5d3ae9ee154",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_387f17e351b7cc33",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_9b8bca81319d9ec9",
+        "textbook-node:tcn_0b3f2b02b6a274c9",
+        "textbook-unit:tcu_64d16a9e4b14b4de"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。默写《枫桥夜泊》。",
+          "excerpt_hash": "8b35dc5733721e64a0ee41bc7bcae7c5a34b91e809e2aa17d3dbba23bf4d5640",
+          "pdf_page": 98,
+          "printed_page": "93",
+          "span_id": "tes_9b8bca81319d9ec9"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_0b3f2b02b6a274c9",
+      "node_title": "有感情地朗读课文。背诵课文。默写《枫桥夜泊》。",
+      "pdf_page": 98,
+      "printed_page": "93",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。默写《枫桥夜泊》。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_64d16a9e4b14b4de",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_96991a5701fbb5c2",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_4315dfe1bf6fb199",
+        "textbook-node:tcn_b644d70bb82b793a",
+        "textbook-unit:tcu_64d16a9e4b14b4de"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。说说作者为什么感叹“那‘鸟的天堂’的确是鸟的天堂啊”。",
+          "excerpt_hash": "ab6b2b686b4ac0e303ed2f62b805500be15ee0f22ef4e756486cc79b47e38cf3",
+          "pdf_page": 103,
+          "printed_page": "98",
+          "span_id": "tes_4315dfe1bf6fb199"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b644d70bb82b793a",
+      "node_title": "朗读课文。说说作者为什么感叹“那‘鸟的天堂’的确是鸟的天堂啊”。",
+      "pdf_page": 103,
+      "printed_page": "98",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。说说作者为什么感叹“那‘鸟的天堂’的确是鸟的天堂啊”。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_64d16a9e4b14b4de",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_bdab13673ccb59b5",
+      "alignment_type": "practices",
+      "confidence": 0.8302,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_168e92e7ec996047",
+        "textbook-node:tcn_ac2e957c92f918aa",
+        "textbook-unit:tcu_661d0fe071e796b7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "正确、流利地朗读课文。背诵课文。",
+          "excerpt_hash": "c479810dc509da1c539c17183b3178e007dfed08b14cbb594bbf32acc4a26101",
+          "pdf_page": 112,
+          "printed_page": "107",
+          "span_id": "tes_168e92e7ec996047"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ac2e957c92f918aa",
+      "node_title": "正确、流利地朗读课文。背诵课文。",
+      "pdf_page": 112,
+      "printed_page": "107",
+      "publication_status": "published",
+      "rationale": "教材exercise“正确、流利地朗读课文。背诵课文。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_661d0fe071e796b7",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c751abc2a61abb4b",
+      "alignment_type": "practices",
+      "confidence": 0.8302,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_2306503059ae26df",
+        "textbook-node:tcn_dbb99e7906ac5a22",
+        "textbook-unit:tcu_86cd15318f54f172"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。默写《示儿》。",
+          "excerpt_hash": "97e596ac9463833b5d2f71e36c01c98424b3cfd17abc1faf544e63fb10d32adc",
+          "pdf_page": 56,
+          "printed_page": "51",
+          "span_id": "tes_2306503059ae26df"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_dbb99e7906ac5a22",
+      "node_title": "有感情地朗读课文。背诵课文。默写《示儿》。",
+      "pdf_page": 56,
+      "printed_page": "51",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。默写《示儿》。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_86cd15318f54f172",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6e1204ff5f9f539d",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_6de1ca97b4c59d17",
+        "textbook-node:tcn_0a5e5c6f7c8c1c64",
+        "textbook-unit:tcu_86cd15318f54f172"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "正确、流利地朗读课文,做到连贯而有气势。背诵课文。",
+          "excerpt_hash": "fe34e2f5c3d62fd606ad5557d7d3aa9c7ad942a2d6cf568243d6b418d6091925",
+          "pdf_page": 58,
+          "printed_page": "53",
+          "span_id": "tes_6de1ca97b4c59d17"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_0a5e5c6f7c8c1c64",
+      "node_title": "正确、流利地朗读课文,做到连贯而有气势。背诵课文。",
+      "pdf_page": 58,
+      "printed_page": "53",
+      "publication_status": "published",
+      "rationale": "教材exercise“正确、流利地朗读课文,做到连贯而有气势。背诵课文。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_86cd15318f54f172",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_881aba460dd1847f",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_a47d0233a88e748e",
+        "textbook-node:tcn_eb84af1d904f5bc9",
+        "textbook-unit:tcu_86cd15318f54f172"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "默读课文,想想课文主要表达了怎样的情感。反复朗读,读出情感的变化。",
+          "excerpt_hash": "6f042afbe365ad4eb9fd9719e4ff6700cba8236dd11e550d10ba4d9f4cb28ef9",
+          "pdf_page": 60,
+          "printed_page": "55",
+          "span_id": "tes_a47d0233a88e748e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_eb84af1d904f5bc9",
+      "node_title": "默读课文,想想课文主要表达了怎样的情感。反复朗读,读出情感的变化。",
+      "pdf_page": 60,
+      "printed_page": "55",
+      "publication_status": "published",
+      "rationale": "教材exercise“默读课文,想想课文主要表达了怎样的情感。反复朗读,读出情感的变化。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_86cd15318f54f172",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1b0296a762dd53fc",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_1dfbca38d7f35f14",
+        "textbook-node:tcn_31a61a714cd17483",
+        "textbook-unit:tcu_86cd15318f54f172"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读时可以通过调整语速、语调和节奏来表现课文的情感。",
+          "excerpt_hash": "1ce06eb95cc62673820df2cc8fc5b3973c2c1cc015de84b2b8bce12674575ecc",
+          "pdf_page": 68,
+          "printed_page": "63",
+          "span_id": "tes_1dfbca38d7f35f14"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_31a61a714cd17483",
+      "node_title": "朗读时可以通过调整语速、语调和节奏来表现课文的情感。",
+      "pdf_page": 68,
+      "printed_page": "63",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读时可以通过调整语速、语调和节奏来表现课文的情感。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_86cd15318f54f172",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5a53e78d86e9e03e",
+      "alignment_type": "practices",
+      "confidence": 0.8302,
+      "coverage": "partial",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_554cb370438d",
+        "tes_0422a2c6ff2c307a",
+        "textbook-node:tcn_ead3aa0b925adbef",
+        "textbook-unit:tcu_6de8c93d73b2180c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "正确、流利地朗读课文。背诵《伯牙鼓琴》。",
+          "excerpt_hash": "9f3687cd769fe26471ede5b5b15a371b536f6b5efee9ad25ed378789f2f8356d",
+          "pdf_page": 109,
+          "printed_page": "104",
+          "span_id": "tes_0422a2c6ff2c307a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ead3aa0b925adbef",
+      "node_title": "正确、流利地朗读课文。背诵《伯牙鼓琴》。",
+      "pdf_page": 109,
+      "printed_page": "104",
+      "publication_status": "published",
+      "rationale": "教材exercise“正确、流利地朗读课文。背诵《伯牙鼓琴》。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_6de8c93d73b2180c",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a3246e46c1632edc",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_554cb370438d",
+        "tes_48a6fb933575e128",
+        "textbook-node:tcn_4f77b755c9b85fdc",
+        "textbook-unit:tcu_6de8c93d73b2180c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。说说贝多芬为什么弹琴给盲姑娘听,为什么弹完一曲又弹一曲。",
+          "excerpt_hash": "c7b78083db5c9011ef50d146bacfff737e75db546494c9ccbdd50d7f5c9961e1",
+          "pdf_page": 111,
+          "printed_page": "106",
+          "span_id": "tes_48a6fb933575e128"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_4f77b755c9b85fdc",
+      "node_title": "有感情地朗读课文。说说贝多芬为什么弹琴给盲姑娘听,为什么弹完一曲又弹一曲。",
+      "pdf_page": 111,
+      "printed_page": "106",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。说说贝多芬为什么弹琴给盲姑娘听,为什么弹完一曲又弹一曲。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_6de8c93d73b2180c",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_aca9fd6d1148e016",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_554cb370438d",
+        "tes_e4c0174737545db0",
+        "textbook-node:tcn_3b9463a4988b09cf",
+        "textbook-unit:tcu_724bc182cd84cdbe"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵第 1 自然段,体会闰土在“我”心中的美好形象。",
+          "excerpt_hash": "286c12fdec2309a33cb541cc5ed2561e929dad85eeb1b700d83d9fbba8ffabb4",
+          "pdf_page": 122,
+          "printed_page": "117",
+          "span_id": "tes_e4c0174737545db0"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3b9463a4988b09cf",
+      "node_title": "有感情地朗读课文。背诵第 1 自然段,体会闰土在“我”心中的美好形象。",
+      "pdf_page": 122,
+      "printed_page": "117",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵第 1 自然段,体会闰土在“我”心中的美好形象。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_724bc182cd84cdbe",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6e950b67b2fe11d4",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_554cb370438d",
+        "tes_78a292f4c7e57436",
+        "textbook-node:tcn_3c185d6bd4ccb4e5",
+        "textbook-unit:tcu_8ef386d40013f9bd"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,试着读出磅礴的气势。背诵课文。",
+          "excerpt_hash": "dd3cdd7b20606640b65d91a06decdede89df83440f67d10c6abfc5173ea3e6e1",
+          "pdf_page": 22,
+          "printed_page": "17",
+          "span_id": "tes_78a292f4c7e57436"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3c185d6bd4ccb4e5",
+      "node_title": "朗读课文,试着读出磅礴的气势。背诵课文。",
+      "pdf_page": 22,
+      "printed_page": "17",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,试着读出磅礴的气势。背诵课文。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_8ef386d40013f9bd",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_84e9b692e2411cd8",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_554cb370438d",
+        "tes_9f22caa7f9699ff3",
+        "textbook-node:tcn_123fcef3b0541ea9",
+        "textbook-unit:tcu_8ef386d40013f9bd"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。根据课文内容填一填,再讲讲这个故事。",
+          "excerpt_hash": "1565fd73deb94e28eca4ed25717c057e77b72225975b962e49d8dfec552b26c8",
+          "pdf_page": 25,
+          "printed_page": "20",
+          "span_id": "tes_9f22caa7f9699ff3"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_123fcef3b0541ea9",
+      "node_title": "朗读课文。根据课文内容填一填,再讲讲这个故事。",
+      "pdf_page": 25,
+      "printed_page": "20",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。根据课文内容填一填,再讲讲这个故事。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_8ef386d40013f9bd",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_768dbd77211e4c80",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_554cb370438d",
+        "tes_b5b0a303fb8dc41a",
+        "textbook-node:tcn_802701c260b11349",
+        "textbook-unit:tcu_9bb12ca6eb171ab8"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,想象草原迷人的景色,读出自己的感受。背诵第 1 自然段。",
+          "excerpt_hash": "bd5d92c95cce6457c75907239ebab85e25a840f2e58a85de7250178989765121",
+          "pdf_page": 9,
+          "printed_page": "4",
+          "span_id": "tes_b5b0a303fb8dc41a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_802701c260b11349",
+      "node_title": "朗读课文,想象草原迷人的景色,读出自己的感受。背诵第 1 自然段。",
+      "pdf_page": 9,
+      "printed_page": "4",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,想象草原迷人的景色,读出自己的感受。背诵第 1 自然段。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_9bb12ca6eb171ab8",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1a9efc53fd8742f6",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_554cb370438d",
+        "tes_198e3b5647ded454",
+        "textbook-node:tcn_a029bca5c52e62f2",
+        "textbook-unit:tcu_9bb12ca6eb171ab8"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。说说作者是从哪几个方面描写丁香的。",
+          "excerpt_hash": "73a0d38d9945615bc19df88f01db40d46c072c4d6b25abc82605e897a315e74e",
+          "pdf_page": 12,
+          "printed_page": "7",
+          "span_id": "tes_198e3b5647ded454"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a029bca5c52e62f2",
+      "node_title": "朗读课文。说说作者是从哪几个方面描写丁香的。",
+      "pdf_page": 12,
+      "printed_page": "7",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。说说作者是从哪几个方面描写丁香的。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_9bb12ca6eb171ab8",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a04f9984fc2f8bb3",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_554cb370438d",
+        "tes_e1be0e46336e2527",
+        "textbook-node:tcn_7318506e577a51d5",
+        "textbook-unit:tcu_9bb12ca6eb171ab8"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。默写《西江月·夜行黄沙道中》。",
+          "excerpt_hash": "8a1175b14c1c551b4a52fca86e4a5e7012ff93e6a5a5acf82cb080d5ef70d933",
+          "pdf_page": 14,
+          "printed_page": "9",
+          "span_id": "tes_e1be0e46336e2527"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_7318506e577a51d5",
+      "node_title": "有感情地朗读课文。背诵课文。默写《西江月·夜行黄沙道中》。",
+      "pdf_page": 14,
+      "printed_page": "9",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。默写《西江月·夜行黄沙道中》。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_9bb12ca6eb171ab8",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8a7283370f2e3dd9",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_554cb370438d",
+        "tes_2f3fa6614b7476f4",
+        "textbook-node:tcn_2fad24ea956d7cd3",
+        "textbook-unit:tcu_9bb12ca6eb171ab8"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。想想从哪些地方可以看出“我”是花,再找出课文和“阅读链接”中想象奇特的地方,和同学交流。",
+          "excerpt_hash": "d827e9942d59b5140a7bf475b2a6f0f9a0bb7a3c0c9799b5343dbf8704ce8d47",
+          "pdf_page": 15,
+          "printed_page": "10",
+          "span_id": "tes_2f3fa6614b7476f4"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2fad24ea956d7cd3",
+      "node_title": "朗读课文。想想从哪些地方可以看出“我”是花,再找出课文和“阅读链接”中想象奇特的地方,和同学交流。",
+      "pdf_page": 15,
+      "printed_page": "10",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。想想从哪些地方可以看出“我”是花,再找出课文和“阅读链接”中想象奇特的地方,和同学交流。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_9bb12ca6eb171ab8",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_00b84d0b65eecf18",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_554cb370438d",
+        "tes_3b72600191027b80",
+        "textbook-node:tcn_58282415b57e8e65",
+        "textbook-unit:tcu_9bb12ca6eb171ab8"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "阅读的时候能想开去,不仅可以深化对课文内容的理解,而且可以活跃思想,激发创造力。我们应该在这方面多下功夫。",
+          "excerpt_hash": "4de9ddc68be51e547d3d46dbc0dc6e0c4a8044296e120b8a09c4eb81441dd216",
+          "pdf_page": 18,
+          "printed_page": "13",
+          "span_id": "tes_3b72600191027b80"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_58282415b57e8e65",
+      "node_title": "阅读的时候能想开去,不仅可以深化对课文内容的理解,而且可以活跃思想,激发创造力。我们应该在这方面多下功夫。",
+      "pdf_page": 18,
+      "printed_page": "13",
+      "publication_status": "published",
+      "rationale": "教材exercise“阅读的时候能想开去,不仅可以深化对课文内容的理解,而且可以活跃思想,激发创造力。我们应该在这方面多下功夫。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_9bb12ca6eb171ab8",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_16a03b912427bc16",
+      "alignment_type": "practices",
+      "confidence": 0.8302,
+      "coverage": "partial",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_554cb370438d",
+        "tes_f9e8012b8662af52",
+        "textbook-node:tcn_5943af9d28fef9d9",
+        "textbook-unit:tcu_c832daba0826bd2c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文,注意读好短句。",
+          "excerpt_hash": "a2589068513ab70e687d4563e53f92ddbd5309bd79f6108dc8b1a8c4f316a9dd",
+          "pdf_page": 61,
+          "printed_page": "56",
+          "span_id": "tes_f9e8012b8662af52"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_5943af9d28fef9d9",
+      "node_title": "有感情地朗读课文,注意读好短句。",
+      "pdf_page": 61,
+      "printed_page": "56",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文,注意读好短句。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c832daba0826bd2c",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_69197e73eda8ff30",
+      "alignment_type": "practices",
+      "confidence": 0.8302,
+      "coverage": "partial",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_554cb370438d",
+        "tes_ed9e73469c7484e2",
+        "textbook-node:tcn_b1fd93eca31a9480",
+        "textbook-unit:tcu_c992125da4dbff92"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。",
+          "excerpt_hash": "1ec4022c3f381b50211bd1a252dc21933d367fa77b22f4a29aa903dd6e35f235",
+          "pdf_page": 92,
+          "printed_page": "87",
+          "span_id": "tes_ed9e73469c7484e2"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b1fd93eca31a9480",
+      "node_title": "有感情地朗读课文。背诵课文。",
+      "pdf_page": 92,
+      "printed_page": "87",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c992125da4dbff92",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_09134b1aed2b79ea",
+      "alignment_type": "practices",
+      "confidence": 0.8301,
+      "coverage": "partial",
+      "edition_id": "ed_a0ba1d8afed523f42f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_554cb370438d",
+        "tes_1104365d1042c530",
+        "textbook-node:tcn_3b138e3554562b9b",
+        "textbook-unit:tcu_c992125da4dbff92"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。说说三黑是怎样看待土地的。读了这篇课文,你对脚下的土地有了什么新的感受?",
+          "excerpt_hash": "6d9bab0363d4017fb1576a2887398bc6ce6000870a1b71910850de2aa766d1dd",
+          "pdf_page": 97,
+          "printed_page": "92",
+          "span_id": "tes_1104365d1042c530"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a32b4afc0c0fdb4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a32b4afc0c0fdb4",
+          "label": "通过朗读或复述呈现对作品内容的理解"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3b138e3554562b9b",
+      "node_title": "有感情地朗读课文。说说三黑是怎样看待土地的。读了这篇课文,你对脚下的土地有了什么新的感受?",
+      "pdf_page": 97,
+      "printed_page": "92",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。说说三黑是怎样看待土地的。读了这篇课文,你对脚下的土地有了什么新的感受?”与课标 CN-D3-RE-002 的可教学小能力“通过朗读或复述呈现对作品内容的理解”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c992125da4dbff92",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_4f5c88ffc7e7809d",
       "alignment_type": "references",
       "confidence": null,
@@ -122,7 +2268,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7d09f34aa1481786",
       "alignment_type": "references",
       "confidence": null,
@@ -153,7 +2299,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_afd807862a3fa7f2",
       "alignment_type": "references",
       "confidence": null,
@@ -184,7 +2330,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_5cf6fab3e39e5b89",
       "alignment_type": "references",
       "confidence": null,

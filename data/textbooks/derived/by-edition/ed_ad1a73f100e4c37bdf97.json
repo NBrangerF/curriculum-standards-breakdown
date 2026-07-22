@@ -15,8 +15,66 @@
     "pdf_page_count": 82,
     "toc_candidate_page_count": 0
   },
+  "content_alignment": {
+    "algorithm_version": "component-evidence-hybrid-v3",
+    "alignment_count": 0,
+    "automatic_content_unit_count": 0,
+    "content_node_count": 2,
+    "evidence_span_count": 0,
+    "generated_alignment_count": 0,
+    "native_text_ratio": 0.0244,
+    "ocr_page_count": 0,
+    "ocr_skipped_count": 0,
+    "parser_version": "textbook-content-pdfjs-v3",
+    "preserved_approved_alignment_count": 0,
+    "provenance": "machine_generated",
+    "review_policy": "automatic_no_human_gate",
+    "schema_version": 2,
+    "sidecar_path": "derived/textbook-content-v2/aa1fe3789c08a116ce5bedc0abc86620c103d3728b3889c5258aa6ad39d6bbab/pages.jsonl",
+    "source_asset_sha256": "aa1fe3789c08a116ce5bedc0abc86620c103d3728b3889c5258aa6ad39d6bbab",
+    "unit_recovery_native_text_ratio": 0.0122,
+    "unit_recovery_reason": "insufficient_native_body_text",
+    "unit_recovery_status": "scope_only"
+  },
+  "content_nodes": [
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 48,
+      "end_printed_page": "43",
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_52edf52dd52f8198",
+      "parent_id": null,
+      "pdf_page": 48,
+      "pdf_page_end": 48,
+      "pdf_page_start": 48,
+      "printed_page": "43",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 48 页",
+      "unit_id": null
+    },
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 82,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_19309a08d6fc448f",
+      "parent_id": null,
+      "pdf_page": 82,
+      "pdf_page_end": 82,
+      "pdf_page_start": 82,
+      "printed_page": null,
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 82 页",
+      "unit_id": null
+    }
+  ],
   "edition_id": "ed_ad1a73f100e4c37bdf97",
   "evidence_id": "ctb_061b98e9e3e0",
+  "evidence_spans": [],
   "extraction": {
     "average_characters_per_page": 12.9,
     "extracted_at": "2026-07-18T06:51:24.853328Z",
@@ -37,7 +95,7 @@
       "review_status": "machine_checked"
     }
   ],
-  "schema_version": 1,
+  "schema_version": 2,
   "standard_scopes": [
     {
       "scope_id": "tcs_daf0df4eff446a59",
@@ -47,7 +105,7 @@
       "evidence_role": "discipline_textbook",
       "relation_type": "curriculum_scope",
       "review_status": "machine_checked",
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "standard_codes": [
         "AR-D1-AA-001",
         "AR-D1-AA-002",

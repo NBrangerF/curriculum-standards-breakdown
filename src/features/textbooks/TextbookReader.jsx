@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Document, Page, pdfjs } from 'react-pdf'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useVirtualizer } from '@tanstack/react-virtual'
 import { CaretLeftIcon } from '@phosphor-icons/react/dist/csr/CaretLeft'
 import { CaretRightIcon } from '@phosphor-icons/react/dist/csr/CaretRight'
@@ -10,6 +11,8 @@ import { SidebarSimpleIcon } from '@phosphor-icons/react/dist/csr/SidebarSimple'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
 import { loadReadingState, saveReadingState } from './readingState'
+import TextbookStandardsPanel from './TextbookStandardsPanel'
+import { alignmentCoversPage, buildTextbookAlignmentContext, getEvidenceSpansForAlignment } from './textbookAlignmentContext'
 import styles from './TextbookReader.module.css'
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url).toString()
@@ -54,18 +57,24 @@ function ThumbnailRail({ pdf, numPages, currentPage, onJump }) {
     )
 }
 
-function ContinuousPages({ numPages, width, currentPage, onCurrentPage, virtualizerRef }) {
+function PdfPageSurface({ pageNumber, width, highlighted = false }) {
+    return (
+        <div className={`${styles.pageSurface} ${highlighted ? styles.highlightedPage : ''}`} data-pdf-page={pageNumber}>
+            <Page pageNumber={pageNumber} width={width} renderTextLayer renderAnnotationLayer />
+            {highlighted ? <span className={styles.highlightFlag}>课标证据页</span> : null}
+        </div>
+    )
+}
+
+function ContinuousPages({ numPages, width, currentPage, onCurrentPage, scrollRequest, highlightedPages }) {
     const parentRef = useRef(null)
+    const programmaticTargetRef = useRef(null)
     const virtualizer = useVirtualizer({
         count: numPages,
         getScrollElement: () => parentRef.current,
         estimateSize: () => width * 1.42 + 28,
         overscan: 2
     })
-
-    useEffect(() => {
-        virtualizerRef.current = virtualizer
-    }, [virtualizer, virtualizerRef])
 
     useEffect(() => {
         const element = parentRef.current
@@ -77,7 +86,12 @@ function ContinuousPages({ numPages, width, currentPage, onCurrentPage, virtuali
                 const center = element.scrollTop + element.clientHeight * 0.34
                 const visible = virtualizer.getVirtualItems()
                 const nearest = visible.find(item => center >= item.start && center <= item.end) || visible[0]
-                if (nearest) onCurrentPage(nearest.index + 1)
+                if (!nearest) return
+                const nearestPage = nearest.index + 1
+                const target = programmaticTargetRef.current
+                if (target && target !== nearestPage) return
+                if (target === nearestPage) programmaticTargetRef.current = null
+                onCurrentPage(nearestPage)
             })
         }
         element.addEventListener('scroll', update, { passive: true })
@@ -86,6 +100,20 @@ function ContinuousPages({ numPages, width, currentPage, onCurrentPage, virtuali
             element.removeEventListener('scroll', update)
         }
     }, [onCurrentPage, virtualizer])
+
+    useEffect(() => {
+        const page = Math.max(1, Math.min(numPages, Number(scrollRequest?.page) || 1))
+        programmaticTargetRef.current = page
+        let secondFrame = 0
+        const firstFrame = requestAnimationFrame(() => {
+            virtualizer.scrollToIndex(page - 1, { align: 'start' })
+            secondFrame = requestAnimationFrame(() => virtualizer.scrollToIndex(page - 1, { align: 'start' }))
+        })
+        return () => {
+            cancelAnimationFrame(firstFrame)
+            cancelAnimationFrame(secondFrame)
+        }
+    }, [numPages, scrollRequest?.token, scrollRequest?.page, virtualizer])
 
     return (
         <div className={styles.continuousScroller} ref={parentRef} tabIndex={0} aria-label="连续 PDF 页面">
@@ -98,7 +126,7 @@ function ContinuousPages({ numPages, width, currentPage, onCurrentPage, virtuali
                         style={{ transform: `translateY(${item.start}px)` }}
                         aria-current={currentPage === item.index + 1 ? 'page' : undefined}
                     >
-                        <Page pageNumber={item.index + 1} width={width} renderTextLayer renderAnnotationLayer />
+                        <PdfPageSurface pageNumber={item.index + 1} width={width} highlighted={highlightedPages.has(item.index + 1)} />
                         <span className={styles.pdfPageLabel}>PDF {item.index + 1}</span>
                     </div>
                 ))}
@@ -107,11 +135,14 @@ function ContinuousPages({ numPages, width, currentPage, onCurrentPage, virtuali
     )
 }
 
-export default function TextbookReader({ book, fileUrl, initialPage = 1 }) {
+export default function TextbookReader({ book, fileUrl, initialPage = 1, initialNodeId = '', initialAlignmentId = '', initialPanel = '' }) {
+    const location = useLocation()
+    const navigate = useNavigate()
     const saved = loadReadingState(book.edition_id)
     const [pdf, setPdf] = useState(null)
     const [numPages, setNumPages] = useState(book.page_count || 1)
     const [currentPage, setCurrentPage] = useState(Math.max(1, Number(initialPage) || saved?.page || 1))
+    const [pageInput, setPageInput] = useState(String(Math.max(1, Number(initialPage) || saved?.page || 1)))
     const [zoom, setZoom] = useState(saved?.zoom || 1)
     const [mode, setMode] = useState(saved?.mode || 'continuous')
     const [sidebarOpen, setSidebarOpen] = useState(() => typeof window === 'undefined' || !window.matchMedia('(max-width: 780px)').matches)
@@ -122,13 +153,65 @@ export default function TextbookReader({ book, fileUrl, initialPage = 1 }) {
     const [searchResults, setSearchResults] = useState([])
     const [searchMessage, setSearchMessage] = useState('')
     const [viewportWidth, setViewportWidth] = useState(980)
+    const [scrollRequest, setScrollRequest] = useState(() => ({ page: Math.max(1, Number(initialPage) || saved?.page || 1), token: 0 }))
+    const [highlightedAlignmentId, setHighlightedAlignmentId] = useState(initialAlignmentId)
+    const [standardsOpen, setStandardsOpen] = useState(() => {
+        if (initialPanel === 'standards' || initialAlignmentId) return true
+        return typeof window === 'undefined' || !window.matchMedia('(max-width: 780px)').matches
+    })
     const stageRef = useRef(null)
-    const continuousVirtualizerRef = useRef(null)
     const searchRunRef = useRef(0)
+    const locationSyncReadyRef = useRef(false)
+    const currentPageRef = useRef(currentPage)
 
-    const printedByPdf = useMemo(() => new Map(book.page_map.map(item => [item.pdf_page, item.printed_page])), [book.page_map])
+    const printedByPdf = useMemo(() => new Map((book.page_map || []).map(item => [item.pdf_page, item.printed_page])), [book.page_map])
     const currentPrinted = printedByPdf.get(currentPage)
     const pageWidth = Math.max(280, Math.min(920, (viewportWidth - 56) * zoom))
+    const highlightedAlignment = useMemo(() => (book.alignments || []).find(item => item.alignment_id === highlightedAlignmentId), [book.alignments, highlightedAlignmentId])
+    const preferredNodeId = highlightedAlignment?.node_id || highlightedAlignment?.content_node_id || initialNodeId
+    const alignmentContext = useMemo(() => buildTextbookAlignmentContext(book, currentPage, preferredNodeId), [book, currentPage, preferredNodeId])
+    const highlightedPages = useMemo(() => {
+        if (!highlightedAlignment) return new Set()
+        const spanPages = getEvidenceSpansForAlignment(book, highlightedAlignment).map(span => Number(span.pdf_page)).filter(Number.isFinite)
+        if (highlightedAlignment.pdf_page) spanPages.push(Number(highlightedAlignment.pdf_page))
+        return new Set(spanPages)
+    }, [book, highlightedAlignment])
+
+    const syncReaderUrl = useCallback((page, { replace = false, panel = standardsOpen, alignmentId = highlightedAlignmentId, nodeId = initialNodeId } = {}) => {
+        const params = new URLSearchParams(location.search)
+        params.set('page', String(page))
+        if (panel) params.set('panel', 'standards')
+        else params.delete('panel')
+        if (alignmentId && alignmentCoversPage(book, alignmentId, page)) params.set('alignment', alignmentId)
+        else params.delete('alignment')
+        if (nodeId && buildTextbookAlignmentContext(book, page).activeNodes.some(node => node.node_id === nodeId)) params.set('node', nodeId)
+        else params.delete('node')
+        navigate({ pathname: location.pathname, search: `?${params.toString()}` }, { replace })
+    }, [book, highlightedAlignmentId, initialNodeId, location.pathname, location.search, navigate, standardsOpen])
+
+    const updateVisiblePage = useCallback(page => {
+        const safe = Math.max(1, Math.min(numPages, Number(page) || 1))
+        if (currentPageRef.current === safe) return
+        currentPageRef.current = safe
+        setCurrentPage(previous => {
+            if (previous === safe) return previous
+            return safe
+        })
+        setPageInput(String(safe))
+        if (highlightedAlignmentId && !alignmentCoversPage(book, highlightedAlignmentId, safe)) setHighlightedAlignmentId('')
+        syncReaderUrl(safe, { replace: true })
+    }, [book, highlightedAlignmentId, numPages, syncReaderUrl])
+
+    const jumpTo = useCallback((page, { replace = false, preserveHighlight = false } = {}) => {
+        const safe = Math.max(1, Math.min(numPages, Number(page) || 1))
+        const nextAlignmentId = preserveHighlight && alignmentCoversPage(book, highlightedAlignmentId, safe) ? highlightedAlignmentId : ''
+        currentPageRef.current = safe
+        setCurrentPage(safe)
+        setPageInput(String(safe))
+        setHighlightedAlignmentId(nextAlignmentId)
+        setScrollRequest(previous => ({ page: safe, token: previous.token + 1 }))
+        syncReaderUrl(safe, { replace, alignmentId: nextAlignmentId, nodeId: '' })
+    }, [book, highlightedAlignmentId, numPages, syncReaderUrl])
 
     useEffect(() => {
         const element = stageRef.current
@@ -143,26 +226,57 @@ export default function TextbookReader({ book, fileUrl, initialPage = 1 }) {
     }, [book.edition_id, currentPage, zoom, mode])
 
     useEffect(() => {
-        if (!pdf || mode !== 'continuous') return
-        requestAnimationFrame(() => continuousVirtualizerRef.current?.scrollToIndex(currentPage - 1, { align: 'start' }))
-    }, [pdf, mode])
+        if (!locationSyncReadyRef.current) {
+            locationSyncReadyRef.current = true
+            const params = new URLSearchParams(location.search)
+            const alignmentId = params.get('alignment') || ''
+            const validAlignmentId = alignmentId && alignmentCoversPage(book, alignmentId, currentPageRef.current) ? alignmentId : ''
+            const nodeId = params.get('node') || ''
+            const validNodeId = nodeId && buildTextbookAlignmentContext(book, currentPageRef.current, nodeId).activeNodes.some(node => node.node_id === nodeId) ? nodeId : ''
+            const panelOpen = params.get('panel') === 'standards' || Boolean(validAlignmentId)
+            if (params.get('page') !== String(currentPageRef.current) || alignmentId !== validAlignmentId || nodeId !== validNodeId || (params.get('panel') === 'standards') !== panelOpen) {
+                syncReaderUrl(currentPageRef.current, { replace: true, panel: panelOpen, alignmentId: validAlignmentId, nodeId: validNodeId })
+            }
+            return
+        }
+        const params = new URLSearchParams(location.search)
+        const requestedPage = Math.max(1, Math.min(numPages, Number(params.get('page')) || currentPageRef.current))
+        if (requestedPage !== currentPageRef.current) {
+            currentPageRef.current = requestedPage
+            setCurrentPage(requestedPage)
+            setPageInput(String(requestedPage))
+            setScrollRequest(previous => ({ page: requestedPage, token: previous.token + 1 }))
+        }
+        const alignmentId = params.get('alignment') || ''
+        setHighlightedAlignmentId(alignmentId && alignmentCoversPage(book, alignmentId, requestedPage) ? alignmentId : '')
+        setStandardsOpen(params.get('panel') === 'standards' || Boolean(alignmentId && alignmentCoversPage(book, alignmentId, requestedPage)))
+    }, [book, location.search, numPages, syncReaderUrl])
 
     useEffect(() => {
         if (mode === 'continuous') return undefined
         const onKeyDown = event => {
             if (event.target instanceof HTMLInputElement) return
-            if (event.key === 'ArrowLeft') setCurrentPage(page => Math.max(1, page - (mode === 'double' ? 2 : 1)))
-            if (event.key === 'ArrowRight') setCurrentPage(page => Math.min(numPages, page + (mode === 'double' ? 2 : 1)))
+            if (event.key === 'ArrowLeft') jumpTo(currentPage - (mode === 'double' ? 2 : 1))
+            if (event.key === 'ArrowRight') jumpTo(currentPage + (mode === 'double' ? 2 : 1))
         }
         window.addEventListener('keydown', onKeyDown)
         return () => window.removeEventListener('keydown', onKeyDown)
-    }, [mode, numPages])
+    }, [currentPage, jumpTo, mode])
 
-    const jumpTo = useCallback(page => {
-        const safe = Math.max(1, Math.min(numPages, Number(page) || 1))
-        setCurrentPage(safe)
-        if (mode === 'continuous') requestAnimationFrame(() => continuousVirtualizerRef.current?.scrollToIndex(safe - 1, { align: 'start' }))
-    }, [mode, numPages])
+    useEffect(() => {
+        if (!pdf) return
+        setScrollRequest(previous => ({ page: currentPage, token: previous.token + 1 }))
+    }, [pdf, mode])
+
+    const toggleStandards = useCallback(() => {
+        const next = !standardsOpen
+        setStandardsOpen(next)
+        const nextAlignmentId = next ? highlightedAlignmentId : ''
+        if (!next) setHighlightedAlignmentId('')
+        syncReaderUrl(currentPage, { replace: false, panel: next, alignmentId: nextAlignmentId })
+    }, [currentPage, highlightedAlignmentId, standardsOpen, syncReaderUrl])
+
+    const submitPage = useCallback(() => jumpTo(pageInput), [jumpTo, pageInput])
 
     async function runSearch(event) {
         event.preventDefault()
@@ -209,7 +323,7 @@ export default function TextbookReader({ book, fileUrl, initialPage = 1 }) {
                     <button type="button" onClick={() => setSidebarOpen(open => !open)} aria-label={sidebarOpen ? '收起侧边栏' : '打开侧边栏'} aria-expanded={sidebarOpen}><SidebarSimpleIcon size={18} aria-hidden="true" /></button>
                     <div className={styles.pageControls}>
                         <button type="button" onClick={() => jumpTo(currentPage - pageStep)} disabled={currentPage <= 1} aria-label="上一页"><CaretLeftIcon size={17} aria-hidden="true" /></button>
-                        <label><span className="sr-only">PDF 页码</span><input value={currentPage} onChange={event => jumpTo(event.target.value)} inputMode="numeric" /> <span>/ {numPages}</span></label>
+                        <label><span className="sr-only">PDF 页码</span><input value={pageInput} onChange={event => setPageInput(event.target.value)} onBlur={submitPage} onKeyDown={event => { if (event.key === 'Enter') { event.preventDefault(); submitPage() } }} inputMode="numeric" /> <span>/ {numPages}</span></label>
                         <button type="button" onClick={() => jumpTo(currentPage + pageStep)} disabled={currentPage >= numPages} aria-label="下一页"><CaretRightIcon size={17} aria-hidden="true" /></button>
                         <span className={styles.printedPage}>{currentPrinted ? `印刷页 ${currentPrinted}` : '印刷页 —'}</span>
                     </div>
@@ -221,16 +335,17 @@ export default function TextbookReader({ book, fileUrl, initialPage = 1 }) {
                         <span>{Math.round(zoom * 100)}%</span>
                         <button type="button" onClick={() => setZoom(value => Math.min(1.7, value + .1))} aria-label="放大"><PlusIcon size={16} aria-hidden="true" /></button>
                     </div>
+                    <button type="button" className={`${styles.standardsToggle} ${standardsOpen ? styles.active : ''}`} onClick={toggleStandards} aria-expanded={standardsOpen} aria-controls="textbook-standards-panel">课标 <span>{alignmentContext.pageAlignments.length + alignmentContext.nodeAlignments.length + alignmentContext.unitAlignments.length}</span></button>
                 </div>
 
-                <div className={`${styles.body} ${sidebarOpen ? '' : styles.sidebarClosed}`}>
+                <div className={`${styles.body} ${sidebarOpen ? '' : styles.sidebarClosed} ${standardsOpen ? styles.standardsOpen : ''}`}>
                     <aside className={styles.sidebar} aria-label="教材导航">
                         <div className={styles.tabs} role="tablist">
                             <button type="button" role="tab" aria-selected={sidebarTab === 'toc'} onClick={() => setSidebarTab('toc')}>目录</button>
                             <button type="button" role="tab" aria-selected={sidebarTab === 'pages'} onClick={() => setSidebarTab('pages')}>页面</button>
                             <button type="button" role="tab" aria-selected={sidebarTab === 'search'} onClick={() => setSidebarTab('search')}>搜索</button>
                         </div>
-                        {sidebarTab === 'toc' && <div className={styles.tocPanel}>{book.toc.length ? book.toc.map(entry => <button type="button" key={entry.entry_id} className={entry.level > 1 ? styles.tocChild : ''} onClick={() => jumpTo(entry.pdf_page || 1)}><span>{entry.title}</span><small>{entry.printed_page ? `p.${entry.printed_page}` : `PDF ${entry.pdf_page || '—'}`}</small></button>) : <p>这本教材还没有已核对目录。</p>}</div>}
+                        {sidebarTab === 'toc' && <div className={styles.tocPanel}>{(book.toc || []).length ? book.toc.map(entry => <button type="button" key={entry.entry_id} className={entry.level > 1 ? styles.tocChild : ''} onClick={() => jumpTo(entry.pdf_page || 1)}><span>{entry.title}</span><small>{entry.printed_page ? `p.${entry.printed_page}` : `PDF ${entry.pdf_page || '—'}`}</small></button>) : <p>这本教材还没有已核对目录。</p>}</div>}
                         {sidebarTab === 'pages' && pdf && <ThumbnailRail pdf={pdf} numPages={numPages} currentPage={currentPage} onJump={jumpTo} />}
                         {sidebarTab === 'search' && <div className={styles.searchPanel}>
                             <form onSubmit={runSearch}><MagnifyingGlassIcon size={17} aria-hidden="true" /><input value={query} onChange={event => setQuery(event.target.value)} placeholder="搜索本书文字" /><button type="submit" disabled={searching}>{searching ? `${searchProgress}%` : '搜索'}</button></form>
@@ -240,13 +355,14 @@ export default function TextbookReader({ book, fileUrl, initialPage = 1 }) {
                     </aside>
 
                     <section className={styles.stage} ref={stageRef} aria-label="PDF 阅读区">
-                        {mode === 'continuous' ? <ContinuousPages numPages={numPages} width={pageWidth} currentPage={currentPage} onCurrentPage={setCurrentPage} virtualizerRef={continuousVirtualizerRef} /> : (
+                        {mode === 'continuous' ? <ContinuousPages numPages={numPages} width={pageWidth} currentPage={currentPage} onCurrentPage={updateVisiblePage} scrollRequest={scrollRequest} highlightedPages={highlightedPages} /> : (
                             <div className={`${styles.pagedView} ${mode === 'double' ? styles.doubleView : ''}`}>
-                                <Page pageNumber={currentPage} width={mode === 'double' ? spreadWidth : pageWidth} renderTextLayer renderAnnotationLayer />
-                                {mode === 'double' && currentPage + 1 <= numPages && <Page pageNumber={currentPage + 1} width={spreadWidth} renderTextLayer renderAnnotationLayer />}
+                                <PdfPageSurface pageNumber={currentPage} width={mode === 'double' ? spreadWidth : pageWidth} highlighted={highlightedPages.has(currentPage)} />
+                                {mode === 'double' && currentPage + 1 <= numPages && <PdfPageSurface pageNumber={currentPage + 1} width={spreadWidth} highlighted={highlightedPages.has(currentPage + 1)} />}
                             </div>
                         )}
                     </section>
+                    {standardsOpen ? <TextbookStandardsPanel book={book} context={alignmentContext} highlightedAlignmentId={highlightedAlignmentId} onClose={toggleStandards} /> : null}
                 </div>
             </div>
         </Document>

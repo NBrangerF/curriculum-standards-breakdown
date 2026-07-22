@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, rmSync } from 'node:fs'
+import { existsSync, rmSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import {
   ensureDir,
@@ -82,6 +82,177 @@ function relatedResources(asset, allAssets) {
   return related
 }
 
+function normalizeEvidenceLevel(value) {
+  const match = String(value || '').match(/^L([1-5])(?:_|$)/)
+  return match ? `L${match[1]}` : undefined
+}
+
+function normalizeEvidenceLevelDetail(value, legacyValue) {
+  const allowed = new Set(['L1_scope', 'L2_topic', 'L3_page_evidence', 'L4_teacher_guide', 'L5_official_crosswalk'])
+  if (allowed.has(value)) return value
+  return {
+    L1_scope: 'L1_scope',
+    L2_topic: 'L2_topic',
+    L3_textbook_body: 'L3_page_evidence',
+    L3_page_evidence: 'L3_page_evidence',
+    L4_teacher_guide: 'L4_teacher_guide',
+    L5_official_crosswalk: 'L5_official_crosswalk'
+  }[legacyValue]
+}
+
+function normalizeContentNodes(structure, toc, pageCount) {
+  const rawNodes = Array.isArray(structure?.content_nodes) ? structure.content_nodes : []
+  const normalized = rawNodes.map(node => ({
+    node_id: node.node_id || node.content_node_id,
+    parent_id: node.parent_id ?? null,
+    unit_id: node.unit_id ?? node.toc_entry_id ?? null,
+    toc_entry_id: node.toc_entry_id || undefined,
+    level: Number.isInteger(node.level) ? node.level : 0,
+    kind: node.kind || 'other',
+    title: node.title,
+    pdf_page: node.pdf_page,
+    end_pdf_page: node.end_pdf_page ?? node.pdf_page,
+    printed_page: node.printed_page ?? null,
+    end_printed_page: node.end_printed_page ?? null,
+    text_excerpt: typeof node.text_excerpt === 'string' ? node.text_excerpt.slice(0, 280) : undefined,
+    evidence_span_ids: Array.isArray(node.evidence_span_ids) ? [...new Set(node.evidence_span_ids)] : [],
+    source: node.source || undefined,
+    confidence: Number.isFinite(node.confidence) ? node.confidence : 0,
+    review_status: node.review_status || 'machine_checked'
+  })).filter(node =>
+    typeof node.node_id === 'string'
+    && node.node_id.length > 0
+    && typeof node.title === 'string'
+    && node.title.length > 0
+    && Number.isInteger(node.pdf_page)
+    && node.pdf_page >= 1
+    && node.pdf_page <= pageCount
+    && Number.isInteger(node.end_pdf_page)
+    && node.end_pdf_page >= node.pdf_page
+    && node.end_pdf_page <= pageCount
+  )
+  if (normalized.length) return normalized
+
+  // Backwards-compatible projection: an old TOC is also a valid, coarser
+  // content tree. This lets the new context API work before a book receives
+  // lesson/exercise extraction.
+  const locatable = toc.filter(entry => entry.pdf_page !== null)
+  return locatable.map((entry, index) => {
+    const nextBoundary = locatable.slice(index + 1).find(candidate =>
+      candidate.pdf_page > entry.pdf_page && candidate.level <= entry.level
+    )
+    return {
+      node_id: entry.entry_id,
+      parent_id: entry.parent_id,
+      unit_id: entry.entry_id,
+      toc_entry_id: entry.entry_id,
+      level: entry.level,
+      kind: entry.kind,
+      title: entry.title,
+      pdf_page: entry.pdf_page,
+      end_pdf_page: entry.end_pdf_page && entry.end_pdf_page >= entry.pdf_page
+        ? entry.end_pdf_page
+        : nextBoundary
+          ? nextBoundary.pdf_page - 1
+          : pageCount,
+      printed_page: entry.printed_page,
+      end_printed_page: null,
+      evidence_span_ids: [],
+      source: `toc:${entry.source}`,
+      confidence: entry.confidence,
+      review_status: entry.review_status === 'approved' ? 'approved' : 'machine_checked'
+    }
+  })
+}
+
+function normalizeEvidenceSpans(structure, nodeIds, pageCount) {
+  if (!Array.isArray(structure?.evidence_spans)) return []
+  return structure.evidence_spans.map(span => {
+    const rawBox = span.bbox && typeof span.bbox === 'object' ? span.bbox : null
+    const bbox = rawBox && ['x', 'y', 'width', 'height'].every(key => Number.isFinite(rawBox[key]))
+      ? {
+          x: rawBox.x,
+          y: rawBox.y,
+          width: rawBox.width,
+          height: rawBox.height,
+          unit: rawBox.unit || undefined,
+          page_width: Number.isFinite(rawBox.page_width) ? rawBox.page_width : undefined,
+          page_height: Number.isFinite(rawBox.page_height) ? rawBox.page_height : undefined
+        }
+      : undefined
+    return {
+      evidence_span_id: span.evidence_span_id || span.span_id,
+      node_id: span.node_id,
+      pdf_page: span.pdf_page,
+      printed_page: span.printed_page ?? null,
+      title: span.title || undefined,
+      excerpt: span.excerpt ?? span.text,
+      excerpt_hash: span.excerpt_hash ?? span.text_hash,
+      bbox,
+      evidence_role: span.evidence_role || span.role || undefined,
+      source: span.source || undefined,
+      parser_version: span.parser_version || undefined
+    }
+  }).filter(span =>
+    typeof span.evidence_span_id === 'string'
+    && span.evidence_span_id.length > 0
+    && nodeIds.has(span.node_id)
+    && Number.isInteger(span.pdf_page)
+    && span.pdf_page >= 1
+    && span.pdf_page <= pageCount
+    && typeof span.excerpt === 'string'
+    && span.excerpt.length > 0
+    && typeof span.excerpt_hash === 'string'
+    && span.excerpt_hash.length > 0
+  )
+}
+
+function normalizeAlignment(alignment) {
+  const nodeId = alignment.node_id || alignment.content_node_id
+  const learningComponents = Array.isArray(alignment.learning_components)
+    ? alignment.learning_components
+        .filter(component => component && typeof component.component_id === 'string' && typeof component.label === 'string')
+        .map(component => ({ component_id: component.component_id, label: component.label }))
+    : []
+  return {
+    alignment_id: alignment.alignment_id,
+    edition_id: alignment.edition_id || undefined,
+    unit_id: typeof alignment.unit_id === 'string' && alignment.unit_id.length ? alignment.unit_id : undefined,
+    node_id: nodeId || undefined,
+    unit_title: typeof alignment.unit_title === 'string' && alignment.unit_title.length ? alignment.unit_title : undefined,
+    standard_code: alignment.standard_code,
+    standard_text: alignment.standard_text || '',
+    subject_slug: alignment.subject_slug,
+    grade_band: alignment.grade_band || '',
+    relation_type: alignment.relation_type,
+    learning_component_ids: Array.isArray(alignment.learning_component_ids)
+      ? [...new Set(alignment.learning_component_ids)]
+      : learningComponents.map(component => component.component_id),
+    learning_components: learningComponents,
+    evidence_level: normalizeEvidenceLevel(alignment.evidence_level),
+    evidence_level_detail: normalizeEvidenceLevelDetail(alignment.evidence_level_detail, alignment.evidence_level),
+    evidence_granularity: alignment.evidence_granularity
+      || (String(alignment.evidence_level || '').includes('_') ? String(alignment.evidence_level).split('_').slice(1).join('_') : undefined),
+    evidence_span_ids: Array.isArray(alignment.evidence_span_ids) ? [...new Set(alignment.evidence_span_ids)] : [],
+    evidence_role: alignment.evidence_role || undefined,
+    confidence: alignment.confidence,
+    score: alignment.score,
+    matched_keywords: Array.isArray(alignment.matched_keywords) ? alignment.matched_keywords : undefined,
+    matched_fields: Array.isArray(alignment.matched_fields) ? alignment.matched_fields : undefined,
+    modifier_conflicts: Array.isArray(alignment.modifier_conflicts) ? alignment.modifier_conflicts : undefined,
+    longest_match_length: alignment.longest_match_length,
+    alignment_method: alignment.alignment_method || undefined,
+    algorithm_version: alignment.algorithm_version || undefined,
+    provenance: alignment.provenance || undefined,
+    rationale: alignment.rationale || '',
+    review_status: alignment.review_status,
+    publication_status: alignment.publication_status || undefined,
+    evidence_id: alignment.evidence_id ?? null,
+    pdf_page: alignment.pdf_page ?? null,
+    printed_page: alignment.printed_page ?? null
+  }
+}
+
 function normalizeStructure(structure, pageCount) {
   const toc = Array.isArray(structure?.toc) ? structure.toc.map(entry => ({
     entry_id: entry.entry_id,
@@ -94,13 +265,23 @@ function normalizeStructure(structure, pageCount) {
     end_pdf_page: entry.end_pdf_page ?? null,
     confidence: entry.confidence,
     review_status: entry.review_status,
+    publication_status: entry.publication_status,
     source: entry.source
   })) : []
   const pageMap = Array.isArray(structure?.page_map) ? structure.page_map : []
-  const alignments = Array.isArray(structure?.alignments) ? structure.alignments : []
-  const standardScopes = Array.isArray(structure?.standard_scopes) ? structure.standard_scopes : []
   const approvedToc = toc.filter(entry => entry.review_status === 'approved')
+  const publishedToc = toc.filter(entry =>
+    entry.review_status === 'approved'
+    || (entry.review_status === 'machine_checked'
+      && entry.publication_status === 'published'
+      && entry.source === 'body_inferred_unit')
+  )
   const approvedPageMap = pageMap.filter(entry => entry.review_status === 'approved')
+  const contentNodes = normalizeContentNodes(structure, publishedToc, pageCount)
+  const contentNodeIds = new Set(contentNodes.map(node => node.node_id))
+  const evidenceSpans = normalizeEvidenceSpans(structure, contentNodeIds, pageCount)
+  const alignments = Array.isArray(structure?.alignments) ? structure.alignments.map(normalizeAlignment) : []
+  const standardScopes = Array.isArray(structure?.standard_scopes) ? structure.standard_scopes : []
   const approvedAlignments = alignments.filter(entry => entry.review_status === 'approved')
   const publishedAlignments = alignments.filter(entry =>
     ['approved', 'machine_checked'].includes(entry.review_status)
@@ -108,8 +289,10 @@ function normalizeStructure(structure, pageCount) {
   )
   const publishedScopes = standardScopes.filter(entry => ['approved', 'machine_checked'].includes(entry.review_status))
   return {
-    toc: approvedToc,
+    toc: publishedToc,
     page_map: approvedPageMap,
+    content_nodes: contentNodes,
+    evidence_spans: evidenceSpans,
     alignments: publishedAlignments,
     standard_scopes: publishedScopes,
     extraction: structure?.extraction || {
@@ -120,16 +303,66 @@ function normalizeStructure(structure, pageCount) {
       notes: ['尚未生成结构化目录与页码映射。']
     },
     text_quality: structure?.text_quality || 'unknown',
-    toc_status: approvedToc.length ? 'approved' : toc.length ? 'candidate' : 'unavailable',
+    toc_status: approvedToc.length ? 'approved' : publishedToc.length ? 'machine_checked' : toc.length ? 'candidate' : 'unavailable',
     page_map_status: approvedPageMap.length ? 'approved' : pageMap.length ? 'candidate' : 'unavailable',
     relation_status: approvedAlignments.length ? 'approved' : publishedAlignments.length || publishedScopes.length ? 'machine_checked' : alignments.length ? 'candidate' : 'unavailable',
-    toc_entry_count: approvedToc.length,
-    unit_count: approvedToc.filter(entry => ['part', 'unit', 'chapter'].includes(entry.kind)).length,
+    toc_entry_count: publishedToc.length,
+    unit_count: publishedToc.filter(entry => ['part', 'unit', 'chapter'].includes(entry.kind)).length,
     approved_alignment_count: approvedAlignments.length,
     machine_checked_alignment_count: publishedAlignments.filter(entry => entry.review_status === 'machine_checked').length,
     published_alignment_count: publishedAlignments.length,
     standard_scope_count: publishedScopes.reduce((sum, scope) => sum + (scope.standard_codes || []).length, 0)
   }
+}
+
+function addUnique(array, value) {
+  if (value && !array.includes(value)) array.push(value)
+}
+
+function buildPageContextIndex(detail) {
+  const pages = {}
+  const ensurePage = pdfPage => {
+    const key = String(pdfPage)
+    if (!pages[key]) pages[key] = { node_ids: [], alignment_ids: [], evidence_span_ids: [] }
+    return pages[key]
+  }
+  const nodesById = new Map(detail.content_nodes.map(node => [node.node_id, node]))
+  const spansById = new Map(detail.evidence_spans.map(span => [span.evidence_span_id, span]))
+
+  for (const node of detail.content_nodes) {
+    for (let page = node.pdf_page; page <= node.end_pdf_page; page += 1) {
+      addUnique(ensurePage(page).node_ids, node.node_id)
+    }
+  }
+  for (const span of detail.evidence_spans) {
+    const page = ensurePage(span.pdf_page)
+    addUnique(page.node_ids, span.node_id)
+    addUnique(page.evidence_span_ids, span.evidence_span_id)
+  }
+  for (const alignment of detail.alignments) {
+    const target = alignment.node_id
+      ? nodesById.get(alignment.node_id)
+      : detail.content_nodes.find(node => node.unit_id === alignment.unit_id || node.node_id === alignment.unit_id)
+    const alignmentSpans = (alignment.evidence_span_ids || []).map(id => spansById.get(id)).filter(Boolean)
+    const pageNumbers = new Set()
+    if (target) {
+      for (let page = target.pdf_page; page <= target.end_pdf_page; page += 1) pageNumbers.add(page)
+    }
+    if (Number.isInteger(alignment.pdf_page)) pageNumbers.add(alignment.pdf_page)
+    for (const span of alignmentSpans) pageNumbers.add(span.pdf_page)
+    for (const pdfPage of pageNumbers) {
+      const page = ensurePage(pdfPage)
+      if (target) addUnique(page.node_ids, target.node_id)
+      addUnique(page.alignment_ids, alignment.alignment_id)
+      for (const span of alignmentSpans) addUnique(page.evidence_span_ids, span.evidence_span_id)
+    }
+  }
+  for (const page of Object.values(pages)) {
+    page.node_ids.sort()
+    page.alignment_ids.sort()
+    page.evidence_span_ids.sort()
+  }
+  return { schema_version: 1, edition_id: detail.edition_id, pages }
 }
 
 function publicBase(asset, structure, generatedAt) {
@@ -183,6 +416,7 @@ function main() {
   if (!assets.length) throw new Error(`Textbook registry is empty: ${registryPath}`)
   if (existsSync(OUTPUT_ROOT)) rmSync(OUTPUT_ROOT, { recursive: true })
   ensureDir(join(OUTPUT_ROOT, 'by-edition'))
+  ensureDir(join(OUTPUT_ROOT, 'page-context/by-edition'))
 
   const catalogItems = []
   const units = []
@@ -197,6 +431,8 @@ function main() {
       ...base,
       toc: structure.toc,
       page_map: structure.page_map,
+      content_nodes: structure.content_nodes,
+      evidence_spans: structure.evidence_spans,
       alignments: structure.alignments,
       standard_scopes: structure.standard_scopes,
       related_resources: resources,
@@ -227,6 +463,10 @@ function main() {
       }
     }
     writeJson(join(OUTPUT_ROOT, 'by-edition', `${asset.edition_id}.json`), detail)
+    writeJson(join(OUTPUT_ROOT, 'page-context/by-edition', `${asset.edition_id}.json`), {
+      ...buildPageContextIndex(detail),
+      generated_at: generatedAt
+    })
     for (const entry of detail.toc) {
       const unitAlignments = detail.alignments.filter(item => item.unit_id === entry.entry_id)
       const unit = {
@@ -241,29 +481,71 @@ function main() {
         related_resources: resources
       }
       units.push(unit)
-      for (const alignment of unitAlignments) {
-        const reverse = {
-          alignment_id: alignment.alignment_id,
-          edition_id: asset.edition_id,
-          textbook_title: base.title,
-          unit_id: entry.entry_id,
-          unit_title: entry.title,
-          pdf_page: entry.pdf_page,
-          printed_page: entry.printed_page,
-          confidence: alignment.confidence,
-          rationale: alignment.rationale,
-          relation_type: alignment.relation_type,
-          evidence_role: alignment.evidence_role,
-          review_status: alignment.review_status,
-          evidence_granularity: 'textbook_toc_entry',
-          matched_keywords: alignment.matched_keywords || [],
-          matched_fields: alignment.matched_fields || []
-        }
-        if (!standardsToTextbooks[alignment.standard_code]) standardsToTextbooks[alignment.standard_code] = []
-        standardsToTextbooks[alignment.standard_code].push(reverse)
+    }
+    const tocById = new Map(detail.toc.map(entry => [entry.entry_id, entry]))
+    const nodesById = new Map(detail.content_nodes.map(node => [node.node_id, node]))
+    const spansById = new Map(detail.evidence_spans.map(span => [span.evidence_span_id, span]))
+    for (const alignment of detail.alignments) {
+      const node = alignment.node_id
+        ? nodesById.get(alignment.node_id)
+        : detail.content_nodes.find(candidate => candidate.unit_id === alignment.unit_id || candidate.node_id === alignment.unit_id)
+      const unit = alignment.unit_id ? tocById.get(alignment.unit_id) : null
+      const evidenceSpans = (alignment.evidence_span_ids || []).map(id => spansById.get(id)).filter(Boolean)
+      const firstEvidence = evidenceSpans[0] || null
+      const reverse = {
+        alignment_id: alignment.alignment_id,
+        edition_id: asset.edition_id,
+        textbook_title: base.title,
+        unit_id: alignment.unit_id || node?.unit_id || null,
+        unit_title: unit?.title || alignment.unit_title || null,
+        node_id: node?.node_id || alignment.node_id || null,
+        node_title: node?.title || null,
+        node_kind: node?.kind || null,
+        pdf_page: alignment.pdf_page ?? firstEvidence?.pdf_page ?? node?.pdf_page ?? unit?.pdf_page ?? null,
+        printed_page: alignment.printed_page ?? firstEvidence?.printed_page ?? node?.printed_page ?? unit?.printed_page ?? null,
+        confidence: alignment.confidence,
+        rationale: alignment.rationale,
+        relation_type: alignment.relation_type,
+        learning_component_ids: alignment.learning_component_ids || [],
+        learning_components: alignment.learning_components || [],
+        evidence_level: alignment.evidence_level || null,
+        evidence_level_detail: alignment.evidence_level_detail || null,
+        evidence_span_ids: alignment.evidence_span_ids || [],
+        evidence_excerpt: alignment.evidence_excerpt || firstEvidence?.excerpt || firstEvidence?.text || null,
+        evidence_excerpt_hash: alignment.evidence_excerpt_hash || firstEvidence?.excerpt_hash || firstEvidence?.text_hash || null,
+        evidence_spans: evidenceSpans.map(span => ({
+          evidence_span_id: span.evidence_span_id,
+          node_id: span.node_id,
+          pdf_page: span.pdf_page,
+          printed_page: span.printed_page ?? null,
+          role: span.role || span.evidence_role || 'content',
+          excerpt: span.excerpt || span.text || '',
+          excerpt_hash: span.excerpt_hash || span.text_hash || null
+        })),
+        evidence_role: alignment.evidence_role,
+        review_status: alignment.review_status,
+        publication_status: alignment.publication_status || 'published',
+        alignment_method: alignment.alignment_method || null,
+        algorithm_version: alignment.algorithm_version || null,
+        evidence_granularity: evidenceSpans.length
+          ? 'textbook_page_evidence'
+          : node && !String(node.source || '').startsWith('toc:')
+            ? 'textbook_content_node'
+            : 'textbook_toc_entry',
+        matched_keywords: alignment.matched_keywords || [],
+        matched_fields: alignment.matched_fields || []
       }
+      if (!standardsToTextbooks[alignment.standard_code]) standardsToTextbooks[alignment.standard_code] = []
+      standardsToTextbooks[alignment.standard_code].push(reverse)
     }
     if (asset.resource_type === 'student_textbook') catalogItems.push(base)
+  }
+
+  for (const links of Object.values(standardsToTextbooks)) {
+    links.sort((left, right) => left.edition_id.localeCompare(right.edition_id)
+      || (left.pdf_page ?? Number.MAX_SAFE_INTEGER) - (right.pdf_page ?? Number.MAX_SAFE_INTEGER)
+      || String(left.node_id || left.unit_id || '').localeCompare(String(right.node_id || right.unit_id || ''))
+      || left.alignment_id.localeCompare(right.alignment_id))
   }
 
   catalogItems.sort((a, b) =>
@@ -274,7 +556,7 @@ function main() {
   )
 
   const manifest = {
-    schema_version: 1,
+    schema_version: 2,
     generated_at: generatedAt,
     source_generation_id: current.generation_id,
     count: catalogItems.length,
@@ -289,6 +571,7 @@ function main() {
   writeJson(join(OUTPUT_ROOT, 'manifest.json'), manifest)
   writeJson(join(OUTPUT_ROOT, 'units.json'), { generated_at: generatedAt, items: units })
   writeJson(join(OUTPUT_ROOT, 'standards-to-textbooks.json'), {
+    schema_version: 2,
     generated_at: generatedAt,
     items: standardsToTextbooks,
     scopes: standardScopesToTextbooks

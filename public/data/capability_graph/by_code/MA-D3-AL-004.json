@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "performance_stability",
@@ -43,17 +43,128 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_f65e6369493ee111",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_10296c173573f69db498",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e5b0376a10bb",
+        "tes_7a7621993fa1ccb2",
+        "textbook-node:tcn_dc9156ec90dcef11",
+        "textbook-unit:tcu_c4f8a59850d62f4a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1. 比例的意义和基本性质",
+          "excerpt_hash": "4cd340160bc8eb33a94bcc3047a1dc6193e5c7c090df2e5b603eca2ca2106f86",
+          "pdf_page": 43,
+          "printed_page": "38",
+          "span_id": "tes_7a7621993fa1ccb2"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_e792ff1bbe7ad349"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_e792ff1bbe7ad349",
+          "label": "在具体问题中感受等式的基本性质"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_dc9156ec90dcef11",
+      "node_title": "1比例的意义和基本性质",
+      "pdf_page": 43,
+      "printed_page": "38",
+      "publication_status": "published",
+      "rationale": "教材lesson“1比例的意义和基本性质”与课标 MA-D3-AL-004 的可教学小能力“在具体问题中感受等式的基本性质”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_c4f8a59850d62f4a",
+      "unit_title": "28.26 cm2"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_bc7a03e3ada59632",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5",
+        "tes_21f2586dbaa7a030",
+        "textbook-node:tcn_423663a70e83f020",
+        "textbook-unit:tcu_e400348f1a1520e3"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3. 分数的基本性质",
+          "excerpt_hash": "14d7149dfab30a3c8799c06ba344ad2ae7e80ebcd519d35efd2c0e57f1045fdf",
+          "pdf_page": 62,
+          "printed_page": "57",
+          "span_id": "tes_21f2586dbaa7a030"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_e792ff1bbe7ad349"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_e792ff1bbe7ad349",
+          "label": "在具体问题中感受等式的基本性质"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_423663a70e83f020",
+      "node_title": "3分数的基本性质",
+      "pdf_page": 62,
+      "printed_page": "57",
+      "publication_status": "published",
+      "rationale": "教材lesson“3分数的基本性质”与课标 MA-D3-AL-004 的可教学小能力“在具体问题中感受等式的基本性质”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_e400348f1a1520e3",
+      "unit_title": "24.6 m2,高是 3 m。它的容"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_de7899d44addf285",
       "alignment_type": "references",
       "confidence": null,
@@ -84,7 +195,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_39d1213e92e47a25",
       "alignment_type": "references",
       "confidence": null,
@@ -115,7 +226,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_fb4f5f54f8861bc2",
       "alignment_type": "references",
       "confidence": null,
@@ -146,7 +257,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_98c8491d00307d78",
       "alignment_type": "references",
       "confidence": null,

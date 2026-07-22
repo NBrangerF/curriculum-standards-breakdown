@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "concept_discrimination",
@@ -44,17 +44,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_719b946fd48495e2",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_65220055b0e922eb6a1e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_55b8f47777bf",
+        "tes_ed9d3350f11d93e6",
+        "textbook-node:tcn_3b351edf53caec6e",
+        "textbook-unit:tcu_159a53dca6a8e829"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "联系上下文,说说加点字的意思。",
+          "excerpt_hash": "995be363fccf65d22e9b6b88ed7bd52facd93dc736a92d7cedb588df2eda6e1d",
+          "pdf_page": 86,
+          "printed_page": "81",
+          "span_id": "tes_ed9d3350f11d93e6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_84ace5c09df524bb"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_84ace5c09df524bb",
+          "label": "借助工具书准确理解不同语境中汉字的意思"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3b351edf53caec6e",
+      "node_title": "联系上下文,说说加点字的意思。",
+      "pdf_page": 86,
+      "printed_page": "81",
+      "publication_status": "published",
+      "rationale": "教材exercise“联系上下文,说说加点字的意思。”与课标 CN-D3-LI-001 的可教学小能力“借助工具书准确理解不同语境中汉字的意思”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_159a53dca6a8e829",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_384bcdd0d381cd1c",
       "alignment_type": "references",
       "confidence": null,
@@ -85,7 +141,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_54a88ba5277c2a14",
       "alignment_type": "references",
       "confidence": null,
@@ -116,7 +172,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_dcb266f3da93c66b",
       "alignment_type": "references",
       "confidence": null,
@@ -147,7 +203,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e62225a4df4c4be1",
       "alignment_type": "references",
       "confidence": null,

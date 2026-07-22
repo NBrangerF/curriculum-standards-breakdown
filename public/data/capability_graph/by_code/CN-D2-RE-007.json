@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "language_expression",
@@ -43,17 +43,2933 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 53,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 53,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_59e538fccf7c80e7",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_9c3d93069921c6fd",
+        "textbook-node:tcn_5d98ee6ea07afd73",
+        "textbook-unit:tcu_50ae8f7b3570b362"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。默写《题西林壁》。",
+          "excerpt_hash": "8415d6ef85340a1621005778d5035604b9deb9623eb4a10369434cafea01b533",
+          "pdf_page": 40,
+          "printed_page": "35",
+          "span_id": "tes_9c3d93069921c6fd"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_5d98ee6ea07afd73",
+      "node_title": "有感情地朗读课文。背诵课文。默写《题西林壁》。",
+      "pdf_page": 40,
+      "printed_page": "35",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。默写《题西林壁》。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_50ae8f7b3570b362",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5a643ff47881c2bd",
+      "alignment_type": "practices",
+      "confidence": 0.8286,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_a11c28b9e74b7da6",
+        "textbook-node:tcn_d467722c52806db5",
+        "textbook-unit:tcu_50ae8f7b3570b362"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。说说从哪些地方可以看出作者观察得特别仔细。",
+          "excerpt_hash": "d7260457fec5e1846e8533a8295231643a35d867e259f9fcbb4bcb5c0790227e",
+          "pdf_page": 43,
+          "printed_page": "38",
+          "span_id": "tes_a11c28b9e74b7da6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d467722c52806db5",
+      "node_title": "朗读课文。说说从哪些地方可以看出作者观察得特别仔细。",
+      "pdf_page": 43,
+      "printed_page": "38",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。说说从哪些地方可以看出作者观察得特别仔细。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_50ae8f7b3570b362",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7d038e4d938c8198",
+      "alignment_type": "practices",
+      "confidence": 0.8376,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_3af299e2e31547e8",
+        "textbook-node:tcn_4c74df23f3da4329",
+        "textbook-unit:tcu_54dd95e5e442fa7a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "正确、流利地朗读课文。背诵课文。",
+          "excerpt_hash": "c479810dc509da1c539c17183b3178e007dfed08b14cbb594bbf32acc4a26101",
+          "pdf_page": 55,
+          "printed_page": "50",
+          "span_id": "tes_3af299e2e31547e8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_4c74df23f3da4329",
+      "node_title": "正确、流利地朗读课文。背诵课文。",
+      "pdf_page": 55,
+      "printed_page": "50",
+      "publication_status": "published",
+      "rationale": "教材exercise“正确、流利地朗读课文。背诵课文。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_54dd95e5e442fa7a",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_aa4d2d278a7a44a2",
+      "alignment_type": "practices",
+      "confidence": 0.8287,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_3bfd08410952ee6d",
+        "textbook-node:tcn_0ca8b892dcb3ac53",
+        "textbook-unit:tcu_54dd95e5e442fa7a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,注意读好众神的名字。",
+          "excerpt_hash": "059cc9096b616a82d53bd9a06a5da23d41d3d44f86a5c011de07fe4c8d76f591",
+          "pdf_page": 58,
+          "printed_page": "53",
+          "span_id": "tes_3bfd08410952ee6d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_0ca8b892dcb3ac53",
+      "node_title": "朗读课文,注意读好众神的名字。",
+      "pdf_page": 58,
+      "printed_page": "53",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,注意读好众神的名字。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_54dd95e5e442fa7a",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_82ff92bdc8a9ac04",
+      "alignment_type": "practices",
+      "confidence": 0.8376,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_5dca41a91e719223",
+        "textbook-node:tcn_9bf3e92e7e34b656",
+        "textbook-unit:tcu_64d98715a58b4102"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "正确、流利地朗读课文。背诵课文。",
+          "excerpt_hash": "c479810dc509da1c539c17183b3178e007dfed08b14cbb594bbf32acc4a26101",
+          "pdf_page": 115,
+          "printed_page": "110",
+          "span_id": "tes_5dca41a91e719223"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_9bf3e92e7e34b656",
+      "node_title": "正确、流利地朗读课文。背诵课文。",
+      "pdf_page": 115,
+      "printed_page": "110",
+      "publication_status": "published",
+      "rationale": "教材exercise“正确、流利地朗读课文。背诵课文。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_64d98715a58b4102",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_337ccbed7c98c697",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_b8fb2ca9087db885",
+        "textbook-node:tcn_5d53cd575b55c079",
+        "textbook-unit:tcu_6a95c1cf3e185b25"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。默写《出塞》《夏日绝句》。",
+          "excerpt_hash": "59b5ab5e967d06d5c62dda4eb4635bb740cf82a362cb8cf25a2b6393acb962bf",
+          "pdf_page": 100,
+          "printed_page": "95",
+          "span_id": "tes_b8fb2ca9087db885"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_5d53cd575b55c079",
+      "node_title": "有感情地朗读课文。背诵课文。默写《出塞》《夏日绝句》。",
+      "pdf_page": 100,
+      "printed_page": "95",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。默写《出塞》《夏日绝句》。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_6a95c1cf3e185b25",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_b2300712342ffaef",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_cbe8113d7388973d",
+        "textbook-node:tcn_a142663c4c810de4",
+        "textbook-unit:tcu_6a95c1cf3e185b25"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读这首诗。想一想:诗中多次提到“追寻”,是在追寻什么?和同学交流你的想法。如果有不懂的内容,如“南泥湾开荒”“杨家岭讲话”,可以查找相",
+          "excerpt_hash": "f82c17138c780def656725d205346447c7165333b34239ac137519ee3d187f79",
+          "pdf_page": 109,
+          "printed_page": "104",
+          "span_id": "tes_cbe8113d7388973d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a142663c4c810de4",
+      "node_title": "有感情地朗读这首诗。想一想:诗中多次提到“追寻”,是在追寻什么?和同学交流你的想法。如果有不懂的内容,如“南泥湾开荒”“杨家岭讲话”,可以查找相",
+      "pdf_page": 109,
+      "printed_page": "104",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读这首诗。想一想:诗中多次提到“追寻”,是在追寻什么?和同学交流你的想法。如果有不懂的内容,如“南泥湾开荒”“杨家岭讲话”,可以查找相”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_6a95c1cf3e185b25",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_12543aed146b6bea",
+      "alignment_type": "practices",
+      "confidence": 0.8286,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_b18a07e274486241",
+        "textbook-node:tcn_09222a46c48dfbf5",
+        "textbook-unit:tcu_6ac3df33c606c665"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。说说课文围绕麻雀写了一件什么事,这件事的起因、经过和结果是怎样的。",
+          "excerpt_hash": "3da7f5533c946b6d69f37f5eed6b53bde9ada2eb7bd616eaa5d7feb44f7a1907",
+          "pdf_page": 69,
+          "printed_page": "64",
+          "span_id": "tes_b18a07e274486241"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_09222a46c48dfbf5",
+      "node_title": "朗读课文。说说课文围绕麻雀写了一件什么事,这件事的起因、经过和结果是怎样的。",
+      "pdf_page": 69,
+      "printed_page": "64",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。说说课文围绕麻雀写了一件什么事,这件事的起因、经过和结果是怎样的。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_6ac3df33c606c665",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c07ecffc3f529400",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_5f93cc20afd25b28",
+        "textbook-node:tcn_a6d989f708a8ac6f",
+        "textbook-unit:tcu_c19c959e017e9651"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵第 3〜4 自然段。",
+          "excerpt_hash": "05437848f6473fc4f550882a74b75e1f90ea7cc1d90de2d696d464d79108b0d3",
+          "pdf_page": 9,
+          "printed_page": "4",
+          "span_id": "tes_5f93cc20afd25b28"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a6d989f708a8ac6f",
+      "node_title": "有感情地朗读课文。背诵第 3〜4 自然段。",
+      "pdf_page": 9,
+      "printed_page": "4",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵第 3〜4 自然段。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c19c959e017e9651",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0c4f37bce798e9b1",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_40dae9e381a89b88",
+        "textbook-node:tcn_88f04f26c61b4f5c",
+        "textbook-unit:tcu_c19c959e017e9651"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵第 4 自然段。",
+          "excerpt_hash": "700184c05a2ec71e8334a67ce96c888a1a471f519c312129ed3f036cd70624f0",
+          "pdf_page": 12,
+          "printed_page": "7",
+          "span_id": "tes_40dae9e381a89b88"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_88f04f26c61b4f5c",
+      "node_title": "有感情地朗读课文。背诵第 4 自然段。",
+      "pdf_page": 12,
+      "printed_page": "7",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵第 4 自然段。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c19c959e017e9651",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9d44d2827259da2f",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_45a3b12d9ef0e0e4",
+        "textbook-node:tcn_a94e6c14950ffc3a",
+        "textbook-unit:tcu_c19c959e017e9651"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文,根据课文的描述想象繁星满天的画面。你也看过夜晚的繁星吧?说说你当时的感受。",
+          "excerpt_hash": "fdedf87b23d4fe0a3ed98d012b3cf58ffc7fa37f7764af5ff211a4235045d7f2",
+          "pdf_page": 15,
+          "printed_page": "10",
+          "span_id": "tes_45a3b12d9ef0e0e4"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a94e6c14950ffc3a",
+      "node_title": "有感情地朗读课文,根据课文的描述想象繁星满天的画面。你也看过夜晚的繁星吧?说说你当时的感受。",
+      "pdf_page": 15,
+      "printed_page": "10",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文,根据课文的描述想象繁星满天的画面。你也看过夜晚的繁星吧?说说你当时的感受。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c19c959e017e9651",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_4da43a89f44eaa6e",
+      "alignment_type": "practices",
+      "confidence": 0.8286,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_d75db5095d7042c1",
+        "textbook-node:tcn_157e5472516d579c",
+        "textbook-unit:tcu_5c1886bf63ca2166"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,一边读一边想象课文描写的画面。在文中画出有新鲜感的词句和同学交流。",
+          "excerpt_hash": "eb0a0aa8e3dca613775c3073efb38fdc78a17d4e17ae809f803d22960922a8e9",
+          "pdf_page": 9,
+          "printed_page": "4",
+          "span_id": "tes_d75db5095d7042c1"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_157e5472516d579c",
+      "node_title": "朗读课文,一边读一边想象课文描写的画面。在文中画出有新鲜感的词句和同学交流。",
+      "pdf_page": 9,
+      "printed_page": "4",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,一边读一边想象课文描写的画面。在文中画出有新鲜感的词句和同学交流。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_5c1886bf63ca2166",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_32d23dd9c12c69a5",
+      "alignment_type": "practices",
+      "confidence": 0.8287,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_97eb4c766ee88b08",
+        "textbook-node:tcn_72281504dc2e1f9b",
+        "textbook-unit:tcu_5c1886bf63ca2166"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,想象花“在绿草上跳舞,狂欢”的情景。",
+          "excerpt_hash": "4a41761760446ce3ec457da2a724c500027523f010b6a0d1ae715dd03fb7fafd",
+          "pdf_page": 11,
+          "printed_page": "6",
+          "span_id": "tes_97eb4c766ee88b08"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_72281504dc2e1f9b",
+      "node_title": "朗读课文,想象花“在绿草上跳舞,狂欢”的情景。",
+      "pdf_page": 11,
+      "printed_page": "6",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,想象花“在绿草上跳舞,狂欢”的情景。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_5c1886bf63ca2166",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_25e41737eed13b13",
+      "alignment_type": "practices",
+      "confidence": 0.8289,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_5a0eb763fda47924",
+        "textbook-node:tcn_004b4afd7a5eb4c1",
+        "textbook-unit:tcu_82d5b73bb2829a5a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,体会大自然声音的美妙。背诵第 2〜3 自然段。",
+          "excerpt_hash": "a01debcc1ba84693d2e8933268926a4b861b3272b59f23c2cfa5b7f181934459",
+          "pdf_page": 94,
+          "printed_page": "89",
+          "span_id": "tes_5a0eb763fda47924"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_004b4afd7a5eb4c1",
+      "node_title": "朗读课文,体会大自然声音的美妙。背诵第 2〜3 自然段。",
+      "pdf_page": 94,
+      "printed_page": "89",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,体会大自然声音的美妙。背诵第 2〜3 自然段。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_82d5b73bb2829a5a",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_cad27417da0cfb68",
+      "alignment_type": "practices",
+      "confidence": 0.8288,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_bd9373c0cb2f2e0c",
+        "textbook-node:tcn_806d4372da74f83e",
+        "textbook-unit:tcu_82d5b73bb2829a5a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,感受大自然的乐趣。",
+          "excerpt_hash": "d3820eec98bee01a47d2baf53404d255c32776cd5a86b275686e0747ad295d3a",
+          "pdf_page": 98,
+          "printed_page": "93",
+          "span_id": "tes_bd9373c0cb2f2e0c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_806d4372da74f83e",
+      "node_title": "朗读课文,感受大自然的乐趣。",
+      "pdf_page": 98,
+      "printed_page": "93",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,感受大自然的乐趣。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_82d5b73bb2829a5a",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c387019a0f977e72",
+      "alignment_type": "practices",
+      "confidence": 0.8287,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_30b1f59f50d7e47a",
+        "textbook-node:tcn_bc92eee876aeca21",
+        "textbook-unit:tcu_941dfdf5da91ffa8"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,一边读一边想象课文描写的场景。",
+          "excerpt_hash": "612575e2e7208a0375a13e5081a28f13af5e732c971e0f6510ec0c4e9aff7792",
+          "pdf_page": 72,
+          "printed_page": "67",
+          "span_id": "tes_30b1f59f50d7e47a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_bc92eee876aeca21",
+      "node_title": "朗读课文,一边读一边想象课文描写的场景。",
+      "pdf_page": 72,
+      "printed_page": "67",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,一边读一边想象课文描写的场景。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_941dfdf5da91ffa8",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c7dfcc3413236dec",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_d206729b2434975f",
+        "textbook-node:tcn_d85dc88e375d39b5",
+        "textbook-unit:tcu_a99b1b22c926638c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文,想象诗中描绘的景色。背诵课文。默写《望天门山》。",
+          "excerpt_hash": "9e1af5e304b370931c7e1ca5ad58de9dda9eec8efad82f08319bc6fd3f11e57c",
+          "pdf_page": 80,
+          "printed_page": "75",
+          "span_id": "tes_d206729b2434975f"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d85dc88e375d39b5",
+      "node_title": "有感情地朗读课文,想象诗中描绘的景色。背诵课文。默写《望天门山》。",
+      "pdf_page": 80,
+      "printed_page": "75",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文,想象诗中描绘的景色。背诵课文。默写《望天门山》。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_a99b1b22c926638c",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_3956906eb30defb0",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_8f98ed9933538f04",
+        "textbook-node:tcn_63a9ff4a12407595",
+        "textbook-unit:tcu_a99b1b22c926638c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。说说从哪些地方可以看出西沙群岛风景优美、物产丰富。",
+          "excerpt_hash": "90cc4fed8a4fda8f44af3b38c7298a7526b20b84f1488b3907776cdfd4041bf9",
+          "pdf_page": 83,
+          "printed_page": "78",
+          "span_id": "tes_8f98ed9933538f04"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_63a9ff4a12407595",
+      "node_title": "有感情地朗读课文。说说从哪些地方可以看出西沙群岛风景优美、物产丰富。",
+      "pdf_page": 83,
+      "printed_page": "78",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。说说从哪些地方可以看出西沙群岛风景优美、物产丰富。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_a99b1b22c926638c",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_73b89082f7065b56",
+      "alignment_type": "practices",
+      "confidence": 0.8286,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_737019ed536900e7",
+        "textbook-node:tcn_b5d6b3d99c80097c",
+        "textbook-unit:tcu_a99b1b22c926638c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。说说课文写了海滨小城的哪些景象,这些景象是什么样的。",
+          "excerpt_hash": "b74b0a039ce6fbc2e4d5fe5987f9481d28e430fb64ca6e598bbf18b74ba3bba2",
+          "pdf_page": 85,
+          "printed_page": "80",
+          "span_id": "tes_737019ed536900e7"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b5d6b3d99c80097c",
+      "node_title": "朗读课文。说说课文写了海滨小城的哪些景象,这些景象是什么样的。",
+      "pdf_page": 85,
+      "printed_page": "80",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。说说课文写了海滨小城的哪些景象,这些景象是什么样的。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_a99b1b22c926638c",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_b651b52ef536cdd8",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_664a8b7e8673b360",
+        "textbook-node:tcn_040a1e2eff1bcf4f",
+        "textbook-unit:tcu_a99b1b22c926638c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文,注意读好文中的长句子。",
+          "excerpt_hash": "a0f707dba69fb7be704df63c76aea0e31a95068eb6c982758c31a3fa9ff01287",
+          "pdf_page": 88,
+          "printed_page": "83",
+          "span_id": "tes_664a8b7e8673b360"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_040a1e2eff1bcf4f",
+      "node_title": "有感情地朗读课文,注意读好文中的长句子。",
+      "pdf_page": 88,
+      "printed_page": "83",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文,注意读好文中的长句子。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_a99b1b22c926638c",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_2bc31e1b51937138",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_07f53c67feca4aeb",
+        "textbook-node:tcn_56ff8e0465c0b649",
+        "textbook-unit:tcu_bdbda61e66743fe0"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。默写《山行》。",
+          "excerpt_hash": "905babe30d0ed47cbcc9459d1d1d600cbf3aae16fc49b612f5f15223de5f3c12",
+          "pdf_page": 20,
+          "printed_page": "15",
+          "span_id": "tes_07f53c67feca4aeb"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_56ff8e0465c0b649",
+      "node_title": "有感情地朗读课文。背诵课文。默写《山行》。",
+      "pdf_page": 20,
+      "printed_page": "15",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。默写《山行》。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bdbda61e66743fe0",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_856f90b0f8efd108",
+      "alignment_type": "practices",
+      "confidence": 0.8287,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_9c0237b5e4676e89",
+        "textbook-node:tcn_1372cbcf2afa2a85",
+        "textbook-unit:tcu_bdbda61e66743fe0"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。把你喜欢的句子抄写下来。",
+          "excerpt_hash": "e613a06b2e1fbd217d8b964196b0bb296b0334490f51c697f7d4f1ee474e55bf",
+          "pdf_page": 23,
+          "printed_page": "18",
+          "span_id": "tes_9c0237b5e4676e89"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_1372cbcf2afa2a85",
+      "node_title": "朗读课文。把你喜欢的句子抄写下来。",
+      "pdf_page": 23,
+      "printed_page": "18",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。把你喜欢的句子抄写下来。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bdbda61e66743fe0",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5e93a75ebf301160",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_f638a09937d27602",
+        "textbook-node:tcn_3fee20d5cf182ef7",
+        "textbook-unit:tcu_bdbda61e66743fe0"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵第 2 自然段。",
+          "excerpt_hash": "f601e9c23aeeac173ecec4b70cb9775384e8af54b546146fc9605697f3b6f381",
+          "pdf_page": 25,
+          "printed_page": "20",
+          "span_id": "tes_f638a09937d27602"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3fee20d5cf182ef7",
+      "node_title": "有感情地朗读课文。背诵第 2 自然段。",
+      "pdf_page": 25,
+      "printed_page": "20",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵第 2 自然段。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bdbda61e66743fe0",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_12920443226e2cd5",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_06d1ce6b896e074a",
+        "textbook-node:tcn_d91f90da0d1303a1",
+        "textbook-unit:tcu_bdbda61e66743fe0"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文,一边读一边想象,然后和同学交流:你听到了秋天的哪些声音?",
+          "excerpt_hash": "e24104bcab9253c22f63c14e15bb2b4ff46e6523cab19cefd8dc89f70edb9503",
+          "pdf_page": 27,
+          "printed_page": "22",
+          "span_id": "tes_06d1ce6b896e074a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d91f90da0d1303a1",
+      "node_title": "有感情地朗读课文,一边读一边想象,然后和同学交流:你听到了秋天的哪些声音?",
+      "pdf_page": 27,
+      "printed_page": "22",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文,一边读一边想象,然后和同学交流:你听到了秋天的哪些声音?”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bdbda61e66743fe0",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c9e7e600c790b4ec",
+      "alignment_type": "practices",
+      "confidence": 0.8286,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_1be215e63649e82b",
+        "textbook-node:tcn_c2e509681c3fed83",
+        "textbook-unit:tcu_c2374c281a669e73"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "分角色朗读课文,体会青头和红头对话时的心情,读出相应的语气。",
+          "excerpt_hash": "ae9f7a5205a98a0007fb8875a2f46f5e034b260e7345063a111a339437daba95",
+          "pdf_page": 42,
+          "printed_page": "37",
+          "span_id": "tes_1be215e63649e82b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c2e509681c3fed83",
+      "node_title": "分角色朗读课文,体会青头和红头对话时的心情,读出相应的语气。",
+      "pdf_page": 42,
+      "printed_page": "37",
+      "publication_status": "published",
+      "rationale": "教材exercise“分角色朗读课文,体会青头和红头对话时的心情,读出相应的语气。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c2374c281a669e73",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_990b99c73c1a1c9f",
+      "alignment_type": "practices",
+      "confidence": 0.8287,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_334af6341558",
+        "tes_e7801205788b0dab",
+        "textbook-node:tcn_9de0fff650ab172e",
+        "textbook-unit:tcu_fb6766258578536d"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "分角色朗读课文,读出对话的语气。",
+          "excerpt_hash": "2fd4d1c0ec8b01ffb73e52dff8f70d7ade168b5350d98ac24ffe15243c118fd1",
+          "pdf_page": 109,
+          "printed_page": "104",
+          "span_id": "tes_e7801205788b0dab"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_9de0fff650ab172e",
+      "node_title": "分角色朗读课文,读出对话的语气。",
+      "pdf_page": 109,
+      "printed_page": "104",
+      "publication_status": "published",
+      "rationale": "教材exercise“分角色朗读课文,读出对话的语气。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_fb6766258578536d",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_f0cab2d2e01f1153",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_97b49cd39424",
+        "tes_1222e9120f3fe60b",
+        "textbook-node:tcn_4e9e8bdbfa7386e2",
+        "textbook-unit:tcu_0f84d8da1e281965"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。",
+          "excerpt_hash": "1ec4022c3f381b50211bd1a252dc21933d367fa77b22f4a29aa903dd6e35f235",
+          "pdf_page": 44,
+          "printed_page": "39",
+          "span_id": "tes_1222e9120f3fe60b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_4e9e8bdbfa7386e2",
+      "node_title": "有感情地朗读课文。背诵课文。",
+      "pdf_page": 44,
+      "printed_page": "39",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_0f84d8da1e281965",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9f9e3ecff5043461",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_97b49cd39424",
+        "tes_fcdad96ad45c32f2",
+        "textbook-node:tcn_6b1ccfb7cb53817d",
+        "textbook-unit:tcu_0f84d8da1e281965"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。",
+          "excerpt_hash": "bac99e3a6dbca29c213051927f6e102fc804c1b8df48dbbe3eb57e0d60bb8ddb",
+          "pdf_page": 46,
+          "printed_page": "41",
+          "span_id": "tes_fcdad96ad45c32f2"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_6b1ccfb7cb53817d",
+      "node_title": "有感情地朗读课文。",
+      "pdf_page": 46,
+      "printed_page": "41",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_0f84d8da1e281965",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_b5f790c1b4002d83",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_97b49cd39424",
+        "tes_6e2279470efeb93f",
+        "textbook-node:tcn_759379b8940b881e",
+        "textbook-unit:tcu_0f84d8da1e281965"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读并背诵课文。结合自己喜欢的诗句,和同学交流读后的感受。有兴趣的同学,还可以用诗的形式,写写自己看到过的雨后天晴的景象。",
+          "excerpt_hash": "18413cf81ed7fe8897b8f2996bc02072681224894d2be829459cfdaebd6a8289",
+          "pdf_page": 47,
+          "printed_page": "42",
+          "span_id": "tes_6e2279470efeb93f"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_759379b8940b881e",
+      "node_title": "有感情地朗读并背诵课文。结合自己喜欢的诗句,和同学交流读后的感受。有兴趣的同学,还可以用诗的形式,写写自己看到过的雨后天晴的景象。",
+      "pdf_page": 47,
+      "printed_page": "42",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读并背诵课文。结合自己喜欢的诗句,和同学交流读后的感受。有兴趣的同学,还可以用诗的形式,写写自己看到过的雨后天晴的景象。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_0f84d8da1e281965",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6611eef118f9a070",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_97b49cd39424",
+        "tes_0553a5f31a6fae88",
+        "textbook-node:tcn_7ff0644529c1beaf",
+        "textbook-unit:tcu_1fa7fa27f578dba2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。默写《芙蓉楼送辛渐》。",
+          "excerpt_hash": "1dc050732ac7455b9ec3c56902ded0a4f7dd074efe362682e0b3f3e97411eb67",
+          "pdf_page": 108,
+          "printed_page": "103",
+          "span_id": "tes_0553a5f31a6fae88"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_7ff0644529c1beaf",
+      "node_title": "有感情地朗读课文。背诵课文。默写《芙蓉楼送辛渐》。",
+      "pdf_page": 108,
+      "printed_page": "103",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。默写《芙蓉楼送辛渐》。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_1fa7fa27f578dba2",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_61125806d6970340",
+      "alignment_type": "practices",
+      "confidence": 0.8288,
+      "coverage": "partial",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_97b49cd39424",
+        "tes_5a8a7d0269860469",
+        "textbook-node:tcn_9d4608139a9206ea",
+        "textbook-unit:tcu_1fa7fa27f578dba2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,读好人物的对话。",
+          "excerpt_hash": "5dc866d6cbe2115beb9dbce192ca1fa6240b41eec7fc72184c5acea15effe0c6",
+          "pdf_page": 113,
+          "printed_page": "108",
+          "span_id": "tes_5a8a7d0269860469"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_9d4608139a9206ea",
+      "node_title": "朗读课文,读好人物的对话。",
+      "pdf_page": 113,
+      "printed_page": "108",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,读好人物的对话。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_1fa7fa27f578dba2",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_22d63fd08b8ca022",
+      "alignment_type": "practices",
+      "confidence": 0.8288,
+      "coverage": "partial",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_97b49cd39424",
+        "tes_264103f194f94819",
+        "textbook-node:tcn_29c639ae577e7a6a",
+        "textbook-unit:tcu_568c6ee6c4bd0ef3"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,体会语言的趣味。",
+          "excerpt_hash": "84c9f8fc8f70a3447d518f54b4abc01dbf970c629b88059570ab40e3ef5b73a4",
+          "pdf_page": 61,
+          "printed_page": "56",
+          "span_id": "tes_264103f194f94819"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_29c639ae577e7a6a",
+      "node_title": "朗读课文,体会语言的趣味。",
+      "pdf_page": 61,
+      "printed_page": "56",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,体会语言的趣味。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_568c6ee6c4bd0ef3",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_bb5e50031c70a52e",
+      "alignment_type": "practices",
+      "confidence": 0.8374,
+      "coverage": "partial",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_97b49cd39424",
+        "tes_412022200a4d9dd8",
+        "textbook-node:tcn_5fcd5605873180e4",
+        "textbook-unit:tcu_683ba164b8fee14b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "正确、流利地朗读课文。背诵《囊萤夜读》。",
+          "excerpt_hash": "c93eac77d43b087f73358d21929bb71f8e852980b00d6a9837797592f847693f",
+          "pdf_page": 82,
+          "printed_page": "77",
+          "span_id": "tes_412022200a4d9dd8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_5fcd5605873180e4",
+      "node_title": "正确、流利地朗读课文。背诵《囊萤夜读》。",
+      "pdf_page": 82,
+      "printed_page": "77",
+      "publication_status": "published",
+      "rationale": "教材exercise“正确、流利地朗读课文。背诵《囊萤夜读》。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_683ba164b8fee14b",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_4f8636c1b10bb3f0",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_97b49cd39424",
+        "tes_4fc32b5a9493a484",
+        "textbook-node:tcn_7de1d3c1b52b4efd",
+        "textbook-unit:tcu_9455819680f73ed2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。默写《宿新市徐公店》。",
+          "excerpt_hash": "530563a089b698a0803aaf44a4d61b084e1da9fe4c1ce641682cee736bdfe634",
+          "pdf_page": 8,
+          "printed_page": "3",
+          "span_id": "tes_4fc32b5a9493a484"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_7de1d3c1b52b4efd",
+      "node_title": "有感情地朗读课文。背诵课文。默写《宿新市徐公店》。",
+      "pdf_page": 8,
+      "printed_page": "3",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。默写《宿新市徐公店》。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_9455819680f73ed2",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_960aea4fc6edbcce",
+      "alignment_type": "practices",
+      "confidence": 0.8286,
+      "coverage": "partial",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_97b49cd39424",
+        "tes_d133752840f996e6",
+        "textbook-node:tcn_98a39fb0fd2ca7d0",
+        "textbook-unit:tcu_9455819680f73ed2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,想象画面。如果给课文配画,你觉得可以画几幅?",
+          "excerpt_hash": "cb846ce9b2e1241736164e44e9903eb84c79d9ba9f1ba9d6cdb1e128a83d9e80",
+          "pdf_page": 11,
+          "printed_page": "6",
+          "span_id": "tes_d133752840f996e6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_98a39fb0fd2ca7d0",
+      "node_title": "朗读课文,想象画面。如果给课文配画,你觉得可以画几幅?",
+      "pdf_page": 11,
+      "printed_page": "6",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,想象画面。如果给课文配画,你觉得可以画几幅?”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_9455819680f73ed2",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a9f53c12225ed7b2",
+      "alignment_type": "practices",
+      "confidence": 0.8288,
+      "coverage": "partial",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_97b49cd39424",
+        "tes_acc6cada40913548",
+        "textbook-node:tcn_6f9ad1d9d0abe98e",
+        "textbook-unit:tcu_a72987f380ebe8ab"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,边读边想象画面。",
+          "excerpt_hash": "4e5f9b41775a664065775f6a40954d03efe9329ad209e917bc1cc27cf25752bd",
+          "pdf_page": 133,
+          "printed_page": "128",
+          "span_id": "tes_acc6cada40913548"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_6f9ad1d9d0abe98e",
+      "node_title": "朗读课文,边读边想象画面。",
+      "pdf_page": 133,
+      "printed_page": "128",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,边读边想象画面。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_a72987f380ebe8ab",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_54c9e3b8a08dabd3",
+      "alignment_type": "practices",
+      "confidence": 0.8286,
+      "coverage": "partial",
+      "edition_id": "ed_f224aa5dcbf9093eee05",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_97b49cd39424",
+        "tes_c9e8775ebd07da0a",
+        "textbook-node:tcn_f81290e8e353d774",
+        "textbook-unit:tcu_d92e944f591719a6"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,把课文中的科技术语读正确。读了课文,你有什么不懂的问题?提出来和同学交流。",
+          "excerpt_hash": "03323c1d82de36ed10e5ad2cc714c3d23d8c94bf38385838997fd2ec4845e696",
+          "pdf_page": 30,
+          "printed_page": "25",
+          "span_id": "tes_c9e8775ebd07da0a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_f81290e8e353d774",
+      "node_title": "朗读课文,把课文中的科技术语读正确。读了课文,你有什么不懂的问题?提出来和同学交流。",
+      "pdf_page": 30,
+      "printed_page": "25",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,把课文中的科技术语读正确。读了课文,你有什么不懂的问题?提出来和同学交流。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_d92e944f591719a6",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_b50932bfdaba3c52",
+      "alignment_type": "practices",
+      "confidence": 0.8295,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_80150c65b9a83dbb",
+        "textbook-node:tcn_e6509d7a4aea99c9",
+        "textbook-unit:tcu_147a85d94b7da766"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。背诵《溪边》。",
+          "excerpt_hash": "e4b9bbab825c6d9e14b9587073adb044334cbafc9020e8a6a80def897d7be905",
+          "pdf_page": 78,
+          "printed_page": "73",
+          "span_id": "tes_80150c65b9a83dbb"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e6509d7a4aea99c9",
+      "node_title": "朗读课文。背诵《溪边》。",
+      "pdf_page": 78,
+      "printed_page": "73",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。背诵《溪边》。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_147a85d94b7da766",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a5b861d8f405e3bd",
+      "alignment_type": "practices",
+      "confidence": 0.8286,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_1d6c2b18bb5f56e9",
+        "textbook-node:tcn_575b85fce0415060",
+        "textbook-unit:tcu_147a85d94b7da766"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。说说老剃头师傅和“我”给小沙剃头的过程有什么不同。",
+          "excerpt_hash": "cb03ac7d021b153394740b5781f8fe774007b0d43375ccc6eb6628b24331b15b",
+          "pdf_page": 81,
+          "printed_page": "76",
+          "span_id": "tes_1d6c2b18bb5f56e9"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_575b85fce0415060",
+      "node_title": "朗读课文。说说老剃头师傅和“我”给小沙剃头的过程有什么不同。",
+      "pdf_page": 81,
+      "printed_page": "76",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。说说老剃头师傅和“我”给小沙剃头的过程有什么不同。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_147a85d94b7da766",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_852b6e59e590eec6",
+      "alignment_type": "practices",
+      "confidence": 0.8287,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_3a0ddff71b6d485f",
+        "textbook-node:tcn_0566c1a48182462b",
+        "textbook-unit:tcu_147a85d94b7da766"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。用自己的话说说吹肥皂泡的过程。",
+          "excerpt_hash": "146da67db101ab5e59f026ef0b1fe03cf5f0462e9c6d01f280d8f4542e691a8f",
+          "pdf_page": 84,
+          "printed_page": "79",
+          "span_id": "tes_3a0ddff71b6d485f"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_0566c1a48182462b",
+      "node_title": "朗读课文。用自己的话说说吹肥皂泡的过程。",
+      "pdf_page": 84,
+      "printed_page": "79",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。用自己的话说说吹肥皂泡的过程。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_147a85d94b7da766",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9e820c9aa0344f48",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_91ef9badcfea1319",
+        "textbook-node:tcn_5f75b73d07b9d1ca",
+        "textbook-unit:tcu_598bf82f286ccf2a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。默写《清明》。",
+          "excerpt_hash": "51f389d3f112a4b883b75dff7ca89cf86da5675007495e53b49f4369f673eb6c",
+          "pdf_page": 40,
+          "printed_page": "35",
+          "span_id": "tes_91ef9badcfea1319"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_5f75b73d07b9d1ca",
+      "node_title": "有感情地朗读课文。背诵课文。默写《清明》。",
+      "pdf_page": 40,
+      "printed_page": "35",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。默写《清明》。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_598bf82f286ccf2a",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_e4b3af7f69e83569",
+      "alignment_type": "practices",
+      "confidence": 0.8286,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_815e74b48a40dc46",
+        "textbook-node:tcn_ad502ae8b55b02fd",
+        "textbook-unit:tcu_598bf82f286ccf2a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。抄写第3自然段,体会这段话是怎样把赵州桥的“美观”写清楚的。",
+          "excerpt_hash": "e27cfc09ea034f30b5ac9cea6e047d0c70d23b4ad46fc566c6690aeeb7b6421e",
+          "pdf_page": 46,
+          "printed_page": "41",
+          "span_id": "tes_815e74b48a40dc46"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ad502ae8b55b02fd",
+      "node_title": "朗读课文。抄写第3自然段,体会这段话是怎样把赵州桥的“美观”写清楚的。",
+      "pdf_page": 46,
+      "printed_page": "41",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。抄写第3自然段,体会这段话是怎样把赵州桥的“美观”写清楚的。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_598bf82f286ccf2a",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ebb321e6aa3ff57e",
+      "alignment_type": "practices",
+      "confidence": 0.8292,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_63397a2cdf26dd61",
+        "textbook-node:tcn_7ddbec8d366bb925",
+        "textbook-unit:tcu_6732f587d64310ce"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。背诵第 1 自然段。",
+          "excerpt_hash": "ec8636fdd3a27978cb81a9e11d9bfac3680ddb17308dda1c362c89a06437e271",
+          "pdf_page": 55,
+          "printed_page": "50",
+          "span_id": "tes_63397a2cdf26dd61"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_7ddbec8d366bb925",
+      "node_title": "朗读课文。背诵第 1 自然段。",
+      "pdf_page": 55,
+      "printed_page": "50",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。背诵第 1 自然段。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_6732f587d64310ce",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ab87ed7ad2acf183",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_2cf1af1dcda9b6a3",
+        "textbook-node:tcn_616b7afbc0dea438",
+        "textbook-unit:tcu_804d348e0c016ce5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。背诵课文。默写《绝句》。",
+          "excerpt_hash": "03c7108b9fc2d50746ca8f265d86fed8fdac6c1ab03c6e997e257e7ba630a2af",
+          "pdf_page": 8,
+          "printed_page": "3",
+          "span_id": "tes_2cf1af1dcda9b6a3"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_616b7afbc0dea438",
+      "node_title": "有感情地朗读课文。背诵课文。默写《绝句》。",
+      "pdf_page": 8,
+      "printed_page": "3",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。背诵课文。默写《绝句》。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_804d348e0c016ce5",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7b3a49fc6dde602e",
+      "alignment_type": "practices",
+      "confidence": 0.8288,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_b07165f9b423204d",
+        "textbook-node:tcn_e829aeef9afa999f",
+        "textbook-unit:tcu_804d348e0c016ce5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,边读边想象画面,并读出对燕子的喜爱之情。背诵第 1〜3 自然段。",
+          "excerpt_hash": "2c1c8c4b5d521eed8e45c6eacd4ddf437d64b789fe5c7bf5885464492806cc3a",
+          "pdf_page": 10,
+          "printed_page": "5",
+          "span_id": "tes_b07165f9b423204d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e829aeef9afa999f",
+      "node_title": "朗读课文,边读边想象画面,并读出对燕子的喜爱之情。背诵第 1〜3 自然段。",
+      "pdf_page": 10,
+      "printed_page": "5",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,边读边想象画面,并读出对燕子的喜爱之情。背诵第 1〜3 自然段。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_804d348e0c016ce5",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c52e5c2d2c9585f8",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_9131a26742b38de5",
+        "textbook-node:tcn_bd92cbb817ade30b",
+        "textbook-unit:tcu_804d348e0c016ce5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文,注意读好下面的词语。背诵第2〜4 自然段。",
+          "excerpt_hash": "00a430720bfe3f073b86fc026ac668f53155396093d682d1008881ff0a33e250",
+          "pdf_page": 12,
+          "printed_page": "7",
+          "span_id": "tes_9131a26742b38de5"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_bd92cbb817ade30b",
+      "node_title": "有感情地朗读课文,注意读好下面的词语。背诵第2〜4 自然段。",
+      "pdf_page": 12,
+      "printed_page": "7",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文,注意读好下面的词语。背诵第2〜4 自然段。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_804d348e0c016ce5",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0e82a03085910142",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_5cb543acb6806d31",
+        "textbook-node:tcn_8b53b62eb3131948",
+        "textbook-unit:tcu_c92fee1b5d75d506"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地朗读课文。说说课文分别从哪几个方面写了天空和大地。",
+          "excerpt_hash": "faa7d527758d728d2c515bdfc45c59fdf6742cefdece1cd7ab7a3a5341d6c67a",
+          "pdf_page": 93,
+          "printed_page": "88",
+          "span_id": "tes_5cb543acb6806d31"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_8b53b62eb3131948",
+      "node_title": "有感情地朗读课文。说说课文分别从哪几个方面写了天空和大地。",
+      "pdf_page": 93,
+      "printed_page": "88",
+      "publication_status": "published",
+      "rationale": "教材exercise“有感情地朗读课文。说说课文分别从哪几个方面写了天空和大地。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_c92fee1b5d75d506",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1188eea793ba1282",
+      "alignment_type": "practices",
+      "confidence": 0.8286,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_be40a89549cdc40b",
+        "textbook-node:tcn_e8b3d84c4b4cf6d6",
+        "textbook-unit:tcu_c92fee1b5d75d506"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。说说课文是从哪几个方面介绍海底世界的。",
+          "excerpt_hash": "95172e06d464cdd516741b48774beb1f07b6b9a1745636fcc03cc2b0ab8c6758",
+          "pdf_page": 95,
+          "printed_page": "90",
+          "span_id": "tes_be40a89549cdc40b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e8b3d84c4b4cf6d6",
+      "node_title": "朗读课文。说说课文是从哪几个方面介绍海底世界的。",
+      "pdf_page": 95,
+      "printed_page": "90",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。说说课文是从哪几个方面介绍海底世界的。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_c92fee1b5d75d506",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8354a0b6eefdaa2e",
+      "alignment_type": "practices",
+      "confidence": 0.8291,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_04b11a96d5b686f0",
+        "textbook-node:tcn_85d244cfa8dca384",
+        "textbook-unit:tcu_c92fee1b5d75d506"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。背诵第 3〜6 自然段。",
+          "excerpt_hash": "f82b695dc20df68baba9f3cca883e716ac5a9c8240b9376bdab0cde1b8fabbf9",
+          "pdf_page": 97,
+          "printed_page": "92",
+          "span_id": "tes_04b11a96d5b686f0"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_85d244cfa8dca384",
+      "node_title": "朗读课文。背诵第 3〜6 自然段。",
+      "pdf_page": 97,
+      "printed_page": "92",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文。背诵第 3〜6 自然段。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_c92fee1b5d75d506",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7b17f025f59e02db",
+      "alignment_type": "practices",
+      "confidence": 0.8286,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_a95d21098b3b1288",
+        "textbook-node:tcn_fa3d8c7c9e9a445b",
+        "textbook-unit:tcu_cd058d7a6397e2ed"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "分角色朗读课文,注意读出裁缝和顾客对话的语气。",
+          "excerpt_hash": "5cb256cddbff21e1728df0ba9a6c31569f0cf57bee1d73c5e15498ef5fcee767",
+          "pdf_page": 106,
+          "printed_page": "101",
+          "span_id": "tes_a95d21098b3b1288"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_fa3d8c7c9e9a445b",
+      "node_title": "分角色朗读课文,注意读出裁缝和顾客对话的语气。",
+      "pdf_page": 106,
+      "printed_page": "101",
+      "publication_status": "published",
+      "rationale": "教材exercise“分角色朗读课文,注意读出裁缝和顾客对话的语气。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_cd058d7a6397e2ed",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0b914ac86f297f25",
+      "alignment_type": "practices",
+      "confidence": 0.8286,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_a69a8f9603645c69",
+        "textbook-node:tcn_b2a153640c5ffdd2",
+        "textbook-unit:tcu_cd058d7a6397e2ed"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择喜欢的部分,和同学分角色朗读,体会故事的趣味。",
+          "excerpt_hash": "4c19571638cf95af8a6a2bde5d6a5104600215395246116d3720c4ef4a078302",
+          "pdf_page": 113,
+          "printed_page": "108",
+          "span_id": "tes_a69a8f9603645c69"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b2a153640c5ffdd2",
+      "node_title": "选择喜欢的部分,和同学分角色朗读,体会故事的趣味。",
+      "pdf_page": 113,
+      "printed_page": "108",
+      "publication_status": "published",
+      "rationale": "教材exercise“选择喜欢的部分,和同学分角色朗读,体会故事的趣味。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_cd058d7a6397e2ed",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6c5b95c9c18a9c25",
+      "alignment_type": "practices",
+      "confidence": 0.8286,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_63017b80bd389f7a",
+        "textbook-node:tcn_50ba8db60ad2a809",
+        "textbook-unit:tcu_e6a6ba73c3d1cc04"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "结合课文中描写陶罐、铁罐神态和语言的语句,说说陶罐、铁罐的性格有什么不同,再分角色朗读课文。",
+          "excerpt_hash": "8af55269feeb8d5bd52e2bb1b8fdfee52744a7e107ee1ae6c0ad54a04e991367",
+          "pdf_page": 25,
+          "printed_page": "20",
+          "span_id": "tes_63017b80bd389f7a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_50ba8db60ad2a809",
+      "node_title": "结合课文中描写陶罐、铁罐神态和语言的语句,说说陶罐、铁罐的性格有什么不同,再分角色朗读课文。",
+      "pdf_page": 25,
+      "printed_page": "20",
+      "publication_status": "published",
+      "rationale": "教材exercise“结合课文中描写陶罐、铁罐神态和语言的语句,说说陶罐、铁罐的性格有什么不同,再分角色朗读课文。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_e6a6ba73c3d1cc04",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_b0e1a5b0e1034ce2",
+      "alignment_type": "practices",
+      "confidence": 0.8287,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_997b8c22b5412d85",
+        "textbook-node:tcn_d9177ea52b9d3fa8",
+        "textbook-unit:tcu_e6a6ba73c3d1cc04"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,注意读出鹿的心情变化。",
+          "excerpt_hash": "76e1f73a32bf2cdfae408ab1e6cd477d9a3b9c3403bea8eeade5f46bb812f56d",
+          "pdf_page": 27,
+          "printed_page": "22",
+          "span_id": "tes_997b8c22b5412d85"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_178ab6a86811bf00"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_178ab6a86811bf00",
+          "label": "用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d9177ea52b9d3fa8",
+      "node_title": "朗读课文,注意读出鹿的心情变化。",
+      "pdf_page": 27,
+      "printed_page": "22",
+      "publication_status": "published",
+      "rationale": "教材exercise“朗读课文,注意读出鹿的心情变化。”与课标 CN-D2-RE-007 的可教学小能力“用普通话有感情地朗读（或背诵）指定诗文，语速、语调恰当”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_e6a6ba73c3d1cc04",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ad220e7216fb786b",
       "alignment_type": "references",
       "confidence": null,
@@ -84,7 +3000,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_78bd8ac1be62a0fb",
       "alignment_type": "references",
       "confidence": null,
@@ -115,7 +3031,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_2be35cf510c4d8e7",
       "alignment_type": "references",
       "confidence": null,
@@ -146,7 +3062,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ed971d2f75f0bf6a",
       "alignment_type": "references",
       "confidence": null,

@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "creation_design",
@@ -43,17 +43,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a27582e7eabcdda5",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_0e50b2c3cab704574a20",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_0d4b56c03c3c",
+        "tes_ebdbd8cb5059e10b",
+        "textbook-node:tcn_f96d3aeb334757e8",
+        "textbook-unit:tcu_efe3a952c3feef72"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "阅读图片,说说每幅图中的不文明行为。",
+          "excerpt_hash": "685ba9cc09d052116dcf52e576fb16fcf560a25429b3a8c6d3ec3a630ac9f971",
+          "pdf_page": 34,
+          "printed_page": "31",
+          "span_id": "tes_ebdbd8cb5059e10b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7eafa8c102da9a5b"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7eafa8c102da9a5b",
+          "label": "在公共场所做到文明有序（守规则、礼让、安静、爱护公物），遇到不文明行为能进行适当提醒或求助"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_f96d3aeb334757e8",
+      "node_title": "阅读图片,说说每幅图中的不文明行为。",
+      "pdf_page": 34,
+      "printed_page": "31",
+      "publication_status": "published",
+      "rationale": "教材exercise“阅读图片,说说每幅图中的不文明行为。”与课标 ML-D3-MOR-005 的可教学小能力“在公共场所做到文明有序（守规则、礼让、安静、爱护公物），遇到不文明行为能进行适当提醒或求助”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_efe3a952c3feef72",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_77ae95911ab97d53",
       "alignment_type": "references",
       "confidence": null,
@@ -84,7 +140,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_bc63b415adac1716",
       "alignment_type": "references",
       "confidence": null,
@@ -115,7 +171,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_321603027a9c997f",
       "alignment_type": "references",
       "confidence": null,
@@ -146,7 +202,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7baf1c4893616c51",
       "alignment_type": "references",
       "confidence": null,

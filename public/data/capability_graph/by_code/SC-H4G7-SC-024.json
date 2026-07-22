@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -200,17 +200,128 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_36efd4c1a34a8a6a",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_4416b8e813472c67",
+        "textbook-node:tcn_5022cde496bba175",
+        "textbook-unit:tcu_e93b533afbe51ff1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "被子植物的生命周期包括种子的萌发、植株的生长发育、开花、结",
+          "excerpt_hash": "68f4e605edd5e797c7c5e6931be778aea2d734181b673efa896dd7b4058c5a7e",
+          "pdf_page": 145,
+          "printed_page": "138",
+          "span_id": "tes_4416b8e813472c67"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_e79d6fec68ccf488"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_e79d6fec68ccf488",
+          "label": "说出藻类、苔藓、蕨类、种子植物的主要特点"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_5022cde496bba175",
+      "node_title": "被子植物的生命周期包括种子的萌发、植株的生长发育、开花、结",
+      "pdf_page": 145,
+      "printed_page": "138",
+      "publication_status": "published",
+      "rationale": "教材objective“被子植物的生命周期包括种子的萌发、植株的生长发育、开花、结”与课标 SC-H4G7-SC-024 的可教学小能力“说出藻类、苔藓、蕨类、种子植物的主要特点”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e93b533afbe51ff1",
+      "unit_title": "第六章"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_db96998b180659f7",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_305f9863940f9a13",
+        "textbook-node:tcn_b9553e3493fba977",
+        "textbook-unit:tcu_e93b533afbe51ff1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "生物圈中的绿色植物包括藻类、苔藓、蕨类和种子植物四大类群。",
+          "excerpt_hash": "e1758a4095d1e8472041824fde9c74dd01b57d9ce9a382cc82286f7accc80356",
+          "pdf_page": 145,
+          "printed_page": "138",
+          "span_id": "tes_305f9863940f9a13"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_e79d6fec68ccf488"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_e79d6fec68ccf488",
+          "label": "说出藻类、苔藓、蕨类、种子植物的主要特点"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b9553e3493fba977",
+      "node_title": "生物圈中的绿色植物包括藻类、苔藓、蕨类和种子植物四大类群。",
+      "pdf_page": 145,
+      "printed_page": "138",
+      "publication_status": "published",
+      "rationale": "教材objective“生物圈中的绿色植物包括藻类、苔藓、蕨类和种子植物四大类群。”与课标 SC-H4G7-SC-024 的可教学小能力“说出藻类、苔藓、蕨类、种子植物的主要特点”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e93b533afbe51ff1",
+      "unit_title": "第六章"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_d6e34528d7b269f6",
       "alignment_type": "references",
       "confidence": null,
@@ -241,7 +352,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_49ca38ce2dd96c6a",
       "alignment_type": "references",
       "confidence": null,
@@ -272,7 +383,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_5422045076e05902",
       "alignment_type": "references",
       "confidence": null,
@@ -303,7 +414,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a4889ce42aa948ce",
       "alignment_type": "references",
       "confidence": null,

@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "concept_discrimination",
@@ -43,17 +43,83 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_acfbec4b70eee6c7",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_d8429e42f96b",
+        "tes_8861a1547c2cf8b0",
+        "textbook-node:tcn_2d1f5e30d0fcb426",
+        "textbook-unit:tcu_f14347e0b0fa8483"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第九课 树立总体国家安全观 97",
+          "excerpt_hash": "5ae99109b58abb90912e77a62278ae21af96db65b60db96de0a8f8ad507017c2",
+          "pdf_page": 102,
+          "printed_page": null,
+          "span_id": "tes_8861a1547c2cf8b0"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_11a924c9db47bf82",
+        "lc_856541cabab38c81",
+        "lc_d07ebc3d080428ef"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_11a924c9db47bf82",
+          "label": "用自己的话解释总体国家安全观"
+        },
+        {
+          "component_id": "lc_856541cabab38c81",
+          "label": "自觉维护国家安全"
+        },
+        {
+          "component_id": "lc_d07ebc3d080428ef",
+          "label": "准确说出维护国家安全是每个公民的义务"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2d1f5e30d0fcb426",
+      "node_title": "第九课树立总体国家安全观97",
+      "pdf_page": 102,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材lesson“第九课树立总体国家安全观97”与课标 ML-H4G8-LAW-044 的可教学小能力“用自己的话解释总体国家安全观、自觉维护国家安全、准确说出维护国家安全是每个公民的义务”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_f14347e0b0fa8483",
+      "unit_title": "第九课"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7d08fb97ea4dd72d",
       "alignment_type": "references",
       "confidence": null,
@@ -84,7 +150,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_d1c656a96bb463d1",
       "alignment_type": "references",
       "confidence": null,
@@ -115,7 +181,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7b59398a795aa2b1",
       "alignment_type": "references",
       "confidence": null,
@@ -146,7 +212,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_893ed6b6813cc512",
       "alignment_type": "references",
       "confidence": null,

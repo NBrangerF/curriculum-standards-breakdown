@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "language_expression",
@@ -43,17 +43,458 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 8,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 8,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_cd2ca0258b200349",
+      "alignment_type": "supports",
+      "confidence": 0.8314,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_7e7f793225bf96e2",
+        "textbook-node:tcn_ea0e52f24c89cb17",
+        "textbook-unit:tcu_64d98715a58b4102"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "了解故事情节,简要复述课文。",
+          "excerpt_hash": "1beb44ad5263e7c744155a8e251e50859394df1e95d61d6b35116e5ef3f66e55",
+          "pdf_page": 114,
+          "printed_page": "109",
+          "span_id": "tes_7e7f793225bf96e2"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_843e9e7677f2685a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_843e9e7677f2685a",
+          "label": "复述读过的故事，条理完整、重点清晰"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ea0e52f24c89cb17",
+      "node_title": "了解故事情节,简要复述课文。",
+      "pdf_page": 114,
+      "printed_page": "109",
+      "publication_status": "published",
+      "rationale": "教材objective“了解故事情节,简要复述课文。”与课标 CN-D2-RE-004 的可教学小能力“复述读过的故事，条理完整、重点清晰”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_64d98715a58b4102",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6e78550435884680",
+      "alignment_type": "practices",
+      "confidence": 0.8309,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_80bcd9ea5b6447f9",
+        "textbook-node:tcn_ff1a69830aea9dea",
+        "textbook-unit:tcu_64d98715a58b4102"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "默读课文,根据课文内容填空,并简要复述课文。",
+          "excerpt_hash": "78cef4a83942d641d14a8876affd82dc85a538a07b0f6cc9057c920d7a2ff3b2",
+          "pdf_page": 119,
+          "printed_page": "114",
+          "span_id": "tes_80bcd9ea5b6447f9"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_843e9e7677f2685a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_843e9e7677f2685a",
+          "label": "复述读过的故事，条理完整、重点清晰"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ff1a69830aea9dea",
+      "node_title": "默读课文,根据课文内容填空,并简要复述课文。",
+      "pdf_page": 119,
+      "printed_page": "114",
+      "publication_status": "published",
+      "rationale": "教材exercise“默读课文,根据课文内容填空,并简要复述课文。”与课标 CN-D2-RE-004 的可教学小能力“复述读过的故事，条理完整、重点清晰”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_64d98715a58b4102",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0279bbe1d419e596",
+      "alignment_type": "practices",
+      "confidence": 0.831,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_5c7c8f95af681330",
+        "textbook-node:tcn_36048cf485254f3e",
+        "textbook-unit:tcu_64d98715a58b4102"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "默读课文,找出课文中表示故事发展先后顺序的词句,简要复述这两个故事,再和同学交流你从中明白的道理。",
+          "excerpt_hash": "1284bd5dd1a4c78f1b8abdf7a2293cf0c5e6ea830576bfe19e8951069c373402",
+          "pdf_page": 120,
+          "printed_page": "115",
+          "span_id": "tes_5c7c8f95af681330"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_843e9e7677f2685a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_843e9e7677f2685a",
+          "label": "复述读过的故事，条理完整、重点清晰"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_36048cf485254f3e",
+      "node_title": "默读课文,找出课文中表示故事发展先后顺序的词句,简要复述这两个故事,再和同学交流你从中明白的道理。",
+      "pdf_page": 120,
+      "printed_page": "115",
+      "publication_status": "published",
+      "rationale": "教材exercise“默读课文,找出课文中表示故事发展先后顺序的词句,简要复述这两个故事,再和同学交流你从中明白的道理。”与课标 CN-D2-RE-004 的可教学小能力“复述读过的故事，条理完整、重点清晰”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_64d98715a58b4102",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ca01a5849057b0ce",
+      "alignment_type": "supports",
+      "confidence": 0.8313,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_041809cc9cebb7a7",
+        "textbook-node:tcn_fc283d54db440227",
+        "textbook-unit:tcu_cd058d7a6397e2ed"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "了解故事的主要内容,复述故事。",
+          "excerpt_hash": "6dc7529c2fb09e0ec2c9d6841cbfa845652b5956b8444aa603ac863a335aa784",
+          "pdf_page": 102,
+          "printed_page": "97",
+          "span_id": "tes_041809cc9cebb7a7"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_843e9e7677f2685a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_843e9e7677f2685a",
+          "label": "复述读过的故事，条理完整、重点清晰"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_fc283d54db440227",
+      "node_title": "了解故事的主要内容,复述故事。",
+      "pdf_page": 102,
+      "printed_page": "97",
+      "publication_status": "published",
+      "rationale": "教材objective“了解故事的主要内容,复述故事。”与课标 CN-D2-RE-004 的可教学小能力“复述读过的故事，条理完整、重点清晰”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_cd058d7a6397e2ed",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1d7f98a2e656900c",
+      "alignment_type": "practices",
+      "confidence": 0.8312,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_6bd39bfaf640c619",
+        "textbook-node:tcn_c1178c0fd93d7bc0",
+        "textbook-unit:tcu_cd058d7a6397e2ed"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "默读课文,填写下面的表格,再借助表格复述这个故事。",
+          "excerpt_hash": "9a399185e68873e51cb32cc1dffb58883ead43133a2297e28b7ed481642d9c7c",
+          "pdf_page": 106,
+          "printed_page": "101",
+          "span_id": "tes_6bd39bfaf640c619"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_843e9e7677f2685a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_843e9e7677f2685a",
+          "label": "复述读过的故事，条理完整、重点清晰"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c1178c0fd93d7bc0",
+      "node_title": "默读课文,填写下面的表格,再借助表格复述这个故事。",
+      "pdf_page": 106,
+      "printed_page": "101",
+      "publication_status": "published",
+      "rationale": "教材exercise“默读课文,填写下面的表格,再借助表格复述这个故事。”与课标 CN-D2-RE-004 的可教学小能力“复述读过的故事，条理完整、重点清晰”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_cd058d7a6397e2ed",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7f82dd2746c631df",
+      "alignment_type": "practices",
+      "confidence": 0.8311,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_ce77280c3c654c55",
+        "textbook-node:tcn_753acabcd8a16e4c",
+        "textbook-unit:tcu_cd058d7a6397e2ed"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "默读课文,说说故事中的哪部分内容是你最意想不到的,再用自己的话复述这个部分。",
+          "excerpt_hash": "79c9aa8173cd02a11b7c5eb39ca9365860f3313d9ba70457feb5688358f658dc",
+          "pdf_page": 107,
+          "printed_page": "102",
+          "span_id": "tes_ce77280c3c654c55"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_843e9e7677f2685a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_843e9e7677f2685a",
+          "label": "复述读过的故事，条理完整、重点清晰"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_753acabcd8a16e4c",
+      "node_title": "默读课文,说说故事中的哪部分内容是你最意想不到的,再用自己的话复述这个部分。",
+      "pdf_page": 107,
+      "printed_page": "102",
+      "publication_status": "published",
+      "rationale": "教材exercise“默读课文,说说故事中的哪部分内容是你最意想不到的,再用自己的话复述这个部分。”与课标 CN-D2-RE-004 的可教学小能力“复述读过的故事，条理完整、重点清晰”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_cd058d7a6397e2ed",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_64f9757d17d7a8bc",
+      "alignment_type": "practices",
+      "confidence": 0.8311,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_51f40a2083cd4d5c",
+        "textbook-node:tcn_c31b639f1a7b4293",
+        "textbook-unit:tcu_cd058d7a6397e2ed"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "借助下面的示意图和文字提示,按照地点变化的顺序,复述这个故事。",
+          "excerpt_hash": "700084fc841b71fac4ba3f0bd49084b4ea290a058ee47d3b4f155a534374ff70",
+          "pdf_page": 113,
+          "printed_page": "108",
+          "span_id": "tes_51f40a2083cd4d5c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_843e9e7677f2685a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_843e9e7677f2685a",
+          "label": "复述读过的故事，条理完整、重点清晰"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c31b639f1a7b4293",
+      "node_title": "借助下面的示意图和文字提示,按照地点变化的顺序,复述这个故事。",
+      "pdf_page": 113,
+      "printed_page": "108",
+      "publication_status": "published",
+      "rationale": "教材exercise“借助下面的示意图和文字提示,按照地点变化的顺序,复述这个故事。”与课标 CN-D2-RE-004 的可教学小能力“复述读过的故事，条理完整、重点清晰”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_cd058d7a6397e2ed",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6ed23d40d2a0cf64",
+      "alignment_type": "practices",
+      "confidence": 0.8311,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_81861d0f09a97283",
+        "textbook-node:tcn_a8f3ffd90cac4072",
+        "textbook-unit:tcu_cd058d7a6397e2ed"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "默读课文,用自己的话复述这个故事。如果有兴趣,试着续编这个故事。",
+          "excerpt_hash": "f8e514aa2ea7bf82199da6037f98d3ed4bfb66e47c5131b2b6a01145f7199116",
+          "pdf_page": 114,
+          "printed_page": "109",
+          "span_id": "tes_81861d0f09a97283"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_843e9e7677f2685a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_843e9e7677f2685a",
+          "label": "复述读过的故事，条理完整、重点清晰"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a8f3ffd90cac4072",
+      "node_title": "默读课文,用自己的话复述这个故事。如果有兴趣,试着续编这个故事。",
+      "pdf_page": 114,
+      "printed_page": "109",
+      "publication_status": "published",
+      "rationale": "教材exercise“默读课文,用自己的话复述这个故事。如果有兴趣,试着续编这个故事。”与课标 CN-D2-RE-004 的可教学小能力“复述读过的故事，条理完整、重点清晰”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_cd058d7a6397e2ed",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_805efaa064f9b2b1",
       "alignment_type": "references",
       "confidence": null,
@@ -84,7 +525,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_861816539e2f3e61",
       "alignment_type": "references",
       "confidence": null,
@@ -115,7 +556,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_9df6e8d434b6036e",
       "alignment_type": "references",
       "confidence": null,
@@ -146,7 +587,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_1bf1e6356526fdf0",
       "alignment_type": "references",
       "confidence": null,

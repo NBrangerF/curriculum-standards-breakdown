@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -157,18 +157,184 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 4,
+    "candidate_count": 1,
     "disposition": "unit_aligned",
     "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
     "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 2,
-    "specific_count": 1,
-    "unit_topic_candidate_count": 0
+    "specific_count": 3,
+    "unit_topic_candidate_count": 1
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_59672d1ae2b67de3",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_48072359f7df",
+        "tes_a117218f84195775",
+        "textbook-node:tcn_d4ec9beea58a88be",
+        "textbook-unit:tcu_3b1719416914d937"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1.4.1 有理数的乘法",
+          "excerpt_hash": "03391c4ea58b426cbb82a33dd13ce6753db0ecc795fea636b4b96b03e3b56fe2",
+          "pdf_page": 35,
+          "printed_page": "28",
+          "span_id": "tes_a117218f84195775"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7b73c173858f6ba6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7b73c173858f6ba6",
+          "label": "用自己的话解释负数和有理数的意义"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d4ec9beea58a88be",
+      "node_title": "1.4.1 有理数的乘法",
+      "pdf_page": 35,
+      "printed_page": "28",
+      "publication_status": "published",
+      "rationale": "教材section“1.4.1 有理数的乘法”与课标 MA-H4G7-AL-004 的可教学小能力“用自己的话解释负数和有理数的意义”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_3b1719416914d937",
+      "unit_title": "1.4有理数的乘除法"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_08cfe8b9e886fea1",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_48072359f7df",
+        "tes_c806750b1d785c2f",
+        "textbook-node:tcn_2c9cf533b31c46fd",
+        "textbook-unit:tcu_6426e08a1c8acb5b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1.3 有理数的加减法",
+          "excerpt_hash": "a0a73e45411655bf3b19cde02bb4483c2597e53e6fdd7e86cb095cf587e2cec2",
+          "pdf_page": 23,
+          "printed_page": "16",
+          "span_id": "tes_c806750b1d785c2f"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7b73c173858f6ba6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7b73c173858f6ba6",
+          "label": "用自己的话解释负数和有理数的意义"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2c9cf533b31c46fd",
+      "node_title": "1.3 有理数的加减法",
+      "pdf_page": 23,
+      "printed_page": "16",
+      "publication_status": "published",
+      "rationale": "教材section“1.3 有理数的加减法”与课标 MA-H4G7-AL-004 的可教学小能力“用自己的话解释负数和有理数的意义”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_6426e08a1c8acb5b",
+      "unit_title": "1.2 有理数"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_670e83617c35e552",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_48072359f7df",
+        "tes_4234d7fc53dcef5a",
+        "textbook-node:tcn_43e324b8aab86fb7",
+        "textbook-unit:tcu_6426e08a1c8acb5b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1.3.1 有理数的加法",
+          "excerpt_hash": "bba0ed57b383db3ab58a4e5bb4eefc19ea892a458a79a1b7707604f95ef0c2bc",
+          "pdf_page": 23,
+          "printed_page": "16",
+          "span_id": "tes_4234d7fc53dcef5a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7b73c173858f6ba6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7b73c173858f6ba6",
+          "label": "用自己的话解释负数和有理数的意义"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_43e324b8aab86fb7",
+      "node_title": "1.3.1 有理数的加法",
+      "pdf_page": 23,
+      "printed_page": "16",
+      "publication_status": "published",
+      "rationale": "教材section“1.3.1 有理数的加法”与课标 MA-H4G7-AL-004 的可教学小能力“用自己的话解释负数和有理数的意义”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_6426e08a1c8acb5b",
+      "unit_title": "1.2 有理数"
+    },
+    {
+      "algorithm_version": "pre-full-alignment",
       "alignment_id": "tca_cb8ab3566f28732a",
       "alignment_type": "supports",
       "confidence": 1,
@@ -181,26 +347,31 @@
         "ctu_f38945556b560d",
         "textbook-unit:tcu_6426e08a1c8acb5b"
       ],
-      "evidence_role": "direct_textbook",
-      "level": "unit",
+      "evidence_role": "legacy_reviewed_textbook_evidence",
+      "evidence_spans": [],
+      "learning_component_ids": [],
+      "learning_components": [],
+      "level": "unit_topic_candidate",
       "method": "legacy_human_review",
-      "pdf_page": 13,
-      "printed_page": "6",
-      "publication_status": "published",
+      "node_id": null,
+      "node_title": "",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "review_queue",
       "rationale": "已核对教材单元「1.2 有理数」与课标「MA-H4G7-AL-004」的 subdomain_anchor 关联。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
-      "review_status": "approved",
+      "review_status": "candidate",
       "revision_status": "revision_unknown",
       "textbook_grade": 7,
       "textbook_subject": "数学",
       "textbook_title": "数学7年级上册",
       "textbook_volume": "上册",
       "unit_id": "tcu_6426e08a1c8acb5b",
-      "unit_title": "1.2 有理数"
+      "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_9314f4e7b495277d",
       "alignment_type": "references",
       "confidence": null,
@@ -231,7 +402,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c59deec10f1eb415",
       "alignment_type": "references",
       "confidence": null,

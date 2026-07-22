@@ -2,6 +2,7 @@ import styles from './TextbookStatus.module.css'
 
 const LABELS = {
     approved: '已定位',
+    machine_checked: '自动定位',
     candidate: '待复核',
     unavailable: '待处理',
     native_text: '可搜索',

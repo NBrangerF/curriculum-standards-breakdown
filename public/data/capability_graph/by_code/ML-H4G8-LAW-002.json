@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "concept_discrimination",
@@ -43,17 +43,128 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ecd8de6b5e077b14",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa",
+        "tes_48e1575c48831965",
+        "textbook-node:tcn_1e44d8dea08e16f9",
+        "textbook-unit:tcu_033922729639a58f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择中形成的中国共产党的领导地位。我国宪法是党的主张和人民意志的统一。",
+          "excerpt_hash": "946974c0b31e16218effa20da949b68a3c3af5654ca06e77dac128d8a2e264e6",
+          "pdf_page": 8,
+          "printed_page": "3",
+          "span_id": "tes_48e1575c48831965"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7ce7f72b2ff98ef9"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7ce7f72b2ff98ef9",
+          "label": "用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_1e44d8dea08e16f9",
+      "node_title": "选择中形成的中国共产党的领导地位。我国宪法是党的主张和人民意志的统一。",
+      "pdf_page": 8,
+      "printed_page": "3",
+      "publication_status": "published",
+      "rationale": "教材exercise“选择中形成的中国共产党的领导地位。我国宪法是党的主张和人民意志的统一。”与课标 ML-H4G8-LAW-002 的可教学小能力“用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_033922729639a58f",
+      "unit_title": "第一课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_adafeb96b45449dc",
+      "alignment_type": "contextualizes",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_05dbe85802ac",
+        "tes_e429aabd4cd3a7d4",
+        "textbook-node:tcn_19dcde84f73d6a06",
+        "textbook-unit:tcu_3309d4424fc2c169"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第10 课 建设中国特色社会主义 47",
+          "excerpt_hash": "586e40570c28784b62f68e99a0467b26c6e33c416bcdbc8b88200fc057770503",
+          "pdf_page": 52,
+          "printed_page": "47",
+          "span_id": "tes_e429aabd4cd3a7d4"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7ce7f72b2ff98ef9"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7ce7f72b2ff98ef9",
+          "label": "用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_19dcde84f73d6a06",
+      "node_title": "第10课建设中国特色社会主义47",
+      "pdf_page": 52,
+      "printed_page": "47",
+      "publication_status": "published",
+      "rationale": "教材lesson“第10课建设中国特色社会主义47”为课标 ML-H4G8-LAW-002 的可教学小能力“用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_3309d4424fc2c169",
+      "unit_title": "第9课"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_368b1629ce18602b",
       "alignment_type": "references",
       "confidence": null,
@@ -84,7 +195,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_578605492a210602",
       "alignment_type": "references",
       "confidence": null,
@@ -115,7 +226,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_56641e94042173f5",
       "alignment_type": "references",
       "confidence": null,
@@ -146,7 +257,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c0e4e4cb31147a52",
       "alignment_type": "references",
       "confidence": null,

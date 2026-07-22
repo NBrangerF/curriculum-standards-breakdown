@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "representation",
@@ -119,17 +119,128 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_2e4e148e9e2c2582",
+      "alignment_type": "practices",
+      "confidence": 0.842,
+      "coverage": "partial",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_85776c7beb7e",
+        "tes_5f999e7879126fe5",
+        "textbook-node:tcn_bdcfdb63c4386658",
+        "textbook-unit:tcu_1ee315c7d3503d0c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择读过的一篇文章或一本书,写一篇读后感。先简单介绍一下文章或书的内容,可以重点介绍你印象最深的部分。再选择一两处你感触最深的内容,写出自己的感想,感想要真实、具体。可以联系自己的阅读积累和生活经验,",
+          "excerpt_hash": "252b8cc26674bd1c20f0822f72f4c60e167480a3a5209e94f20fb3115f250158",
+          "pdf_page": 41,
+          "printed_page": "36",
+          "span_id": "tes_5f999e7879126fe5"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_340eafeb58121922"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_340eafeb58121922",
+          "label": "留心观察周围事物，用文字、图像、音视频等多媒介方式表达独特感受"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_bdcfdb63c4386658",
+      "node_title": "选择读过的一篇文章或一本书,写一篇读后感。先简单介绍一下文章或书的内容,可以重点介绍你印象最深的部分。再选择一两处你感触最深的内容,写出自己的感想,感想要真实、具体。可以联系自己的阅读积累和生活经验,",
+      "pdf_page": 41,
+      "printed_page": "36",
+      "publication_status": "published",
+      "rationale": "教材exercise“选择读过的一篇文章或一本书,写一篇读后感。先简单介绍一下文章或书的内容,可以重点介绍你印象最深的部分。再选择一两处你感触最深的内容,写出自己的感想,感想要真实、具体。可以联系自己的阅读积累和生活经验,”与课标 CN-D3-CM-005 的可教学小能力“留心观察周围事物，用文字、图像、音视频等多媒介方式表达独特感受”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_1ee315c7d3503d0c",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_614322e38988384d",
+      "alignment_type": "practices",
+      "confidence": 0.842,
+      "coverage": "partial",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_85776c7beb7e",
+        "tes_1cf25b1a2c06d5f9",
+        "textbook-node:tcn_66152eac319a72dc",
+        "textbook-unit:tcu_1ee315c7d3503d0c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "写出自己的感想,感想要真实、具体。可以联系自己的阅读积累和生活经验,也可以引用原文中的个别语句。",
+          "excerpt_hash": "6a3436f2f159b425c0ae94f68b36b90017d318db1349ac401e92d431bbbcc879",
+          "pdf_page": 41,
+          "printed_page": "36",
+          "span_id": "tes_1cf25b1a2c06d5f9"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_340eafeb58121922"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_340eafeb58121922",
+          "label": "留心观察周围事物，用文字、图像、音视频等多媒介方式表达独特感受"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_66152eac319a72dc",
+      "node_title": "写出自己的感想,感想要真实、具体。可以联系自己的阅读积累和生活经验,也可以引用原文中的个别语句。",
+      "pdf_page": 41,
+      "printed_page": "36",
+      "publication_status": "published",
+      "rationale": "教材exercise“写出自己的感想,感想要真实、具体。可以联系自己的阅读积累和生活经验,也可以引用原文中的个别语句。”与课标 CN-D3-CM-005 的可教学小能力“留心观察周围事物，用文字、图像、音视频等多媒介方式表达独特感受”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_1ee315c7d3503d0c",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_2837e4b8ebe9bb5d",
       "alignment_type": "references",
       "confidence": null,
@@ -160,7 +271,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_4af6bcd6ef52171a",
       "alignment_type": "references",
       "confidence": null,
@@ -191,7 +302,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_f0a505c3651e25d2",
       "alignment_type": "references",
       "confidence": null,
@@ -222,7 +333,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_fb70f87488195883",
       "alignment_type": "references",
       "confidence": null,

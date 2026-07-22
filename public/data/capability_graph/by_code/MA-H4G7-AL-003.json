@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -160,82 +160,184 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 11,
-    "disposition": "unit_topic_needs_page_evidence",
-    "evidence_note": "已有目录主题候选，但缺少可靠 PDF 页定位，已降级进入补证队列。",
+    "candidate_count": 0,
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 2,
-    "specific_count": 0,
-    "unit_topic_candidate_count": 2
+    "specific_count": 3,
+    "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_af05b911e456b2d5",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6403d589f7145eb4",
       "alignment_type": "supports",
-      "confidence": 0.4926,
+      "confidence": 0.92,
       "coverage": "partial",
-      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "edition_id": "ed_006d5ed61c055eb63857",
       "evidence_basis": "toc_title",
       "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
       "evidence_level": "L2_topic",
       "evidence_refs": [
-        "ctb_c5fa3c0e2226",
-        "textbook-unit:tcu_3cc24129b8fb7025"
+        "ctb_48072359f7df",
+        "tes_8139323db9971100",
+        "textbook-node:tcn_d25bc944d08b7f17",
+        "textbook-unit:tcu_6d11b8d64c35538b"
       ],
       "evidence_role": "direct_textbook",
-      "level": "unit_topic_candidate",
-      "method": "constrained_concept_idf",
-      "pdf_page": null,
-      "printed_page": null,
-      "publication_status": "review_queue",
-      "rationale": "教材条目“实际问题与二元一次方程组”与课标 MA-H4G7-AL-003 在standard字段命中概念：与二元一次方、二元一次方程、实际问题。",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3.1.1 一元一次方程",
+          "excerpt_hash": "028909a600b5744eb0de76369e0962671aa4a4615d80e22f9185c2cabd8f0e1f",
+          "pdf_page": 85,
+          "printed_page": "78",
+          "span_id": "tes_8139323db9971100"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d5b1bb2eeae8da24"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d5b1bb2eeae8da24",
+          "label": "用具体事例说明一次函数与二元一次方程的关系"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d25bc944d08b7f17",
+      "node_title": "3.1.1 一元一次方程",
+      "pdf_page": 85,
+      "printed_page": "78",
+      "publication_status": "published",
+      "rationale": "教材section“3.1.1 一元一次方程”与课标 MA-H4G7-AL-003 的可教学小能力“用具体事例说明一次函数与二元一次方程的关系”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
-      "review_status": "candidate",
+      "review_status": "machine_checked",
       "revision_status": "revision_unknown",
       "textbook_grade": 7,
       "textbook_subject": "数学",
-      "textbook_title": "数学7年级下册",
-      "textbook_volume": "下册",
-      "unit_id": "tcu_3cc24129b8fb7025",
-      "unit_title": "实际问题与二元一次方程组"
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_6d11b8d64c35538b",
+      "unit_title": "第三章 一元一次方程"
     },
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_4f966b8716ebf75a",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_28345ce7cbd9c506",
       "alignment_type": "supports",
-      "confidence": 0.6645,
+      "confidence": 0.92,
       "coverage": "partial",
-      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "edition_id": "ed_006d5ed61c055eb63857",
       "evidence_basis": "toc_title",
       "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
       "evidence_level": "L2_topic",
       "evidence_refs": [
-        "ctb_c5fa3c0e2226",
-        "textbook-unit:tcu_7fc95c06ab351dbf"
+        "ctb_48072359f7df",
+        "tes_d0baec0046ac7461",
+        "textbook-node:tcn_dfd4ac1adab94bb8",
+        "textbook-unit:tcu_6d11b8d64c35538b"
       ],
       "evidence_role": "direct_textbook",
-      "level": "unit_topic_candidate",
-      "method": "constrained_concept_idf",
-      "pdf_page": null,
-      "printed_page": null,
-      "publication_status": "review_queue",
-      "rationale": "教材条目“二元一次方程组”与课标 MA-H4G7-AL-003 在standard字段命中概念：二元一次方程。",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3.2 解一元一次方程 (一)",
+          "excerpt_hash": "9a4119f9b4ae38682cbc43358bebd3005bad3764806c1d4b6fbe027ae7a4cbbd",
+          "pdf_page": 93,
+          "printed_page": "86",
+          "span_id": "tes_d0baec0046ac7461"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d5b1bb2eeae8da24"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d5b1bb2eeae8da24",
+          "label": "用具体事例说明一次函数与二元一次方程的关系"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_dfd4ac1adab94bb8",
+      "node_title": "3.2 解一元一次方程 (一)",
+      "pdf_page": 93,
+      "printed_page": "86",
+      "publication_status": "published",
+      "rationale": "教材section“3.2 解一元一次方程 (一)”与课标 MA-H4G7-AL-003 的可教学小能力“用具体事例说明一次函数与二元一次方程的关系”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
-      "review_status": "candidate",
+      "review_status": "machine_checked",
       "revision_status": "revision_unknown",
       "textbook_grade": 7,
       "textbook_subject": "数学",
-      "textbook_title": "数学7年级下册",
-      "textbook_volume": "下册",
-      "unit_id": "tcu_7fc95c06ab351dbf",
-      "unit_title": "二元一次方程组"
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_6d11b8d64c35538b",
+      "unit_title": "第三章 一元一次方程"
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_60a6c5fab71a191a",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_48072359f7df",
+        "tes_f560ac73f175bf65",
+        "textbook-node:tcn_ef02f68b7190f993",
+        "textbook-unit:tcu_6d11b8d64c35538b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3.3 解一元一次方程 (二)",
+          "excerpt_hash": "48ee87588ca671690f6ea2fc3a04e0e99ccc47cc0f1473667197d317b60a3fd8",
+          "pdf_page": 100,
+          "printed_page": "93",
+          "span_id": "tes_f560ac73f175bf65"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d5b1bb2eeae8da24"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d5b1bb2eeae8da24",
+          "label": "用具体事例说明一次函数与二元一次方程的关系"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ef02f68b7190f993",
+      "node_title": "3.3 解一元一次方程 (二)",
+      "pdf_page": 100,
+      "printed_page": "93",
+      "publication_status": "published",
+      "rationale": "教材section“3.3 解一元一次方程 (二)”与课标 MA-H4G7-AL-003 的可教学小能力“用具体事例说明一次函数与二元一次方程的关系”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_6d11b8d64c35538b",
+      "unit_title": "第三章 一元一次方程"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_1d547cee977c36b6",
       "alignment_type": "references",
       "confidence": null,
@@ -266,7 +368,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_956d6e5d646350c1",
       "alignment_type": "references",
       "confidence": null,

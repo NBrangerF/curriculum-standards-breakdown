@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -121,18 +121,254 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 2,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 4,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_72ea79765ef862ec",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_1abb9b949b6042c1",
+        "textbook-node:tcn_cc8d2a13ae2792a7",
+        "textbook-unit:tcu_15a971eadd285850"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择不同的旋转中心、不同的旋转角旋转同一个图案 (图23.16),会出现不同的效果.图23.17的两个旋转中,旋转中心不变,旋转角改 图23.16",
+          "excerpt_hash": "505339b19d940556ae11601479ae9a2df0a30d3a0536602520d4bbb688534e38",
+          "pdf_page": 68,
+          "printed_page": "61",
+          "span_id": "tes_1abb9b949b6042c1"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_085c4978d572b0b9"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_085c4978d572b0b9",
+          "label": "通过具体实例认识平面图形绕旋转中心的旋转"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_cc8d2a13ae2792a7",
+      "node_title": "选择不同的旋转中心、不同的旋转角旋转同一个图案 (图23.16),会出现不同的效果.图23.17的两个旋转中,旋转中心不变,旋转角改 图23.16",
+      "pdf_page": 68,
+      "printed_page": "61",
+      "publication_status": "published",
+      "rationale": "教材exercise“选择不同的旋转中心、不同的旋转角旋转同一个图案 (图23.16),会出现不同的效果.图23.17的两个旋转中,旋转中心不变,旋转角改 图23.16”与课标 MA-H4G9-GE-027 的可教学小能力“通过具体实例认识平面图形绕旋转中心的旋转”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_15a971eadd285850",
+      "unit_title": "第二十三章 旋转"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_66231b1d3bb2677b",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_aae1d9b2833dd88e",
+        "textbook-node:tcn_6e4241d495b37d3f",
+        "textbook-unit:tcu_15a971eadd285850"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "23.2.1 中心对称",
+          "excerpt_hash": "93ef21a1d9bfc09a351f7ce519d9d78d7b1d43c51685c6a53fdae593e1169203",
+          "pdf_page": 71,
+          "printed_page": "64",
+          "span_id": "tes_aae1d9b2833dd88e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_298d74fa4cde0807",
+        "lc_9ce0ba74045b9d29"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_298d74fa4cde0807",
+          "label": "分析中心对称和中心对称图形概念及基本性质"
+        },
+        {
+          "component_id": "lc_9ce0ba74045b9d29",
+          "label": "识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_6e4241d495b37d3f",
+      "node_title": "23.2.1 中心对称",
+      "pdf_page": 71,
+      "printed_page": "64",
+      "publication_status": "published",
+      "rationale": "教材section“23.2.1 中心对称”与课标 MA-H4G9-GE-027 的可教学小能力“分析中心对称和中心对称图形概念及基本性质、识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_15a971eadd285850",
+      "unit_title": "第二十三章 旋转"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_f2d667246b9555a4",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_914a5df1f6b62604",
+        "textbook-node:tcn_2a927fc9cb892e64",
+        "textbook-unit:tcu_15a971eadd285850"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "23.2 中心对称",
+          "excerpt_hash": "dd61a034996932814493a4c721e153e48640d9769349711334726c25a3dd7dbe",
+          "pdf_page": 71,
+          "printed_page": "64",
+          "span_id": "tes_914a5df1f6b62604"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_298d74fa4cde0807",
+        "lc_9ce0ba74045b9d29"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_298d74fa4cde0807",
+          "label": "分析中心对称和中心对称图形概念及基本性质"
+        },
+        {
+          "component_id": "lc_9ce0ba74045b9d29",
+          "label": "识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2a927fc9cb892e64",
+      "node_title": "23.2 中心对称",
+      "pdf_page": 71,
+      "printed_page": "64",
+      "publication_status": "published",
+      "rationale": "教材section“23.2 中心对称”与课标 MA-H4G9-GE-027 的可教学小能力“分析中心对称和中心对称图形概念及基本性质、识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_15a971eadd285850",
+      "unit_title": "第二十三章 旋转"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1745b3fa990954b3",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_d0e986e7e546a3b7",
+        "textbook-node:tcn_0326dde580c2970e",
+        "textbook-unit:tcu_15a971eadd285850"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "23.2.2 中心对称图形",
+          "excerpt_hash": "d662444fd341c217c2caa9abb47d8351ee50b5b891dbe36c6f4d8e2b83d8089c",
+          "pdf_page": 73,
+          "printed_page": "66",
+          "span_id": "tes_d0e986e7e546a3b7"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_298d74fa4cde0807",
+        "lc_9ce0ba74045b9d29"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_298d74fa4cde0807",
+          "label": "分析中心对称和中心对称图形概念及基本性质"
+        },
+        {
+          "component_id": "lc_9ce0ba74045b9d29",
+          "label": "识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_0326dde580c2970e",
+      "node_title": "23.2.2 中心对称图形",
+      "pdf_page": 73,
+      "printed_page": "66",
+      "publication_status": "published",
+      "rationale": "教材section“23.2.2 中心对称图形”与课标 MA-H4G9-GE-027 的可教学小能力“分析中心对称和中心对称图形概念及基本性质、识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_15a971eadd285850",
+      "unit_title": "第二十三章 旋转"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_1d44a82e9b8ce422",
       "alignment_type": "references",
       "confidence": null,
@@ -163,7 +399,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_056fbfe0a22a8d8a",
       "alignment_type": "references",
       "confidence": null,

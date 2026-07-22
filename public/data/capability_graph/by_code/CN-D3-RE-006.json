@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "performance_stability",
@@ -43,17 +43,128 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_f470f31ab2e9a05a",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_65220055b0e922eb6a1e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_55b8f47777bf",
+        "tes_c3c6f68dfe7b9323",
+        "textbook-node:tcn_10a8171d6d6b16cb",
+        "textbook-unit:tcu_6fd7782774238221"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "交流之前,想想围绕话题谈论哪些具体内容。可以借助批注梳理思路,深入地表达自己的想法或观点。要以内容为依据,从书中找出例子来说明自己的观点。要勇于表达自己的真实想法,哪怕你的想法与大多数人都不一样。",
+          "excerpt_hash": "63aa27cb956b01a99ee14531f4e0faae02482195fd0f37e87518869dcd8d63ce",
+          "pdf_page": 42,
+          "printed_page": "37",
+          "span_id": "tes_c3c6f68dfe7b9323"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_8fff328a5e40d3c4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_8fff328a5e40d3c4",
+          "label": "提出自己的观点或看法"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_10a8171d6d6b16cb",
+      "node_title": "交流之前,想想围绕话题谈论哪些具体内容。可以借助批注梳理思路,深入地表达自己的想法或观点。要以内容为依据,从书中找出例子来说明自己的观点。要勇于表达自己的真实想法,哪怕你的想法与大多数人都不一样。",
+      "pdf_page": 42,
+      "printed_page": "37",
+      "publication_status": "published",
+      "rationale": "教材exercise“交流之前,想想围绕话题谈论哪些具体内容。可以借助批注梳理思路,深入地表达自己的想法或观点。要以内容为依据,从书中找出例子来说明自己的观点。要勇于表达自己的真实想法,哪怕你的想法与大多数人都不一样。”与课标 CN-D3-RE-006 的可教学小能力“提出自己的观点或看法”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "语文",
+      "textbook_title": "语文6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_6fd7782774238221",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_e9fbbcc836685f27",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_7eb5f47d44368cc5",
+        "textbook-node:tcn_6ea98d09ff241ca5",
+        "textbook-unit:tcu_51df08d573d2312a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择恰当的材料支持自己的观点。",
+          "excerpt_hash": "ec35094625a2180630ad87945356b1c50c76d1016018bbce7ca4211c88e67560",
+          "pdf_page": 92,
+          "printed_page": "87",
+          "span_id": "tes_7eb5f47d44368cc5"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_8fff328a5e40d3c4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_8fff328a5e40d3c4",
+          "label": "提出自己的观点或看法"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_6ea98d09ff241ca5",
+      "node_title": "选择恰当的材料支持自己的观点。",
+      "pdf_page": 92,
+      "printed_page": "87",
+      "publication_status": "published",
+      "rationale": "教材objective“选择恰当的材料支持自己的观点。”与课标 CN-D3-RE-006 的可教学小能力“提出自己的观点或看法”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_51df08d573d2312a",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ff91c11ccec4fd62",
       "alignment_type": "references",
       "confidence": null,
@@ -84,7 +195,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_42f3f2a560fefcd9",
       "alignment_type": "references",
       "confidence": null,
@@ -115,7 +226,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_3a4d9e0a6b3b8a10",
       "alignment_type": "references",
       "confidence": null,
@@ -146,7 +257,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_459d452f4aa9d0e9",
       "alignment_type": "references",
       "confidence": null,

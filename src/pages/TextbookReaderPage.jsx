@@ -4,6 +4,7 @@ import { ArrowLeftIcon } from '@phosphor-icons/react/dist/csr/ArrowLeft'
 import { LoadingState, ErrorState } from '../components/StateComponents'
 import TextbookReader from '../features/textbooks/TextbookReader'
 import { createTextbookViewerSession, loadTextbookDetail } from '../features/textbooks/textbookApi'
+import { resolveTextbookDeepLinkPage } from '../features/textbooks/textbookAlignmentContext'
 import styles from './TextbookReaderPage.module.css'
 
 export default function TextbookReaderPage() {
@@ -23,7 +24,7 @@ export default function TextbookReaderPage() {
     if (state.loading) return <LoadingState message="正在建立教材阅读会话" />
     if (state.error) return <div className={`container ${styles.errorWrap}`}><ErrorState title="暂时无法阅读这本教材" message={state.error} /><p>X9 Pro 未连接时，教材馆与详情页仍可浏览；阅读器需要本地文件或已配置的对象存储。</p><Link className="btn btn-secondary" to={`/textbooks/${editionId}`}>返回教材详情</Link></div>
 
-    const initialPage = Math.max(1, Number(searchParams.get('page')) || 1)
+    const initialPage = resolveTextbookDeepLinkPage(state.book, searchParams, 1)
     return (
         <div className={styles.page}>
             <div className={`container ${styles.heading}`}>
@@ -31,7 +32,16 @@ export default function TextbookReaderPage() {
                 <div><span>{state.book.edition_name}</span><h1>{state.book.title}</h1></div>
                 <p>阅读进度只保存在当前浏览器。</p>
             </div>
-            <div className={`container ${styles.readerWrap}`}><TextbookReader book={state.book} fileUrl={state.session.url} initialPage={initialPage} /></div>
+            <div className={`container ${styles.readerWrap}`}>
+                <TextbookReader
+                    book={state.book}
+                    fileUrl={state.session.url}
+                    initialPage={initialPage}
+                    initialNodeId={searchParams.get('node') || ''}
+                    initialAlignmentId={searchParams.get('alignment') || ''}
+                    initialPanel={searchParams.get('panel') || ''}
+                />
+            </div>
         </div>
     )
 }

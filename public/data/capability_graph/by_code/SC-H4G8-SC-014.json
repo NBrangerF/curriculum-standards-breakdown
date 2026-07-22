@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -162,17 +162,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 6,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a7c1c53c6d781c64",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_0f6edf1eb52b44920973",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_77ef51325c22",
+        "tes_ece63060f2ed3256",
+        "textbook-node:tcn_876a9fbf7882f730",
+        "textbook-unit:tcu_c8ce6e0bbdb60b4a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第五节 两栖动物和爬行动物",
+          "excerpt_hash": "2d818338588adf0fa328648341435037cf14e4a21f70f0aab742dca9e9782a7f",
+          "pdf_page": 30,
+          "printed_page": "25",
+          "span_id": "tes_ece63060f2ed3256"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1c4e5c0400c34e4c"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1c4e5c0400c34e4c",
+          "label": "说出昆虫、两栖动物、鸟的生殖方式和发育过程"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_876a9fbf7882f730",
+      "node_title": "第五节两栖动物和爬行动物",
+      "pdf_page": 30,
+      "printed_page": "25",
+      "publication_status": "published",
+      "rationale": "教材section“第五节两栖动物和爬行动物”与课标 SC-H4G8-SC-014 的可教学小能力“说出昆虫、两栖动物、鸟的生殖方式和发育过程”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c8ce6e0bbdb60b4a",
+      "unit_title": "第一章"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_df3e4e0c9ef1ac43",
       "alignment_type": "references",
       "confidence": null,
@@ -203,7 +259,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e6dc086b09c63d8a",
       "alignment_type": "references",
       "confidence": null,
@@ -234,7 +290,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_9b05276a63b6d2d8",
       "alignment_type": "references",
       "confidence": null,
@@ -265,7 +321,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_31bcbc47b6105815",
       "alignment_type": "references",
       "confidence": null,
@@ -296,7 +352,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_fcb2a7eddd9a6417",
       "alignment_type": "references",
       "confidence": null,
@@ -327,7 +383,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_20b76743f06e3146",
       "alignment_type": "references",
       "confidence": null,

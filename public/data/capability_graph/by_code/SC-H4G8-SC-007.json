@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -164,17 +164,128 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 6,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_eec1aee02478fd85",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_a7fe299869b84f655a87",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a871f50d9e2b",
+        "tes_f765d5dbf6bc398d",
+        "textbook-node:tcn_c8af0652880c664e",
+        "textbook-unit:tcu_4f879dc20ac2951d"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "我国气温和降水的时空分布有什么特点?",
+          "excerpt_hash": "b5fc7a9ef0ca38799d06d44aa0d60ffd1edf786608ffac33fcbe568725e50375",
+          "pdf_page": 26,
+          "printed_page": "21",
+          "span_id": "tes_f765d5dbf6bc398d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_5fdb8f8e60321476"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_5fdb8f8e60321476",
+          "label": "运用气温和降水资料绘制气温曲线图和降水量柱状图"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c8af0652880c664e",
+      "node_title": "我国气温和降水的时空分布有什么特点?",
+      "pdf_page": 26,
+      "printed_page": "21",
+      "publication_status": "published",
+      "rationale": "教材objective“我国气温和降水的时空分布有什么特点?”与课标 SC-H4G8-SC-007 的可教学小能力“运用气温和降水资料绘制气温曲线图和降水量柱状图”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_4f879dc20ac2951d",
+      "unit_title": "第二章"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_2bd0b6b941df5c46",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_a7fe299869b84f655a87",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a871f50d9e2b",
+        "tes_c82719c286806ec8",
+        "textbook-node:tcn_c97421e7ce320a81",
+        "textbook-unit:tcu_4f879dc20ac2951d"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "阅读下面的资料,再补充相关资料,说一说在不同的温度带,人们的生产和生活的差异。",
+          "excerpt_hash": "532a3b0c7ebd21b8ce1a4e6abfd8bb0cb49eb9a02f5241928b93e2a38872fe99",
+          "pdf_page": 38,
+          "printed_page": "33",
+          "span_id": "tes_c82719c286806ec8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_82946c1831264a53"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_82946c1831264a53",
+          "label": "举例说明气候对生产和生活的影响"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c97421e7ce320a81",
+      "node_title": "阅读下面的资料,再补充相关资料,说一说在不同的温度带,人们的生产和生活的差异。",
+      "pdf_page": 38,
+      "printed_page": "33",
+      "publication_status": "published",
+      "rationale": "教材exercise“阅读下面的资料,再补充相关资料,说一说在不同的温度带,人们的生产和生活的差异。”与课标 SC-H4G8-SC-007 的可教学小能力“举例说明气候对生产和生活的影响”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_4f879dc20ac2951d",
+      "unit_title": "第二章"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_4ef463247298ab29",
       "alignment_type": "references",
       "confidence": null,
@@ -205,7 +316,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_78d084e8aff2330a",
       "alignment_type": "references",
       "confidence": null,
@@ -236,7 +347,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_3947c3af6bb5b2a6",
       "alignment_type": "references",
       "confidence": null,
@@ -267,7 +378,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_384457615f83aaf5",
       "alignment_type": "references",
       "confidence": null,
@@ -298,7 +409,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_8e14111c61bbf3ec",
       "alignment_type": "references",
       "confidence": null,
@@ -329,7 +440,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a51a8ff86b842692",
       "alignment_type": "references",
       "confidence": null,

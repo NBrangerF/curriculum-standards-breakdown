@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -122,17 +122,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_af348e9547131162",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_f4fb0c2a21f9",
+        "tes_c2d023a30b8f4c58",
+        "textbook-node:tcn_e72557801b66abe1",
+        "textbook-unit:tcu_12c0e6b878531090"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "延安是中国革命的圣地。毛泽东等老一辈无产阶级革命家曾经在这里",
+          "excerpt_hash": "50d929665682141c48c6b3e790244b2588a70c4e22e4a0db3d7e569d58d25883",
+          "pdf_page": 17,
+          "printed_page": "10",
+          "span_id": "tes_c2d023a30b8f4c58"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b363aefb1c1e04af"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b363aefb1c1e04af",
+          "label": "阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e72557801b66abe1",
+      "node_title": "延安是中国革命的圣地。毛泽东等老一辈无产阶级革命家曾经在这里",
+      "pdf_page": 17,
+      "printed_page": "10",
+      "publication_status": "published",
+      "rationale": "教材objective“延安是中国革命的圣地。毛泽东等老一辈无产阶级革命家曾经在这里”与课标 CN-H4G8-RE-009 的可教学小能力“阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_12c0e6b878531090",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_6332cb9907b166e1",
       "alignment_type": "references",
       "confidence": null,
@@ -163,7 +219,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_61bb7856fb8d3e07",
       "alignment_type": "references",
       "confidence": null,

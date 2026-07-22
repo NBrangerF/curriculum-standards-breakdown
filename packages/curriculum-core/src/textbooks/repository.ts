@@ -7,7 +7,9 @@ import {
 import type {
     TextbookCatalogDataset,
     TextbookCatalogRecord,
+    TextbookContentNode,
     TextbookDetailRecord,
+    TextbookPageContext,
     TextbookStage,
     TextbookVolume
 } from './types.js'
@@ -21,9 +23,21 @@ export interface TextbookSearchFilters {
     resource_type?: string
 }
 
+interface TextbookPageIndexEntry {
+    node_ids: string[]
+    alignment_ids: string[]
+    evidence_span_ids: string[]
+}
+
+interface TextbookPageAlignmentIndex {
+    edition_id: string
+    pages: Record<string, TextbookPageIndexEntry>
+}
+
 export class FileTextbookRepository {
     private catalogPromise: Promise<TextbookCatalogDataset> | null = null
     private detailPromises = new Map<string, Promise<TextbookDetailRecord>>()
+    private pageIndexPromises = new Map<string, Promise<TextbookPageAlignmentIndex | null>>()
     private unitsPromise: Promise<Array<Record<string, unknown>>> | null = null
     private reversePromise: Promise<{
         items: Record<string, Array<Record<string, unknown>>>
@@ -87,6 +101,101 @@ export class FileTextbookRepository {
                 })
         }
         return (await this.unitsPromise).find(item => item.entry_id === unitId) || null
+    }
+
+    private async loadPageIndex(editionId: string): Promise<TextbookPageAlignmentIndex | null> {
+        let pending = this.pageIndexPromises.get(editionId)
+        if (!pending) {
+            pending = readFile(resolve(this.dataRoot, `textbooks/page-context/by-edition/${editionId}.json`), 'utf8')
+                .then(source => {
+                    const payload = JSON.parse(source) as Partial<TextbookPageAlignmentIndex>
+                    if (payload.edition_id !== editionId || !payload.pages || typeof payload.pages !== 'object') return null
+                    return payload as TextbookPageAlignmentIndex
+                })
+                .catch(error => {
+                    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return null
+                    this.pageIndexPromises.delete(editionId)
+                    throw error
+                })
+            this.pageIndexPromises.set(editionId, pending)
+        }
+        return pending
+    }
+
+    private legacyContentNodes(detail: TextbookDetailRecord): TextbookContentNode[] {
+        return detail.toc
+            .filter(entry => entry.pdf_page !== null)
+            .map((entry, index, entries) => {
+                const nextPage = entries.slice(index + 1).find(candidate =>
+                    candidate.pdf_page !== null && candidate.pdf_page > entry.pdf_page!
+                )?.pdf_page
+                return {
+                    node_id: entry.entry_id,
+                    parent_id: entry.parent_id,
+                    unit_id: entry.entry_id,
+                    level: entry.level,
+                    kind: entry.kind,
+                    title: entry.title,
+                    pdf_page: entry.pdf_page!,
+                    end_pdf_page: entry.end_pdf_page && entry.end_pdf_page >= entry.pdf_page!
+                        ? entry.end_pdf_page
+                        : nextPage
+                            ? nextPage - 1
+                            : detail.page_count,
+                    printed_page: entry.printed_page,
+                    end_printed_page: null,
+                    source: `toc:${entry.source}`,
+                    confidence: entry.confidence
+                }
+            })
+    }
+
+    /**
+     * Resolve the content tree and concrete standard evidence active on a PDF
+     * page. Curriculum scopes are returned separately and never promoted into
+     * the page-specific alignment collection.
+     */
+    async getPageContext(editionId: string, pdfPage: number): Promise<TextbookPageContext | null> {
+        const detail = await this.get(editionId)
+        if (!detail || pdfPage < 1 || pdfPage > detail.page_count) return null
+
+        const pageIndex = await this.loadPageIndex(editionId)
+        const indexed = pageIndex?.pages[String(pdfPage)]
+        const nodes = detail.content_nodes.length ? detail.content_nodes : this.legacyContentNodes(detail)
+        const indexedNodeIds = new Set(indexed?.node_ids || [])
+        const activeNodes = nodes
+            .filter(node => indexed
+                ? indexedNodeIds.has(node.node_id)
+                : node.pdf_page <= pdfPage && node.end_pdf_page >= pdfPage)
+            .sort((left, right) => left.level - right.level
+                || (right.end_pdf_page - right.pdf_page) - (left.end_pdf_page - left.pdf_page)
+                || left.node_id.localeCompare(right.node_id))
+
+        const nodeIds = new Set(activeNodes.map(node => node.node_id))
+        const unitIds = new Set(activeNodes.flatMap(node => [node.unit_id, node.node_id].filter(Boolean) as string[]))
+        const indexedAlignmentIds = new Set(indexed?.alignment_ids || [])
+        const alignments = detail.alignments.filter(alignment => indexed
+            ? indexedAlignmentIds.has(alignment.alignment_id)
+            : alignment.pdf_page === pdfPage
+                || Boolean(alignment.node_id && nodeIds.has(alignment.node_id))
+                || Boolean(alignment.unit_id && unitIds.has(alignment.unit_id)))
+
+        const evidenceSpanIds = new Set([
+            ...(indexed?.evidence_span_ids || []),
+            ...alignments.flatMap(alignment => alignment.evidence_span_ids || [])
+        ])
+        const evidenceSpans = detail.evidence_spans.filter(span => evidenceSpanIds.has(span.evidence_span_id))
+        const printedPage = detail.page_map.find(entry => entry.pdf_page === pdfPage)?.printed_page || null
+
+        return {
+            edition_id: editionId,
+            pdf_page: pdfPage,
+            printed_page: printedPage,
+            active_nodes: activeNodes,
+            alignments,
+            evidence_spans: evidenceSpans,
+            standard_scopes: detail.standard_scopes
+        }
     }
 
     async getTextbooksForStandard(code: string): Promise<Array<Record<string, unknown>>> {

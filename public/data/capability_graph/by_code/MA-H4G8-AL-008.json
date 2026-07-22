@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -160,50 +160,19 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 3,
-    "disposition": "unit_topic_needs_page_evidence",
-    "evidence_note": "已有目录主题候选，但缺少可靠 PDF 页定位，已降级进入补证队列。",
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
     "gap_reason": null,
     "highest_evidence_level": "L1_scope",
+    "page_evidence_count": 0,
     "scope_count": 2,
     "specific_count": 0,
-    "unit_topic_candidate_count": 1
+    "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_de0c6579828be3ec",
-      "alignment_type": "supports",
-      "confidence": 0.8491,
-      "coverage": "partial",
-      "edition_id": "ed_f8159854e52a9dd85942",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
-      "evidence_refs": [
-        "ctb_485165afa9c8",
-        "textbook-unit:tcu_b993289597d02f70"
-      ],
-      "evidence_role": "direct_textbook",
-      "level": "unit_topic_candidate",
-      "method": "constrained_concept_idf",
-      "pdf_page": null,
-      "printed_page": null,
-      "publication_status": "review_queue",
-      "rationale": "教材条目“二次根式”与课标 MA-H4G8-AL-008 在practice、standard字段命中概念：二次根式。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "candidate",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 8,
-      "textbook_subject": "数学",
-      "textbook_title": "数学8年级下册",
-      "textbook_volume": "下册",
-      "unit_id": "tcu_b993289597d02f70",
-      "unit_title": "二次根式"
-    },
-    {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ea799a0419be947a",
       "alignment_type": "references",
       "confidence": null,
@@ -234,7 +203,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_1fc4bec0cd2722d5",
       "alignment_type": "references",
       "confidence": null,

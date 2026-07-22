@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -123,17 +123,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_95600bfde691c8e2",
+      "alignment_type": "contextualizes",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_7e63f930aaf0037f4469",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_41292e82b853",
+        "tes_ef97b3d2319504c6",
+        "textbook-node:tcn_209a879ea0154ba7",
+        "textbook-unit:tcu_8ec6301c7fa24dfe"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第 21 课 马克思主义的诞生和国际共产主义运动的兴起 99",
+          "excerpt_hash": "35c355e1d8fddfc5a6b85a5f1250a3b4fbc867040e433563dffbb7f6758cff4d",
+          "pdf_page": 104,
+          "printed_page": "99",
+          "span_id": "tes_ef97b3d2319504c6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3838f47ebd569c35"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3838f47ebd569c35",
+          "label": "初步阐释中国共产党为什么能、马克思主义为什么行、中国特色社会主义为什么好"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_209a879ea0154ba7",
+      "node_title": "第21课马克思主义的诞生和国际共产主义运动的兴起99",
+      "pdf_page": 104,
+      "printed_page": "99",
+      "publication_status": "published",
+      "rationale": "教材lesson“第21课马克思主义的诞生和国际共产主义运动的兴起99”为课标 ML-H4G9-TCR-018 的可教学小能力“初步阐释中国共产党为什么能、马克思主义为什么行、中国特色社会主义为什么好”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "历史",
+      "textbook_title": "历史9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_8ec6301c7fa24dfe",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_f19a77d51c779bc8",
       "alignment_type": "references",
       "confidence": null,
@@ -164,7 +220,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_60d458760dceccfd",
       "alignment_type": "references",
       "confidence": null,
@@ -195,7 +251,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_1f004664d1c3b042",
       "alignment_type": "references",
       "confidence": null,
@@ -226,7 +282,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_cd7b2e6271b4f95f",
       "alignment_type": "references",
       "confidence": null,

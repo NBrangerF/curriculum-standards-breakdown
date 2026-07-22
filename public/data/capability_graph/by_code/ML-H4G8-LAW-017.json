@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "multi_step_procedure",
@@ -79,17 +79,128 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ee6e074ef51f5c2b",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa",
+        "tes_26a076435af17986",
+        "textbook-node:tcn_03617eb8a991f8b0",
+        "textbook-unit:tcu_ecea98e4def5fa8f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "结合民法总则和民法典的制定,说说应怎样坚持和完善人民代表大会制度。",
+          "excerpt_hash": "671f8d6de86e2e14dd4cfb49cfae89d62e1a7d816ff20f9647465d4ed199442f",
+          "pdf_page": 70,
+          "printed_page": "65",
+          "span_id": "tes_26a076435af17986"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_e9fce671f0d8f27c"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_e9fce671f0d8f27c",
+          "label": "识别并说出人民代表大会制度是我国的根本政治制度的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_03617eb8a991f8b0",
+      "node_title": "结合民法总则和民法典的制定,说说应怎样坚持和完善人民代表大会制度。",
+      "pdf_page": 70,
+      "printed_page": "65",
+      "publication_status": "published",
+      "rationale": "教材exercise“结合民法总则和民法典的制定,说说应怎样坚持和完善人民代表大会制度。”与课标 ML-H4G8-LAW-017 的可教学小能力“识别并说出人民代表大会制度是我国的根本政治制度的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_ecea98e4def5fa8f",
+      "unit_title": "第五课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9f25d3b08849cb47",
+      "alignment_type": "contextualizes",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_05dbe85802ac",
+        "tes_90d397220ef15041",
+        "textbook-node:tcn_1332cb3f7f1d2d87",
+        "textbook-unit:tcu_dfbce6abfa65214b"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第4 课 新中国工业化的起步和人民代表大会制度的确立 19",
+          "excerpt_hash": "f5af3441e94aa76eb11cc7b8089fde1995d7df2dd88da0bffcc660d34a48e803",
+          "pdf_page": 24,
+          "printed_page": "19",
+          "span_id": "tes_90d397220ef15041"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_e9fce671f0d8f27c"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_e9fce671f0d8f27c",
+          "label": "识别并说出人民代表大会制度是我国的根本政治制度的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_1332cb3f7f1d2d87",
+      "node_title": "第4课新中国工业化的起步和人民代表大会制度的确立19",
+      "pdf_page": 24,
+      "printed_page": "19",
+      "publication_status": "published",
+      "rationale": "教材lesson“第4课新中国工业化的起步和人民代表大会制度的确立19”为课标 ML-H4G8-LAW-017 的可教学小能力“识别并说出人民代表大会制度是我国的根本政治制度的关键特征”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_dfbce6abfa65214b",
+      "unit_title": "第4课"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_be93ed4da39eacc5",
       "alignment_type": "references",
       "confidence": null,
@@ -120,7 +231,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_5c5ef1dc8940e331",
       "alignment_type": "references",
       "confidence": null,
@@ -151,7 +262,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ed6678c70e2f148e",
       "alignment_type": "references",
       "confidence": null,
@@ -182,7 +293,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_07e5b1995a27a9d1",
       "alignment_type": "references",
       "confidence": null,

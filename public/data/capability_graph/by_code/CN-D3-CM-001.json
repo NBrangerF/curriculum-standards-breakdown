@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "performance_stability",
@@ -43,17 +43,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_f43763482d11a5a6",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_6c94586d24eda166162b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_85776c7beb7e",
+        "tes_5e9c19e9f1e0ce6e",
+        "textbook-node:tcn_519b1bedb90b3da6",
+        "textbook-unit:tcu_1ee315c7d3503d0c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "主持讨论时,要引导每个人发表意见。",
+          "excerpt_hash": "54558343e3ce07edbcd5b957ce6141589a5da45e644d628249d1b88f2b1198ff",
+          "pdf_page": 40,
+          "printed_page": "35",
+          "span_id": "tes_5e9c19e9f1e0ce6e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_028c3dec5f000555"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_028c3dec5f000555",
+          "label": "乐于参与讨论，敢于发表意见"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_519b1bedb90b3da6",
+      "node_title": "主持讨论时,要引导每个人发表意见。",
+      "pdf_page": 40,
+      "printed_page": "35",
+      "publication_status": "published",
+      "rationale": "教材objective“主持讨论时,要引导每个人发表意见。”与课标 CN-D3-CM-001 的可教学小能力“乐于参与讨论，敢于发表意见”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_1ee315c7d3503d0c",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c6a4f3ff38a8f757",
       "alignment_type": "references",
       "confidence": null,
@@ -84,7 +140,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_00b3598eb64b19c1",
       "alignment_type": "references",
       "confidence": null,
@@ -115,7 +171,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_4ec915c1a81df821",
       "alignment_type": "references",
       "confidence": null,
@@ -146,7 +202,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_f62b85350bdfcc20",
       "alignment_type": "references",
       "confidence": null,

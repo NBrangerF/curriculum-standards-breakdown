@@ -48,7 +48,17 @@ const FORWARD_RELATION_LABELS = {
 const ALIGNMENT_LEVEL_LABELS = {
     scope: '适用范围',
     unit: '具体单元',
+    page: '教材页面证据',
     unit_topic_candidate: '单元主题候选'
+}
+
+function buildCurriculumAlignmentReaderLink(item) {
+    const params = new URLSearchParams()
+    params.set('page', item.pdf_page)
+    if (item.node_id) params.set('node', item.node_id)
+    if (item.alignment_id) params.set('alignment', item.alignment_id)
+    params.set('panel', 'standards')
+    return `/textbooks/${item.edition_id}/read?${params.toString()}`
 }
 
 function normalizeDisplayValues(value) {
@@ -184,28 +194,35 @@ function DifficultyCard({ item }) {
 }
 
 function CurriculumAlignmentCard({ item }) {
-    const level = item.level || (item.unit_id ? 'unit' : 'scope')
+    const level = item.level || (item.evidence_level === 'L3_page_evidence' ? 'page' : item.unit_id || item.node_id ? 'unit' : 'scope')
     const textbookLabel = item.textbook_title || item.edition_name || item.edition_id || '相关教材'
     const isUnitTopicCandidate = level === 'unit_topic_candidate'
-    const canOpenReader = level === 'unit' && item.edition_id && item.pdf_page
+    const isPageEvidence = level === 'page' || item.evidence_level === 'L3_page_evidence'
+    const canOpenReader = !isUnitTopicCandidate && ['unit', 'page'].includes(level) && item.edition_id && item.pdf_page
+    const readerLink = isPageEvidence || item.node_id ? buildCurriculumAlignmentReaderLink(item) : `/textbooks/${item.edition_id}/read?page=${item.pdf_page}`
+    const evidence = item.evidence_spans?.[0]
+    const components = item.learning_component_labels || item.learning_components || item.learning_component_ids || []
     return (
         <article className={styles['alignment-card']}>
             <div className={styles['alignment-card-heading']}>
                 <span className={styles['alignment-level']}>{ALIGNMENT_LEVEL_LABELS[level] || level}</span>
-                <CapabilityStatus item={item} kindOverride={isUnitTopicCandidate ? 'machine' : ''} />
+                {isPageEvidence ? <span className={`${styles['capability-status']} ${styles.machine}`}>机器生成</span> : <CapabilityStatus item={item} kindOverride={isUnitTopicCandidate ? 'machine' : ''} />}
             </div>
             <h4>{item.edition_id ? <Link to={`/textbooks/${item.edition_id}`}>{textbookLabel}</Link> : textbookLabel}</h4>
-            {item.unit_title || item.unit_id ? (
+            {item.node_title || item.unit_title || item.unit_id ? (
                 <p className={styles['alignment-unit']}>
-                    {item.unit_id ? <Link to={`/textbook-units/${item.unit_id}`}>{item.unit_title || '查看关联单元'}</Link> : item.unit_title}
+                    {item.unit_id ? <Link to={`/textbook-units/${item.unit_id}`}>{item.node_title || item.unit_title || '查看关联单元'}</Link> : item.node_title || item.unit_title}
                 </p>
             ) : null}
             <div className={styles['alignment-locators']}>
                 {canOpenReader ? (
-                    <Link to={`/textbooks/${item.edition_id}/read?page=${item.pdf_page}`}>PDF {item.pdf_page}{item.printed_page ? ` · 印刷页 ${item.printed_page}` : ''}</Link>
+                    <Link to={readerLink}>PDF {item.pdf_page}{item.printed_page ? ` · 印刷页 ${item.printed_page}` : ''}</Link>
                 ) : isUnitTopicCandidate ? <span>待补页码证据</span> : item.printed_page ? <span>印刷页 {item.printed_page}</span> : null}
                 {item.evidence_role ? <span>{item.evidence_role === 'direct_textbook' ? '教材直接证据' : item.evidence_role}</span> : null}
+                {item.evidence_level ? <span>{item.evidence_level}</span> : null}
             </div>
+            {components.length ? <div className={styles['alignment-components']}>{components.map(component => <span key={typeof component === 'string' ? component : component.component_id}>{typeof component === 'string' ? component : component.label || component.component_id}</span>)}</div> : null}
+            {evidence?.excerpt || item.evidence_excerpt ? <blockquote className={styles['alignment-evidence']}>“{evidence?.excerpt || item.evidence_excerpt}”</blockquote> : null}
             {item.rationale ? <p>{item.rationale}</p> : null}
         </article>
     )

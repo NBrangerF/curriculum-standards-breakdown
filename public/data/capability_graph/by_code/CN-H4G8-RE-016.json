@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -118,17 +118,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8805b0de0a8a81b8",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_f4fb0c2a21f9",
+        "tes_3f26bb6c5966375a",
+        "textbook-node:tcn_be4b3cfa7ab4b5fd",
+        "textbook-unit:tcu_724cce0a3d00658f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "讨论会期间,主持人可根据情况,随机邀请听众参与讨论。",
+          "excerpt_hash": "b451f820b636d5b11905c8d1941da454605c7d2f3cb75fe58ab6a167991f4d22",
+          "pdf_page": 140,
+          "printed_page": "133",
+          "span_id": "tes_3f26bb6c5966375a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_52d598bb5f6a6959"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_52d598bb5f6a6959",
+          "label": "围绕社会热点问题以口头或书面方式参与讨论"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_be4b3cfa7ab4b5fd",
+      "node_title": "讨论会期间,主持人可根据情况,随机邀请听众参与讨论。",
+      "pdf_page": 140,
+      "printed_page": "133",
+      "publication_status": "published",
+      "rationale": "教材objective“讨论会期间,主持人可根据情况,随机邀请听众参与讨论。”与课标 CN-H4G8-RE-016 的可教学小能力“围绕社会热点问题以口头或书面方式参与讨论”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_724cce0a3d00658f",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_99966979ccd43d1c",
       "alignment_type": "references",
       "confidence": null,
@@ -159,7 +215,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_bd653a316e97ce82",
       "alignment_type": "references",
       "confidence": null,

@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "language_expression",
@@ -44,17 +44,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_36b3a41cbab29cdf",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_abbd5db6223f36ab3c5c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_9d06bc550436",
+        "tes_eb5e6e1433e8cdb4",
+        "textbook-node:tcn_82b215b5cef3e6ab",
+        "textbook-unit:tcu_841ec9c3cbfc24b5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "想一想,“不倒翁先生”的话有道理吗?假如你是小健的同学,知道小健完全否定自己,看不到自己的优",
+          "excerpt_hash": "974ef0a721361a7d0c1ee8bc26025bec85604f560b32c28035a70c76b785597c",
+          "pdf_page": 13,
+          "printed_page": "8",
+          "span_id": "tes_eb5e6e1433e8cdb4"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_ae82b75919da4a79"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_ae82b75919da4a79",
+          "label": "说出自己的优势与需要努力之处，遇到挫折时能选择至少1种积极应对方式（调整计划/寻求帮助/坚持练习）"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_82b215b5cef3e6ab",
+      "node_title": "想一想,“不倒翁先生”的话有道理吗?假如你是小健的同学,知道小健完全否定自己,看不到自己的优",
+      "pdf_page": 13,
+      "printed_page": "8",
+      "publication_status": "published",
+      "rationale": "教材exercise“想一想,“不倒翁先生”的话有道理吗?假如你是小健的同学,知道小健完全否定自己,看不到自己的优”与课标 ML-D2-SAF-001 的可教学小能力“说出自己的优势与需要努力之处，遇到挫折时能选择至少1种积极应对方式（调整计划/寻求帮助/坚持练习）”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_841ec9c3cbfc24b5",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_211f8c72989194ec",
       "alignment_type": "references",
       "confidence": null,
@@ -85,7 +141,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_12ad22f240613634",
       "alignment_type": "references",
       "confidence": null,
@@ -116,7 +172,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_27393d4eaff6d917",
       "alignment_type": "references",
       "confidence": null,
@@ -147,7 +203,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0e2ae3edce369d51",
       "alignment_type": "references",
       "confidence": null,

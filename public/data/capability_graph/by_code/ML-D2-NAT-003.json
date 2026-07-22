@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -116,18 +116,79 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 12,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1b6c4435ae064ae4",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_7751decca7f37a1d323e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_2d734af455c0",
+        "tes_b50d8a8137f21b27",
+        "textbook-node:tcn_66fc688aaf881954",
+        "textbook-unit:tcu_eb2d504434a7b461"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "调查方式:登录家乡所在地的政府公众信息网,收集家乡建设的信息;询问家中长辈所经历的家乡发展变化;观察家乡正在发生的变化。",
+          "excerpt_hash": "c29dce90b0a120771ed33009f47dff5da95a88584ccff4be0c1a4c72a090b72e",
+          "pdf_page": 96,
+          "printed_page": "91",
+          "span_id": "tes_b50d8a8137f21b27"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3e6693498d323415",
+        "lc_961893c3ac6afaf0"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3e6693498d323415",
+          "label": "表达对祖国未来的信心，并愿意为家乡发展提出建议或参与行动"
+        },
+        {
+          "component_id": "lc_961893c3ac6afaf0",
+          "label": "用观察或调查资料说明家乡的发展变化"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_66fc688aaf881954",
+      "node_title": "调查方式:登录家乡所在地的政府公众信息网,收集家乡建设的信息;询问家中长辈所经历的家乡发展变化;观察家乡正在发生的变化。",
+      "pdf_page": 96,
+      "printed_page": "91",
+      "publication_status": "published",
+      "rationale": "教材exercise“调查方式:登录家乡所在地的政府公众信息网,收集家乡建设的信息;询问家中长辈所经历的家乡发展变化;观察家乡正在发生的变化。”与课标 ML-D2-NAT-003 的可教学小能力“表达对祖国未来的信心，并愿意为家乡发展提出建议或参与行动、用观察或调查资料说明家乡的发展变化”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_eb2d504434a7b461",
+      "unit_title": "感受家乡文化 关心家乡发展"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_660bcc33441d8090",
       "alignment_type": "references",
       "confidence": null,
@@ -158,7 +219,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_3bea3ecfae5a9e3b",
       "alignment_type": "references",
       "confidence": null,
@@ -189,7 +250,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ce772965952a24b7",
       "alignment_type": "references",
       "confidence": null,
@@ -220,7 +281,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ddfb988ddd440bfb",
       "alignment_type": "references",
       "confidence": null,

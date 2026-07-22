@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -121,18 +121,74 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 4,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7ad7b244b016dac2",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_ea4820a47fad8d18",
+        "textbook-node:tcn_89cc9ea969a778ee",
+        "textbook-unit:tcu_bb18186ac36fbff6"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "22.2 二次函数与一元二次方程",
+          "excerpt_hash": "9d705a14d49f67d4bb14771989d4e0c81d296effcdfe224f234ae95b0365af71",
+          "pdf_page": 50,
+          "printed_page": "43",
+          "span_id": "tes_ea4820a47fad8d18"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b523486957aa883d"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b523486957aa883d",
+          "label": "用具体事例说明一次函数与二元一次方程的关系"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_89cc9ea969a778ee",
+      "node_title": "22.2 二次函数与一元二次方程",
+      "pdf_page": 50,
+      "printed_page": "43",
+      "publication_status": "published",
+      "rationale": "教材section“22.2 二次函数与一元二次方程”与课标 MA-H4G9-AL-002 的可教学小能力“用具体事例说明一次函数与二元一次方程的关系”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bb18186ac36fbff6",
+      "unit_title": "第二十二章 二次函数"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_3c776bb25e6b71d2",
       "alignment_type": "references",
       "confidence": null,
@@ -163,7 +219,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_f1e803894a487cb5",
       "alignment_type": "references",
       "confidence": null,

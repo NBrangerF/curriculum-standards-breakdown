@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "performance_stability",
@@ -43,17 +43,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8d616ad78ada2bac",
+      "alignment_type": "contextualizes",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_05dbe85802ac",
+        "tes_e429aabd4cd3a7d4",
+        "textbook-node:tcn_19dcde84f73d6a06",
+        "textbook-unit:tcu_3309d4424fc2c169"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第10 课 建设中国特色社会主义 47",
+          "excerpt_hash": "586e40570c28784b62f68e99a0467b26c6e33c416bcdbc8b88200fc057770503",
+          "pdf_page": 52,
+          "printed_page": "47",
+          "span_id": "tes_e429aabd4cd3a7d4"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_cf9a4faf54551cb0"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_cf9a4faf54551cb0",
+          "label": "识别并说出民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_19dcde84f73d6a06",
+      "node_title": "第10课建设中国特色社会主义47",
+      "pdf_page": 52,
+      "printed_page": "47",
+      "publication_status": "published",
+      "rationale": "教材lesson“第10课建设中国特色社会主义47”为课标 ML-H4G8-LAW-023 的可教学小能力“识别并说出民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义的关键特征”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_3309d4424fc2c169",
+      "unit_title": "第9课"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_cb84c8f560ff2e7b",
       "alignment_type": "references",
       "confidence": null,
@@ -84,7 +140,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_682cfe322cbf0986",
       "alignment_type": "references",
       "confidence": null,
@@ -115,7 +171,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_02d9290168ec1141",
       "alignment_type": "references",
       "confidence": null,
@@ -146,7 +202,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_4259213be53ccf8b",
       "alignment_type": "references",
       "confidence": null,

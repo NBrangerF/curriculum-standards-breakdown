@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "transfer",
@@ -79,17 +79,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9d0698e5828aefb3",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_02f942c3391d",
+        "tes_d3e63a97cd4f8fb1",
+        "textbook-node:tcn_20cba2c32151f570",
+        "textbook-unit:tcu_bf08e361b9eb8508"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "只有取得选民资格,才享有公民权利。 ( )",
+          "excerpt_hash": "09a8edd116490dfadc64ac194f3dae4168063c1cd749b04ba3f7d36b49432d25",
+          "pdf_page": 33,
+          "printed_page": "30",
+          "span_id": "tes_d3e63a97cd4f8fb1"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_28582181508ee5a2"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_28582181508ee5a2",
+          "label": "列举宪法中与公民权利义务相关的要点"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_20cba2c32151f570",
+      "node_title": "只有取得选民资格,才享有公民权利。 ( )",
+      "pdf_page": 33,
+      "printed_page": "30",
+      "publication_status": "published",
+      "rationale": "教材objective“只有取得选民资格,才享有公民权利。 ( )”与课标 ML-D3-LAW-002 的可教学小能力“列举宪法中与公民权利义务相关的要点”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bf08e361b9eb8508",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c29ddcd9ebc010ce",
       "alignment_type": "references",
       "confidence": null,
@@ -120,7 +176,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_5664a64539f0b05f",
       "alignment_type": "references",
       "confidence": null,
@@ -151,7 +207,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c05cbad91f7c90f0",
       "alignment_type": "references",
       "confidence": null,
@@ -182,7 +238,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_11fe907c490e15c0",
       "alignment_type": "references",
       "confidence": null,

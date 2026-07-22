@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -156,17 +156,128 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1b1851f3a76d8a7e",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_6b050908ad1505de",
+        "textbook-node:tcn_9aa2c3a5b730ef0f",
+        "textbook-unit:tcu_e93b533afbe51ff1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "绿色植物的生活需要水和无机盐。水和无机盐是由根吸收的,通过",
+          "excerpt_hash": "2b67ac388a5cca58a570f14ad53e5be84f51b460290c6e79d3048d4fb08b3c84",
+          "pdf_page": 145,
+          "printed_page": "138",
+          "span_id": "tes_6b050908ad1505de"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_65f06935ec3ca70b"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_65f06935ec3ca70b",
+          "label": "列举绿色开花植物的生殖方式及其在生产生活中的应用"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_9aa2c3a5b730ef0f",
+      "node_title": "绿色植物的生活需要水和无机盐。水和无机盐是由根吸收的,通过",
+      "pdf_page": 145,
+      "printed_page": "138",
+      "publication_status": "published",
+      "rationale": "教材objective“绿色植物的生活需要水和无机盐。水和无机盐是由根吸收的,通过”与课标 SC-H4G7-SC-013 的可教学小能力“列举绿色开花植物的生殖方式及其在生产生活中的应用”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e93b533afbe51ff1",
+      "unit_title": "第六章"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5a9f0518e42debb1",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_4416b8e813472c67",
+        "textbook-node:tcn_5022cde496bba175",
+        "textbook-unit:tcu_e93b533afbe51ff1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "被子植物的生命周期包括种子的萌发、植株的生长发育、开花、结",
+          "excerpt_hash": "68f4e605edd5e797c7c5e6931be778aea2d734181b673efa896dd7b4058c5a7e",
+          "pdf_page": 145,
+          "printed_page": "138",
+          "span_id": "tes_4416b8e813472c67"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_65f06935ec3ca70b"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_65f06935ec3ca70b",
+          "label": "列举绿色开花植物的生殖方式及其在生产生活中的应用"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_5022cde496bba175",
+      "node_title": "被子植物的生命周期包括种子的萌发、植株的生长发育、开花、结",
+      "pdf_page": 145,
+      "printed_page": "138",
+      "publication_status": "published",
+      "rationale": "教材objective“被子植物的生命周期包括种子的萌发、植株的生长发育、开花、结”与课标 SC-H4G7-SC-013 的可教学小能力“列举绿色开花植物的生殖方式及其在生产生活中的应用”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e93b533afbe51ff1",
+      "unit_title": "第六章"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0d5714a32b2f7e42",
       "alignment_type": "references",
       "confidence": null,
@@ -197,7 +308,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_68bcbbf1b09f9772",
       "alignment_type": "references",
       "confidence": null,
@@ -228,7 +339,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_5b410498ba9bb25a",
       "alignment_type": "references",
       "confidence": null,
@@ -259,7 +370,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7a8a22712e598ec8",
       "alignment_type": "references",
       "confidence": null,

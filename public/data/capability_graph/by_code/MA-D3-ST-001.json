@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -160,17 +160,183 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6c06927f4d3d4817",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5",
+        "tes_c10a56c2d32bf2cb",
+        "textbook-node:tcn_009d611ae75fb8e4",
+        "textbook-unit:tcu_e400348f1a1520e3"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "根据统计表中的数据绘制折线统计图,并回答下面的问题。",
+          "excerpt_hash": "f72ca04d79e8139e568aeaa91847ccb57bcd361df2ac17f5930813b1125b95ec",
+          "pdf_page": 111,
+          "printed_page": "106",
+          "span_id": "tes_c10a56c2d32bf2cb"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_2c04e4a86c151cff"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_2c04e4a86c151cff",
+          "label": "把数据整理成条形统计图、折线统计图，知道条形统计图、折线统计图和扇形统计图的功能"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_009d611ae75fb8e4",
+      "node_title": "根据统计表中的数据绘制折线统计图,并回答下面的问题。",
+      "pdf_page": 111,
+      "printed_page": "106",
+      "publication_status": "published",
+      "rationale": "教材exercise“根据统计表中的数据绘制折线统计图,并回答下面的问题。”与课标 MA-D3-ST-001 的可教学小能力“把数据整理成条形统计图、折线统计图，知道条形统计图、折线统计图和扇形统计图的功能”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_e400348f1a1520e3",
+      "unit_title": "24.6 m2,高是 3 m。它的容"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_391edff9476fa28d",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_1ba8117dec0624e11c0e",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_b06437a92308",
+        "tes_6b157b9b882bc06d",
+        "textbook-node:tcn_e7f0c0b904483bbd",
+        "textbook-unit:tcu_1185da647c313c14"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "7 扇形统计图",
+          "excerpt_hash": "46ad537e8bc126a21acda35305d7e45aec493d856b34d912b9eda825bad98bd9",
+          "pdf_page": 99,
+          "printed_page": "94",
+          "span_id": "tes_6b157b9b882bc06d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_2c04e4a86c151cff"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_2c04e4a86c151cff",
+          "label": "把数据整理成条形统计图、折线统计图，知道条形统计图、折线统计图和扇形统计图的功能"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e7f0c0b904483bbd",
+      "node_title": "7扇形统计图",
+      "pdf_page": 99,
+      "printed_page": "94",
+      "publication_status": "published",
+      "rationale": "教材lesson“7扇形统计图”与课标 MA-D3-ST-001 的可教学小能力“把数据整理成条形统计图、折线统计图，知道条形统计图、折线统计图和扇形统计图的功能”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_1185da647c313c14",
+      "unit_title": "24.06 t,比攻关目标高了约 7 %。"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a1008a33bf2e5af4",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_1bb9d396d4d884aee79e",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_adf6aeea79e5",
+        "tes_020d51af93ce581b",
+        "textbook-node:tcn_53dff7ad601fe8d3",
+        "textbook-unit:tcu_e400348f1a1520e3"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "7 折线统计图",
+          "excerpt_hash": "daeb72c04ee3cda65b299586f732a289e13ed474483a4a95358e7950e6311f0b",
+          "pdf_page": 109,
+          "printed_page": "104",
+          "span_id": "tes_020d51af93ce581b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_2c04e4a86c151cff"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_2c04e4a86c151cff",
+          "label": "把数据整理成条形统计图、折线统计图，知道条形统计图、折线统计图和扇形统计图的功能"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_53dff7ad601fe8d3",
+      "node_title": "7折线统计图",
+      "pdf_page": 109,
+      "printed_page": "104",
+      "publication_status": "published",
+      "rationale": "教材lesson“7折线统计图”与课标 MA-D3-ST-001 的可教学小能力“把数据整理成条形统计图、折线统计图，知道条形统计图、折线统计图和扇形统计图的功能”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_e400348f1a1520e3",
+      "unit_title": "24.6 m2,高是 3 m。它的容"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ffbaafdb4da1e1cc",
       "alignment_type": "references",
       "confidence": null,
@@ -201,7 +367,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_10c432388f9e707b",
       "alignment_type": "references",
       "confidence": null,
@@ -232,7 +398,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e0928b7a561fb777",
       "alignment_type": "references",
       "confidence": null,
@@ -263,7 +429,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_024c424817b88d78",
       "alignment_type": "references",
       "confidence": null,

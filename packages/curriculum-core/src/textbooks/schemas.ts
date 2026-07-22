@@ -15,9 +15,25 @@ export const TextbookRevisionStatusSchema = z.enum([
     'revision_unknown',
     'future_candidate'
 ])
-export const TextbookStructureStatusSchema = z.enum(['approved', 'candidate', 'unavailable'])
+export const TextbookStructureStatusSchema = z.enum(['approved', 'machine_checked', 'candidate', 'unavailable'])
 export const TextbookTextQualitySchema = z.enum(['native_text', 'partial_text', 'scan_only', 'unknown'])
 export const TextbookRelationStatusSchema = z.enum(['approved', 'machine_checked', 'candidate', 'unavailable'])
+export const TextbookEvidenceLevelSchema = z.enum(['L1', 'L2', 'L3', 'L4', 'L5'])
+export const TextbookEvidenceLevelDetailSchema = z.enum([
+    'L1_scope',
+    'L2_topic',
+    'L3_page_evidence',
+    'L4_teacher_guide',
+    'L5_official_crosswalk'
+])
+export const TextbookAlignmentRelationTypeSchema = z.enum([
+    'teaches',
+    'supports',
+    'practices',
+    'assesses',
+    'mentions',
+    'contextualizes'
+])
 
 export const TextbookCatalogRecordSchema = z.object({
     edition_id: z.string().min(1),
@@ -66,7 +82,8 @@ export const TextbookTocEntrySchema = z.object({
     end_pdf_page: z.number().int().positive().nullable(),
     confidence: z.number().min(0).max(1),
     review_status: z.enum(['approved', 'machine_checked', 'needs_review']),
-    source: z.enum(['pdf_outline', 'toc_text', 'ocr_toc', 'heading_match', 'manual', 'legacy_unit_evidence'])
+    publication_status: z.literal('published').optional(),
+    source: z.enum(['pdf_outline', 'toc_text', 'ocr_toc', 'heading_match', 'body_inferred_unit', 'manual', 'legacy_unit_evidence'])
 }).strict()
 
 export const TextbookPageMapEntrySchema = z.object({
@@ -77,16 +94,75 @@ export const TextbookPageMapEntrySchema = z.object({
     review_status: z.enum(['approved', 'machine_checked', 'needs_review'])
 }).strict()
 
+export const TextbookContentNodeSchema = z.object({
+    node_id: z.string().min(1),
+    parent_id: z.string().min(1).nullable(),
+    unit_id: z.string().min(1).nullable(),
+    toc_entry_id: z.string().min(1).optional(),
+    level: z.number().int().nonnegative(),
+    kind: z.string().min(1),
+    title: z.string().min(1),
+    pdf_page: z.number().int().positive(),
+    end_pdf_page: z.number().int().positive(),
+    printed_page: z.string().nullable(),
+    end_printed_page: z.string().nullable(),
+    text_excerpt: z.string().optional(),
+    evidence_span_ids: z.array(z.string().min(1)).optional(),
+    source: z.string().min(1).optional(),
+    confidence: z.number().min(0).max(1),
+    review_status: z.enum(['approved', 'machine_checked']).optional()
+}).strict().refine(node => node.end_pdf_page >= node.pdf_page, {
+    message: 'end_pdf_page must be greater than or equal to pdf_page',
+    path: ['end_pdf_page']
+})
+
+export const TextbookEvidenceBoundingBoxSchema = z.object({
+    x: z.number().finite(),
+    y: z.number().finite(),
+    width: z.number().finite().nonnegative(),
+    height: z.number().finite().nonnegative(),
+    unit: z.string().min(1).optional(),
+    page_width: z.number().finite().positive().optional(),
+    page_height: z.number().finite().positive().optional()
+}).strict()
+
+export const TextbookEvidenceSpanSchema = z.object({
+    evidence_span_id: z.string().min(1),
+    node_id: z.string().min(1),
+    pdf_page: z.number().int().positive(),
+    printed_page: z.string().nullable(),
+    title: z.string().min(1).optional(),
+    excerpt: z.string().min(1),
+    excerpt_hash: z.string().min(1),
+    bbox: TextbookEvidenceBoundingBoxSchema.nullable().optional(),
+    evidence_role: z.string().min(1).optional(),
+    source: z.string().min(1).optional(),
+    parser_version: z.string().min(1).optional()
+}).strict()
+
+export const TextbookLearningComponentReferenceSchema = z.object({
+    component_id: z.string().min(1),
+    label: z.string().min(1)
+}).strict()
+
 export const TextbookStandardAlignmentSchema = z.object({
     alignment_id: z.string().min(1),
     edition_id: z.string().min(1).optional(),
-    unit_id: z.string().min(1),
+    unit_id: z.string().min(1).optional(),
+    node_id: z.string().min(1).optional(),
     unit_title: z.string().min(1).optional(),
     standard_code: z.string().min(1),
     standard_text: z.string(),
     subject_slug: z.string().min(1),
     grade_band: z.string(),
-    relation_type: z.enum(['teaches', 'supports', 'mentions', 'contextualizes']),
+    relation_type: TextbookAlignmentRelationTypeSchema,
+    learning_component_ids: z.array(z.string().min(1)).optional(),
+    learning_components: z.array(TextbookLearningComponentReferenceSchema).optional(),
+    evidence_level: TextbookEvidenceLevelSchema.optional(),
+    evidence_level_detail: TextbookEvidenceLevelDetailSchema.optional(),
+    evidence_granularity: z.string().min(1).optional(),
+    evidence_span_ids: z.array(z.string().min(1)).optional(),
+    provenance: z.string().min(1).optional(),
     evidence_role: z.string().min(1).optional(),
     confidence: z.number().min(0).max(1),
     score: z.number().min(0).max(1).optional(),
@@ -102,7 +178,10 @@ export const TextbookStandardAlignmentSchema = z.object({
     evidence_id: z.string().nullable().optional(),
     pdf_page: z.number().int().positive().nullable().optional(),
     printed_page: z.string().nullable().optional()
-}).strict()
+}).strict().refine(alignment => Boolean(alignment.unit_id || alignment.node_id), {
+    message: 'alignment requires unit_id or node_id',
+    path: ['node_id']
+})
 
 export const TextbookStandardScopeSchema = z.object({
     scope_id: z.string().min(1),
@@ -129,6 +208,8 @@ export const TextbookRelatedResourceSchema = z.object({
 export const TextbookDetailRecordSchema = TextbookCatalogRecordSchema.extend({
     toc: z.array(TextbookTocEntrySchema),
     page_map: z.array(TextbookPageMapEntrySchema),
+    content_nodes: z.array(TextbookContentNodeSchema).default([]),
+    evidence_spans: z.array(TextbookEvidenceSpanSchema).default([]),
     alignments: z.array(TextbookStandardAlignmentSchema),
     standard_scopes: z.array(TextbookStandardScopeSchema),
     related_resources: z.array(TextbookRelatedResourceSchema),

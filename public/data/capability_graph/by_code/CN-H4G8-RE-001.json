@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -122,17 +122,348 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 6,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 6,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8cc194ba22f11f9f",
+      "alignment_type": "supports",
+      "confidence": 0.8313,
+      "coverage": "partial",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_f4fb0c2a21f9",
+        "tes_db94e07e1266f649",
+        "textbook-node:tcn_fbf25c3ea43e0053",
+        "textbook-unit:tcu_724cce0a3d00658f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "善于运用寓言故事说理,想象雄奇瑰丽,是《庄子》的特色。朗读课",
+          "excerpt_hash": "97bbe80611ec7378759a44c38b13978f923d8d750c0017eb0ab513a71e2b2d80",
+          "pdf_page": 123,
+          "printed_page": "116",
+          "span_id": "tes_db94e07e1266f649"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b4c846f32f4b9dd4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b4c846f32f4b9dd4",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_fbf25c3ea43e0053",
+      "node_title": "善于运用寓言故事说理,想象雄奇瑰丽,是《庄子》的特色。朗读课",
+      "pdf_page": 123,
+      "printed_page": "116",
+      "publication_status": "published",
+      "rationale": "教材objective“善于运用寓言故事说理,想象雄奇瑰丽,是《庄子》的特色。朗读课”与课标 CN-H4G8-RE-001 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_724cce0a3d00658f",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1abfb5c60f27b439",
+      "alignment_type": "supports",
+      "confidence": 0.8313,
+      "coverage": "partial",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_f4fb0c2a21f9",
+        "tes_a1c296a784329bd3",
+        "textbook-node:tcn_c170be715ebd252b",
+        "textbook-unit:tcu_724cce0a3d00658f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,注意其中一些词语古今意义的不同。",
+          "excerpt_hash": "b1dd0e8e65b4b21acd8f40b51b8d7c7df5436577dcbb66bc527a85b23d61721b",
+          "pdf_page": 126,
+          "printed_page": "119",
+          "span_id": "tes_a1c296a784329bd3"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b4c846f32f4b9dd4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b4c846f32f4b9dd4",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c170be715ebd252b",
+      "node_title": "朗读课文,注意其中一些词语古今意义的不同。",
+      "pdf_page": 126,
+      "printed_page": "119",
+      "publication_status": "published",
+      "rationale": "教材objective“朗读课文,注意其中一些词语古今意义的不同。”与课标 CN-H4G8-RE-001 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_724cce0a3d00658f",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_fb4694c5fba0c74e",
+      "alignment_type": "supports",
+      "confidence": 0.8314,
+      "coverage": "partial",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_be04d8b55a4f",
+        "tes_4cc179960f1eca5b",
+        "textbook-node:tcn_e95d93e5d98511c7",
+        "textbook-unit:tcu_06be6ee7aa0bc0b6"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "这篇文章特别适合朗读。不妨先浏览一",
+          "excerpt_hash": "0660ade2821acfdd1a46ec390adca60d8d7edaac88c70bf72ed7ddb6b64e5d13",
+          "pdf_page": 85,
+          "printed_page": "78",
+          "span_id": "tes_4cc179960f1eca5b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b4c846f32f4b9dd4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b4c846f32f4b9dd4",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e95d93e5d98511c7",
+      "node_title": "这篇文章特别适合朗读。不妨先浏览一",
+      "pdf_page": 85,
+      "printed_page": "78",
+      "publication_status": "published",
+      "rationale": "教材objective“这篇文章特别适合朗读。不妨先浏览一”与课标 CN-H4G8-RE-001 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_06be6ee7aa0bc0b6",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_e3292c48ac888e72",
+      "alignment_type": "supports",
+      "confidence": 0.8313,
+      "coverage": "partial",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_be04d8b55a4f",
+        "tes_0551ad990f648a56",
+        "textbook-node:tcn_36572bc0ce2eff57",
+        "textbook-unit:tcu_1f46454797d84e7f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "这五首作品,有古体诗、近体诗,也有词,反复朗读,体会它们不同",
+          "excerpt_hash": "b699b934efcf6c1cfb11ac9cb486021c37874addf5c05db21a5939f045d11708",
+          "pdf_page": 153,
+          "printed_page": "146",
+          "span_id": "tes_0551ad990f648a56"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b4c846f32f4b9dd4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b4c846f32f4b9dd4",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_36572bc0ce2eff57",
+      "node_title": "这五首作品,有古体诗、近体诗,也有词,反复朗读,体会它们不同",
+      "pdf_page": 153,
+      "printed_page": "146",
+      "publication_status": "published",
+      "rationale": "教材objective“这五首作品,有古体诗、近体诗,也有词,反复朗读,体会它们不同”与课标 CN-H4G8-RE-001 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_1f46454797d84e7f",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_25237ee10e4b355b",
+      "alignment_type": "supports",
+      "confidence": 0.8313,
+      "coverage": "partial",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_be04d8b55a4f",
+        "tes_5aed4a7385f28156",
+        "textbook-node:tcn_36f2151a63b46ae8",
+        "textbook-unit:tcu_aa01014f8921731e"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,感受课文句式整齐、声韵和谐的特点。",
+          "excerpt_hash": "125fb332401a3b502963d73628da8ee22a073dc33d86dfece8396f23834ea247",
+          "pdf_page": 61,
+          "printed_page": "54",
+          "span_id": "tes_5aed4a7385f28156"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b4c846f32f4b9dd4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b4c846f32f4b9dd4",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_36f2151a63b46ae8",
+      "node_title": "朗读课文,感受课文句式整齐、声韵和谐的特点。",
+      "pdf_page": 61,
+      "printed_page": "54",
+      "publication_status": "published",
+      "rationale": "教材objective“朗读课文,感受课文句式整齐、声韵和谐的特点。”与课标 CN-H4G8-RE-001 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_aa01014f8921731e",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_496e593f1556356a",
+      "alignment_type": "supports",
+      "confidence": 0.8313,
+      "coverage": "partial",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_be04d8b55a4f",
+        "tes_b719acce05263d43",
+        "textbook-node:tcn_cbc47af1e6cffef9",
+        "textbook-unit:tcu_aa01014f8921731e"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,体会两篇文章不同的语言风格。",
+          "excerpt_hash": "ee985f45afb846860d130cfc1d4311c85fe1f8842e5af4706078990a1a8f4c2e",
+          "pdf_page": 63,
+          "printed_page": "56",
+          "span_id": "tes_b719acce05263d43"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b4c846f32f4b9dd4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b4c846f32f4b9dd4",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_cbc47af1e6cffef9",
+      "node_title": "朗读课文,体会两篇文章不同的语言风格。",
+      "pdf_page": 63,
+      "printed_page": "56",
+      "publication_status": "published",
+      "rationale": "教材objective“朗读课文,体会两篇文章不同的语言风格。”与课标 CN-H4G8-RE-001 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_aa01014f8921731e",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0c2f1f35d90fc684",
       "alignment_type": "references",
       "confidence": null,
@@ -163,7 +494,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7772a6f9100f0cc0",
       "alignment_type": "references",
       "confidence": null,

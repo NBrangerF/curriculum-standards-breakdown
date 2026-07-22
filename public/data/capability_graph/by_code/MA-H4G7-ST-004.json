@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -159,17 +159,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_583e68ef24afa8cd",
+      "alignment_type": "practices",
+      "confidence": 0.8086,
+      "coverage": "partial",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_48072359f7df",
+        "tes_cc30bef8aea923e4",
+        "textbook-node:tcn_34fd8cfbfa2c46b1",
+        "textbook-unit:tcu_517f2b03b123cca5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "设计、广告语言、汉语拼音或英语词组)、生产常识 (材料、生产成本)等.本节中,我们将通过下面的设计和制作长方体纸盒的实践活动,进一步体会立体图形与平面图形之间的相互转化.",
+          "excerpt_hash": "67586ac5e7fd1d87f7b76aaadc9844830f49b66154bb699d6f7245df29cb4821",
+          "pdf_page": 149,
+          "printed_page": "142",
+          "span_id": "tes_cc30bef8aea923e4"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_e7e72046b898329f"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_e7e72046b898329f",
+          "label": "进一步经历收集、整理、描述、分析数据的活动"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_34fd8cfbfa2c46b1",
+      "node_title": "设计、广告语言、汉语拼音或英语词组)、生产常识 (材料、生产成本)等.本节中,我们将通过下面的设计和制作长方体纸盒的实践活动,进一步体会立体图形与平面图形之间的相互转化.",
+      "pdf_page": 149,
+      "printed_page": "142",
+      "publication_status": "published",
+      "rationale": "教材exercise“设计、广告语言、汉语拼音或英语词组)、生产常识 (材料、生产成本)等.本节中,我们将通过下面的设计和制作长方体纸盒的实践活动,进一步体会立体图形与平面图形之间的相互转化.”与课标 MA-H4G7-ST-004 的可教学小能力“进一步经历收集、整理、描述、分析数据的活动”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_517f2b03b123cca5",
+      "unit_title": "第四章 几何图形初步"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_97c3b07fd56c6883",
       "alignment_type": "references",
       "confidence": null,
@@ -200,7 +256,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_58e2f829ec1c0574",
       "alignment_type": "references",
       "confidence": null,

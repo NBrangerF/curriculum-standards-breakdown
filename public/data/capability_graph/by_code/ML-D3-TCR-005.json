@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -124,17 +124,128 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8485db1afbd03a9d",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_02f942c3391d",
+        "tes_3222ca45e3071f9d",
+        "textbook-node:tcn_38abd5fb31f93cbc",
+        "textbook-unit:tcu_177b78cb41ba5511"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "新中国成立后,中国共产党带领全国人民恢复了",
+          "excerpt_hash": "eb56207210c5d86cb53e1633c75adb5c01f531a9e77bb6dffa3afc73209a4bf2",
+          "pdf_page": 18,
+          "printed_page": "15",
+          "span_id": "tes_3222ca45e3071f9d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f084a51d239ccac9"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f084a51d239ccac9",
+          "label": "概述中国共产党成立及带领人民取得革命胜利的基本事实"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_38abd5fb31f93cbc",
+      "node_title": "新中国成立后,中国共产党带领全国人民恢复了",
+      "pdf_page": 18,
+      "printed_page": "15",
+      "publication_status": "published",
+      "rationale": "教材objective“新中国成立后,中国共产党带领全国人民恢复了”与课标 ML-D3-TCR-005 的可教学小能力“概述中国共产党成立及带领人民取得革命胜利的基本事实”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_177b78cb41ba5511",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ad7231312d92ccf4",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_02f942c3391d",
+        "tes_6e1b57917dafa0bb",
+        "textbook-node:tcn_f47c9b50ba084062",
+        "textbook-unit:tcu_177b78cb41ba5511"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "以毛泽东为领袖的中国共产党领导各族人民,建立了中华人民共和国。",
+          "excerpt_hash": "60673ec1e287d5cffb8ac10f47ba4b1cc1f257d5fe2f2df6b27639a9128e3be4",
+          "pdf_page": 18,
+          "printed_page": "15",
+          "span_id": "tes_6e1b57917dafa0bb"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f084a51d239ccac9"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f084a51d239ccac9",
+          "label": "概述中国共产党成立及带领人民取得革命胜利的基本事实"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_f47c9b50ba084062",
+      "node_title": "以毛泽东为领袖的中国共产党领导各族人民,建立了中华人民共和国。",
+      "pdf_page": 18,
+      "printed_page": "15",
+      "publication_status": "published",
+      "rationale": "教材objective“以毛泽东为领袖的中国共产党领导各族人民,建立了中华人民共和国。”与课标 ML-D3-TCR-005 的可教学小能力“概述中国共产党成立及带领人民取得革命胜利的基本事实”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_177b78cb41ba5511",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c8d687797be8e09b",
       "alignment_type": "references",
       "confidence": null,
@@ -165,7 +276,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ff4d782474d6f306",
       "alignment_type": "references",
       "confidence": null,
@@ -196,7 +307,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_6e5a3997c6f528d3",
       "alignment_type": "references",
       "confidence": null,
@@ -227,7 +338,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_3a326ab6cfaacbcd",
       "alignment_type": "references",
       "confidence": null,

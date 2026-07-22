@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -119,50 +119,469 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 5,
-    "disposition": "unit_topic_needs_page_evidence",
-    "evidence_note": "已有目录主题候选，但缺少可靠 PDF 页定位，已降级进入补证队列。",
+    "candidate_count": 0,
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 0,
-    "unit_topic_candidate_count": 1
+    "specific_count": 8,
+    "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_3be6a710c1ad75a0",
-      "alignment_type": "supports",
-      "confidence": 0.8491,
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_d0364d33e02d6b7b",
+      "alignment_type": "practices",
+      "confidence": 0.86,
       "coverage": "partial",
-      "edition_id": "ed_f8159854e52a9dd85942",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a",
+        "tes_340cdda860dcf6c6",
+        "textbook-node:tcn_f77f4e2c64db2c3c",
+        "textbook-unit:tcu_e228edafb658bb8a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "证明:过点犘作犘犇,犘犈,犘犉分别垂直于 图12.36犃犅,犅犆,犆犃,垂足分别为犇,犈,犉.∵ 犅犕 是△犃犅犆 的角平分线,点犘 在",
+          "excerpt_hash": "218ab4c961968377b7640a29c455766baceef1879da658e3e8854a90a88ecace",
+          "pdf_page": 57,
+          "printed_page": "50",
+          "span_id": "tes_340cdda860dcf6c6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4c0a2792f4f42e76",
+        "lc_5eb30a22dd8f5099"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4c0a2792f4f42e76",
+          "label": "探索并证明所列几何性质与定理"
+        },
+        {
+          "component_id": "lc_5eb30a22dd8f5099",
+          "label": "用自己的话解释三角形及其内角、外角、中线、高线、角平分线等概念"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_f77f4e2c64db2c3c",
+      "node_title": "证明:过点犘作犘犇,犘犈,犘犉分别垂直于 图12.36犃犅,犅犆,犆犃,垂足分别为犇,犈,犉.∵ 犅犕 是△犃犅犆 的角平分线,点犘 在",
+      "pdf_page": 57,
+      "printed_page": "50",
+      "publication_status": "published",
+      "rationale": "教材exercise“证明:过点犘作犘犇,犘犈,犘犉分别垂直于 图12.36犃犅,犅犆,犆犃,垂足分别为犇,犈,犉.∵ 犅犕 是△犃犅犆 的角平分线,点犘 在”与课标 MA-H4G8-GE-011 的可教学小能力“探索并证明所列几何性质与定理、用自己的话解释三角形及其内角、外角、中线、高线、角平分线等概念”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e228edafb658bb8a",
+      "unit_title": "第十二章 全等三角形"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_d3a4ff1b7bd7b632",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a",
+        "tes_2b6c4a64e5ffbe53",
+        "textbook-node:tcn_07e0d415502ad4ba",
+        "textbook-unit:tcu_f20b949c0d9b7f2f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "证明:∵ △犃犅犆是等边三角形, D E∴ ∠犃=∠犅=∠犆.B C",
+          "excerpt_hash": "1506110f5a27916fe3b21c73fdf3d9627ddee52b23dc0025056a9482e252b754",
+          "pdf_page": 87,
+          "printed_page": "80",
+          "span_id": "tes_2b6c4a64e5ffbe53"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4c0a2792f4f42e76"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4c0a2792f4f42e76",
+          "label": "探索并证明所列几何性质与定理"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_07e0d415502ad4ba",
+      "node_title": "证明:∵ △犃犅犆是等边三角形, D E∴ ∠犃=∠犅=∠犆.B C",
+      "pdf_page": 87,
+      "printed_page": "80",
+      "publication_status": "published",
+      "rationale": "教材exercise“证明:∵ △犃犅犆是等边三角形, D E∴ ∠犃=∠犅=∠犆.B C”与课标 MA-H4G8-GE-011 的可教学小能力“探索并证明所列几何性质与定理”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_f20b949c0d9b7f2f",
+      "unit_title": "第十三章 轴对称"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_d88a3d2793b12504",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
       "evidence_basis": "toc_title",
       "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
       "evidence_level": "L2_topic",
       "evidence_refs": [
-        "ctb_485165afa9c8",
-        "textbook-unit:tcu_ba0ce5c2fde49c37"
+        "ctb_e14d09b0b94a",
+        "tes_d7de840e32e4c5c5",
+        "textbook-node:tcn_27e57f4edc0d3cf0",
+        "textbook-unit:tcu_c1e5fa9b1c265dc3"
       ],
       "evidence_role": "direct_textbook",
-      "level": "unit_topic_candidate",
-      "method": "constrained_concept_idf",
-      "pdf_page": null,
-      "printed_page": null,
-      "publication_status": "review_queue",
-      "rationale": "教材条目“勾股定理”与课标 MA-H4G8-GE-011 在practice、standard字段命中概念：勾股定理。",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "11.1.2 三角形的高、中线与角平分线",
+          "excerpt_hash": "a02bd6a211bcb2fc0d179f5b1456edaba30fd9d9ae9edd868540cab130acae92",
+          "pdf_page": 11,
+          "printed_page": "4",
+          "span_id": "tes_d7de840e32e4c5c5"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4c0a2792f4f42e76",
+        "lc_5eb30a22dd8f5099"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4c0a2792f4f42e76",
+          "label": "探索并证明所列几何性质与定理"
+        },
+        {
+          "component_id": "lc_5eb30a22dd8f5099",
+          "label": "用自己的话解释三角形及其内角、外角、中线、高线、角平分线等概念"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_27e57f4edc0d3cf0",
+      "node_title": "11.1.2 三角形的高、中线与角平分线",
+      "pdf_page": 11,
+      "printed_page": "4",
+      "publication_status": "published",
+      "rationale": "教材section“11.1.2 三角形的高、中线与角平分线”与课标 MA-H4G8-GE-011 的可教学小能力“探索并证明所列几何性质与定理、用自己的话解释三角形及其内角、外角、中线、高线、角平分线等概念”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
-      "review_status": "candidate",
+      "review_status": "machine_checked",
       "revision_status": "revision_unknown",
       "textbook_grade": 8,
       "textbook_subject": "数学",
-      "textbook_title": "数学8年级下册",
-      "textbook_volume": "下册",
-      "unit_id": "tcu_ba0ce5c2fde49c37",
-      "unit_title": "勾股定理"
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c1e5fa9b1c265dc3",
+      "unit_title": "第十一章 三角形"
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ad0959cd41efe0cd",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a",
+        "tes_140e4368206fe3c3",
+        "textbook-node:tcn_b7c52ec1b944620d",
+        "textbook-unit:tcu_c1e5fa9b1c265dc3"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "11.3 多边形及其内角和",
+          "excerpt_hash": "d44ee83a813969db2741cbe730a4d138716367c928df7c7a85d12bdaf2540982",
+          "pdf_page": 26,
+          "printed_page": "19",
+          "span_id": "tes_140e4368206fe3c3"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_5eb30a22dd8f5099"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_5eb30a22dd8f5099",
+          "label": "用自己的话解释三角形及其内角、外角、中线、高线、角平分线等概念"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b7c52ec1b944620d",
+      "node_title": "11.3 多边形及其内角和",
+      "pdf_page": 26,
+      "printed_page": "19",
+      "publication_status": "published",
+      "rationale": "教材section“11.3 多边形及其内角和”与课标 MA-H4G8-GE-011 的可教学小能力“用自己的话解释三角形及其内角、外角、中线、高线、角平分线等概念”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c1e5fa9b1c265dc3",
+      "unit_title": "第十一章 三角形"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_667ecd4eb615b363",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a",
+        "tes_20a7056a55ca198e",
+        "textbook-node:tcn_9c551eb8cba4a88a",
+        "textbook-unit:tcu_f20b949c0d9b7f2f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "13.1.2 线段的垂直平分线的性质",
+          "excerpt_hash": "7fcd87cabe997bb1201b7de247d8e60b760f673fa6d6f46ef4a5ae6ea3cdb7ce",
+          "pdf_page": 68,
+          "printed_page": "61",
+          "span_id": "tes_20a7056a55ca198e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4c0a2792f4f42e76"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4c0a2792f4f42e76",
+          "label": "探索并证明所列几何性质与定理"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_9c551eb8cba4a88a",
+      "node_title": "13.1.2 线段的垂直平分线的性质",
+      "pdf_page": 68,
+      "printed_page": "61",
+      "publication_status": "published",
+      "rationale": "教材section“13.1.2 线段的垂直平分线的性质”与课标 MA-H4G8-GE-011 的可教学小能力“探索并证明所列几何性质与定理”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_f20b949c0d9b7f2f",
+      "unit_title": "第十三章 轴对称"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8e8c99db2aabc0c5",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a",
+        "tes_eb0c220155e533de",
+        "textbook-node:tcn_c320e2ded8ac117e",
+        "textbook-unit:tcu_f20b949c0d9b7f2f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "13.3 等腰三角形",
+          "excerpt_hash": "ceb9f4c83167ab3c508566e7004ed49371d02ccef6d1372203a178fc5e6a8a51",
+          "pdf_page": 82,
+          "printed_page": "75",
+          "span_id": "tes_eb0c220155e533de"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4c0a2792f4f42e76"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4c0a2792f4f42e76",
+          "label": "探索并证明所列几何性质与定理"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c320e2ded8ac117e",
+      "node_title": "13.3 等腰三角形",
+      "pdf_page": 82,
+      "printed_page": "75",
+      "publication_status": "published",
+      "rationale": "教材section“13.3 等腰三角形”与课标 MA-H4G8-GE-011 的可教学小能力“探索并证明所列几何性质与定理”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_f20b949c0d9b7f2f",
+      "unit_title": "第十三章 轴对称"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_bd907a9a3519aa07",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a",
+        "tes_0028a015a0fada2c",
+        "textbook-node:tcn_e08ea303cd18ede5",
+        "textbook-unit:tcu_f20b949c0d9b7f2f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "13.3.1 等腰三角形",
+          "excerpt_hash": "192f85810fd0fca06eed11d8320d57aae5b103b4c8441433a8efda998f2b4abf",
+          "pdf_page": 82,
+          "printed_page": "75",
+          "span_id": "tes_0028a015a0fada2c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4c0a2792f4f42e76"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4c0a2792f4f42e76",
+          "label": "探索并证明所列几何性质与定理"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e08ea303cd18ede5",
+      "node_title": "13.3.1 等腰三角形",
+      "pdf_page": 82,
+      "printed_page": "75",
+      "publication_status": "published",
+      "rationale": "教材section“13.3.1 等腰三角形”与课标 MA-H4G8-GE-011 的可教学小能力“探索并证明所列几何性质与定理”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_f20b949c0d9b7f2f",
+      "unit_title": "第十三章 轴对称"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1bbd5705504531cd",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e14d09b0b94a",
+        "tes_18371835da1759e2",
+        "textbook-node:tcn_c63eac6760d0fde3",
+        "textbook-unit:tcu_f20b949c0d9b7f2f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "13.3.2 等边三角形",
+          "excerpt_hash": "db80d7e231dd07cd48f78479e569405cf759f9d9b7beef5d7db7dc781a8779aa",
+          "pdf_page": 86,
+          "printed_page": "79",
+          "span_id": "tes_18371835da1759e2"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4c0a2792f4f42e76"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4c0a2792f4f42e76",
+          "label": "探索并证明所列几何性质与定理"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c63eac6760d0fde3",
+      "node_title": "13.3.2 等边三角形",
+      "pdf_page": 86,
+      "printed_page": "79",
+      "publication_status": "published",
+      "rationale": "教材section“13.3.2 等边三角形”与课标 MA-H4G8-GE-011 的可教学小能力“探索并证明所列几何性质与定理”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_f20b949c0d9b7f2f",
+      "unit_title": "第十三章 轴对称"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_2e10dcceb85f2070",
       "alignment_type": "references",
       "confidence": null,
@@ -193,7 +612,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_f426c7a630a9d7a0",
       "alignment_type": "references",
       "confidence": null,

@@ -2,8 +2,8 @@ import { createHash } from 'node:crypto'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { basename, join, resolve } from 'node:path'
 
-export const CAPABILITY_GRAPH_SCHEMA_VERSION = '1.0.0'
-export const GENERATION_METHOD = 'deterministic-teachable-capability-graph-v4'
+export const CAPABILITY_GRAPH_SCHEMA_VERSION = '1.1.0'
+export const GENERATION_METHOD = 'deterministic-teachable-capability-graph-v5'
 
 const CORE_FINGERPRINT_FIELDS = [
     'code', 'subject_slug', 'domain', 'subdomain', 'grade_band', 'grade_level', 'standard', 'context',
@@ -624,20 +624,51 @@ function buildCurriculumAlignmentIndexes(root, alignmentPayload) {
     return { details, scopesByStandard, publishedByStandard, candidatesByStandard, dispositionByStandard }
 }
 
+function alignmentEvidenceSpans(match, detail) {
+    if (Array.isArray(match.evidence_spans)) return match.evidence_spans
+    const detailEvidenceById = new Map((detail.evidence_spans || []).map(span => [span.span_id, span]))
+    const referencedSpans = (match.evidence_span_ids || []).map(spanId => detailEvidenceById.get(spanId)).filter(Boolean)
+    if (referencedSpans.length) return referencedSpans
+    if (!match.evidence_excerpt) return []
+    return [{
+        span_id: (match.evidence_span_ids || [])[0],
+        pdf_page: match.pdf_page,
+        printed_page: match.printed_page ?? null,
+        excerpt: match.evidence_excerpt,
+        excerpt_hash: match.evidence_excerpt_hash || null,
+        evidence_role: match.evidence_role || 'textbook_content'
+    }]
+}
+
+function detailedEvidenceLevel(match) {
+    if (match.evidence_level_detail) return match.evidence_level_detail
+    return {
+        L1: 'L1_scope',
+        L2: 'L2_topic',
+        L3: 'L3_page_evidence',
+        L4: 'L4_teacher_guide',
+        L5: 'L5_official_crosswalk'
+    }[match.evidence_level] || match.evidence_level || 'L2_topic'
+}
+
 function curriculumAlignments(record, indexes) {
     const published = indexes.publishedByStandard.get(record.code) || []
     const scopes = indexes.scopesByStandard.get(record.code) || []
     const unitRows = published.map(match => {
         const detail = indexes.details.get(match.edition_id) || {}
         const hasPageLocator = Number.isInteger(match.pdf_page)
+        const evidenceLevel = detailedEvidenceLevel(match)
+        const hasPageEvidence = hasPageLocator && ['L3_page_evidence', 'L4_teacher_guide', 'L5_official_crosswalk'].includes(evidenceLevel)
+        const evidenceSpans = alignmentEvidenceSpans(match, detail)
+        const nodeId = match.node_id || match.content_node_id || null
         return {
             alignment_id: match.alignment_id,
-            level: hasPageLocator ? 'unit' : 'unit_topic_candidate',
+            level: hasPageEvidence ? 'page' : hasPageLocator ? 'unit' : 'unit_topic_candidate',
             relation_type: match.relation_type || 'supports',
-            alignment_type: 'supports',
+            alignment_type: match.relation_type || 'supports',
             coverage: 'partial',
-            evidence_level: 'L2_topic',
-            evidence_basis: match.alignment_method === 'legacy_human_review' ? 'reviewed_toc_title' : 'toc_title',
+            evidence_level: hasPageEvidence ? evidenceLevel : 'L2_topic',
+            evidence_basis: hasPageEvidence ? 'textbook_page_span' : match.alignment_method === 'legacy_human_review' ? 'reviewed_toc_title' : 'toc_title',
             edition_id: match.edition_id,
             textbook_title: detail.title || '',
             textbook_subject: detail.subject || '',
@@ -647,17 +678,22 @@ function curriculumAlignments(record, indexes) {
             revision_status: detail.revision_status || 'revision_unknown',
             unit_id: match.unit_id || null,
             unit_title: match.unit_title || '',
+            node_id: nodeId,
+            node_title: match.node_title || match.content_node_title || '',
+            learning_component_ids: match.learning_component_ids || [],
+            learning_components: match.learning_components || [],
             pdf_page: match.pdf_page ?? null,
             printed_page: match.printed_page === null || match.printed_page === undefined ? null : String(match.printed_page),
             evidence_role: match.evidence_role,
-            evidence_refs: [match.evidence_id, `textbook-unit:${match.unit_id}`].filter(Boolean),
+            evidence_refs: [match.evidence_id, ...(match.evidence_span_ids || []), nodeId ? `textbook-node:${nodeId}` : null, match.unit_id ? `textbook-unit:${match.unit_id}` : null].filter(Boolean),
+            evidence_spans: evidenceSpans,
             confidence: match.confidence,
             rationale: match.rationale,
-            evidence_gap: '当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。',
+            evidence_gap: hasPageEvidence ? null : '当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。',
             method: match.alignment_method,
             algorithm_version: match.algorithm_version,
-            review_status: hasPageLocator ? match.review_status : 'candidate',
-            publication_status: hasPageLocator ? match.publication_status : 'review_queue'
+            review_status: hasPageEvidence ? 'machine_checked' : hasPageLocator ? match.review_status : 'candidate',
+            publication_status: hasPageEvidence ? 'published' : hasPageLocator ? match.publication_status : 'review_queue'
         }
     })
     const scopeRows = scopes.map(scope => {
@@ -693,7 +729,7 @@ function curriculumAlignments(record, indexes) {
         }
     })
     return [...unitRows, ...scopeRows].sort((left, right) => {
-        const rank = { unit: 0, unit_topic_candidate: 1, scope: 2 }
+        const rank = { page: 0, unit: 1, unit_topic_candidate: 2, scope: 3 }
         const level = (rank[left.level] ?? 9) - (rank[right.level] ?? 9)
         return level || left.edition_id.localeCompare(right.edition_id) || String(left.unit_id || '').localeCompare(String(right.unit_id || ''))
     })
@@ -705,21 +741,34 @@ function alignmentSummary(record, indexes) {
     const candidates = indexes.candidatesByStandard.get(record.code) || []
     const scopes = indexes.scopesByStandard.get(record.code) || []
     const locatable = published.filter(item => Number.isInteger(item.pdf_page))
+    const pageEvidence = locatable.filter(item => ['L3_page_evidence', 'L4_teacher_guide', 'L5_official_crosswalk'].includes(detailedEvidenceLevel(item)))
     const unlocatable = published.filter(item => !Number.isInteger(item.pdf_page))
+    const highestPageEvidence = pageEvidence.some(item => detailedEvidenceLevel(item) === 'L5_official_crosswalk')
+        ? 'L5_official_crosswalk'
+        : pageEvidence.some(item => detailedEvidenceLevel(item) === 'L4_teacher_guide')
+          ? 'L4_teacher_guide'
+          : pageEvidence.length
+            ? 'L3_page_evidence'
+            : null
     return {
-        disposition: locatable.length
-            ? 'unit_aligned'
+        disposition: pageEvidence.length
+            ? 'page_aligned'
+            : locatable.length
+              ? 'unit_aligned'
             : unlocatable.length
               ? 'unit_topic_needs_page_evidence'
               : disposition.status || (scopes.length ? 'scope_aligned_no_unit_evidence' : 'gap_no_textbook_scope'),
-        highest_evidence_level: locatable.length ? 'L2_topic' : scopes.length ? 'L1_scope' : 'L0_gap',
+        highest_evidence_level: highestPageEvidence || (locatable.length ? 'L2_topic' : scopes.length ? 'L1_scope' : 'L0_gap'),
         specific_count: locatable.length,
+        page_evidence_count: pageEvidence.length,
         unit_topic_candidate_count: unlocatable.length,
         candidate_count: candidates.length + unlocatable.length,
         scope_count: scopes.length,
         gap_reason: disposition.gap_reason || (!scopes.length ? '当前教材库没有与该学科、学段匹配的教材范围；不补造关系。' : null),
-        evidence_note: locatable.length
-            ? '已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。'
+        evidence_note: pageEvidence.length
+            ? '已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。'
+            : locatable.length
+              ? '已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。'
             : unlocatable.length
               ? '已有目录主题候选，但缺少可靠 PDF 页定位，已降级进入补证队列。'
             : scopes.length
@@ -972,6 +1021,7 @@ export function buildCapabilityGraph(rootInput) {
         hardest_cases: 0,
         common_difficulties: 0,
         unit_alignments: 0,
+        page_alignments: 0,
         unit_topic_candidates: 0,
         scope_alignments: 0,
         alignment_gaps: 0,
@@ -979,10 +1029,11 @@ export function buildCapabilityGraph(rootInput) {
     }
     for (const record of canonical.records) {
         const graph = graphByCode.get(record.code)
-        const subject = subjectCounts[record.subject_slug] ||= { standards: 0, learning_components: 0, unit_alignments: 0, scope_alignments: 0, gaps: 0 }
+        const subject = subjectCounts[record.subject_slug] ||= { standards: 0, learning_components: 0, unit_alignments: 0, page_alignments: 0, scope_alignments: 0, gaps: 0 }
         subject.standards += 1
         subject.learning_components += graph.learning_components.length
         subject.unit_alignments += graph.curriculum_alignments.filter(item => item.level === 'unit').length
+        subject.page_alignments += graph.curriculum_alignments.filter(item => item.level === 'page').length
         subject.unit_topic_candidates = (subject.unit_topic_candidates || 0) + graph.curriculum_alignments.filter(item => item.level === 'unit_topic_candidate').length
         subject.scope_alignments += graph.curriculum_alignments.filter(item => item.level === 'scope').length
         subject.gaps += graph.curriculum_alignment_summary.disposition === 'gap_no_textbook_scope' ? 1 : 0
@@ -992,6 +1043,7 @@ export function buildCapabilityGraph(rootInput) {
         totals.hardest_cases += graph.hardest_cases.length
         totals.common_difficulties += graph.common_difficulties.length
         totals.unit_alignments += graph.curriculum_alignments.filter(item => item.level === 'unit').length
+        totals.page_alignments += graph.curriculum_alignments.filter(item => item.level === 'page').length
         totals.unit_topic_candidates += graph.curriculum_alignments.filter(item => item.level === 'unit_topic_candidate').length
         totals.scope_alignments += graph.curriculum_alignments.filter(item => item.level === 'scope').length
         totals.alignment_gaps += graph.curriculum_alignment_summary.disposition === 'gap_no_textbook_scope' ? 1 : 0
@@ -1010,8 +1062,8 @@ export function buildCapabilityGraph(rootInput) {
             L0_gap: '当前教材库无同学科同学段范围；明确记录缺口。',
             L1_scope: '同学科同学段适用范围，不构成具体单元证据。',
             L2_topic: '目录标题或人工主题关联，可声明主题支持，不声明完整教授。',
-            L3_page_evidence: '保留给正文、练习、摘录哈希和页码齐全的机器核验关系。',
-            L4_teacher_guide: '保留给教师用书与教材正文交叉印证并经人工审核的关系。',
+            L3_page_evidence: '教材正文、任务或练习具备页码、逐字摘录、摘录哈希和处理版本；机器生成后直接公开并明确标示。',
+            L4_teacher_guide: '教师用书目标与教材正文或练习自动交叉印证，并保留两侧逐字证据与来源版本。',
             L5_official_crosswalk: '保留给出版方或官方明示的课标映射。'
         },
         design_references: [

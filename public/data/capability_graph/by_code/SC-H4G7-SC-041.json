@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -82,17 +82,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_40e95de5d5f1a451",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_92369ed68f9321363e22",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ae920aee077f",
+        "tes_b376b11a703be43d",
+        "textbook-node:tcn_12054143879f201f",
+        "textbook-unit:tcu_49ff4bf6e7d27542"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "人类是如何逐步认识地球形状的?",
+          "excerpt_hash": "b5f4d293b092c84bf78c49b6b194dc69875a654bd8fd95e172eb5eb772235b02",
+          "pdf_page": 12,
+          "printed_page": "1",
+          "span_id": "tes_b376b11a703be43d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_02764d49a08b7413"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_02764d49a08b7413",
+          "label": "识别并说出人类认识地球形状和大小的历程的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_12054143879f201f",
+      "node_title": "人类是如何逐步认识地球形状的?",
+      "pdf_page": 12,
+      "printed_page": "1",
+      "publication_status": "published",
+      "rationale": "教材objective“人类是如何逐步认识地球形状的?”与课标 SC-H4G7-SC-041 的可教学小能力“识别并说出人类认识地球形状和大小的历程的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_49ff4bf6e7d27542",
+      "unit_title": "第一章"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_9de92e08d67c3bff",
       "alignment_type": "references",
       "confidence": null,
@@ -123,7 +179,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_fc029d53934b5b5c",
       "alignment_type": "references",
       "confidence": null,
@@ -154,7 +210,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_353d76d61779a725",
       "alignment_type": "references",
       "confidence": null,
@@ -185,7 +241,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_974035f29aba12ee",
       "alignment_type": "references",
       "confidence": null,

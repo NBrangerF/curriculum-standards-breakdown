@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -119,18 +119,79 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 2,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_da58cc3124ecd127",
+      "alignment_type": "contextualizes",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_c4c8b194000a948fd0ea",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_b1592b8ddc34",
+        "tes_bbe63cab571dde82",
+        "textbook-node:tcn_fdeff05a5de5bf53",
+        "textbook-unit:tcu_20249d12c43fd28a"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第18课 社会主义的发展与挫折 83",
+          "excerpt_hash": "ac91bfb67313fc38f3717e09f3848f943be8166003faa34c583cf83524fbeedb",
+          "pdf_page": 88,
+          "printed_page": "83",
+          "span_id": "tes_bbe63cab571dde82"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c835918ef976aa1d",
+        "lc_265b79d54afcd0eb"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c835918ef976aa1d",
+          "label": "坚定对伟大祖国、中华民族、中华文化、中国共产党、中国特色社会主义的高度认同"
+        },
+        {
+          "component_id": "lc_265b79d54afcd0eb",
+          "label": "用自己的话解释中国共产党在建设中国特色社会主义过程中的领导作用"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_fdeff05a5de5bf53",
+      "node_title": "第18课社会主义的发展与挫折83",
+      "pdf_page": 88,
+      "printed_page": "83",
+      "publication_status": "published",
+      "rationale": "教材lesson“第18课社会主义的发展与挫折83”为课标 ML-H4G9-TCR-001 的可教学小能力“坚定对伟大祖国、中华民族、中华文化、中国共产党、中国特色社会主义的高度认同、用自己的话解释中国共产党在建设中国特色社会主义过程中的领导作用”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "历史",
+      "textbook_title": "历史9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_20249d12c43fd28a",
+      "unit_title": "第18课 社会主义的发展与挫折"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_cc899cee055a4fd8",
       "alignment_type": "references",
       "confidence": null,
@@ -161,7 +222,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_1deda7529afabe63",
       "alignment_type": "references",
       "confidence": null,
@@ -192,7 +253,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a3dc1e7d14293701",
       "alignment_type": "references",
       "confidence": null,
@@ -223,7 +284,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_51a56450db93fb6c",
       "alignment_type": "references",
       "confidence": null,

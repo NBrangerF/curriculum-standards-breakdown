@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -249,17 +249,183 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8f100c77b59d0bba",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_10296c173573f69db498",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e5b0376a10bb",
+        "tes_38f0eb8c93edf180",
+        "textbook-node:tcn_8d5abf89be922aa1",
+        "textbook-unit:tcu_46e5d9e65e449723"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2. 图形与几何",
+          "excerpt_hash": "f5538dd619bcbfe7aa5a4c0b7d29324e8e63153ca8a47152d811e37d37adca4c",
+          "pdf_page": 90,
+          "printed_page": "85",
+          "span_id": "tes_38f0eb8c93edf180"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3c4e55f8eab8d620"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3c4e55f8eab8d620",
+          "label": "综合运用所列知识解决真实或跨学科问题"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_8d5abf89be922aa1",
+      "node_title": "2图形与几何",
+      "pdf_page": 90,
+      "printed_page": "85",
+      "publication_status": "published",
+      "rationale": "教材lesson“2图形与几何”与课标 MA-D3-PR-001 的可教学小能力“综合运用所列知识解决真实或跨学科问题”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_46e5d9e65e449723",
+      "unit_title": "1.80 m,小红搬来一个高 0.6 m 的凳子。这能帮助爸爸成功更换灯泡吗?"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_b3819ed620635e49",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_10296c173573f69db498",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e5b0376a10bb",
+        "tes_39b8659db8012fd8",
+        "textbook-node:tcn_d6f93f3b5dc9719f",
+        "textbook-unit:tcu_46e5d9e65e449723"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3. 统计与概率",
+          "excerpt_hash": "ad3272d1742d4a30397eea06ba957211f818b414138b36f358d5d5a25a65beca",
+          "pdf_page": 100,
+          "printed_page": "95",
+          "span_id": "tes_39b8659db8012fd8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3c4e55f8eab8d620"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3c4e55f8eab8d620",
+          "label": "综合运用所列知识解决真实或跨学科问题"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d6f93f3b5dc9719f",
+      "node_title": "3统计与概率",
+      "pdf_page": 100,
+      "printed_page": "95",
+      "publication_status": "published",
+      "rationale": "教材lesson“3统计与概率”与课标 MA-D3-PR-001 的可教学小能力“综合运用所列知识解决真实或跨学科问题”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_46e5d9e65e449723",
+      "unit_title": "1.80 m,小红搬来一个高 0.6 m 的凳子。这能帮助爸爸成功更换灯泡吗?"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a094770539736b3e",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_10296c173573f69db498",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e5b0376a10bb",
+        "tes_3e8aa2b13f5ea868",
+        "textbook-node:tcn_28e0504572904993",
+        "textbook-unit:tcu_a19462ea8789d401"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1. 数与代数",
+          "excerpt_hash": "7c3df2b9ea042c40a275474dc1465b761a28db4c7c632dd0945a63b978256e16",
+          "pdf_page": 76,
+          "printed_page": "71",
+          "span_id": "tes_3e8aa2b13f5ea868"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3c4e55f8eab8d620"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3c4e55f8eab8d620",
+          "label": "综合运用所列知识解决真实或跨学科问题"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_28e0504572904993",
+      "node_title": "1数与代数",
+      "pdf_page": 76,
+      "printed_page": "71",
+      "publication_status": "published",
+      "rationale": "教材lesson“1数与代数”与课标 MA-D3-PR-001 的可教学小能力“综合运用所列知识解决真实或跨学科问题”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_a19462ea8789d401",
+      "unit_title": "3.4 cm,这两个城市之间的实际距离是多少?"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a012baedb71d9346",
       "alignment_type": "references",
       "confidence": null,
@@ -290,7 +456,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c1fabe2930609614",
       "alignment_type": "references",
       "confidence": null,
@@ -321,7 +487,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_9748ccab21fe50e6",
       "alignment_type": "references",
       "confidence": null,
@@ -352,7 +518,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_15aa517141af6d98",
       "alignment_type": "references",
       "confidence": null,

@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -156,17 +156,238 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 4,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 4,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c64dc5d8b11fbe01",
+      "alignment_type": "supports",
+      "confidence": 0.9398,
+      "coverage": "partial",
+      "edition_id": "ed_99938fbe3c9ca232c6d6",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_903c001c7bb3",
+        "tes_d241b21da7559d96",
+        "textbook-node:tcn_f335b33ed7bbcab4",
+        "textbook-unit:tcu_7e16875e93d78910"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "略读课文,大致了解其主要内容。这篇散文约2 000字,尽量在5分钟",
+          "excerpt_hash": "c7465081eadf93e517e891f29a39d382842cacf333485c560b53fc398deb2457",
+          "pdf_page": 95,
+          "printed_page": "88",
+          "span_id": "tes_d241b21da7559d96"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_951c372c4a040746"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_951c372c4a040746",
+          "label": "用自己的话解释和分析主要内容"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_f335b33ed7bbcab4",
+      "node_title": "略读课文,大致了解其主要内容。这篇散文约2 000字,尽量在5分钟",
+      "pdf_page": 95,
+      "printed_page": "88",
+      "publication_status": "published",
+      "rationale": "教材objective“略读课文,大致了解其主要内容。这篇散文约2 000字,尽量在5分钟”与课标 CN-H4G7-RE-003 的可教学小能力“用自己的话解释和分析主要内容”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_7e16875e93d78910",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_cf3d50904fc54767",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_99938fbe3c9ca232c6d6",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_903c001c7bb3",
+        "tes_6368731bf32fcf34",
+        "textbook-node:tcn_d8597e7e7d66ff00",
+        "textbook-unit:tcu_7e16875e93d78910"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "认真阅读课文,参考注释或工具书,试着自己解决疑难问题。",
+          "excerpt_hash": "b00a44014dd9010c7e16165c5fd139dce310268a5ba605d5ab7daec544523f8e",
+          "pdf_page": 108,
+          "printed_page": "101",
+          "span_id": "tes_6368731bf32fcf34"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1b308f1011c0fd86"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1b308f1011c0fd86",
+          "label": "提出看法并与他人合作探讨、分析和解决疑难问题"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d8597e7e7d66ff00",
+      "node_title": "认真阅读课文,参考注释或工具书,试着自己解决疑难问题。",
+      "pdf_page": 108,
+      "printed_page": "101",
+      "publication_status": "published",
+      "rationale": "教材objective“认真阅读课文,参考注释或工具书,试着自己解决疑难问题。”与课标 CN-H4G7-RE-003 的可教学小能力“提出看法并与他人合作探讨、分析和解决疑难问题”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_7e16875e93d78910",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6a62ef2845e97c3a",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_eb285566d0326b76eb6b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_2cca20691db7",
+        "tes_6b6171b061414274",
+        "textbook-node:tcn_086ec1d0c722d7c6",
+        "textbook-unit:tcu_0e71a89410aac7e1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "画出重要语句或段落,并学做摘录。还要在把握段落大意、理清思路的基础上,学会概括文章的中心思想。",
+          "excerpt_hash": "787e8471ed0718e2e8beb3a97ea1f19f61bac6455d24dc752987738878cda97f",
+          "pdf_page": 98,
+          "printed_page": "91",
+          "span_id": "tes_6b6171b061414274"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c7c679c04b1db45d"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c7c679c04b1db45d",
+          "label": "在通读课文基础上理清思路"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_086ec1d0c722d7c6",
+      "node_title": "画出重要语句或段落,并学做摘录。还要在把握段落大意、理清思路的基础上,学会概括文章的中心思想。",
+      "pdf_page": 98,
+      "printed_page": "91",
+      "publication_status": "published",
+      "rationale": "教材exercise“画出重要语句或段落,并学做摘录。还要在把握段落大意、理清思路的基础上,学会概括文章的中心思想。”与课标 CN-H4G7-RE-003 的可教学小能力“在通读课文基础上理清思路”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_0e71a89410aac7e1",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_cb1afe298a30dfc7",
+      "alignment_type": "practices",
+      "confidence": 0.9398,
+      "coverage": "partial",
+      "edition_id": "ed_eb285566d0326b76eb6b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_2cca20691db7",
+        "tes_cb6e39bac51eb457",
+        "textbook-node:tcn_50f48625de37bcc0",
+        "textbook-unit:tcu_d978b1998baa22df"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "快速阅读时,既要静下心来,努力扩大一次性进入视野的文字数量,也要在每个段落结束时,稍作停顿,想一想:这一段的主要内容是什么?哪几段的内容是紧密相连的,应该看作一个部分?前后段落有怎样的联系?这样,就大致把握了课文",
+          "excerpt_hash": "ad36c874c3944111fac1f74e1a86d712351c3981b1e97d8dc2a8b43f34339a73",
+          "pdf_page": 123,
+          "printed_page": "116",
+          "span_id": "tes_cb6e39bac51eb457"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_951c372c4a040746"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_951c372c4a040746",
+          "label": "用自己的话解释和分析主要内容"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_50f48625de37bcc0",
+      "node_title": "快速阅读时,既要静下心来,努力扩大一次性进入视野的文字数量,也要在每个段落结束时,稍作停顿,想一想:这一段的主要内容是什么?哪几段的内容是紧密相连的,应该看作一个部分?前后段落有怎样的联系?这样,就大致把握了课文",
+      "pdf_page": 123,
+      "printed_page": "116",
+      "publication_status": "published",
+      "rationale": "教材exercise“快速阅读时,既要静下心来,努力扩大一次性进入视野的文字数量,也要在每个段落结束时,稍作停顿,想一想:这一段的主要内容是什么?哪几段的内容是紧密相连的,应该看作一个部分?前后段落有怎样的联系?这样,就大致把握了课文”与课标 CN-H4G7-RE-003 的可教学小能力“用自己的话解释和分析主要内容”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_d978b1998baa22df",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_036d7c97f61b5ca3",
       "alignment_type": "references",
       "confidence": null,
@@ -197,7 +418,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ba36170476b561dd",
       "alignment_type": "references",
       "confidence": null,

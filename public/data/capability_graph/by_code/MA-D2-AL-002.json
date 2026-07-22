@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "comparison",
@@ -117,17 +117,183 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_2fc621da0db03788",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_e8d4a6502261fd8416ff",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_19111441ff11",
+        "tes_4261f3893c46fe98",
+        "textbook-node:tcn_2026f81e54b08797",
+        "textbook-unit:tcu_53d0159c51002ab7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "比较下面每组中两个数的大小。",
+          "excerpt_hash": "57ef096b6744a047e9a9dcf23bf27b4a57447ad8ec9d77e02d89de910b628a5c",
+          "pdf_page": 45,
+          "printed_page": "40",
+          "span_id": "tes_4261f3893c46fe98"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_497728cc6180076b"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_497728cc6180076b",
+          "label": "比较简单的小数的大小和分数的大小"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2026f81e54b08797",
+      "node_title": "比较下面每组中两个数的大小。",
+      "pdf_page": 45,
+      "printed_page": "40",
+      "publication_status": "published",
+      "rationale": "教材exercise“比较下面每组中两个数的大小。”与课标 MA-D2-AL-002 的可教学小能力“比较简单的小数的大小和分数的大小”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_53d0159c51002ab7",
+      "unit_title": "6.53 m6.35 m"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c08c7eedaf9e869a",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_e8d4a6502261fd8416ff",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_19111441ff11",
+        "tes_86ef59385e04f773",
+        "textbook-node:tcn_3094878d919f9a18",
+        "textbook-unit:tcu_23205961188dfe32"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1.96(保留一位小数) 2.104(保留两位小数)",
+          "excerpt_hash": "d9e850c2fcf622e66f92cb268f27e5145e96d885f8c780e8dd3f32e19d23e96b",
+          "pdf_page": 59,
+          "printed_page": "54",
+          "span_id": "tes_86ef59385e04f773"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_8629a656353440a8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_8629a656353440a8",
+          "label": "进行同分母分数的加减运算和一位小数的加减运算"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3094878d919f9a18",
+      "node_title": "1.96(保留一位小数) 2.104(保留两位小数)",
+      "pdf_page": 59,
+      "printed_page": "54",
+      "publication_status": "published",
+      "rationale": "教材section“1.96(保留一位小数) 2.104(保留两位小数)”与课标 MA-D2-AL-002 的可教学小能力“进行同分母分数的加减运算和一位小数的加减运算”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_23205961188dfe32",
+      "unit_title": "7.7833 亿千米 ≈7.8 亿千米"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9c2202b74042e025",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_e8d4a6502261fd8416ff",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_19111441ff11",
+        "tes_c774bca2f543049e",
+        "textbook-node:tcn_37a996a9c4bac27f",
+        "textbook-unit:tcu_3873b3ddae2886ec"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "0.984 ≈ 1.0 如果保留一位小数,就要把",
+          "excerpt_hash": "e2d07c9d4facbe64e544ef053e8858eee5d4bab3953129fbde076b107b751856",
+          "pdf_page": 55,
+          "printed_page": "50",
+          "span_id": "tes_c774bca2f543049e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_8629a656353440a8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_8629a656353440a8",
+          "label": "进行同分母分数的加减运算和一位小数的加减运算"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_37a996a9c4bac27f",
+      "node_title": "0.984 ≈ 1.0 如果保留一位小数,就要把",
+      "pdf_page": 55,
+      "printed_page": "50",
+      "publication_status": "published",
+      "rationale": "教材section“0.984 ≈ 1.0 如果保留一位小数,就要把”与课标 MA-D2-AL-002 的可教学小能力“进行同分母分数的加减运算和一位小数的加减运算”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_3873b3ddae2886ec",
+      "unit_title": "5.3 m"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_eed4f56a9e9afcf2",
       "alignment_type": "references",
       "confidence": null,
@@ -158,7 +324,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_95aa86497f4c127c",
       "alignment_type": "references",
       "confidence": null,
@@ -189,7 +355,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_9400ad984c1b765b",
       "alignment_type": "references",
       "confidence": null,
@@ -220,7 +386,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a13fa57ded32db90",
       "alignment_type": "references",
       "confidence": null,

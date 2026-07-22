@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -84,49 +84,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
     "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_38ec205820143493",
-      "alignment_type": "supports",
-      "confidence": 0.9091,
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_87bc31742c6bcf61",
+      "alignment_type": "practices",
+      "confidence": 0.86,
       "coverage": "partial",
-      "edition_id": "ed_9fe340349c3c4669ebc3",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
+      "edition_id": "ed_1c2f1b2eb35ee43d98b9",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_0c575518c2f4",
-        "textbook-unit:tcu_32ab3c1e768164ff"
+        "ctb_bdb26a7ab112",
+        "tes_4a7329e98d741f77",
+        "textbook-node:tcn_60345a0a4f0c717a",
+        "textbook-unit:tcu_01977fc7095bdb69"
       ],
       "evidence_role": "direct_textbook",
-      "level": "unit",
-      "method": "constrained_concept_idf",
-      "pdf_page": 21,
-      "printed_page": "16",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "想一想:你将如何奉献社会、创造人生价值?国家、社会和你的家庭将因为什么而为你感到骄傲?",
+          "excerpt_hash": "4325ce8cf4b910386bb8c70b4563b22c891f1e2d0c116eb3c4c4adfd1f3feddf",
+          "pdf_page": 116,
+          "printed_page": "111",
+          "span_id": "tes_4a7329e98d741f77"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_98d6f099f67738ff"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_98d6f099f67738ff",
+          "label": "以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_60345a0a4f0c717a",
+      "node_title": "想一想:你将如何奉献社会、创造人生价值?国家、社会和你的家庭将因为什么而为你感到骄傲?",
+      "pdf_page": 116,
+      "printed_page": "111",
       "publication_status": "published",
-      "rationale": "教材条目“第二课 构建人类命运共同体”与课标 ML-H4G9-NAT-015 在standard字段命中概念：人类命运共同、建人类命运共、构建人类命运、类命运共同体。",
-      "relation_type": "supports",
+      "rationale": "教材exercise“想一想:你将如何奉献社会、创造人生价值?国家、社会和你的家庭将因为什么而为你感到骄傲?”与课标 ML-H4G9-NAT-015 的可教学小能力“以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力”形成页内证据匹配。",
+      "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
       "revision_status": "revision_unknown",
       "textbook_grade": 9,
       "textbook_subject": "道德与法治",
-      "textbook_title": "道德与法治9年级下册",
-      "textbook_volume": "下册",
-      "unit_id": "tcu_32ab3c1e768164ff",
-      "unit_title": "第二课 构建人类命运共同体"
+      "textbook_title": "道德与法治9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_01977fc7095bdb69",
+      "unit_title": "第八课"
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_cf9dbe9367a15910",
       "alignment_type": "references",
       "confidence": null,
@@ -157,7 +181,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_bd7e9d325467eb4e",
       "alignment_type": "references",
       "confidence": null,
@@ -188,7 +212,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_d97231972c1d0d88",
       "alignment_type": "references",
       "confidence": null,
@@ -219,7 +243,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_b484fd5a46798a77",
       "alignment_type": "references",
       "confidence": null,

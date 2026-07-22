@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -83,17 +83,128 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 3,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_28c5ffac16be73e5",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_e9b34d9feb02398a",
+        "textbook-node:tcn_2b4ee5192d852c84",
+        "textbook-unit:tcu_01b0ccc0cb5171a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验 变化后有无新变化前的物质 变化时发生的现象 变化后的物质序号 物质生成",
+          "excerpt_hash": "64d9c43808abc2af8a4a01c0dff9fa1d3e7983b2f8edab3a61c4067af4ccda60",
+          "pdf_page": 12,
+          "printed_page": "7",
+          "span_id": "tes_e9b34d9feb02398a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9088f4f329a9763b"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9088f4f329a9763b",
+          "label": "分析物质变化存在物理变化和化学变化"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2b4ee5192d852c84",
+      "node_title": "实验 变化后有无新变化前的物质 变化时发生的现象 变化后的物质序号 物质生成",
+      "pdf_page": 12,
+      "printed_page": "7",
+      "publication_status": "published",
+      "rationale": "教材exercise“实验 变化后有无新变化前的物质 变化时发生的现象 变化后的物质序号 物质生成”与课标 SC-H4G9-SC-009 的可教学小能力“分析物质变化存在物理变化和化学变化”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_01b0ccc0cb5171a5",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_b200c0957525c695",
+      "alignment_type": "practices",
+      "confidence": 0.7539,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_acda03bd5a188da5",
+        "textbook-node:tcn_9af1fe88b8a80dd9",
+        "textbook-unit:tcu_108981966cbc2957"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验和日常生活经验讨论:1. 燃烧着的红磷熄灭了,这种现象说明氮气能不能支持燃烧?",
+          "excerpt_hash": "8adb76667d7d23a8afcc0709a7fce7ce1510bb5ebb684214bcad17e304f7174e",
+          "pdf_page": 34,
+          "printed_page": "29",
+          "span_id": "tes_acda03bd5a188da5"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_dc77cc3ff44b31ca"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_dc77cc3ff44b31ca",
+          "label": "说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_9af1fe88b8a80dd9",
+      "node_title": "实验和日常生活经验讨论:1. 燃烧着的红磷熄灭了,这种现象说明氮气能不能支持燃烧?",
+      "pdf_page": 34,
+      "printed_page": "29",
+      "publication_status": "published",
+      "rationale": "教材exercise“实验和日常生活经验讨论:1. 燃烧着的红磷熄灭了,这种现象说明氮气能不能支持燃烧?”与课标 SC-H4G9-SC-009 的可教学小能力“说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_108981966cbc2957",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_edc8bf24153b4c4f",
       "alignment_type": "references",
       "confidence": null,
@@ -124,7 +235,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0d799fa24e10d927",
       "alignment_type": "references",
       "confidence": null,
@@ -155,7 +266,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_65a68b1d97b434d0",
       "alignment_type": "references",
       "confidence": null,

@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -121,17 +121,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_d5ed8a234c2b1449",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_eb285566d0326b76eb6b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_2cca20691db7",
+        "tes_6b6171b061414274",
+        "textbook-node:tcn_086ec1d0c722d7c6",
+        "textbook-unit:tcu_0e71a89410aac7e1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "画出重要语句或段落,并学做摘录。还要在把握段落大意、理清思路的基础上,学会概括文章的中心思想。",
+          "excerpt_hash": "787e8471ed0718e2e8beb3a97ea1f19f61bac6455d24dc752987738878cda97f",
+          "pdf_page": 98,
+          "printed_page": "91",
+          "span_id": "tes_6b6171b061414274"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3afd90c02d3858d5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3afd90c02d3858d5",
+          "label": "在熟练书写正楷字基础上学写规范、通行的行楷字"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_086ec1d0c722d7c6",
+      "node_title": "画出重要语句或段落,并学做摘录。还要在把握段落大意、理清思路的基础上,学会概括文章的中心思想。",
+      "pdf_page": 98,
+      "printed_page": "91",
+      "publication_status": "published",
+      "rationale": "教材exercise“画出重要语句或段落,并学做摘录。还要在把握段落大意、理清思路的基础上,学会概括文章的中心思想。”与课标 CN-H4G7-LI-004 的可教学小能力“在熟练书写正楷字基础上学写规范、通行的行楷字”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_0e71a89410aac7e1",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ee3558a99894dbdd",
       "alignment_type": "references",
       "confidence": null,
@@ -162,7 +218,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_1a68e789d4bf1635",
       "alignment_type": "references",
       "confidence": null,

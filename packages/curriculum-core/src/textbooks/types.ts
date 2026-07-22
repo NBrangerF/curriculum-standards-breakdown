@@ -13,9 +13,23 @@ export type TextbookRevisionStatus =
     | 'revision_unknown'
     | 'future_candidate'
 
-export type TextbookStructureStatus = 'approved' | 'candidate' | 'unavailable'
+export type TextbookStructureStatus = 'approved' | 'machine_checked' | 'candidate' | 'unavailable'
 export type TextbookTextQuality = 'native_text' | 'partial_text' | 'scan_only' | 'unknown'
 export type TextbookRelationStatus = 'approved' | 'machine_checked' | 'candidate' | 'unavailable'
+export type TextbookEvidenceLevel = 'L1' | 'L2' | 'L3' | 'L4' | 'L5'
+export type TextbookEvidenceLevelDetail =
+    | 'L1_scope'
+    | 'L2_topic'
+    | 'L3_page_evidence'
+    | 'L4_teacher_guide'
+    | 'L5_official_crosswalk'
+export type TextbookAlignmentRelationType =
+    | 'teaches'
+    | 'supports'
+    | 'practices'
+    | 'assesses'
+    | 'mentions'
+    | 'contextualizes'
 
 export interface TextbookCatalogRecord {
     edition_id: string
@@ -64,7 +78,8 @@ export interface TextbookTocEntry {
     end_pdf_page: number | null
     confidence: number
     review_status: 'approved' | 'machine_checked' | 'needs_review'
-    source: 'pdf_outline' | 'toc_text' | 'ocr_toc' | 'heading_match' | 'manual' | 'legacy_unit_evidence'
+    publication_status?: 'published'
+    source: 'pdf_outline' | 'toc_text' | 'ocr_toc' | 'heading_match' | 'body_inferred_unit' | 'manual' | 'legacy_unit_evidence'
 }
 
 export interface TextbookPageMapEntry {
@@ -75,16 +90,79 @@ export interface TextbookPageMapEntry {
     review_status: 'approved' | 'machine_checked' | 'needs_review'
 }
 
+/**
+ * A stable, addressable fragment in a textbook's content tree.  TOC entries
+ * remain the backwards-compatible unit/chapter navigation layer; content
+ * nodes add the lesson, objective, activity and exercise granularity needed
+ * for page-level curriculum alignment.
+ */
+export interface TextbookContentNode {
+    node_id: string
+    parent_id: string | null
+    unit_id: string | null
+    toc_entry_id?: string
+    level: number
+    kind: string
+    title: string
+    pdf_page: number
+    end_pdf_page: number
+    printed_page: string | null
+    end_printed_page: string | null
+    text_excerpt?: string
+    evidence_span_ids?: string[]
+    source?: string
+    confidence: number
+    review_status?: 'approved' | 'machine_checked'
+}
+
+export interface TextbookEvidenceBoundingBox {
+    x: number
+    y: number
+    width: number
+    height: number
+    unit?: string
+    page_width?: number
+    page_height?: number
+}
+
+/** Literal textbook evidence used to explain an alignment. */
+export interface TextbookEvidenceSpan {
+    evidence_span_id: string
+    node_id: string
+    pdf_page: number
+    printed_page: string | null
+    title?: string
+    excerpt: string
+    excerpt_hash: string
+    bbox?: TextbookEvidenceBoundingBox | null
+    evidence_role?: string
+    source?: string
+    parser_version?: string
+}
+
+export interface TextbookLearningComponentReference {
+    component_id: string
+    label: string
+}
+
 export interface TextbookStandardAlignment {
     alignment_id: string
     edition_id?: string
-    unit_id: string
+    unit_id?: string
+    node_id?: string
     unit_title?: string
     standard_code: string
     standard_text: string
     subject_slug: string
     grade_band: string
-    relation_type: 'teaches' | 'supports' | 'mentions' | 'contextualizes'
+    relation_type: TextbookAlignmentRelationType
+    learning_component_ids?: string[]
+    learning_components?: TextbookLearningComponentReference[]
+    evidence_level?: TextbookEvidenceLevel
+    evidence_level_detail?: TextbookEvidenceLevelDetail
+    evidence_granularity?: string
+    evidence_span_ids?: string[]
+    provenance?: string
     evidence_role?: string
     confidence: number
     score?: number
@@ -127,6 +205,8 @@ export interface TextbookRelatedResource {
 export interface TextbookDetailRecord extends TextbookCatalogRecord {
     toc: TextbookTocEntry[]
     page_map: TextbookPageMapEntry[]
+    content_nodes: TextbookContentNode[]
+    evidence_spans: TextbookEvidenceSpan[]
     alignments: TextbookStandardAlignment[]
     standard_scopes: TextbookStandardScope[]
     related_resources: TextbookRelatedResource[]
@@ -137,6 +217,17 @@ export interface TextbookDetailRecord extends TextbookCatalogRecord {
         average_characters_per_page: number
         notes: string[]
     }
+}
+
+export interface TextbookPageContext {
+    edition_id: string
+    pdf_page: number
+    printed_page: string | null
+    active_nodes: TextbookContentNode[]
+    alignments: TextbookStandardAlignment[]
+    evidence_spans: TextbookEvidenceSpan[]
+    /** Book/stage scope is intentionally separate from page-specific evidence. */
+    standard_scopes: TextbookStandardScope[]
 }
 
 export interface TextbookCatalogManifest {

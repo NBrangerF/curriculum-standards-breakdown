@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "transfer",
@@ -81,17 +81,348 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 4,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 6,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_4a77ea88d70269cb",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_0e50b2c3cab704574a20",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_0d4b56c03c3c",
+        "tes_0c32a99068a3566c",
+        "textbook-node:tcn_9198901f5e5afd28",
+        "textbook-unit:tcu_efe3a952c3feef72"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "《中华人民共和国未成年人保护法》第七条",
+          "excerpt_hash": "83a4d5af1e23ad7a97f49f10e5e61d757cfe4aa9afd01b2502ef3b9aed36dba8",
+          "pdf_page": 39,
+          "printed_page": "36",
+          "span_id": "tes_0c32a99068a3566c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_54f96fc201e64933"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_54f96fc201e64933",
+          "label": "列举未成年人享有的若干基本权利"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_9198901f5e5afd28",
+      "node_title": "《中华人民共和国未成年人保护法》第七条",
+      "pdf_page": 39,
+      "printed_page": "36",
+      "publication_status": "published",
+      "rationale": "教材objective“《中华人民共和国未成年人保护法》第七条”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_efe3a952c3feef72",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_3d8e3b1b5ebf5377",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_02f942c3391d",
+        "tes_dbb324cf3e6bf05a",
+        "textbook-node:tcn_820d087f72c7fb9c",
+        "textbook-unit:tcu_e8695c88af397450"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "《中华人民共和国未成年人保护法》主要规定有哪些内容?",
+          "excerpt_hash": "c2a9844192e2d63050d7e1c140773461b06ef5b0a177c6f08abc1e48542b2124",
+          "pdf_page": 79,
+          "printed_page": "76",
+          "span_id": "tes_dbb324cf3e6bf05a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_54f96fc201e64933"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_54f96fc201e64933",
+          "label": "列举未成年人享有的若干基本权利"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_820d087f72c7fb9c",
+      "node_title": "《中华人民共和国未成年人保护法》主要规定有哪些内容?",
+      "pdf_page": 79,
+      "printed_page": "76",
+      "publication_status": "published",
+      "rationale": "教材objective“《中华人民共和国未成年人保护法》主要规定有哪些内容?”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e8695c88af397450",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7947314b52e6af92",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_02f942c3391d",
+        "tes_20dd304a1832dc4e",
+        "textbook-node:tcn_b1c046e6dbd2450f",
+        "textbook-unit:tcu_e8695c88af397450"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "结合你的生活实际,说说你认为家庭、学校和社会在保护未成年人方面",
+          "excerpt_hash": "1a3e4d870098ae05023f7c094304eefde43bf6549973ee94717aa375706ddae8",
+          "pdf_page": 79,
+          "printed_page": "76",
+          "span_id": "tes_20dd304a1832dc4e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_54f96fc201e64933"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_54f96fc201e64933",
+          "label": "列举未成年人享有的若干基本权利"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b1c046e6dbd2450f",
+      "node_title": "结合你的生活实际,说说你认为家庭、学校和社会在保护未成年人方面",
+      "pdf_page": 79,
+      "printed_page": "76",
+      "publication_status": "published",
+      "rationale": "教材objective“结合你的生活实际,说说你认为家庭、学校和社会在保护未成年人方面”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e8695c88af397450",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_d5267a7d8363efb5",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_02f942c3391d",
+        "tes_1632a701280b8882",
+        "textbook-node:tcn_bf57a46d0bffe44b",
+        "textbook-unit:tcu_e8695c88af397450"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。",
+          "excerpt_hash": "5753731371144d501d6557fbc2855f89a1e104262191971f11210ce77ebcb365",
+          "pdf_page": 87,
+          "printed_page": "84",
+          "span_id": "tes_1632a701280b8882"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_54f96fc201e64933"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_54f96fc201e64933",
+          "label": "列举未成年人享有的若干基本权利"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_bf57a46d0bffe44b",
+      "node_title": "想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。",
+      "pdf_page": 87,
+      "printed_page": "84",
+      "publication_status": "published",
+      "rationale": "教材exercise“想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e8695c88af397450",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_14e958225ea627fd",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_02f942c3391d",
+        "tes_fdca19f9264031f8",
+        "textbook-node:tcn_e344bd603517ab05",
+        "textbook-unit:tcu_bf08e361b9eb8508"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "4 公民的基本权利和义务",
+          "excerpt_hash": "516e8d4a5d44acdd822516238aff6744c8e65f738c85fed39630efd386371864",
+          "pdf_page": 35,
+          "printed_page": "32",
+          "span_id": "tes_fdca19f9264031f8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_54f96fc201e64933"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_54f96fc201e64933",
+          "label": "列举未成年人享有的若干基本权利"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e344bd603517ab05",
+      "node_title": "4公民的基本权利和义务",
+      "pdf_page": 35,
+      "printed_page": "32",
+      "publication_status": "published",
+      "rationale": "教材lesson“4公民的基本权利和义务”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bf08e361b9eb8508",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a450bcd1aa9d7c59",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_02f942c3391d",
+        "tes_de785a53409539a5",
+        "textbook-node:tcn_d79427486aeb602c",
+        "textbook-unit:tcu_e8695c88af397450"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "4.《中华人民共和国未成年人保护法》",
+          "excerpt_hash": "d4b21ba5dade9bd1decd55dc84a154716214f54114e9a2c3928752e5d59b9867",
+          "pdf_page": 87,
+          "printed_page": "84",
+          "span_id": "tes_de785a53409539a5"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_54f96fc201e64933"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_54f96fc201e64933",
+          "label": "列举未成年人享有的若干基本权利"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d79427486aeb602c",
+      "node_title": "4《中华人民共和国未成年人保护法》",
+      "pdf_page": 87,
+      "printed_page": "84",
+      "publication_status": "published",
+      "rationale": "教材lesson“4《中华人民共和国未成年人保护法》”与课标 ML-D3-LAW-006 的可教学小能力“列举未成年人享有的若干基本权利”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e8695c88af397450",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_b47cb7c6548cbbab",
       "alignment_type": "references",
       "confidence": null,
@@ -122,7 +453,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_39fbff9a6fa6f148",
       "alignment_type": "references",
       "confidence": null,
@@ -153,7 +484,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_f12af4389be852a2",
       "alignment_type": "references",
       "confidence": null,
@@ -184,7 +515,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_f892a5f304ab0988",
       "alignment_type": "references",
       "confidence": null,

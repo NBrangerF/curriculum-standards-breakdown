@@ -12,6 +12,12 @@
 .copy > a:hover { color: var(--color-primary); }
 .copy p { margin: .25rem 0 0; color: var(--text-secondary); font-size: .76rem; }
 .copy small { display: block; max-width: 70ch; margin-top: .45rem; color: var(--text-tertiary); font-size: .64rem; line-height: 1.55; }
+.copy blockquote { max-width: 70ch; margin: .6rem 0 0; padding: .5rem .65rem; border-left: 2px solid #c88b2b; background: #fffaf0; color: var(--text-secondary); font-size: .64rem; line-height: 1.6; }
+.badges,.components { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .5rem; }
+.badges span { padding: .24rem .4rem; border-radius: 999px; background: var(--bg-secondary); color: var(--text-tertiary); font: 560 .54rem/1 var(--font-mono); }
+.badges span:nth-child(2) { background: #fff4dc; color: #765018; }
+.components span { padding: .3rem .42rem; border: 1px solid #dfe4f2; border-radius: 999px; color: #46557c; font-size: .58rem; }
+.scopeNotice { margin-top: .5rem; color: #856527; font-size: .61rem; line-height: 1.5; }
 .location { display: grid; gap: .3rem; min-width: 5.8rem; color: var(--text-tertiary); font: .6rem/1.25 var(--font-mono); }
 .actions { display: flex; flex-wrap: wrap; gap: .45rem; justify-content: flex-end; }
 .actions a { display: inline-flex; align-items: center; min-height: 2.4rem; padding: 0 .7rem; border: 1px solid var(--border-default); color: var(--text-primary); font-size: .66rem; font-weight: 600; text-decoration: none; }

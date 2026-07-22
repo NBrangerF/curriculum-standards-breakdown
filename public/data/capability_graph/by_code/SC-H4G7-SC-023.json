@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -163,17 +163,128 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1d9af13eca1d651f",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_96310de8242fdaf8",
+        "textbook-node:tcn_245ee74b0de4d0c0",
+        "textbook-unit:tcu_39ba776db2ddc40c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "生物的生存依赖于一定的环境。",
+          "excerpt_hash": "dcf0e4c81acc6087dcb0880f79ea85d449a0cb98a9c8fbb23418b4b6f1b651ef",
+          "pdf_page": 41,
+          "printed_page": "34",
+          "span_id": "tes_96310de8242fdaf8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_107aa5bf8e03eec0"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_107aa5bf8e03eec0",
+          "label": "观察和描述常见生物的生活环境"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_245ee74b0de4d0c0",
+      "node_title": "生物的生存依赖于一定的环境。",
+      "pdf_page": 41,
+      "printed_page": "34",
+      "publication_status": "published",
+      "rationale": "教材objective“生物的生存依赖于一定的环境。”与课标 SC-H4G7-SC-023 的可教学小能力“观察和描述常见生物的生活环境”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_39ba776db2ddc40c",
+      "unit_title": "第二章"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5a433c4ab8ca0f04",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_6b050908ad1505de",
+        "textbook-node:tcn_9aa2c3a5b730ef0f",
+        "textbook-unit:tcu_e93b533afbe51ff1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "绿色植物的生活需要水和无机盐。水和无机盐是由根吸收的,通过",
+          "excerpt_hash": "2b67ac388a5cca58a570f14ad53e5be84f51b460290c6e79d3048d4fb08b3c84",
+          "pdf_page": 145,
+          "printed_page": "138",
+          "span_id": "tes_6b050908ad1505de"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_107aa5bf8e03eec0"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_107aa5bf8e03eec0",
+          "label": "观察和描述常见生物的生活环境"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_9aa2c3a5b730ef0f",
+      "node_title": "绿色植物的生活需要水和无机盐。水和无机盐是由根吸收的,通过",
+      "pdf_page": 145,
+      "printed_page": "138",
+      "publication_status": "published",
+      "rationale": "教材objective“绿色植物的生活需要水和无机盐。水和无机盐是由根吸收的,通过”与课标 SC-H4G7-SC-023 的可教学小能力“观察和描述常见生物的生活环境”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e93b533afbe51ff1",
+      "unit_title": "第六章"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_fcfb86bede8954d2",
       "alignment_type": "references",
       "confidence": null,
@@ -204,7 +315,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_eb274fa87f1cb06b",
       "alignment_type": "references",
       "confidence": null,
@@ -235,7 +346,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_5cf9fcaff691dea3",
       "alignment_type": "references",
       "confidence": null,
@@ -266,7 +377,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_6f4ec1901b1e431e",
       "alignment_type": "references",
       "confidence": null,

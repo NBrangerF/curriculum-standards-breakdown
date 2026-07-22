@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -83,17 +83,78 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_79507249f5f3d0bf",
+      "alignment_type": "contextualizes",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_c4c8b194000a948fd0ea",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b1592b8ddc34",
+        "tes_abf0eea4f817ad60",
+        "textbook-node:tcn_33d7f56374ae5e8a",
+        "textbook-unit:tcu_65bac34f75e48481"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "证明人类大量使用杀虫剂,对大自然造成了巨大伤害。卡森呼吁大家正视人与自然的关系,敬畏自然,保护环境。《寂静的春天》对美国社会造成了巨大影响,促使美国建立起环境保护机构,推动了民间环境保护运动的发展。",
+          "excerpt_hash": "7db12f49cb72c1dfb2f04618cf856851b1a8b651895f4473cc342a3e0493d998",
+          "pdf_page": 111,
+          "printed_page": "106",
+          "span_id": "tes_abf0eea4f817ad60"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_5039a125ea70e92f",
+        "lc_680e62d2907d86ad"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_5039a125ea70e92f",
+          "label": "分析环境保护的法律规定，树立生态文明观念"
+        },
+        {
+          "component_id": "lc_680e62d2907d86ad",
+          "label": "参与环境保护并做维护生态文明的践行者"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_33d7f56374ae5e8a",
+      "node_title": "证明人类大量使用杀虫剂,对大自然造成了巨大伤害。卡森呼吁大家正视人与自然的关系,敬畏自然,保护环境。《寂静的春天》对美国社会造成了巨大影响,促使美国建立起环境保护机构,推动了民间环境保护运动的发展。",
+      "pdf_page": 111,
+      "printed_page": "106",
+      "publication_status": "published",
+      "rationale": "教材exercise“证明人类大量使用杀虫剂,对大自然造成了巨大伤害。卡森呼吁大家正视人与自然的关系,敬畏自然,保护环境。《寂静的春天》对美国社会造成了巨大影响,促使美国建立起环境保护机构,推动了民间环境保护运动的发展。”为课标 ML-H4G9-LAW-042 的可教学小能力“分析环境保护的法律规定，树立生态文明观念、参与环境保护并做维护生态文明的践行者”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "历史",
+      "textbook_title": "历史9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_65bac34f75e48481",
+      "unit_title": "第22课"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_b67bd7913c45ec3b",
       "alignment_type": "references",
       "confidence": null,
@@ -124,7 +185,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_eeb7f71f595eaa81",
       "alignment_type": "references",
       "confidence": null,
@@ -155,7 +216,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e7be9bb3f0fe2924",
       "alignment_type": "references",
       "confidence": null,
@@ -186,7 +247,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_6049d2298a23390d",
       "alignment_type": "references",
       "confidence": null,

@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -121,101 +121,201 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 2,
-    "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "candidate_count": 0,
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 4,
+    "specific_count": 7,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_a390f9de53f11dae",
-      "alignment_type": "supports",
-      "confidence": 0.6677,
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_064339eb1842122b",
+      "alignment_type": "practices",
+      "confidence": 0.86,
       "coverage": "partial",
       "edition_id": "ed_026e3aaeacf415f2782d",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
       "evidence_refs": [
         "ctb_045c4e32dda3",
-        "textbook-unit:tcu_7a71404dfe4a50f8"
-      ],
-      "evidence_role": "direct_textbook",
-      "level": "unit",
-      "method": "constrained_concept_idf",
-      "pdf_page": 12,
-      "printed_page": "5",
-      "publication_status": "published",
-      "rationale": "教材条目“21.2 解一元二次方程”与课标 MA-H4G9-AL-027 在standard字段命中概念：一元二次方程。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 9,
-      "textbook_subject": "数学",
-      "textbook_title": "数学9年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_7a71404dfe4a50f8",
-      "unit_title": "21.2 解一元二次方程"
-    },
-    {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_4ed59398afa30067",
-      "alignment_type": "supports",
-      "confidence": 0.9124,
-      "coverage": "partial",
-      "edition_id": "ed_026e3aaeacf415f2782d",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
-      "evidence_refs": [
-        "ctb_045c4e32dda3",
-        "textbook-unit:tcu_a9838fd16093181e"
-      ],
-      "evidence_role": "direct_textbook",
-      "level": "unit",
-      "method": "constrained_concept_idf",
-      "pdf_page": 8,
-      "printed_page": "1",
-      "publication_status": "published",
-      "rationale": "教材条目“第二十一章 一元二次方程”与课标 MA-H4G9-AL-027 在standard字段命中概念：一元二次方程。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 9,
-      "textbook_subject": "数学",
-      "textbook_title": "数学9年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_a9838fd16093181e",
-      "unit_title": "第二十一章 一元二次方程"
-    },
-    {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_f293e76f8af5447e",
-      "alignment_type": "supports",
-      "confidence": 1,
-      "coverage": "partial",
-      "edition_id": "ed_026e3aaeacf415f2782d",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
-      "evidence_refs": [
-        "ctb_045c4e32dda3",
+        "tes_325220d9ff18e675",
+        "textbook-node:tcn_1626ccdd258cc6fb",
         "textbook-unit:tcu_bb18186ac36fbff6"
       ],
       "evidence_role": "direct_textbook",
-      "level": "unit",
-      "method": "constrained_concept_idf",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "回答上述问题就要用到二次函数.像学习一次函数一样,本章我们首先讨论什么样的函数是二次函数,然后讨论二次函数的图象和性质,并由",
+          "excerpt_hash": "d472f3f27165681849c2a7e1c4f08550785b1c0b1abbfcb33e03a51dad6847f3",
+          "pdf_page": 34,
+          "printed_page": "27",
+          "span_id": "tes_325220d9ff18e675"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_263d6b71f1128af1",
+        "lc_9f43d9a623ddfa36",
+        "lc_c3b3247105e3f89a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_263d6b71f1128af1",
+          "label": "画二次函数图象"
+        },
+        {
+          "component_id": "lc_9f43d9a623ddfa36",
+          "label": "通过实际问题分析体会二次函数意义"
+        },
+        {
+          "component_id": "lc_c3b3247105e3f89a",
+          "label": "阐释二次函数与一元二次方程关系"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_1626ccdd258cc6fb",
+      "node_title": "回答上述问题就要用到二次函数.像学习一次函数一样,本章我们首先讨论什么样的函数是二次函数,然后讨论二次函数的图象和性质,并由",
       "pdf_page": 34,
       "printed_page": "27",
       "publication_status": "published",
-      "rationale": "教材条目“第二十二章 二次函数”与课标 MA-H4G9-AL-027 在assessment_evidence_type、context、practice、standard、subdomain字段命中概念：二次函数。",
+      "rationale": "教材exercise“回答上述问题就要用到二次函数.像学习一次函数一样,本章我们首先讨论什么样的函数是二次函数,然后讨论二次函数的图象和性质,并由”与课标 MA-H4G9-AL-027 的可教学小能力“画二次函数图象、通过实际问题分析体会二次函数意义、阐释二次函数与一元二次方程关系”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bb18186ac36fbff6",
+      "unit_title": "第二十二章 二次函数"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_2995fb2432b4c3c5",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_2100b88890a66e90",
+        "textbook-node:tcn_dc1ae8c162df0032",
+        "textbook-unit:tcu_bb18186ac36fbff6"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "根据前面的知识,我们可以先画出二次函数 还有其他平移方法吗?",
+          "excerpt_hash": "99fba94bd25c2d3a52415e8a82cc217208fa40ad6ff08744d76df3cda8f0cc8c",
+          "pdf_page": 44,
+          "printed_page": "37",
+          "span_id": "tes_2100b88890a66e90"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_263d6b71f1128af1",
+        "lc_9f43d9a623ddfa36",
+        "lc_c3b3247105e3f89a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_263d6b71f1128af1",
+          "label": "画二次函数图象"
+        },
+        {
+          "component_id": "lc_9f43d9a623ddfa36",
+          "label": "通过实际问题分析体会二次函数意义"
+        },
+        {
+          "component_id": "lc_c3b3247105e3f89a",
+          "label": "阐释二次函数与一元二次方程关系"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_dc1ae8c162df0032",
+      "node_title": "根据前面的知识,我们可以先画出二次函数 还有其他平移方法吗?",
+      "pdf_page": 44,
+      "printed_page": "37",
+      "publication_status": "published",
+      "rationale": "教材exercise“根据前面的知识,我们可以先画出二次函数 还有其他平移方法吗?”与课标 MA-H4G9-AL-027 的可教学小能力“画二次函数图象、通过实际问题分析体会二次函数意义、阐释二次函数与一元二次方程关系”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bb18186ac36fbff6",
+      "unit_title": "第二十二章 二次函数"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5a84a19aeeb3382c",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_c99de580f5d9d2ec",
+        "textbook-node:tcn_c7495863e4f2e3a1",
+        "textbook-unit:tcu_bb18186ac36fbff6"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "22.1.1 二次函数",
+          "excerpt_hash": "a190c8ba3f4f9d31bfd1bfbf3e5bb66d140f2db71e5ffb8e4db9a4213787a14e",
+          "pdf_page": 35,
+          "printed_page": "28",
+          "span_id": "tes_c99de580f5d9d2ec"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_263d6b71f1128af1",
+        "lc_9f43d9a623ddfa36",
+        "lc_c3b3247105e3f89a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_263d6b71f1128af1",
+          "label": "画二次函数图象"
+        },
+        {
+          "component_id": "lc_9f43d9a623ddfa36",
+          "label": "通过实际问题分析体会二次函数意义"
+        },
+        {
+          "component_id": "lc_c3b3247105e3f89a",
+          "label": "阐释二次函数与一元二次方程关系"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c7495863e4f2e3a1",
+      "node_title": "22.1.1 二次函数",
+      "pdf_page": 35,
+      "printed_page": "28",
+      "publication_status": "published",
+      "rationale": "教材section“22.1.1 二次函数”与课标 MA-H4G9-AL-027 的可教学小能力“画二次函数图象、通过实际问题分析体会二次函数意义、阐释二次函数与一元二次方程关系”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -228,10 +328,10 @@
       "unit_title": "第二十二章 二次函数"
     },
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_3f448a7e8f33b6ce",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_441f34dfa3f9a9e2",
       "alignment_type": "supports",
-      "confidence": 0.9124,
+      "confidence": 0.86,
       "coverage": "partial",
       "edition_id": "ed_026e3aaeacf415f2782d",
       "evidence_basis": "toc_title",
@@ -239,15 +339,48 @@
       "evidence_level": "L2_topic",
       "evidence_refs": [
         "ctb_045c4e32dda3",
-        "textbook-unit:tcu_cd5459115808204f"
+        "tes_5caeba657fb25d85",
+        "textbook-node:tcn_6d09d90de7edce10",
+        "textbook-unit:tcu_bb18186ac36fbff6"
       ],
       "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "22.1.2 二次函数狔=犪狓2的图象和性质",
+          "excerpt_hash": "d3325754e451979c4a3f2895aa1644d937f9f6a1575a03cd8450aa52ba9928f8",
+          "pdf_page": 36,
+          "printed_page": "29",
+          "span_id": "tes_5caeba657fb25d85"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_263d6b71f1128af1",
+        "lc_9f43d9a623ddfa36",
+        "lc_c3b3247105e3f89a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_263d6b71f1128af1",
+          "label": "画二次函数图象"
+        },
+        {
+          "component_id": "lc_9f43d9a623ddfa36",
+          "label": "通过实际问题分析体会二次函数意义"
+        },
+        {
+          "component_id": "lc_c3b3247105e3f89a",
+          "label": "阐释二次函数与一元二次方程关系"
+        }
+      ],
       "level": "unit",
-      "method": "constrained_concept_idf",
-      "pdf_page": 9,
-      "printed_page": "2",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_6d09d90de7edce10",
+      "node_title": "22.1.2 二次函数狔=犪狓2的图象和性质",
+      "pdf_page": 36,
+      "printed_page": "29",
       "publication_status": "published",
-      "rationale": "教材条目“21.1 一元二次方程”与课标 MA-H4G9-AL-027 在standard字段命中概念：一元二次方程。",
+      "rationale": "教材section“22.1.2 二次函数狔=犪狓2的图象和性质”与课标 MA-H4G9-AL-027 的可教学小能力“画二次函数图象、通过实际问题分析体会二次函数意义、阐释二次函数与一元二次方程关系”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -256,11 +389,206 @@
       "textbook_subject": "数学",
       "textbook_title": "数学9年级上册",
       "textbook_volume": "上册",
-      "unit_id": "tcu_cd5459115808204f",
-      "unit_title": "21.1 一元二次方程"
+      "unit_id": "tcu_bb18186ac36fbff6",
+      "unit_title": "第二十二章 二次函数"
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6f1904f47f74887d",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_af7e8146609f55f6",
+        "textbook-node:tcn_2a0d258ef0f6680b",
+        "textbook-unit:tcu_bb18186ac36fbff6"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "22.1.3 二次函数狔=犪(狓-犺)2+犽的图象和性质",
+          "excerpt_hash": "8c130c05a64600367305c925b0bfbab0ae8268fe8edaf5abf789894a39ef50a2",
+          "pdf_page": 39,
+          "printed_page": "32",
+          "span_id": "tes_af7e8146609f55f6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_263d6b71f1128af1",
+        "lc_9f43d9a623ddfa36",
+        "lc_c3b3247105e3f89a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_263d6b71f1128af1",
+          "label": "画二次函数图象"
+        },
+        {
+          "component_id": "lc_9f43d9a623ddfa36",
+          "label": "通过实际问题分析体会二次函数意义"
+        },
+        {
+          "component_id": "lc_c3b3247105e3f89a",
+          "label": "阐释二次函数与一元二次方程关系"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2a0d258ef0f6680b",
+      "node_title": "22.1.3 二次函数狔=犪(狓-犺)2+犽的图象和性质",
+      "pdf_page": 39,
+      "printed_page": "32",
+      "publication_status": "published",
+      "rationale": "教材section“22.1.3 二次函数狔=犪(狓-犺)2+犽的图象和性质”与课标 MA-H4G9-AL-027 的可教学小能力“画二次函数图象、通过实际问题分析体会二次函数意义、阐释二次函数与一元二次方程关系”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bb18186ac36fbff6",
+      "unit_title": "第二十二章 二次函数"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_89b17fe031869c3a",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_6009c3c923a06383",
+        "textbook-node:tcn_63877777a0c38455",
+        "textbook-unit:tcu_bb18186ac36fbff6"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "22.1.4 二次函数狔=犪狓2+犫狓+犮的图象和性质",
+          "excerpt_hash": "13d45fcc033a4fad97a1a4ace6d6d4de9fb30a3c257b59100b784a110cf4aa47",
+          "pdf_page": 44,
+          "printed_page": "37",
+          "span_id": "tes_6009c3c923a06383"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_263d6b71f1128af1",
+        "lc_9f43d9a623ddfa36",
+        "lc_c3b3247105e3f89a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_263d6b71f1128af1",
+          "label": "画二次函数图象"
+        },
+        {
+          "component_id": "lc_9f43d9a623ddfa36",
+          "label": "通过实际问题分析体会二次函数意义"
+        },
+        {
+          "component_id": "lc_c3b3247105e3f89a",
+          "label": "阐释二次函数与一元二次方程关系"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_63877777a0c38455",
+      "node_title": "22.1.4 二次函数狔=犪狓2+犫狓+犮的图象和性质",
+      "pdf_page": 44,
+      "printed_page": "37",
+      "publication_status": "published",
+      "rationale": "教材section“22.1.4 二次函数狔=犪狓2+犫狓+犮的图象和性质”与课标 MA-H4G9-AL-027 的可教学小能力“画二次函数图象、通过实际问题分析体会二次函数意义、阐释二次函数与一元二次方程关系”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bb18186ac36fbff6",
+      "unit_title": "第二十二章 二次函数"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ab05d3782e24e46f",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_d89a86cfff5eae89",
+        "textbook-node:tcn_0c9a7c804ec2c15b",
+        "textbook-unit:tcu_bb18186ac36fbff6"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "22.3 实际问题与二次函数",
+          "excerpt_hash": "30667f428d61e665994dc3252624cfd6216c48736ca28a231bc61be1f8dd9f9e",
+          "pdf_page": 56,
+          "printed_page": "49",
+          "span_id": "tes_d89a86cfff5eae89"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_263d6b71f1128af1",
+        "lc_9f43d9a623ddfa36",
+        "lc_c3b3247105e3f89a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_263d6b71f1128af1",
+          "label": "画二次函数图象"
+        },
+        {
+          "component_id": "lc_9f43d9a623ddfa36",
+          "label": "通过实际问题分析体会二次函数意义"
+        },
+        {
+          "component_id": "lc_c3b3247105e3f89a",
+          "label": "阐释二次函数与一元二次方程关系"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_0c9a7c804ec2c15b",
+      "node_title": "22.3 实际问题与二次函数",
+      "pdf_page": 56,
+      "printed_page": "49",
+      "publication_status": "published",
+      "rationale": "教材section“22.3 实际问题与二次函数”与课标 MA-H4G9-AL-027 的可教学小能力“画二次函数图象、通过实际问题分析体会二次函数意义、阐释二次函数与一元二次方程关系”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bb18186ac36fbff6",
+      "unit_title": "第二十二章 二次函数"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_bbe363093b90fff9",
       "alignment_type": "references",
       "confidence": null,
@@ -291,7 +619,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_99c1d2e989938307",
       "alignment_type": "references",
       "confidence": null,

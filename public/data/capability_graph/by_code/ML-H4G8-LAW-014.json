@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "concept_discrimination",
@@ -43,17 +43,128 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7e39b4741064fe82",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_d8429e42f96b",
+        "tes_1a6776ebbe2e4365",
+        "textbook-node:tcn_1ba95289a1e090dd",
+        "textbook-unit:tcu_a2d894f15525e220"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "86 第四单元 维护国家利益",
+          "excerpt_hash": "df5be393eb8c1597c0cf76ac9f1fa53f787df293a6db0e53de948f5681f6bd36",
+          "pdf_page": 91,
+          "printed_page": "86",
+          "span_id": "tes_1a6776ebbe2e4365"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_78bbbadcfb3b81f5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_78bbbadcfb3b81f5",
+          "label": "自觉维护国家统一"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_1ba95289a1e090dd",
+      "node_title": "86第四单元维护国家利益",
+      "pdf_page": 91,
+      "printed_page": "86",
+      "publication_status": "published",
+      "rationale": "教材lesson“86第四单元维护国家利益”与课标 ML-H4G8-LAW-014 的可教学小能力“自觉维护国家统一”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_a2d894f15525e220",
+      "unit_title": "第八课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ddb27936fb3d6a3f",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_d8429e42f96b",
+        "tes_5efa3f030f4e4ae5",
+        "textbook-node:tcn_f6d3d5d3990e1515",
+        "textbook-unit:tcu_f14347e0b0fa8483"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "96 第四单元 维护国家利益",
+          "excerpt_hash": "2f7de2bb480f67dfd24f9405c5e523a15033b75e5c58ca042143c2aff30a49de",
+          "pdf_page": 101,
+          "printed_page": "96",
+          "span_id": "tes_5efa3f030f4e4ae5"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_78bbbadcfb3b81f5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_78bbbadcfb3b81f5",
+          "label": "自觉维护国家统一"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_f6d3d5d3990e1515",
+      "node_title": "96第四单元维护国家利益",
+      "pdf_page": 101,
+      "printed_page": "96",
+      "publication_status": "published",
+      "rationale": "教材lesson“96第四单元维护国家利益”与课标 ML-H4G8-LAW-014 的可教学小能力“自觉维护国家统一”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_f14347e0b0fa8483",
+      "unit_title": "第九课"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_97f0823de1bae390",
       "alignment_type": "references",
       "confidence": null,
@@ -84,7 +195,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_8885b24a479fd6f5",
       "alignment_type": "references",
       "confidence": null,
@@ -115,7 +226,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e6e87bfdeff565e4",
       "alignment_type": "references",
       "confidence": null,
@@ -146,7 +257,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_b63e816b74711a28",
       "alignment_type": "references",
       "confidence": null,

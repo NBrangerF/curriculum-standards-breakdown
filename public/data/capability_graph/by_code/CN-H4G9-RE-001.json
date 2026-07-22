@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -120,17 +120,183 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 3,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0d4e7a66dfed803d",
+      "alignment_type": "supports",
+      "confidence": 0.8317,
+      "coverage": "partial",
+      "edition_id": "ed_5f396a0577c0d6a9df8a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a0230fff243e",
+        "tes_7d339005537b2878",
+        "textbook-node:tcn_0e92a8657aa362eb",
+        "textbook-unit:tcu_1ba31a5485d09dae"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,把握好重音和停连,读出感情和气势。",
+          "excerpt_hash": "882361676c763811f584f3023a5f84f33a966600112df2b88c7a305be58adc3d",
+          "pdf_page": 57,
+          "printed_page": "50",
+          "span_id": "tes_7d339005537b2878"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0f5112587cea5175"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0f5112587cea5175",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_0e92a8657aa362eb",
+      "node_title": "朗读课文,把握好重音和停连,读出感情和气势。",
+      "pdf_page": 57,
+      "printed_page": "50",
+      "publication_status": "published",
+      "rationale": "教材objective“朗读课文,把握好重音和停连,读出感情和气势。”与课标 CN-H4G9-RE-001 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_1ba31a5485d09dae",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c25224e5a9b1dc3c",
+      "alignment_type": "supports",
+      "confidence": 0.8314,
+      "coverage": "partial",
+      "edition_id": "ed_5f396a0577c0d6a9df8a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a0230fff243e",
+        "tes_d9ed984a4729f499",
+        "textbook-node:tcn_3d8c3d0e96ffc5d9",
+        "textbook-unit:tcu_527befa2fe9f3d9b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,注意体会作者富有激情和想",
+          "excerpt_hash": "3c25a6ccceab2d57422f3f91b71e1a8a7d1cb7957ba86087dce2cf481f59a424",
+          "pdf_page": 38,
+          "printed_page": "31",
+          "span_id": "tes_d9ed984a4729f499"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0f5112587cea5175"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0f5112587cea5175",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3d8c3d0e96ffc5d9",
+      "node_title": "朗读课文,注意体会作者富有激情和想",
+      "pdf_page": 38,
+      "printed_page": "31",
+      "publication_status": "published",
+      "rationale": "教材objective“朗读课文,注意体会作者富有激情和想”与课标 CN-H4G9-RE-001 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_527befa2fe9f3d9b",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6e82aac0d8cec9e7",
+      "alignment_type": "supports",
+      "confidence": 0.8313,
+      "coverage": "partial",
+      "edition_id": "ed_6101d4786e6f31ffcbd1",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6624003b3319",
+        "tes_82d55d101630eac8",
+        "textbook-node:tcn_bbc741b73d1e3de9",
+        "textbook-unit:tcu_320ff4c40cf96030"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "再大声朗读,体会诗歌的韵律和节奏,说说你的整体感受。",
+          "excerpt_hash": "b178a4288d5b03dbc1a99a1190ca248b9dd6142985c2d3d0e82ae7133db85aff",
+          "pdf_page": 9,
+          "printed_page": "2",
+          "span_id": "tes_82d55d101630eac8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0f5112587cea5175"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0f5112587cea5175",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_bbc741b73d1e3de9",
+      "node_title": "再大声朗读,体会诗歌的韵律和节奏,说说你的整体感受。",
+      "pdf_page": 9,
+      "printed_page": "2",
+      "publication_status": "published",
+      "rationale": "教材objective“再大声朗读,体会诗歌的韵律和节奏,说说你的整体感受。”与课标 CN-H4G9-RE-001 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_320ff4c40cf96030",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_d480e804d8e71c55",
       "alignment_type": "references",
       "confidence": null,
@@ -161,7 +327,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c2401e9d0dedc7b2",
       "alignment_type": "references",
       "confidence": null,

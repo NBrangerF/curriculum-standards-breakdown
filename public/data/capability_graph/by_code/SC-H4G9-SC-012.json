@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -82,20 +82,261 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 2,
-    "disposition": "unit_topic_needs_page_evidence",
-    "evidence_note": "已有目录主题候选，但缺少可靠 PDF 页定位，已降级进入补证队列。",
+    "candidate_count": 1,
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 3,
-    "specific_count": 0,
+    "specific_count": 4,
     "unit_topic_candidate_count": 1
   },
   "curriculum_alignments": [
     {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a7f612c5eb7242ac",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_f918a1ca14f2b41a",
+        "textbook-node:tcn_07a9f03a60621b63",
+        "textbook-unit:tcu_2312d6c6dde6a1a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "写出图中所示反应的化学方程式: 8C H2CO31 ;2 ;",
+          "excerpt_hash": "48268ed9993c14b8937adec8042cbbd33d1d13d53be5c206e65a2d09e5faedaa",
+          "pdf_page": 129,
+          "printed_page": "124",
+          "span_id": "tes_f918a1ca14f2b41a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_69f5b7cd1e72069b",
+        "lc_6ec898fdef19e46a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_69f5b7cd1e72069b",
+          "label": "根据化学方程式进行简单计算"
+        },
+        {
+          "component_id": "lc_6ec898fdef19e46a",
+          "label": "阐释化学方程式的意义和书写规则"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_07a9f03a60621b63",
+      "node_title": "写出图中所示反应的化学方程式: 8C H2CO31 ;2 ;",
+      "pdf_page": 129,
+      "printed_page": "124",
+      "publication_status": "published",
+      "rationale": "教材exercise“写出图中所示反应的化学方程式: 8C H2CO31 ;2 ;”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、阐释化学方程式的意义和书写规则”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_2312d6c6dde6a1a5",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a38754cbc2e4ec30",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_65539f1c8ffdb25e",
+        "textbook-node:tcn_99c8b464eadcc044",
+        "textbook-unit:tcu_d57ced1beaf28e9a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "写出铁在氧气中燃烧生成四氧化三铁的化学方程式(注意配平)。",
+          "excerpt_hash": "785ac8d79799d0c341b99660e3cb6ae8ee2e3e9e452b5c64ba3d1f4fcd6424f8",
+          "pdf_page": 106,
+          "printed_page": "101",
+          "span_id": "tes_65539f1c8ffdb25e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_69f5b7cd1e72069b",
+        "lc_6ec898fdef19e46a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_69f5b7cd1e72069b",
+          "label": "根据化学方程式进行简单计算"
+        },
+        {
+          "component_id": "lc_6ec898fdef19e46a",
+          "label": "阐释化学方程式的意义和书写规则"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_99c8b464eadcc044",
+      "node_title": "写出铁在氧气中燃烧生成四氧化三铁的化学方程式(注意配平)。",
+      "pdf_page": 106,
+      "printed_page": "101",
+      "publication_status": "published",
+      "rationale": "教材exercise“写出铁在氧气中燃烧生成四氧化三铁的化学方程式(注意配平)。”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、阐释化学方程式的意义和书写规则”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_d57ced1beaf28e9a",
+      "unit_title": "第五单元 化学方程式"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c52c00d079b0446d",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_3d1143fe7f12d213",
+        "textbook-node:tcn_aac1ea66cefac33b",
+        "textbook-unit:tcu_d57ced1beaf28e9a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "92 第五单元 化学方程式",
+          "excerpt_hash": "a93ff45e08013ea9b73faeee57e2276cc303c54c34ce053389ddb96d469d7a60",
+          "pdf_page": 97,
+          "printed_page": "92",
+          "span_id": "tes_3d1143fe7f12d213"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_69f5b7cd1e72069b",
+        "lc_6ec898fdef19e46a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_69f5b7cd1e72069b",
+          "label": "根据化学方程式进行简单计算"
+        },
+        {
+          "component_id": "lc_6ec898fdef19e46a",
+          "label": "阐释化学方程式的意义和书写规则"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_aac1ea66cefac33b",
+      "node_title": "92第五单元化学方程式",
+      "pdf_page": 97,
+      "printed_page": "92",
+      "publication_status": "published",
+      "rationale": "教材lesson“92第五单元化学方程式”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、阐释化学方程式的意义和书写规则”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_d57ced1beaf28e9a",
+      "unit_title": "第五单元 化学方程式"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_29b6191ef018d935",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_12ac0d4334861eb2",
+        "textbook-node:tcn_26753eac7054bc58",
+        "textbook-unit:tcu_d57ced1beaf28e9a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2. 配平下列化学方程式",
+          "excerpt_hash": "e81212556562d7dee8f299271ae239117488af56e179130b29cb1ceb68ee7284",
+          "pdf_page": 106,
+          "printed_page": "101",
+          "span_id": "tes_12ac0d4334861eb2"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_69f5b7cd1e72069b",
+        "lc_6ec898fdef19e46a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_69f5b7cd1e72069b",
+          "label": "根据化学方程式进行简单计算"
+        },
+        {
+          "component_id": "lc_6ec898fdef19e46a",
+          "label": "阐释化学方程式的意义和书写规则"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_26753eac7054bc58",
+      "node_title": "2配平下列化学方程式",
+      "pdf_page": 106,
+      "printed_page": "101",
+      "publication_status": "published",
+      "rationale": "教材lesson“2配平下列化学方程式”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、阐释化学方程式的意义和书写规则”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_d57ced1beaf28e9a",
+      "unit_title": "第五单元 化学方程式"
+    },
+    {
       "algorithm_version": "pre-full-alignment",
       "alignment_id": "tca_386bfb1e9f90af50",
-      "alignment_type": "supports",
+      "alignment_type": "mentions",
       "confidence": 0.5545,
       "coverage": "partial",
       "edition_id": "ed_ba25683b949d491afb3c",
@@ -107,8 +348,13 @@
         "textbook-unit:tcu_d57ced1beaf28e9a"
       ],
       "evidence_role": "legacy_reviewed_textbook_evidence",
+      "evidence_spans": [],
+      "learning_component_ids": [],
+      "learning_components": [],
       "level": "unit_topic_candidate",
       "method": "legacy_human_review",
+      "node_id": null,
+      "node_title": "",
       "pdf_page": null,
       "printed_page": null,
       "publication_status": "review_queue",
@@ -125,7 +371,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ddcc68e7fda21172",
       "alignment_type": "references",
       "confidence": null,
@@ -156,7 +402,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_5cdb57c0bb252e9e",
       "alignment_type": "references",
       "confidence": null,
@@ -187,7 +433,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_f4209f5ad6e4fb30",
       "alignment_type": "references",
       "confidence": null,

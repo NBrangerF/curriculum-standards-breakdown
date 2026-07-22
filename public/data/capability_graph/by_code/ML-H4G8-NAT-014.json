@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "performance_stability",
@@ -43,17 +43,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c76a310dbd1b9978",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_d8429e42f96b",
+        "tes_aac662fb1993a5db",
+        "textbook-node:tcn_dda4b443f40fcce9",
+        "textbook-unit:tcu_0f47936212fbb316"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第七课 积极奉献社会 75",
+          "excerpt_hash": "b1f62b379406815366b936b7af9f4cc9452ca3b0b79b24f0879a9e6e5cfd19df",
+          "pdf_page": 80,
+          "printed_page": null,
+          "span_id": "tes_aac662fb1993a5db"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c9f762a7a14d737a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c9f762a7a14d737a",
+          "label": "以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_dda4b443f40fcce9",
+      "node_title": "第七课积极奉献社会75",
+      "pdf_page": 80,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材lesson“第七课积极奉献社会75”与课标 ML-H4G8-NAT-014 的可教学小能力“以积极态度对待面对的各种挑战，主动承担力所能及的责任，具备服务社会、奉献社会的意识和能力”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_0f47936212fbb316",
+      "unit_title": "第七课"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_570e896dccbb8c0d",
       "alignment_type": "references",
       "confidence": null,
@@ -84,7 +140,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e9ea39d3f6d9bbdb",
       "alignment_type": "references",
       "confidence": null,
@@ -115,7 +171,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_2610a554aa07728c",
       "alignment_type": "references",
       "confidence": null,
@@ -146,7 +202,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_abe092a25873d570",
       "alignment_type": "references",
       "confidence": null,

@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -160,18 +160,184 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 1,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 6,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_cb48abda5b96297d",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_0f6edf1eb52b44920973",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_77ef51325c22",
+        "tes_2f787c5e3491ae73",
+        "textbook-node:tcn_eb953a766fc5fe27",
+        "textbook-unit:tcu_dd1cc4c006561f6a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "生物的生存离不开一定的环境,因此,保护生物多样性,最重要",
+          "excerpt_hash": "53f63ddabb8bdb00c3b68a7d35658870cbbf05331887dcaf411fb8bd839f7e18",
+          "pdf_page": 120,
+          "printed_page": "115",
+          "span_id": "tes_2f787c5e3491ae73"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c944d1b5d1cb8b75"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c944d1b5d1cb8b75",
+          "label": "说出生物多样性及其意义、生态平衡现象和意义"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_eb953a766fc5fe27",
+      "node_title": "生物的生存离不开一定的环境,因此,保护生物多样性,最重要",
+      "pdf_page": 120,
+      "printed_page": "115",
+      "publication_status": "published",
+      "rationale": "教材objective“生物的生存离不开一定的环境,因此,保护生物多样性,最重要”与课标 SC-H4G8-SC-004 的可教学小能力“说出生物多样性及其意义、生态平衡现象和意义”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_dd1cc4c006561f6a",
+      "unit_title": "生物的多样性及其保护102"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_e21791fddb9a8268",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_0f6edf1eb52b44920973",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_77ef51325c22",
+        "tes_dc75f1de3a1068bd",
+        "textbook-node:tcn_bf2f4e935bcc4d93",
+        "textbook-unit:tcu_dd1cc4c006561f6a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "对生物进行科学的分类,是认识和保护生物多样性的基础。生物",
+          "excerpt_hash": "4bf9d779918920e9c4f009df8659849d54a7b57de7662613fb2111041a2b1f1f",
+          "pdf_page": 120,
+          "printed_page": "115",
+          "span_id": "tes_dc75f1de3a1068bd"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c944d1b5d1cb8b75"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c944d1b5d1cb8b75",
+          "label": "说出生物多样性及其意义、生态平衡现象和意义"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_bf2f4e935bcc4d93",
+      "node_title": "对生物进行科学的分类,是认识和保护生物多样性的基础。生物",
+      "pdf_page": 120,
+      "printed_page": "115",
+      "publication_status": "published",
+      "rationale": "教材objective“对生物进行科学的分类,是认识和保护生物多样性的基础。生物”与课标 SC-H4G8-SC-004 的可教学小能力“说出生物多样性及其意义、生态平衡现象和意义”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_dd1cc4c006561f6a",
+      "unit_title": "生物的多样性及其保护102"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6e407b703a11d3bf",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_0f6edf1eb52b44920973",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_77ef51325c22",
+        "tes_0e996ae06cd789ba",
+        "textbook-node:tcn_79f636f18adc2a0b",
+        "textbook-unit:tcu_b5e36b116d910e47"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "96 第六单元 生物的多样性及其保护",
+          "excerpt_hash": "cc8a153145a5bd0e67bfe579bdfe7414550161926fb08a45d0986827dfa0b69c",
+          "pdf_page": 101,
+          "printed_page": "96",
+          "span_id": "tes_0e996ae06cd789ba"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c944d1b5d1cb8b75"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c944d1b5d1cb8b75",
+          "label": "说出生物多样性及其意义、生态平衡现象和意义"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_79f636f18adc2a0b",
+      "node_title": "96第六单元生物的多样性及其保护",
+      "pdf_page": 101,
+      "printed_page": "96",
+      "publication_status": "published",
+      "rationale": "教材lesson“96第六单元生物的多样性及其保护”与课标 SC-H4G8-SC-004 的可教学小能力“说出生物多样性及其意义、生态平衡现象和意义”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_b5e36b116d910e47",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_bb87d873de310a1d",
       "alignment_type": "references",
       "confidence": null,
@@ -202,7 +368,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e1e0ac5a4a7e340e",
       "alignment_type": "references",
       "confidence": null,
@@ -233,7 +399,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_b0b4c703e8abb43c",
       "alignment_type": "references",
       "confidence": null,
@@ -264,7 +430,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_86cc9c6f62877cdf",
       "alignment_type": "references",
       "confidence": null,
@@ -295,7 +461,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7beb24d09f2d2c38",
       "alignment_type": "references",
       "confidence": null,
@@ -326,7 +492,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_3b24a52c886124cd",
       "alignment_type": "references",
       "confidence": null,

@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -121,17 +121,238 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 4,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_4793ea497c7be269",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_eb285566d0326b76eb6b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_2cca20691db7",
+        "tes_5efb4fce4334dcef",
+        "textbook-node:tcn_ba78f1be05e1c561",
+        "textbook-unit:tcu_0d9f9601adb92ea2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "中国是诗的国度,中华文明史册上优秀的诗歌灿若繁星。诵读古代优",
+          "excerpt_hash": "4db50fb3043634e91e960129ea95fd1918ff83738bf025bcc45cefee18467c2c",
+          "pdf_page": 21,
+          "printed_page": "14",
+          "span_id": "tes_5efb4fce4334dcef"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7278cc42d43f9116"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7278cc42d43f9116",
+          "label": "诵读古代诗词"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ba78f1be05e1c561",
+      "node_title": "中国是诗的国度,中华文明史册上优秀的诗歌灿若繁星。诵读古代优",
+      "pdf_page": 21,
+      "printed_page": "14",
+      "publication_status": "published",
+      "rationale": "教材objective“中国是诗的国度,中华文明史册上优秀的诗歌灿若繁星。诵读古代优”与课标 CN-H4G7-RE-016 的可教学小能力“诵读古代诗词”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_0d9f9601adb92ea2",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_b8dc028aa234ab68",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_eb285566d0326b76eb6b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_2cca20691db7",
+        "tes_106400254a98de04",
+        "textbook-node:tcn_5edc67880f6d77ee",
+        "textbook-unit:tcu_109dd8a31a2c71a1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "借助注释,把握课文大意。画出你不懂的语句,与同学交流,尝试解",
+          "excerpt_hash": "df7cc73d5074fc31cfbc974d1b8f277b143cf365720dbddd600eccf5bba087e1",
+          "pdf_page": 36,
+          "printed_page": "29",
+          "span_id": "tes_106400254a98de04"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_73664ae6cff83c46"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_73664ae6cff83c46",
+          "label": "借助注释和工具书理解基本内容"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_5edc67880f6d77ee",
+      "node_title": "借助注释,把握课文大意。画出你不懂的语句,与同学交流,尝试解",
+      "pdf_page": 36,
+      "printed_page": "29",
+      "publication_status": "published",
+      "rationale": "教材objective“借助注释,把握课文大意。画出你不懂的语句,与同学交流,尝试解”与课标 CN-H4G7-RE-016 的可教学小能力“借助注释和工具书理解基本内容”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_109dd8a31a2c71a1",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0874c0df34fc6114",
+      "alignment_type": "supports",
+      "confidence": 0.7543,
+      "coverage": "partial",
+      "edition_id": "ed_99938fbe3c9ca232c6d6",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_903c001c7bb3",
+        "tes_1b9cce7473bc118a",
+        "textbook-node:tcn_8f0d6e3865259e2c",
+        "textbook-unit:tcu_7d73113aa6c3b1e4"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "86 课外古诗词诵读",
+          "excerpt_hash": "b7998bf199ff3e837523b0b90cd078f38de829cea217f99d32032801dc8fc23d",
+          "pdf_page": 93,
+          "printed_page": "86",
+          "span_id": "tes_1b9cce7473bc118a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7278cc42d43f9116"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7278cc42d43f9116",
+          "label": "诵读古代诗词"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_8f0d6e3865259e2c",
+      "node_title": "86课外古诗词诵读",
+      "pdf_page": 93,
+      "printed_page": "86",
+      "publication_status": "published",
+      "rationale": "教材lesson“86课外古诗词诵读”与课标 CN-H4G7-RE-016 的可教学小能力“诵读古代诗词”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_7d73113aa6c3b1e4",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_75f9cdf749e8081c",
+      "alignment_type": "supports",
+      "confidence": 0.7543,
+      "coverage": "partial",
+      "edition_id": "ed_eb285566d0326b76eb6b",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_2cca20691db7",
+        "tes_ec44452b1e330b38",
+        "textbook-node:tcn_7ae82a6050fe0a4a",
+        "textbook-unit:tcu_e51610182519c317"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "64 课外古诗词诵读",
+          "excerpt_hash": "cfd11add670766345cf6454c50a426161b293660680864c06d43d2da89c767d2",
+          "pdf_page": 71,
+          "printed_page": "64",
+          "span_id": "tes_ec44452b1e330b38"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7278cc42d43f9116"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7278cc42d43f9116",
+          "label": "诵读古代诗词"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_7ae82a6050fe0a4a",
+      "node_title": "64课外古诗词诵读",
+      "pdf_page": 71,
+      "printed_page": "64",
+      "publication_status": "published",
+      "rationale": "教材lesson“64课外古诗词诵读”与课标 CN-H4G7-RE-016 的可教学小能力“诵读古代诗词”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e51610182519c317",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_62f3e464c7865312",
       "alignment_type": "references",
       "confidence": null,
@@ -162,7 +383,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e93f5bf116419339",
       "alignment_type": "references",
       "confidence": null,

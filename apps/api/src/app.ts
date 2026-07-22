@@ -223,6 +223,27 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         return ok(c, version, detail.page_map, { total: detail.page_map.length, status: detail.page_map_status })
     })
 
+    app.get('/api/v1/textbooks/:edition_id/context', async c => {
+        const version = await repository.loadDataVersion()
+        const editionId = c.req.param('edition_id')
+        const detail = await textbookRepository.get(editionId)
+        if (!detail) return apiError(c, 404, 'not_found', '未找到教材。')
+
+        const rawPage = c.req.query('page')
+        const page = rawPage ? Number(rawPage) : Number.NaN
+        if (!rawPage || !Number.isInteger(page) || page < 1 || page > detail.page_count) {
+            return apiError(c, 422, 'validation_error', `PDF 页码必须是 1–${detail.page_count} 的整数。`)
+        }
+        const context = await textbookRepository.getPageContext(editionId, page)
+        if (!context) return apiError(c, 404, 'not_found', '未找到教材页面。')
+        return ok(c, version, context, {
+            active_node_count: context.active_nodes.length,
+            alignment_count: context.alignments.length,
+            evidence_span_count: context.evidence_spans.length,
+            standard_scope_count: context.standard_scopes.reduce((sum, scope) => sum + scope.standard_codes.length, 0)
+        })
+    })
+
     app.get('/api/v1/textbooks/:edition_id/resources', async c => {
         const version = await repository.loadDataVersion()
         const detail = await textbookRepository.get(c.req.param('edition_id'))

@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -43,18 +43,184 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 1,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_61e5c45ee1b7acae",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_bd2f9fe309de31a4",
+        "textbook-node:tcn_d6b6baebb2c40dbd",
+        "textbook-unit:tcu_7f033568baa4180f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "24.2.1 点和圆的位置关系",
+          "excerpt_hash": "7c597d8cffa40c90aff7cf1d63e0a2157a943d5c32e9a0f359a6c6335c38f55d",
+          "pdf_page": 99,
+          "printed_page": "92",
+          "span_id": "tes_bd2f9fe309de31a4"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f5bce974d53396f8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f5bce974d53396f8",
+          "label": "探索点与圆、直线与圆的位置关系"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d6b6baebb2c40dbd",
+      "node_title": "24.2.1 点和圆的位置关系",
+      "pdf_page": 99,
+      "printed_page": "92",
+      "publication_status": "published",
+      "rationale": "教材section“24.2.1 点和圆的位置关系”与课标 MA-H4G9-GE-018 的可教学小能力“探索点与圆、直线与圆的位置关系”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_7f033568baa4180f",
+      "unit_title": "第二十四章 圆"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_efeffe4b8701bbc0",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_f09cb5747847907a",
+        "textbook-node:tcn_8f4a0d25dc203bb8",
+        "textbook-unit:tcu_7f033568baa4180f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "24.2 点和圆、直线和圆的位置关系",
+          "excerpt_hash": "253d60630eae54cc961881dbdc69decbd954144b194654412fdc1547084ea9d0",
+          "pdf_page": 99,
+          "printed_page": "92",
+          "span_id": "tes_f09cb5747847907a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f5bce974d53396f8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f5bce974d53396f8",
+          "label": "探索点与圆、直线与圆的位置关系"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_8f4a0d25dc203bb8",
+      "node_title": "24.2 点和圆、直线和圆的位置关系",
+      "pdf_page": 99,
+      "printed_page": "92",
+      "publication_status": "published",
+      "rationale": "教材section“24.2 点和圆、直线和圆的位置关系”与课标 MA-H4G9-GE-018 的可教学小能力“探索点与圆、直线与圆的位置关系”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_7f033568baa4180f",
+      "unit_title": "第二十四章 圆"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_e50da22ab3389431",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_f28a2e6bfba709d2",
+        "textbook-node:tcn_9edfb2a0d47abdf7",
+        "textbook-unit:tcu_7f033568baa4180f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "24.2.2 直线和圆的位置关系",
+          "excerpt_hash": "9126b37b67e2f58fc7e7019900731855e0bd007723c18cc65f4a6455d42dbcbb",
+          "pdf_page": 102,
+          "printed_page": "95",
+          "span_id": "tes_f28a2e6bfba709d2"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f5bce974d53396f8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f5bce974d53396f8",
+          "label": "探索点与圆、直线与圆的位置关系"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_9edfb2a0d47abdf7",
+      "node_title": "24.2.2 直线和圆的位置关系",
+      "pdf_page": 102,
+      "printed_page": "95",
+      "publication_status": "published",
+      "rationale": "教材section“24.2.2 直线和圆的位置关系”与课标 MA-H4G9-GE-018 的可教学小能力“探索点与圆、直线与圆的位置关系”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_7f033568baa4180f",
+      "unit_title": "第二十四章 圆"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_617115a56b848f07",
       "alignment_type": "references",
       "confidence": null,
@@ -85,7 +251,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a152f6c3d8d4ba70",
       "alignment_type": "references",
       "confidence": null,

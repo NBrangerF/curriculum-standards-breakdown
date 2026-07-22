@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "transfer",
@@ -81,17 +81,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_be24efb6c33358ac",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_0e50b2c3cab704574a20",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_0d4b56c03c3c",
+        "tes_c25158b1ed54fa6a",
+        "textbook-node:tcn_b1386d7de084409c",
+        "textbook-unit:tcu_efe3a952c3feef72"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "想想怎样才能让公共生活中的不和谐少一些,微笑多一些。",
+          "excerpt_hash": "e60ef11e3cc4b5ff49ac164b1398c2d4047224d68bd1b93f70dbb506fd8a4be4",
+          "pdf_page": 34,
+          "printed_page": "31",
+          "span_id": "tes_c25158b1ed54fa6a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_ac75f6c619c36149"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_ac75f6c619c36149",
+          "label": "描述社会生活中的公共需要与服务岗位，愿意参与适合年龄的公益或志愿服务"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b1386d7de084409c",
+      "node_title": "想想怎样才能让公共生活中的不和谐少一些,微笑多一些。",
+      "pdf_page": 34,
+      "printed_page": "31",
+      "publication_status": "published",
+      "rationale": "教材exercise“想想怎样才能让公共生活中的不和谐少一些,微笑多一些。”与课标 ML-D3-MOR-004 的可教学小能力“描述社会生活中的公共需要与服务岗位，愿意参与适合年龄的公益或志愿服务”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治5年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_efe3a952c3feef72",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_af7940c88a08eaa6",
       "alignment_type": "references",
       "confidence": null,
@@ -122,7 +178,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ad85603eb6e0c147",
       "alignment_type": "references",
       "confidence": null,
@@ -153,7 +209,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_bcb476c6f2bd0640",
       "alignment_type": "references",
       "confidence": null,
@@ -184,7 +240,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_26dc144b2a9fe420",
       "alignment_type": "references",
       "confidence": null,

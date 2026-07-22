@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -120,17 +120,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_da2c982f7398c439",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_8a7ba2ccfc22bdfa",
+        "textbook-node:tcn_ae9e242603e5982f",
+        "textbook-unit:tcu_a9838fd16093181e"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "21.3 实际问题与一元二次方程",
+          "excerpt_hash": "db1bc55b8acf55b87884218935b7606cd89d81012f14a97db2a0239057ae8c48",
+          "pdf_page": 26,
+          "printed_page": "19",
+          "span_id": "tes_8a7ba2ccfc22bdfa"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_157c42d30b458037"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_157c42d30b458037",
+          "label": "根据数量关系列不等式解决简单实际问题"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ae9e242603e5982f",
+      "node_title": "21.3 实际问题与一元二次方程",
+      "pdf_page": 26,
+      "printed_page": "19",
+      "publication_status": "published",
+      "rationale": "教材section“21.3 实际问题与一元二次方程”与课标 MA-H4G9-AL-018 的可教学小能力“根据数量关系列不等式解决简单实际问题”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_a9838fd16093181e",
+      "unit_title": "第二十一章 一元二次方程"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a48a6080aa71d900",
       "alignment_type": "references",
       "confidence": null,
@@ -161,7 +217,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_418a18104f63ab3a",
       "alignment_type": "references",
       "confidence": null,

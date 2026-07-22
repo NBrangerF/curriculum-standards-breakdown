@@ -29,7 +29,7 @@ const NESTED_REQUIRED_FIELDS = {
     forward_connections: ['connection_id', 'source_code', 'target_code', 'target_label', 'relation_type', 'rationale', 'evidence_refs', 'review_status', 'publication_status']
 }
 const REVIEW_COVERAGE_FIELDS = ['status', 'reviewed_candidate_count', 'total_candidate_count', 'verified_edge_count', 'explicit_no_prerequisite_decision', 'note']
-const ALIGNMENT_SUMMARY_FIELDS = ['disposition', 'highest_evidence_level', 'specific_count', 'unit_topic_candidate_count', 'candidate_count', 'scope_count', 'gap_reason', 'evidence_note']
+const ALIGNMENT_SUMMARY_FIELDS = ['disposition', 'highest_evidence_level', 'specific_count', 'page_evidence_count', 'unit_topic_candidate_count', 'candidate_count', 'scope_count', 'gap_reason', 'evidence_note']
 const hashStandard = value => createHash('sha256').update(String(value || '').replace(/\s+/gu, ' ').trim()).digest('hex')
 
 const root = resolve(process.argv.includes('--data-root')
@@ -95,7 +95,7 @@ else {
                     errors.push(`${record.code}/${alignment.skill_code} 技能映射必须以 candidate 状态发布。`)
                 }
             }
-            if (record.capability_graph_schema_version !== '1.0.0') {
+            if (record.capability_graph_schema_version !== '1.1.0') {
                 errors.push(`${record.code} capability_graph_schema_version 非法。`)
             }
             if (record.source_standard_hash !== hashStandard(record.standard)) {
@@ -155,8 +155,14 @@ for (const record of records) {
             }
         }
         for (const alignment of graph.curriculum_alignments || []) {
-            if (!['scope', 'unit', 'unit_topic_candidate'].includes(alignment.level)) errors.push(`${record.code} 教材关联 level 非法。`)
-            if (alignment.alignment_type === 'teaches') errors.push(`${record.code} 当前 L1/L2 教材关系不得声称 teaches。`)
+            if (!['scope', 'page', 'unit', 'unit_topic_candidate'].includes(alignment.level)) errors.push(`${record.code} 教材关联 level 非法。`)
+            if (['scope', 'unit', 'unit_topic_candidate'].includes(alignment.level) && alignment.alignment_type === 'teaches') errors.push(`${record.code} L1/L2 教材关系不得声称 teaches。`)
+            if (alignment.level === 'page') {
+                if (!Number.isInteger(alignment.pdf_page) || !alignment.node_id) errors.push(`${record.code} 页面教材关系缺少 PDF 页码或内容节点。`)
+                if (!['L3_page_evidence', 'L4_teacher_guide', 'L5_official_crosswalk'].includes(alignment.evidence_level)) errors.push(`${record.code} 页面教材关系证据等级非法。`)
+                if (alignment.evidence_level === 'L3_page_evidence' && alignment.alignment_type === 'teaches') errors.push(`${record.code} L3 页面证据不得声称 teaches。`)
+                if (alignment.review_status !== 'machine_checked' || alignment.publication_status !== 'published') errors.push(`${record.code} 自动页面关系必须直接公开并标记 machine_checked。`)
+            }
             if (alignment.level === 'unit' && !Number.isInteger(alignment.pdf_page)) errors.push(`${record.code} 单元教材关系缺少 PDF 页码。`)
             if (alignment.level === 'unit_topic_candidate' && alignment.publication_status !== 'review_queue') errors.push(`${record.code} 缺页码的主题关系必须进入 review_queue。`)
             if (typeof alignment.unit_title !== 'string') errors.push(`${record.code} 教材关系 unit_title 必须为字符串。`)

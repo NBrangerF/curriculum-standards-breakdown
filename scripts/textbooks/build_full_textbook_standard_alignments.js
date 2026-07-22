@@ -10,7 +10,7 @@ const STRUCTURE_ROOT = join(ROOT, 'data/textbooks/derived/by-edition')
 const STANDARD_ROOT = join(ROOT, 'public/data/by_subject')
 const TEXTBOOK_INDEX = join(ROOT, 'generated/textbook_evidence/china_textbook_index.json')
 const DEFAULT_OUT = join(ROOT, 'data/textbooks/derived/textbook_standard_alignment_index.json')
-const ALGORITHM_VERSION = 'full-alignment-v1'
+const ALGORITHM_VERSION = 'full-alignment-scope-preserve-v2'
 const STANDARD_FIELDS = ['domain', 'subdomain', 'standard', 'context', 'practice', 'teaching_tip', 'assessment_evidence_type']
 const FIELD_WEIGHTS = { domain: 1.5, subdomain: 2.2, standard: 2, context: 1, practice: 1.1, teaching_tip: 0.7, assessment_evidence_type: 0.7 }
 const STOP_TOKENS = new Set([
@@ -207,6 +207,23 @@ function machineChecked(scored, role, threshold) {
   return scored.score >= required && scored.longest_match_length >= 4 && scored.matched_fields.length > 0 && !scored.modifier_conflicts.length
 }
 
+function isContentEvidenceAlignment(row) {
+  const level = String(row.evidence_level_detail || row.evidence_level || '')
+  return /^L[2345](?:_|$)/.test(level)
+    && Boolean(row.unit_id)
+    && Number.isInteger(row.pdf_page)
+    && Boolean(row.node_id || row.content_node_id)
+    && Array.isArray(row.evidence_span_ids)
+    && row.evidence_span_ids.length > 0
+}
+
+function isPublishedUnit(row) {
+  return row.review_status === 'approved'
+    || (row.review_status === 'machine_checked'
+      && row.publication_status === 'published'
+      && row.source === 'body_inferred_unit')
+}
+
 function build() {
   const args = parseArgs(process.argv.slice(2))
   const current = readJson(CURRENT_PATH)
@@ -215,7 +232,6 @@ function build() {
   const standards = loadStandards()
   const standardsByScope = indexStandards(standards)
   const mappingsByEvidence = loadMappings()
-  const tokenIndexes = new Map()
   const matches = []
   const unitDispositions = []
   const textbookDispositions = []
@@ -227,14 +243,16 @@ function build() {
   for (const asset of assets.sort((a, b) => a.edition_id.localeCompare(b.edition_id))) {
     const structurePath = join(STRUCTURE_ROOT, `${asset.edition_id}.json`)
     const structure = existsSync(structurePath) ? readJson(structurePath) : { toc: [], page_map: [], alignments: [] }
-    const legacyApproved = (structure.alignments || []).filter(row => row.review_status === 'approved')
+    const existingAlignments = structure.alignments || []
+    const legacyApproved = existingAlignments.filter(row => row.review_status === 'approved')
+    const contentEvidenceAlignments = existingAlignments.filter(isContentEvidenceAlignment)
     for (const row of legacyApproved) legacyApprovedIds.push(row.alignment_id)
     const legacyByKey = new Map(legacyApproved.map(row => [`${row.unit_id}:${row.standard_code}`, row]))
     const evidenceMappings = mappingsByEvidence.get(asset.evidence_id) || []
     const mappings = (evidenceMappings.length ? evidenceMappings : FALLBACK_MAPPINGS[asset.subject_slug] || [])
       .filter(mapping => mapping.subject_slug)
     const band = gradeBand(asset.grade)
-    const units = (structure.toc || []).filter(unit => unit.review_status === 'approved')
+    const units = (structure.toc || []).filter(isPublishedUnit)
     const published = []
     const scopeBlocks = []
 
@@ -260,17 +278,8 @@ function build() {
         byStandardScope.get(standardCode).push(relation)
       }
 
-      let tokenIndex = tokenIndexes.get(`${mapping.subject_slug}:${band}`)
-      if (!tokenIndex) {
-        tokenIndex = standardTokenIndex(scopeStandards)
-        tokenIndexes.set(`${mapping.subject_slug}:${band}`, tokenIndex)
-      }
       for (const unit of units) {
-        const ranked = tokenIndex.rows
-          .map(row => ({ standard: row.standard, ...scoreUnit(row, unit.title, tokenIndex) }))
-          .filter(row => row.score >= args.minCandidateScore && row.matched_keywords.length)
-          .sort((a, b) => b.score - a.score || b.longest_match_length - a.longest_match_length || a.standard.code.localeCompare(b.standard.code))
-          .slice(0, args.maxMatchesPerUnit)
+        const ranked = []
         const unitMatches = []
         for (const scored of ranked) {
           const key = `${unit.entry_id}:${scored.standard.code}`
@@ -350,6 +359,32 @@ function build() {
         disposition.published_match_count += 1
       }
     }
+    for (const evidenceAlignment of contentEvidenceAlignments) {
+      if (published.some(row => row.alignment_id === evidenceAlignment.alignment_id)) continue
+      const retained = {
+        ...evidenceAlignment,
+        edition_id: asset.edition_id,
+        review_status: 'machine_checked',
+        publication_status: 'published',
+        evidence_id: evidenceAlignment.evidence_id || asset.evidence_id,
+        alignment_method: evidenceAlignment.alignment_method || 'component_page_evidence',
+        algorithm_version: evidenceAlignment.algorithm_version || 'content-alignment-v2'
+      }
+      published.push(retained)
+      matches.push(retained)
+      if (!byStandardSpecific.has(retained.standard_code)) byStandardSpecific.set(retained.standard_code, [])
+      byStandardSpecific.get(retained.standard_code).push(retained)
+      const disposition = unitDispositions.find(row =>
+        row.edition_id === asset.edition_id
+        && row.unit_id === retained.unit_id
+        && row.standard_subject_slug === retained.subject_slug
+      )
+      if (disposition) {
+        disposition.status = 'aligned'
+        disposition.match_count += 1
+        disposition.published_match_count += 1
+      }
+    }
     structure.alignments = [...new Map(published.map(row => [row.alignment_id, row])).values()]
       .sort((a, b) => a.unit_id.localeCompare(b.unit_id) || a.standard_code.localeCompare(b.standard_code))
     structure.standard_scopes = scopeBlocks
@@ -410,15 +445,25 @@ function build() {
   for (const row of unitDispositions) countInto(summary.units_by_status, row.status)
   for (const row of standardDispositions) countInto(summary.standards_by_status, row.status)
   const output = {
-    schema_version: 1,
+    schema_version: 2,
     generated_at: new Date().toISOString(),
     source_generation_id: current.generation_id,
     algorithm_version: ALGORITHM_VERSION,
+    pipeline_versions: [...new Set([
+      ALGORITHM_VERSION,
+      ...matches.map(row => row.algorithm_version).filter(Boolean)
+    ])],
     policy: {
       grade_band_mapping: { H1: 'grades_1_2', H2: 'grades_3_4', H3: 'grades_5_6', H4G7: 'grade_7', H4G8: 'grade_8', H4G9: 'grade_9' },
       min_candidate_score: args.minCandidateScore,
       machine_checked_score: args.machineScore,
       max_matches_per_unit: args.maxMatchesPerUnit,
+      title_only_matches_published: false,
+      content_evidence_matches_preserved: true,
+      content_alignment_is_automatic: true,
+      content_alignment_target: 'learning_components',
+      review_policy: 'automatic_no_human_gate',
+      publication_gate: false,
       scope_relations_are_not_unit_evidence: true,
       adjacent_discipline_relations_are_not_direct_support: true
     },

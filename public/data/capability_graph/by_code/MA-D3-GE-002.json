@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "transfer",
@@ -43,17 +43,183 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ce55506963286eda",
+      "alignment_type": "practices",
+      "confidence": 0.9071,
+      "coverage": "partial",
+      "edition_id": "ed_6f696b62cd631c35e5d0",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_98536ea16bbc",
+        "tes_2edd3030e76dcdbb",
+        "textbook-node:tcn_5df84f59d09eaf5f",
+        "textbook-unit:tcu_cae685c0d698a01a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "计算右面图形的面积。你能想出几种方法?",
+          "excerpt_hash": "f95ecc45eba0e948b2d5f0b75aab353edbc3e5d6e828519e7d63275dd94d8dee",
+          "pdf_page": 106,
+          "printed_page": "101",
+          "span_id": "tes_2edd3030e76dcdbb"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_ed8cf8eca8c3b394"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_ed8cf8eca8c3b394",
+          "label": "计算平行四边形、三角形、梯形的面积"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_5df84f59d09eaf5f",
+      "node_title": "计算右面图形的面积。你能想出几种方法?",
+      "pdf_page": 106,
+      "printed_page": "101",
+      "publication_status": "published",
+      "rationale": "教材exercise“计算右面图形的面积。你能想出几种方法?”与课标 MA-D3-GE-002 的可教学小能力“计算平行四边形、三角形、梯形的面积”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_cae685c0d698a01a",
+      "unit_title": "20.1 m"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_3961ea7795520978",
+      "alignment_type": "practices",
+      "confidence": 0.9071,
+      "coverage": "partial",
+      "edition_id": "ed_6f696b62cd631c35e5d0",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_98536ea16bbc",
+        "tes_d768377d90ecee3a",
+        "textbook-node:tcn_da8c4a9fdde7f2de",
+        "textbook-unit:tcu_d6c76da04d0ed42b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "计算下面正方形的面积和周长。",
+          "excerpt_hash": "eaf044bb9d81daa59b497b31df909f205e65fd7425a09ae1e208f872d261f934",
+          "pdf_page": 59,
+          "printed_page": "54",
+          "span_id": "tes_d768377d90ecee3a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_ed8cf8eca8c3b394"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_ed8cf8eca8c3b394",
+          "label": "计算平行四边形、三角形、梯形的面积"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_da8c4a9fdde7f2de",
+      "node_title": "计算下面正方形的面积和周长。",
+      "pdf_page": 59,
+      "printed_page": "54",
+      "publication_status": "published",
+      "rationale": "教材exercise“计算下面正方形的面积和周长。”与课标 MA-D3-GE-002 的可教学小能力“计算平行四边形、三角形、梯形的面积”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_d6c76da04d0ed42b",
+      "unit_title": "1.5 m 丝带。这根丝带可以包装多少个礼盒?"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c42481f14d98980d",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_6f696b62cd631c35e5d0",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_98536ea16bbc",
+        "tes_95976ecfa3096d9d",
+        "textbook-node:tcn_28889b553b4a91ed",
+        "textbook-unit:tcu_983ddaebfeaf95e9"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "6 多边形的面积",
+          "excerpt_hash": "f8cc74c4de15191c26cb3169dffca0ae60253b29d9be4167ec05001e7a9c236d",
+          "pdf_page": 89,
+          "printed_page": "84",
+          "span_id": "tes_95976ecfa3096d9d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_ed8cf8eca8c3b394"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_ed8cf8eca8c3b394",
+          "label": "计算平行四边形、三角形、梯形的面积"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_28889b553b4a91ed",
+      "node_title": "6多边形的面积",
+      "pdf_page": 89,
+      "printed_page": "84",
+      "publication_status": "published",
+      "rationale": "教材lesson“6多边形的面积”与课标 MA-D3-GE-002 的可教学小能力“计算平行四边形、三角形、梯形的面积”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "数学",
+      "textbook_title": "数学5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_983ddaebfeaf95e9",
+      "unit_title": "2.5x= 14 x ÷ 3=1.2"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_31b88e49cc578944",
       "alignment_type": "references",
       "confidence": null,
@@ -84,7 +250,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_95c6f82d2e6fb83b",
       "alignment_type": "references",
       "confidence": null,
@@ -115,7 +281,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a2b9ade045ef9f20",
       "alignment_type": "references",
       "confidence": null,
@@ -146,7 +312,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_2773b0da4c42eab4",
       "alignment_type": "references",
       "confidence": null,

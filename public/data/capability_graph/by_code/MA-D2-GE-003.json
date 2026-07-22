@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "comparison",
@@ -83,17 +83,78 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_24058705a2032b9d",
+      "alignment_type": "practices",
+      "confidence": 0.7662,
+      "coverage": "partial",
+      "edition_id": "ed_e8d4a6502261fd8416ff",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_19111441ff11",
+        "tes_a387560f33f11639",
+        "textbook-node:tcn_0d1a3af430663bcf",
+        "textbook-unit:tcu_42289dc09d59cbaf"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "想一想:三角形的三边之间有怎样的关系呢?",
+          "excerpt_hash": "689a2f5130c7268a3f96d42957af260b896b78b4d9fc4e25ccc82896f90ede18",
+          "pdf_page": 65,
+          "printed_page": "60",
+          "span_id": "tes_a387560f33f11639"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_624afea849d58a31",
+        "lc_8c913d2192defd9a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_624afea849d58a31",
+          "label": "识别并说出直角三角形、锐角三角形和钝角三角形的关键特征"
+        },
+        {
+          "component_id": "lc_8c913d2192defd9a",
+          "label": "识别并说出等腰三角形和等边三角形的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_0d1a3af430663bcf",
+      "node_title": "想一想:三角形的三边之间有怎样的关系呢?",
+      "pdf_page": 65,
+      "printed_page": "60",
+      "publication_status": "published",
+      "rationale": "教材exercise“想一想:三角形的三边之间有怎样的关系呢?”与课标 MA-D2-GE-003 的可教学小能力“识别并说出直角三角形、锐角三角形和钝角三角形的关键特征、识别并说出等腰三角形和等边三角形的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "数学",
+      "textbook_title": "数学4年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_42289dc09d59cbaf",
+      "unit_title": "60.06 亿人次 = 人次"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e955d89125ed9c16",
       "alignment_type": "references",
       "confidence": null,
@@ -124,7 +185,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_52fec8c7c9a4a6d5",
       "alignment_type": "references",
       "confidence": null,
@@ -155,7 +216,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_86161f023c58761b",
       "alignment_type": "references",
       "confidence": null,
@@ -186,7 +247,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_52252f29c90ffad1",
       "alignment_type": "references",
       "confidence": null,

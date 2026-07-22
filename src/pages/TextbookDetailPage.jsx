@@ -94,7 +94,7 @@ export default function TextbookDetailPage() {
                         <h1>{book.title}</h1>
                         <p className={styles.edition}>{book.edition_name}</p>
                         <div className={styles.badges}>
-                            <TextbookStatus value={book.toc_status} label={`目录：${book.toc_status === 'approved' ? '已定位' : '待处理'}`} />
+                            <TextbookStatus value={book.toc_status} label={`目录：${book.toc_status === 'approved' ? '已定位' : book.toc_status === 'machine_checked' ? '自动定位' : '待处理'}`} />
                             <TextbookStatus value={book.page_map_status} label={`印刷页：${book.page_map_status === 'approved' ? '已对齐' : '待处理'}`} />
                             <TextbookStatus value={book.text_quality} />
                         </div>
@@ -136,10 +136,10 @@ export default function TextbookDetailPage() {
                     </section>
 
                     <section className={styles.section}>
-                        <div className={styles.sectionHeading}><div><span>ALIGN</span><h2>课标与教材关联</h2></div><p>展示人工批准与达到保守门槛的可解释智能匹配。</p></div>
+                        <div className={styles.sectionHeading}><div><span>ALIGN</span><h2>课标与教材关联</h2></div><p>机器校验后直接展示，并附页内证据、置信度与算法版本。</p></div>
                         {book.alignments.length ? (
                             <div className={styles.alignmentList}>{book.alignments.map(item => <article key={item.alignment_id}><LinkSimpleIcon size={18} aria-hidden="true" /><div><Link to={`/standards/${encodeURIComponent(item.standard_code)}`}>{item.standard_code}</Link><p>{item.standard_text}</p><small>{item.rationale}</small></div></article>)}</div>
-                        ) : <EmptyState title="暂无可靠的单元级关联" message={standardScopeCodes.length ? `已建立 ${standardScopeCodes.length} 条同学科、同学段课标范围关系；可以先浏览下方相关课标，具体单元证据仍需增强。` : '尚未建立可公开的具体单元或适用范围关系。'} />}
+                        ) : <EmptyState title="暂无可靠的单元级关联" message={standardScopeCodes.length ? `已建立 ${standardScopeCodes.length} 条同学科、同学段课标范围关系；可以先浏览下方相关课标，具体单元证据仍需增强。` : '尚未生成具体单元证据或适用范围关系。'} />}
                         <StandardScopeLinks standardCodes={standardScopeCodes} />
                     </section>
                 </main>

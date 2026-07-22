@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -79,17 +79,968 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 12,
     "scope_count": 3,
-    "specific_count": 0,
+    "specific_count": 16,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6f93f3a5e1bc985c",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_fe776f75939e7555",
+        "textbook-node:tcn_93af6f149639653d",
+        "textbook-unit:tcu_01b0ccc0cb5171a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验 1-2 分别取一集气瓶氧气和一集气瓶二氧化碳气体,仔细观察它们的颜色和状态,闻一闻气味。取一根小木条在空气中点燃,分别慢慢地放",
+          "excerpt_hash": "7bca5d71bbaea5fa38f171d37ee914a8d5a4e4c3ebf9ced24192d78b20a0a5c8",
+          "pdf_page": 14,
+          "printed_page": "9",
+          "span_id": "tes_fe776f75939e7555"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb",
+        "lc_ce1f17be7b3fc280"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        },
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_93af6f149639653d",
+      "node_title": "实验 1-2 分别取一集气瓶氧气和一集气瓶二氧化碳气体,仔细观察它们的颜色和状态,闻一闻气味。取一根小木条在空气中点燃,分别慢慢地放",
+      "pdf_page": 14,
+      "printed_page": "9",
+      "publication_status": "published",
+      "rationale": "教材exercise“实验 1-2 分别取一集气瓶氧气和一集气瓶二氧化碳气体,仔细观察它们的颜色和状态,闻一闻气味。取一根小木条在空气中点燃,分别慢慢地放”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_01b0ccc0cb5171a5",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_99656276ad2d1bff",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_ba56d41803bd1230",
+        "textbook-node:tcn_3a65ce1a45bdec86",
+        "textbook-unit:tcu_01b0ccc0cb5171a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "讨论 图1-5 闻气体时的正确操作结合自己的生活经验和知识,尽可能多地描述氧气和二氧化碳的性质,试着判断哪些属于物理性",
+          "excerpt_hash": "16789df62d87a79761b3f91d03171f51464eeb2da8f65e541ff494e009d8438b",
+          "pdf_page": 14,
+          "printed_page": "9",
+          "span_id": "tes_ba56d41803bd1230"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb",
+        "lc_ce1f17be7b3fc280"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        },
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3a65ce1a45bdec86",
+      "node_title": "讨论 图1-5 闻气体时的正确操作结合自己的生活经验和知识,尽可能多地描述氧气和二氧化碳的性质,试着判断哪些属于物理性",
+      "pdf_page": 14,
+      "printed_page": "9",
+      "publication_status": "published",
+      "rationale": "教材exercise“讨论 图1-5 闻气体时的正确操作结合自己的生活经验和知识,尽可能多地描述氧气和二氧化碳的性质,试着判断哪些属于物理性”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_01b0ccc0cb5171a5",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9ce70880abba08cf",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_8c000201be41758a",
+        "textbook-node:tcn_52050c55cf646273",
+        "textbook-unit:tcu_01b0ccc0cb5171a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验中我们将主要观察呼吸前后氧气、二氧化碳、水蒸气含量的变化。",
+          "excerpt_hash": "3d8b962fc7e0b5c4f3bdf8cd4a8dfe2998b27a0d02994723785a6bbc30436e49",
+          "pdf_page": 19,
+          "printed_page": "14",
+          "span_id": "tes_8c000201be41758a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_ce1f17be7b3fc280",
+        "lc_1652af01ca8b94cb"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        },
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_52050c55cf646273",
+      "node_title": "实验中我们将主要观察呼吸前后氧气、二氧化碳、水蒸气含量的变化。",
+      "pdf_page": 19,
+      "printed_page": "14",
+      "publication_status": "published",
+      "rationale": "教材exercise“实验中我们将主要观察呼吸前后氧气、二氧化碳、水蒸气含量的变化。”与课标 SC-H4G9-SC-031 的可教学小能力“识别并说出氧气、二氧化碳和水的主要性质的关键特征、学会氧气和二氧化碳的实验室制法”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_01b0ccc0cb5171a5",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1669736e5c7315cb",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_0c67dbb1e1ee34a2",
+        "textbook-node:tcn_cc52975da727baa6",
+        "textbook-unit:tcu_108981966cbc2957"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验活动1 氧气的实验室制取与性质【实验目的】1. 学习实验室制取氧气的方法。",
+          "excerpt_hash": "f5b6cf4e69ed1364a01b672bc0c425f04fbb5f38a52a8dfa854b93f4516e4e8c",
+          "pdf_page": 50,
+          "printed_page": "45",
+          "span_id": "tes_0c67dbb1e1ee34a2"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_cc52975da727baa6",
+      "node_title": "实验活动1 氧气的实验室制取与性质【实验目的】1. 学习实验室制取氧气的方法。",
+      "pdf_page": 50,
+      "printed_page": "45",
+      "publication_status": "published",
+      "rationale": "教材exercise“实验活动1 氧气的实验室制取与性质【实验目的】1. 学习实验室制取氧气的方法。”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_108981966cbc2957",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a3cdbb61bb649670",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_f1e8e2907f608187",
+        "textbook-node:tcn_e9d6a4c7634a480c",
+        "textbook-unit:tcu_108981966cbc2957"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验活动1学生实验一氧气的实验室制取与性质氧气的制取和性质 4545",
+          "excerpt_hash": "367bc303f2fa66e303f4a0d7102fc5ca2ec0d6da5d70ab0db7775ec2e5ddbad0",
+          "pdf_page": 50,
+          "printed_page": "45",
+          "span_id": "tes_f1e8e2907f608187"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e9d6a4c7634a480c",
+      "node_title": "实验活动1学生实验一氧气的实验室制取与性质氧气的制取和性质 4545",
+      "pdf_page": 50,
+      "printed_page": "45",
+      "publication_status": "published",
+      "rationale": "教材exercise“实验活动1学生实验一氧气的实验室制取与性质氧气的制取和性质 4545”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_108981966cbc2957",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_07aa12ce7cb29f00",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_67ce054b8a27ee6c",
+        "textbook-node:tcn_d35cb5e287c43df3",
+        "textbook-unit:tcu_2312d6c6dde6a1a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验活动2 二氧化碳的实验室制取与性质课题1 金刚石、石墨和C60 105明代邵弥《贻鹤寄书图》(局部)",
+          "excerpt_hash": "b89ebd2fde671a017d1233e68fadfa004da9a95cd4fe97a34174edd7a251061d",
+          "pdf_page": 110,
+          "printed_page": "105",
+          "span_id": "tes_67ce054b8a27ee6c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb",
+        "lc_ce1f17be7b3fc280"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        },
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d35cb5e287c43df3",
+      "node_title": "实验活动2 二氧化碳的实验室制取与性质课题1 金刚石、石墨和C60 105明代邵弥《贻鹤寄书图》(局部)",
+      "pdf_page": 110,
+      "printed_page": "105",
+      "publication_status": "published",
+      "rationale": "教材exercise“实验活动2 二氧化碳的实验室制取与性质课题1 金刚石、石墨和C60 105明代邵弥《贻鹤寄书图》(局部)”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_2312d6c6dde6a1a5",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7658bf50c8793bd7",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_2d425b86e69039a6",
+        "textbook-node:tcn_9b07b84cc7956ab2",
+        "textbook-unit:tcu_2312d6c6dde6a1a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验 6-3 如图6-14所示,将二氧化碳气体慢慢倒入烧杯中,观察现象并分析。",
+          "excerpt_hash": "b83572aa40b803f257522a5be8f26e507a357c709a1c30c296ae908147c49b5b",
+          "pdf_page": 122,
+          "printed_page": "117",
+          "span_id": "tes_2d425b86e69039a6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb",
+        "lc_ce1f17be7b3fc280"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        },
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_9b07b84cc7956ab2",
+      "node_title": "实验 6-3 如图6-14所示,将二氧化碳气体慢慢倒入烧杯中,观察现象并分析。",
+      "pdf_page": 122,
+      "printed_page": "117",
+      "publication_status": "published",
+      "rationale": "教材exercise“实验 6-3 如图6-14所示,将二氧化碳气体慢慢倒入烧杯中,观察现象并分析。”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_2312d6c6dde6a1a5",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_b28bcfe152f4f99c",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_c1d7233b5fa0ed4b",
+        "textbook-node:tcn_bc61bd23b70801c4",
+        "textbook-unit:tcu_2312d6c6dde6a1a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验 6-4 如图6-15所示,向一个收集满二氧化碳气体的质地较软的塑料瓶中加入约1/3体积ප̃",
+          "excerpt_hash": "23efe5649b9c3e2dc36ad8ac93ccd01c077a31c3cc73f3cd0e28e1015d0925ac",
+          "pdf_page": 122,
+          "printed_page": "117",
+          "span_id": "tes_c1d7233b5fa0ed4b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb",
+        "lc_ce1f17be7b3fc280"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        },
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_bc61bd23b70801c4",
+      "node_title": "实验 6-4 如图6-15所示,向一个收集满二氧化碳气体的质地较软的塑料瓶中加入约1/3体积ප̃",
+      "pdf_page": 122,
+      "printed_page": "117",
+      "publication_status": "published",
+      "rationale": "教材exercise“实验 6-4 如图6-15所示,向一个收集满二氧化碳气体的质地较软的塑料瓶中加入约1/3体积ප̃”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_2312d6c6dde6a1a5",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_3a056564ad415e12",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_772d567d406dadd1",
+        "textbook-node:tcn_2d2d7875d135d594",
+        "textbook-unit:tcu_2312d6c6dde6a1a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验 6-5 取四朵用石蕊 溶液染成紫色的干燥的纸花。第一朵纸花喷上稀醋酸,第二朵纸花喷上水,第三朵纸花直接放入盛满二氧化碳的集气瓶中,第四朵纸花喷上水后,再放入盛满二氧化碳的集气瓶中,观察四朵纸花的颜色",
+          "excerpt_hash": "0d0e6c0eaf4a130c9b1c87d1bb54118d307ee4e8ddc83352bc802b4ea689ea08",
+          "pdf_page": 123,
+          "printed_page": "118",
+          "span_id": "tes_772d567d406dadd1"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb",
+        "lc_ce1f17be7b3fc280"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        },
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2d2d7875d135d594",
+      "node_title": "实验 6-5 取四朵用石蕊 溶液染成紫色的干燥的纸花。第一朵纸花喷上稀醋酸,第二朵纸花喷上水,第三朵纸花直接放入盛满二氧化碳的集气瓶中,第四朵纸花喷上水后,再放入盛满二氧化碳的集气瓶中,观察四朵纸花的颜色",
+      "pdf_page": 123,
+      "printed_page": "118",
+      "publication_status": "published",
+      "rationale": "教材exercise“实验 6-5 取四朵用石蕊 溶液染成紫色的干燥的纸花。第一朵纸花喷上稀醋酸,第二朵纸花喷上水,第三朵纸花直接放入盛满二氧化碳的集气瓶中,第四朵纸花喷上水后,再放入盛满二氧化碳的集气瓶中,观察四朵纸花的颜色”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_2312d6c6dde6a1a5",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_d4bbaebe78729e1c",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_7d54e25ef7dd355e",
+        "textbook-node:tcn_3bf636648a8200e7",
+        "textbook-unit:tcu_2312d6c6dde6a1a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验操作 现象 结论(1)二氧化碳的密度比空气的大(2)二氧化碳能溶于水",
+          "excerpt_hash": "b3eeea925d50138f47909b6b18958dd809e3b4a5e0e5828f1eab136d63f9b4bd",
+          "pdf_page": 128,
+          "printed_page": "123",
+          "span_id": "tes_7d54e25ef7dd355e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb",
+        "lc_ce1f17be7b3fc280"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        },
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3bf636648a8200e7",
+      "node_title": "实验操作 现象 结论(1)二氧化碳的密度比空气的大(2)二氧化碳能溶于水",
+      "pdf_page": 128,
+      "printed_page": "123",
+      "publication_status": "published",
+      "rationale": "教材exercise“实验操作 现象 结论(1)二氧化碳的密度比空气的大(2)二氧化碳能溶于水”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_2312d6c6dde6a1a5",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_22070c2ac578f7c5",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_ff13c77fb38c50fd",
+        "textbook-node:tcn_a969f6ef3f9169c3",
+        "textbook-unit:tcu_2312d6c6dde6a1a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验活动2 二氧化碳的实验室制取与性质课题1 金刚石、石墨和C60 125125",
+          "excerpt_hash": "3037937dfcdfa5302151bdd6ebe87a9cf3e03138dbabb6c3de5a39ce294269aa",
+          "pdf_page": 130,
+          "printed_page": "125",
+          "span_id": "tes_ff13c77fb38c50fd"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb",
+        "lc_ce1f17be7b3fc280"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        },
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a969f6ef3f9169c3",
+      "node_title": "实验活动2 二氧化碳的实验室制取与性质课题1 金刚石、石墨和C60 125125",
+      "pdf_page": 130,
+      "printed_page": "125",
+      "publication_status": "published",
+      "rationale": "教材exercise“实验活动2 二氧化碳的实验室制取与性质课题1 金刚石、石墨和C60 125125”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_2312d6c6dde6a1a5",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_dbb6632758d35c25",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_ac7f1cbdb0ea84b5",
+        "textbook-node:tcn_85aa26ffecec2714",
+        "textbook-unit:tcu_2312d6c6dde6a1a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验活动2 二氧化碳的实验室制取与性质【实验目的】",
+          "excerpt_hash": "c845e25506908c5b0ed2cacf32041f03aecc01921932c08b779e1ded17afab3e",
+          "pdf_page": 130,
+          "printed_page": "125",
+          "span_id": "tes_ac7f1cbdb0ea84b5"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb",
+        "lc_ce1f17be7b3fc280"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        },
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_85aa26ffecec2714",
+      "node_title": "实验活动2 二氧化碳的实验室制取与性质【实验目的】",
+      "pdf_page": 130,
+      "printed_page": "125",
+      "publication_status": "published",
+      "rationale": "教材exercise“实验活动2 二氧化碳的实验室制取与性质【实验目的】”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_2312d6c6dde6a1a5",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0c160e3852cf6ff7",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_dff8dd966b78937e",
+        "textbook-node:tcn_4a6347ebc9d22b9b",
+        "textbook-unit:tcu_2312d6c6dde6a1a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1. 二氧化碳的性质",
+          "excerpt_hash": "a55e69e014299d707359c56d7f751cea9cf29c9ede90bf41d27bb83949cd50e0",
+          "pdf_page": 122,
+          "printed_page": "117",
+          "span_id": "tes_dff8dd966b78937e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb",
+        "lc_ce1f17be7b3fc280"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        },
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_4a6347ebc9d22b9b",
+      "node_title": "1二氧化碳的性质",
+      "pdf_page": 122,
+      "printed_page": "117",
+      "publication_status": "published",
+      "rationale": "教材lesson“1二氧化碳的性质”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_2312d6c6dde6a1a5",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7919ff1da1546f4d",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_3da8ba9812f289bf",
+        "textbook-node:tcn_515b41693ebfcfac",
+        "textbook-unit:tcu_2312d6c6dde6a1a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2. 二氧化碳对生活和环境的影响",
+          "excerpt_hash": "3f7b516bba089ca67595640811b2e277908782150a287320f5c665b4d537ed52",
+          "pdf_page": 124,
+          "printed_page": "119",
+          "span_id": "tes_3da8ba9812f289bf"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb",
+        "lc_ce1f17be7b3fc280"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        },
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_515b41693ebfcfac",
+      "node_title": "2二氧化碳对生活和环境的影响",
+      "pdf_page": 124,
+      "printed_page": "119",
+      "publication_status": "published",
+      "rationale": "教材lesson“2二氧化碳对生活和环境的影响”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_2312d6c6dde6a1a5",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0506291157abc78a",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_3a728282bd427aff",
+        "textbook-node:tcn_ec5bd2b41090688f",
+        "textbook-unit:tcu_2312d6c6dde6a1a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2.二氧化碳的性质",
+          "excerpt_hash": "2700ff1ded14bb2b7911003f61d7be7750aba4f663bd298594c0c1e490b75434",
+          "pdf_page": 130,
+          "printed_page": "125",
+          "span_id": "tes_3a728282bd427aff"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb",
+        "lc_ce1f17be7b3fc280"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        },
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ec5bd2b41090688f",
+      "node_title": "2二氧化碳的性质",
+      "pdf_page": 130,
+      "printed_page": "125",
+      "publication_status": "published",
+      "rationale": "教材lesson“2二氧化碳的性质”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_2312d6c6dde6a1a5",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_eeb5e0d74907bdfa",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_ba25683b949d491afb3c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_29dc6f39b08d",
+        "tes_5b9a37671f934b31",
+        "textbook-node:tcn_155f635ce64adfaf",
+        "textbook-unit:tcu_2312d6c6dde6a1a5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1. 制取二氧化碳",
+          "excerpt_hash": "30b97018452f6e8ea071ebde05ab2ae77bc234776054fbdead8ed25c5112c9e2",
+          "pdf_page": 130,
+          "printed_page": "125",
+          "span_id": "tes_5b9a37671f934b31"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1652af01ca8b94cb",
+        "lc_ce1f17be7b3fc280"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1652af01ca8b94cb",
+          "label": "学会氧气和二氧化碳的实验室制法"
+        },
+        {
+          "component_id": "lc_ce1f17be7b3fc280",
+          "label": "识别并说出氧气、二氧化碳和水的主要性质的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_155f635ce64adfaf",
+      "node_title": "1制取二氧化碳",
+      "pdf_page": 130,
+      "printed_page": "125",
+      "publication_status": "published",
+      "rationale": "教材lesson“1制取二氧化碳”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "化学",
+      "textbook_title": "化学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_2312d6c6dde6a1a5",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_1056ad21b032a13f",
       "alignment_type": "references",
       "confidence": null,
@@ -120,7 +1071,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7003dbb09950a00f",
       "alignment_type": "references",
       "confidence": null,
@@ -151,7 +1102,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_31fe3b1a8c26efa6",
       "alignment_type": "references",
       "confidence": null,

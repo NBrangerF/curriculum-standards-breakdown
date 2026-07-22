@@ -83,26 +83,40 @@ export interface CommonDifficultyRecord extends JsonObject {
 
 export interface CurriculumAlignmentRecord extends JsonObject {
     alignment_id: string
-    level: 'scope' | 'unit' | 'unit_topic_candidate'
-    alignment_type: 'references' | 'supports'
+    level: 'scope' | 'unit' | 'page' | 'unit_topic_candidate'
+    alignment_type: 'references' | 'supports' | 'practices' | 'assesses' | 'teaches' | 'mentions' | 'contextualizes'
     coverage: 'scope_only' | 'partial'
-    evidence_level: 'L1_scope' | 'L2_topic'
+    evidence_level: 'L1_scope' | 'L2_topic' | 'L3_page_evidence' | 'L4_teacher_guide' | 'L5_official_crosswalk'
     edition_id: string
     textbook_title: string
     unit_id: string | null
     unit_title: string
+    node_id?: string | null
+    node_title?: string
+    learning_component_ids?: string[]
+    learning_components?: Array<{ component_id: string; label: string }>
     pdf_page: number | null
     printed_page: string | null
     evidence_refs: string[]
+    evidence_spans?: Array<{
+        span_id?: string
+        pdf_page: number
+        printed_page?: string | null
+        excerpt: string
+        excerpt_hash?: string
+        evidence_role?: string
+        bbox?: number[] | null
+    }>
     rationale: string
     review_status: CapabilityReviewStatus
     publication_status: CapabilityPublicationStatus
 }
 
 export interface CurriculumAlignmentSummary extends JsonObject {
-    disposition: 'unit_aligned' | 'unit_topic_needs_page_evidence' | 'scope_aligned_no_unit_evidence' | 'gap_no_textbook_scope'
-    highest_evidence_level: 'L0_gap' | 'L1_scope' | 'L2_topic'
+    disposition: 'page_aligned' | 'unit_aligned' | 'unit_topic_needs_page_evidence' | 'scope_aligned_no_unit_evidence' | 'gap_no_textbook_scope'
+    highest_evidence_level: 'L0_gap' | 'L1_scope' | 'L2_topic' | 'L3_page_evidence' | 'L4_teacher_guide' | 'L5_official_crosswalk'
     specific_count: number
+    page_evidence_count?: number
     unit_topic_candidate_count: number
     candidate_count: number
     scope_count: number

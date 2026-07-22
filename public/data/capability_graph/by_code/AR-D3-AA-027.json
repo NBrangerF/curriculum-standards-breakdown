@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "transfer",
@@ -82,17 +82,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 8,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_43fa4313c2746ea5",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_873c7b8d8f5dfcaf3081",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_5d105252e267",
+        "tes_f0166e1955f93f5a",
+        "textbook-node:tcn_f85087df09015701",
+        "textbook-unit:tcu_938e9a572ca85df6"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择合适画笔画出小狗身上的九色鹿 1981 钱家骏等花纹和颜色。",
+          "excerpt_hash": "d7e73eed77d208163b0916a0830c24bcac259a5bc52ce4873935a710c58410dd",
+          "pdf_page": 34,
+          "printed_page": "30",
+          "span_id": "tes_f0166e1955f93f5a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3120d26eee4522ac"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3120d26eee4522ac",
+          "label": "积极参加家庭或社会音乐活动，并根据需要选择合适音乐与表演形式，在活动中承担表演或服务任务"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_f85087df09015701",
+      "node_title": "选择合适画笔画出小狗身上的九色鹿 1981 钱家骏等花纹和颜色。",
+      "pdf_page": 34,
+      "printed_page": "30",
+      "publication_status": "published",
+      "rationale": "教材exercise“选择合适画笔画出小狗身上的九色鹿 1981 钱家骏等花纹和颜色。”与课标 AR-D3-AA-027 的可教学小能力“积极参加家庭或社会音乐活动，并根据需要选择合适音乐与表演形式，在活动中承担表演或服务任务”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_938e9a572ca85df6",
+      "unit_title": "1.5 万年前的旧石器时"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_fdcf433679f173a4",
       "alignment_type": "references",
       "confidence": null,
@@ -123,7 +179,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_f481d37c5d83c783",
       "alignment_type": "references",
       "confidence": null,
@@ -154,7 +210,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_040e9bf3f7ff147b",
       "alignment_type": "references",
       "confidence": null,
@@ -185,7 +241,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_cfd9c7f8aca0268b",
       "alignment_type": "references",
       "confidence": null,
@@ -216,7 +272,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ade171f265218ea0",
       "alignment_type": "references",
       "confidence": null,
@@ -247,7 +303,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_97958a86e5b6a7e5",
       "alignment_type": "references",
       "confidence": null,
@@ -278,7 +334,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_4d6c51e0bb6085b0",
       "alignment_type": "references",
       "confidence": null,
@@ -309,7 +365,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_121023f69c5acaa9",
       "alignment_type": "references",
       "confidence": null,

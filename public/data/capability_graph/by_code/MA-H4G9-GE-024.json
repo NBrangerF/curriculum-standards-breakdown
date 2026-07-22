@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -119,18 +119,74 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 1,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8b0e7efd55999ad7",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_3ee029b9c11093d9",
+        "textbook-node:tcn_6b1c9b65d22d4069",
+        "textbook-unit:tcu_7f033568baa4180f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "24.3 正多边形和圆",
+          "excerpt_hash": "1fa2b18129003177c090b601d0d4e21aa27f1b4e280a2a4206bf75b764262970",
+          "pdf_page": 112,
+          "printed_page": "105",
+          "span_id": "tes_3ee029b9c11093d9"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_5116d9427730af51"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_5116d9427730af51",
+          "label": "探索等腰三角形、矩形、菱形、正多边形、圆的轴对称性质"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_6b1c9b65d22d4069",
+      "node_title": "24.3 正多边形和圆",
+      "pdf_page": 112,
+      "printed_page": "105",
+      "publication_status": "published",
+      "rationale": "教材section“24.3 正多边形和圆”与课标 MA-H4G9-GE-024 的可教学小能力“探索等腰三角形、矩形、菱形、正多边形、圆的轴对称性质”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_7f033568baa4180f",
+      "unit_title": "第二十四章 圆"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_750cf69d69e05dd8",
       "alignment_type": "references",
       "confidence": null,
@@ -161,7 +217,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_1cb3a1c0c4236a7d",
       "alignment_type": "references",
       "confidence": null,

@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -82,53 +82,82 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 0,
-    "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "candidate_count": 2,
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
     "specific_count": 3,
-    "unit_topic_candidate_count": 0
+    "unit_topic_candidate_count": 2
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_cfc04fd18a10d2c7",
-      "alignment_type": "supports",
-      "confidence": 0.7616,
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c1847e1b003f019c",
+      "alignment_type": "practices",
+      "confidence": 0.92,
       "coverage": "partial",
       "edition_id": "ed_026e3aaeacf415f2782d",
-      "evidence_basis": "reviewed_toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctu_1486fce99f036c",
-        "textbook-unit:tcu_7a71404dfe4a50f8"
+        "ctb_045c4e32dda3",
+        "tes_f0ded47f16131c75",
+        "textbook-node:tcn_7eb9e0c5e5941ab9",
+        "textbook-unit:tcu_bb18186ac36fbff6"
       ],
       "evidence_role": "direct_textbook",
-      "level": "unit",
-      "method": "legacy_human_review",
-      "pdf_page": 12,
-      "printed_page": "5",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "借助计算机软件的画图功能,很容易利用二次函数O x的图象解一元二次方程.要解方程犪狓2+犫狓+犮=0,只要",
+          "excerpt_hash": "aa00fbacaf035081ae6c0a0b7c694df90284a3a9f31e9f4e9eab84d8fe063499",
+          "pdf_page": 55,
+          "printed_page": "48",
+          "span_id": "tes_f0ded47f16131c75"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b2989e7a2085c139",
+        "lc_b7758a99c5ced065"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b2989e7a2085c139",
+          "label": "分析一元二次方程根与系数关系"
+        },
+        {
+          "component_id": "lc_b7758a99c5ced065",
+          "label": "解一元一次方程、可化为一元一次方程的分式方程、二元一次方程组和数字系数一元二次方程"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_7eb9e0c5e5941ab9",
+      "node_title": "借助计算机软件的画图功能,很容易利用二次函数O x的图象解一元二次方程.要解方程犪狓2+犫狓+犮=0,只要",
+      "pdf_page": 55,
+      "printed_page": "48",
       "publication_status": "published",
-      "rationale": "已核对教材单元「21.2 解一元二次方程」与课标「MA-H4G9-AL-015」的 subdomain_anchor 关联。",
-      "relation_type": "supports",
+      "rationale": "教材exercise“借助计算机软件的画图功能,很容易利用二次函数O x的图象解一元二次方程.要解方程犪狓2+犫狓+犮=0,只要”与课标 MA-H4G9-AL-015 的可教学小能力“分析一元二次方程根与系数关系、解一元一次方程、可化为一元一次方程的分式方程、二元一次方程组和数字系数一元二次方程”形成页内证据匹配。",
+      "relation_type": "practices",
       "resource_type": "student_textbook",
-      "review_status": "approved",
+      "review_status": "machine_checked",
       "revision_status": "revision_unknown",
       "textbook_grade": 9,
       "textbook_subject": "数学",
       "textbook_title": "数学9年级上册",
       "textbook_volume": "上册",
-      "unit_id": "tcu_7a71404dfe4a50f8",
-      "unit_title": "21.2 解一元二次方程"
+      "unit_id": "tcu_bb18186ac36fbff6",
+      "unit_title": "第二十二章 二次函数"
     },
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_f2af90fc298ef605",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_25adaee2941038e3",
       "alignment_type": "supports",
-      "confidence": 0.9115,
+      "confidence": 0.92,
       "coverage": "partial",
       "edition_id": "ed_026e3aaeacf415f2782d",
       "evidence_basis": "toc_title",
@@ -136,15 +165,43 @@
       "evidence_level": "L2_topic",
       "evidence_refs": [
         "ctb_045c4e32dda3",
+        "tes_8a7ba2ccfc22bdfa",
+        "textbook-node:tcn_ae9e242603e5982f",
         "textbook-unit:tcu_a9838fd16093181e"
       ],
       "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "21.3 实际问题与一元二次方程",
+          "excerpt_hash": "db1bc55b8acf55b87884218935b7606cd89d81012f14a97db2a0239057ae8c48",
+          "pdf_page": 26,
+          "printed_page": "19",
+          "span_id": "tes_8a7ba2ccfc22bdfa"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b2989e7a2085c139",
+        "lc_b7758a99c5ced065"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b2989e7a2085c139",
+          "label": "分析一元二次方程根与系数关系"
+        },
+        {
+          "component_id": "lc_b7758a99c5ced065",
+          "label": "解一元一次方程、可化为一元一次方程的分式方程、二元一次方程组和数字系数一元二次方程"
+        }
+      ],
       "level": "unit",
-      "method": "constrained_concept_idf",
-      "pdf_page": 8,
-      "printed_page": "1",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ae9e242603e5982f",
+      "node_title": "21.3 实际问题与一元二次方程",
+      "pdf_page": 26,
+      "printed_page": "19",
       "publication_status": "published",
-      "rationale": "教材条目“第二十一章 一元二次方程”与课标 MA-H4G9-AL-015 在standard字段命中概念：一元二次方程。",
+      "rationale": "教材section“21.3 实际问题与一元二次方程”与课标 MA-H4G9-AL-015 的可教学小能力“分析一元二次方程根与系数关系、解一元一次方程、可化为一元一次方程的分式方程、二元一次方程组和数字系数一元二次方程”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -157,7 +214,104 @@
       "unit_title": "第二十一章 一元二次方程"
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_4b23685369b707f7",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_045c4e32dda3",
+        "tes_ea4820a47fad8d18",
+        "textbook-node:tcn_89cc9ea969a778ee",
+        "textbook-unit:tcu_bb18186ac36fbff6"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "22.2 二次函数与一元二次方程",
+          "excerpt_hash": "9d705a14d49f67d4bb14771989d4e0c81d296effcdfe224f234ae95b0365af71",
+          "pdf_page": 50,
+          "printed_page": "43",
+          "span_id": "tes_ea4820a47fad8d18"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b2989e7a2085c139",
+        "lc_b7758a99c5ced065"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b2989e7a2085c139",
+          "label": "分析一元二次方程根与系数关系"
+        },
+        {
+          "component_id": "lc_b7758a99c5ced065",
+          "label": "解一元一次方程、可化为一元一次方程的分式方程、二元一次方程组和数字系数一元二次方程"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_89cc9ea969a778ee",
+      "node_title": "22.2 二次函数与一元二次方程",
+      "pdf_page": 50,
+      "printed_page": "43",
+      "publication_status": "published",
+      "rationale": "教材section“22.2 二次函数与一元二次方程”与课标 MA-H4G9-AL-015 的可教学小能力“分析一元二次方程根与系数关系、解一元一次方程、可化为一元一次方程的分式方程、二元一次方程组和数字系数一元二次方程”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_bb18186ac36fbff6",
+      "unit_title": "第二十二章 二次函数"
+    },
+    {
+      "algorithm_version": "pre-full-alignment",
+      "alignment_id": "tca_cfc04fd18a10d2c7",
+      "alignment_type": "supports",
+      "confidence": 0.7616,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "reviewed_toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctu_1486fce99f036c",
+        "textbook-unit:tcu_7a71404dfe4a50f8"
+      ],
+      "evidence_role": "legacy_reviewed_textbook_evidence",
+      "evidence_spans": [],
+      "learning_component_ids": [],
+      "learning_components": [],
+      "level": "unit_topic_candidate",
+      "method": "legacy_human_review",
+      "node_id": null,
+      "node_title": "",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "review_queue",
+      "rationale": "已核对教材单元「21.2 解一元二次方程」与课标「MA-H4G9-AL-015」的 subdomain_anchor 关联。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "candidate",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_7a71404dfe4a50f8",
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "pre-full-alignment",
       "alignment_id": "tca_e0c83807d32fd680",
       "alignment_type": "supports",
       "confidence": 0.754,
@@ -170,26 +324,31 @@
         "ctu_80d8af5167d611",
         "textbook-unit:tcu_cd5459115808204f"
       ],
-      "evidence_role": "direct_textbook",
-      "level": "unit",
+      "evidence_role": "legacy_reviewed_textbook_evidence",
+      "evidence_spans": [],
+      "learning_component_ids": [],
+      "learning_components": [],
+      "level": "unit_topic_candidate",
       "method": "legacy_human_review",
-      "pdf_page": 9,
-      "printed_page": "2",
-      "publication_status": "published",
+      "node_id": null,
+      "node_title": "",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "review_queue",
       "rationale": "已核对教材单元「21.1 一元二次方程」与课标「MA-H4G9-AL-015」的 subdomain_anchor 关联。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
-      "review_status": "approved",
+      "review_status": "candidate",
       "revision_status": "revision_unknown",
       "textbook_grade": 9,
       "textbook_subject": "数学",
       "textbook_title": "数学9年级上册",
       "textbook_volume": "上册",
       "unit_id": "tcu_cd5459115808204f",
-      "unit_title": "21.1 一元二次方程"
+      "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c3c2272c002755bc",
       "alignment_type": "references",
       "confidence": null,
@@ -220,7 +379,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_cbb4c0c9d74d2075",
       "alignment_type": "references",
       "confidence": null,

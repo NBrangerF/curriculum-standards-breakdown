@@ -8,6 +8,13 @@ const DEFAULT_INDEX = join(ROOT, 'data/textbooks/derived/textbook_standard_align
 const DEFAULT_OUT = join(ROOT, 'data/textbooks/derived/textbook_standard_alignment_audit.json')
 const INVALID_OCR_TOC_TITLE = /(?:ISBN|CIP|邮编|印张|印刷|出版|定价|责任编辑|号院|号楼|月第|版\s*[”"“]?\s*20\d{2}年)/i
 
+function isPublishedUnit(row) {
+  return row.review_status === 'approved'
+    || (row.review_status === 'machine_checked'
+      && row.publication_status === 'published'
+      && row.source === 'body_inferred_unit')
+}
+
 function parseArgs(argv) {
   const args = { index: DEFAULT_INDEX, out: DEFAULT_OUT, strict: false }
   for (let i = 0; i < argv.length; i += 1) {
@@ -44,7 +51,7 @@ function main() {
   }))
   const unitsByEdition = new Map([...structures].map(([editionId, structure]) => [
     editionId,
-    new Set((structure.toc || []).filter(row => row.review_status === 'approved').map(row => row.entry_id))
+    new Set((structure.toc || []).filter(isPublishedUnit).map(row => row.entry_id))
   ]))
   for (const textbook of textbooks) {
     const structure = structures.get(textbook.edition_id)

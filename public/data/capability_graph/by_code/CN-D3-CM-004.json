@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -83,17 +83,258 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 4,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 4,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_68c07b8fe047f428",
+      "alignment_type": "supports",
+      "confidence": 0.8906,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_351b8822213cfd7b",
+        "textbook-node:tcn_246d608e602bbddb",
+        "textbook-unit:tcu_1259afee169519a7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "搜集资料,用恰当的说明方法,把某一种事物介绍清楚。",
+          "excerpt_hash": "c3c048c8e4a1ccd8aa3c9a625a32a357e3a9d026976252931c68e9a0e7bf334a",
+          "pdf_page": 70,
+          "printed_page": "65",
+          "span_id": "tes_351b8822213cfd7b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f6dd99260cfe8183",
+        "lc_962d8a23358d93a1"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f6dd99260cfe8183",
+          "label": "用准确语言清楚介绍、说明事物或程序"
+        },
+        {
+          "component_id": "lc_962d8a23358d93a1",
+          "label": "运用信息解决现实生活中的简单问题"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_246d608e602bbddb",
+      "node_title": "搜集资料,用恰当的说明方法,把某一种事物介绍清楚。",
+      "pdf_page": 70,
+      "printed_page": "65",
+      "publication_status": "published",
+      "rationale": "教材objective“搜集资料,用恰当的说明方法,把某一种事物介绍清楚。”与课标 CN-D3-CM-004 的可教学小能力“用准确语言清楚介绍、说明事物或程序、运用信息解决现实生活中的简单问题”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_1259afee169519a7",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0a76a03796467ac1",
+      "alignment_type": "practices",
+      "confidence": 0.8903,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_67549f0746cdac51",
+        "textbook-node:tcn_588d753c8df7c641",
+        "textbook-unit:tcu_1259afee169519a7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "读下面的句子,结合课文内容,说说作者是运用哪些说明方法介绍太阳的,体会这样写的好处。",
+          "excerpt_hash": "e6dcf29b677669468541ebe731114eed5d6ccf6fdc93f21a8727f301cf24c34d",
+          "pdf_page": 72,
+          "printed_page": "67",
+          "span_id": "tes_67549f0746cdac51"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f6dd99260cfe8183",
+        "lc_962d8a23358d93a1"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f6dd99260cfe8183",
+          "label": "用准确语言清楚介绍、说明事物或程序"
+        },
+        {
+          "component_id": "lc_962d8a23358d93a1",
+          "label": "运用信息解决现实生活中的简单问题"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_588d753c8df7c641",
+      "node_title": "读下面的句子,结合课文内容,说说作者是运用哪些说明方法介绍太阳的,体会这样写的好处。",
+      "pdf_page": 72,
+      "printed_page": "67",
+      "publication_status": "published",
+      "rationale": "教材exercise“读下面的句子,结合课文内容,说说作者是运用哪些说明方法介绍太阳的,体会这样写的好处。”与课标 CN-D3-CM-004 的可教学小能力“用准确语言清楚介绍、说明事物或程序、运用信息解决现实生活中的简单问题”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_1259afee169519a7",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_4738c7ae7e532109",
+      "alignment_type": "practices",
+      "confidence": 0.8903,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_74d73b13a25bd1b8",
+        "textbook-node:tcn_566597707c788268",
+        "textbook-unit:tcu_1259afee169519a7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "对照批注和课文内容,说说课文运用了哪些说明方法来介绍鲸的特点。",
+          "excerpt_hash": "6559a1caa1598a1e8fe68348c9360ccf04baf6c65b410ab607d201b60b843731",
+          "pdf_page": 77,
+          "printed_page": "72",
+          "span_id": "tes_74d73b13a25bd1b8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f6dd99260cfe8183",
+        "lc_962d8a23358d93a1"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f6dd99260cfe8183",
+          "label": "用准确语言清楚介绍、说明事物或程序"
+        },
+        {
+          "component_id": "lc_962d8a23358d93a1",
+          "label": "运用信息解决现实生活中的简单问题"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_566597707c788268",
+      "node_title": "对照批注和课文内容,说说课文运用了哪些说明方法来介绍鲸的特点。",
+      "pdf_page": 77,
+      "printed_page": "72",
+      "publication_status": "published",
+      "rationale": "教材exercise“对照批注和课文内容,说说课文运用了哪些说明方法来介绍鲸的特点。”与课标 CN-D3-CM-004 的可教学小能力“用准确语言清楚介绍、说明事物或程序、运用信息解决现实生活中的简单问题”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_1259afee169519a7",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_923a4fa843840643",
+      "alignment_type": "practices",
+      "confidence": 0.8903,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_de7e1d7c21bb",
+        "tes_b465b902498b4d97",
+        "textbook-node:tcn_ecb51015b28d8be0",
+        "textbook-unit:tcu_1259afee169519a7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "说说课文是如何把制作风向袋的过程介绍清楚的。",
+          "excerpt_hash": "6e73da54ce39760ae8e99030a5b55c90767098ccbd9f1a78bc7bcb6505b45e0d",
+          "pdf_page": 78,
+          "printed_page": "73",
+          "span_id": "tes_b465b902498b4d97"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f6dd99260cfe8183",
+        "lc_962d8a23358d93a1"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f6dd99260cfe8183",
+          "label": "用准确语言清楚介绍、说明事物或程序"
+        },
+        {
+          "component_id": "lc_962d8a23358d93a1",
+          "label": "运用信息解决现实生活中的简单问题"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ecb51015b28d8be0",
+      "node_title": "说说课文是如何把制作风向袋的过程介绍清楚的。",
+      "pdf_page": 78,
+      "printed_page": "73",
+      "publication_status": "published",
+      "rationale": "教材exercise“说说课文是如何把制作风向袋的过程介绍清楚的。”与课标 CN-D3-CM-004 的可教学小能力“用准确语言清楚介绍、说明事物或程序、运用信息解决现实生活中的简单问题”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_1259afee169519a7",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e03691e126da164a",
       "alignment_type": "references",
       "confidence": null,
@@ -124,7 +365,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_06051f006885e741",
       "alignment_type": "references",
       "confidence": null,
@@ -155,7 +396,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ae18e472f0896a58",
       "alignment_type": "references",
       "confidence": null,
@@ -186,7 +427,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ff8660c88630904f",
       "alignment_type": "references",
       "confidence": null,

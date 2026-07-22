@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -119,17 +119,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_2b01ef002d95df0f",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_4b8e96b92c39d6040f80",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_02f942c3391d",
+        "tes_1632a701280b8882",
+        "textbook-node:tcn_bf57a46d0bffe44b",
+        "textbook-unit:tcu_e8695c88af397450"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。",
+          "excerpt_hash": "5753731371144d501d6557fbc2855f89a1e104262191971f11210ce77ebcb365",
+          "pdf_page": 87,
+          "printed_page": "84",
+          "span_id": "tes_1632a701280b8882"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f9c8b0f5dfde96d1"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f9c8b0f5dfde96d1",
+          "label": "在日常生活中做到守法守规，遇到纠纷或侵权情境能想到依法求助"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_bf57a46d0bffe44b",
+      "node_title": "想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。",
+      "pdf_page": 87,
+      "printed_page": "84",
+      "publication_status": "published",
+      "rationale": "教材exercise“想一想,在日常生活中,你还见到过哪些涉及未成年人权利保护的情形。”与课标 ML-D3-LAW-001 的可教学小能力“在日常生活中做到守法守规，遇到纠纷或侵权情境能想到依法求助”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 6,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e8695c88af397450",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_174216a6eb4addcb",
       "alignment_type": "references",
       "confidence": null,
@@ -160,7 +216,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_beef13bccab90155",
       "alignment_type": "references",
       "confidence": null,
@@ -191,7 +247,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e79cb8479a53ed9c",
       "alignment_type": "references",
       "confidence": null,
@@ -222,7 +278,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_14763253cb17d6a3",
       "alignment_type": "references",
       "confidence": null,

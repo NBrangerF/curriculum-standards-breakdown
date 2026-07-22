@@ -851,6 +851,32 @@
     color: #fff;
 }
 
+.standard-detail-page .alignment-components {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.7rem;
+}
+
+.standard-detail-page .alignment-components span {
+    padding: 0.28rem 0.42rem;
+    border: 1px solid #dfe4f2;
+    border-radius: 999px;
+    background: #f5f7fc;
+    color: #46557c;
+    font-size: 0.58rem;
+}
+
+.standard-detail-page .alignment-evidence {
+    margin: 0.75rem 0 0;
+    padding: 0.65rem 0.75rem;
+    border-left: 2px solid #c88b2b;
+    background: #fffaf0;
+    color: var(--text-secondary);
+    font-size: 0.68rem;
+    line-height: 1.7;
+}
+
 .standard-detail-page .capability-empty,
 .standard-detail-page .capability-empty-compact {
     margin: 0;

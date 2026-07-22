@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -159,17 +159,18 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 1,
-    "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "disposition": "unit_topic_needs_page_evidence",
+    "evidence_note": "已有目录主题候选，但缺少可靠 PDF 页定位，已降级进入补证队列。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
+    "highest_evidence_level": "L1_scope",
+    "page_evidence_count": 0,
     "scope_count": 2,
-    "specific_count": 1,
-    "unit_topic_candidate_count": 0
+    "specific_count": 0,
+    "unit_topic_candidate_count": 1
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "pre-full-alignment",
       "alignment_id": "tca_4644f92b7a13313c",
       "alignment_type": "supports",
       "confidence": 0.91,
@@ -182,26 +183,31 @@
         "ctu_a9d90ba682c8fc",
         "textbook-unit:tcu_08ccd50d19c18ac8"
       ],
-      "evidence_role": "direct_textbook",
-      "level": "unit",
+      "evidence_role": "legacy_reviewed_textbook_evidence",
+      "evidence_spans": [],
+      "learning_component_ids": [],
+      "learning_components": [],
+      "level": "unit_topic_candidate",
       "method": "legacy_human_review",
-      "pdf_page": 121,
-      "printed_page": "114",
-      "publication_status": "published",
+      "node_id": null,
+      "node_title": "",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "review_queue",
       "rationale": "已核对教材单元「4.1 几何图形」与课标「MA-H4G7-GE-002」的 subdomain_anchor 关联。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
-      "review_status": "approved",
+      "review_status": "candidate",
       "revision_status": "revision_unknown",
       "textbook_grade": 7,
       "textbook_subject": "数学",
       "textbook_title": "数学7年级上册",
       "textbook_volume": "上册",
       "unit_id": "tcu_08ccd50d19c18ac8",
-      "unit_title": "4.1几何图形"
+      "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_755c40e7e3067e21",
       "alignment_type": "references",
       "confidence": null,
@@ -232,7 +238,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_376e397316a2e497",
       "alignment_type": "references",
       "confidence": null,

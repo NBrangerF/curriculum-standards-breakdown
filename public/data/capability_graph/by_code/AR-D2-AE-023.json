@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "transfer",
@@ -81,17 +81,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 8,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_97e2111977e159a6",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_c5257fc4696e",
+        "tes_281c7155fbea2f0a",
+        "textbook-node:tcn_d056fa0c0d2cc361",
+        "textbook-unit:tcu_b11f2b037d2c6ac2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2. 面塑的动物形象与生活中的",
+          "excerpt_hash": "44b8b31ac7fe11f5662ac99e04aaaed2810146ffb726d864b8739b14336454b8",
+          "pdf_page": 28,
+          "printed_page": "24",
+          "span_id": "tes_281c7155fbea2f0a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_2851746d857b0983"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_2851746d857b0983",
+          "label": "发现自然界与生活中有规律或有特点的声音"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d056fa0c0d2cc361",
+      "node_title": "2面塑的动物形象与生活中的",
+      "pdf_page": 28,
+      "printed_page": "24",
+      "publication_status": "published",
+      "rationale": "教材lesson“2面塑的动物形象与生活中的”与课标 AR-D2-AE-023 的可教学小能力“发现自然界与生活中有规律或有特点的声音”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_b11f2b037d2c6ac2",
+      "unit_title": "拓印树叶真有趣"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_3f14cafc850c4c8f",
       "alignment_type": "references",
       "confidence": null,
@@ -122,7 +178,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_23d521eadb9cdcce",
       "alignment_type": "references",
       "confidence": null,
@@ -153,7 +209,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_4fc70b244e4b016c",
       "alignment_type": "references",
       "confidence": null,
@@ -184,7 +240,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_28866bd5991493ab",
       "alignment_type": "references",
       "confidence": null,
@@ -215,7 +271,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_bb9a9beb02c6b950",
       "alignment_type": "references",
       "confidence": null,
@@ -246,7 +302,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ee8b4d31f5605716",
       "alignment_type": "references",
       "confidence": null,
@@ -277,7 +333,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_03159cb02a2515ca",
       "alignment_type": "references",
       "confidence": null,
@@ -308,7 +364,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_9095680c346f2c91",
       "alignment_type": "references",
       "confidence": null,

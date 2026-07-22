@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "transfer",
@@ -120,49 +120,18 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
+    "highest_evidence_level": "L1_scope",
+    "page_evidence_count": 0,
     "scope_count": 1,
-    "specific_count": 1,
+    "specific_count": 0,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_3c09ae6eba3ec25f",
-      "alignment_type": "supports",
-      "confidence": 0.53,
-      "coverage": "partial",
-      "edition_id": "ed_edad04fc8816a4ef583f",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
-      "evidence_refs": [
-        "ctb_028db4ce8af0",
-        "textbook-unit:tcu_eaf77296e1e81807"
-      ],
-      "evidence_role": "direct_textbook",
-      "level": "unit",
-      "method": "constrained_concept_idf",
-      "pdf_page": 54,
-      "printed_page": "47",
-      "publication_status": "published",
-      "rationale": "教材条目“第九章 花样跳绳”与课标 PE-H4G9-LM-033 在practice字段命中概念：花样跳绳。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 9,
-      "textbook_subject": "体育与健康",
-      "textbook_title": "体育与健康9年级全一册",
-      "textbook_volume": "全一册",
-      "unit_id": "tcu_eaf77296e1e81807",
-      "unit_title": "第九章 花样跳绳"
-    },
-    {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_9d172543c13a686c",
       "alignment_type": "references",
       "confidence": null,

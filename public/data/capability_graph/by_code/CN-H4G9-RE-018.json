@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -79,17 +79,183 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_623f45a750b19cf3",
+      "alignment_type": "supports",
+      "confidence": 0.834,
+      "coverage": "partial",
+      "edition_id": "ed_6101d4786e6f31ffcbd1",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6624003b3319",
+        "tes_4c64e07a8f9a98be",
+        "textbook-node:tcn_0b431722b3f1e637",
+        "textbook-unit:tcu_47506609468606c8"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "演员要背诵台词,熟悉有关的舞台说明。通过想象,进入角色,",
+          "excerpt_hash": "3d60efcf26f7bbedeacfb0057f74aa41c69ea01236cad60d4e3c434833e11579",
+          "pdf_page": 126,
+          "printed_page": "119",
+          "span_id": "tes_4c64e07a8f9a98be"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d9fbd9055943bfeb"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d9fbd9055943bfeb",
+          "label": "背诵优秀诗文80篇（段）"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_0b431722b3f1e637",
+      "node_title": "演员要背诵台词,熟悉有关的舞台说明。通过想象,进入角色,",
+      "pdf_page": 126,
+      "printed_page": "119",
+      "publication_status": "published",
+      "rationale": "教材objective“演员要背诵台词,熟悉有关的舞台说明。通过想象,进入角色,”与课标 CN-H4G9-RE-018 的可教学小能力“背诵优秀诗文80篇（段）”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_47506609468606c8",
+      "unit_title": "活动·探究"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ad936d55ea3f7b19",
+      "alignment_type": "supports",
+      "confidence": 0.7543,
+      "coverage": "partial",
+      "edition_id": "ed_5f396a0577c0d6a9df8a",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_a0230fff243e",
+        "tes_84695d173b6772ba",
+        "textbook-node:tcn_ea0b43be30ed32a3",
+        "textbook-unit:tcu_1ba31a5485d09dae"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "66 课外古诗词诵读",
+          "excerpt_hash": "c0445b209f289f3e228ccd514b93ac4fc90bf5fd0977af9f9dad62c03aebd6f8",
+          "pdf_page": 73,
+          "printed_page": "66",
+          "span_id": "tes_84695d173b6772ba"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_973b3c8a2624ea0e"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_973b3c8a2624ea0e",
+          "label": "诵读古代诗词"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ea0b43be30ed32a3",
+      "node_title": "66课外古诗词诵读",
+      "pdf_page": 73,
+      "printed_page": "66",
+      "publication_status": "published",
+      "rationale": "教材lesson“66课外古诗词诵读”与课标 CN-H4G9-RE-018 的可教学小能力“诵读古代诗词”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_1ba31a5485d09dae",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5c0fb6003816265b",
+      "alignment_type": "supports",
+      "confidence": 0.7543,
+      "coverage": "partial",
+      "edition_id": "ed_6101d4786e6f31ffcbd1",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_6624003b3319",
+        "tes_bda6e728a7c0708d",
+        "textbook-node:tcn_c54f54dd1c932f70",
+        "textbook-unit:tcu_ff503dab8e4a0535"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "70 课外古诗词诵读",
+          "excerpt_hash": "c2d7da40180848b316eafcda4063beb06302cb4df152ec8d73a4c4deff663a66",
+          "pdf_page": 77,
+          "printed_page": "70",
+          "span_id": "tes_bda6e728a7c0708d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_973b3c8a2624ea0e"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_973b3c8a2624ea0e",
+          "label": "诵读古代诗词"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c54f54dd1c932f70",
+      "node_title": "70课外古诗词诵读",
+      "pdf_page": 77,
+      "printed_page": "70",
+      "publication_status": "published",
+      "rationale": "教材lesson“70课外古诗词诵读”与课标 CN-H4G9-RE-018 的可教学小能力“诵读古代诗词”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_ff503dab8e4a0535",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_5b7bf91467fa6ca7",
       "alignment_type": "references",
       "confidence": null,
@@ -120,7 +286,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e2a00e742a13a754",
       "alignment_type": "references",
       "confidence": null,

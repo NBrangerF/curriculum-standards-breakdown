@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "language_expression",
@@ -44,17 +44,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 8,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_74a72228aa02e84f",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_c5257fc4696e",
+        "tes_25b8467773ee75eb",
+        "textbook-node:tcn_1027d5c0754056d0",
+        "textbook-unit:tcu_f486c68bac469725"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1. 课中的民间美术作品有",
+          "excerpt_hash": "da06bbe93f4f3dc32407de4ebe145251a4b47d90345eacff78dbd9f391d5a8b6",
+          "pdf_page": 47,
+          "printed_page": "43",
+          "span_id": "tes_25b8467773ee75eb"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_2adaf5c28e05923e"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_2adaf5c28e05923e",
+          "label": "说出2—3种中国民间美术的类别（如剪纸、皮影、年画、泥塑、刺绣、蜡染等）"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_1027d5c0754056d0",
+      "node_title": "1课中的民间美术作品有",
+      "pdf_page": 47,
+      "printed_page": "43",
+      "publication_status": "published",
+      "rationale": "教材lesson“1课中的民间美术作品有”与课标 AR-D2-CU-006 的可教学小能力“说出2—3种中国民间美术的类别（如剪纸、皮影、年画、泥塑、刺绣、蜡染等）”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_f486c68bac469725",
+      "unit_title": "对印版画"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_173639c19cb4c027",
       "alignment_type": "references",
       "confidence": null,
@@ -85,7 +141,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_68c8d749e746c8cc",
       "alignment_type": "references",
       "confidence": null,
@@ -116,7 +172,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_d476ef3e10d709b0",
       "alignment_type": "references",
       "confidence": null,
@@ -147,7 +203,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_53125e930474b97c",
       "alignment_type": "references",
       "confidence": null,
@@ -178,7 +234,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a7d92bb478f3f0a0",
       "alignment_type": "references",
       "confidence": null,
@@ -209,7 +265,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_9bbf4468fa4cccd5",
       "alignment_type": "references",
       "confidence": null,
@@ -240,7 +296,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c2f7038c9cdf91ea",
       "alignment_type": "references",
       "confidence": null,
@@ -271,7 +327,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_33fc059733cbd66b",
       "alignment_type": "references",
       "confidence": null,

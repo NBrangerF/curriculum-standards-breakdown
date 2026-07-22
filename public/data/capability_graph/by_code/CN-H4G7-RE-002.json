@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -160,17 +160,293 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 5,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 5,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_092cdde3cfc364d0",
+      "alignment_type": "supports",
+      "confidence": 0.8313,
+      "coverage": "partial",
+      "edition_id": "ed_99938fbe3c9ca232c6d6",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_903c001c7bb3",
+        "tes_a6107e0bb5108216",
+        "textbook-node:tcn_fe6008611c556e80",
+        "textbook-unit:tcu_287a807232cbd050"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,注意读出文中人物说话的语气。",
+          "excerpt_hash": "6d19410b1870f78db830ad17cb20021de55a46a20214bdfe844a2ec7cf6d04c1",
+          "pdf_page": 29,
+          "printed_page": "22",
+          "span_id": "tes_a6107e0bb5108216"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_fb9390d942bee4c0"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_fb9390d942bee4c0",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_fe6008611c556e80",
+      "node_title": "朗读课文,注意读出文中人物说话的语气。",
+      "pdf_page": 29,
+      "printed_page": "22",
+      "publication_status": "published",
+      "rationale": "教材objective“朗读课文,注意读出文中人物说话的语气。”与课标 CN-H4G7-RE-002 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_287a807232cbd050",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_69b1a87827903954",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_99938fbe3c9ca232c6d6",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_903c001c7bb3",
+        "tes_d1f8a4fd34a28006",
+        "textbook-node:tcn_6c8c339d97ecb4ad",
+        "textbook-unit:tcu_565988b9a58adb79"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "从课文中找出一二例,说说你的感受,并有感情地朗读这首诗,注意体会其韵律、节奏。",
+          "excerpt_hash": "bf66f864c7ee3b650c91db2128abdb127b6ce2f39e396ab00343680e0a758dd8",
+          "pdf_page": 56,
+          "printed_page": "49",
+          "span_id": "tes_d1f8a4fd34a28006"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_fb9390d942bee4c0"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_fb9390d942bee4c0",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_6c8c339d97ecb4ad",
+      "node_title": "从课文中找出一二例,说说你的感受,并有感情地朗读这首诗,注意体会其韵律、节奏。",
+      "pdf_page": 56,
+      "printed_page": "49",
+      "publication_status": "published",
+      "rationale": "教材exercise“从课文中找出一二例,说说你的感受,并有感情地朗读这首诗,注意体会其韵律、节奏。”与课标 CN-H4G7-RE-002 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_565988b9a58adb79",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9f0a2a4bf3a4acd1",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_99938fbe3c9ca232c6d6",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_903c001c7bb3",
+        "tes_b31712c3eb31f50c",
+        "textbook-node:tcn_72f07d6e11747fb6",
+        "textbook-unit:tcu_65f84fa6af4610eb"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "有感情地诵读古诗,注意节奏和韵律,体会诗人表达的情感。",
+          "excerpt_hash": "78ec97b93ced0440c9525f5755974dfae7de21ae1b7fa14de10454f18adfcb9a",
+          "pdf_page": 130,
+          "printed_page": "123",
+          "span_id": "tes_b31712c3eb31f50c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_fb9390d942bee4c0"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_fb9390d942bee4c0",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_72f07d6e11747fb6",
+      "node_title": "有感情地诵读古诗,注意节奏和韵律,体会诗人表达的情感。",
+      "pdf_page": 130,
+      "printed_page": "123",
+      "publication_status": "published",
+      "rationale": "教材objective“有感情地诵读古诗,注意节奏和韵律,体会诗人表达的情感。”与课标 CN-H4G7-RE-002 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_65f84fa6af4610eb",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6aba88bef39c0304",
+      "alignment_type": "supports",
+      "confidence": 0.8314,
+      "coverage": "partial",
+      "edition_id": "ed_eb285566d0326b76eb6b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_2cca20691db7",
+        "tes_f73074a28e40a209",
+        "textbook-node:tcn_b587ee4716d861b6",
+        "textbook-unit:tcu_0d9f9601adb92ea2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "这是一篇散文,又像一首诗。朗读课文,",
+          "excerpt_hash": "ff6dc168c360e0ace84e14c4e9fced52d2a3c035dc4a93e9c497b3c3b34c6747",
+          "pdf_page": 9,
+          "printed_page": "2",
+          "span_id": "tes_f73074a28e40a209"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_fb9390d942bee4c0"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_fb9390d942bee4c0",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b587ee4716d861b6",
+      "node_title": "这是一篇散文,又像一首诗。朗读课文,",
+      "pdf_page": 9,
+      "printed_page": "2",
+      "publication_status": "published",
+      "rationale": "教材objective“这是一篇散文,又像一首诗。朗读课文,”与课标 CN-H4G7-RE-002 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_0d9f9601adb92ea2",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_e2edc5dc44ebc1a7",
+      "alignment_type": "supports",
+      "confidence": 0.8314,
+      "coverage": "partial",
+      "edition_id": "ed_eb285566d0326b76eb6b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_2cca20691db7",
+        "tes_26f0aae1973cb4f9",
+        "textbook-node:tcn_36bc5af0052c4909",
+        "textbook-unit:tcu_109dd8a31a2c71a1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文,力求读出文章的情味。",
+          "excerpt_hash": "34455e6140abea22e29eca7f975839805feb881d1ebd6c6fb79ffac4b66fcf0b",
+          "pdf_page": 30,
+          "printed_page": "23",
+          "span_id": "tes_26f0aae1973cb4f9"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_fb9390d942bee4c0"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_fb9390d942bee4c0",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_36bc5af0052c4909",
+      "node_title": "朗读课文,力求读出文章的情味。",
+      "pdf_page": 30,
+      "printed_page": "23",
+      "publication_status": "published",
+      "rationale": "教材objective“朗读课文,力求读出文章的情味。”与课标 CN-H4G7-RE-002 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_109dd8a31a2c71a1",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_3029f633dee9110b",
       "alignment_type": "references",
       "confidence": null,
@@ -201,7 +477,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_b9535384610c9311",
       "alignment_type": "references",
       "confidence": null,

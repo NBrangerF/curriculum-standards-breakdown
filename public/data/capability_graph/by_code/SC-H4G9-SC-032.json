@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -83,50 +83,19 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 4,
-    "disposition": "unit_topic_needs_page_evidence",
-    "evidence_note": "已有目录主题候选，但缺少可靠 PDF 页定位，已降级进入补证队列。",
+    "candidate_count": 0,
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
     "gap_reason": null,
     "highest_evidence_level": "L1_scope",
+    "page_evidence_count": 0,
     "scope_count": 3,
     "specific_count": 0,
-    "unit_topic_candidate_count": 1
+    "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_809aaefd2866e599",
-      "alignment_type": "supports",
-      "confidence": 0.8144,
-      "coverage": "partial",
-      "edition_id": "ed_2b4eaf7fd74d5608c966",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
-      "evidence_refs": [
-        "ctb_91e786746fa4",
-        "textbook-unit:tcu_2c406db7d0760422"
-      ],
-      "evidence_role": "discipline_textbook",
-      "level": "unit_topic_candidate",
-      "method": "constrained_concept_idf",
-      "pdf_page": null,
-      "printed_page": null,
-      "publication_status": "review_queue",
-      "rationale": "教材条目“金属材料”与课标 SC-H4G9-SC-032 在practice、standard、teaching_tip字段命中概念：金属材料。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "candidate",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 9,
-      "textbook_subject": "化学",
-      "textbook_title": "化学9年级下册",
-      "textbook_volume": "下册",
-      "unit_id": "tcu_2c406db7d0760422",
-      "unit_title": "金属材料"
-    },
-    {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7fba319d7ebb5ca7",
       "alignment_type": "references",
       "confidence": null,
@@ -157,7 +126,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c4fa4b47dc89f090",
       "alignment_type": "references",
       "confidence": null,
@@ -188,7 +157,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_b03629e076cb3c76",
       "alignment_type": "references",
       "confidence": null,

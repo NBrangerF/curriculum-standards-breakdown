@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "transfer",
@@ -42,18 +42,959 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 3,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 17,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_33b59d525ebe4ef8",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_d8429e42f96b",
+        "tes_3f51bbb00751a602",
+        "textbook-node:tcn_a3e7ca506843fcd9",
+        "textbook-unit:tcu_20f4f8cd215d55f5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "结合以上情境和你的经验,说说我们可以通过哪些方式了解社会生活。",
+          "excerpt_hash": "11097308b57d576894d2f01dd502bc9f251465a88c206665e492f7aa42d78f45",
+          "pdf_page": 8,
+          "printed_page": null,
+          "span_id": "tes_3f51bbb00751a602"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a3e7ca506843fcd9",
+      "node_title": "结合以上情境和你的经验,说说我们可以通过哪些方式了解社会生活。",
+      "pdf_page": 8,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材exercise“结合以上情境和你的经验,说说我们可以通过哪些方式了解社会生活。”与课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_20f4f8cd215d55f5",
+      "unit_title": "第一课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c98b872b5d405b4c",
+      "alignment_type": "contextualizes",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_2860489fc83ddeb6cec5",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_76fc538dd0d1",
+        "tes_c53701950cae1331",
+        "textbook-node:tcn_843ea8cd74ee66cc",
+        "textbook-unit:tcu_f33627a2b5187252"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第25课 经济和社会生活的变化 121",
+          "excerpt_hash": "063fcef83225c29f6db518dd92295245d90a7a67322f89ca68a361c721263d91",
+          "pdf_page": 126,
+          "printed_page": "121",
+          "span_id": "tes_c53701950cae1331"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_843ea8cd74ee66cc",
+      "node_title": "第25课经济和社会生活的变化121",
+      "pdf_page": 126,
+      "printed_page": "121",
+      "publication_status": "published",
+      "rationale": "教材lesson“第25课经济和社会生活的变化121”为课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_f33627a2b5187252",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_cb299ef7945cac72",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_d8429e42f96b",
+        "tes_e37b6767fdb8aa18",
+        "textbook-node:tcn_d49f01d2673f5e4e",
+        "textbook-unit:tcu_0dc1dbfe0a34b442"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第四课 社会生活讲道德 33",
+          "excerpt_hash": "3d725527593bf9c88886625c75044769e2c64999184b8cd91ad6e809c1dcfb86",
+          "pdf_page": 38,
+          "printed_page": null,
+          "span_id": "tes_e37b6767fdb8aa18"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d49f01d2673f5e4e",
+      "node_title": "第四课社会生活讲道德33",
+      "pdf_page": 38,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材lesson“第四课社会生活讲道德33”与课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_0dc1dbfe0a34b442",
+      "unit_title": "第四课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0ab2f82afec67473",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_d8429e42f96b",
+        "tes_829ec9f0de5dc64d",
+        "textbook-node:tcn_0035bbe5aa21b192",
+        "textbook-unit:tcu_20f4f8cd215d55f5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2 第一单元 走进社会生活",
+          "excerpt_hash": "5aca2ad062a90f4766f013ba95036f4ac12c1e707dc70389d0fb79fce67707dd",
+          "pdf_page": 7,
+          "printed_page": "2",
+          "span_id": "tes_829ec9f0de5dc64d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_0035bbe5aa21b192",
+      "node_title": "2第一单元走进社会生活",
+      "pdf_page": 7,
+      "printed_page": "2",
+      "publication_status": "published",
+      "rationale": "教材lesson“2第一单元走进社会生活”与课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_20f4f8cd215d55f5",
+      "unit_title": "第一课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_fefff7d353939d23",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_d8429e42f96b",
+        "tes_c0d228dd505575e6",
+        "textbook-node:tcn_94d397165867878f",
+        "textbook-unit:tcu_20f4f8cd215d55f5"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第一课 丰富的社会生活 3",
+          "excerpt_hash": "08177802cac292c3af95f10e491a7c384cf2f697e6d0c14840d40ad59bb2858b",
+          "pdf_page": 8,
+          "printed_page": null,
+          "span_id": "tes_c0d228dd505575e6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_94d397165867878f",
+      "node_title": "第一课丰富的社会生活3",
+      "pdf_page": 8,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材lesson“第一课丰富的社会生活3”与课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_20f4f8cd215d55f5",
+      "unit_title": "第一课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_644465c6c0a23bab",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_d8429e42f96b",
+        "tes_82aac834d091f20b",
+        "textbook-node:tcn_c9808a6766d9e2f1",
+        "textbook-unit:tcu_395813cd94c47a00"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第三课 社会生活离不开规则 23",
+          "excerpt_hash": "1f9196332e50fc1764c39e8b92e77c501aac8a37f65608d94470ba8d763d77cb",
+          "pdf_page": 28,
+          "printed_page": null,
+          "span_id": "tes_82aac834d091f20b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c9808a6766d9e2f1",
+      "node_title": "第三课社会生活离不开规则23",
+      "pdf_page": 28,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材lesson“第三课社会生活离不开规则23”与课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_395813cd94c47a00",
+      "unit_title": "第三课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_87ca9230e1d01497",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_d8429e42f96b",
+        "tes_628a4d0f3d8e2978",
+        "textbook-node:tcn_4625ef2804c2b27f",
+        "textbook-unit:tcu_dce45449a04e37ff"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "10 第一单元 走进社会生活",
+          "excerpt_hash": "3d9b2856817ff13800166e3830caef902604d2c1ab2d43ef4e31e6b9620c0932",
+          "pdf_page": 15,
+          "printed_page": "10",
+          "span_id": "tes_628a4d0f3d8e2978"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_4625ef2804c2b27f",
+      "node_title": "10第一单元走进社会生活",
+      "pdf_page": 15,
+      "printed_page": "10",
+      "publication_status": "published",
+      "rationale": "教材lesson“10第一单元走进社会生活”与课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_dce45449a04e37ff",
+      "unit_title": "第二课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ab35c4872532e7b6",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa",
+        "tes_25aba354c34937e5",
+        "textbook-node:tcn_79227a3ef1cee17d",
+        "textbook-unit:tcu_1a2bd9b49080fd9e"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第六课 我国国家机构 79",
+          "excerpt_hash": "e42cabb0e1a28632891beb5b2d27121843487e39b37cd045db672fae7f2b12c9",
+          "pdf_page": 84,
+          "printed_page": "79",
+          "span_id": "tes_25aba354c34937e5"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1a917f5de6019cd6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1a917f5de6019cd6",
+          "label": "识别并说出我国主要国家机构和基本经济政治制度的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_79227a3ef1cee17d",
+      "node_title": "第六课我国国家机构79",
+      "pdf_page": 84,
+      "printed_page": "79",
+      "publication_status": "published",
+      "rationale": "教材lesson“第六课我国国家机构79”与课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出我国主要国家机构和基本经济政治制度的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_1a2bd9b49080fd9e",
+      "unit_title": "第六课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_dafd55326eb7b73b",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa",
+        "tes_487767beb55404e6",
+        "textbook-node:tcn_86f045f2aef52bff",
+        "textbook-unit:tcu_33cbbc812eb58a83"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "56 第二单元 理解权利义务",
+          "excerpt_hash": "fc6da6cf78441c76d34d2c83e12bf9d188e4c26fe3bf72bedde16c6d3e308167",
+          "pdf_page": 61,
+          "printed_page": "56",
+          "span_id": "tes_487767beb55404e6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_86f045f2aef52bff",
+      "node_title": "56第二单元理解权利义务",
+      "pdf_page": 61,
+      "printed_page": "56",
+      "publication_status": "published",
+      "rationale": "教材lesson“56第二单元理解权利义务”与课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_33cbbc812eb58a83",
+      "unit_title": "理解权利义务"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_98586b00fa2c6129",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa",
+        "tes_fb898560743734e3",
+        "textbook-node:tcn_e1b1d21735c4a9de",
+        "textbook-unit:tcu_33cbbc812eb58a83"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第四课 公民义务 57",
+          "excerpt_hash": "b6f81ddc5d5c5c7ca1baa4493405d5d05a46108e2dd7ecfcad0cb9b10de3cc7f",
+          "pdf_page": 62,
+          "printed_page": "57",
+          "span_id": "tes_fb898560743734e3"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_24762089e3af81d9"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_24762089e3af81d9",
+          "label": "懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e1b1d21735c4a9de",
+      "node_title": "第四课公民义务57",
+      "pdf_page": 62,
+      "printed_page": "57",
+      "publication_status": "published",
+      "rationale": "教材lesson“第四课公民义务57”与课标 ML-H4G8-LAW-001 的可教学小能力“懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_33cbbc812eb58a83",
+      "unit_title": "理解权利义务"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_65c1a4cd7be965af",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa",
+        "tes_41472133f7176e54",
+        "textbook-node:tcn_28d447f78c63784b",
+        "textbook-unit:tcu_4e41f35c96f1c538"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "60 第二单元 理解权利义务",
+          "excerpt_hash": "05adeb1f84d924bb8c64d2f8cd4977dd14097437d6e59d5cd69f686370dd8f60",
+          "pdf_page": 65,
+          "printed_page": "60",
+          "span_id": "tes_41472133f7176e54"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_28d447f78c63784b",
+      "node_title": "60第二单元理解权利义务",
+      "pdf_page": 65,
+      "printed_page": "60",
+      "publication_status": "published",
+      "rationale": "教材lesson“60第二单元理解权利义务”与课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_4e41f35c96f1c538",
+      "unit_title": "理解权利义务"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_14b7d2d557bb500e",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa",
+        "tes_14bf029e6c8e73f8",
+        "textbook-node:tcn_88525a80006ff25f",
+        "textbook-unit:tcu_70394ab1f8541719"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "34 第二单元 理解权利义务",
+          "excerpt_hash": "aaf7cf103136349212cb739a3858a8b3d11c3599c3086283a8166e6fc303730e",
+          "pdf_page": 39,
+          "printed_page": "34",
+          "span_id": "tes_14bf029e6c8e73f8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_88525a80006ff25f",
+      "node_title": "34第二单元理解权利义务",
+      "pdf_page": 39,
+      "printed_page": "34",
+      "publication_status": "published",
+      "rationale": "教材lesson“34第二单元理解权利义务”与课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_70394ab1f8541719",
+      "unit_title": "第三课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_397f8aaa1e229907",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa",
+        "tes_a04fba362340def7",
+        "textbook-node:tcn_9b7bdfa7fd02eac9",
+        "textbook-unit:tcu_70394ab1f8541719"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第三课 公民权利 35",
+          "excerpt_hash": "c46e965abd5b77a87bf2891a1790cb6406b59c4d42ee0f157193b193f04493a4",
+          "pdf_page": 40,
+          "printed_page": "35",
+          "span_id": "tes_a04fba362340def7"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_24762089e3af81d9",
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_24762089e3af81d9",
+          "label": "懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务"
+        },
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_9b7bdfa7fd02eac9",
+      "node_title": "第三课公民权利35",
+      "pdf_page": 40,
+      "printed_page": "35",
+      "publication_status": "published",
+      "rationale": "教材lesson“第三课公民权利35”与课标 ML-H4G8-LAW-001 的可教学小能力“懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务、识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_70394ab1f8541719",
+      "unit_title": "第三课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_97605505fe4ed6b4",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa",
+        "tes_936164d38945a1ad",
+        "textbook-node:tcn_6e0e745e7af75d88",
+        "textbook-unit:tcu_b6f3b3807410bd0b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第四课 公民义务 47",
+          "excerpt_hash": "374d426391e7b9978f46386872307e400a154d46b4fe5e45790bc4b1d31cbaed",
+          "pdf_page": 52,
+          "printed_page": "47",
+          "span_id": "tes_936164d38945a1ad"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_24762089e3af81d9"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_24762089e3af81d9",
+          "label": "懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_6e0e745e7af75d88",
+      "node_title": "第四课公民义务47",
+      "pdf_page": 52,
+      "printed_page": "47",
+      "publication_status": "published",
+      "rationale": "教材lesson“第四课公民义务47”与课标 ML-H4G8-LAW-001 的可教学小能力“懂得公民的基本权利和义务，正确行使公民权利，自觉履行公民义务”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_b6f3b3807410bd0b",
+      "unit_title": "第四课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_f098f845c41014bc",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_e8c5c385aafa",
+        "tes_da84dded78b617ea",
+        "textbook-node:tcn_a83b3dad19ec9390",
+        "textbook-unit:tcu_b6f3b3807410bd0b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "48 第二单元 理解权利义务",
+          "excerpt_hash": "3df569f221a0693d97c17e8fcd736cb4d5a964c698ada20f598851813f83b623",
+          "pdf_page": 53,
+          "printed_page": "48",
+          "span_id": "tes_da84dded78b617ea"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a83b3dad19ec9390",
+      "node_title": "48第二单元理解权利义务",
+      "pdf_page": 53,
+      "printed_page": "48",
+      "publication_status": "published",
+      "rationale": "教材lesson“48第二单元理解权利义务”与课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_b6f3b3807410bd0b",
+      "unit_title": "第四课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_004980b37f76d66f",
+      "alignment_type": "contextualizes",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_05dbe85802ac",
+        "tes_f2b91bb52be7bddd",
+        "textbook-node:tcn_c365e752a6cbb576",
+        "textbook-unit:tcu_96147719f2c7a3a4"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第19 课 社会生活的变迁 97",
+          "excerpt_hash": "9bc93ed27b954d49aa7de0388f23cfa6a93d23d545c1c6d300e9e77335c244e4",
+          "pdf_page": 102,
+          "printed_page": "97",
+          "span_id": "tes_f2b91bb52be7bddd"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c365e752a6cbb576",
+      "node_title": "第19课社会生活的变迁97",
+      "pdf_page": 102,
+      "printed_page": "97",
+      "publication_status": "published",
+      "rationale": "教材lesson“第19课社会生活的变迁97”为课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_96147719f2c7a3a4",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7b746657aefdbac1",
+      "alignment_type": "contextualizes",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_05dbe85802ac",
+        "tes_7af56f1a7a907ca8",
+        "textbook-node:tcn_90006653ce678459",
+        "textbook-unit:tcu_96147719f2c7a3a4"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第19 课 社会生活的变迁 9999",
+          "excerpt_hash": "8b907ded89d2dc3f52b2039b302d0052769f9fa89d69afe7d3ecf9fe04557e15",
+          "pdf_page": 104,
+          "printed_page": "99",
+          "span_id": "tes_7af56f1a7a907ca8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_daa65b468d67bdfd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_daa65b468d67bdfd",
+          "label": "识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_90006653ce678459",
+      "node_title": "第19课社会生活的变迁9999",
+      "pdf_page": 104,
+      "printed_page": "99",
+      "publication_status": "published",
+      "rationale": "教材lesson“第19课社会生活的变迁9999”为课标 ML-H4G8-LAW-001 的可教学小能力“识别并说出公民权利义务，具备参与社会生活的基本能力的关键特征”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_96147719f2c7a3a4",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_015314d891a07ac4",
       "alignment_type": "references",
       "confidence": null,
@@ -84,7 +1025,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0b526203cb3a736f",
       "alignment_type": "references",
       "confidence": null,
@@ -115,7 +1056,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_8a168d8682549844",
       "alignment_type": "references",
       "confidence": null,
@@ -146,7 +1087,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c9c238856647afe7",
       "alignment_type": "references",
       "confidence": null,

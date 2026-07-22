@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -120,17 +120,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6e72687a76b43103",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_92369ed68f9321363e22",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_ae920aee077f",
+        "tes_a06fe30799429ab8",
+        "textbook-node:tcn_d67ba8d6a44b9fa7",
+        "textbook-unit:tcu_49ff4bf6e7d27542"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "4地球卫星照片",
+          "excerpt_hash": "743abc2c3079dfebc7b5d6c439ad02d8bc8345a0e31c141c0435c2c2d93f1c62",
+          "pdf_page": 14,
+          "printed_page": "3",
+          "span_id": "tes_a06fe30799429ab8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_46aa6e67916957b7"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_46aa6e67916957b7",
+          "label": "识别并说出人造地球卫星主要类型和应用的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d67ba8d6a44b9fa7",
+      "node_title": "4地球卫星照片",
+      "pdf_page": 14,
+      "printed_page": "3",
+      "publication_status": "published",
+      "rationale": "教材lesson“4地球卫星照片”与课标 SC-H4G7-SC-046 的可教学小能力“识别并说出人造地球卫星主要类型和应用的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_49ff4bf6e7d27542",
+      "unit_title": "第一章"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c5230c66dfbf24d2",
       "alignment_type": "references",
       "confidence": null,
@@ -161,7 +217,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c9fd673aefa5bcd3",
       "alignment_type": "references",
       "confidence": null,
@@ -192,7 +248,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_d8c002e96f254645",
       "alignment_type": "references",
       "confidence": null,
@@ -223,7 +279,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_2adeed8059190ade",
       "alignment_type": "references",
       "confidence": null,

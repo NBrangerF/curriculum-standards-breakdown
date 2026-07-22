@@ -130,7 +130,7 @@ Learning component 必须满足：
 | L1 | 学科与学段范围一致 | 适用教材范围 | 某单元教授该标准 |
 | L2 | 目录主题关系，且必要时有人审 | 主题支持 | 完整教授或达成 |
 | L3 | 教材正文/练习、页码、摘录 hash、处理版本齐全 | 页面内容支持某 component | 教师用书明示目标 |
-| L4 | 教师用书目标与教材正文/练习交叉印证并人工审核 | 教学落实 | 官方 crosswalk |
+| L4 | 教师用书目标与教材正文/练习自动交叉印证，且两侧页码、摘录 hash、处理版本齐全 | 教学落实 | 官方 crosswalk |
 | L5 | 出版方或官方明示映射 | 官方关系 | 超出原映射范围的推断 |
 
 v1 当前发布：
@@ -139,7 +139,7 @@ v1 当前发布：
 - 有可靠 PDF 页的目录主题 → `unit` / L2；
 - 无可靠 PDF 页的目录主题即使旧索引标为 published，也降级为 `unit_topic_candidate`，进入补证队列；
 - 当前没有 L3–L5；
-- 当前没有教师用书，因此不能生成 L4。
+- 当前没有教师用书，因此不能生成 L4；资源入库后由同一自动证据流水线生成，不设置人工发布门。
 
 一条标准可以有多个教材范围关系。`curriculum_alignment_summary` 记录 `specific_count`、`unit_topic_candidate_count`、`candidate_count`、`scope_count` 和明确 gap。
 
@@ -186,7 +186,7 @@ npm run validate:public-data
 - 课程顺序候选不得混入 verified；
 - 专家审核覆盖必须由独立 `prerequisite_review_coverage` 台账表达，不能由已批准边数量反推；
 - unit 对齐必须有真实 PDF 页；
-- 无页码主题关系必须降级到 review queue；
+- 无页码主题关系不得显示为页面具体关系；
 - L1/L2 不得使用 `teaches`；
 - 每条标准恰好一个教材 disposition；
 - 公开 sidecar 必须与基础记录的 code、schema、生成方法和 `source_standard_hash` 完全一致；浏览器与 API 运行时均拒绝混版数据；

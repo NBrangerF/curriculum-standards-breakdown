@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -121,17 +121,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_bd499e577afb6d1f",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_be04d8b55a4f",
+        "tes_01feeb2478cade91",
+        "textbook-node:tcn_627f38e22981eb9e",
+        "textbook-unit:tcu_041f911174befe5b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "阅读科普作品,可注意以下一些问题:一、借助前言、后记或附录中有关作家作品的介绍,了解作家的生平事迹、科学成就和全书的大致内容,为阅读整本书做些准备。例如有些版本的《昆虫记》,在序",
+          "excerpt_hash": "7f47c9a43ef2f3fadd9a4da802039441576b0b37b45f9d185dd20930aa839ccb",
+          "pdf_page": 139,
+          "printed_page": "132",
+          "span_id": "tes_01feeb2478cade91"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_8a1c3bd0511f0f05"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_8a1c3bd0511f0f05",
+          "label": "识别并说出课文涉及的重要作家作品知识和文化常识的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_627f38e22981eb9e",
+      "node_title": "阅读科普作品,可注意以下一些问题:一、借助前言、后记或附录中有关作家作品的介绍,了解作家的生平事迹、科学成就和全书的大致内容,为阅读整本书做些准备。例如有些版本的《昆虫记》,在序",
+      "pdf_page": 139,
+      "printed_page": "132",
+      "publication_status": "published",
+      "rationale": "教材exercise“阅读科普作品,可注意以下一些问题:一、借助前言、后记或附录中有关作家作品的介绍,了解作家的生平事迹、科学成就和全书的大致内容,为阅读整本书做些准备。例如有些版本的《昆虫记》,在序”与课标 CN-H4G8-RE-020 的可教学小能力“识别并说出课文涉及的重要作家作品知识和文化常识的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_041f911174befe5b",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e8e63fa11254d17c",
       "alignment_type": "references",
       "confidence": null,
@@ -162,7 +218,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a47b1f216c687454",
       "alignment_type": "references",
       "confidence": null,

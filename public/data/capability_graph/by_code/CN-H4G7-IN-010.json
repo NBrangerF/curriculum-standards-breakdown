@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -120,17 +120,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5512daea90077efc",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_99938fbe3c9ca232c6d6",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_903c001c7bb3",
+        "tes_b469c1b78e828f68",
+        "textbook-node:tcn_6380909460775fda",
+        "textbook-unit:tcu_7e16875e93d78910"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "“铭”和“说”都是文言文的一种文体。查找资料,说出几篇属于这两",
+          "excerpt_hash": "eec14f75e10927ef8cc63b754d81d0fa1fc4bafc572fe24ecd74c47e54595dd1",
+          "pdf_page": 108,
+          "printed_page": "101",
+          "span_id": "tes_b469c1b78e828f68"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_90e0b3157fb77498"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_90e0b3157fb77498",
+          "label": "正确运用查找资料、引用资料的基本方法完成任务"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_6380909460775fda",
+      "node_title": "“铭”和“说”都是文言文的一种文体。查找资料,说出几篇属于这两",
+      "pdf_page": 108,
+      "printed_page": "101",
+      "publication_status": "published",
+      "rationale": "教材objective““铭”和“说”都是文言文的一种文体。查找资料,说出几篇属于这两”与课标 CN-H4G7-IN-010 的可教学小能力“正确运用查找资料、引用资料的基本方法完成任务”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_7e16875e93d78910",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ea466d24cefd78ec",
       "alignment_type": "references",
       "confidence": null,
@@ -161,7 +217,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0128c948ea872a58",
       "alignment_type": "references",
       "confidence": null,

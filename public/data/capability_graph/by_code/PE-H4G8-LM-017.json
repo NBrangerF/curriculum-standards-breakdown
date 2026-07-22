@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -44,17 +44,73 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 1,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a41fa5d0146d9044",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_4033475eef6d59cd7a75",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_640488b51030",
+        "tes_73e2f9a445315b62",
+        "textbook-node:tcn_b0155dea6c63586b",
+        "textbook-unit:tcu_514c6a32f6a34745"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第二节 常见运动损伤的预防和紧急处理",
+          "excerpt_hash": "fc2b04ccdf3f8de8363910735e5082e250b9569a2f692a6e7ad1ca62a85bb353",
+          "pdf_page": 12,
+          "printed_page": "6",
+          "span_id": "tes_73e2f9a445315b62"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_04855e9b31e12a1d"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_04855e9b31e12a1d",
+          "label": "解释所学体操类运动项目的安全知识并及时处理常见运动损伤"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b0155dea6c63586b",
+      "node_title": "第二节常见运动损伤的预防和紧急处理",
+      "pdf_page": 12,
+      "printed_page": "6",
+      "publication_status": "published",
+      "rationale": "教材section“第二节常见运动损伤的预防和紧急处理”与课标 PE-H4G8-LM-017 的可教学小能力“解释所学体操类运动项目的安全知识并及时处理常见运动损伤”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康8年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": "tcu_514c6a32f6a34745",
+      "unit_title": "第一章 体育与健康理论知识"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_3b875aeaeca27355",
       "alignment_type": "references",
       "confidence": null,

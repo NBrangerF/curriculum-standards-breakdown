@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -123,18 +123,129 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 6,
-    "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "candidate_count": 1,
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 6,
-    "specific_count": 1,
-    "unit_topic_candidate_count": 0
+    "specific_count": 2,
+    "unit_topic_candidate_count": 1
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9a5f7aafdd4cea1f",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_f0de8cbbeb88661f44d6",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ffb2a04886aa",
+        "tes_34e1db65e3a9bc2a",
+        "textbook-node:tcn_a33af7770e686bf0",
+        "textbook-unit:tcu_855421710d86d8ce"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "探究凸透镜成像的规律设计实验我们可以把物体放在距凸透镜较远的地方,然后逐渐移近,观察成像的情",
+          "excerpt_hash": "2d6cf185e389695f85c9114d7b27f9ad67f41b45053b76fb91f697c8b46eee4b",
+          "pdf_page": 102,
+          "printed_page": "97",
+          "span_id": "tes_34e1db65e3a9bc2a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_af090636ed31bf8a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_af090636ed31bf8a",
+          "label": "准确说出光的直线传播、反射、折射、色散、平面镜和凸透镜成像特点"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a33af7770e686bf0",
+      "node_title": "探究凸透镜成像的规律设计实验我们可以把物体放在距凸透镜较远的地方,然后逐渐移近,观察成像的情",
+      "pdf_page": 102,
+      "printed_page": "97",
+      "publication_status": "published",
+      "rationale": "教材exercise“探究凸透镜成像的规律设计实验我们可以把物体放在距凸透镜较远的地方,然后逐渐移近,观察成像的情”与课标 SC-H4G8-SC-038 的可教学小能力“准确说出光的直线传播、反射、折射、色散、平面镜和凸透镜成像特点”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_855421710d86d8ce",
+      "unit_title": "第五章 透镜及其应用"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_339cb9a89eeb0a05",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_f0de8cbbeb88661f44d6",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_ffb2a04886aa",
+        "tes_ba4c7ba0e42f5e7c",
+        "textbook-node:tcn_ac20e19ad48e8dba",
+        "textbook-unit:tcu_df25ec7b9ad394ff"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1. 光的直线传播",
+          "excerpt_hash": "e393ff0fa9c482c2f6a9c683a885ed965170004631528a39f3e8dc2d2edcb7c5",
+          "pdf_page": 93,
+          "printed_page": "88",
+          "span_id": "tes_ba4c7ba0e42f5e7c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_af090636ed31bf8a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_af090636ed31bf8a",
+          "label": "准确说出光的直线传播、反射、折射、色散、平面镜和凸透镜成像特点"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ac20e19ad48e8dba",
+      "node_title": "1光的直线传播",
+      "pdf_page": 93,
+      "printed_page": "88",
+      "publication_status": "published",
+      "rationale": "教材lesson“1光的直线传播”与课标 SC-H4G8-SC-038 的可教学小能力“准确说出光的直线传播、反射、折射、色散、平面镜和凸透镜成像特点”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "物理",
+      "textbook_title": "物理8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_df25ec7b9ad394ff",
+      "unit_title": "第四章 光 现 象"
+    },
+    {
+      "algorithm_version": "pre-full-alignment",
       "alignment_id": "tca_d8a122e71d8eddd1",
       "alignment_type": "supports",
       "confidence": 0.5689,
@@ -147,26 +258,31 @@
         "ctu_a3a168cd66e360",
         "textbook-unit:tcu_1f36ed265475860e"
       ],
-      "evidence_role": "discipline_textbook",
-      "level": "unit",
+      "evidence_role": "legacy_reviewed_textbook_evidence",
+      "evidence_spans": [],
+      "learning_component_ids": [],
+      "learning_components": [],
+      "level": "unit_topic_candidate",
       "method": "legacy_human_review",
-      "pdf_page": 74,
-      "printed_page": "69",
-      "publication_status": "published",
+      "node_id": null,
+      "node_title": "",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "review_queue",
       "rationale": "已核对教材单元「第1节 光的直线传播」与课标「SC-H4G8-SC-038」的 subdomain_anchor 关联。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
-      "review_status": "approved",
+      "review_status": "candidate",
       "revision_status": "revision_unknown",
       "textbook_grade": 8,
       "textbook_subject": "物理",
       "textbook_title": "物理8年级上册",
       "textbook_volume": "上册",
       "unit_id": "tcu_1f36ed265475860e",
-      "unit_title": "第1节 光的直线传播"
+      "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_9f41eae26c1244ea",
       "alignment_type": "references",
       "confidence": null,
@@ -197,7 +313,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_d5046fc4410c00fb",
       "alignment_type": "references",
       "confidence": null,
@@ -228,7 +344,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_029143b514af65b6",
       "alignment_type": "references",
       "confidence": null,
@@ -259,7 +375,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_26a3770fc6f370c4",
       "alignment_type": "references",
       "confidence": null,
@@ -290,7 +406,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_49a8195a39fd3eb2",
       "alignment_type": "references",
       "confidence": null,
@@ -321,7 +437,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7ab212c63f855d84",
       "alignment_type": "references",
       "confidence": null,

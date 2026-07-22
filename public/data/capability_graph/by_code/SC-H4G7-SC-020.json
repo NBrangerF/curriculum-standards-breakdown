@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -159,17 +159,238 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 3,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 4,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_f0ed31fc3ec37c45",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_a88f035cae8ec926",
+        "textbook-node:tcn_b6cff2b1976095a6",
+        "textbook-unit:tcu_c9197ded651071a7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "想一想,议一议有 人 认 为 , 绿 色 植 物 通 过 光 合作用吸收二氧化碳,释放氧气,能够",
+          "excerpt_hash": "fd9d874970f662c8abed2f065fc717412a73279804275bee73dc1f1aff44a2ae",
+          "pdf_page": 134,
+          "printed_page": "127",
+          "span_id": "tes_a88f035cae8ec926"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_a04b36b930660977"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_a04b36b930660977",
+          "label": "准确说出光合作用的原料、条件、产物和简要过程"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b6cff2b1976095a6",
+      "node_title": "想一想,议一议有 人 认 为 , 绿 色 植 物 通 过 光 合作用吸收二氧化碳,释放氧气,能够",
+      "pdf_page": 134,
+      "printed_page": "127",
+      "publication_status": "published",
+      "rationale": "教材exercise“想一想,议一议有 人 认 为 , 绿 色 植 物 通 过 光 合作用吸收二氧化碳,释放氧气,能够”与课标 SC-H4G7-SC-020 的可教学小能力“准确说出光合作用的原料、条件、产物和简要过程”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c9197ded651071a7",
+      "unit_title": "第四章"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7c0a4a2fe3199bc1",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_d56773b5bc141db7",
+        "textbook-node:tcn_63f833c08eb7a9ed",
+        "textbook-unit:tcu_e93b533afbe51ff1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "绿色植物通过光合作用吸收二氧化碳,释放氧气,这有助于维持生",
+          "excerpt_hash": "4f9dda396b46be103124224d7e953b9b8587b766795fa063c97c705fe370e17f",
+          "pdf_page": 145,
+          "printed_page": "138",
+          "span_id": "tes_d56773b5bc141db7"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_a04b36b930660977"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_a04b36b930660977",
+          "label": "准确说出光合作用的原料、条件、产物和简要过程"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_63f833c08eb7a9ed",
+      "node_title": "绿色植物通过光合作用吸收二氧化碳,释放氧气,这有助于维持生",
+      "pdf_page": 145,
+      "printed_page": "138",
+      "publication_status": "published",
+      "rationale": "教材objective“绿色植物通过光合作用吸收二氧化碳,释放氧气,这有助于维持生”与课标 SC-H4G7-SC-020 的可教学小能力“准确说出光合作用的原料、条件、产物和简要过程”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e93b533afbe51ff1",
+      "unit_title": "第六章"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8e623cc8f57a2990",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_200614e0768fecb2",
+        "textbook-node:tcn_546e0c1a8b8f5e11",
+        "textbook-unit:tcu_e93b533afbe51ff1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "绿色植物是生物圈中有机物的制造者。绿色植物通过光合作用制造",
+          "excerpt_hash": "7ba7b5eafeb0b469d52683b5d9f02a595d8a054521aea83cddf9e3541a232e30",
+          "pdf_page": 145,
+          "printed_page": "138",
+          "span_id": "tes_200614e0768fecb2"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_a04b36b930660977"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_a04b36b930660977",
+          "label": "准确说出光合作用的原料、条件、产物和简要过程"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_546e0c1a8b8f5e11",
+      "node_title": "绿色植物是生物圈中有机物的制造者。绿色植物通过光合作用制造",
+      "pdf_page": 145,
+      "printed_page": "138",
+      "publication_status": "published",
+      "rationale": "教材objective“绿色植物是生物圈中有机物的制造者。绿色植物通过光合作用制造”与课标 SC-H4G7-SC-020 的可教学小能力“准确说出光合作用的原料、条件、产物和简要过程”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e93b533afbe51ff1",
+      "unit_title": "第六章"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_2d60459d95967e63",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_b2901b9e06df",
+        "tes_f06fad9896e82ebc",
+        "textbook-node:tcn_d2174571e3eb4d05",
+        "textbook-unit:tcu_c9197ded651071a7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第二节 绿色植物的呼吸作用",
+          "excerpt_hash": "aea28d6cb0179de68c69ff305d83d1327ef885f0dfe91cba4c46e638fbc8f5c7",
+          "pdf_page": 134,
+          "printed_page": "127",
+          "span_id": "tes_f06fad9896e82ebc"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d9df8895da696c21"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d9df8895da696c21",
+          "label": "准确说出植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d2174571e3eb4d05",
+      "node_title": "第二节绿色植物的呼吸作用",
+      "pdf_page": 134,
+      "printed_page": "127",
+      "publication_status": "published",
+      "rationale": "教材section“第二节绿色植物的呼吸作用”与课标 SC-H4G7-SC-020 的可教学小能力“准确说出植物呼吸作用及植物体内物质和能量转换原理对农业生产的影响”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c9197ded651071a7",
+      "unit_title": "第四章"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_cf7fa54bba49d6ee",
       "alignment_type": "references",
       "confidence": null,
@@ -200,7 +421,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_04fa8f88ca07981a",
       "alignment_type": "references",
       "confidence": null,
@@ -231,7 +452,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_5c9d535c8b1f1283",
       "alignment_type": "references",
       "confidence": null,
@@ -262,7 +483,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_8e6fce4e1c672299",
       "alignment_type": "references",
       "confidence": null,

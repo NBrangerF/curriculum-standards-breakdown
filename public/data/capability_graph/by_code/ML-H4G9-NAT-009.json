@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -83,18 +83,74 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 1,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_03d47e0c804bc9b8",
+      "alignment_type": "contextualizes",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_c4c8b194000a948fd0ea",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_b1592b8ddc34",
+        "tes_7d3eb778c862c1ac",
+        "textbook-node:tcn_0da3f51157e3df75",
+        "textbook-unit:tcu_46200158fef68a92"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第19课 亚非拉国家的新发展 87",
+          "excerpt_hash": "420e6104ae1291180b21602c87ff22dee43ac223f77de85c2ec26efe81da3923",
+          "pdf_page": 92,
+          "printed_page": "87",
+          "span_id": "tes_7d3eb778c862c1ac"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_299102c1f9437766"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_299102c1f9437766",
+          "label": "分析我国以国内大循环为主体、国内国际双循环相互促进的新发展格局"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_0da3f51157e3df75",
+      "node_title": "第19课亚非拉国家的新发展87",
+      "pdf_page": 92,
+      "printed_page": "87",
+      "publication_status": "published",
+      "rationale": "教材lesson“第19课亚非拉国家的新发展87”为课标 ML-H4G9-NAT-009 的可教学小能力“分析我国以国内大循环为主体、国内国际双循环相互促进的新发展格局”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "历史",
+      "textbook_title": "历史9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_46200158fef68a92",
+      "unit_title": "第19课 亚非拉国家的新发展"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_6e7a5b7a82336561",
       "alignment_type": "references",
       "confidence": null,
@@ -125,7 +181,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7e6784848e7fcec0",
       "alignment_type": "references",
       "confidence": null,
@@ -156,7 +212,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_6d0006833d6d11e8",
       "alignment_type": "references",
       "confidence": null,
@@ -187,7 +243,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a46d2a3657f74929",
       "alignment_type": "references",
       "confidence": null,

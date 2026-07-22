@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -122,18 +122,129 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 1,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_66d2976aeeded3c7",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_1c2f1b2eb35ee43d98b9",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_bdb26a7ab112",
+        "tes_4d8a6d34012b0304",
+        "textbook-node:tcn_000d2e6adfd247d4",
+        "textbook-unit:tcu_967c6a25f12c2dda"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "结合学过的宪法知识,说说为什么社会主义民主的发展需要宪法保障。",
+          "excerpt_hash": "bcfc57930f126e500e2ab48ecd16552675e4d19e4b686b7239decec5bd771aee",
+          "pdf_page": 37,
+          "printed_page": "32",
+          "span_id": "tes_4d8a6d34012b0304"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_834ee83df9ca1b27"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_834ee83df9ca1b27",
+          "label": "用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_000d2e6adfd247d4",
+      "node_title": "结合学过的宪法知识,说说为什么社会主义民主的发展需要宪法保障。",
+      "pdf_page": 37,
+      "printed_page": "32",
+      "publication_status": "published",
+      "rationale": "教材exercise“结合学过的宪法知识,说说为什么社会主义民主的发展需要宪法保障。”与课标 ML-H4G9-LAW-003 的可教学小能力“用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_967c6a25f12c2dda",
+      "unit_title": "第三课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_88429099f1f5f686",
+      "alignment_type": "contextualizes",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_c4c8b194000a948fd0ea",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_b1592b8ddc34",
+        "tes_0f4a740834228dea",
+        "textbook-node:tcn_be70054c9adc7321",
+        "textbook-unit:tcu_9ba8f87d861dc98e"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第11课 苏联的社会主义建设 47",
+          "excerpt_hash": "a27fcd1324506854ea8c3313f89ac8a2698eb4baded2f197c36c7885af892eea",
+          "pdf_page": 52,
+          "printed_page": "47",
+          "span_id": "tes_0f4a740834228dea"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_834ee83df9ca1b27"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_834ee83df9ca1b27",
+          "label": "用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_be70054c9adc7321",
+      "node_title": "第11课苏联的社会主义建设47",
+      "pdf_page": 52,
+      "printed_page": "47",
+      "publication_status": "published",
+      "rationale": "教材lesson“第11课苏联的社会主义建设47”为课标 ML-H4G9-LAW-003 的可教学小能力“用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "历史",
+      "textbook_title": "历史9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_9ba8f87d861dc98e",
+      "unit_title": "第11课 苏联的社会主义建设"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_f31cff2841b5c7ad",
       "alignment_type": "references",
       "confidence": null,
@@ -164,7 +275,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_966541c6f6a2afa1",
       "alignment_type": "references",
       "confidence": null,
@@ -195,7 +306,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_5235786fa6efe7bc",
       "alignment_type": "references",
       "confidence": null,
@@ -226,7 +337,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_b4467dd0c363dc82",
       "alignment_type": "references",
       "confidence": null,

@@ -343,6 +343,41 @@ test('textbook API lists catalog records, exposes detail, and resolves standards
     assert.ok(reversePayload.data.some((item: Record<string, any>) => item.edition_id === 'ed_006d5ed61c055eb63857'))
 })
 
+test('textbook context API returns page-specific alignments and keeps scopes separate', async () => {
+    const request = (path: string) => textbookApp.request(path, {
+        headers: { 'x-forwarded-for': '203.0.113.121' }
+    })
+    const response = await request('/api/v1/textbooks/ed_006d5ed61c055eb63857/context?page=121')
+    assert.equal(response.status, 200)
+    const payload = await json(response)
+    assert.equal(payload.data.pdf_page, 121)
+    assert.equal(payload.data.printed_page, '114')
+    assert.ok(payload.data.active_nodes.length > 0)
+    const alignment = payload.data.alignments.find((item: Record<string, any>) => item.alignment_id === 'tca_4644f92b7a13313c')
+    assert.ok(alignment)
+    assert.ok(payload.data.alignments.every((item: Record<string, any>) => !['curriculum_scope', 'adjacent_curriculum_scope'].includes(item.relation_type)))
+    assert.ok(payload.data.standard_scopes.length > 0)
+
+    const reverseResponse = await request(`/api/v1/standards/${alignment.standard_code}/textbooks`)
+    assert.equal(reverseResponse.status, 200)
+    const reversePayload = await json(reverseResponse)
+    assert.ok(reversePayload.data.some((item: Record<string, any>) => item.alignment_id === alignment.alignment_id))
+
+    const fineResponse = await request('/api/v1/textbooks/ed_9d4028e2ab482520d0aa/context?page=70')
+    assert.equal(fineResponse.status, 200)
+    const finePayload = await json(fineResponse)
+    const pageEvidence = finePayload.data.alignments.find((item: Record<string, any>) => item.evidence_level === 'L3')
+    assert.ok(pageEvidence)
+    assert.equal(pageEvidence.evidence_level_detail, 'L3_page_evidence')
+    assert.ok(pageEvidence.node_id)
+    assert.ok(pageEvidence.learning_components.length > 0)
+    assert.ok(pageEvidence.evidence_span_ids.length > 0)
+    assert.ok(finePayload.data.evidence_spans.some((span: Record<string, any>) => pageEvidence.evidence_span_ids.includes(span.evidence_span_id)))
+
+    assert.equal((await request('/api/v1/textbooks/ed_006d5ed61c055eb63857/context')).status, 422)
+    assert.equal((await request('/api/v1/textbooks/ed_006d5ed61c055eb63857/context?page=0')).status, 422)
+})
+
 test('textbook asset service honors byte ranges without exposing arbitrary files', async () => {
     const fixtureRoot = await mkdtemp(resolve(tmpdir(), 'kebiao-textbook-range-'))
     const privateRoot = resolve(fixtureRoot, 'private')
@@ -666,7 +701,7 @@ test('GET /api/v1/standards/:code/capability-graph returns teachable components 
     assert.equal(response.status, 200)
     const body = await json(response)
     assert.equal(body.data.standard_code, 'CN-D1-RE-001')
-    assert.equal(body.data.schema_version, '1.0.0')
+    assert.equal(body.data.schema_version, '1.1.0')
     assert.ok(body.data.learning_components.length >= 1)
     assert.ok(body.data.learning_components.every((item: Record<string, any>) => item.observable_evidence && item.diagnostic_prompt))
     assert.ok(body.data.common_difficulties.every((item: Record<string, any>) => item.manifestation && item.likely_cause && item.teacher_action))
@@ -699,7 +734,7 @@ test('public production projection loads capability sidecar while standard searc
         assert.equal('learning_components' in item, false)
         assert.equal('common_difficulties' in item, false)
         assert.equal('curriculum_alignments' in item, false)
-        assert.equal(item.capability_graph_schema_version, '1.0.0')
+        assert.equal(item.capability_graph_schema_version, '1.1.0')
     }
 })
 

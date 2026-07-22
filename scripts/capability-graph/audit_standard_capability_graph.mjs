@@ -52,6 +52,7 @@ const stats = {
     hardest_cases: 0,
     common_difficulties: 0,
     unit_alignments: 0,
+    page_alignments: 0,
     unit_topic_candidates: 0,
     scope_alignments: 0,
     alignment_gaps: 0,
@@ -120,9 +121,16 @@ for (const record of records) {
     }
     for (const item of record.curriculum_alignments || []) {
         registerId(item.alignment_id, prefix, 'curriculum_alignments')
-        if (!['unit', 'unit_topic_candidate', 'scope'].includes(item.level)) errors.push(`${prefix}: alignment level 非法`)
+        if (!['page', 'unit', 'unit_topic_candidate', 'scope'].includes(item.level)) errors.push(`${prefix}: alignment level 非法`)
         if (!item.edition_id || !item.textbook_title) errors.push(`${prefix}: alignment 缺少教材标识或标题`)
-        if (item.level === 'unit') {
+        if (item.level === 'page') {
+            if (!item.unit_id || !item.node_id || !Number.isInteger(item.pdf_page)) errors.push(`${prefix}: 页面关系缺少单元、内容节点或 PDF 页码`)
+            if (!['L3_page_evidence', 'L4_teacher_guide', 'L5_official_crosswalk'].includes(item.evidence_level)) errors.push(`${prefix}: 页面关系证据等级必须为 L3–L5`)
+            if (!(item.learning_component_ids || []).every(value => componentIds.has(value))) errors.push(`${prefix}: 页面关系引用未知 component`)
+            if (!(item.evidence_refs || []).length) errors.push(`${prefix}: 页面关系缺少证据引用`)
+            if (item.evidence_level === 'L3_page_evidence' && item.alignment_type === 'teaches') errors.push(`${prefix}: L3 页面证据不得声称 teaches`)
+            if (item.review_status !== 'machine_checked' || item.publication_status !== 'published') errors.push(`${prefix}: 自动页面关系必须直接标为 machine_checked published`)
+        } else if (item.level === 'unit') {
             if (!item.unit_id || !item.unit_title || !Number.isInteger(item.pdf_page)) errors.push(`${prefix}: 单元关系缺少单元或 PDF 页码`)
             if (item.evidence_level !== 'L2_topic') errors.push(`${prefix}: 当前目录标题关系只能标为 L2_topic`)
             if (item.alignment_type === 'teaches') errors.push(`${prefix}: 目录标题关系不得声称 teaches`)
@@ -140,10 +148,11 @@ for (const record of records) {
 
     const summary = record.curriculum_alignment_summary || {}
     const units = (record.curriculum_alignments || []).filter(item => item.level === 'unit').length
+    const pages = (record.curriculum_alignments || []).filter(item => item.level === 'page').length
     const unitTopicCandidates = (record.curriculum_alignments || []).filter(item => item.level === 'unit_topic_candidate').length
     const scopes = (record.curriculum_alignments || []).filter(item => item.level === 'scope').length
-    if (summary.specific_count !== units || summary.unit_topic_candidate_count !== unitTopicCandidates || summary.scope_count !== scopes) errors.push(`${prefix}: alignment summary 与明细不一致`)
-    if (!units && !scopes && summary.disposition !== 'gap_no_textbook_scope') errors.push(`${prefix}: 无教材关系时必须明确标记 gap`)
+    if (summary.specific_count !== units + pages || summary.page_evidence_count !== pages || summary.unit_topic_candidate_count !== unitTopicCandidates || summary.scope_count !== scopes) errors.push(`${prefix}: alignment summary 与明细不一致`)
+    if (!units && !pages && !scopes && summary.disposition !== 'gap_no_textbook_scope') errors.push(`${prefix}: 无教材关系时必须明确标记 gap`)
     if (summary.disposition === 'gap_no_textbook_scope' && !summary.gap_reason) errors.push(`${prefix}: 教材缺口必须说明原因`)
 
     stats.learning_components += record.learning_components?.length || 0
@@ -152,6 +161,7 @@ for (const record of records) {
     stats.hardest_cases += record.hardest_cases?.length || 0
     stats.common_difficulties += record.common_difficulties?.length || 0
     stats.unit_alignments += units
+    stats.page_alignments += pages
     stats.unit_topic_candidates += unitTopicCandidates
     stats.scope_alignments += scopes
     stats.alignment_gaps += summary.disposition === 'gap_no_textbook_scope' ? 1 : 0

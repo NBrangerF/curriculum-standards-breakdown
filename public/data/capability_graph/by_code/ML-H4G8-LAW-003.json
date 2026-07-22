@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "comparison",
@@ -120,18 +120,184 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 1,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1bf990e4f3dd4657",
+      "alignment_type": "contextualizes",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_2860489fc83ddeb6cec5",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_76fc538dd0d1",
+        "tes_c53701950cae1331",
+        "textbook-node:tcn_843ea8cd74ee66cc",
+        "textbook-unit:tcu_f33627a2b5187252"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第25课 经济和社会生活的变化 121",
+          "excerpt_hash": "063fcef83225c29f6db518dd92295245d90a7a67322f89ca68a361c721263d91",
+          "pdf_page": 126,
+          "printed_page": "121",
+          "span_id": "tes_c53701950cae1331"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_ca20f1810feb9bfc"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_ca20f1810feb9bfc",
+          "label": "判断社会生活现象，用法律维护自己作为未成年人的权益"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_843ea8cd74ee66cc",
+      "node_title": "第25课经济和社会生活的变化121",
+      "pdf_page": 126,
+      "printed_page": "121",
+      "publication_status": "published",
+      "rationale": "教材lesson“第25课经济和社会生活的变化121”为课标 ML-H4G8-LAW-003 的可教学小能力“判断社会生活现象，用法律维护自己作为未成年人的权益”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_f33627a2b5187252",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_3fac50a82f628c91",
+      "alignment_type": "contextualizes",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_05dbe85802ac",
+        "tes_f2b91bb52be7bddd",
+        "textbook-node:tcn_c365e752a6cbb576",
+        "textbook-unit:tcu_96147719f2c7a3a4"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第19 课 社会生活的变迁 97",
+          "excerpt_hash": "9bc93ed27b954d49aa7de0388f23cfa6a93d23d545c1c6d300e9e77335c244e4",
+          "pdf_page": 102,
+          "printed_page": "97",
+          "span_id": "tes_f2b91bb52be7bddd"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_ca20f1810feb9bfc"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_ca20f1810feb9bfc",
+          "label": "判断社会生活现象，用法律维护自己作为未成年人的权益"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c365e752a6cbb576",
+      "node_title": "第19课社会生活的变迁97",
+      "pdf_page": 102,
+      "printed_page": "97",
+      "publication_status": "published",
+      "rationale": "教材lesson“第19课社会生活的变迁97”为课标 ML-H4G8-LAW-003 的可教学小能力“判断社会生活现象，用法律维护自己作为未成年人的权益”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_96147719f2c7a3a4",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_4bbd1ba2ef96b7aa",
+      "alignment_type": "contextualizes",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b66d9cd988b5b0bf54cf",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_05dbe85802ac",
+        "tes_7af56f1a7a907ca8",
+        "textbook-node:tcn_90006653ce678459",
+        "textbook-unit:tcu_96147719f2c7a3a4"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "第19 课 社会生活的变迁 9999",
+          "excerpt_hash": "8b907ded89d2dc3f52b2039b302d0052769f9fa89d69afe7d3ecf9fe04557e15",
+          "pdf_page": 104,
+          "printed_page": "99",
+          "span_id": "tes_7af56f1a7a907ca8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_ca20f1810feb9bfc"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_ca20f1810feb9bfc",
+          "label": "判断社会生活现象，用法律维护自己作为未成年人的权益"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_90006653ce678459",
+      "node_title": "第19课社会生活的变迁9999",
+      "pdf_page": 104,
+      "printed_page": "99",
+      "publication_status": "published",
+      "rationale": "教材lesson“第19课社会生活的变迁9999”为课标 ML-H4G8-LAW-003 的可教学小能力“判断社会生活现象，用法律维护自己作为未成年人的权益”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 8,
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_96147719f2c7a3a4",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_33305a24ca42f1fd",
       "alignment_type": "references",
       "confidence": null,
@@ -162,7 +328,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_75c71c98af5e0222",
       "alignment_type": "references",
       "confidence": null,
@@ -193,7 +359,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_932b94ebaa015baa",
       "alignment_type": "references",
       "confidence": null,
@@ -224,7 +390,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0338677347595ee9",
       "alignment_type": "references",
       "confidence": null,

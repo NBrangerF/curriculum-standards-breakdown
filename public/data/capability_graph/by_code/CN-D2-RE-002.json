@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "transfer",
@@ -81,17 +81,128 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_f1d89514b86f4e6a",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6679839735c5",
+        "tes_7e7f793225bf96e2",
+        "textbook-node:tcn_ea0e52f24c89cb17",
+        "textbook-unit:tcu_64d98715a58b4102"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "了解故事情节,简要复述课文。",
+          "excerpt_hash": "1beb44ad5263e7c744155a8e251e50859394df1e95d61d6b35116e5ef3f66e55",
+          "pdf_page": 114,
+          "printed_page": "109",
+          "span_id": "tes_7e7f793225bf96e2"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0706fb9c10440209"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0706fb9c10440209",
+          "label": "借助阅读与生活经验预测故事情节"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ea0e52f24c89cb17",
+      "node_title": "了解故事情节,简要复述课文。",
+      "pdf_page": 114,
+      "printed_page": "109",
+      "publication_status": "published",
+      "rationale": "教材objective“了解故事情节,简要复述课文。”与课标 CN-D2-RE-002 的可教学小能力“借助阅读与生活经验预测故事情节”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_64d98715a58b4102",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5879c504a0e03cd6",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_ddd55c51dcc0",
+        "tes_1bcd35acce5c8709",
+        "textbook-node:tcn_4b8d82b48225abda",
+        "textbook-unit:tcu_c92fee1b5d75d506"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "结合生活经验,说说你对“一切看上去都是有生命的”这句话的理解。",
+          "excerpt_hash": "f3338ec88f7b4b6a54d5e0d621f027dcfce1dd4851e43139e5123a9b3471f252",
+          "pdf_page": 93,
+          "printed_page": "88",
+          "span_id": "tes_1bcd35acce5c8709"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0706fb9c10440209"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0706fb9c10440209",
+          "label": "借助阅读与生活经验预测故事情节"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_4b8d82b48225abda",
+      "node_title": "结合生活经验,说说你对“一切看上去都是有生命的”这句话的理解。",
+      "pdf_page": 93,
+      "printed_page": "88",
+      "publication_status": "published",
+      "rationale": "教材exercise“结合生活经验,说说你对“一切看上去都是有生命的”这句话的理解。”与课标 CN-D2-RE-002 的可教学小能力“借助阅读与生活经验预测故事情节”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_c92fee1b5d75d506",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_9c9468b717de1712",
       "alignment_type": "references",
       "confidence": null,
@@ -122,7 +233,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_4db04b6f42162b57",
       "alignment_type": "references",
       "confidence": null,
@@ -153,7 +264,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_eed85450133bc642",
       "alignment_type": "references",
       "confidence": null,
@@ -184,7 +295,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_bd07cbbe2a6e719d",
       "alignment_type": "references",
       "confidence": null,

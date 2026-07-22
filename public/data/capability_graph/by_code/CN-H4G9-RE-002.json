@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -117,18 +117,294 @@
     }
   ],
   "curriculum_alignment_summary": {
-    "candidate_count": 2,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "candidate_count": 0,
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 5,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 5,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9061aad95d230812",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_5f396a0577c0d6a9df8a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_a0230fff243e",
+        "tes_23eca3199bcd34a8",
+        "textbook-node:tcn_e65274c62626f472",
+        "textbook-unit:tcu_527befa2fe9f3d9b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "通读课文,边读边画出表达作者观点的",
+          "excerpt_hash": "6d97a1dde5a921e4cd8fb76e92f095b76c6f162d7515947d10773dcaf9bd8a59",
+          "pdf_page": 33,
+          "printed_page": "26",
+          "span_id": "tes_23eca3199bcd34a8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_62c7044dd04a2bd3"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_62c7044dd04a2bd3",
+          "label": "在通读课文基础上理清思路"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e65274c62626f472",
+      "node_title": "通读课文,边读边画出表达作者观点的",
+      "pdf_page": 33,
+      "printed_page": "26",
+      "publication_status": "published",
+      "rationale": "教材objective“通读课文,边读边画出表达作者观点的”与课标 CN-H4G9-RE-002 的可教学小能力“在通读课文基础上理清思路”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_527befa2fe9f3d9b",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_af2703211bc3c01c",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_6101d4786e6f31ffcbd1",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6624003b3319",
+        "tes_2edf5fefafbad3ae",
+        "textbook-node:tcn_de45e1c7f94afe3d",
+        "textbook-unit:tcu_24013620b0bb41b7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "阅读时,要注意了解作者的观点,学习思辨的方法;发现疑难问题,独立思考,有自己的见解;还要学习文中介绍的文艺欣赏",
+          "excerpt_hash": "8ab98e465f7bdb18ca45c7df9a20b6a06ee6ba9a73b6d3be428dc8f087d72acc",
+          "pdf_page": 78,
+          "printed_page": "71",
+          "span_id": "tes_2edf5fefafbad3ae"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_03dbea4c0ffd0dd9"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_03dbea4c0ffd0dd9",
+          "label": "提出看法并与他人合作探讨、分析和解决疑难问题"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_de45e1c7f94afe3d",
+      "node_title": "阅读时,要注意了解作者的观点,学习思辨的方法;发现疑难问题,独立思考,有自己的见解;还要学习文中介绍的文艺欣赏",
+      "pdf_page": 78,
+      "printed_page": "71",
+      "publication_status": "published",
+      "rationale": "教材exercise“阅读时,要注意了解作者的观点,学习思辨的方法;发现疑难问题,独立思考,有自己的见解;还要学习文中介绍的文艺欣赏”与课标 CN-H4G9-RE-002 的可教学小能力“提出看法并与他人合作探讨、分析和解决疑难问题”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_24013620b0bb41b7",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_b066801287a673b1",
+      "alignment_type": "supports",
+      "confidence": 0.9398,
+      "coverage": "partial",
+      "edition_id": "ed_6101d4786e6f31ffcbd1",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6624003b3319",
+        "tes_3adc354b1716c54b",
+        "textbook-node:tcn_a6eb822cbc4ec564",
+        "textbook-unit:tcu_24013620b0bb41b7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "阅读课文,初步了解文章的主要内容,画出引发你思考的语句,以旁",
+          "excerpt_hash": "9306becbc2f1550d57203523e868c5c13184434c53ad807e8a25eaa2814e5de4",
+          "pdf_page": 79,
+          "printed_page": "72",
+          "span_id": "tes_3adc354b1716c54b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_ace2b376801ceb8a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_ace2b376801ceb8a",
+          "label": "用自己的话解释和分析主要内容"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a6eb822cbc4ec564",
+      "node_title": "阅读课文,初步了解文章的主要内容,画出引发你思考的语句,以旁",
+      "pdf_page": 79,
+      "printed_page": "72",
+      "publication_status": "published",
+      "rationale": "教材objective“阅读课文,初步了解文章的主要内容,画出引发你思考的语句,以旁”与课标 CN-H4G9-RE-002 的可教学小能力“用自己的话解释和分析主要内容”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_24013620b0bb41b7",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1a9ce57069ee7b4e",
+      "alignment_type": "supports",
+      "confidence": 0.8088,
+      "coverage": "partial",
+      "edition_id": "ed_6101d4786e6f31ffcbd1",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6624003b3319",
+        "tes_9ba298f3e45e7fd1",
+        "textbook-node:tcn_2c9cf22cba411892",
+        "textbook-unit:tcu_ff503dab8e4a0535"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "熟读课文,尝试用自己的话说说课文大意。",
+          "excerpt_hash": "884ec2b98e7634e973bde3ffd269c0b12b90ba9f4c2b11e8024213989d976630",
+          "pdf_page": 55,
+          "printed_page": "48",
+          "span_id": "tes_9ba298f3e45e7fd1"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_ace2b376801ceb8a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_ace2b376801ceb8a",
+          "label": "用自己的话解释和分析主要内容"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2c9cf22cba411892",
+      "node_title": "熟读课文,尝试用自己的话说说课文大意。",
+      "pdf_page": 55,
+      "printed_page": "48",
+      "publication_status": "published",
+      "rationale": "教材objective“熟读课文,尝试用自己的话说说课文大意。”与课标 CN-H4G9-RE-002 的可教学小能力“用自己的话解释和分析主要内容”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_ff503dab8e4a0535",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_536474a9676046dd",
+      "alignment_type": "supports",
+      "confidence": 0.9398,
+      "coverage": "partial",
+      "edition_id": "ed_6101d4786e6f31ffcbd1",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "ctb_6624003b3319",
+        "tes_31a416d7edbc024c",
+        "textbook-node:tcn_3987d6c7ff611032",
+        "textbook-unit:tcu_ff503dab8e4a0535"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "你还记得八年级学过的《〈孟子〉三章》吗?回顾一下文章的主要内容",
+          "excerpt_hash": "3dbb8295fbde7e6a1e8699aea927b7121a124fbbd018cb3e76b43c5eea92866b",
+          "pdf_page": 55,
+          "printed_page": "48",
+          "span_id": "tes_31a416d7edbc024c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_ace2b376801ceb8a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_ace2b376801ceb8a",
+          "label": "用自己的话解释和分析主要内容"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3987d6c7ff611032",
+      "node_title": "你还记得八年级学过的《〈孟子〉三章》吗?回顾一下文章的主要内容",
+      "pdf_page": 55,
+      "printed_page": "48",
+      "publication_status": "published",
+      "rationale": "教材objective“你还记得八年级学过的《〈孟子〉三章》吗?回顾一下文章的主要内容”与课标 CN-H4G9-RE-002 的可教学小能力“用自己的话解释和分析主要内容”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_ff503dab8e4a0535",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_6f864db1cc1f603e",
       "alignment_type": "references",
       "confidence": null,
@@ -159,7 +435,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_804c268ad3c200fa",
       "alignment_type": "references",
       "confidence": null,

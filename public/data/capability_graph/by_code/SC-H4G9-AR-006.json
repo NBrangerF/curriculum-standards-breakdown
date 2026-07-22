@@ -1,6 +1,6 @@
 {
-  "capability_graph_method": "deterministic-teachable-capability-graph-v4",
-  "capability_graph_schema_version": "1.0.0",
+  "capability_graph_method": "deterministic-teachable-capability-graph-v5",
+  "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
       "category": "argument_evidence",
@@ -85,48 +85,17 @@
     "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
     "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 3,
-    "specific_count": 2,
-    "unit_topic_candidate_count": 0
+    "specific_count": 1,
+    "unit_topic_candidate_count": 1
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_9dc8c86471fb2cec",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_036d0155badc7ba0",
       "alignment_type": "supports",
-      "confidence": 0.7033,
-      "coverage": "partial",
-      "edition_id": "ed_c14ed4b05364a2e90445",
-      "evidence_basis": "reviewed_toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
-      "evidence_refs": [
-        "ctu_afaf0ea5e77a92",
-        "textbook-unit:tcu_32fc38487d4736e6"
-      ],
-      "evidence_role": "discipline_textbook",
-      "level": "unit",
-      "method": "legacy_human_review",
-      "pdf_page": 185,
-      "printed_page": "178",
-      "publication_status": "published",
-      "rationale": "已核对教材单元「第4节 能源与可持续发展」与课标「SC-H4G9-AR-006」的 subdomain_anchor 关联。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "approved",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 9,
-      "textbook_subject": "物理",
-      "textbook_title": "物理9年级全一册",
-      "textbook_volume": "全一册",
-      "unit_id": "tcu_32fc38487d4736e6",
-      "unit_title": "第4节 能源与可持续发展"
-    },
-    {
-      "algorithm_version": "full-alignment-v1",
-      "alignment_id": "tca_77f36197f488c085",
-      "alignment_type": "supports",
-      "confidence": 0.94,
+      "confidence": 0.92,
       "coverage": "partial",
       "edition_id": "ed_c14ed4b05364a2e90445",
       "evidence_basis": "toc_title",
@@ -134,15 +103,38 @@
       "evidence_level": "L2_topic",
       "evidence_refs": [
         "ctb_f0fcd567e766",
+        "tes_8024b370ebfe92e0",
+        "textbook-node:tcn_97381eeb9d5eea8f",
         "textbook-unit:tcu_e997832d4995b4b8"
       ],
-      "evidence_role": "discipline_textbook",
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "4. 能源与可持续发展",
+          "excerpt_hash": "fd4901a8b63f71a0dd852aac91296f57d9fb17c60fdf7c23da2e7329f2d1eaab",
+          "pdf_page": 188,
+          "printed_page": "181",
+          "span_id": "tes_8024b370ebfe92e0"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_be05394c2a5133de"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_be05394c2a5133de",
+          "label": "识别并说出我国和全球能源状况、能源合理利用与开发和可持续发展战略的关系的关键特征"
+        }
+      ],
       "level": "unit",
-      "method": "constrained_concept_idf",
-      "pdf_page": 172,
-      "printed_page": "165",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_97381eeb9d5eea8f",
+      "node_title": "4能源与可持续发展",
+      "pdf_page": 188,
+      "printed_page": "181",
       "publication_status": "published",
-      "rationale": "教材条目“第二十二章 能源与可持续发展”与课标 SC-H4G9-AR-006 在subdomain、teaching_tip字段命中概念：与可持续发展、源与可持续发、能源与可持续。",
+      "rationale": "教材lesson“4能源与可持续发展”与课标 SC-H4G9-AR-006 的可教学小能力“识别并说出我国和全球能源状况、能源合理利用与开发和可持续发展战略的关系的关键特征”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -155,7 +147,44 @@
       "unit_title": "第二十二章 能源与可持续发展"
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "pre-full-alignment",
+      "alignment_id": "tca_9dc8c86471fb2cec",
+      "alignment_type": "supports",
+      "confidence": 0.7033,
+      "coverage": "partial",
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_basis": "reviewed_toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctu_afaf0ea5e77a92",
+        "textbook-unit:tcu_32fc38487d4736e6"
+      ],
+      "evidence_role": "legacy_reviewed_textbook_evidence",
+      "evidence_spans": [],
+      "learning_component_ids": [],
+      "learning_components": [],
+      "level": "unit_topic_candidate",
+      "method": "legacy_human_review",
+      "node_id": null,
+      "node_title": "",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "review_queue",
+      "rationale": "已核对教材单元「第4节 能源与可持续发展」与课标「SC-H4G9-AR-006」的 subdomain_anchor 关联。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "candidate",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "物理",
+      "textbook_title": "物理9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": "tcu_32fc38487d4736e6",
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_2c395478d9a33336",
       "alignment_type": "references",
       "confidence": null,
@@ -186,7 +215,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_25a819d87a8e0340",
       "alignment_type": "references",
       "confidence": null,
@@ -217,7 +246,7 @@
       "unit_title": ""
     },
     {
-      "algorithm_version": "full-alignment-v1",
+      "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_4c57293a32c4ac2d",
       "alignment_type": "references",
       "confidence": null,
