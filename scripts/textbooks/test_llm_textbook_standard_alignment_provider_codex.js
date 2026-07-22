@@ -15,6 +15,8 @@ import {
   LLM_ALIGNMENT_SCHEMA_VERSION
 } from './llm_textbook_standard_alignment_contract.js'
 import {
+  alignmentRunIsComplete,
+  alignmentWorksetSummary,
   alignmentPipelineExitCode,
   runPool
 } from './run_llm_textbook_standard_alignments.js'
@@ -271,6 +273,60 @@ test('incomplete and terminal-error manifests make the CLI fail after artifacts 
     }
   }), 1)
   assert.equal(alignmentPipelineExitCode({ output: null, plan: { dry_run: true } }), 0)
+})
+
+test('max-items truncation is reported as an incomplete workset and cannot exit successfully', () => {
+  const truncated = alignmentWorksetSummary({
+    items: [{ item_id: 'one' }, { item_id: 'two' }],
+    totalBeforeLimit: 5
+  }, 2)
+  assert.deepEqual(truncated, {
+    complete: false,
+    limited_by_max_items: true,
+    max_items: 2,
+    selected_items: 2,
+    available_items: 5,
+    omitted_items: 3
+  })
+  assert.equal(alignmentRunIsComplete({
+    work: { items: [{}, {}], totalBeforeLimit: 5 },
+    incompleteInputHashes: [],
+    successfulBatches: 1,
+    requestBatches: 1
+  }), false)
+  assert.equal(alignmentPipelineExitCode({
+    output: {
+      complete: truncated.complete,
+      run_status: 'incomplete',
+      workset_complete: truncated.complete,
+      work_items_omitted: truncated.omitted_items,
+      selection: truncated
+    }
+  }), 1)
+
+  const complete = alignmentWorksetSummary({
+    items: [{ item_id: 'one' }, { item_id: 'two' }],
+    totalBeforeLimit: 2
+  }, 10)
+  assert.equal(complete.complete, true)
+  assert.equal(complete.limited_by_max_items, false)
+  assert.equal(complete.omitted_items, 0)
+  assert.equal(alignmentRunIsComplete({
+    work: { items: [{}, {}], totalBeforeLimit: 2 },
+    incompleteInputHashes: [],
+    successfulBatches: 1,
+    requestBatches: 1
+  }), true)
+  assert.equal(alignmentPipelineExitCode({ output: { complete: true, selection: complete } }), 0)
+
+  const empty = alignmentWorksetSummary({ items: [], totalBeforeLimit: 0 }, 0)
+  assert.equal(empty.complete, false)
+  assert.equal(alignmentRunIsComplete({
+    work: { items: [], totalBeforeLimit: 0 },
+    incompleteInputHashes: [],
+    successfulBatches: 0,
+    requestBatches: 0
+  }), false)
 })
 
 test('codex_cli does not force a model when using the stable codex-default label', async () => {

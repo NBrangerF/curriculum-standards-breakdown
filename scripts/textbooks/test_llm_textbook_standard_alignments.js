@@ -592,6 +592,18 @@ test('application artifacts are cryptographically bound to one complete validate
       schema_version: LLM_ALIGNMENT_SCHEMA_VERSION,
       request_batches: 1,
       successful_batches: 1,
+      work_items: 1,
+      work_items_before_limit: 1,
+      workset_complete: true,
+      work_items_omitted: 0,
+      selection: {
+        complete: true,
+        limited_by_max_items: false,
+        max_items: 0,
+        selected_items: 1,
+        available_items: 1,
+        omitted_items: 0
+      },
       complete: true,
       incomplete_input_hashes: [],
       current_input_hashes: [inputHash],
@@ -612,6 +624,35 @@ test('application artifacts are cryptographically bound to one complete validate
     assert.throws(() => validateApplicationArtifacts({
       manifest: { ...manifest, complete: false }, manifestPath, decisionsPath, alignmentsPath
     }), /partial alignment manifest/u)
+
+    assert.throws(() => validateApplicationArtifacts({
+      manifest: {
+        ...manifest,
+        work_items: 1,
+        work_items_before_limit: 2,
+        workset_complete: false,
+        work_items_omitted: 1,
+        selection: {
+          ...manifest.selection,
+          complete: false,
+          limited_by_max_items: true,
+          selected_items: 1,
+          available_items: 2,
+          omitted_items: 1
+        }
+      },
+      manifestPath,
+      decisionsPath,
+      alignmentsPath
+    }), /truncated or legacy alignment manifest/u)
+
+    const legacyManifest = { ...manifest }
+    delete legacyManifest.workset_complete
+    delete legacyManifest.work_items_omitted
+    delete legacyManifest.selection
+    assert.throws(() => validateApplicationArtifacts({
+      manifest: legacyManifest, manifestPath, decisionsPath, alignmentsPath
+    }), /truncated or legacy alignment manifest/u)
 
     writeFileSync(decisionsPath, `${decisionsText} `)
     assert.throws(() => validateApplicationArtifacts({ manifest, manifestPath, decisionsPath, alignmentsPath }), /digest mismatch/u)

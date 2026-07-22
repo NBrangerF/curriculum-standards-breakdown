@@ -251,6 +251,21 @@ export function validateApplicationArtifacts({ manifest, manifestPath, decisions
   if (!Number.isInteger(manifest.request_batches) || manifest.request_batches < 1) {
     throw new Error('Refusing an empty alignment manifest.')
   }
+  const selection = manifest.selection
+  const worksetIsComplete = manifest.workset_complete === true
+    && Number.isInteger(manifest.work_items)
+    && manifest.work_items > 0
+    && Number.isInteger(manifest.work_items_before_limit)
+    && manifest.work_items === manifest.work_items_before_limit
+    && manifest.work_items_omitted === 0
+    && selection?.complete === true
+    && selection.limited_by_max_items === false
+    && selection.selected_items === manifest.work_items
+    && selection.available_items === manifest.work_items_before_limit
+    && selection.omitted_items === 0
+  if (!worksetIsComplete) {
+    throw new Error('Refusing a truncated or legacy alignment manifest. Re-run the complete workset with the current pipeline.')
+  }
   if (manifest.complete !== true || manifest.successful_batches !== manifest.request_batches
     || (manifest.incomplete_input_hashes || []).length) {
     throw new Error('Refusing a partial alignment manifest. Re-run until every request batch succeeds.')

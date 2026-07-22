@@ -634,6 +634,27 @@ export function makeRequestBatches(items, batchSize) {
   return chunks(items, batchSize).map(requestItems => ({ requestItems }))
 }
 
+export function alignmentWorksetSummary(work, maxItems = 0) {
+  const selected = work.items.length
+  const available = work.totalBeforeLimit
+  const omitted = Math.max(0, available - selected)
+  return {
+    complete: selected > 0 && selected === available,
+    limited_by_max_items: omitted > 0,
+    max_items: maxItems,
+    selected_items: selected,
+    available_items: available,
+    omitted_items: omitted
+  }
+}
+
+export function alignmentRunIsComplete({ work, incompleteInputHashes, successfulBatches, requestBatches }) {
+  return work.items.length > 0
+    && work.items.length === work.totalBeforeLimit
+    && incompleteInputHashes.length === 0
+    && successfulBatches === requestBatches
+}
+
 export function estimateInputTokens(input) {
   // Conservative for Chinese (roughly one token per three UTF-8 bytes) and
   // intentionally an overestimate for most English text.
@@ -1006,6 +1027,7 @@ function outputBase(args, config, catalogs) {
 function planSummary({ args, config, catalogs, work, batches }) {
   const candidatePairs = work.items.reduce((sum, item) => sum + item.candidates.length, 0)
   const estimatedInput = batches.reduce((sum, batch) => sum + estimateInputTokens(makeAlignmentResponseInput(batch.requestItems)), 0)
+  const workset = alignmentWorksetSummary(work, args.maxItems)
   return {
     dry_run: args.dryRun,
     provider: config.provider,
@@ -1016,6 +1038,9 @@ function planSummary({ args, config, catalogs, work, batches }) {
     textbooks: catalogs.length,
     work_items: work.items.length,
     work_items_before_limit: work.totalBeforeLimit,
+    workset_complete: workset.complete,
+    work_items_omitted: workset.omitted_items,
+    selection: workset,
     candidate_pairs: candidatePairs,
     request_batches: batches.length,
     estimated_input_tokens_without_retries: estimatedInput,
@@ -1104,7 +1129,12 @@ export async function runAlignmentPipeline(args, dependencies = {}) {
     decisions_sha256: sha256(readFileSync(decisionsPath)),
     alignments_sha256: sha256(readFileSync(alignmentsPath))
   }
-  const complete = incompleteInputHashes.length === 0 && successfulHashes.size === batches.length
+  const complete = alignmentRunIsComplete({
+    work,
+    incompleteInputHashes,
+    successfulBatches: successfulHashes.size,
+    requestBatches: batches.length
+  })
   const terminalError = pool.stop_status
     ? {
         status: pool.stop_status,
