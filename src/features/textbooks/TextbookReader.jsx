@@ -212,6 +212,7 @@ export default function TextbookReader({ book, fileUrl, initialPage = null, init
     const searchRunRef = useRef(0)
     const locationSyncReadyRef = useRef(false)
     const currentPageRef = useRef(currentPage)
+    const pendingProgrammaticPageRef = useRef(null)
 
     const printedByPdf = useMemo(() => new Map((book.page_map || []).map(item => [item.pdf_page, item.printed_page])), [book.page_map])
     const currentPrinted = printedByPdf.get(currentPage)
@@ -252,6 +253,9 @@ export default function TextbookReader({ book, fileUrl, initialPage = null, init
 
     const updateVisiblePage = useCallback(page => {
         const safe = Math.max(1, Math.min(numPages, Number(page) || 1))
+        const pendingPage = pendingProgrammaticPageRef.current
+        if (pendingPage && pendingPage !== safe) return
+        if (pendingPage === safe) pendingProgrammaticPageRef.current = null
         if (currentPageRef.current === safe) return
         currentPageRef.current = safe
         setCurrentPage(previous => {
@@ -266,6 +270,7 @@ export default function TextbookReader({ book, fileUrl, initialPage = null, init
     const jumpTo = useCallback((page, { replace = false, preserveHighlight = false } = {}) => {
         const safe = Math.max(1, Math.min(numPages, Number(page) || 1))
         const nextAlignmentId = preserveHighlight && alignmentCoversPage(book, highlightedAlignmentId, safe) ? highlightedAlignmentId : ''
+        pendingProgrammaticPageRef.current = safe
         currentPageRef.current = safe
         setCurrentPage(safe)
         setPageInput(String(safe))
@@ -311,6 +316,7 @@ export default function TextbookReader({ book, fileUrl, initialPage = null, init
         const params = new URLSearchParams(location.search)
         const requestedPage = Math.max(1, Math.min(numPages, Number(params.get('page')) || currentPageRef.current))
         if (requestedPage !== currentPageRef.current) {
+            pendingProgrammaticPageRef.current = requestedPage
             currentPageRef.current = requestedPage
             setCurrentPage(requestedPage)
             setPageInput(String(requestedPage))
