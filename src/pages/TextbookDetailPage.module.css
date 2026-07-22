@@ -47,7 +47,8 @@
 .aside section { padding: var(--space-5); border: 1px solid var(--kb-hairline); border-radius: var(--radius-lg); background: var(--kb-surface); }
 .aside h2 { margin-top: .45rem; font-size: 1rem; }
 .aside ul { display: grid; gap: .6rem; margin-top: 1rem; list-style: none; }
-.aside li a { display: grid; gap: .25rem; padding: .75rem; border-radius: var(--radius-md); background: var(--kb-surface-muted); color: var(--kb-ink); font-size: .75rem; }
+.aside li a,.resourceUnavailable { display: grid; gap: .25rem; padding: .75rem; border-radius: var(--radius-md); background: var(--kb-surface-muted); color: var(--kb-ink); font-size: .75rem; }
+.resourceUnavailable { opacity: .78; }
 .aside li span { color: var(--text-secondary); font-size: .65rem; }
 .muted { margin-top: .8rem; color: var(--text-secondary); font-size: .74rem; }
 .notes { padding-left: 1rem; list-style: disc !important; }

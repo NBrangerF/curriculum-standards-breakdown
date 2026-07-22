@@ -27,6 +27,23 @@ export async function createTextbookViewerSession(editionId) {
     })
 }
 
+export async function loadTextbookResource(resourceId) {
+    if (!/^res_[a-z0-9]+$/i.test(resourceId)) throw new Error('支持资源编号无效。')
+    const catalog = await fetchJson(`${PUBLIC_ROOT}/resources/index.json`)
+    const resource = (catalog.resources || []).find(item => item.resource_id === resourceId)
+    if (!resource) throw new Error('未找到支持资源。')
+    return resource
+}
+
+export async function createTextbookResourceViewerSession(resourceId) {
+    if (!/^res_[a-z0-9]+$/i.test(resourceId)) throw new Error('支持资源编号无效。')
+    return fetchJson(`/api/v1/textbook-resources/${encodeURIComponent(resourceId)}/viewer-session`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: '{}'
+    })
+}
+
 export async function loadTextbookUnit(unitId) {
     if (!/^[a-z0-9_-]+$/i.test(unitId)) throw new Error('教材单元编号无效。')
     return fetchJson(`/api/v1/units/${encodeURIComponent(unitId)}`)

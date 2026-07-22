@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto'
+import { isAbsolute } from 'node:path'
 
 export const SUPPORT_RESOURCE_TYPES = Object.freeze([
   'teacher_guide',
@@ -24,6 +25,23 @@ function clean(value) {
 function nullableString(value) {
   const normalized = clean(value)
   return normalized || null
+}
+
+function isAbsoluteLocalReference(value) {
+  const reference = clean(value)
+  return Boolean(reference) && (
+    isAbsolute(reference)
+    || /^[A-Za-z]:[\\/]/.test(reference)
+    || /^\\\\/.test(reference)
+    || /^~[\\/]/.test(reference)
+    || /^\.\.(?:[\\/]|$)/.test(reference)
+    || /^file:\/\//i.test(reference)
+  )
+}
+
+function portableReference(value) {
+  const reference = nullableString(value)
+  return reference && !isAbsoluteLocalReference(reference) ? reference : null
 }
 
 function normalizeToken(value) {
@@ -198,6 +216,28 @@ function normalizePageMap(rawPageMap) {
   })).filter(entry => Number.isInteger(entry.pdf_page) && entry.pdf_page > 0)
 }
 
+function assertResourcePageBounds(resource) {
+  if (resource.asset?.availability !== 'available') return
+  const pageCount = resource.asset.pages
+  for (const section of resource.sections || []) {
+    for (const [label, page] of [
+      ['start', section.pdf_page_start],
+      ['end', section.pdf_page_end]
+    ]) {
+      assert(
+        page === null || page <= pageCount,
+        `resource section ${label} page exceeds available asset.pages: ${section.section_id} (${page} > ${pageCount})`
+      )
+    }
+  }
+  for (const entry of resource.page_map || []) {
+    assert(
+      entry.pdf_page <= pageCount,
+      `resource page_map page exceeds available asset.pages: ${entry.pdf_page} > ${pageCount}`
+    )
+  }
+}
+
 /** Normalize a resource manifest row and derive stable resource, edition, asset and section IDs. */
 export function normalizeResourceInput(input, options = {}) {
   assert(input && typeof input === 'object', 'resource manifest row must be an object')
@@ -221,24 +261,136 @@ export function normalizeResourceInput(input, options = {}) {
       confidence: Number.isFinite(raw.confidence) ? Number(raw.confidence) : 0.99
     }
   })
+  const resource = {
+    resource_id: resourceId,
+    edition_id: editionId,
+    work_id: workId,
+    resource_type: resourceType,
+    bibliography,
+    target_hints: targetHints,
+    asset: normalizeAsset(input.asset, resourceId),
+    sections,
+    page_map: normalizePageMap(input.structure?.page_map || input.page_map),
+    provenance: {
+      source_kind: clean(input.provenance?.source_kind) || options.sourceKind || 'resource_manifest',
+      source_ref: nullableString(input.provenance?.source_ref) || nullableString(options.sourceRef),
+      generated_from: nullableString(input.provenance?.generated_from) || nullableString(options.generatedFrom)
+    }
+  }
+  assertResourcePageBounds(resource)
   return {
-    resource: {
-      resource_id: resourceId,
-      edition_id: editionId,
-      work_id: workId,
-      resource_type: resourceType,
-      bibliography,
-      target_hints: targetHints,
-      asset: normalizeAsset(input.asset, resourceId),
-      sections,
-      page_map: normalizePageMap(input.structure?.page_map || input.page_map),
-      provenance: {
-        source_kind: clean(input.provenance?.source_kind) || options.sourceKind || 'resource_manifest',
-        source_ref: nullableString(input.provenance?.source_ref) || nullableString(options.sourceRef),
-        generated_from: nullableString(input.provenance?.generated_from) || nullableString(options.generatedFrom)
-      }
-    },
+    resource,
     declared_unit_mappings: declaredUnitMappings
+  }
+}
+
+/**
+ * Merge resource-manifest layers by their normalized stable resource ID.
+ * Later layers intentionally replace earlier rows with the same ID. This is
+ * used for both registry upserts and explicit build-time manifest overlays.
+ */
+export function mergeResourceManifestInputs(...layers) {
+  const byResourceId = new Map()
+  for (const layer of layers) {
+    for (const input of Array.isArray(layer) ? layer : []) {
+      const resourceId = normalizeResourceInput(input).resource.resource_id
+      byResourceId.set(resourceId, input)
+    }
+  }
+  return [...byResourceId.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([, input]) => input)
+}
+
+/**
+ * Convert an imported row into the portable, rebuildable representation kept
+ * in the versioned registry. Source PDFs remain addressable by content hash;
+ * workstation and external-volume paths are deliberately discarded.
+ */
+export function resourceInputForRegistry(input, normalizedResource, options = {}) {
+  const resource = normalizedResource || normalizeResourceInput(input).resource
+  const provenance = input.provenance || {}
+  const objectPath = portableReference(resource.asset.object_path)
+  const portableSourceRef = portableReference(provenance.source_ref)
+    || portableReference(options.sourceRef)
+  const generatedFrom = portableReference(provenance.generated_from)
+    || objectPath
+    || null
+  const targets = resource.target_hints.map(target => Object.fromEntries(Object.entries({
+    edition_id: target.edition_id,
+    subject_slug: target.subject_slug,
+    grade: target.grade,
+    volume: target.volume,
+    publisher: target.publisher,
+    edition_name: target.edition_name,
+    revision_year: target.revision_year
+  }).filter(([, value]) => value !== undefined)))
+  const sections = resource.sections.map(section => ({
+    section_id: section.section_id,
+    source_key: section.source_key,
+    parent_ref: section.parent_id,
+    level: section.level,
+    kind: section.kind,
+    title: section.title,
+    printed_page_start: section.printed_page_start,
+    printed_page_end: section.printed_page_end,
+    pdf_page_start: section.pdf_page_start,
+    pdf_page_end: section.pdf_page_end
+  }))
+  const declaredMappings = normalizeResourceInput(input).declared_unit_mappings
+  return {
+    resource_id: resource.resource_id,
+    edition_id: resource.edition_id,
+    work_id: resource.work_id,
+    resource_type: resource.resource_type,
+    bibliography: { ...resource.bibliography },
+    targets,
+    asset: {
+      asset_id: resource.asset.asset_id,
+      availability: resource.asset.availability,
+      source_locator: portableReference(input.asset?.source_locator),
+      source_path: null,
+      sha256: resource.asset.sha256,
+      bytes: resource.asset.bytes,
+      pages: resource.asset.pages,
+      object_path: objectPath,
+      local_path: null,
+      r2_bucket: resource.asset.r2_bucket,
+      r2_key: portableReference(resource.asset.r2_key) || objectPath
+    },
+    structure: {
+      toc: sections,
+      page_map: resource.page_map.map(entry => ({ ...entry }))
+    },
+    unit_mappings: declaredMappings.map(mapping => ({
+      target_edition_id: mapping.target_edition_id,
+      target_unit_id: mapping.target_unit_id,
+      resource_section_ref: mapping.resource_section_id,
+      confidence: mapping.confidence
+    })),
+    provenance: {
+      source_kind: clean(provenance.source_kind) || resource.provenance.source_kind || 'resource_import',
+      source_ref: portableSourceRef,
+      generated_from: generatedFrom
+    }
+  }
+}
+
+function resourceForCatalog(resource) {
+  return {
+    ...resource,
+    asset: {
+      ...resource.asset,
+      source_path: null,
+      object_path: portableReference(resource.asset.object_path),
+      local_path: null,
+      r2_key: portableReference(resource.asset.r2_key)
+    },
+    provenance: {
+      ...resource.provenance,
+      source_ref: portableReference(resource.provenance?.source_ref),
+      generated_from: portableReference(resource.provenance?.generated_from)
+    }
   }
 }
 
@@ -463,7 +615,6 @@ function buildUnitLinks(normalized, relation, target) {
   const mappedSections = new Set()
 
   for (const declared of normalized.declared_unit_mappings) {
-    if (declared.target_edition_id && declared.target_edition_id !== target.edition_id) continue
     const section = sections.get(declared.resource_section_id)
     const unit = units.get(declared.target_unit_id)
     if (!section || !unit) {
@@ -509,6 +660,7 @@ export function buildTextbookResourceCatalog({ resources, targets, structures = 
   const normalized = resources.map((input, index) => input.resource && input.declared_unit_mappings
     ? input
     : normalizeResourceInput(input, { sourceRef: `resources[${index}]` }))
+  normalized.forEach(item => assertResourcePageBounds(item.resource))
   const projectedTargets = targets
     .filter(target => target.resource_type === 'student_textbook')
     .map(target => targetProjection(target, structures[target.edition_id]))
@@ -518,6 +670,11 @@ export function buildTextbookResourceCatalog({ resources, targets, structures = 
   const unitMappingGaps = []
   for (let index = 0; index < normalized.length; index += 1) {
     const relation = pairings[index]
+    for (const declared of normalized[index].declared_unit_mappings) {
+      if (declared.target_edition_id && declared.target_edition_id !== relation.target_edition_id) {
+        throw new Error(`explicit unit mapping target conflicts with final textbook pairing: resource=${normalized[index].resource.resource_id}, declared=${declared.target_edition_id}, paired=${relation.target_edition_id || 'unmatched'}`)
+      }
+    }
     const target = relation.target_edition_id ? targetById.get(relation.target_edition_id) : null
     if (!target) continue
     const links = buildUnitLinks(normalized[index], relation, target)
@@ -538,7 +695,7 @@ export function buildTextbookResourceCatalog({ resources, targets, structures = 
   return {
     schema_version: 1,
     generated_at: generatedAt,
-    resources: normalized.map(item => item.resource).sort((left, right) => left.resource_id.localeCompare(right.resource_id)),
+    resources: normalized.map(item => resourceForCatalog(item.resource)).sort((left, right) => left.resource_id.localeCompare(right.resource_id)),
     pairings: pairings.sort((left, right) => left.relation_id.localeCompare(right.relation_id)),
     unit_mappings: unitMappings.sort((left, right) => left.mapping_id.localeCompare(right.mapping_id)),
     unit_mapping_gaps: unitMappingGaps.sort((left, right) => left.gap_id.localeCompare(right.gap_id)),
@@ -577,8 +734,13 @@ export function projectRelatedResourcesForTextbook(catalog, editionId) {
     .sort((left, right) => left.relation_id.localeCompare(right.relation_id))
 }
 
-/** Project concrete resource section/page mappings into a textbook unit API row. */
-export function projectRelatedResourcesForUnit(catalog, editionId, unitId) {
+/**
+ * Project concrete resource section/page mappings into a textbook unit API row.
+ * Reader availability comes from the verified public asset registry rather than
+ * the support-resource manifest, which may intentionally contain metadata-only
+ * resources that do not have a public detail or reader route yet.
+ */
+export function projectRelatedResourcesForUnit(catalog, editionId, unitId, { readableEditionIds = new Set() } = {}) {
   const pairings = new Map((catalog.pairings || []).map(pairing => [pairing.relation_id, pairing]))
   const resources = new Map((catalog.resources || []).map(resource => [resource.resource_id, resource]))
   return (catalog.unit_mappings || [])
@@ -600,6 +762,7 @@ export function projectRelatedResourcesForUnit(catalog, editionId, unitId) {
         resource_id: resource.resource_id,
         resource_section_id: section.section_id,
         resource_section_title: section.title,
+        resource_reading_available: readableEditionIds.has(resource.edition_id),
         resource_pdf_page_start: mapping.resource_pdf_page_start,
         resource_pdf_page_end: mapping.resource_pdf_page_end,
         target_pdf_page_start: mapping.target_pdf_page_start,
@@ -667,10 +830,22 @@ export function auditTextbookResourceCatalog(catalog) {
       sectionIds.add(section.section_id)
       if (section.parent_id && !resource.sections.some(candidate => candidate.section_id === section.parent_id)) errors.push(`missing section parent: ${section.section_id} -> ${section.parent_id}`)
       if (section.pdf_page_start !== null && section.pdf_page_end !== null && section.pdf_page_end < section.pdf_page_start) errors.push(`invalid section page range: ${section.section_id}`)
+      if (resource.asset?.availability === 'available' && section.pdf_page_start !== null && section.pdf_page_start > resource.asset.pages) errors.push(`section start page exceeds asset pages: ${section.section_id}`)
+      if (resource.asset?.availability === 'available' && section.pdf_page_end !== null && section.pdf_page_end > resource.asset.pages) errors.push(`section end page exceeds asset pages: ${section.section_id}`)
     }
     if (resource.asset?.availability === 'available') {
       const expected = `objects/sha256/${resource.asset.sha256?.slice(0, 2)}/${resource.asset.sha256}.pdf`
       if (resource.asset.object_path !== expected) errors.push(`non-content-addressed object_path: ${resource.resource_id}`)
+      for (const entry of resource.page_map || []) {
+        if (entry.pdf_page > resource.asset.pages) errors.push(`page map exceeds asset pages: ${resource.resource_id}:${entry.pdf_page}`)
+      }
+    }
+    if (resource.asset?.source_path || resource.asset?.local_path) errors.push(`catalog exposes a local asset path: ${resource.resource_id}`)
+    if (isAbsoluteLocalReference(resource.asset?.object_path) || isAbsoluteLocalReference(resource.asset?.r2_key)) {
+      errors.push(`catalog exposes an absolute object path: ${resource.resource_id}`)
+    }
+    if (isAbsoluteLocalReference(resource.provenance?.source_ref) || isAbsoluteLocalReference(resource.provenance?.generated_from)) {
+      errors.push(`catalog exposes an absolute provenance path: ${resource.resource_id}`)
     }
   }
 
@@ -692,6 +867,8 @@ export function auditTextbookResourceCatalog(catalog) {
     if (pairing?.target_edition_id !== mapping.target_edition_id) errors.push(`unit mapping target differs from relation: ${mapping.mapping_id}`)
     if (!resource?.sections.some(section => section.section_id === mapping.resource_section_id)) errors.push(`unit mapping references missing section: ${mapping.mapping_id}`)
     if (mapping.resource_pdf_page_start !== null && mapping.resource_pdf_page_end !== null && mapping.resource_pdf_page_end < mapping.resource_pdf_page_start) errors.push(`invalid mapping resource page range: ${mapping.mapping_id}`)
+    if (resource?.asset?.availability === 'available' && mapping.resource_pdf_page_start !== null && mapping.resource_pdf_page_start > resource.asset.pages) errors.push(`mapping resource start page exceeds asset pages: ${mapping.mapping_id}`)
+    if (resource?.asset?.availability === 'available' && mapping.resource_pdf_page_end !== null && mapping.resource_pdf_page_end > resource.asset.pages) errors.push(`mapping resource end page exceeds asset pages: ${mapping.mapping_id}`)
     if (mapping.target_pdf_page_start !== null && mapping.target_pdf_page_end !== null && mapping.target_pdf_page_end < mapping.target_pdf_page_start) errors.push(`invalid mapping target page range: ${mapping.mapping_id}`)
   }
 

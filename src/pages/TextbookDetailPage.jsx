@@ -146,7 +146,7 @@ export default function TextbookDetailPage() {
 
                 <aside className={styles.aside}>
                     <section><span className={styles.asideLabel}>RESOURCES</span><h2>配套资源</h2>
-                        {book.related_resources.length ? <ul>{book.related_resources.map(resource => <li key={resource.relation_id}><Link to={`/textbooks/${resource.resource_edition_id}`}><strong>{resource.title}</strong><span>{RELATION_LABELS[resource.relationship] || '相关资料'}</span></Link></li>)}</ul> : <p className={styles.muted}>尚未收录该册的教师用书或辅助材料。配对接口已就绪，资源入库后会自动出现。</p>}
+                        {book.related_resources.length ? <ul>{book.related_resources.map(resource => <li key={resource.relation_id}>{resource.resource_reading_available && resource.resource_id ? <Link to={`/textbook-resources/${encodeURIComponent(resource.resource_id)}/read?page=1`}><strong>{resource.title}</strong><span>{RELATION_LABELS[resource.relationship] || '相关资料'} · 在线阅读</span></Link> : <div className={styles.resourceUnavailable}><strong>{resource.title}</strong><span>{RELATION_LABELS[resource.relationship] || '相关资料'} · 文件暂不可在线阅读</span></div>}</li>)}</ul> : <p className={styles.muted}>尚未收录该册的教师用书或辅助材料。配对接口已就绪，资源入库后会自动出现。</p>}
                     </section>
                     <section><span className={styles.asideLabel}>QUALITY</span><h2>处理说明</h2><ul className={styles.notes}>{book.extraction.notes.map((note, index) => <li key={index}>{note}</li>)}</ul></section>
                     <section><span className={styles.asideLabel}>EDITION</span><h2>版本状态</h2><p className={styles.muted}>{book.revision_label}。{book.bibliographic_verified ? '书目信息已核实。' : '书目版次仍需人工核实，不影响已验证 PDF 阅读。'}</p></section>

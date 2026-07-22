@@ -10,6 +10,23 @@
 .list { display: grid; gap: .7rem; }
 .grid aside { padding: 1rem; border: 1px solid var(--kb-hairline); border-radius: var(--radius-lg); background: var(--kb-surface); }
 .grid aside p { display: block; margin-top: .5rem; color: var(--text-secondary); font-size: .7rem; }
-.grid aside ul { display: grid; gap: .5rem; list-style: none; }
+.resourceList { display: grid; gap: .75rem; list-style: none; }
+.resourceCard { display: grid; min-width: 0; gap: .65rem; padding: .9rem; border: 1px solid var(--kb-hairline); border-radius: var(--radius-md); background: var(--kb-surface-muted); }
+.resourceType { width: fit-content; padding: .28rem .48rem; border-radius: 999px; background: var(--kb-accent-soft); color: var(--kb-accent); font: 650 .58rem/1 var(--font-mono); }
+.resourceCard h3 { overflow-wrap: anywhere; font-size: .82rem; line-height: 1.45; }
+.resourceDetails { display: grid; gap: .5rem; }
+.resourceDetails div { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: .55rem; align-items: baseline; }
+.resourceDetails dt { color: var(--text-secondary); font: 560 .58rem/1.4 var(--font-mono); }
+.resourceDetails dd { min-width: 0; color: var(--kb-ink); font-size: .68rem; line-height: 1.5; overflow-wrap: anywhere; }
+.resourceLink { display: inline-flex; width: fit-content; min-height: 2.75rem; gap: .4rem; align-items: center; color: var(--kb-accent); font-size: .68rem; font-weight: 650; }
+.resourceLink:hover { text-decoration: underline; }
+.resourceUnavailable { display: inline-flex; min-height: 2.25rem; align-items: center; color: var(--text-secondary); font-size: .65rem; }
 
-@media (max-width: 760px) { .page header { padding: var(--space-6); } .grid { grid-template-columns: 1fr; } }
+@media (max-width: 760px) {
+    .page header { padding: var(--space-6); }
+    .grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); }
+    .grid .resourcePanel { padding: .85rem; }
+    .resourceCard { padding: .85rem; }
+    .resourceDetails div { grid-template-columns: 1fr; gap: .15rem; }
+    .resourceLink { width: 100%; justify-content: space-between; }
+}

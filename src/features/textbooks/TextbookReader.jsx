@@ -181,7 +181,7 @@ function ContinuousPages({ numPages, width, currentPage, onCurrentPage, scrollRe
     )
 }
 
-export default function TextbookReader({ book, fileUrl, initialPage = null, initialNodeId = '', initialAlignmentId = '', initialPanel = '' }) {
+export default function TextbookReader({ book, fileUrl, initialPage = null, initialNodeId = '', initialAlignmentId = '', initialPanel = '', showStandards = true }) {
     const location = useLocation()
     const navigate = useNavigate()
     const saved = loadReadingState(book.edition_id)
@@ -204,6 +204,7 @@ export default function TextbookReader({ book, fileUrl, initialPage = null, init
     const [scrollRequest, setScrollRequest] = useState(() => ({ page: initialReaderPage, token: 0 }))
     const [highlightedAlignmentId, setHighlightedAlignmentId] = useState(initialAlignmentId)
     const [standardsOpen, setStandardsOpen] = useState(() => {
+        if (!showStandards) return false
         if (initialPanel === 'standards' || initialAlignmentId) return true
         return typeof window === 'undefined' || !window.matchMedia('(max-width: 780px)').matches
     })
@@ -235,18 +236,19 @@ export default function TextbookReader({ book, fileUrl, initialPage = null, init
         if (Number.isInteger(directPage) && directPage > 0) pages.add(directPage)
         return pages
     }, [highlightedAlignment, highlightedEvidenceByPage])
+    const standardsVisible = showStandards && standardsOpen
 
-    const syncReaderUrl = useCallback((page, { replace = false, panel = standardsOpen, alignmentId = highlightedAlignmentId, nodeId = initialNodeId } = {}) => {
+    const syncReaderUrl = useCallback((page, { replace = false, panel = standardsVisible, alignmentId = highlightedAlignmentId, nodeId = initialNodeId } = {}) => {
         const params = new URLSearchParams(location.search)
         params.set('page', String(page))
-        if (panel) params.set('panel', 'standards')
+        if (showStandards && panel) params.set('panel', 'standards')
         else params.delete('panel')
         if (alignmentId && alignmentCoversPage(book, alignmentId, page)) params.set('alignment', alignmentId)
         else params.delete('alignment')
         if (nodeId && buildTextbookAlignmentContext(book, page).activeNodes.some(node => node.node_id === nodeId)) params.set('node', nodeId)
         else params.delete('node')
         navigate({ pathname: location.pathname, search: `?${params.toString()}` }, { replace })
-    }, [book, highlightedAlignmentId, initialNodeId, location.pathname, location.search, navigate, standardsOpen])
+    }, [book, highlightedAlignmentId, initialNodeId, location.pathname, location.search, navigate, showStandards, standardsVisible])
 
     const updateVisiblePage = useCallback(page => {
         const safe = Math.max(1, Math.min(numPages, Number(page) || 1))
@@ -300,7 +302,7 @@ export default function TextbookReader({ book, fileUrl, initialPage = null, init
             const validAlignmentId = alignmentId && alignmentCoversPage(book, alignmentId, currentPageRef.current) ? alignmentId : ''
             const nodeId = params.get('node') || ''
             const validNodeId = nodeId && buildTextbookAlignmentContext(book, currentPageRef.current, nodeId).activeNodes.some(node => node.node_id === nodeId) ? nodeId : ''
-            const panelOpen = params.get('panel') === 'standards' || Boolean(validAlignmentId)
+            const panelOpen = showStandards && (params.get('panel') === 'standards' || Boolean(validAlignmentId))
             if (params.get('page') !== String(currentPageRef.current) || alignmentId !== validAlignmentId || nodeId !== validNodeId || (params.get('panel') === 'standards') !== panelOpen) {
                 syncReaderUrl(currentPageRef.current, { replace: true, panel: panelOpen, alignmentId: validAlignmentId, nodeId: validNodeId })
             }
@@ -316,8 +318,8 @@ export default function TextbookReader({ book, fileUrl, initialPage = null, init
         }
         const alignmentId = params.get('alignment') || ''
         setHighlightedAlignmentId(alignmentId && alignmentCoversPage(book, alignmentId, requestedPage) ? alignmentId : '')
-        setStandardsOpen(params.get('panel') === 'standards' || Boolean(alignmentId && alignmentCoversPage(book, alignmentId, requestedPage)))
-    }, [book, location.search, numPages, syncReaderUrl])
+        setStandardsOpen(showStandards && (params.get('panel') === 'standards' || Boolean(alignmentId && alignmentCoversPage(book, alignmentId, requestedPage))))
+    }, [book, location.search, numPages, showStandards, syncReaderUrl])
 
     useEffect(() => {
         if (mode === 'continuous') return undefined
@@ -402,10 +404,10 @@ export default function TextbookReader({ book, fileUrl, initialPage = null, init
                         <span>{Math.round(zoom * 100)}%</span>
                         <button type="button" onClick={() => setZoom(value => Math.min(1.7, value + .1))} aria-label="放大"><PlusIcon size={16} aria-hidden="true" /></button>
                     </div>
-                    <button type="button" className={`${styles.standardsToggle} ${standardsOpen ? styles.active : ''}`} onClick={toggleStandards} aria-expanded={standardsOpen} aria-controls="textbook-standards-panel">课标 <span>{alignmentContext.pageAlignments.length + alignmentContext.nodeAlignments.length + alignmentContext.unitAlignments.length}</span></button>
+                    {showStandards ? <button type="button" className={`${styles.standardsToggle} ${standardsVisible ? styles.active : ''}`} onClick={toggleStandards} aria-expanded={standardsVisible} aria-controls="textbook-standards-panel">课标 <span>{alignmentContext.pageAlignments.length + alignmentContext.nodeAlignments.length + alignmentContext.unitAlignments.length}</span></button> : null}
                 </div>
 
-                <div className={`${styles.body} ${sidebarOpen ? '' : styles.sidebarClosed} ${standardsOpen ? styles.standardsOpen : ''}`}>
+                <div className={`${styles.body} ${sidebarOpen ? '' : styles.sidebarClosed} ${standardsVisible ? styles.standardsOpen : ''}`}>
                     <aside className={styles.sidebar} aria-label="教材导航">
                         <div className={styles.tabs} role="tablist">
                             <button type="button" role="tab" aria-selected={sidebarTab === 'toc'} onClick={() => setSidebarTab('toc')}>目录</button>
@@ -429,7 +431,7 @@ export default function TextbookReader({ book, fileUrl, initialPage = null, init
                             </div>
                         )}
                     </section>
-                    {standardsOpen ? <TextbookStandardsPanel book={book} context={alignmentContext} highlightedAlignmentId={highlightedAlignmentId} onClose={toggleStandards} modal={compactViewport} /> : null}
+                    {standardsVisible ? <TextbookStandardsPanel book={book} context={alignmentContext} highlightedAlignmentId={highlightedAlignmentId} onClose={toggleStandards} modal={compactViewport} /> : null}
                 </div>
             </div>
         </Document>

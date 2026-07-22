@@ -262,6 +262,19 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         return ok(c, version, session)
     })
 
+    app.post('/api/v1/textbook-resources/:resource_id/viewer-session', async c => {
+        const version = await repository.loadDataVersion()
+        const resourceId = c.req.param('resource_id')
+        if (!textbookAssetService.hasResource(resourceId)) {
+            return apiError(c, 404, 'not_found', '未找到支持资源。')
+        }
+        const session = textbookAssetService.createResourceViewerSession(resourceId)
+        if (!session) {
+            return apiError(c, 503, 'viewer_unavailable', '支持资源文件当前不在线：请连接 X9 Pro，或配置对象存储地址。')
+        }
+        return ok(c, version, session)
+    })
+
     app.on(['GET', 'HEAD'], '/api/v1/textbook-assets/:asset_id', c => textbookAssetService.respond(c, c.req.param('asset_id')))
 
     app.get('/api/v1/units/:unit_id', async c => {

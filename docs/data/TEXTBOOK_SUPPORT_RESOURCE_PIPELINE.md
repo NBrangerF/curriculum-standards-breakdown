@@ -20,7 +20,9 @@
 3. `pairing`：资源与目标学生教材的册级关系，并记录匹配字段、冲突字段和未配对原因。
 4. `unit_mapping`：目标教材单元与资源章节、双方 PDF 页段的具体关系。
 
-原始 manifest 使用 [resource_manifest.schema.json](../../data/textbooks/catalog/resource_manifest.schema.json)。运行时 TypeScript 合约位于 `packages/curriculum-core/src/textbooks`。
+原始 manifest 使用 [resource_manifest.schema.json](../../data/textbooks/catalog/resource_manifest.schema.json)。持久生成源位于 [support_resource_registry.json](../../data/textbooks/catalog/support_resource_registry.json)，它使用同一 schema 并进入版本控制。运行时 TypeScript 合约位于 `packages/curriculum-core/src/textbooks`。
+
+`support_resource_catalog.json` 是可重建产物，不是导入入口。导入成功后需要显式 `--register`，将可移植书目、结构、内容寻址对象和单元映射原子写入 registry；随后不带任何 `--manifest` 的默认构建也会消费这些资源。registry 不保存 PDF 的原始绝对路径或外接硬盘路径。
 
 ## 稳定 ID
 
@@ -62,14 +64,14 @@
 
 ## 构建与审计
 
-只使用当前 4 册地理图册构建实际目录：
+使用当前 4 册地理图册以及持久 registry 构建实际目录：
 
 ```bash
 node scripts/textbooks/build_textbook_resource_catalog.js
 node scripts/textbooks/audit_textbook_resource_catalog.js
 ```
 
-添加一个或多个资源 manifest：
+临时叠加一个或多个资源 manifest：
 
 ```bash
 node scripts/textbooks/build_textbook_resource_catalog.js \
@@ -77,10 +79,26 @@ node scripts/textbooks/build_textbook_resource_catalog.js \
   --out data/textbooks/catalog/support_resource_catalog.json
 ```
 
+默认 `--manifest-mode merge`：先读取当前图册和 registry，再按命令行顺序叠加显式 manifest；相同稳定 `resource_id` 以后者覆盖前者。需要完全忽略 registry 做隔离构建时，必须显式写：
+
+```bash
+node scripts/textbooks/build_textbook_resource_catalog.js \
+  --manifest path/to/isolated-resources.json \
+  --manifest-mode replace
+```
+
+`replace` 只替代 registry/显式 manifest 层，当前资产清单中的地理图册仍会进入目录。可用 `--registry path/to/registry.json` 指定另一份 registry（测试或迁移场景）；默认 registry 缺失会直接失败，避免静默丢资源。
+
 当前实际目录位于 `data/textbooks/catalog/support_resource_catalog.json`。运行公共数据构建后，同一份目录会写入 `public/data/textbooks/resources/index.json`，并自动完成两层兼容投影：
 
 - `by-edition/<edition_id>.json` 的 `related_resources` 提供册级关系，`resource_unit_mappings` 与 `resource_unit_mapping_gaps` 保留完整单元关系和缺口；
 - `units.json` 每个单元的 `related_resources` 只包含真正映射到该单元的资源章节，并带双方 PDF 页段。
+
+当资源资产为 `availability=available`，且 `asset_id / sha256 / bytes / pages / object_path` 构成完整的内容寻址 PDF 记录时，单元投影会将 `resource_reading_available` 设为 `true`。前端链接到 `/textbook-resources/<resource_id>/read?page=<PDF页>`，再通过 `POST /api/v1/textbook-resources/<resource_id>/viewer-session` 获取同源 Range 地址。服务端只解析受信任 registry/catalog 中的 `resource_id`，不接受客户端文件路径。
+
+`resource_reading_available` 表示资源具备合格的 reader 元数据，不是实时存储探测；X9 掉线或 R2 暂时不可达时，会话接口返回 `503`，前端展示明确的不可用状态且不会请求 PDF。线上读取只接受统一桶（默认 `kebiao-textbooks`，可由 `TEXTBOOK_ASSET_BUCKET` 配置）和规范内容寻址 key；自定义 bucket/key 不会被静默改写或误读，而是拒绝建立会话。
+
+公开的 `public/data/textbooks/resources/index.json` 只保留阅读器需要的页数、文件大小、可用状态和书目结构；`sha256`、`object_path`、`r2_key`、桶名、本地路径及 provenance 定位信息统一脱敏为 `null`。完整内容寻址记录仅留在服务端数据目录。
 
 因此现有教材详情与单元 API 无需另写资源关联逻辑。完整构建顺序为：
 
@@ -94,12 +112,25 @@ node scripts/textbooks/audit_textbook_resource_catalog.js
 
 ## 本地、X9 与 R2 导入
 
-导入脚本默认仅生成计划，不写文件、不上传：
+导入脚本默认仅生成计划，不写文件、不上传、也不登记：
 
 ```bash
 node scripts/textbooks/import_textbook_resources.js \
   --manifest path/to/resources.json
 ```
+
+确认书目、结构和单元映射后，将其登记为默认构建的数据源：
+
+```bash
+node scripts/textbooks/import_textbook_resources.js \
+  --manifest path/to/resources.json \
+  --register \
+  --out output/textbook-resource-import/import-result.json
+```
+
+`--register` 默认采用 `--registration-mode merge`，按稳定 `resource_id` 更新或新增，未出现在本次 manifest 中的既有资源保留。只有在有意重建整个 registry 时才使用 `--registration-mode replace`。登记 manifest-only 资源同样有效；PDF 后续到位后，用相同资源身份再次登记即可补齐 asset 信息而不改变资源 ID。
+
+`--execute-local` 或 `--upload-r2` 已经代表实际导入，因此只有在复制/上传全部成功后才会自动登记。恢复演练或一次性诊断若确实不希望改 registry，可显式使用 `--no-register`；纯计划模式仍然不会自动登记。
 
 显式复制到内容寻址库（内部磁盘或 X9 都通过 `--library-root` 指定）：
 
@@ -108,7 +139,7 @@ node scripts/textbooks/import_textbook_resources.js \
   --manifest path/to/resources.json \
   --library-root "/Volumes/X9 Pro/kebiao-library" \
   --execute-local \
-  --out data/textbooks/catalog/imported-resources.json
+  --out output/textbook-resource-import/import-result.json
 ```
 
 显式上传 R2：
@@ -122,7 +153,7 @@ node scripts/textbooks/import_textbook_resources.js \
   --r2-bucket kebiao-textbooks
 ```
 
-上传调用已登录的 Wrangler，目标键与本地完全相同：`objects/sha256/<前两位>/<sha256>.pdf`。`manifest_only` 和 `missing` 资源会保留书目与配对，但导入计划明确标记为 blocked。
+上传调用已登录的 Wrangler，目标键与本地完全相同：`objects/sha256/<前两位>/<sha256>.pdf`。`manifest_only` 和 `missing` 资源会保留书目与配对，但导入计划明确标记为 blocked。`--out` 中的执行计划可能包含本机源路径和 X9 目标路径，因此应写到已忽略的 `output/`，不要作为网站数据发布；registry 和最终 catalog 会移除这些本机路径，公共 `resources/index.json` 不会继承它们。
 
 ## 回归夹具
 

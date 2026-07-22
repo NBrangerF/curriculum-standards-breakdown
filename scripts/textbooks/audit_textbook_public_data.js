@@ -5,7 +5,20 @@ const root = resolve(process.argv[2] || 'public/data/textbooks')
 const projectRoot = resolve(import.meta.dirname, '../..')
 const derivedRoot = join(projectRoot, 'data/textbooks/derived/by-edition')
 const errors = []
-const forbiddenKeys = new Set(['object_path', 'repository_path', 'sha256', 'asset_sha256', 'git_object', 'source_commit', 'source_id'])
+const forbiddenKeys = new Set([
+  'object_path',
+  'repository_path',
+  'sha256',
+  'asset_sha256',
+  'git_object',
+  'source_commit',
+  'source_id',
+  'source_path',
+  'local_path',
+  'r2_bucket',
+  'r2_key',
+  'generated_from'
+])
 const absolutePathPattern = /(?:\/Volumes\/|\/Users\/|[A-Za-z]:\\)/
 const nonInstructionalEvidencePattern = /(?:印[、，]?装质量|联系调换|出版发行|版权所有|\bISBN\b|(?:图书|本书)定价|定价[:：]\s*[¥￥]?\d)/i
 const placeholderEvidencePattern = /^[\s.…·•—_-]+$/u
@@ -17,8 +30,41 @@ function inspect(value, path = '$') {
     return
   }
   for (const [key, child] of Object.entries(value)) {
-    if (forbiddenKeys.has(key)) errors.push(`${path}.${key} is private and must not be published`)
+    if (forbiddenKeys.has(key) && child !== null && child !== undefined) errors.push(`${path}.${key} is private and must not be published`)
     inspect(child, `${path}.${key}`)
+  }
+}
+
+const resourceCatalogPath = join(root, 'resources/index.json')
+if (!existsSync(resourceCatalogPath)) errors.push('resources/index.json is missing')
+else {
+  const resourceCatalog = JSON.parse(readFileSync(resourceCatalogPath, 'utf8'))
+  inspect(resourceCatalog, 'resources/index.json')
+  const resources = new Map()
+  for (const resource of resourceCatalog.resources || []) {
+    if (resources.has(resource.resource_id)) errors.push(`resource catalog contains duplicate resource_id ${resource.resource_id}`)
+    resources.set(resource.resource_id, resource)
+    if (resource.asset?.availability === 'available'
+      && (!Number.isInteger(resource.asset.bytes) || resource.asset.bytes < 1
+        || !Number.isInteger(resource.asset.pages) || resource.asset.pages < 1)) {
+      errors.push(`${resource.resource_id} available public asset is missing bytes/pages`)
+    }
+    for (const field of ['sha256', 'source_path', 'object_path', 'local_path', 'r2_bucket', 'r2_key']) {
+      if (resource.asset?.[field] !== null) errors.push(`${resource.resource_id} public asset field ${field} must be redacted to null`)
+    }
+    if (resource.provenance?.source_ref !== null || resource.provenance?.generated_from !== null) {
+      errors.push(`${resource.resource_id} public provenance locators must be redacted to null`)
+    }
+  }
+  for (const pairing of resourceCatalog.pairings || []) {
+    if (!resources.has(pairing.resource_id)) errors.push(`resource pairing ${pairing.relation_id} references missing resource ${pairing.resource_id}`)
+  }
+  for (const mapping of resourceCatalog.unit_mappings || []) {
+    const resource = resources.get(mapping.resource_id)
+    if (!resource) errors.push(`resource mapping ${mapping.mapping_id} references missing resource ${mapping.resource_id}`)
+    else if (!(resource.sections || []).some(section => section.section_id === mapping.resource_section_id)) {
+      errors.push(`resource mapping ${mapping.mapping_id} references missing section ${mapping.resource_section_id}`)
+    }
   }
 }
 

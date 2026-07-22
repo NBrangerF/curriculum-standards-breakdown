@@ -313,6 +313,7 @@ export const TextbookStandardScopeSchema = z.object({
 
 export const TextbookRelatedResourceSchema = z.object({
     relation_id: z.string().min(1),
+    resource_id: z.string().min(1).nullable(),
     resource_edition_id: z.string().min(1),
     resource_type: TextbookResourceTypeSchema,
     title: z.string().min(1),
@@ -327,7 +328,8 @@ export const TextbookRelatedResourceSchema = z.object({
         'standard_for'
     ]),
     confidence: z.number().min(0).max(1),
-    review_status: z.enum(['approved', 'machine_checked', 'candidate'])
+    review_status: z.enum(['approved', 'machine_checked', 'candidate']),
+    resource_reading_available: z.boolean()
 }).strict()
 
 export const TextbookUnitRelatedResourceSchema = TextbookRelatedResourceSchema.extend({
@@ -335,6 +337,7 @@ export const TextbookUnitRelatedResourceSchema = TextbookRelatedResourceSchema.e
     resource_id: z.string().min(1),
     resource_section_id: z.string().min(1),
     resource_section_title: z.string().min(1),
+    resource_reading_available: z.boolean(),
     resource_pdf_page_start: z.number().int().positive().nullable(),
     resource_pdf_page_end: z.number().int().positive().nullable(),
     target_pdf_page_start: z.number().int().positive().nullable(),
@@ -378,11 +381,24 @@ export const TextbookResourceAssetSchema = z.object({
     r2_bucket: z.string().min(1).nullable(),
     r2_key: z.string().min(1).nullable()
 }).strict().superRefine((asset, context) => {
-    if (asset.availability === 'available' && (!asset.sha256 || !asset.bytes || !asset.pages || !asset.object_path)) {
+    if (asset.availability !== 'available') return
+    if (!asset.bytes || !asset.pages) {
         context.addIssue({
             code: 'custom',
-            message: 'available resource assets require sha256, bytes, pages and object_path'
+            message: 'available resource assets require bytes and pages'
         })
+    }
+    const hasPrivateLocator = Boolean(asset.sha256 || asset.object_path)
+    if (hasPrivateLocator && (!asset.sha256 || !asset.object_path)) {
+        context.addIssue({ code: 'custom', message: 'private resource assets require both sha256 and object_path' })
+    }
+    if (asset.sha256) {
+        const expectedObjectPath = `objects/sha256/${asset.sha256.slice(0, 2)}/${asset.sha256}.pdf`
+        if (asset.object_path !== expectedObjectPath) {
+            context.addIssue({ code: 'custom', message: 'resource object_path must match its sha256 content address' })
+        }
+    } else if ([asset.source_path, asset.object_path, asset.local_path, asset.r2_bucket, asset.r2_key].some(Boolean)) {
+        context.addIssue({ code: 'custom', message: 'redacted public resource assets cannot expose storage locators' })
     }
 })
 

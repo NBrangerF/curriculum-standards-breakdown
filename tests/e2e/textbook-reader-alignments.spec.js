@@ -1,10 +1,37 @@
-import fs from 'node:fs'
-import path from 'node:path'
 import { expect, test } from '@playwright/test'
 
 const EDITION_ID = 'ed_cafe1234'
 const STANDARD_CODE = 'CN-D1-CM-001'
-const PDF_FIXTURE = path.resolve('generated/textbook_evidence/pdf_cache/ctb_59a616dd8cc3.pdf')
+
+function createPdfFixture(pageCount) {
+    const objects = []
+    const fontObject = 3 + pageCount * 2
+    const pageObjects = Array.from({ length: pageCount }, (_, index) => 3 + index * 2)
+    objects[1] = '<< /Type /Catalog /Pages 2 0 R >>'
+    objects[2] = `<< /Type /Pages /Kids [${pageObjects.map(id => `${id} 0 R`).join(' ')}] /Count ${pageCount} >>`
+    for (let index = 0; index < pageCount; index += 1) {
+        const pageObject = pageObjects[index]
+        const contentObject = pageObject + 1
+        const stream = `BT /F1 24 Tf 72 720 Td (Kebiao reader fixture page ${index + 1}) Tj ET`
+        objects[pageObject] = `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 ${fontObject} 0 R >> >> /Contents ${contentObject} 0 R >>`
+        objects[contentObject] = `<< /Length ${Buffer.byteLength(stream)} >>\nstream\n${stream}\nendstream`
+    }
+    objects[fontObject] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>'
+
+    let source = '%PDF-1.4\n% kebiao self-contained fixture\n'
+    const offsets = [0]
+    for (let id = 1; id <= fontObject; id += 1) {
+        offsets[id] = Buffer.byteLength(source)
+        source += `${id} 0 obj\n${objects[id]}\nendobj\n`
+    }
+    const xrefOffset = Buffer.byteLength(source)
+    source += `xref\n0 ${fontObject + 1}\n0000000000 65535 f \n`
+    for (let id = 1; id <= fontObject; id += 1) source += `${String(offsets[id]).padStart(10, '0')} 00000 n \n`
+    source += `trailer\n<< /Size ${fontObject + 1} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF\n`
+    return Buffer.from(source)
+}
+
+const PDF_FIXTURE = createPdfFixture(8)
 
 const book = {
     edition_id: EDITION_ID,
@@ -79,7 +106,7 @@ async function routeReaderFixture(page, fixtureBook = book) {
     }))
     await page.route('**/__textbook-reader-alignment.pdf', route => route.fulfill({
         contentType: 'application/pdf',
-        body: fs.readFileSync(PDF_FIXTURE)
+        body: PDF_FIXTURE
     }))
 }
 
@@ -259,4 +286,226 @@ test('textbook detail and unit cards expose evidence metadata and exact reader l
     const unitCard = page.locator('[data-alignment-id="alignment_1"]')
     await expect(unitCard.getByText(/说说课文围绕/)).toBeVisible()
     await expect(unitCard.getByRole('link', { name: '定位原文与课标 →' })).toHaveAttribute('href', expected)
+})
+
+test('textbook detail links readable paired resources by resource id without requiring a unit mapping', async ({ page }) => {
+    await routeReaderFixture(page, {
+        ...book,
+        related_resource_count: 2,
+        related_resources: [{
+            relation_id: 'relation_detail_teacher',
+            resource_id: 'res_detailteacher',
+            resource_edition_id: 'ed_detail_teacher',
+            resource_type: 'teacher_guide',
+            title: '配对教师用书',
+            relationship: 'teacher_guide_for',
+            confidence: 0.98,
+            review_status: 'machine_checked',
+            resource_reading_available: true
+        }, {
+            relation_id: 'relation_detail_metadata',
+            resource_id: 'res_detailmetadata',
+            resource_edition_id: 'ed_detail_metadata',
+            resource_type: 'textbook_explanation',
+            title: '元数据教材全解',
+            relationship: 'explains',
+            confidence: 0.91,
+            review_status: 'machine_checked',
+            resource_reading_available: false
+        }]
+    })
+    await page.goto(`/textbooks/${EDITION_ID}`)
+
+    const readable = page.getByRole('link', { name: /配对教师用书/ })
+    await expect(readable).toHaveAttribute('href', '/textbook-resources/res_detailteacher/read?page=1')
+    const metadataOnly = page.getByText('元数据教材全解').locator('..')
+    await expect(metadataOnly).toContainText('文件暂不可在线阅读')
+    await expect(metadataOnly.getByRole('link')).toHaveCount(0)
+})
+
+test('support reader rejects a session from a stale or mismatched catalog version', async ({ page }) => {
+    await page.route('**/data/textbooks/resources/index.json', route => route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify({ resources: [{ resource_id: 'res_expectedid', asset: { asset_id: 'asset_expectedid' } }] })
+    }))
+    await page.route('**/api/v1/textbook-resources/res_expectedid/viewer-session', route => route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify({ data: { resource_id: 'res_other', asset_id: 'asset_other', url: '/must-not-load.pdf' } })
+    }))
+    await page.goto('/textbook-resources/res_expectedid/read?page=1')
+    await expect(page.getByRole('heading', { name: '暂时无法阅读这份支持资源' })).toBeVisible()
+    await expect(page.getByText('资源阅读会话与当前目录版本不一致，请刷新后重试。')).toBeVisible()
+})
+
+test('support reader reports storage unavailability instead of attempting a PDF request', async ({ page }) => {
+    await page.route('**/data/textbooks/resources/index.json', route => route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify({ resources: [{ resource_id: 'res_offlineid', asset: { asset_id: 'asset_offlineid' } }] })
+    }))
+    await page.route('**/api/v1/textbook-resources/res_offlineid/viewer-session', route => route.fulfill({
+        status: 503,
+        contentType: 'application/json',
+        body: JSON.stringify({ error: { message: '支持资源文件当前不在线。' } })
+    }))
+    const pdfRequests = []
+    page.on('request', request => {
+        if (request.url().endsWith('.pdf')) pdfRequests.push(request.url())
+    })
+    await page.goto('/textbook-resources/res_offlineid/read?page=1')
+    await expect(page.getByRole('heading', { name: '暂时无法阅读这份支持资源' })).toBeVisible()
+    await expect(page.getByText('支持资源文件当前不在线。')).toBeVisible()
+    expect(pdfRequests).toEqual([])
+})
+
+test('unit resource cards expose section page spans and only deep-link readable assets', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 })
+    await routeReaderFixture(page)
+    await page.route('**/api/v1/units/unit_1', route => route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify({
+            data: {
+                ...book.toc[0],
+                edition_id: EDITION_ID,
+                textbook_title: book.title,
+                subject: book.subject,
+                grade: 5,
+                volume: book.volume,
+                end_pdf_page: 8,
+                alignments: [],
+                related_resources: [{
+                    relation_id: 'relation_teacher',
+                    mapping_id: 'mapping_teacher',
+                    resource_id: 'res_teacherreader',
+                    resource_edition_id: 'ed_teacher_reader',
+                    resource_type: 'teacher_guide',
+                    title: '语文五年级上册教师用书',
+                    relationship: 'teacher_guide_for',
+                    confidence: 0.98,
+                    review_status: 'machine_checked',
+                    resource_section_id: 'section_teacher_1',
+                    resource_section_title: '第一单元教学设计',
+                    resource_reading_available: true,
+                    resource_pdf_page_start: 3,
+                    resource_pdf_page_end: 6,
+                    target_pdf_page_start: 1,
+                    target_pdf_page_end: 8
+                }, {
+                    relation_id: 'relation_explanation',
+                    mapping_id: 'mapping_explanation',
+                    resource_id: 'res_explanationmetadataonly',
+                    resource_edition_id: 'ed_explanation_metadata_only',
+                    resource_type: 'textbook_explanation',
+                    title: '语文五年级上册教材全解',
+                    relationship: 'explains',
+                    confidence: 0.91,
+                    review_status: 'machine_checked',
+                    resource_section_id: 'section_explanation_1',
+                    resource_section_title: '第一单元要点解析',
+                    resource_reading_available: false,
+                    resource_pdf_page_start: null,
+                    resource_pdf_page_end: null,
+                    target_pdf_page_start: 1,
+                    target_pdf_page_end: 8
+                }]
+            }
+        })
+    }))
+    await page.route('**/data/textbooks/resources/index.json', route => route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify({
+            schema_version: 1,
+            generated_at: '2026-07-22T00:00:00.000Z',
+            resources: [{
+                resource_id: 'res_teacherreader',
+                edition_id: 'ed_teacher_reader',
+                work_id: 'work_teacher_reader',
+                resource_type: 'teacher_guide',
+                bibliography: {
+                    title: '语文五年级上册教师用书',
+                    stage: 'primary',
+                    subject: '语文',
+                    subject_slug: 'chinese',
+                    grade: 5,
+                    volume: '上册',
+                    publisher: '测试出版社',
+                    edition_name: '统编版',
+                    edition_statement: null,
+                    revision_year: 2022,
+                    isbn: null
+                },
+                target_hints: [],
+                asset: {
+                    asset_id: 'asset_teacherreader',
+                    availability: 'available',
+                    media_type: 'application/pdf',
+                    sha256: null,
+                    bytes: PDF_FIXTURE.length,
+                    pages: 8,
+                    source_path: null,
+                    object_path: null,
+                    local_path: null,
+                    r2_bucket: null,
+                    r2_key: null
+                },
+                sections: [{
+                    section_id: 'section_teacher_1',
+                    source_key: 'unit-1',
+                    parent_id: null,
+                    level: 1,
+                    kind: 'unit',
+                    title: '第一单元教学设计',
+                    printed_page_start: '1',
+                    printed_page_end: '4',
+                    pdf_page_start: 3,
+                    pdf_page_end: 6
+                }],
+                page_map: [{ pdf_page: 3, printed_page: '1', label: '1' }],
+                provenance: { source_kind: 'e2e_fixture', source_ref: null, generated_from: null }
+            }],
+            pairings: [],
+            unit_mappings: [],
+            unit_mapping_gaps: [],
+            indexes: { by_textbook: {}, by_resource: {}, by_textbook_unit: {}, by_resource_section: {} }
+        })
+    }))
+    await page.route('**/api/v1/textbook-resources/res_teacherreader/viewer-session', route => route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify({ data: {
+            resource_id: 'res_teacherreader',
+            asset_id: 'asset_teacherreader',
+            url: '/__textbook-reader-alignment.pdf'
+        } })
+    }))
+
+    const resourceRequests = []
+    page.on('request', request => {
+        if (/ed_(?:teacher_reader|explanation_metadata_only)/.test(request.url())) resourceRequests.push(request.url())
+    })
+    await page.goto('/textbook-units/unit_1')
+
+    const teacher = page.locator('[data-resource-mapping-id="mapping_teacher"]')
+    await expect(teacher.getByText('教师用书', { exact: true })).toBeVisible()
+    await expect(teacher.getByRole('heading', { name: '语文五年级上册教师用书' })).toBeVisible()
+    await expect(teacher.getByText('第一单元教学设计', { exact: true })).toBeVisible()
+    await expect(teacher.getByText('资源 PDF 3–6', { exact: true })).toBeVisible()
+    const teacherLink = teacher.getByRole('link', { name: '从资源 PDF 3 页打开：语文五年级上册教师用书' })
+    await expect(teacherLink).toHaveAttribute('href', '/textbook-resources/res_teacherreader/read?page=3')
+
+    const explanation = page.locator('[data-resource-mapping-id="mapping_explanation"]')
+    await expect(explanation.getByText('教材全解', { exact: true })).toBeVisible()
+    await expect(explanation.getByText('第一单元要点解析', { exact: true })).toBeVisible()
+    await expect(explanation.getByText('资源页码待补', { exact: true })).toBeVisible()
+    await expect(explanation.getByText('文件暂不可在线阅读', { exact: true })).toBeVisible()
+    await expect(explanation.getByRole('link')).toHaveCount(0)
+    expect(resourceRequests).toEqual([])
+
+    const linkBox = await teacherLink.boundingBox()
+    expect(linkBox?.x).toBeGreaterThanOrEqual(0)
+    expect((linkBox?.x || 0) + (linkBox?.width || 0)).toBeLessThanOrEqual(390)
+
+    await teacherLink.click()
+    await expect(page).toHaveURL(/\/textbook-resources\/res_teacherreader\/read\?page=3/)
+    await expect(page.getByRole('heading', { name: '语文五年级上册教师用书' })).toBeVisible()
+    await expect(page.getByLabel('PDF 页码')).toHaveValue('3')
+    await expect(page.getByRole('button', { name: /课标/ })).toHaveCount(0)
 })

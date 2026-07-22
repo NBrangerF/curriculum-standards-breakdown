@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { resolve } from 'node:path'
 import { tmpdir } from 'node:os'
-import { readFile, rm, mkdtemp, mkdir, writeFile } from 'node:fs/promises'
+import { readFile, rm, mkdtemp, mkdir, symlink, writeFile } from 'node:fs/promises'
 import { FileCurriculumRepository, FileTextbookRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
 import { TextbookAssetService } from '../src/textbook-assets.js'
@@ -386,10 +386,15 @@ test('textbook asset service honors byte ranges without exposing arbitrary files
     const assetId = 'asset_fixture_range'
     const editionId = 'ed_fixture_range'
     const objectPath = `objects/sha256/aa/${'a'.repeat(64)}.pdf`
+    const resourceId = 'res_fixturereader'
+    const resourceAssetId = 'asset_fixtureresource'
+    const resourceObjectPath = `objects/sha256/bb/${'b'.repeat(64)}.pdf`
     const bytes = Buffer.from('%PDF-1.7\nfixture textbook range payload\n%%EOF')
     try {
         await mkdir(resolve(privateRoot, `library-state/generations/${generationId}`), { recursive: true })
         await mkdir(resolve(libraryRoot, 'objects/sha256/aa'), { recursive: true })
+        await mkdir(resolve(libraryRoot, 'objects/sha256/bb'), { recursive: true })
+        await mkdir(resolve(privateRoot, 'catalog'), { recursive: true })
         await writeFile(resolve(privateRoot, 'library-state/CURRENT.json'), JSON.stringify({ generation_id: generationId }))
         await writeFile(resolve(privateRoot, `library-state/generations/${generationId}/asset_registry.lock.jsonl`), `${JSON.stringify({
             asset_id: assetId,
@@ -400,9 +405,86 @@ test('textbook asset service honors byte ranges without exposing arbitrary files
             pdf_structural_verified: true
         })}\n`)
         await writeFile(resolve(libraryRoot, objectPath), bytes)
+        await writeFile(resolve(libraryRoot, resourceObjectPath), bytes)
+        const symlinkObjectPath = `objects/sha256/dd/${'d'.repeat(64)}.pdf`
+        const outsidePath = resolve(fixtureRoot, 'outside-library.pdf')
+        await mkdir(resolve(libraryRoot, 'objects/sha256/dd'), { recursive: true })
+        await writeFile(outsidePath, bytes)
+        await symlink(outsidePath, resolve(libraryRoot, symlinkObjectPath))
+        const supportCatalog = {
+            schema_version: 1,
+            resources: [{
+                resource_id: resourceId,
+                edition_id: 'ed_fixture_resource',
+                asset: {
+                    asset_id: resourceAssetId,
+                    availability: 'available',
+                    sha256: 'b'.repeat(64),
+                    bytes: bytes.length,
+                    pages: 8,
+                    object_path: resourceObjectPath
+                }
+            }, {
+                resource_id: 'res_fixturemanifestonly',
+                edition_id: 'ed_fixture_manifest_only',
+                asset: { availability: 'manifest_only' }
+            }, {
+                resource_id: 'res_fixtureincomplete',
+                edition_id: 'ed_fixture_incomplete',
+                asset: {
+                    asset_id: 'asset_fixtureincomplete',
+                    availability: 'available',
+                    sha256: 'c'.repeat(64),
+                    bytes: bytes.length,
+                    pages: 8,
+                    object_path: 'arbitrary/private-path.pdf'
+                }
+            }, {
+                resource_id: 'res_fixturesymlink',
+                edition_id: 'ed_fixture_symlink',
+                asset: {
+                    asset_id: 'asset_fixturesymlink',
+                    availability: 'available',
+                    sha256: 'd'.repeat(64),
+                    bytes: bytes.length,
+                    pages: 8,
+                    object_path: symlinkObjectPath
+                }
+            }, {
+                resource_id: 'res_fixturecustomr2',
+                edition_id: 'ed_fixture_custom_r2',
+                asset: {
+                    asset_id: 'asset_fixturecustomr2',
+                    availability: 'available',
+                    sha256: 'e'.repeat(64),
+                    bytes: bytes.length,
+                    pages: 8,
+                    object_path: `objects/sha256/ee/${'e'.repeat(64)}.pdf`,
+                    r2_bucket: 'another-bucket',
+                    r2_key: 'custom/teacher-guide.pdf'
+                }
+            }]
+        }
+        await writeFile(resolve(privateRoot, 'catalog/support_resource_catalog.json'), JSON.stringify(supportCatalog))
+        await writeFile(resolve(privateRoot, 'catalog/support_resource_registry.json'), JSON.stringify({
+            ...supportCatalog,
+            resources: [...supportCatalog.resources, {
+                resource_id: 'res_fixtureregistryonly',
+                edition_id: 'ed_fixture_registry_only',
+                asset: {
+                    asset_id: 'asset_fixtureregistryonly',
+                    availability: 'available',
+                    sha256: 'f'.repeat(64),
+                    bytes: bytes.length,
+                    pages: 8,
+                    object_path: `objects/sha256/ff/${'f'.repeat(64)}.pdf`
+                }
+            }]
+        }))
+        const localService = new TextbookAssetService(privateRoot, libraryRoot, null)
         const rangeApp = createApp(new FileCurriculumRepository(dataRoot), {
             textbookRepository: new FileTextbookRepository(resolve(process.cwd(), '../../public/data')),
-            textbookAssetService: new TextbookAssetService(privateRoot, libraryRoot, null)
+            textbookAssetService: localService
         })
         const response = await rangeApp.request(`/api/v1/textbook-assets/${assetId}`, { headers: { range: 'bytes=0-7' } })
         assert.equal(response.status, 206)
@@ -411,6 +493,30 @@ test('textbook asset service honors byte ranges without exposing arbitrary files
         assert.equal(Buffer.from(await response.arrayBuffer()).toString(), bytes.subarray(0, 8).toString())
         const missing = await rangeApp.request('/api/v1/textbook-assets/asset_not_registered')
         assert.equal(missing.status, 404)
+        assert.equal(localService.hasResource(resourceId), true)
+        assert.deepEqual(localService.createResourceViewerSession(resourceId), {
+            resource_id: resourceId,
+            asset_id: resourceAssetId,
+            url: `/api/v1/textbook-assets/${resourceAssetId}`,
+            expires_at: null,
+            delivery: 'local_range',
+            supports_range: true
+        })
+        const resourceSession = await rangeApp.request(`/api/v1/textbook-resources/${resourceId}/viewer-session`, {
+            method: 'POST',
+            headers: { 'x-forwarded-for': '198.51.100.81' }
+        })
+        assert.equal(resourceSession.status, 200)
+        assert.equal((await json(resourceSession)).data.url, `/api/v1/textbook-assets/${resourceAssetId}`)
+        const resourceRange = await rangeApp.request(`/api/v1/textbook-assets/${resourceAssetId}`, { headers: { range: 'bytes=0-7', 'x-forwarded-for': '198.51.100.82' } })
+        assert.equal(resourceRange.status, 206)
+        assert.equal(Buffer.from(await resourceRange.arrayBuffer()).toString(), bytes.subarray(0, 8).toString())
+        assert.equal((await rangeApp.request('/api/v1/textbook-resources/res_fixturemanifestonly/viewer-session', { method: 'POST', headers: { 'x-forwarded-for': '198.51.100.83' } })).status, 503)
+        assert.equal((await rangeApp.request('/api/v1/textbook-resources/res_fixtureunknown/viewer-session', { method: 'POST', headers: { 'x-forwarded-for': '198.51.100.84' } })).status, 404)
+        assert.equal((await rangeApp.request('/api/v1/textbook-resources/res_fixtureincomplete/viewer-session', { method: 'POST', headers: { 'x-forwarded-for': '198.51.100.85' } })).status, 503)
+        assert.equal((await rangeApp.request('/api/v1/textbook-resources/res_fixturesymlink/viewer-session', { method: 'POST', headers: { 'x-forwarded-for': '198.51.100.86' } })).status, 503)
+        assert.equal((await rangeApp.request('/api/v1/textbook-resources/res_fixturecustomr2/viewer-session', { method: 'POST', headers: { 'x-forwarded-for': '198.51.100.87' } })).status, 503)
+        assert.equal((await rangeApp.request('/api/v1/textbook-resources/res_fixtureregistryonly/viewer-session', { method: 'POST', headers: { 'x-forwarded-for': '198.51.100.88' } })).status, 404)
 
         const requests: Array<{ url: string; range: string | null }> = []
         const remoteService = new TextbookAssetService(privateRoot, null, 'https://assets.example.test/library', async (input, init) => {
@@ -431,6 +537,14 @@ test('textbook asset service honors byte ranges without exposing arbitrary files
             edition_id: editionId,
             asset_id: assetId,
             url: `/api/v1/textbook-assets/${assetId}`,
+            expires_at: null,
+            delivery: 'object_storage_proxy',
+            supports_range: true
+        })
+        assert.deepEqual(remoteService.createResourceViewerSession(resourceId), {
+            resource_id: resourceId,
+            asset_id: resourceAssetId,
+            url: `/api/v1/textbook-assets/${resourceAssetId}`,
             expires_at: null,
             delivery: 'object_storage_proxy',
             supports_range: true
@@ -484,6 +598,7 @@ test('GET /api/v1/openapi.yaml and /api/v1/docs expose API documentation', async
     assert.match(spec, /\/api\/v1\/plans\/validate:/)
     assert.match(spec, /\/api\/v1\/plans\/match-standards:/)
     assert.match(spec, /\/api\/v1\/plans\/analyze-coverage:/)
+    assert.match(spec, /\/api\/v1\/textbook-resources\/\{resource_id\}\/viewer-session:/)
     assert.doesNotMatch(spec, /\/api\/v1\/matching\/plan-to-standards:/)
     assert.doesNotMatch(spec, /\/api\/v1\/coverage\/analyze:/)
     assert.doesNotMatch(spec, /\/api\/v1\/schedules\/weekly:/)
@@ -517,6 +632,7 @@ test('GET /api/v1/openapi.yaml and /api/v1/docs expose API documentation', async
 
 test('Vercel rewrite forwards nested API paths to the Hono function', async () => {
     const config = JSON.parse(await readFile(resolve(process.cwd(), '../../vercel.json'), 'utf8'))
+    assert.match(config.functions['api/v1/[...path].ts'].includeFiles, /data\/textbooks\/catalog\/\*\*/)
     assert.deepEqual(config.rewrites[0], {
         source: '/api/v1/:path*',
         destination: '/api/v1/[...path]'

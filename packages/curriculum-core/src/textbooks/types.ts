@@ -276,12 +276,15 @@ export interface TextbookStandardScope {
 
 export interface TextbookRelatedResource {
     relation_id: string
+    resource_id: string | null
     resource_edition_id: string
     resource_type: TextbookResourceType
     title: string
     relationship: TextbookResourceRelationship | 'supplement_to' | 'standard_for'
     confidence: number
     review_status: 'approved' | 'machine_checked' | 'candidate'
+    /** The asset is structurally eligible for the reader; session creation can still return 503 when storage is offline. */
+    resource_reading_available: boolean
 }
 
 /** A support resource narrowed to the chapter/page span for one textbook unit. */
@@ -290,6 +293,8 @@ export interface TextbookUnitRelatedResource extends TextbookRelatedResource {
     resource_id: string
     resource_section_id: string
     resource_section_title: string
+    /** The asset is structurally eligible for the reader; storage reachability is checked when a session is created. */
+    resource_reading_available: boolean
     resource_pdf_page_start: number | null
     resource_pdf_page_end: number | null
     target_pdf_page_start: number | null

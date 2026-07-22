@@ -11,6 +11,10 @@ import {
   projectRelatedResourcesForTextbook,
   projectRelatedResourcesForUnit
 } from './textbook_resource_pipeline.js'
+import {
+  readableSupportResourceIds,
+  redactSupportResourceCatalogForPublic
+} from './support_resource_readability.js'
 
 const PROJECT_ROOT = resolve(import.meta.dirname, '../..')
 const CURRENT_PATH = join(PROJECT_ROOT, 'data/textbooks/library-state/CURRENT.json')
@@ -103,14 +107,29 @@ function loadSupportResourceCatalog() {
   return existsSync(SUPPORT_RESOURCE_PATH) ? readJson(SUPPORT_RESOURCE_PATH) : emptySupportResourceCatalog()
 }
 
-function relatedResources(asset, allAssets, supportCatalog) {
+function relatedResources(asset, allAssets, supportCatalog, readableResourceIds) {
   if (asset.resource_type !== 'student_textbook') return []
+  const pairingsByRelation = new Map((supportCatalog.pairings || []).map(pairing => [pairing.relation_id, pairing]))
   const projected = projectRelatedResourcesForTextbook(supportCatalog, asset.edition_id)
+    .map(resource => {
+      const resourceId = pairingsByRelation.get(resource.relation_id)?.resource_id || null
+      return {
+        ...resource,
+        resource_id: resourceId,
+        resource_reading_available: Boolean(resourceId && readableResourceIds.has(resourceId))
+      }
+    })
   const byEdition = new Map(projected.map(resource => [resource.resource_edition_id, resource]))
   // Keep backwards compatibility for a legacy asset that has not yet been
   // represented in the support-resource catalog. Catalog rows win on overlap.
   for (const resource of legacyRelatedResources(asset, allAssets)) {
-    if (!byEdition.has(resource.resource_edition_id)) byEdition.set(resource.resource_edition_id, resource)
+    if (!byEdition.has(resource.resource_edition_id)) {
+      byEdition.set(resource.resource_edition_id, {
+        ...resource,
+        resource_id: null,
+        resource_reading_available: false
+      })
+    }
   }
   return [...byEdition.values()].sort((left, right) => left.relation_id.localeCompare(right.relation_id))
 }
@@ -461,13 +480,14 @@ function main() {
   const assets = readJsonLines(registryPath)
   const supportCatalog = loadSupportResourceCatalog()
   const generatedAt = current.updated_at
+  const readableResourceIds = readableSupportResourceIds(supportCatalog)
 
   if (!assets.length) throw new Error(`Textbook registry is empty: ${registryPath}`)
   if (existsSync(OUTPUT_ROOT)) rmSync(OUTPUT_ROOT, { recursive: true })
   ensureDir(join(OUTPUT_ROOT, 'by-edition'))
   ensureDir(join(OUTPUT_ROOT, 'page-context/by-edition'))
   ensureDir(join(OUTPUT_ROOT, 'resources'))
-  writeJson(join(OUTPUT_ROOT, 'resources/index.json'), supportCatalog)
+  writeJson(join(OUTPUT_ROOT, 'resources/index.json'), redactSupportResourceCatalogForPublic(supportCatalog))
 
   const catalogItems = []
   const units = []
@@ -475,7 +495,7 @@ function main() {
   const standardScopesToTextbooks = {}
   for (const asset of assets) {
     const structure = normalizeStructure(loadStructure(asset.edition_id), asset.pages)
-    const resources = relatedResources(asset, assets, supportCatalog)
+    const resources = relatedResources(asset, assets, supportCatalog, readableResourceIds)
     const resourceUnitMappings = supportCatalog.unit_mappings.filter(mapping => mapping.target_edition_id === asset.edition_id)
     const resourceUnitMappingGaps = supportCatalog.unit_mapping_gaps.filter(gap => gap.target_edition_id === asset.edition_id)
     const base = publicBase(asset, structure, generatedAt)
@@ -534,6 +554,10 @@ function main() {
         volume: base.volume,
         alignments: unitAlignments,
         related_resources: projectRelatedResourcesForUnit(supportCatalog, asset.edition_id, entry.entry_id)
+          .map(resource => ({
+            ...resource,
+            resource_reading_available: readableResourceIds.has(resource.resource_id)
+          }))
       }
       units.push(unit)
     }
