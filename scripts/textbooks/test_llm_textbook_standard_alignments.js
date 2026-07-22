@@ -642,10 +642,19 @@ test('gap discovery covers non-empty pages outside published TOC as stable page-
       [...new Set(result.items.flatMap(item => item.evidence.map(span => span.pdf_page)))].sort((a, b) => a - b),
       [1, 2, 10, 12]
     )
+    assert.deepEqual(
+      result.items.map(item => item.item_id),
+      result.items.map(item => item.item_id).sort((left, right) => left.localeCompare(right))
+    )
+    assert.equal(result.candidate_scope_hash, hash(stableCanonicalJson(result.items.map(item => ({
+      item_id: item.item_id,
+      textbook_edition_id: item.textbook.edition_id,
+      candidates: item.candidates
+    })))))
     assert.equal(result.items.filter(item => item.unit.assignment_status === 'assigned_toc_unit').length, 1)
     const pageOnly = result.items.filter(item => item.unit.assignment_status === 'unassigned_page_only')
     assert.equal(pageOnly.length, 2)
-    assert.equal(pageOnly[0].unit.unit_id, buildDiscoveryItems(
+    assert.equal(pageOnly.find(item => item.unit.pdf_page_start === 1).unit.unit_id, buildDiscoveryItems(
       catalog,
       structure,
       new Map([[standard.code, standard]]),

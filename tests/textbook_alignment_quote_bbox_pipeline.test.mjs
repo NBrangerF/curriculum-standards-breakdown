@@ -155,3 +155,33 @@ test('materialization emits bbox null when quote-to-line mapping cannot be prove
   assert.equal(result.alignments.length, 1)
   assert.equal(result.alignments[0].generated_evidence_span.bbox, null)
 })
+
+test('different accepted quotes from one source excerpt receive independent canonical identities', () => {
+  const [span] = chunkPageLines(
+    { edition_id: 'ed_bbox' },
+    { content_alignment: { source_asset_sha256: 'asset_bbox' } },
+    {
+      pdf_page: 10,
+      printed_page: '5',
+      extraction_method: 'pdfjs_text_layer',
+      lines: [
+        { text: '完成目标能力任务', bbox: bbox(20, 60, 80, 12) },
+        { text: '完成拓展能力任务', bbox: bbox(20, 100, 90, 12) }
+      ]
+    },
+    8
+  )
+  const firstItem = alignmentItem(span, '_first_quote')
+  const secondItem = alignmentItem(span, '_second_quote')
+  const first = acceptedRecord(firstItem, '目标能力', 'hash_bbox_first_quote')
+  const second = acceptedRecord(secondItem, '拓展能力', 'hash_bbox_second_quote')
+  const result = materializeAlignmentRecords([first, second], new Set([first.input_hash, second.input_hash]))
+  assert.equal(result.alignments.length, 2)
+  assert.notEqual(result.alignments[0].node_id, result.alignments[1].node_id)
+  assert.notEqual(result.alignments[0].evidence_span_ids[0], result.alignments[1].evidence_span_ids[0])
+  for (const alignment of result.alignments) {
+    assert.equal(alignment.node_id, alignment.generated_content_node.node_id)
+    assert.deepEqual(alignment.evidence_span_ids, [alignment.generated_evidence_span.evidence_span_id])
+    assert.deepEqual(alignment.generated_content_node.evidence_span_ids, alignment.evidence_span_ids)
+  }
+})

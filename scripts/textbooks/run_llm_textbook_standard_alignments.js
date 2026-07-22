@@ -796,14 +796,20 @@ export function buildDiscoveryItems(catalog, structure, standardsByCode, args) {
     duplicate_source_pdf_pages: sidecarDeduplication.duplicate_pdf_page_numbers,
     invalid_nonempty_source_rows: invalidNonemptySourceRows
   }
-  const evidenceWorkset = items.map(({ candidates: _candidates, ...item }) => item)
-  const candidateScope = items.map(item => ({
+  // The manifest hashes must use the same canonical order as checkpoint
+  // batches. Discovery ranges are assembled in pedagogical/page order, while
+  // checkpoints are sorted by item_id; hashing the former made otherwise
+  // valid manifests impossible to apply for editions whose stable IDs do not
+  // happen to sort in page order.
+  const orderedItems = items.slice().sort((left, right) => left.item_id.localeCompare(right.item_id))
+  const evidenceWorkset = orderedItems.map(({ candidates: _candidates, ...item }) => item)
+  const candidateScope = orderedItems.map(item => ({
     item_id: item.item_id,
     textbook_edition_id: item.textbook.edition_id,
     candidates: item.candidates
   }))
   return {
-    items,
+    items: orderedItems,
     sidecar_status: sidecar.status,
     sidecar_sha256: sidecar.sha256 || null,
     sidecar_page_count: sidecarDeduplication.raw_page_count,
@@ -1182,7 +1188,17 @@ function materializedGeneratedEvidenceSpan(span, evidenceQuote) {
     evidenceQuote,
     lines: span.source_lines
   })
-  const materializedSpan = { ...span, bbox: preciseBbox }
+  // One sidecar excerpt can support several standards with different verbatim
+  // quotes. A quote-specific identity keeps their precise bboxes independent;
+  // reusing the broad source span ID would make two valid accepts collide at
+  // apply time whenever their quote boxes differ.
+  const quoteIdentity = normalizeAlignmentText(evidenceQuote)
+  const materializedSpan = {
+    ...span,
+    evidence_span_id: stableId('tes_llm_quote', span.evidence_span_id, quoteIdentity),
+    node_id: stableId('tcn_llm_quote', span.node_id, span.evidence_span_id, quoteIdentity),
+    bbox: preciseBbox
+  }
   delete materializedSpan.source_lines
   return materializedSpan
 }
@@ -1231,13 +1247,15 @@ export function materializeAlignmentRecords(checkpointRecords, currentHashes) {
         const componentIds = new Set(modelDecision.learning_component_ids)
         const components = candidate.learning_components.filter(component => componentIds.has(component.component_id))
         const generatedEvidenceSpan = materializedGeneratedEvidenceSpan(span, modelDecision.evidence_quote)
+        const materializedEvidenceSpanId = generatedEvidenceSpan?.evidence_span_id || span.evidence_span_id
+        const materializedNodeId = generatedEvidenceSpan?.node_id || span.node_id
         alignments.push({
           decision_id: decisionId,
           alignment_id: stableAlignmentId(
             inputItem.textbook.edition_id,
             inputItem.logical_item_id,
             candidate.standard_code,
-            modelDecision.evidence_span_id,
+            materializedEvidenceSpanId,
             LLM_ALIGNMENT_PROMPT_VERSION
           ),
           edition_id: inputItem.textbook.edition_id,
@@ -1248,7 +1266,7 @@ export function materializeAlignmentRecords(checkpointRecords, currentHashes) {
           logical_item_id: inputItem.logical_item_id,
           prior_alignment_id: inputItem.prior_alignment_id || null,
           candidate_id: modelDecision.candidate_id,
-          node_id: span.node_id,
+          node_id: materializedNodeId,
           content_node_kind: span.node_kind,
           content_node_title: span.node_title,
           standard_code: candidate.standard_code,
@@ -1258,7 +1276,7 @@ export function materializeAlignmentRecords(checkpointRecords, currentHashes) {
           relation_type: modelDecision.relation_type,
           evidence_level: modelDecision.evidence_level,
           evidence_level_detail: modelDecision.evidence_level === 'L3' ? 'L3_page_evidence' : 'L2_topic',
-          evidence_span_ids: [span.evidence_span_id],
+          evidence_span_ids: [materializedEvidenceSpanId],
           evidence_excerpt: span.excerpt,
           evidence_excerpt_hash: span.excerpt_hash,
           evidence_quote: modelDecision.evidence_quote,
@@ -1280,18 +1298,18 @@ export function materializeAlignmentRecords(checkpointRecords, currentHashes) {
           printed_page: span.printed_page,
           generated_evidence_span: generatedEvidenceSpan,
           generated_content_node: span.generated_by_pipeline ? {
-            node_id: span.node_id,
+            node_id: materializedNodeId,
             parent_id: inputItem.unit.assignment_status === 'unassigned_page_only' ? null : inputItem.unit.unit_id,
             unit_id: inputItem.unit.assignment_status === 'unassigned_page_only' ? null : inputItem.unit.unit_id,
             level: inputItem.unit.assignment_status === 'unassigned_page_only' ? 0 : 1,
             kind: span.node_kind,
-            title: span.node_title,
+            title: modelDecision.evidence_quote.slice(0, 100),
             pdf_page: span.pdf_page,
             end_pdf_page: span.pdf_page,
             printed_page: span.printed_page,
             end_printed_page: span.printed_page,
             text_excerpt: span.excerpt.slice(0, 280),
-            evidence_span_ids: [span.evidence_span_id],
+            evidence_span_ids: [materializedEvidenceSpanId],
             source: span.source,
             extraction_method: span.extraction_method,
             review_status: 'machine_checked'
