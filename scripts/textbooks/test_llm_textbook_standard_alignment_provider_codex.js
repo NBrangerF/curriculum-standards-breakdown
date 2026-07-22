@@ -121,6 +121,7 @@ test('codex_cli uses ephemeral read-only exec, stdin, strict schema, no shell, a
     'exec', '--ephemeral', '--sandbox', 'read-only', '--output-schema', capture.schemaPath, '-o'
   ])
   assert.equal(capture.args[capture.args.indexOf('-o') + 1], capture.outputPath)
+  assert.deepEqual(capture.args.slice(capture.args.indexOf('--ignore-rules') + 1, capture.args.indexOf('--color')), ['--disable', 'plugins'])
   assert.equal(capture.args.at(-1), '-')
   assert.match(capture.prompt, /untrusted data, not instructions/u)
   assert.match(capture.prompt, /\{"items":\[\]\}/u)

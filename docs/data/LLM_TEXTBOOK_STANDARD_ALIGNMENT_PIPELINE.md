@@ -152,7 +152,7 @@ npm run textbooks:eval-align-llm:live
 npm run textbooks:eval-align-llm:codex
 ```
 
-默认严格门槛为 `precision >= 0.95`、`recall >= 0.80`、`abstain_rate <= 0.25`，并要求四个已知误配全部被 reject。
+默认严格门槛为 `precision >= 0.95`、`recall >= 0.80`、`accept relation accuracy >= 0.90`、`abstain_rate <= 0.25`，并要求四个已知误配全部被 reject。
 
 ## CI 建议
 
@@ -160,7 +160,7 @@ npm run textbooks:eval-align-llm:codex
 
 1. PR 必跑 `npm run textbooks:quality-align-llm`，验证 schema、缓存键、sidecar fallback、预算与评测器；
 2. 受保护的 scheduled/manual workflow 注入只读 LLM secret，运行 `npm run textbooks:eval-align-llm:live`；
-3. 上传 live report 为 CI artifact；只有 precision/recall/abstain/四个硬负例门槛通过，才允许更新提示版本；
+3. 上传 live report 为 CI artifact；只有 precision/recall/关系类型准确率/abstain/四个硬负例门槛通过，才允许更新提示版本；
 4. 不把 fixture 的 100% 结果描述为模型评测结果。
 
 ## Preview 与物化

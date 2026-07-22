@@ -45,6 +45,7 @@ function parseArgs(argv) {
     batchSize: 3,
     minPrecision: 0.95,
     minRecall: 0.8,
+    minRelationAccuracy: 0.9,
     maxAbstainRate: 0.25
   }
   for (let index = 0; index < argv.length; index += 1) {
@@ -58,6 +59,7 @@ function parseArgs(argv) {
     else if (value === '--batch-size') args.batchSize = numeric(argv[++index], 'batch-size', 1, 12)
     else if (value === '--min-precision') args.minPrecision = numeric(argv[++index], 'min-precision', 0, 1)
     else if (value === '--min-recall') args.minRecall = numeric(argv[++index], 'min-recall', 0, 1)
+    else if (value === '--min-relation-accuracy') args.minRelationAccuracy = numeric(argv[++index], 'min-relation-accuracy', 0, 1)
     else if (value === '--max-abstain-rate') args.maxAbstainRate = numeric(argv[++index], 'max-abstain-rate', 0, 1)
     else throw new Error(`Unknown argument: ${value}`)
   }
@@ -233,11 +235,13 @@ export function evaluateAlignmentPredictions(golden, predictionRows, thresholds 
   const appliedThresholds = {
     min_precision: thresholds.minPrecision ?? 0.95,
     min_recall: thresholds.minRecall ?? 0.8,
+    min_accepted_relation_accuracy: thresholds.minRelationAccuracy ?? 0.9,
     max_abstain_rate: thresholds.maxAbstainRate ?? 0.25,
     require_all_known_false_positives_rejected: true
   }
   const passed = precision >= appliedThresholds.min_precision
     && recall >= appliedThresholds.min_recall
+    && metrics.accepted_relation_accuracy >= appliedThresholds.min_accepted_relation_accuracy
     && abstainRate <= appliedThresholds.max_abstain_rate
     && requiredKnownNegativesPassed
   return {

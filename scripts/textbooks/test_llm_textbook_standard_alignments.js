@@ -35,8 +35,27 @@ import {
   restoreRecoverySnapshot,
   validateApplicationArtifacts
 } from './apply_llm_textbook_standard_alignments.js'
+import { evaluateAlignmentPredictions } from './evaluate_llm_textbook_standard_alignments.js'
 
 const hash = value => createHash('sha256').update(String(value)).digest('hex')
+
+test('strict eval treats relation-type accuracy as a first-class quality gate', () => {
+  const golden = [{
+    case_id: 'relation-gate',
+    tags: ['positive'],
+    expected: { decision: 'accept', allowed_relation_types: ['supports'] }
+  }]
+  const predictions = [{
+    case_id: 'relation-gate',
+    decision: 'accept',
+    relation_type: 'mentions'
+  }]
+  const report = evaluateAlignmentPredictions(golden, predictions)
+  assert.equal(report.metrics.precision, 1)
+  assert.equal(report.metrics.recall, 1)
+  assert.equal(report.metrics.accepted_relation_accuracy, 0)
+  assert.equal(report.passed, false)
+})
 
 function fullProvenance(inputHash = 'a'.repeat(64)) {
   return {

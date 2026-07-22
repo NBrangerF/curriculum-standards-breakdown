@@ -293,6 +293,7 @@ async function runCodexAttempt(input, config, options, timeoutMs) {
       '--skip-git-repo-check',
       '--ignore-user-config',
       '--ignore-rules',
+      '--disable', 'plugins',
       '--color', 'never'
     ]
     const explicitModel = config.codexModel
